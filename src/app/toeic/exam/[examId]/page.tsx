@@ -31,9 +31,10 @@ import { GuestSaveExamModal } from '@/components/toeic/GuestSaveExamModal';
 import { useToeicExamSession } from '@/hooks/useToeicExamSession';
 
 import catalogIndexRaw from '@/data/toeic/toeic-catalog-index.json';
-import type {
-  ToeicCatalogIndex,
-  ToeicFilterMode,
+import {
+  getToeicClientClusterForQuestion,
+  type ToeicCatalogIndex,
+  type ToeicFilterMode,
 } from '@/lib/toeic-test-loader';
 import {
   getAnsweredQuestionIds,
@@ -47,6 +48,7 @@ import { authFetch } from '@/lib/auth-fetch';
 import type {
   ToeicUnifiedQuestion,
   ToeicClientQuestion,
+  ToeicClientQuestionCluster,
   ToeicPart,
   ToeicExamMode,
   ToeicOptionKey,
@@ -762,8 +764,58 @@ function ToeicExamRoomInner() {
   const currentIndex = questions.findIndex(
     (q) => q.questionNumber === session.currentQNum
   );
-  const hasPrev = currentIndex > 0;
-  const hasNext = currentIndex < questions.length - 1;
+
+  const activeCluster = useMemo(() => {
+    if (!currentQ || (currentQ.part !== 3 && currentQ.part !== 4)) {
+      return null;
+    }
+    return getToeicClientClusterForQuestion(session.currentQNum, questions);
+  }, [currentQ, session.currentQNum, questions]);
+
+  const hasPrevCluster = useMemo(() => {
+    if (activeCluster) {
+      const minQ = questions.length > 0 ? questions[0].questionNumber : 1;
+      return activeCluster.startQuestionNumber > minQ;
+    }
+    return currentIndex > 0;
+  }, [activeCluster, currentIndex, questions]);
+
+  const hasNextCluster = useMemo(() => {
+    if (activeCluster) {
+      const maxQ = questions.length > 0 ? questions[questions.length - 1].questionNumber : 200;
+      return activeCluster.endQuestionNumber < maxQ;
+    }
+    return currentIndex < questions.length - 1;
+  }, [activeCluster, currentIndex, questions]);
+
+  const handleNext = useCallback(() => {
+    if (activeCluster) {
+      const nextQNum = activeCluster.endQuestionNumber + 1;
+      const targetQ = questions.find((q) => q.questionNumber === nextQNum);
+      if (targetQ) {
+        session.goToQuestion(targetQ.questionNumber);
+        return;
+      }
+    }
+    session.nextQuestion();
+  }, [activeCluster, questions, session]);
+
+  const handlePrev = useCallback(() => {
+    if (activeCluster) {
+      const prevQNum = activeCluster.startQuestionNumber - 1;
+      const targetQ = questions.find((q) => q.questionNumber === prevQNum);
+      if (targetQ) {
+        const prevCluster = getToeicClientClusterForQuestion(prevQNum, questions);
+        if (prevCluster) {
+          session.goToQuestion(prevCluster.startQuestionNumber);
+          return;
+        }
+        session.goToQuestion(targetQ.questionNumber);
+        return;
+      }
+    }
+    session.prevQuestion();
+  }, [activeCluster, questions, session]);
 
   return (
     <StudentShell title={testTitle} immersive={true} requireAuth={false}>
@@ -847,32 +899,40 @@ function ToeicExamRoomInner() {
           ) : currentQ ? (
             <ToeicSplitPane
               question={currentQ}
+              cluster={activeCluster}
               mode={currentMode}
               selectedOption={session.answers[session.currentQNum]}
+              answers={session.answers}
               isFlagged={session.flagged.has(session.currentQNum)}
-              onSelectOption={(opt) => {
-                session.selectAnswer(session.currentQNum, opt);
+              flagged={session.flagged}
+              onSelectOption={(opt, targetQNum) => {
+                const qNum = targetQNum ?? session.currentQNum;
+                session.selectAnswer(qNum, opt);
                 if (currentMode === 'practice') {
                   setShowPracticeExplanation(true);
-                  void fetchSingleExplanation(session.currentQNum);
+                  void fetchSingleExplanation(qNum);
                 }
               }}
-              onToggleFlag={() => session.toggleFlag(session.currentQNum)}
-              onNext={session.nextQuestion}
-              onPrev={session.prevQuestion}
-              hasPrev={hasPrev}
-              hasNext={hasNext}
+              onToggleFlag={(targetQNum) => {
+                const qNum = targetQNum ?? session.currentQNum;
+                session.toggleFlag(qNum);
+              }}
+              onNext={handleNext}
+              onPrev={handlePrev}
+              hasPrev={hasPrevCluster}
+              hasNext={hasNextCluster}
               totalQuestions={session.totalQuestions}
               showExplanation={showPracticeExplanation}
-              onToggleExplanation={() =>
+              onToggleExplanation={(targetQNum) => {
+                const qNum = targetQNum ?? session.currentQNum;
                 setShowPracticeExplanation((prev) => {
                   const next = !prev;
                   if (next) {
-                    void fetchSingleExplanation(session.currentQNum);
+                    void fetchSingleExplanation(qNum);
                   }
                   return next;
-                })
-              }
+                });
+              }}
               onEnablePracticeMode={toggleExamMode}
               onOpenPalette={() => setIsPaletteOpen((prev) => !prev)}
               paletteStats={{

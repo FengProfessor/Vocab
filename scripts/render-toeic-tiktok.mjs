@@ -3,6 +3,13 @@ import { mkdir, writeFile, rm } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
 import puppeteer from 'puppeteer';
+import {
+  getPendingSlots,
+  getUsedQuestionIds,
+  loadCampaign,
+  markRendered,
+  syncChecklist,
+} from './toeic-tiktok-tracker.mjs';
 
 const args = new Map(
   process.argv.slice(2).map((arg) => {
@@ -16,7 +23,11 @@ const part = Number(args.get('part') || 1);
 const questionsPerVideo = Number(args.get('questions') || 3);
 const videos = Number(args.get('videos') || 1);
 const answerDelaySeconds = Number(args.get('answerDelay') || 3);
+const captureSpeed = Math.max(1, Number(args.get('captureSpeed') || 1));
+const allowReuse = args.get('allowReuse') === 'true';
 const outputDir = path.resolve(args.get('outDir') || 'out/tiktok-toeic');
+const trackerPath = args.get('tracker') ? path.resolve(args.get('tracker')) : null;
+const checklistPath = path.resolve(args.get('checklist') || 'docs/tiktok-toeic-100-checklist.md');
 
 if (![1, 2, 3, 4].includes(part)) {
   throw new Error('--part phải là 1, 2, 3 hoặc 4.');
@@ -195,10 +206,20 @@ async function showCountdown(page, seconds) {
 }
 
 async function clickCorrectAnswer(page, answer) {
+  await page.waitForFunction(
+    (answerKey) =>
+      [...document.querySelectorAll('[role="radiogroup"] button')].some((button) => {
+        const text = (button.textContent || '').replace(/\s+/g, ' ').trim();
+        return text.startsWith(`[ ${answerKey} ]`) || text.startsWith(`[${answerKey}]`);
+      }),
+    { timeout: 5000 },
+    answer
+  );
   const clicked = await page.evaluate((answerKey) => {
-    const target = [...document.querySelectorAll('button')].find(
-      (button) => (button.textContent || '').trim() === `[ ${answerKey} ]`
-    );
+    const target = [...document.querySelectorAll('[role="radiogroup"] button')].find((button) => {
+      const text = (button.textContent || '').replace(/\s+/g, ' ').trim();
+      return text.startsWith(`[ ${answerKey} ]`) || text.startsWith(`[${answerKey}]`);
+    });
     if (!(target instanceof HTMLButtonElement)) return false;
     target.click();
     return true;
@@ -273,7 +294,10 @@ function extractTranscriptOptions(transcript, fallbackOptions = []) {
     .replace(/\n\s+/g, '\n')
     .trim();
 
-  const keys = ['A', 'B', 'C', 'D'];
+  const fallbackKeys = fallbackOptions
+    .map((option) => option?.key)
+    .filter((key) => ['A', 'B', 'C', 'D'].includes(key));
+  const keys = fallbackKeys.length > 0 ? fallbackKeys : ['A', 'B', 'C', 'D'];
   return keys.map((key, index) => {
     const nextKey = keys[index + 1];
     const pattern = nextKey
@@ -286,8 +310,308 @@ function extractTranscriptOptions(transcript, fallbackOptions = []) {
   });
 }
 
-async function ensurePart1Stage(page) {
+function normalizeTranscriptText(transcript) {
+  return decodeHtmlEntities(
+    String(transcript || '')
+      .replace(/<br\s*\/?>/gi, '\n')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/\r/g, '')
+  )
+    .replace(/[ \t]+/g, ' ')
+    .replace(/\n\s+/g, '\n')
+    .trim();
+}
+
+function extractPart2Prompt(transcript) {
+  const normalized = normalizeTranscriptText(transcript)
+    .replace(/^Tape scripts\s*/i, '')
+    .trim();
+  const firstOption = normalized.search(/\(A\)/i);
+  return (firstOption >= 0 ? normalized.slice(0, firstOption) : normalized)
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function buildPart2Explanation(prompt, correctOption) {
+  const normalized = String(prompt || '').trim().toLowerCase();
+  const lead = normalized.split(/\s+/)[0]?.replace(/[^a-z]/g, '') || '';
+  const hints = {
+    when: 'When → hỏi thời gian',
+    where: 'Where → hỏi địa điểm',
+    who: 'Who → hỏi người',
+    whose: 'Whose → hỏi sở hữu',
+    why: 'Why → hỏi lý do',
+    how: 'How → hỏi cách thức / trạng thái',
+    what: 'What → hỏi thông tin / sự việc',
+    which: 'Which → yêu cầu chọn một phương án',
+  };
+  const hint = hints[lead] || 'Nghe ý nghĩa cả câu, tránh chọn theo từ khóa lặp lại';
+  const answerText = correctOption?.text ? ` → “${correctOption.text}”` : '';
+  return `${hint}${answerText}`;
+}
+
+async function showPart2ListeningState(page, questionNumber, totalQuestions, mode = 'listen', speed = 1) {
+  await page.evaluate(({ current, total, currentMode, currentSpeed }) => {
+    const promptBox = document.getElementById('lingopro-listening-prompt');
+    const timer = document.getElementById('lingopro-part1-timer');
+    const choices = document.getElementById('lingopro-part1-choices');
+    const questionLabel = document.getElementById('lingopro-part1-question-label');
+    if (questionLabel) questionLabel.textContent = `Câu ${current}/${total}`;
+    if (choices) {
+      choices.style.display = 'none';
+      choices.replaceChildren();
+    }
+    if (timer) {
+      timer.style.display = 'flex';
+      timer.style.top = '430px';
+      timer.textContent = currentMode === 'listen' ? '00:00' : '00:05';
+    }
+    if (!promptBox) return;
+
+    promptBox.replaceChildren();
+    promptBox.style.display = 'flex';
+    promptBox.style.flexDirection = 'column';
+    promptBox.style.top = '112px';
+    promptBox.style.minHeight = '250px';
+    promptBox.style.padding = '28px 24px';
+    promptBox.style.justifyContent = 'center';
+    promptBox.style.alignItems = 'center';
+    promptBox.style.textAlign = 'center';
+    promptBox.style.background = 'rgba(15,23,42,.72)';
+    promptBox.style.border = '1px solid rgba(74,222,128,.18)';
+
+    const icon = document.createElement('div');
+    icon.textContent = currentMode === 'listen' ? '🎧' : '✓';
+    icon.style.fontSize = '52px';
+    icon.style.lineHeight = '1';
+    icon.style.marginBottom = '16px';
+
+    const title = document.createElement('div');
+    title.textContent = currentMode === 'listen' ? 'LISTEN' : 'CHỐT ĐÁP ÁN';
+    title.style.fontSize = currentMode === 'listen' ? '31px' : '25px';
+    title.style.fontWeight = '850';
+    title.style.letterSpacing = currentMode === 'listen' ? '.12em' : '.02em';
+    title.style.color = currentMode === 'listen' ? '#f8fafc' : '#86efac';
+
+    const subtitle = document.createElement('div');
+    subtitle.textContent = currentMode === 'listen'
+      ? 'Nghe câu hỏi và 3 phản hồi'
+      : 'Bạn có 5 giây để chọn A, B hoặc C';
+    subtitle.style.marginTop = '8px';
+    subtitle.style.fontSize = '15px';
+    subtitle.style.fontWeight = '600';
+    subtitle.style.color = '#94a3b8';
+
+    const wave = document.createElement('div');
+    wave.style.height = '52px';
+    wave.style.display = 'flex';
+    wave.style.alignItems = 'center';
+    wave.style.justifyContent = 'center';
+    wave.style.gap = '5px';
+    wave.style.marginTop = '22px';
+    wave.style.opacity = currentMode === 'listen' ? '1' : '.28';
+    for (let index = 0; index < 13; index += 1) {
+      const bar = document.createElement('span');
+      bar.style.display = 'block';
+      bar.style.width = '5px';
+      bar.style.height = `${16 + ((index * 11) % 30)}px`;
+      bar.style.borderRadius = '999px';
+      bar.style.background = '#4ade80';
+      bar.style.boxShadow = '0 0 10px rgba(74,222,128,.35)';
+      if (currentMode === 'listen') {
+        const duration = (0.55 + (index % 4) * 0.11) / currentSpeed;
+        const delay = (index * 0.04) / currentSpeed;
+        bar.style.animation = `lingoproP2Wave ${duration}s ease-in-out ${delay}s infinite alternate`;
+      }
+      wave.appendChild(bar);
+    }
+
+    if (!document.getElementById('lingopro-p2-wave-style')) {
+      const style = document.createElement('style');
+      style.id = 'lingopro-p2-wave-style';
+      style.textContent = '@keyframes lingoproP2Wave { from { transform: scaleY(.35); opacity:.55 } to { transform: scaleY(1); opacity:1 } }';
+      document.head.appendChild(style);
+    }
+
+    promptBox.append(icon, title, subtitle, wave);
+  }, { current: questionNumber, total: totalQuestions, currentMode: mode, currentSpeed: speed });
+}
+
+async function showPart2DecisionCountdown(page, questionNumber, totalQuestions, seconds = 5, speed = 1) {
+  await showPart2ListeningState(page, questionNumber, totalQuestions, 'decide', speed);
+  for (let remaining = seconds; remaining > 0; remaining -= 1) {
+    await page.evaluate((value) => {
+      const timer = document.getElementById('lingopro-part1-timer');
+      if (timer) timer.textContent = `00:0${value}`;
+    }, remaining);
+    await sleep(1000 / speed);
+  }
+}
+
+async function showPart2RetentionCard(page) {
   await page.evaluate(() => {
+    const promptBox = document.getElementById('lingopro-listening-prompt');
+    const timer = document.getElementById('lingopro-part1-timer');
+    const choices = document.getElementById('lingopro-part1-choices');
+    const questionLabel = document.getElementById('lingopro-part1-question-label');
+    if (questionLabel) questionLabel.textContent = 'Hoàn thành 3/3';
+    if (timer) timer.style.display = 'none';
+    if (choices) choices.style.display = 'none';
+    if (!promptBox) return;
+    promptBox.replaceChildren();
+    promptBox.style.display = 'flex';
+    promptBox.style.top = '150px';
+    promptBox.style.minHeight = '190px';
+    promptBox.style.alignItems = 'center';
+    promptBox.style.justifyContent = 'center';
+    promptBox.style.textAlign = 'center';
+    promptBox.style.fontSize = '27px';
+    promptBox.style.fontWeight = '850';
+    promptBox.style.color = '#f8fafc';
+    promptBox.style.background = 'rgba(15,23,42,.78)';
+    promptBox.style.border = '1px solid rgba(74,222,128,.2)';
+    promptBox.textContent = 'Bạn đúng được mấy câu?';
+  });
+}
+
+async function showPart2Review(page, { index, total, prompt, options, correctAnswer, explanation }) {
+  await page.evaluate(({ current, count, questionPrompt, answerOptions, correct, note }) => {
+    const promptBox = document.getElementById('lingopro-listening-prompt');
+    const timer = document.getElementById('lingopro-part1-timer');
+    const choices = document.getElementById('lingopro-part1-choices');
+    const questionLabel = document.getElementById('lingopro-part1-question-label');
+    if (questionLabel) questionLabel.textContent = `Đáp án ${current}/${count}`;
+    if (timer) timer.style.display = 'none';
+
+    if (promptBox) {
+      promptBox.replaceChildren();
+      promptBox.style.display = 'flex';
+      promptBox.style.top = '82px';
+      promptBox.style.minHeight = '112px';
+      promptBox.style.padding = '16px 20px';
+      promptBox.style.alignItems = 'flex-start';
+      promptBox.style.justifyContent = 'center';
+      promptBox.style.textAlign = 'left';
+      promptBox.style.fontSize = '18px';
+      promptBox.style.lineHeight = '1.35';
+      promptBox.style.background = 'rgba(30,41,59,.94)';
+      promptBox.style.border = '1px solid rgba(148,163,184,.22)';
+      promptBox.textContent = questionPrompt || 'Question–Response';
+    }
+
+    if (!choices) return;
+    choices.replaceChildren();
+    choices.style.display = 'flex';
+    choices.style.top = '216px';
+    choices.style.width = '340px';
+
+    for (const option of answerOptions) {
+      const row = document.createElement('div');
+      const isCorrect = option.key === correct;
+      row.style.display = 'grid';
+      row.style.gridTemplateColumns = '38px minmax(0,1fr)';
+      row.style.alignItems = 'center';
+      row.style.gap = '9px';
+      row.style.minHeight = '52px';
+      row.style.padding = '8px 10px';
+      row.style.borderRadius = '13px';
+      row.style.background = isCorrect ? '#15803d' : 'rgba(30,41,59,.95)';
+      row.style.border = isCorrect ? '1px solid rgba(134,239,172,.75)' : '1px solid rgba(148,163,184,.2)';
+      row.style.boxShadow = isCorrect ? '0 8px 24px rgba(21,128,61,.28)' : 'none';
+
+      const key = document.createElement('div');
+      key.textContent = option.key;
+      key.style.width = '32px';
+      key.style.height = '32px';
+      key.style.display = 'flex';
+      key.style.alignItems = 'center';
+      key.style.justifyContent = 'center';
+      key.style.borderRadius = '9px';
+      key.style.background = isCorrect ? 'rgba(255,255,255,.18)' : 'rgba(255,255,255,.08)';
+      key.style.fontWeight = '800';
+      key.style.fontSize = '16px';
+
+      const text = document.createElement('div');
+      text.textContent = option.text;
+      text.style.fontSize = '14px';
+      text.style.fontWeight = isCorrect ? '750' : '500';
+      text.style.lineHeight = '1.3';
+      text.style.color = '#f8fafc';
+      row.append(key, text);
+      choices.appendChild(row);
+    }
+
+    const noteBox = document.createElement('div');
+    noteBox.textContent = note;
+    noteBox.style.marginTop = '6px';
+    noteBox.style.padding = '10px 12px';
+    noteBox.style.borderRadius = '12px';
+    noteBox.style.background = 'rgba(74,222,128,.08)';
+    noteBox.style.border = '1px solid rgba(74,222,128,.18)';
+    noteBox.style.color = '#bbf7d0';
+    noteBox.style.fontSize = '12px';
+    noteBox.style.fontWeight = '650';
+    noteBox.style.lineHeight = '1.35';
+    choices.appendChild(noteBox);
+  }, {
+    current: index,
+    count: total,
+    questionPrompt: prompt,
+    answerOptions: options,
+    correct: correctAnswer,
+    note: explanation,
+  });
+}
+
+async function renderPart2Sequence(page, questions, sessionToken, recordingStartedAt, audioEvents, speed = 1) {
+  const reviews = [];
+  for (let index = 0; index < questions.length; index += 1) {
+    const question = questions[index];
+    const current = index + 1;
+    await setPart1QuestionStage(page, '', current, questions.length);
+    await showPart2ListeningState(page, current, questions.length, 'listen', speed);
+
+    const explanation = await resolveExplanation(page, question, sessionToken);
+    const answerOptions = extractTranscriptOptions(explanation.transcript, question.options);
+    const prompt = extractPart2Prompt(explanation.transcript) || question.prompt || 'Question–Response';
+    const correctAnswer = explanation.correctAnswer;
+    const correctOption = answerOptions.find((option) => option.key === correctAnswer);
+    reviews.push({
+      prompt,
+      options: answerOptions,
+      correctAnswer,
+      explanation: buildPart2Explanation(prompt, correctOption),
+    });
+
+    const audioSrc = question.audioUrl || '';
+    if (audioSrc) {
+      audioEvents.push({ src: audioSrc, offsetMs: (Date.now() - recordingStartedAt) * speed });
+      await playSourceAudioWithCountdown(page, audioSrc, speed);
+    }
+    await showPart2DecisionCountdown(page, current, questions.length, 5, speed);
+  }
+
+  await showPart2RetentionCard(page);
+  await sleep(700 / speed);
+  for (let index = 0; index < reviews.length; index += 1) {
+    await showPart2Review(page, {
+      index: index + 1,
+      total: reviews.length,
+      ...reviews[index],
+    });
+    await sleep(4300 / speed);
+  }
+
+  // Giữ riêng đáp án 3 thêm một nhịp trước khi dừng screencast.
+  // Puppeteer/ffmpeg có thể mất vài frame cuối khi recorder.stop() chạy ngay
+  // sau review cuối, khiến outro nối vào quá sớm và trông như đè lên đáp án 3.
+  if (reviews.length > 0) {
+    await sleep(2500 / speed);
+  }
+}
+
+async function ensurePart1Stage(page, currentPart = 1) {
+  await page.evaluate((activePart) => {
     document.getElementById('lingopro-part1-stage')?.remove();
     const stage = document.createElement('div');
     stage.id = 'lingopro-part1-stage';
@@ -321,10 +645,11 @@ async function ensurePart1Stage(page) {
 
     const imageFrame = document.createElement('div');
     imageFrame.style.position = 'absolute';
-    imageFrame.style.left = '22px';
-    imageFrame.style.top = '86px';
-    imageFrame.style.width = '356px';
-    imageFrame.style.height = '286px';
+    imageFrame.id = 'lingopro-part1-image-frame';
+    imageFrame.style.left = '14px';
+    imageFrame.style.top = '68px';
+    imageFrame.style.width = '422px';
+    imageFrame.style.height = '304px';
     imageFrame.style.borderRadius = '18px';
     imageFrame.style.overflow = 'hidden';
     imageFrame.style.background = '#111827';
@@ -338,6 +663,32 @@ async function ensurePart1Stage(page) {
     image.style.objectFit = 'contain';
     image.style.background = '#111827';
     imageFrame.appendChild(image);
+
+    const listeningPrompt = document.createElement('div');
+    listeningPrompt.id = 'lingopro-listening-prompt';
+    listeningPrompt.style.position = 'absolute';
+    listeningPrompt.style.left = '22px';
+    listeningPrompt.style.right = '22px';
+    listeningPrompt.style.top = '120px';
+    listeningPrompt.style.minHeight = '170px';
+    listeningPrompt.style.display = activePart === 1 ? 'none' : 'flex';
+    listeningPrompt.style.alignItems = 'center';
+    listeningPrompt.style.justifyContent = 'center';
+    listeningPrompt.style.padding = '24px';
+    listeningPrompt.style.borderRadius = '20px';
+    listeningPrompt.style.background = 'rgba(30,41,59,.92)';
+    listeningPrompt.style.border = '1px solid rgba(148,163,184,.22)';
+    listeningPrompt.style.textAlign = 'center';
+    listeningPrompt.style.fontSize = '24px';
+    listeningPrompt.style.fontWeight = '700';
+    listeningPrompt.style.lineHeight = '1.35';
+    listeningPrompt.textContent =
+      activePart === 2
+        ? 'Nghe câu hỏi và chọn câu trả lời đúng'
+        : activePart === 3
+          ? 'Nghe đoạn hội thoại và chọn đáp án đúng'
+          : 'Nghe bài nói và chọn đáp án đúng';
+    imageFrame.style.display = activePart === 1 ? 'block' : 'none';
 
     const timer = document.createElement('div');
     timer.id = 'lingopro-part1-timer';
@@ -367,9 +718,9 @@ async function ensurePart1Stage(page) {
     choices.style.flexDirection = 'column';
     choices.style.gap = '7px';
 
-    stage.append(questionLabel, brandLabel, imageFrame, timer, choices);
+    stage.append(questionLabel, brandLabel, imageFrame, listeningPrompt, timer, choices);
     document.body.appendChild(stage);
-  });
+  }, currentPart);
 }
 
 async function setPart1QuestionStage(page, imageUrl, questionNumber = 1, totalQuestions = 1) {
@@ -501,6 +852,157 @@ async function revealPart1Choices(page, options, correctAnswer) {
   );
 }
 
+async function showQuestionChoices(page, prompt, options) {
+  await page.evaluate(
+    ({ questionPrompt, answerOptions }) => {
+      const promptBox = document.getElementById('lingopro-listening-prompt');
+      const timer = document.getElementById('lingopro-part1-timer');
+      const choices = document.getElementById('lingopro-part1-choices');
+
+      if (promptBox) {
+        promptBox.textContent = questionPrompt || 'Chọn đáp án đúng';
+        promptBox.style.display = 'flex';
+        promptBox.style.top = '92px';
+        promptBox.style.minHeight = '120px';
+        promptBox.style.padding = '18px 22px';
+        promptBox.style.fontSize = '19px';
+        promptBox.style.textAlign = 'left';
+        promptBox.style.justifyContent = 'flex-start';
+      }
+      if (timer) timer.style.display = 'none';
+      if (!choices) return;
+
+      choices.replaceChildren();
+      choices.style.display = 'flex';
+      choices.style.top = '238px';
+
+      for (const option of answerOptions) {
+        const row = document.createElement('div');
+        row.style.display = 'grid';
+        row.style.gridTemplateColumns = '38px minmax(0,1fr)';
+        row.style.alignItems = 'center';
+        row.style.gap = '9px';
+        row.style.minHeight = '52px';
+        row.style.padding = '8px 10px';
+        row.style.borderRadius = '13px';
+        row.style.background = 'rgba(30,41,59,.95)';
+        row.style.border = '1px solid rgba(148,163,184,.28)';
+
+        const key = document.createElement('div');
+        key.textContent = option.key;
+        key.style.width = '32px';
+        key.style.height = '32px';
+        key.style.display = 'flex';
+        key.style.alignItems = 'center';
+        key.style.justifyContent = 'center';
+        key.style.borderRadius = '9px';
+        key.style.background = 'rgba(255,255,255,.08)';
+        key.style.fontWeight = '800';
+        key.style.fontSize = '16px';
+
+        const text = document.createElement('div');
+        text.textContent = option.text;
+        text.style.fontSize = '14px';
+        text.style.fontWeight = '500';
+        text.style.lineHeight = '1.3';
+        text.style.color = '#f8fafc';
+
+        row.append(key, text);
+        choices.appendChild(row);
+      }
+    },
+    { questionPrompt: prompt || '', answerOptions: options }
+  );
+}
+
+async function resetListeningPrompt(page, currentPart) {
+  await page.evaluate((activePart) => {
+    const promptBox = document.getElementById('lingopro-listening-prompt');
+    const choices = document.getElementById('lingopro-part1-choices');
+    if (promptBox) {
+      promptBox.style.top = '120px';
+      promptBox.style.minHeight = '170px';
+      promptBox.style.padding = '24px';
+      promptBox.style.fontSize = '24px';
+      promptBox.style.textAlign = 'center';
+      promptBox.style.justifyContent = 'center';
+      promptBox.textContent =
+        activePart === 2
+          ? 'Nghe câu hỏi và chọn câu trả lời đúng'
+          : activePart === 3
+            ? 'Nghe đoạn hội thoại và chọn đáp án đúng'
+            : 'Nghe bài nói và chọn đáp án đúng';
+    }
+    if (choices) choices.style.top = '392px';
+  }, currentPart);
+}
+
+async function playSourceAudioWithCountdown(page, src, speed = 1) {
+  await page.evaluate(
+    ({ audioSrc, playbackSpeed }) =>
+      new Promise((resolve) => {
+        document.getElementById('lingopro-source-audio')?.remove();
+        const audio = document.createElement('audio');
+        audio.id = 'lingopro-source-audio';
+        audio.src = audioSrc;
+        audio.preload = 'auto';
+        audio.style.display = 'none';
+        document.body.appendChild(audio);
+
+        const timer = document.getElementById('lingopro-part1-timer');
+        const updateTimer = () => {
+          const duration = Number.isFinite(audio.duration) ? audio.duration : 0;
+          const remaining = Math.max(0, Math.ceil(duration - audio.currentTime));
+          const minutes = String(Math.floor(remaining / 60)).padStart(2, '0');
+          const seconds = String(remaining % 60).padStart(2, '0');
+          if (timer) timer.textContent = `${minutes}:${seconds}`;
+        };
+
+        const start = () => {
+          audio.playbackRate = playbackSpeed;
+          updateTimer();
+          const interval = window.setInterval(updateTimer, 120);
+          const timeout = window.setTimeout(() => {
+            window.clearInterval(interval);
+            resolve(null);
+          }, Math.max(3000, (((audio.duration || 0) + 5) * 1000) / playbackSpeed));
+          audio.addEventListener('ended', () => {
+            window.clearInterval(interval);
+            window.clearTimeout(timeout);
+            if (timer) timer.textContent = '00:00';
+            resolve(null);
+          }, { once: true });
+          void audio.play();
+        };
+
+        if (audio.readyState >= 1) start();
+        else audio.addEventListener('loadedmetadata', start, { once: true });
+        audio.load();
+      }),
+    { audioSrc: src, playbackSpeed: speed }
+  );
+}
+
+async function showStageCountdown(page, seconds) {
+  await page.evaluate(() => {
+    const timer = document.getElementById('lingopro-part1-timer');
+    const choices = document.getElementById('lingopro-part1-choices');
+    if (timer) timer.style.display = 'flex';
+    if (choices) choices.style.display = 'none';
+  });
+  for (let remaining = seconds; remaining > 0; remaining -= 1) {
+    await page.evaluate((value) => {
+      const timer = document.getElementById('lingopro-part1-timer');
+      if (timer) timer.textContent = `00:0${value}`;
+    }, remaining);
+    await sleep(1000);
+  }
+  await page.evaluate(() => {
+    const timer = document.getElementById('lingopro-part1-timer');
+    if (timer) timer.textContent = '00:00';
+  });
+}
+
 async function waitForAudioReady(page) {
   await page.waitForFunction(
     () => {
@@ -552,20 +1054,25 @@ async function playAudioAndWait(page) {
   );
 }
 
-async function muxAudio(videoPath, audioEvents, finalPath, tempDir) {
+async function muxAudio(videoPath, audioEvents, finalPath, tempDir, videoRate = 1) {
+  const videoFilter = videoRate > 1
+    ? `setpts=${videoRate}*PTS,fps=30,scale=1080:1920:flags=lanczos`
+    : 'scale=1080:1920:flags=lanczos';
   if (audioEvents.length === 0) {
     await run('ffmpeg', [
       '-y',
       '-i',
       videoPath,
       '-vf',
-      'scale=1080:1920:flags=lanczos',
+      videoFilter,
       '-c:v',
       'libx264',
       '-preset',
-      'medium',
+      'veryfast',
       '-crf',
       '20',
+      '-threads',
+      '4',
       '-pix_fmt',
       'yuv420p',
       '-an',
@@ -602,13 +1109,15 @@ async function muxAudio(videoPath, audioEvents, finalPath, tempDir) {
     '-map',
     '[aout]',
     '-vf',
-    'scale=1080:1920:flags=lanczos',
+    videoFilter,
     '-c:v',
     'libx264',
     '-preset',
-    'medium',
+    'veryfast',
     '-crf',
     '20',
+    '-threads',
+    '4',
     '-pix_fmt',
     'yuv420p',
     '-c:a',
@@ -622,23 +1131,23 @@ async function muxAudio(videoPath, audioEvents, finalPath, tempDir) {
   ]);
 }
 
-async function createStillSegment(imagePath, durationSeconds, targetPath, { ding = false } = {}) {
+async function createStillSegment(imagePath, durationSeconds, targetPath, { ding = false, audioPath = null, audioGain = 1 } = {}) {
   const audioSource = ding
     ? 'sine=frequency=1350:sample_rate=48000:duration=0.28'
     : 'anullsrc=channel_layout=stereo:sample_rate=48000';
-  const audioFilter = ding
-    ? 'volume=0.28,afade=t=out:st=0.04:d=0.24,aecho=0.7:0.22:38:0.16,pan=stereo|c0=c0|c1=c0,apad'
-    : null;
+  const audioInputArgs = audioPath ? ['-i', audioPath] : ['-f', 'lavfi', '-i', audioSource];
+  const audioFilter = audioPath
+    ? `volume=${audioGain},alimiter=limit=0.95,apad`
+    : ding
+      ? 'volume=0.28,afade=t=out:st=0.04:d=0.24,aecho=0.7:0.22:38:0.16,pan=stereo|c0=c0|c1=c0,apad'
+      : null;
   await run('ffmpeg', [
     '-y',
     '-loop',
     '1',
     '-i',
     imagePath,
-    '-f',
-    'lavfi',
-    '-i',
-    audioSource,
+    ...audioInputArgs,
     '-t',
     String(durationSeconds),
     ...(audioFilter ? ['-af', audioFilter] : []),
@@ -647,9 +1156,11 @@ async function createStillSegment(imagePath, durationSeconds, targetPath, { ding
     '-c:v',
     'libx264',
     '-preset',
-    'medium',
+    'veryfast',
     '-crf',
     '20',
+    '-threads',
+    '4',
     '-c:a',
     'aac',
     '-b:a',
@@ -678,9 +1189,11 @@ async function concatSegments(segmentPaths, finalPath) {
     '-c:v',
     'libx264',
     '-preset',
-    'medium',
+    'veryfast',
     '-crf',
     '20',
+    '-threads',
+    '4',
     '-pix_fmt',
     'yuv420p',
     '-c:a',
@@ -693,7 +1206,7 @@ async function concatSegments(segmentPaths, finalPath) {
   ]);
 }
 
-async function renderOne(browser, videoNumber) {
+async function renderOne(browser, videoNumber, trackerSlot = null) {
   const page = await browser.newPage();
   // Giữ layout mobile 450x800 CSS px; DPR cao giúp screenshot hook/outro đạt 1080x1920 thật.
   await page.setViewport({ width: 450, height: 800, deviceScaleFactor: 2.4 });
@@ -707,10 +1220,46 @@ async function renderOne(browser, videoNumber) {
   const outroImage = path.join(workDir, 'outro.png');
   const introVideo = path.join(workDir, 'intro.mp4');
   const outroVideo = path.join(workDir, 'outro.mp4');
-  const finalVideo = path.join(outputDir, `toeic-part${part}-${suffix}.mp4`);
+  const partOutputDir = path.join(outputDir, `P${part}`);
+  await mkdir(partOutputDir, { recursive: true });
+  const finalVideo = path.join(
+    partOutputDir,
+    trackerSlot
+      ? `${trackerSlot.id.replace('LP-TK-', '')},p${part}.mp4`
+      : `${suffix},p${part}.mp4`
+  );
   await mkdir(workDir, { recursive: true });
 
-  const url = `${baseUrl}/toeic/exam/bank?part=${part}&limit=${questionsPerVideo}&mode=practice&filterMode=all_random`;
+  let usedQuestionIds = [];
+  if (trackerPath) {
+    const campaign = await loadCampaign(trackerPath);
+    usedQuestionIds = [
+      ...getUsedQuestionIds(campaign, part),
+      ...(Array.isArray(campaign.excludedQuestionIds) ? campaign.excludedQuestionIds : []),
+    ];
+    const historyRecords = Object.fromEntries(
+      usedQuestionIds.map((questionId) => [
+        questionId,
+        {
+          questionId,
+          part,
+          lastAnsweredAt: '2026-01-01T00:00:00.000Z',
+          isCorrect: true,
+          attemptCount: 1,
+          selectedOption: 'A',
+        },
+      ])
+    );
+    await page.evaluateOnNewDocument((records) => {
+      localStorage.setItem(
+        'lingo_toeic_question_history',
+        JSON.stringify({ version: 1, updatedAt: new Date().toISOString(), records })
+      );
+    }, historyRecords);
+  }
+
+  const filterMode = trackerPath && !allowReuse ? 'unseen' : 'all_random';
+  const url = `${baseUrl}/toeic/exam/bank?part=${part}&limit=${questionsPerVideo}&mode=practice&filterMode=${filterMode}`;
   const testResponsePromise = page.waitForResponse(
     (response) => response.url().includes('/api/toeic/test') && response.request().method() === 'POST',
     { timeout: 30000 }
@@ -725,12 +1274,19 @@ async function renderOne(browser, videoNumber) {
   if (questions.length === 0) {
     throw new Error('API không trả về câu hỏi TOEIC.');
   }
+  const questionIds = questions.map((question) => String(question.id));
+  const duplicatedIds = questionIds.filter((id) => usedQuestionIds.includes(id));
+  if (!allowReuse && duplicatedIds.length > 0) {
+    throw new Error(`Phát hiện câu đã dùng lại: ${duplicatedIds.join(', ')}`);
+  }
 
   await sleep(900);
-  const paletteIsOpen = await page.$eval(
-    'aside[aria-label="Bảng câu hỏi"]',
-    (aside) => aside.className.includes('translate-x-0')
-  );
+  const paletteIsOpen = await page
+    .$eval(
+      'aside[aria-label="Bảng câu hỏi"]',
+      (aside) => aside.className.includes('translate-x-0')
+    )
+    .catch(() => false);
   if (paletteIsOpen) {
     await page.keyboard.press('Escape');
     await sleep(350);
@@ -742,26 +1298,15 @@ async function renderOne(browser, videoNumber) {
     `,
   });
 
-  const useMinimalPart1Stage = part === 1;
-  if (useMinimalPart1Stage) {
-    await showOverlay(page, {
-      eyebrow: `LingoPro · P${part}`,
-      title: `TOEIC Part ${part}`,
-      subtitle: `Listening · ${questions.length} câu`,
-    });
-    await page.screenshot({ path: introImage, type: 'png', captureBeyondViewport: false });
-    await hideOverlay(page);
-    await ensurePart1Stage(page);
-    await setPart1QuestionStage(page, questions[0]?.imageUrl, 1, questions.length);
-  } else {
-    await showOverlay(page, {
-      eyebrow: `LingoPro · P${part}`,
-      title: `TOEIC Part ${part}`,
-      subtitle: `Listening · ${questions.length} câu`,
-    });
-    await page.screenshot({ path: introImage, type: 'png', captureBeyondViewport: false });
-    await hideOverlay(page);
-  }
+  await showOverlay(page, {
+    eyebrow: `LingoPro · P${part}`,
+    title: `TOEIC Part ${part}`,
+    subtitle: `Listening · ${questions.length} câu`,
+  });
+  await page.screenshot({ path: introImage, type: 'png', captureBeyondViewport: false });
+  await hideOverlay(page);
+  await ensurePart1Stage(page, part);
+  await setPart1QuestionStage(page, questions[0]?.imageUrl, 1, questions.length);
 
   const recorder = await page.screencast({ path: rawVideo, fps: 30, quality: 24 });
   const recordingStartedAt = Date.now();
@@ -769,42 +1314,41 @@ async function renderOne(browser, videoNumber) {
   let lastAudioSrc = '';
 
   try {
-    await sleep(450);
+    await sleep(part === 2 ? 450 / captureSpeed : 450);
 
-    for (let index = 0; index < questions.length; index += 1) {
-      const question = questions[index];
-      if (useMinimalPart1Stage) {
+    if (part === 2) {
+      await renderPart2Sequence(page, questions, sessionToken, recordingStartedAt, audioEvents, captureSpeed);
+    } else {
+      for (let index = 0; index < questions.length; index += 1) {
+        const question = questions[index];
         await setPart1QuestionStage(page, question.imageUrl, index + 1, questions.length);
-      }
-      const audio = await waitForAudioReady(page);
-      const explanation = await resolveExplanation(page, question, sessionToken);
-      const correctAnswer = explanation.correctAnswer;
+        const explanation = await resolveExplanation(page, question, sessionToken);
+        const correctAnswer = explanation.correctAnswer;
+        const audioSrc = question.audioUrl || '';
+        const isNewAudio = Boolean(audioSrc && audioSrc !== lastAudioSrc);
 
-      if (audio?.src && audio.src !== lastAudioSrc) {
-        const offsetMs = Date.now() - recordingStartedAt;
-        audioEvents.push({ src: audio.src, offsetMs });
-        lastAudioSrc = audio.src;
-        if (useMinimalPart1Stage) {
-          await playAudioWithCountdown(page);
-        } else {
-          await playAudioAndWait(page);
+        if (isNewAudio) {
+          if (part === 3) await resetListeningPrompt(page, part);
+          const offsetMs = Date.now() - recordingStartedAt;
+          audioEvents.push({ src: audioSrc, offsetMs });
+          lastAudioSrc = audioSrc;
+          await playSourceAudioWithCountdown(page, audioSrc);
+        } else if (part !== 3) {
+          await showStageCountdown(page, answerDelaySeconds);
         }
-      }
 
-      if (useMinimalPart1Stage) {
-        const transcriptOptions = extractTranscriptOptions(explanation.transcript, question.options);
-        await revealPart1Choices(page, transcriptOptions, correctAnswer);
-        await clickCorrectAnswer(page, correctAnswer);
+        const answerOptions =
+          part <= 2
+            ? extractTranscriptOptions(explanation.transcript, question.options)
+            : question.options;
+
+        if (part === 3) {
+          await showQuestionChoices(page, question.prompt, answerOptions);
+          await sleep(answerDelaySeconds * 1000);
+        }
+
+        await revealPart1Choices(page, answerOptions, correctAnswer);
         await sleep(4200);
-      } else {
-        await showCountdown(page, answerDelaySeconds);
-        await clickCorrectAnswer(page, correctAnswer);
-        await sleep(1800);
-      }
-
-      if (index < questions.length - 1) {
-        const moved = await goNext(page);
-        if (!moved) throw new Error(`Không chuyển được sang câu ${index + 2}.`);
       }
     }
 
@@ -812,30 +1356,31 @@ async function renderOne(browser, videoNumber) {
     await recorder.stop();
   }
 
-  if (useMinimalPart1Stage) {
-    await showOverlay(page, {
-      eyebrow: 'LingoPro · TOEIC',
-      title: 'Học + Luyện thi TOEIC miễn phí ở',
-      subtitle: 'Lingopro.online/toeic',
-      variant: 'cta',
-    });
-    await page.screenshot({ path: outroImage, type: 'png', captureBeyondViewport: false });
-  } else {
-    await showOverlay(page, {
-      eyebrow: 'LingoPro',
-      title: 'Muốn luyện full TOEIC?',
-      subtitle: 'Luyện thêm Part 1–4, xem đáp án và giải thích ngay trên LingoPro.',
-      variant: 'cta',
-      actionText: 'lingopro.vn',
-    });
-    await page.screenshot({ path: outroImage, type: 'png', captureBeyondViewport: false });
-  }
+  await showOverlay(page, {
+    eyebrow: 'LingoPro · TOEIC',
+    title: 'Học + Luyện thi TOEIC miễn phí ở',
+    subtitle: 'Lingopro.online/toeic',
+    variant: 'cta',
+  });
+  await page.screenshot({ path: outroImage, type: 'png', captureBeyondViewport: false });
   await page.close();
 
-  await muxAudio(rawVideo, audioEvents, coreVideo, workDir);
-  await createStillSegment(outroImage, 3.8, outroVideo);
-  await createStillSegment(introImage, 0.7, introVideo, { ding: true });
+  await muxAudio(rawVideo, audioEvents, coreVideo, workDir, part === 2 ? captureSpeed : 1);
+  const outroAudioPath = path.resolve('public/sfx/outro/lingopro-soft-marimba.mp3');
+  await createStillSegment(outroImage, 3.8, outroVideo, { audioPath: outroAudioPath, audioGain: 1.25 });
+  const hookAudioPath = path.resolve('out/audio-hook-samples/06-lingopro-two-note.mp3');
+  await createStillSegment(introImage, 0.7, introVideo, { audioPath: hookAudioPath, audioGain: 9 });
   await concatSegments([introVideo, coreVideo, outroVideo], finalVideo);
+  if (trackerPath && trackerSlot) {
+    const campaign = await markRendered({
+      trackerPath,
+      slotId: trackerSlot.id,
+      questionIds,
+      outputFile: path.relative(process.cwd(), finalVideo).replaceAll('\\', '/'),
+    });
+    await syncChecklist(campaign, checklistPath);
+    console.log(`[TOEIC TikTok] Tracker: ${trackerSlot.id} -> rendered`);
+  }
   await rm(workDir, { recursive: true, force: true });
   console.log(`[TOEIC TikTok] Đã render: ${finalVideo}`);
   return finalVideo;
@@ -849,8 +1394,42 @@ async function main() {
   });
 
   try {
-    for (let index = 1; index <= videos; index += 1) {
-      await renderOne(browser, index);
+    const renderWithRetry = async (videoNumber, trackerSlot = null) => {
+      const maxAttempts = 4;
+      let lastError = null;
+      for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+        try {
+          return await renderOne(browser, videoNumber, trackerSlot);
+        } catch (error) {
+          lastError = error;
+          console.warn(
+            `[TOEIC TikTok] Lần render ${attempt}/${maxAttempts} thất bại cho video ${videoNumber}: ${error?.message || error}`
+          );
+          const pages = await browser.pages().catch(() => []);
+          await Promise.all(
+            pages.map((openPage) =>
+              openPage.isClosed() ? Promise.resolve() : openPage.close().catch(() => {})
+            )
+          );
+          if (attempt < maxAttempts) await sleep(1500);
+        }
+      }
+      throw lastError;
+    };
+
+    if (trackerPath) {
+      const campaign = await loadCampaign(trackerPath);
+      const slots = getPendingSlots(campaign, part, videos);
+      if (slots.length === 0) {
+        throw new Error(`Không còn video P${part} ở trạng thái todo trong tracker.`);
+      }
+      for (const slot of slots) {
+        await renderWithRetry(slot.number, slot);
+      }
+    } else {
+      for (let index = 1; index <= videos; index += 1) {
+        await renderWithRetry(index);
+      }
     }
   } finally {
     await browser.close();

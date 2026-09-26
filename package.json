@@ -19,6 +19,8 @@
     "vocab:ipa:apply": "npx tsx scripts/backfill-missing-ipa.ts --target=words --apply",
     "vocab:ipa:gd": "npx tsx scripts/backfill-missing-ipa.ts --target=gd --limit=1000 --apply",
     "video:toeic": "node scripts/render-toeic-tiktok.mjs",
+    "video:toeic:100": "node scripts/render-toeic-tiktok.mjs --tracker=data/tiktok/toeic-listening-100.json --outDir=out/tiktok-toeic-100",
+    "video:toeic:status": "node scripts/toeic-tiktok-tracker.mjs status",
     "force-onboarding": "node scripts/force-onboarding.js",
     "docker:build": "docker build -t lingopro:latest .",
     "docker:up": "docker compose up -d --build"

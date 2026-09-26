@@ -155,6 +155,64 @@ export type ToeicClientQuestion = ToeicSanitizedQuestion & {
   transcript?: string;
 };
 
+// ── Cluster & Listening Group Architecture Types ──
+
+export type ToeicClusterType = 'text_dialogue' | 'scanned_image';
+
+/**
+ * Master TOEIC Question Cluster (Server-side & Review Mode).
+ * Groups 3 contiguous questions for Part 3 (Conversations) and Part 4 (Short Talks).
+ */
+export interface ToeicQuestionCluster {
+  clusterId: string;
+  groupId?: string;
+  testId?: string;
+  part: ToeicPart;
+  clusterType: ToeicClusterType;
+  startQuestionNumber: number;
+  endQuestionNumber: number;
+  audioUrl: string;
+  imageUrl?: string | null;
+  transcript?: string | null;
+  explanationVi?: string | null;
+  questions: ToeicUnifiedQuestion[];
+}
+
+/**
+ * Sanitized Question Cluster delivered to client before submission.
+ * Completely stripped of master keys, explanations, and transcripts (Zero Bulk Leaks).
+ */
+export interface ToeicSanitizedQuestionCluster {
+  clusterId: string;
+  groupId?: string;
+  testId?: string;
+  part: ToeicPart;
+  clusterType: ToeicClusterType;
+  startQuestionNumber: number;
+  endQuestionNumber: number;
+  audioUrl: string;
+  imageUrl?: string | null;
+  questions: ToeicSanitizedQuestion[];
+}
+
+/**
+ * Client-side Question Cluster envelope (enriched with master keys upon submission/review).
+ */
+export interface ToeicClientQuestionCluster {
+  clusterId: string;
+  groupId?: string;
+  testId?: string;
+  part: ToeicPart;
+  clusterType: ToeicClusterType;
+  startQuestionNumber: number;
+  endQuestionNumber: number;
+  audioUrl: string;
+  imageUrl?: string | null;
+  transcript?: string | null;
+  explanationVi?: string | null;
+  questions: ToeicClientQuestion[];
+}
+
 export interface ToeicTestApiResponse {
   success: boolean;
   testId: string;
@@ -162,7 +220,12 @@ export interface ToeicTestApiResponse {
   durationSeconds: number;
   totalQuestions: number;
   questions: ToeicSanitizedQuestion[];
+  clusters?: ToeicSanitizedQuestionCluster[];
   sessionToken?: string;
+  part?: ToeicPart;
+  filterMode?: string;
+  isCanary?: boolean;
+  isPoisoned?: boolean;
   error?: string;
 }
 
@@ -173,6 +236,7 @@ export interface ToeicSubmitApiRequest {
   limit?: number;
   answers: Record<number, ToeicOptionKey>;
   timeSpentSeconds: number;
+  questionIds?: string[];
   honeypot?: string;
   _hp_trap?: string;
   _hp_author_code?: string;
@@ -182,8 +246,32 @@ export interface ToeicSubmitApiResponse {
   success: boolean;
   scoreResult?: ToeicScoreResult;
   reviewQuestions?: ToeicUnifiedQuestion[];
+  reviewClusters?: ToeicClientQuestionCluster[];
   savedToHistory?: boolean;
   isGuest?: boolean;
+  isPoisoned?: boolean;
+  error?: string;
+}
+
+export interface ToeicExplainApiRequest {
+  testId: string;
+  questionNumber: number;
+  questionId?: string;
+  part?: number;
+  sessionToken?: string;
+  honeypot?: string;
+  _hp_author_trap?: string;
+}
+
+export interface ToeicExplainApiResponse {
+  success: boolean;
+  questionNumber: number;
+  questionId: string;
+  part: number;
+  correctAnswer: ToeicOptionKey;
+  explanationVi: string;
+  transcript?: string;
+  isPoisoned?: boolean;
   error?: string;
 }
 

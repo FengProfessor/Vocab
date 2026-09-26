@@ -229,7 +229,7 @@ export async function runCatalogIntegrityTests(runner: TestRunner): Promise<void
     runner.it('CAT-1: Total questions in repository exceeds 15,000 threshold', () => {
       console.log(`    [DATA INFO] Total authentic questions discovered: ${scan.totalQuestions}`);
       expect(scan.totalQuestions).toBeGreaterThanOrEqual(15000);
-      expect(scan.totalQuestions).toBe(15175);
+      expect(scan.totalQuestions).toBe(15230);
     });
 
     runner.it('CAT-2: Full-length test count is at least 28 (21 Estudyme + 7+ Study4 200Q)', () => {

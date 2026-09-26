@@ -483,3 +483,13 @@
 - Commit `9a8de869ac0d79d1cac9061b02634158785965f5` was pushed to `codex/p1a-remove-cron-bypass`; remote SHA matched local. PR `#7` is open and not merged.
 - Clean GitHub PR CI run `36246947747`, job `108417789795`: `npm ci`, cron authorization tests, actionlint, deployment safety tests, build, exact 10-error typecheck baseline check and patch whitespace all **PASS** on Node 22.
 - Status: Critical remediation is **OPEN** pending review/merge, canonical production rollout, production verification and post-deploy `CRON_SECRET` rotation. Six High findings remain out of scope.
+
+## 2026-09-23 · TOEIC TikTok 100-video campaign
+
+- Tạo campaign 100 video TOEIC Listening: 25 video cho mỗi Part 1–4, mỗi video 3 câu.
+- Thêm tracker JSON + checklist Markdown; render thành công tự chuyển `todo -> rendered`, lưu `questionIds`, output và thời gian.
+- Pipeline campaign dùng `filterMode=unseen` + history injection để loại câu đã dùng qua các lần render.
+- Thêm lệnh `video:toeic:100` và `video:toeic:status`.
+- Smoke test 2 slot Part 1 liên tiếp lấy 2 question ID khác nhau và render thành công sau khi làm selector nút đáp án ổn định hơn.
+- Tracker production vẫn ở 0/100, chưa tiêu hao slot thật.
+

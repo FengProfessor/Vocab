@@ -4,12 +4,14 @@ import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
-  ArrowRight, BookOpen, ChevronLeft, Clock3, Download, Loader2, Search, Sparkles, Upload, X,
+  ArrowRight, BookOpen, Check, ChevronLeft, Clock3, Download, Loader2, Plus, Search, Sparkles, Upload, Volume2, X,
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { authFetch } from '@/lib/auth-fetch';
 import { supabase } from '@/lib/supabase';
 import { StudentShell } from '@/components/student/StudentShell';
+import { isWordSavedLocally, saveWordLocally } from '@/lib/exam-dict-cache';
+import { playWordAudio } from '@/lib/audio';
 import {
   applyGlossesToPacks,
   downloadTopicPdfHtml,
@@ -64,10 +66,71 @@ export default function LibraryPage() {
   const [selectedSubtopic, setSelectedSubtopic] = useState<Subtopic | null>(null);
   const [previewPack, setPreviewPack] = useState<Pack | null>(null);
   const [importingPack, setImportingPack] = useState<string | null>(null);
+  const [savedWords, setSavedWords] = useState<Set<string>>(new Set());
+  const [savingWords, setSavingWords] = useState<Set<string>>(new Set());
+  const [playingWord, setPlayingWord] = useState<string | null>(null);
 
   const [query, setQuery] = useState('');
   const [contentFilter, setContentFilter] = useState<string>(ALL);
   const [statusFilter, setStatusFilter] = useState<string>(ALL);
+
+  // Đồng bộ trạng thái từ đã lưu khi mở preview pack
+  useEffect(() => {
+    if (!previewPack) return;
+    const initial = new Set<string>();
+    for (const w of previewPack.words) {
+      if (isWordSavedLocally(w)) {
+        initial.add(w.toLowerCase().trim());
+      }
+    }
+    setSavedWords(initial);
+
+    let active = true;
+    void (async () => {
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (!session?.user?.id) return;
+        const { data: existing } = await supabase
+          .from('words')
+          .select('word')
+          .eq('added_by', session.user.id)
+          .in('word', previewPack.words);
+        if (active && existing && existing.length > 0) {
+          setSavedWords((prev) => {
+            const next = new Set(prev);
+            for (const item of existing) {
+              if (item.word) {
+                next.add(item.word.toLowerCase().trim());
+                saveWordLocally(item.word);
+              }
+            }
+            return next;
+          });
+        }
+      } catch {
+        // ignore background fetch error
+      }
+    })();
+
+    return () => { active = false; };
+  }, [previewPack]);
+
+  // Lắng nghe sự kiện lưu từ toàn cục (từ các modal/trang khác)
+  useEffect(() => {
+    const handleWordSaved = (e: Event) => {
+      const customEvent = e as CustomEvent<{ word?: string }>;
+      if (customEvent.detail?.word) {
+        const w = customEvent.detail.word.toLowerCase().trim();
+        setSavedWords((prev) => new Set(prev).add(w));
+      }
+    };
+    if (typeof window !== 'undefined') {
+      window.addEventListener('lingo_word_saved', handleWordSaved);
+      return () => {
+        window.removeEventListener('lingo_word_saved', handleWordSaved);
+      };
+    }
+  }, []);
 
   useEffect(() => {
     let active = true;
@@ -354,6 +417,88 @@ export default function LibraryPage() {
       toast.error(error instanceof Error ? error.message : 'Có lỗi kết nối', { id: 'catalog-import' });
     } finally {
       setImportingPack(null);
+    }
+  };
+
+  const handleAddSingleWord = async (word: string, e: React.MouseEvent): Promise<void> => {
+    e.stopPropagation();
+    const cleanWord = word.trim();
+    const lower = cleanWord.toLowerCase();
+    if (!lower || savingWords.has(lower)) return;
+
+    if (savedWords.has(lower)) {
+      toast.info(`"${cleanWord}" đã có trong Sổ từ của bạn!`);
+      return;
+    }
+
+    setSavingWords((prev) => new Set(prev).add(lower));
+    // Optimistic UI update
+    setSavedWords((prev) => new Set(prev).add(lower));
+    saveWordLocally(cleanWord);
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('lingo_word_saved', { detail: { word: cleanWord } }));
+    }
+
+    try {
+      const res = await authFetch('/api/words', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ word: cleanWord }),
+      });
+      const data = (await res.json().catch(() => ({}))) as {
+        success?: boolean;
+        alreadyExists?: boolean;
+        error?: string;
+        message?: string;
+      };
+
+      if (res.status === 403 && data.error === 'FREE_WORD_LIMIT') {
+        // Rollback optimistic state
+        setSavedWords((prev) => {
+          const next = new Set(prev);
+          next.delete(lower);
+          return next;
+        });
+        toast.error(data.message || 'Đã đạt giới hạn từ gói Free. Nâng Pro để lưu không giới hạn.');
+        return;
+      }
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || 'Không thể lưu từ');
+      }
+
+      if (data.alreadyExists) {
+        toast.info(`"${cleanWord}" đã có trong Sổ từ của bạn!`);
+      } else {
+        toast.success(`Đã thêm "${cleanWord}" vào Sổ từ!`);
+      }
+    } catch (error: unknown) {
+      // Rollback optimistic state
+      setSavedWords((prev) => {
+        const next = new Set(prev);
+        next.delete(lower);
+        return next;
+      });
+      toast.error(error instanceof Error ? error.message : 'Có lỗi khi lưu từ');
+    } finally {
+      setSavingWords((prev) => {
+        const next = new Set(prev);
+        next.delete(lower);
+        return next;
+      });
+    }
+  };
+
+  const handlePlayAudio = async (word: string, e: React.MouseEvent): Promise<void> => {
+    e.stopPropagation();
+    if (playingWord === word) return;
+    setPlayingWord(word);
+    try {
+      await playWordAudio(word);
+    } catch {
+      // ignore
+    } finally {
+      setPlayingWord(null);
     }
   };
 
@@ -727,15 +872,15 @@ export default function LibraryPage() {
                   <h2 id="pack-preview-title" className="mt-1 text-lg font-black sm:text-xl">
                     {previewPack.title}
                   </h2>
-                  <p className="mt-1 text-sm text-slate-500">
-                    {previewPack.wordCount} từ · khoảng 5–8 phút
+                  <p className="mt-1 text-xs text-slate-500">
+                    {previewPack.wordCount} từ · Bấm <span className="font-bold text-indigo-600">+</span> để thêm từ chưa biết, hoặc học cả chặng
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={() => setPreviewPack(null)}
                   disabled={Boolean(importingPack)}
-                  className="rounded-xl p-2 text-slate-400 hover:bg-slate-100 disabled:opacity-40"
+                  className="touch-target rounded-xl p-2 text-slate-400 hover:bg-slate-100 disabled:opacity-40"
                   aria-label="Đóng"
                 >
                   <X className="h-5 w-5" />
@@ -743,17 +888,57 @@ export default function LibraryPage() {
               </div>
               <div className="max-h-[50dvh] overflow-y-auto p-4 sm:p-5">
                 <ol className="grid grid-cols-1 gap-1.5 sm:grid-cols-2">
-                  {previewPack.words.map((word, index) => (
-                    <li
-                      key={`${word}-${index}`}
-                      className="flex items-center gap-2.5 rounded-xl bg-slate-50 px-3 py-2 text-sm font-bold text-slate-700"
-                    >
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-indigo-100 text-[10px] font-black text-indigo-700">
-                        {index + 1}
-                      </span>
-                      {word}
-                    </li>
-                  ))}
+                  {previewPack.words.map((word, index) => {
+                    const lower = word.toLowerCase().trim();
+                    const isSaved = savedWords.has(lower);
+                    const isSaving = savingWords.has(lower);
+                    const isPlaying = playingWord === word;
+
+                    return (
+                      <li
+                        key={`${word}-${index}`}
+                        className="group flex items-center justify-between gap-2 rounded-xl bg-slate-50 px-3 py-2 text-sm font-bold text-slate-700 transition hover:bg-indigo-50/40"
+                      >
+                        <div className="flex min-w-0 flex-1 items-center gap-2">
+                          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-indigo-100 text-[10px] font-black text-indigo-700">
+                            {index + 1}
+                          </span>
+                          <span className="truncate">{word}</span>
+                          <button
+                            type="button"
+                            onClick={(e) => void handlePlayAudio(word, e)}
+                            title={`Nghe phát âm "${word}"`}
+                            aria-label={`Phát âm từ ${word}`}
+                            className="touch-target flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-slate-400 opacity-60 transition hover:bg-slate-200 hover:text-indigo-600 hover:opacity-100 group-hover:opacity-100"
+                          >
+                            <Volume2 className={`h-3.5 w-3.5 ${isPlaying ? 'animate-pulse text-indigo-600' : ''}`} aria-hidden />
+                          </button>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={(e) => void handleAddSingleWord(word, e)}
+                          disabled={isSaving}
+                          title={isSaved ? 'Đã có trong sổ từ' : 'Thêm từ này vào sổ từ (+)'}
+                          aria-label={isSaved ? `Từ ${word} đã có trong sổ từ` : `Thêm từ ${word} vào sổ từ`}
+                          className={`touch-target flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border transition active:scale-90 ${
+                            isSaved
+                              ? 'border-emerald-200 bg-emerald-100/80 text-emerald-700 hover:bg-emerald-100'
+                              : isSaving
+                              ? 'border-indigo-200 bg-indigo-50 text-indigo-600'
+                              : 'border-slate-200 bg-white text-slate-600 hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-700 shadow-2xs'
+                          }`}
+                        >
+                          {isSaving ? (
+                            <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden />
+                          ) : isSaved ? (
+                            <Check className="h-3.5 w-3.5 stroke-[2.5]" aria-hidden />
+                          ) : (
+                            <Plus className="h-3.5 w-3.5 stroke-[2.5]" aria-hidden />
+                          )}
+                        </button>
+                      </li>
+                    );
+                  })}
                 </ol>
               </div>
               <div className="border-t bg-white p-4 sm:p-5">

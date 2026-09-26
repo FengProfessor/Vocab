@@ -6,6 +6,8 @@ import {
   loadToeicPartPractice,
   convertLegacyMiniTest,
   stripSensitiveToeicData,
+  clusterToeicQuestions,
+  stripSensitiveClusterData,
   AUTHENTIC_TEST_METADATA,
   getToeicCatalogIndex,
   type ToeicPartPracticeOptions,
@@ -21,7 +23,12 @@ import {
   isWhitelistedIp,
   clearBotFlag,
 } from '@/lib/toeic-anti-scraping';
-import type { ToeicPart, ToeicUnifiedQuestion } from '@/types/toeic';
+import type {
+  ToeicPart,
+  ToeicUnifiedQuestion,
+  ToeicQuestionCluster,
+  ToeicSanitizedQuestionCluster,
+} from '@/types/toeic';
 
 const PART_RECOMMENDED_MINUTES: Record<ToeicPart, number> = {
   1: 4,
@@ -82,6 +89,8 @@ async function handleToeicTestRequest(
     const genuine = loadAnyToeicTest(cleanTestId);
     const poisonTarget = genuine.length > 0 ? genuine : createPoisonedQuestionBank(30, ip);
     const poisonedQuestions = poisonTarget.map((q) => poisonUnifiedQuestion(q, ip));
+    const rawPoisonedClusters = clusterToeicQuestions(poisonedQuestions) as ToeicQuestionCluster[];
+    const poisonedClusters = rawPoisonedClusters.map(stripSensitiveClusterData);
     return NextResponse.json({
       success: true,
       testId: cleanTestId,
@@ -89,6 +98,7 @@ async function handleToeicTestRequest(
       durationSeconds: 120 * 60,
       totalQuestions: poisonedQuestions.length,
       questions: poisonedQuestions,
+      clusters: poisonedClusters.length > 0 ? poisonedClusters : undefined,
       isPoisoned: true,
     });
   }
@@ -255,6 +265,8 @@ async function handleToeicTestRequest(
 
   // ── ACTIVE ANTI-SCRAPING: ZERO BULK LEAKS ──
   const deliveredQuestions = stripSensitiveToeicData(questions);
+  const rawClusters = clusterToeicQuestions(questions) as ToeicQuestionCluster[];
+  const listeningClusters = rawClusters.map(stripSensitiveClusterData);
 
   // Cấp token phiên làm bài có chữ ký HMAC gắn với IP hash và testId
   const sessionToken = generateToeicSessionToken({
@@ -272,6 +284,7 @@ async function handleToeicTestRequest(
       durationSeconds,
       totalQuestions: deliveredQuestions.length,
       questions: deliveredQuestions,
+      clusters: listeningClusters.length > 0 ? listeningClusters : undefined,
       sessionToken,
       part: partNum ?? undefined,
       filterMode: practiceOptions?.filterMode || filterMode || undefined,

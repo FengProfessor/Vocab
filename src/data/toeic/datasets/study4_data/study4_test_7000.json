@@ -433,7 +433,658 @@
       "part_num": 3,
       "part_id": "19716",
       "label": "Part 3 (39 câu hỏi)",
-      "groups": [],
+      "groups": [
+        {
+          "group_index": 1,
+          "passage": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/32-34_audio.08fda7d9.mp3",
+          "images": [],
+          "questions": [
+            {
+              "qid": "323298",
+              "qnum": "32",
+              "text": "What are the speakers mainly discussing?",
+              "options": [
+                "A. A switch to public transit",
+                "B. Commuting to work together",
+                "C. The cost of parking permits",
+                "D. A change to office hours"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/32-34_audio.08fda7d9.mp3",
+              "image_url": "",
+              "correct_answer": "B"
+            },
+            {
+              "qid": "323299",
+              "qnum": "33",
+              "text": "What does the man ask about?",
+              "options": [
+                "A. The price of a permit",
+                "B. A bus schedule",
+                "C. The meeting location",
+                "D. The length of the drive"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/32-34_audio.08fda7d9.mp3",
+              "image_url": "",
+              "correct_answer": "D"
+            },
+            {
+              "qid": "323300",
+              "qnum": "34",
+              "text": "What will the woman most likely do next?",
+              "options": [
+                "A. Purchase a parking permit",
+                "B. Contact the staff coordinator",
+                "C. Register both employees",
+                "D. Review a parking map"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/32-34_audio.08fda7d9.mp3",
+              "image_url": "",
+              "correct_answer": "C"
+            }
+          ]
+        },
+        {
+          "group_index": 2,
+          "passage": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/35-37_audio.d04ff7ce.mp3",
+          "images": [],
+          "questions": [
+            {
+              "qid": "323301",
+              "qnum": "35",
+              "text": "What is the woman trying to get?",
+              "options": [
+                "A. A construction permit",
+                "B. A set of building plans",
+                "C. A business license",
+                "D. A parking permit"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/35-37_audio.d04ff7ce.mp3",
+              "image_url": "",
+              "correct_answer": "B"
+            },
+            {
+              "qid": "323302",
+              "qnum": "36",
+              "text": "What has caused a problem?",
+              "options": [
+                "A. Some records have been moved to another location.",
+                "B. A payment has not been received.",
+                "C. A computer system is not working.",
+                "D. An employee is out of the office."
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/35-37_audio.d04ff7ce.mp3",
+              "image_url": "",
+              "correct_answer": "A"
+            },
+            {
+              "qid": "323303",
+              "qnum": "37",
+              "text": "What does the man offer to do?",
+              "options": [
+                "A. Come back another day",
+                "B. Contact another facility",
+                "C. Make copies at the counter",
+                "D. Waive a fee"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/35-37_audio.d04ff7ce.mp3",
+              "image_url": "",
+              "correct_answer": "B"
+            }
+          ]
+        },
+        {
+          "group_index": 3,
+          "passage": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/38-40_audio.4648bb67.mp3",
+          "images": [],
+          "questions": [
+            {
+              "qid": "323304",
+              "qnum": "38",
+              "text": "Why is the man calling?",
+              "options": [
+                "A. To collect an overdue payment",
+                "B. To ask about storage space",
+                "C. To reschedule a service appointment",
+                "D. To verify the details of a scheduled visit"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/38-40_audio.4648bb67.mp3",
+              "image_url": "",
+              "correct_answer": "D"
+            },
+            {
+              "qid": "323305",
+              "qnum": "39",
+              "text": "Why does the woman apologize?",
+              "options": [
+                "A. She missed an earlier phone call.",
+                "B. She canceled a service.",
+                "C. She did not report a change to the order.",
+                "D. She provided incorrect measurements."
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/38-40_audio.4648bb67.mp3",
+              "image_url": "",
+              "correct_answer": "C"
+            },
+            {
+              "qid": "323306",
+              "qnum": "40",
+              "text": "What does the woman say she will do?",
+              "options": [
+                "A. Reserve the service elevator",
+                "B. Provide access for the crew",
+                "C. Send an updated count",
+                "D. Revise the work order"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/38-40_audio.4648bb67.mp3",
+              "image_url": "",
+              "correct_answer": "C"
+            }
+          ]
+        },
+        {
+          "group_index": 4,
+          "passage": "",
+          "audio_url": "https://storage.googleapis.com/estudyme/dev/2022/06/27/93860120.mp3",
+          "images": [],
+          "questions": [
+            {
+              "qid": "323307",
+              "qnum": "41",
+              "text": "Where does the conversation most likely take place?",
+              "options": [
+                "A. At a copy shop",
+                "B. At an equipment showroom",
+                "C. At a repair shop",
+                "D. At an office supply store"
+              ],
+              "audio_url": "https://storage.googleapis.com/estudyme/dev/2022/06/27/93860120.mp3",
+              "image_url": "",
+              "correct_answer": "B"
+            },
+            {
+              "qid": "323308",
+              "qnum": "42",
+              "text": "What does the woman say she will do next month?",
+              "options": [
+                "A. Hire additional staff",
+                "B. Open another location",
+                "C. Replace a broken machine",
+                "D. Attend a trade show"
+              ],
+              "audio_url": "https://storage.googleapis.com/estudyme/dev/2022/06/27/93860120.mp3",
+              "image_url": "",
+              "correct_answer": "B"
+            },
+            {
+              "qid": "323309",
+              "qnum": "43",
+              "text": "Why does Neil speak to Patrick?",
+              "options": [
+                "A. To introduce him to a client",
+                "B. To request a machine repair",
+                "C. To demonstrate a machine",
+                "D. To arrange a delivery schedule"
+              ],
+              "audio_url": "https://storage.googleapis.com/estudyme/dev/2022/06/27/93860120.mp3",
+              "image_url": "",
+              "correct_answer": "C"
+            }
+          ]
+        },
+        {
+          "group_index": 5,
+          "passage": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/44-46_audio.b0f3c8f2.mp3",
+          "images": [],
+          "questions": [
+            {
+              "qid": "323310",
+              "qnum": "44",
+              "text": "Where most likely are the speakers?",
+              "options": [
+                "A. At a bank branch",
+                "B. At a post office",
+                "C. At a transit service office",
+                "D. At a police station"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/44-46_audio.b0f3c8f2.mp3",
+              "image_url": "",
+              "correct_answer": "C"
+            },
+            {
+              "qid": "323311",
+              "qnum": "45",
+              "text": "What is the woman trying to do?",
+              "options": [
+                "A. Replace her pass and keep the balance",
+                "B. Get her money back for the pass",
+                "C. Renew a monthly pass",
+                "D. Add funds to her pass"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/44-46_audio.b0f3c8f2.mp3",
+              "image_url": "",
+              "correct_answer": "A"
+            },
+            {
+              "qid": "323312",
+              "qnum": "46",
+              "text": "What will the man do next?",
+              "options": [
+                "A. Contact the lost-and-found office",
+                "B. Look up her payment record",
+                "C. Process a refund",
+                "D. Issue a new pass"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/44-46_audio.b0f3c8f2.mp3",
+              "image_url": "",
+              "correct_answer": "B"
+            }
+          ]
+        },
+        {
+          "group_index": 6,
+          "passage": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/47-49_audio.bfbbe5c7.mp3",
+          "images": [],
+          "questions": [
+            {
+              "qid": "323313",
+              "qnum": "47",
+              "text": "Where does the conversation most likely take place?",
+              "options": [
+                "A. At a community arts center",
+                "B. At a photography studio",
+                "C. At a printing business",
+                "D. At a school"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/47-49_audio.bfbbe5c7.mp3",
+              "image_url": "",
+              "correct_answer": "A"
+            },
+            {
+              "qid": "323314",
+              "qnum": "48",
+              "text": "What does the man give to the woman?",
+              "options": [
+                "A. A guideline sheet",
+                "B. A mounting board",
+                "C. A numbered label",
+                "D. A photograph"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/47-49_audio.bfbbe5c7.mp3",
+              "image_url": "",
+              "correct_answer": "C"
+            },
+            {
+              "qid": "323315",
+              "qnum": "49",
+              "text": "What does the man ask the woman to do?",
+              "options": [
+                "A. Pay an entry fee",
+                "B. Attend the opening night",
+                "C. Pick up her piece",
+                "D. Send a personal description"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/47-49_audio.bfbbe5c7.mp3",
+              "image_url": "",
+              "correct_answer": "D"
+            }
+          ]
+        },
+        {
+          "group_index": 7,
+          "passage": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/50-52_audio.0c2e7223.mp3",
+          "images": [],
+          "questions": [
+            {
+              "qid": "323316",
+              "qnum": "50",
+              "text": "What problem does the woman mention?",
+              "options": [
+                "A. A shipment arrived late.",
+                "B. A machine is malfunctioning.",
+                "C. Some prices are displayed incorrectly.",
+                "D. A section is blocked off."
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/50-52_audio.0c2e7223.mp3",
+              "image_url": "",
+              "correct_answer": "C"
+            },
+            {
+              "qid": "323317",
+              "qnum": "51",
+              "text": "According to the man, what caused the problem?",
+              "options": [
+                "A. A supplier sent incorrect prices.",
+                "B. A pricing system was updated.",
+                "C. An employee printed wrong labels.",
+                "D. A printer stopped working."
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/50-52_audio.0c2e7223.mp3",
+              "image_url": "",
+              "correct_answer": "B"
+            },
+            {
+              "qid": "323318",
+              "qnum": "52",
+              "text": "What does the man say he will do right now?",
+              "options": [
+                "A. Print new price labels.",
+                "B. Update a master file.",
+                "C. Send a note to the team.",
+                "D. Speak with the cashiers."
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/50-52_audio.0c2e7223.mp3",
+              "image_url": "",
+              "correct_answer": "A"
+            }
+          ]
+        },
+        {
+          "group_index": 8,
+          "passage": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/53-55_audio.3b9a8a02.mp3",
+          "images": [],
+          "questions": [
+            {
+              "qid": "323319",
+              "qnum": "53",
+              "text": "Why is the woman visiting the workshop?",
+              "options": [
+                "A. To tour the facility again",
+                "B. To attend a safety class",
+                "C. To meet an urgent deadline",
+                "D. To make items for her business"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/53-55_audio.3b9a8a02.mp3",
+              "image_url": "",
+              "correct_answer": "D"
+            },
+            {
+              "qid": "323320",
+              "qnum": "54",
+              "text": "What does the man explain to the woman?",
+              "options": [
+                "A. How to operate a machine",
+                "B. How to register for membership",
+                "C. How to complete a safety requirement",
+                "D. How to reserve time on a machine"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/53-55_audio.3b9a8a02.mp3",
+              "image_url": "",
+              "correct_answer": "D"
+            },
+            {
+              "qid": "323321",
+              "qnum": "55",
+              "text": "What does the man suggest?",
+              "options": [
+                "A. Bringing her own materials",
+                "B. Returning on another day",
+                "C. Signing up for a safety class",
+                "D. Extending her project deadline"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/53-55_audio.3b9a8a02.mp3",
+              "image_url": "",
+              "correct_answer": "C"
+            }
+          ]
+        },
+        {
+          "group_index": 9,
+          "passage": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/56-58_audio.5da9b945.mp3",
+          "images": [],
+          "questions": [
+            {
+              "qid": "323322",
+              "qnum": "56",
+              "text": "What are the speakers mainly discussing?",
+              "options": [
+                "A. Purchasing replacement computers",
+                "B. Recycling broken electronics",
+                "C. Reorganizing a storage area",
+                "D. Donating used equipment"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/56-58_audio.5da9b945.mp3",
+              "image_url": "",
+              "correct_answer": "D"
+            },
+            {
+              "qid": "323323",
+              "qnum": "57",
+              "text": "What does Greenpath Community Services do?",
+              "options": [
+                "A. It repairs and gives away used machines.",
+                "B. It disposes of broken electronics.",
+                "C. It resells refurbished computers.",
+                "D. It provides technical support to groups."
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/56-58_audio.5da9b945.mp3",
+              "image_url": "",
+              "correct_answer": "A"
+            },
+            {
+              "qid": "323324",
+              "qnum": "58",
+              "text": "What will the speakers probably do next?",
+              "options": [
+                "A. Complete some paperwork",
+                "B. Inspect some machines",
+                "C. Contact a disposal company",
+                "D. Load items into a vehicle"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/56-58_audio.5da9b945.mp3",
+              "image_url": "",
+              "correct_answer": "B"
+            }
+          ]
+        },
+        {
+          "group_index": 10,
+          "passage": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/59-61_audio.8318d170.mp3",
+          "images": [],
+          "questions": [
+            {
+              "qid": "323325",
+              "qnum": "59",
+              "text": "What field do the speakers most likely work in?",
+              "options": [
+                "A. Photography",
+                "B. Shipping",
+                "C. Publishing",
+                "D. Insurance"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/59-61_audio.8318d170.mp3",
+              "image_url": "",
+              "correct_answer": "C"
+            },
+            {
+              "qid": "323326",
+              "qnum": "60",
+              "text": "What problem is mentioned?",
+              "options": [
+                "A. Some items were damaged.",
+                "B. A shipment arrived late.",
+                "C. An order was sent to the wrong address.",
+                "D. A deadline was moved up."
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/59-61_audio.8318d170.mp3",
+              "image_url": "",
+              "correct_answer": "A"
+            },
+            {
+              "qid": "323327",
+              "qnum": "61",
+              "text": "What does the woman suggest doing?",
+              "options": [
+                "A. Postponing the client's delivery",
+                "B. Routing replacements through their office",
+                "C. Switching to a different carrier",
+                "D. Shipping replacements straight to the client"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/59-61_audio.8318d170.mp3",
+              "image_url": "",
+              "correct_answer": "D"
+            }
+          ]
+        },
+        {
+          "group_index": 11,
+          "passage": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/62-64_audio.a2a0a8b2.mp3",
+          "images": [],
+          "questions": [
+            {
+              "qid": "323328",
+              "qnum": "62",
+              "text": "What type of service are the speakers discussing?",
+              "options": [
+                "A. A staff scheduling program",
+                "B. A billing and accounting program",
+                "C. A messaging program",
+                "D. A file storage program"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/62-64_audio.a2a0a8b2.mp3",
+              "image_url": "",
+              "correct_answer": "A"
+            },
+            {
+              "qid": "323329",
+              "qnum": "63",
+              "text": "Look at the graphic. How much will the man most likely pay per month?",
+              "options": [
+                "A. $25",
+                "B. $45",
+                "C. $75",
+                "D. $120"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/62-64_audio.a2a0a8b2.mp3",
+              "image_url": "",
+              "correct_answer": "B"
+            },
+            {
+              "qid": "323330",
+              "qnum": "64",
+              "text": "What does the woman suggest the man do?",
+              "options": [
+                "A. Update the account's payment details",
+                "B. Send an email to the new employees",
+                "C. Contact the support line again",
+                "D. Collect the new employees' email addresses"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/62-64_audio.a2a0a8b2.mp3",
+              "image_url": "",
+              "correct_answer": "D"
+            }
+          ]
+        },
+        {
+          "group_index": 12,
+          "passage": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/65-67_audio.640ce068.mp3",
+          "images": [],
+          "questions": [
+            {
+              "qid": "323331",
+              "qnum": "65",
+              "text": "Look at the graphic. Which day will the work be done?",
+              "options": [
+                "A. Monday",
+                "B. Tuesday",
+                "C. Wednesday",
+                "D. Thursday"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/65-67_audio.640ce068.mp3",
+              "image_url": "",
+              "correct_answer": "B"
+            },
+            {
+              "qid": "323332",
+              "qnum": "66",
+              "text": "According to the man, why should the work be scheduled soon?",
+              "options": [
+                "A. Crews will be harder to book later.",
+                "B. The lot surface is getting worse.",
+                "C. A store event will block the lot.",
+                "D. The weather report could change."
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/65-67_audio.640ce068.mp3",
+              "image_url": "",
+              "correct_answer": "A"
+            },
+            {
+              "qid": "323333",
+              "qnum": "67",
+              "text": "What does the woman say she will do before the work begins?",
+              "options": [
+                "A. Notifying the store managers",
+                "B. Redirecting cars to another area",
+                "C. Repainting the parking lines",
+                "D. Rescheduling a store sale"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/65-67_audio.640ce068.mp3",
+              "image_url": "",
+              "correct_answer": "A"
+            }
+          ]
+        },
+        {
+          "group_index": 13,
+          "passage": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/68-70_audio.d0fe7f5b.mp3",
+          "images": [],
+          "questions": [
+            {
+              "qid": "323334",
+              "qnum": "68",
+              "text": "What kind of tour is the man organizing?",
+              "options": [
+                "A. A boat tour",
+                "B. A walking tour",
+                "C. A bus tour",
+                "D. A cycling tour"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/68-70_audio.d0fe7f5b.mp3",
+              "image_url": "",
+              "correct_answer": "B"
+            },
+            {
+              "qid": "323335",
+              "qnum": "69",
+              "text": "What does the man say he learned from last season?",
+              "options": [
+                "A. How to advertise a tour effectively",
+                "B. How to manage extra staff",
+                "C. How to allow enough time at each stop",
+                "D. How to arrange group transportation"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/68-70_audio.d0fe7f5b.mp3",
+              "image_url": "",
+              "correct_answer": "C"
+            },
+            {
+              "qid": "323336",
+              "qnum": "70",
+              "text": "Look at the graphic. Which stop does the woman suggest changing?",
+              "options": [
+                "A. Stop 2",
+                "B. Stop 3",
+                "C. Stop 4",
+                "D. Stop 5"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/68-70_audio.d0fe7f5b.mp3",
+              "image_url": "",
+              "correct_answer": "A"
+            }
+          ]
+        }
+      ],
       "questions": [
         {
           "qid": "323298",
@@ -459,7 +1110,7 @@
             "C. The meeting location",
             "D. The length of the drive"
           ],
-          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/35-37_audio.d04ff7ce.mp3",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/32-34_audio.08fda7d9.mp3",
           "image_url": "",
           "correct_answer": "D"
         },
@@ -473,7 +1124,7 @@
             "C. Register both employees",
             "D. Review a parking map"
           ],
-          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/38-40_audio.4648bb67.mp3",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/32-34_audio.08fda7d9.mp3",
           "image_url": "",
           "correct_answer": "C"
         },
@@ -487,7 +1138,7 @@
             "C. A business license",
             "D. A parking permit"
           ],
-          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/41-43_audio.612729e1.mp3",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/35-37_audio.d04ff7ce.mp3",
           "image_url": "",
           "correct_answer": "B"
         },
@@ -501,7 +1152,7 @@
             "C. A computer system is not working.",
             "D. An employee is out of the office."
           ],
-          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/44-46_audio.b0f3c8f2.mp3",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/35-37_audio.d04ff7ce.mp3",
           "image_url": "",
           "correct_answer": "A"
         },
@@ -515,7 +1166,7 @@
             "C. Make copies at the counter",
             "D. Waive a fee"
           ],
-          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/47-49_audio.bfbbe5c7.mp3",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/35-37_audio.d04ff7ce.mp3",
           "image_url": "",
           "correct_answer": "B"
         },
@@ -529,7 +1180,7 @@
             "C. To reschedule a service appointment",
             "D. To verify the details of a scheduled visit"
           ],
-          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/50-52_audio.0c2e7223.mp3",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/38-40_audio.4648bb67.mp3",
           "image_url": "",
           "correct_answer": "D"
         },
@@ -543,7 +1194,7 @@
             "C. She did not report a change to the order.",
             "D. She provided incorrect measurements."
           ],
-          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/53-55_audio.3b9a8a02.mp3",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/38-40_audio.4648bb67.mp3",
           "image_url": "",
           "correct_answer": "C"
         },
@@ -557,7 +1208,7 @@
             "C. Send an updated count",
             "D. Revise the work order"
           ],
-          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/56-58_audio.5da9b945.mp3",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/38-40_audio.4648bb67.mp3",
           "image_url": "",
           "correct_answer": "C"
         },
@@ -571,7 +1222,7 @@
             "C. At a repair shop",
             "D. At an office supply store"
           ],
-          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/59-61_audio.8318d170.mp3",
+          "audio_url": "https://storage.googleapis.com/estudyme/dev/2022/06/27/93860120.mp3",
           "image_url": "",
           "correct_answer": "B"
         },
@@ -585,7 +1236,7 @@
             "C. Replace a broken machine",
             "D. Attend a trade show"
           ],
-          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/62-64_audio.a2a0a8b2.mp3",
+          "audio_url": "https://storage.googleapis.com/estudyme/dev/2022/06/27/93860120.mp3",
           "image_url": "",
           "correct_answer": "B"
         },
@@ -599,7 +1250,7 @@
             "C. To demonstrate a machine",
             "D. To arrange a delivery schedule"
           ],
-          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/65-67_audio.640ce068.mp3",
+          "audio_url": "https://storage.googleapis.com/estudyme/dev/2022/06/27/93860120.mp3",
           "image_url": "",
           "correct_answer": "C"
         },
@@ -613,7 +1264,7 @@
             "C. At a transit service office",
             "D. At a police station"
           ],
-          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/68-70_audio.d0fe7f5b.mp3",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/44-46_audio.b0f3c8f2.mp3",
           "image_url": "",
           "correct_answer": "C"
         },
@@ -627,7 +1278,7 @@
             "C. Renew a monthly pass",
             "D. Add funds to her pass"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/44-46_audio.b0f3c8f2.mp3",
           "image_url": "",
           "correct_answer": "A"
         },
@@ -641,7 +1292,7 @@
             "C. Process a refund",
             "D. Issue a new pass"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/44-46_audio.b0f3c8f2.mp3",
           "image_url": "",
           "correct_answer": "B"
         },
@@ -655,7 +1306,7 @@
             "C. At a printing business",
             "D. At a school"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/47-49_audio.bfbbe5c7.mp3",
           "image_url": "",
           "correct_answer": "A"
         },
@@ -669,7 +1320,7 @@
             "C. A numbered label",
             "D. A photograph"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/47-49_audio.bfbbe5c7.mp3",
           "image_url": "",
           "correct_answer": "C"
         },
@@ -683,7 +1334,7 @@
             "C. Pick up her piece",
             "D. Send a personal description"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/47-49_audio.bfbbe5c7.mp3",
           "image_url": "",
           "correct_answer": "D"
         },
@@ -697,7 +1348,7 @@
             "C. Some prices are displayed incorrectly.",
             "D. A section is blocked off."
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/50-52_audio.0c2e7223.mp3",
           "image_url": "",
           "correct_answer": "C"
         },
@@ -711,7 +1362,7 @@
             "C. An employee printed wrong labels.",
             "D. A printer stopped working."
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/50-52_audio.0c2e7223.mp3",
           "image_url": "",
           "correct_answer": "B"
         },
@@ -725,7 +1376,7 @@
             "C. Send a note to the team.",
             "D. Speak with the cashiers."
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/50-52_audio.0c2e7223.mp3",
           "image_url": "",
           "correct_answer": "A"
         },
@@ -739,7 +1390,7 @@
             "C. To meet an urgent deadline",
             "D. To make items for her business"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/53-55_audio.3b9a8a02.mp3",
           "image_url": "",
           "correct_answer": "D"
         },
@@ -753,7 +1404,7 @@
             "C. How to complete a safety requirement",
             "D. How to reserve time on a machine"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/53-55_audio.3b9a8a02.mp3",
           "image_url": "",
           "correct_answer": "D"
         },
@@ -767,7 +1418,7 @@
             "C. Signing up for a safety class",
             "D. Extending her project deadline"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/53-55_audio.3b9a8a02.mp3",
           "image_url": "",
           "correct_answer": "C"
         },
@@ -781,7 +1432,7 @@
             "C. Reorganizing a storage area",
             "D. Donating used equipment"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/56-58_audio.5da9b945.mp3",
           "image_url": "",
           "correct_answer": "D"
         },
@@ -795,7 +1446,7 @@
             "C. It resells refurbished computers.",
             "D. It provides technical support to groups."
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/56-58_audio.5da9b945.mp3",
           "image_url": "",
           "correct_answer": "A"
         },
@@ -809,7 +1460,7 @@
             "C. Contact a disposal company",
             "D. Load items into a vehicle"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/56-58_audio.5da9b945.mp3",
           "image_url": "",
           "correct_answer": "B"
         },
@@ -823,7 +1474,7 @@
             "C. Publishing",
             "D. Insurance"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/59-61_audio.8318d170.mp3",
           "image_url": "",
           "correct_answer": "C"
         },
@@ -837,7 +1488,7 @@
             "C. An order was sent to the wrong address.",
             "D. A deadline was moved up."
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/59-61_audio.8318d170.mp3",
           "image_url": "",
           "correct_answer": "A"
         },
@@ -851,7 +1502,7 @@
             "C. Switching to a different carrier",
             "D. Shipping replacements straight to the client"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/59-61_audio.8318d170.mp3",
           "image_url": "",
           "correct_answer": "D"
         },
@@ -865,7 +1516,7 @@
             "C. A messaging program",
             "D. A file storage program"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/62-64_audio.a2a0a8b2.mp3",
           "image_url": "",
           "correct_answer": "A"
         },
@@ -879,7 +1530,7 @@
             "C. $75",
             "D. $120"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/62-64_audio.a2a0a8b2.mp3",
           "image_url": "",
           "correct_answer": "B"
         },
@@ -893,7 +1544,7 @@
             "C. Contact the support line again",
             "D. Collect the new employees' email addresses"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/62-64_audio.a2a0a8b2.mp3",
           "image_url": "",
           "correct_answer": "D"
         },
@@ -907,7 +1558,7 @@
             "C. Wednesday",
             "D. Thursday"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/65-67_audio.640ce068.mp3",
           "image_url": "",
           "correct_answer": "B"
         },
@@ -921,7 +1572,7 @@
             "C. A store event will block the lot.",
             "D. The weather report could change."
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/65-67_audio.640ce068.mp3",
           "image_url": "",
           "correct_answer": "A"
         },
@@ -935,7 +1586,7 @@
             "C. Repainting the parking lines",
             "D. Rescheduling a store sale"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/65-67_audio.640ce068.mp3",
           "image_url": "",
           "correct_answer": "A"
         },
@@ -949,7 +1600,7 @@
             "C. A bus tour",
             "D. A cycling tour"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/68-70_audio.d0fe7f5b.mp3",
           "image_url": "",
           "correct_answer": "B"
         },
@@ -963,7 +1614,7 @@
             "C. How to allow enough time at each stop",
             "D. How to arrange group transportation"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/68-70_audio.d0fe7f5b.mp3",
           "image_url": "",
           "correct_answer": "C"
         },
@@ -977,7 +1628,7 @@
             "C. Stop 4",
             "D. Stop 5"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/68-70_audio.d0fe7f5b.mp3",
           "image_url": "",
           "correct_answer": "A"
         }
@@ -987,7 +1638,508 @@
       "part_num": 4,
       "part_id": "19717",
       "label": "Part 4 (30 câu hỏi)",
-      "groups": [],
+      "groups": [
+        {
+          "group_index": 1,
+          "passage": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/71-73_audio.2a7ebd34.mp3",
+          "images": [],
+          "questions": [
+            {
+              "qid": "323337",
+              "qnum": "71",
+              "text": "Where does the speaker most likely work?",
+              "options": [
+                "A. At a post office",
+                "B. At a storage facility",
+                "C. At a dry cleaner",
+                "D. At a hotel"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/71-73_audio.2a7ebd34.mp3",
+              "image_url": "",
+              "correct_answer": "D"
+            },
+            {
+              "qid": "323338",
+              "qnum": "72",
+              "text": "What does the speaker say he has done?",
+              "options": [
+                "A. Stored an item securely",
+                "B. Contacted a delivery service",
+                "C. Located a missing item",
+                "D. Filed a lost-item report"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/71-73_audio.2a7ebd34.mp3",
+              "image_url": "",
+              "correct_answer": "A"
+            },
+            {
+              "qid": "323339",
+              "qnum": "73",
+              "text": "What does the speaker offer to do?",
+              "options": [
+                "A. Give a discount on a future stay",
+                "B. Provide a replacement item",
+                "C. Arrange a personal pickup",
+                "D. Ship an item free of charge"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/71-73_audio.2a7ebd34.mp3",
+              "image_url": "",
+              "correct_answer": "D"
+            }
+          ]
+        },
+        {
+          "group_index": 2,
+          "passage": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/74-76_audio.0abe4194.mp3",
+          "images": [],
+          "questions": [
+            {
+              "qid": "323340",
+              "qnum": "74",
+              "text": "Where most likely are the listeners?",
+              "options": [
+                "A. At a photography studio",
+                "B. At a museum",
+                "C. At a radio station",
+                "D. At a theater"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/74-76_audio.0abe4194.mp3",
+              "image_url": "",
+              "correct_answer": "C"
+            },
+            {
+              "qid": "323341",
+              "qnum": "75",
+              "text": "According to the speaker, what has Lorraine Buckley recently done?",
+              "options": [
+                "A. She received an award.",
+                "B. She launched a new show.",
+                "C. She published a book.",
+                "D. She donated some photographs."
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/74-76_audio.0abe4194.mp3",
+              "image_url": "",
+              "correct_answer": "C"
+            },
+            {
+              "qid": "323342",
+              "qnum": "76",
+              "text": "What does the speaker recommend that the listeners do?",
+              "options": [
+                "A. Buy a souvenir",
+                "B. Take some photographs",
+                "C. Purchase a book",
+                "D. Make a voice recording"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/74-76_audio.0abe4194.mp3",
+              "image_url": "",
+              "correct_answer": "D"
+            }
+          ]
+        },
+        {
+          "group_index": 3,
+          "passage": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/77-79_audio.2fcadbed.mp3",
+          "images": [],
+          "questions": [
+            {
+              "qid": "323343",
+              "qnum": "77",
+              "text": "Where do the listeners most likely work?",
+              "options": [
+                "A. At a construction company",
+                "B. At a bus company",
+                "C. At an airline company",
+                "D. At a travel company"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/77-79_audio.2fcadbed.mp3",
+              "image_url": "",
+              "correct_answer": "B"
+            },
+            {
+              "qid": "323344",
+              "qnum": "78",
+              "text": "What does the speaker imply when she says, \"the schedules at the shelters still show the old departure times\"?",
+              "options": [
+                "A. The signs need to be taken down soon.",
+                "B. All riders already know the new times.",
+                "C. A project may fall behind schedule.",
+                "D. Passengers may ask operators for help."
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/77-79_audio.2fcadbed.mp3",
+              "image_url": "",
+              "correct_answer": "D"
+            },
+            {
+              "qid": "323345",
+              "qnum": "79",
+              "text": "What will the speaker do on Thursday?",
+              "options": [
+                "A. Publish corrected schedules",
+                "B. Ride along the detour route",
+                "C. Collect the arrival notes",
+                "D. Inspect the road repairs"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/77-79_audio.2fcadbed.mp3",
+              "image_url": "",
+              "correct_answer": "B"
+            }
+          ]
+        },
+        {
+          "group_index": 4,
+          "passage": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/80-82_audio.3128d5a8.mp3",
+          "images": [],
+          "questions": [
+            {
+              "qid": "323346",
+              "qnum": "80",
+              "text": "Where does the speaker work?",
+              "options": [
+                "A. At a training school",
+                "B. At an employment agency",
+                "C. At a public library",
+                "D. At a corporate HR department"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/80-82_audio.3128d5a8.mp3",
+              "image_url": "",
+              "correct_answer": "A"
+            },
+            {
+              "qid": "323347",
+              "qnum": "81",
+              "text": "Why is the speaker calling?",
+              "options": [
+                "A. To offer a place in a course",
+                "B. To confirm a tuition payment",
+                "C. To announce a schedule change",
+                "D. To request a missing form"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/80-82_audio.3128d5a8.mp3",
+              "image_url": "",
+              "correct_answer": "A"
+            },
+            {
+              "qid": "323348",
+              "qnum": "82",
+              "text": "What does the speaker say happened two weeks ago?",
+              "options": [
+                "A. An extra class section was added.",
+                "B. A materials list was mailed out.",
+                "C. An enrolled student canceled.",
+                "D. The evening schedule was revised."
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/80-82_audio.3128d5a8.mp3",
+              "image_url": "",
+              "correct_answer": "C"
+            }
+          ]
+        },
+        {
+          "group_index": 5,
+          "passage": "",
+          "audio_url": "https://storage.googleapis.com/estudyme/dev/2022/06/27/32703867.mp3",
+          "images": [],
+          "questions": [
+            {
+              "qid": "323349",
+              "qnum": "83",
+              "text": "According to the speaker, what is special about the new delivery service?",
+              "options": [
+                "A. It is available every weekday.",
+                "B. It includes a returns guarantee.",
+                "C. It is free for small businesses.",
+                "D. It has no minimum order requirement."
+              ],
+              "audio_url": "https://storage.googleapis.com/estudyme/dev/2022/06/27/32703867.mp3",
+              "image_url": "",
+              "correct_answer": "D"
+            },
+            {
+              "qid": "323350",
+              "qnum": "84",
+              "text": "Who is Rita Cosgrove?",
+              "options": [
+                "A. A business owner.",
+                "B. A delivery driver.",
+                "C. A sales team member.",
+                "D. A store manager."
+              ],
+              "audio_url": "https://storage.googleapis.com/estudyme/dev/2022/06/27/32703867.mp3",
+              "image_url": "",
+              "correct_answer": "A"
+            },
+            {
+              "qid": "323351",
+              "qnum": "85",
+              "text": "What does the store offer to customers who sign up this week?",
+              "options": [
+                "A. A desk organizer.",
+                "B. An extended return period.",
+                "C. A free first delivery.",
+                "D. A box of pens."
+              ],
+              "audio_url": "https://storage.googleapis.com/estudyme/dev/2022/06/27/32703867.mp3",
+              "image_url": "",
+              "correct_answer": "A"
+            }
+          ]
+        },
+        {
+          "group_index": 6,
+          "passage": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/86-88_audio.2bbe2cd7.mp3",
+          "images": [],
+          "questions": [
+            {
+              "qid": "323352",
+              "qnum": "86",
+              "text": "What does the speaker's company mainly sell?",
+              "options": [
+                "A. Kitchen equipment",
+                "B. Medical supplies",
+                "C. Printing services",
+                "D. Work clothing"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/86-88_audio.2bbe2cd7.mp3",
+              "image_url": "",
+              "correct_answer": "D"
+            },
+            {
+              "qid": "323353",
+              "qnum": "87",
+              "text": "How has the company addressed a problem?",
+              "options": [
+                "A. By extending the exchange window",
+                "B. By redesigning the size charts",
+                "C. By measuring staff at client locations",
+                "D. By offering refunds to clients"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/86-88_audio.2bbe2cd7.mp3",
+              "image_url": "",
+              "correct_answer": "C"
+            },
+            {
+              "qid": "323354",
+              "qnum": "88",
+              "text": "What does the speaker ask the listeners to do?",
+              "options": [
+                "A. Enter measurement data into the system",
+                "B. Attend a training session",
+                "C. Call clients directly",
+                "D. Schedule additional site visits"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/86-88_audio.2bbe2cd7.mp3",
+              "image_url": "",
+              "correct_answer": "A"
+            }
+          ]
+        },
+        {
+          "group_index": 7,
+          "passage": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/89-91_audio.cdce09e4.mp3",
+          "images": [],
+          "questions": [
+            {
+              "qid": "323355",
+              "qnum": "89",
+              "text": "Why does the group have to wait outside?",
+              "options": [
+                "A. A visitor has not arrived yet.",
+                "B. The tour is running late.",
+                "C. A room is still being prepared.",
+                "D. The smaller rooms are being cleaned."
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/89-91_audio.cdce09e4.mp3",
+              "image_url": "",
+              "correct_answer": "C"
+            },
+            {
+              "qid": "323356",
+              "qnum": "90",
+              "text": "According to the speaker, why do clients favor the Whitmore Hall?",
+              "options": [
+                "A. It was recently renovated.",
+                "B. Its size can be adjusted.",
+                "C. It overlooks a garden.",
+                "D. It includes catering service."
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/89-91_audio.cdce09e4.mp3",
+              "image_url": "",
+              "correct_answer": "B"
+            },
+            {
+              "qid": "323357",
+              "qnum": "91",
+              "text": "What will the visitors most likely do next?",
+              "options": [
+                "A. Ask about menu choices.",
+                "B. Walk into the main hall.",
+                "C. Pick up their belongings.",
+                "D. Tour the smaller rooms."
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/89-91_audio.cdce09e4.mp3",
+              "image_url": "",
+              "correct_answer": "B"
+            }
+          ]
+        },
+        {
+          "group_index": 8,
+          "passage": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/92-94_audio.d0669a9d.mp3",
+          "images": [],
+          "questions": [
+            {
+              "qid": "323358",
+              "qnum": "92",
+              "text": "What does the speaker say happened last weekend?",
+              "options": [
+                "A. A new office opened.",
+                "B. Guided tours were given.",
+                "C. Membership increased sharply.",
+                "D. The schedule was rearranged."
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/92-94_audio.d0669a9d.mp3",
+              "image_url": "",
+              "correct_answer": "C"
+            },
+            {
+              "qid": "323359",
+              "qnum": "93",
+              "text": "Look at the graphic. Which room will the speaker go to next?",
+              "options": [
+                "A. Room 6",
+                "B. The Atrium",
+                "C. Studio C",
+                "D. The Gallery"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/92-94_audio.d0669a9d.mp3",
+              "image_url": "",
+              "correct_answer": "B"
+            },
+            {
+              "qid": "323360",
+              "qnum": "94",
+              "text": "According to the speaker, what will Roy do?",
+              "options": [
+                "A. Set up equipment.",
+                "B. Give new members a tour.",
+                "C. Record room requests.",
+                "D. Hand out packets."
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/92-94_audio.d0669a9d.mp3",
+              "image_url": "",
+              "correct_answer": "B"
+            }
+          ]
+        },
+        {
+          "group_index": 9,
+          "passage": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/95-97_audio.2e44cc5a.mp3",
+          "images": [],
+          "questions": [
+            {
+              "qid": "323361",
+              "qnum": "95",
+              "text": "What type of business does the speaker work for?",
+              "options": [
+                "A. A sporting goods manufacturer",
+                "B. A catering company",
+                "C. A construction firm",
+                "D. A property management company"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/95-97_audio.2e44cc5a.mp3",
+              "image_url": "",
+              "correct_answer": "A"
+            },
+            {
+              "qid": "323362",
+              "qnum": "96",
+              "text": "Look at the graphic. Where will the new staff café be located?",
+              "options": [
+                "A. Cobalt Building",
+                "B. Sable Building",
+                "C. Flint Building",
+                "D. Garnet Building"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/95-97_audio.2e44cc5a.mp3",
+              "image_url": "",
+              "correct_answer": "B"
+            },
+            {
+              "qid": "323363",
+              "qnum": "97",
+              "text": "What does the speaker want to discuss next?",
+              "options": [
+                "A. The construction timeline",
+                "B. The building layout",
+                "C. The menu selections",
+                "D. The hiring plans"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/95-97_audio.2e44cc5a.mp3",
+              "image_url": "",
+              "correct_answer": "C"
+            }
+          ]
+        },
+        {
+          "group_index": 10,
+          "passage": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/98-100_audio.07e9a2d1.mp3",
+          "images": [],
+          "questions": [
+            {
+              "qid": "323364",
+              "qnum": "98",
+              "text": "What is the speaker concerned about?",
+              "options": [
+                "A. An unpaid fee",
+                "B. A scheduling conflict",
+                "C. An undersized space",
+                "D. Incomplete paperwork"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/98-100_audio.07e9a2d1.mp3",
+              "image_url": "",
+              "correct_answer": "C"
+            },
+            {
+              "qid": "323365",
+              "qnum": "99",
+              "text": "Look at the graphic. Which booth does the speaker recommend?",
+              "options": [
+                "A. Booth 3",
+                "B. Booth 4",
+                "C. Booth 5",
+                "D. Booth 6"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/98-100_audio.07e9a2d1.mp3",
+              "image_url": "",
+              "correct_answer": "D"
+            },
+            {
+              "qid": "323366",
+              "qnum": "100",
+              "text": "What does the speaker ask the listener to do?",
+              "options": [
+                "A. Confirm a booking",
+                "B. Send an equipment list",
+                "C. Tour the hall",
+                "D. Return a call"
+              ],
+              "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/98-100_audio.07e9a2d1.mp3",
+              "image_url": "",
+              "correct_answer": "B"
+            }
+          ]
+        }
+      ],
       "questions": [
         {
           "qid": "323337",
@@ -1013,7 +2165,7 @@
             "C. Located a missing item",
             "D. Filed a lost-item report"
           ],
-          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/74-76_audio.0abe4194.mp3",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/71-73_audio.2a7ebd34.mp3",
           "image_url": "",
           "correct_answer": "A"
         },
@@ -1027,7 +2179,7 @@
             "C. Arrange a personal pickup",
             "D. Ship an item free of charge"
           ],
-          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/77-79_audio.2fcadbed.mp3",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/71-73_audio.2a7ebd34.mp3",
           "image_url": "",
           "correct_answer": "D"
         },
@@ -1041,7 +2193,7 @@
             "C. At a radio station",
             "D. At a theater"
           ],
-          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/80-82_audio.3128d5a8.mp3",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/74-76_audio.0abe4194.mp3",
           "image_url": "",
           "correct_answer": "C"
         },
@@ -1055,7 +2207,7 @@
             "C. She published a book.",
             "D. She donated some photographs."
           ],
-          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/83-85_audio.58130a2b.mp3",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/74-76_audio.0abe4194.mp3",
           "image_url": "",
           "correct_answer": "C"
         },
@@ -1069,7 +2221,7 @@
             "C. Purchase a book",
             "D. Make a voice recording"
           ],
-          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/86-88_audio.2bbe2cd7.mp3",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/74-76_audio.0abe4194.mp3",
           "image_url": "",
           "correct_answer": "D"
         },
@@ -1083,7 +2235,7 @@
             "C. At an airline company",
             "D. At a travel company"
           ],
-          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/89-91_audio.cdce09e4.mp3",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/77-79_audio.2fcadbed.mp3",
           "image_url": "",
           "correct_answer": "B"
         },
@@ -1097,7 +2249,7 @@
             "C. A project may fall behind schedule.",
             "D. Passengers may ask operators for help."
           ],
-          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/92-94_audio.d0669a9d.mp3",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/77-79_audio.2fcadbed.mp3",
           "image_url": "",
           "correct_answer": "D"
         },
@@ -1111,7 +2263,7 @@
             "C. Collect the arrival notes",
             "D. Inspect the road repairs"
           ],
-          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/95-97_audio.2e44cc5a.mp3",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/77-79_audio.2fcadbed.mp3",
           "image_url": "",
           "correct_answer": "B"
         },
@@ -1125,7 +2277,7 @@
             "C. At a public library",
             "D. At a corporate HR department"
           ],
-          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/98-100_audio.07e9a2d1.mp3",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/80-82_audio.3128d5a8.mp3",
           "image_url": "",
           "correct_answer": "A"
         },
@@ -1139,7 +2291,7 @@
             "C. To announce a schedule change",
             "D. To request a missing form"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/80-82_audio.3128d5a8.mp3",
           "image_url": "",
           "correct_answer": "A"
         },
@@ -1153,7 +2305,7 @@
             "C. An enrolled student canceled.",
             "D. The evening schedule was revised."
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/80-82_audio.3128d5a8.mp3",
           "image_url": "",
           "correct_answer": "C"
         },
@@ -1167,7 +2319,7 @@
             "C. It is free for small businesses.",
             "D. It has no minimum order requirement."
           ],
-          "audio_url": "",
+          "audio_url": "https://storage.googleapis.com/estudyme/dev/2022/06/27/32703867.mp3",
           "image_url": "",
           "correct_answer": "D"
         },
@@ -1181,7 +2333,7 @@
             "C. A sales team member.",
             "D. A store manager."
           ],
-          "audio_url": "",
+          "audio_url": "https://storage.googleapis.com/estudyme/dev/2022/06/27/32703867.mp3",
           "image_url": "",
           "correct_answer": "A"
         },
@@ -1195,7 +2347,7 @@
             "C. A free first delivery.",
             "D. A box of pens."
           ],
-          "audio_url": "",
+          "audio_url": "https://storage.googleapis.com/estudyme/dev/2022/06/27/32703867.mp3",
           "image_url": "",
           "correct_answer": "A"
         },
@@ -1209,7 +2361,7 @@
             "C. Printing services",
             "D. Work clothing"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/86-88_audio.2bbe2cd7.mp3",
           "image_url": "",
           "correct_answer": "D"
         },
@@ -1223,7 +2375,7 @@
             "C. By measuring staff at client locations",
             "D. By offering refunds to clients"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/86-88_audio.2bbe2cd7.mp3",
           "image_url": "",
           "correct_answer": "C"
         },
@@ -1237,7 +2389,7 @@
             "C. Call clients directly",
             "D. Schedule additional site visits"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/86-88_audio.2bbe2cd7.mp3",
           "image_url": "",
           "correct_answer": "A"
         },
@@ -1251,7 +2403,7 @@
             "C. A room is still being prepared.",
             "D. The smaller rooms are being cleaned."
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/89-91_audio.cdce09e4.mp3",
           "image_url": "",
           "correct_answer": "C"
         },
@@ -1265,7 +2417,7 @@
             "C. It overlooks a garden.",
             "D. It includes catering service."
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/89-91_audio.cdce09e4.mp3",
           "image_url": "",
           "correct_answer": "B"
         },
@@ -1279,7 +2431,7 @@
             "C. Pick up their belongings.",
             "D. Tour the smaller rooms."
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/89-91_audio.cdce09e4.mp3",
           "image_url": "",
           "correct_answer": "B"
         },
@@ -1293,7 +2445,7 @@
             "C. Membership increased sharply.",
             "D. The schedule was rearranged."
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/92-94_audio.d0669a9d.mp3",
           "image_url": "",
           "correct_answer": "C"
         },
@@ -1307,7 +2459,7 @@
             "C. Studio C",
             "D. The Gallery"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/92-94_audio.d0669a9d.mp3",
           "image_url": "",
           "correct_answer": "B"
         },
@@ -1321,7 +2473,7 @@
             "C. Record room requests.",
             "D. Hand out packets."
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/92-94_audio.d0669a9d.mp3",
           "image_url": "",
           "correct_answer": "B"
         },
@@ -1335,7 +2487,7 @@
             "C. A construction firm",
             "D. A property management company"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/95-97_audio.2e44cc5a.mp3",
           "image_url": "",
           "correct_answer": "A"
         },
@@ -1349,7 +2501,7 @@
             "C. Flint Building",
             "D. Garnet Building"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/95-97_audio.2e44cc5a.mp3",
           "image_url": "",
           "correct_answer": "B"
         },
@@ -1363,7 +2515,7 @@
             "C. The menu selections",
             "D. The hiring plans"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/95-97_audio.2e44cc5a.mp3",
           "image_url": "",
           "correct_answer": "C"
         },
@@ -1377,7 +2529,7 @@
             "C. An undersized space",
             "D. Incomplete paperwork"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/98-100_audio.07e9a2d1.mp3",
           "image_url": "",
           "correct_answer": "C"
         },
@@ -1391,7 +2543,7 @@
             "C. Booth 5",
             "D. Booth 6"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/98-100_audio.07e9a2d1.mp3",
           "image_url": "",
           "correct_answer": "D"
         },
@@ -1405,7 +2557,7 @@
             "C. Tour the hall",
             "D. Return a call"
           ],
-          "audio_url": "",
+          "audio_url": "https://s4-media1.study4.com/media/new_toeic_tests/new_toeic_updated_2/toeic-lr-collection-2-test-1/audios/98-100_audio.07e9a2d1.mp3",
           "image_url": "",
           "correct_answer": "B"
         }

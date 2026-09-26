@@ -21,6 +21,7 @@ import type {
   ToeicOptionKey,
   ToeicExamMode,
   ToeicClientQuestion,
+  ToeicClientQuestionCluster,
 } from '@/types/toeic';
 import { ToeicAudioPlayer } from './ToeicAudioPlayer';
 import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
@@ -115,20 +116,23 @@ export function cleanOptionText(text?: string, optionKey?: string): string {
   return cleaned.trim();
 }
 
-interface ToeicSplitPaneProps {
+export interface ToeicSplitPaneProps {
   question: ToeicClientQuestion;
+  cluster?: ToeicClientQuestionCluster | null;
   mode?: ToeicExamMode;
   selectedOption?: ToeicOptionKey;
+  answers?: Record<number, ToeicOptionKey>;
   isFlagged?: boolean;
-  onSelectOption: (option: ToeicOptionKey) => void;
-  onToggleFlag: () => void;
+  flagged?: Set<number>;
+  onSelectOption: (option: ToeicOptionKey, questionNumber?: number) => void;
+  onToggleFlag: (questionNumber?: number) => void;
   onNext: () => void;
   onPrev: () => void;
   hasPrev: boolean;
   hasNext: boolean;
   totalQuestions: number;
   showExplanation?: boolean;
-  onToggleExplanation?: () => void;
+  onToggleExplanation?: (questionNumber?: number) => void;
   onEnablePracticeMode?: () => void;
   onOpenPalette?: () => void;
   paletteStats?: { answered: number; total: number };
@@ -137,9 +141,12 @@ interface ToeicSplitPaneProps {
 
 export function ToeicSplitPane({
   question,
+  cluster,
   mode = 'real',
   selectedOption,
+  answers,
   isFlagged = false,
+  flagged,
   onSelectOption,
   onToggleFlag,
   onNext,
@@ -158,6 +165,23 @@ export function ToeicSplitPane({
   const isAnswerRevealed = !isExamMode && (showExplanation || Boolean(selectedOption));
   const [isImageZoomed, setIsImageZoomed] = useState<boolean>(false);
 
+  const isClusterView = Boolean(
+    cluster &&
+    (cluster.part === 3 || cluster.part === 4) &&
+    cluster.questions &&
+    cluster.questions.length > 0
+  );
+  const clusterQuestions: ToeicClientQuestion[] =
+    isClusterView && cluster ? cluster.questions : [question];
+
+  const isScannedFormat = Boolean(
+    isClusterView &&
+    cluster &&
+    (cluster.clusterType === 'scanned_image' ||
+      (Boolean(cluster.imageUrl) &&
+        clusterQuestions.every((q) => !q.prompt || q.prompt.trim() === '')))
+  );
+
   // Keyboard shortcut listener: A/B/C/D to answer, Arrows to navigate, F to flag
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -175,10 +199,10 @@ export function ToeicSplitPane({
       const key = e.key.toUpperCase();
 
       if (key === 'A' || key === 'B' || key === 'C' || key === 'D') {
-        const matchingOption = question.options.find((opt) => opt.key === key);
+        const matchingOption = question.options?.find((opt) => opt.key === key) || ['A', 'B', 'C', 'D'].includes(key);
         if (matchingOption) {
           e.preventDefault();
-          onSelectOption(key as ToeicOptionKey);
+          onSelectOption(key as ToeicOptionKey, question.questionNumber);
         }
       } else if (e.key === 'ArrowRight' && hasNext) {
         e.preventDefault();
@@ -188,13 +212,13 @@ export function ToeicSplitPane({
         onPrev();
       } else if (key === 'F') {
         e.preventDefault();
-        onToggleFlag();
+        onToggleFlag(question.questionNumber);
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [hasNext, hasPrev, onNext, onPrev, onSelectOption, onToggleFlag, question.options]);
+  }, [hasNext, hasPrev, onNext, onPrev, onSelectOption, onToggleFlag, question.options, question.questionNumber]);
 
   const isReadingPart = question.part === 6 || question.part === 7;
   const hasReadingPassageText = Boolean(isReadingPart && question.passage);
@@ -286,16 +310,29 @@ export function ToeicSplitPane({
         >
           {/* Scrollable Stimulus Body */}
           <div className="flex-1 overflow-y-auto p-3 sm:p-5 space-y-3 sm:space-y-4 scrollbar-thin">
-            {/* 1. Audio Player for Listening Parts 1-4 */}
-            {question.section === 'listening' && question.audioUrl && (
-              <div className="sticky top-0 z-10 pb-1">
+            {/* 1. Audio Player: Persistent for cluster in Part 3 & 4, or single question in Part 1 & 2 */}
+            {isClusterView && cluster ? (
+              <div className="sticky top-0 z-20 pb-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs">
                 <ToeicAudioPlayer
-                  src={question.audioUrl}
-                  title={`Part ${question.part} Audio (Câu ${question.questionNumber})`}
+                  key={cluster.clusterId}
+                  src={cluster.audioUrl}
+                  title={`Part ${cluster.part}: Hội thoại câu ${cluster.startQuestionNumber} – ${cluster.endQuestionNumber}`}
                   mode={mode}
                   autoPlayInExamMode={true}
                 />
               </div>
+            ) : (
+              question.section === 'listening' && question.audioUrl && (
+                <div className="sticky top-0 z-10 pb-1">
+                  <ToeicAudioPlayer
+                    key={`single-audio-${question.id}`}
+                    src={question.audioUrl}
+                    title={`Part ${question.part} Audio (Câu ${question.questionNumber})`}
+                    mode={mode}
+                    autoPlayInExamMode={true}
+                  />
+                </div>
+              )
             )}
 
             {/* 2. Part 1 Photograph — Edge-to-edge scaling with overlay Next button */}
@@ -343,8 +380,63 @@ export function ToeicSplitPane({
               </div>
             )}
 
-            {/* 4. Part 3 & 4 Graphic / Additional Image — Edge-to-edge scaling with overlay Next button */}
-            {(question.part === 3 || question.part === 4) && question.imageUrl && (
+            {/* 4. Part 3 & 4 Cluster Stimulus: Graphic Image / Scanned Booklet Crop / Directions */}
+            {isClusterView && cluster && cluster.imageUrl && (
+              <div className="space-y-2">
+                <div className="relative group overflow-hidden rounded-sm border border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950/40 p-2 sm:p-3 shadow-2xs">
+                  <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-2 mb-2.5">
+                    <span className="font-mono text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+                      <FileText className="h-3.5 w-3.5 text-indigo-600 dark:text-indigo-400" />
+                      {isScannedFormat
+                        ? `Đề thi quét gốc ETS (Câu ${cluster.startQuestionNumber} – ${cluster.endQuestionNumber})`
+                        : `Hình ảnh / Biểu đồ bổ trợ (Câu ${cluster.startQuestionNumber} – ${cluster.endQuestionNumber})`}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => setIsImageZoomed(true)}
+                      className="flex items-center gap-1 font-mono text-xs text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100 transition px-2.5 py-1 rounded-sm border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 cursor-pointer shadow-2xs font-semibold"
+                      title="Phóng to hình ảnh"
+                    >
+                      <Maximize2 className="h-3.5 w-3.5" />
+                      <span>Phóng to</span>
+                    </button>
+                  </div>
+
+                  <div
+                    className="relative w-full overflow-hidden flex justify-center cursor-zoom-in group/img"
+                    onClick={() => setIsImageZoomed(true)}
+                    title="Nhấp để phóng to toàn màn hình"
+                  >
+                    <img
+                      src={cluster.imageUrl}
+                      alt={`Tài liệu đề thi Part ${cluster.part} (Câu ${cluster.startQuestionNumber} – ${cluster.endQuestionNumber})`}
+                      className="w-full h-auto object-contain rounded-xs select-none max-h-[75vh] lg:max-h-none transition-transform duration-200 group-hover/img:scale-[1.005]"
+                      loading="eager"
+                    />
+                  </div>
+
+                  <div className="mt-2.5 pt-2 border-t border-dashed border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400 select-none">
+                    <span>🔍 Nhấp vào hình ảnh để phóng to toàn màn hình</span>
+                    <span>ETS Part {cluster.part}</span>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {isClusterView && cluster && !cluster.imageUrl && (
+              <div className="hidden lg:block rounded-sm border border-slate-200 bg-slate-50/70 p-4 text-center dark:border-slate-800 dark:bg-slate-900/40">
+                <p className="font-mono text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
+                  Directions for Part {cluster.part} (Questions {cluster.startQuestionNumber}–{cluster.endQuestionNumber})
+                </p>
+                <p className="mt-2 text-xs leading-relaxed text-slate-600 dark:text-slate-400 max-w-md mx-auto">
+                  {cluster.part === 3
+                    ? 'You will hear conversations between two or more people. You are asked to answer three questions about what the speakers say in each conversation. Select the best response to each question.'
+                    : 'You will hear talks given by a single speaker. You are asked to answer three questions about what the speaker says in each talk. Select the best response to each question.'}
+                </p>
+              </div>
+            )}
+
+            {!isClusterView && (question.part === 3 || question.part === 4) && question.imageUrl && (
               <div className="relative group overflow-hidden -mx-3 sm:mx-0 rounded-none sm:rounded-sm border-y sm:border border-slate-200 bg-slate-900/5 p-0 shadow-none dark:border-slate-800 dark:bg-slate-950/40">
                 <div className="relative w-full aspect-[4/3] xs:aspect-[16/10] sm:aspect-auto sm:h-72 md:h-80">
                   <Image
@@ -471,7 +563,298 @@ export function ToeicSplitPane({
               : 'flex flex-col flex-1'
           } lg:col-span-6 xl:col-span-5 lg:h-full overflow-hidden bg-white dark:bg-slate-900`}
         >
-          {/* Question Header: Number & Flag Button */}
+          {isClusterView && cluster ? (
+            /* ══════════════════════════════════════════════════════════════════
+               ETS Standardized Exam: Simultaneous 3-Question Cluster Rendering
+               ══════════════════════════════════════════════════════════════════ */
+            <>
+              {/* Cluster Header */}
+              <div className="shrink-0 flex items-center justify-between border-b border-slate-200 px-3 py-1.5 sm:px-4 sm:py-2 bg-slate-50 dark:border-slate-800 dark:bg-slate-900">
+                <div className="flex items-center gap-1.5 font-mono tabular-nums">
+                  <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
+                    Hội thoại câu [{cluster.startQuestionNumber} – {cluster.endQuestionNumber}]
+                  </span>
+                  <span className="text-[11px] sm:text-xs text-slate-500">/ {totalQuestions}</span>
+                </div>
+
+                {/* Question progress pills */}
+                <div className="flex items-center gap-1 font-mono text-xs">
+                  {clusterQuestions.map((q) => {
+                    const isAns = Boolean(
+                      answers?.[q.questionNumber] ??
+                        (q.questionNumber === question.questionNumber ? selectedOption : undefined)
+                    );
+                    const isCurrentFocus = q.questionNumber === question.questionNumber;
+                    return (
+                      <span
+                        key={q.questionNumber}
+                        className={`px-1.5 py-0.5 rounded-xs text-[11px] font-bold border transition ${
+                          isAns
+                            ? 'bg-slate-900 text-white border-slate-900 dark:bg-slate-100 dark:text-slate-900'
+                            : isCurrentFocus
+                            ? 'border-blue-500 text-blue-600 dark:text-blue-400 bg-blue-50/50 dark:bg-blue-950/40'
+                            : 'border-slate-200 text-slate-500 bg-white dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400'
+                        }`}
+                      >
+                        {q.questionNumber}: {isAns ? '✓' : '○'}
+                      </span>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Scrollable 3-Question Stack */}
+              <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3.5 scrollbar-thin">
+                {clusterQuestions.map((childQ) => {
+                  const qNum = childQ.questionNumber;
+                  const childSelected =
+                    answers?.[qNum] ??
+                    (qNum === question.questionNumber ? selectedOption : undefined);
+                  const childIsFlagged =
+                    flagged?.has(qNum) ??
+                    (qNum === question.questionNumber ? isFlagged : false);
+                  const childIsAnswered = Boolean(childSelected);
+                  const childReveal = !isExamMode && (showExplanation || childIsAnswered);
+                  const isFocused = qNum === question.questionNumber;
+
+                  return (
+                    <article
+                      key={childQ.id || qNum}
+                      id={`toeic-question-${qNum}`}
+                      className={`rounded-sm border transition-all p-3 sm:p-3.5 space-y-3 ${
+                        isFocused
+                          ? 'border-blue-400 bg-white ring-1 ring-blue-500/20 dark:border-blue-600 dark:bg-slate-900/90'
+                          : 'border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900/60'
+                      }`}
+                    >
+                      {/* Question Card Header */}
+                      <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-2">
+                        <div className="flex items-center gap-2 font-mono text-xs">
+                          <span className="font-bold text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-xs">
+                            Câu [{String(qNum).padStart(3, '0')}]
+                          </span>
+                          {childSelected ? (
+                            <span className="text-emerald-700 dark:text-emerald-400 font-semibold text-[11px]">
+                              Đã chọn: ({childSelected})
+                            </span>
+                          ) : (
+                            <span className="text-slate-400 dark:text-slate-500 text-[11px]">
+                              Chưa chọn
+                            </span>
+                          )}
+                        </div>
+
+                        <button
+                          type="button"
+                          onClick={() => onToggleFlag(qNum)}
+                          className={`inline-flex items-center gap-1 rounded-xs px-2 py-0.5 font-mono text-[11px] font-medium transition cursor-pointer select-none border ${
+                            childIsFlagged
+                              ? 'bg-amber-500 text-white border-amber-600'
+                              : 'border-slate-200 dark:border-slate-700 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
+                          }`}
+                          title="Gắn cờ câu hỏi này"
+                        >
+                          <Flag className={`h-3 w-3 ${childIsFlagged ? 'fill-white text-white' : ''}`} />
+                          <span>{childIsFlagged ? 'Đã cờ' : 'Cờ'}</span>
+                        </button>
+                      </div>
+
+                      {/* Question Content & Options */}
+                      {isScannedFormat ? (
+                        /* Format B: Scanned Booklet Image format (compact button row) */
+                        <div className="space-y-2">
+                          <p className="font-mono text-xs text-slate-500 dark:text-slate-400">
+                            Quan sát tài liệu đề thi bên trái và chọn đáp án:
+                          </p>
+                          <div
+                            className="grid grid-cols-4 gap-2 sm:gap-2.5"
+                            role="radiogroup"
+                            aria-label={`Đáp án câu ${qNum}`}
+                          >
+                            {(['A', 'B', 'C', 'D'] as ToeicOptionKey[]).map((key) => {
+                              const isSelected = childSelected === key;
+                              const isCorrect = childReveal && childQ.correctAnswer === key;
+                              const isWrong =
+                                childReveal && isSelected && childQ.correctAnswer !== key;
+
+                              return (
+                                <button
+                                  key={key}
+                                  type="button"
+                                  onClick={() => onSelectOption(key, qNum)}
+                                  className={`group relative flex flex-col items-center justify-center p-2.5 sm:p-3 rounded-sm border transition cursor-pointer select-none min-h-[46px] ${
+                                    isCorrect
+                                      ? 'border-emerald-500 bg-emerald-50 text-emerald-950 dark:border-emerald-600 dark:bg-emerald-950/50 dark:text-emerald-100 font-bold shadow-xs'
+                                      : isWrong
+                                      ? 'border-rose-500 bg-rose-50 text-rose-950 dark:border-rose-600 dark:bg-rose-950/50 dark:text-rose-100 font-bold shadow-xs'
+                                      : isSelected
+                                      ? 'border-slate-900 bg-slate-900 text-white dark:border-slate-100 dark:bg-slate-100 dark:text-slate-900 font-bold shadow-xs scale-[1.02]'
+                                      : 'border-slate-200 bg-white text-slate-800 hover:border-slate-400 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-600 font-medium'
+                                  }`}
+                                >
+                                  <span className="font-mono text-sm sm:text-base font-black tracking-tight">
+                                    [ {key} ]
+                                  </span>
+                                  {isCorrect && (
+                                    <span className="mt-0.5 font-mono text-[10px] font-bold text-emerald-700 dark:text-emerald-400 flex items-center gap-0.5">
+                                      <CheckCircle2 className="h-2.5 w-2.5" /> Đúng
+                                    </span>
+                                  )}
+                                  {isWrong && (
+                                    <span className="mt-0.5 font-mono text-[10px] font-bold text-rose-700 dark:text-rose-400 flex items-center gap-0.5">
+                                      <XCircle className="h-2.5 w-2.5" /> Sai
+                                    </span>
+                                  )}
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      ) : (
+                        /* Format A: Text Questions (Study4 / Estudyme) */
+                        <div className="space-y-2.5">
+                          {childQ.prompt && (
+                            <p className="text-sm font-medium text-slate-900 dark:text-slate-100 leading-relaxed break-words">
+                              <ExamInteractiveText
+                                text={cleanQuestionPrompt(childQ.prompt)}
+                                enabled={childReveal}
+                              />
+                            </p>
+                          )}
+
+                          <div
+                            className="grid grid-cols-1 gap-2"
+                            role="radiogroup"
+                            aria-label={`Lựa chọn câu ${qNum}`}
+                          >
+                            {childQ.options.map((opt) => {
+                              const isSelected = childSelected === opt.key;
+                              const isCorrect = childReveal && childQ.correctAnswer === opt.key;
+                              const isWrong =
+                                childReveal && isSelected && childQ.correctAnswer !== opt.key;
+
+                              return (
+                                <button
+                                  key={opt.key}
+                                  type="button"
+                                  onClick={(e) => {
+                                    const target = e.target as HTMLElement | null;
+                                    if (
+                                      target?.closest?.('.exam-lookup-trigger') ||
+                                      target?.closest?.('.exam-lookup-card')
+                                    ) {
+                                      return;
+                                    }
+                                    onSelectOption(opt.key, qNum);
+                                  }}
+                                  className={`group relative flex w-full items-start gap-2.5 rounded-sm border p-2.5 text-left text-xs sm:text-sm transition-colors cursor-pointer ${
+                                    childReveal ? 'select-text' : 'select-none'
+                                  } min-h-[42px] ${
+                                    isCorrect
+                                      ? 'border-emerald-500 bg-emerald-50/60 text-emerald-950 dark:border-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-100 font-medium'
+                                      : isWrong
+                                      ? 'border-rose-500 bg-rose-50/60 text-rose-950 dark:border-rose-600 dark:bg-rose-950/40 dark:text-rose-100 font-medium'
+                                      : isSelected
+                                      ? 'border-slate-900 bg-slate-900 text-white dark:border-slate-100 dark:bg-slate-100 dark:text-slate-900 font-bold'
+                                      : 'border-slate-200 bg-white text-slate-800 hover:border-slate-400 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-600 font-normal'
+                                  }`}
+                                >
+                                  <span
+                                    className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-xs font-mono text-xs font-bold border mt-0.5 ${
+                                      isCorrect
+                                        ? 'border-emerald-600 bg-emerald-600 text-white'
+                                        : isWrong
+                                        ? 'border-rose-600 bg-rose-600 text-white'
+                                        : isSelected
+                                        ? 'border-white bg-white text-slate-900 dark:border-slate-900 dark:bg-slate-900 dark:text-white'
+                                        : 'border-slate-300 bg-slate-100 text-slate-700 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-300'
+                                    }`}
+                                  >
+                                    {opt.key}
+                                  </span>
+
+                                  <span className="flex-1 leading-snug break-words">
+                                    <ExamInteractiveText
+                                      text={cleanOptionText(opt.text, opt.key)}
+                                      enabled={childReveal}
+                                    />
+                                  </span>
+
+                                  {isCorrect && (
+                                    <span className="inline-flex items-center gap-1 font-mono text-xs font-bold text-emerald-700 dark:text-emerald-400 shrink-0">
+                                      <CheckCircle2 className="h-3.5 w-3.5" />
+                                      <span className="hidden sm:inline">Đúng</span>
+                                    </span>
+                                  )}
+                                  {isWrong && (
+                                    <span className="inline-flex items-center gap-1 font-mono text-xs font-bold text-rose-700 dark:text-rose-400 shrink-0">
+                                      <XCircle className="h-3.5 w-3.5" />
+                                      <span className="hidden sm:inline">Sai</span>
+                                    </span>
+                                  )}
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Practice Mode: Accordion Explanation */}
+                      {!isExamMode && childIsAnswered && (
+                        <div className="pt-1 border-t border-slate-100 dark:border-slate-800">
+                          <details className="group/exp">
+                            <summary className="font-mono text-xs font-bold text-amber-800 dark:text-amber-300 cursor-pointer list-none flex items-center justify-between p-1.5 rounded-xs hover:bg-amber-50 dark:hover:bg-amber-950/40">
+                              <span className="flex items-center gap-1.5">
+                                <span>💡</span>
+                                <span>Xem giải thích & bản dịch câu {qNum}</span>
+                              </span>
+                              <span className="group-open/exp:rotate-180 transition-transform text-slate-400">▼</span>
+                            </summary>
+                            <div className="mt-2 p-3 rounded-xs border border-amber-200 bg-amber-50/60 dark:border-amber-900/60 dark:bg-slate-950/80 text-xs space-y-2">
+                              {childQ.correctAnswer && (
+                                <p className="font-mono font-bold text-emerald-700 dark:text-emerald-400">
+                                  Đáp án đúng: ({childQ.correctAnswer})
+                                </p>
+                              )}
+                              {childQ.explanationVi ? (
+                                <div className="space-y-1">
+                                  <p className="font-mono font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider text-[11px]">
+                                    Phân tích ngữ pháp & bản dịch:
+                                  </p>
+                                  <p className="whitespace-pre-line leading-relaxed text-slate-700 dark:text-slate-300 pl-2 border-l-2 border-amber-400">
+                                    {stripHtmlTags(childQ.explanationVi)}
+                                  </p>
+                                </div>
+                              ) : (
+                                <p className="text-slate-500 font-mono text-[11px]">
+                                  Đang nạp giải thích chi tiết...
+                                </p>
+                              )}
+                              {(childQ.transcript || cluster.transcript) && (
+                                <div className="pt-2 border-t border-amber-200/60 dark:border-amber-900/60 space-y-1">
+                                  <p className="font-mono font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider text-[11px]">
+                                    🎧 Lời thoại đoạn nghe (Transcript):
+                                  </p>
+                                  <div className="whitespace-pre-line leading-relaxed text-slate-700 dark:text-slate-300 font-sans pl-2 border-l-2 border-blue-400">
+                                    <ExamInteractiveText
+                                      text={stripHtmlTags(childQ.transcript || cluster.transcript || '')}
+                                      enabled={true}
+                                    />
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          </details>
+                        </div>
+                      )}
+                    </article>
+                  );
+                })}
+              </div>
+            </>
+          ) : (
+            <>
+              {/* Question Header: Number & Flag Button */}
           <div className="shrink-0 flex items-center justify-between border-b border-slate-200 px-3 py-1.5 sm:px-4 sm:py-2 bg-slate-50 dark:border-slate-800 dark:bg-slate-900">
             <div className="flex items-center gap-1.5 font-mono tabular-nums">
               <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
@@ -484,7 +867,7 @@ export function ToeicSplitPane({
               {/* Flag / Bookmark Button */}
               <button
                 type="button"
-                onClick={onToggleFlag}
+                onClick={() => onToggleFlag(question.questionNumber)}
                 className={`inline-flex items-center gap-1.5 rounded-sm px-2 py-1 font-mono text-xs font-medium transition cursor-pointer select-none border ${
                   isFlagged
                     ? 'bg-amber-500 text-white border-amber-600'
@@ -538,7 +921,7 @@ export function ToeicSplitPane({
                 {onToggleExplanation && (
                   <button
                     type="button"
-                    onClick={onToggleExplanation}
+                    onClick={() => onToggleExplanation(question.questionNumber)}
                     className="font-mono text-[11px] font-bold text-amber-800 hover:text-amber-950 dark:text-amber-300 underline cursor-pointer shrink-0 ml-2"
                   >
                     Xem trước
@@ -711,7 +1094,7 @@ export function ToeicSplitPane({
               <div className="pt-2">
                 <button
                   type="button"
-                  onClick={onToggleExplanation}
+                  onClick={() => onToggleExplanation(question.questionNumber)}
                   className={`inline-flex items-center justify-between w-full rounded-sm border px-3.5 py-2 font-mono text-xs font-bold transition cursor-pointer shadow-2xs ${
                     showExplanation || selectedOption
                       ? 'border-amber-400 bg-amber-50 text-amber-950 dark:border-amber-700 dark:bg-amber-950/50 dark:text-amber-100'
@@ -798,7 +1181,9 @@ export function ToeicSplitPane({
               </div>
             )}
           </div>
-        </section>
+        </>
+      )}
+    </section>
       </div>
 
       {/* Fixed Navigation Footer (Prev / Next / Palette) */}
@@ -810,17 +1195,23 @@ export function ToeicSplitPane({
           className={`inline-flex items-center gap-1 rounded-sm border border-slate-300 bg-white px-2.5 sm:px-3 py-1.5 font-mono text-xs font-medium text-slate-700 shadow-2xs transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 cursor-pointer ${
             !hasPrev ? 'opacity-40 cursor-not-allowed' : ''
           }`}
-          title="Câu trước (Phím tắt: ←)"
+          title={isClusterView ? 'Cụm trước (Phím tắt: ←)' : 'Câu trước (Phím tắt: ←)'}
         >
           <ChevronLeft className="h-3.5 w-3.5" />
-          <span className="hidden sm:inline">Câu trước</span>
+          <span className="hidden sm:inline">{isClusterView ? 'Cụm trước' : 'Câu trước'}</span>
           <span className="sm:hidden">Trước</span>
         </button>
 
         <div className="flex items-center gap-2">
-          <span className="hidden sm:inline font-mono tabular-nums text-xs font-medium text-slate-600 dark:text-slate-400">
-            {selectedOption ? `Đã chọn: (${selectedOption})` : 'Chưa chọn'}
-          </span>
+          {isClusterView && cluster ? (
+            <span className="hidden sm:inline font-mono tabular-nums text-xs font-medium text-slate-600 dark:text-slate-400">
+              Đã làm: {clusterQuestions.filter((q) => Boolean(answers?.[q.questionNumber])).length}/3
+            </span>
+          ) : (
+            <span className="hidden sm:inline font-mono tabular-nums text-xs font-medium text-slate-600 dark:text-slate-400">
+              {selectedOption ? `Đã chọn: (${selectedOption})` : 'Chưa chọn'}
+            </span>
+          )}
           {onOpenPalette && (
             <button
               type="button"
@@ -846,23 +1237,23 @@ export function ToeicSplitPane({
           className={`inline-flex items-center gap-1 rounded-sm bg-slate-900 px-3 sm:px-3.5 py-1.5 font-mono text-xs font-bold text-white shadow-2xs transition hover:bg-slate-800 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white cursor-pointer ${
             !hasNext ? 'opacity-40 cursor-not-allowed' : ''
           }`}
-          title="Câu tiếp theo (Phím tắt: →)"
+          title={isClusterView ? 'Cụm tiếp theo (Phím tắt: →)' : 'Câu tiếp theo (Phím tắt: →)'}
         >
-          <span className="hidden sm:inline">Câu tiếp theo</span>
+          <span className="hidden sm:inline">{isClusterView ? 'Cụm tiếp theo' : 'Câu tiếp theo'}</span>
           <span className="sm:hidden">Tiếp theo</span>
           <ChevronRight className="h-3.5 w-3.5" />
         </button>
       </footer>
 
       {/* Lightbox / Zoomed image modal */}
-      {isImageZoomed && question.imageUrl && (
+      {isImageZoomed && (cluster?.imageUrl || question.imageUrl) && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
           onClick={() => setIsImageZoomed(false)}
         >
           <div className="relative max-w-5xl max-h-[92vh] w-full h-[88vh]">
             <Image
-              src={question.imageUrl}
+              src={cluster?.imageUrl || question.imageUrl!}
               alt="Phóng to ảnh"
               fill
               unoptimized
