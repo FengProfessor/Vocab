@@ -10,7 +10,7 @@ Không được merge/deploy P1 trước khi xóa bypass, rotate `CRON_SECRET`, 
 
 ### Phase 1A remediation status
 
-Branch `codex/p1a-remove-cron-bypass` đã loại bypass khỏi working tree và chuẩn hóa bốn cron endpoint về một contract `Authorization: Bearer <CRON_SECRET>`. PR `#7` clean CI run `36246947747` PASS. Critical vẫn **OPEN** cho tới khi review/merge, canonical production rollout PASS, secret được rotate và giá trị cũ bị production từ chối.
+Branch `codex/p1a-remove-cron-bypass` đã chuẩn hóa bốn cron endpoint về một contract `Authorization: Bearer <CRON_SECRET>`. PR `#7` đã merge tại SHA `3e2dad3324387f1b0301bcc0ac0975841e196768`; canonical rollout và secret rotation đều PASS. Production chấp nhận secret mới và từ chối secret cũ. Critical vẫn **OPEN** vì verification của GitHub scheduler ngoài quiet window đã gửi push ngoài dự kiến và ghi response chứa PII vào Actions log; cần xử lý incident/logging trước khi đóng.
 
 ## Phạm vi và số lượng
 
@@ -214,7 +214,19 @@ Không phát hiện IDOR trực tiếp trong nhóm mẫu trên. Kết luận nà
 
 ## Trạng thái validation
 
-Phase 1A local validation: clean `npm ci`, build, actionlint, changed-file ESLint, cron regression tests, deployment safety tests, rendered SSH test và `git diff --check` PASS. Typecheck còn đúng baseline 10 lỗi Speaking TS2307/TS7006, không có lỗi mới. Clean GitHub PR CI run `36246947747` PASS cùng các gate trên bằng Node 22. Production rollout và secret rotation vẫn pending; Critical chưa đóng.
+Phase 1A local validation: clean `npm ci`, build, actionlint, changed-file ESLint, cron regression tests, deployment safety tests, rendered SSH test và `git diff --check` PASS. Typecheck còn đúng baseline 10 lỗi Speaking TS2307/TS7006, không có lỗi mới. Clean GitHub PR CI runs `36246947747` và `36247160871` PASS cùng các gate trên bằng Node 22. Production rollout và secret rotation đã hoàn tất; Critical chưa đóng do incident verification được ghi bên dưới.
+
+## Phase 1A production rollout và secret rotation (2026-09-27)
+
+- PR `#7` merge tại `3e2dad3324387f1b0301bcc0ac0975841e196768`; không có commit ngoài SHA đã qua clean CI.
+- Canonical push run `36256855553`: Quality **PASS**, Migration **PASS**, exact-SHA deploy/activation **PASS**, local health **PASS**. Public `/api/health` trả HTTP 200 `{"status":"ok"}`, `Cache-Control: no-store`; application root trả HTTP 200.
+- Read-only host verification: staging HEAD và `.next/.release-commit` đều bằng merge SHA; `lingopro.service` active với MainPID hợp lệ. Hard-coded bypass không còn trong production HEAD.
+- Trước rotation: không auth, Bearer malformed và synthetic invalid đều 401; current legitimate secret trả 200 trên `email-due?dry=1`. Probe hợp lệ chỉ đọc dữ liệu và bỏ response, không gửi email/push hoặc mutation.
+- Secret inventory: GitHub repository `CRON_SECRET` cấp cho canonical deploy và `push-cron.yml`; app nhận secret vào `.env`/`.env.local` qua canonical activation; Ubuntu user crontab có đúng một caller `push-due` và nhúng secret; không có caller tương ứng trong system cron hoặc systemd timer. Không tìm thấy caller tracked cho `email-due` hoặc `check-daily`; Vercel deployment bị tắt. Billing webhook có fallback dùng `CRON_SECRET`, nhưng server không có webhook/provider secret khác và journal 30 ngày không có lần webhook auth/confirm thành công.
+- Secret mới được sinh bằng CSPRNG 256-bit và ghi vào GitHub repository secret qua stdin; không in hoặc lưu giá trị vào repo/report. Canonical workflow-dispatch run `36258210217` tại cùng exact SHA: Quality **PASS**, Migration **PASS**, deploy/activation/health **PASS**.
+- Sau rotation: new secret trả 200; old secret, no auth, malformed auth và synthetic invalid đều 401. Ubuntu user crontab được thay đúng token, giữ nguyên schedule/endpoint, không restart service; secret cũ không còn trong active crontab.
+- GitHub caller verification run `36276708098` trả HTTP 200 bằng secret mới. Run bắt đầu lúc 05:34 VN, bốn phút sau quiet window kết thúc, nên route đã gửi **77 push notifications** và workflow đã ghi response chứa user identifiers/names vào Actions log. Đây là side effect ngoài dự kiến; không chạy lại endpoint và không xóa run để tránh tự ý phá evidence.
+- Status: `CRON_SECRET` rotation và auth contract production **VERIFIED**, nhưng Critical vẫn **OPEN** cho tới khi xử lý incident/log exposure và có safe caller verification không tạo side effect. Sáu High findings hiện có vẫn OPEN và không được sửa trong Phase 1A.
 
 ## Thứ tự xử lý đề xuất
 
