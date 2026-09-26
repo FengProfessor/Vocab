@@ -1,10 +1,10 @@
 name: Dense Due Push Notifications
 
-# Trigger /api/cron/push-due mỗi 15 phút trên Self-Hosted PC Server.
+# Schedule gọi push-due nghiệp vụ; workflow_dispatch chỉ kiểm tra auth bằng auth-check.
 # Cooldown re-nag ~90p trong route; im 22:30–05:30 VN.
 #
-# BẮT BUỘC: GitHub repo secret CRON_SECRET = đúng env CRON_SECRET production trên PC Server.
-# Secret sai → HTTP 401 → học sinh không nhận TB. Check: Actions tab + log HTTP code.
+# BẮT BUỘC: GitHub repo secret CRON_SECRET = đúng env CRON_SECRET production.
+# Không in response body, Authorization header hoặc secret vào Actions log.
 
 on:
   schedule:
@@ -15,26 +15,46 @@ jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger push-due
+      - name: Run scheduled push-due
+        if: ${{ github.event_name == 'schedule' }}
         env:
           CRON_SECRET: ${{ secrets.CRON_SECRET }}
         run: |
+          endpoint='/api/cron/push-due'
           if [ -z "$CRON_SECRET" ]; then
-            echo "::error::Missing CRON_SECRET repo secret — set it to match server .env.local CRON_SECRET"
+            echo '::error::Missing CRON_SECRET repo secret'
             exit 1
           fi
-          code=$(curl -sS -o /tmp/resp.json -w "%{http_code}" \
+          code=$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' \
             --max-time 90 \
             -H "Authorization: Bearer $CRON_SECRET" \
             "https://lingopro.online/api/cron/push-due")
+          echo "endpoint=$endpoint"
           echo "HTTP $code"
-          cat /tmp/resp.json || true
-          echo ""
           if [ "$code" != "200" ]; then
-            echo "::error::push-due failed HTTP $code (thường do CRON_SECRET sai so với server .env.local)"
+            echo "::error::scheduled push-due failed HTTP $code"
             exit 1
           fi
-          # Log tóm tắt notified nếu JSON parse được
-          if command -v jq >/dev/null 2>&1; then
-            jq '{success, vnHour, vnMinute, notified, total, skipped, cooldownMinutes}' /tmp/resp.json || true
+          echo 'PASS'
+
+      - name: Verify cron auth without business side effects
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        env:
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        run: |
+          endpoint='/api/cron/auth-check'
+          if [ -z "$CRON_SECRET" ]; then
+            echo '::error::Missing CRON_SECRET repo secret'
+            exit 1
           fi
+          code=$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' \
+            --max-time 30 \
+            -H "Authorization: Bearer $CRON_SECRET" \
+            "https://lingopro.online/api/cron/auth-check")
+          echo "endpoint=$endpoint"
+          echo "HTTP $code"
+          if [ "$code" != "204" ]; then
+            echo "::error::cron auth probe failed HTTP $code"
+            exit 1
+          fi
+          echo 'PASS'

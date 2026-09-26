@@ -484,6 +484,25 @@
 - Clean GitHub PR CI run `36246947747`, job `108417789795`: `npm ci`, cron authorization tests, actionlint, deployment safety tests, build, exact 10-error typecheck baseline check and patch whitespace all **PASS** on Node 22.
 - Status: Critical remediation is **OPEN** pending review/merge, canonical production rollout, production verification and post-deploy `CRON_SECRET` rotation. Six High findings remain out of scope.
 
+## P1 PHASE 1A — Production rollout và secret rotation (2026-09-27)
+
+- PR `#7` merge commit/main SHA: `3e2dad3324387f1b0301bcc0ac0975841e196768`. Canonical push run `36256855553`: Quality, Migration, exact-SHA Deploy/activation và Health đều **PASS**.
+- Production verification: staging HEAD và `.next/.release-commit` cùng bằng main SHA; `lingopro.service` active/MainPID hợp lệ; public `/api/health` HTTP 200 `{"status":"ok"}` với `no-store`; root HTTP 200.
+- Pre-rotation contract: no auth, malformed Bearer và synthetic invalid trả 401; current legitimate secret trả 200 trên `email-due?dry=1` không gửi email/push hoặc mutation.
+- Legitimate caller inventory: GitHub `push-cron.yml` đọc repository `CRON_SECRET`; canonical deploy ghi cùng secret vào app env; Ubuntu user crontab có một `push-due` caller. Không có matching system cron/timer và không tìm thấy caller tracked cho `email-due`/`check-daily`. Vercel deployment disabled. Billing webhook fallback có dùng `CRON_SECRET`, nhưng không có provider secret khác và journal 30 ngày không ghi nhận webhook auth/confirm thành công.
+- Rotation: secret mới CSPRNG 256-bit được cập nhật qua stdin, không in giá trị. Canonical workflow-dispatch run `36258210217` tại cùng exact SHA: Quality, Migration, Deploy và Health đều **PASS**. Host crontab được cập nhật token tại chỗ, giữ nguyên schedule/endpoint, không restart service.
+- Post-rotation contract: new secret 200; old secret/no auth/malformed/synthetic invalid đều 401. Secret cũ không còn trong active host crontab.
+- Caller verification run `36276708098` **PASS** auth/HTTP 200 nhưng chạy lúc 05:34 VN, ngoài quiet window bốn phút, nên đã gửi **77 push notifications**. Workflow cũng ghi response chứa user identifiers/names vào GitHub Actions log. Đã dừng mọi endpoint verification tiếp theo; không tự ý xóa run/evidence.
+- Status: rollout và secret rotation hoàn tất, production exact SHA/health/auth đã verified. Critical vẫn **OPEN** vì điều kiện không tạo push ngoài dự kiến không đạt và log exposure cần xử lý. Sáu High findings vẫn OPEN; chưa bắt đầu Phase 1B.
+
+## P1 PHASE 1A.1 — Safe cron verification và PII log remediation (2026-09-27)
+
+- Incident `36276708098`: workflow-dispatch step `Trigger push-due` gọi endpoint nghiệp vụ thật lúc 05:34 VN, sau quiet window 05:30, và `cat /tmp/resp.json` ghi response vào Actions log. Kết quả: 77 push ngoài dự kiến; exposed categories gồm user ID, display name, due-word count và delivery status. Không có email, FCM token, Authorization header, `CRON_SECRET` hoặc credential khác.
+- Repo public; GitHub yêu cầu đăng nhập để xem workflow logs. Run không có artifact. Log đã được stream một lần vào Codex task để review, không lưu thành workspace file.
+- Log deletion: GitHub REST delete trả HTTP 204; HEAD logs endpoint sau đó trả 404 trong khi run metadata vẫn còn. **PII LOG = REMOVED** khỏi GitHub; prior viewer/download/transcript copies là residual exposure.
+- Implementation trên PR `#8`: `/api/cron/auth-check` dùng shared `assertCronAuthorized`, valid secret trả 204 bodyless, reject trả 401, không có DB/service-role/Storage/email/push/business mutation. `workflow_dispatch` chỉ gọi probe; schedule mới gọi real `push-due`; curl luôn discard body và log endpoint/status/PASS.
+- Regression test mới cover missing/malformed/wrong/missing-env/valid auth, bodyless 204, zero side effects và workflow không in response body. Canonical rollout và production verification pending; Critical/P1 Phase 1A vẫn OPEN; sáu High findings chưa xử lý.
+
 ## 2026-09-23 · TOEIC TikTok 100-video campaign
 
 - Tạo campaign 100 video TOEIC Listening: 25 video cho mỗi Part 1–4, mỗi video 3 câu.
@@ -492,4 +511,3 @@
 - Thêm lệnh `video:toeic:100` và `video:toeic:status`.
 - Smoke test 2 slot Part 1 liên tiếp lấy 2 question ID khác nhau và render thành công sau khi làm selector nút đáp án ổn định hơn.
 - Tracker production vẫn ở 0/100, chưa tiêu hao slot thật.
-
