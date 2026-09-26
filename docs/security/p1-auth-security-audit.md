@@ -4,13 +4,13 @@
 
 ## Kết luận
 
-**STOP — NEED REVIEW.** Audit trên base `main` phát hiện một `P1-A CRITICAL`: source chứa một bearer token cố định và `assertCronAuthorized()` luôn chấp nhận token này. Token mở các cron chạy bằng Supabase service role, gồm đọc dữ liệu người dùng, gửi email/push và sửa trạng thái gói.
+**Kết luận audit ban đầu: STOP — NEED REVIEW.** Audit trên base `main` phát hiện một `P1-A CRITICAL`: source chứa một bearer token cố định và `assertCronAuthorized()` luôn chấp nhận token này. Token mở các cron chạy bằng Supabase service role, gồm đọc dữ liệu người dùng, gửi email/push và sửa trạng thái gói.
 
-Không được merge/deploy P1 trước khi xóa bypass, rotate `CRON_SECRET`, thêm regression test và để clean GitHub runner PASS.
+Gate này đã hoàn tất trong Phase 1A; trạng thái production hiện tại được ghi ở phần Phase 1A.1 bên dưới.
 
 ### Phase 1A remediation status
 
-Branch `codex/p1a-remove-cron-bypass` đã chuẩn hóa bốn cron endpoint về một contract `Authorization: Bearer <CRON_SECRET>`. PR `#7` đã merge tại SHA `3e2dad3324387f1b0301bcc0ac0975841e196768`; canonical rollout và secret rotation đều PASS. Production chấp nhận secret mới và từ chối secret cũ. Phase 1A.1 đã xóa log sự cố khỏi GitHub và chuẩn bị auth-only probe không side effect; Critical vẫn **OPEN** tới khi probe được deploy và verify trên production.
+Branch `codex/p1a-remove-cron-bypass` đã chuẩn hóa bốn cron endpoint về một contract `Authorization: Bearer <CRON_SECRET>`. PR `#7` đã merge tại SHA `3e2dad3324387f1b0301bcc0ac0975841e196768`; canonical rollout và secret rotation đều PASS. Phase 1A.1 đã deploy và verify auth-only probe không side effect; cron auth Critical hiện **CLOSED**. Sáu High findings vẫn **OPEN**.
 
 ## Phạm vi và số lượng
 
@@ -214,7 +214,7 @@ Không phát hiện IDOR trực tiếp trong nhóm mẫu trên. Kết luận nà
 
 ## Trạng thái validation
 
-Phase 1A local validation: clean `npm ci`, build, actionlint, changed-file ESLint, cron regression tests, deployment safety tests, rendered SSH test và `git diff --check` PASS. Typecheck còn đúng baseline 10 lỗi Speaking TS2307/TS7006, không có lỗi mới. Clean GitHub PR CI runs `36246947747` và `36247160871` PASS cùng các gate trên bằng Node 22. Production rollout và secret rotation đã hoàn tất; Critical chưa đóng do incident verification được ghi bên dưới.
+Phase 1A local validation: clean `npm ci`, build, actionlint, changed-file ESLint, cron regression tests, deployment safety tests, rendered SSH test và `git diff --check` PASS. Typecheck còn đúng baseline 10 lỗi Speaking TS2307/TS7006, không có lỗi mới. Clean GitHub PR CI runs `36246947747` và `36247160871` PASS cùng các gate trên bằng Node 22. Incident phát sinh ở verification sau rollout được xử lý và đóng với residual risk tại phần Phase 1A.1.
 
 ## Phase 1A production rollout và secret rotation (2026-09-27)
 
@@ -226,7 +226,7 @@ Phase 1A local validation: clean `npm ci`, build, actionlint, changed-file ESLin
 - Secret mới được sinh bằng CSPRNG 256-bit và ghi vào GitHub repository secret qua stdin; không in hoặc lưu giá trị vào repo/report. Canonical workflow-dispatch run `36258210217` tại cùng exact SHA: Quality **PASS**, Migration **PASS**, deploy/activation/health **PASS**.
 - Sau rotation: new secret trả 200; old secret, no auth, malformed auth và synthetic invalid đều 401. Ubuntu user crontab được thay đúng token, giữ nguyên schedule/endpoint, không restart service; secret cũ không còn trong active crontab.
 - GitHub caller verification run `36276708098` trả HTTP 200 bằng secret mới. Run bắt đầu lúc 05:34 VN, bốn phút sau quiet window kết thúc, nên route đã gửi **77 push notifications** và workflow đã ghi response chứa user identifiers/names vào Actions log. Đây là side effect ngoài dự kiến; không chạy lại endpoint và không xóa run để tránh tự ý phá evidence.
-- Status: `CRON_SECRET` rotation và auth contract production **VERIFIED**, nhưng Critical vẫn **OPEN** cho tới khi safe probe được deploy/verify. Sáu High findings hiện có vẫn OPEN và không được sửa trong Phase 1A.
+- Trạng thái tại checkpoint này: `CRON_SECRET` rotation và auth contract production **VERIFIED**; incident verification tiếp theo được xử lý tại Phase 1A.1. Trạng thái cuối của cron auth là **CLOSED**; sáu High findings vẫn **OPEN**.
 
 ## Phase 1A.1 — Safe cron verification và PII log remediation (2026-09-27)
 
