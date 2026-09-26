@@ -451,3 +451,11 @@
 - Clean GitHub runner run `36224338651`, Node `22.23.2` / npm `10.9.8`: `npm ci`, actionlint `v1.7.11`, migration/runner and Bash syntax, deployment safety tests, health-route ESLint, `git diff --check`, and `npm run build` all **PASS**. Typecheck exactly matches the documented 10 Speaking TS2307/TS7006 errors.
 - Temporary harness run `36224034702` unintentionally started the backup job because of an overly broad test-mode condition; it was canceled during dump before artifact and Drive upload. Corrected isolated run: `36224105912`. No schema or deploy action occurred through the harness.
 - Rollout remains paused until this fix is merged through PR and the canonical workflow runs quality → migration → exact-SHA deploy → restart → health. Stop on any failure; no manual SQL, SSH deploy or restart.
+
+### Canonical rerun stopped at deploy script parsing (2026-09-26)
+
+- PR `#5` merged to `main` at exact SHA `9aabd1de7d4b874f442a75f6db89a7fec3de60c8`. Canonical workflow run `36224587351` used that exact SHA.
+- Quality job `108356017747`: **PASS**. Migration job `108356565583`: **PASS**. The three prior history entries were logged as `SKIP already applied`; the repaired words migration and the remaining three P0 migrations were applied successfully, history recorded, and post-apply probes completed.
+- Deploy job `108356646829`: **FAIL** at `Deploy via SSH`. Tailscale and SSH connection succeeded; the remote script printed its start and staging directory, then Bash stopped with `bash: -c: line 24: syntax error near unexpected token ';'` and exit status 2.
+- The remote script did not reach Git fetch/checkout, server-side `npm ci`, build, activation, service restart or health checks. Public `/api/health` remains HTTP 404, consistent with the old app release. Final production application SHA remains unchanged/unknown beyond the previously observed old release.
+- Rollout status: **STOPPED** at the new exact failure as required. Migration is complete; no manual SSH, restart, deploy, SQL, rerun or CI bypass was attempted. The deploy-script parsing defect requires a separate reviewed fix.
