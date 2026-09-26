@@ -10,7 +10,7 @@ Không được merge/deploy P1 trước khi xóa bypass, rotate `CRON_SECRET`, 
 
 ### Phase 1A remediation status
 
-Branch `codex/p1a-remove-cron-bypass` đã loại bypass khỏi working tree và chuẩn hóa bốn cron endpoint về một contract `Authorization: Bearer <CRON_SECRET>`. Critical vẫn **OPEN** cho tới khi clean PR CI PASS, canonical production rollout PASS, secret được rotate và giá trị cũ bị production từ chối.
+Branch `codex/p1a-remove-cron-bypass` đã loại bypass khỏi working tree và chuẩn hóa bốn cron endpoint về một contract `Authorization: Bearer <CRON_SECRET>`. PR `#7` clean CI run `36246947747` PASS. Critical vẫn **OPEN** cho tới khi review/merge, canonical production rollout PASS, secret được rotate và giá trị cũ bị production từ chối.
 
 ## Phạm vi và số lượng
 
@@ -214,7 +214,7 @@ Không phát hiện IDOR trực tiếp trong nhóm mẫu trên. Kết luận nà
 
 ## Trạng thái validation
 
-Phase 1A local validation: clean `npm ci`, build, actionlint, changed-file ESLint, cron regression tests, deployment safety tests, rendered SSH test và `git diff --check` PASS. Typecheck còn đúng baseline 10 lỗi Speaking TS2307/TS7006, không có lỗi mới. Clean GitHub PR CI, production rollout và secret rotation vẫn pending; Critical chưa đóng.
+Phase 1A local validation: clean `npm ci`, build, actionlint, changed-file ESLint, cron regression tests, deployment safety tests, rendered SSH test và `git diff --check` PASS. Typecheck còn đúng baseline 10 lỗi Speaking TS2307/TS7006, không có lỗi mới. Clean GitHub PR CI run `36246947747` PASS cùng các gate trên bằng Node 22. Production rollout và secret rotation vẫn pending; Critical chưa đóng.
 
 ## Thứ tự xử lý đề xuất
 
