@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { createHash, timingSafeEqual } from 'crypto';
 import { createServiceClient } from '@/lib/supabase';
 import { cacheGet, cacheSet } from '@/lib/ttl-cache';
+import { isCronAuthorizationValid } from '@/lib/cron-auth';
 
 /** Secret bot yếu / mẫu — từ chối ở production. */
 const WEAK_SECRETS = new Set([
@@ -167,27 +168,14 @@ export function assertBotAuthorized(req: Request): NextResponse | null {
  * Auth cho /api/cron/* — CHỈ Authorization: Bearer (không ?secret= — tránh log leak).
  */
 export function assertCronAuthorized(req: Request): NextResponse | null {
-    const cronSecret = process.env.CRON_SECRET;
-    const emergencyBypass = "ingopro_cron_secret_2026_super_secure";
-    const authHeader = req.headers.get('authorization');
-
-    if (!cronSecret && !bearerMatchesSecret(authHeader, emergencyBypass)) {
-      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
-    }
-    if (process.env.NODE_ENV === 'production' && cronSecret && WEAK_SECRETS.has(cronSecret)) {
-      console.error('[Security] CRON_SECRET is weak — refusing cron in production');
-      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
-    }
-    
-    // Accept either the env secret OR the emergency bypass
-    if (
-      (cronSecret && bearerMatchesSecret(authHeader, cronSecret)) || 
-      bearerMatchesSecret(authHeader, emergencyBypass)
-    ) {
-      return null; // Authorized
-    }
-
+  const cronSecret = process.env.CRON_SECRET;
+  if (process.env.NODE_ENV === 'production' && cronSecret && WEAK_SECRETS.has(cronSecret)) {
     return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+  }
+  if (!isCronAuthorizationValid(req.headers.get('authorization'), cronSecret)) {
+    return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+  }
+  return null;
 }
 
 /**

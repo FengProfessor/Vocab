@@ -56,6 +56,8 @@ jobs:
           bash tests/deploy/activate-release.test.sh
           bash tests/deploy/run-deploy.test.sh
           node tests/deploy/ssh-render.test.mjs
+      - name: Cron authorization regression tests
+        run: node tests/security/cron-auth.test.mjs
       - name: Lint changed TypeScript deployment route
         run: npx eslint src/app/api/health/route.ts
       - name: Build application

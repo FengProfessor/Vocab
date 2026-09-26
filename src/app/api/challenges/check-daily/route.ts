@@ -1,17 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { processChallengeDayEnd, completeChallenge } from '@/lib/challenge';
-import { safeErrorResponse } from '@/lib/api-security';
+import { assertCronAuthorized, safeErrorResponse } from '@/lib/api-security';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 export async function POST(req: NextRequest) {
   try {
-    const cronSecret = req.headers.get('CRON_SECRET');
-    if (cronSecret !== process.env.CRON_SECRET) {
-      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
-    }
+    const denied = assertCronAuthorized(req);
+    if (denied) return denied;
 
     const supabase = createServiceClient();
     
@@ -45,7 +43,7 @@ export async function POST(req: NextRequest) {
       success: true, 
       stats: { processedCount, completedCount } 
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     return safeErrorResponse(error, 'Lỗi khi chạy cron job daily');
   }
 }
