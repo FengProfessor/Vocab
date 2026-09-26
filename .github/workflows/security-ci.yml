@@ -1,0 +1,66 @@
+name: Auth Security CI
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/security-ci.yml'
+      - 'src/lib/api-security.ts'
+      - 'src/lib/cron-auth.ts'
+      - 'src/app/api/cron/**'
+      - 'src/app/api/challenges/check-daily/**'
+      - 'tests/security/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cron-auth:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Cron authorization regression tests
+        run: node tests/security/cron-auth.test.mjs
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.24'
+      - name: Validate workflows
+        run: go run github.com/rhysd/actionlint/cmd/actionlint@v1.7.11 -color=false
+      - name: Deployment safety tests
+        run: |
+          bash tests/deploy/prepare-source.test.sh
+          bash tests/deploy/activate-release.test.sh
+          bash tests/deploy/run-deploy.test.sh
+          node tests/deploy/ssh-render.test.mjs
+      - name: Build application
+        run: npm run build
+      - name: Verify documented typecheck baseline
+        shell: bash
+        run: |
+          set +e
+          output=$(npm run typecheck 2>&1)
+          status=$?
+          set -e
+          printf '%s\n' "$output"
+          errors=$(printf '%s\n' "$output" | grep -c 'error TS' || true)
+          expected=$(printf '%s\n' "$output" | grep -Ec 'error TS(2307|7006):' || true)
+          if [ "$status" -eq 0 ] || [ "$errors" -ne 10 ] || [ "$expected" -ne 10 ]; then
+            echo '::error::Typecheck differs from the documented 10-error TS2307/TS7006 baseline'
+            exit 1
+          fi
+      - name: Check patch whitespace
+        if: ${{ github.event_name == 'pull_request' }}
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: git diff --check "$BASE_SHA...HEAD"

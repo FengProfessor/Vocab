@@ -461,3 +461,25 @@
 - Regression coverage: `tests/deploy/ssh-render.test.mjs` extracts the actual workflow script, reproduces drone-ssh environment exports, and runs `bash -n` on the rendered payload. `tests/deploy/run-deploy.test.sh` covers success plus prepare, npm install, missing standalone, activation, missing-secret, and invalid-SHA failures.
 - Local verification with Node `24.14.0` / npm `11.9.0`: clean `npm ci` **PASS** (1,871 packages), `npm run build` **PASS**, actionlint `v1.7.11` **PASS**, all deploy Bash syntax **PASS**, existing 14 deployment tests **PASS**, 7 new runner tests **PASS**, rendered SSH payload test **PASS**, health-route ESLint **PASS**, and `git diff --check` **PASS**. Typecheck matches the documented baseline exactly: 10 Speaking errors (TS2307/TS7006).
 - Status: clean Node 22 GitHub runner verification, PR, merge, and canonical rerun are pending. No production change, manual SSH, SQL, restart, or deploy occurred during the repair.
+
+## P1-AUTH-SECURITY — Audit stop on Critical (2026-09-26)
+
+- Audit-only branch `codex/p1-auth-security-audit` started from `main` SHA `a12394628a6b0a0772ffdd98c4e39d780f1b3256`; no P0 file, production service, database, workflow or secret was modified.
+- Static inventory: 124 API route files; 79 user-authenticated route files; 24 privileged admin/bot/cron/webhook route files; 100 route files use `createServiceClient`; 28 route files are public by file-level auth classification. Groups overlap where a privileged route also validates a user JWT.
+- `P1-A CRITICAL` confirmed: `assertCronAuthorized()` accepts a hard-coded bearer bypass committed in tracked source/history. It reaches service-role cron routes that can expose PII in dry-run output, send email/push and change subscription state.
+- `P1-B HIGH` findings: OAuth/login open redirect through backslash URL normalization; anonymous service-role public audio upload; public registration auto-confirms unverified email; stale campaign endpoints allow self-granting Pro; teacher self-claim combines with a 1-year Pro grant route; admin fallback depends on a hard-coded email when `ADMIN_EMAILS` is empty.
+- Session architecture: Supabase JS PKCE in browser, localStorage persistence, auto refresh plus bearer JWT API auth; no SSR helper/middleware session refresh. No client component directly calls `createServiceClient`, but browser and service client exports share one module and service client falls back to anon key instead of failing closed.
+- Full evidence and remediation order: `docs/security/p1-auth-security-audit.md`.
+- Status: **STOP — NEED REVIEW**. No fix, commit, push, PR, merge, migration or deploy was performed. Resume with a narrowly scoped Critical fix first, rotate `CRON_SECRET` after deployment, and require clean CI before proceeding to other findings.
+
+## P1 PHASE 1A — Cron auth bypass removal, pre-PR (2026-09-26)
+
+- Branch renamed to `codex/p1a-remove-cron-bypass`; base remains `main` SHA `a12394628a6b0a0772ffdd98c4e39d780f1b3256`.
+- Root cause: `assertCronAuthorized()` accepted a bearer literal committed in source/history in addition to environment `CRON_SECRET`. The historical value is permanently compromised and is not copied into new tests or documentation.
+- Implementation: added strict Bearer parsing plus constant-time comparison with only server-side `CRON_SECRET`; missing/empty env fails closed. `/api/challenges/check-daily` now uses the same helper as `check-expired`, `email-due` and `push-due`; its custom `CRON_SECRET` header is removed.
+- Regression coverage: missing/malformed/wrong/synthetic legacy bearer deny; missing/empty env deny; configured secret pass; valid auth reaches handler once; rejected auth has zero DB/email/push/subscription side effects. Static checks enforce auth before side effects across all four routes and reject source hard-coded bearer/logging patterns.
+- Local Node `24.14.0` / npm `11.9.0`: clean `npm ci` **PASS** (1,871 packages); `npm run build` **PASS**; actionlint `v1.7.11` **PASS**; changed-file ESLint **PASS**; deployment Bash/Node syntax, 14 deployment safety tests, 7 deploy-runner tests, rendered SSH payload and cron auth tests **PASS**; `git diff --check` **PASS**. Typecheck returned exactly the documented 10 TS2307/TS7006 Speaking errors and no new errors.
+- P0 impact: no deployment graph, migration, exact-SHA activation, systemd, health or rollback semantics changed. The canonical quality job only gains the cron regression test; a separate PR CI workflow runs the same security gate on a clean Node 22 runner.
+- Commit `9a8de869ac0d79d1cac9061b02634158785965f5` was pushed to `codex/p1a-remove-cron-bypass`; remote SHA matched local. PR `#7` is open and not merged.
+- Clean GitHub PR CI run `36246947747`, job `108417789795`: `npm ci`, cron authorization tests, actionlint, deployment safety tests, build, exact 10-error typecheck baseline check and patch whitespace all **PASS** on Node 22.
+- Status: Critical remediation is **OPEN** pending review/merge, canonical production rollout, production verification and post-deploy `CRON_SECRET` rotation. Six High findings remain out of scope.
