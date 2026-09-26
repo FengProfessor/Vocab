@@ -7,44 +7,40 @@ ALTER TABLE public.words
 COMMENT ON COLUMN public.words.example_vi IS
   'Bản dịch tiếng Việt tự nhiên của example (1 câu). Học mới: hiện sub; ôn: ẩn + nút Dịch.';
 
--- RPC due list (nếu còn dùng ngoài app) — thêm example_vi
-CREATE OR REPLACE FUNCTION get_due_words_list(p_user_id UUID, p_classroom_id UUID, p_limit integer)
-RETURNS TABLE (
-    id UUID,
-    word TEXT,
-    translation TEXT,
-    ipa TEXT,
-    pos TEXT,
-    example TEXT,
-    example_vi TEXT,
-    synonyms TEXT[],
-    antonyms TEXT[],
-    image_url TEXT,
-    review_count integer
-) AS $$
+-- Không replace RPC ở đây. Production có thể đã nhận definition mới hơn với
+-- default arguments, authorization guard, fixed search_path và query tối ưu.
+-- CREATE OR REPLACE bằng definition cũ vừa không thể bỏ defaults, vừa làm lùi
+-- các thuộc tính bảo mật/hiệu năng đó. Chỉ xác nhận contract mà migration cần.
+DO $migration$
+DECLARE
+  v_function regprocedure := to_regprocedure(
+    'public.get_due_words_list(uuid,uuid,integer)'
+  );
+  v_has_example_vi boolean;
 BEGIN
-    RETURN QUERY
-    SELECT
-        w.id,
-        w.word,
-        w.translation,
-        w.ipa,
-        w.pos,
-        w.example,
-        w.example_vi,
-        w.synonyms,
-        w.antonyms,
-        w.image_url,
-        COALESCE(s.review_count, 0) as review_count
-    FROM words w
-    LEFT JOIN srs_progress s ON s.word_id = w.id AND s.user_id = p_user_id
-    WHERE w.classroom_id = p_classroom_id
-    AND (w.translation IS NULL OR w.translation NOT LIKE '%Analysis failed%')
-    AND (
-        s.id IS NULL
-        OR s.next_review_date <= (now() AT TIME ZONE 'UTC')
-    )
-    ORDER BY COALESCE(s.next_review_date, '1970-01-01'::timestamp) ASC
-    LIMIT p_limit;
+  IF v_function IS NULL THEN
+    RAISE EXCEPTION
+      'Required function public.get_due_words_list(uuid,uuid,integer) is missing';
+  END IF;
+
+  SELECT EXISTS (
+    SELECT 1
+    FROM pg_proc p
+    CROSS JOIN LATERAL unnest(
+      p.proallargtypes,
+      p.proargmodes,
+      p.proargnames
+    ) AS argument(type_oid, argument_mode, argument_name)
+    WHERE p.oid = v_function
+      AND argument.argument_mode IN ('o', 't')
+      AND argument.argument_name = 'example_vi'
+      AND argument.type_oid = 'text'::regtype
+  )
+  INTO v_has_example_vi;
+
+  IF NOT v_has_example_vi THEN
+    RAISE EXCEPTION
+      'public.get_due_words_list(uuid,uuid,integer) must return example_vi text';
+  END IF;
 END;
-$$ LANGUAGE plpgsql SECURITY DEFINER;
+$migration$;
