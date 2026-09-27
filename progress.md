@@ -514,7 +514,8 @@
 - Fix: retire cả hai campaign đã hết hạn bằng authenticated HTTP 410, bỏ background caller và toàn bộ service-role/database mutation. Teacher add-student giữ account/enrollment nhưng xóa plan/expiry/order/history writes; UI chỉ mô tả enrollment.
 - Replay/race: expired campaign luôn zero mutation. Enrollment dùng existing unique `(student_id,classroom_id)` với upsert, nên repeat/concurrent requests còn một enrollment và không có entitlement để nhân bản. Không cần migration.
 - Regression: actual transformed routes cover anonymous/tampered/ineligible/valid enrollment/replay/concurrency and zero privileged side effects. Clean `npm ci`, build, actionlint, changed-file ESLint, cron regressions, privilege regression, milestone logic, bốn deploy tests và `git diff --check` PASS trên Node `24.14.0`/npm `11.9.0`; CI dùng Node 22. Typecheck đúng baseline 10 lỗi cũ TS2307/TS7006, không có lỗi mới.
-- Legacy campaign suite: 62/101 PASS, 39 expectation cũ fail vì vẫn yêu cầu chiến dịch Khai Giảng hết hạn cấp 90 ngày Pro; không khôi phục entitlement. Clean GitHub CI, PR và rollout pending.
+- Legacy campaign suite: 62/101 PASS, 39 expectation cũ fail vì vẫn yêu cầu chiến dịch Khai Giảng hết hạn cấp 90 ngày Pro; không khôi phục entitlement.
+- PR [#11](https://github.com/FengProfessor/Vocab/pull/11); clean GitHub security CI run `36286801557` PASS trên commit `eeae494`. Canonical production rollout pending merge.
 - Security status: 3 entitlement High fixed in source nhưng **OPEN pending release**. Sáu High tổng ban đầu chưa giảm cho tới production verification.
 
 ## 2026-09-23 · TOEIC TikTok 100-video campaign

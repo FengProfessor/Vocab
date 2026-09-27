@@ -269,7 +269,7 @@ Hai campaign là chương trình một ngày `2026-08-06`, đã hết hạn và 
 - Static inventory các privileged plan writes còn lại cho thấy paid order confirmation, validated trial coupon và milestone flow lấy target từ authenticated identity và dùng server-side pricing/eligibility. Không phát hiện thêm same-pattern Critical trong scope inventory; các finding ngoài Phase 1B giữ nguyên.
 - Local clean `npm ci`, production build, actionlint, changed-file ESLint, cron regressions, privilege regression, milestone logic, bốn deployment tests và `git diff --check` PASS trên Node `24.14.0`/npm `11.9.0`; CI dùng Node 22. Typecheck khớp baseline: đúng 10 lỗi cũ TS2307/TS7006 trong speaking tests, không có lỗi mới.
 - Campaign suite Khai Giảng cũ còn 39/101 test fail vì test vẫn yêu cầu các mã/benefit 90 ngày đã hết hạn hoạt động. Không khôi phục entitlement để làm các expectation lỗi thời này PASS; privilege regression mới xác nhận campaign đã nghỉ trả 410 và zero mutation dưới tampering/replay/concurrency.
-- Clean GitHub CI/PR/rollout được ghi khi hoàn tất release.
+- PR [#11](https://github.com/FengProfessor/Vocab/pull/11); clean GitHub security CI run `36286801557` PASS trên commit `eeae494`. Rollout production vẫn pending merge.
 
 ### Trạng thái
 
