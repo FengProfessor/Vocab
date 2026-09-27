@@ -520,7 +520,7 @@
 - Main hiện tại sau một rollout kế tiếp là `5e7a8f31e24e84c7390caf0188347778f85e4f49`, chứa P1B trong ancestry; run `36290700007` PASS, exact SHA khớp, stable MainPID `1077337`. Public `/api/health` và root đều 200.
 - Security status: **P1 Phase 1B = DONE**; 2 finding IDs (`P1-B-04`, `P1-B-05`) **CLOSED**. Checkpoint cũ đếm nhầm hai campaign endpoints thành hai findings; authoritative remaining High = **4 OPEN** (`P1-B-01`, `P1-B-02`, `P1-B-03`, `P1-B-06`). Next: **P1 Phase 1C**.
 
-## P1 PHASE 1C — Auth boundary hardening, PENDING CI/ROLLOUT (2026-09-27)
+## P1 PHASE 1C — Auth boundary hardening, DONE (2026-09-27)
 
 - Reconciliation: Phase 1B đóng 2 finding IDs, không phải 3. Trước 1C còn 4 High: OAuth open redirect, anonymous service-role audio upload, public registration auto-confirm và hard-coded admin fallback.
 - OAuth: thêm shared `safeInternalRedirect`; login/callback cùng reject absolute/protocol-relative/backslash/control/malformed/encoded/double-encoded và external nested redirect. Chỉ target an toàn được ghi session storage; storage target bị xóa khi tiêu thụ.
@@ -528,7 +528,11 @@
 - Registration: thay public admin `createUser(email_confirm:true)` bằng anon `signUp`; role server đặt `student`; response chỉ báo verification required; browser không auto-login. Supabase public settings read-only hiện có `mailer_autoconfirm=false`; unexpected confirmed session kích hoạt delete cleanup và HTTP 503 fail closed.
 - Admin: `getAdminEmails()` bỏ personal fallback; missing/empty config trả empty allowlist, configured values trim/lowercase/dedupe. Existing caller guards lấy bearer/profile server-side.
 - Migration: NONE. Paid entitlement: không đổi. Teacher self-claim sau authenticated verification giữ nguyên architecture hiện tại.
-- Evidence local: clean `npm ci`, build, bốn deploy suites, Phase 1A/1B + Phase 1C security regressions, actionlint, syntax và diff checks PASS trên Node `24.14.0`/npm `11.9.0`; changed-file ESLint 0 error/1 existing warning; typecheck đúng 10 lỗi baseline TS2307/TS7006, không lỗi mới. PR/CI/merge/canonical rollout còn pending.
+- Evidence local: clean `npm ci`, build, bốn deploy suites, Phase 1A/1B + Phase 1C security regressions, actionlint, syntax và diff checks PASS trên Node `24.14.0`/npm `11.9.0`; changed-file ESLint 0 error/1 existing warning; typecheck đúng 10 lỗi baseline TS2307/TS7006, không lỗi mới.
+- PR [#13](https://github.com/FengProfessor/Vocab/pull/13) merge tại `5d96371fba1ae666dd5ab1bc580a3a3fc4a0ec7f`; clean Auth Security CI `36305586590` PASS trên head `4b0d1fb21216105e6c75c84f6845f4efa271493e`.
+- Canonical rollout `36305770651`: Quality, Migration, exact-SHA checkout/build/activation và health đều PASS. Migration history/checksum skip toàn bộ migration đã áp; Phase 1C không có migration mới.
+- Production verification: build HEAD/build marker/live release marker đều bằng merge SHA; service active và MainPID ổn định `1089651`; local/public health `200 {"status":"ok"}` với `no-store`; root/auth 200. Anonymous audio upload và admin stats đều 401, zero upload/account/business mutation trong probes.
+- Security status: `P1-B-01`, `P1-B-02`, `P1-B-03`, `P1-B-06` **CLOSED**. **P1 Phase 1C = DONE; High remaining: 0.** Audit còn 6 Medium và 3 Low cho phase kế tiếp.
 
 ## 2026-09-23 · TOEIC TikTok 100-video campaign
 

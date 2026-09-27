@@ -298,11 +298,15 @@ Hai High finding ID (`P1-B-04`, `P1-B-05`) đã **CLOSED** sau clean CI, merge v
 - `P1-B-06`: xóa hard-coded fallback. `getAdminEmails()` chỉ trả allowlist explicit đã trim/lowercase/dedupe; missing/empty config trả `[]`. Các caller lấy identity từ bearer/profile server-side rồi kiểm tra role hoặc allowlist; không đọc admin identity từ body/query/header.
 - Không migration. Không đổi paid subscription/entitlement semantics. Teacher self-claim sau authenticated email verification giữ nguyên design đã audit; registration không còn gán role từ public body.
 
-### Evidence hiện tại
+### Evidence và production closeout
 
 - `tests/security/phase1c-auth-boundaries.test.mjs` chạy actual transformed helper/routes cho redirect, upload, registration và admin helper; có tampering, invalid input, zero-mutation, replay/concurrency và fail-closed cases.
 - Local clean `npm ci`, production build, bốn deployment suites, Phase 1A/1B regressions, Phase 1C targeted test, actionlint, syntax checks và `git diff --check` PASS trên Node `24.14.0`/npm `11.9.0`; CI dùng Node 22. Changed-file ESLint có 0 error và một warning React có sẵn tại auth page. Typecheck khớp đúng baseline 10 lỗi TS2307/TS7006, không có lỗi mới.
-- Trạng thái finding vẫn **OPEN/PENDING CI + production verification** tại checkpoint code này. Chỉ chuyển CLOSED và ghi `High remaining: 0` sau clean GitHub runner, merge và canonical exact-SHA rollout PASS.
+- PR [#13](https://github.com/FengProfessor/Vocab/pull/13) merge tại `5d96371fba1ae666dd5ab1bc580a3a3fc4a0ec7f` sau clean Auth Security CI run `36305586590` PASS trên head `4b0d1fb21216105e6c75c84f6845f4efa271493e`.
+- Canonical rollout `36305770651`: Quality **PASS**, Migration **PASS** (mọi migration đã áp được skip theo history/checksum), exact-SHA checkout/build/activation **PASS**, service/health **PASS**.
+- Read-only production verification: build HEAD, build marker và live `.next/.release-commit` đều bằng merge SHA; `lingopro.service` active, stable MainPID `1089651`; local/public `/api/health` trả `200 {"status":"ok"}` với `no-store`; root và auth page trả 200.
+- Safe production probes: anonymous `POST /api/speaking/upload-audio` trả 401 trước multipart/storage; anonymous `/api/admin/stats` trả 401. Không tạo account, upload hoặc business mutation trong production verification. OAuth attack corpus và registration state machine được chứng minh bằng clean runner thay vì đăng nhập/tạo user thật.
+- Kết luận: `P1-B-01`, `P1-B-02`, `P1-B-03`, `P1-B-06` **CLOSED**. **P1 Phase 1C = DONE; High remaining: 0.** Sáu Medium và ba Low từ audit ban đầu giữ nguyên cho phase sau.
 
 ## Thứ tự xử lý đề xuất
 
