@@ -96,7 +96,7 @@ export async function POST(req: Request) {
       user.id,
       '⏰ [TEST] Thời Điểm Ôn Tập!',
       `${firstName} ơi, bạn có ${dueCount} từ đang chờ ôn tập. Học ngay để không quên nhé! 🧠`,
-      '/student'
+      '/review'
     );
 
     const sent = !!(result as { messageId?: string })?.messageId;

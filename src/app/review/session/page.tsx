@@ -32,6 +32,7 @@ import {
   makeCloze,
   pickItemMode,
   resultToQuality,
+  shuffle,
   stripEmbeddedVietnamese,
   verdictAndQuality,
 } from '@/lib/review-modes';
@@ -47,11 +48,50 @@ interface WordItem extends ReviewWordLike {
   isDue: boolean;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const NEXT_OK_MS = 950;
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const NEXT_BAD_MS = 2500;
 /** Chặn ghost-click / double-tap vào «Tiếp theo» ngay sau khi chạm đáp án (100ms mượt mà, tức thì nhưng chống nảy phím). */
 const FEEDBACK_LOCK_MS = 100;
 const SESSION_CAP = 25;
+
+/** Lọc an toàn các từ có trạng thái dịch chưa hoàn tất, đang phân tích hoặc lỗi */
+export function isCardReady(w: ReviewWordLike | WordItem | null | undefined): boolean {
+  if (!w || !w.word || typeof w.word !== 'string' || !w.word.trim()) return false;
+  if (!w.translation || typeof w.translation !== 'string' || !w.translation.trim()) return false;
+  const t = w.translation.trim();
+  const lower = t.toLowerCase();
+  if (lower.includes('failed') || lower.includes('analyzing') || t.includes('⏳')) {
+    return false;
+  }
+  return true;
+}
+
+/** Định dạng mốc thời gian từ kế tiếp sẽ đến hạn */
+export function formatNextDue(isoString: string, now: Date = new Date()): string {
+  try {
+    if (!isoString || typeof isoString !== 'string') return '';
+    const date = new Date(isoString);
+    if (isNaN(date.getTime())) return '';
+    const diffMs = date.getTime() - now.getTime();
+    if (diffMs <= 0) return 'sắp đến hạn ngay bây giờ';
+    const diffHours = Math.round(diffMs / (1000 * 60 * 60));
+    const timeStr = date.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
+    const dateStr = date.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit' });
+
+    if (diffHours < 1) {
+      const diffMins = Math.max(1, Math.round(diffMs / (1000 * 60)));
+      return `lúc ${timeStr} hôm nay (sau khoảng ${diffMins} phút)`;
+    }
+    if (diffHours < 24 && date.getDate() === now.getDate()) {
+      return `lúc ${timeStr} hôm nay (sau khoảng ${diffHours} giờ)`;
+    }
+    return `lúc ${timeStr}, ngày ${dateStr}`;
+  } catch {
+    return '';
+  }
+}
 
 function parseSessionMode(raw: string | null): ReviewSessionMode {
   if (raw === 'cloze' || raw === 'listen' || raw === 'mixed') return raw;
@@ -66,6 +106,9 @@ function SessionContent() {
 
   const [userId, setUserId] = useState<string | null>(null);
   const [classroomId, setClassroomId] = useState<string | null>(classParam);
+  const [isFreeReview, setIsFreeReview] = useState(searchParams.get('free') === '1');
+  const [nextDueTime, setNextDueTime] = useState<string | null>(null);
+  const [isLoadingFree, setIsLoadingFree] = useState(false);
   const [pool, setPool] = useState<WordItem[]>([]);
   const queueRef = useRef<WordItem[]>([]);
   const [current, setCurrent] = useState<WordItem | null>(null);
@@ -168,6 +211,88 @@ function SessionContent() {
     }, 80);
   }, []);
 
+  const startFreeReview = useCallback(async () => {
+    setIsLoadingFree(true);
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session?.user) {
+        router.push('/auth');
+        return;
+      }
+      const user = session.user;
+      const token = session.access_token;
+      accessTokenRef.current = token;
+      setUserId(user.id);
+
+      let freeWords: WordItem[] = [];
+      const base = classroomId
+        ? `/api/words?classroomId=${encodeURIComponent(classroomId)}`
+        : `/api/words`;
+
+      try {
+        const res = await authFetch(`${base}${base.includes('?') ? '&' : '?'}limit=40&noCount=1`, {}, token);
+        const json = await res.json().catch(() => ({ success: false }));
+        if (json.success && Array.isArray(json.data) && json.data.length > 0) {
+          freeWords = (json.data as WordItem[]).filter(isCardReady);
+        }
+      } catch {
+        // fallback bên dưới
+      }
+
+      // Fallback cross-classroom nếu API trả về rỗng (ví dụ: personal class rỗng nhưng có từ ở các lớp đã tham gia)
+      if (freeWords.length === 0) {
+        try {
+          const { data: srsRows } = await supabase
+            .from('srs_progress')
+            .select('word_id, words(id, word, translation, ipa, pos, example, example_vi, image_url, classroom_id)')
+            .eq('user_id', user.id)
+            .gt('review_count', 0)
+            .limit(40);
+          if (srsRows && srsRows.length > 0) {
+            const mapped: WordItem[] = [];
+            for (const row of srsRows) {
+              const w = row.words as unknown as (WordItem & { id: string }) | null;
+              if (w && isCardReady(w)) {
+                mapped.push({
+                  ...w,
+                  srsLevel: 1,
+                  reviewCount: 1,
+                  isDue: false,
+                });
+              }
+            }
+            freeWords = mapped;
+          }
+        } catch {
+          // ignore
+        }
+      }
+
+      if (freeWords.length === 0) {
+        toast.info('Chưa có từ nào trong kho từ để ôn tập tự do.');
+        setIsLoadingFree(false);
+        return;
+      }
+
+      const shuffled = shuffle(freeWords).slice(0, SESSION_CAP);
+      setIsFreeReview(true);
+      setPool(shuffled);
+      queueRef.current = [...shuffled];
+      setTotal(shuffled.length);
+      setProgress(0);
+      setStats({ correct: 0, close: 0, wrong: 0 });
+      setDone(false);
+      setCurrent(shuffled[0]);
+      setupCard(shuffled[0], shuffled, sessionMode);
+      toast.success(`Đã nạp ${shuffled.length} từ đã học để ôn tập tự do!`);
+    } catch (err: unknown) {
+      console.error('[ReviewSession] free review error:', err);
+      toast.error('Không tải được danh sách từ tự do.');
+    } finally {
+      setIsLoadingFree(false);
+    }
+  }, [classroomId, router, sessionMode, setupCard]);
+
   useEffect(() => {
     const init = async () => {
       try {
@@ -182,8 +307,13 @@ function SessionContent() {
         accessTokenRef.current = token;
         setUserId(user.id);
 
+        if (searchParams.get('free') === '1') {
+          await startFreeReview();
+          return;
+        }
+
         const base = classroomId
-          ? `/api/words?classroomId=${classroomId}`
+          ? `/api/words?classroomId=${encodeURIComponent(classroomId)}`
           : `/api/words`;
         // Ưu tiên nạp danh sách đến hạn ôn (RPC get_due_words_list, siêu nhẹ ~120ms)
         const dueRes = await authFetch(`${base}${base.includes('?') ? '&' : '?'}filter=review&limit=${SESSION_CAP}`, {}, token);
@@ -195,7 +325,7 @@ function SessionContent() {
           return;
         }
         const classroomIdFromRes = dueJson.classroomId;
-        if (!classroomId && classroomIdFromRes) setClassroomId(classroomIdFromRes);
+        if (classParam && !classroomId && classroomIdFromRes) setClassroomId(classroomIdFromRes);
 
         const dueWords = (dueJson.success && Array.isArray(dueJson.data)) ? (dueJson.data as WordItem[]) : [];
 
@@ -221,23 +351,14 @@ function SessionContent() {
           }
         }
 
-        const ready = combinedPool.filter(
-          (w) =>
-            w.word &&
-            w.translation &&
-            !w.translation.includes('failed') &&
-            !w.translation.includes('Analyzing'),
-        );
+        // Lọc sạch các từ có trạng thái dịch lỗi / đang phân tích / rỗng
+        const ready = combinedPool.filter(isCardReady);
         setPool(ready);
 
-        let due = dueWords.length > 0 ? dueWords : ready.filter((w) => w.isDue);
-        due = due.filter(
-          (w) =>
-            w.word &&
-            w.translation &&
-            !w.translation.includes('failed') &&
-            !w.translation.includes('Analyzing'),
-        );
+        let due = dueWords.filter(isCardReady);
+        if (due.length === 0) {
+          due = ready.filter((w) => w.isDue);
+        }
 
         // Cloze session: ưu tiên từ có example chứa target word
         if (sessionMode === 'cloze') {
@@ -252,6 +373,23 @@ function SessionContent() {
 
         due = due.slice(0, SESSION_CAP);
         if (due.length === 0) {
+          // Khi không có từ đến hạn, tìm mốc thời gian từ kế tiếp sẽ đến hạn
+          try {
+            const { data: nextDueData } = await supabase
+              .from('srs_progress')
+              .select('next_review_date')
+              .eq('user_id', user.id)
+              .gt('review_count', 0)
+              .gt('next_review_date', new Date().toISOString())
+              .order('next_review_date', { ascending: true })
+              .limit(1)
+              .maybeSingle();
+            if (nextDueData?.next_review_date) {
+              setNextDueTime(nextDueData.next_review_date);
+            }
+          } catch {
+            // silent
+          }
           setIsLoading(false);
           return;
         }
@@ -270,7 +408,7 @@ function SessionContent() {
     };
     void init();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [classParam, sessionMode]);
+  }, [classParam, sessionMode, startFreeReview]);
 
   useEffect(() => () => {
     if (advanceTimer.current) clearTimeout(advanceTimer.current);
@@ -307,14 +445,16 @@ function SessionContent() {
     if (rest.length === 0) {
       setDone(true);
       setCurrent(null);
-      invalidateWordSummaryCache();
+      if (!isFreeReview) {
+        invalidateWordSummaryCache();
+      }
       return;
     }
 
     const next = rest[0];
     setCurrent(next);
     setupCard(next, pool.length >= 2 ? pool : rest, sessionMode);
-  }, [pool, sessionMode, setupCard, total]);
+  }, [isFreeReview, pool, sessionMode, setupCard, total]);
 
   const finalize = useCallback(
     (isCorrect: boolean, isClose: boolean, quality: 0 | 3 | 4 | 5) => {
@@ -324,10 +464,13 @@ function SessionContent() {
 
       // Phản hồi đúng/sai phải hiện ngay; lưu SRS chạy nền để độ trễ mạng
       // không làm chậm nhịp học hoặc giữ giao diện ở trạng thái chưa chấm.
-      void saveSrsReview(current.id, quality, accessTokenRef.current).catch((error: unknown) => {
-        const message = error instanceof Error ? error.message : 'Không lưu được lịch ôn';
-        toast.error(message);
-      });
+      // Chỉ lưu FSRS khi KHÔNG ở chế độ Ôn tập tự do (Free Review) để bảo toàn thuật toán FSRS.
+      if (!isFreeReview) {
+        void saveSrsReview(current.id, quality, accessTokenRef.current).catch((error: unknown) => {
+          const message = error instanceof Error ? error.message : 'Không lưu được lịch ôn';
+          toast.error(message);
+        });
+      }
 
       const v: Verdict = isCorrect ? 'correct' : isClose ? 'close' : 'wrong';
       setVerdict(v);
@@ -377,6 +520,7 @@ function SessionContent() {
         }
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [current, userId, goNext],
   );
 
@@ -443,7 +587,7 @@ function SessionContent() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [done, isLoading, current, choices, verdict, selected, canSkip]);
 
-  const hubHref = classroomId ? `/review?class=${classroomId}` : '/review';
+  const hubHref = classroomId ? `/review?class=${encodeURIComponent(classroomId)}` : '/review';
   const sessionTitle =
     sessionMode === 'cloze' ? 'Cloze' : sessionMode === 'listen' ? 'Nghe' : 'Ôn hỗn hợp';
 
@@ -459,25 +603,57 @@ function SessionContent() {
   if (!current && !done) {
     return (
       <StudentShell title={sessionTitle} hideMobileNav contentClassName="max-w-md mx-auto">
-        <div className="flex flex-col items-center gap-6 px-4 py-16 text-center">
-          <div className="text-6xl">🎉</div>
-          <h1 className="text-2xl font-black text-slate-900">Không có từ nào đến hạn ôn</h1>
-          <p className="text-sm font-medium text-slate-500 leading-relaxed">
-            Hiện tại chưa có từ nào cần ôn tập. Ôn trước hạn sẽ ảnh hưởng đến thuật toán ghi nhớ.
-          </p>
-          <p className="text-sm font-medium text-indigo-600">
-            Muốn luyện thêm? Vào <strong>Sử dụng từ</strong> để làm quiz mà không ảnh hưởng FSRS.
-          </p>
-          <div className="flex w-full flex-col gap-2">
-            <Link href={classroomId ? `/flashcard?class=${classroomId}` : '/flashcard'}>
-              <Button className="h-12 w-full rounded-2xl bg-indigo-600 font-bold">🗂️ Ôn thẻ Flashcard tự do</Button>
-            </Link>
-            <Link href={classroomId ? `/practice?class=${classroomId}` : '/practice'}>
-              <Button variant="outline" className="h-12 w-full rounded-2xl font-bold">🧠 Sử dụng từ — Quiz luyện tập</Button>
-            </Link>
-            <Link href={hubHref}>
-              <Button variant="ghost" className="h-10 w-full rounded-2xl font-semibold text-slate-500">← Hub ôn tập</Button>
-            </Link>
+        <div className="flex flex-col items-center gap-6 px-4 py-12 text-center">
+          <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-emerald-50 text-4xl shadow-sm border border-emerald-100">
+            🎯
+          </div>
+          <div className="space-y-2">
+            <h1 className="text-2xl font-black text-slate-900">Tất cả từ đã ôn tập đúng hạn!</h1>
+            <p className="text-sm font-medium text-slate-600 leading-relaxed">
+              Hiện tại bạn chưa có từ nào đến hạn cần ôn. Thuật toán FSRS tối ưu khoảng cách ghi nhớ bằng cách giãn thời gian — ôn tập trước hạn không bắt buộc theo FSRS và bạn đã hoàn thành tốt lịch trình hôm nay.
+            </p>
+          </div>
+
+          {nextDueTime && formatNextDue(nextDueTime) ? (
+            <div className="w-full rounded-2xl border border-indigo-100 bg-indigo-50/70 p-3.5 text-xs font-semibold text-indigo-900 flex items-center justify-center gap-2">
+              <span>⏳</span>
+              <span>Từ tiếp theo đến hạn: <strong>{formatNextDue(nextDueTime)}</strong></span>
+            </div>
+          ) : null}
+
+          <div className="flex w-full flex-col gap-2.5 pt-2">
+            <Button
+              onClick={startFreeReview}
+              disabled={isLoadingFree}
+              className="h-12 w-full rounded-2xl bg-indigo-600 font-bold text-white shadow-md hover:bg-indigo-700 flex items-center justify-center gap-2 transition active:scale-[0.99]"
+            >
+              {isLoadingFree ? (
+                <>
+                  <Loader2 className="h-5 w-5 animate-spin" />
+                  <span>Đang nạp từ ôn tự do…</span>
+                </>
+              ) : (
+                <>
+                  <span>🔄 Ôn tập tự do (tất cả từ đã học)</span>
+                </>
+              )}
+            </Button>
+            <p className="text-[11px] font-medium text-slate-400">
+              Ôn tự do giúp củng cố trí nhớ ngay mà không làm thay đổi lịch trình FSRS.
+            </p>
+
+            <div className="pt-2 flex flex-col gap-2 w-full">
+              <Link href="/student" className="w-full">
+                <Button variant="outline" className="h-11 w-full rounded-2xl font-bold border-slate-200 hover:bg-slate-50">
+                  🏠 Về trang chủ
+                </Button>
+              </Link>
+              <Link href={hubHref} className="w-full">
+                <Button variant="ghost" className="h-10 w-full rounded-2xl font-semibold text-slate-500 hover:text-slate-800">
+                  ← Về Hub ôn tập
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </StudentShell>
@@ -490,7 +666,9 @@ function SessionContent() {
     return (
       <div className="flex min-h-dvh flex-col items-center justify-center gap-6 bg-gradient-to-br from-indigo-50 via-white to-violet-50 p-6 font-sans">
         <div className="text-7xl">{acc >= 80 ? '🦁' : acc >= 60 ? '🦊' : '🐼'}</div>
-        <h1 className="text-3xl font-black text-slate-900">Xong phiên {sessionTitle}!</h1>
+        <h1 className="text-3xl font-black text-slate-900">
+          {isFreeReview ? 'Xong lượt ôn tự do!' : `Xong phiên ${sessionTitle}!`}
+        </h1>
         <Card className="w-full max-w-sm rounded-3xl border border-slate-200 p-6 shadow-lg">
           <div className="mb-4 flex justify-between">
             <div>
@@ -506,9 +684,15 @@ function SessionContent() {
           <div className="flex flex-col gap-2">
             <Button
               className="h-12 rounded-2xl bg-indigo-600 font-bold"
-              onClick={() => window.location.reload()}
+              onClick={() => {
+                if (isFreeReview) {
+                  void startFreeReview();
+                } else {
+                  window.location.reload();
+                }
+              }}
             >
-              <ArrowRight className="mr-2 h-4 w-4" /> Ôn tiếp
+              <ArrowRight className="mr-2 h-4 w-4" /> {isFreeReview ? 'Ôn tiếp lượt khác' : 'Ôn tiếp'}
             </Button>
             <Link href={hubHref}>
               <Button variant="outline" className="h-12 w-full rounded-2xl font-bold">
@@ -539,13 +723,18 @@ function SessionContent() {
           <ChevronLeft className="h-5 w-5" />
         </Link>
         <div className="min-w-0 flex-1">
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1.5 flex-wrap">
             <Badge className="rounded-full border-none bg-indigo-100 px-2 py-0 text-[10px] font-black text-indigo-700">
               {modeMeta.emoji} {modeMeta.vi}
             </Badge>
             <span className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
               {sessionTitle}
             </span>
+            {isFreeReview && (
+              <Badge variant="outline" className="rounded-full border-amber-300 bg-amber-50 px-2 py-0 text-[10px] font-black text-amber-700">
+                🔄 Ôn tự do
+              </Badge>
+            )}
           </div>
           <div className="mt-1 h-1.5 w-full overflow-hidden rounded-full bg-slate-200">
             <div

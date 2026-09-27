@@ -303,7 +303,7 @@ export async function GET(req: Request): Promise<NextResponse> {
         profile.id,
         title,
         body,
-        '/student'
+        '/review'
       );
 
       const sent = !!(sendResult as { messageId?: string } | undefined)?.messageId;

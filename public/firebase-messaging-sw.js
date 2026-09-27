@@ -41,13 +41,47 @@ self.addEventListener('notificationclick', (event) => {
   event.stopImmediatePropagation();
   event.notification.close();
   const data = event.notification.data || {};
-  const url = data.url || (data.FCM_MSG && data.FCM_MSG.data && data.FCM_MSG.data.url) || '/';
+  const rawUrl = data.url || (data.FCM_MSG && data.FCM_MSG.data && data.FCM_MSG.data.url) || '/review';
+  let targetUrl;
+  try {
+    targetUrl = new URL(rawUrl, self.location.origin).href;
+  } catch {
+    targetUrl = rawUrl;
+  }
+
   event.waitUntil(
     clients.matchAll({ type: 'window', includeUncontrolled: true }).then((windowClients) => {
+      let matchingClient = null;
       for (const client of windowClients) {
-        if (client.url === url && 'focus' in client) return client.focus();
+        try {
+          const clientUrl = new URL(client.url);
+          if (clientUrl.origin === self.location.origin) {
+            if (clientUrl.pathname.startsWith('/review')) {
+              matchingClient = client;
+              break;
+            }
+            if (!matchingClient) {
+              matchingClient = client;
+            }
+          }
+        } catch {
+          // ignore URL parsing error
+        }
       }
-      if (clients.openWindow) return clients.openWindow(url);
+
+      if (matchingClient) {
+        if ('focus' in matchingClient) {
+          matchingClient.focus();
+        }
+        if ('navigate' in matchingClient && matchingClient.url !== targetUrl) {
+          return matchingClient.navigate(targetUrl);
+        }
+        return;
+      }
+
+      if (clients.openWindow) {
+        return clients.openWindow(targetUrl);
+      }
     })
   );
 });

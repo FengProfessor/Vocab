@@ -363,7 +363,16 @@ function ToeicExamRoomInner() {
 
   const [isSubmitModalOpen, setIsSubmitModalOpen] = useState<boolean>(false);
   const [isPaletteOpen, setIsPaletteOpen] = useState<boolean>(false);
+  const [isDesktopSidebarOpen, setIsDesktopSidebarOpen] = useState<boolean>(true);
   const [showPracticeExplanation, setShowPracticeExplanation] = useState<boolean>(false);
+
+  const handleTogglePalette = useCallback(() => {
+    if (typeof window !== 'undefined' && window.innerWidth >= 1280) {
+      setIsDesktopSidebarOpen((prev) => !prev);
+    } else {
+      setIsPaletteOpen((prev) => !prev);
+    }
+  }, []);
 
   // Submitted score state (persists across reloads & post-auth redirects)
   const [submittedScoreResult, setSubmittedScoreResult] = useState<ToeicScoreResult | null>(null);
@@ -884,78 +893,104 @@ function ToeicExamRoomInner() {
           onToggleMode={toggleExamMode}
           onPause={session.pauseExam}
           onSubmit={() => setIsSubmitModalOpen(true)}
-          onOpenPalette={() => setIsPaletteOpen((prev) => !prev)}
+          onOpenPalette={handleTogglePalette}
           isPaused={session.isPaused}
           allowPause={true}
         />
 
         {/* Main Content Area */}
-        <main className="relative flex-1 overflow-hidden">
-          {isLoadingQuestions && questions.length === 0 ? (
-            <div className="flex h-[calc(100dvh-48px)] flex-col items-center justify-center gap-3 font-mono text-xs text-slate-500">
-              <Loader2 className="h-5 w-5 animate-spin text-emerald-600 dark:text-emerald-400" />
-              <span>Đang nạp dữ liệu bài thi {testTitle}...</span>
-            </div>
-          ) : currentQ ? (
-            <ToeicSplitPane
-              question={currentQ}
-              cluster={activeCluster}
-              mode={currentMode}
-              selectedOption={session.answers[session.currentQNum]}
-              answers={session.answers}
-              isFlagged={session.flagged.has(session.currentQNum)}
-              flagged={session.flagged}
-              onSelectOption={(opt, targetQNum) => {
-                const qNum = targetQNum ?? session.currentQNum;
-                session.selectAnswer(qNum, opt);
-                if (currentMode === 'practice') {
-                  setShowPracticeExplanation(true);
-                  void fetchSingleExplanation(qNum);
-                }
-              }}
-              onToggleFlag={(targetQNum) => {
-                const qNum = targetQNum ?? session.currentQNum;
-                session.toggleFlag(qNum);
-              }}
-              onNext={handleNext}
-              onPrev={handlePrev}
-              hasPrev={hasPrevCluster}
-              hasNext={hasNextCluster}
-              totalQuestions={session.totalQuestions}
-              showExplanation={showPracticeExplanation}
-              onToggleExplanation={(targetQNum) => {
-                const qNum = targetQNum ?? session.currentQNum;
-                setShowPracticeExplanation((prev) => {
-                  const next = !prev;
-                  if (next) {
+        <main className="relative flex-1 overflow-hidden flex flex-row">
+          <div className="flex-1 min-w-0 h-full overflow-hidden">
+            {isLoadingQuestions && questions.length === 0 ? (
+              <div className="flex h-[calc(100dvh-48px)] flex-col items-center justify-center gap-3 font-mono text-xs text-slate-500">
+                <Loader2 className="h-5 w-5 animate-spin text-emerald-600 dark:text-emerald-400" />
+                <span>Đang nạp dữ liệu bài thi {testTitle}...</span>
+              </div>
+            ) : currentQ ? (
+              <ToeicSplitPane
+                question={currentQ}
+                cluster={activeCluster}
+                mode={currentMode}
+                selectedOption={session.answers[session.currentQNum]}
+                answers={session.answers}
+                isFlagged={session.flagged.has(session.currentQNum)}
+                flagged={session.flagged}
+                onSelectOption={(opt, targetQNum) => {
+                  const qNum = targetQNum ?? session.currentQNum;
+                  session.selectAnswer(qNum, opt);
+                  if (currentMode === 'practice') {
+                    setShowPracticeExplanation(true);
                     void fetchSingleExplanation(qNum);
                   }
-                  return next;
-                });
-              }}
-              onEnablePracticeMode={toggleExamMode}
-              onOpenPalette={() => setIsPaletteOpen((prev) => !prev)}
-              paletteStats={{
-                answered: session.answeredCount,
-                total: session.totalQuestions,
-              }}
-              className="h-[calc(100dvh-48px)]"
-            />
-          ) : null}
+                }}
+                onToggleFlag={(targetQNum) => {
+                  const qNum = targetQNum ?? session.currentQNum;
+                  session.toggleFlag(qNum);
+                }}
+                onNext={handleNext}
+                onPrev={handlePrev}
+                hasPrev={hasPrevCluster}
+                hasNext={hasNextCluster}
+                totalQuestions={session.totalQuestions}
+                showExplanation={showPracticeExplanation}
+                onToggleExplanation={(targetQNum) => {
+                  const qNum = targetQNum ?? session.currentQNum;
+                  setShowPracticeExplanation((prev) => {
+                    const next = !prev;
+                    if (next) {
+                      void fetchSingleExplanation(qNum);
+                    }
+                    return next;
+                  });
+                }}
+                onEnablePracticeMode={toggleExamMode}
+                onOpenPalette={handleTogglePalette}
+                paletteStats={{
+                  answered: session.answeredCount,
+                  total: session.totalQuestions,
+                }}
+                className="h-[calc(100dvh-48px)]"
+              />
+            ) : null}
+          </div>
 
-          {/* Question Palette Matrix */}
-          <ToeicQuestionPalette
-            questions={questions}
-            answers={session.answers}
-            flagged={session.flagged}
-            currentQNum={session.currentQNum}
-            onSelectQuestion={(qNum) => {
-              session.goToQuestion(qNum);
-              setIsPaletteOpen(false);
-            }}
-            isOpen={isPaletteOpen}
-            onToggleOpen={() => setIsPaletteOpen((prev) => !prev)}
-          />
+          {/* Desktop Persistent Sidebar (Study4 style on >= 1280px / xl) */}
+          {isDesktopSidebarOpen && (
+            <aside className="hidden xl:flex shrink-0 w-80 2xl:w-88 h-[calc(100dvh-48px)] border-l border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 z-20 flex-col overflow-hidden">
+              <ToeicQuestionPalette
+                questions={questions}
+                answers={session.answers}
+                flagged={session.flagged}
+                currentQNum={session.currentQNum}
+                onSelectQuestion={(qNum) => {
+                  session.goToQuestion(qNum);
+                }}
+                variant="sidebar"
+                formattedTime={session.formattedTime}
+                isTimeWarning={session.isTimeWarning}
+                onSubmit={() => setIsSubmitModalOpen(true)}
+                mode={currentMode}
+                onToggleOpen={() => setIsDesktopSidebarOpen(false)}
+              />
+            </aside>
+          )}
+
+          {/* Mobile / Tablet Drawer */}
+          <div className="xl:hidden">
+            <ToeicQuestionPalette
+              questions={questions}
+              answers={session.answers}
+              flagged={session.flagged}
+              currentQNum={session.currentQNum}
+              onSelectQuestion={(qNum) => {
+                session.goToQuestion(qNum);
+                setIsPaletteOpen(false);
+              }}
+              isOpen={isPaletteOpen}
+              onToggleOpen={() => setIsPaletteOpen((prev) => !prev)}
+              variant="drawer"
+            />
+          </div>
         </main>
 
         {/* Pause Modal */}

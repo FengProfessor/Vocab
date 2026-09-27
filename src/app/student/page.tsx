@@ -945,7 +945,11 @@ export default function StudentDashboard() {
 
             {/* Thẻ Ôn Tập FSRS */}
             <Link
-              href="/review"
+              href={
+                currentClassScope && currentClassScope !== '__personal__'
+                  ? `/review?class=${encodeURIComponent(currentClassScope)}`
+                  : '/review'
+              }
               data-onboarding="review"
               className="group relative flex items-center justify-between rounded-2xl border-2 border-emerald-200/80 bg-gradient-to-br from-emerald-500 to-teal-700 p-4 text-white shadow-lg shadow-emerald-500/20 transition-all hover:scale-[1.02] hover:shadow-xl hover:shadow-emerald-500/30 active:scale-[0.98]"
             >

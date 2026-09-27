@@ -9,13 +9,15 @@ import {
   Flag,
   CheckCircle2,
   HelpCircle,
-  Bookmark,
+  Clock,
+  Send,
 } from 'lucide-react';
 import type {
   ToeicUnifiedQuestion,
   ToeicOptionKey,
   ToeicPart,
   ToeicClientQuestion,
+  ToeicExamMode,
 } from '@/types/toeic';
 
 export interface ToeicQuestionPaletteProps {
@@ -27,6 +29,11 @@ export interface ToeicQuestionPaletteProps {
   isOpen?: boolean;
   onToggleOpen?: () => void;
   className?: string;
+  variant?: 'drawer' | 'sidebar';
+  formattedTime?: string;
+  isTimeWarning?: boolean;
+  onSubmit?: () => void;
+  mode?: ToeicExamMode;
 }
 
 type PaletteFilter = 'all' | 'unanswered' | 'answered' | 'flagged';
@@ -46,6 +53,11 @@ export function ToeicQuestionPalette({
   isOpen = true,
   onToggleOpen,
   className = '',
+  variant = 'drawer',
+  formattedTime,
+  isTimeWarning = false,
+  onSubmit,
+  mode = 'real',
 }: ToeicQuestionPaletteProps) {
   const [filter, setFilter] = useState<PaletteFilter>('all');
   const [activePartTab, setActivePartTab] = useState<ToeicPart | 'all'>('all');
@@ -155,10 +167,12 @@ export function ToeicQuestionPalette({
     // On mobile viewports, can auto-close or keep open depending on user preference
   };
 
+  const isSidebar = variant === 'sidebar';
+
   return (
     <>
-      {/* Floating Toggle Button when Palette is collapsed (positioned safely above footer, hidden on mobile to avoid blocking choices) */}
-      {!isOpen && (
+      {/* Floating Toggle Button when Palette is collapsed (only for drawer mode) */}
+      {!isSidebar && !isOpen && (
         <button
           type="button"
           onClick={onToggleOpen}
@@ -170,8 +184,8 @@ export function ToeicQuestionPalette({
         </button>
       )}
 
-      {/* Backdrop overlay to dismiss palette drawer when open */}
-      {isOpen && (
+      {/* Backdrop overlay to dismiss palette drawer when open (only for drawer mode) */}
+      {!isSidebar && isOpen && (
         <div
           className="fixed inset-0 z-30 bg-black/40 transition-opacity"
           onClick={onToggleOpen}
@@ -179,46 +193,104 @@ export function ToeicQuestionPalette({
         />
       )}
 
-      {/* Main Palette Drawer / Sidebar */}
+      {/* Main Palette Drawer or Persistent Sidebar */}
       <aside
         aria-label="Bảng câu hỏi"
-        className={`fixed inset-y-0 right-0 z-40 flex flex-col border-l border-slate-200 bg-white shadow-xl transition-all duration-200 dark:border-slate-800 dark:bg-slate-950 ${
-          isOpen
-            ? 'w-full sm:w-80 md:w-96 translate-x-0'
-            : 'w-0 translate-x-full pointer-events-none'
-        } ${className}`}
+        className={
+          isSidebar
+            ? `flex flex-col h-full w-full bg-white dark:bg-slate-900 ${className}`
+            : `fixed inset-y-0 right-0 z-40 flex flex-col border-l border-slate-200 bg-white shadow-xl transition-all duration-200 dark:border-slate-800 dark:bg-slate-950 ${
+                isOpen
+                  ? 'w-full sm:w-80 md:w-96 translate-x-0'
+                  : 'w-0 translate-x-full pointer-events-none'
+              } ${className}`
+        }
       >
-        {/* Header with Title and Close Button */}
-        <div className="shrink-0 flex items-center justify-between border-b border-slate-200 p-3.5 dark:border-slate-800">
-          <div className="flex items-center gap-2">
-            <div className="flex h-7 w-7 items-center justify-center rounded-xs border border-slate-200 bg-slate-100 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
-              <Grid className="h-3.5 w-3.5" />
+        {/* Sidebar Mode: Top Action Bar (Study4 style: Timer + NỘP BÀI button) */}
+        {isSidebar && onSubmit ? (
+          <div className="shrink-0 p-3 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/80 space-y-2">
+            <div className="flex items-center justify-between gap-2">
+              {formattedTime && (
+                <div
+                  className={`flex items-center gap-1.5 font-mono text-sm font-bold tabular-nums ${
+                    isTimeWarning
+                      ? 'text-rose-600 dark:text-rose-400'
+                      : 'text-slate-800 dark:text-slate-200'
+                  }`}
+                >
+                  <Clock className="h-4 w-4 text-slate-500 shrink-0" />
+                  <span>{formattedTime}</span>
+                  {mode === 'practice' && (
+                    <span className="text-[10px] text-emerald-600 font-medium">(Tự do)</span>
+                  )}
+                </div>
+              )}
+
+              <button
+                type="button"
+                onClick={onSubmit}
+                className="flex-1 max-w-[130px] inline-flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-sm bg-slate-900 text-white hover:bg-slate-800 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white font-mono text-xs font-bold cursor-pointer transition shadow-2xs"
+                title="Nộp bài thi và xem kết quả"
+              >
+                <Send className="h-3 w-3" />
+                <span>NỘP BÀI</span>
+              </button>
             </div>
-            <div>
-              <h2 className="font-mono text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
-                Bảng điều hướng câu hỏi
-              </h2>
-              <p className="font-mono text-[11px] tabular-nums text-slate-500 dark:text-slate-400">
-                [{String(answeredCount).padStart(3, '0')}/{totalCount}] câu đã trả lời
-              </p>
+
+            <div className="flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400 pt-0.5">
+              <span>Đã làm: <strong className="text-slate-800 dark:text-slate-200">{answeredCount}/{totalCount}</strong> câu</span>
+              {onToggleOpen && (
+                <button
+                  type="button"
+                  onClick={onToggleOpen}
+                  className="hover:text-slate-800 dark:hover:text-slate-200 underline cursor-pointer"
+                  title="Thu gọn sidebar"
+                >
+                  Thu gọn ❯
+                </button>
+              )}
             </div>
           </div>
+        ) : (
+          /* Drawer Mode Header with Title and Close Button */
+          <div className="shrink-0 flex items-center justify-between border-b border-slate-200 p-3.5 dark:border-slate-800">
+            <div className="flex items-center gap-2">
+              <div className="flex h-7 w-7 items-center justify-center rounded-xs border border-slate-200 bg-slate-100 text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                <Grid className="h-3.5 w-3.5" />
+              </div>
+              <div>
+                <h2 className="font-mono text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
+                  Bảng điều hướng câu hỏi
+                </h2>
+                <p className="font-mono text-[11px] tabular-nums text-slate-500 dark:text-slate-400">
+                  [{String(answeredCount).padStart(3, '0')}/{totalCount}] câu đã trả lời
+                </p>
+              </div>
+            </div>
 
-          {onToggleOpen && (
-            <button
-              type="button"
-              onClick={onToggleOpen}
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm border border-slate-300 text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800 cursor-pointer font-mono text-xs font-semibold"
-              title="Đóng bảng câu hỏi (Phím tắt: Esc)"
-            >
-              <X className="h-3.5 w-3.5" />
-              <span>Đóng</span>
-              <kbd className="hidden sm:inline text-[10px] px-1 py-0.2 rounded-xs bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">
-                Esc
-              </kbd>
-            </button>
-          )}
-        </div>
+            {onToggleOpen && (
+              <button
+                type="button"
+                onClick={onToggleOpen}
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-sm border border-slate-300 text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800 cursor-pointer font-mono text-xs font-semibold"
+                title="Đóng bảng câu hỏi (Phím tắt: Esc)"
+              >
+                <X className="h-3.5 w-3.5" />
+                <span>Đóng</span>
+                <kbd className="hidden sm:inline text-[10px] px-1 py-0.2 rounded-xs bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">
+                  Esc
+                </kbd>
+              </button>
+            )}
+          </div>
+        )}
+
+        {/* Study4 review hint note */}
+        {isSidebar && (
+          <div className="shrink-0 px-3 py-1.5 bg-amber-50/70 dark:bg-amber-950/20 border-b border-amber-200/60 dark:border-amber-900/40 text-[11px] text-amber-800/90 dark:text-amber-300/90 leading-tight">
+            <span>💡 Click vào số câu để chuyển nhanh. Dùng phím <kbd className="px-1 py-0.5 rounded-xs bg-amber-100 dark:bg-amber-900/50 font-mono font-bold">F</kbd> để gắn cờ.</span>
+          </div>
+        )}
 
         {/* Status Legend (4 States) */}
         <div className="shrink-0 border-b border-slate-200 bg-slate-50 p-2.5 font-mono text-[11px] dark:border-slate-800 dark:bg-slate-900">

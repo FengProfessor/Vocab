@@ -79,6 +79,23 @@ async function getOrCreatePersonalClassroom(supabase: ReturnType<typeof createSe
   return created.id as string;
 }
 
+/**
+ * Helper: Lấy danh sách ID các lớp học mà user sở hữu (teacher) hoặc tham gia (enrolled).
+ */
+async function getUserClassroomIds(
+  supabase: ReturnType<typeof createServiceClient>,
+  userId: string,
+): Promise<string[]> {
+  const [{ data: ownedClasses }, { data: enrolledClasses }] = await Promise.all([
+    supabase.from('classrooms').select('id').eq('teacher_id', userId),
+    supabase.from('enrollments').select('classroom_id').eq('student_id', userId),
+  ]);
+  const cids = new Set<string>();
+  (ownedClasses || []).forEach((c) => { if (c.id) cids.add(c.id as string); });
+  (enrolledClasses || []).forEach((e) => { if (e.classroom_id) cids.add(e.classroom_id as string); });
+  return Array.from(cids);
+}
+
 type WordSummaryCounts = {
   total: number;
   dueCount: number;
@@ -92,23 +109,23 @@ const inFlightLevelCounts = new Map<string, Promise<number[]>>();
 let rpcMissingCooldownUntil = 0;
 
 /**
- * Đếm L1–L6 trên TOÀN BỘ từ classroom.
+ * Đếm L1–L6 trên TOÀN BỘ từ classroom (hoặc cross-classroom nếu classroomId = null).
  * Ưu tiên RPC get_word_level_counts (1 query) — migration 20260716_class_scale_db_perf.
  * Fallback: song song chunks (Promise.all) + single-flight in-flight deduplication.
  */
 async function fetchLevelCounts(
   supabase: ReturnType<typeof createServiceClient>,
   userId: string,
-  classroomId: string,
+  classroomId: string | null,
   totalWords: number,
 ): Promise<number[]> {
-  const flightKey = `${userId}:${classroomId}`;
+  const flightKey = `${userId}:${classroomId || 'all'}`;
   const existing = inFlightLevelCounts.get(flightKey);
   if (existing) return existing;
 
   const promise = (async () => {
     try {
-      if (Date.now() > rpcMissingCooldownUntil) {
+      if (classroomId && Date.now() > rpcMissingCooldownUntil) {
         const { data: rpcRows, error: rpcErr } = await supabase.rpc('get_word_level_counts', {
           p_user_id: userId,
           p_classroom_id: classroomId,
@@ -135,10 +152,16 @@ async function fetchLevelCounts(
 
       // Fallback: parallel chunks — tránh vòng lặp tuần tự gây lag
       const levelCounts = [0, 0, 0, 0, 0, 0];
-      const { data: wordRows, error: wErr } = await supabase
-        .from('words')
-        .select('id')
-        .eq('classroom_id', classroomId);
+      let wordQuery = supabase.from('words').select('id');
+      if (classroomId) {
+        wordQuery = wordQuery.eq('classroom_id', classroomId);
+      } else {
+        const targetIds = await getUserClassroomIds(supabase, userId);
+        if (targetIds.length === 0) return levelCounts;
+        wordQuery = wordQuery.in('classroom_id', targetIds);
+      }
+
+      const { data: wordRows, error: wErr } = await wordQuery;
       if (wErr || !wordRows?.length) {
         if (totalWords > 0 && (!wordRows || wordRows.length === 0)) {
           levelCounts[0] = totalWords;
@@ -206,11 +229,11 @@ function purgeLocalWordSummaryCache(userId: string): void {
 async function fetchWordSummaryCounts(
   supabase: ReturnType<typeof createServiceClient>,
   userId: string,
-  classroomId: string,
+  classroomId: string | null,
   includeLevels = false,
 ): Promise<WordSummaryCounts> {
   // 30s cache — 100 HS refresh cùng lúc chỉ 1 RPC/instance
-  const cacheKey = `wsum:${userId}:${classroomId}:${includeLevels ? 1 : 0}`;
+  const cacheKey = `wsum:${userId}:${classroomId || 'all'}:${includeLevels ? 1 : 0}`;
   const cached = cacheGet<WordSummaryCounts>(cacheKey);
   if (cached) return cached;
 
@@ -219,7 +242,7 @@ async function fetchWordSummaryCounts(
 
   const promise = (async () => {
     try {
-      // Ưu tiên RPC (migration 20260919_optimize_word_summary_rpc)
+      // Ưu tiên RPC (migration 20260919_optimize_word_summary_rpc / 20260927_cross_classroom_due_words_and_tz)
       const { data: rpcRows, error: rpcErr } = await supabase.rpc('get_word_summary', {
         p_user_id: userId,
         p_classroom_id: classroomId || null,
@@ -245,42 +268,103 @@ async function fetchWordSummaryCounts(
         }
       }
 
+      // Fallback query (nếu RPC chưa sẵn sàng hoặc lỗi)
+      let targetClassroomIds: string[] | null = null;
+      if (classroomId) {
+        targetClassroomIds = [classroomId];
+      } else {
+        targetClassroomIds = await getUserClassroomIds(supabase, userId);
+      }
+
+      if (targetClassroomIds.length === 0) {
+        const emptyResult: WordSummaryCounts = {
+          total: 0,
+          dueCount: 0,
+          newCount: 0,
+          reviewDueCount: 0,
+          levelCounts: [0, 0, 0, 0, 0, 0],
+        };
+        cacheSet(cacheKey, emptyResult, includeLevels ? 60_000 : 30_000);
+        return emptyResult;
+      }
+
       const now = new Date().toISOString();
+
+      let totalQuery = supabase
+        .from('words')
+        .select('id', { count: 'exact', head: true });
+      if (classroomId) {
+        totalQuery = totalQuery.eq('classroom_id', classroomId);
+      } else {
+        totalQuery = totalQuery.in('classroom_id', targetClassroomIds);
+      }
+
+      let srsDueQuery = supabase
+        .from('srs_progress')
+        .select('id, words!inner(classroom_id, translation)', { count: 'exact', head: true })
+        .eq('user_id', userId)
+        .lte('next_review_date', now)
+        .not('words.translation', 'is', null)
+        .neq('words.translation', '')
+        .not('words.translation', 'ilike', '%failed%')
+        .not('words.translation', 'ilike', '%Analyzing%')
+        .not('words.translation', 'like', '%⏳%');
+      if (classroomId) {
+        srsDueQuery = srsDueQuery.eq('words.classroom_id', classroomId);
+      } else {
+        srsDueQuery = srsDueQuery.in('words.classroom_id', targetClassroomIds);
+      }
+
+      let wordsWithSrsQuery = supabase
+        .from('srs_progress')
+        .select('id, words!inner(classroom_id)', { count: 'exact', head: true })
+        .eq('user_id', userId);
+      if (classroomId) {
+        wordsWithSrsQuery = wordsWithSrsQuery.eq('words.classroom_id', classroomId);
+      } else {
+        wordsWithSrsQuery = wordsWithSrsQuery.in('words.classroom_id', targetClassroomIds);
+      }
+
+      let learnedQuery = supabase
+        .from('srs_progress')
+        .select('id, words!inner(classroom_id)', { count: 'exact', head: true })
+        .eq('user_id', userId)
+        .gt('review_count', 0);
+      if (classroomId) {
+        learnedQuery = learnedQuery.eq('words.classroom_id', classroomId);
+      } else {
+        learnedQuery = learnedQuery.in('words.classroom_id', targetClassroomIds);
+      }
+
+      let reviewDueQuery = supabase
+        .from('srs_progress')
+        .select('id, words!inner(classroom_id, translation)', { count: 'exact', head: true })
+        .eq('user_id', userId)
+        .gt('review_count', 0)
+        .lte('next_review_date', now)
+        .not('words.translation', 'is', null)
+        .neq('words.translation', '')
+        .not('words.translation', 'ilike', '%failed%')
+        .not('words.translation', 'ilike', '%Analyzing%')
+        .not('words.translation', 'like', '%⏳%');
+      if (classroomId) {
+        reviewDueQuery = reviewDueQuery.eq('words.classroom_id', classroomId);
+      } else {
+        reviewDueQuery = reviewDueQuery.in('words.classroom_id', targetClassroomIds);
+      }
+
       const [
         { count: total },
-        { count: dueCount },
+        { count: srsDue },
         { count: wordsWithSrs },
         { count: learnedCount },
         { count: reviewDueCount },
       ] = await Promise.all([
-        supabase
-          .from('words')
-          .select('id', { count: 'exact', head: true })
-          .eq('classroom_id', classroomId),
-        supabase
-          .from('srs_progress')
-          .select('id, words!inner(classroom_id)', { count: 'exact', head: true })
-          .eq('user_id', userId)
-          .eq('words.classroom_id', classroomId)
-          .lte('next_review_date', now),
-        supabase
-          .from('srs_progress')
-          .select('id, words!inner(classroom_id)', { count: 'exact', head: true })
-          .eq('user_id', userId)
-          .eq('words.classroom_id', classroomId),
-        supabase
-          .from('srs_progress')
-          .select('id, words!inner(classroom_id)', { count: 'exact', head: true })
-          .eq('user_id', userId)
-          .eq('words.classroom_id', classroomId)
-          .gt('review_count', 0),
-        supabase
-          .from('srs_progress')
-          .select('id, words!inner(classroom_id)', { count: 'exact', head: true })
-          .eq('user_id', userId)
-          .eq('words.classroom_id', classroomId)
-          .gt('review_count', 0)
-          .lte('next_review_date', now),
+        totalQuery,
+        srsDueQuery,
+        wordsWithSrsQuery,
+        learnedQuery,
+        reviewDueQuery,
       ]);
 
       const totalN = total || 0;
@@ -288,8 +372,8 @@ async function fetchWordSummaryCounts(
       const withSrsN = wordsWithSrs || 0;
       const result: WordSummaryCounts = {
         total: totalN,
-        // due = SRS đến hạn + từ chưa có SRS (coi như cần học/ôn)
-        dueCount: (dueCount || 0) + Math.max(0, totalN - withSrsN),
+        // due = SRS đến hạn (hợp lệ) + từ chưa có SRS (coi như cần học/ôn)
+        dueCount: (srsDue || 0) + Math.max(0, totalN - withSrsN),
         newCount: Math.max(0, totalN - learnedN),
         reviewDueCount: reviewDueCount || 0,
         levelCounts: includeLevels
@@ -729,7 +813,9 @@ export async function GET(req: Request): Promise<NextResponse> {
     const userId = auth.userId;
 
     const { searchParams } = new URL(req.url);
-    let classroomId = searchParams.get('classroomId') || '';
+    const rawClassroomId = searchParams.get('classroomId');
+    let classroomId: string | null = rawClassroomId ? rawClassroomId.trim() : null;
+    if (classroomId === '') classroomId = null;
     const summary = searchParams.get('summary') === '1';
     const includeLevels = searchParams.get('levels') === '1';
     const filter = searchParams.get('filter'); // 'review' = từ đã học & đến hạn | 'new' = từ chưa học (review_count=0)
@@ -755,7 +841,7 @@ export async function GET(req: Request): Promise<NextResponse> {
 
     const supabase = createServiceClient();
 
-    // Nếu truyền classroomId, xác minh user là teacher của classroom đó (chống đọc lén)
+    // Nếu truyền classroomId, xác minh user là teacher của classroom đó hoặc đã enrolled (chống đọc lén)
     if (classroomId) {
       const { data: cls } = await supabase
         .from('classrooms')
@@ -772,8 +858,8 @@ export async function GET(req: Request): Promise<NextResponse> {
             .eq('student_id', userId)
             .maybeSingle();
       if (!isTeacher && !enrolled) return unauthorized();
-    } else {
-      // Tự động dùng personal classroom của chính user
+    } else if (!summary && filter !== 'review') {
+      // Tự động dùng personal classroom của chính user khi browse từ / new words thông thường
       classroomId = await getOrCreatePersonalClassroom(supabase, userId);
     }
 
@@ -785,7 +871,7 @@ export async function GET(req: Request): Promise<NextResponse> {
       if (!requestedIds) {
         const { data: rpcWords, error: rpcErr } = await supabase.rpc('get_due_words_list', {
           p_user_id: userId,
-          p_classroom_id: classroomId,
+          p_classroom_id: classroomId || null,
           p_limit: reviewCap,
         });
 
@@ -808,9 +894,11 @@ export async function GET(req: Request): Promise<NextResponse> {
             antonyms?: string[] | null;
             image_url?: string | null;
             review_count?: number | null;
+            classroom_id?: string | null;
           }>)
             .filter((w) =>
               w.word && w.translation &&
+              w.translation.trim() !== '' &&
               !w.translation.includes('failed') &&
               !w.translation.includes('Analyzing') &&
               !w.translation.includes('⏳'))
@@ -828,7 +916,7 @@ export async function GET(req: Request): Promise<NextResponse> {
                 image_url: w.image_url || null,
                 synonyms: w.synonyms || [],
                 antonyms: w.antonyms || [],
-                classroom_id: classroomId,
+                classroom_id: w.classroom_id || classroomId || '',
                 srs: null,
                 isDue: true,
                 reviewCount,
@@ -844,16 +932,37 @@ export async function GET(req: Request): Promise<NextResponse> {
         }
       }
 
+      // Fallback query (khi có requestedIds hoặc RPC chưa migrate/lỗi)
+      let targetClassroomIds: string[] | null = null;
+      if (classroomId) {
+        targetClassroomIds = [classroomId];
+      } else {
+        targetClassroomIds = await getUserClassroomIds(supabase, userId);
+      }
+
+      if (targetClassroomIds.length === 0) {
+        return new NextResponse(JSON.stringify({ success: true, data: [], classroomId, total: 0 }), {
+          headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
+        });
+      }
+
       const nowIso = new Date().toISOString();
-      const { data: dueSrs, error: dueErr } = await supabase
+      let dueSrsQuery = supabase
         .from('srs_progress')
         .select('word_id, user_id, next_review_date, review_count, stability, difficulty, ease_factor, interval_days, last_reviewed_at, words!inner(classroom_id)')
         .eq('user_id', userId)
-        .eq('words.classroom_id', classroomId)
         .gt('review_count', 0)
         .lte('next_review_date', nowIso)
         .order('next_review_date', { ascending: true })
         .limit(reviewCap);
+
+      if (classroomId) {
+        dueSrsQuery = dueSrsQuery.eq('words.classroom_id', classroomId);
+      } else {
+        dueSrsQuery = dueSrsQuery.in('words.classroom_id', targetClassroomIds);
+      }
+
+      const { data: dueSrs, error: dueErr } = await dueSrsQuery;
       if (dueErr) throw dueErr;
 
       const requestedIdSet = requestedIds ? new Set(requestedIds) : null;
@@ -878,7 +987,11 @@ export async function GET(req: Request): Promise<NextResponse> {
         .select('id, word, translation, ipa, pos, example, example_vi, image_url, synonyms, antonyms, classroom_id, created_at')
         .in('id', allIds);
       if (requestedIds) {
-        dueWordsQuery = dueWordsQuery.eq('classroom_id', classroomId);
+        if (classroomId) {
+          dueWordsQuery = dueWordsQuery.eq('classroom_id', classroomId);
+        } else if (targetClassroomIds) {
+          dueWordsQuery = dueWordsQuery.in('classroom_id', targetClassroomIds);
+        }
       }
       const { data: wordsData, error: wErr } = await dueWordsQuery;
       if (wErr) throw wErr;
@@ -887,6 +1000,7 @@ export async function GET(req: Request): Promise<NextResponse> {
       const enriched = ((wordsData || []) as Word[])
         .filter((w) =>
           w.word && w.translation &&
+          w.translation.trim() !== '' &&
           !w.translation.includes('failed') &&
           !w.translation.includes('Analyzing') &&
           !w.translation.includes('⏳'))
@@ -895,6 +1009,7 @@ export async function GET(req: Request): Promise<NextResponse> {
           const srsLevel = stabilityToLevel(srs?.stability || 0);
           return {
             ...w,
+            classroom_id: w.classroom_id || classroomId || '',
             srs,
             isDue: true,
             reviewCount: srs?.review_count || 0,
@@ -917,7 +1032,7 @@ export async function GET(req: Request): Promise<NextResponse> {
       if (!requestedIds) {
         const { data: rpcWords, error: rpcErr } = await supabase.rpc('get_new_words_list', {
           p_user_id: userId,
-          p_classroom_id: classroomId,
+          p_classroom_id: classroomId!,
           p_limit: limit,
         });
 
@@ -943,6 +1058,7 @@ export async function GET(req: Request): Promise<NextResponse> {
           }>)
             .filter((w) =>
               w.word && w.translation &&
+              w.translation.trim() !== '' &&
               !w.translation.includes('failed') &&
               !w.translation.includes('Analyzing') &&
               !w.translation.includes('⏳'))
@@ -1048,6 +1164,9 @@ export async function GET(req: Request): Promise<NextResponse> {
     }
 
     // List words + total count. Counts full (new/reviewDue): ?includeCounts=1 (tránh đếm đôi với summary=1)
+    if (!classroomId) {
+      classroomId = await getOrCreatePersonalClassroom(supabase, userId);
+    }
     const includeCounts = searchParams.get('includeCounts') === '1';
     const noCount = searchParams.get('noCount') === '1';
     let countQuery = supabase

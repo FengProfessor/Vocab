@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { ChevronLeft, Loader2 } from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
+import { Button } from '@/components/ui/button';
 import { HUB_MODES } from '@/lib/review-modes';
 import { authFetch } from '@/lib/auth-fetch';
 import { supabase } from '@/lib/supabase';
@@ -32,10 +33,35 @@ function ReviewHubContent() {
         // Stale paint: hiện số cache cũ trước khi network trả về
         const cached = readWordSummaryCache(session.user.id);
         if (cached && !cancelled) {
-          setDueCount(cached.reviewDueCount ?? 0);
+          if (!classParam || cached.classroomId === classParam) {
+            setDueCount(cached.reviewDueCount ?? 0);
+          }
         }
 
         if (!classParam) {
+          // Unified cross-classroom due count:
+          // Truy vấn /api/words?summary=1 (gọi get_word_summary với p_classroom_id = null)
+          try {
+            const res = await authFetch('/api/words?summary=1', {}, token);
+            const data = await res.json().catch(() => null);
+            if (!cancelled && data?.success) {
+              const count = typeof data.reviewDueCount === 'number'
+                ? data.reviewDueCount
+                : (data.dueCount ?? 0);
+              setDueCount(count);
+              writeWordSummaryCache(session.user.id, {
+                total: data.total ?? data.totalWords ?? 0,
+                newCount: data.newCount ?? 0,
+                reviewDueCount: count,
+                dueCount: count,
+                classroomId: null,
+              });
+              return;
+            }
+          } catch {
+            // fallback sang provider cache
+          }
+
           const summary = await fetchWordSummaryOnce(session.user.id, token);
           if (!cancelled && summary) {
             setDueCount(summary.reviewDueCount);
@@ -45,8 +71,8 @@ function ReviewHubContent() {
         } else {
           const url = `/api/words?classroomId=${encodeURIComponent(classParam)}&summary=1`;
           const res = await authFetch(url, {}, token);
-          const data = await res.json();
-          if (!cancelled && data.success) {
+          const data = await res.json().catch(() => null);
+          if (!cancelled && data?.success) {
             const count = typeof data.reviewDueCount === 'number'
               ? data.reviewDueCount
               : (Array.isArray(data.data) ? data.data.length : (data.dueCount ?? 0));
@@ -90,9 +116,9 @@ function ReviewHubContent() {
         </div>
 
         {dueCount !== null && (
-          <div className="rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50 to-violet-50 px-4 py-3">
+          <div className="rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50 to-violet-50 px-4 py-4 shadow-sm">
             <p className="text-xs font-black uppercase tracking-widest text-indigo-500">Hôm nay</p>
-            <p className="mt-0.5 text-lg font-black text-indigo-900">
+            <p className="mt-1 text-xl font-black text-indigo-900">
               {dueCount > 0 ? (
                 <>
                   {dueCount} từ đến hạn ôn
@@ -101,14 +127,32 @@ function ReviewHubContent() {
                 'Không có từ nào đến hạn ôn 🎉'
               )}
             </p>
-            {dueCount === 0 && (
-              <p className="mt-1.5 text-sm font-medium text-indigo-600 leading-snug">
-                Bạn đã hoàn thành lịch ôn FSRS hôm nay! Bạn vẫn có thể chọn chế độ bên dưới để ôn tập tự do củng cố trí nhớ, hoặc vào{' '}
-                <Link href={withClass('/practice')} className="font-bold underline underline-offset-2 hover:text-indigo-800">
-                  Sử dụng từ
-                </Link>{' '}
-                để làm bài tập trắc nghiệm.
-              </p>
+            {dueCount > 0 ? (
+              <div className="mt-3">
+                <Link href={withClass('/review/session?mode=mixed')}>
+                  <Button className="h-11 w-full rounded-xl bg-indigo-600 font-bold text-white shadow-md shadow-indigo-200 hover:bg-indigo-700 flex items-center justify-center gap-2 active:scale-[0.99] transition">
+                    <span>⚡ Bắt đầu phiên ôn tập ({dueCount} từ)</span>
+                  </Button>
+                </Link>
+              </div>
+            ) : (
+              <div className="mt-2 space-y-3">
+                <p className="text-sm font-medium text-indigo-600 leading-snug">
+                  Bạn đã hoàn thành lịch ôn FSRS hôm nay! Bạn có thể ôn tập tự do các từ đã học để củng cố trí nhớ hoặc luyện bài tập:
+                </p>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <Link href={withClass('/review/session?mode=mixed&free=1')} className="flex-1">
+                    <Button className="h-10 w-full rounded-xl bg-indigo-600 font-bold text-white shadow-sm hover:bg-indigo-700 text-xs sm:text-sm">
+                      🔄 Ôn tập tự do (Tất cả từ đã học)
+                    </Button>
+                  </Link>
+                  <Link href={withClass('/practice')} className="flex-1">
+                    <Button variant="outline" className="h-10 w-full rounded-xl font-bold border-indigo-200 text-indigo-700 hover:bg-indigo-100/50 text-xs sm:text-sm">
+                      🧠 Quiz trắc nghiệm
+                    </Button>
+                  </Link>
+                </div>
+              </div>
             )}
           </div>
         )}

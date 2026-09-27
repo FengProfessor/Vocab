@@ -47,13 +47,17 @@ export function NotificationBell({
   // Tính toán notifications từ business logic — không cần bảng DB riêng
   const notifications: Notification[] = [];
 
+  const reviewHref = classroomId && classroomId !== '__personal__'
+    ? `/review?class=${encodeURIComponent(classroomId)}`
+    : '/review';
+
   if (dueCount > 0) {
     notifications.push({
       id: 'due-words',
       icon: <BookOpen className="h-4 w-4" />,
       title: `${dueCount} từ cần ôn hôm nay`,
       description: 'Đừng để streak bị gãy!',
-      href: classroomId ? `/review?class=${classroomId}` : '/review',
+      href: reviewHref,
       color: 'text-amber-500 bg-amber-500/10',
     });
   }
@@ -75,7 +79,7 @@ export function NotificationBell({
       icon: <Flame className="h-4 w-4" />,
       title: `Streak ${streak} ngày — bảo vệ ngay!`,
       description: `Còn ${dailyGoal - dailyGoalXp} XP nữa để đạt mục tiêu hôm nay`,
-      href: classroomId ? `/review?class=${classroomId}` : '/review',
+      href: reviewHref,
       color: 'text-orange-500 bg-orange-500/10',
     });
   }

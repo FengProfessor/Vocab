@@ -96,7 +96,7 @@ try {
     }
   }
 
-  const apiSecurity = readFileSync(apiSecurityPath, 'utf8');
+  const apiSecurity = readFileSync(apiSecurityPath, 'utf8').replace(/\r\n/g, '\n');
   const cronFunction = apiSecurity.match(/export function assertCronAuthorized[\s\S]*?\n}\n/)?.[0] ?? '';
   assert(cronFunction.includes('process.env.CRON_SECRET'), 'cron helper must read only server-side CRON_SECRET');
   assert(cronFunction.includes('isCronAuthorizationValid'), 'cron helper must use the strict matcher');

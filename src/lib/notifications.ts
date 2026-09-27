@@ -63,7 +63,7 @@ export async function sendPushNotificationToUser(
   userId: string,
   title: string,
   message: string,
-  url: string = '/student'
+  url: string = '/review'
 ) {
   if (typeof window !== 'undefined') return { error: 'running on client' };
 
@@ -99,7 +99,9 @@ export async function sendPushNotificationToUser(
 
     const ordered = Array.from(byToken.values()).sort((a, b) => b.lastUsedAt - a.lastUsedAt);
 
-    const link = `https://lingopro.online${url}`;
+    const link = url.startsWith('http')
+      ? url
+      : `https://lingopro.online${url.startsWith('/') ? url : `/${url}`}`;
     // Payload tối giản — tránh field platform lạ làm FCM reject một số token web/Capacitor.
     const baseMessage = {
       notification: { title, body: message },
