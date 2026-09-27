@@ -11,9 +11,14 @@ on:
       - 'src/lib/internal-redirect.ts'
       - 'src/lib/cron-auth.ts'
       - 'src/lib/supabase.ts'
+      - 'src/lib/supabase-server.ts'
+      - 'src/lib/ai-router.ts'
+      - 'src/lib/gemini-multi.ts'
+      - 'src/lib/notifications.ts'
       - 'src/app/auth/**'
       - 'src/app/api/auth/register/**'
       - 'src/app/api/speaking/upload-audio/**'
+      - 'src/app/api/test/notify/**'
       - 'src/app/api/cron/**'
       - 'src/app/api/challenges/check-daily/**'
       - 'src/app/api/billing/claim-upgrade-gift/**'
@@ -21,6 +26,12 @@ on:
       - 'src/app/api/teacher/students/add/**'
       - 'src/components/campaign/UpgradeGiftModal.tsx'
       - 'src/components/teacher/StudentsPanel.tsx'
+      - 'scripts/apply-fcm-token-unique.ts'
+      - 'scripts/broadcast-fcm.ts'
+      - 'scripts/onboard_students_tonight.ts'
+      - 'scripts/push-zhipu-vercel.mjs'
+      - 'scripts/seed_toeic_demo.ts'
+      - 'scripts/test-gemini-image.ts'
       - 'tests/security/**'
   workflow_dispatch:
 
@@ -47,6 +58,7 @@ jobs:
           node tests/security/cron-auth-probe.test.mjs
           node tests/security/privilege-entitlement.test.mjs
           node tests/security/phase1c-auth-boundaries.test.mjs
+          node tests/security/phase2a-medium.test.mjs
       - uses: actions/setup-go@v5
         with:
           go-version: '1.24'

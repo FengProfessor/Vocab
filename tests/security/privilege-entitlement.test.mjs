@@ -93,7 +93,7 @@ function teacherService(effects, ownerId = 'teacher-a') {
 async function loadTeacherRoute() {
   const source = sources.teacher
     .replace("import { NextResponse } from 'next/server';", 'const NextResponse = globalThis.__nextResponse;')
-    .replace("import { createServiceClient } from '@/lib/supabase';", 'const createServiceClient = globalThis.__createServiceClient;')
+    .replace("import { createServiceClient } from '@/lib/supabase-server';", 'const createServiceClient = globalThis.__createServiceClient;')
     .replace(
       /import \{[\s\S]*?\} from '@\/lib\/api-security';/,
       'const { getAuthUser, unauthorized, forbidden, isValidString, safeErrorResponse } = globalThis.__security;',

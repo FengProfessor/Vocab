@@ -108,7 +108,7 @@ try {
   };
   const uploadSource = sources.upload
     .replace("import { NextRequest, NextResponse } from 'next/server';", 'const NextResponse = globalThis.__nextResponse;')
-    .replace("import { createServiceClient } from '@/lib/supabase';", 'const createServiceClient = globalThis.__createServiceClient;')
+    .replace("import { createServiceClient } from '@/lib/supabase-server';", 'const createServiceClient = globalThis.__createServiceClient;')
     .replace("import { getAuthUser } from '@/lib/api-security';", 'const { getAuthUser } = globalThis.__security;');
   const { POST: uploadAudio } = await loadModule('upload', uploadSource);
   const audio = () => new Blob(['secure-audio'], { type: 'audio/webm' });
@@ -179,10 +179,8 @@ try {
   };
   const registerSource = sources.register
     .replace("import { NextResponse } from 'next/server';", 'const NextResponse = globalThis.__nextResponse;')
-    .replace(
-      "import { createPublicAuthClient, createServiceClient } from '@/lib/supabase';",
-      'const { __createPublicAuthClient: createPublicAuthClient, __createServiceClient: createServiceClient } = globalThis;',
-    )
+    .replace("import { createPublicAuthClient } from '@/lib/supabase';", 'const createPublicAuthClient = globalThis.__createPublicAuthClient;')
+    .replace("import { createServiceClient } from '@/lib/supabase-server';", 'const createServiceClient = globalThis.__createServiceClient;')
     .replace(
       "import { checkRateLimitAsync, getClientIp } from '@/lib/api-security';",
       'const { checkRateLimitAsync, getClientIp } = globalThis.__registerSecurity;',
@@ -237,7 +235,7 @@ try {
 
   const securitySource = sources.security
     .replace("import { NextResponse } from 'next/server';", 'const NextResponse = globalThis.__nextResponse;')
-    .replace("import { createServiceClient } from '@/lib/supabase';", 'const createServiceClient = globalThis.__createServiceClient;')
+    .replace("import { createServiceClient } from '@/lib/supabase-server';", 'const createServiceClient = globalThis.__createServiceClient;')
     .replace("import { cacheGet, cacheSet } from '@/lib/ttl-cache';", 'const cacheGet = () => undefined; const cacheSet = () => undefined;')
     .replace("import { isCronAuthorizationValid } from '@/lib/cron-auth';", 'const isCronAuthorizationValid = () => false;');
   const securityModule = await loadModule('security', securitySource);
@@ -285,10 +283,8 @@ try {
   };
   const adminStatsSource = sources.adminStats
     .replace("import { NextResponse } from 'next/server';", 'const NextResponse = globalThis.__nextResponse;')
-    .replace(
-      "import { createServiceClient, fetchAllRows } from '@/lib/supabase';",
-      'const { createServiceClient, fetchAllRows } = globalThis.__adminSupabase;',
-    )
+    .replace("import { fetchAllRows } from '@/lib/supabase';", 'const { fetchAllRows } = globalThis.__adminSupabase;')
+    .replace("import { createServiceClient } from '@/lib/supabase-server';", 'const { createServiceClient } = globalThis.__adminSupabase;')
     .replace(
       "import { getAuthUser, unauthorized, safeErrorResponse, getAdminEmails } from '@/lib/api-security';",
       'const { getAuthUser, unauthorized, safeErrorResponse, getAdminEmails } = globalThis.__adminSecurity;',
