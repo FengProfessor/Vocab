@@ -534,7 +534,7 @@
 - Production verification: build HEAD/build marker/live release marker đều bằng merge SHA; service active và MainPID ổn định `1089651`; local/public health `200 {"status":"ok"}` với `no-store`; root/auth 200. Anonymous audio upload và admin stats đều 401, zero upload/account/business mutation trong probes.
 - Security status: `P1-B-01`, `P1-B-02`, `P1-B-03`, `P1-B-06` **CLOSED**. **P1 Phase 1C = DONE; High remaining: 0.** Audit còn 6 Medium và 3 Low cho phase kế tiếp.
 
-## P1 PHASE 2A — Medium remediation, pre-PR (2026-09-27)
+## P1 PHASE 2A — Medium remediation, PARTIAL (2026-09-27)
 
 - Baseline: clean `origin/main` SHA `c4f81f3a5c76415c58592b3036d26ccbb683dabd`; branch `codex/p2a-medium-security`. Sáu Medium được chuẩn hóa thành `P1-C-01`…`P1-C-06` theo thứ tự audit; code khớp cả sáu root cause và Phase 1 regressions xác nhận High remaining = 0.
 - Selected: `P1-C-01`, `P1-C-04`, `P1-C-06`. `createServiceClient` được tách khỏi browser Supabase module, không còn anon fallback và fail closed khi thiếu URL/service key hoặc chạy ở browser. 108 caller chỉ đổi import; auth/business logic giữ nguyên.
@@ -543,7 +543,10 @@
 - Deferred OPEN sang 2B: `P1-C-02` cần auth cookie/SSR redesign; `P1-C-03` cần dedicated webhook secret + provider rotation; `P1-C-05` cần distributed rate-limit infrastructure/availability policy. Read-only production process inventory: dedicated webhook/PayOS/SePay secrets = absent, Upstash URL/token = absent, `CRON_SECRET` present, service active với một MainPID. Không in giá trị secret.
 - Migration: NONE. Không đổi schema/data, paid entitlement, billing order semantics hoặc deploy architecture.
 - Local Node `24.14.0` / npm `11.9.0`: clean `npm ci`, build, Phase 1A/1B/1C + Phase 2A regressions, actionlint, changed-file ESLint, Bash/Node syntax, bốn deployment suites và diff check PASS. Typecheck trước/sau đúng 10 lỗi baseline `TS2307`/`TS7006`, không lỗi mới.
-- Status: ba finding selected **IMPLEMENTED — PENDING CLEAN CI/MERGE/PRODUCTION VERIFICATION**; Medium before 6, closed 0 tại checkpoint, deferred/open 3, implemented pending closure 3.
+- PR [#15](https://github.com/FengProfessor/Vocab/pull/15) merge tại `067dab22aab45cd968ac1163869f3b9d78c917b8`; clean Security CI `36310984345` PASS trên head `339896f19aa59d1ff4de47f73fed4ccdba6d1682`.
+- Canonical rollout `36311137561`: Quality, Migration, exact-SHA build/activation và health PASS. Migration history/checksum skip toàn bộ migration đã áp; Phase 2A không có migration mới.
+- Production verification: build HEAD/build marker/live marker đều bằng merge SHA; `lingopro.service` active với MainPID ổn định `1093951`; local/public health và root HTTP 200. Disabled `POST /api/test/notify` trả 404, GET trả 405; probe không lookup target, gửi Telegram hoặc tạo mutation.
+- Status: `P1-C-01`, `P1-C-04`, `P1-C-06` **CLOSED**; `P1-C-02`, `P1-C-03`, `P1-C-05` **OPEN — DEFERRED TO PHASE 2B**. Medium before 6, closed 3, remaining 3; High remaining 0; Low remaining 3. **P1 Phase 2A = PARTIAL**.
 
 ## 2026-09-23 · TOEIC TikTok 100-video campaign
 

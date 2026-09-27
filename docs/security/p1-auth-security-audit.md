@@ -338,12 +338,15 @@ Code tại base `c4f81f3a5c76415c58592b3036d26ccbb683dabd` khớp cả sáu assu
 - `P1-C-03` giữ **OPEN**: read-only production inspection xác nhận process có `CRON_SECRET` nhưng không có `WEBHOOK_SECRET`, `SEPAY_WEBHOOK_KEY`, `SEPAY_API_KEY` hoặc `PAYOS_CHECKSUM_KEY`. Loại shared fallback ngay sẽ vô hiệu hóa payment confirmation. Cần provision/rotate dedicated secret và đổi provider config theo rollout phối hợp; không đổi billing auth mù trong 2A.
 - `P1-C-05` giữ **OPEN**: production không có hai biến Upstash và hiện chạy một systemd MainPID. Ép fail closed ngay sẽ chặn registration cùng nhiều AI/dictionary/TOEIC API. Cần chọn distributed store/availability policy và rollout infrastructure trước.
 
-### Validation trước PR
+### Validation và closeout
 
 - Local Node `24.14.0`, npm `11.9.0`; clean `npm ci` PASS. Build PASS với warning NFT/Firebase env có sẵn; fail-closed Supabase config được catch trong build-time dictionary warmup.
 - Phase 1A/1B/1C và Phase 2A security regressions PASS. Bốn deployment suites, Bash/Node syntax, actionlint `v1.7.11`, changed-file ESLint và `git diff --check` PASS.
 - Typecheck trước và sau đều đúng 10 lỗi baseline `TS2307`/`TS7006` trong hai Speaking tests; không có lỗi mới.
-- Trạng thái tại checkpoint này: `P1-C-01`, `P1-C-04`, `P1-C-06` **IMPLEMENTED — PENDING CLEAN CI/MERGE/PRODUCTION VERIFICATION**. `P1-C-02`, `P1-C-03`, `P1-C-05` **OPEN — DEFERRED TO PHASE 2B**.
+- PR [#15](https://github.com/FengProfessor/Vocab/pull/15) merge tại `067dab22aab45cd968ac1163869f3b9d78c917b8`; clean Security CI run `36310984345` PASS trên head `339896f19aa59d1ff4de47f73fed4ccdba6d1682`.
+- Canonical rollout `36311137561`: Quality, Migration, exact-SHA checkout/build/activation và health đều PASS. Migration history/checksum skip toàn bộ migration đã áp; Phase 2A không có migration mới.
+- Read-only production verification: build HEAD, build marker và live `.next/.release-commit` đều bằng merge SHA; `lingopro.service` active, MainPID ổn định `1093951`; local/public `/api/health` và root đều HTTP 200. Safe probe xác nhận disabled `POST /api/test/notify` trả 404 trước auth/lookup/send và GET trả 405; không gửi Telegram hoặc tạo mutation.
+- `P1-C-01`, `P1-C-04`, `P1-C-06` **CLOSED**. `P1-C-02`, `P1-C-03`, `P1-C-05` **OPEN — DEFERRED TO PHASE 2B**. Medium trước 2A: 6; đóng trong 2A: 3; còn lại: 3. **P1 Phase 2A = PARTIAL; High remaining: 0; Low remaining: 3.**
 
 ## Thứ tự xử lý đề xuất
 
