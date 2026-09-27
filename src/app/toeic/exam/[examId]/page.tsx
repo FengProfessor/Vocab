@@ -48,7 +48,6 @@ import { authFetch } from '@/lib/auth-fetch';
 import type {
   ToeicUnifiedQuestion,
   ToeicClientQuestion,
-  ToeicClientQuestionCluster,
   ToeicPart,
   ToeicExamMode,
   ToeicOptionKey,
@@ -680,6 +679,65 @@ function ToeicExamRoomInner() {
     return hasListening && hasReading;
   }, [isPartPractice, questions]);
 
+  const currentQ = session.currentQuestion;
+  const currentPart = currentQ ? currentQ.part : partNum || 1;
+  const currentSection = currentQ ? currentQ.section : 'listening';
+  const currentIndex = questions.findIndex(
+    (q) => q.questionNumber === session.currentQNum
+  );
+
+  const activeCluster = useMemo(() => {
+    if (!currentQ || (currentQ.part !== 3 && currentQ.part !== 4)) {
+      return null;
+    }
+    return getToeicClientClusterForQuestion(session.currentQNum, questions);
+  }, [currentQ, session.currentQNum, questions]);
+
+  const hasPrevCluster = useMemo(() => {
+    if (activeCluster) {
+      const minQ = questions.length > 0 ? questions[0].questionNumber : 1;
+      return activeCluster.startQuestionNumber > minQ;
+    }
+    return currentIndex > 0;
+  }, [activeCluster, currentIndex, questions]);
+
+  const hasNextCluster = useMemo(() => {
+    if (activeCluster) {
+      const maxQ = questions.length > 0 ? questions[questions.length - 1].questionNumber : 200;
+      return activeCluster.endQuestionNumber < maxQ;
+    }
+    return currentIndex < questions.length - 1;
+  }, [activeCluster, currentIndex, questions]);
+
+  const handleNext = useCallback(() => {
+    if (activeCluster) {
+      const nextQNum = activeCluster.endQuestionNumber + 1;
+      const targetQ = questions.find((q) => q.questionNumber === nextQNum);
+      if (targetQ) {
+        session.goToQuestion(targetQ.questionNumber);
+        return;
+      }
+    }
+    session.nextQuestion();
+  }, [activeCluster, questions, session]);
+
+  const handlePrev = useCallback(() => {
+    if (activeCluster) {
+      const prevQNum = activeCluster.startQuestionNumber - 1;
+      const targetQ = questions.find((q) => q.questionNumber === prevQNum);
+      if (targetQ) {
+        const prevCluster = getToeicClientClusterForQuestion(prevQNum, questions);
+        if (prevCluster) {
+          session.goToQuestion(prevCluster.startQuestionNumber);
+          return;
+        }
+        session.goToQuestion(targetQ.questionNumber);
+        return;
+      }
+    }
+    session.prevQuestion();
+  }, [activeCluster, questions, session]);
+
   // ── 8. Empty & Loading State Guards ──
   if (isLoadingQuestions && questions.length === 0) {
     return (
@@ -767,65 +825,6 @@ function ToeicExamRoomInner() {
   }
 
   // ── 9. Active Test Room: Split-Pane & Question Palette ──
-  const currentQ = session.currentQuestion;
-  const currentPart = currentQ ? currentQ.part : partNum || 1;
-  const currentSection = currentQ ? currentQ.section : 'listening';
-  const currentIndex = questions.findIndex(
-    (q) => q.questionNumber === session.currentQNum
-  );
-
-  const activeCluster = useMemo(() => {
-    if (!currentQ || (currentQ.part !== 3 && currentQ.part !== 4)) {
-      return null;
-    }
-    return getToeicClientClusterForQuestion(session.currentQNum, questions);
-  }, [currentQ, session.currentQNum, questions]);
-
-  const hasPrevCluster = useMemo(() => {
-    if (activeCluster) {
-      const minQ = questions.length > 0 ? questions[0].questionNumber : 1;
-      return activeCluster.startQuestionNumber > minQ;
-    }
-    return currentIndex > 0;
-  }, [activeCluster, currentIndex, questions]);
-
-  const hasNextCluster = useMemo(() => {
-    if (activeCluster) {
-      const maxQ = questions.length > 0 ? questions[questions.length - 1].questionNumber : 200;
-      return activeCluster.endQuestionNumber < maxQ;
-    }
-    return currentIndex < questions.length - 1;
-  }, [activeCluster, currentIndex, questions]);
-
-  const handleNext = useCallback(() => {
-    if (activeCluster) {
-      const nextQNum = activeCluster.endQuestionNumber + 1;
-      const targetQ = questions.find((q) => q.questionNumber === nextQNum);
-      if (targetQ) {
-        session.goToQuestion(targetQ.questionNumber);
-        return;
-      }
-    }
-    session.nextQuestion();
-  }, [activeCluster, questions, session]);
-
-  const handlePrev = useCallback(() => {
-    if (activeCluster) {
-      const prevQNum = activeCluster.startQuestionNumber - 1;
-      const targetQ = questions.find((q) => q.questionNumber === prevQNum);
-      if (targetQ) {
-        const prevCluster = getToeicClientClusterForQuestion(prevQNum, questions);
-        if (prevCluster) {
-          session.goToQuestion(prevCluster.startQuestionNumber);
-          return;
-        }
-        session.goToQuestion(targetQ.questionNumber);
-        return;
-      }
-    }
-    session.prevQuestion();
-  }, [activeCluster, questions, session]);
-
   return (
     <StudentShell title={testTitle} immersive={true} requireAuth={false}>
       <div className="flex h-screen w-full flex-col overflow-hidden bg-slate-100 dark:bg-slate-950 select-none">
