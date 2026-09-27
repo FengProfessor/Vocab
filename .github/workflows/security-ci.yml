@@ -8,7 +8,12 @@ on:
       - '.github/workflows/security-ci.yml'
       - '.github/workflows/push-cron.yml'
       - 'src/lib/api-security.ts'
+      - 'src/lib/internal-redirect.ts'
       - 'src/lib/cron-auth.ts'
+      - 'src/lib/supabase.ts'
+      - 'src/app/auth/**'
+      - 'src/app/api/auth/register/**'
+      - 'src/app/api/speaking/upload-audio/**'
       - 'src/app/api/cron/**'
       - 'src/app/api/challenges/check-daily/**'
       - 'src/app/api/billing/claim-upgrade-gift/**'
@@ -41,6 +46,7 @@ jobs:
           node tests/security/cron-auth.test.mjs
           node tests/security/cron-auth-probe.test.mjs
           node tests/security/privilege-entitlement.test.mjs
+          node tests/security/phase1c-auth-boundaries.test.mjs
       - uses: actions/setup-go@v5
         with:
           go-version: '1.24'
