@@ -25,7 +25,7 @@ export async function POST(req: Request): Promise<NextResponse> {
     // 1. Verify classroom ownership
     const { data: classroom, error: classErr } = await supabase
       .from('classrooms')
-      .select('id, name, teacher_id')
+      .select('id, teacher_id')
       .eq('id', classroomId)
       .maybeSingle();
 
@@ -37,7 +37,7 @@ export async function POST(req: Request): Promise<NextResponse> {
     // 2. Look up existing profile or auth user
     const { data: existingProfile } = await supabase
       .from('profiles')
-      .select('id, email, full_name, role, plan, plan_expires_at')
+      .select('id, email, full_name, role')
       .ilike('email', email)
       .maybeSingle();
 
@@ -99,25 +99,14 @@ export async function POST(req: Request): Promise<NextResponse> {
     }
 
     const now = new Date();
-    // Extend or set 1 year Pro
-    let expiresAt = new Date(now.getTime() + 365 * 24 * 60 * 60 * 1000);
-    if (existingProfile?.plan_expires_at) {
-      const curExp = new Date(existingProfile.plan_expires_at);
-      if (curExp > now) {
-        expiresAt = new Date(curExp.getTime() + 365 * 24 * 60 * 60 * 1000);
-      }
-    }
-
     const finalName = name || existingProfile?.full_name || email.split('@')[0];
 
-    // 3. Upsert profile with role=student and plan=pro
+    // 3. Upsert only identity/display fields. Enrollment never grants entitlement.
     const { error: profErr } = await supabase.from('profiles').upsert({
       id: studentId,
       email,
       full_name: finalName,
       role: existingProfile?.role === 'teacher' ? 'teacher' : 'student',
-      plan: 'pro',
-      plan_expires_at: expiresAt.toISOString(),
     }, { onConflict: 'id' });
 
     if (profErr) throw profErr;
@@ -132,59 +121,14 @@ export async function POST(req: Request): Promise<NextResponse> {
 
     if (enrollErr) throw enrollErr;
 
-    // 5. Insert into orders (status='paid', period_months=12)
-    let orderId: string | null = null;
-    const orderPayload = {
-      user_id: studentId,
-      plan: 'pro',
-      amount: 0,
-      payment_method: 'teacher_grant',
-      status: 'paid',
-      period_months: 12,
-      starts_at: now.toISOString(),
-      expires_at: expiresAt.toISOString(),
-      paid_at: now.toISOString(),
-      note: `Teacher grant: ${classroom.name} (by teacher ${auth.userId})`,
-    };
-
-    const orderRes = await supabase.from('orders').insert(orderPayload).select('id').maybeSingle();
-    if (orderRes.error && (orderRes.error.message?.includes('payment_method') || orderRes.error.code === '23514')) {
-      // Fallback if check constraint only allows manual
-      orderPayload.payment_method = 'manual';
-      orderPayload.note = `teacher_grant: ${classroom.name} (by teacher ${auth.userId})`;
-      const retryRes = await supabase.from('orders').insert(orderPayload).select('id').maybeSingle();
-      orderId = retryRes.data?.id || null;
-    } else {
-      orderId = orderRes.data?.id || null;
-    }
-
-    // 6. Insert into subscription_history
-    const historyPayload = {
-      user_id: studentId,
-      old_plan: existingProfile?.plan || 'free',
-      new_plan: 'pro',
-      reason: 'teacher_grant',
-      order_id: orderId,
-      changed_by: auth.userId,
-    };
-    const histRes = await supabase.from('subscription_history').insert(historyPayload);
-    if (histRes.error && (histRes.error.message?.includes('reason') || histRes.error.code === '23514')) {
-      await supabase.from('subscription_history').insert({
-        ...historyPayload,
-        reason: 'admin_manual',
-      });
-    }
-
     return NextResponse.json({
       success: true,
-      message: `Đã thêm học sinh ${finalName} vào lớp và kích hoạt 1 năm Pro!`,
+      message: `Đã thêm học sinh ${finalName} vào lớp.`,
       student: {
         student_id: studentId,
         student_name: finalName,
         email,
         classroom_id: classroomId,
-        plan: 'pro',
-        plan_expires_at: expiresAt.toISOString(),
         joined_at: joinedAt,
         words_reviewed: 0,
         total_words: 0,

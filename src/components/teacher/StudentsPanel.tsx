@@ -328,7 +328,7 @@ export default function StudentsPanel({
         throw new Error(data.error || 'Không thể thêm học sinh');
       }
 
-      toast.success(data.message || `Đã thêm ${email} vào lớp và kích hoạt 1 năm Pro!`);
+      toast.success(data.message || `Đã thêm ${email} vào lớp.`);
       setIsAddModalOpen(false);
       setStudentEmail('');
       setStudentName('');
@@ -858,11 +858,8 @@ export default function StudentsPanel({
               </div>
             </div>
 
-            <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-3.5 mb-5 flex items-start gap-2.5 text-emerald-800">
-              <div className="text-xs leading-relaxed">
-                <strong>Đặc quyền giáo viên:</strong> Học sinh sẽ được tự động tạo tài khoản (nếu chưa có) và{' '}
-                <strong>tặng 1 năm gói Pro học tập không giới hạn</strong>.
-              </div>
+            <div className="bg-muted/40 border rounded-xl p-3.5 mb-5 text-xs text-muted-foreground">
+              Học sinh sẽ được thêm vào lớp. Gói học tập hiện tại của tài khoản không thay đổi.
             </div>
 
             <form onSubmit={handleAddStudent} className="space-y-4">
@@ -917,7 +914,7 @@ export default function StudentsPanel({
                   ) : (
                     <>
                       <UserPlus className="h-4 w-4" />
-                      Thêm & Tặng 1 năm Pro
+                      Thêm học sinh
                     </>
                   )}
                 </button>

@@ -243,6 +243,38 @@ Phase 1A local validation: clean `npm ci`, build, actionlint, changed-file ESLin
 - Log của run mới chỉ chứa endpoint `/api/cron/auth-check`, HTTP 204 và PASS; không có response body hoặc PII. Route không có DB/service-role/Storage/email/push/business mutation; regression test và step selection xác nhận verification không tạo notification, email hoặc DB mutation.
 - Final status: **Cron auth vulnerability = CLOSED**; **Verification incident = RESIDUAL RISK DOCUMENTED** vì prior viewer/download/transcript copies không thể thu hồi; **P1 Phase 1A = DONE**. Sáu High findings giữ nguyên **OPEN** và chưa bắt đầu.
 
+## Phase 1B — Privilege escalation / Pro entitlement (2026-09-27)
+
+### Audit flow trước remediation
+
+| Finding | Request → privileged mutation | Client authority | Replay/race | Service role / DB guard |
+|---|---|---|---|---|
+| Billing campaign cũ | Authenticated bearer → `/api/billing/claim-upgrade-gift` → update `profiles.plan/plan_expires_at` → insert history | Target là caller, plan/duration cố định 7 ngày, nhưng không có campaign eligibility/date gate | Check-then-write không atomic; history không có unique `(user, reason)`, nên concurrent claim có thể grant lặp | Service role; không có unique claim guard |
+| Campaign endpoint | Authenticated caller → `/api/campaign/claim-upgrade-gift?force=1` → update profile → insert history | `force=1` do client chọn bỏ qua date gate; target là caller, benefit 7 ngày do server đặt | Cùng check-then-write race như endpoint billing | Service role; không có unique claim guard |
+| Teacher add student | Caller → body `classroomId/email/name` → owner check → tìm/tạo account theo email → profile `plan=pro` +365 ngày → zero-value paid order → history | Email chọn arbitrary target; mọi self-claimed teacher sở hữu lớp có thể grant. Duration cố định server-side nhưng quyền grant không có trusted entitlement gate | Gọi tuần tự cộng thêm từng năm; concurrent request tạo duplicate order/history. Chỉ enrollment có unique `(student_id,classroom_id)` | Service role; enrollment unique, entitlement không có claim guard |
+
+Hai campaign là chương trình một ngày `2026-08-06`, đã hết hạn và không còn eligible flow hợp lệ. Teacher pilot docs không định nghĩa trusted cross-account Pro grant; teacher role có thể self-claim nên classroom ownership không đủ làm grant authority.
+
+### Trust boundary mới
+
+- Hai endpoint campaign vẫn yêu cầu authenticated identity rồi trả HTTP 410. Không parse body/query authority, không tạo service-role client và không đọc/ghi database. Background `UpgradeGiftModal` không còn gọi endpoint.
+- Teacher add-student chỉ giữ account lookup/create, safe profile identity upsert và enrollment. Đã xóa mọi write tới plan/expiry, orders và subscription history; UI không còn hứa hoặc báo tặng Pro.
+- Email do teacher nhập chỉ xác định tài khoản cần enroll vào classroom đã ownership-check; nó không còn xác định entitlement target. Client-supplied `user_id`, role, plan, duration và expiry không được đọc.
+- Enrollment upsert dùng existing unique `(student_id, classroom_id)`, nên replay/concurrent request không tạo nhiều enrollment. Campaign replay/concurrency luôn trả 410 và có zero privileged side effect.
+- Không cần migration: fix loại bỏ grant, không tạo entitlement claim mới. Account auto-confirm trong teacher enrollment thuộc finding registration/email ownership và chưa sửa ở Phase 1B.
+
+### Regression và inventory
+
+- `tests/security/privilege-entitlement.test.mjs` chạy actual transformed route code: anonymous deny; expired campaign 410 kể cả tampered target/plan/duration/expiry/`force`; 20 concurrent campaign requests zero mutation; non-owner teacher deny trước mutation; valid owner enrollment PASS; attacker fields không đi vào profile; repeated/concurrent enrollment còn một DB identity; không có orders/history/plan/expiry write.
+- Static inventory các privileged plan writes còn lại cho thấy paid order confirmation, validated trial coupon và milestone flow lấy target từ authenticated identity và dùng server-side pricing/eligibility. Không phát hiện thêm same-pattern Critical trong scope inventory; các finding ngoài Phase 1B giữ nguyên.
+- Local clean `npm ci`, production build, actionlint, changed-file ESLint, cron regressions, privilege regression, milestone logic, bốn deployment tests và `git diff --check` PASS trên Node `24.14.0`/npm `11.9.0`; CI dùng Node 22. Typecheck khớp baseline: đúng 10 lỗi cũ TS2307/TS7006 trong speaking tests, không có lỗi mới.
+- Campaign suite Khai Giảng cũ còn 39/101 test fail vì test vẫn yêu cầu các mã/benefit 90 ngày đã hết hạn hoạt động. Không khôi phục entitlement để làm các expectation lỗi thời này PASS; privilege regression mới xác nhận campaign đã nghỉ trả 410 và zero mutation dưới tampering/replay/concurrency.
+- PR [#11](https://github.com/FengProfessor/Vocab/pull/11); clean GitHub security CI run `36286801557` PASS trên commit `eeae494`. Rollout production vẫn pending merge.
+
+### Trạng thái
+
+Ba High finding entitlement đã được sửa trong source; trạng thái vẫn **OPEN pending clean CI, PR merge và canonical production verification**. Các finding ngoài scope không thay đổi; theo Phase 1B, sau khi rollout PASS số High còn lại là 3.
+
 ## Thứ tự xử lý đề xuất
 
 1. Critical cron bypass + rotate secret + regression tests.
