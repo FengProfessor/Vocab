@@ -275,7 +275,34 @@ Hai campaign là chương trình một ngày `2026-08-06`, đã hết hạn và 
 
 ### Trạng thái
 
-Ba High finding entitlement đã **CLOSED** sau clean CI, merge và canonical production verification. **P1 Phase 1B = DONE**; số High còn lại theo checkpoint Phase 1B là **3 OPEN**. Phase tiếp theo: **P1 Phase 1C**.
+Hai High finding ID (`P1-B-04`, `P1-B-05`) đã **CLOSED** sau clean CI, merge và canonical production verification. Hai campaign endpoint của `P1-B-04` từng bị đếm nhầm thành hai finding, nên checkpoint cũ ghi sai còn 3 High. Theo finding ID, **P1 Phase 1B = DONE** và còn **4 OPEN**: `P1-B-01`, `P1-B-02`, `P1-B-03`, `P1-B-06`.
+
+## Phase 1C — Auth boundary hardening (2026-09-27)
+
+### Reconciliation trước remediation
+
+| Finding | Status trước 1C | Attack surface | Root cause |
+|---|---|---|---|
+| `P1-B-01` | OPEN | Login/OAuth callback redirect | Login và callback chỉ kiểm tra prefix `/`; backslash, encoding và nested redirect chưa fail closed |
+| `P1-B-02` | OPEN | `/api/speaking/upload-audio` | Anonymous request đi tới service-role Storage; caller điều khiển path và upload dùng `upsert: true` |
+| `P1-B-03` | OPEN | `/api/auth/register` | Public route gọi admin `createUser` với `email_confirm: true`, tin role từ body và browser đăng nhập ngay |
+| `P1-B-06` | OPEN | Shared admin guards | `getAdminEmails()` tự cấp fallback personal email khi `ADMIN_EMAILS` thiếu/rỗng |
+
+Đơn vị authoritative là finding ID: trước Phase 1C có **4 High OPEN**. Sai lệch trước đó do hai endpoint campaign cùng thuộc `P1-B-04` bị tính thành hai finding.
+
+### Implementation và trust boundary
+
+- `P1-B-01`: `safeInternalRedirect()` là rule dùng chung cho login và callback. Chỉ relative internal path được chấp nhận; absolute/protocol-relative URL, backslash, control character, malformed/encoded/double-encoded input và external nested `redirectTo`/`next`/`returnTo` đều fail closed. Session storage chỉ nhận target đã qua helper và bị xóa khi tiêu thụ.
+- `P1-B-02`: route xác minh bearer bằng `getAuthUser()` trước khi parse multipart hoặc tạo service client. Bucket là constant; owner path lấy từ server-verified UUID; stage/prompt chỉ nhận segment giới hạn; object dùng `randomUUID()` và `upsert: false`. Anonymous/invalid/path lỗi tạo zero privileged mutation.
+- `P1-B-03`: public route dùng anon Auth `signUp`, metadata role luôn là `student`, không đọc role/plan/admin/confirmed state từ request và không trả user ID. Browser không tự đăng nhập; user phải hoàn tất email verification. Public Auth settings read-only tại thời điểm review có signup enabled, email enabled và `mailer_autoconfirm=false`. Nếu Supabase trả session/confirmed user trái invariant, route dùng admin chỉ để xóa account vừa tạo và trả 503 fail closed.
+- `P1-B-06`: xóa hard-coded fallback. `getAdminEmails()` chỉ trả allowlist explicit đã trim/lowercase/dedupe; missing/empty config trả `[]`. Các caller lấy identity từ bearer/profile server-side rồi kiểm tra role hoặc allowlist; không đọc admin identity từ body/query/header.
+- Không migration. Không đổi paid subscription/entitlement semantics. Teacher self-claim sau authenticated email verification giữ nguyên design đã audit; registration không còn gán role từ public body.
+
+### Evidence hiện tại
+
+- `tests/security/phase1c-auth-boundaries.test.mjs` chạy actual transformed helper/routes cho redirect, upload, registration và admin helper; có tampering, invalid input, zero-mutation, replay/concurrency và fail-closed cases.
+- Local clean `npm ci`, production build, bốn deployment suites, Phase 1A/1B regressions, Phase 1C targeted test, actionlint, syntax checks và `git diff --check` PASS trên Node `24.14.0`/npm `11.9.0`; CI dùng Node 22. Changed-file ESLint có 0 error và một warning React có sẵn tại auth page. Typecheck khớp đúng baseline 10 lỗi TS2307/TS7006, không có lỗi mới.
+- Trạng thái finding vẫn **OPEN/PENDING CI + production verification** tại checkpoint code này. Chỉ chuyển CLOSED và ghi `High remaining: 0` sau clean GitHub runner, merge và canonical exact-SHA rollout PASS.
 
 ## Thứ tự xử lý đề xuất
 

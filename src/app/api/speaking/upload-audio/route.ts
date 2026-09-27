@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { randomUUID } from 'crypto';
 import { createServiceClient } from '@/lib/supabase';
+import { getAuthUser } from '@/lib/api-security';
 import type { AudioUploadApiResponse } from '@/types/speaking-module';
 
 export const maxDuration = 30;
@@ -18,6 +20,8 @@ export const ALLOWED_AUDIO_MIMES = [
 ];
 
 const STORAGE_BUCKET = 'speaking-recordings';
+const SAFE_PATH_SEGMENT = /^[A-Za-z0-9_-]{1,80}$/;
+const USER_ID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
 /**
  * Resolves file extension from normalized audio MIME type.
@@ -42,6 +46,11 @@ function resolveAudioExtension(mime: string): string {
  */
 export async function POST(req: NextRequest): Promise<NextResponse<AudioUploadApiResponse>> {
   try {
+    const auth = await getAuthUser(req);
+    if (!auth || !USER_ID.test(auth.userId)) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    }
+
     let formData: FormData;
     try {
       formData = await req.formData();
@@ -113,6 +122,13 @@ export async function POST(req: NextRequest): Promise<NextResponse<AudioUploadAp
         ? rawStageId.trim()
         : 'unassigned';
 
+    if (!SAFE_PATH_SEGMENT.test(promptId) || !SAFE_PATH_SEGMENT.test(stageId)) {
+      return NextResponse.json(
+        { success: false, error: 'Invalid promptId or stageId.' },
+        { status: 400 }
+      );
+    }
+
     const rawDuration = formData.get('durationSeconds');
     let durationSeconds: number | undefined;
     if (rawDuration !== null) {
@@ -124,7 +140,7 @@ export async function POST(req: NextRequest): Promise<NextResponse<AudioUploadAp
 
     const ext = resolveAudioExtension(normalizedMime);
     const timestamp = Date.now();
-    const storagePath = `recordings/${stageId}/${promptId}/${timestamp}.${ext}`;
+    const storagePath = `recordings/${auth.userId}/${stageId}/${promptId}/${randomUUID()}.${ext}`;
 
     let audioUrl = `https://storage.lingopro.online/${storagePath}`;
     let storageProvider: 'local' | 'supabase_storage' = 'local';
@@ -141,7 +157,7 @@ export async function POST(req: NextRequest): Promise<NextResponse<AudioUploadAp
           .from(STORAGE_BUCKET)
           .upload(storagePath, buffer, {
             contentType: normalizedMime,
-            upsert: true,
+            upsert: false,
           });
 
         if (!uploadError) {

@@ -34,6 +34,15 @@ export function createServiceClient() {
   );
 }
 
+/** Server-side public Auth client; giữ nguyên email verification policy của Supabase. */
+export function createPublicAuthClient() {
+  return createClient(
+    supabaseUrl,
+    supabaseAnonKey,
+    { auth: { autoRefreshToken: false, persistSession: false, detectSessionInUrl: false } }
+  );
+}
+
 /**
  * Helper to fetch all rows beyond Supabase's default 1000-row limit.
  * Pass a callback that builds the query with a `.range(from, to)`.

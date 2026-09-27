@@ -61,6 +61,7 @@ jobs:
           node tests/security/cron-auth.test.mjs
           node tests/security/cron-auth-probe.test.mjs
           node tests/security/privilege-entitlement.test.mjs
+          node tests/security/phase1c-auth-boundaries.test.mjs
       - name: Lint changed TypeScript deployment route
         run: npx eslint src/app/api/health/route.ts
       - name: Build application

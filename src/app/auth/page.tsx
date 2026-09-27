@@ -28,6 +28,7 @@ import { toast } from 'sonner';
 import { track } from '@/lib/analytics';
 import { detectInAppBrowser, externalBrowserUrl } from '@/lib/in-app-browser';
 import { getStoredReferralCode, clearStoredReferralCode } from '@/lib/referral-tracker';
+import { safeInternalRedirect } from '@/lib/internal-redirect';
 
 const display = 'font-bold tracking-tight';
 
@@ -105,24 +106,20 @@ export default function AuthPage() {
 
   /** Role từ JWT metadata — KHÔNG query profiles. Default student hoặc redirectTo. */
   const destFromSession = (user: { user_metadata?: Record<string, unknown> } | null | undefined) => {
+    const params = new URLSearchParams(window.location.search);
+    const redirectTo = params.get('redirectTo') || sessionStorage.getItem(OAUTH_REDIRECT_TO_KEY);
+    try {
+      sessionStorage.removeItem(OAUTH_REDIRECT_TO_KEY);
+    } catch {}
+
     const metaRole = user?.user_metadata?.role;
     if (metaRole === 'teacher') return '/teacher';
-    const params = new URLSearchParams(window.location.search);
     const wantTeacher =
       params.get('role') === 'teacher' ||
       sessionStorage.getItem(OAUTH_ROLE_KEY) === 'teacher';
     if (wantTeacher) return '/teacher';
 
-    const redirectTo =
-      params.get('redirectTo') ||
-      sessionStorage.getItem(OAUTH_REDIRECT_TO_KEY);
-    if (redirectTo && redirectTo.startsWith('/') && !redirectTo.startsWith('//')) {
-      try {
-        sessionStorage.removeItem(OAUTH_REDIRECT_TO_KEY);
-      } catch {}
-      return redirectTo;
-    }
-    return '/student';
+    return safeInternalRedirect(redirectTo, '/student');
   };
 
   useEffect(() => {
@@ -158,7 +155,7 @@ export default function AuthPage() {
       return 'Sai email hoặc mật khẩu.';
     }
     if (m.includes('email not confirmed')) {
-      return 'Email chưa xác nhận. Dùng Google, hoặc đăng ký lại (tài khoản mới không cần mail).';
+      return 'Email chưa xác nhận. Hãy mở email xác nhận hoặc dùng Google.';
     }
     if (m.includes('user already') || m.includes('already registered')) {
       return 'Email đã có tài khoản — hãy đăng nhập.';
@@ -185,7 +182,9 @@ export default function AuthPage() {
 
     try {
       if (mode === 'signup') {
-        // API register: email_confirm server-side — KHÔNG gửi mail (tránh limit 2 mail/giờ Supabase)
+        if (role === 'teacher') sessionStorage.setItem(OAUTH_ROLE_KEY, 'teacher');
+        else sessionStorage.removeItem(OAUTH_ROLE_KEY);
+
         const res = await fetch('/api/auth/register', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -193,26 +192,12 @@ export default function AuthPage() {
             email: email.trim(),
             password,
             fullName: fullName.trim(),
-            role,
             website: '', // honeypot
           }),
         });
         const json = (await res.json()) as { success?: boolean; error?: string; code?: string };
 
         if (!res.ok || !json.success) {
-          if (json.code === 'already_registered') {
-            // Đã có tài khoản → thử đăng nhập luôn
-            setStatus('Email đã có — đang đăng nhập...');
-            const { data, error } = await supabase.auth.signInWithPassword({
-              email: email.trim(),
-              password,
-            });
-            if (error) throw new Error(json.error || error.message);
-            if (data.session) {
-              window.location.replace(destFromSession(data.session.user));
-              return;
-            }
-          }
           throw new Error(json.error || 'Không đăng ký được.');
         }
 
@@ -224,41 +209,10 @@ export default function AuthPage() {
           });
         }
 
-        // Đăng nhập ngay — không chờ confirm email
-        setStatus('Đang đăng nhập...');
-        const { data, error } = await supabase.auth.signInWithPassword({
-          email: email.trim(),
-          password,
-        });
-        if (error) throw error;
-        if (!data.session) {
-          toast.success('Tạo tài khoản xong — hãy đăng nhập.');
-          setMode('login');
-          setLoading(false);
-          return;
-        }
-        const refCode = getStoredReferralCode();
-        if (refCode && data.session?.access_token) {
-          try {
-            await Promise.race([
-              fetch('/api/referral/claim', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                  Authorization: `Bearer ${data.session.access_token}`,
-                },
-                body: JSON.stringify({ referralCode: refCode }),
-                keepalive: true,
-              }).then(() => clearStoredReferralCode()),
-              new Promise((r) => setTimeout(r, 1200)),
-            ]);
-          } catch {
-            // ignore
-          }
-        }
-
-        setStatus('Thành công — đang vào học...');
-        window.location.replace(destFromSession(data.session.user));
+        setMode('login');
+        setStatus('Đã gửi email xác nhận. Mở email rồi quay lại đăng nhập.');
+        toast.success('Kiểm tra email để xác nhận tài khoản.');
+        setLoading(false);
         return;
       }
 
@@ -354,7 +308,8 @@ export default function AuthPage() {
       else sessionStorage.removeItem(OAUTH_PILOT_KEY);
       if (source) sessionStorage.setItem(OAUTH_SOURCE_KEY, source.slice(0, 80));
       else sessionStorage.removeItem(OAUTH_SOURCE_KEY);
-      if (redirectToParam) sessionStorage.setItem(OAUTH_REDIRECT_TO_KEY, redirectToParam);
+      const safeRedirect = safeInternalRedirect(redirectToParam, '');
+      if (safeRedirect) sessionStorage.setItem(OAUTH_REDIRECT_TO_KEY, safeRedirect);
       else sessionStorage.removeItem(OAUTH_REDIRECT_TO_KEY);
 
       // Chỉ path sạch — Google + Supabase reject redirect lạ / query
