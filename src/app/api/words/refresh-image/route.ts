@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { resolveWordImage } from '@/lib/image-pipeline';
 import { getAuthUser, unauthorized, checkRateLimitAsync } from '@/lib/api-security';
 

@@ -1,5 +1,5 @@
 import { getAuthUser, unauthorized } from '@/lib/api-security';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { NextResponse } from 'next/server';
 
 export async function GET(req: Request): Promise<NextResponse> {

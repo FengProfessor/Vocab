@@ -4,7 +4,8 @@ import { resolve } from 'path';
 // Load .env.local for local testing
 dotenv.config({ path: resolve(process.cwd(), '.env.local') });
 
-import { createServiceClient, fetchAllRows, Profile, UserGamification } from '../src/lib/supabase';
+import { fetchAllRows, Profile, UserGamification } from '../src/lib/supabase';
+import { createServiceClient } from '../src/lib/supabase-server';
 import { sendEmail, activeUserHtml, lowEngagementHtml, churningUserHtml, registeredOnlyHtml } from '../src/lib/email';
 
 const DRY_RUN = process.argv.includes('--dry-run');

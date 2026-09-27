@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getRouter } from '@/lib/ai-router';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { getAuthUser, unauthorized, safeErrorResponse } from '@/lib/api-security';
 
 // Fail-closed: env rỗng → mảng rỗng → mọi request đều 403 (tránh [''].includes('') = true)

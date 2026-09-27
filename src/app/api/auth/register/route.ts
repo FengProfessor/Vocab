@@ -3,7 +3,8 @@
  * Public registration giữ nguyên email verification policy của Supabase.
  */
 import { NextResponse } from 'next/server';
-import { createPublicAuthClient, createServiceClient } from '@/lib/supabase';
+import { createPublicAuthClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { checkRateLimitAsync, getClientIp } from '@/lib/api-security';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { FSRSRating } from '@/lib/srs';
 import { scheduleNext, stateToText, textToState } from '@/lib/fsrs';
 import { creditGrammarLessonToRoadmap } from '@/lib/roadmap-credit';

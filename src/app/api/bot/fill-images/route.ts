@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
-import { createServiceClient, type DictionaryData } from '@/lib/supabase';
+import { type DictionaryData } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { resolveWordImage } from '@/lib/image-pipeline';
 import { safeErrorResponse, assertBotAuthorized } from '@/lib/api-security';
 

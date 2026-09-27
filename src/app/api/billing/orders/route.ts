@@ -4,7 +4,7 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { createOrder, isValidPeriodMonths } from '@/lib/billing';
 import { safeErrorResponse, getAdminEmails } from '@/lib/api-security';
 import type { Plan } from '@/lib/supabase';

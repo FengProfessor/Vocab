@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
-import { createServiceClient, type DictionaryData, type SRSProgress, type Word } from '@/lib/supabase';
+import { type DictionaryData, type SRSProgress, type Word } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { enrichWord as performAIEnrichment } from '@/lib/ai-enrich';
 import { resolveWordImage } from '@/lib/image-pipeline';
 import { stabilityToLevel } from '@/lib/srs';

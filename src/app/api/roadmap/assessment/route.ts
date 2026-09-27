@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { getAuthUser, unauthorized } from '@/lib/api-security';
 import type { AssessmentType } from '@/lib/roadmap-assessment';
 import type { RoadmapTrack } from '@/lib/roadmap';

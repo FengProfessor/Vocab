@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
-import { createServiceClient, fetchAllRows } from '@/lib/supabase';
+import { fetchAllRows } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { getAuthUser, unauthorized, safeErrorResponse, getAdminEmails } from '@/lib/api-security';
 
 export const dynamic = 'force-dynamic';

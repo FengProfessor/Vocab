@@ -28,8 +28,7 @@ Requirements:
 
   for (let i = 0; i < keys.length; i++) {
     const key = keys[i];
-    const masked = key.slice(0, 8) + '...' + key.slice(-4);
-    process.stdout.write(`[key #${i + 1} ${masked}] `);
+    process.stdout.write(`[key #${i + 1}] `);
     try {
       const res = await fetch(`${ENDPOINT}?key=${encodeURIComponent(key)}`, {
         method: 'POST',

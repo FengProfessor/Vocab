@@ -3,7 +3,7 @@
  * Phù hợp cho từ trừu tượng hoặc fallback khi stock ảnh thiếu ứng viên.
  * Ảnh sinh ra được upload lên Supabase Storage bucket 'vocab-images'.
  */
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 
 const MODEL = '@cf/black-forest-labs/flux-1-schnell';
 const BUCKET = 'vocab-images';

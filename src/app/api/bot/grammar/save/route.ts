@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { safeErrorResponse, assertBotAuthorized } from '@/lib/api-security';
 
 type ExerciseRecord = Record<string, unknown>;

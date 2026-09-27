@@ -24,14 +24,15 @@ dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-if (!supabaseUrl || !serviceKey) {
-  console.error('❌ Thiếu NEXT_PUBLIC_SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY trong .env.local');
+const demoPassword = process.env.TOEIC_DEMO_PASSWORD;
+if (!supabaseUrl || !serviceKey || !demoPassword) {
+  console.error('❌ Thiếu NEXT_PUBLIC_SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY / TOEIC_DEMO_PASSWORD trong .env.local');
   process.exit(1);
 }
 const supabase = createClient(supabaseUrl, serviceKey, { auth: { persistSession: false } });
 
 const CLASS_NAME = 'TOEIC Demo';
-const TEACHER = { email: 'demo.teacher@lingopro.test', password: 'Demo@1234', name: 'GV Demo (TOEIC)' };
+const TEACHER = { email: 'demo.teacher@lingopro.test', name: 'GV Demo (TOEIC)' };
 const STUDENTS = [
   { key: 'lan', email: 'lan.toeic@lingopro.test', name: 'Lan' },
   { key: 'huy', email: 'huy.toeic@lingopro.test', name: 'Huy' },
@@ -127,8 +128,8 @@ function buildQuizzes(userId: string, classroomId: string, accuracy: number, cou
 
 async function seed() {
   console.log('🚀 Seeding lớp TOEIC Demo...');
-  const teacherId = await ensureUser(TEACHER.email, TEACHER.password, TEACHER.name, 'teacher');
-  console.log('✅ GV demo:', TEACHER.email, '/', TEACHER.password);
+  const teacherId = await ensureUser(TEACHER.email, demoPassword, TEACHER.name, 'teacher');
+  console.log('✅ GV demo:', TEACHER.email);
 
   // Lớp (tìm theo name+teacher, tạo nếu chưa có)
   let { data: cls } = await supabase
@@ -164,7 +165,7 @@ async function seed() {
   const quizCountMap: Record<string, number> = { lan: 4, huy: 3, vy: 4 };
 
   for (const st of STUDENTS) {
-    const sid = await ensureUser(st.email, 'Demo@1234', st.name, 'student');
+    const sid = await ensureUser(st.email, demoPassword, st.name, 'student');
     await supabase.from('enrollments').upsert({ student_id: sid, classroom_id: classroomId });
     // reset tiến độ cũ
     await supabase.from('srs_progress').delete().eq('user_id', sid).in('word_id', wordIds);
@@ -179,7 +180,7 @@ async function seed() {
   }
 
   console.log('\n🌟 XONG. Đăng nhập GV để show:');
-  console.log(`   ${TEACHER.email}  /  ${TEACHER.password}`);
+  console.log(`   ${TEACHER.email} (password lấy từ TOEIC_DEMO_PASSWORD)`);
   console.log('   → /teacher → tab Học sinh: Lan (đều đặn) · Huy (lười/dormant) · Vy (nhồi nhét/cramming)');
 }
 

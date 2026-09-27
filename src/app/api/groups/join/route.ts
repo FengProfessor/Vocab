@@ -4,7 +4,7 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { grantGroupEntitlement } from '@/lib/billing';
 
 export async function POST(req: NextRequest) {

@@ -11,7 +11,7 @@
  *   - Free tier ~100 RPD/key × N keys = đủ backfill toàn DB trong vài ngày
  *   - Tuân thủ ToS Google, không rủi ro ban
  */
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 
 const MODEL = 'gemini-2.5-flash-image-preview';
 const ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { getWordSourceMap } from '@/lib/bot-utils';
 import { resolveWordImage } from '@/lib/image-pipeline';
 import { safeErrorResponse, assertBotAuthorized } from '@/lib/api-security';

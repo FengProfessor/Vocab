@@ -91,7 +91,7 @@ function mark429(entry: KeyState): void {
   entry.errors429 += 1;
   entry.cooldownUntil = Date.now() + COOLDOWN_MS;
   console.warn(
-    `${LOG} 429 key ...${entry.key.slice(-6)} cooldown ${COOLDOWN_MS / 1000}s (errors=${entry.errors429})`,
+    `${LOG} provider rate limited; cooldown ${COOLDOWN_MS / 1000}s (errors=${entry.errors429})`,
   );
 }
 
@@ -129,7 +129,7 @@ export async function geminiGenerate(
         },
       });
       console.log(
-        `${LOG} model=${modelName} key=...${entry.key.slice(-6)} calls=${entry.calls} attempt=${attempt + 1}`,
+        `${LOG} model=${modelName} calls=${entry.calls} attempt=${attempt + 1}`,
       );
       const r = await model.generateContent({
         contents: [{ role: 'user', parts: [{ text: prompt }] }],
@@ -141,13 +141,13 @@ export async function geminiGenerate(
       const msg = err instanceof Error ? err.message : String(err);
       if (/429|Too Many Requests|quota|rate.?limit/i.test(msg)) {
         mark429(entry);
-        lastError = new Error(`${LOG} 429 on ...${entry.key.slice(-6)}`);
-        console.warn(`${LOG} 429 on ...${entry.key.slice(-6)}, trying next key...`);
+        lastError = new Error(`${LOG} provider rate limited`);
+        console.warn(`${LOG} provider rate limited, trying next key...`);
         continue;
       }
       if (/503|500|502|504|Service Unavailable|high demand|overloaded|fetch failed|econnreset|etimedout/i.test(msg)) {
-        lastError = new Error(`${LOG} transient error on ...${entry.key.slice(-6)}: ${msg.slice(0, 100)}`);
-        console.warn(`${LOG} transient error on ...${entry.key.slice(-6)}: ${msg.slice(0, 80)}, trying next key...`);
+        lastError = new Error(`${LOG} transient provider error: ${msg.slice(0, 100)}`);
+        console.warn(`${LOG} transient provider error: ${msg.slice(0, 80)}, trying next key...`);
         continue;
       }
       if (/404|not found|no longer/i.test(msg)) {

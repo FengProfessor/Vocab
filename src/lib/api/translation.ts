@@ -1,6 +1,7 @@
 // Translation service wrapper for LibreTranslate with Supabase caching & graceful fallback
 
-import { supabase, createServiceClient } from '@/lib/supabase';
+import { supabase } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 
 export interface TranslateOptions {
   sourceLang?: string; // Default: 'en'

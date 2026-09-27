@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { randomBytes } from 'crypto';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { EXT_TOKEN_PREFIX, hashExtensionToken, unauthorized, checkRateLimitAsync } from '@/lib/api-security';
 
 const DEFAULT_TTL_MS = 90 * 24 * 60 * 60 * 1000; // 90 ngày (giảm blast nếu máy lab lộ token)

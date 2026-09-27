@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getClientIp, checkRateLimitAsync, tooManyRequests, getAuthUser } from '@/lib/api-security';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import {
   loadAnyToeicTest,
   loadFullToeicTest,

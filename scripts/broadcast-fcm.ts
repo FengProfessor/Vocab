@@ -110,9 +110,7 @@ async function main(): Promise<void> {
   for (const row of tokenRows ?? []) {
     if (!row.user_id || !row.token) continue;
     if (allTokens.has(row.token) && tokenOwner.get(row.token) !== row.user_id) {
-      console.warn(
-        `[Broadcast] shared token ${row.token.slice(0, 12)}… users ${tokenOwner.get(row.token)?.slice(0, 8)} + ${row.user_id.slice(0, 8)} → gửi 1 lần`
-      );
+      console.warn('[Broadcast] Shared device token detected; sending once');
     }
     allTokens.add(row.token);
     tokenOwner.set(row.token, row.user_id);
@@ -129,9 +127,7 @@ async function main(): Promise<void> {
   for (const p of profiles ?? []) {
     if (!p.id || !p.fcm_token) continue;
     if (allTokens.has(p.fcm_token) && tokenOwner.get(p.fcm_token) !== p.id) {
-      console.warn(
-        `[Broadcast] legacy shared ${p.fcm_token.slice(0, 12)}… skip duplicate owner ${p.id.slice(0, 8)}`
-      );
+      console.warn('[Broadcast] Legacy shared device token detected; skipping duplicate');
     }
     allTokens.add(p.fcm_token);
     tokenOwner.set(p.fcm_token, p.id);
@@ -195,13 +191,10 @@ async function main(): Promise<void> {
         if (!r.success) {
           const code = (r.error as { code?: string } | undefined)?.code || '';
           const msg = (r.error as { message?: string } | undefined)?.message || '';
-          console.warn(
-            `[Broadcast] fail token=${chunk[idx].slice(0, 12)}… code=${code} msg=${msg}`
-          );
+          console.warn(`[Broadcast] send failed batchItem=${idx + 1} code=${code} msg=${msg}`);
           if (DEAD_TOKEN_CODES.includes(code)) deadTokens.push(chunk[idx]);
         } else {
-          const owner = tokenOwner.get(chunk[idx]);
-          console.log(`[Broadcast] ok token=${chunk[idx].slice(0, 12)}… owner=${owner?.slice(0, 8) ?? '?'}`);
+          console.log(`[Broadcast] send ok batchItem=${idx + 1}`);
         }
       });
     } catch (err: unknown) {

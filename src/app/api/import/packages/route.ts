@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { getAuthUser, unauthorized } from '@/lib/api-security';
 import { CATALOG_VERSION, MICRO_PACK_SIZE, getCatalogTree, resolvePack } from '@/lib/vocab-catalog';
 import { getStarterPack } from '@/lib/roadmap';

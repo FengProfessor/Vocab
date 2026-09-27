@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { confirmOrder } from '@/lib/billing';
 import { safeErrorResponse } from '@/lib/api-security';
 import crypto from 'crypto';

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { mapQualityToRating } from '@/lib/srs';
 import { scheduleNext } from '@/lib/fsrs';
 import { XP_BY_QUALITY } from '@/lib/gamification';

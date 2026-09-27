@@ -4,7 +4,7 @@ import * as path from 'path';
 // MUST load env BEFORE loading supabase/ai-router to avoid hoisting undefined values
 dotenv.config({ path: path.resolve(__dirname, '../.env.local') });
 
-const { createServiceClient } = require('../src/lib/supabase');
+const { createServiceClient } = require('../src/lib/supabase-server');
 const { getRouter } = require('../src/lib/ai-router');
 
 async function translateTheories() {

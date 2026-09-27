@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { resolvePublicOrigin } from '@/lib/referral-tracker';
 
 export const dynamic = 'force-dynamic';

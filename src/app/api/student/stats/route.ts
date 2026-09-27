@@ -4,7 +4,7 @@ import {
   dateKeyInTimeZone,
   resolveDisplayStreak,
 } from '@/lib/gamification';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { stabilityToLevel } from '@/lib/srs';
 
 export async function GET(req: NextRequest): Promise<NextResponse> {

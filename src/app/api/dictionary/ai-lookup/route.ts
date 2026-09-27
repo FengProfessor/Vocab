@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createServiceClient } from "@/lib/supabase";
+import { createServiceClient } from "@/lib/supabase-server";
 import { getRouter } from "@/lib/ai-router";
 import { sanitizeForPrompt, checkRateLimitAsync, safeErrorResponse, getAuthUser, unauthorized } from "@/lib/api-security";
 import { checkAndConsumeDailyAI, resolvePlanByUserId } from "@/lib/entitlement-server";
