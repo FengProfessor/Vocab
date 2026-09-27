@@ -269,11 +269,13 @@ Hai campaign là chương trình một ngày `2026-08-06`, đã hết hạn và 
 - Static inventory các privileged plan writes còn lại cho thấy paid order confirmation, validated trial coupon và milestone flow lấy target từ authenticated identity và dùng server-side pricing/eligibility. Không phát hiện thêm same-pattern Critical trong scope inventory; các finding ngoài Phase 1B giữ nguyên.
 - Local clean `npm ci`, production build, actionlint, changed-file ESLint, cron regressions, privilege regression, milestone logic, bốn deployment tests và `git diff --check` PASS trên Node `24.14.0`/npm `11.9.0`; CI dùng Node 22. Typecheck khớp baseline: đúng 10 lỗi cũ TS2307/TS7006 trong speaking tests, không có lỗi mới.
 - Campaign suite Khai Giảng cũ còn 39/101 test fail vì test vẫn yêu cầu các mã/benefit 90 ngày đã hết hạn hoạt động. Không khôi phục entitlement để làm các expectation lỗi thời này PASS; privilege regression mới xác nhận campaign đã nghỉ trả 410 và zero mutation dưới tampering/replay/concurrency.
-- PR [#11](https://github.com/FengProfessor/Vocab/pull/11); clean GitHub security CI run `36286801557` PASS trên commit `eeae494`. Rollout production vẫn pending merge.
+- PR [#11](https://github.com/FengProfessor/Vocab/pull/11) merge tại `cf412b4c0c0c61dc4c12a7c835aa9b2442a90367`; final clean GitHub security CI run `36286985525` PASS trên head `258d37ff7669abf21a42008ed69a6e44a7491278`.
+- Canonical rollout `36287156757` cho merge SHA: Quality **PASS**, Migration **PASS**, exact-SHA build/activation **PASS**, service/health **PASS**. Log xác nhận staging HEAD bằng `cf412b4c0c0c61dc4c12a7c835aa9b2442a90367`; activation chỉ chấp nhận `.next/.release-commit` khớp SHA này; service ổn định với MainPID `1074255` và HTTP 200.
+- Main sau đó tiến tới `5e7a8f31e24e84c7390caf0188347778f85e4f49`, vẫn chứa P1B trong ancestry; canonical run `36290700007` PASS và xác nhận expected/actual SHA khớp, stable MainPID `1077337`. Public `/api/health` trả 200 `{"status":"ok"}` và root trả 200.
 
 ### Trạng thái
 
-Ba High finding entitlement đã được sửa trong source; trạng thái vẫn **OPEN pending clean CI, PR merge và canonical production verification**. Các finding ngoài scope không thay đổi; theo Phase 1B, sau khi rollout PASS số High còn lại là 3.
+Ba High finding entitlement đã **CLOSED** sau clean CI, merge và canonical production verification. **P1 Phase 1B = DONE**; số High còn lại theo checkpoint Phase 1B là **3 OPEN**. Phase tiếp theo: **P1 Phase 1C**.
 
 ## Thứ tự xử lý đề xuất
 
