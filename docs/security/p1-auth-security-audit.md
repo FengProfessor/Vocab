@@ -308,6 +308,43 @@ Hai High finding ID (`P1-B-04`, `P1-B-05`) đã **CLOSED** sau clean CI, merge v
 - Safe production probes: anonymous `POST /api/speaking/upload-audio` trả 401 trước multipart/storage; anonymous `/api/admin/stats` trả 401. Không tạo account, upload hoặc business mutation trong production verification. OAuth attack corpus và registration state machine được chứng minh bằng clean runner thay vì đăng nhập/tạo user thật.
 - Kết luận: `P1-B-01`, `P1-B-02`, `P1-B-03`, `P1-B-06` **CLOSED**. **P1 Phase 1C = DONE; High remaining: 0.** Sáu Medium và ba Low từ audit ban đầu giữ nguyên cho phase sau.
 
+## Phase 2A — Medium security remediation (2026-09-27)
+
+### Scope reconciliation
+
+Audit ban đầu liệt kê sáu Medium dưới dạng bullet nhưng chưa gắn ID riêng. Phase 2A chuẩn hóa ID theo đúng thứ tự đã công bố; không tách endpoint/file thành finding mới.
+
+| Finding ID | Trạng thái trước 2A | Route/component | Root cause | Phase |
+|---|---|---|---|---|
+| `P1-C-01` | OPEN | Shared Supabase client | Service-role factory nằm cùng browser client và fallback sang anon key khi thiếu secret | 2A |
+| `P1-C-02` | OPEN | Browser auth/session | Access/refresh token persist trong localStorage; không có cookie SSR/session refresh boundary | 2B |
+| `P1-C-03` | OPEN | `/api/billing/webhook` | Webhook chấp nhận nhiều shared secret, gồm `CRON_SECRET`, bằng direct string comparison | 2B |
+| `P1-C-04` | OPEN | `/api/test/notify` | Bật `ALLOW_TEST_ROUTES=true` biến route thành anonymous arbitrary-user service-role lookup/send và trả PII/provider response | 2A |
+| `P1-C-05` | OPEN | Shared rate limiter và public/expensive APIs | Thiếu/ lỗi Upstash tự fallback về counter theo process | 2B |
+| `P1-C-06` | OPEN | Operational scripts/provider routers | Temporary password, FCM/API-key fragments và user identifier xuất hiện trong console/error output | 2A |
+
+Code tại base `c4f81f3a5c76415c58592b3036d26ccbb683dabd` khớp cả sáu assumptions; không finding Medium nào đã đủ evidence để đóng. Phase 1A/1B/1C regressions PASS nên không High nào reopen.
+
+### Findings xử lý trong Phase 2A
+
+- `P1-C-01`: chuyển `createServiceClient()` sang `src/lib/supabase-server.ts`; browser module không còn export hoặc tham chiếu service-role secret. Factory từ chối browser runtime và throw khi thiếu URL/service key; không fallback anon. Caller chỉ đổi import, business/auth/authorization logic không đổi. Regression kiểm tra missing URL/key fail closed, exact service key được dùng, browser invocation bị chặn, không client component import server module và không caller còn import service factory từ browser module.
+- `P1-C-04`: `ALLOW_TEST_ROUTES` thiếu/sai luôn 404; GET mutation bị bỏ bằng 405. POST xác minh bearer trước privileged business client, sau đó yêu cầu server-derived admin role hoặc configured allowlist. `userId` phải là UUID; non-admin/invalid target tạo zero Telegram send. Response không còn profile, Telegram ID hoặc raw provider response; provider/internal failures trả lỗi generic.
+- `P1-C-06`: bỏ temporary password khỏi onboarding output; demo credential chuyển sang required `TOEIC_DEMO_PASSWORD`; bỏ API-key prefix/suffix khỏi Zhipu/Gemini/AI router và stats; bỏ FCM token fragments, user-ID fragments và provider details khỏi operational notification logs. Không in secret value trong test/report.
+- Không migration, không schema/data mutation, không đổi entitlement/billing semantics trong ba fix này.
+
+### Findings defer sang Phase 2B
+
+- `P1-C-02` giữ **OPEN**: chuyển PKCE localStorage sang HttpOnly cookie/SSR sẽ thay auth/session architecture và onboarding/login contract; cần design và migration plan riêng.
+- `P1-C-03` giữ **OPEN**: read-only production inspection xác nhận process có `CRON_SECRET` nhưng không có `WEBHOOK_SECRET`, `SEPAY_WEBHOOK_KEY`, `SEPAY_API_KEY` hoặc `PAYOS_CHECKSUM_KEY`. Loại shared fallback ngay sẽ vô hiệu hóa payment confirmation. Cần provision/rotate dedicated secret và đổi provider config theo rollout phối hợp; không đổi billing auth mù trong 2A.
+- `P1-C-05` giữ **OPEN**: production không có hai biến Upstash và hiện chạy một systemd MainPID. Ép fail closed ngay sẽ chặn registration cùng nhiều AI/dictionary/TOEIC API. Cần chọn distributed store/availability policy và rollout infrastructure trước.
+
+### Validation trước PR
+
+- Local Node `24.14.0`, npm `11.9.0`; clean `npm ci` PASS. Build PASS với warning NFT/Firebase env có sẵn; fail-closed Supabase config được catch trong build-time dictionary warmup.
+- Phase 1A/1B/1C và Phase 2A security regressions PASS. Bốn deployment suites, Bash/Node syntax, actionlint `v1.7.11`, changed-file ESLint và `git diff --check` PASS.
+- Typecheck trước và sau đều đúng 10 lỗi baseline `TS2307`/`TS7006` trong hai Speaking tests; không có lỗi mới.
+- Trạng thái tại checkpoint này: `P1-C-01`, `P1-C-04`, `P1-C-06` **IMPLEMENTED — PENDING CLEAN CI/MERGE/PRODUCTION VERIFICATION**. `P1-C-02`, `P1-C-03`, `P1-C-05` **OPEN — DEFERRED TO PHASE 2B**.
+
 ## Thứ tự xử lý đề xuất
 
 1. Critical cron bypass + rotate secret + regression tests.
@@ -316,6 +353,6 @@ Hai High finding ID (`P1-B-04`, `P1-B-05`) đã **CLOSED** sau clean CI, merge v
 4. Email verification/register policy.
 5. Entitlement grant endpoints và teacher grant authorization.
 6. Admin allowlist fail-closed.
-7. Tách server-only Supabase client, webhook secret isolation, session/rate/log hardening.
+7. Hoàn tất Phase 2A cho service client, test route và credential logging; Phase 2B xử lý cookie session, dedicated webhook secret và distributed rate limiter.
 
 Không thay đổi P0 deploy flow, migration runner, health endpoint, systemd hoặc production trong audit này.

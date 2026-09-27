@@ -534,6 +534,17 @@
 - Production verification: build HEAD/build marker/live release marker đều bằng merge SHA; service active và MainPID ổn định `1089651`; local/public health `200 {"status":"ok"}` với `no-store`; root/auth 200. Anonymous audio upload và admin stats đều 401, zero upload/account/business mutation trong probes.
 - Security status: `P1-B-01`, `P1-B-02`, `P1-B-03`, `P1-B-06` **CLOSED**. **P1 Phase 1C = DONE; High remaining: 0.** Audit còn 6 Medium và 3 Low cho phase kế tiếp.
 
+## P1 PHASE 2A — Medium remediation, pre-PR (2026-09-27)
+
+- Baseline: clean `origin/main` SHA `c4f81f3a5c76415c58592b3036d26ccbb683dabd`; branch `codex/p2a-medium-security`. Sáu Medium được chuẩn hóa thành `P1-C-01`…`P1-C-06` theo thứ tự audit; code khớp cả sáu root cause và Phase 1 regressions xác nhận High remaining = 0.
+- Selected: `P1-C-01`, `P1-C-04`, `P1-C-06`. `createServiceClient` được tách khỏi browser Supabase module, không còn anon fallback và fail closed khi thiếu URL/service key hoặc chạy ở browser. 108 caller chỉ đổi import; auth/business logic giữ nguyên.
+- `/api/test/notify`: config thiếu => 404; GET => 405; POST yêu cầu server-verified admin trước target lookup/send; UUID validation; unauthorized/tampered target tạo zero Telegram side effect. Response không còn profile, Telegram ID, raw provider response hoặc internal error.
+- Credential logging: bỏ password tạm, hard-coded demo password, FCM token fragments, API-key fragments và user-ID fragments khỏi các operational scripts/router/notification logs. TOEIC demo password nay bắt buộc qua `TOEIC_DEMO_PASSWORD` và không được in.
+- Deferred OPEN sang 2B: `P1-C-02` cần auth cookie/SSR redesign; `P1-C-03` cần dedicated webhook secret + provider rotation; `P1-C-05` cần distributed rate-limit infrastructure/availability policy. Read-only production process inventory: dedicated webhook/PayOS/SePay secrets = absent, Upstash URL/token = absent, `CRON_SECRET` present, service active với một MainPID. Không in giá trị secret.
+- Migration: NONE. Không đổi schema/data, paid entitlement, billing order semantics hoặc deploy architecture.
+- Local Node `24.14.0` / npm `11.9.0`: clean `npm ci`, build, Phase 1A/1B/1C + Phase 2A regressions, actionlint, changed-file ESLint, Bash/Node syntax, bốn deployment suites và diff check PASS. Typecheck trước/sau đúng 10 lỗi baseline `TS2307`/`TS7006`, không lỗi mới.
+- Status: ba finding selected **IMPLEMENTED — PENDING CLEAN CI/MERGE/PRODUCTION VERIFICATION**; Medium before 6, closed 0 tại checkpoint, deferred/open 3, implemented pending closure 3.
+
 ## 2026-09-23 · TOEIC TikTok 100-video campaign
 
 - Tạo campaign 100 video TOEIC Listening: 25 video cho mỗi Part 1–4, mỗi video 3 câu.
