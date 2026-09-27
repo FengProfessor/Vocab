@@ -19,6 +19,7 @@
 import {
   getToeicClientClusterForQuestion,
   loadAnyToeicTest,
+  loadToeicPartPractice,
   stripSensitiveToeicData,
 } from '@/lib/toeic-test-loader';
 import type {
@@ -331,6 +332,53 @@ async function runAllTests() {
     flagged.delete(32);
     assert(!flagged.has(32), 'Q32 is unflagged');
     assert(flagged.has(34), 'Q34 remains flagged');
+  });
+
+  console.log('\n▶ Test Group 6: Part 3 & Part 4 Cluster Slicing & Divisibility by 3...');
+
+  await runTest('T6-1: Part 3 slicing with non-multiples of 3 clamps upward to preserve whole 3-question clusters', () => {
+    // Slicing Part 3 with limit=1 should give at least 1 complete cluster (3 questions)
+    const p3Min = loadToeicPartPractice(3, 'bank', 1, false);
+    assert(p3Min.length === 3, `Expected 3 questions (1 full cluster), got ${p3Min.length}`);
+    assert(p3Min.length % 3 === 0, 'Question count must be divisible by 3');
+
+    // Slicing Part 3 with limit=4 should round up to 6 questions (2 full clusters)
+    const p3Mid = loadToeicPartPractice(3, 'bank', 4, false);
+    assert(p3Mid.length === 6, `Expected 6 questions (2 full clusters), got ${p3Mid.length}`);
+    assert(p3Mid.length % 3 === 0, 'Question count must be divisible by 3');
+
+    // Slicing Part 3 with limit=10 should round up to 12 questions (4 full clusters)
+    const p3Ten = loadToeicPartPractice(3, 'bank', 10, false);
+    assert(p3Ten.length === 12, `Expected 12 questions (4 full clusters), got ${p3Ten.length}`);
+    assert(p3Ten.length % 3 === 0, 'Question count must be divisible by 3');
+  });
+
+  await runTest('T6-2: Part 4 slicing with non-multiples of 3 clamps upward to preserve whole 3-question clusters', () => {
+    // Slicing Part 4 with limit=2 should give 3 questions
+    const p4Min = loadToeicPartPractice(4, 'bank', 2, false);
+    assert(p4Min.length === 3, `Expected 3 questions (1 full cluster), got ${p4Min.length}`);
+    assert(p4Min.length % 3 === 0, 'Question count must be divisible by 3');
+
+    // Slicing Part 4 with limit=5 should give 6 questions
+    const p4Five = loadToeicPartPractice(4, 'bank', 5, false);
+    assert(p4Five.length === 6, `Expected 6 questions (2 full clusters), got ${p4Five.length}`);
+    assert(p4Five.length % 3 === 0, 'Question count must be divisible by 3');
+  });
+
+  await runTest('T6-3: Part 3 and Part 4 cluster resolution never yields partial or broken clusters', () => {
+    const p3Qs = loadToeicPartPractice(3, 'bank', 9, false);
+    for (const q of p3Qs) {
+      const cluster = getToeicClientClusterForQuestion(q.questionNumber, p3Qs);
+      assert(cluster !== null, `Question ${q.questionNumber} must resolve to a valid cluster`);
+      assert(cluster!.questions.length === 3, `Cluster for Q${q.questionNumber} must contain exactly 3 questions`);
+    }
+
+    const p4Qs = loadToeicPartPractice(4, 'bank', 6, false);
+    for (const q of p4Qs) {
+      const cluster = getToeicClientClusterForQuestion(q.questionNumber, p4Qs);
+      assert(cluster !== null, `Question ${q.questionNumber} must resolve to a valid cluster`);
+      assert(cluster!.questions.length === 3, `Cluster for Q${q.questionNumber} must contain exactly 3 questions`);
+    }
   });
 
   console.log('\n================================================================');

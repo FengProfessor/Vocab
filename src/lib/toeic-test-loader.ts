@@ -1480,6 +1480,13 @@ export function loadToeicPartPractice(
   const cleanId = typeof testId === 'string' ? testId.trim().toLowerCase() : '';
   const isAllBank = cleanId === 'all' || cleanId === 'bank' || cleanId === 'all-tests' || cleanId === 'toan-bo';
 
+  // Preserve cluster integrity for Part 3 & 4 (minimum 3, multiples of 3)
+  const isClusterPart = part === 3 || part === 4;
+  const effectiveLimit =
+    isClusterPart && limit && limit > 0
+      ? Math.max(3, Math.ceil(limit / 3) * 3)
+      : limit;
+
   // 100% Backward compatibility for existing 4-parameter calls without options
   if (!options) {
     let questions: ToeicUnifiedQuestion[] = [];
@@ -1492,9 +1499,9 @@ export function loadToeicPartPractice(
           if (q.part === part) {
             questions.push(q);
           }
-          if (limit && questions.length >= limit) break;
+          if (effectiveLimit && questions.length >= effectiveLimit) break;
         }
-        if (limit && questions.length >= limit) break;
+        if (effectiveLimit && questions.length >= effectiveLimit) break;
       }
 
       if (questions.length === 0) {
@@ -1507,8 +1514,8 @@ export function loadToeicPartPractice(
       questions = fullTest.filter((q) => q.part === part);
     }
 
-    if (limit && limit > 0 && questions.length > limit) {
-      questions = questions.slice(0, limit);
+    if (effectiveLimit && effectiveLimit > 0 && questions.length > effectiveLimit) {
+      questions = questions.slice(0, effectiveLimit);
     }
 
     if (renumber) {
@@ -1525,7 +1532,7 @@ export function loadToeicPartPractice(
   const filterMode = options.filterMode || 'unseen';
   const excludedIds = new Set(options.excludedIds || []);
   const mistakeIds = new Set(options.mistakeIds || []);
-  const targetLimit = limit && limit > 0 ? limit : Infinity;
+  const targetLimit = effectiveLimit && effectiveLimit > 0 ? effectiveLimit : Infinity;
 
   // If in mistakes mode and mistakeIds is empty, return empty array immediately
   if (filterMode === 'mistakes' && mistakeIds.size === 0) {
@@ -1623,14 +1630,14 @@ export function loadToeicPartPractice(
   let resultQuestions: ToeicUnifiedQuestion[] = [];
   for (const g of selectedGroups) {
     resultQuestions.push(...g.questions);
-    if (limit && limit > 0 && resultQuestions.length >= limit) {
+    if (effectiveLimit && effectiveLimit > 0 && resultQuestions.length >= effectiveLimit) {
       break;
     }
   }
 
   // Slicing: clamp to requested limit while preserving stimulus cluster integrity
-  if (limit && limit > 0 && resultQuestions.length > limit) {
-    resultQuestions = resultQuestions.slice(0, limit);
+  if (effectiveLimit && effectiveLimit > 0 && resultQuestions.length > effectiveLimit) {
+    resultQuestions = resultQuestions.slice(0, effectiveLimit);
   }
 
   // Renumbering: if renumber is true, renumber sequentially 1..N

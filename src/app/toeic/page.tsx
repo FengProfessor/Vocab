@@ -54,6 +54,7 @@ interface PartMeta {
   timeEst: string;
   desc: string;
   defaultCount: number;
+  standardCount: number;
   secondsPerQuestion: number;
 }
 
@@ -77,6 +78,7 @@ const PART_DEFINITIONS_RAW: Array<Omit<PartMeta, 'setsCount' | 'questionCount'> 
     timeEst: '~40s / câu',
     desc: 'Quan sát tranh ảnh thực tế và nghe 4 phương án mô tả (A, B, C, D). Luyện phản xạ nhận diện hành động, vị trí và ngữ cảnh trực quan.',
     defaultCount: 6,
+    standardCount: 6,
     secondsPerQuestion: 40,
   },
   {
@@ -89,6 +91,7 @@ const PART_DEFINITIONS_RAW: Array<Omit<PartMeta, 'setsCount' | 'questionCount'> 
     timeEst: '~25s / câu',
     desc: 'Nghe 1 câu hỏi hoặc phát biểu và chọn 1 trong 3 câu phản hồi thích hợp nhất (A, B, C). Rèn luyện phản xạ phát âm, ngữ điệu và câu trả lời gián tiếp.',
     defaultCount: 25,
+    standardCount: 25,
     secondsPerQuestion: 25,
   },
   {
@@ -100,7 +103,8 @@ const PART_DEFINITIONS_RAW: Array<Omit<PartMeta, 'setsCount' | 'questionCount'> 
     fallbackQ: 858,
     timeEst: '~35s / câu',
     desc: 'Nghe các đoạn đối thoại công sở & đời sống giữa 2-3 người (3 câu hỏi/đoạn). Bắt ý chính, chi tiết sự kiện và câu hỏi suy luận ngữ cảnh.',
-    defaultCount: 15,
+    defaultCount: 3,
+    standardCount: 39,
     secondsPerQuestion: 35,
   },
   {
@@ -112,7 +116,8 @@ const PART_DEFINITIONS_RAW: Array<Omit<PartMeta, 'setsCount' | 'questionCount'> 
     fallbackQ: 1407,
     timeEst: '~35s / câu',
     desc: 'Nghe bài phát biểu, thông báo công cộng, tin tức hoặc tin nhắn thoại (3 câu hỏi/bài). Rèn luyện khả năng tóm tắt và ghi nhớ thông tin nhanh.',
-    defaultCount: 15,
+    defaultCount: 3,
+    standardCount: 30,
     secondsPerQuestion: 35,
   },
   {
@@ -125,6 +130,7 @@ const PART_DEFINITIONS_RAW: Array<Omit<PartMeta, 'setsCount' | 'questionCount'> 
     timeEst: '~25s / câu',
     desc: 'Điền từ vựng hoặc dạng ngữ pháp chuẩn xác vào chỗ trống câu đơn. Tổng ôn ngữ pháp trọng tâm, từ loại, liên từ và collocations công sở.',
     defaultCount: 30,
+    standardCount: 30,
     secondsPerQuestion: 25,
   },
   {
@@ -137,6 +143,7 @@ const PART_DEFINITIONS_RAW: Array<Omit<PartMeta, 'setsCount' | 'questionCount'> 
     timeEst: '~40s / câu',
     desc: 'Đọc 4 bài văn ngắn (email, thông báo, thư ngỏ) và điền 4 vị trí trống mỗi bài. Luyện tư duy liên kết ý và chọn câu văn phù hợp mạch bài.',
     defaultCount: 16,
+    standardCount: 16,
     secondsPerQuestion: 40,
   },
   {
@@ -149,6 +156,7 @@ const PART_DEFINITIONS_RAW: Array<Omit<PartMeta, 'setsCount' | 'questionCount'> 
     timeEst: '~60s / câu',
     desc: 'Đọc hiểu văn bản thực tế bao gồm Đoạn đơn (Single), Đoạn đôi (Double) và Đoạn ba (Triple): email thương mại, hóa đơn, báo cáo, lịch trình.',
     defaultCount: 20,
+    standardCount: 54,
     secondsPerQuestion: 60,
   },
 ];
@@ -165,6 +173,7 @@ const PART_DEFINITIONS: PartMeta[] = PART_DEFINITIONS_RAW.map((raw) => {
     timeEst: raw.timeEst,
     desc: raw.desc,
     defaultCount: raw.defaultCount,
+    standardCount: raw.standardCount,
     secondsPerQuestion: raw.secondsPerQuestion,
   };
 });
@@ -172,8 +181,8 @@ const PART_DEFINITIONS: PartMeta[] = PART_DEFINITIONS_RAW.map((raw) => {
 const PART_QUESTION_PRESETS: Record<number, number[]> = {
   1: [6, 12, 18, 30],
   2: [10, 25, 50, 100],
-  3: [9, 15, 30, 39],
-  4: [9, 15, 30, 45],
+  3: [3, 6, 9, 15, 30, 39],
+  4: [3, 6, 9, 15, 21, 30],
   5: [10, 20, 30, 50],
   6: [8, 16, 24, 32],
   7: [10, 20, 35, 54],
@@ -324,7 +333,7 @@ function ToeicCatalogContent() {
   const [selectedSource, setSelectedSource] = useState<string>('all');
   const [selectedFilterMode, setSelectedFilterMode] = useState<'unseen' | 'mistakes' | 'all_random'>('unseen');
   const [selectedCount, setSelectedCount] = useState<number>(() => {
-    return PART_DEFINITIONS.find((p) => p.part === validPart)?.defaultCount || 10;
+    return PART_DEFINITIONS.find((p) => p.part === validPart)?.defaultCount || (validPart === 3 || validPart === 4 ? 3 : 10);
   });
   const [customCountInput, setCustomCountInput] = useState<string>('');
   const [selectedMode, setSelectedMode] = useState<'practice' | 'real'>('practice');
@@ -382,7 +391,7 @@ function ToeicCatalogContent() {
 
   const handleSelectPart = (partNum: number) => {
     setSelectedPart(partNum);
-    const def = PART_DEFINITIONS.find((p) => p.part === partNum)?.defaultCount || 10;
+    const def = PART_DEFINITIONS.find((p) => p.part === partNum)?.defaultCount || (partNum === 3 || partNum === 4 ? 3 : 10);
     setSelectedCount(def);
     setCustomCountInput('');
     if (partRailRef.current) {
@@ -444,7 +453,10 @@ function ToeicCatalogContent() {
     return PART_QUESTION_PRESETS[selectedPart] || [10, 20, 30];
   }, [selectedPart]);
 
-  const effectiveCount = Math.max(1, selectedCount);
+  const isClusterPart = selectedPart === 3 || selectedPart === 4;
+  const effectiveCount = isClusterPart
+    ? Math.max(3, Math.round(selectedCount / 3) * 3)
+    : Math.max(1, selectedCount);
   const estimatedTimeMinutes = Math.max(
     2,
     Math.ceil((effectiveCount * (currentPartMeta.secondsPerQuestion || 30)) / 60)
@@ -1595,7 +1607,7 @@ function ToeicCatalogContent() {
                         }`}
                       >
                         {cnt} câu
-                        {cnt === currentPartMeta.defaultCount && (
+                        {cnt === currentPartMeta.standardCount && (
                           <span className="ml-1 text-[10px] opacity-80 font-sans font-normal hidden sm:inline">(chuẩn 1 đề)</span>
                         )}
                       </button>
@@ -1606,22 +1618,41 @@ function ToeicCatalogContent() {
                   <div className="flex items-center gap-1">
                     <input
                       type="number"
-                      min={1}
-                      max={100}
-                      placeholder="Tự nhập..."
+                      min={isClusterPart ? 3 : 1}
+                      max={isClusterPart ? (selectedPart === 3 ? 39 : 30) : 100}
+                      step={isClusterPart ? 3 : 1}
+                      placeholder={isClusterPart ? 'Bội số của 3...' : 'Tự nhập...'}
                       value={customCountInput}
                       onChange={(e) => {
                         const val = e.target.value;
                         setCustomCountInput(val);
                         const n = parseInt(val, 10);
                         if (!isNaN(n) && n > 0) {
-                          setSelectedCount(Math.min(100, Math.max(1, n)));
+                          const maxAllowed = isClusterPart ? (selectedPart === 3 ? 39 : 30) : 100;
+                          const minAllowed = isClusterPart ? 3 : 1;
+                          setSelectedCount(Math.min(maxAllowed, Math.max(minAllowed, n)));
                         }
                       }}
-                      className="w-18 sm:w-20 rounded-sm border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 px-2 py-1 text-xs font-mono text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-slate-900 dark:focus:border-white focus:outline-hidden"
+                      onBlur={() => {
+                        if (isClusterPart && customCountInput) {
+                          const n = parseInt(customCountInput, 10);
+                          if (!isNaN(n) && n > 0) {
+                            const snapped = Math.max(3, Math.min(selectedPart === 3 ? 39 : 30, Math.round(n / 3) * 3));
+                            setCustomCountInput(String(snapped));
+                            setSelectedCount(snapped);
+                          }
+                        }
+                      }}
+                      className="w-20 sm:w-24 rounded-sm border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 px-2 py-1 text-xs font-mono text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-slate-900 dark:focus:border-white focus:outline-hidden"
                     />
                     <span className="text-xs text-slate-500 font-mono">câu</span>
                   </div>
+
+                  {isClusterPart && (
+                    <div className="w-full text-[11px] text-slate-500 dark:text-slate-400 font-mono mt-1">
+                      * Part {selectedPart} gồm các cụm 3 câu hỏi (chọn số chia hết cho 3: 3, 6, 9, 15...).
+                    </div>
+                  )}
                 </div>
               </div>
 

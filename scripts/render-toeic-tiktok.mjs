@@ -1,7 +1,8 @@
-import { spawn } from 'node:child_process';
+import { execFile, spawn } from 'node:child_process';
 import { mkdir, writeFile, rm } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
+import { promisify } from 'node:util';
 import puppeteer from 'puppeteer';
 import {
   getPendingSlots,
@@ -11,6 +12,13 @@ import {
   syncChecklist,
 } from './toeic-tiktok-tracker.mjs';
 
+const execFileAsync = promisify(execFile);
+
+function normalizeMediaUrl(url) {
+  if (!url) return url;
+  return url.replace(/([^:])\/\/+/g, '$1/');
+}
+
 const args = new Map(
   process.argv.slice(2).map((arg) => {
     const [key, ...rest] = arg.replace(/^--/, '').split('=');
@@ -19,12 +27,14 @@ const args = new Map(
 );
 
 const baseUrl = args.get('baseUrl') || 'http://localhost:3000';
+const testId = args.get('testId') || 'bank';
 const part = Number(args.get('part') || 1);
 const questionsPerVideo = Number(args.get('questions') || 3);
 const videos = Number(args.get('videos') || 1);
 const answerDelaySeconds = Number(args.get('answerDelay') || 3);
 const captureSpeed = Math.max(1, Number(args.get('captureSpeed') || 1));
 const allowReuse = args.get('allowReuse') === 'true';
+const graphicOnly = args.get('graphicOnly') === 'true' || args.get('requireGraphic') === 'true';
 const outputDir = path.resolve(args.get('outDir') || 'out/tiktok-toeic');
 const trackerPath = args.get('tracker') ? path.resolve(args.get('tracker')) : null;
 const checklistPath = path.resolve(args.get('checklist') || 'docs/tiktok-toeic-100-checklist.md');
@@ -57,9 +67,10 @@ function run(command, commandArgs, options = {}) {
 }
 
 async function downloadAudio(url, targetPath) {
-  const response = await fetch(url);
+  const cleanUrl = normalizeMediaUrl(url);
+  const response = await fetch(cleanUrl);
   if (!response.ok) {
-    throw new Error(`Không tải được audio ${url}: HTTP ${response.status}`);
+    throw new Error(`Không tải được audio ${cleanUrl}: HTTP ${response.status}`);
   }
   const bytes = new Uint8Array(await response.arrayBuffer());
   await writeFile(targetPath, bytes);
@@ -607,6 +618,639 @@ async function renderPart2Sequence(page, questions, sessionToken, recordingStart
   // sau review cuối, khiến outro nối vào quá sớm và trông như đè lên đáp án 3.
   if (reviews.length > 0) {
     await sleep(2500 / speed);
+  }
+}
+
+async function analyzePart3Audio(audioPath) {
+  try {
+    const { stderr } = await execFileAsync('ffmpeg', [
+      '-i', audioPath,
+      '-af', 'silencedetect=noise=-28dB:d=1.2',
+      '-f', 'null', '-'
+    ]);
+    const silences = [];
+    const regex = /silence_end:\s*([\d\.]+)\s*\|\s*silence_duration:\s*([\d\.]+)/g;
+    let match;
+    while ((match = regex.exec(stderr)) !== null) {
+      silences.push({ end: parseFloat(match[1]), duration: parseFloat(match[2]) });
+    }
+    return silences;
+  } catch (err) {
+    console.warn('[P3 audio analyze warning]', err.message);
+    return [];
+  }
+}
+
+async function ensurePart3Stage(page, questionsData, imageUrl = null, currentPart = 3) {
+  await page.evaluate(({ data, imgUrl, partNum }) => {
+    document.getElementById('lingopro-part3-stage')?.remove();
+    document.getElementById('lingopro-part1-stage')?.remove();
+    const stage = document.createElement('div');
+    stage.id = 'lingopro-part3-stage';
+    stage.style.position = 'fixed';
+    stage.style.inset = '0';
+    stage.style.zIndex = '2147483645';
+    stage.style.background = '#0b1220';
+    stage.style.fontFamily = 'var(--font-be-vietnam-pro), var(--font-inter), "Segoe UI", sans-serif';
+    stage.style.color = '#f8fafc';
+
+    // 1. Header
+    const header = document.createElement('div');
+    header.style.position = 'absolute';
+    header.style.top = '22px';
+    header.style.left = '24px';
+    header.style.right = '55px';
+    header.style.display = 'flex';
+    header.style.alignItems = 'center';
+    header.style.justifyContent = 'space-between';
+
+    const badge = document.createElement('div');
+    badge.id = 'p3-header-badge';
+    badge.textContent = imgUrl ? `🎧 PART ${partNum} · GRAPHIC` : `🎧 PART ${partNum} · 3 CÂU LIÊN TIẾP`;
+    badge.style.fontSize = '11.5px';
+    badge.style.fontWeight = '750';
+    badge.style.letterSpacing = '-.01em';
+    badge.style.padding = '4px 10px';
+    badge.style.borderRadius = '999px';
+    badge.style.background = imgUrl ? 'rgba(56, 189, 248, 0.15)' : 'rgba(74, 222, 128, 0.12)';
+    badge.style.border = imgUrl ? '1px solid rgba(56, 189, 248, 0.35)' : '1px solid rgba(74, 222, 128, 0.28)';
+    badge.style.color = imgUrl ? '#7dd3fc' : '#4ade80';
+
+    const brand = document.createElement('div');
+    brand.textContent = 'LingoPro';
+    brand.style.fontSize = '16px';
+    brand.style.fontWeight = '800';
+    brand.style.letterSpacing = '-.02em';
+    brand.style.color = '#4ade80';
+    brand.style.textShadow = '0 0 5px rgba(74,222,128,.95), 0 0 12px rgba(34,197,94,.8)';
+
+    header.append(badge, brand);
+
+    // 2. Audio status & waveform bar
+    const audioBar = document.createElement('div');
+    audioBar.id = 'p3-audio-bar';
+    audioBar.style.position = 'absolute';
+    audioBar.style.top = imgUrl ? '52px' : '62px';
+    audioBar.style.left = '24px';
+    audioBar.style.right = '55px';
+    audioBar.style.height = imgUrl ? '30px' : '36px';
+    audioBar.style.display = 'flex';
+    audioBar.style.alignItems = 'center';
+    audioBar.style.justifyContent = 'space-between';
+    audioBar.style.padding = imgUrl ? '5px 10px' : '7px 12px';
+    audioBar.style.borderRadius = imgUrl ? '10px' : '12px';
+    audioBar.style.background = 'rgba(30, 41, 59, 0.85)';
+    audioBar.style.border = '1px solid rgba(148, 163, 184, 0.18)';
+
+    const waveBox = document.createElement('div');
+    waveBox.id = 'p3-wave-container';
+    waveBox.style.display = 'flex';
+    waveBox.style.alignItems = 'center';
+    waveBox.style.gap = '2.5px';
+    waveBox.style.height = '14px';
+    for (let i = 0; i < 4; i++) {
+      const b = document.createElement('div');
+      b.style.width = '2.5px';
+      b.style.height = `${[50, 100, 40, 80][i]}%`;
+      b.style.borderRadius = '2px';
+      b.style.background = '#4ade80';
+      waveBox.appendChild(b);
+    }
+
+    const statusText = document.createElement('div');
+    statusText.id = 'p3-status-text';
+    statusText.textContent = imgUrl ? 'Đang nghe hội thoại & Quan sát bảng...' : 'Đang nghe hội thoại (Đọc trước 3 câu)...';
+    statusText.style.fontSize = '11px';
+    statusText.style.fontWeight = '600';
+    statusText.style.color = '#cbd5e1';
+
+    const timer = document.createElement('div');
+    timer.id = 'p3-timer';
+    timer.textContent = '00:00';
+    timer.style.fontFamily = 'monospace';
+    timer.style.fontSize = '12px';
+    timer.style.fontWeight = '700';
+    timer.style.color = '#4ade80';
+
+    audioBar.append(waveBox, statusText, timer);
+
+    // 3. Graphic Card (if present)
+    let topOffset = 106;
+    if (imgUrl) {
+      const imgCard = document.createElement('div');
+      imgCard.id = 'p3-graphic-card';
+      imgCard.style.position = 'absolute';
+      imgCard.style.top = '88px';
+      imgCard.style.left = '24px';
+      imgCard.style.right = '55px';
+      imgCard.style.height = '150px';
+      imgCard.style.background = 'rgba(15, 23, 42, 0.95)';
+      imgCard.style.border = '1px solid rgba(148, 163, 184, 0.25)';
+      imgCard.style.borderRadius = '12px';
+      imgCard.style.padding = '5px 8px';
+      imgCard.style.display = 'flex';
+      imgCard.style.alignItems = 'center';
+      imgCard.style.justifyContent = 'center';
+      imgCard.style.overflow = 'hidden';
+
+      const img = document.createElement('img');
+      img.src = imgUrl;
+      img.style.maxHeight = '100%';
+      img.style.maxWidth = '100%';
+      img.style.objectFit = 'contain';
+      img.style.borderRadius = '6px';
+      img.style.background = '#ffffff';
+
+      imgCard.appendChild(img);
+      stage.appendChild(imgCard);
+      topOffset = 244;
+    }
+
+    // 4. Questions Container
+    const qContainer = document.createElement('div');
+    qContainer.id = 'p3-questions-container';
+    qContainer.style.position = 'absolute';
+    qContainer.style.top = `${topOffset}px`;
+    qContainer.style.left = '24px';
+    qContainer.style.right = '55px';
+    qContainer.style.display = 'flex';
+    qContainer.style.flexDirection = 'column';
+    qContainer.style.gap = imgUrl ? '6px' : '8px';
+
+    data.forEach((q, idx) => {
+      const card = document.createElement('div');
+      card.id = `p3-qcard-${idx + 1}`;
+      card.style.background = 'rgba(15, 23, 42, 0.92)';
+      card.style.border = '1px solid rgba(148, 163, 184, 0.22)';
+      card.style.borderRadius = imgUrl ? '11px' : '13px';
+      card.style.padding = imgUrl ? '6px 9px' : '8px 11px';
+      card.style.transition = 'all 0.25s ease';
+
+      const qHeader = document.createElement('div');
+      qHeader.style.display = 'flex';
+      qHeader.style.alignItems = 'flex-start';
+      qHeader.style.gap = '6px';
+      qHeader.style.marginBottom = imgUrl ? '4px' : '5px';
+
+      const qNum = document.createElement('div');
+      qNum.id = `p3-qnum-${idx + 1}`;
+      qNum.textContent = `Q${idx + 1}`;
+      qNum.style.flexShrink = '0';
+      qNum.style.width = '20px';
+      qNum.style.height = '20px';
+      qNum.style.borderRadius = '5px';
+      qNum.style.background = 'rgba(255, 255, 255, 0.1)';
+      qNum.style.display = 'flex';
+      qNum.style.alignItems = 'center';
+      qNum.style.justifyContent = 'center';
+      qNum.style.fontSize = '9.5px';
+      qNum.style.fontWeight = '800';
+      qNum.style.color = '#94a3b8';
+
+      const qPrompt = document.createElement('div');
+      qPrompt.textContent = q.prompt;
+      qPrompt.style.fontSize = imgUrl ? '11px' : '12px';
+      qPrompt.style.fontWeight = '650';
+      qPrompt.style.lineHeight = '1.3';
+      qPrompt.style.color = '#f1f5f9';
+
+      qHeader.append(qNum, qPrompt);
+
+      const isShort = (q.options || []).every((o) => (o.text || '').length < 28);
+      const optsGrid = document.createElement('div');
+      optsGrid.style.display = 'grid';
+      optsGrid.style.gridTemplateColumns = isShort ? '1fr 1fr' : '1fr';
+      optsGrid.style.gap = imgUrl ? '3px 6px' : '3.5px 8px';
+      optsGrid.style.paddingLeft = '26px';
+
+      (q.options || []).forEach((opt) => {
+        const row = document.createElement('div');
+        row.id = `p3-opt-${idx + 1}-${opt.key}`;
+        row.style.display = 'flex';
+        row.style.alignItems = 'center';
+        row.style.gap = '5px';
+        row.style.padding = imgUrl ? '2px 5px' : '3px 6px';
+        row.style.borderRadius = '5px';
+        row.style.background = 'rgba(255, 255, 255, 0.04)';
+        row.style.border = '1px solid rgba(148, 163, 184, 0.14)';
+        row.style.fontSize = '10px';
+        row.style.transition = 'all 0.25s ease';
+
+        const k = document.createElement('span');
+        k.textContent = opt.key;
+        k.style.flexShrink = '0';
+        k.style.fontWeight = '750';
+        k.style.color = '#94a3b8';
+        k.style.fontSize = '9.5px';
+
+        const t = document.createElement('span');
+        t.textContent = opt.text;
+        t.style.lineHeight = '1.25';
+        if (isShort) {
+          t.style.whiteSpace = 'nowrap';
+          t.style.overflow = 'hidden';
+          t.style.textOverflow = 'ellipsis';
+        } else {
+          t.style.wordBreak = 'break-word';
+        }
+
+        row.append(k, t);
+        optsGrid.appendChild(row);
+      });
+
+      card.append(qHeader, optsGrid);
+      qContainer.appendChild(card);
+    });
+
+    stage.append(header, audioBar, qContainer);
+    document.body.appendChild(stage);
+  }, { data: questionsData, imgUrl: imageUrl, partNum: currentPart });
+
+  if (imageUrl) {
+    await page.evaluate(async () => {
+      const img = document.querySelector('#p3-graphic-card img');
+      if (img) {
+        if (!img.complete) {
+          await new Promise((res) => { img.onload = res; img.onerror = res; });
+        }
+        try { await img.decode(); } catch {}
+      }
+    });
+  }
+}
+
+async function updatePart3Highlight(page, { activeQuestionIndex, revealedAnswers = {}, statusText, timerText }) {
+  await page.evaluate(({ activeIdx, revealed, status, timerVal }) => {
+    if (status) {
+      const st = document.getElementById('p3-status-text');
+      if (st) st.textContent = status;
+    }
+    if (timerVal) {
+      const tm = document.getElementById('p3-timer');
+      if (tm) tm.textContent = timerVal;
+    }
+
+    [1, 2, 3].forEach((idx) => {
+      const card = document.getElementById(`p3-qcard-${idx}`);
+      const num = document.getElementById(`p3-qnum-${idx}`);
+      if (!card || !num) return;
+
+      if (idx === activeIdx) {
+        card.style.borderColor = '#38bdf8';
+        card.style.boxShadow = '0 0 16px rgba(56, 189, 248, 0.28)';
+        card.style.background = 'rgba(30, 41, 59, 0.95)';
+        num.style.background = '#0284c7';
+        num.style.color = '#fff';
+      } else {
+        card.style.borderColor = 'rgba(148, 163, 184, 0.22)';
+        card.style.boxShadow = 'none';
+        card.style.background = 'rgba(15, 23, 42, 0.92)';
+        num.style.background = 'rgba(255, 255, 255, 0.1)';
+        num.style.color = '#94a3b8';
+      }
+
+      const correctKey = revealed[idx];
+      if (correctKey) {
+        const correctRow = document.getElementById(`p3-opt-${idx}-${correctKey}`);
+        if (correctRow) {
+          correctRow.style.background = '#15803d';
+          correctRow.style.borderColor = '#4ade80';
+          correctRow.style.color = '#ffffff';
+          correctRow.style.fontWeight = '700';
+          correctRow.style.boxShadow = '0 0 8px rgba(74, 222, 128, 0.4)';
+          const k = correctRow.querySelector('span');
+          if (k) k.style.color = '#ffffff';
+          if (!correctRow.querySelector('.check-mark')) {
+            const cm = document.createElement('span');
+            cm.className = 'check-mark';
+            cm.textContent = ' ✓';
+            cm.style.color = '#bbf7d0';
+            correctRow.appendChild(cm);
+          }
+        }
+      }
+    });
+  }, { activeIdx: activeQuestionIndex, revealed: revealedAnswers, status: statusText, timerVal: timerText });
+}
+
+async function showPart3TranscriptReview(page, rawTranscript, currentPart = 3, questionsData = []) {
+  await page.evaluate(({ transcript, partNum, qData }) => {
+    const qContainer = document.getElementById('p3-questions-container');
+    const audioBar = document.getElementById('p3-audio-bar');
+    const graphicCard = document.getElementById('p3-graphic-card');
+    const badge = document.getElementById('p3-header-badge');
+    if (audioBar) audioBar.style.display = 'none';
+    if (graphicCard) graphicCard.style.display = 'none';
+    if (badge) {
+      badge.textContent = '📜 LỜI THOẠI & BẰNG CHỨNG';
+      badge.style.background = 'rgba(234, 179, 8, 0.15)';
+      badge.style.border = '1px solid rgba(234, 179, 8, 0.35)';
+      badge.style.color = '#fde047';
+    }
+    if (!qContainer) return;
+
+    qContainer.replaceChildren();
+    qContainer.style.top = '62px';
+
+    const card = document.createElement('div');
+    card.style.background = 'rgba(15, 23, 42, 0.95)';
+    card.style.border = '1px solid rgba(148, 163, 184, 0.22)';
+    card.style.borderRadius = '14px';
+    card.style.padding = '14px 16px';
+    card.style.maxHeight = '480px';
+    card.style.overflow = 'hidden';
+
+    const cardTitle = document.createElement('div');
+    cardTitle.textContent = partNum === 4 ? '🎙️ Transcript Bài Nói' : '🎧 Transcript Đoạn Hội Thoại';
+    cardTitle.style.fontSize = '14px';
+    cardTitle.style.fontWeight = '800';
+    cardTitle.style.color = '#f8fafc';
+    cardTitle.style.marginBottom = '8px';
+
+    const dialogue = document.createElement('div');
+    dialogue.style.fontSize = '11px';
+    dialogue.style.lineHeight = '1.5';
+    dialogue.style.color = '#cbd5e1';
+
+    let clean = (transcript || '')
+      .replace(/<p><strong>Transcript:<\/strong><\/p>/gi, '')
+      .replace(/<p><strong>Transcript:<\/strong><br\s*\/?>/gi, '')
+      .replace(/&rsquo;/g, "'")
+      .replace(/&lsquo;/g, "'")
+      .replace(/&rdquo;/g, '"')
+      .replace(/&ldquo;/g, '"')
+      .replace(/&amp;/g, '&')
+      .replace(/&#39;/g, "'")
+      .trim();
+
+    const hasMarkers = /<(?:b|strong)[^>]*>\s*(?:Q|Câu)\s*[1-3]/i.test(clean) || /\[(?:Q|Câu)\s*[1-3]\]/i.test(clean);
+
+    if (hasMarkers) {
+      clean = clean.replace(
+        /<(?:b|strong)[^>]*>\s*(?:Q|Câu)\s*1\s*[:\.]?\s*([^<]+)<\/(?:b|strong)>/gi,
+        '<span style="background:rgba(34,197,94,.22);color:#86efac;padding:1px 4px;border-radius:4px;border-bottom:1.5px solid #22c55e;font-weight:650;"><span style="font-size:9.5px;font-weight:800;padding:1px 4px;border-radius:3px;background:#15803d;color:#fff;margin-right:3px;">Q1</span>$1</span>'
+      );
+      clean = clean.replace(
+        /<(?:b|strong)[^>]*>\s*(?:Q|Câu)\s*2\s*[:\.]?\s*([^<]+)<\/(?:b|strong)>/gi,
+        '<span style="background:rgba(234,179,8,.22);color:#fde047;padding:1px 4px;border-radius:4px;border-bottom:1.5px solid #eab308;font-weight:650;"><span style="font-size:9.5px;font-weight:800;padding:1px 4px;border-radius:3px;background:#a16207;color:#fff;margin-right:3px;">Q2</span>$1</span>'
+      );
+      clean = clean.replace(
+        /<(?:b|strong)[^>]*>\s*(?:Q|Câu)\s*3\s*[:\.]?\s*([^<]+)<\/(?:b|strong)>/gi,
+        '<span style="background:rgba(168,85,247,.22);color:#d8b4fe;padding:1px 4px;border-radius:4px;border-bottom:1.5px solid #a855f7;font-weight:650;"><span style="font-size:9.5px;font-weight:800;padding:1px 4px;border-radius:3px;background:#7e22ce;color:#fff;margin-right:3px;">Q3</span>$1</span>'
+      );
+    } else if (Array.isArray(qData) && qData.length > 0) {
+      // Intelligent Auto-Highlighting when markers are missing
+      const getTokens = (str) =>
+        (str || '')
+          .toLowerCase()
+          .replace(/[^a-z0-9\s]/g, ' ')
+          .split(/\s+/)
+          .filter((w) => w.length > 2 && !['what', 'why', 'when', 'where', 'how', 'who', 'the', 'and', 'for', 'that', 'this', 'with', 'from', 'about', 'most', 'likely', 'probably', 'does', 'did', 'will', 'she', 'her', 'his', 'him', 'they', 'them', 'woman', 'man', 'speaker', 'speakers', 'say', 'mention'].includes(w));
+
+      const styles = [
+        { badge: 'Q1', bg: 'rgba(34,197,94,.22)', text: '#86efac', border: '#22c55e', badgeBg: '#15803d' },
+        { badge: 'Q2', bg: 'rgba(234,179,8,.22)', text: '#fde047', border: '#eab308', badgeBg: '#a16207' },
+        { badge: 'Q3', bg: 'rgba(168,85,247,.22)', text: '#d8b4fe', border: '#a855f7', badgeBg: '#7e22ce' },
+      ];
+
+      const segments = clean.split(/(?<=[.?!])\s+/);
+      const matchedSegmentIndices = new Set();
+      const replacements = [];
+
+      qData.slice(0, 3).forEach((q, qIdx) => {
+        const correctOpt = (q.options || []).find((o) => o.key === q.correctAnswer);
+        const targetText = `${q.prompt || ''} ${correctOpt?.text || ''} ${correctOpt?.text || ''}`;
+        const qTokens = getTokens(targetText);
+
+        let bestScore = -1;
+        let bestIdx = -1;
+
+        const minRatio = qIdx === 0 ? 0 : (qIdx === 1 ? 0.15 : 0.45);
+        const maxRatio = qIdx === 0 ? 0.65 : (qIdx === 1 ? 0.85 : 1.0);
+
+        segments.forEach((seg, sIdx) => {
+          if (matchedSegmentIndices.has(sIdx)) return;
+          const cleanSeg = seg.replace(/<[^>]+>/g, '');
+          const sTokens = getTokens(cleanSeg);
+          let score = 0;
+          qTokens.forEach((t) => {
+            if (sTokens.includes(t)) score += 4;
+            else if (cleanSeg.toLowerCase().includes(t)) score += 2;
+          });
+
+          // Inquiry penalty for questions asking about another speaker's response
+          if (cleanSeg.trim().endsWith('?')) score -= 2;
+
+          const ratio = sIdx / Math.max(1, segments.length - 1);
+          if (ratio >= minRatio && ratio <= maxRatio) {
+            score += 1.5;
+          }
+
+          if (score > bestScore) {
+            bestScore = score;
+            bestIdx = sIdx;
+          }
+        });
+
+        if (bestIdx !== -1 && bestScore > 0) {
+          matchedSegmentIndices.add(bestIdx);
+          replacements.push({ qIdx, sIdx: bestIdx });
+        }
+      });
+
+      replacements.forEach(({ qIdx, sIdx }) => {
+        const orig = segments[sIdx];
+        const s = styles[qIdx];
+        const speakerMatch = orig.match(/^((?:<[^>]+>)*(?:[MW]|Man|Woman):\s*)(.*)$/s);
+        if (speakerMatch) {
+          const prefix = speakerMatch[1];
+          const rest = speakerMatch[2];
+          segments[sIdx] = `${prefix}<span style="background:${s.bg};color:${s.text};padding:1px 4px;border-radius:4px;border-bottom:1.5px solid ${s.border};font-weight:650;"><span style="font-size:9.5px;font-weight:800;padding:1px 4px;border-radius:3px;background:${s.badgeBg};color:#fff;margin-right:3px;">${s.badge}</span>${rest}</span>`;
+        } else {
+          segments[sIdx] = `<span style="background:${s.bg};color:${s.text};padding:1px 4px;border-radius:4px;border-bottom:1.5px solid ${s.border};font-weight:650;"><span style="font-size:9.5px;font-weight:800;padding:1px 4px;border-radius:3px;background:${s.badgeBg};color:#fff;margin-right:3px;">${s.badge}</span>${orig}</span>`;
+        }
+      });
+
+      clean = segments.join(' ');
+    }
+
+    clean = clean.replace(/(M|W|Man|Woman):/g, '<span style="font-weight:750;color:#93c5fd;">$1:</span>');
+
+    dialogue.innerHTML = clean;
+    card.append(cardTitle, dialogue);
+
+    const tipBox = document.createElement('div');
+    tipBox.style.background = 'rgba(30, 41, 59, 0.7)';
+    tipBox.style.border = '1px solid rgba(148, 163, 184, 0.18)';
+    tipBox.style.borderRadius = '10px';
+    tipBox.style.padding = '8px 12px';
+    tipBox.style.fontSize = '11px';
+    tipBox.style.lineHeight = '1.45';
+    tipBox.style.color = '#94a3b8';
+    tipBox.style.marginTop = '8px';
+    tipBox.innerHTML =
+      partNum === 4
+        ? '<strong style="color:#f1f5f9;">💡 Bí kíp Part 4:</strong> Diễn giả thường mở đầu bằng mục đích/chủ đề (Q1), sau đó đến chi tiết thực hiện (Q2) và yêu cầu/hành động tiếp theo (Q3)!'
+        : '<strong style="color:#f1f5f9;">💡 Bí kíp Part 3:</strong> Vị trí đáp án thường xuất hiện tuần tự theo mạch hội thoại (Đầu ➔ Giữa ➔ Cuối). Hãy đọc trước câu hỏi để định vị manh mối!';
+
+    qContainer.append(card, tipBox);
+  }, { transcript: rawTranscript, partNum: currentPart, qData: questionsData });
+}
+
+async function preparePart3Data(page, questions, sessionToken, currentPart = 3, workDir = '') {
+  const explanations = await page.evaluate(async ({ qList, token, partNum }) => {
+    return await Promise.all(
+      qList.map(async (q) => {
+        try {
+          const res = await fetch('/api/toeic/explain', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ testId: q.testId || 'bank', questionId: q.id, part: partNum, sessionToken: token }),
+          });
+          if (!res.ok) return { correctAnswer: 'A', explanationVi: '', transcript: '' };
+          return await res.json();
+        } catch {
+          return { correctAnswer: 'A', explanationVi: '', transcript: '' };
+        }
+      })
+    );
+  }, { qList: questions, token: sessionToken, partNum: currentPart });
+
+  const questionsData = questions.map((q, idx) => ({
+    num: idx + 1,
+    id: q.id,
+    prompt: q.prompt,
+    options: q.options || [],
+    correctAnswer: explanations[idx]?.correctAnswer || 'A',
+  }));
+
+  let transcript = explanations.find((e) => e.transcript)?.transcript || '';
+  if (!transcript) {
+    transcript = questions.find((q) => q.transcript)?.transcript || '';
+  }
+  const audioUrl = questions[0]?.audioUrl || '';
+  const imageUrl = questions[0]?.imageUrl ? normalizeMediaUrl(questions[0].imageUrl) : null;
+
+  const tempAudio = path.join(workDir, 'cluster-audio.mp3');
+  let silences = [];
+  if (audioUrl) {
+    await downloadAudio(audioUrl, tempAudio);
+    silences = await analyzePart3Audio(tempAudio);
+  }
+
+  return {
+    questionsData,
+    transcript,
+    audioUrl,
+    imageUrl,
+    silences,
+  };
+}
+
+async function renderPart3Sequence(page, preloaded, recordingStartedAt, audioEvents, speed = 1, currentPart = 3) {
+  const { questionsData, transcript, audioUrl, imageUrl, silences } = preloaded;
+
+  const etsPauses = silences.filter((s) => s.end >= 20);
+  const hasEtsPauses = etsPauses.length >= 3;
+  const tDialogueEnd = (hasEtsPauses ? etsPauses[0].end * 1000 : 38000) / speed;
+  const tQ1End = (hasEtsPauses ? etsPauses[1].end * 1000 : 50000) / speed;
+  const tQ2End = (hasEtsPauses ? etsPauses[2].end * 1000 : 62000) / speed;
+  const tQ3End = (etsPauses.length >= 4 ? etsPauses[3].end * 1000 : (tQ2End + 8000)) / speed;
+
+  const revealed = {};
+
+  if (audioUrl) {
+    audioEvents.push({ src: audioUrl, offsetMs: (Date.now() - recordingStartedAt) * speed });
+    await page.evaluate(({ audioSrc, playSpeed }) => {
+      const audio = document.createElement('audio');
+      audio.id = 'lingopro-cluster-audio';
+      audio.src = audioSrc;
+      audio.playbackRate = playSpeed;
+      audio.style.display = 'none';
+      document.body.appendChild(audio);
+      void audio.play();
+    }, { audioSrc: audioUrl, playSpeed: speed });
+  }
+
+  const startListen = Date.now();
+  const promptStatus = imageUrl
+    ? (currentPart === 4 ? 'Đang nghe bài nói & Quan sát bảng...' : 'Đang nghe hội thoại & Quan sát bảng...')
+    : (currentPart === 4 ? 'Đang nghe bài nói (Đọc trước 3 câu)...' : 'Đang nghe hội thoại (Đọc trước 3 câu)...');
+
+  // Phase 1: Dialogue listening (preview 3 questions)
+  while (Date.now() - startListen < tDialogueEnd) {
+    const remaining = Math.max(0, Math.floor((tQ3End - (Date.now() - startListen)) / 1000));
+    const mm = String(Math.floor(remaining / 60)).padStart(2, '0');
+    const ss = String(remaining % 60).padStart(2, '0');
+    await updatePart3Highlight(page, {
+      activeQuestionIndex: 0,
+      revealedAnswers: revealed,
+      statusText: promptStatus,
+      timerText: `${mm}:${ss}`,
+    });
+    await sleep(250 / speed);
+  }
+
+  // Phase 2: Q1 thinking & answer
+  while (Date.now() - startListen < tQ1End) {
+    const remaining = Math.max(0, Math.floor((tQ3End - (Date.now() - startListen)) / 1000));
+    const mm = String(Math.floor(remaining / 60)).padStart(2, '0');
+    const ss = String(remaining % 60).padStart(2, '0');
+    await updatePart3Highlight(page, {
+      activeQuestionIndex: 1,
+      revealedAnswers: revealed,
+      statusText: 'Suy nghĩ & Trả lời Câu 1...',
+      timerText: `${mm}:${ss}`,
+    });
+    await sleep(250 / speed);
+  }
+  revealed[1] = questionsData[0].correctAnswer;
+
+  // Phase 3: Q2 thinking & answer
+  while (Date.now() - startListen < tQ2End) {
+    const remaining = Math.max(0, Math.floor((tQ3End - (Date.now() - startListen)) / 1000));
+    const mm = String(Math.floor(remaining / 60)).padStart(2, '0');
+    const ss = String(remaining % 60).padStart(2, '0');
+    await updatePart3Highlight(page, {
+      activeQuestionIndex: 2,
+      revealedAnswers: revealed,
+      statusText: 'Suy nghĩ & Trả lời Câu 2...',
+      timerText: `${mm}:${ss}`,
+    });
+    await sleep(250 / speed);
+  }
+  revealed[2] = questionsData[1].correctAnswer;
+
+  // Phase 4: Q3 thinking & answer
+  while (Date.now() - startListen < tQ3End) {
+    const remaining = Math.max(0, Math.floor((tQ3End - (Date.now() - startListen)) / 1000));
+    const mm = String(Math.floor(remaining / 60)).padStart(2, '0');
+    const ss = String(remaining % 60).padStart(2, '0');
+    await updatePart3Highlight(page, {
+      activeQuestionIndex: 3,
+      revealedAnswers: revealed,
+      statusText: 'Suy nghĩ & Trả lời Câu 3...',
+      timerText: `${mm}:${ss}`,
+    });
+    await sleep(250 / speed);
+  }
+  revealed[3] = questionsData[2].correctAnswer;
+
+  // Phase 5: Hold all 3 answers revealed
+  await updatePart3Highlight(page, {
+    activeQuestionIndex: 0,
+    revealedAnswers: revealed,
+    statusText: 'Hoàn thành 3/3 câu!',
+    timerText: '00:00',
+  });
+  await sleep(2000 / speed);
+
+  // Phase 6: Bilingual Transcript Evidence Review
+  if (transcript) {
+    await showPart3TranscriptReview(page, transcript, currentPart, questionsData);
+    await sleep(5500 / speed);
+  } else {
+    await sleep(3500 / speed);
   }
 }
 
@@ -1259,7 +1903,8 @@ async function renderOne(browser, videoNumber, trackerSlot = null) {
   }
 
   const filterMode = trackerPath && !allowReuse ? 'unseen' : 'all_random';
-  const url = `${baseUrl}/toeic/exam/bank?part=${part}&limit=${questionsPerVideo}&mode=practice&filterMode=${filterMode}`;
+  const limitParam = graphicOnly ? 60 : questionsPerVideo;
+  const url = `${baseUrl}/toeic/exam/${testId}?part=${part}&limit=${limitParam}&mode=practice&filterMode=${filterMode}`;
   const testResponsePromise = page.waitForResponse(
     (response) => response.url().includes('/api/toeic/test') && response.request().method() === 'POST',
     { timeout: 30000 }
@@ -1268,7 +1913,23 @@ async function renderOne(browser, videoNumber, trackerSlot = null) {
   await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
   const testResponse = await testResponsePromise;
   const testPayload = await testResponse.json();
-  const questions = Array.isArray(testPayload?.questions) ? testPayload.questions.slice(0, questionsPerVideo) : [];
+  let questions = [];
+  if (part === 3 || part === 4) {
+    const cluster = graphicOnly
+      ? (testPayload.clusters?.find((c) => c.imageUrl || c.questions.some((q) => q.imageUrl)) || testPayload.clusters?.[0])
+      : testPayload.clusters?.[0];
+    questions = cluster
+      ? cluster.questions
+      : (Array.isArray(testPayload?.questions) ? testPayload.questions.slice(0, 3) : []);
+    const sharedAudio = cluster?.audioUrl || questions[0]?.audioUrl || '';
+    const sharedImage = cluster?.imageUrl || questions.find((q) => q.imageUrl)?.imageUrl || null;
+    for (const q of questions) {
+      if (!q.audioUrl) q.audioUrl = sharedAudio;
+      if (!q.imageUrl && sharedImage) q.imageUrl = sharedImage;
+    }
+  } else {
+    questions = Array.isArray(testPayload?.questions) ? testPayload.questions.slice(0, questionsPerVideo) : [];
+  }
   const sessionToken = testPayload?.sessionToken || '';
 
   if (questions.length === 0) {
@@ -1305,8 +1966,15 @@ async function renderOne(browser, videoNumber, trackerSlot = null) {
   });
   await page.screenshot({ path: introImage, type: 'png', captureBeyondViewport: false });
   await hideOverlay(page);
-  await ensurePart1Stage(page, part);
-  await setPart1QuestionStage(page, questions[0]?.imageUrl, 1, questions.length);
+
+  let part3Preloaded = null;
+  if (part === 1) {
+    await ensurePart1Stage(page, part);
+    await setPart1QuestionStage(page, questions[0]?.imageUrl, 1, questions.length);
+  } else if (part === 3 || part === 4) {
+    part3Preloaded = await preparePart3Data(page, questions, sessionToken, part, workDir);
+    await ensurePart3Stage(page, part3Preloaded.questionsData, part3Preloaded.imageUrl, part);
+  }
 
   const recorder = await page.screencast({ path: rawVideo, fps: 30, quality: 24 });
   const recordingStartedAt = Date.now();
@@ -1314,10 +1982,12 @@ async function renderOne(browser, videoNumber, trackerSlot = null) {
   let lastAudioSrc = '';
 
   try {
-    await sleep(part === 2 ? 450 / captureSpeed : 450);
+    await sleep([2, 3, 4].includes(part) ? 450 / captureSpeed : 450);
 
     if (part === 2) {
       await renderPart2Sequence(page, questions, sessionToken, recordingStartedAt, audioEvents, captureSpeed);
+    } else if (part === 3 || part === 4) {
+      await renderPart3Sequence(page, part3Preloaded, recordingStartedAt, audioEvents, captureSpeed, part);
     } else {
       for (let index = 0; index < questions.length; index += 1) {
         const question = questions[index];
@@ -1328,12 +1998,11 @@ async function renderOne(browser, videoNumber, trackerSlot = null) {
         const isNewAudio = Boolean(audioSrc && audioSrc !== lastAudioSrc);
 
         if (isNewAudio) {
-          if (part === 3) await resetListeningPrompt(page, part);
           const offsetMs = Date.now() - recordingStartedAt;
           audioEvents.push({ src: audioSrc, offsetMs });
           lastAudioSrc = audioSrc;
           await playSourceAudioWithCountdown(page, audioSrc);
-        } else if (part !== 3) {
+        } else {
           await showStageCountdown(page, answerDelaySeconds);
         }
 
@@ -1341,11 +2010,6 @@ async function renderOne(browser, videoNumber, trackerSlot = null) {
           part <= 2
             ? extractTranscriptOptions(explanation.transcript, question.options)
             : question.options;
-
-        if (part === 3) {
-          await showQuestionChoices(page, question.prompt, answerOptions);
-          await sleep(answerDelaySeconds * 1000);
-        }
 
         await revealPart1Choices(page, answerOptions, correctAnswer);
         await sleep(4200);
@@ -1365,7 +2029,7 @@ async function renderOne(browser, videoNumber, trackerSlot = null) {
   await page.screenshot({ path: outroImage, type: 'png', captureBeyondViewport: false });
   await page.close();
 
-  await muxAudio(rawVideo, audioEvents, coreVideo, workDir, part === 2 ? captureSpeed : 1);
+  await muxAudio(rawVideo, audioEvents, coreVideo, workDir, [2, 3, 4].includes(part) ? captureSpeed : 1);
   const outroAudioPath = path.resolve('public/sfx/outro/lingopro-soft-marimba.mp3');
   await createStillSegment(outroImage, 3.8, outroVideo, { audioPath: outroAudioPath, audioGain: 1.25 });
   const hookAudioPath = path.resolve('out/audio-hook-samples/06-lingopro-two-note.mp3');

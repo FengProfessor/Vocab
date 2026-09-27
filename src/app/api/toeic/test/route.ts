@@ -111,7 +111,10 @@ async function handleToeicTestRequest(
     }
   }
 
-  const limitNum = params.limit ? parseInt(String(params.limit), 10) : undefined;
+  let limitNum = params.limit ? parseInt(String(params.limit), 10) : undefined;
+  if (partNum && (partNum === 3 || partNum === 4) && limitNum && limitNum > 0) {
+    limitNum = Math.max(3, Math.ceil(limitNum / 3) * 3);
+  }
   const timeParam = params.time ? String(params.time) : undefined;
 
   // Parse filter options
