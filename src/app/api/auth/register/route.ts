@@ -1,10 +1,9 @@
 /**
  * POST /api/auth/register
- * Đăng ký không gửi email confirm (tránh Supabase built-in limit ~2 email/giờ).
- * admin.createUser + email_confirm: true → user đăng nhập password ngay.
+ * Public registration giữ nguyên email verification policy của Supabase.
  */
 import { NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/supabase';
+import { createPublicAuthClient, createServiceClient } from '@/lib/supabase';
 import { checkRateLimitAsync, getClientIp } from '@/lib/api-security';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -13,7 +12,6 @@ type Body = {
   email?: string;
   password?: string;
   fullName?: string;
-  role?: string;
   /** Honeypot — bot điền field ẩn */
   website?: string;
 };
@@ -45,7 +43,6 @@ export async function POST(req: Request) {
       .toLowerCase();
     const password = String(body.password ?? '');
     const fullName = String(body.fullName ?? '').trim().slice(0, 120);
-    const role = body.role === 'teacher' ? 'teacher' : 'student';
 
     if (!EMAIL_RE.test(email)) {
       return NextResponse.json({ error: 'Email không hợp lệ.', code: 'invalid_email' }, { status: 400 });
@@ -57,29 +54,23 @@ export async function POST(req: Request) {
       );
     }
 
-    const admin = createServiceClient();
-    const { data, error } = await admin.auth.admin.createUser({
+    const auth = createPublicAuthClient();
+    const appUrl = process.env.NEXT_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_SITE_URL || 'https://lingopro.online';
+    const emailRedirectTo = new URL('/auth', appUrl).toString();
+    const { data, error } = await auth.auth.signUp({
       email,
       password,
-      email_confirm: true, // không gửi mail xác nhận → không dính email rate limit
-      user_metadata: {
-        full_name: fullName || email.split('@')[0],
-        role,
+      options: {
+        emailRedirectTo,
+        data: {
+          full_name: fullName || email.split('@')[0],
+          role: 'student',
+        },
       },
     });
 
     if (error) {
       const msg = error.message || 'Không tạo được tài khoản';
-      // Email đã tồn tại
-      if (/already|registered|exists|duplicate/i.test(msg)) {
-        return NextResponse.json(
-          {
-            error: 'Email này đã có tài khoản. Hãy đăng nhập hoặc dùng Google.',
-            code: 'already_registered',
-          },
-          { status: 409 },
-        );
-      }
       // Supabase vẫn có thể báo email rate limit nếu project cấu hình gửi mail mời
       if (/rate limit|email rate/i.test(msg)) {
         return NextResponse.json(
@@ -102,10 +93,20 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Không tạo được user.', code: 'no_user' }, { status: 500 });
     }
 
+    // Fail closed nếu project bị cấu hình auto-confirm ngoài dự kiến.
+    if (data.session || data.user.email_confirmed_at) {
+      const admin = createServiceClient();
+      const { error: cleanupError } = await admin.auth.admin.deleteUser(data.user.id);
+      if (cleanupError) console.error('[Register] auto-confirm cleanup failed');
+      return NextResponse.json(
+        { error: 'Đăng ký email tạm thời không khả dụng.', code: 'verification_misconfigured' },
+        { status: 503 },
+      );
+    }
+
     return NextResponse.json({
       success: true,
-      userId: data.user.id,
-      // Client tự signInWithPassword ngay sau
+      verificationRequired: true,
     });
   } catch (err) {
     console.error('[Register] unexpected:', err);

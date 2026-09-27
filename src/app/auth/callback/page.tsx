@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import { supabase } from '@/lib/supabase';
 import { Loader2 } from 'lucide-react';
 import { getStoredReferralCode, clearStoredReferralCode } from '@/lib/referral-tracker';
+import { safeInternalRedirect } from '@/lib/internal-redirect';
 
 const OAUTH_ROLE_KEY = 'lingopro_oauth_role';
 const OAUTH_PILOT_KEY = 'lingopro_oauth_pilot';
@@ -59,7 +60,7 @@ export default function AuthCallbackPage() {
         sessionStorage.removeItem(OAUTH_SOURCE_KEY);
         sessionStorage.removeItem(OAUTH_REDIRECT_TO_KEY);
 
-        const dest = new URL(path, window.location.origin);
+        const dest = new URL(safeInternalRedirect(path, '/student'), window.location.origin);
         if (requestedRole === 'teacher') dest.searchParams.set('pilot_signup', '1');
         if (pilot) dest.searchParams.set('pilot', pilot.slice(0, 40));
         if (source) dest.searchParams.set('source', source.slice(0, 80));
@@ -123,10 +124,7 @@ export default function AuthCallbackPage() {
         const metaRole = session.user.user_metadata?.role;
         const isTeacher = requestedRole === 'teacher' || metaRole === 'teacher';
         const fallbackTarget = isTeacher ? '/teacher' : '/student';
-        const finalTarget =
-          customRedirect && customRedirect.startsWith('/') && !customRedirect.startsWith('//')
-            ? customRedirect
-            : fallbackTarget;
+        const finalTarget = safeInternalRedirect(customRedirect, fallbackTarget);
         go(finalTarget);
       } catch (err) {
         console.error('[AuthCallback]', err);

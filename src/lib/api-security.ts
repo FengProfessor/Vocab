@@ -15,15 +15,12 @@ const WEAK_SECRETS = new Set([
   'bot-secret',
 ]);
 
-/** Shared Admin email whitelist — default taphong2002@gmail.com if env not configured */
-const DEFAULT_ADMIN_EMAILS = ['taphong2002@gmail.com'];
-
+/** Shared Admin email whitelist; thiếu cấu hình thì fail closed. */
 export function getAdminEmails(): string[] {
-  const env = (process.env.ADMIN_EMAILS ?? '')
+  return [...new Set((process.env.ADMIN_EMAILS ?? '')
     .split(',')
     .map((e) => e.trim().toLowerCase())
-    .filter(Boolean);
-  return env.length > 0 ? env : DEFAULT_ADMIN_EMAILS;
+    .filter(Boolean))];
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
