@@ -506,6 +506,17 @@
 - Production auth-check: missing/malformed/synthetic invalid đều 401. Safe workflow-dispatch run `36278918835` dùng current repository secret, skip `push-due`, gọi riêng `/api/cron/auth-check` và nhận HTTP 204 bodyless. Log mới chỉ có endpoint/status/PASS, không có response body hoặc PII; verification không tạo notification, email hoặc DB mutation.
 - Final: **Cron auth vulnerability = CLOSED**; **Verification incident = RESIDUAL RISK DOCUMENTED** do prior viewer/download/transcript copies không thể thu hồi; **P1 Phase 1A = DONE**; Remaining High findings = **6 OPEN**.
 
+## P1 PHASE 1B — Privilege escalation / Pro entitlement, pre-PR (2026-09-27)
+
+- Scope: hai endpoint campaign Pro cũ và teacher cross-account one-year Pro grant. OAuth redirect, anonymous audio upload, registration/email ownership và admin fallback không sửa.
+- Old campaign flows: billing endpoint cấp 7 ngày cho mọi authenticated user không eligibility/date gate; campaign endpoint nhận `force=1` để bỏ date gate. Cả hai dùng service role, check history rồi update profile/insert history không atomic và không có unique claim guard.
+- Old teacher flow: owner của classroom chọn arbitrary email, route tìm/tạo/auto-confirm account, cộng 365 ngày Pro, tạo paid order amount 0 và subscription history. Teacher role có thể self-claim; không có trusted grant entitlement. Serial replay cộng thêm năm; concurrent calls có thể tạo duplicate order/history.
+- Fix: retire cả hai campaign đã hết hạn bằng authenticated HTTP 410, bỏ background caller và toàn bộ service-role/database mutation. Teacher add-student giữ account/enrollment nhưng xóa plan/expiry/order/history writes; UI chỉ mô tả enrollment.
+- Replay/race: expired campaign luôn zero mutation. Enrollment dùng existing unique `(student_id,classroom_id)` với upsert, nên repeat/concurrent requests còn một enrollment và không có entitlement để nhân bản. Không cần migration.
+- Regression: actual transformed routes cover anonymous/tampered/ineligible/valid enrollment/replay/concurrency and zero privileged side effects. Clean `npm ci`, build, actionlint, changed-file ESLint, cron regressions, privilege regression, milestone logic, bốn deploy tests và `git diff --check` PASS trên Node `24.14.0`/npm `11.9.0`; CI dùng Node 22. Typecheck đúng baseline 10 lỗi cũ TS2307/TS7006, không có lỗi mới.
+- Legacy campaign suite: 62/101 PASS, 39 expectation cũ fail vì vẫn yêu cầu chiến dịch Khai Giảng hết hạn cấp 90 ngày Pro; không khôi phục entitlement. Clean GitHub CI, PR và rollout pending.
+- Security status: 3 entitlement High fixed in source nhưng **OPEN pending release**. Sáu High tổng ban đầu chưa giảm cho tới production verification.
+
 ## 2026-09-23 · TOEIC TikTok 100-video campaign
 
 - Tạo campaign 100 video TOEIC Listening: 25 video cho mỗi Part 1–4, mỗi video 3 câu.

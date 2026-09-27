@@ -11,6 +11,11 @@ on:
       - 'src/lib/cron-auth.ts'
       - 'src/app/api/cron/**'
       - 'src/app/api/challenges/check-daily/**'
+      - 'src/app/api/billing/claim-upgrade-gift/**'
+      - 'src/app/api/campaign/claim-upgrade-gift/**'
+      - 'src/app/api/teacher/students/add/**'
+      - 'src/components/campaign/UpgradeGiftModal.tsx'
+      - 'src/components/teacher/StudentsPanel.tsx'
       - 'tests/security/**'
   workflow_dispatch:
 
@@ -31,10 +36,11 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
-      - name: Cron authorization regression tests
+      - name: Security regression tests
         run: |
           node tests/security/cron-auth.test.mjs
           node tests/security/cron-auth-probe.test.mjs
+          node tests/security/privilege-entitlement.test.mjs
       - uses: actions/setup-go@v5
         with:
           go-version: '1.24'
