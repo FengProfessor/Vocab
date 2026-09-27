@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { getAuthUser, safeErrorResponse } from '@/lib/api-security';
 import { aggregateDailyMetrics } from '@/lib/challenge';
 import { dateKeyInTimeZone, APP_TIMEZONE } from '@/lib/gamification';

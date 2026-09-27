@@ -12,7 +12,7 @@ import {
   isValidString,
   getAuthUser,
 } from '@/lib/api-security';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import {
   FREE_CODEMIX_UPGRADE_DAILY_LIMIT,
   type Plan,

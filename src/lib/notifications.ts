@@ -1,5 +1,5 @@
 import admin from 'firebase-admin';
-import { createServiceClient } from './supabase';
+import { createServiceClient } from './supabase-server';
 
 /** Vercel/PowerShell env hay dính literal \r\n → projectId hỏng → FCM 404 `/projects/xxx/r/n/messages`. */
 function cleanEnv(value: string | undefined): string {
@@ -135,11 +135,9 @@ export async function sendPushNotificationToUser(
     }
 
     const deadTokens: string[] = [];
-    const errors: string[] = [];
 
     response.responses.forEach((resp, idx) => {
       if (!resp.success && resp.error) {
-        errors.push(resp.error.message || resp.error.code || 'unknown');
         if (isDeadTokenError(resp.error)) {
           deadTokens.push(tokenStrings[idx]);
         }
@@ -151,7 +149,7 @@ export async function sendPushNotificationToUser(
       if (profile?.fcm_token && deadTokens.includes(profile.fcm_token)) {
         await supabase.from('profiles').update({ fcm_token: null }).eq('id', userId);
       }
-      console.log(`[FCM] Cleared ${deadTokens.length} dead token(s) for user ${userId.slice(0, 8)}`);
+      console.log(`[FCM] Cleared ${deadTokens.length} dead token(s)`);
     }
 
     if (response.successCount > 0) {
@@ -162,7 +160,7 @@ export async function sendPushNotificationToUser(
         await supabase.from('profiles').update({ fcm_token: successfulToken }).eq('id', userId);
       }
 
-      console.log(`[FCM] Sent to ${response.successCount}/${tokenStrings.length} tokens for user=${userId.slice(0, 8)}`);
+      console.log(`[FCM] Sent to ${response.successCount}/${tokenStrings.length} tokens`);
       return {
         messageId: response.responses[firstSuccessIdx].messageId,
         sentCount: response.successCount,
@@ -172,7 +170,7 @@ export async function sendPushNotificationToUser(
     }
 
     return {
-      error: `All ${tokenStrings.length} token(s) failed for user ${userId}: ${errors.slice(0, 3).join(' | ')}`,
+      error: `All ${tokenStrings.length} notification target(s) failed`,
     };
   } catch (err: unknown) {
     const e = err as { message?: string; code?: string } | undefined;

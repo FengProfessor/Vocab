@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createServiceClient } from "@/lib/supabase";
+import { createServiceClient } from "@/lib/supabase-server";
 import { getRouter } from "@/lib/ai-router";
 import { getAuthUser, unauthorized, sanitizeForPrompt, checkRateLimitAsync, safeErrorResponse } from "@/lib/api-security";
 

@@ -8,7 +8,7 @@ import {
   safeErrorResponse,
   tooManyRequests,
 } from '@/lib/api-security';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 
 interface LeadBody {
   contactName?: unknown;

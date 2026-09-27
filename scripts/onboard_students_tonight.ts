@@ -155,7 +155,7 @@ async function onboardSingleStudent(student: StudentToOnboard, classroom: { id: 
         }
       } else if (newUser?.user) {
         studentId = newUser.user.id;
-        console.log(`   ✅ Created auth user (${studentId}) with temp password: ${tempPassword}`);
+        console.log(`   ✅ Created auth user (${studentId}); temporary password generated`);
       }
     }
   } else {

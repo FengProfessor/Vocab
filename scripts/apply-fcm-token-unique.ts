@@ -72,9 +72,7 @@ async function dedupe(): Promise<number> {
     });
     const keep = list[0];
     const drop = list.slice(1);
-    console.log(
-      `[Apply] shared token=${token.slice(0, 14)}… keep=${keep.user_id.slice(0, 8)} drop=${drop.length}`
-    );
+    console.log(`[Apply] Shared FCM token detected; dropping ${drop.length} duplicate owner row(s)`);
     for (const d of drop) {
       const { error: delErr } = await supabase.from('fcm_tokens').delete().eq('id', d.id);
       if (delErr) throw new Error(delErr.message);

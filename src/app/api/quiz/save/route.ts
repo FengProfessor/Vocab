@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
-import { createServiceClient, type QuizType } from '@/lib/supabase';
+import { type QuizType } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { XP_PER_CORRECT_QUIZ } from '@/lib/gamification';
 import { getAuthUser, unauthorized, isNumberInRange, safeErrorResponse } from '@/lib/api-security';
 

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getAuthUser, isValidString } from '@/lib/api-security';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
 
 export const dynamic = 'force-dynamic';

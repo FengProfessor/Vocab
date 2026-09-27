@@ -2,7 +2,8 @@
  * Resolve IPA + nghĩa + gợi ý hình cho list từ.
  * IPA: CHỈ từ điển / input — mặc định TẮT LLM (tránh sai phiên âm in lớp).
  */
-import { createServiceClient, type DictionaryData } from '@/lib/supabase';
+import { type DictionaryData } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { getRouter } from '@/lib/ai-router';
 import { sanitizeForPrompt } from '@/lib/api-security';
 import type { MindMapWordInput } from '@/lib/mindmap';

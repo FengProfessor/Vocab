@@ -19,7 +19,7 @@ if (!key) {
   process.exit(1);
 }
 
-console.log('key len', key.length, 'nl', /[\r\n]/.test(key), 'prefix', key.slice(0, 4));
+console.log('ZHIPU_API_KEY configured');
 console.log('model', model);
 console.log('base', base);
 

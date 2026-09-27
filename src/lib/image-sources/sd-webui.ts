@@ -2,7 +2,7 @@
  * Nguồn ảnh local — Stable Diffusion WebUI (AUTOMATIC1111 REST API).
  * Tự động tạo hình ảnh minh họa offline 100% miễn phí.
  */
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 
 const BUCKET = 'vocab-images';
 const LOG = '[SD-WebUI]';

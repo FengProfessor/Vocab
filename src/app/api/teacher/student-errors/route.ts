@@ -1,4 +1,4 @@
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { NextResponse } from 'next/server';
 import { getAuthUser, unauthorized } from '@/lib/api-security';
 

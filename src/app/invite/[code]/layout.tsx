@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 
 export async function generateMetadata({
   params,

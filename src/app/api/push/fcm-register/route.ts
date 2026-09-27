@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { getAuthUser, unauthorized, safeErrorResponse } from '@/lib/api-security';
 import { PUSH_FORCE_GEN } from '@/lib/push-force-gen';
 

@@ -1,4 +1,4 @@
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 
 let WORD_CACHE: string[] | null = null;
 let LENGTH_BUCKETS: Map<number, string[]> = new Map();

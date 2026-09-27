@@ -216,7 +216,7 @@ export class AIRouter {
       try {
         if (keyEntry.provider === 'groq') {
           const model = GROQ_MODEL_MAP[tier];
-          console.log(`[AIRouter] Groq ${model} ...${keyEntry.key.slice(-8)}`);
+          console.log(`[AIRouter] Groq ${model}`);
           const text = await openAiChat(
             'https://api.groq.com/openai/v1',
             keyEntry.key,
@@ -231,7 +231,7 @@ export class AIRouter {
         }
 
         // Zhipu / BigModel — Flash free
-        console.log(`[AIRouter] Zhipu ...${keyEntry.key.slice(-8)}`);
+        console.log('[AIRouter] Zhipu');
         const text = await zhipuChatWithFallback(
           keyEntry.key,
           prompt,
@@ -254,12 +254,12 @@ export class AIRouter {
           keyEntry.cooldownUntil = Date.now() + COOLDOWN_MS;
           keyEntry.errors429++;
           lastErr = new Error(`[AIRouter] Rate limited (attempt ${attempt + 1}): ${msg}`);
-          console.warn(`[AIRouter] 429 ...${keyEntry.key.slice(-8)}, cooldown ${COOLDOWN_MS}ms`);
+          console.warn(`[AIRouter] provider key rate limited, cooldown ${COOLDOWN_MS}ms`);
           continue;
         }
         // Lỗi mạng/5xx/model: thử key/provider khác thay vì fail ngay
         lastErr = err instanceof Error ? err : new Error(msg);
-        console.warn(`[AIRouter] key fail ...${keyEntry.key.slice(-8)}: ${msg.slice(0, 160)}`);
+        console.warn(`[AIRouter] provider key failed: ${msg.slice(0, 160)}`);
         // cooldown ngắn cho key hỏng tạm
         keyEntry.cooldownUntil = Date.now() + 8_000;
         continue;
@@ -271,8 +271,8 @@ export class AIRouter {
 
   stats(): Array<{ key: string; provider: ProviderId; calls: number; errors: number; available: boolean }> {
     const now = Date.now();
-    return this.keys.map((k) => ({
-      key: `...${k.key.slice(-8)}`,
+    return this.keys.map((k, index) => ({
+      key: `key-${index + 1}`,
       provider: k.provider,
       calls: k.totalCalls,
       errors: k.errors429,

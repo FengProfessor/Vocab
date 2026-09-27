@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getAuthUser, isValidString } from '@/lib/api-security';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { invalidateServerWordSummaryCache } from '@/lib/ttl-cache';
 
 export const dynamic = 'force-dynamic';

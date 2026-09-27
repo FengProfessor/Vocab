@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { randomUUID } from 'crypto';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { getAuthUser } from '@/lib/api-security';
 import type { AudioUploadApiResponse } from '@/types/speaking-module';
 

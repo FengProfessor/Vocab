@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createHash, timingSafeEqual } from 'crypto';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { cacheGet, cacheSet } from '@/lib/ttl-cache';
 import { isCronAuthorizationValid } from '@/lib/cron-auth';
 

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { getAuthUser, unauthorized, forbidden, isValidString, safeErrorResponse } from '@/lib/api-security';
 
 export async function POST(req: Request): Promise<NextResponse> {

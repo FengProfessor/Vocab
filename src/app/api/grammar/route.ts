@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getRouter } from '@/lib/ai-router';
-import { createServiceClient } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { checkRateLimitAsync, safeErrorResponse, getAuthUser, unauthorized, sanitizeForPrompt } from '@/lib/api-security';
 import { normalizeLessonExercise } from '@/lib/grammar-exercises';
 

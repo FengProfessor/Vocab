@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
-import { createServiceClient, type GrammarTopic } from '@/lib/supabase';
+import { type GrammarTopic } from '@/lib/supabase';
+import { createServiceClient } from '@/lib/supabase-server';
 import { getAuthUser, unauthorized, getClientIp } from '@/lib/api-security';
 import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
 

@@ -20,20 +20,6 @@ export const supabase = createClient(
   }
 );
 
-/**
- * Server-side Service Client
- * Uses SERVICE_ROLE_KEY to bypass RLS. 
- * Use ONLY in trusted server environments (API routes, cron jobs).
- */
-export function createServiceClient() {
-  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || supabaseAnonKey;
-  return createClient(
-    supabaseUrl,
-    serviceKey,
-    { auth: { autoRefreshToken: false, persistSession: false } }
-  );
-}
-
 /** Server-side public Auth client; giữ nguyên email verification policy của Supabase. */
 export function createPublicAuthClient() {
   return createClient(
