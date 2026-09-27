@@ -506,7 +506,7 @@
 - Production auth-check: missing/malformed/synthetic invalid đều 401. Safe workflow-dispatch run `36278918835` dùng current repository secret, skip `push-due`, gọi riêng `/api/cron/auth-check` và nhận HTTP 204 bodyless. Log mới chỉ có endpoint/status/PASS, không có response body hoặc PII; verification không tạo notification, email hoặc DB mutation.
 - Final: **Cron auth vulnerability = CLOSED**; **Verification incident = RESIDUAL RISK DOCUMENTED** do prior viewer/download/transcript copies không thể thu hồi; **P1 Phase 1A = DONE**; Remaining High findings = **6 OPEN**.
 
-## P1 PHASE 1B — Privilege escalation / Pro entitlement, pre-PR (2026-09-27)
+## P1 PHASE 1B — Privilege escalation / Pro entitlement, DONE (2026-09-27)
 
 - Scope: hai endpoint campaign Pro cũ và teacher cross-account one-year Pro grant. OAuth redirect, anonymous audio upload, registration/email ownership và admin fallback không sửa.
 - Old campaign flows: billing endpoint cấp 7 ngày cho mọi authenticated user không eligibility/date gate; campaign endpoint nhận `force=1` để bỏ date gate. Cả hai dùng service role, check history rồi update profile/insert history không atomic và không có unique claim guard.
@@ -515,8 +515,10 @@
 - Replay/race: expired campaign luôn zero mutation. Enrollment dùng existing unique `(student_id,classroom_id)` với upsert, nên repeat/concurrent requests còn một enrollment và không có entitlement để nhân bản. Không cần migration.
 - Regression: actual transformed routes cover anonymous/tampered/ineligible/valid enrollment/replay/concurrency and zero privileged side effects. Clean `npm ci`, build, actionlint, changed-file ESLint, cron regressions, privilege regression, milestone logic, bốn deploy tests và `git diff --check` PASS trên Node `24.14.0`/npm `11.9.0`; CI dùng Node 22. Typecheck đúng baseline 10 lỗi cũ TS2307/TS7006, không có lỗi mới.
 - Legacy campaign suite: 62/101 PASS, 39 expectation cũ fail vì vẫn yêu cầu chiến dịch Khai Giảng hết hạn cấp 90 ngày Pro; không khôi phục entitlement.
-- PR [#11](https://github.com/FengProfessor/Vocab/pull/11); clean GitHub security CI run `36286801557` PASS trên commit `eeae494`. Canonical production rollout pending merge.
-- Security status: 3 entitlement High fixed in source nhưng **OPEN pending release**. Sáu High tổng ban đầu chưa giảm cho tới production verification.
+- PR [#11](https://github.com/FengProfessor/Vocab/pull/11) merge tại `cf412b4c0c0c61dc4c12a7c835aa9b2442a90367`; final clean security CI `36286985525` PASS trên head `258d37ff7669abf21a42008ed69a6e44a7491278`.
+- Canonical rollout `36287156757`: Quality, Migration, exact-SHA build/activation và health đều PASS. Staging HEAD và release marker gate khớp `cf412b4c0c0c61dc4c12a7c835aa9b2442a90367`; stable MainPID `1074255`, HTTP 200.
+- Main hiện tại sau một rollout kế tiếp là `5e7a8f31e24e84c7390caf0188347778f85e4f49`, chứa P1B trong ancestry; run `36290700007` PASS, exact SHA khớp, stable MainPID `1077337`. Public `/api/health` và root đều 200.
+- Security status: **P1 Phase 1B = DONE**; 3 entitlement High **CLOSED**; remaining High = **3 OPEN**. Next: **P1 Phase 1C**.
 
 ## 2026-09-23 · TOEIC TikTok 100-video campaign
 
