@@ -33,6 +33,7 @@ run_case() {
     "$case_dir/live/.next/standalone"
   printf 'old env\n' > "$case_dir/live/.env"
   printf 'old local env\n' > "$case_dir/live/.env.local"
+  printf 'export BILLING_WEBHOOK_SECRET="old-billing"\nWEBHOOK_SECRET="old-alias"\nUPSTASH_REDIS_REST_URL="https://old.upstash.io"\nUPSTASH_REDIS_REST_TOKEN="old-token"\n' >> "$case_dir/live/.env.local"
   touch "$case_dir/live/.next/standalone/server.js" "$case_dir/build/public/icon.png" \
     "$case_dir/build/src/data/data.json"
 
@@ -49,6 +50,12 @@ MOCK
   chmod +x "$case_dir/build/deploy/"*.sh
 
   export TEST_SCENARIO="$scenario" TEST_DEPLOY_LOG="$case_dir/deploy.log" CRON_SECRET='test-secret'
+  unset BILLING_WEBHOOK_SECRET UPSTASH_REDIS_REST_URL UPSTASH_REDIS_REST_TOKEN
+  if [[ "$scenario" == 'configured-success' ]]; then
+    export BILLING_WEBHOOK_SECRET='synthetic-billing-key-32-characters-minimum'
+    export UPSTASH_REDIS_REST_URL='https://test.upstash.io'
+    export UPSTASH_REDIS_REST_TOKEN='synthetic/redis+token=_-'
+  fi
   bash "$repo_root/deploy/run-deploy.sh" "$expected_sha" "$case_dir/build" "$case_dir/live" \
     > "$case_dir/run.log" 2>&1 || status=$?
   [[ "$status" == "$expected_status" ]] || { cat "$case_dir/run.log"; return 1; }
@@ -70,11 +77,24 @@ MOCK
     [[ "$(cat "$case_dir/build/.next/.release-commit")" == "$expected_sha" ]]
     grep -q '^CRON_SECRET="test-secret"$' "$case_dir/build/.env"
     grep -q '^CRON_SECRET="test-secret"$' "$case_dir/build/.env.local"
+    grep -q '^export BILLING_WEBHOOK_SECRET="old-billing"$' "$case_dir/build/.env.local"
+    grep -q '^UPSTASH_REDIS_REST_TOKEN="old-token"$' "$case_dir/build/.env.local"
+  elif [[ "$scenario" == 'configured-success' ]]; then
+    for env_file in .env .env.local; do
+      grep -q '^BILLING_WEBHOOK_SECRET="synthetic-billing-key-32-characters-minimum"$' "$case_dir/build/$env_file"
+      grep -q '^WEBHOOK_SECRET="synthetic-billing-key-32-characters-minimum"$' "$case_dir/build/$env_file"
+      grep -q '^UPSTASH_REDIS_REST_URL="https://test.upstash.io"$' "$case_dir/build/$env_file"
+      grep -q '^UPSTASH_REDIS_REST_TOKEN="synthetic/redis+token=_-"$' "$case_dir/build/$env_file"
+      [[ "$(grep -c 'BILLING_WEBHOOK_SECRET=' "$case_dir/build/$env_file")" == 1 ]]
+    done
+    ! grep -q 'synthetic-billing-key\|synthetic/redis+token' "$case_dir/run.log"
+    grep -q '^WEBHOOK_SECRET="old-alias"$' "$case_dir/live/.env.local"
   fi
   printf 'PASS %s\n' "$scenario"
 }
 
 run_case success 0
+run_case configured-success 0
 run_case prepare-fail 1
 run_case npm-ci-fail 1
 run_case missing-standalone 1
@@ -94,3 +114,24 @@ CRON_SECRET='test-secret' bash "$repo_root/deploy/run-deploy.sh" invalid "$missi
   > "$test_root/invalid-sha.log" 2>&1 || status=$?
 [[ "$status" == 2 ]]
 printf 'PASS invalid-sha\n'
+
+for scenario in malformed-billing coupled-billing partial-redis malformed-redis; do
+  unset BILLING_WEBHOOK_SECRET UPSTASH_REDIS_REST_URL UPSTASH_REDIS_REST_TOKEN
+  case "$scenario" in
+    malformed-billing) export BILLING_WEBHOOK_SECRET=$'bad\nDOTENV_INJECTION=value' ;;
+    coupled-billing) export BILLING_WEBHOOK_SECRET='synthetic-coupled-billing-and-cron-secret' ;;
+    partial-redis) export UPSTASH_REDIS_REST_URL='https://test.upstash.io' ;;
+    malformed-redis)
+      export UPSTASH_REDIS_REST_URL='http://127.0.0.1'
+      export UPSTASH_REDIS_REST_TOKEN='synthetic-token'
+      ;;
+  esac
+  status=0
+  test_cron_secret='test-secret'
+  if [[ "$scenario" == 'coupled-billing' ]]; then test_cron_secret="$BILLING_WEBHOOK_SECRET"; fi
+  CRON_SECRET="$test_cron_secret" bash "$repo_root/deploy/run-deploy.sh" "$expected_sha" "$missing_secret_dir/build" "$missing_secret_dir/live" \
+    > "$test_root/$scenario.log" 2>&1 || status=$?
+  [[ "$status" == 1 ]]
+  ! grep -q 'DOTENV_INJECTION\|synthetic-token' "$test_root/$scenario.log"
+  printf 'PASS %s\n' "$scenario"
+done

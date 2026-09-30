@@ -97,6 +97,9 @@ jobs:
         env:
           EXPECTED_SHA: ${{ github.sha }}
           CRON_SECRET: ${{ secrets.CRON_SECRET }}
+          BILLING_WEBHOOK_SECRET: ${{ secrets.BILLING_WEBHOOK_SECRET }}
+          UPSTASH_REDIS_REST_URL: ${{ secrets.UPSTASH_REDIS_REST_URL }}
+          UPSTASH_REDIS_REST_TOKEN: ${{ secrets.UPSTASH_REDIS_REST_TOKEN }}
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
@@ -104,7 +107,7 @@ jobs:
           port: 22
           timeout: 120s
           command_timeout: 30m
-          envs: EXPECTED_SHA,CRON_SECRET
+          envs: EXPECTED_SHA,CRON_SECRET,BILLING_WEBHOOK_SECRET,UPSTASH_REDIS_REST_URL,UPSTASH_REDIS_REST_TOKEN
           script: |
             set -eu
             echo "[CI/CD] Starting deployment on Ubuntu Server..."

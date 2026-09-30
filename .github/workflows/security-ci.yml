@@ -6,6 +6,9 @@ on:
       - main
     paths:
       - '.github/workflows/security-ci.yml'
+      - '.github/workflows/deploy-server.yml'
+      - 'deploy/**'
+      - 'tests/deploy/**'
       - '.github/workflows/push-cron.yml'
       - 'src/lib/api-security.ts'
       - 'src/lib/internal-redirect.ts'
