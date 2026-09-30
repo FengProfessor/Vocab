@@ -57,7 +57,7 @@ printf 'CRON_SECRET="%s"\n' "$CRON_SECRET" >> .env
 sed -i '/^CRON_SECRET=/d' .env.local
 printf 'CRON_SECRET="%s"\n' "$CRON_SECRET" >> .env.local
 
-# Stage A: giữ auth legacy trong code; alias riêng giúp SePay đổi key sau rollout.
+# Stage B: credential riêng; loại alias legacy chỉ trong staging trước activation.
 # Biến không truyền từ CI được giữ nguyên từ env live, không xóa cấu hình host.
 set_staging_env() {
   local name="$1" value="$2" env_file
@@ -68,9 +68,9 @@ set_staging_env() {
 }
 if [[ -n "${BILLING_WEBHOOK_SECRET:-}" ]]; then
   set_staging_env BILLING_WEBHOOK_SECRET "$BILLING_WEBHOOK_SECRET"
-  set_staging_env WEBHOOK_SECRET "$BILLING_WEBHOOK_SECRET"
-  echo '[Deploy] Dedicated billing webhook credential staged (compatibility alias enabled)'
+  echo '[Deploy] Dedicated billing webhook credential staged'
 fi
+sed -i '/^[[:space:]]*\(export[[:space:]]\+\)\?WEBHOOK_SECRET[[:space:]]*=/d' .env .env.local
 if [[ -n "${UPSTASH_REDIS_REST_URL:-}" ]]; then
   set_staging_env UPSTASH_REDIS_REST_URL "$UPSTASH_REDIS_REST_URL"
   set_staging_env UPSTASH_REDIS_REST_TOKEN "$UPSTASH_REDIS_REST_TOKEN"

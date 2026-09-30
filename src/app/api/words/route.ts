@@ -4,7 +4,7 @@ import { createServiceClient } from '@/lib/supabase-server';
 import { enrichWord as performAIEnrichment } from '@/lib/ai-enrich';
 import { resolveWordImage } from '@/lib/image-pipeline';
 import { stabilityToLevel } from '@/lib/srs';
-import {
+import { rateLimitUnavailableResponse,
   getAuthUser,
   unauthorized,
   forbidden,
@@ -791,6 +791,8 @@ export async function POST(req: Request): Promise<NextResponse> {
     });
 
   } catch (error: unknown) {
+    const unavailable = rateLimitUnavailableResponse(error);
+    if (unavailable) return unavailable;
     const msg = error instanceof Error ? error.message : 'Unknown error';
     console.error('POST /api/words Error:', msg);
     return NextResponse.json(

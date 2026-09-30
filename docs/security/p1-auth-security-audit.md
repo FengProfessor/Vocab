@@ -350,6 +350,8 @@ Code tại base `c4f81f3a5c76415c58592b3036d26ccbb683dabd` khớp cả sáu assu
 
 ## Phase 2B — Configuration preparation (2026-09-30)
 
+**Latest Stage B checkpoint:** operator đổi SePay key; provider send-test HTTP 200, zero payment confirmation. Dedicated billing auth và atomic distributed limiter đã implement/test local; clean Redis CI/canonical rollout còn pending. C03/C05 chưa CLOSED; C02 OPEN/STOP. Chi tiết và evidence tại `progress.md` / [runbook](p1-phase2b-rollout.md).
+
 - Base hiện tại `219482bca9b05a2f48b61221376892c3097ace1e` chứa Phase 2A; thay đổi main kế tiếp chỉ TOEIC/TikTok. Canonical run `36314116565` PASS, read-only host build HEAD/build marker/live marker cùng SHA; service active/MainPID `1097282`.
 - Authoritative OPEN IDs: `P1-C-02`, `P1-C-03`, `P1-C-05`. Không đóng/reopen finding vì endpoint/file count.
 - `P1-C-02` **OPEN — STOP ON AUTH ARCHITECTURE REDESIGN**: 47 file lấy browser session, authFetch dùng access token/refresh, OAuth callback exchange ở browser, component còn direct Supabase query/RPC, proxy chỉ CORS/rewrite. Official SSR cookie vẫn cần browser đọc refresh token; cookie JS-readable không đạt invariant. Cần backend session/HttpOnly + CSRF/refresh/logout/data-access redesign và dedicated-account integration verification.

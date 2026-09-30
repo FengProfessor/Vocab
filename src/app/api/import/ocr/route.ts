@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getAuthUser, unauthorized, checkRateLimitAsync } from '@/lib/api-security';
+import { rateLimitUnavailableResponse, getAuthUser, unauthorized, checkRateLimitAsync } from '@/lib/api-security';
 
 // Groq Vision OCR trên ảnh — chậm hơn text. Đặt 60s để không bị cắt giữa chừng.
 export const maxDuration = 60;
@@ -113,6 +113,8 @@ If no clear vocabulary words are found, return: {"words": []}`;
 
     return NextResponse.json({ success: true, words: [...new Set(filtered)] });
   } catch (error: unknown) {
+    const unavailable = rateLimitUnavailableResponse(error);
+    if (unavailable) return unavailable;
     const msg = error instanceof Error ? error.message : 'Unknown error';
     console.error('OCR Error:', msg);
     return NextResponse.json({ success: false, error: msg }, { status: 500 });

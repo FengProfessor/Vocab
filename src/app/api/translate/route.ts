@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { translateWithDetails, translateBatch } from '@/lib/api/translation';
-import { getClientIp, checkRateLimitAsync, tooManyRequests } from '@/lib/api-security';
+import { rateLimitUnavailableResponse, getClientIp, checkRateLimitAsync, tooManyRequests } from '@/lib/api-security';
 
 export const runtime = 'nodejs';
 
@@ -12,7 +12,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
     // Rate limit based on IP: 60 requests / minute
     const ip = getClientIp(req);
-    const rl = await checkRateLimitAsync(`rl:translate:${ip}`, 60, 60);
+    const rl = await checkRateLimitAsync(`translate:${ip}`, 60, 60_000);
     if (!rl.allowed) {
       return tooManyRequests();
     }
@@ -77,6 +77,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       targetLang: result.targetLang,
     });
   } catch (error: unknown) {
+    const unavailable = rateLimitUnavailableResponse(error);
+    if (unavailable) return unavailable;
     const message = error instanceof Error ? error.message : 'Translation failed';
     console.error('[API /api/translate Error]:', error);
     return NextResponse.json(

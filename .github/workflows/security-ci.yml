@@ -11,6 +11,14 @@ on:
       - 'tests/deploy/**'
       - '.github/workflows/push-cron.yml'
       - 'src/lib/api-security.ts'
+      - 'src/lib/distributed-rate-limit.ts'
+      - 'src/lib/billing-webhook-auth.ts'
+      - 'src/lib/anti-scrape.ts'
+      - 'src/lib/entitlement-server.ts'
+      - 'src/app/api/billing/webhook/**'
+      - 'src/app/api/demo/codemix-upgrade/**'
+      - 'src/app/api/practice/pack-passage/**'
+      - 'src/app/api/translate/**'
       - 'src/lib/internal-redirect.ts'
       - 'src/lib/cron-auth.ts'
       - 'src/lib/supabase.ts'
@@ -44,6 +52,16 @@ permissions:
 jobs:
   cron-auth:
     runs-on: ubuntu-latest
+    services:
+      redis:
+        image: redis:7.4
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 10
     steps:
       - uses: actions/checkout@v4
         with:
@@ -56,12 +74,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Security regression tests
+        env:
+          P2B_REDIS_TEST_PORT: '6379'
         run: |
           node tests/security/cron-auth.test.mjs
           node tests/security/cron-auth-probe.test.mjs
           node tests/security/privilege-entitlement.test.mjs
           node tests/security/phase1c-auth-boundaries.test.mjs
           node tests/security/phase2a-medium.test.mjs
+          node tests/security/phase2b-enforcement.test.mjs
       - uses: actions/setup-go@v5
         with:
           go-version: '1.24'

@@ -6,7 +6,7 @@ import {
   MIN_WORDS,
   MAX_WORDS,
 } from '@/lib/mindmap';
-import {
+import { rateLimitUnavailableResponse,
   getAuthUser,
   getClientIp,
   checkRateLimitAsync,
@@ -79,6 +79,8 @@ export async function POST(req: Request): Promise<NextResponse> {
       meta: { wordCount: inputs.length },
     });
   } catch (err: unknown) {
+    const unavailable = rateLimitUnavailableResponse(err);
+    if (unavailable) return unavailable;
     const msg = err instanceof Error ? err.message : String(err);
     console.error('[MindMap] generate failed:', msg);
     const isValidationErr = msg.includes('Cần ít nhất') || msg.includes('Tối đa');

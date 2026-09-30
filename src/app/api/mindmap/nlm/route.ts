@@ -3,7 +3,7 @@ import { spawn } from 'child_process';
 import { writeFile, unlink, mkdir } from 'fs/promises';
 import path from 'path';
 import os from 'os';
-import {
+import { rateLimitUnavailableResponse,
   getAuthUser,
   unauthorized,
   checkRateLimitAsync,
@@ -299,6 +299,8 @@ export async function POST(req: Request): Promise<NextResponse> {
       },
     });
   } catch (err: unknown) {
+    const unavailable = rateLimitUnavailableResponse(err);
+    if (unavailable) return unavailable;
     const msg = err instanceof Error ? err.message : String(err);
     console.error('[NLM Infographic] fail:', msg);
     return NextResponse.json({ success: false, error: msg }, { status: 500 });

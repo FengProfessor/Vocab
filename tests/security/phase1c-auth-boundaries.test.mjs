@@ -176,14 +176,15 @@ try {
   globalThis.__registerSecurity = {
     checkRateLimitAsync: async () => ({ allowed: true }),
     getClientIp: () => 'test-ip',
+    rateLimitUnavailableResponse: () => null,
   };
   const registerSource = sources.register
     .replace("import { NextResponse } from 'next/server';", 'const NextResponse = globalThis.__nextResponse;')
     .replace("import { createPublicAuthClient } from '@/lib/supabase';", 'const createPublicAuthClient = globalThis.__createPublicAuthClient;')
     .replace("import { createServiceClient } from '@/lib/supabase-server';", 'const createServiceClient = globalThis.__createServiceClient;')
     .replace(
-      "import { checkRateLimitAsync, getClientIp } from '@/lib/api-security';",
-      'const { checkRateLimitAsync, getClientIp } = globalThis.__registerSecurity;',
+      /import \{ ([^}]+) \} from '@\/lib\/api-security';/,
+      (_, names) => `const { ${names} } = globalThis.__registerSecurity;`,
     );
   const { POST: register } = await loadModule('register', registerSource);
   const registration = (body) => new Request('https://lingopro.online/api/auth/register', {
@@ -233,7 +234,13 @@ try {
   assert(!sources.authPage.includes('Đăng nhập ngay — không chờ confirm email'));
   assert(!sources.authPage.includes('role,\n            website'));
 
+  const distributedModulePath = join(tempRoot, 'distributed-rate-limit.mjs');
+  writeFileSync(distributedModulePath, compile(
+    readFileSync(join(repoRoot, 'src/lib/distributed-rate-limit.ts'), 'utf8'),
+    'src/lib/distributed-rate-limit.ts',
+  ));
   const securitySource = sources.security
+    .replaceAll("'@/lib/distributed-rate-limit'", JSON.stringify(pathToFileURL(distributedModulePath).href))
     .replace("import { NextResponse } from 'next/server';", 'const NextResponse = globalThis.__nextResponse;')
     .replace("import { createServiceClient } from '@/lib/supabase-server';", 'const createServiceClient = globalThis.__createServiceClient;')
     .replace("import { cacheGet, cacheSet } from '@/lib/ttl-cache';", 'const cacheGet = () => undefined; const cacheSet = () => undefined;')

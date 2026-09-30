@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getClientIp, checkRateLimitAsync, tooManyRequests, getAuthUser } from '@/lib/api-security';
+import { rateLimitUnavailableResponse, getClientIp, checkRateLimitAsync, tooManyRequests, getAuthUser } from '@/lib/api-security';
 import { createServiceClient } from '@/lib/supabase-server';
 import {
   loadAnyToeicTest,
@@ -245,6 +245,8 @@ export async function POST(req: NextRequest) {
       isGuest: !auth?.userId,
     });
   } catch (err: unknown) {
+    const unavailable = rateLimitUnavailableResponse(err);
+    if (unavailable) return unavailable;
     const msg = err instanceof Error ? err.message : 'Server error during submission';
     return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }
