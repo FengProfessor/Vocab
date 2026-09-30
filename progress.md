@@ -646,3 +646,21 @@
   - Deploy job: PASS (standalone staging build in `$HOME/Vocab-build`, atomic `.next` swap qua `activate-release.sh`, `lingopro.service` restart và dual HTTP 200 health check verification).
   - Live production verification: `curl.exe https://lingopro.online/api/health` trả về HTTP 200 `{"status":"ok"}`.
   - Live UI verification: Puppeteer truy cập `https://lingopro.online/grammar?topic=personal-pronouns` xác nhận 5 tab chuyển đổi mượt mà, vạch tab dính liền khít với viền, không còn bất kỳ lỗi vạch đôi nào.
+
+## 2026-09-30 · PRODUCTION RELEASE: GRAMMAR BACK TO DASHBOARD NAVIGATION
+
+- **Thanh điều hướng dính hàng đầu (Sticky Top Navigation Bar) trên `/grammar`**:
+  - Bổ sung header dính trên cùng (`sticky top-0 z-30 border-b border-border bg-card/95 backdrop-blur-md px-4 sm:px-6 h-12 sm:h-14`) hiển thị nhất quán trên cả Laptop và Điện thoại.
+  - Nút quay lại Dashboard (`/student`): Hiển thị `[← VỀ DASHBOARD]` trên màn hình máy tính (`sm:inline`) và thu gọn tinh gọn thành `[← DASHBOARD]` trên điện thoại di động (`sm:hidden`).
+  - Bổ sung phím tắt nhanh sang Lộ trình học chính (`/journey`) trên desktop và Ôn câu sai (`/grammar/practice?mode=review`) trên cả mobile/desktop.
+  - Bổ sung breadcrumb phụ trợ trong Hero header (`← Dashboard / Lộ trình chuẩn hóa • 62 Chủ điểm CEFR A0 – B2`) trỏ về `/student`.
+- **Verification**:
+  - `npx eslint src/app/grammar/page.tsx`: PASS (0 errors).
+  - `npx tsx tests/grammar/test-unified-grammar-roadmap.ts --strict`: PASS 42/42 tests (100%).
+- **Canonical Production Deployment Verified**:
+  - Push `main` (commit `b0a7b52`) kích hoạt canonical GitHub Actions workflow `deploy-server.yml` (run [`36743882011`](https://github.com/FengProfessor/Vocab/actions/runs/36743882011)).
+  - Quality gate: PASS (actionlint, safety tests, security suites, route lint, exact-SHA verification, application build).
+  - Migration runner: PASS (8 existing migrations verified and skipped safely).
+  - Deploy job: PASS (standalone staging build in `$HOME/Vocab-build`, atomic `.next` swap qua `activate-release.sh`, `lingopro.service` restart và dual HTTP 200 health check verification).
+  - Live production verification: `curl.exe https://lingopro.online/api/health` trả về HTTP 200 `{"status":"ok"}`.
+  - Live UI verification: Puppeteer truy cập `https://lingopro.online/grammar` xác nhận nút `[← VỀ DASHBOARD]` và `[← DASHBOARD]` hiển thị đúng ở đầu trang, liên kết trỏ chính xác về `/student`.
