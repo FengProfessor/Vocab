@@ -13,6 +13,8 @@
 - Backup + manifest vào artifact exact private output directory, thiếu file làm FAIL; upload/check cả hai lên Drive. Rclone check dùng checksum provider (Drive MD5); SHA-256 sidecar dùng khi restore/download.
 - TLS tối thiểu `require`; `sslmode=disable` bị từ chối. `verify-ca/full` được giữ nếu URL yêu cầu, không fallback disable. CA validation end-to-end trong Docker chưa được kiểm chứng; không gọi transport encryption là server identity verification.
 
+Action pin không pin mọi transitive runtime: SSH action upstream Dockerfile vẫn dùng `ghcr.io/appleboy/drone-ssh:1.7.3` tag; Tailscale v2 tải binary + checksum từ upstream (default 1.42.0). Chưa thay base image/network deployment controller trong lượt này. Mobile setup-java/Node và các Actions của canonical/migration/preflight/security cũng pin commit của version hiện hữu; không nâng version ngầm. Audit container/binary update policy tiếp theo vẫn pending.
+
 ## Bật mã hóa (pending operator)
 
 Từ máy sạch, dùng **age** tạo identity riêng và giữ private identity offline/secret manager có backup. Chỉ lưu public `age1...` recipient vào GitHub **Variables** `BACKUP_AGE_RECIPIENT`; không lưu private identity vào repo/runner. Thiết lập `BACKUP_REQUIRE_ENCRYPTION=true` sau khi xác minh recipient + phục hồi. Khi có recipient, chỉ `.sql.gz.age` + checksum được upload; encryption lỗi làm FAIL. Khi require=true mà thiếu recipient, dừng trước dump.

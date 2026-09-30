@@ -378,3 +378,9 @@ Không thay đổi P0 deploy flow, migration runner, health endpoint, systemd ho
 P1-C-03 và P1-C-05 CLOSED theo PR18 merge 805cc56e65f75362d5310f351f44b9504d43a6c5, clean CI36699080822, canonical36699466025 và SePay send-test200. Các bảng Phase2B preparation phía trên là lịch sử, không phải trạng thái hiện tại. High0 / Medium1 (P1-C-02 OPEN) / Low3. Không downgrade severity.
 
 Phase2C mới hoàn tất inventory và lựa chọn Architecture B server-managed token vault; chưa implementation/cutover, chưa closure. Map và required evidence: p1-phase2c-session-architecture.md, p1-phase2c-inventory.json. Fresh source baseline a683048: npm ci/build PASS, typecheck10 known Speaking errors, lint122 errors/448 warnings. Runtime storage/login chưa kiểm chứng. Provider-session metadata preflight chỉ read-only; không SQL mutation.
+
+## Independent followup phases 7–12 (2026-10-01)
+
+Stage A foundation đã phát hành canonical `36749311479` tại main `905d9bbb`; C02 cutover PR #20 head4333d2 có clean CI `36753194465` PASS nhưng chưa merge/preflight/live smoke. P1-C-02 vẫn OPEN; C03/C05 giữ CLOSED. Phần inventory ở trên là historical checkpoint, không trạng thái implementation mới nhất.
+
+PR #21 xử lý độc lập test classification/browser foundation, production CSP dev separation, backup safety/optional age, bốn unused auth dependencies, actual Ubuntu docs và generated-file hygiene. Không auth runtime cutover, production mutation hoặc live closure. Xem docs/testing/test-classification.md, content-security-policy.md, authentication-stack.md và ../operations/database-backup.md. Public referral service-role/data-minimization/rate-limit review, inline CSP, backup recipient/restore và authenticated browser journey còn pending; không tự gán CLOSED hoặc giảm severity.
