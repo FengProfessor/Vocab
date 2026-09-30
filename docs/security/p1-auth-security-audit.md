@@ -2,6 +2,12 @@
 
 > Audit tĩnh tại `main` SHA `a12394628a6b0a0772ffdd98c4e39d780f1b3256`. Không gọi endpoint production, không sửa code, database, workflow hoặc hạ tầng.
 
+## Trạng thái remediation hiện tại — 2026-10-01
+
+Phần audit ban đầu và checkpoint bên dưới là lịch sử. **P1-C-02 CLOSED**, PR #20 merge/release `44ad7c92e51287ee1aa22f5955f2186c0f92da12`, clean CI `36783452187`, canonical `36784213532` PASS; exact build/live markers, service active/health200 và dedicated production browser smoke PASS. Browser chỉ giữ opaque HttpOnly cookie; reusable provider credentials nằm trong encrypted server vault. Login/navigation/reload/user-context profile, DTO/storage cleanup/preferences, cookie flags/JS isolation, UI logout/revocation/cookie removal/old-cookie replay401 đều PASS. Không mật khẩu/token/cookie value trong evidence/logs.
+
+**P1 Phase 2C DONE. High0 / Medium0 / Low3.** C03/C05 giữ CLOSED; dependency advisories, accepted Windows/Ubuntu host-compromise residual risk, in-session XSS access, mobile/lesson persistence và deferred hardening không được gán CLOSED. Refresh/races/OAuth/outage/fixation/CSRF/provider expiry/grants kiểm chứng trong isolated Redis/PostgreSQL/route CI; live smoke không chứng minh mọi provider/mobile journey.
+
 ## Kết luận
 
 **Kết luận audit ban đầu: STOP — NEED REVIEW.** Audit trên base `main` phát hiện một `P1-A CRITICAL`: source chứa một bearer token cố định và `assertCronAuthorized()` luôn chấp nhận token này. Token mở các cron chạy bằng Supabase service role, gồm đọc dữ liệu người dùng, gửi email/push và sửa trạng thái gói.
