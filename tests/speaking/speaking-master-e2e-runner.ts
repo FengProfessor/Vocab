@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- *  LINGOPRO SPEAKING SUBSYSTEM & INGESTION PIPELINE — MASTER E2E TEST RUNNER
+ *  LINGOPRO SPEAKING SUBSYSTEM & INGESTION PIPELINE — MASTER CONTRACT TEST RUNNER
  * ============================================================================
  *
  * File: tests/speaking/speaking-master-e2e-runner.ts
@@ -237,7 +237,7 @@ export async function runSpeakingMasterE2ERunner(): Promise<boolean> {
   const masterStart = Date.now();
 
   console.log('================================================================================');
-  console.log('       LINGOPRO SPEAKING SUBSYSTEM — MASTER E2E TEST RUNNER DASHBOARD           ');
+  console.log('       LINGOPRO SPEAKING SUBSYSTEM — MASTER CONTRACT TEST RUNNER DASHBOARD           ');
   console.log('   All 4 Milestones: Foundation (M1), Pipeline (M2), Curriculum (M3), UI (M4)   ');
   console.log('================================================================================\n');
 
@@ -292,7 +292,7 @@ export async function runSpeakingMasterE2ERunner(): Promise<boolean> {
 
   // ── Print Structured Terminal Dashboard ──────────────────────────────────────
   console.log('\n================================================================================');
-  console.log('                 MASTER E2E SPEAKING TEST RESULTS DASHBOARD                    ');
+  console.log('                 MASTER CONTRACT SPEAKING TEST RESULTS DASHBOARD                    ');
   console.log('================================================================================');
   console.log('| # | Suite Name                       | Milestone    | Total | Pass | Fail | Duration | Status |');
   console.log('|---|----------------------------------|--------------|:-----:|:----:|:----:|:--------:|:------:|');

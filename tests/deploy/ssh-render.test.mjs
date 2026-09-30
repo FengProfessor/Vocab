@@ -10,7 +10,7 @@ const workflowPath = join(repoRoot, '.github', 'workflows', 'deploy-server.yml')
 const workflow = readFileSync(workflowPath, 'utf8');
 const lines = workflow.split(/\r?\n/);
 
-const actionLine = lines.findIndex((line) => line.includes('uses: appleboy/ssh-action@v1.0.3'));
+const actionLine = lines.findIndex((line) => line.includes('uses: appleboy/ssh-action@029f5b4aeeeb58fdfe1410a5d17f967dacf36262'));
 assert.notEqual(actionLine, -1, 'pinned SSH action step is missing');
 
 const nextStep = lines.findIndex((line, index) => index > actionLine && /^\s{6}- name:/.test(line));

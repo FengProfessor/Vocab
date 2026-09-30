@@ -10,7 +10,7 @@ Workflow `deploy-server.yml` chạy khi push `main` hoặc `workflow_dispatch` c
 
 ## Quality gate
 
-Trước khi chạm DB hoặc server, job `quality` chạy trên Ubuntu: `npm ci`, actionlint mọi workflow, Bash syntax các script deploy/test, `node --check` migration runner và test render SSH, các bộ test deploy, ESLint riêng health route, và `npm run build`. Test render tái tạo payload shell mà SSH action gửi sang host và chạy `bash -n`, nhằm phát hiện lỗi do action biến đổi script. Mỗi bước này blocking. Full `npm run typecheck` và `npm run lint` chạy với `continue-on-error: true` để báo nợ baseline, không được gọi là repo sạch. Baseline tại checkpoint: 10 lỗi Speaking TypeScript, lint 102 errors/467 warnings; kiểm tra lại khi sửa các phần đó. `npm test` không có script.
+Trước khi chạm DB hoặc server, job `quality` chạy trên Ubuntu: `npm ci`, actionlint mọi workflow, Bash syntax các script deploy/test, `node --check` migration runner và test render SSH, các bộ test deploy, ESLint riêng health route, và `npm run build`; CSP/backup fixture tests và local production browser smoke là blocking gates trong PR followup. Test render tái tạo payload shell mà SSH action gửi sang host và chạy `bash -n`, nhằm phát hiện lỗi do action biến đổi script. Mỗi bước này blocking. Full `npm run typecheck` và `npm run lint` chạy với `continue-on-error: true` để báo nợ baseline, không được gọi là repo sạch. Baseline tại checkpoint: 10 lỗi Speaking TypeScript, full lint 122 errors/448 warnings tại clean a683048 (debt baseline, cần đo lại khi thay source); kiểm tra lại khi sửa các phần đó. `npm test` không có script.
 
 ## Migration và build production
 

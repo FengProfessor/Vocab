@@ -2,6 +2,12 @@
 
 > Audit tĩnh tại `main` SHA `a12394628a6b0a0772ffdd98c4e39d780f1b3256`. Không gọi endpoint production, không sửa code, database, workflow hoặc hạ tầng.
 
+## Trạng thái remediation hiện tại — 2026-10-01
+
+Phần audit ban đầu và checkpoint bên dưới là lịch sử. **P1-C-02 CLOSED**, PR #20 merge/release `44ad7c92e51287ee1aa22f5955f2186c0f92da12`, clean CI `36783452187`, canonical `36784213532` PASS; exact build/live markers, service active/health200 và dedicated production browser smoke PASS. Browser chỉ giữ opaque HttpOnly cookie; reusable provider credentials nằm trong encrypted server vault. Login/navigation/reload/user-context profile, DTO/storage cleanup/preferences, cookie flags/JS isolation, UI logout/revocation/cookie removal/old-cookie replay401 đều PASS. Không mật khẩu/token/cookie value trong evidence/logs.
+
+**P1 Phase 2C DONE. High0 / Medium0 / Low3.** C03/C05 giữ CLOSED; dependency advisories, accepted Windows/Ubuntu host-compromise residual risk, in-session XSS access, mobile/lesson persistence và deferred hardening không được gán CLOSED. Refresh/races/OAuth/outage/fixation/CSRF/provider expiry/grants kiểm chứng trong isolated Redis/PostgreSQL/route CI; live smoke không chứng minh mọi provider/mobile journey.
+
 ## Kết luận
 
 **Kết luận audit ban đầu: STOP — NEED REVIEW.** Audit trên base `main` phát hiện một `P1-A CRITICAL`: source chứa một bearer token cố định và `assertCronAuthorized()` luôn chấp nhận token này. Token mở các cron chạy bằng Supabase service role, gồm đọc dữ liệu người dùng, gửi email/push và sửa trạng thái gói.
@@ -384,3 +390,9 @@ Phase2C mới hoàn tất inventory và lựa chọn Architecture B server-manag
 Foundation PR #19 canonical run36749311479 PASS at905d9bb; old browser login remains until cutover. Cookie/BFF implementation PR #20 commit4333d2e clean CI36753194465 PASS, including isolated Redis/PostgreSQL and prior security regressions. P1-C-02 remains OPEN until canonical cutover and dedicated production browser login/navigation/storage/logout/replay evidence. Pre-merge read-only host inspection currently waits for operator to reconnect local Tailscale; no manual deployment or SQL workaround.
 
 Current High0 / Medium1 OPEN / Low3. Existing accepted Windows/Ubuntu host-compromise residual risk remains; this auth redesign does not replace reimage/credential remediation. npm audit46 (22 moderate/19 high/5 critical), no dependency churn.
+
+## Independent followup phases 7–12 (2026-10-01)
+
+Stage A foundation đã phát hành canonical `36749311479` tại main `905d9bbb`; C02 cutover PR #20 clean proxy-fix CI `36783452187` PASS, đã merge/phát hành tại `44ad7c92`. Canonical cutover `36784213532` PASS, exact build/live markers, activePID1286622, local/public health200; live login/storage/logout smoke pending operator login. P1-C-02 vẫn OPEN; C03/C05 giữ CLOSED. Phần inventory ở trên là historical checkpoint, không trạng thái implementation mới nhất.
+
+PR #21 xử lý độc lập test classification/browser foundation, production CSP dev separation, backup safety/optional age, bốn unused auth dependencies, actual Ubuntu docs và generated-file hygiene. Không auth runtime cutover, production mutation hoặc live closure. Xem docs/testing/test-classification.md, content-security-policy.md, authentication-stack.md và ../operations/database-backup.md. Public referral service-role/data-minimization/rate-limit review, inline CSP, backup recipient/restore và authenticated browser journey còn pending; không tự gán CLOSED hoặc giảm severity.
