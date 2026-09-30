@@ -27,7 +27,6 @@
     "docker:up": "docker compose up -d --build"
   },
   "dependencies": {
-    "@auth/supabase-adapter": "^1.11.1",
     "@base-ui/react": "^1.2.0",
     "@capacitor/android": "^8.3.1",
     "@capacitor/core": "^8.3.1",
@@ -36,8 +35,6 @@
     "@google/generative-ai": "^0.24.1",
     "@mudbill/duckduckgo-images-api": "^2.0.1",
     "@remotion/player": "^4.0.524",
-    "@supabase/auth-helpers-nextjs": "^0.15.0",
-    "@supabase/ssr": "^0.9.0",
     "@supabase/supabase-js": "^2.99.0",
     "@types/canvas-confetti": "^1.9.0",
     "@vitalets/google-translate-api": "^9.2.1",
@@ -59,7 +56,6 @@
     "lucide-react": "^0.577.0",
     "marked": "^18.0.7",
     "next": "^16.2.9",
-    "next-auth": "^4.24.13",
     "next-themes": "^0.4.6",
     "pdfjs-dist": "^5.7.284",
     "posthog-js": "^1.376.4",
