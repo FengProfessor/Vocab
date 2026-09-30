@@ -687,3 +687,22 @@
 
 
 - Stage A baseline synchronized with main 80ed596e83e3dc59d9600bc2644cf1b515ee6fe5 (personal classroom isolation and grammar navigation preserved). Clean CI36746328374 passed earlier foundation head61c19a4; rerun required on merged source before release. Browser cutover WIP is preserved in stash5965297af7278a2cade37bd14907eda36500d0e1, not included in Stage A.
+
+## 2026-10-01 · PRODUCTION RELEASE: INTERACTIVE EXAMPLE SENTENCES WITH AUDIO & AI ON-DEMAND SUBTITLES
+
+- **Nâng cấp toàn diện Câu ví dụ (Example Sentences) đa tương tác**:
+  - `src/components/study/ExampleWithSub.tsx`:
+    - **Audio phát âm cả câu ví dụ**: Nút loa `Volume2` tích hợp Neural TTS/Youdao/Web Speech, có animation pulse khi phát và hỗ trợ nghe chậm `0.7x` (`Snail`).
+    - **Chạm tra từ tương tác (Interactive Word Tap)**: Tích hợp `ExamInteractiveText`. Học viên có thể chạm vào bất kỳ từ tiếng Anh nào trong câu để mở card tra từ tức thì (`ExamWordLookupCard`), xem IPA, từ loại, nghĩa tiếng Việt, phát âm từ đơn và lưu vào sổ từ SRS trực tiếp.
+    - **Sub tiếng Việt thông minh & Tự động dịch AI on-demand**: Tự động bóc tách bản dịch tiếng Việt nếu câu chứa sẵn dạng ngoặc hoặc song ngữ; cung cấp nút `✨ Dịch câu` (hoặc `autoTranslateIfMissing`) gọi API `/api/translate` tức thì và lưu vào session cache.
+  - Đồng bộ trên các màn hình trọng điểm: Flashcard Luyện tập (`/flashcard`), Chế độ làm quen từ mới (`LearnMode.tsx`), Ôn tập SRS Review Session (`/review/session`), Modal chi tiết từ vựng (`WordDetailModal.tsx`), Từ điển trực tuyến (`/dictionary`), Trạm luyện từ vựng (`/practice/vocab-station`).
+- **Verification**:
+  - `npx tsc --noEmit`: PASS (0 errors).
+  - `npm run build`: PASS (174 routes).
+- **Canonical Production Deployment Verified**:
+  - Commit `3057f99` kích hoạt canonical GitHub Actions workflow `deploy-server.yml` (run [`36780818282`](https://github.com/FengProfessor/Vocab/actions/runs/36780818282)).
+  - Quality gate: PASS (actionlint, safety tests, security suites, route lint, exact-SHA verification, application build).
+  - Migration runner: PASS (existing migrations verified and skipped safely).
+  - Deploy job: PASS (standalone staging build in `$HOME/Vocab-build`, atomic `.next` swap qua `activate-release.sh`, `lingopro.service` restart và dual HTTP 200 health check verification).
+  - Live production verification: `curl.exe https://lingopro.online/api/health` trả về HTTP 200 `{"status":"ok"}`.
+
