@@ -5,7 +5,7 @@
 | Thành phần | Hiện tại / bằng chứng |
 |---|---|
 | Public URL | `https://lingopro.online`; Cloudflare edge và cloudflared process active; ingress config chi tiết chưa audit |
-| Host/runtime | Ubuntu, systemd `lingopro.service`, Node/Next standalone; canonical cutover `36784213532` PASS tại main `44ad7c92`, build/live marker match |
+| Host/runtime | Ubuntu, systemd `lingopro.service`, Node/Next standalone; canonical hardening `36786992699` PASS tại main `c0abdb76`, build/live marker match, MainPID1288454/health200 |
 | Directories | `$HOME/Vocab-build` checkout/build exact SHA; `$HOME/Vocab` live bundle/env; `.next/.release-commit` là runtime marker, live checkout HEAD không phải release identity |
 | Management | Tailscale + SSH; `100.104.5.79`; operator đã bật lại, read-only preflight restored, service/config/Redis PING PASS |
 | Database/auth | Supabase PostgreSQL + RLS/Auth; PR #20 cutover `44ad7c92` đã phát hành, opaque HttpOnly cookie/server vault + user-context RLS BFF; dedicated login/storage/logout smoke PASS |
