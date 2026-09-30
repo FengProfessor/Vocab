@@ -17,6 +17,7 @@ import {
 import { cn } from '@/lib/utils';
 import { StudentShell } from '@/components/student/StudentShell';
 import { allTopicLibraryItems } from '@/data/speaking/topic-library';
+import { MasterSpeakingRoadmap } from '@/components/speaking/MasterSpeakingRoadmap';
 import {
   TOPIC_LIBRARY_CATEGORY_LABELS,
   TOPIC_LIBRARY_CATEGORY_ICONS,
@@ -320,6 +321,33 @@ export default function SpeakingTopicLibraryPage() {
             Thư viện chủ đề
           </span>
         </nav>
+
+        {/* Master Speaking 4-Step Progressive Roadmap */}
+        <MasterSpeakingRoadmap currentStage="topics" />
+
+        {/* Beginner Orientation Callout Banner */}
+        <div className="p-3.5 rounded-xl border border-amber-500/30 bg-amber-950/20 text-xs text-amber-200/90 flex items-start gap-3 shadow-md">
+          <Sparkles className="size-4.5 text-amber-400 shrink-0 mt-0.5" />
+          <div className="space-y-1 flex-1">
+            <div className="flex items-center gap-2 font-bold text-amber-300">
+              <span>💡 Hướng dẫn chọn chủ đề theo trình độ:</span>
+              <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 uppercase font-mono font-bold">
+                Bước 3 Thực Chiến
+              </span>
+            </div>
+            <p className="text-[11px] leading-relaxed text-slate-300">
+              Thư viện 250+ chủ đề là <strong>Bước 3 (Thực chiến ngữ cảnh)</strong> giúp bạn mở rộng vốn từ. Nếu bạn là người mất gốc (A0-A1) hoặc chưa quen ghép khung câu, hãy hoàn thành{' '}
+              <Link href="/student/speaking/foundation" className="text-amber-400 underline font-semibold hover:text-amber-300">
+                Bước 1: Khóa Nền Tảng A0-A1
+              </Link>{' '}
+              và{' '}
+              <Link href="/student/speaking/curriculum" className="text-indigo-400 underline font-semibold hover:text-indigo-300">
+                Bước 2: Lộ Trình 32 Bài Chuẩn Hóa
+              </Link>{' '}
+              để nói tự tin mà không lo dịch thầm!
+            </p>
+          </div>
+        </div>
 
         {/* Dashboard Header Banner */}
         <header className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-none shadow-none p-5 sm:p-6">

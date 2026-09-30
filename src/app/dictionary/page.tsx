@@ -21,6 +21,7 @@ import type { SentenceAnalysisData } from '@/types/sentence-analysis';
 import { isWordSavedLocally, saveWordLocally } from '@/lib/exam-dict-cache';
 import { notifyWordSavedOptimistic, notifyWordSaveRollback } from '@/lib/word-summary-cache';
 import { getCachedDictionaryEntry, setCachedDictionaryEntry } from '@/lib/dict-cache';
+import { ExampleWithSub } from '@/components/study/ExampleWithSub';
 
 const HISTORY_KEY = 'lingo_dict_history';
 const MAX_HISTORY = 20;
@@ -1172,15 +1173,16 @@ export default function DictionaryPage() {
                           <div className="flex-1 min-w-0">
                             <p className="font-semibold text-sm leading-snug break-words [overflow-wrap:anywhere]">{meaning.definition}</p>
                             {meaning.example && (
-                              <div className="mt-1">
-                                <p className="text-xs text-muted-foreground italic break-words [overflow-wrap:anywhere]">
-                                  &ldquo;{meaning.example}&rdquo;
-                                </p>
-                                {meaning.example_vi && (
-                                  <p className="mt-0.5 text-xs text-muted-foreground/80 break-words [overflow-wrap:anywhere]">
-                                    {meaning.example_vi}
-                                  </p>
-                                )}
+                              <div className="mt-1.5">
+                                <ExampleWithSub
+                                  example={meaning.example}
+                                  exampleVi={meaning.example_vi}
+                                  defaultShowVi
+                                  autoTranslateIfMissing
+                                  showSlowAudio
+                                  enClassName="text-xs font-medium italic text-slate-700 dark:text-slate-300 leading-snug break-words [overflow-wrap:anywhere]"
+                                  viClassName="mt-1 text-xs font-medium text-slate-500 dark:text-slate-400 not-italic leading-snug break-words [overflow-wrap:anywhere]"
+                                />
                               </div>
                             )}
                           </div>

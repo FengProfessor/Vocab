@@ -800,8 +800,10 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                       exampleVi={current.example_vi}
                       defaultShowVi={false}
                       className="border-l-4 border-white/30 pl-3"
-                      enClassName="line-clamp-3 text-xs font-medium italic leading-snug sm:text-sm"
-                      viClassName="mt-1 text-[11px] font-medium leading-snug text-white/70 sm:text-xs not-italic"
+                      enClassName="line-clamp-3 text-xs font-medium italic leading-snug sm:text-sm text-white"
+                      viClassName="mt-1 text-[11px] font-medium leading-snug text-white/80 sm:text-xs not-italic"
+                      wordClassName="hover:bg-white/20 hover:text-white underline decoration-white/40 hover:decoration-white underline-offset-3"
+                      audioBtnClassName="border-white/20 bg-white/15 text-white hover:bg-white/30 hover:text-white"
                     />
                   </div>
                 )}

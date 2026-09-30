@@ -37,8 +37,17 @@ import {
   isNlmAuthOrNetworkError,
   nlmKnownUnavailableReason,
   setNlmKnownUnavailableReason,
+  hasUncompletedPreviousExercise,
 } from './generate-daily-reading-nlm';
-import { hasGeminiKeys } from '../src/lib/gemini-multi';
+import {
+  hasGeminiKeys,
+  getMinCooldownWaitMs,
+  waitOutGeminiCooldown,
+} from '../src/lib/gemini-multi';
+import {
+  findMatchingSourceWord,
+  findUserUncompletedExercise,
+} from '../src/lib/daily-reading-generator';
 
 dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
 
@@ -423,6 +432,125 @@ async function main() {
       console.log(`\n--- Live Passage Preview (first 250 chars) ---`);
       console.log(`"${(rec.passage || '').slice(0, 250)}..."`);
     }
+  }
+
+  // ─── [SUITE 8] On-Demand Generation, Inflected Lookups & Queue Fairness Tests ───
+  console.log(`\n─── [SUITE 8] On-Demand Flow, Lemmatization & Queue Fairness ───`);
+
+  const mockWords = [
+    { word: 'splurge', translation: 'tiêu tiền phung phí', pos: 'verb' },
+    { word: 'accelerate', translation: 'tăng tốc, thúc đẩy', pos: 'verb' },
+    { word: 'vehicle', translation: 'phương tiện, xe cộ', pos: 'noun' },
+    { word: 'family', translation: 'gia đình', pos: 'noun' },
+    { word: 'box', translation: 'cái hộp', pos: 'noun' },
+    { word: 'stop', translation: 'dừng lại', pos: 'verb' },
+    { word: 'run', translation: 'chạy', pos: 'verb' },
+    { word: 'quick', translation: 'nhanh chóng', pos: 'adj' },
+  ];
+
+  // 1. Inflected forms mapping
+  const m1 = findMatchingSourceWord('splurged', mockWords);
+  assert(m1?.word === 'splurge', 'splurged must map to splurge');
+  console.log(`    ✓ Inflected past "splurged" maps to lemma "${m1?.word}"`);
+
+  const m2 = findMatchingSourceWord('accelerating', mockWords);
+  assert(m2?.word === 'accelerate', 'accelerating must map to accelerate');
+  console.log(`    ✓ Inflected gerund "accelerating" maps to lemma "${m2?.word}"`);
+
+  const m3 = findMatchingSourceWord('vehicles', mockWords);
+  assert(m3?.word === 'vehicle', 'vehicles must map to vehicle');
+  console.log(`    ✓ Inflected plural "vehicles" maps to lemma "${m3?.word}"`);
+
+  const m4 = findMatchingSourceWord('families', mockWords);
+  assert(m4?.word === 'family', 'families must map to family');
+  console.log(`    ✓ Inflected plural "families" maps to lemma "${m4?.word}"`);
+
+  const m5 = findMatchingSourceWord('boxes', mockWords);
+  assert(m5?.word === 'box', 'boxes must map to box');
+  console.log(`    ✓ Inflected plural "boxes" maps to lemma "${m5?.word}"`);
+
+  const m6 = findMatchingSourceWord('stopped', mockWords);
+  assert(m6?.word === 'stop', 'stopped must map to stop');
+  console.log(`    ✓ Inflected past doubled consonant "stopped" maps to lemma "${m6?.word}"`);
+
+  const m7 = findMatchingSourceWord('running', mockWords);
+  assert(m7?.word === 'run', 'running must map to run');
+  console.log(`    ✓ Inflected gerund doubled consonant "running" maps to lemma "${m7?.word}"`);
+
+  const m8 = findMatchingSourceWord('quickly', mockWords);
+  assert(m8?.word === 'quick', 'quickly must map to quick');
+  console.log(`    ✓ Inflected adverb "quickly" maps to lemma "${m8?.word}"`);
+
+  const m9 = findMatchingSourceWord('splurged,', mockWords);
+  assert(m9?.word === 'splurge', 'punctuated word "splurged," must map to splurge');
+  console.log(`    ✓ Punctuated word "splurged," maps to lemma "${m9?.word}"`);
+
+  // 1.1 Irregular verbs
+  const irregularWords = [
+    { word: 'undergo', translation: 'trải qua', pos: 'verb' },
+    { word: 'catch', translation: 'bắt giữ', pos: 'verb' },
+    { word: 'lead', translation: 'dẫn đầu', pos: 'verb' },
+    { word: 'bear', translation: 'chịu đựng', pos: 'verb' },
+    { word: 'seek', translation: 'tìm kiếm', pos: 'verb' },
+    { word: 'think', translation: 'suy nghĩ', pos: 'verb' },
+  ];
+  assert(findMatchingSourceWord('underwent', irregularWords)?.word === 'undergo', 'underwent maps to undergo');
+  assert(findMatchingSourceWord('undergone', irregularWords)?.word === 'undergo', 'undergone maps to undergo');
+  assert(findMatchingSourceWord('caught', irregularWords)?.word === 'catch', 'caught maps to catch');
+  assert(findMatchingSourceWord('led', irregularWords)?.word === 'lead', 'led maps to lead');
+  assert(findMatchingSourceWord('bore', irregularWords)?.word === 'bear', 'bore maps to bear');
+  assert(findMatchingSourceWord('sought', irregularWords)?.word === 'seek', 'sought maps to seek');
+  console.log(`    ✓ Irregular verbs (underwent, caught, led, bore, sought) successfully mapped`);
+
+  // 1.2 Academic irregular plurals
+  const academicWords = [
+    { word: 'criterion', translation: 'tiêu chí', pos: 'noun' },
+    { word: 'analysis', translation: 'sự phân tích', pos: 'noun' },
+    { word: 'hypothesis', translation: 'giả thuyết', pos: 'noun' },
+    { word: 'phenomenon', translation: 'hiện tượng', pos: 'noun' },
+  ];
+  assert(findMatchingSourceWord('criteria', academicWords)?.word === 'criterion', 'criteria maps to criterion');
+  assert(findMatchingSourceWord('analyses', academicWords)?.word === 'analysis', 'analyses maps to analysis');
+  assert(findMatchingSourceWord('hypotheses', academicWords)?.word === 'hypothesis', 'hypotheses maps to hypothesis');
+  assert(findMatchingSourceWord('phenomena', academicWords)?.word === 'phenomenon', 'phenomena maps to phenomenon');
+  console.log(`    ✓ Academic irregular plurals (criteria, analyses, hypotheses, phenomena) mapped`);
+
+  // 1.3 Phrasal and collocation matching
+  const phraseWords = [
+    { word: 'upward trajectory', translation: 'quỹ đạo đi lên', pos: 'phrase' },
+    { word: 'bear something in mind', translation: 'ghi nhớ điều gì', pos: 'idiom' },
+  ];
+  assert(findMatchingSourceWord('trajectories', phraseWords)?.word === 'upward trajectory', 'trajectories maps to upward trajectory');
+  assert(findMatchingSourceWord('bore', phraseWords)?.word === 'bear something in mind', 'bore maps to bear something in mind');
+  console.log(`    ✓ Phrasal & collocation inflected words successfully mapped`);
+
+  // 1.4 Viewport offset math calculation
+  const calcOffset = (left: number, right: number, vpWidth: number, pad = 12) => {
+    if (left < pad) return pad - left;
+    if (right > vpWidth - pad) return (vpWidth - pad) - right;
+    return 0;
+  };
+  assert(calcOffset(-30, 170, 390) === 42, 'Clamps left-overflowing tooltip by shifting right');
+  assert(calcOffset(280, 420, 390) === -42, 'Clamps right-overflowing tooltip by shifting left');
+  assert(calcOffset(50, 250, 390) === 0, 'In-bounds tooltip requires zero shift');
+  console.log(`    ✓ Viewport-safe bounds offset calculation verified for mobile screens`);
+
+  // 2. Queue fairness and cooldown helpers
+  const cooldownWait = getMinCooldownWaitMs();
+  assert(typeof cooldownWait === 'number' && cooldownWait >= 0, 'getMinCooldownWaitMs must return non-negative number');
+  console.log(`    ✓ Cooldown helper returns valid duration: ${cooldownWait}ms`);
+
+  const canWait = await waitOutGeminiCooldown(100);
+  assert(typeof canWait === 'boolean', 'waitOutGeminiCooldown must return boolean');
+  console.log(`    ✓ waitOutGeminiCooldown is functional (returned ${canWait})`);
+
+  // 3. Database completion checks
+  if (profile) {
+    const uncompletedPrev = await hasUncompletedPreviousExercise(profile.id, '2026-10-02');
+    console.log(`    ✓ hasUncompletedPreviousExercise executed successfully (result: ${uncompletedPrev ? uncompletedPrev.title : 'all completed'})`);
+
+    const userUncompleted = await findUserUncompletedExercise(supabase, profile.id);
+    console.log(`    ✓ findUserUncompletedExercise executed successfully (result: ${userUncompleted ? userUncompleted.title : 'none'})`);
   }
 
   console.log(`\n======================================================`);

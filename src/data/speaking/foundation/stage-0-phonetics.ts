@@ -546,7 +546,7 @@ export const STAGE_0_PHONETIC_LESSONS: Stage0PhoneticLesson[] = [
     descriptionVi:
       'Người mất gốc hay mắc lỗi đọc đuôi "-ed" thành một âm tiết riêng biệt cho mọi từ (e.g. "looked" đọc thành "lục-kịt", "played" thành "play-ịt"). Trên thực tế, 90% động từ trong tiếng Anh chỉ biến thành âm bật /-t/ hoặc âm rung /-d/ mà không tăng thêm số âm tiết.',
     mouthTipVi:
-      'Quy tắc cốt lõi: (1) Chỉ từ tận cùng bằng âm /t/ hoặc /d/ mới đọc là /-ɪd/ và thêm 1 âm tiết (e.g. wanted, needed). (2) Tận cùng bằng phụ âm vô thanh: bật âm /-t/ (e.g. looked, stopped, washed). (3) Tận cùng bằng nguyên âm hoặc âm hữu thanh: rung âm /-d/ (e.g. played, cleaned, loved).',
+      'Mẹo thần chú người Việt dễ nhớ nhất: (1) Nhóm /-ɪd/: Tận cùng bằng T và D (Mẹo nhớ: "Tiền Đô" -> wanted, needed). (2) Nhóm /-t/: Tận cùng bằng các phụ âm vô thanh p, k, f, s, ʃ, tʃ (Mẹo nhớ: "Phải Kính Phục Sếp Chấn" -> stopped, looked, laughed, passed, washed, watched). (3) Nhóm /-d/: Các âm hữu thanh và nguyên âm còn lại (e.g. played, cleaned, loved).',
     video: {
       youtubeVideoId: 'gftHWQ6CLu8',
       channelName: "Rachel's English",
@@ -621,6 +621,8 @@ export const STAGE_0_PHONETIC_LESSONS: Stage0PhoneticLesson[] = [
       { word: 'Can I have a', ipa: '/kə.naɪ.hæ.və/', meaningVi: 'Cho tôi xin một...' },
       { word: 'Hold on', ipa: '/hoʊl.dɑːn/', meaningVi: 'Chờ một chút' },
       { word: 'Check it out', ipa: '/tʃe.kɪ.daʊt/', meaningVi: 'Xem thử cái này' },
+      { word: 'Not at all', ipa: '/nɑː.tæ.tɔːl/', meaningVi: 'Không có gì đâu' },
+      { word: 'Take it easy', ipa: '/teɪ.kɪ.diː.zi/', meaningVi: 'Cứ từ từ / Thư giãn đi' },
       { word: 'Pick it up', ipa: '/pɪ.kɪ.tʌp/', meaningVi: 'Nhặt nó lên' },
       { word: 'Turn it off', ipa: '/tɜːr.nɪ.tɔːf/', meaningVi: 'Tắt nó đi' },
       { word: 'Come on in', ipa: '/kʌ.mɑː.nɪn/', meaningVi: 'Mời vào trong' },
