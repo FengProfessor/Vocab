@@ -63,6 +63,7 @@ const MIGRATIONS = [
   'supabase/migrations/20260918_referral_system.sql',
   'supabase/migrations/20260918_words_save_perf_indexes.sql',
   'supabase/migrations/20260927_cross_classroom_due_words_and_tz.sql',
+  'supabase/migrations/20261001_crm_performance_rpc.sql',
 ];
 
 async function main() {

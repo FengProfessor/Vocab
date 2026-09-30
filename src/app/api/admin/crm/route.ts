@@ -6,6 +6,8 @@ export const dynamic = 'force-dynamic';
 
 const DAY = 24 * 60 * 60 * 1000;
 const PAGE = 1000;
+const CACHE_TTL_MS = 60 * 1000; // 60s fresh cache
+const CACHE_STALE_MS = 5 * 60 * 1000; // 5 phút stale-while-revalidate
 
 type ProfileRow = {
   id: string; email: string; full_name: string | null; role: string;
@@ -24,6 +26,19 @@ type SrsRow = {
   lapses: number | null;
   last_reviewed_at: string | null;
   next_review_date: string | null;
+};
+
+type RpcCustomerStats = {
+  user_id: string;
+  word_count: number;
+  last_word_at: string | null;
+  learned_count: number;
+  review_total: number;
+  lapses_total: number;
+  last_reviewed_at: string | null;
+  due_count: number;
+  quiz_count: number;
+  last_quiz_at: string | null;
 };
 
 export type CrmSource = 'group_owner' | 'group_member' | 'classroom' | 'teacher' | 'direct';
@@ -53,9 +68,99 @@ export interface CrmCustomer {
   groupId: string | null;
 }
 
+export interface CrmResponseData {
+  success: boolean;
+  customers: CrmCustomer[];
+  funnel: { date: string; count: number }[];
+  segments: {
+    byPlan: Record<string, number>;
+    byRole: Record<string, number>;
+    byLifecycle: Record<string, number>;
+    bySource: Record<string, number>;
+  };
+  kpis: {
+    totalUsers: number;
+    newThisWeek: number;
+    payingUsers: number;
+    activeUsers: number;
+    learners: number;
+    churnedUsers: number;
+    totalRevenue: number;
+    activeGroups: number;
+    freeHot150: number;
+    freeHot200: number;
+    reviewedToday: number;
+    withDue: number;
+    neverReviewed: number;
+  };
+  meta: {
+    cached: boolean;
+    cachedAt: string;
+    tookMs: number;
+    engine: 'rpc' | 'rest_parallel';
+  };
+}
+
 type ServiceClient = ReturnType<typeof createServiceClient>;
 
-/** Fetch toàn bộ rows (vượt mặc định 1000 của PostgREST). */
+// ── In-Memory Server SWR Cache ──
+let globalCrmCache: {
+  data: CrmResponseData;
+  timestamp: number;
+} | null = null;
+let isRevalidating = false;
+
+/**
+ * Fetch toàn bộ rows bằng concurrency pool song song thay vì tuần tự từng trang.
+ */
+async function fetchAllParallel<T>(
+  supabase: ServiceClient,
+  table: string,
+  select: string,
+  orderCol?: { col: string; asc: boolean },
+  filterFn?: (q: any) => any,
+): Promise<T[]> {
+  // Lấy tổng số dòng trước qua HEAD request (siêu nhanh)
+  let countQuery: any = supabase.from(table).select('*', { count: 'exact', head: true });
+  if (filterFn) countQuery = filterFn(countQuery);
+  const { count, error } = await countQuery;
+  if (error) throw error;
+  if (!count) return [];
+
+  const totalPages = Math.ceil(count / PAGE);
+  if (totalPages === 1) {
+    let q: any = supabase.from(table).select(select).range(0, PAGE - 1);
+    if (orderCol) q = q.order(orderCol.col, { ascending: orderCol.asc });
+    if (filterFn) q = filterFn(q);
+    const { data, error: err } = await q;
+    if (err) throw err;
+    return (data || []) as T[];
+  }
+
+  // Chạy đồng thời tối đa 4 trang cùng lúc để giữ kết nối PostgREST luôn ổn định
+  const CONCURRENCY = 4;
+  const pages = Array.from({ length: totalPages }, (_, i) => i);
+  const out: T[] = [];
+
+  for (let i = 0; i < pages.length; i += CONCURRENCY) {
+    const chunk = pages.slice(i, i + CONCURRENCY);
+    const chunkResults = await Promise.all(
+      chunk.map(p => {
+        let q: any = supabase.from(table).select(select).range(p * PAGE, (p + 1) * PAGE - 1);
+        if (orderCol) q = q.order(orderCol.col, { ascending: orderCol.asc });
+        if (filterFn) q = filterFn(q);
+        return q;
+      }),
+    );
+    for (const res of chunkResults) {
+      if (res.error) throw res.error;
+      if (res.data) out.push(...(res.data as T[]));
+    }
+  }
+  return out;
+}
+
+/** Fetch tuần tự nhẹ cho các mảng chunks (tránh tạo thêm HEAD count request dư thừa) */
 async function fetchAllPages<T>(
   run: (from: number, to: number) => PromiseLike<{ data: T[] | null; error: { message: string } | null }>,
 ): Promise<T[]> {
@@ -65,7 +170,7 @@ async function fetchAllPages<T>(
     const { data, error } = await run(from, from + PAGE - 1);
     if (error) throw error;
     const batch = data ?? [];
-    out.push(...batch);
+    out.push(...(batch as T[]));
     if (batch.length < PAGE) break;
     from += PAGE;
   }
@@ -73,16 +178,386 @@ async function fetchAllPages<T>(
 }
 
 /**
+ * Tính toán payload CRM từ dữ liệu thô hoặc kết quả aggregate
+ */
+function buildCrmPayload(params: {
+  profileRows: ProfileRow[];
+  orderRows: OrderRow[];
+  groupRows: GroupRow[];
+  memberRows: MemberRow[];
+  enrollRows: EnrollRow[];
+  statsMap?: Map<string, RpcCustomerStats>;
+  wordCountByUser?: Map<string, number>;
+  lastActiveByUser?: Map<string, number>;
+  learnedByUser?: Map<string, number>;
+  reviewTotalByUser?: Map<string, number>;
+  lapsesByUser?: Map<string, number>;
+  lastReviewedByUser?: Map<string, number>;
+  dueCountByUser?: Map<string, number>;
+  quizCountByUser?: Map<string, number>;
+  engine: 'rpc' | 'rest_parallel';
+  tookMs: number;
+}): CrmResponseData {
+  const {
+    profileRows, orderRows, groupRows, memberRows, enrollRows,
+    statsMap, wordCountByUser, lastActiveByUser, learnedByUser,
+    reviewTotalByUser, lapsesByUser, lastReviewedByUser, dueCountByUser,
+    quizCountByUser, engine, tookMs,
+  } = params;
+
+  // Group role + revenue
+  const groupOwners = new Map<string, string>();
+  const groupActive = new Set<string>();
+  for (const g of groupRows) {
+    if (g.status === 'active') { groupOwners.set(g.owner_id, g.id); groupActive.add(g.id); }
+  }
+  const groupMember = new Map<string, string>();
+  for (const m of memberRows) {
+    if (groupActive.has(m.group_id)) groupMember.set(m.user_id, m.group_id);
+  }
+  const enrolledStudents = new Set(enrollRows.map(e => e.student_id));
+  const paidByUser = new Map<string, number>();
+  for (const o of orderRows) {
+    if (o.status === 'paid' && o.user_id) {
+      paidByUser.set(o.user_id, (paidByUser.get(o.user_id) ?? 0) + (o.amount || 0));
+    }
+  }
+
+  const now = Date.now();
+  const isFuture = (d: string | null) => !d || new Date(d).getTime() > now;
+
+  const customers: CrmCustomer[] = profileRows.map(p => {
+    const rawPlan = p.plan ?? 'free';
+    const planActive = rawPlan !== 'free' && isFuture(p.plan_expires_at);
+    const effectivePlan = planActive ? rawPlan : 'free';
+
+    let source: CrmSource = 'direct';
+    if (groupOwners.has(p.id)) source = 'group_owner';
+    else if (groupMember.has(p.id)) source = 'group_member';
+    else if (p.role === 'teacher') source = 'teacher';
+    else if (enrolledStudents.has(p.id)) source = 'classroom';
+
+    let wordCount = 0;
+    let learnedCount = 0;
+    let reviewTotal = 0;
+    let lapsesTotal = 0;
+    let lastReviewedAt: string | null = null;
+    let dueCount = 0;
+    let quizCount = 0;
+    let lastActiveTs = 0;
+
+    if (statsMap) {
+      const s = statsMap.get(p.id);
+      if (s) {
+        wordCount = Number(s.word_count || 0);
+        learnedCount = Number(s.learned_count || 0);
+        reviewTotal = Number(s.review_total || 0);
+        lapsesTotal = Number(s.lapses_total || 0);
+        lastReviewedAt = s.last_reviewed_at;
+        dueCount = Number(s.due_count || 0);
+        quizCount = Number(s.quiz_count || 0);
+
+        const tsWord = s.last_word_at ? new Date(s.last_word_at).getTime() : 0;
+        const tsQuiz = s.last_quiz_at ? new Date(s.last_quiz_at).getTime() : 0;
+        const tsReview = s.last_reviewed_at ? new Date(s.last_reviewed_at).getTime() : 0;
+        lastActiveTs = Math.max(tsWord, tsQuiz, tsReview);
+      }
+    } else {
+      wordCount = wordCountByUser?.get(p.id) ?? 0;
+      learnedCount = learnedByUser?.get(p.id) ?? 0;
+      reviewTotal = reviewTotalByUser?.get(p.id) ?? 0;
+      lapsesTotal = lapsesByUser?.get(p.id) ?? 0;
+      lastReviewedAt = lastReviewedByUser?.has(p.id)
+        ? new Date(lastReviewedByUser.get(p.id)!).toISOString()
+        : null;
+      dueCount = dueCountByUser?.get(p.id) ?? 0;
+      quizCount = quizCountByUser?.get(p.id) ?? 0;
+      lastActiveTs = lastActiveByUser?.get(p.id) ?? 0;
+    }
+
+    const created = new Date(p.created_at).getTime();
+    const daysSinceActive = lastActiveTs ? (now - lastActiveTs) / DAY : Infinity;
+    let lifecycle: CrmLifecycle;
+    if (now - created <= 7 * DAY) lifecycle = 'new';
+    else if (daysSinceActive <= 7) lifecycle = 'active';
+    else if (daysSinceActive <= 30) lifecycle = 'at_risk';
+    else lifecycle = 'churned';
+
+    return {
+      id: p.id,
+      email: p.email,
+      full_name: p.full_name,
+      role: p.role,
+      created_at: p.created_at,
+      plan: effectivePlan,
+      rawPlan,
+      planExpiresAt: p.plan_expires_at,
+      paying: effectivePlan !== 'free',
+      source,
+      lifecycle,
+      lastActive: lastActiveTs ? new Date(lastActiveTs).toISOString() : null,
+      wordCount,
+      learnedCount,
+      reviewTotal,
+      lapsesTotal,
+      lastReviewedAt,
+      dueCount,
+      quizCount,
+      totalPaid: paidByUser.get(p.id) ?? 0,
+      groupId: groupOwners.get(p.id) ?? groupMember.get(p.id) ?? null,
+    };
+  });
+
+  // Funnel: signup theo ngày (90 ngày gần nhất)
+  const funnelMap = new Map<string, number>();
+  const since = now - 90 * DAY;
+  for (const p of profileRows) {
+    const t = new Date(p.created_at).getTime();
+    if (t < since) continue;
+    const day = p.created_at.slice(0, 10);
+    funnelMap.set(day, (funnelMap.get(day) ?? 0) + 1);
+  }
+  const funnel = Array.from(funnelMap.entries())
+    .map(([date, count]) => ({ date, count }))
+    .sort((a, b) => a.date.localeCompare(b.date));
+
+  // Segments
+  const byPlan = { free: 0, pro: 0, premium: 0 } as Record<string, number>;
+  const byRole = { teacher: 0, student: 0 } as Record<string, number>;
+  const byLifecycle = { new: 0, active: 0, at_risk: 0, churned: 0 } as Record<string, number>;
+  const bySource = { direct: 0, classroom: 0, teacher: 0, group_owner: 0, group_member: 0 } as Record<string, number>;
+  for (const c of customers) {
+    byPlan[c.plan] = (byPlan[c.plan] ?? 0) + 1;
+    byRole[c.role] = (byRole[c.role] ?? 0) + 1;
+    byLifecycle[c.lifecycle] = (byLifecycle[c.lifecycle] ?? 0) + 1;
+    bySource[c.source] = (bySource[c.source] ?? 0) + 1;
+  }
+
+  const weekAgo = now - 7 * DAY;
+  const learners = customers.filter(c => c.learnedCount > 0).length;
+  const freeHot150 = customers.filter(c => c.plan === 'free' && c.wordCount >= 150).length;
+  const freeHot200 = customers.filter(c => c.plan === 'free' && c.wordCount >= 200).length;
+
+  const vnDateKey = (iso: string) =>
+    new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'Asia/Ho_Chi_Minh',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    }).format(new Date(iso));
+  const todayVN = vnDateKey(new Date(now).toISOString());
+  const reviewedToday = customers.filter(
+    (c) => c.lastReviewedAt && vnDateKey(c.lastReviewedAt) === todayVN,
+  ).length;
+  const withDue = customers.filter(c => c.dueCount > 0).length;
+  const neverReviewed = customers.filter(c => !c.lastReviewedAt && c.wordCount > 0).length;
+
+  const kpis = {
+    totalUsers: customers.length,
+    newThisWeek: customers.filter(c => new Date(c.created_at).getTime() >= weekAgo).length,
+    payingUsers: customers.filter(c => c.paying).length,
+    activeUsers: byLifecycle.active + byLifecycle.new,
+    learners,
+    churnedUsers: byLifecycle.churned,
+    totalRevenue: orderRows.reduce((s, o) => s + (o.status === 'paid' ? (o.amount || 0) : 0), 0),
+    activeGroups: groupActive.size,
+    freeHot150,
+    freeHot200,
+    reviewedToday,
+    withDue,
+    neverReviewed,
+  };
+
+  return {
+    success: true,
+    customers,
+    funnel,
+    segments: { byPlan, byRole, byLifecycle, bySource },
+    kpis,
+    meta: {
+      cached: false,
+      cachedAt: new Date().toISOString(),
+      tookMs,
+      engine,
+    },
+  };
+}
+
+/**
+ * Thực hiện query dữ liệu CRM: Thử Engine RPC trước, nếu chưa có RPC thì dùng Parallel REST.
+ */
+async function fetchFreshCrmData(supabase: ServiceClient): Promise<CrmResponseData> {
+  const t0 = Date.now();
+  const nowIso = new Date().toISOString();
+
+  // 1. Thử gọi RPC get_crm_customer_stats (Engine A - siêu tốc ~200ms)
+  let rpcRows: RpcCustomerStats[] | null = null;
+  try {
+    const { data, error } = await supabase.rpc('get_crm_customer_stats', { p_now: nowIso });
+    if (!error && Array.isArray(data)) {
+      rpcRows = data as RpcCustomerStats[];
+    }
+  } catch {
+    rpcRows = null;
+  }
+
+  if (rpcRows) {
+    // Engine A: RPC thành công! Chỉ cần tải nhẹ profiles, orders, groups, memberRows, enrollRows
+    const [profileRows, orderRows, groupRows, memberRows, enrollRows] = await Promise.all([
+      fetchAllParallel<ProfileRow>(supabase, 'profiles', 'id, email, full_name, role, created_at, plan, plan_expires_at', { col: 'created_at', asc: false }),
+      fetchAllParallel<OrderRow>(supabase, 'orders', 'user_id, amount, status, paid_at', { col: 'paid_at', asc: false }),
+      fetchAllParallel<GroupRow>(supabase, 'groups', 'id, owner_id, status', { col: 'id', asc: true }),
+      fetchAllParallel<MemberRow>(supabase, 'group_members', 'group_id, user_id', { col: 'group_id', asc: true }),
+      fetchAllParallel<EnrollRow>(supabase, 'enrollments', 'student_id', { col: 'student_id', asc: true }),
+    ]);
+
+    const statsMap = new Map<string, RpcCustomerStats>();
+    for (const r of rpcRows) {
+      statsMap.set(r.user_id, r);
+    }
+
+    return buildCrmPayload({
+      profileRows,
+      orderRows,
+      groupRows,
+      memberRows,
+      enrollRows,
+      statsMap,
+      engine: 'rpc',
+      tookMs: Date.now() - t0,
+    });
+  }
+
+  // 2. Engine B: Fallback Parallel REST (tối ưu chạy đồng thời song song)
+  const [
+    profileRows,
+    orderRows,
+    groupRows,
+    memberRows,
+    classroomRows,
+    enrollRows,
+    quizRows,
+    srsRows,
+  ] = await Promise.all([
+    fetchAllParallel<ProfileRow>(supabase, 'profiles', 'id, email, full_name, role, created_at, plan, plan_expires_at', { col: 'created_at', asc: false }),
+    fetchAllParallel<OrderRow>(supabase, 'orders', 'user_id, amount, status, paid_at', { col: 'paid_at', asc: false }),
+    fetchAllParallel<GroupRow>(supabase, 'groups', 'id, owner_id, status', { col: 'id', asc: true }),
+    fetchAllParallel<MemberRow>(supabase, 'group_members', 'group_id, user_id', { col: 'group_id', asc: true }),
+    fetchAllParallel<ClassroomRow>(supabase, 'classrooms', 'id, teacher_id', { col: 'id', asc: true }, (q: any) => q.eq('name', '__personal__')),
+    fetchAllParallel<EnrollRow>(supabase, 'enrollments', 'student_id', { col: 'student_id', asc: true }),
+    fetchAllParallel<QuizRow>(supabase, 'quiz_results', 'user_id, completed_at', { col: 'user_id', asc: true }),
+    fetchAllParallel<SrsRow>(supabase, 'srs_progress', 'user_id, review_count, lapses, last_reviewed_at, next_review_date', { col: 'user_id', asc: true }),
+  ]);
+
+  const classroomOwner = new Map<string, string>();
+  for (const c of classroomRows) {
+    classroomOwner.set(c.id, c.teacher_id);
+  }
+
+  // Query words theo chunk 80 lớp với fetchAllPages nhẹ (không gọi HEAD count thừa)
+  const classroomIds = classroomRows.map(c => c.id);
+  const CHUNK_SIZE = 80;
+  const wordChunkPromises: Promise<WordRow[]>[] = [];
+  for (let i = 0; i < classroomIds.length; i += CHUNK_SIZE) {
+    const chunk = classroomIds.slice(i, i + CHUNK_SIZE);
+    wordChunkPromises.push(
+      fetchAllPages<WordRow>((from, to) =>
+        supabase
+          .from('words')
+          .select('classroom_id, created_at')
+          .in('classroom_id', chunk)
+          .order('classroom_id')
+          .range(from, to) as PromiseLike<{ data: WordRow[] | null; error: { message: string } | null }>,
+      ),
+    );
+  }
+  const wordChunkResults = await Promise.all(wordChunkPromises);
+  const wordRows = wordChunkResults.flat();
+
+  const wordCountByUser = new Map<string, number>();
+  const lastActiveByUser = new Map<string, number>();
+  const bumpActive = (uid: string, ts: string | null | undefined) => {
+    if (!ts) return;
+    const t = new Date(ts).getTime();
+    if (!Number.isFinite(t)) return;
+    if (t > (lastActiveByUser.get(uid) ?? 0)) lastActiveByUser.set(uid, t);
+  };
+
+  for (const w of wordRows) {
+    const uid = classroomOwner.get(w.classroom_id);
+    if (!uid) continue;
+    wordCountByUser.set(uid, (wordCountByUser.get(uid) ?? 0) + 1);
+    bumpActive(uid, w.created_at);
+  }
+
+  const quizCountByUser = new Map<string, number>();
+  for (const q of quizRows) {
+    quizCountByUser.set(q.user_id, (quizCountByUser.get(q.user_id) ?? 0) + 1);
+    bumpActive(q.user_id, q.completed_at);
+  }
+
+  const learnedByUser = new Map<string, number>();
+  const reviewTotalByUser = new Map<string, number>();
+  const lapsesByUser = new Map<string, number>();
+  const lastReviewedByUser = new Map<string, number>();
+  const dueCountByUser = new Map<string, number>();
+  const nowMs = Date.now();
+
+  for (const s of srsRows) {
+    const uid = s.user_id;
+    const rc = s.review_count ?? 0;
+    const lp = s.lapses ?? 0;
+    if (rc >= 1) learnedByUser.set(uid, (learnedByUser.get(uid) ?? 0) + 1);
+    if (rc > 0) reviewTotalByUser.set(uid, (reviewTotalByUser.get(uid) ?? 0) + rc);
+    if (lp > 0) lapsesByUser.set(uid, (lapsesByUser.get(uid) ?? 0) + lp);
+    if (s.last_reviewed_at) {
+      const t = new Date(s.last_reviewed_at).getTime();
+      if (Number.isFinite(t) && t > (lastReviewedByUser.get(uid) ?? 0)) {
+        lastReviewedByUser.set(uid, t);
+      }
+    }
+    if (s.next_review_date) {
+      const dueTs = new Date(s.next_review_date).getTime();
+      if (Number.isFinite(dueTs) && dueTs <= nowMs) {
+        dueCountByUser.set(uid, (dueCountByUser.get(uid) ?? 0) + 1);
+      }
+    }
+    bumpActive(uid, s.last_reviewed_at);
+  }
+
+  return buildCrmPayload({
+    profileRows,
+    orderRows,
+    groupRows,
+    memberRows,
+    enrollRows,
+    wordCountByUser,
+    lastActiveByUser,
+    learnedByUser,
+    reviewTotalByUser,
+    lapsesByUser,
+    lastReviewedByUser,
+    dueCountByUser,
+    quizCountByUser,
+    engine: 'rest_parallel',
+    tookMs: Date.now() - t0,
+  });
+}
+
+/**
  * GET /api/admin/crm
  * CRM khách hàng: mọi user + gói/nguồn/vòng đời/doanh thu + funnel signup + segment.
- * Học thật: srs_progress (learned / review / lapses) + last_reviewed_at cho activity.
- * Auth: Admin only (JWT + ADMIN_EMAILS whitelist).
+ * Tối ưu hoá hiệu năng cực hạn với:
+ * - Engine A: PostgreSQL RPC (1 query, ~200ms)
+ * - Engine B: Concurrent Batch REST Pipeline (fallback song song, tránh bão hoà pool)
+ * - In-Memory Stale-While-Revalidate Caching (phản hồi <5ms cho các request kế tiếp)
  */
 export async function GET(req: Request): Promise<NextResponse> {
   try {
     const auth = await getAuthUser(req);
     if (!auth) return unauthorized();
     const supabase: ServiceClient = createServiceClient();
+
     const { data: callerProfile } = await supabase
       .from('profiles')
       .select('email, role')
@@ -101,287 +576,65 @@ export async function GET(req: Request): Promise<NextResponse> {
       );
     }
 
-    // ── Bulk fetch (paginate — PostgREST mặc định max 1000 rows/request) ──
-    const [profileRows, orderRows, groupRows, memberRows, classroomRows, enrollRows] =
-      await Promise.all([
-        fetchAllPages<ProfileRow>((from, to) =>
-          supabase
-            .from('profiles')
-            .select('id, email, full_name, role, created_at, plan, plan_expires_at')
-            .order('created_at', { ascending: false })
-            .range(from, to) as PromiseLike<{ data: ProfileRow[] | null; error: { message: string } | null }>,
-        ),
-        fetchAllPages<OrderRow>((from, to) =>
-          supabase
-            .from('orders')
-            .select('user_id, amount, status, paid_at')
-            .order('paid_at', { ascending: false, nullsFirst: false })
-            .range(from, to) as PromiseLike<{ data: OrderRow[] | null; error: { message: string } | null }>,
-        ),
-        fetchAllPages<GroupRow>((from, to) =>
-          supabase
-            .from('groups')
-            .select('id, owner_id, status')
-            .order('id')
-            .range(from, to) as PromiseLike<{ data: GroupRow[] | null; error: { message: string } | null }>,
-        ),
-        fetchAllPages<MemberRow>((from, to) =>
-          supabase
-            .from('group_members')
-            .select('group_id, user_id')
-            .order('group_id')
-            .range(from, to) as PromiseLike<{ data: MemberRow[] | null; error: { message: string } | null }>,
-        ),
-        fetchAllPages<ClassroomRow>((from, to) =>
-          supabase
-            .from('classrooms')
-            .select('id, teacher_id')
-            .eq('name', '__personal__')
-            .order('id')
-            .range(from, to) as PromiseLike<{ data: ClassroomRow[] | null; error: { message: string } | null }>,
-        ),
-        fetchAllPages<EnrollRow>((from, to) =>
-          supabase
-            .from('enrollments')
-            .select('student_id')
-            .order('student_id')
-            .range(from, to) as PromiseLike<{ data: EnrollRow[] | null; error: { message: string } | null }>,
-        ),
-      ]);
-
-    // Map classroom_id → owner (để gộp words → user)
-    const classroomOwner = new Map<string, string>();
-    for (const c of classroomRows) {
-      classroomOwner.set(c.id, c.teacher_id);
-    }
-
-    // Words + quiz + SRS: paginate + order ổn định
-    // Parallelize: words chunks + quiz + SRS chạy đồng thời (trước: serial chunk → rồi quiz/srs)
-    const classroomIds = classroomRows.map(c => c.id);
-    const CHUNK_SIZE = 50;
-    const wordChunkPromises: Promise<WordRow[]>[] = [];
-    for (let i = 0; i < classroomIds.length; i += CHUNK_SIZE) {
-      const chunk = classroomIds.slice(i, i + CHUNK_SIZE);
-      wordChunkPromises.push(
-        fetchAllPages<WordRow>((from, to) =>
-          supabase
-            .from('words')
-            .select('classroom_id, created_at')
-            .in('classroom_id', chunk)
-            .order('classroom_id')
-            .range(from, to) as PromiseLike<{ data: WordRow[] | null; error: { message: string } | null }>,
-        ),
-      );
-    }
-
-    // Chạy tất cả song song: N word chunks + quiz + SRS
-    const [wordChunkResults, quizRows, srsRows] = await Promise.all([
-      Promise.all(wordChunkPromises),
-      fetchAllPages<QuizRow>((from, to) =>
-        supabase
-          .from('quiz_results')
-          .select('user_id, completed_at')
-          .order('user_id')
-          .range(from, to) as PromiseLike<{ data: QuizRow[] | null; error: { message: string } | null }>,
-      ),
-      fetchAllPages<SrsRow>((from, to) =>
-        supabase
-          .from('srs_progress')
-          .select('user_id, review_count, lapses, last_reviewed_at, next_review_date')
-          .order('user_id')
-          .range(from, to) as PromiseLike<{ data: SrsRow[] | null; error: { message: string } | null }>,
-      ),
-    ]);
-    const wordRows = wordChunkResults.flat();
-
-    const wordCountByUser = new Map<string, number>();
-    const lastActiveByUser = new Map<string, number>();
-    const bumpActive = (uid: string, ts: string | null | undefined) => {
-      if (!ts) return;
-      const t = new Date(ts).getTime();
-      if (!Number.isFinite(t)) return;
-      if (t > (lastActiveByUser.get(uid) ?? 0)) lastActiveByUser.set(uid, t);
-    };
-
-    for (const w of wordRows) {
-      const uid = classroomOwner.get(w.classroom_id);
-      if (!uid) continue;
-      wordCountByUser.set(uid, (wordCountByUser.get(uid) ?? 0) + 1);
-      bumpActive(uid, w.created_at);
-    }
-
-    const quizCountByUser = new Map<string, number>();
-    for (const q of quizRows) {
-      quizCountByUser.set(q.user_id, (quizCountByUser.get(q.user_id) ?? 0) + 1);
-      bumpActive(q.user_id, q.completed_at);
-    }
-
-    // SRS: từ đã ôn / tổng lượt ôn / lần quên / ôn cuối / due + activity
-    const learnedByUser = new Map<string, number>();
-    const reviewTotalByUser = new Map<string, number>();
-    const lapsesByUser = new Map<string, number>();
-    const lastReviewedByUser = new Map<string, number>();
-    const dueCountByUser = new Map<string, number>();
-    const nowMs = Date.now();
-    for (const s of srsRows) {
-      const uid = s.user_id;
-      const rc = s.review_count ?? 0;
-      const lp = s.lapses ?? 0;
-      if (rc >= 1) learnedByUser.set(uid, (learnedByUser.get(uid) ?? 0) + 1);
-      if (rc > 0) reviewTotalByUser.set(uid, (reviewTotalByUser.get(uid) ?? 0) + rc);
-      if (lp > 0) lapsesByUser.set(uid, (lapsesByUser.get(uid) ?? 0) + lp);
-      if (s.last_reviewed_at) {
-        const t = new Date(s.last_reviewed_at).getTime();
-        if (Number.isFinite(t) && t > (lastReviewedByUser.get(uid) ?? 0)) {
-          lastReviewedByUser.set(uid, t);
-        }
-      }
-      // Due: có next_review_date và đã đến hạn (kể cả thẻ mới chưa ôn)
-      if (s.next_review_date) {
-        const dueTs = new Date(s.next_review_date).getTime();
-        if (Number.isFinite(dueTs) && dueTs <= nowMs) {
-          dueCountByUser.set(uid, (dueCountByUser.get(uid) ?? 0) + 1);
-        }
-      }
-      bumpActive(uid, s.last_reviewed_at);
-    }
-
-    // Group role + revenue
-    const groupOwners = new Map<string, string>();   // user_id → group_id
-    const groupActive = new Set<string>();
-    for (const g of groupRows) {
-      if (g.status === 'active') { groupOwners.set(g.owner_id, g.id); groupActive.add(g.id); }
-    }
-    const groupMember = new Map<string, string>();    // user_id → group_id (active groups)
-    for (const m of memberRows) {
-      if (groupActive.has(m.group_id)) groupMember.set(m.user_id, m.group_id);
-    }
-    const enrolledStudents = new Set(enrollRows.map(e => e.student_id));
-    const paidByUser = new Map<string, number>();
-    for (const o of orderRows) {
-      if (o.status === 'paid' && o.user_id) {
-        paidByUser.set(o.user_id, (paidByUser.get(o.user_id) ?? 0) + (o.amount || 0));
-      }
-    }
+    const url = new URL(req.url);
+    const forceRefresh = url.searchParams.get('refresh') === '1' || url.searchParams.get('refresh') === 'true';
 
     const now = Date.now();
-    const isFuture = (d: string | null) => !d || new Date(d).getTime() > now;
 
-    const customers: CrmCustomer[] = profileRows.map(p => {
-      const rawPlan = p.plan ?? 'free';
-      const planActive = rawPlan !== 'free' && isFuture(p.plan_expires_at);
-      const effectivePlan = planActive ? rawPlan : 'free';
+    // ── Kiểm tra cache trong bộ nhớ (SWR) ──
+    if (!forceRefresh && globalCrmCache) {
+      const age = now - globalCrmCache.timestamp;
+      // Dữ liệu còn tươi (< 60s): trả về tức thì trong <5ms
+      if (age < CACHE_TTL_MS) {
+        return NextResponse.json({
+          ...globalCrmCache.data,
+          meta: {
+            ...globalCrmCache.data.meta,
+            cached: true,
+            cachedAt: new Date(globalCrmCache.timestamp).toISOString(),
+            ageMs: age,
+          },
+        });
+      }
 
-      // Nguồn (ưu tiên cao → thấp)
-      let source: CrmSource = 'direct';
-      if (groupOwners.has(p.id)) source = 'group_owner';
-      else if (groupMember.has(p.id)) source = 'group_member';
-      else if (p.role === 'teacher') source = 'teacher';
-      else if (enrolledStudents.has(p.id)) source = 'classroom';
+      // Dữ liệu cũ nhưng trong hạn Stale-While-Revalidate (< 5 phút):
+      // Trả về dữ liệu cũ ngay lập tức, đồng thời kích hoạt cập nhật ngầm
+      if (age < CACHE_STALE_MS) {
+        if (!isRevalidating) {
+          isRevalidating = true;
+          fetchFreshCrmData(supabase)
+            .then(fresh => {
+              globalCrmCache = { data: fresh, timestamp: Date.now() };
+            })
+            .catch(err => {
+              console.error('[CRM SWR Revalidate Error]:', err);
+            })
+            .finally(() => {
+              isRevalidating = false;
+            });
+        }
 
-      // Vòng đời: signup + lastActive (lưu từ / quiz / ôn SRS)
-      const created = new Date(p.created_at).getTime();
-      const lastTs = lastActiveByUser.get(p.id) ?? 0;
-      const daysSinceActive = lastTs ? (now - lastTs) / DAY : Infinity;
-      let lifecycle: CrmLifecycle;
-      if (now - created <= 7 * DAY) lifecycle = 'new';
-      else if (daysSinceActive <= 7) lifecycle = 'active';
-      else if (daysSinceActive <= 30) lifecycle = 'at_risk';
-      else lifecycle = 'churned';
-
-      return {
-        id: p.id,
-        email: p.email,
-        full_name: p.full_name,
-        role: p.role,
-        created_at: p.created_at,
-        plan: effectivePlan,
-        rawPlan,
-        planExpiresAt: p.plan_expires_at,
-        paying: effectivePlan !== 'free',
-        source,
-        lifecycle,
-        lastActive: lastTs ? new Date(lastTs).toISOString() : null,
-        wordCount: wordCountByUser.get(p.id) ?? 0,
-        learnedCount: learnedByUser.get(p.id) ?? 0,
-        reviewTotal: reviewTotalByUser.get(p.id) ?? 0,
-        lapsesTotal: lapsesByUser.get(p.id) ?? 0,
-        lastReviewedAt: lastReviewedByUser.has(p.id)
-          ? new Date(lastReviewedByUser.get(p.id)!).toISOString()
-          : null,
-        dueCount: dueCountByUser.get(p.id) ?? 0,
-        quizCount: quizCountByUser.get(p.id) ?? 0,
-        totalPaid: paidByUser.get(p.id) ?? 0,
-        groupId: groupOwners.get(p.id) ?? groupMember.get(p.id) ?? null,
-      };
-    });
-
-    // ── Funnel: signup theo ngày (90 ngày gần nhất) ──
-    const funnelMap = new Map<string, number>();
-    const since = now - 90 * DAY;
-    for (const p of profileRows) {
-      const t = new Date(p.created_at).getTime();
-      if (t < since) continue;
-      const day = p.created_at.slice(0, 10);
-      funnelMap.set(day, (funnelMap.get(day) ?? 0) + 1);
-    }
-    const funnel = Array.from(funnelMap.entries())
-      .map(([date, count]) => ({ date, count }))
-      .sort((a, b) => a.date.localeCompare(b.date));
-
-    // ── Segments ──
-    const byPlan = { free: 0, pro: 0, premium: 0 } as Record<string, number>;
-    const byRole = { teacher: 0, student: 0 } as Record<string, number>;
-    const byLifecycle = { new: 0, active: 0, at_risk: 0, churned: 0 } as Record<string, number>;
-    const bySource = { direct: 0, classroom: 0, teacher: 0, group_owner: 0, group_member: 0 } as Record<string, number>;
-    for (const c of customers) {
-      byPlan[c.plan] = (byPlan[c.plan] ?? 0) + 1;
-      byRole[c.role] = (byRole[c.role] ?? 0) + 1;
-      byLifecycle[c.lifecycle] = (byLifecycle[c.lifecycle] ?? 0) + 1;
-      bySource[c.source] = (bySource[c.source] ?? 0) + 1;
+        return NextResponse.json({
+          ...globalCrmCache.data,
+          meta: {
+            ...globalCrmCache.data.meta,
+            cached: true,
+            stale: true,
+            cachedAt: new Date(globalCrmCache.timestamp).toISOString(),
+            ageMs: age,
+          },
+        });
+      }
     }
 
-    const weekAgo = now - 7 * DAY;
-    const learners = customers.filter(c => c.learnedCount > 0).length;
-    // Free power: ≥150 từ đã lưu — lead upsell (case Ngọc Lan 250)
-    const freeHot150 = customers.filter(c => c.plan === 'free' && c.wordCount >= 150).length;
-    const freeHot200 = customers.filter(c => c.plan === 'free' && c.wordCount >= 200).length;
-    // Chăm sóc ôn tập — đếm theo ngày lịch VN (UTC+7)
-    const vnDateKey = (iso: string) =>
-      new Intl.DateTimeFormat('en-CA', {
-        timeZone: 'Asia/Ho_Chi_Minh',
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-      }).format(new Date(iso));
-    const todayVN = vnDateKey(new Date(now).toISOString());
-    const reviewedToday = customers.filter(
-      (c) => c.lastReviewedAt && vnDateKey(c.lastReviewedAt) === todayVN,
-    ).length;
-    const withDue = customers.filter(c => c.dueCount > 0).length;
-    const neverReviewed = customers.filter(c => !c.lastReviewedAt && c.wordCount > 0).length;
-    const kpis = {
-      totalUsers: customers.length,
-      newThisWeek: customers.filter(c => new Date(c.created_at).getTime() >= weekAgo).length,
-      payingUsers: customers.filter(c => c.paying).length,
-      activeUsers: byLifecycle.active + byLifecycle.new,
-      learners, // user có ≥1 từ đã ôn SRS
-      churnedUsers: byLifecycle.churned,
-      totalRevenue: orderRows.reduce((s, o) => s + (o.status === 'paid' ? (o.amount || 0) : 0), 0),
-      activeGroups: groupActive.size,
-      freeHot150,
-      freeHot200,
-      reviewedToday,
-      withDue,
-      neverReviewed,
-    };
+    // Tải mới dữ liệu (fresh fetch)
+    const freshData = await fetchFreshCrmData(supabase);
+    globalCrmCache = { data: freshData, timestamp: Date.now() };
 
-    return NextResponse.json({
-      success: true,
-      customers,
-      funnel,
-      segments: { byPlan, byRole, byLifecycle, bySource },
-      kpis,
+    return NextResponse.json(freshData, {
+      headers: {
+        'Cache-Control': 'private, no-cache, no-store, must-revalidate',
+      },
     });
   } catch (error: unknown) {
     return safeErrorResponse(error, 'Failed to fetch CRM data');

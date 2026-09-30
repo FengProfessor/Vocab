@@ -10,7 +10,7 @@
 
 import type { DistractorBreakdown } from './grammar-types';
 
-export type DrillExerciseType = 'multiple_choice' | 'fill_blank' | 'error_correction';
+export type DrillExerciseType = 'multiple_choice' | 'fill_blank' | 'error_correction' | 'categorization';
 
 export type NormalizedDrillExercise = {
   id: string;
@@ -20,6 +20,7 @@ export type NormalizedDrillExercise = {
   correct_answer: string;
   explanation: string;
   distractor_breakdowns?: DistractorBreakdown[];
+  categories?: { name: string; items: string[] }[];
   topic: string;
   level: string;
   type: DrillExerciseType;
@@ -60,6 +61,7 @@ export function resolveDrillType(
   question: string,
   options: string[],
 ): DrillExerciseType {
+  if (rawType === 'categorization') return 'categorization';
   if (rawType === 'fill' || rawType === 'fill_blank') return 'fill_blank';
   if (rawType === 'tf') return 'multiple_choice';
   if (rawType === 'error' || rawType === 'error_correction') {
@@ -223,6 +225,7 @@ export function normalizeLessonExercise(
     distractor_breakdowns: Array.isArray(ex.distractor_breakdowns)
       ? (ex.distractor_breakdowns as DistractorBreakdown[])
       : undefined,
+    categories: Array.isArray(ex.categories) ? (ex.categories as Array<{ name: string; items: string[] }>) : undefined,
     topic: topicTitle,
     level,
     type: qType,

@@ -238,7 +238,7 @@ export interface QuizResult {
   completed_at: string;
 }
 
-export type GrammarExerciseType = 'multiple_choice' | 'fill_blank' | 'error_correction';
+export type GrammarExerciseType = 'multiple_choice' | 'fill_blank' | 'error_correction' | 'categorization';
 
 export interface GrammarExercise {
   id: string;
@@ -254,6 +254,8 @@ export interface GrammarExercise {
   lesson_id?: string | null;
   created_by?: string;
   created_at: string;
+  distractor_breakdowns?: any[];
+  categories?: { name: string; items: string[] }[];
 }
 
 export interface GrammarResult {

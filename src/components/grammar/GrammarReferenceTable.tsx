@@ -5,12 +5,55 @@ import PronounMatrixTable from './PronounMatrixTable';
 import FormattedText from './FormattedText';
 import { Table, CheckCircle2, AlertCircle, Info, BookOpen, AlertTriangle, Sparkles } from 'lucide-react';
 
+export interface FormulaRow {
+  form?: string;
+  type?: string;
+  structure?: string;
+  base?: string;
+  ['mạo_từ']?: string;
+  time?: string;
+  singular?: string;
+  rule?: string;
+  third?: string;
+  thirdPerson?: string;
+  example?: string;
+  plural?: string;
+  case?: string;
+  [key: string]: unknown;
+}
+
+interface GrammarRuleItem {
+  case?: string;
+  rule?: string;
+  example?: string;
+  [key: string]: unknown;
+}
+
+interface GrammarMistakeItem {
+  wrong: string;
+  right: string;
+  why: string;
+  [key: string]: unknown;
+}
+
+export interface GrammarTheoryData {
+  formula?: {
+    rows?: FormulaRow[];
+    note?: string;
+  };
+  rules?: GrammarRuleItem[];
+  mistakes?: GrammarMistakeItem[];
+  signals?: string[];
+  bilingual_examples?: Array<{ en?: string; vi?: string }>;
+  [key: string]: unknown;
+}
+
 interface GrammarReferenceTableProps {
   topicSlug: string;
   topicTitle?: string;
   topicTitleVi?: string;
   topicSummary?: string;
-  theoryData?: any;
+  theoryData?: GrammarTheoryData | null;
 }
 
 export default function GrammarReferenceTable({
@@ -203,14 +246,28 @@ export default function GrammarReferenceTable({
   }
 
   // 4. Universal Reference Table Engine: Dynamically renders real formulas, rules, and common mistakes for ALL other 59 topics!
-  const formulaRows: any[] = theoryData?.formula?.rows || [];
+  const formulaRows: FormulaRow[] = theoryData?.formula?.rows || [];
   const formulaNote: string = theoryData?.formula?.note || '';
-  const rules: any[] = theoryData?.rules || [];
-  const mistakes: any[] = theoryData?.mistakes || [];
+  const rules: GrammarRuleItem[] = theoryData?.rules || [];
+  const mistakes: GrammarMistakeItem[] = theoryData?.mistakes || [];
   const signals: string[] = theoryData?.signals || [];
 
-  // Check if rows have base vs third person columns
-  const hasThirdCol = formulaRows.some((r) => r.third || r.thirdPerson);
+  // Check if rows have genuine base vs third person columns (e.g. Present Simple, Have got)
+  const hasThirdCol = formulaRows.some(
+    (r) =>
+      Boolean(r.third || r.thirdPerson) &&
+      !String(r.third || r.thirdPerson).toLowerCase().includes('ngữ cảnh')
+  );
+
+  // Helper to extract structure and example across all 62 topics
+  const resolveStructure = (r: FormulaRow) =>
+    r.structure || r.base || (r['mạo_từ'] as string | undefined) || r.time || r.singular || r.rule || '—';
+
+  const resolveExampleEn = (r: FormulaRow, idx: number) =>
+    r.example || theoryData?.bilingual_examples?.[idx]?.en || theoryData?.bilingual_examples?.[0]?.en || '';
+
+  const resolveExampleVi = (r: FormulaRow, idx: number) =>
+    (r.example ? '' : theoryData?.bilingual_examples?.[idx]?.vi || theoryData?.bilingual_examples?.[0]?.vi) || '';
 
   return (
     <div className="space-y-6 animate-in fade-in duration-200">
@@ -246,13 +303,14 @@ export default function GrammarReferenceTable({
                       <th className="p-3 border-r border-border text-indigo-700 dark:text-indigo-400 font-bold min-w-[180px]">
                         He / She / It / Số ít
                       </th>
+                      <th className="p-3 min-w-[220px]">Ví dụ thực tế</th>
                     </>
                   ) : (
                     <>
                       <th className="p-3 border-r border-border text-primary font-bold min-w-[220px]">
                         Cấu trúc ngữ pháp
                       </th>
-                      <th className="p-3 min-w-[240px]">Ví dụ thực tế minh họa</th>
+                      <th className="p-3 min-w-[260px]">Ví dụ thực tế minh họa</th>
                     </>
                   )}
                 </tr>
@@ -271,14 +329,43 @@ export default function GrammarReferenceTable({
                         <td className="p-3 font-bold border-r border-border/60 text-indigo-700 dark:text-indigo-400">
                           <FormattedText text={r.third || r.thirdPerson || '—'} />
                         </td>
+                        <td className="p-3 font-sans text-xs">
+                          {resolveExampleEn(r, i) ? (
+                            <div className="space-y-0.5">
+                              <div className="font-medium text-foreground">
+                                <FormattedText text={resolveExampleEn(r, i)} />
+                              </div>
+                              {resolveExampleVi(r, i) && (
+                                <div className="text-muted-foreground text-[11px]">
+                                  <FormattedText text={resolveExampleVi(r, i)} />
+                                </div>
+                              )}
+                            </div>
+                          ) : (
+                            <span className="text-muted-foreground">—</span>
+                          )}
+                        </td>
                       </>
                     ) : (
                       <>
                         <td className="p-3 font-bold border-r border-border/60 text-foreground">
-                          <FormattedText text={r.structure || r.base || '—'} />
+                          <FormattedText text={resolveStructure(r)} />
                         </td>
-                        <td className="p-3 font-sans text-xs text-muted-foreground">
-                          <FormattedText text={r.example || '—'} />
+                        <td className="p-3 font-sans text-xs">
+                          {resolveExampleEn(r, i) ? (
+                            <div className="space-y-0.5">
+                              <div className="font-medium text-foreground">
+                                <FormattedText text={resolveExampleEn(r, i)} />
+                              </div>
+                              {resolveExampleVi(r, i) && (
+                                <div className="text-muted-foreground text-[11px]">
+                                  <FormattedText text={resolveExampleVi(r, i)} />
+                                </div>
+                              )}
+                            </div>
+                          ) : (
+                            <span className="text-muted-foreground">—</span>
+                          )}
                         </td>
                       </>
                     )}
@@ -400,7 +487,7 @@ export default function GrammarReferenceTable({
                 </tr>
               </thead>
               <tbody className="divide-y divide-border/60">
-                {mistakes.slice(0, 5).map((m, i) => (
+                {mistakes.map((m, i) => (
                   <tr key={i} className="hover:bg-muted/10">
                     <td className="p-3 border-r border-border/60 text-rose-700 dark:text-rose-400 font-medium">
                       ✕ <FormattedText text={m.wrong} />

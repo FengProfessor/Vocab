@@ -27,6 +27,9 @@ import {
 } from '@/lib/grammar-exercises';
 import { completeRoadmapStep } from '@/lib/roadmap-client';
 import { getTopicBySlug } from '@/lib/grammar-roadmap-data';
+import CategorizationPractice from '@/components/grammar/CategorizationPractice';
+import PedagogicalFeedbackPanel from '@/components/grammar/PedagogicalFeedbackPanel';
+import FormattedText from '@/components/grammar/FormattedText';
 
 const GRAMMAR_PRACTICE_STATE_VER = 'v3';
 
@@ -113,32 +116,79 @@ function renderRichText(text: string): ReactNode[] {
       </span>,
     ];
   }
+
+  // Normalize blanks like [blank], (...), ____
+  const normalized = raw
+    .replace(/(^|\n)\s*[*•]\s+/g, '$1• ')
+    .replace(/\[blank\]/gi, '___')
+    .replace(/\(\.\.\.\)/g, '___');
+
   const nodes: ReactNode[] = [];
-  const boldSegs = raw.split(/(\*\*[^*]+\*\*)/g);
-  boldSegs.forEach((seg, i) => {
-    if (/^\*\*[^*]+\*\*$/.test(seg)) {
+  // Tokenize bold-italic (***...***), bold (**...**), italic (*...*), code (`...`), or blank (___)
+  const tokens = normalized.split(/(\*{3}[^*\n]+?\*{3}|\*{2}[^*\n]+?\*{2}|\*[^*\n]+?\*|`[^`\n]+?`|_{3,})/g);
+
+  tokens.forEach((token, i) => {
+    if (!token) return;
+
+    // Blank line
+    if (/^_{3,}$/.test(token)) {
       nodes.push(
-        <strong key={`b-${i}`} className="text-primary font-bold">
-          {seg.slice(2, -2)}
+        <span
+          key={`bl-${i}`}
+          className="inline-block min-w-[3.5rem] px-2 mx-1 border-b-2 border-dashed border-primary align-baseline"
+          aria-label="Chỗ trống cần điền"
+        />
+      );
+      return;
+    }
+
+    // Bold + Italic: ***text***
+    if (token.startsWith('***') && token.endsWith('***') && token.length >= 6) {
+      nodes.push(
+        <strong key={`bi-${i}`} className="text-primary font-bold italic">
+          {token.slice(3, -3).replace(/\*/g, '').trim()}
         </strong>
       );
       return;
     }
-    const blankSegs = seg.split(/(_{3,})/g);
-    blankSegs.forEach((bs, j) => {
-      if (/^_{3,}$/.test(bs)) {
-        nodes.push(
-          <span
-            key={`bl-${i}-${j}`}
-            className="inline-block min-w-[3.5rem] px-2 mx-1 border-b-2 border-dashed border-primary align-baseline"
-            aria-label="Chỗ trống cần điền"
-          />
-        );
-      } else if (bs) {
-        nodes.push(<span key={`t-${i}-${j}`}>{bs}</span>);
-      }
-    });
+
+    // Bold: **text**
+    if (token.startsWith('**') && token.endsWith('**') && token.length >= 4) {
+      nodes.push(
+        <strong key={`b-${i}`} className="text-primary font-bold">
+          {token.slice(2, -2).replace(/\*/g, '').trim()}
+        </strong>
+      );
+      return;
+    }
+
+    // Italic: *text*
+    if (token.startsWith('*') && token.endsWith('*') && token.length >= 2) {
+      nodes.push(
+        <em key={`it-${i}`} className="italic text-foreground/90 font-medium">
+          {token.slice(1, -1).replace(/\*/g, '').trim()}
+        </em>
+      );
+      return;
+    }
+
+    // Code: `code`
+    if (token.startsWith('`') && token.endsWith('`') && token.length >= 2) {
+      nodes.push(
+        <code key={`cd-${i}`} className="font-mono text-xs px-1.5 py-0.5 bg-muted/60 border border-border/60 rounded-none">
+          {token.slice(1, -1)}
+        </code>
+      );
+      return;
+    }
+
+    // Plain text: strip all stray unmatched asterisks
+    const cleanText = token.replace(/\*+/g, '');
+    if (cleanText) {
+      nodes.push(<span key={`t-${i}`}>{cleanText}</span>);
+    }
   });
+
   return nodes;
 }
 
@@ -155,20 +205,38 @@ function ErrorCorrectionSentence({
   correctAnswer: string;
   onSelect: (token: string) => void;
 }) {
-  const cleanSentence = sentence.replace(/^(find|identify|spot|correct)\s+the\s+error\s*:\s*/i, '');
+  const cleanSentence = sentence
+    .replace(/\*+/g, '')
+    .replace(/^(find|identify|spot|correct|tìm|sửa)\s+(the\s+)?(incorrect\s+word\/phrase|error|lỗi\s+sai\s+trong\s+câu|lỗi\s+trong\s+câu)[^:]*:\s*/i, '')
+    .trim();
 
-  if (!options || options.length === 0) {
-    return <p className="text-lg font-medium text-foreground leading-loose">{cleanSentence}</p>;
+  if (!options || options.length === 0 || !cleanSentence) {
+    return (
+      <div className="text-base sm:text-lg font-medium text-foreground leading-relaxed">
+        <FormattedText text={sentence} />
+      </div>
+    );
   }
 
   const escapedOptions = [...options]
     .map((opt) => opt.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'))
     .sort((a, b) => b.length - a.length);
-  const regex = new RegExp(`(${escapedOptions.join('|')})`, 'gi');
+  const regex = new RegExp(`\\b(${escapedOptions.join('|')})\\b`, 'gi');
   const parts = cleanSentence.split(regex);
+  const hasMatchedTokens = parts.some((p) =>
+    options.find((opt) => opt.toLowerCase() === p.trim().toLowerCase())
+  );
+
+  if (!hasMatchedTokens) {
+    return (
+      <div className="text-base sm:text-lg font-medium text-foreground leading-relaxed">
+        <FormattedText text={sentence} />
+      </div>
+    );
+  }
 
   return (
-    <p className="text-lg font-medium text-foreground leading-loose">
+    <p className="text-base sm:text-lg font-medium text-foreground leading-loose">
       {parts.map((part, i) => {
         const trimmed = part.trim();
         const matchedOption = options.find((opt) => opt.toLowerCase() === trimmed.toLowerCase());
@@ -183,13 +251,13 @@ function ErrorCorrectionSentence({
           (isGrammarAnswerCorrect(selected, matchedOption, options) ||
             selected.toLowerCase() === matchedOption.toLowerCase());
 
-        let cn = 'inline-block mx-0.5 px-2 py-0.5 border transition-colors rounded-none ';
+        let cn = 'inline-block mx-0.5 px-2.5 py-1 border transition-colors rounded-none font-mono text-sm sm:text-base min-h-[36px] ';
         if (selected) {
-          if (isCorrect) cn += 'bg-emerald-500/10 border-emerald-500 text-emerald-700 dark:text-emerald-400 font-semibold ';
-          else if (isSel) cn += 'bg-red-500/10 border-red-500 text-red-700 dark:text-red-400 line-through ';
+          if (isCorrect) cn += 'bg-emerald-500/10 border-emerald-500 text-emerald-800 dark:text-emerald-300 font-semibold ';
+          else if (isSel) cn += 'bg-rose-500/10 border-rose-500 text-rose-800 dark:text-rose-300 line-through ';
           else cn += 'opacity-40 border-transparent ';
         } else {
-          cn += 'border-dashed border-border hover:bg-muted/80 hover:border-foreground cursor-pointer ';
+          cn += 'border-dashed border-border hover:bg-muted hover:border-foreground cursor-pointer ';
         }
 
         return (
@@ -308,7 +376,9 @@ function PracticeHubContent() {
   const isReviewMode =
     searchParams.get('mode') === 'review' ||
     searchParams.get('reviewMode') === '1' ||
-    searchParams.get('review') === '1';
+    searchParams.get('reviewMode') === 'true' ||
+    searchParams.get('review') === '1' ||
+    searchParams.get('review') === 'true';
   const roadmapStepId = searchParams.get('roadmapStep');
 
   // Topic metadata if available
@@ -585,6 +655,18 @@ function PracticeHubContent() {
     startSession(rawExercises.current);
   };
 
+  const handleRetryCurrentQuestion = () => {
+    if (!current) return;
+    setScore((prev) => ({
+      ...prev,
+      wrong: Math.max(0, prev.wrong - 1),
+    }));
+    setSelected(null);
+    setTypedAnswer('');
+    setShowExplanation(false);
+    answering.current = false;
+  };
+
   const handleSelectOption = (opt: string) => {
     if (!current || selected || answering.current) return;
     answering.current = true;
@@ -646,6 +728,52 @@ function PracticeHubContent() {
       }
     }
   };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement | null;
+      const isInputActive =
+        target &&
+        (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') &&
+        !(target as HTMLInputElement).disabled;
+
+      if (isInputActive) return;
+
+      // 1. Enter key: advance question if an option has been chosen
+      if (e.key === 'Enter') {
+        if (!selected || done) return;
+        e.preventDefault();
+        handleNext();
+        return;
+      }
+
+      // 2. Letter (A-D) or Number (1-4) keys: quick option selection for multiple choice
+      if (
+        !selected &&
+        !done &&
+        current &&
+        current.type !== 'fill_blank' &&
+        current.type !== 'categorization' &&
+        current.options &&
+        current.options.length > 0
+      ) {
+        const key = e.key.toUpperCase();
+        let optIndex = -1;
+        if (['A', 'B', 'C', 'D'].includes(key)) {
+          optIndex = key.charCodeAt(0) - 65;
+        } else if (['1', '2', '3', '4'].includes(key)) {
+          optIndex = parseInt(key, 10) - 1;
+        }
+
+        if (optIndex >= 0 && optIndex < current.options.length) {
+          e.preventDefault();
+          handleSelectOption(current.options[optIndex]);
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selected, done, qIndex, exercises.length, current]);
 
   // Loading State
   if (isLoading) {
@@ -751,41 +879,68 @@ function PracticeHubContent() {
       {/* Main Question Container */}
       <div className="flex-1 max-w-3xl w-full mx-auto p-4 sm:p-6 flex flex-col justify-between">
         <div className="flex flex-col gap-6">
-          {/* Question Box */}
-          <div className="border border-border p-6 bg-card rounded-none">
-            <div className="flex items-center justify-between mb-4">
-              <span className="font-mono text-xs uppercase px-2 py-0.5 border border-border text-muted-foreground">
-                {current.type === 'fill_blank'
-                  ? 'Điền khuyết'
-                  : current.type === 'error_correction'
-                  ? 'Tìm lỗi sai'
-                  : 'Trắc nghiệm'}
-              </span>
-              {current.level && (
-                <span className="font-mono text-xs uppercase text-muted-foreground">
-                  Cấp độ: {current.level}
+          {/* Question Box (hidden for categorization as CategorizationPractice has its own dedicated header) */}
+          {current.type !== 'categorization' && (
+            <div className="border border-border p-6 bg-card rounded-none">
+              <div className="flex items-center justify-between mb-4">
+                <span className="font-mono text-xs uppercase px-2 py-0.5 border border-border text-muted-foreground">
+                  {current.type === 'fill_blank'
+                    ? 'Điền khuyết'
+                    : current.type === 'error_correction'
+                    ? 'Tìm lỗi sai'
+                    : 'Trắc nghiệm'}
                 </span>
+                {current.level && (
+                  <span className="font-mono text-xs uppercase text-muted-foreground">
+                    Cấp độ: {current.level}
+                  </span>
+                )}
+              </div>
+
+              {/* Error correction or text prompt */}
+              {current.type === 'error_correction' && current.options && current.options.length > 0 ? (
+                <ErrorCorrectionSentence
+                  sentence={current.question}
+                  options={current.options}
+                  selected={selected}
+                  correctAnswer={String(current.correct_answer)}
+                  onSelect={handleSelectOption}
+                />
+              ) : (
+                <div className="text-lg font-serif font-medium leading-relaxed">
+                  {renderRichText(current.question)}
+                </div>
               )}
             </div>
+          )}
 
-            {/* Error correction or text prompt */}
-            {current.type === 'error_correction' && current.options && current.options.length > 0 ? (
-              <ErrorCorrectionSentence
-                sentence={current.question}
-                options={current.options}
-                selected={selected}
-                correctAnswer={String(current.correct_answer)}
-                onSelect={handleSelectOption}
-              />
-            ) : (
-              <div className="text-lg font-serif font-medium leading-relaxed">
-                {renderRichText(current.question)}
-              </div>
-            )}
-          </div>
-
-          {/* Options / Input Form */}
-          {current.type === 'fill_blank' ? (
+          {/* Options / Input Form / Categorization */}
+          {current.type === 'categorization' && current.categories && current.categories.length > 0 ? (
+            <CategorizationPractice
+              exercise={{
+                id: current.id,
+                question: current.question,
+                type: 'categorization',
+                categories: current.categories,
+                explanation: current.explanation || '',
+                correct_answer: current.correct_answer || '',
+                difficulty: 'medium',
+              }}
+              nextButtonLabel={qIndex + 1 === exercises.length ? 'Xem kết quả' : 'Câu tiếp theo'}
+              onNextQuestion={handleNext}
+              onRetry={handleRetryCurrentQuestion}
+              onComplete={(correctCount, totalCount) => {
+                if (selected) return;
+                const isAllCorrect = correctCount === totalCount && totalCount > 0;
+                setSelected(isAllCorrect ? 'correct' : 'incorrect');
+                setScore((prev) => ({
+                  correct: prev.correct + (isAllCorrect ? 1 : 0),
+                  wrong: prev.wrong + (isAllCorrect ? 0 : 1),
+                }));
+                setShowExplanation(true);
+              }}
+            />
+          ) : current.type === 'fill_blank' ? (
             <form onSubmit={handleFillSubmit} className="flex flex-col gap-3">
               <div className="flex gap-2">
                 <input
@@ -812,7 +967,7 @@ function PracticeHubContent() {
                 const isSelected = selected === opt;
 
                 let optClass =
-                  'w-full text-left p-4 border rounded-none transition-colors flex items-center justify-between gap-4 font-mono text-sm ';
+                  'w-full text-left p-4 border rounded-none transition-colors flex items-start justify-between gap-4 font-mono text-sm ';
 
                 if (selected) {
                   if (isCorrect) {
@@ -834,17 +989,19 @@ function PracticeHubContent() {
                     className={optClass}
                     type="button"
                   >
-                    <div className="flex items-center gap-3">
-                      <span className="text-xs text-muted-foreground uppercase">
+                    <div className="flex items-start gap-3 flex-1 text-left">
+                      <span className="text-xs text-muted-foreground uppercase pt-0.5 shrink-0 font-bold">
                         {String.fromCharCode(65 + idx)}.
                       </span>
-                      <span>{opt}</span>
+                      <span className="flex-1 text-left leading-relaxed">
+                        <FormattedText text={opt} />
+                      </span>
                     </div>
                     {selected && isCorrect && (
-                      <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                      <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                     )}
                     {selected && isSelected && !isCorrect && (
-                      <XCircle className="h-4 w-4 text-red-600 dark:text-red-400 shrink-0" />
+                      <XCircle className="h-4 w-4 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
                     )}
                   </button>
                 );
@@ -852,42 +1009,23 @@ function PracticeHubContent() {
             </div>
           )}
 
-          {/* Explanation Panel */}
-          {showExplanation && (
-            <div
-              className={`border p-5 rounded-none ${
-                isCurrentCorrect
-                  ? 'border-emerald-500/40 bg-emerald-500/5'
-                  : 'border-red-500/40 bg-red-500/5'
-              }`}
-            >
-              <div className="flex items-center gap-2 mb-2 font-mono text-xs uppercase font-semibold">
-                {isCurrentCorrect ? (
-                  <span className="text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
-                    <CheckCircle2 className="h-4 w-4" /> Chính xác
-                  </span>
-                ) : (
-                  <span className="text-red-600 dark:text-red-400 flex items-center gap-1.5">
-                    <XCircle className="h-4 w-4" /> Chưa chính xác (Đáp án đúng: {String(current.correct_answer)})
-                  </span>
-                )}
-              </div>
-
-              {current.explanation && (
-                <div className="text-sm text-foreground/90 leading-relaxed font-sans mt-2 pt-2 border-t border-border/40">
-                  <div className="flex items-center gap-1.5 font-mono text-xs text-muted-foreground uppercase mb-1">
-                    <Lightbulb className="h-3.5 w-3.5 text-amber-500" />
-                    Giải thích:
-                  </div>
-                  <p>{current.explanation}</p>
-                </div>
-              )}
-            </div>
+          {/* Pedagogical Feedback Panel (for MCQ, Fill-in-blank, Error correction) */}
+          {showExplanation && current.type !== 'categorization' && (
+            <PedagogicalFeedbackPanel
+              isCorrect={isCurrentCorrect}
+              selectedOption={selected || ''}
+              correctAnswer={String(current.correct_answer)}
+              explanation={current.explanation}
+              distractorBreakdowns={current.distractor_breakdowns}
+              nextButtonLabel={qIndex + 1 === exercises.length ? 'Xem kết quả' : 'Câu tiếp theo'}
+              onNextQuestion={handleNext}
+              onRetry={!isCurrentCorrect ? handleRetryCurrentQuestion : undefined}
+            />
           )}
         </div>
 
-        {/* Footer Next Button */}
-        {selected && (
+        {/* Footer Next Button (fallback if feedback panel is hidden and not categorization) */}
+        {selected && !showExplanation && current.type !== 'categorization' && (
           <div className="mt-8 pt-4 border-t border-border flex justify-end">
             <button
               onClick={handleNext}

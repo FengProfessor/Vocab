@@ -11,6 +11,7 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import type { UnifiedGrammarExercise, DistractorBreakdown } from '@/lib/grammar-types';
+import FormattedText from './FormattedText';
 
 export interface DistractorExplanation {
   option: string;
@@ -36,6 +37,7 @@ export interface PedagogicalFeedbackPanelProps {
   explanation?: string | DeepPedagogicalExplanationObj;
   distractorBreakdowns?: (DistractorBreakdown | DistractorExplanation)[];
   vietnameseContext?: string;
+  nextButtonLabel?: string;
   onNextQuestion?: () => void;
   onRetry?: () => void;
 }
@@ -49,11 +51,10 @@ export default function PedagogicalFeedbackPanel({
   explanation: rawExplanation,
   distractorBreakdowns: rawBreakdowns,
   vietnameseContext,
+  nextButtonLabel,
   onNextQuestion,
   onRetry,
 }: PedagogicalFeedbackPanelProps) {
-  const [activeTab, setActiveTab] = useState<'distractors' | 'core_rule' | 'context'>('distractors');
-
   // Resolve user's chosen option
   const selectedChoice = (rawSelectedOption || rawSelectedAnswer || '').trim();
 
@@ -134,6 +135,14 @@ export default function PedagogicalFeedbackPanel({
     };
   }, [exercise, rawExplanation, rawBreakdowns, vietnameseContext]);
 
+  const [activeTab, setActiveTab] = useState<'distractors' | 'core_rule' | 'context'>(() =>
+    distractorList.length > 0 ? 'distractors' : 'core_rule'
+  );
+
+  React.useEffect(() => {
+    setActiveTab(distractorList.length > 0 ? 'distractors' : 'core_rule');
+  }, [distractorList.length]);
+
   // Find specific distractor breakdown for the selected incorrect answer
   const matchedSelectedDistractor = React.useMemo(() => {
     if (isCorrect || !selectedChoice) return null;
@@ -148,13 +157,13 @@ export default function PedagogicalFeedbackPanel({
   }, [isCorrect, selectedChoice, distractorList]);
 
   return (
-    <div className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-none overflow-hidden my-5">
+    <div className="border border-border bg-card rounded-none overflow-hidden my-5">
       {/* Top Banner Status */}
       <div
         className={`p-3.5 flex flex-wrap items-center justify-between border-b gap-2 ${
           isCorrect
-            ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-900 dark:text-emerald-200'
-            : 'bg-rose-500/10 border-rose-500/30 text-rose-900 dark:text-rose-200'
+            ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-800 dark:text-emerald-300'
+            : 'bg-rose-500/10 border-rose-500/30 text-rose-800 dark:text-rose-300'
         }`}
       >
         <div className="flex items-center gap-2 font-mono text-xs uppercase font-bold tracking-wider">
@@ -163,20 +172,20 @@ export default function PedagogicalFeedbackPanel({
           ) : (
             <XCircle className="h-4 w-4 text-rose-600 dark:text-rose-400 shrink-0" />
           )}
-          <span>{isCorrect ? 'CHÍNH XÁC — ĐẠT ĐIỂM CHUYÊN ĐỀ' : 'CHƯA CHÍNH XÁC'}</span>
+          <span>{isCorrect ? 'CHÍNH XÁC' : 'CHƯA CHÍNH XÁC'}</span>
         </div>
 
         <div className="font-mono text-xs flex items-center gap-1.5">
-          <span className="text-slate-500 dark:text-slate-400">ĐÁP ÁN ĐÚNG:</span>
-          <strong className="underline underline-offset-2 px-1.5 py-0.5 bg-white/60 dark:bg-slate-900/60 border border-slate-300 dark:border-slate-700">
-            {resolvedCorrectAnswer}
+          <span className="text-muted-foreground">ĐÁP ÁN ĐÚNG:</span>
+          <strong className="underline underline-offset-2 px-1.5 py-0.5 bg-background border border-border">
+            <FormattedText text={resolvedCorrectAnswer} />
           </strong>
         </div>
       </div>
 
       {/* Prominent Distractor Breakdown Alert for Incorrect Submissions */}
       {!isCorrect && selectedChoice && (
-        <div className="border-b border-rose-200 dark:border-rose-900/50 bg-rose-50/60 dark:bg-rose-950/20 p-4 space-y-2">
+        <div className="border-b border-rose-500/20 bg-rose-500/5 p-4 space-y-2">
           <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-rose-700 dark:text-rose-400">
             <AlertTriangle className="h-4 w-4 shrink-0" />
             <span>
@@ -184,15 +193,20 @@ export default function PedagogicalFeedbackPanel({
             </span>
           </div>
 
-          <p className="text-xs text-rose-900 dark:text-rose-200 leading-relaxed font-sans pl-6">
-            {matchedSelectedDistractor?.whyWrong ||
-              matchedSelectedDistractor?.pedagogicalReason ||
-              `Phương án "${selectedChoice}" không phù hợp với cấu trúc ngữ pháp của câu này. Xem giải thích chi tiết bên dưới.`}
-          </p>
+          <div className="text-xs text-foreground/90 leading-relaxed font-sans pl-6">
+            <FormattedText
+              text={
+                matchedSelectedDistractor?.whyWrong ||
+                matchedSelectedDistractor?.pedagogicalReason ||
+                masterExplanation ||
+                `Phương án "${selectedChoice}" không phù hợp với cấu trúc ngữ pháp của câu này.`
+              }
+            />
+          </div>
 
           {matchedSelectedDistractor?.trapType && (
             <div className="pl-6 pt-1">
-              <span className="font-mono text-[10px] uppercase font-semibold text-rose-800 dark:text-rose-300 bg-rose-200/50 dark:bg-rose-900/40 px-2 py-0.5 border border-rose-300 dark:border-rose-800">
+              <span className="font-mono text-[10px] uppercase font-semibold text-rose-800 dark:text-rose-300 bg-rose-500/10 px-2 py-0.5 border border-rose-500/30">
                 LỖI HAY GẶP: {matchedSelectedDistractor.trapType}
               </span>
             </div>
@@ -201,41 +215,43 @@ export default function PedagogicalFeedbackPanel({
       )}
 
       {/* Navigation Tabs */}
-      <div className="flex border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 font-mono text-xs">
-        <button
-          type="button"
-          onClick={() => setActiveTab('distractors')}
-          className={`px-4 py-2.5 font-semibold uppercase border-r border-slate-200 dark:border-slate-800 flex items-center gap-1.5 transition-colors rounded-none ${
-            activeTab === 'distractors'
-              ? 'bg-white dark:bg-slate-900 text-primary border-b-2 border-b-primary -mb-px'
-              : 'text-slate-500 hover:text-slate-900 dark:hover:text-slate-200'
-          }`}
-        >
-          <Layers className="h-3.5 w-3.5" />
-          Giải thích từng đáp án ({distractorList.length})
-        </button>
+      <div className="flex border-b border-border bg-muted/20 font-mono text-xs overflow-x-auto scrollbar-none">
+        {distractorList.length > 0 && (
+          <button
+            type="button"
+            onClick={() => setActiveTab('distractors')}
+            className={`px-4 py-2.5 font-semibold uppercase border-r border-border flex items-center gap-1.5 transition-colors rounded-none whitespace-nowrap shrink-0 ${
+              activeTab === 'distractors'
+                ? 'bg-card text-primary border-b-2 border-b-primary -mb-px'
+                : 'text-muted-foreground hover:text-foreground'
+            }`}
+          >
+            <Layers className="h-3.5 w-3.5" />
+            Giải thích từng đáp án ({distractorList.length})
+          </button>
+        )}
 
         <button
           type="button"
           onClick={() => setActiveTab('core_rule')}
-          className={`px-4 py-2.5 font-semibold uppercase border-r border-slate-200 dark:border-slate-800 flex items-center gap-1.5 transition-colors rounded-none ${
+          className={`px-4 py-2.5 font-semibold uppercase border-r border-border flex items-center gap-1.5 transition-colors rounded-none whitespace-nowrap shrink-0 ${
             activeTab === 'core_rule'
-              ? 'bg-white dark:bg-slate-900 text-primary border-b-2 border-b-primary -mb-px'
-              : 'text-slate-500 hover:text-slate-900 dark:hover:text-slate-200'
+              ? 'bg-card text-primary border-b-2 border-b-primary -mb-px'
+              : 'text-muted-foreground hover:text-foreground'
           }`}
         >
           <BookOpen className="h-3.5 w-3.5" />
-          Quy tắc cốt lõi
+          {distractorList.length > 0 ? 'Quy tắc cốt lõi' : 'Giải thích quy tắc'}
         </button>
 
         {vietnameseNote && (
           <button
             type="button"
             onClick={() => setActiveTab('context')}
-            className={`px-4 py-2.5 font-semibold uppercase flex items-center gap-1.5 transition-colors rounded-none ${
+            className={`px-4 py-2.5 font-semibold uppercase flex items-center gap-1.5 transition-colors rounded-none whitespace-nowrap shrink-0 ${
               activeTab === 'context'
-                ? 'bg-white dark:bg-slate-900 text-primary border-b-2 border-b-primary -mb-px'
-                : 'text-slate-500 hover:text-slate-900 dark:hover:text-slate-200'
+                ? 'bg-card text-primary border-b-2 border-b-primary -mb-px'
+                : 'text-muted-foreground hover:text-foreground'
             }`}
           >
             <Lightbulb className="h-3.5 w-3.5" />
@@ -245,16 +261,16 @@ export default function PedagogicalFeedbackPanel({
       </div>
 
       {/* Tab Panels */}
-      <div className="p-4 sm:p-5 text-sm leading-relaxed text-slate-800 dark:text-slate-200 font-sans">
+      <div className="p-4 sm:p-5 text-sm leading-relaxed text-foreground font-sans">
         {/* Tab 1: Distractor Breakdown */}
         {activeTab === 'distractors' && (
           <div className="space-y-3">
-            <div className="flex items-center justify-between font-mono text-xs text-slate-500 mb-1">
+            <div className="flex items-center justify-between font-mono text-xs text-muted-foreground mb-1">
               <span>GIẢI THÍCH CHI TIẾT TỪNG PHƯƠNG ÁN:</span>
             </div>
 
             {distractorList.length > 0 ? (
-              <div className="divide-y divide-slate-200 dark:divide-slate-800 border border-slate-200 dark:border-slate-800">
+              <div className="divide-y divide-border border border-border">
                 {distractorList.map((dist, idx) => {
                   const isThisOptionCorrect =
                     dist.isCorrect !== undefined
@@ -267,20 +283,20 @@ export default function PedagogicalFeedbackPanel({
                   return (
                     <div
                       key={idx}
-                      className={`p-3 text-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 ${
+                      className={`p-3 text-xs flex flex-col sm:flex-row items-start justify-between gap-3 ${
                         isSelectedByLearner
-                          ? 'bg-slate-50/80 dark:bg-slate-950/80'
-                          : 'bg-white dark:bg-slate-900'
+                          ? 'bg-muted/30'
+                          : 'bg-card'
                       }`}
                     >
-                      <div className="flex items-center gap-2.5 shrink-0">
+                      <div className="flex items-center gap-2.5 shrink-0 pt-0.5">
                         <span
                           className={`px-2.5 py-1 font-mono font-bold rounded-none border ${
                             isThisOptionCorrect
                               ? 'bg-emerald-500/10 border-emerald-500 text-emerald-800 dark:text-emerald-300'
                               : isSelectedByLearner
                               ? 'bg-rose-500/10 border-rose-500 text-rose-800 dark:text-rose-300'
-                              : 'bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300'
+                              : 'bg-muted/40 border-border text-foreground'
                           }`}
                         >
                           {dist.option}
@@ -290,25 +306,29 @@ export default function PedagogicalFeedbackPanel({
                           className={`font-mono text-[11px] font-semibold ${
                             isThisOptionCorrect
                               ? 'text-emerald-700 dark:text-emerald-400'
-                              : 'text-slate-500'
+                              : 'text-muted-foreground'
                           }`}
                         >
                           {isThisOptionCorrect ? '✓ ĐÚNG' : '✕ LOẠI TRỪ'}
                         </span>
                       </div>
 
-                      <p className="text-slate-700 dark:text-slate-300 sm:text-right flex-1 sm:pl-4 font-sans text-xs">
-                        {isThisOptionCorrect
-                          ? dist.pedagogicalReason || masterExplanation
-                          : dist.whyWrong || dist.pedagogicalReason || 'Phương án không phù hợp với cấu trúc ngữ pháp.'}
-                      </p>
+                      <div className="text-foreground/90 text-left flex-1 sm:pl-4 font-sans text-xs leading-relaxed">
+                        <FormattedText
+                          text={
+                            isThisOptionCorrect
+                              ? dist.pedagogicalReason || masterExplanation
+                              : dist.whyWrong || dist.pedagogicalReason || 'Phương án không phù hợp với cấu trúc ngữ pháp.'
+                          }
+                        />
+                      </div>
                     </div>
                   );
                 })}
               </div>
             ) : (
-              <div className="p-3.5 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs">
-                <p className="text-slate-700 dark:text-slate-300">{masterExplanation}</p>
+              <div className="p-3.5 bg-muted/20 border border-border text-xs text-foreground/90">
+                <FormattedText text={masterExplanation} />
               </div>
             )}
           </div>
@@ -318,21 +338,21 @@ export default function PedagogicalFeedbackPanel({
         {activeTab === 'core_rule' && (
           <div className="space-y-3">
             {coreRule && (
-              <div className="p-3 bg-slate-50 dark:bg-slate-950 border-l-2 border-primary border-y border-r border-slate-200 dark:border-slate-800 font-mono text-xs text-slate-900 dark:text-slate-100">
+              <div className="p-3 bg-muted/20 border-l-2 border-primary border-y border-r border-border font-mono text-xs text-foreground">
                 <span className="text-[10px] uppercase font-bold text-primary block mb-1">
                   Công thức & Cấu trúc nền tảng:
                 </span>
-                {coreRule}
+                <FormattedText text={coreRule} />
               </div>
             )}
 
             <div className="space-y-1.5">
-              <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-slate-500 block">
-                Giải thích nguyên lý sư phạm:
+              <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-muted-foreground block">
+                Quy tắc ngữ pháp:
               </span>
-              <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-sans">
-                {masterExplanation}
-              </p>
+              <div className="text-xs sm:text-sm text-foreground/90 leading-relaxed font-sans">
+                <FormattedText text={masterExplanation} />
+              </div>
             </div>
           </div>
         )}
@@ -340,24 +360,24 @@ export default function PedagogicalFeedbackPanel({
         {/* Tab 3: Context & Translation */}
         {activeTab === 'context' && vietnameseNote && (
           <div className="space-y-2">
-            <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-slate-500 block">
+            <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-muted-foreground block">
               Bản dịch và sắc thái giao tiếp:
             </span>
-            <p className="text-xs sm:text-sm italic text-slate-700 dark:text-slate-300 leading-relaxed bg-slate-50 dark:bg-slate-950 p-3 border border-slate-200 dark:border-slate-800">
-              {vietnameseNote}
-            </p>
+            <div className="text-xs sm:text-sm italic text-foreground/90 leading-relaxed bg-muted/20 p-3 border border-border">
+              <FormattedText text={vietnameseNote} />
+            </div>
           </div>
         )}
       </div>
 
       {/* Action Footer */}
       {(onNextQuestion || onRetry) && (
-        <div className="flex items-center justify-end gap-2 p-3 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
+        <div className="flex items-center justify-end gap-2 p-3 bg-muted/20 border-t border-border">
           {onRetry && !isCorrect && (
             <button
               type="button"
               onClick={onRetry}
-              className="px-4 py-2 border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-mono text-xs uppercase font-semibold rounded-none hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              className="px-4 py-2 border border-border text-foreground font-mono text-xs uppercase font-semibold rounded-none hover:bg-muted transition-colors"
             >
               Làm lại câu này
             </button>
@@ -367,9 +387,9 @@ export default function PedagogicalFeedbackPanel({
             <button
               type="button"
               onClick={onNextQuestion}
-              className="px-5 py-2 bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-mono text-xs uppercase font-semibold rounded-none hover:opacity-90 transition-opacity flex items-center gap-1.5"
+              className="px-5 py-2 bg-primary text-primary-foreground font-mono text-xs uppercase font-semibold rounded-none hover:bg-primary/90 transition-opacity flex items-center gap-1.5"
             >
-              <span>Câu tiếp theo</span>
+              <span>{nextButtonLabel || 'Câu tiếp theo'}</span>
               <ArrowRight className="h-3.5 w-3.5" />
             </button>
           )}

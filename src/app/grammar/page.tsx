@@ -12,11 +12,12 @@ import {
   RotateCcw,
   X,
   ChevronRight,
-  Sparkles,
   Info,
   Loader2,
-  ExternalLink,
   PlayCircle,
+  Lightbulb,
+  AlertTriangle,
+  ArrowLeftRight,
 } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import type { CefrLevel } from '@/lib/grammar-types';
@@ -24,10 +25,9 @@ import {
   UNIFIED_GRAMMAR_TOPICS,
   GRAMMAR_STAGES,
   getTopicBySlug,
-  type GrammarRoadmapTopic,
 } from '@/lib/grammar-roadmap-data';
 import VettedMediaCard from '@/components/grammar/VettedMediaCard';
-import GrammarReferenceTable from '@/components/grammar/GrammarReferenceTable';
+import GrammarReferenceTable, { type GrammarTheoryData, type FormulaRow } from '@/components/grammar/GrammarReferenceTable';
 import GrammarVideoPlayer from '@/components/grammar/GrammarVideoPlayer';
 import FormattedText from '@/components/grammar/FormattedText';
 import topicAssetsData from '@/data/grammar-topic-assets.json';
@@ -39,7 +39,19 @@ interface TopicProgress {
   accuracy: number;
 }
 
-interface TheoryData {
+interface TopicAssetItem {
+  image?: string;
+  imageAlt?: string;
+  caption?: string;
+  usageAnalysisVi?: {
+    rule?: string;
+    contextReason?: string;
+    commonMistake?: string;
+  };
+  audio?: string;
+}
+
+interface TheoryData extends GrammarTheoryData {
   slug?: string;
   title?: string;
   title_vi?: string;
@@ -47,16 +59,17 @@ interface TheoryData {
   definition?: string;
   usage?: { label: string; en: string; vi: string }[];
   formula?: {
-    rows: any[];
+    rows: FormulaRow[];
     note?: string;
   };
-  rules?: { case: string; rule: string; example: string }[];
+  rules?: Array<{ case?: string; rule?: string; example?: string; [key: string]: unknown }>;
   signals?: string[];
-  mistakes?: { wrong: string; right: string; why: string }[];
-  bilingual_examples?: { en: string; vi: string; note?: string; annotations?: any[] }[];
+  mistakes?: Array<{ wrong: string; right: string; why: string; [key: string]: unknown }>;
+  bilingual_examples?: Array<{ en?: string; vi?: string; note?: string; annotations?: Array<{ word: string; start: number; end: number; role: string }> }>;
   tips?: string;
   comparison?: string;
-  timeline?: any;
+  timeline?: Record<string, unknown> | null;
+  [key: string]: unknown;
 }
 
 function GrammarRoadmapContent() {
@@ -68,9 +81,13 @@ function GrammarRoadmapContent() {
   const initialTopic = searchParams.get('topic');
   const initialSearch = searchParams.get('search') || '';
 
-  // Transparent redirect for legacy drill params (?review=1, ?lesson=..., ?class=...)
+  // Transparent redirect for legacy drill params (?review=1, ?review=true, ?mode=review, ?lesson=..., ?class=...)
   useEffect(() => {
-    const isReview = searchParams.get('review') === '1' || searchParams.get('reviewMode') === '1';
+    const isReview =
+      searchParams.get('review') === '1' ||
+      searchParams.get('review') === 'true' ||
+      searchParams.get('reviewMode') === '1' ||
+      searchParams.get('mode') === 'review';
     const classroomId = searchParams.get('class') || searchParams.get('classroomId');
     const lessonId = searchParams.get('lesson') || searchParams.get('lessonId');
 
@@ -91,7 +108,7 @@ function GrammarRoadmapContent() {
   const [theoryTab, setTheoryTab] = useState<'theory' | 'table' | 'video' | 'examples' | 'media'>('theory');
 
   // User progress
-  const [userId, setUserId] = useState<string | null>(null);
+  const [_userId, setUserId] = useState<string | null>(null);
   const [progressMap, setProgressMap] = useState<Record<string, TopicProgress>>({});
 
   useEffect(() => {
@@ -376,8 +393,8 @@ function GrammarRoadmapContent() {
                     </div>
 
                     {/* Card Actions */}
-                    <div className="pt-3 border-t border-border/40 flex items-center justify-between gap-2">
-                      <div className="flex items-center gap-2">
+                    <div className="pt-3 border-t border-border/40 flex flex-wrap items-center justify-between gap-2">
+                      <div className="flex flex-wrap items-center gap-2">
                         <button
                           onClick={() => setSelectedTopicSlug(topic.slug)}
                           className="border border-border hover:border-foreground bg-background hover:bg-muted text-foreground px-3 py-1.5 font-mono text-xs uppercase tracking-wider font-semibold rounded-none flex items-center gap-1.5 transition-colors"
@@ -413,15 +430,15 @@ function GrammarRoadmapContent() {
 
       {/* Slide-over Theory Drawer / Modal */}
       {selectedTopicSlug && activeTopic && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-background/80 backdrop-blur-sm">
-          <div className="border border-border bg-card w-full max-w-4xl max-h-[85vh] rounded-none flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-background/80 backdrop-blur-sm">
+          <div className="border border-border bg-card w-full max-w-4xl max-h-[92vh] sm:max-h-[85vh] rounded-none flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
             {/* Drawer Header */}
             <div className="border-b border-border p-4 sm:p-6 flex items-start justify-between gap-4 bg-muted/10">
               <div>
                 <div className="flex items-center gap-2 font-mono text-xs uppercase text-muted-foreground mb-1">
                   <span>#{activeTopic.order < 10 ? '0' : ''}{activeTopic.order}</span>
                   <span>•</span>
-                  <span className="px-1.5 py-0.2 border border-border bg-muted/40 font-bold">
+                  <span className="px-1.5 py-0.5 border border-border bg-muted/40 font-bold">
                     {activeTopic.level}
                   </span>
                   <span>•</span>
@@ -443,7 +460,7 @@ function GrammarRoadmapContent() {
             </div>
 
             {/* Theory Tabs */}
-            <div className="border-b border-border flex bg-muted/20 px-4 sm:px-6 overflow-x-auto">
+            <div className="border-b border-border flex bg-muted/20 px-4 sm:px-6 overflow-x-auto scrollbar-none">
               <button
                 onClick={() => setTheoryTab('theory')}
                 className={`py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-b-2 transition-colors shrink-0 ${
@@ -493,7 +510,7 @@ function GrammarRoadmapContent() {
                     : 'border-transparent text-muted-foreground hover:text-foreground'
                 }`}
               >
-                Hình ảnh thực tế ({((topicAssetsData as Record<string, any[]>)[activeTopic.slug] || []).length})
+                Hình ảnh thực tế ({((topicAssetsData as Record<string, TopicAssetItem[]>)[activeTopic.slug] || []).length})
               </button>
             </div>
 
@@ -579,15 +596,70 @@ function GrammarRoadmapContent() {
                                   <FormattedText text={r.form} />
                                 </td>
                                 <td className="p-2.5 font-bold text-foreground">
-                                  <FormattedText text={r.structure || r.base} />
+                                  <FormattedText text={r.structure || r.base || (r['mạo_từ'] as string | undefined) || r.time || r.singular || r.rule || '—'} />
                                 </td>
-                                <td className="p-2.5 text-muted-foreground">
-                                  <FormattedText text={r.example} />
+                                <td className="p-2.5 text-muted-foreground font-sans">
+                                  <FormattedText text={r.example || theoryData.bilingual_examples?.[i]?.en || theoryData.bilingual_examples?.[0]?.en || '—'} />
                                 </td>
                               </tr>
                             ))}
                           </tbody>
                         </table>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Comparison / Distinction */}
+                  {theoryData?.comparison && (
+                    <div className="border border-border p-4 bg-muted/10 space-y-1.5">
+                      <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                        <ArrowLeftRight className="h-3.5 w-3.5 text-primary" />
+                        Đối chiếu & Phân biệt cấu trúc
+                      </div>
+                      <div className="text-foreground/90 leading-relaxed text-sm">
+                        <FormattedText text={theoryData.comparison} />
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Core Tips & Focus Notes */}
+                  {theoryData?.tips && (
+                    <div className="border border-border p-4 bg-muted/10 space-y-1.5">
+                      <div className="font-mono text-xs uppercase tracking-wider text-primary flex items-center gap-1.5">
+                        <Lightbulb className="h-3.5 w-3.5 text-amber-500" />
+                        Lưu ý trọng tâm
+                      </div>
+                      <div className="text-foreground/90 leading-relaxed text-sm">
+                        <FormattedText text={theoryData.tips} />
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Common Mistakes */}
+                  {theoryData?.mistakes && theoryData.mistakes.length > 0 && (
+                    <div className="space-y-2">
+                      <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+                        <AlertTriangle className="h-3.5 w-3.5 text-amber-500" />
+                        Lỗi sai thường gặp & Cách khắc phục
+                      </div>
+                      <div className="space-y-2">
+                        {theoryData.mistakes.map((m, i) => (
+                          <div key={i} className="border border-border p-3 bg-muted/10 space-y-1">
+                            <div className="flex items-center gap-2 font-mono text-xs text-red-600 dark:text-red-400">
+                              <span className="font-bold shrink-0">✕ SAI:</span>
+                              <span><FormattedText text={m.wrong} /></span>
+                            </div>
+                            <div className="flex items-center gap-2 font-mono text-xs text-emerald-600 dark:text-emerald-400">
+                              <span className="font-bold shrink-0">✓ ĐÚNG:</span>
+                              <span><FormattedText text={m.right} /></span>
+                            </div>
+                            {m.why && (
+                              <div className="text-xs text-muted-foreground pt-1 border-t border-border/40 font-sans">
+                                <FormattedText text={m.why} />
+                              </div>
+                            )}
+                          </div>
+                        ))}
                       </div>
                     </div>
                   )}
@@ -597,8 +669,8 @@ function GrammarRoadmapContent() {
                   <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground pb-2 border-b border-border/40">
                     <span>Hình ảnh & Tình huống thực tế</span>
                   </div>
-                  {((topicAssetsData as Record<string, any[]>)[activeTopic.slug] || []).length > 0 ? (
-                    ((topicAssetsData as Record<string, any[]>)[activeTopic.slug] || []).map((asset, i) => (
+                  {((topicAssetsData as Record<string, TopicAssetItem[]>)[activeTopic.slug] || []).length > 0 ? (
+                    ((topicAssetsData as Record<string, TopicAssetItem[]>)[activeTopic.slug] || []).map((asset, i) => (
                       <VettedMediaCard
                         key={i}
                         imageUrl={asset.image}
@@ -648,15 +720,15 @@ function GrammarRoadmapContent() {
             </div>
 
             {/* Drawer Footer CTA */}
-            <div className="border-t border-border p-4 bg-card flex items-center justify-between gap-3">
+            <div className="border-t border-border p-4 bg-card flex flex-wrap sm:flex-nowrap items-center justify-between gap-3">
               <button
                 onClick={() => setSelectedTopicSlug(null)}
-                className="border border-border px-4 py-2.5 font-mono text-xs uppercase tracking-wider font-semibold rounded-none hover:bg-muted text-muted-foreground hover:text-foreground"
+                className="border border-border px-4 py-2.5 font-mono text-xs uppercase tracking-wider font-semibold rounded-none hover:bg-muted text-muted-foreground hover:text-foreground shrink-0"
               >
                 Đóng
               </button>
-              <Link href={`/grammar/practice?topic=${encodeURIComponent(activeTopic.slug)}`}>
-                <button className="bg-primary text-primary-foreground border border-primary hover:bg-primary/90 px-6 py-2.5 font-mono text-xs uppercase tracking-wider font-semibold rounded-none flex items-center gap-2">
+              <Link href={`/grammar/practice?topic=${encodeURIComponent(activeTopic.slug)}`} className="w-full sm:w-auto">
+                <button className="w-full sm:w-auto bg-primary text-primary-foreground border border-primary hover:bg-primary/90 px-5 sm:px-6 py-2.5 font-mono text-xs uppercase tracking-wider font-semibold rounded-none flex items-center justify-center gap-2">
                   <span>Bắt đầu luyện tập</span>
                   <ChevronRight className="h-4 w-4" />
                 </button>

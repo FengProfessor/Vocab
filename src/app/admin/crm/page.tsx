@@ -8,6 +8,7 @@ import {
   ChevronLeft, Users, UserPlus, Crown, Activity, AlertTriangle,
   Search, Download, X, Mail, Calendar, BookOpen, Target,
   CreditCard, TrendingUp, Building2, Brain, RotateCcw,
+  RefreshCw, Zap, Clock,
 } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { formatVND } from '@/lib/billing';
@@ -55,6 +56,14 @@ interface CrmData {
     reviewedToday?: number;
     withDue?: number;
     neverReviewed?: number;
+  };
+  meta?: {
+    cached?: boolean;
+    cachedAt?: string;
+    tookMs?: number;
+    engine?: 'rpc' | 'rest_parallel';
+    stale?: boolean;
+    ageMs?: number;
   };
 }
 
@@ -121,8 +130,10 @@ export default function CrmDashboard() {
   const router = useRouter();
   const [data, setData] = useState<CrmData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isRefreshing, setIsRefreshing] = useState(false);
   const [error, setError] = useState('');
   const [query, setQuery] = useState('');
+  const [debouncedQuery, setDebouncedQuery] = useState('');
   const [planFilter, setPlanFilter] = useState('');
   const [lifeFilter, setLifeFilter] = useState<Lifecycle | ''>('');
   const [sourceFilter, setSourceFilter] = useState<Source | ''>('');
@@ -135,14 +146,27 @@ export default function CrmDashboard() {
   /** Progressive table: chỉ render TABLE_PAGE rows đầu, bấm "Xem thêm" để mở rộng */
   const [visibleCount, setVisibleCount] = useState(TABLE_PAGE);
 
-  const loadData = useCallback(async () => {
-    setIsLoading(true);
+  // Debounce tìm kiếm để tránh render lại bảng liên tục khi gõ phím
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedQuery(query);
+    }, 150);
+    return () => clearTimeout(timer);
+  }, [query]);
+
+  const loadData = useCallback(async (forceRefresh = false) => {
+    if (forceRefresh) {
+      setIsRefreshing(true);
+    } else {
+      setIsLoading(true);
+    }
     setError('');
     try {
       // getSession() → trả cả user + token, tránh gọi getUser() riêng + getSession() trong authFetch
       const { data: { session } } = await supabase.auth.getSession();
       if (!session?.user) { router.push('/auth'); return; }
-      const res = await fetch('/api/admin/crm', {
+      const url = forceRefresh ? '/api/admin/crm?refresh=1' : '/api/admin/crm';
+      const res = await fetch(url, {
         headers: { Authorization: `Bearer ${session.access_token}` },
       });
       const json = await res.json().catch(() => null);
@@ -164,6 +188,7 @@ export default function CrmDashboard() {
       setError(err instanceof Error ? err.message : 'Lỗi kết nối máy chủ.');
     } finally {
       setIsLoading(false);
+      setIsRefreshing(false);
     }
   }, [router]);
 
@@ -173,7 +198,7 @@ export default function CrmDashboard() {
 
   const filtered = useMemo(() => {
     if (!data) return [];
-    const q = query.trim().toLowerCase();
+    const q = debouncedQuery.trim().toLowerCase();
     const today = vnTodayKey();
     const yesterday = shiftDateKey(today, -1);
     const weekStart = shiftDateKey(today, -6); // 7 ngày lịch (hôm nay + 6 trước)
@@ -223,7 +248,7 @@ export default function CrmDashboard() {
     // Reset visible rows khi filter thay đổi
     setVisibleCount(TABLE_PAGE);
     return list;
-  }, [data, query, planFilter, lifeFilter, sourceFilter, upsellHot, reviewFilter, reviewDate]);
+  }, [data, debouncedQuery, planFilter, lifeFilter, sourceFilter, upsellHot, reviewFilter, reviewDate]);
 
   const clearFilters = useCallback(() => {
     setPlanFilter('');
@@ -256,12 +281,8 @@ export default function CrmDashboard() {
     URL.revokeObjectURL(url);
   }, [filtered]);
 
-  if (isLoading) {
-    return (
-      <div className="min-h-dvh flex items-center justify-center bg-muted/40">
-        <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin" />
-      </div>
-    );
+  if (isLoading && !data) {
+    return <CrmSkeleton />;
   }
   if (error) {
     const is403 = error.toLowerCase().includes('admin') || error.toLowerCase().includes('403');
@@ -281,7 +302,7 @@ export default function CrmDashboard() {
         </div>
         <div className="flex items-center gap-3 mt-2">
           <button
-            onClick={loadData}
+            onClick={() => { void loadData(); }}
             className="flex items-center gap-1.5 text-sm font-semibold bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-xl transition-colors shadow-sm"
           >
             <RotateCcw className="h-4 w-4" /> Thử lại
@@ -356,14 +377,34 @@ export default function CrmDashboard() {
 
   return (
     <div className="min-h-dvh bg-muted/40 font-sans">
-      <header className="sticky top-0 z-30 h-14 border-b bg-background/80 backdrop-blur px-4 sm:px-6 flex items-center gap-4">
+      <header className="sticky top-0 z-30 h-14 border-b bg-background/80 backdrop-blur px-4 sm:px-6 flex items-center gap-3 sm:gap-4">
         <Link href="/admin" className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
           <ChevronLeft className="h-4 w-4" /> Admin
         </Link>
         <div className="flex items-center gap-2 font-bold text-primary">
           <Users className="h-5 w-5" /> CRM Khách hàng
         </div>
+        {data?.meta && (
+          <div className="hidden md:flex items-center gap-1.5 text-xs text-muted-foreground bg-muted/60 border border-border/60 px-2.5 py-1 rounded-xl">
+            <Zap className="h-3.5 w-3.5 text-amber-500 shrink-0" />
+            <span className="font-mono text-[11px]">
+              {data.meta.cached
+                ? `Cache SWR (<5ms)`
+                : `${data.meta.engine === 'rpc' ? 'RPC' : 'Song song'} (${data.meta.tookMs}ms)`}
+            </span>
+          </div>
+        )}
         <div className="ml-auto flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => loadData(true)}
+            disabled={isRefreshing}
+            className="flex items-center gap-1.5 text-sm font-semibold bg-muted hover:bg-muted/80 text-foreground px-3 py-1.5 rounded-xl transition-colors border disabled:opacity-50"
+            title="Lấy dữ liệu mới nhất (bỏ qua cache)"
+          >
+            <RefreshCw className={`h-4 w-4 ${isRefreshing ? 'animate-spin text-primary' : 'text-muted-foreground'}`} />
+            <span className="hidden sm:inline">{isRefreshing ? 'Đang tải...' : 'Làm mới'}</span>
+          </button>
           <Link href="/admin/billing" className="flex items-center gap-1.5 text-sm font-semibold bg-primary/10 text-primary hover:bg-primary/20 px-3 py-1.5 rounded-xl transition-colors">
             <CreditCard className="h-4 w-4" /> Billing
           </Link>
@@ -686,3 +727,61 @@ function Row({ icon: Icon, label, value }: { icon: React.ElementType; label: str
     </div>
   );
 }
+
+function CrmSkeleton() {
+  return (
+    <div className="min-h-dvh bg-muted/40 font-sans animate-pulse">
+      <header className="sticky top-0 z-30 h-14 border-b bg-background/80 backdrop-blur px-4 sm:px-6 flex items-center gap-4">
+        <div className="h-4 w-16 bg-muted rounded-md" />
+        <div className="h-5 w-36 bg-muted rounded-md" />
+        <div className="ml-auto flex items-center gap-2">
+          <div className="h-8 w-20 bg-muted rounded-xl" />
+          <div className="h-8 w-20 bg-muted rounded-xl" />
+        </div>
+      </header>
+
+      <main className="max-w-7xl mx-auto p-4 sm:p-6 space-y-6">
+        {/* KPI Skeleton */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <div key={i} className="bg-background border rounded-2xl p-4 shadow-sm space-y-2">
+              <div className="w-9 h-9 rounded-xl bg-muted" />
+              <div className="h-6 w-16 bg-muted rounded" />
+              <div className="h-3 w-20 bg-muted/70 rounded" />
+            </div>
+          ))}
+        </div>
+
+        {/* Chart + Segment Skeletons */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2 bg-background border rounded-2xl shadow-sm p-6 space-y-4">
+            <div className="h-5 w-40 bg-muted rounded" />
+            <div className="h-[220px] bg-muted/30 rounded-xl" />
+          </div>
+          <div className="bg-background border rounded-2xl shadow-sm p-6 space-y-4">
+            <div className="h-5 w-28 bg-muted rounded" />
+            <div className="space-y-2">
+              <div className="h-8 bg-muted/30 rounded-lg" />
+              <div className="h-8 bg-muted/30 rounded-lg" />
+              <div className="h-8 bg-muted/30 rounded-lg" />
+            </div>
+          </div>
+        </div>
+
+        {/* Table Skeleton */}
+        <div className="bg-background border rounded-2xl shadow-sm overflow-hidden p-5 space-y-4">
+          <div className="flex items-center justify-between">
+            <div className="h-5 w-32 bg-muted rounded" />
+            <div className="h-9 w-48 bg-muted rounded-xl" />
+          </div>
+          <div className="space-y-3 pt-2">
+            {Array.from({ length: 7 }).map((_, i) => (
+              <div key={i} className="h-10 bg-muted/30 rounded-lg" />
+            ))}
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}
+

@@ -11,7 +11,6 @@ import {
   Library,
   Search,
   AlertTriangle,
-  Lightbulb,
   ArrowLeftRight,
   TrendingUp,
   Dumbbell,
@@ -448,7 +447,7 @@ export default function GoldenLesson({
       )}
 
       {s.tips && (
-        <Card tag="Lưu ý trọng tâm" icon={<Bookmark className="h-4 w-4" />} title="Quy tắc cốt lõi & Lưu ý sư phạm">
+        <Card tag="Lưu ý trọng tâm" icon={<Bookmark className="h-4 w-4" />} title="Quy tắc cốt lõi & Lưu ý trọng tâm">
           <div className="text-xs sm:text-sm text-foreground leading-relaxed">{md(s.tips)}</div>
         </Card>
       )}

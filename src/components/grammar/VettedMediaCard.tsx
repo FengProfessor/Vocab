@@ -6,7 +6,6 @@ import {
   Volume2,
   ChevronDown,
   ChevronUp,
-  Play,
   BookOpen,
   AlertCircle,
   Video,
@@ -52,8 +51,8 @@ export default function VettedMediaCard({
   exampleEn,
   exampleVi,
   audioUrl,
-  vettedBy = 'Hội đồng Học thuật LingoPro',
-  vettedDate = '2026-09-30',
+  vettedBy: _vettedBy = '',
+  vettedDate: _vettedDate = '2026-09-30',
   videoEmbedUrl,
   videoTitle,
   videoChapters,
@@ -70,8 +69,7 @@ export default function VettedMediaCard({
   const resolvedContextReason = media?.usageAnalysisVi?.contextReason || contextReason || '';
   const resolvedCommonMistake = media?.usageAnalysisVi?.commonMistake || commonMistake || '';
   const resolvedVideoEmbedUrl = media?.videoEmbedUrl || videoEmbedUrl || '';
-  const resolvedVideoTitle = media?.videoTitle || videoTitle || 'Video bài giảng thực chiến';
-  const resolvedVettedSource = media?.videoVettedSource || vettedBy;
+  const resolvedVideoTitle = media?.videoTitle || videoTitle || 'Video bài giảng ngữ pháp';
 
   const handlePlayAudio = () => {
     if (audioUrl) {
@@ -97,11 +95,11 @@ export default function VettedMediaCard({
   };
 
   return (
-    <div className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-none my-6 overflow-hidden">
+    <div className="border border-border bg-card rounded-none my-6 overflow-hidden">
       {/* Main Visual & Situational Section */}
-      <div className="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-slate-200 dark:divide-slate-800">
+      <div className="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-border">
         {/* Visual Asset Container (Left Pane - 5 cols) */}
-        <div className="md:col-span-5 bg-slate-100 dark:bg-slate-950 flex flex-col items-center justify-center p-4 relative min-h-[220px]">
+        <div className="md:col-span-5 bg-muted/20 flex flex-col items-center justify-center p-4 relative min-h-[220px]">
           {resolvedImageUrl ? (
             <div className="relative w-full h-44 sm:h-52 flex items-center justify-center">
               <Image
@@ -114,7 +112,7 @@ export default function VettedMediaCard({
               />
             </div>
           ) : (
-            <div className="flex flex-col items-center justify-center text-slate-400 py-10 font-mono text-xs">
+            <div className="flex flex-col items-center justify-center text-muted-foreground py-10 font-mono text-xs">
               <BookOpen className="h-8 w-8 mb-2 opacity-40" />
               <span>Chưa có tư liệu hình ảnh</span>
             </div>
@@ -131,22 +129,22 @@ export default function VettedMediaCard({
             )}
 
             {resolvedCaption && (
-              <p className="text-sm font-medium text-slate-800 dark:text-slate-200 leading-snug">
+              <p className="text-sm font-medium text-foreground leading-snug">
                 <FormattedText text={resolvedCaption} />
               </p>
             )}
 
             {/* Example sentence with native audio */}
             {(exampleEn || exampleVi) && (
-              <div className="border border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-950/60 p-3 rounded-none flex items-start justify-between gap-3">
+              <div className="border border-border bg-muted/20 p-3 rounded-none flex items-start justify-between gap-3">
                 <div className="space-y-0.5">
                   {exampleEn && (
-                    <p className="text-sm font-semibold text-slate-900 dark:text-slate-100 font-sans">
+                    <p className="text-sm font-semibold text-foreground font-sans">
                       <FormattedText text={exampleEn} />
                     </p>
                   )}
                   {exampleVi && (
-                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                    <p className="text-xs text-muted-foreground">
                       <FormattedText text={exampleVi} />
                     </p>
                   )}
@@ -156,8 +154,8 @@ export default function VettedMediaCard({
                   type="button"
                   onClick={handlePlayAudio}
                   aria-label="Nghe phát âm câu tình huống"
-                  className={`p-2 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-none transition-colors shrink-0 ${
-                    isPlayingAudio ? 'bg-primary text-white border-primary' : 'text-slate-700 dark:text-slate-300'
+                  className={`p-2 border border-border hover:bg-muted rounded-none transition-colors shrink-0 ${
+                    isPlayingAudio ? 'bg-primary text-primary-foreground border-primary' : 'text-foreground'
                   }`}
                 >
                   <Volume2 className="h-4 w-4" />
@@ -168,17 +166,17 @@ export default function VettedMediaCard({
 
           {/* Collapsible Usage & Context Analysis */}
           {(resolvedRule || resolvedContextReason || resolvedCommonMistake) && (
-            <div className="pt-2 border-t border-slate-200 dark:border-slate-800">
+            <div className="pt-2 border-t border-border">
               <button
                 type="button"
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="w-full flex items-center justify-between text-left font-mono text-xs uppercase tracking-wider text-slate-700 dark:text-slate-300 hover:text-primary transition-colors py-1"
+                className="w-full flex items-center justify-between text-left font-mono text-xs uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors py-1"
               >
-                <span className="font-bold flex items-center gap-1.5">
+                <span className="font-bold flex items-center gap-1.5 text-foreground">
                   <BookOpen className="h-3.5 w-3.5 text-primary" />
                   Cách dùng & Tình huống thực tế
                 </span>
-                <span className="flex items-center gap-1 text-[11px] text-slate-500">
+                <span className="flex items-center gap-1 text-[11px] text-muted-foreground">
                   {isExpanded ? 'Thu gọn' : 'Mở rộng'}
                   {isExpanded ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
                 </span>
@@ -187,22 +185,22 @@ export default function VettedMediaCard({
               {isExpanded && (
                 <div className="mt-3 space-y-2.5 font-sans text-xs">
                   {resolvedRule && (
-                    <div className="border-l-2 border-primary bg-slate-50 dark:bg-slate-950 p-2.5 space-y-1">
+                    <div className="border-l-2 border-primary bg-muted/10 p-2.5 space-y-1">
                       <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-primary block">
                         Quy tắc
                       </span>
-                      <p className="text-slate-800 dark:text-slate-200 font-medium">
+                      <p className="text-foreground font-medium">
                         <FormattedText text={resolvedRule} />
                       </p>
                     </div>
                   )}
 
                   {resolvedContextReason && (
-                    <div className="border-l-2 border-slate-400 dark:border-slate-600 bg-slate-50 dark:bg-slate-950 p-2.5 space-y-1">
-                      <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-slate-600 dark:text-slate-400 block">
+                    <div className="border-l-2 border-border bg-muted/10 p-2.5 space-y-1">
+                      <span className="font-mono text-[10px] uppercase font-bold tracking-wider text-muted-foreground block">
                         Ngữ cảnh thực tế
                       </span>
-                      <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
+                      <p className="text-muted-foreground leading-relaxed">
                         <FormattedText text={resolvedContextReason} />
                       </p>
                     </div>
@@ -228,24 +226,24 @@ export default function VettedMediaCard({
 
       {/* Vetted Video Embed Section (Optional) */}
       {resolvedVideoEmbedUrl && (
-        <div className="border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 p-4 sm:p-5 space-y-3">
+        <div className="border-t border-border bg-muted/10 p-4 sm:p-5 space-y-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Video className="h-4 w-4 text-primary" />
-              <h4 className="font-serif text-sm font-semibold text-slate-900 dark:text-slate-100">
+              <h4 className="font-serif text-sm font-semibold text-foreground">
                 {resolvedVideoTitle}
               </h4>
             </div>
-            <span className="font-mono text-[10px] uppercase tracking-wider text-slate-500 border border-slate-200 dark:border-slate-800 px-2 py-0.5 rounded-none">
+            <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground border border-border px-2 py-0.5 rounded-none">
               1080p
             </span>
           </div>
 
-          <div className="relative aspect-video w-full bg-black rounded-none overflow-hidden border border-slate-300 dark:border-slate-700">
+          <div className="relative aspect-video w-full bg-black rounded-none overflow-hidden border border-border">
             <iframe
               src={resolvedVideoEmbedUrl}
               title={resolvedVideoTitle}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-picture; web-share"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
               className="w-full h-full border-0 rounded-none"
             />
@@ -254,16 +252,16 @@ export default function VettedMediaCard({
           {/* Chapter markers if available */}
           {videoChapters && videoChapters.length > 0 && (
             <div className="space-y-1.5 pt-2">
-              <span className="font-mono text-[10px] uppercase tracking-wider text-slate-500 block">
-                Phân đoạn bài học (Key Chapters):
+              <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground block">
+                Phân đoạn bài học:
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                 {videoChapters.map((chapter, idx) => (
                   <div
                     key={idx}
-                    className="p-2 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-none flex items-center justify-between text-xs"
+                    className="p-2 border border-border bg-card rounded-none flex items-center justify-between text-xs"
                   >
-                    <span className="text-slate-800 dark:text-slate-200 truncate pr-2">
+                    <span className="text-foreground truncate pr-2">
                       {chapter.title}
                     </span>
                     <span className="font-mono font-semibold text-primary shrink-0 text-[11px]">

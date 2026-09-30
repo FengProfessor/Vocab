@@ -17,11 +17,11 @@ export interface QuizQuestion {
   explanation: string;
   topic: string;
   level: string;
-  type: 'multiple_choice' | 'fill_blank' | 'error_correction';
+  type: 'multiple_choice' | 'fill_blank' | 'error_correction' | 'categorization';
   difficulty: number;
 }
 
-const VALID_TYPES = new Set(['multiple_choice', 'fill_blank', 'error_correction']);
+const VALID_TYPES = new Set(['multiple_choice', 'fill_blank', 'error_correction', 'categorization']);
 
 const QUIZ_MODEL = 'llama-3.1-8b-instant';
 const QUIZ_CACHE_TTL_MS = 30 * 24 * 60 * 60 * 1000; // 30 ngày
