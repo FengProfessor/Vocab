@@ -1,17 +1,14 @@
+import { sessionErrorResponse } from '@/lib/session-response';
+import { getWebUser } from '@/lib/server-auth-session';
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 
 export async function POST(req: NextRequest) {
   try {
-    const authHeader = req.headers.get('authorization');
-    if (!authHeader?.startsWith('Bearer ')) {
-      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
-    }
-    const token = authHeader.slice(7);
 
     // Xác thực user từ token
     const supabase = createServiceClient();
-    const { data: { user }, error: authError } = await supabase.auth.getUser(token);
+    const { data: { user }, error: authError } = await getWebUser(req);
     if (authError || !user) {
       return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
     }
@@ -66,6 +63,8 @@ export async function POST(req: NextRequest) {
       data: { ...classroom, enrollment_count: countError ? null : enrollmentCount },
     });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const msg = err instanceof Error ? err.message : 'Unknown error';
     console.error('[Join] Unexpected error:', msg);
     return NextResponse.json({ success: false, error: msg }, { status: 500 });

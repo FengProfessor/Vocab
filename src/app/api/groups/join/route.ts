@@ -1,3 +1,5 @@
+import { sessionErrorResponse } from '@/lib/session-response';
+import { getWebUser } from '@/lib/server-auth-session';
 /**
  * POST /api/groups/join — Thành viên vào nhóm bằng mã mời → được cấp Pro tới khi nhóm hết hạn.
  * Bám pattern api/classrooms/join.
@@ -9,14 +11,9 @@ import { grantGroupEntitlement } from '@/lib/billing';
 
 export async function POST(req: NextRequest) {
   try {
-    const authHeader = req.headers.get('authorization');
-    if (!authHeader?.startsWith('Bearer ')) {
-      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
-    }
-    const token = authHeader.slice(7);
 
     const supabase = createServiceClient();
-    const { data: { user }, error: authError } = await supabase.auth.getUser(token);
+    const { data: { user }, error: authError } = await getWebUser(req);
     if (authError || !user) {
       return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
     }
@@ -83,6 +80,8 @@ export async function POST(req: NextRequest) {
       data: { groupId: group.id, plan: group.plan, expiresAt: group.expires_at },
     });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const msg = err instanceof Error ? err.message : 'Unknown error';
     console.error('[Groups/join] Unexpected error:', msg);
     return NextResponse.json({ success: false, error: msg }, { status: 500 });

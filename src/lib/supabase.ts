@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
+import { appAuth } from '@/lib/app-auth-client';
 
 const DEFAULT_SUPABASE_URL = 'https://jyhdxhqkftirncbstfpe.supabase.co';
 const DEFAULT_SUPABASE_ANON_KEY = 'sb_publishable_cNsBhEJMkhMDa_2k5MHJCw_I68kPEEf';
@@ -6,28 +7,38 @@ const DEFAULT_SUPABASE_ANON_KEY = 'sb_publishable_cNsBhEJMkhMDa_2k5MHJCw_I68kPEE
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || DEFAULT_SUPABASE_URL;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || DEFAULT_SUPABASE_ANON_KEY;
 
-// Client-side Supabase client — PKCE + localStorage session (login nhanh, không đụng cookie server)
-export const supabase = createClient(
+// Query builder chỉ giữ anon configuration; user JWT được BFF gắn phía server.
+const publicQueryClient = createClient(
   supabaseUrl,
   supabaseAnonKey,
   {
     auth: {
-      persistSession: true,
-      autoRefreshToken: true,
-      detectSessionInUrl: true,
+      persistSession: false,
+      autoRefreshToken: false,
+      detectSessionInUrl: false,
       flowType: 'pkce',
+    },
+    global: {
+      fetch: async (input, init) => {
+        const original = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
+        if (original.origin !== new URL(supabaseUrl).origin || !original.pathname.startsWith('/rest/v1/')) {
+          throw new Error('Unsupported browser data operation');
+        }
+        const headers = new Headers(init?.headers);
+        headers.delete('Authorization'); headers.delete('apikey');
+        headers.set('X-LingoPro-Request', '1');
+        return fetch(`/api/auth/data/${original.pathname.slice('/rest/v1/'.length)}${original.search}`, {
+          ...init, headers, credentials: 'same-origin', cache: 'no-store',
+        });
+      },
     },
   }
 );
-
-/** Server-side public Auth client; giữ nguyên email verification policy của Supabase. */
-export function createPublicAuthClient() {
-  return createClient(
-    supabaseUrl,
-    supabaseAnonKey,
-    { auth: { autoRefreshToken: false, persistSession: false, detectSessionInUrl: false } }
-  );
-}
+export const supabase = {
+  auth: appAuth,
+  from: publicQueryClient.from.bind(publicQueryClient),
+  rpc: publicQueryClient.rpc.bind(publicQueryClient),
+};
 
 /**
  * Helper to fetch all rows beyond Supabase's default 1000-row limit.

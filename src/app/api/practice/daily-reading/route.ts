@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import { getAuthUser } from '@/lib/api-security';
 import { createServiceClient } from '@/lib/supabase-server';
@@ -242,6 +243,8 @@ export async function GET(req: Request): Promise<NextResponse> {
       todayVN,
     });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const msg = err instanceof Error ? err.message : String(err);
     console.error('[DailyReading] GET error:', msg);
     // Graceful fallback for schema pending
@@ -307,12 +310,16 @@ export async function POST(req: Request): Promise<NextResponse> {
         console.warn('[DailyReading] completion save warning:', error.message);
       }
     } catch (dbErr: unknown) {
+    const sessionFailure = sessionErrorResponse(dbErr);
+    if (sessionFailure) return sessionFailure;
       const dbMsg = dbErr instanceof Error ? dbErr.message : String(dbErr);
       console.warn('[DailyReading] completions table not available:', dbMsg);
     }
 
     return NextResponse.json({ success: true });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const msg = err instanceof Error ? err.message : String(err);
     return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }

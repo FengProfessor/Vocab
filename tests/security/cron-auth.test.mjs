@@ -107,7 +107,8 @@ try {
     .split(/\r?\n/)
     .filter(Boolean);
   for (const relativePath of tracked) {
-    const source = readFileSync(join(repoRoot, relativePath), 'utf8');
+    let source;
+    try { source = readFileSync(join(repoRoot, relativePath), 'utf8'); } catch (error) { if (error.code === 'ENOENT') continue; throw error; }
     assert(!/Bearer [A-Za-z0-9_-]{20,}/.test(source), `${relativePath} contains a hard-coded bearer value`);
     assert(!/console\.(?:log|warn|error)\([^\n]*(?:authorization|CRON_SECRET)/i.test(source), `${relativePath} logs cron authorization material`);
     assert(!source.includes('NEXT_PUBLIC_CRON_SECRET'), `${relativePath} exposes CRON_SECRET to the client`);

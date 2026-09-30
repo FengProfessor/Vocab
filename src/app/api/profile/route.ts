@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { getAuthUser, unauthorized, safeErrorResponse } from '@/lib/api-security';
@@ -46,6 +47,8 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       meta: { displayNameMin: DISPLAY_NAME_MIN, displayNameMax: DISPLAY_NAME_MAX },
     });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(err, 'Không tải được hồ sơ');
   }
 }
@@ -113,6 +116,8 @@ export async function PUT(req: NextRequest): Promise<NextResponse> {
 
     return NextResponse.json({ success: true, data });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(err, 'Không cập nhật được hồ sơ');
   }
 }

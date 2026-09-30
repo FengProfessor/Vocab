@@ -283,7 +283,7 @@ function UpgradePageContent() {
       const {
         data: { session },
       } = await supabase.auth.getSession();
-      if (!session?.access_token) {
+      if (!session?.user) {
         const returnUrl = window.location.pathname + window.location.search;
         router.push(`/auth?redirectTo=${encodeURIComponent(returnUrl)}`);
         return;
@@ -292,7 +292,7 @@ function UpgradePageContent() {
       const res = await fetch('/api/billing/redeem-gift', {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${session.access_token}`,
+          'X-LingoPro-Request': '1',
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ code }),
@@ -346,14 +346,11 @@ function UpgradePageContent() {
 
     setCouponChecking(true);
     try {
-      const {
-        data: { session },
-      } = await supabase.auth.getSession();
 
       const res = await fetch('/api/billing/coupons/validate', {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${session?.access_token}`,
+          'X-LingoPro-Request': '1',
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(
@@ -406,14 +403,11 @@ function UpgradePageContent() {
     setIsSubmitting(true);
     const appliedCode = ((couponValid?.code ?? couponCode).trim()).toUpperCase();
     try {
-      const {
-        data: { session },
-      } = await supabase.auth.getSession();
 
       const response = await fetch('/api/billing/orders', {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${session?.access_token}`,
+          'X-LingoPro-Request': '1',
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(

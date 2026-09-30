@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { getAuthUser, safeErrorResponse } from '@/lib/api-security';
@@ -11,7 +12,7 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
     const supabase = createServiceClient();
     const authUser = await getAuthUser(req);
     const user = authUser ? { id: authUser.userId } : null;
-    
+
     let isTeacher = false;
     if (user) {
       const { data: profile } = await supabase
@@ -44,7 +45,7 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
       const profilesArray = Array.isArray(p.profiles) ? p.profiles : [p.profiles];
       const profileInfo = profilesArray[0];
       const name = isTeacher ? profileInfo?.full_name : 'Người tham gia';
-      
+
       return {
         id: p.id,
         status: p.status,
@@ -56,6 +57,8 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
 
     return NextResponse.json({ success: true, data: sanitized });
   } catch (error: any) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(error, 'Lỗi khi tải danh sách người tham gia');
   }
 }

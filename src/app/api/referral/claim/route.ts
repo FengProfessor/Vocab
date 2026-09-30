@@ -1,3 +1,5 @@
+import { sessionErrorResponse } from '@/lib/session-response';
+import { getWebUser } from '@/lib/server-auth-session';
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 
@@ -17,10 +19,8 @@ function getIpSubnet(ip: string): string {
 export async function POST(req: NextRequest) {
   try {
     const supabase = createServiceClient();
-    const token = req.headers.get('authorization')?.replace('Bearer ', '');
-    if (!token) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
-    const { data: { user } } = await supabase.auth.getUser(token);
+    const { data: { user } } = await getWebUser(req);
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
     const body = await req.json().catch(() => ({})) as {
@@ -131,6 +131,8 @@ export async function POST(req: NextRequest) {
       message: 'Nhận quà thành công! Hãy học bài liên tục 3 ngày và lưu 30 từ vựng để mở khóa trọn vẹn 7 ngày Pro VIP nhé.',
     });
   } catch (err: any) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     return NextResponse.json({ error: err.message || 'Internal error' }, { status: 500 });
   }
 }

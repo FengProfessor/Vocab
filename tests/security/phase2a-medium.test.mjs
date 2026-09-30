@@ -16,6 +16,7 @@ const compile = (source, filename) => ts.transpileModule(source, {
 
 async function loadModule(name, source, filename) {
   const modulePath = join(tempRoot, `${name}-${Date.now()}-${Math.random()}.mjs`);
+  source = source.replace(/import \{ sessionErrorResponse \} from '@\/lib\/session-response';/, 'const sessionErrorResponse = () => null;');
   writeFileSync(modulePath, compile(source, filename));
   return import(pathToFileURL(modulePath).href);
 }

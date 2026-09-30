@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { getRouter } from '@/lib/ai-router';
@@ -116,13 +117,13 @@ export async function POST(req: Request): Promise<NextResponse> {
     // ── CASCADE CACHE CHECK ──
     if (filtered.length > 0) {
       const wordsToQuery = filtered.map((w) => w.word.trim().toLowerCase());
-      
+
       // Tier 1: global_dictionary
       const { data: gdEntries } = await supabase
         .from('global_dictionary')
         .select('word, data, image_url, image_source, image_confidence')
         .in('word', wordsToQuery);
-      
+
       const gdMap = new Map<string, { data: GdData; image_url?: string | null; image_source?: string | null; image_confidence?: number | null }>();
       if (gdEntries) {
         for (const entry of gdEntries) {
@@ -141,7 +142,7 @@ export async function POST(req: Request): Promise<NextResponse> {
       const unresolvedWords = filtered
         .filter((w) => !gdMap.has(w.word.trim().toLowerCase()))
         .map((w) => w.word.trim().toLowerCase());
-      
+
       const peerMap = new Map<string, PeerWord>();
       if (unresolvedWords.length > 0) {
         const { data: peerEntries } = await supabase
@@ -151,7 +152,7 @@ export async function POST(req: Request): Promise<NextResponse> {
           .neq('ipa', '')
           .not('translation', 'ilike', '%Analyzing%')
           .not('translation', 'ilike', '%failed%');
-        
+
         if (peerEntries) {
           for (const entry of peerEntries as PeerWord[]) {
             if (entry.word) {
@@ -164,7 +165,7 @@ export async function POST(req: Request): Promise<NextResponse> {
       // Resolve from cache first
       for (const w of filtered) {
         const lower = w.word.trim().toLowerCase();
-        
+
         // Try Tier 1
         const gdEntry = gdMap.get(lower);
         const gdData = gdEntry?.data;
@@ -188,7 +189,7 @@ export async function POST(req: Request): Promise<NextResponse> {
             .from('words')
             .update(updates)
             .eq('id', w.id);
-          
+
           if (!updateErr) {
             console.log(`✓ Cache Cascade Hit (Tier 1: global_dict) for "${w.word}"`);
             refreshed++;
@@ -211,7 +212,7 @@ export async function POST(req: Request): Promise<NextResponse> {
               antonyms: peer.antonyms || [],
             })
             .eq('id', w.id);
-          
+
           if (!updateErr) {
             console.log(`✓ Cache Cascade Hit (Tier 2: peer_word) for "${w.word}"`);
             refreshed++;
@@ -259,11 +260,11 @@ The response MUST be a valid JSON array starting with '[' and ending with ']'. N
           const router = getRouter();
           const rawText = await router.generate(prompt, 'normal', true);
           const jsonMatch = rawText.match(/\[[\s\S]*\]/);
-          
+
           if (!jsonMatch) {
             throw new Error('AI did not return a valid JSON array.');
           }
-          
+
           const parsedArray = JSON.parse(jsonMatch[0]) as AIEnrichedWord[];
 
           // Validate and update each word in the database
@@ -278,7 +279,7 @@ The response MUST be a valid JSON array starting with '[' and ending with ']'. N
             if (originalRecord) {
               const englishWord = (item.english || originalRecord.word).toLowerCase().trim();
               const vietnameseMeaning = item.vietnamese || originalRecord.word;
-              
+
               const { error: updateError } = await supabase.from('words').update({
                 word: englishWord,           // ALWAYS English
                 translation: vietnameseMeaning, // ALWAYS Vietnamese
@@ -287,7 +288,7 @@ The response MUST be a valid JSON array starting with '[' and ending with ']'. N
                 example: item.example || '',
                 example_vi: item.example_vi || '',
               }).eq('id', originalRecord.id);
-              
+
               if (updateError) {
                 console.error(`DB Update error for "${originalRecord.word}":`, updateError.message);
               } else {
@@ -296,11 +297,13 @@ The response MUST be a valid JSON array starting with '[' and ending with ']'. N
               }
             }
           }
-          
+
           // Minor delay to be safe with rate limits
           await new Promise(r => setTimeout(r, 600));
 
         } catch (chunkErr: unknown) {
+    const sessionFailure = sessionErrorResponse(chunkErr);
+    if (sessionFailure) return sessionFailure;
           const chunkMsg = chunkErr instanceof Error ? chunkErr.message : 'Unknown error';
           console.error(`Batch refresh failed:`, chunkMsg);
         }
@@ -316,6 +319,8 @@ The response MUST be a valid JSON array starting with '[' and ending with ']'. N
     });
 
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(error, 'Server error');
   }
 }

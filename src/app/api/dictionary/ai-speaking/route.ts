@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextRequest, NextResponse } from "next/server";
 import { getRouter } from "@/lib/ai-router";
 import { getAuthUser, unauthorized, checkRateLimitAsync, safeErrorResponse, sanitizeForPrompt } from "@/lib/api-security";
@@ -101,6 +102,8 @@ Return ONLY valid raw JSON. No markdown formatting, no code fences.`;
       },
     });
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(error, 'Failed to process speaking response');
   }
 }

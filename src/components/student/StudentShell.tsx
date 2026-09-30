@@ -1,4 +1,6 @@
 'use client';
+import { authFetch } from '@/lib/auth-fetch';
+
 
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
@@ -185,8 +187,8 @@ export function StudentShell({
           setProfileEmail(session.user.email ?? '');
 
           // Grammar progress is specific to shell notification bell
-          const authHeaders = { Authorization: `Bearer ${session.access_token}` };
-          const grammarResponse = await fetch('/api/grammar/progress?summary=1', { headers: authHeaders })
+          const authHeaders = { 'X-LingoPro-Request': '1' };
+          const grammarResponse = await authFetch('/api/grammar/progress?summary=1', { headers: authHeaders })
             .then((response) => response.json())
             .catch(() => null);
 
@@ -216,17 +218,17 @@ export function StudentShell({
           if (cached.classroomId) setClassroomId(cached.classroomId);
         }
 
-        const authHeaders = { Authorization: `Bearer ${session.access_token}` };
+        const authHeaders = { 'X-LingoPro-Request': '1' };
         const [{ data: profileData }, wordsResponse, grammarResponse, teacherClassesRes] = await Promise.all([
           supabase
             .from('profiles')
             .select('*')
             .eq('id', session.user.id)
             .single(),
-          fetch('/api/words?summary=1', { headers: authHeaders })
+          authFetch('/api/words?summary=1', { headers: authHeaders })
             .then((response) => response.json())
             .catch(() => null),
-          fetch('/api/grammar/progress?summary=1', { headers: authHeaders })
+          authFetch('/api/grammar/progress?summary=1', { headers: authHeaders })
             .then((response) => response.json())
             .catch(() => null),
           supabase
@@ -420,7 +422,8 @@ export function StudentShell({
   };
 
   const handleSignOut = async () => {
-    await supabase.auth.signOut();
+    const { error } = await supabase.auth.signOut();
+    if (error) { alert(error.message); return; }
     router.push('/auth');
   };
 
@@ -1045,4 +1048,3 @@ export function StudentShell({
     </>
   );
 }
-

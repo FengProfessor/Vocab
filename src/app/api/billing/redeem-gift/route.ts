@@ -1,3 +1,5 @@
+import { sessionErrorResponse } from '@/lib/session-response';
+import { getWebUser } from '@/lib/server-auth-session';
 /**
  * POST /api/billing/redeem-gift
  * Nhận quà trial (LIVEB3, NEWBIE…) — chỉ mã trial, gói cá nhân, 7 ngày Pro.
@@ -19,14 +21,10 @@ import {
 export async function POST(req: NextRequest) {
   try {
     const supabase = createServiceClient();
-    const token = req.headers.get('authorization')?.replace('Bearer ', '');
-    if (!token) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
 
     const {
       data: { user },
-    } = await supabase.auth.getUser(token);
+    } = await getWebUser(req);
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
@@ -120,6 +118,8 @@ export async function POST(req: NextRequest) {
       },
     });
   } catch (err) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const msg = err instanceof Error ? err.message : String(err);
     console.error('[Billing] redeem-gift error:', msg);
     return NextResponse.json({ error: msg }, { status: 400 });

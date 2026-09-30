@@ -193,10 +193,9 @@ export default function ImportPage() {
     if (done > 0 && classroomId) {
       toast.loading(`Đang chạy AI phân tích ${done} từ...`, { id: 'csv-batch-toast' });
       try {
-        const { data: { session } } = await supabase.auth.getSession();
         const refreshRes = await fetch('/api/words/refresh', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token ?? ''}` },
+          headers: { 'Content-Type': 'application/json', 'X-LingoPro-Request': '1' },
           body: JSON.stringify({ classroomId }),
         });
         const refreshData = await refreshRes.json();
@@ -343,7 +342,7 @@ export default function ImportPage() {
           canvas.height = height;
           const ctx = canvas.getContext('2d');
           ctx?.drawImage(img, 0, 0, width, height);
-          
+
           // Compress to JPEG 70% quality (reduces size from 5MB to ~300KB)
           resolve(canvas.toDataURL('image/jpeg', 0.7));
         };
@@ -356,7 +355,7 @@ export default function ImportPage() {
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    
+
     // Create immediate basic preview
     const objectUrl = URL.createObjectURL(file);
     setOcrImage(objectUrl); 
@@ -368,7 +367,7 @@ export default function ImportPage() {
     setIsOcrProcessing(true);
     setOcrWords([]);
     setOcrOverflow(0);
-    
+
     try {
       // Compress right before sending
       toast.info('Đang chuẩn bị ảnh...', { id: 'ocr-toast' });
@@ -377,14 +376,12 @@ export default function ImportPage() {
       const mimeType = 'image/jpeg';
 
       toast.loading('AI đang quét từ vựng...', { id: 'ocr-toast' });
-      
-      const { data: { session } } = await supabase.auth.getSession();
       const res = await fetch('/api/import/ocr', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token ?? ''}` },
+        headers: { 'Content-Type': 'application/json', 'X-LingoPro-Request': '1' },
         body: JSON.stringify({ base64, mimeType }),
       });
-      
+
       if (!res.ok) {
          if (res.status === 413) throw new Error('Ảnh vẫn quá lớn. Hãy chụp lại từ xa hơn.');
          try {
@@ -459,10 +456,9 @@ export default function ImportPage() {
     if (done > 0 && classroomId) {
       toast.loading(`Đang chạy AI phân tích ${done} từ...`, { id: 'batch-toast' });
       try {
-        const { data: { session } } = await supabase.auth.getSession();
         const refreshRes = await fetch('/api/words/refresh', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token ?? ''}` },
+          headers: { 'Content-Type': 'application/json', 'X-LingoPro-Request': '1' },
           body: JSON.stringify({ classroomId }),
         });
         const refreshData = await refreshRes.json();

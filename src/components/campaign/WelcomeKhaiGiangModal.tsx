@@ -109,7 +109,7 @@ export function WelcomeKhaiGiangModal({
         data: { session },
       } = await supabase.auth.getSession();
 
-      if (session?.access_token) {
+      if (session?.user) {
         const payload: Record<string, unknown> = {};
         if (selectedProvince && (isKnownProvince(selectedProvince) || selectedProvince.trim().length > 0)) {
           payload.province = selectedProvince.trim();
@@ -124,7 +124,7 @@ export function WelcomeKhaiGiangModal({
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
-              Authorization: `Bearer ${session.access_token}`,
+              'X-LingoPro-Request': '1',
             },
             body: JSON.stringify(payload),
           }).catch(() => null);

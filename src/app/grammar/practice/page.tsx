@@ -1,4 +1,6 @@
 'use client';
+import { authFetch } from '@/lib/auth-fetch';
+
 
 import { useState, useEffect, useRef, Suspense, type ReactNode } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
@@ -424,7 +426,7 @@ function PracticeHubContent() {
           data: { session },
         } = await supabase.auth.getSession();
         const res = await fetch('/api/grammar/review?days=14', {
-          headers: session?.access_token ? { Authorization: `Bearer ${session.access_token}` } : {},
+          headers: session?.user ? { 'X-LingoPro-Request': '1' } : {},
         });
         const data = await res.json();
 
@@ -471,7 +473,7 @@ function PracticeHubContent() {
       // Mode 2: Topic Slug (?topic=...)
       if (topicSlug) {
         try {
-          const res = await fetch(`/api/grammar?topic=${encodeURIComponent(topicSlug)}`);
+          const res = await authFetch(`/api/grammar?topic=${encodeURIComponent(topicSlug)}`);
           const data = await res.json();
           if (data.success && data.data?.length > 0) {
             const cleaned = sanitizeDrillExercises(data.data as GrammarExercise[]);
@@ -523,12 +525,8 @@ function PracticeHubContent() {
         const params = new URLSearchParams();
         if (classroomId) params.set('classroomId', classroomId);
         if (lessonId) params.set('lessonId', lessonId);
-
-        const {
-          data: { session },
-        } = await supabase.auth.getSession();
         const res = await fetch(`/api/grammar?${params.toString()}`, {
-          headers: { Authorization: `Bearer ${session?.access_token ?? ''}` },
+          headers: { 'X-LingoPro-Request': '1' },
         });
         const data = await res.json();
 

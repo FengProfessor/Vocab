@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import {
   offlineCodeMixUpgrade,
@@ -55,6 +56,8 @@ export async function POST(req: Request): Promise<NextResponse> {
         const supabase = createServiceClient();
         plan = await resolvePlanByUserId(supabase, userId);
       } catch (e) {
+    const sessionFailure = sessionErrorResponse(e);
+    if (sessionFailure) return sessionFailure;
         console.warn('[CodeMixUpgrade] resolvePlan failed:', e);
         plan = 'free';
       }
@@ -191,6 +194,8 @@ export async function POST(req: Request): Promise<NextResponse> {
         },
       });
     } catch (aiErr: unknown) {
+    const sessionFailure = sessionErrorResponse(aiErr);
+    if (sessionFailure) return sessionFailure;
       const msg = aiErr instanceof Error ? aiErr.message : String(aiErr);
       console.warn('[CodeMixUpgrade] AI fail → offline:', msg);
       // Đã trừ lượt Free khi AI fail — vẫn trả offline (user đã “dùng” 1 attempt)
@@ -204,6 +209,8 @@ export async function POST(req: Request): Promise<NextResponse> {
       });
     }
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const unavailable = rateLimitUnavailableResponse(err);
     if (unavailable) return unavailable;
     const msg = err instanceof Error ? err.message : String(err);

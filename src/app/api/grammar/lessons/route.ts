@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import type { GrammarExample } from '@/lib/supabase';
@@ -87,6 +88,8 @@ export async function GET(req: Request) {
     if (error) throw error;
     return NextResponse.json({ success: true, data }, { headers: topicId ? CACHEABLE : NO_STORE });
   } catch (e: unknown) {
+    const sessionFailure = sessionErrorResponse(e);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(e, 'Server error');
   }
 }
@@ -135,6 +138,8 @@ export async function POST(req: Request) {
     if (error) throw error;
     return NextResponse.json({ success: true, data });
   } catch (e: unknown) {
+    const sessionFailure = sessionErrorResponse(e);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(e, 'Server error');
   }
 }
@@ -204,6 +209,8 @@ export async function PATCH(req: Request) {
     if (error) throw error;
     return NextResponse.json({ success: true, data });
   } catch (e: unknown) {
+    const sessionFailure = sessionErrorResponse(e);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(e, 'Server error');
   }
 }
@@ -230,6 +237,8 @@ export async function PUT(req: Request) {
     await supabase.from('grammar_quiz_cache').delete().eq('lesson_id', id);
     return NextResponse.json({ success: true, data });
   } catch (e: unknown) {
+    const sessionFailure = sessionErrorResponse(e);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(e, 'Server error');
   }
 }
@@ -252,6 +261,8 @@ export async function DELETE(req: Request) {
     if (error) throw error;
     return NextResponse.json({ success: true });
   } catch (e: unknown) {
+    const sessionFailure = sessionErrorResponse(e);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(e, 'Server error');
   }
 }

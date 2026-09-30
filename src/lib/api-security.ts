@@ -4,6 +4,8 @@ import { createServiceClient } from '@/lib/supabase-server';
 import { cacheGet, cacheSet } from '@/lib/ttl-cache';
 import { isCronAuthorizationValid } from '@/lib/cron-auth';
 import { RateLimitUnavailableError } from '@/lib/distributed-rate-limit';
+import { getWebUser, sessionCookieName } from '@/lib/server-auth-session';
+import { sessionErrorResponse } from '@/lib/session-response';
 export { checkRateLimitAsync, RateLimitUnavailableError } from '@/lib/distributed-rate-limit';
 export type { RateLimitResult } from '@/lib/distributed-rate-limit';
 
@@ -43,16 +45,18 @@ export function hashExtensionToken(token: string): string {
   return createHash('sha256').update(token).digest('hex');
 }
 
-/**
- * Extract & verify the bearer token from the request `Authorization` header.
- * Hỗ trợ 2 loại: Supabase JWT (web session, hết hạn ~1h) và extension token
- * `lpext_` (dài hạn, tra bảng `extension_tokens` qua SHA-256 hash).
- * Returns `{ userId, email }` on success, hoặc `null` nếu không hợp lệ.
- */
+/** Cookie web identity and separate hashed extension credential; browser JWTs are retired. */
 export async function getAuthUser(req: Request): Promise<AuthResult | null> {
+  const hasCookie = (req.headers.get('cookie') ?? '').split(';')
+    .some(value => value.trim().startsWith(`${sessionCookieName()}=`));
+  if (hasCookie) {
+    const { data: { user } } = await getWebUser(req);
+    return user ? { userId: user.id, email: user.email } : null;
+  }
   const authHeader = req.headers.get('authorization');
   const token = authHeader?.startsWith('Bearer ') ? authHeader.slice(7).trim() : '';
-  if (!token) return null;
+  // Existing external integration credential remains separate. Browser JWT is deliberately retired.
+  if (!token || !token.startsWith(EXT_TOKEN_PREFIX)) return null;
 
   // Stampede 100 HS: 1 token → nhiều API trong vài giây — cache auth 30s/instance
   const authCacheKey = `auth:${createHash('sha256').update(token).digest('hex').slice(0, 32)}`;
@@ -92,20 +96,7 @@ export async function getAuthUser(req: Request): Promise<AuthResult | null> {
     return result;
   }
 
-  const authTimeout = new Promise<{ data: { user: null }; error: Error }>((resolve) =>
-    setTimeout(() => resolve({ data: { user: null }, error: new Error('Supabase Auth timeout') }), 5000)
-  );
-  const { data, error } = await Promise.race([
-    supabase.auth.getUser(token),
-    authTimeout,
-  ]);
-  if (error || !data.user) {
-    cacheSet(authCacheKey, null, 5_000);
-    return null;
-  }
-  const result = { userId: data.user.id, email: data.user.email };
-  cacheSet(authCacheKey, result, 120_000);
-  return result;
+  return null;
 }
 
 /** Standard 401 response. */
@@ -282,6 +273,8 @@ export function tooManyRequests(retryAfterSeconds = 60): NextResponse {
  * Prevents internal details and stack traces from leaking to client.
  */
 export function safeErrorResponse(err: unknown, customMessage?: string, status = 500): NextResponse {
+  const sessionFailure = sessionErrorResponse(err);
+  if (sessionFailure) return sessionFailure;
   const unavailable = rateLimitUnavailableResponse(err);
   if (unavailable) return unavailable;
   // Supabase/Postgrest error = plain object { message, code, details } — không phải Error
@@ -298,6 +291,6 @@ export function safeErrorResponse(err: unknown, customMessage?: string, status =
   const clientMsg = process.env.NODE_ENV === 'production'
     ? (customMessage || 'Internal Server Error')
     : msg;
-    
+
   return NextResponse.json({ success: false, error: clientMsg }, { status });
 }

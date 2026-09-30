@@ -1,4 +1,6 @@
 'use client';
+import { authFetch } from '@/lib/auth-fetch';
+
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
@@ -23,7 +25,6 @@ import {
 import { toast } from 'sonner';
 import { PILOT_LEAD_STATUSES, type PilotLead, type PilotLeadStatus } from '@/lib/pilot-sales';
 import { removeVietnameseTones, parseNeedConsulting } from '@/lib/pilot-leads';
-import { supabase } from '@/lib/supabase';
 
 const STATUS_LABELS: Record<PilotLeadStatus, string> = {
   new: 'Mới',
@@ -49,13 +50,12 @@ export default function PilotLeadsAdminPage() {
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   const getHeaders = useCallback(async () => {
-    const { data: { session } } = await supabase.auth.getSession();
-    return { Authorization: `Bearer ${session?.access_token}`, 'Content-Type': 'application/json' };
+    return { 'X-LingoPro-Request': '1', 'Content-Type': 'application/json' };
   }, []);
 
   const loadLeads = useCallback(async () => {
     const headers = await getHeaders();
-    const res = await fetch('/api/admin/pilot-leads', { headers });
+    const res = await authFetch('/api/admin/pilot-leads', { headers });
     if (res.status === 403) {
       router.replace('/');
       return;
@@ -225,7 +225,7 @@ export default function PilotLeadsAdminPage() {
     setSavingId(lead.id);
     try {
       const headers = await getHeaders();
-      const res = await fetch('/api/admin/pilot-leads', {
+      const res = await authFetch('/api/admin/pilot-leads', {
         method: 'PATCH',
         headers,
         body: JSON.stringify({ id: lead.id, status: lead.status, adminNote: lead.admin_note }),

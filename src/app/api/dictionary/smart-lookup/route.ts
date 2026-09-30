@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from "next/server";
 import { getRouter } from "@/lib/ai-router";
 import { rateLimitUnavailableResponse, checkRateLimitAsync, sanitizeForPrompt, getAuthUser, unauthorized } from "@/lib/api-security";
@@ -58,12 +59,16 @@ Task:
         return NextResponse.json({ bestIndex: picked - 1 }); // Convert to 0-based
       }
     } catch (apiErr: unknown) {
+    const sessionFailure = sessionErrorResponse(apiErr);
+    if (sessionFailure) return sessionFailure;
       const apiMsg = apiErr instanceof Error ? apiErr.message : 'Unknown error';
       console.warn("[smart-lookup] Gemini error, defaulting to 0:", apiMsg);
     }
 
     return NextResponse.json({ bestIndex: 0 });
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     const unavailable = rateLimitUnavailableResponse(error);
     if (unavailable) return unavailable;
     const msg = error instanceof Error ? error.message : 'Unknown error';

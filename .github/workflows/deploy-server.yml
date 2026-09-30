@@ -52,6 +52,18 @@ jobs:
         with:
           ref: ${{ github.sha }}
           persist-credentials: false
+      - name: Require server-session configuration before production changes
+        env:
+          AUTH_SESSION_ENCRYPTION_KEY: ${{ secrets.AUTH_SESSION_ENCRYPTION_KEY }}
+          UPSTASH_REDIS_REST_URL: ${{ secrets.UPSTASH_REDIS_REST_URL }}
+          UPSTASH_REDIS_REST_TOKEN: ${{ secrets.UPSTASH_REDIS_REST_TOKEN }}
+        run: |
+          if ! [[ "$AUTH_SESSION_ENCRYPTION_KEY" =~ ^[0-9a-fA-F]{64}$ ]] ||
+             ! [[ "$UPSTASH_REDIS_REST_URL" =~ ^https://[a-zA-Z0-9-]+\.upstash\.io/?$ ]] ||
+             [ -z "$UPSTASH_REDIS_REST_TOKEN" ]; then
+            echo '::error::Server-session configuration is missing or invalid'
+            exit 1
+          fi
       - name: Verify checkout identity
         env:
           EXPECTED_SHA: ${{ github.sha }}
@@ -94,6 +106,8 @@ jobs:
           node tests/security/phase2b-enforcement.test.mjs
           node tests/security/phase2c-session-store.test.mjs
           node tests/security/phase2c-provider-session.test.mjs
+          node tests/security/phase2c-auth-boundaries.test.mjs
+          node tests/security/phase2c-browser-boundaries.test.mjs
       - name: Lint changed TypeScript deployment route
         run: npx eslint src/app/api/health/route.ts
       - name: Build application

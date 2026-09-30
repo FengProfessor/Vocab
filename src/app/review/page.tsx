@@ -28,7 +28,7 @@ function ReviewHubContent() {
       try {
         const { data: { session } } = await supabase.auth.getSession();
         if (!session?.user) return;
-        const token = session.access_token;
+
 
         // Stale paint: hiện số cache cũ trước khi network trả về
         const cached = readWordSummaryCache(session.user.id);
@@ -42,7 +42,7 @@ function ReviewHubContent() {
           // Unified cross-classroom due count:
           // Truy vấn /api/words?summary=1 (gọi get_word_summary với p_classroom_id = null)
           try {
-            const res = await authFetch('/api/words?summary=1', {}, token);
+            const res = await authFetch('/api/words?summary=1', {});
             const data = await res.json().catch(() => null);
             if (!cancelled && data?.success) {
               const count = typeof data.reviewDueCount === 'number'
@@ -62,7 +62,7 @@ function ReviewHubContent() {
             // fallback sang provider cache
           }
 
-          const summary = await fetchWordSummaryOnce(session.user.id, token);
+          const summary = await fetchWordSummaryOnce(session.user.id);
           if (!cancelled && summary) {
             setDueCount(summary.reviewDueCount);
           } else if (!cancelled && !cached) {
@@ -70,7 +70,7 @@ function ReviewHubContent() {
           }
         } else {
           const url = `/api/words?classroomId=${encodeURIComponent(classParam)}&summary=1`;
-          const res = await authFetch(url, {}, token);
+          const res = await authFetch(url, {});
           const data = await res.json().catch(() => null);
           if (!cancelled && data?.success) {
             const count = typeof data.reviewDueCount === 'number'

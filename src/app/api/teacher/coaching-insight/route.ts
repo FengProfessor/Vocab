@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from "next/server";
 import { getRouter } from "@/lib/ai-router";
 import { getAuthUser, unauthorized, checkRateLimitAsync, tooManyRequests, sanitizeForPrompt, safeErrorResponse } from "@/lib/api-security";
@@ -50,6 +51,8 @@ export async function POST(req: Request): Promise<NextResponse> {
       const text = await getRouter().generate(prompt, 'normal', false);
       return NextResponse.json({ success: true, suggestion: text });
     } catch (apiError: unknown) {
+    const sessionFailure = sessionErrorResponse(apiError);
+    if (sessionFailure) return sessionFailure;
       const apiMsg = apiError instanceof Error ? apiError.message : 'Unknown error';
       console.warn("Gemini API Tier Error, using fallback:", apiMsg);
       // Fallback to a high-quality template if API fails
@@ -57,6 +60,8 @@ export async function POST(req: Request): Promise<NextResponse> {
       return NextResponse.json({ success: true, suggestion: fallback, isFallback: true });
     }
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(error, 'Failed to generate coaching insight');
   }
 }

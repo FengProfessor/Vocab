@@ -103,7 +103,7 @@ export function ProTrialMilestoneCard({
       }
 
       const res = await fetch('/api/billing/pro-milestone', {
-        headers: { Authorization: `Bearer ${session.access_token}` },
+        headers: { 'X-LingoPro-Request': '1' },
         cache: 'no-store',
       });
       const data = (await res.json()) as {
@@ -176,7 +176,7 @@ export function ProTrialMilestoneCard({
       const res = await fetch('/api/billing/pro-milestone', {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${session.access_token}`,
+          'X-LingoPro-Request': '1',
           'Content-Type': 'application/json',
         },
       });

@@ -1,3 +1,5 @@
+import { sessionErrorResponse } from '@/lib/session-response';
+import { getWebUser } from '@/lib/server-auth-session';
 import { NextRequest, NextResponse } from 'next/server';
 import {
   buildDailyActivity,
@@ -9,12 +11,9 @@ import { stabilityToLevel } from '@/lib/srs';
 
 export async function GET(req: NextRequest): Promise<NextResponse> {
   try {
-    const authHeader = req.headers.get('authorization');
-    const token = authHeader?.replace('Bearer ', '');
-    if (!token) return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
 
     const supabase = createServiceClient();
-    const { data: { user }, error: authErr } = await supabase.auth.getUser(token);
+    const { data: { user }, error: authErr } = await getWebUser(req);
     if (authErr || !user) return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
 
     const userId = user.id;
@@ -189,6 +188,8 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       },
     );
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const msg = err instanceof Error ? err.message : String(err);
     console.error('[StudentStats] Error:', msg);
     return NextResponse.json({ success: false, error: msg }, { status: 500 });

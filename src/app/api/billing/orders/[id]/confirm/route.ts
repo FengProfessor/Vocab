@@ -1,3 +1,5 @@
+import { sessionErrorResponse } from '@/lib/session-response';
+import { getWebUser } from '@/lib/server-auth-session';
 /**
  * POST /api/billing/orders/[id]/confirm — Admin xác nhận thanh toán
  */
@@ -18,10 +20,8 @@ export async function POST(
     const { id: orderId } = await params;
 
     // Auth — admin only
-    const token = req.headers.get('authorization')?.replace('Bearer ', '');
-    if (!token) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
-    const { data: { user } } = await supabase.auth.getUser(token);
+    const { data: { user } } = await getWebUser(req);
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
     const { data: callerProfile } = await supabase.from('profiles').select('email, role').eq('id', user.id).maybeSingle();
@@ -48,6 +48,8 @@ export async function POST(
 
     return NextResponse.json(result);
   } catch (err) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const msg = err instanceof Error ? err.message : String(err);
     console.error('[Billing] Confirm order error:', msg);
     return NextResponse.json({ error: msg }, { status: 500 });

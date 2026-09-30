@@ -98,3 +98,13 @@ Residual risk: XSS vẫn gọi API dưới quyền current user và đọc DOM/P
 - Không dùng fake marker access_token để giữ caller cũ.
 - Không bỏ CSRF hoặc RLS để làm app chạy.
 - Không tuyên bố CLOSED trước CI và production browser evidence.
+
+## Implementation checkpoint — Stage A production / cutover validation
+
+- Foundation PR #19 merged at 905d9bb; canonical run 36749311479 PASS. Private predicate read-only synthetic missing-id probe returns false. Existing browser login remains unchanged in Stage A.
+- Stage B/C code uses one 7-day absolute opaque HttpOnly cookie; old SDK sessions deliberately require re-login. local/session storage cleanup only removes legacy Auth credentials and account caches; preferences/offline study content remain.
+- All 295 client roots / 506 reachable files pass import-graph checks. Server token vault/provider/session code is outside browser graph. Data proxy attaches verified user JWT on the server and keeps public-schema RLS; it never substitutes service-role for a data query.
+- OAuth Google and email-verification PKCE use a 10-minute encrypted single-use flow. Expired/cross-device email confirmation directs the user to re-login; signup does not create an app login. OAuth role/pilot/referral intent remains noncredential sessionStorage.
+- Session endpoints and cookie API responses use private/no-store. Outage fails closed with sanitized 503; no bearer JWT compatibility fallback. Dedicated external integration tokens remain a separate explicitly minted consumer credential, not a browser login token.
+- User impact: one re-login after cutover, 7-day absolute login lifetime. No new password recovery or email-change UI was introduced. Supabase logout/revocation/expiry checks reject provider session transitions.
+- C02 remains OPEN pending clean cutover CI, canonical release and dedicated production browser smoke. Rollback through canonical main preserves matching bundle/env; rollback to legacy auth reopens C02.

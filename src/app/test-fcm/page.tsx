@@ -24,7 +24,7 @@ export default function FCMTestPage() {
       addLog('Đang gọi requestForToken()...');
       const fcmToken = await requestForToken(addLog);
       addLog(`Kết quả từ requestForToken: ${fcmToken ? 'CÓ TOKEN' : 'NULL'}`);
-      
+
       if (fcmToken) {
         setToken(fcmToken);
         addLog('Đang lưu vào Supabase...');
@@ -34,7 +34,7 @@ export default function FCMTestPage() {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': `Bearer ${session.access_token}`,
+              'X-LingoPro-Request': '1',
             },
             body: JSON.stringify({ fcmToken }),
           });
@@ -70,7 +70,7 @@ export default function FCMTestPage() {
     addLog('--- BẮT ĐẦU TEST PUSH NOTIFICATION ---');
     try {
       const { data: { session } } = await supabase.auth.getSession();
-      if (!session?.access_token) {
+      if (!session?.user) {
         addLog('Lỗi: Chưa đăng nhập');
         toast.error('Bạn chưa đăng nhập!');
         return;
@@ -79,7 +79,7 @@ export default function FCMTestPage() {
       addLog('Đang gọi /api/test/push-due...');
       const res = await fetch('/api/test/push-due', {
         method: 'POST',
-        headers: { Authorization: `Bearer ${session.access_token}` },
+        headers: { 'X-LingoPro-Request': '1' },
       });
       const result = await res.json();
       addLog(`Response: ${JSON.stringify(result, null, 2)}`);

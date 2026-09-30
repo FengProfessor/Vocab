@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import { fetchAllRows } from '@/lib/supabase';
 import { createServiceClient } from '@/lib/supabase-server';
@@ -33,7 +34,6 @@ export async function GET(req: Request): Promise<NextResponse> {
     if (!isAdminRole && !isWhitelisted) {
       return NextResponse.json({ success: false, error: 'Admin access required' }, { status: 403 });
     }
-
 
     // Get all profiles
     const { data: profiles, error: profilesError } = await supabase
@@ -120,6 +120,8 @@ export async function GET(req: Request): Promise<NextResponse> {
 
     return NextResponse.json({ success: true, users, totalWords, totalQuizzes });
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(error, 'Failed to fetch admin stats');
   }
 }

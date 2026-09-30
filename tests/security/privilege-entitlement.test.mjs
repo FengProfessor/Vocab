@@ -92,6 +92,7 @@ function teacherService(effects, ownerId = 'teacher-a') {
 
 async function loadTeacherRoute() {
   const source = sources.teacher
+    .replace("import { sessionErrorResponse } from '@/lib/session-response';", 'const sessionErrorResponse = () => null;')
     .replace("import { NextResponse } from 'next/server';", 'const NextResponse = globalThis.__nextResponse;')
     .replace("import { createServiceClient } from '@/lib/supabase-server';", 'const createServiceClient = globalThis.__createServiceClient;')
     .replace(

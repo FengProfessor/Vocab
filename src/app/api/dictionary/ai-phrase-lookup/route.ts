@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextRequest, NextResponse } from "next/server";
 import { createServiceClient } from "@/lib/supabase-server";
 import { getRouter } from "@/lib/ai-router";
@@ -102,6 +103,8 @@ Return ONLY valid raw JSON. No markdown fences, no explanations.`;
     return NextResponse.json({ success: true, data });
 
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(error, 'Failed to lookup phrase');
   }
 }

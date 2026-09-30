@@ -1,4 +1,6 @@
 'use client';
+import { authFetch } from '@/lib/auth-fetch';
+
 
 import { useState, useEffect, useMemo, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
@@ -128,7 +130,7 @@ function GrammarRoadmapContent() {
         data: { session },
       } = await supabase.auth.getSession();
       const res = await fetch('/api/grammar/progress?view=topics', {
-        headers: session?.access_token ? { Authorization: `Bearer ${session.access_token}` } : {},
+        headers: session?.user ? { 'X-LingoPro-Request': '1' } : {},
       }).catch(() => null);
 
       if (res?.ok) {
@@ -164,7 +166,7 @@ function GrammarRoadmapContent() {
       setTheoryLoading(true);
       try {
         // 1. Fetch comprehensive structured theory from API
-        const res = await fetch(`/api/grammar/theory?topic=${encodeURIComponent(selectedTopicSlug)}`);
+        const res = await authFetch(`/api/grammar/theory?topic=${encodeURIComponent(selectedTopicSlug)}`);
         if (res.ok) {
           const json = await res.json();
           if (json?.success && json?.data && isMounted) {

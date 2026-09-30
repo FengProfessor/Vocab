@@ -1,4 +1,6 @@
 'use client';
+import { authFetch } from '@/lib/auth-fetch';
+
 
 /**
  * DEMO local — đoạn văn ôn pack + mindmap.
@@ -218,7 +220,7 @@ export default function PackPracticeDemoPage() {
     setTab('passage');
     try {
       // Demo mặc định theme môi trường — product bắt user chọn tại /practice/pack-reading
-      const res = await fetch('/api/practice/pack-passage', {
+      const res = await authFetch('/api/practice/pack-passage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -247,7 +249,7 @@ export default function PackPracticeDemoPage() {
         throw new Error('Cần ≥5 từ cho mindmap');
       }
       // mindmap API yêu cầu ≥5, khuyến nghị nhiều — demo pack 12 từ OK
-      const res = await fetch('/api/mindmap/generate', {
+      const res = await authFetch('/api/mindmap/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -296,7 +298,7 @@ export default function PackPracticeDemoPage() {
         );
       }
 
-      const res = await fetch('/api/mindmap/nlm', {
+      const res = await authFetch('/api/mindmap/nlm', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

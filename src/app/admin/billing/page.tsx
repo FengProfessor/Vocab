@@ -1,4 +1,6 @@
 'use client';
+import { authFetch } from '@/lib/auth-fetch';
+
 
 import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/lib/supabase';
@@ -116,15 +118,14 @@ export default function BillingDashboard() {
   const [newCoupon, setNewCoupon] = useState({ code: '', discountPct: 10, maxUses: 100, validUntil: '' });
 
   const getAuthHeaders = useCallback(async () => {
-    const { data: { session } } = await supabase.auth.getSession();
-    return { Authorization: `Bearer ${session?.access_token}`, 'Content-Type': 'application/json' };
+    return { 'X-LingoPro-Request': '1', 'Content-Type': 'application/json' };
   }, []);
 
   // Load stats
   const loadStats = useCallback(async () => {
     try {
       const headers = await getAuthHeaders();
-      const res = await fetch('/api/billing/stats', { headers });
+      const res = await authFetch('/api/billing/stats', { headers });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
       setStats(data.stats);
@@ -140,7 +141,7 @@ export default function BillingDashboard() {
       const headers = await getAuthHeaders();
       const params = new URLSearchParams({ page: String(page), limit: '20' });
       if (status) params.set('status', status);
-      const res = await fetch(`/api/billing/orders?${params}`, { headers });
+      const res = await authFetch(`/api/billing/orders?${params}`, { headers });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
       setOrders(data.orders ?? []);
@@ -155,7 +156,7 @@ export default function BillingDashboard() {
   const loadCoupons = useCallback(async () => {
     try {
       const headers = await getAuthHeaders();
-      const res = await fetch('/api/billing/coupons', { headers });
+      const res = await authFetch('/api/billing/coupons', { headers });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
       setCoupons(data.coupons ?? []);
@@ -180,7 +181,7 @@ export default function BillingDashboard() {
     setConfirmingId(orderId);
     try {
       const headers = await getAuthHeaders();
-      const res = await fetch(`/api/billing/orders/${orderId}/confirm`, {
+      const res = await authFetch(`/api/billing/orders/${orderId}/confirm`, {
         method: 'POST', headers, body: JSON.stringify({}),
       });
       const data = await res.json();
@@ -199,7 +200,7 @@ export default function BillingDashboard() {
     e.preventDefault();
     try {
       const headers = await getAuthHeaders();
-      const res = await fetch('/api/billing/coupons', {
+      const res = await authFetch('/api/billing/coupons', {
         method: 'POST', headers,
         body: JSON.stringify({
           code: newCoupon.code,
@@ -224,7 +225,7 @@ export default function BillingDashboard() {
     if (!confirm('Delete this coupon?')) return;
     try {
       const headers = await getAuthHeaders();
-      const res = await fetch(`/api/billing/coupons?id=${id}`, { method: 'DELETE', headers });
+      const res = await authFetch(`/api/billing/coupons?id=${id}`, { method: 'DELETE', headers });
       if (!res.ok) throw new Error('Failed');
       toast.success('Coupon deleted');
       await loadCoupons();
