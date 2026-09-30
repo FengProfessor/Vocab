@@ -1,140 +1,87 @@
 name: Daily Supabase Backup
 
-# Sao lưu toàn bộ database Supabase mỗi đêm — MIỄN PHÍ, không cần Supabase Pro.
-# Cách hoạt động: pg_dump xuất toàn bộ DB ra 1 file .sql → nén gzip → cất vào
-# "Artifacts" của GitHub (giữ 30 ngày). Mất data thì tải file về dựng lại.
-
 on:
   schedule:
-    - cron: '0 19 * * *'   # 19:00 UTC = 02:00 sáng giờ VN
+    - cron: '0 19 * * *' # 02:00 Vietnam
   workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: database-backup
+  cancel-in-progress: false
 
 jobs:
   backup:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
-      - name: Dump, verify & nén database
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Install distribution age when encryption configured
+        env:
+          BACKUP_AGE_RECIPIENT: ${{ vars.BACKUP_AGE_RECIPIENT }}
+        run: |
+          if [ -n "$BACKUP_AGE_RECIPIENT" ]; then
+            sudo apt-get update -qq
+            sudo apt-get install -y age
+          fi
+      - name: Dump, compress, optionally encrypt and verify
+        id: dump
         env:
           DATABASE_URL: ${{ secrets.SUPABASE_DB_URL }}
-        run: |
-          set -euo pipefail
-
-          if [ -z "${DATABASE_URL:-}" ]; then
-            echo "::error::Thiếu repo secret SUPABASE_DB_URL — xem hướng dẫn ở đầu file."
-            exit 1
-          fi
-
-          STAMP=$(date +%Y%m%d_%H%M%S)
-          echo "STAMP=$STAMP" >> "$GITHUB_ENV"
-          SQL_FILE="lingopro_backup_${STAMP}.sql"
-          GZ_FILE="${SQL_FILE}.gz"
-
-          # 1. Đổi port Transaction (6543) sang Session (5432)
-          # ĐỒNG THỜI xóa sạch dấu xuống dòng (\n, \r) hoặc khoảng trắng dư thừa do copy/paste
-          PG_URL=$(echo "${DATABASE_URL/6543/5432}" | tr -d '\n\r ')
-          
-          # 2. Nếu dùng pooler Supavisor, username bắt buộc phải là postgres.[project-id]
-          # Bỏ qua username trong URL và ép cứng bằng cờ -U để pg_dump luôn đúng.
-          PG_USER="postgres"
-          if [[ "$PG_URL" == *"pooler.supabase.com"* ]]; then
-            PG_USER="postgres.jyhdxhqkftirncbstfpe"
-          fi
-
-          # set -o pipefail: pg_dump lỗi → pipeline fail (tránh gzip file rác)
-          set -o pipefail
-          docker run --rm postgres:17-alpine \
-            pg_dump --no-owner --no-privileges -U "$PG_USER" "$PG_URL" \
-            > "$SQL_FILE"
-
-          # File SQL phải có nội dung thật
-          if [ ! -s "$SQL_FILE" ]; then
-            echo "::error::pg_dump tạo file rỗng."
-            exit 1
-          fi
-
-          # Sanity: dump Postgres thường bắt đầu bằng comment/-- PostgreSQL
-          if ! head -c 200 "$SQL_FILE" | grep -Eqi 'PostgreSQL|pg_dump|SET |CREATE |--'; then
-            echo "::error::Nội dung dump không giống SQL Postgres."
-            head -c 200 "$SQL_FILE" || true
-            exit 1
-          fi
-
-          gzip -9 "$SQL_FILE"
-
-          if [ ! -s "$GZ_FILE" ]; then
-            echo "::error::File gzip rỗng."
-            exit 1
-          fi
-
-          # Kiểm tra gzip hợp lệ (phát hiện nén hỏng)
-          gunzip -t "$GZ_FILE"
-
-          echo "Dung lượng file backup:"
-          ls -lh "$GZ_FILE"
-          echo "OK backup verified: $GZ_FILE"
-
-      - name: Cất file backup vào Artifacts (giữ 30 ngày)
-        uses: actions/upload-artifact@v4
+          SUPABASE_PROJECT_REF: jyhdxhqkftirncbstfpe
+          BACKUP_AGE_RECIPIENT: ${{ vars.BACKUP_AGE_RECIPIENT }}
+          BACKUP_REQUIRE_ENCRYPTION: ${{ vars.BACKUP_REQUIRE_ENCRYPTION }}
+        run: bash scripts/backup/create.sh
+      - name: Store verified backup and checksum (30 days)
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: lingopro-backup-${{ env.STAMP }}
-          path: lingopro_backup_*.sql.gz
+          name: lingopro-backup-${{ steps.dump.outputs.stamp }}
+          path: ${{ steps.dump.outputs.directory }}
+          if-no-files-found: error
           retention-days: 30
-
-      - name: Cài đặt rclone đã xác minh
+      - name: Install verified rclone
         env:
           RCLONE_VERSION: 1.75.1
           RCLONE_SHA256: 982b5aa772841168f8e380f139e9e787b2a105403e32b94da8676a0e1c0a13ab
         run: |
           set -euo pipefail
-
           ARCHIVE="rclone-v${RCLONE_VERSION}-linux-amd64.zip"
           curl --fail --silent --show-error --location \
             "https://downloads.rclone.org/v${RCLONE_VERSION}/${ARCHIVE}" \
             --output "$RUNNER_TEMP/$ARCHIVE"
           echo "$RCLONE_SHA256  $RUNNER_TEMP/$ARCHIVE" | sha256sum --check --strict
-
           unzip -q "$RUNNER_TEMP/$ARCHIVE" -d "$RUNNER_TEMP"
-          install -m 0755 \
-            "$RUNNER_TEMP/rclone-v${RCLONE_VERSION}-linux-amd64/rclone" \
-            "$RUNNER_TEMP/rclone"
+          install -m 0755 "$RUNNER_TEMP/rclone-v${RCLONE_VERSION}-linux-amd64/rclone" "$RUNNER_TEMP/rclone"
           echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
-
-      - name: Lưu trữ vĩnh viễn lên Google Drive bằng OAuth
+      - name: Upload and verify backup plus manifest on Google Drive
         env:
           GDRIVE_RCLONE_CONFIG: ${{ secrets.GDRIVE_RCLONE_CONFIG }}
+          BACKUP_DIRECTORY: ${{ steps.dump.outputs.directory }}
         run: |
           set -euo pipefail
-
-          if [ -z "${GDRIVE_RCLONE_CONFIG:-}" ]; then
-            echo "::error::Thiếu GitHub secret GDRIVE_RCLONE_CONFIG."
-            exit 1
-          fi
-
-          GZ_FILE="lingopro_backup_${STAMP}.sql.gz"
-          TARGET_DIR="LingoPro Automated Backups"
-          TARGET_FILE="${TARGET_DIR}/${GZ_FILE}"
-          RCLONE_CONFIG_FILE="$RUNNER_TEMP/rclone.conf"
-
           umask 077
-          printf '%s' "$GDRIVE_RCLONE_CONFIG" > "$RCLONE_CONFIG_FILE"
-          trap 'rm -f "$RCLONE_CONFIG_FILE"' EXIT
-
-          if [ ! -s "$GZ_FILE" ]; then
-            echo "::error::Không tìm thấy file backup để tải lên Google Drive."
+          if [ -z "${GDRIVE_RCLONE_CONFIG:-}" ]; then
+            echo '::error::Missing GDRIVE_RCLONE_CONFIG'
             exit 1
           fi
-
-          rclone copyto "$GZ_FILE" "gdrive:$TARGET_FILE" \
-            --config "$RCLONE_CONFIG_FILE" \
-            --checksum \
-            --drive-chunk-size 32M \
-            --retries 3 \
-            --low-level-retries 10 \
-            --stats-one-line \
-            --verbose
-
-          rclone check "$GZ_FILE" "gdrive:$TARGET_DIR" \
-            --config "$RCLONE_CONFIG_FILE" \
-            --one-way
-
-          echo "OK Google Drive OAuth upload verified: $TARGET_FILE"
+          CONFIG_FILE=$(mktemp "$RUNNER_TEMP/lingopro-rclone.XXXXXX")
+          trap 'rm -f -- "$CONFIG_FILE"' EXIT
+          printf '%s' "$GDRIVE_RCLONE_CONFIG" > "$CONFIG_FILE"
+          rclone copy "$BACKUP_DIRECTORY" 'gdrive:LingoPro Automated Backups' \
+            --config "$CONFIG_FILE" --checksum --drive-chunk-size 32M \
+            --retries 3 --low-level-retries 10 --stats-one-line
+          rclone check "$BACKUP_DIRECTORY" 'gdrive:LingoPro Automated Backups' \
+            --config "$CONFIG_FILE" --one-way
+          echo '[Backup] Google Drive backup and manifest verified'
+      - name: Remove runner backup files
+        if: ${{ always() }}
+        env:
+          PRIVATE_DIRECTORY: ${{ steps.dump.outputs.private_directory }}
+        run: |
+          if [ -n "$PRIVATE_DIRECTORY" ] && [[ "$PRIVATE_DIRECTORY" == "$RUNNER_TEMP"/lingopro-backup.* ]]; then
+            rm -rf -- "$PRIVATE_DIRECTORY"
+          fi
