@@ -2,10 +2,10 @@
   "slug": "modals-ability",
   "title": "Modals: Ability (can/could)",
   "title_vi": "Động từ khuyết thiếu: khả năng (can/could)",
-  "level": "beginner",
+  "level": "A1",
   "order": 16,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **S + can/could + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **S + can/could + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -352,83 +352,226 @@
   },
   "exercises": [
     {
-      "type": "mcq",
-      "q": "I ___ swim.",
-      "opts": [
+      "id": "modals-ability-ex-01",
+      "type": "multiple_choice",
+      "question": "I ___ swim.",
+      "options": [
         "can",
         "cans",
         "can to"
       ],
-      "answer": "can",
-      "fb": "Can + động từ nguyên thể swim."
+      "correct_answer": "can",
+      "explanation": "Can + động từ nguyên thể swim.",
+      "distractor_breakdowns": [
+        {
+          "option": "can",
+          "isCorrect": true,
+          "pedagogicalReason": "Can + động từ nguyên thể swim."
+        },
+        {
+          "option": "cans",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"cans\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "can to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"can to\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "mcq",
-      "q": "She can ___ English.",
-      "opts": [
+      "id": "modals-ability-ex-02",
+      "type": "multiple_choice",
+      "question": "She can ___ English.",
+      "options": [
         "speak",
         "speaks",
         "to speak"
       ],
-      "answer": "speak",
-      "fb": "Sau can dùng speak, không thêm -s hoặc to."
-    },
-    {
-      "type": "fill",
-      "q": "He ___ ride a bike. (can / cans)",
-      "answer": [
-        "can"
+      "correct_answer": "speak",
+      "explanation": "Sau can dùng speak, không thêm -s hoặc to.",
+      "distractor_breakdowns": [
+        {
+          "option": "speak",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau can dùng speak, không thêm -s hoặc to."
+        },
+        {
+          "option": "speaks",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"speaks\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "to speak",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to speak\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
       ],
-      "fb": "Can không đổi theo chủ ngữ he."
+      "difficulty": 1
     },
     {
-      "type": "mcq",
-      "q": "Choose the negative sentence.",
-      "opts": [
+      "id": "modals-ability-ex-03",
+      "type": "multiple_choice",
+      "question": "He ___ ride a bike. (can / cans)",
+      "options": [
+        "can",
+        "cans"
+      ],
+      "correct_answer": "can",
+      "explanation": "Can không đổi theo chủ ngữ he.",
+      "distractor_breakdowns": [
+        {
+          "option": "can",
+          "isCorrect": true,
+          "pedagogicalReason": "Can không đổi theo chủ ngữ he."
+        },
+        {
+          "option": "cans",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"cans\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "modals-ability-ex-04",
+      "type": "multiple_choice",
+      "question": "Choose the negative sentence.",
+      "options": [
         "I cannot swim.",
         "I not can swim.",
         "I can not to swim."
       ],
-      "answer": "I cannot swim.",
-      "fb": "Phủ định của can là cannot hoặc can't."
-    },
-    {
-      "type": "fill",
-      "q": "___ you help me? (Can / Cans)",
-      "answer": [
-        "Can"
+      "correct_answer": "I cannot swim.",
+      "explanation": "Phủ định của can là cannot hoặc can't.",
+      "distractor_breakdowns": [
+        {
+          "option": "I cannot swim.",
+          "isCorrect": true,
+          "pedagogicalReason": "Phủ định của can là cannot hoặc can't."
+        },
+        {
+          "option": "I not can swim.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"I not can swim.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "I can not to swim.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"I can not to swim.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
       ],
-      "fb": "Câu hỏi: Can + you + động từ nguyên thể?"
+      "difficulty": 2
     },
     {
-      "type": "mcq",
-      "q": "Can Mai sing? Choose the short positive answer.",
-      "opts": [
+      "id": "modals-ability-ex-05",
+      "type": "multiple_choice",
+      "question": "___ you help me? (Can / Cans)",
+      "options": [
+        "Can",
+        "Cans"
+      ],
+      "correct_answer": "Can",
+      "explanation": "Câu hỏi: Can + you + động từ nguyên thể?",
+      "distractor_breakdowns": [
+        {
+          "option": "Can",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi: Can + you + động từ nguyên thể?"
+        },
+        {
+          "option": "Cans",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Cans\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-ability-ex-06",
+      "type": "multiple_choice",
+      "question": "Can Mai sing? Choose the short positive answer.",
+      "options": [
         "Yes, she can.",
         "Yes, she cans.",
         "Yes, she is."
       ],
-      "answer": "Yes, she can.",
-      "fb": "Trả lời ngắn với can: Yes, she can."
-    },
-    {
-      "type": "fill",
-      "q": "They ___ play football. (can / cans)",
-      "answer": [
-        "can"
+      "correct_answer": "Yes, she can.",
+      "explanation": "Trả lời ngắn với can: Yes, she can.",
+      "distractor_breakdowns": [
+        {
+          "option": "Yes, she can.",
+          "isCorrect": true,
+          "pedagogicalReason": "Trả lời ngắn với can: Yes, she can."
+        },
+        {
+          "option": "Yes, she cans.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Yes, she cans.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Yes, she is.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Yes, she is.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
       ],
-      "fb": "Với they vẫn dùng can."
+      "difficulty": 2
     },
     {
-      "type": "mcq",
-      "q": "Which sentence asks about ability?",
-      "opts": [
+      "id": "modals-ability-ex-07",
+      "type": "multiple_choice",
+      "question": "They ___ play football. (can / cans)",
+      "options": [
+        "can",
+        "cans"
+      ],
+      "correct_answer": "can",
+      "explanation": "Với they vẫn dùng can.",
+      "distractor_breakdowns": [
+        {
+          "option": "can",
+          "isCorrect": true,
+          "pedagogicalReason": "Với they vẫn dùng can."
+        },
+        {
+          "option": "cans",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"cans\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "modals-ability-ex-08",
+      "type": "multiple_choice",
+      "question": "Which sentence asks about ability?",
+      "options": [
         "Can you cook?",
         "You can cook?",
         "Do can you cook?"
       ],
-      "answer": "Can you cook?",
-      "fb": "Đưa can lên trước chủ ngữ để hỏi."
+      "correct_answer": "Can you cook?",
+      "explanation": "Đưa can lên trước chủ ngữ để hỏi.",
+      "distractor_breakdowns": [
+        {
+          "option": "Can you cook?",
+          "isCorrect": true,
+          "pedagogicalReason": "Đưa can lên trước chủ ngữ để hỏi."
+        },
+        {
+          "option": "You can cook?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"You can cook?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Do can you cook?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Do can you cook?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 3
     }
   ]
 }

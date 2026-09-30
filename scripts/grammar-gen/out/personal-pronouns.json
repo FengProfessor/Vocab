@@ -2,7 +2,7 @@
   "slug": "personal-pronouns",
   "title": "Personal Pronouns",
   "title_vi": "Đại từ nhân xưng",
-  "level": "beginner",
+  "level": "A0",
   "order": 1,
   "sections": {
     "definition": "**Đại từ nhân xưng** (Personal Pronouns) như *I, you, he, she, it, we, they* dùng để thay thế cho danh từ chỉ người hoặc vật đã được đề cập hoặc người nghe đã biết, giúp tránh lặp lại. Chúng thay đổi hình thức tùy thuộc vào việc chúng làm chủ ngữ hay tân ngữ trong câu.",
@@ -349,118 +349,340 @@
         "why": "Chủ ngữ câu phải là SHE; her là dạng tân ngữ/sở hữu."
       }
     ],
-    "tips": "**Mẹo:** Đứng trước động từ chia thì → chọn đại từ chủ ngữ. Đứng sau động từ hoặc giới từ → chọn đại từ tân ngữ. Học theo cặp: I–me, he–him, she–her, we–us, they–them.",
+    "tips": "**Lưu ý trọng tâm:** Đứng trước động từ chia thì → chọn đại từ chủ ngữ. Đứng sau động từ hoặc giới từ → chọn đại từ tân ngữ. Học theo cặp: I–me, he–him, she–her, we–us, they–them.",
     "comparison": "**subject vs object pronouns:** *She likes him*: she thực hiện hành động, him nhận hành động. **it vs they:** it thay một vật; they thay nhiều người hoặc vật.",
     "timeline": null
   },
   "exercises": [
     {
-      "type": "mcq",
-      "q": "Tom is my friend. ___ lives nearby.",
-      "opts": [
+      "id": "personal-pronouns-ex-01",
+      "type": "multiple_choice",
+      "question": "Tom is my friend. ___ lives nearby.",
+      "options": [
         "He",
         "Him",
         "His"
       ],
-      "answer": "He",
-      "fb": "Vị trí chủ ngữ trước lives cần He."
+      "correct_answer": "He",
+      "explanation": "Vị trí chủ ngữ trước lives cần He.",
+      "distractor_breakdowns": [
+        {
+          "option": "He",
+          "isCorrect": true,
+          "pedagogicalReason": "Vị trí chủ ngữ trước lives cần He."
+        },
+        {
+          "option": "Him",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Him\" là đại từ tân ngữ (Object Pronoun), không thể làm chủ ngữ đứng trước động từ vị ngữ."
+        },
+        {
+          "option": "His",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"His\" là tính từ sở hữu, bắt buộc phải có danh từ theo sau bổ nghĩa, không thể đứng độc lập."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "mcq",
-      "q": "I see Anna every day. I see ___ at school.",
-      "opts": [
+      "id": "personal-pronouns-ex-02",
+      "type": "multiple_choice",
+      "question": "I see Anna every day. I see ___ at school.",
+      "options": [
         "she",
         "her",
         "hers"
       ],
-      "answer": "her",
-      "fb": "Sau động từ see cần tân ngữ her."
+      "correct_answer": "her",
+      "explanation": "Sau động từ see cần tân ngữ her.",
+      "distractor_breakdowns": [
+        {
+          "option": "she",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"she\" là đại từ chủ ngữ (Subject Pronoun), không thể đứng ở vị trí tân ngữ sau động từ hoặc giới từ."
+        },
+        {
+          "option": "her",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau động từ see cần tân ngữ her."
+        },
+        {
+          "option": "hers",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"hers\" là đại từ sở hữu (thay thế cả cụm Noun), không đứng trực tiếp trước một danh từ đã có sẵn."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "mcq",
-      "q": "Our teacher gave ___ extra homework.",
-      "opts": [
+      "id": "personal-pronouns-ex-03",
+      "type": "multiple_choice",
+      "question": "Our teacher gave ___ extra homework.",
+      "options": [
         "we",
         "us",
         "our"
       ],
-      "answer": "us",
-      "fb": "Sau gave cần tân ngữ us."
-    },
-    {
-      "type": "fill",
-      "q": "My parents are kind. ___ help me a lot.",
-      "answer": [
-        "they"
+      "correct_answer": "us",
+      "explanation": "Sau gave cần tân ngữ us.",
+      "distractor_breakdowns": [
+        {
+          "option": "we",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"we\" là đại từ chủ ngữ (Subject Pronoun), không thể đứng ở vị trí tân ngữ sau động từ hoặc giới từ."
+        },
+        {
+          "option": "us",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau gave cần tân ngữ us."
+        },
+        {
+          "option": "our",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"our\" là tính từ sở hữu, bắt buộc phải có danh từ theo sau bổ nghĩa, không thể đứng độc lập."
+        }
       ],
-      "fb": "Thay my parents ở vị trí chủ ngữ bằng they."
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "Please listen to ___. (I)",
-      "answer": [
-        "me"
+      "id": "personal-pronouns-ex-04",
+      "type": "fill_blank",
+      "question": "My parents are kind. ___ help me a lot.",
+      "options": [],
+      "correct_answer": "they",
+      "explanation": "Thay my parents ở vị trí chủ ngữ bằng they.",
+      "distractor_breakdowns": [
+        {
+          "option": "they",
+          "isCorrect": true,
+          "pedagogicalReason": "Thay my parents ở vị trí chủ ngữ bằng they."
+        },
+        {
+          "option": "them",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"them\" là đại từ tân ngữ, không thể làm chủ ngữ đứng trước động từ vị ngữ \"help\"."
+        },
+        {
+          "option": "their",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"their\" là tính từ sở hữu, bắt buộc phải có danh từ theo sau bổ nghĩa."
+        }
       ],
-      "fb": "Sau giới từ to dùng me."
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "I like these shoes, so I bought ___.",
-      "answer": [
-        "them"
+      "id": "personal-pronouns-ex-05",
+      "type": "fill_blank",
+      "question": "Please listen to ___. (I)",
+      "options": [],
+      "correct_answer": "me",
+      "explanation": "Sau giới từ to dùng me.",
+      "distractor_breakdowns": [
+        {
+          "option": "me",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau giới từ to dùng me."
+        },
+        {
+          "option": "I",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"I\" là đại từ chủ ngữ; sau giới từ \"to\" bắt buộc phải dùng đại từ tân ngữ \"me\"."
+        },
+        {
+          "option": "my",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"my\" là tính từ sở hữu, cần có danh từ theo sau."
+        }
       ],
-      "fb": "Thay shoes số nhiều ở vị trí tân ngữ bằng them."
+      "difficulty": 1
     },
     {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"Me am tired.\"",
-      "answer": false,
-      "fb": "SAI. Vị trí chủ ngữ phải dùng I. Câu đúng: \"I am tired.\""
+      "id": "personal-pronouns-ex-06",
+      "type": "fill_blank",
+      "question": "I like these shoes, so I bought ___.",
+      "options": [],
+      "correct_answer": "them",
+      "explanation": "Thay shoes số nhiều ở vị trí tân ngữ bằng them.",
+      "distractor_breakdowns": [
+        {
+          "option": "them",
+          "isCorrect": true,
+          "pedagogicalReason": "Thay shoes số nhiều ở vị trí tân ngữ bằng them."
+        },
+        {
+          "option": "they",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"they\" là đại từ chủ ngữ, ở vị trí tân ngữ sau động từ \"bought\" phải dùng đại từ tân ngữ \"them\"."
+        },
+        {
+          "option": "their",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"their\" là tính từ sở hữu, không đứng độc lập làm tân ngữ."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"She called he.\"",
-      "answer": false,
-      "fb": "SAI. Sau động từ called cần đại từ tân ngữ him. Câu đúng: \"She called him.\""
+      "id": "personal-pronouns-ex-07",
+      "type": "multiple_choice",
+      "question": "Câu sau đúng ngữ pháp không? → \"Me am tired.\"",
+      "options": [
+        "Đúng",
+        "Sai"
+      ],
+      "correct_answer": "Sai",
+      "explanation": "SAI. Vị trí chủ ngữ phải dùng I. Câu đúng: \"I am tired.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "Đúng",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Khẳng định này không phản ánh đúng quy tắc ngữ pháp của câu đã cho."
+        },
+        {
+          "option": "Sai",
+          "isCorrect": true,
+          "pedagogicalReason": "SAI. Vị trí chủ ngữ phải dùng I. Câu đúng: \"I am tired.\""
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"This is for they.\"",
-      "answer": false,
-      "fb": "SAI. Sau giới từ for dùng đại từ tân ngữ. Câu đúng: \"This is for them.\""
+      "id": "personal-pronouns-ex-08",
+      "type": "multiple_choice",
+      "question": "Câu sau đúng ngữ pháp không? → \"She called he.\"",
+      "options": [
+        "Đúng",
+        "Sai"
+      ],
+      "correct_answer": "Sai",
+      "explanation": "SAI. Sau động từ called cần đại từ tân ngữ him. Câu đúng: \"She called him.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "Đúng",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Khẳng định này không phản ánh đúng quy tắc ngữ pháp của câu đã cho."
+        },
+        {
+          "option": "Sai",
+          "isCorrect": true,
+          "pedagogicalReason": "SAI. Sau động từ called cần đại từ tân ngữ him. Câu đúng: \"She called him.\""
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
+      "id": "personal-pronouns-ex-09",
+      "type": "multiple_choice",
+      "question": "Câu sau đúng ngữ pháp không? → \"This is for they.\"",
+      "options": [
+        "Đúng",
+        "Sai"
+      ],
+      "correct_answer": "Sai",
+      "explanation": "SAI. Sau giới từ for dùng đại từ tân ngữ. Câu đúng: \"This is for them.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "Đúng",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Khẳng định này không phản ánh đúng quy tắc ngữ pháp của câu đã cho."
+        },
+        {
+          "option": "Sai",
+          "isCorrect": true,
+          "pedagogicalReason": "SAI. Sau giới từ for dùng đại từ tân ngữ. Câu đúng: \"This is for them.\""
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "personal-pronouns-ex-10",
+      "type": "error_correction",
+      "question": "Câu nào SAI ngữ pháp?",
+      "options": [
         "They live near us.",
         "Me am tired.",
         "The book is interesting. It has ten chapters."
       ],
-      "answer": "Me am tired.",
-      "fb": "Vị trí chủ ngữ phải dùng I. Câu đúng: \"I am tired.\""
+      "correct_answer": "Me am tired.",
+      "explanation": "Vị trí chủ ngữ phải dùng I. Câu đúng: \"I am tired.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "They live near us.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"They live near us.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "Me am tired.",
+          "isCorrect": true,
+          "pedagogicalReason": "Vị trí chủ ngữ phải dùng I. Câu đúng: \"I am tired.\""
+        },
+        {
+          "option": "The book is interesting. It has ten chapters.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The book is interesting. It has ten chapters.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
+      "id": "personal-pronouns-ex-11",
+      "type": "error_correction",
+      "question": "Câu nào SAI ngữ pháp?",
+      "options": [
         "Can you help me?",
         "She called he.",
         "Lan and I are classmates. We study together."
       ],
-      "answer": "She called he.",
-      "fb": "Sau động từ called cần đại từ tân ngữ him. Câu đúng: \"She called him.\""
+      "correct_answer": "She called he.",
+      "explanation": "Sau động từ called cần đại từ tân ngữ him. Câu đúng: \"She called him.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "Can you help me?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Can you help me?\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "She called he.",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau động từ called cần đại từ tân ngữ him. Câu đúng: \"She called him.\""
+        },
+        {
+          "option": "Lan and I are classmates. We study together.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Lan and I are classmates. We study together.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
+      "id": "personal-pronouns-ex-12",
+      "type": "error_correction",
+      "question": "Câu nào SAI ngữ pháp?",
+      "options": [
         "He sent her an email.",
         "This is for they.",
         "Please wait for them."
       ],
-      "answer": "This is for they.",
-      "fb": "Sau giới từ for dùng đại từ tân ngữ. Câu đúng: \"This is for them.\""
+      "correct_answer": "This is for they.",
+      "explanation": "Sau giới từ for dùng đại từ tân ngữ. Câu đúng: \"This is for them.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "He sent her an email.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"He sent her an email.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "This is for they.",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau giới từ for dùng đại từ tân ngữ. Câu đúng: \"This is for them.\""
+        },
+        {
+          "option": "Please wait for them.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Please wait for them.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
     }
   ]
 }

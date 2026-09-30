@@ -5,7 +5,7 @@ export const listeningTacticsModule: TheoryModule = {
   title: 'Chiến Thuật Luyện Nghe Đỉnh Cao (Part 1 - 4)',
   shortTitle: 'Listening Tactics',
   description:
-    'Hệ thống phương pháp bắt tranh Part 1, quy tắc loại trừ 3 bẫy Part 2, kỹ thuật đón đầu băng 1 nhịp Part 3 & 4 và bẻ khóa câu hỏi ngụ ý, bảng biểu.',
+    'Hệ thống phương pháp phân tích tranh Part 1, quy tắc loại trừ 3 bẫy Part 2, kỹ thuật đón đầu băng 1 nhịp Part 3 & 4 và giải quyết câu hỏi ngụ ý, bảng biểu.',
   targetParts: [1, 2, 3, 4],
   icon: 'Headphones',
   badgeColor: 'amber',
@@ -286,7 +286,7 @@ Cấu trúc: \`S + is/are being + V3/ed\`
 - Khi băng đọc câu D: Nghe thấy danh từ sai $\\rightarrow$ **Gập ngón D lại**.
 - Kết quả: Ngón tay nào còn mở duy nhất chính là đáp án đúng!`,
           tipBox: {
-            title: 'Bộ Mẹo Bỏ Túi 5 Giây Cho Part 1',
+            title: 'Kỹ Thuật Phản Xạ Quan Sát Cho Part 1',
             type: 'shortcut',
             content:
               'Không bao giờ suy diễn vượt quá những gì nhìn thấy trong ảnh. Nếu bức tranh chụp một người đang nhìn vào tài liệu, không được suy luận là "He is angry" hay "He is studying for an exam". Chỉ chọn những gì miêu tả thuần túy chuyển động vật lý.',
@@ -1172,7 +1172,7 @@ Ví dụ:
         {
           id: 'l04-s3-cross-referencing-rule',
           order: 3,
-          title: 'Nguyên Tắc Đối Chiếu Chéo Thần Tốc Cho Câu Hỏi Đồ Họa (Look at the Graphic)',
+          title: 'Nguyên Tắc Đối Chiếu Chéo Trọng Tâm Cho Câu Hỏi Đồ Họa (Look at the Graphic)',
           sectionType: 'rules',
           contentMarkdown: `Trong bài thi TOEIC có khoảng 3 cụm câu hỏi kèm đồ họa (Look at the graphic) ở Part 3 và Part 4.
 Đồ họa có thể là: Lịch trình hội nghị, Sơ đồ mặt bằng gian hàng, Bảng giá cước vận chuyển, Thực đơn, hoặc Phiếu tích điểm.
@@ -1248,7 +1248,7 @@ Ví dụ:
         {
           id: 'l04-s5-shortcuts',
           order: 5,
-          title: 'Mẹo 10 Giây Phân Tích Sơ Đồ Mặt Bằng (Maps & Floor Plans)',
+          title: 'Quy Tắc Phân Tích Sơ Đồ Mặt Bằng (Maps & Floor Plans)',
           sectionType: 'shortcuts',
           contentMarkdown: `Khi đồ họa là một **Sơ đồ mặt bằng (Map / Floor Plan)** (ví dụ: sơ đồ tòa nhà văn phòng, khu triển lãm hội chợ, hoặc trung tâm thương mại):
 1. **Tìm điểm mốc định vị**: Tìm chữ \`Main Entrance\`, \`You are here\`, \`Elevator\`, hoặc \`Restrooms\`.
@@ -1259,7 +1259,7 @@ Ví dụ:
    - \`Between A and B\`: Nằm kẹp giữa hai gian phòng A và B.
    - \`In the northwest corner\`: Ở góc tây bắc (phía trên bên trái).`,
           tipBox: {
-            title: 'Mẹo Bắt Tọa Độ Sơ Đồ Mặt Bằng',
+            title: 'Quy Tắc Xác Định Tọa Độ Sơ Đồ Mặt Bằng',
             type: 'shortcut',
             content:
               'Trong audio, người nói sẽ luôn dẫn đường bằng cách chỉ từ một điểm mốc: "Once you exit the elevator, turn left and it\'s the second door on your right, across from the conference room." Hãy dùng đầu bút dò theo đường đi như một chiếc xe chạy trên bản đồ!',

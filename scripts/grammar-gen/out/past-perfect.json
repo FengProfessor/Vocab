@@ -2,10 +2,10 @@
   "slug": "past-perfect",
   "title": "Past Perfect",
   "title_vi": "Thì Quá khứ hoàn thành",
-  "level": "intermediate",
-  "order": 31,
+  "level": "B1",
+  "order": 34,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **S + had + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **S + had + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -404,12 +404,30 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "Hoàn thành theo mẫu: She ___ never flown before that trip.",
-      "answer": [
-        "had"
+      "id": "past-perfect-ex-01",
+      "type": "fill_blank",
+      "question": "Hoàn thành theo mẫu: She ___ never flown before that trip.",
+      "options": [],
+      "correct_answer": "had",
+      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "had",
+          "isCorrect": true,
+          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+        },
+        {
+          "option": "has",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Mốc thời gian là \"before that trip\" (trước một sự kiện trong quá khứ), phải dùng quá khứ hoàn thành \"had never flown\"."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc thì hoàn thành dùng trợ động từ \"had\" kết hợp với phân từ hai \"flown\", không dùng to-be \"was\"."
+        }
       ],
-      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+      "difficulty": 1
     }
   ]
 }

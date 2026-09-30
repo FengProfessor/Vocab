@@ -2,7 +2,7 @@
   "slug": "plural-nouns",
   "title": "Plural Nouns",
   "title_vi": "Danh từ số nhiều",
-  "level": "beginner",
+  "level": "A0",
   "order": 5,
   "sections": {
     "definition": "**Danh từ số nhiều** (Plural Nouns) được sử dụng để chỉ có từ hai người, địa điểm, sự vật hoặc khái niệm trở lên. Phần lớn danh từ được tạo thành số nhiều bằng cách thêm '-s' hoặc '-es', nhưng cũng có những danh từ có dạng số nhiều bất quy tắc cần ghi nhớ.",
@@ -331,118 +331,340 @@
         "why": "Information KHÔNG đếm được — không có dạng số nhiều, không đi với many."
       }
     ],
-    "tips": "**Mẹo:** Trước tiên kiểm tra danh từ có bất quy tắc không. Nếu không, nhìn chữ cuối: s/x/z/ch/sh → **-es**; phụ âm + y → **-ies**; còn lại thường thêm **-s**. Sau số đếm lớn hơn một phải dùng số nhiều.",
+    "tips": "**Lưu ý trọng tâm:** Trước tiên kiểm tra danh từ có bất quy tắc không. Nếu không, nhìn chữ cuối: s/x/z/ch/sh → **-es**; phụ âm + y → **-ies**; còn lại thường thêm **-s**. Sau số đếm lớn hơn một phải dùng số nhiều.",
     "comparison": "**Regular vs irregular plurals:** dạng thường theo quy tắc (*book → books*); dạng bất quy tắc đổi từ (*person → people*) hoặc giữ nguyên (*sheep → sheep*). **Countable vs uncountable:** không thêm -s cho danh từ không đếm được như information, furniture.",
     "timeline": null
   },
   "exercises": [
     {
-      "type": "mcq",
-      "q": "What is the plural of “class”?",
-      "opts": [
+      "id": "plural-nouns-ex-01",
+      "type": "multiple_choice",
+      "question": "What is the plural of “class”?",
+      "options": [
         "classs",
         "classes",
         "classies"
       ],
-      "answer": "classes",
-      "fb": "class tận cùng s nên thêm es."
+      "correct_answer": "classes",
+      "explanation": "class tận cùng s nên thêm es.",
+      "distractor_breakdowns": [
+        {
+          "option": "classs",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"classs\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "classes",
+          "isCorrect": true,
+          "pedagogicalReason": "class tận cùng s nên thêm es."
+        },
+        {
+          "option": "classies",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"classies\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "mcq",
-      "q": "What is the plural of “woman”?",
-      "opts": [
+      "id": "plural-nouns-ex-02",
+      "type": "multiple_choice",
+      "question": "What is the plural of “woman”?",
+      "options": [
         "womans",
         "women",
         "womanses"
       ],
-      "answer": "women",
-      "fb": "woman → women là bất quy tắc."
+      "correct_answer": "women",
+      "explanation": "woman → women là bất quy tắc.",
+      "distractor_breakdowns": [
+        {
+          "option": "womans",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"womans\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "women",
+          "isCorrect": true,
+          "pedagogicalReason": "woman → women là bất quy tắc."
+        },
+        {
+          "option": "womanses",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"womanses\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "mcq",
-      "q": "Choose the correct phrase.",
-      "opts": [
+      "id": "plural-nouns-ex-03",
+      "type": "multiple_choice",
+      "question": "Choose the correct phrase.",
+      "options": [
         "three potatoes",
         "three potatos",
         "three potato"
       ],
-      "answer": "three potatoes",
-      "fb": "potato thường thêm es. Các danh từ kết thúc bằng o (như potato, tomato) thường được thêm es ở dạng số nhiều."
-    },
-    {
-      "type": "fill",
-      "q": "There are five ___ on the shelf. (box)",
-      "answer": [
-        "boxes"
+      "correct_answer": "three potatoes",
+      "explanation": "potato thường thêm es. Các danh từ kết thúc bằng o (như potato, tomato) thường được thêm es ở dạng số nhiều.",
+      "distractor_breakdowns": [
+        {
+          "option": "three potatoes",
+          "isCorrect": true,
+          "pedagogicalReason": "potato thường thêm es. Các danh từ kết thúc bằng o (như potato, tomato) thường được thêm es ở dạng số nhiều."
+        },
+        {
+          "option": "three potatos",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"three potatos\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "three potato",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"three potato\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
       ],
-      "fb": "box tận cùng x nên thêm es."
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "Two ___ are playing outside. (child)",
-      "answer": [
-        "children"
+      "id": "plural-nouns-ex-04",
+      "type": "fill_blank",
+      "question": "There are five ___ on the shelf. (box)",
+      "options": [],
+      "correct_answer": "boxes",
+      "explanation": "box tận cùng x nên thêm es.",
+      "distractor_breakdowns": [
+        {
+          "option": "boxes",
+          "isCorrect": true,
+          "pedagogicalReason": "box tận cùng x nên thêm es."
+        },
+        {
+          "option": "boxs",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Danh từ tận cùng là \"x\" khi chuyển sang số nhiều phải thêm đuôi \"-es\" (\"boxes\"), không chỉ thêm \"-s\"."
+        },
+        {
+          "option": "box",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sau số từ \"five\" bắt buộc phải là danh từ số nhiều."
+        }
       ],
-      "fb": "child có số nhiều bất quy tắc children."
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "She bought three ___. (toy)",
-      "answer": [
-        "toys"
+      "id": "plural-nouns-ex-05",
+      "type": "fill_blank",
+      "question": "Two ___ are playing outside. (child)",
+      "options": [],
+      "correct_answer": "children",
+      "explanation": "child có số nhiều bất quy tắc children.",
+      "distractor_breakdowns": [
+        {
+          "option": "children",
+          "isCorrect": true,
+          "pedagogicalReason": "child có số nhiều bất quy tắc children."
+        },
+        {
+          "option": "childs",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"child\" là danh từ có dạng số nhiều bất quy tắc \"children\", không thêm đuôi \"-s\"."
+        },
+        {
+          "option": "childrens",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"children\" vốn đã mang nghĩa số nhiều, không thêm đuôi \"-s\"."
+        }
       ],
-      "fb": "Nguyên âm + y: giữ y và thêm s."
+      "difficulty": 1
     },
     {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"two childs\"",
-      "answer": false,
-      "fb": "SAI. Child có dạng số nhiều bất quy tắc children. Câu đúng: \"two children\""
+      "id": "plural-nouns-ex-06",
+      "type": "fill_blank",
+      "question": "She bought three ___. (toy)",
+      "options": [],
+      "correct_answer": "toys",
+      "explanation": "Nguyên âm + y: giữ y và thêm s.",
+      "distractor_breakdowns": [
+        {
+          "option": "toys",
+          "isCorrect": true,
+          "pedagogicalReason": "Nguyên âm + y: giữ y và thêm s."
+        },
+        {
+          "option": "toies",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Danh từ tận cùng là nguyên âm + y (\"toy\") chỉ cần thêm \"-s\" (\"toys\"), không đổi thành \"-ies\"."
+        },
+        {
+          "option": "toy",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sau số từ \"three\" bắt buộc là danh từ số nhiều."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"three boxs\"",
-      "answer": false,
-      "fb": "SAI. Danh từ tận cùng x thêm -es. Câu đúng: \"three boxes\""
+      "id": "plural-nouns-ex-07",
+      "type": "multiple_choice",
+      "question": "Câu sau đúng ngữ pháp không? → \"two childs\"",
+      "options": [
+        "Đúng",
+        "Sai"
+      ],
+      "correct_answer": "Sai",
+      "explanation": "SAI. Child có dạng số nhiều bất quy tắc children. Câu đúng: \"two children\"",
+      "distractor_breakdowns": [
+        {
+          "option": "Đúng",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Khẳng định này không phản ánh đúng quy tắc ngữ pháp của câu đã cho."
+        },
+        {
+          "option": "Sai",
+          "isCorrect": true,
+          "pedagogicalReason": "SAI. Child có dạng số nhiều bất quy tắc children. Câu đúng: \"two children\""
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"many citys\"",
-      "answer": false,
-      "fb": "SAI. Phụ âm + y: đổi y thành ies. Câu đúng: \"many cities\""
+      "id": "plural-nouns-ex-08",
+      "type": "multiple_choice",
+      "question": "Câu sau đúng ngữ pháp không? → \"three boxs\"",
+      "options": [
+        "Đúng",
+        "Sai"
+      ],
+      "correct_answer": "Sai",
+      "explanation": "SAI. Danh từ tận cùng x thêm -es. Câu đúng: \"three boxes\"",
+      "distractor_breakdowns": [
+        {
+          "option": "Đúng",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Khẳng định này không phản ánh đúng quy tắc ngữ pháp của câu đã cho."
+        },
+        {
+          "option": "Sai",
+          "isCorrect": true,
+          "pedagogicalReason": "SAI. Danh từ tận cùng x thêm -es. Câu đúng: \"three boxes\""
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
+      "id": "plural-nouns-ex-09",
+      "type": "multiple_choice",
+      "question": "Câu sau đúng ngữ pháp không? → \"many citys\"",
+      "options": [
+        "Đúng",
+        "Sai"
+      ],
+      "correct_answer": "Sai",
+      "explanation": "SAI. Phụ âm + y: đổi y thành ies. Câu đúng: \"many cities\"",
+      "distractor_breakdowns": [
+        {
+          "option": "Đúng",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Khẳng định này không phản ánh đúng quy tắc ngữ pháp của câu đã cho."
+        },
+        {
+          "option": "Sai",
+          "isCorrect": true,
+          "pedagogicalReason": "SAI. Phụ âm + y: đổi y thành ies. Câu đúng: \"many cities\""
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "plural-nouns-ex-10",
+      "type": "error_correction",
+      "question": "Câu nào SAI ngữ pháp?",
+      "options": [
         "Three buses stop here.",
         "two childs",
         "Two children are in the garden."
       ],
-      "answer": "two childs",
-      "fb": "Child có dạng số nhiều bất quy tắc children. Câu đúng: \"two children\""
+      "correct_answer": "two childs",
+      "explanation": "Child có dạng số nhiều bất quy tắc children. Câu đúng: \"two children\"",
+      "distractor_breakdowns": [
+        {
+          "option": "Three buses stop here.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Three buses stop here.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "two childs",
+          "isCorrect": true,
+          "pedagogicalReason": "Child có dạng số nhiều bất quy tắc children. Câu đúng: \"two children\""
+        },
+        {
+          "option": "Two children are in the garden.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Two children are in the garden.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
+      "id": "plural-nouns-ex-11",
+      "type": "error_correction",
+      "question": "Câu nào SAI ngữ pháp?",
+      "options": [
         "The babies are sleeping.",
         "three boxs",
         "Those sheep belong to my uncle."
       ],
-      "answer": "three boxs",
-      "fb": "Danh từ tận cùng x thêm -es. Câu đúng: \"three boxes\""
+      "correct_answer": "three boxs",
+      "explanation": "Danh từ tận cùng x thêm -es. Câu đúng: \"three boxes\"",
+      "distractor_breakdowns": [
+        {
+          "option": "The babies are sleeping.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The babies are sleeping.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "three boxs",
+          "isCorrect": true,
+          "pedagogicalReason": "Danh từ tận cùng x thêm -es. Câu đúng: \"three boxes\""
+        },
+        {
+          "option": "Those sheep belong to my uncle.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Those sheep belong to my uncle.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
+      "id": "plural-nouns-ex-12",
+      "type": "error_correction",
+      "question": "Câu nào SAI ngữ pháp?",
+      "options": [
         "We need four knives.",
         "many citys",
         "Her feet are cold."
       ],
-      "answer": "many citys",
-      "fb": "Phụ âm + y: đổi y thành ies. Câu đúng: \"many cities\""
+      "correct_answer": "many citys",
+      "explanation": "Phụ âm + y: đổi y thành ies. Câu đúng: \"many cities\"",
+      "distractor_breakdowns": [
+        {
+          "option": "We need four knives.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"We need four knives.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "many citys",
+          "isCorrect": true,
+          "pedagogicalReason": "Phụ âm + y: đổi y thành ies. Câu đúng: \"many cities\""
+        },
+        {
+          "option": "Her feet are cold.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Her feet are cold.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
     }
   ]
 }

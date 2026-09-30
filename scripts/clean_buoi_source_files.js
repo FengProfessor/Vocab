@@ -51,8 +51,9 @@ function cleanPhieuHocTapContent(content) {
     // 1. Clean "<h3><span class="bid">1</span> Ô A · TITLE</h3>" -> "<h3><span class="bid">1</span> TITLE</h3>"
     line = line.replace(/(<h3><span class=["']bid["']>\d+<\/span>\s*)(?:🟡\s*)?(?:THẺ|Thẻ|Ô|Khung)\s+[A-Z0-9](?:\s*\([^\)]+\))?\s*[·:–—.-]\s*/i, '$1');
 
-    // 2. Clean "THẦN CHÚ 3 GIÂY CHO Ô A:"
-    line = line.replace(/THẦN CHÚ 3 GIÂY CHO (?:Ô|THẺ)\s+[A-Z0-9]:/gi, 'THẦN CHÚ 3 GIÂY TRỌNG TÂM:');
+    // 2. Clean legacy "THẦN CHÚ" patterns
+    line = line.replace(/THẦN CHÚ\s+[^:]+:/gi, 'QUY TẮC TRỌNG TÂM:');
+    line = line.replace(/THẦN CHÚ/gi, 'QUY TẮC');
 
     // 3. Clean "CẦN THUỘC LÒNG" in section titles
     line = line.replace(/CẦN THUỘC LÒNG/gi, 'TRỌNG TÂM');

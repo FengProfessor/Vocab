@@ -5,21 +5,21 @@ export const grammarFoundationModule: TheoryModule = {
   title: 'Khối Ngữ Pháp Cốt Lõi & Điền Từ (Part 5 & 6)',
   shortTitle: 'Ngữ pháp Part 5 & 6',
   description:
-    'Hệ thống toàn diện các quy tắc ngữ pháp trọng điểm, nhận diện dấu hiệu 5 giây, bẻ khóa bẫy cấu trúc ETS và phương pháp xử lý điền từ Part 5 & Part 6.',
+    'Hệ thống toàn diện các quy tắc ngữ pháp trọng điểm, nhận diện dấu hiệu trọng tâm, phân tích bẫy cấu trúc ETS và phương pháp xử lý điền từ Part 5 & Part 6.',
   targetParts: [5, 6],
   icon: 'BookOpen',
   badgeColor: 'blue',
   lessons: [
     // =========================================================================
-    // LESSON G01: Parts of Speech & 5-Second Rules
+    // LESSON G01: Parts of Speech & Syntax Rules
     // =========================================================================
     {
       id: 'toeic-grammar-01-parts-of-speech',
       moduleId: 'grammar-foundation',
       slug: 'parts-of-speech',
       order: 1,
-      title: 'Chiến Thuật Xử Lý Từ Loại 5 Giây (Noun, Verb, Adj, Adv)',
-      englishTitle: 'Parts of Speech & 5-Second Recognition Rules',
+      title: 'Chiến Thuật Phân Tích Cú Pháp Từ Loại (Noun, Verb, Adj, Adv)',
+      englishTitle: 'Parts of Speech & Core Syntax Recognition Rules',
       targetPart: 5,
       targetSections: ['reading'],
       difficulty: 'starter',
@@ -30,7 +30,7 @@ export const grammarFoundationModule: TheoryModule = {
         'Tomato TOEIC Compact Part 5&6 - Lesson 1',
       ],
       objectives: [
-        'Nhận diện vị trí ngữ pháp của 4 từ loại cốt lõi (Danh từ, Tính từ, Trạng từ, Động từ) trong câu Part 5 dưới 5 giây.',
+        'Nhận diện vị trí ngữ pháp của 4 từ loại cốt lõi (Danh từ, Tính từ, Trạng từ, Động từ) trong cấu trúc câu Part 5.',
         'Ghi nhớ các hậu tố (suffixes) kinh điển của từng từ loại để chọn ngay đáp án mà không cần dịch nghĩa.',
         'Hóa giải bẫy từ loại gây nhầm lẫn cao nhất: Tính từ đuôi -ly (costly, timely) và Danh từ đuôi -al / -ive (proposal, approval, representative, initiative).',
         'Thành thạo công thức mở rộng cụm danh từ: a/an/the + [Adv] + [Adj] + [Noun].',
@@ -68,7 +68,7 @@ export const grammarFoundationModule: TheoryModule = {
             notes: 'Nếu sau chỗ trống đã có sẵn danh từ gốc, vị trí trống phía trước sẽ là Tính từ bổ nghĩa.',
           },
           tipBox: {
-            title: 'Quy Tắc 5 Giây: Nhận Diện Đuôi Danh Từ',
+            title: 'Quy Tắc Nhận Diện Hậu Tố Danh Từ',
             type: 'shortcut',
             content:
               'Khi 4 phương án A, B, C, D có chung gốc từ, hãy nhìn vào phần đuôi (suffix) để chọn ngay Danh từ mà không cần đọc hiểu nghĩa.',
@@ -197,16 +197,16 @@ export const grammarFoundationModule: TheoryModule = {
           },
         },
         {
-          id: 'g01-s4-shortcuts-5sec-workflow',
+          id: 'g01-s4-syntax-workflow',
           order: 4,
-          title: 'Chiến Thuật 3 Bước Giải Quyết Câu Từ Loại Dưới 5 Giây',
+          title: 'Quy Trình 3 Bước Phân Tích Cú Pháp Câu Từ Loại',
           sectionType: 'shortcuts',
           contentMarkdown:
-            'Áp dụng quy trình 3 bước sau đây sẽ giúp bạn tiết kiệm trung bình 8 phút cho Part 5 để dành trọn thời gian cho Part 7:',
+            'Áp dụng quy trình 3 bước sau đây sẽ giúp bạn giải quyết chính xác các câu hỏi từ loại trong Part 5:',
           keyTakeaways: [
             'Bước 1: Liếc nhanh 4 phương án A, B, C, D — nếu chung gốc từ (chỉ khác đuôi), xác định ngay đây là câu hỏi TỪ LOẠI, TUYỆT ĐỐI KHÔNG DỊCH NGHĨA.',
             'Bước 2: Nhìn 1 từ ngay trước và 1 từ ngay sau chỗ trống để xác định cấu trúc ngữ pháp cần điền (cụm danh từ, sau be, hay giữa trợ động từ và V3).',
-            'Bước 3: Đối chiếu với các hậu tố nhận diện để chọn đáp án trong vòng 5 giây.',
+            'Bước 3: Đối chiếu với các hậu tố nhận diện để xác định chính xác đáp án.',
           ],
         },
       ],
@@ -282,7 +282,7 @@ export const grammarFoundationModule: TheoryModule = {
         recommendedQuestionCount: 20,
         filterMode: 'unseen',
         practiceUrl: '/toeic/exam/bank?part=5&limit=20&mode=practice&filterMode=unseen',
-        ctaText: 'Luyện ngay 20 câu Part 5 Từ loại & 5 Giây',
+        ctaText: 'Luyện ngay 20 câu Part 5 Phân Tích Từ Loại',
       },
     },
 
@@ -787,7 +787,7 @@ export const grammarFoundationModule: TheoryModule = {
                 '"During" chỉ đi với Danh từ chỉ sự kiện, kỳ nghỉ, hội nghị (during the meeting, during the summer vacation). Khi có khoảng thời gian đo đếm bằng con số (three weeks, two years), bắt buộc dùng "For".',
             },
             antidote:
-              'Thần chú giải đề: Gặp "Despite of" -> GẠCH BỎ NGAY LẬP TỨC (Chỉ có "Despite" hoặc "In spite of"). Gặp con số thời gian (2 months, 5 days) -> CHỌN "FOR", KHÔNG CHỌN "DURING".',
+              'Nguyên tắc ngữ pháp chuẩn: "Despite" không đi kèm "of" ("In spite of" mới có "of"). "For" diễn đạt khoảng thời gian có số đếm; "During" diễn đạt một danh từ sự kiện/thời kỳ.',
           },
           examples: [
             {
@@ -926,10 +926,10 @@ export const grammarFoundationModule: TheoryModule = {
                 color: 'emerald',
               },
             ],
-            notes: 'Mẹo 3 giây: Nhìn ngay từ đứng sau chỗ trống. Có Tân ngữ danh từ -> Chọn V-ing; Có Giới từ (by, in, to, with) hoặc hết câu -> Chọn V-ed.',
+            notes: 'Quy tắc phân tích cú pháp: Xét thành phần đứng sau chỗ trống. Có Tân ngữ danh từ -> Chọn V-ing; Có Giới từ (by, in, to, with) hoặc hết câu -> Chọn V-ed.',
           },
           tipBox: {
-            title: 'Quy Tắc 3 Giây Bẻ Khóa Phân Từ (V-ing vs V-ed)',
+            title: 'Quy Tắc Nhận Diện Phân Từ (V-ing vs V-ed)',
             type: 'shortcut',
             content:
               'Khi gặp câu hỏi phân từ bổ nghĩa cho danh từ, hãy áp dụng quy tắc quét từ đứng ngay sau chỗ trống để chốt phương án:',
@@ -1162,7 +1162,7 @@ export const grammarFoundationModule: TheoryModule = {
       objectives: [
         'Nhận diện nhanh cấu trúc câu bị động cốt lõi: S + be + V3/ed (+ by O).',
         'Nắm chắc nguyên tắc xét tân ngữ: Sau ngoại động từ chia bị động thông thường KHÔNG CÒN tân ngữ danh từ.',
-        'Bẻ khóa ngoại lệ: Bị động của động từ 2 tân ngữ (give, award, grant, offer, send) — phía sau vẫn còn 1 tân ngữ trực tiếp.',
+        'Phân tích ngoại lệ: Bị động của động từ 2 tân ngữ (give, award, grant, offer, send) — phía sau vẫn còn 1 tân ngữ trực tiếp.',
         'Ghi nhớ danh sách đen: Các Nội động từ (Intransitive Verbs) TUYỆT ĐỐI KHÔNG DÙNG BỊ ĐỘNG (occur, happen, rise, remain, arrive, expire).',
         'Thuộc lòng các cụm bị động hành chính cố định thường gặp trong văn bản và hợp đồng công sở.',
       ],
@@ -1170,7 +1170,7 @@ export const grammarFoundationModule: TheoryModule = {
         {
           id: 'g05-s1-passive-core-rule',
           order: 1,
-          title: 'Cấu Trúc Bị Động & Quy Tắc Xét Tân Ngữ Thần Tốc',
+          title: 'Cấu Trúc Bị Động & Quy Tắc Xét Tân Ngữ Trọng Tâm',
           sectionType: 'rules',
           contentMarkdown:
             'Cấu trúc bị động được sử dụng khi chủ ngữ là đối tượng tiếp nhận hành động, hoặc khi người thực hiện hành động không quan trọng hay không được đề cập:',
@@ -1190,7 +1190,7 @@ export const grammarFoundationModule: TheoryModule = {
                 color: 'emerald',
               },
             ],
-            notes: 'Quy tắc 5 giây: Nếu sau chỗ trống là GIỚI TỪ (by, in, at, to) hoặc DẤU CHẤM hết câu -> 90% chọn BỊ ĐỘNG (be + V3/ed).',
+            notes: 'Quy tắc nhận diện thể bị động: Nếu sau chỗ trống là GIỚI TỪ (by, in, at, to) hoặc DẤU CHẤM hết câu (không có tân ngữ trực tiếp) -> Chọn dạng BỊ ĐỘNG (be + V3/ed).',
           },
           examples: [
             {
@@ -1438,11 +1438,11 @@ export const grammarFoundationModule: TheoryModule = {
                 colValues: [
                   'Câu hỏi Ngữ pháp cục bộ (Từ loại, đại từ, giới từ)',
                   '~40% (1-2 câu / đoạn)',
-                  'Chỉ nhìn câu chứa chỗ trống, áp dụng quy tắc 5 giây như Part 5, không cần dịch toàn đoạn',
+                  'Chỉ nhìn câu chứa chỗ trống, áp dụng quy tắc phân tích cú pháp như Part 5, không cần dịch toàn đoạn',
                   '10 - 15 giây',
                 ],
                 highlight: true,
-                badge: 'Ăn điểm nhanh',
+                badge: 'Trọng tâm xử lý nhanh',
               },
               {
                 colValues: [
@@ -1480,7 +1480,7 @@ export const grammarFoundationModule: TheoryModule = {
         {
           id: 'g06-s2-sentence-insertion-3-clues',
           order: 2,
-          title: 'Chiến Thuật Bẻ Khóa Câu Chèn Câu Bằng 3 Manh Mối',
+          title: 'Chiến Thuật Xử Lý Câu Chèn Câu Bằng 3 Manh Mối',
           sectionType: 'rules',
           contentMarkdown:
             'Dạng câu hỏi chọn câu văn hoàn chỉnh (Sentence Insertion) khiến nhiều thí sinh mất nhiều thời gian nhất. Đừng dịch từng câu từ đầu đến cuối! Hãy dùng **Kỹ thuật 3 Manh Mối** để dò tìm mối nối logic:',
@@ -1509,7 +1509,7 @@ export const grammarFoundationModule: TheoryModule = {
             notes: 'Nếu phương án có chứa "These changes", hãy kiểm tra xem câu liền trước có liệt kê những "changes" nào hay không!',
           },
           tipBox: {
-            title: 'Chiến Thuật 45 Giây Bẻ Khóa Câu Chèn Part 6 (Sentence Insertion)',
+            title: 'Chiến Thuật Phân Tích Câu Chèn Đoạn Part 6 (Sentence Insertion)',
             type: 'shortcut',
             content:
               'Đừng dịch toàn bài từ đầu đến cuối! Hãy định vị 3 manh mối then chốt trong 4 phương án lựa chọn để tìm điểm neo vào đoạn văn:',

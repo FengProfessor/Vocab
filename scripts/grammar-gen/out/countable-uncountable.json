@@ -2,7 +2,7 @@
   "slug": "countable-uncountable",
   "title": "Countable & Uncountable Nouns",
   "title_vi": "Danh từ đếm được & không đếm được",
-  "level": "beginner",
+  "level": "A2",
   "order": 17,
   "sections": {
     "definition": "**Danh từ đếm được** (Countable Nouns) là danh từ chỉ các sự vật, hiện tượng có thể đếm được bằng số, có cả dạng số ít và số nhiều (ví dụ: *books*, *chairs*). Ngược lại, **danh từ không đếm được** (Uncountable Nouns) chỉ các chất liệu, khái niệm hoặc sự vật không thể tách rời thành đơn vị đếm được và chỉ có một dạng duy nhất (ví dụ: *water*, *information*).",
@@ -310,122 +310,341 @@
         "why": "Furniture là danh từ không đếm được; dùng đơn vị pieces of để đếm."
       }
     ],
-    "tips": "**Mẹo nhớ:** Danh từ đếm được sử dụng số đếm, danh từ không đếm được sử dụng 'some', 'any', 'much', 'little'. Sử dụng 'a' hoặc 'an' với danh từ đếm được tùy thuộc vào cách phát âm.",
+    "tips": "**Lưu ý trọng tâm:** Danh từ đếm được sử dụng số đếm, danh từ không đếm được sử dụng 'some', 'any', 'much', 'little'. Sử dụng 'a' hoặc 'an' với danh từ đếm được tùy thuộc vào cách phát âm.",
     "comparison": "**Danh từ đếm được vs không đếm được:** Danh từ đếm được có dạng số ít/số nhiều và đi trực tiếp với số đếm (*one apple, two apples*). Danh từ không đếm được không dùng trực tiếp với số đếm hoặc *a/an*; muốn đếm phải thêm đơn vị (*two pieces of advice*, không nói *two advices*).",
     "timeline": null
   },
   "exercises": [
     {
-      "type": "mcq",
-      "q": "I have ___ book on my desk.",
-      "opts": [
+      "id": "countable-uncountable-ex-01",
+      "type": "multiple_choice",
+      "question": "I have ___ book on my desk.",
+      "options": [
         "a",
         "an",
         "two"
       ],
-      "answer": "a",
-      "fb": "Book đếm được, số ít và bắt đầu bằng âm /b/: a book."
+      "correct_answer": "a",
+      "explanation": "Book đếm được, số ít và bắt đầu bằng âm /b/: a book.",
+      "distractor_breakdowns": [
+        {
+          "option": "a",
+          "isCorrect": true,
+          "pedagogicalReason": "Book đếm được, số ít và bắt đầu bằng âm /b/: a book."
+        },
+        {
+          "option": "an",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Mạo từ \"an\" chỉ đứng trước danh từ đếm được số ít phát âm bắt đầu bằng một nguyên âm."
+        },
+        {
+          "option": "two",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"two\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "mcq",
-      "q": "She has ___ apples.",
-      "opts": [
+      "id": "countable-uncountable-ex-02",
+      "type": "multiple_choice",
+      "question": "She has ___ apples.",
+      "options": [
         "two",
         "a",
         "an"
       ],
-      "answer": "two",
-      "fb": "Apples là số nhiều, có thể đi với số đếm two."
-    },
-    {
-      "type": "fill",
-      "q": "I need ___ water. (some / a)",
-      "answer": [
-        "some"
+      "correct_answer": "two",
+      "explanation": "Apples là số nhiều, có thể đi với số đếm two.",
+      "distractor_breakdowns": [
+        {
+          "option": "two",
+          "isCorrect": true,
+          "pedagogicalReason": "Apples là số nhiều, có thể đi với số đếm two."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Mạo từ \"a\" chỉ đứng trước danh từ đếm được số ít phát âm bắt đầu bằng một phụ âm."
+        },
+        {
+          "option": "an",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Mạo từ \"an\" chỉ đứng trước danh từ đếm được số ít phát âm bắt đầu bằng một nguyên âm."
+        }
       ],
-      "fb": "Water không đếm được; dùng some water."
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "We bought two ___ of water. (bottle)",
-      "answer": [
-        "bottles"
+      "id": "countable-uncountable-ex-03",
+      "type": "multiple_choice",
+      "question": "I need ___ water. (some / a)",
+      "options": [
+        "some",
+        "a"
       ],
-      "fb": "Đếm đơn vị chứa nước: two bottles of water."
+      "correct_answer": "some",
+      "explanation": "Water không đếm được; dùng some water.",
+      "distractor_breakdowns": [
+        {
+          "option": "some",
+          "isCorrect": true,
+          "pedagogicalReason": "Water không đếm được; dùng some water."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Mạo từ \"a\" chỉ đứng trước danh từ đếm được số ít phát âm bắt đầu bằng một phụ âm."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "tf",
-      "q": "Is this standard English? 'I have two books.'",
-      "answer": true,
-      "fb": "Books đếm được và ở dạng số nhiều sau two."
+      "id": "countable-uncountable-ex-04",
+      "type": "fill_blank",
+      "question": "We bought two ___ of water. (bottle)",
+      "options": [],
+      "correct_answer": "bottles",
+      "explanation": "Đếm đơn vị chứa nước: two bottles of water.",
+      "distractor_breakdowns": [
+        {
+          "option": "bottles",
+          "isCorrect": true,
+          "pedagogicalReason": "Đếm đơn vị chứa nước: two bottles of water."
+        },
+        {
+          "option": "bottle",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sau số đếm \"two\", danh từ đếm được chỉ đơn vị chứa \"bottle\" phải ở dạng số nhiều \"bottles\"."
+        },
+        {
+          "option": "bottles of",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ \"of\" đã có sẵn trong câu sau chỗ trống, điền thừa từ nối."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "tf",
-      "q": "Is this standard English? 'She gave me two advices.'",
-      "answer": false,
-      "fb": "Advice không đếm được; nói two pieces of advice."
+      "id": "countable-uncountable-ex-05",
+      "type": "multiple_choice",
+      "question": "Is this standard English? 'I have two books.'",
+      "options": [
+        "Đúng",
+        "Sai"
+      ],
+      "correct_answer": "Đúng",
+      "explanation": "Books đếm được và ở dạng số nhiều sau two.",
+      "distractor_breakdowns": [
+        {
+          "option": "Đúng",
+          "isCorrect": true,
+          "pedagogicalReason": "Books đếm được và ở dạng số nhiều sau two."
+        },
+        {
+          "option": "Sai",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Khẳng định này là chính xác về mặt ngữ pháp, không phải là phát biểu sai."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "error",
-      "q": "Which sentence is incorrect?",
-      "opts": [
+      "id": "countable-uncountable-ex-06",
+      "type": "multiple_choice",
+      "question": "Is this standard English? 'She gave me two advices.'",
+      "options": [
+        "Đúng",
+        "Sai"
+      ],
+      "correct_answer": "Sai",
+      "explanation": "Advice không đếm được; nói two pieces of advice.",
+      "distractor_breakdowns": [
+        {
+          "option": "Đúng",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Khẳng định này không phản ánh đúng quy tắc ngữ pháp của câu đã cho."
+        },
+        {
+          "option": "Sai",
+          "isCorrect": true,
+          "pedagogicalReason": "Advice không đếm được; nói two pieces of advice."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "countable-uncountable-ex-07",
+      "type": "error_correction",
+      "question": "Which sentence is incorrect?",
+      "options": [
         "I have two books.",
         "I need some water.",
         "I need a water to drink."
       ],
-      "answer": "I need a water to drink.",
-      "fb": "Khi nói chung về nước, dùng some water; a water chỉ có thể dùng trong ngữ cảnh gọi một phần nước."
+      "correct_answer": "I need a water to drink.",
+      "explanation": "Khi nói chung về nước, dùng some water; a water chỉ có thể dùng trong ngữ cảnh gọi một phần nước.",
+      "distractor_breakdowns": [
+        {
+          "option": "I have two books.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"I have two books.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "I need some water.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"I need some water.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "I need a water to drink.",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi nói chung về nước, dùng some water; a water chỉ có thể dùng trong ngữ cảnh gọi một phần nước."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "mcq",
-      "q": "Which noun is usually uncountable?",
-      "opts": [
+      "id": "countable-uncountable-ex-08",
+      "type": "multiple_choice",
+      "question": "Which noun is usually uncountable?",
+      "options": [
         "furniture",
         "chair",
         "table"
       ],
-      "answer": "furniture",
-      "fb": "Furniture không có dạng số nhiều furnitures trong tiếng Anh chuẩn."
-    },
-    {
-      "type": "fill",
-      "q": "She gave me a piece of ___. (advice / advices)",
-      "answer": [
-        "advice"
+      "correct_answer": "furniture",
+      "explanation": "Furniture không có dạng số nhiều furnitures trong tiếng Anh chuẩn.",
+      "distractor_breakdowns": [
+        {
+          "option": "furniture",
+          "isCorrect": true,
+          "pedagogicalReason": "Furniture không có dạng số nhiều furnitures trong tiếng Anh chuẩn."
+        },
+        {
+          "option": "chair",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"chair\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "table",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"table\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
       ],
-      "fb": "Advice không thêm -s; dùng a piece of advice."
+      "difficulty": 1
     },
     {
-      "type": "mcq",
-      "q": "Choose the natural phrase for two individual items of furniture.",
-      "opts": [
+      "id": "countable-uncountable-ex-09",
+      "type": "multiple_choice",
+      "question": "She gave me a piece of ___. (advice / advices)",
+      "options": [
+        "advice",
+        "advices"
+      ],
+      "correct_answer": "advice",
+      "explanation": "Advice không thêm -s; dùng a piece of advice.",
+      "distractor_breakdowns": [
+        {
+          "option": "advice",
+          "isCorrect": true,
+          "pedagogicalReason": "Advice không thêm -s; dùng a piece of advice."
+        },
+        {
+          "option": "advices",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"advices\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "countable-uncountable-ex-10",
+      "type": "multiple_choice",
+      "question": "Choose the natural phrase for two individual items of furniture.",
+      "options": [
         "two pieces of furniture",
         "two furnitures",
         "two furniture"
       ],
-      "answer": "two pieces of furniture",
-      "fb": "Đếm furniture qua đơn vị: two pieces of furniture."
-    },
-    {
-      "type": "fill",
-      "q": "There are three ___ on the table. (apple)",
-      "answer": [
-        "apples"
+      "correct_answer": "two pieces of furniture",
+      "explanation": "Đếm furniture qua đơn vị: two pieces of furniture.",
+      "distractor_breakdowns": [
+        {
+          "option": "two pieces of furniture",
+          "isCorrect": true,
+          "pedagogicalReason": "Đếm furniture qua đơn vị: two pieces of furniture."
+        },
+        {
+          "option": "two furnitures",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"two furnitures\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "two furniture",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"two furniture\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
       ],
-      "fb": "Sau three, danh từ đếm được apple chuyển thành apples."
+      "difficulty": 1
     },
     {
-      "type": "mcq",
-      "q": "Which phrase names one apple?",
-      "opts": [
+      "id": "countable-uncountable-ex-11",
+      "type": "fill_blank",
+      "question": "There are three ___ on the table. (apple)",
+      "options": [],
+      "correct_answer": "apples",
+      "explanation": "Sau three, danh từ đếm được apple chuyển thành apples.",
+      "distractor_breakdowns": [
+        {
+          "option": "apples",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau three, danh từ đếm được apple chuyển thành apples."
+        },
+        {
+          "option": "apple",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sau số đếm \"three\", danh từ đếm được \"apple\" phải chuyển thành dạng số nhiều \"apples\"."
+        },
+        {
+          "option": "apples of",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không cần giới từ \"of\" sau danh từ đếm được trực tiếp."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "countable-uncountable-ex-12",
+      "type": "multiple_choice",
+      "question": "Which phrase names one apple?",
+      "options": [
         "an apple",
         "a apple",
         "one apples"
       ],
-      "answer": "an apple",
-      "fb": "Apple bắt đầu bằng âm nguyên âm: an apple."
+      "correct_answer": "an apple",
+      "explanation": "Apple bắt đầu bằng âm nguyên âm: an apple.",
+      "distractor_breakdowns": [
+        {
+          "option": "an apple",
+          "isCorrect": true,
+          "pedagogicalReason": "Apple bắt đầu bằng âm nguyên âm: an apple."
+        },
+        {
+          "option": "a apple",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"a apple\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "one apples",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"one apples\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-13",
       "type": "multiple_choice",
       "question": "Choose the correct **article**: I saw ___ dog in the park.",
       "options": [
@@ -436,9 +655,32 @@
       ],
       "correct_answer": "a",
       "explanation": "“Dog” là danh từ đếm được số ít và bắt đầu bằng âm phụ âm, nên dùng “a”. “An” dùng trước âm nguyên âm, còn “some/any” không phù hợp với danh từ đếm được số ít ở câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "a",
+          "isCorrect": true,
+          "pedagogicalReason": "“Dog” là danh từ đếm được số ít và bắt đầu bằng âm phụ âm, nên dùng “a”. “An” dùng trước âm nguyên âm, còn “some/any” không phù hợp với danh từ đếm được số ít ở câu này."
+        },
+        {
+          "option": "an",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “An” dùng trước âm nguyên âm, còn “some/any” không phù hợp với danh từ đếm được số ít ở câu này."
+        },
+        {
+          "option": "some",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Some/any” không phù hợp với danh từ đếm được số ít ở câu này."
+        },
+        {
+          "option": "any",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Any” không phù hợp với danh từ đếm được số ít ở câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-14",
       "type": "multiple_choice",
       "question": "Choose the correct **plural noun**: There are three ___ on the table.",
       "options": [
@@ -449,9 +691,32 @@
       ],
       "correct_answer": "cups",
       "explanation": "Sau số đếm “three”, cần danh từ đếm được số nhiều, nên “cups” đúng. “Cup” là số ít, còn “milk” và “rice” là danh từ không đếm được nên không dùng trực tiếp với số đếm.",
+      "distractor_breakdowns": [
+        {
+          "option": "cup",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Cup” là số ít, còn “milk” và “rice” là danh từ không đếm được nên không dùng trực tiếp với số đếm."
+        },
+        {
+          "option": "cups",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau số đếm “three”, cần danh từ đếm được số nhiều, nên “cups” đúng. “Cup” là số ít, còn “milk” và “rice” là danh từ không đếm được nên không dùng trực tiếp với số đếm."
+        },
+        {
+          "option": "milk",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “milk” và “rice” là danh từ không đếm được nên không dùng trực tiếp với số đếm."
+        },
+        {
+          "option": "rice",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “rice” là danh từ không đếm được nên không dùng trực tiếp với số đếm."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-15",
       "type": "multiple_choice",
       "question": "Choose the correct **quantifier**: We don't have ___ rice for dinner.",
       "options": [
@@ -462,9 +727,32 @@
       ],
       "correct_answer": "any",
       "explanation": "“Rice” là danh từ không đếm được; trong câu phủ định thường dùng “any”. “Many” dùng với danh từ đếm được số nhiều, còn “a/an” không dùng trực tiếp với danh từ không đếm được.",
+      "distractor_breakdowns": [
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Many” dùng với danh từ đếm được số nhiều, còn “a/an” không dùng trực tiếp với danh từ không đếm được."
+        },
+        {
+          "option": "any",
+          "isCorrect": true,
+          "pedagogicalReason": "“Rice” là danh từ không đếm được; trong câu phủ định thường dùng “any”. “Many” dùng với danh từ đếm được số nhiều, còn “a/an” không dùng trực tiếp với danh từ không đếm được."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. A/an” không dùng trực tiếp với danh từ không đếm được."
+        },
+        {
+          "option": "an",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. An” không dùng trực tiếp với danh từ không đếm được."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-16",
       "type": "multiple_choice",
       "question": "Choose the correct **quantity word**: Can I have a ___ of coffee?",
       "options": [
@@ -475,9 +763,32 @@
       ],
       "correct_answer": "cup",
       "explanation": "“Coffee” là danh từ không đếm được, nên cần đơn vị đo như “a cup of coffee”. Các lựa chọn còn lại không tạo cụm danh từ đúng trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "cup",
+          "isCorrect": true,
+          "pedagogicalReason": "“Coffee” là danh từ không đếm được, nên cần đơn vị đo như “a cup of coffee”. Các lựa chọn còn lại không tạo cụm danh từ đúng trong câu này."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"many\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "rice",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"rice\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "chairs",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"chairs\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-17",
       "type": "multiple_choice",
       "question": "Choose the correct **noun form**: I need two ___ for the classroom.",
       "options": [
@@ -488,9 +799,32 @@
       ],
       "correct_answer": "chairs",
       "explanation": "Sau số đếm “two”, dùng danh từ đếm được số nhiều: “chairs”. “Chair” là số ít, còn “furniture” và “air” là danh từ không đếm được.",
+      "distractor_breakdowns": [
+        {
+          "option": "chair",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Chair” là số ít, còn “furniture” và “air” là danh từ không đếm được."
+        },
+        {
+          "option": "chairs",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau số đếm “two”, dùng danh từ đếm được số nhiều: “chairs”. “Chair” là số ít, còn “furniture” và “air” là danh từ không đếm được."
+        },
+        {
+          "option": "furniture",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “furniture” và “air” là danh từ không đếm được."
+        },
+        {
+          "option": "air",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “air” là danh từ không đếm được."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-18",
       "type": "multiple_choice",
       "question": "Choose the correct **question word**: How ___ sugar do you want?",
       "options": [
@@ -501,9 +835,32 @@
       ],
       "correct_answer": "much",
       "explanation": "“Sugar” là danh từ không đếm được, nên hỏi số lượng bằng “How much”. “How many” dùng với danh từ đếm được số nhiều, còn “a/an” không phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Many” dùng với danh từ đếm được số nhiều, còn “a/an” không phù hợp."
+        },
+        {
+          "option": "much",
+          "isCorrect": true,
+          "pedagogicalReason": "“Sugar” là danh từ không đếm được, nên hỏi số lượng bằng “How much”. “How many” dùng với danh từ đếm được số nhiều, còn “a/an” không phù hợp."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. A/an” không phù hợp."
+        },
+        {
+          "option": "an",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. An” không phù hợp."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-19",
       "type": "multiple_choice",
       "question": "Choose the correct **quantifier**: There are ___ students in the room.",
       "options": [
@@ -514,9 +871,32 @@
       ],
       "correct_answer": "some",
       "explanation": "“Students” là danh từ đếm được số nhiều, nên có thể dùng “some”. “Much” dùng với danh từ không đếm được, còn “a/an” chỉ đi với danh từ đếm được số ít.",
+      "distractor_breakdowns": [
+        {
+          "option": "some",
+          "isCorrect": true,
+          "pedagogicalReason": "“Students” là danh từ đếm được số nhiều, nên có thể dùng “some”. “Much” dùng với danh từ không đếm được, còn “a/an” chỉ đi với danh từ đếm được số ít."
+        },
+        {
+          "option": "much",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Much” dùng với danh từ không đếm được, còn “a/an” chỉ đi với danh từ đếm được số ít."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. A/an” chỉ đi với danh từ đếm được số ít."
+        },
+        {
+          "option": "an",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. An” chỉ đi với danh từ đếm được số ít."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-20",
       "type": "multiple_choice",
       "question": "Choose the correct **measure phrase**: She bought two ___ of bread.",
       "options": [
@@ -527,9 +907,32 @@
       ],
       "correct_answer": "loaves",
       "explanation": "“Bread” thường là danh từ không đếm được, nên cần đơn vị đếm như “loaves”. “Bread” không dùng trực tiếp sau “two” ở nghĩa này; “many” và “informations” sai ngữ pháp.",
+      "distractor_breakdowns": [
+        {
+          "option": "loaves",
+          "isCorrect": true,
+          "pedagogicalReason": "“Bread” thường là danh từ không đếm được, nên cần đơn vị đếm như “loaves”. “Bread” không dùng trực tiếp sau “two” ở nghĩa này; “many” và “informations” sai ngữ pháp."
+        },
+        {
+          "option": "bread",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Bread” thường là danh từ không đếm được, nên cần đơn vị đếm như “loaves”."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “many” và “informations” sai ngữ pháp."
+        },
+        {
+          "option": "informations",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “informations” sai ngữ pháp."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-21",
       "type": "multiple_choice",
       "question": "Choose the correct **noun type**: Which noun is uncountable?",
       "options": [
@@ -540,9 +943,32 @@
       ],
       "correct_answer": "music",
       "explanation": "“Music” là danh từ không đếm được trong tiếng Anh. “Banana”, “ticket” và “window” là danh từ đếm được vì có thể nói “one banana”, “two tickets”, “three windows”.",
+      "distractor_breakdowns": [
+        {
+          "option": "music",
+          "isCorrect": true,
+          "pedagogicalReason": "“Music” là danh từ không đếm được trong tiếng Anh. “Banana”, “ticket” và “window” là danh từ đếm được vì có thể nói “one banana”, “two tickets”, “three windows”."
+        },
+        {
+          "option": "banana",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Banana”, “ticket” và “window” là danh từ đếm được vì có thể nói “one banana”, “two tickets”, “three windows”."
+        },
+        {
+          "option": "ticket",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “ticket” và “window” là danh từ đếm được vì có thể nói “one banana”, “two tickets”, “three windows”."
+        },
+        {
+          "option": "window",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “window” là danh từ đếm được vì có thể nói “one banana”, “two tickets”, “three windows”."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-22",
       "type": "fill_blank",
       "question": "Fill in the correct **article**: She has ___ umbrella.",
       "options": [
@@ -553,9 +979,32 @@
       ],
       "correct_answer": "an",
       "explanation": "“Umbrella” là danh từ đếm được số ít và bắt đầu bằng âm nguyên âm, nên dùng “an”. “A” dùng trước âm phụ âm; “some/many” không dùng cho danh từ số ít trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “A” dùng trước âm phụ âm."
+        },
+        {
+          "option": "an",
+          "isCorrect": true,
+          "pedagogicalReason": "“Umbrella” là danh từ đếm được số ít và bắt đầu bằng âm nguyên âm, nên dùng “an”. “A” dùng trước âm phụ âm; “some/many” không dùng cho danh từ số ít trong câu này."
+        },
+        {
+          "option": "some",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Some/many” không dùng cho danh từ số ít trong câu này."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Many” không dùng cho danh từ số ít trong câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-23",
       "type": "fill_blank",
       "question": "Fill in the correct **quantifier**: There isn't ___ milk in the fridge.",
       "options": [
@@ -566,9 +1015,32 @@
       ],
       "correct_answer": "any",
       "explanation": "“Milk” là danh từ không đếm được; trong câu phủ định thường dùng “any”. “Many” dùng với danh từ đếm được số nhiều, còn “a/an” không dùng trực tiếp với “milk”.",
+      "distractor_breakdowns": [
+        {
+          "option": "any",
+          "isCorrect": true,
+          "pedagogicalReason": "“Milk” là danh từ không đếm được; trong câu phủ định thường dùng “any”. “Many” dùng với danh từ đếm được số nhiều, còn “a/an” không dùng trực tiếp với “milk”."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Many” dùng với danh từ đếm được số nhiều, còn “a/an” không dùng trực tiếp với “milk”."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. A/an” không dùng trực tiếp với “milk”."
+        },
+        {
+          "option": "an",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. An” không dùng trực tiếp với “milk”."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-24",
       "type": "fill_blank",
       "question": "Fill in the correct **plural form**: We need five ___ for the game.",
       "options": [
@@ -579,9 +1051,32 @@
       ],
       "correct_answer": "balls",
       "explanation": "Sau số đếm “five”, danh từ đếm được phải ở dạng số nhiều: “balls”. “Ball” là số ít, còn “water” và “homework” là danh từ không đếm được.",
+      "distractor_breakdowns": [
+        {
+          "option": "ball",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Ball” là số ít, còn “water” và “homework” là danh từ không đếm được."
+        },
+        {
+          "option": "balls",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau số đếm “five”, danh từ đếm được phải ở dạng số nhiều: “balls”. “Ball” là số ít, còn “water” và “homework” là danh từ không đếm được."
+        },
+        {
+          "option": "water",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “water” và “homework” là danh từ không đếm được."
+        },
+        {
+          "option": "homework",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “homework” là danh từ không đếm được."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-25",
       "type": "fill_blank",
       "question": "Fill in the correct **quantity word**: I ate a ___ of cheese.",
       "options": [
@@ -592,9 +1087,32 @@
       ],
       "correct_answer": "piece",
       "explanation": "“Cheese” thường là danh từ không đếm được, nên dùng đơn vị như “a piece of cheese”. “Many/few” dùng với danh từ đếm được số nhiều; “cheeses” không phù hợp với nghĩa thông thường ở câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "piece",
+          "isCorrect": true,
+          "pedagogicalReason": "“Cheese” thường là danh từ không đếm được, nên dùng đơn vị như “a piece of cheese”. “Many/few” dùng với danh từ đếm được số nhiều; “cheeses” không phù hợp với nghĩa thông thường ở câu này."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Many/few” dùng với danh từ đếm được số nhiều."
+        },
+        {
+          "option": "few",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Few” dùng với danh từ đếm được số nhiều."
+        },
+        {
+          "option": "cheeses",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “cheeses” không phù hợp với nghĩa thông thường ở câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-26",
       "type": "fill_blank",
       "question": "Fill in the correct **question word**: How ___ oranges are in the bag?",
       "options": [
@@ -605,9 +1123,32 @@
       ],
       "correct_answer": "many",
       "explanation": "“Oranges” là danh từ đếm được số nhiều, nên dùng “How many”. “How much” dùng với danh từ không đếm được; “some/any” không dùng để hỏi số lượng theo mẫu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "many",
+          "isCorrect": true,
+          "pedagogicalReason": "“Oranges” là danh từ đếm được số nhiều, nên dùng “How many”. “How much” dùng với danh từ không đếm được; “some/any” không dùng để hỏi số lượng theo mẫu này."
+        },
+        {
+          "option": "much",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Much” dùng với danh từ không đếm được."
+        },
+        {
+          "option": "some",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Some/any” không dùng để hỏi số lượng theo mẫu này."
+        },
+        {
+          "option": "any",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Any” không dùng để hỏi số lượng theo mẫu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-27",
       "type": "fill_blank",
       "question": "Fill in the correct **noun form**: I have a lot of ___ today.",
       "options": [
@@ -618,9 +1159,32 @@
       ],
       "correct_answer": "homework",
       "explanation": "“Homework” là danh từ không đếm được, không thêm “s”. “Homeworks” sai trong cách dùng thông thường; “chair/chairs” không hợp nghĩa với câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "homework",
+          "isCorrect": true,
+          "pedagogicalReason": "“Homework” là danh từ không đếm được, không thêm “s”. “Homeworks” sai trong cách dùng thông thường; “chair/chairs” không hợp nghĩa với câu này."
+        },
+        {
+          "option": "homeworks",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Homeworks” sai trong cách dùng thông thường."
+        },
+        {
+          "option": "chair",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Chair/chairs” không hợp nghĩa với câu này."
+        },
+        {
+          "option": "chairs",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Chairs” không hợp nghĩa với câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-28",
       "type": "fill_blank",
       "question": "Fill in the correct **quantifier**: Do you have ___ money?",
       "options": [
@@ -631,9 +1195,32 @@
       ],
       "correct_answer": "any",
       "explanation": "“Money” là danh từ không đếm được; trong câu hỏi thường dùng “any”. “Many” dùng với danh từ đếm được số nhiều, còn “a/an” không đứng trực tiếp trước “money”.",
+      "distractor_breakdowns": [
+        {
+          "option": "any",
+          "isCorrect": true,
+          "pedagogicalReason": "“Money” là danh từ không đếm được; trong câu hỏi thường dùng “any”. “Many” dùng với danh từ đếm được số nhiều, còn “a/an” không đứng trực tiếp trước “money”."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Many” dùng với danh từ đếm được số nhiều, còn “a/an” không đứng trực tiếp trước “money”."
+        },
+        {
+          "option": "an",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. An” không đứng trực tiếp trước “money”."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. A/an” không đứng trực tiếp trước “money”."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-29",
       "type": "fill_blank",
       "question": "Fill in the correct **measure phrase**: Please buy a ___ of juice.",
       "options": [
@@ -644,9 +1231,32 @@
       ],
       "correct_answer": "bottle",
       "explanation": "“Juice” là danh từ không đếm được, nên dùng đơn vị chứa như “a bottle of juice”. “Many/few” dùng với danh từ đếm được số nhiều; “juices” không phù hợp trong câu cơ bản này.",
+      "distractor_breakdowns": [
+        {
+          "option": "bottle",
+          "isCorrect": true,
+          "pedagogicalReason": "“Juice” là danh từ không đếm được, nên dùng đơn vị chứa như “a bottle of juice”. “Many/few” dùng với danh từ đếm được số nhiều; “juices” không phù hợp trong câu cơ bản này."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Many/few” dùng với danh từ đếm được số nhiều."
+        },
+        {
+          "option": "few",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Few” dùng với danh từ đếm được số nhiều."
+        },
+        {
+          "option": "juices",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “juices” không phù hợp trong câu cơ bản này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-30",
       "type": "error_correction",
       "question": "Find the error: He has three **furniture** in his room.",
       "options": [
@@ -657,9 +1267,32 @@
       ],
       "correct_answer": "three furniture",
       "explanation": "“Furniture” là danh từ không đếm được, nên không nói “three furniture”. Có thể sửa thành “three pieces of furniture”; các phần còn lại không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "He",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"He\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "has",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"has\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "three furniture",
+          "isCorrect": true,
+          "pedagogicalReason": "“Furniture” là danh từ không đếm được, nên không nói “three furniture”. Có thể sửa thành “three pieces of furniture”; các phần còn lại không sai."
+        },
+        {
+          "option": "in his room",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"in his room\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-31",
       "type": "error_correction",
       "question": "Find the error: I need an **orange juice** after lunch.",
       "options": [
@@ -670,9 +1303,32 @@
       ],
       "correct_answer": "an orange juice",
       "explanation": "“Orange juice” thường là danh từ không đếm được, nên không dùng “an” trực tiếp. Có thể nói “some orange juice” hoặc “a glass of orange juice”.",
+      "distractor_breakdowns": [
+        {
+          "option": "I",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. I “some orange juice” hoặc “a glass of orange juice”."
+        },
+        {
+          "option": "need",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"need\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "an orange juice",
+          "isCorrect": true,
+          "pedagogicalReason": "“Orange juice” thường là danh từ không đếm được, nên không dùng “an” trực tiếp. Có thể nói “some orange juice” hoặc “a glass of orange juice”."
+        },
+        {
+          "option": "after lunch",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"after lunch\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-32",
       "type": "error_correction",
       "question": "Find the error: There is **many** salt in the soup.",
       "options": [
@@ -683,9 +1339,32 @@
       ],
       "correct_answer": "many",
       "explanation": "“Salt” là danh từ không đếm được, nên dùng “much” hoặc “a lot of”, không dùng “many”. Các phần khác đúng cấu trúc cơ bản của câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "There is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"There is\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "many",
+          "isCorrect": true,
+          "pedagogicalReason": "“Salt” là danh từ không đếm được, nên dùng “much” hoặc “a lot of”, không dùng “many”. Các phần khác đúng cấu trúc cơ bản của câu."
+        },
+        {
+          "option": "salt",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Salt” là danh từ không đếm được, nên dùng “much” hoặc “a lot of”, không dùng “many”."
+        },
+        {
+          "option": "in the soup",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"in the soup\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-33",
       "type": "error_correction",
       "question": "Find the error: She bought two **bread** at the bakery.",
       "options": [
@@ -696,9 +1375,32 @@
       ],
       "correct_answer": "two bread",
       "explanation": "“Bread” là danh từ không đếm được, nên không dùng trực tiếp với số đếm “two”. Có thể sửa thành “two loaves of bread” hoặc “two pieces of bread”.",
+      "distractor_breakdowns": [
+        {
+          "option": "She",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"She\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "bought",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"bought\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "two bread",
+          "isCorrect": true,
+          "pedagogicalReason": "“Bread” là danh từ không đếm được, nên không dùng trực tiếp với số đếm “two”. Có thể sửa thành “two loaves of bread” hoặc “two pieces of bread”."
+        },
+        {
+          "option": "at the bakery",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"at the bakery\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-34",
       "type": "error_correction",
       "question": "Find the error: We saw a lot of **child** in the park.",
       "options": [
@@ -709,9 +1411,32 @@
       ],
       "correct_answer": "a lot of child",
       "explanation": "“A lot of” đi với danh từ đếm được số nhiều hoặc danh từ không đếm được; “child” số nhiều bất quy tắc là “children”. Câu đúng là “a lot of children”.",
+      "distractor_breakdowns": [
+        {
+          "option": "We",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"We\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "saw",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"saw\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "a lot of child",
+          "isCorrect": true,
+          "pedagogicalReason": "“A lot of” đi với danh từ đếm được số nhiều hoặc danh từ không đếm được; “child” số nhiều bất quy tắc là “children”. Câu đúng là “a lot of children”."
+        },
+        {
+          "option": "in the park",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"in the park\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-35",
       "type": "error_correction",
       "question": "Find the error: Can you give me a **advice**?",
       "options": [
@@ -722,9 +1447,32 @@
       ],
       "correct_answer": "a advice",
       "explanation": "“Advice” là danh từ không đếm được, nên không dùng “a” trực tiếp. Có thể nói “some advice” hoặc “a piece of advice”.",
+      "distractor_breakdowns": [
+        {
+          "option": "Can you",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Can you\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "give me",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"give me\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "a advice",
+          "isCorrect": true,
+          "pedagogicalReason": "“Advice” là danh từ không đếm được, nên không dùng “a” trực tiếp. Có thể nói “some advice” hoặc “a piece of advice”."
+        },
+        {
+          "option": "?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"?\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-36",
       "type": "error_correction",
       "question": "Find the error: There are **much** eggs in the basket.",
       "options": [
@@ -735,9 +1483,32 @@
       ],
       "correct_answer": "much",
       "explanation": "“Eggs” là danh từ đếm được số nhiều, nên dùng “many”, không dùng “much”. “Much” dùng với danh từ không đếm được.",
+      "distractor_breakdowns": [
+        {
+          "option": "There are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"There are\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "much",
+          "isCorrect": true,
+          "pedagogicalReason": "“Eggs” là danh từ đếm được số nhiều, nên dùng “many”, không dùng “much”. “Much” dùng với danh từ không đếm được."
+        },
+        {
+          "option": "eggs",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Eggs” là danh từ đếm được số nhiều, nên dùng “many”, không dùng “much”."
+        },
+        {
+          "option": "in the basket",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"in the basket\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-37",
       "type": "error_correction",
       "question": "Find the error: This **news** are very important.",
       "options": [
@@ -748,9 +1519,32 @@
       ],
       "correct_answer": "are",
       "explanation": "“News” là danh từ không đếm được và đi với động từ số ít. Câu đúng là “This news is very important”; các từ còn lại không phải lỗi chính.",
+      "distractor_breakdowns": [
+        {
+          "option": "This",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. This news is very important”."
+        },
+        {
+          "option": "news",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “News” là danh từ không đếm được và đi với động từ số ít."
+        },
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "“News” là danh từ không đếm được và đi với động từ số ít. Câu đúng là “This news is very important”; các từ còn lại không phải lỗi chính."
+        },
+        {
+          "option": "very important",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"very important\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "countable-uncountable-ex-38",
       "type": "multiple_choice",
       "question": "Choose the correct **article**: My brother wants ___ new bike.",
       "options": [
@@ -761,9 +1555,32 @@
       ],
       "correct_answer": "a",
       "explanation": "“Bike” là danh từ đếm được số ít và bắt đầu bằng âm phụ âm, nên dùng “a”. “An” dùng trước âm nguyên âm; “some” và “many” không dùng trước danh từ số ít dạng này.",
+      "distractor_breakdowns": [
+        {
+          "option": "a",
+          "isCorrect": true,
+          "pedagogicalReason": "“Bike” là danh từ đếm được số ít và bắt đầu bằng âm phụ âm, nên dùng “a”. “An” dùng trước âm nguyên âm; “some” và “many” không dùng trước danh từ số ít dạng này."
+        },
+        {
+          "option": "an",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “An” dùng trước âm nguyên âm."
+        },
+        {
+          "option": "some",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “some” và “many” không dùng trước danh từ số ít dạng này."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “many” không dùng trước danh từ số ít dạng này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-39",
       "type": "multiple_choice",
       "question": "Choose the correct **article**: Anna has ___ egg for breakfast.",
       "options": [
@@ -774,9 +1591,32 @@
       ],
       "correct_answer": "an",
       "explanation": "“Egg” là danh từ đếm được số ít và bắt đầu bằng âm nguyên âm, nên dùng “an”. “A” dùng trước âm phụ âm; “some/any” không phù hợp với danh từ số ít ở câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "an",
+          "isCorrect": true,
+          "pedagogicalReason": "“Egg” là danh từ đếm được số ít và bắt đầu bằng âm nguyên âm, nên dùng “an”. “A” dùng trước âm phụ âm; “some/any” không phù hợp với danh từ số ít ở câu này."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “A” dùng trước âm phụ âm."
+        },
+        {
+          "option": "some",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Some/any” không phù hợp với danh từ số ít ở câu này."
+        },
+        {
+          "option": "any",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Any” không phù hợp với danh từ số ít ở câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-40",
       "type": "multiple_choice",
       "question": "Choose the correct **plural noun**: I can see four ___ in the photo.",
       "options": [
@@ -787,9 +1627,32 @@
       ],
       "correct_answer": "cats",
       "explanation": "Sau số đếm “four”, danh từ đếm được phải ở dạng số nhiều: “cats”. “Cat” là số ít; “water” không đếm được; “milks” không dùng theo nghĩa thông thường ở trình độ này.",
+      "distractor_breakdowns": [
+        {
+          "option": "cats",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau số đếm “four”, danh từ đếm được phải ở dạng số nhiều: “cats”. “Cat” là số ít; “water” không đếm được; “milks” không dùng theo nghĩa thông thường ở trình độ này."
+        },
+        {
+          "option": "cat",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"cat\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "water",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “water” không đếm được."
+        },
+        {
+          "option": "milks",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “milks” không dùng theo nghĩa thông thường ở trình độ này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-41",
       "type": "multiple_choice",
       "question": "Choose the correct **quantifier**: There is ___ tea in the cup.",
       "options": [
@@ -800,9 +1663,32 @@
       ],
       "correct_answer": "some",
       "explanation": "“Tea” là danh từ không đếm được, nên có thể dùng “some”. “A/an” không đứng trực tiếp trước danh từ không đếm được; “many” dùng với danh từ đếm được số nhiều.",
+      "distractor_breakdowns": [
+        {
+          "option": "some",
+          "isCorrect": true,
+          "pedagogicalReason": "“Tea” là danh từ không đếm được, nên có thể dùng “some”. “A/an” không đứng trực tiếp trước danh từ không đếm được; “many” dùng với danh từ đếm được số nhiều."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. A/an” không đứng trực tiếp trước danh từ không đếm được."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “many” dùng với danh từ đếm được số nhiều."
+        },
+        {
+          "option": "an",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. An” không đứng trực tiếp trước danh từ không đếm được."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-42",
       "type": "multiple_choice",
       "question": "Choose the correct **noun type**: Which noun is countable?",
       "options": [
@@ -813,9 +1699,32 @@
       ],
       "correct_answer": "pencil",
       "explanation": "“Pencil” là danh từ đếm được vì có thể nói “one pencil, two pencils”. “Milk”, “music” và “snow” thường là danh từ không đếm được.",
+      "distractor_breakdowns": [
+        {
+          "option": "pencil",
+          "isCorrect": true,
+          "pedagogicalReason": "“Pencil” là danh từ đếm được vì có thể nói “one pencil, two pencils”. “Milk”, “music” và “snow” thường là danh từ không đếm được."
+        },
+        {
+          "option": "milk",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Milk”, “music” và “snow” thường là danh từ không đếm được."
+        },
+        {
+          "option": "music",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “music” và “snow” thường là danh từ không đếm được."
+        },
+        {
+          "option": "snow",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “snow” thường là danh từ không đếm được."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-43",
       "type": "multiple_choice",
       "question": "Choose the correct **question word**: How ___ bottles of water do we need?",
       "options": [
@@ -826,9 +1735,32 @@
       ],
       "correct_answer": "many",
       "explanation": "“Bottles” là danh từ đếm được số nhiều, nên dùng “How many”. “How much” dùng với danh từ không đếm được; “some/any” không dùng để hỏi số lượng theo mẫu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "many",
+          "isCorrect": true,
+          "pedagogicalReason": "“Bottles” là danh từ đếm được số nhiều, nên dùng “How many”. “How much” dùng với danh từ không đếm được; “some/any” không dùng để hỏi số lượng theo mẫu này."
+        },
+        {
+          "option": "much",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Much” dùng với danh từ không đếm được."
+        },
+        {
+          "option": "some",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Some/any” không dùng để hỏi số lượng theo mẫu này."
+        },
+        {
+          "option": "any",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Any” không dùng để hỏi số lượng theo mẫu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-44",
       "type": "multiple_choice",
       "question": "Choose the correct **measure phrase**: Please buy a ___ of soap.",
       "options": [
@@ -839,9 +1771,32 @@
       ],
       "correct_answer": "bar",
       "explanation": "Cụm đúng là “a bar of soap” để chỉ một bánh xà phòng. “Slice” dùng cho lát, “bowl” dùng cho bát, “pair” dùng cho một đôi.",
+      "distractor_breakdowns": [
+        {
+          "option": "bar",
+          "isCorrect": true,
+          "pedagogicalReason": "Cụm đúng là “a bar of soap” để chỉ một bánh xà phòng. “Slice” dùng cho lát, “bowl” dùng cho bát, “pair” dùng cho một đôi."
+        },
+        {
+          "option": "slice",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Slice” dùng cho lát, “bowl” dùng cho bát, “pair” dùng cho một đôi."
+        },
+        {
+          "option": "bowl",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “bowl” dùng cho bát, “pair” dùng cho một đôi."
+        },
+        {
+          "option": "pair",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “pair” dùng cho một đôi."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-45",
       "type": "multiple_choice",
       "question": "Choose the correct **noun form**: We have six ___ in our kitchen.",
       "options": [
@@ -852,9 +1807,32 @@
       ],
       "correct_answer": "plates",
       "explanation": "Sau số đếm “six”, danh từ đếm được phải ở dạng số nhiều: “plates”. “Plate” là số ít; “oil” không đếm được; “waters” không phù hợp trong ngữ cảnh cơ bản này.",
+      "distractor_breakdowns": [
+        {
+          "option": "plates",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau số đếm “six”, danh từ đếm được phải ở dạng số nhiều: “plates”. “Plate” là số ít; “oil” không đếm được; “waters” không phù hợp trong ngữ cảnh cơ bản này."
+        },
+        {
+          "option": "plate",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Plate” là số ít."
+        },
+        {
+          "option": "oil",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “oil” không đếm được."
+        },
+        {
+          "option": "waters",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “waters” không phù hợp trong ngữ cảnh cơ bản này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-46",
       "type": "multiple_choice",
       "question": "Choose the correct **quantifier**: I don't have ___ time today.",
       "options": [
@@ -865,9 +1843,32 @@
       ],
       "correct_answer": "much",
       "explanation": "“Time” trong nghĩa thời gian là danh từ không đếm được, nên dùng “much” trong câu phủ định. “Many” dùng với danh từ đếm được số nhiều; “a/an” không đứng trực tiếp trước “time” theo nghĩa này.",
+      "distractor_breakdowns": [
+        {
+          "option": "much",
+          "isCorrect": true,
+          "pedagogicalReason": "“Time” trong nghĩa thời gian là danh từ không đếm được, nên dùng “much” trong câu phủ định. “Many” dùng với danh từ đếm được số nhiều; “a/an” không đứng trực tiếp trước “time” theo nghĩa này."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Many” dùng với danh từ đếm được số nhiều."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. A thời gian là danh từ không đếm được, nên dùng “much” trong câu phủ định."
+        },
+        {
+          "option": "an",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. An” không đứng trực tiếp trước “time” theo nghĩa này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-47",
       "type": "fill_blank",
       "question": "Fill in the correct **article**: We need ___ table for the living room.",
       "options": [
@@ -878,9 +1879,32 @@
       ],
       "correct_answer": "a",
       "explanation": "“Table” là danh từ đếm được số ít và bắt đầu bằng âm phụ âm, nên dùng “a”. “An” dùng trước âm nguyên âm; “some/many” không phù hợp với danh từ số ít này.",
+      "distractor_breakdowns": [
+        {
+          "option": "a",
+          "isCorrect": true,
+          "pedagogicalReason": "“Table” là danh từ đếm được số ít và bắt đầu bằng âm phụ âm, nên dùng “a”. “An” dùng trước âm nguyên âm; “some/many” không phù hợp với danh từ số ít này."
+        },
+        {
+          "option": "an",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “An” dùng trước âm nguyên âm."
+        },
+        {
+          "option": "some",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Some/many” không phù hợp với danh từ số ít này."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Many” không phù hợp với danh từ số ít này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-48",
       "type": "fill_blank",
       "question": "Fill in the correct **article**: He is eating ___ ice cream.",
       "options": [
@@ -891,9 +1915,32 @@
       ],
       "correct_answer": "an",
       "explanation": "“Ice cream” ở đây là một phần/que kem đếm được trong ngữ cảnh đơn giản, bắt đầu bằng âm nguyên âm nên dùng “an”. “A” sai vì không đi với âm nguyên âm; “many/any” không phù hợp với câu khẳng định số ít.",
+      "distractor_breakdowns": [
+        {
+          "option": "an",
+          "isCorrect": true,
+          "pedagogicalReason": "“Ice cream” ở đây là một phần/que kem đếm được trong ngữ cảnh đơn giản, bắt đầu bằng âm nguyên âm nên dùng “an”. “A” sai vì không đi với âm nguyên âm; “many/any” không phù hợp với câu khẳng định số ít."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “A” sai vì không đi với âm nguyên âm."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Many/any” không phù hợp với câu khẳng định số ít."
+        },
+        {
+          "option": "any",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Any” không phù hợp với câu khẳng định số ít."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-49",
       "type": "fill_blank",
       "question": "Fill in the correct **plural form**: There are seven ___ near the school.",
       "options": [
@@ -904,9 +1951,32 @@
       ],
       "correct_answer": "buses",
       "explanation": "Danh từ “bus” thêm “-es” khi ở số nhiều: “buses”. “Bus” là số ít; “busies” và “buss” là dạng sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "buses",
+          "isCorrect": true,
+          "pedagogicalReason": "Danh từ “bus” thêm “-es” khi ở số nhiều: “buses”. “Bus” là số ít; “busies” và “buss” là dạng sai."
+        },
+        {
+          "option": "bus",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “bus” thêm “-es” khi ở số nhiều: “buses”."
+        },
+        {
+          "option": "busies",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “busies” và “buss” là dạng sai."
+        },
+        {
+          "option": "buss",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “buss” là dạng sai."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-50",
       "type": "fill_blank",
       "question": "Fill in the correct **quantifier**: There is ___ soup in the bowl.",
       "options": [
@@ -917,9 +1987,32 @@
       ],
       "correct_answer": "some",
       "explanation": "“Soup” là danh từ không đếm được, nên dùng “some” trong câu khẳng định. “Many” dùng với danh từ đếm được số nhiều; “a/an” không đứng trực tiếp trước “soup”.",
+      "distractor_breakdowns": [
+        {
+          "option": "some",
+          "isCorrect": true,
+          "pedagogicalReason": "“Soup” là danh từ không đếm được, nên dùng “some” trong câu khẳng định. “Many” dùng với danh từ đếm được số nhiều; “a/an” không đứng trực tiếp trước “soup”."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Many” dùng với danh từ đếm được số nhiều."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. A/an” không đứng trực tiếp trước “soup”."
+        },
+        {
+          "option": "an",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. An” không đứng trực tiếp trước “soup”."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-51",
       "type": "fill_blank",
       "question": "Fill in the correct **question word**: How ___ homework do you have tonight?",
       "options": [
@@ -930,9 +2023,32 @@
       ],
       "correct_answer": "much",
       "explanation": "“Homework” là danh từ không đếm được, nên hỏi bằng “How much”. “Many” dùng với danh từ đếm được số nhiều; “a/some” không tạo câu hỏi đúng ở đây.",
+      "distractor_breakdowns": [
+        {
+          "option": "much",
+          "isCorrect": true,
+          "pedagogicalReason": "“Homework” là danh từ không đếm được, nên hỏi bằng “How much”. “Many” dùng với danh từ đếm được số nhiều; “a/some” không tạo câu hỏi đúng ở đây."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Many” dùng với danh từ đếm được số nhiều."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. A/some” không tạo câu hỏi đúng ở đây."
+        },
+        {
+          "option": "some",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Some” không tạo câu hỏi đúng ở đây."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-52",
       "type": "fill_blank",
       "question": "Fill in the correct **measure phrase**: She drinks a ___ of milk every morning.",
       "options": [
@@ -943,9 +2059,32 @@
       ],
       "correct_answer": "glass",
       "explanation": "Cụm tự nhiên là “a glass of milk” để chỉ một ly sữa. “Piece”, “slice” và “pair” không dùng để đo lượng sữa.",
+      "distractor_breakdowns": [
+        {
+          "option": "glass",
+          "isCorrect": true,
+          "pedagogicalReason": "Cụm tự nhiên là “a glass of milk” để chỉ một ly sữa. “Piece”, “slice” và “pair” không dùng để đo lượng sữa."
+        },
+        {
+          "option": "piece",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Piece”, “slice” và “pair” không dùng để đo lượng sữa."
+        },
+        {
+          "option": "slice",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “slice” và “pair” không dùng để đo lượng sữa."
+        },
+        {
+          "option": "pair",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “pair” không dùng để đo lượng sữa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-53",
       "type": "fill_blank",
       "question": "Fill in the correct **noun form**: My sister bought three ___ yesterday.",
       "options": [
@@ -956,9 +2095,32 @@
       ],
       "correct_answer": "dresses",
       "explanation": "Sau số đếm “three”, danh từ đếm được phải ở dạng số nhiều: “dresses”. “Dress” là số ít; “cloth” và “luggage” không phù hợp với cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "dresses",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau số đếm “three”, danh từ đếm được phải ở dạng số nhiều: “dresses”. “Dress” là số ít; “cloth” và “luggage” không phù hợp với cấu trúc này."
+        },
+        {
+          "option": "dress",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Dress” là số ít."
+        },
+        {
+          "option": "cloth",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “cloth” và “luggage” không phù hợp với cấu trúc này."
+        },
+        {
+          "option": "luggage",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “luggage” không phù hợp với cấu trúc này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-54",
       "type": "fill_blank",
       "question": "Fill in the correct **quantifier**: Do you need ___ help with this exercise?",
       "options": [
@@ -969,9 +2131,32 @@
       ],
       "correct_answer": "any",
       "explanation": "“Help” là danh từ không đếm được và trong câu hỏi thường dùng “any”. “Many” dùng với danh từ đếm được số nhiều; “a/an” không đứng trực tiếp trước “help” theo nghĩa này.",
+      "distractor_breakdowns": [
+        {
+          "option": "any",
+          "isCorrect": true,
+          "pedagogicalReason": "“Help” là danh từ không đếm được và trong câu hỏi thường dùng “any”. “Many” dùng với danh từ đếm được số nhiều; “a/an” không đứng trực tiếp trước “help” theo nghĩa này."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Many” dùng với danh từ đếm được số nhiều."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. A/an” không đứng trực tiếp trước “help” theo nghĩa này."
+        },
+        {
+          "option": "an",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. An” không đứng trực tiếp trước “help” theo nghĩa này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-55",
       "type": "error_correction",
       "question": "Find the error: She has two **luggages** for the trip.",
       "options": [
@@ -982,9 +2167,32 @@
       ],
       "correct_answer": "two luggages",
       "explanation": "“Luggage” là danh từ không đếm được, không dùng trực tiếp với số đếm hoặc thêm “-s”; nên nói “two bags” hoặc “some luggage”. Các phần còn lại đúng về ngữ pháp trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "She",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"She\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "has",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"has\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "two luggages",
+          "isCorrect": true,
+          "pedagogicalReason": "“Luggage” là danh từ không đếm được, không dùng trực tiếp với số đếm hoặc thêm “-s”; nên nói “two bags” hoặc “some luggage”. Các phần còn lại đúng về ngữ pháp trong câu."
+        },
+        {
+          "option": "for the trip",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"for the trip\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-56",
       "type": "error_correction",
       "question": "Find the error: I bought a **milk** at the shop.",
       "options": [
@@ -995,9 +2203,32 @@
       ],
       "correct_answer": "a milk",
       "explanation": "“Milk” thường là danh từ không đếm được, nên không dùng “a” trực tiếp. Có thể nói “some milk” hoặc “a bottle of milk”; các phần khác không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "I",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. I “some milk” hoặc “a bottle of milk”."
+        },
+        {
+          "option": "bought",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"bought\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "a milk",
+          "isCorrect": true,
+          "pedagogicalReason": "“Milk” thường là danh từ không đếm được, nên không dùng “a” trực tiếp. Có thể nói “some milk” hoặc “a bottle of milk”; các phần khác không sai."
+        },
+        {
+          "option": "at the shop",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"at the shop\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-57",
       "type": "error_correction",
       "question": "Find the error: There are three **juice** on the table.",
       "options": [
@@ -1008,9 +2239,32 @@
       ],
       "correct_answer": "three juice",
       "explanation": "“Juice” là danh từ không đếm được, không dùng trực tiếp với số đếm. Nên nói “three glasses of juice” hoặc “some juice”; các phần còn lại phù hợp với cấu trúc câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "There are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"There are\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "three juice",
+          "isCorrect": true,
+          "pedagogicalReason": "“Juice” là danh từ không đếm được, không dùng trực tiếp với số đếm. Nên nói “three glasses of juice” hoặc “some juice”; các phần còn lại phù hợp với cấu trúc câu."
+        },
+        {
+          "option": "on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"on\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "the table",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the table\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-58",
       "type": "error_correction",
       "question": "Find the error: We need much **chairs** for the party.",
       "options": [
@@ -1021,9 +2275,32 @@
       ],
       "correct_answer": "much chairs",
       "explanation": "“Chairs” là danh từ đếm được số nhiều, nên dùng “many chairs”, không dùng “much”. “Much” dùng với danh từ không đếm được; các phần khác đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "We",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"We\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "need",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"need\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "much chairs",
+          "isCorrect": true,
+          "pedagogicalReason": "“Chairs” là danh từ đếm được số nhiều, nên dùng “many chairs”, không dùng “much”. “Much” dùng với danh từ không đếm được; các phần khác đúng."
+        },
+        {
+          "option": "for the party",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"for the party\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-59",
       "type": "error_correction",
       "question": "Find the error: He gave me an **information** about the bus.",
       "options": [
@@ -1034,9 +2311,32 @@
       ],
       "correct_answer": "an information",
       "explanation": "“Information” là danh từ không đếm được, không dùng “an” trực tiếp. Nên nói “some information” hoặc “a piece of information”; các cụm khác đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "He",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"He\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "gave me",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"gave me\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "an information",
+          "isCorrect": true,
+          "pedagogicalReason": "“Information” là danh từ không đếm được, không dùng “an” trực tiếp. Nên nói “some information” hoặc “a piece of information”; các cụm khác đúng."
+        },
+        {
+          "option": "about the bus",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"about the bus\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-60",
       "type": "error_correction",
       "question": "Find the error: I have five **toothbrush** in my bag.",
       "options": [
@@ -1047,9 +2347,32 @@
       ],
       "correct_answer": "five toothbrush",
       "explanation": "Sau số đếm “five”, danh từ đếm được phải ở dạng số nhiều: “toothbrushes”. “I”, “have” và “in my bag” đều đúng trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "I",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. I ở dạng số nhiều: “toothbrushes”."
+        },
+        {
+          "option": "have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “have” và “in my bag” đều đúng trong câu."
+        },
+        {
+          "option": "five toothbrush",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau số đếm “five”, danh từ đếm được phải ở dạng số nhiều: “toothbrushes”. “I”, “have” và “in my bag” đều đúng trong câu."
+        },
+        {
+          "option": "in my bag",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “in my bag” đều đúng trong câu."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-61",
       "type": "error_correction",
       "question": "Find the error: There is many **sand** on the beach.",
       "options": [
@@ -1060,9 +2383,32 @@
       ],
       "correct_answer": "many sand",
       "explanation": "“Sand” là danh từ không đếm được, nên không dùng “many”; dùng “much sand” hoặc “a lot of sand”. Các phần còn lại có thể đúng khi nói về một lượng cát.",
+      "distractor_breakdowns": [
+        {
+          "option": "There is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"There is\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "many sand",
+          "isCorrect": true,
+          "pedagogicalReason": "“Sand” là danh từ không đếm được, nên không dùng “many”; dùng “much sand” hoặc “a lot of sand”. Các phần còn lại có thể đúng khi nói về một lượng cát."
+        },
+        {
+          "option": "on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"on\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "the beach",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the beach\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-62",
       "type": "error_correction",
       "question": "Find the error: She needs a **paper** to write a note.",
       "options": [
@@ -1073,9 +2419,32 @@
       ],
       "correct_answer": "a paper",
       "explanation": "“Paper” nghĩa là giấy viết thường không đếm được, nên không dùng “a” trực tiếp. Nên nói “a piece of paper”; các phần khác đúng về nghĩa và cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "She",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"She\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "needs",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"needs\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "a paper",
+          "isCorrect": true,
+          "pedagogicalReason": "“Paper” nghĩa là giấy viết thường không đếm được, nên không dùng “a” trực tiếp. Nên nói “a piece of paper”; các phần khác đúng về nghĩa và cấu trúc."
+        },
+        {
+          "option": "to write a note",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"to write a note\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "countable-uncountable-ex-63",
       "type": "multiple_choice",
       "question": "Choose the correct **article**: I need ___ umbrella today.",
       "options": [
@@ -1086,9 +2455,32 @@
       ],
       "correct_answer": "an",
       "explanation": "“Umbrella” là danh từ đếm được số ít và bắt đầu bằng âm nguyên âm /ʌ/, nên dùng “an”. “A” dùng trước âm phụ âm, còn “some” và “many” không phù hợp với danh từ số ít này.",
+      "distractor_breakdowns": [
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “A” dùng trước âm phụ âm, còn “some” và “many” không phù hợp với danh từ số ít này."
+        },
+        {
+          "option": "an",
+          "isCorrect": true,
+          "pedagogicalReason": "“Umbrella” là danh từ đếm được số ít và bắt đầu bằng âm nguyên âm /ʌ/, nên dùng “an”. “A” dùng trước âm phụ âm, còn “some” và “many” không phù hợp với danh từ số ít này."
+        },
+        {
+          "option": "some",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “some” và “many” không phù hợp với danh từ số ít này."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “many” không phù hợp với danh từ số ít này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-64",
       "type": "multiple_choice",
       "question": "Choose the correct **noun form**: There are two ___ on the desk.",
       "options": [
@@ -1099,9 +2491,32 @@
       ],
       "correct_answer": "pens",
       "explanation": "Sau số đếm “two”, danh từ đếm được phải ở dạng số nhiều: “pens”. “Pen” là số ít, còn “water” và “rice” là danh từ không đếm được nên không đi trực tiếp với “two”.",
+      "distractor_breakdowns": [
+        {
+          "option": "pen",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Pen” là số ít, còn “water” và “rice” là danh từ không đếm được nên không đi trực tiếp với “two”."
+        },
+        {
+          "option": "pens",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau số đếm “two”, danh từ đếm được phải ở dạng số nhiều: “pens”. “Pen” là số ít, còn “water” và “rice” là danh từ không đếm được nên không đi trực tiếp với “two”."
+        },
+        {
+          "option": "water",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “water” và “rice” là danh từ không đếm được nên không đi trực tiếp với “two”."
+        },
+        {
+          "option": "rice",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “rice” là danh từ không đếm được nên không đi trực tiếp với “two”."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-65",
       "type": "multiple_choice",
       "question": "Choose the correct **quantifier**: We need ___ sugar for the cake.",
       "options": [
@@ -1112,9 +2527,32 @@
       ],
       "correct_answer": "some",
       "explanation": "“Sugar” là danh từ không đếm được, nên có thể dùng “some” để nói một lượng không xác định. “A”, “one” dùng với danh từ đếm được số ít; “many” dùng với danh từ đếm được số nhiều.",
+      "distractor_breakdowns": [
+        {
+          "option": "some",
+          "isCorrect": true,
+          "pedagogicalReason": "“Sugar” là danh từ không đếm được, nên có thể dùng “some” để nói một lượng không xác định. “A”, “one” dùng với danh từ đếm được số ít; “many” dùng với danh từ đếm được số nhiều."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “A”, “one” dùng với danh từ đếm được số ít."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “many” dùng với danh từ đếm được số nhiều."
+        },
+        {
+          "option": "one",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “one” dùng với danh từ đếm được số ít."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-66",
       "type": "multiple_choice",
       "question": "Choose the correct **question word**: How ___ apples are in the bag?",
       "options": [
@@ -1125,9 +2563,32 @@
       ],
       "correct_answer": "many",
       "explanation": "“Apples” là danh từ đếm được số nhiều, nên dùng “How many”. “How much” dùng cho danh từ không đếm được; “some” và “any” không tạo câu hỏi số lượng theo cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "many",
+          "isCorrect": true,
+          "pedagogicalReason": "“Apples” là danh từ đếm được số nhiều, nên dùng “How many”. “How much” dùng cho danh từ không đếm được; “some” và “any” không tạo câu hỏi số lượng theo cấu trúc này."
+        },
+        {
+          "option": "much",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Much” dùng cho danh từ không đếm được."
+        },
+        {
+          "option": "some",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “some” và “any” không tạo câu hỏi số lượng theo cấu trúc này."
+        },
+        {
+          "option": "any",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “any” không tạo câu hỏi số lượng theo cấu trúc này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-67",
       "type": "multiple_choice",
       "question": "Choose the correct **measure phrase**: I want a ___ of coffee.",
       "options": [
@@ -1138,9 +2599,32 @@
       ],
       "correct_answer": "cup",
       "explanation": "Với “coffee” không đếm được, ta thường dùng đơn vị đo như “a cup of coffee”. “Piece” thường dùng với advice/information/furniture, “slice” với bánh hoặc bánh mì lát, “bottle” không tự nhiên bằng “cup” trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "cup",
+          "isCorrect": true,
+          "pedagogicalReason": "Với “coffee” không đếm được, ta thường dùng đơn vị đo như “a cup of coffee”. “Piece” thường dùng với advice/information/furniture, “slice” với bánh hoặc bánh mì lát, “bottle” không tự nhiên bằng “cup” trong câu này."
+        },
+        {
+          "option": "piece",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Piece” thường dùng với advice/information/furniture, “slice” với bánh hoặc bánh mì lát, “bottle” không tự nhiên bằng “cup” trong câu này."
+        },
+        {
+          "option": "slice",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “slice” với bánh hoặc bánh mì lát, “bottle” không tự nhiên bằng “cup” trong câu này."
+        },
+        {
+          "option": "bottle",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “bottle” không tự nhiên bằng “cup” trong câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-68",
       "type": "multiple_choice",
       "question": "Choose the correct **plural form**: She has three ___.",
       "options": [
@@ -1151,9 +2635,32 @@
       ],
       "correct_answer": "boxes",
       "explanation": "Danh từ “box” kết thúc bằng “x”, nên dạng số nhiều là “boxes”. “Boxs” và “boxies” sai chính tả; “box” là số ít.",
+      "distractor_breakdowns": [
+        {
+          "option": "boxs",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Boxs” và “boxies” sai chính tả."
+        },
+        {
+          "option": "boxes",
+          "isCorrect": true,
+          "pedagogicalReason": "Danh từ “box” kết thúc bằng “x”, nên dạng số nhiều là “boxes”. “Boxs” và “boxies” sai chính tả; “box” là số ít."
+        },
+        {
+          "option": "box",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “box” kết thúc bằng “x”, nên dạng số nhiều là “boxes”."
+        },
+        {
+          "option": "boxies",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “boxies” sai chính tả."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-69",
       "type": "multiple_choice",
       "question": "Choose the correct **quantifier**: There isn't ___ cheese in the fridge.",
       "options": [
@@ -1164,9 +2671,32 @@
       ],
       "correct_answer": "much",
       "explanation": "“Cheese” thường là danh từ không đếm được, nên dùng “much” trong câu phủ định. “Many” dùng với danh từ đếm được số nhiều, còn “a” và “one” cần danh từ đếm được số ít.",
+      "distractor_breakdowns": [
+        {
+          "option": "much",
+          "isCorrect": true,
+          "pedagogicalReason": "“Cheese” thường là danh từ không đếm được, nên dùng “much” trong câu phủ định. “Many” dùng với danh từ đếm được số nhiều, còn “a” và “one” cần danh từ đếm được số ít."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Many” dùng với danh từ đếm được số nhiều, còn “a” và “one” cần danh từ đếm được số ít."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “a” và “one” cần danh từ đếm được số ít."
+        },
+        {
+          "option": "one",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “one” cần danh từ đếm được số ít."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-70",
       "type": "multiple_choice",
       "question": "Choose the correct **sentence**: Which sentence is correct?",
       "options": [
@@ -1177,9 +2707,32 @@
       ],
       "correct_answer": "I have a banana.",
       "explanation": "“Banana” là danh từ đếm được số ít nên dùng được với “a”. “Water”, “rice” và “money” là danh từ không đếm được nên không dùng trực tiếp với “a”, “two”, hoặc “many” trong nghĩa thông thường.",
+      "distractor_breakdowns": [
+        {
+          "option": "I have a banana.",
+          "isCorrect": true,
+          "pedagogicalReason": "“Banana” là danh từ đếm được số ít nên dùng được với “a”. “Water”, “rice” và “money” là danh từ không đếm được nên không dùng trực tiếp với “a”, “two”, hoặc “many” trong nghĩa thông thường."
+        },
+        {
+          "option": "I have a water.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"I have a water.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "I have two rice.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"I have two rice.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "I have many money.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"I have many money.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-71",
       "type": "fill_blank",
       "question": "Fill in the correct **article**: She has ___ orange in her lunch box.",
       "options": [
@@ -1190,9 +2743,32 @@
       ],
       "correct_answer": "an",
       "explanation": "“Orange” là danh từ đếm được số ít và bắt đầu bằng âm nguyên âm, nên dùng “an”. “A” dùng trước âm phụ âm, còn “some” và “many” không phù hợp với danh từ số ít này.",
+      "distractor_breakdowns": [
+        {
+          "option": "an",
+          "isCorrect": true,
+          "pedagogicalReason": "“Orange” là danh từ đếm được số ít và bắt đầu bằng âm nguyên âm, nên dùng “an”. “A” dùng trước âm phụ âm, còn “some” và “many” không phù hợp với danh từ số ít này."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “A” dùng trước âm phụ âm, còn “some” và “many” không phù hợp với danh từ số ít này."
+        },
+        {
+          "option": "some",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “some” và “many” không phù hợp với danh từ số ít này."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “many” không phù hợp với danh từ số ít này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-72",
       "type": "fill_blank",
       "question": "Fill in the correct **plural noun**: I can see five ___ in the garden.",
       "options": [
@@ -1203,9 +2779,32 @@
       ],
       "correct_answer": "flowers",
       "explanation": "Sau số đếm “five”, cần danh từ đếm được số nhiều: “flowers”. “Flower” là số ít, còn “grass” và “air” là danh từ không đếm được.",
+      "distractor_breakdowns": [
+        {
+          "option": "flowers",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau số đếm “five”, cần danh từ đếm được số nhiều: “flowers”. “Flower” là số ít, còn “grass” và “air” là danh từ không đếm được."
+        },
+        {
+          "option": "flower",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Flower” là số ít, còn “grass” và “air” là danh từ không đếm được."
+        },
+        {
+          "option": "grass",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “grass” và “air” là danh từ không đếm được."
+        },
+        {
+          "option": "air",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “air” là danh từ không đếm được."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-73",
       "type": "fill_blank",
       "question": "Fill in the correct **quantifier**: Do you have ___ salt?",
       "options": [
@@ -1216,9 +2815,32 @@
       ],
       "correct_answer": "any",
       "explanation": "Trong câu hỏi với danh từ không đếm được “salt”, ta thường dùng “any”. “A”, “one” dùng với danh từ đếm được số ít; “many” dùng với danh từ đếm được số nhiều.",
+      "distractor_breakdowns": [
+        {
+          "option": "any",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong câu hỏi với danh từ không đếm được “salt”, ta thường dùng “any”. “A”, “one” dùng với danh từ đếm được số ít; “many” dùng với danh từ đếm được số nhiều."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “A”, “one” dùng với danh từ đếm được số ít."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “many” dùng với danh từ đếm được số nhiều."
+        },
+        {
+          "option": "one",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “one” dùng với danh từ đếm được số ít."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-74",
       "type": "fill_blank",
       "question": "Fill in the correct **question word**: How ___ water is in the bottle?",
       "options": [
@@ -1229,9 +2851,32 @@
       ],
       "correct_answer": "much",
       "explanation": "“Water” là danh từ không đếm được, nên dùng “How much”. “How many” dùng với danh từ đếm được số nhiều; “a” và “an” là mạo từ, không dùng để hỏi số lượng như vậy.",
+      "distractor_breakdowns": [
+        {
+          "option": "much",
+          "isCorrect": true,
+          "pedagogicalReason": "“Water” là danh từ không đếm được, nên dùng “How much”. “How many” dùng với danh từ đếm được số nhiều; “a” và “an” là mạo từ, không dùng để hỏi số lượng như vậy."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Many” dùng với danh từ đếm được số nhiều."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “a” và “an” là mạo từ, không dùng để hỏi số lượng như vậy."
+        },
+        {
+          "option": "an",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “an” là mạo từ, không dùng để hỏi số lượng như vậy."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-75",
       "type": "fill_blank",
       "question": "Fill in the correct **measure phrase**: Please give me a ___ of bread.",
       "options": [
@@ -1242,9 +2887,32 @@
       ],
       "correct_answer": "slice",
       "explanation": "“Bread” thường là danh từ không đếm được, nên dùng cụm đo lường như “a slice of bread”. “Cup”, “bowl” và “bag” không phù hợp tự nhiên bằng “slice” trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "slice",
+          "isCorrect": true,
+          "pedagogicalReason": "“Bread” thường là danh từ không đếm được, nên dùng cụm đo lường như “a slice of bread”. “Cup”, “bowl” và “bag” không phù hợp tự nhiên bằng “slice” trong câu này."
+        },
+        {
+          "option": "cup",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Cup”, “bowl” và “bag” không phù hợp tự nhiên bằng “slice” trong câu này."
+        },
+        {
+          "option": "bowl",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “bowl” và “bag” không phù hợp tự nhiên bằng “slice” trong câu này."
+        },
+        {
+          "option": "bag",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “bag” không phù hợp tự nhiên bằng “slice” trong câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-76",
       "type": "fill_blank",
       "question": "Fill in the correct **noun form**: My mother bought four ___ for the kitchen.",
       "options": [
@@ -1255,9 +2923,32 @@
       ],
       "correct_answer": "plates",
       "explanation": "Sau số đếm “four”, cần danh từ đếm được số nhiều: “plates”. “Plate” là số ít, còn “oil” và “flour” là danh từ không đếm được.",
+      "distractor_breakdowns": [
+        {
+          "option": "plates",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau số đếm “four”, cần danh từ đếm được số nhiều: “plates”. “Plate” là số ít, còn “oil” và “flour” là danh từ không đếm được."
+        },
+        {
+          "option": "plate",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Plate” là số ít, còn “oil” và “flour” là danh từ không đếm được."
+        },
+        {
+          "option": "oil",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “oil” và “flour” là danh từ không đếm được."
+        },
+        {
+          "option": "flour",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “flour” là danh từ không đếm được."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-77",
       "type": "fill_blank",
       "question": "Fill in the correct **quantifier**: There are ___ tomatoes in the fridge.",
       "options": [
@@ -1268,9 +2959,32 @@
       ],
       "correct_answer": "some",
       "explanation": "“Tomatoes” là danh từ đếm được số nhiều, nên có thể dùng “some”. “Much” dùng với danh từ không đếm được; “a” và “one” dùng với danh từ số ít.",
+      "distractor_breakdowns": [
+        {
+          "option": "some",
+          "isCorrect": true,
+          "pedagogicalReason": "“Tomatoes” là danh từ đếm được số nhiều, nên có thể dùng “some”. “Much” dùng với danh từ không đếm được; “a” và “one” dùng với danh từ số ít."
+        },
+        {
+          "option": "much",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Much” dùng với danh từ không đếm được."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “a” và “one” dùng với danh từ số ít."
+        },
+        {
+          "option": "one",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “one” dùng với danh từ số ít."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-78",
       "type": "fill_blank",
       "question": "Fill in the correct **article**: He is reading ___ interesting book.",
       "options": [
@@ -1281,9 +2995,32 @@
       ],
       "correct_answer": "an",
       "explanation": "“Book” là danh từ đếm được số ít, và tính từ “interesting” bắt đầu bằng âm nguyên âm nên dùng “an”. “A” dùng trước âm phụ âm, còn “some” và “any” không đi với danh từ số ít trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "an",
+          "isCorrect": true,
+          "pedagogicalReason": "“Book” là danh từ đếm được số ít, và tính từ “interesting” bắt đầu bằng âm nguyên âm nên dùng “an”. “A” dùng trước âm phụ âm, còn “some” và “any” không đi với danh từ số ít trong câu này."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “A” dùng trước âm phụ âm, còn “some” và “any” không đi với danh từ số ít trong câu này."
+        },
+        {
+          "option": "some",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “some” và “any” không đi với danh từ số ít trong câu này."
+        },
+        {
+          "option": "any",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “any” không đi với danh từ số ít trong câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-79",
       "type": "error_correction",
       "question": "Find the error: I need two **waters** after the game.",
       "options": [
@@ -1294,9 +3031,32 @@
       ],
       "correct_answer": "two waters",
       "explanation": "“Water” là danh từ không đếm được, không dùng trực tiếp với số đếm “two”. Có thể sửa thành “two bottles of water” hoặc “some water”; các phần còn lại trong câu đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "I",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"I\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "need",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"need\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "two waters",
+          "isCorrect": true,
+          "pedagogicalReason": "“Water” là danh từ không đếm được, không dùng trực tiếp với số đếm “two”. Có thể sửa thành “two bottles of water” hoặc “some water”; các phần còn lại trong câu đúng."
+        },
+        {
+          "option": "after the game",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"after the game\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-80",
       "type": "error_correction",
       "question": "Find the error: There is a lot of **cars** on the street.",
       "options": [
@@ -1307,9 +3067,32 @@
       ],
       "correct_answer": "There is",
       "explanation": "“Cars” là danh từ đếm được số nhiều, nên động từ phải là “There are”. “A lot of cars” đúng, và cụm “on the street” cũng đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "There is",
+          "isCorrect": true,
+          "pedagogicalReason": "“Cars” là danh từ đếm được số nhiều, nên động từ phải là “There are”. “A lot of cars” đúng, và cụm “on the street” cũng đúng."
+        },
+        {
+          "option": "a lot of",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. A lot of cars” đúng, và cụm “on the street” cũng đúng."
+        },
+        {
+          "option": "cars",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Cars” là danh từ đếm được số nhiều, nên động từ phải là “There are”."
+        },
+        {
+          "option": "on the street",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “on the street” cũng đúng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-81",
       "type": "error_correction",
       "question": "Find the error: She wants many **butter** on her toast.",
       "options": [
@@ -1320,9 +3103,32 @@
       ],
       "correct_answer": "many butter",
       "explanation": "“Butter” là danh từ không đếm được, nên không dùng “many”. Nên dùng “some butter” hoặc “much butter”; các phần khác của câu đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "She",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"She\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "wants",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"wants\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "many butter",
+          "isCorrect": true,
+          "pedagogicalReason": "“Butter” là danh từ không đếm được, nên không dùng “many”. Nên dùng “some butter” hoặc “much butter”; các phần khác của câu đúng."
+        },
+        {
+          "option": "on her toast",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"on her toast\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-82",
       "type": "error_correction",
       "question": "Find the error: We have three **mouse** in the classroom.",
       "options": [
@@ -1333,9 +3139,32 @@
       ],
       "correct_answer": "three mouse",
       "explanation": "Sau “three”, danh từ đếm được phải ở số nhiều; dạng số nhiều của “mouse” là “mice”. “We have” và “in the classroom” đều đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "We",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. We have” và “in the classroom” đều đúng."
+        },
+        {
+          "option": "have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Have” và “in the classroom” đều đúng."
+        },
+        {
+          "option": "three mouse",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “three”, danh từ đếm được phải ở số nhiều; dạng số nhiều của “mouse” là “mice”. “We have” và “in the classroom” đều đúng."
+        },
+        {
+          "option": "in the classroom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “in the classroom” đều đúng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-83",
       "type": "error_correction",
       "question": "Find the error: He gave me a **homework** yesterday.",
       "options": [
@@ -1346,9 +3175,32 @@
       ],
       "correct_answer": "a homework",
       "explanation": "“Homework” là danh từ không đếm được, nên không dùng “a”. Có thể sửa thành “some homework” hoặc “a piece of homework”; các phần còn lại đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "He",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"He\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "gave",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"gave\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "me",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"me\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "a homework",
+          "isCorrect": true,
+          "pedagogicalReason": "“Homework” là danh từ không đếm được, nên không dùng “a”. Có thể sửa thành “some homework” hoặc “a piece of homework”; các phần còn lại đúng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-84",
       "type": "error_correction",
       "question": "Find the error: I don't have many **money** today.",
       "options": [
@@ -1359,9 +3211,32 @@
       ],
       "correct_answer": "many money",
       "explanation": "“Money” là danh từ không đếm được, nên không dùng “many”. Cần dùng “much money” trong câu phủ định; các phần khác đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "I",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"I\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "don't have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"don't have\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "many money",
+          "isCorrect": true,
+          "pedagogicalReason": "“Money” là danh từ không đếm được, nên không dùng “many”. Cần dùng “much money” trong câu phủ định; các phần khác đúng."
+        },
+        {
+          "option": "today",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"today\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-85",
       "type": "error_correction",
       "question": "Find the error: There are two **person** at the door.",
       "options": [
@@ -1372,9 +3247,32 @@
       ],
       "correct_answer": "two person",
       "explanation": "Sau số đếm “two”, danh từ “person” phải đổi sang số nhiều là “people”. “There are” đúng vì chủ ngữ là số nhiều, và phần còn lại không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "There are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “There are” đúng vì chủ ngữ là số nhiều, và phần còn lại không sai."
+        },
+        {
+          "option": "two person",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau số đếm “two”, danh từ “person” phải đổi sang số nhiều là “people”. “There are” đúng vì chủ ngữ là số nhiều, và phần còn lại không sai."
+        },
+        {
+          "option": "at",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"at\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "the door",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the door\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-86",
       "type": "error_correction",
       "question": "Find the error: Can I have an **cup** of tea?",
       "options": [
@@ -1385,9 +3283,32 @@
       ],
       "correct_answer": "an cup",
       "explanation": "“Cup” bắt đầu bằng âm phụ âm /k/, nên dùng “a cup”, không dùng “an cup”. “Of tea” đúng vì “tea” là danh từ không đếm được và cần đơn vị đo như “cup”.",
+      "distractor_breakdowns": [
+        {
+          "option": "Can I have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Can I have\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "an cup",
+          "isCorrect": true,
+          "pedagogicalReason": "“Cup” bắt đầu bằng âm phụ âm /k/, nên dùng “a cup”, không dùng “an cup”. “Of tea” đúng vì “tea” là danh từ không đếm được và cần đơn vị đo như “cup”."
+        },
+        {
+          "option": "of tea",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Of tea” đúng vì “tea” là danh từ không đếm được và cần đơn vị đo như “cup”."
+        },
+        {
+          "option": "?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"?\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-87",
       "type": "multiple_choice",
       "question": "Choose the correct **quantifier**: There are ___ eggs in the box.",
       "options": [
@@ -1398,9 +3319,32 @@
       ],
       "correct_answer": "many",
       "explanation": "“Eggs” là danh từ đếm được số nhiều nên dùng “many”. “Much” và “a little” dùng với danh từ không đếm được; “a” chỉ dùng với danh từ đếm được số ít.",
+      "distractor_breakdowns": [
+        {
+          "option": "many",
+          "isCorrect": true,
+          "pedagogicalReason": "“Eggs” là danh từ đếm được số nhiều nên dùng “many”. “Much” và “a little” dùng với danh từ không đếm được; “a” chỉ dùng với danh từ đếm được số ít."
+        },
+        {
+          "option": "much",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Much” và “a little” dùng với danh từ không đếm được."
+        },
+        {
+          "option": "a little",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “a little” dùng với danh từ không đếm được."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. A little” dùng với danh từ không đếm được."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-88",
       "type": "multiple_choice",
       "question": "Choose the correct **article**: I saw ___ elephant at the zoo.",
       "options": [
@@ -1411,9 +3355,32 @@
       ],
       "correct_answer": "an",
       "explanation": "“Elephant” là danh từ đếm được số ít và bắt đầu bằng âm nguyên âm nên dùng “an”. “A” dùng trước âm phụ âm; “some/any” không phù hợp với danh từ số ít trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "an",
+          "isCorrect": true,
+          "pedagogicalReason": "“Elephant” là danh từ đếm được số ít và bắt đầu bằng âm nguyên âm nên dùng “an”. “A” dùng trước âm phụ âm; “some/any” không phù hợp với danh từ số ít trong câu này."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “A” dùng trước âm phụ âm."
+        },
+        {
+          "option": "some",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Some/any” không phù hợp với danh từ số ít trong câu này."
+        },
+        {
+          "option": "any",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Any” không phù hợp với danh từ số ít trong câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-89",
       "type": "multiple_choice",
       "question": "Choose the correct **measure phrase**: Please buy a ___ of toothpaste.",
       "options": [
@@ -1424,9 +3391,32 @@
       ],
       "correct_answer": "tube",
       "explanation": "Kem đánh răng thường được đếm bằng “a tube of toothpaste”. “Slice”, “bowl” và “cup” dùng cho đồ ăn/thức uống khác, không tự nhiên với toothpaste.",
+      "distractor_breakdowns": [
+        {
+          "option": "tube",
+          "isCorrect": true,
+          "pedagogicalReason": "Kem đánh răng thường được đếm bằng “a tube of toothpaste”. “Slice”, “bowl” và “cup” dùng cho đồ ăn/thức uống khác, không tự nhiên với toothpaste."
+        },
+        {
+          "option": "slice",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Slice”, “bowl” và “cup” dùng cho đồ ăn/thức uống khác, không tự nhiên với toothpaste."
+        },
+        {
+          "option": "bowl",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “bowl” và “cup” dùng cho đồ ăn/thức uống khác, không tự nhiên với toothpaste."
+        },
+        {
+          "option": "cup",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “cup” dùng cho đồ ăn/thức uống khác, không tự nhiên với toothpaste."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-90",
       "type": "multiple_choice",
       "question": "Choose the correct **quantifier**: There is ___ rice in the bowl.",
       "options": [
@@ -1437,9 +3427,32 @@
       ],
       "correct_answer": "some",
       "explanation": "“Rice” là danh từ không đếm được nên có thể dùng “some”. “Many” dùng với danh từ đếm được số nhiều, còn “a/an” không dùng trực tiếp với “rice”.",
+      "distractor_breakdowns": [
+        {
+          "option": "some",
+          "isCorrect": true,
+          "pedagogicalReason": "“Rice” là danh từ không đếm được nên có thể dùng “some”. “Many” dùng với danh từ đếm được số nhiều, còn “a/an” không dùng trực tiếp với “rice”."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Many” dùng với danh từ đếm được số nhiều, còn “a/an” không dùng trực tiếp với “rice”."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. A/an” không dùng trực tiếp với “rice”."
+        },
+        {
+          "option": "an",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. An” không dùng trực tiếp với “rice”."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-91",
       "type": "fill_blank",
       "question": "Fill in the correct **article**: She wants ___ sandwich for lunch.",
       "options": [
@@ -1450,9 +3463,32 @@
       ],
       "correct_answer": "a",
       "explanation": "“Sandwich” là danh từ đếm được số ít và bắt đầu bằng âm phụ âm nên dùng “a”. “An” dùng trước âm nguyên âm; “some/much” không phù hợp với danh từ số ít này.",
+      "distractor_breakdowns": [
+        {
+          "option": "a",
+          "isCorrect": true,
+          "pedagogicalReason": "“Sandwich” là danh từ đếm được số ít và bắt đầu bằng âm phụ âm nên dùng “a”. “An” dùng trước âm nguyên âm; “some/much” không phù hợp với danh từ số ít này."
+        },
+        {
+          "option": "an",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “An” dùng trước âm nguyên âm."
+        },
+        {
+          "option": "some",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Some/much” không phù hợp với danh từ số ít này."
+        },
+        {
+          "option": "much",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Much” không phù hợp với danh từ số ít này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-92",
       "type": "fill_blank",
       "question": "Fill in the correct **plural noun**: Two ___ stop here every morning.",
       "options": [
@@ -1463,9 +3499,32 @@
       ],
       "correct_answer": "buses",
       "explanation": "Sau số “two” cần danh từ số nhiều, và số nhiều của “bus” là “buses”. “Bus” là số ít; “buss” và “busies” là dạng sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "buses",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau số “two” cần danh từ số nhiều, và số nhiều của “bus” là “buses”. “Bus” là số ít; “buss” và “busies” là dạng sai."
+        },
+        {
+          "option": "bus",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “bus” là “buses”."
+        },
+        {
+          "option": "buss",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “buss” và “busies” là dạng sai."
+        },
+        {
+          "option": "busies",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “busies” là dạng sai."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-93",
       "type": "fill_blank",
       "question": "Fill in the correct **quantifier**: There isn't ___ coffee in the pot.",
       "options": [
@@ -1476,9 +3535,32 @@
       ],
       "correct_answer": "much",
       "explanation": "“Coffee” là danh từ không đếm được nên dùng “much” trong câu phủ định. “Many” dùng với danh từ đếm được số nhiều; “a/an” không dùng trực tiếp với “coffee”.",
+      "distractor_breakdowns": [
+        {
+          "option": "much",
+          "isCorrect": true,
+          "pedagogicalReason": "“Coffee” là danh từ không đếm được nên dùng “much” trong câu phủ định. “Many” dùng với danh từ đếm được số nhiều; “a/an” không dùng trực tiếp với “coffee”."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Many” dùng với danh từ đếm được số nhiều."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. A/an” không dùng trực tiếp với “coffee”."
+        },
+        {
+          "option": "an",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. An” không dùng trực tiếp với “coffee”."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-94",
       "type": "fill_blank",
       "question": "Fill in the correct **measure phrase**: He eats a ___ of soup for dinner.",
       "options": [
@@ -1489,9 +3571,32 @@
       ],
       "correct_answer": "bowl",
       "explanation": "Với “soup”, ta thường nói “a bowl of soup”. “Slice” và “bar” dùng cho đồ có dạng miếng/thanh; “can” không tự nhiên trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "bowl",
+          "isCorrect": true,
+          "pedagogicalReason": "Với “soup”, ta thường nói “a bowl of soup”. “Slice” và “bar” dùng cho đồ có dạng miếng/thanh; “can” không tự nhiên trong câu này."
+        },
+        {
+          "option": "can",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “can” không tự nhiên trong câu này."
+        },
+        {
+          "option": "slice",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Slice” và “bar” dùng cho đồ có dạng miếng/thanh."
+        },
+        {
+          "option": "bar",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “bar” dùng cho đồ có dạng miếng/thanh."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-95",
       "type": "fill_blank",
       "question": "Fill in the correct **noun form**: Put the two ___ on the table.",
       "options": [
@@ -1502,9 +3607,32 @@
       ],
       "correct_answer": "knives",
       "explanation": "Sau “two” cần danh từ số nhiều, và số nhiều của “knife” là “knives”. “Knife” là số ít; “knifes” và “knive” là dạng sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "knives",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “two” cần danh từ số nhiều, và số nhiều của “knife” là “knives”. “Knife” là số ít; “knifes” và “knive” là dạng sai."
+        },
+        {
+          "option": "knife",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “knife” là “knives”."
+        },
+        {
+          "option": "knifes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “knifes” và “knive” là dạng sai."
+        },
+        {
+          "option": "knive",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “knive” là dạng sai."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-96",
       "type": "error_correction",
       "question": "Find the error: I bought three **bread** at the bakery.",
       "options": [
@@ -1515,9 +3643,32 @@
       ],
       "correct_answer": "bread",
       "explanation": "“Bread” là danh từ không đếm được nên không đứng trực tiếp sau số đếm; nên nói “three loaves of bread” hoặc “three pieces of bread”. Các phần “I”, “bought” và “three” không sai nếu có đơn vị đếm phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "I",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “I”, “bought” và “three” không sai nếu có đơn vị đếm phù hợp."
+        },
+        {
+          "option": "bought",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “bought” và “three” không sai nếu có đơn vị đếm phù hợp."
+        },
+        {
+          "option": "three",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “three” không sai nếu có đơn vị đếm phù hợp."
+        },
+        {
+          "option": "bread",
+          "isCorrect": true,
+          "pedagogicalReason": "“Bread” là danh từ không đếm được nên không đứng trực tiếp sau số đếm; nên nói “three loaves of bread” hoặc “three pieces of bread”. Các phần “I”, “bought” và “three” không sai nếu có đơn vị đếm phù hợp."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-97",
       "type": "error_correction",
       "question": "Find the error: There aren't **much** bananas in the basket.",
       "options": [
@@ -1528,9 +3679,32 @@
       ],
       "correct_answer": "much",
       "explanation": "“Bananas” là danh từ đếm được số nhiều nên cần “many”, không phải “much”. Các cụm còn lại đúng về ngữ pháp trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "There aren't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"There aren't\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "much",
+          "isCorrect": true,
+          "pedagogicalReason": "“Bananas” là danh từ đếm được số nhiều nên cần “many”, không phải “much”. Các cụm còn lại đúng về ngữ pháp trong câu này."
+        },
+        {
+          "option": "bananas",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Bananas” là danh từ đếm được số nhiều nên cần “many”, không phải “much”."
+        },
+        {
+          "option": "in the basket",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"in the basket\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "countable-uncountable-ex-98",
       "type": "error_correction",
       "question": "Find the error: She has a lot of **furnitures** in her room.",
       "options": [
@@ -1541,9 +3715,32 @@
       ],
       "correct_answer": "furnitures",
       "explanation": "“Furniture” là danh từ không đếm được nên không thêm “s”. “A lot of” dùng được với danh từ không đếm được, còn các cụm khác không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "She has",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"She has\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "a lot of",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “A lot of” dùng được với danh từ không đếm được, còn các cụm khác không sai."
+        },
+        {
+          "option": "furnitures",
+          "isCorrect": true,
+          "pedagogicalReason": "“Furniture” là danh từ không đếm được nên không thêm “s”. “A lot of” dùng được với danh từ không đếm được, còn các cụm khác không sai."
+        },
+        {
+          "option": "in her room",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"in her room\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-99",
       "type": "error_correction",
       "question": "Find the error: This **luggage** are heavy at the airport.",
       "options": [
@@ -1554,9 +3751,32 @@
       ],
       "correct_answer": "are",
       "explanation": "“Luggage” là danh từ không đếm được và được xem như số ít, nên phải dùng “is”. “This luggage”, “heavy” và “at the airport” đều phù hợp trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "This luggage",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “This luggage”, “heavy” và “at the airport” đều phù hợp trong câu."
+        },
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "“Luggage” là danh từ không đếm được và được xem như số ít, nên phải dùng “is”. “This luggage”, “heavy” và “at the airport” đều phù hợp trong câu."
+        },
+        {
+          "option": "heavy",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “heavy” và “at the airport” đều phù hợp trong câu."
+        },
+        {
+          "option": "at the airport",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “at the airport” đều phù hợp trong câu."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "countable-uncountable-ex-100",
       "type": "error_correction",
       "question": "Find the **error**: She gave me an **advice** about my studies.",
       "options": [
@@ -1567,6 +3787,28 @@
       ],
       "correct_answer": "an advice",
       "explanation": "Danh từ 'advice' (lời khuyên) là danh từ không đếm được, vì vậy không thể sử dụng mạo từ 'an' (hoặc 'a') trực tiếp trước nó. Chúng ta có thể nói 'some advice' hoặc 'a piece of advice'.",
+      "distractor_breakdowns": [
+        {
+          "option": "She gave",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"She gave\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "me",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"me\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "an advice",
+          "isCorrect": true,
+          "pedagogicalReason": "Danh từ 'advice' (lời khuyên) là danh từ không đếm được, vì vậy không thể sử dụng mạo từ 'an' (hoặc 'a') trực tiếp trước nó. Chúng ta có thể nói 'some advice' hoặc 'a piece of advice'."
+        },
+        {
+          "option": "about my studies",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"about my studies\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     }
   ]

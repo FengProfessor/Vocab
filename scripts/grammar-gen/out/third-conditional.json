@@ -2,10 +2,10 @@
   "slug": "third-conditional",
   "title": "Third Conditional",
   "title_vi": "Câu điều kiện loại 3",
-  "level": "intermediate",
-  "order": 40,
+  "level": "B1",
+  "order": 42,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **If + had + V3, would have + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **If + had + V3, would have + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -476,12 +476,30 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "Hoàn thành theo mẫu: She ___ have passed if she had studied.",
-      "answer": [
-        "would"
+      "id": "third-conditional-ex-01",
+      "type": "fill_blank",
+      "question": "Hoàn thành theo mẫu: She ___ have passed if she had studied.",
+      "options": [],
+      "correct_answer": "would",
+      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "would",
+          "isCorrect": true,
+          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+        },
+        {
+          "option": "will",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Mệnh đề if ở quá khứ hoàn thành (\"had studied\"), câu điều kiện loại 3 dùng \"would have + V3\"."
+        },
+        {
+          "option": "would had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sau động từ khuyết thiếu \"would\", trợ động từ phải ở dạng nguyên mẫu \"have\"."
+        }
       ],
-      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+      "difficulty": 1
     }
   ]
 }

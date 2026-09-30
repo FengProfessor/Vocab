@@ -604,3 +604,14 @@
 - Real Redis race/restart/TTL tests chưa chạy local (không Redis); bắt buộc ở clean Node 22 CI trước merge. Payment replay/concurrency test dùng actual route/service + stateful RPC adapter, không tuyên bố test live PostgreSQL.
 - Production preflight: main/build/live 9a6cd04, staging sạch/service active, disk free 77 GiB. Upstash EVAL/count/TTL permission PASS trên isolated 60-second key. Không ngắt Redis/production service để thử outage.
 - Stage B chuẩn bị PR; chưa CLOSED C03/C05 tới khi clean CI + canonical rollout + independent probes PASS. High 0; Medium 3 OPEN; Low 3.
+
+## 2026-09-30 · UNIFIED GRAMMAR ROADMAP & TECHNICAL MINIMALIST MIGRATION
+
+- **Hợp nhất Lộ trình Ngữ pháp Duy nhất (`/grammar`)**: Gom toàn bộ 62 chủ điểm ngữ pháp từ A0 đến B2 thành một cây lộ trình logic, chuẩn hóa theo CEFR. Thiết lập 308 Permanent Redirects cho các tuyến đường cũ (`/grammar/foundation`, `/grammar/foundation/a1`, `/grammar/learn`) về `/grammar`.
+- **Hệ thống Bảng Tra cứu Cú pháp Chuẩn hóa (Grammar Reference Tables)**: Tự động cung cấp bảng công thức phân nhóm, bảng quy tắc chia đuôi biến thể, và bảng đối chiếu câu sai / câu đúng / lý do cho toàn bộ 62 chủ điểm. Xây dựng bảng ma trận Đại từ 8 ngôi x 6 cột cú pháp và bảng To Be / Demonstratives chuyên biệt.
+- **Tối ưu UI Video & Loại bỏ Ngôn từ Thừa**: Trình phát video 16:9 sắc nét, tinh gọn, loại bỏ 100% thanh dán link, nút đổi video và các hộp mẹo học tập khuyên nhủ rườm rà.
+- **Bộ giải mã `FormattedText`**: Phân giải tự động các token `**in đậm**`, `*in nghiêng*`, `` `code` `` thành thẻ React chuẩn, triệt tiêu 100% ký tự dấu sao thô (`**`) trên toàn bộ giao diện bài học.
+- **Thanh lọc Nội dung & Phong cách Technical Minimalist**: Loại bỏ hoàn toàn các khẩu hiệu giật tít ("chiến thắng tuyệt đối", "mẹo nhớ 5s", "ăn trọn điểm") và các nhãn hành chính kiểm duyệt ("KIỂM DUYỆT HỌC THUẬT", "Hội đồng sư phạm"). Toàn bộ giao diện tuân thủ viền vuông phẳng (`rounded-none`, 0px border-radius).
+- **Tư liệu Ảnh chụp Đời thực**: 100% sử dụng hình ảnh thực tế, không dùng tranh vector clipart minh họa hời hợt; đi kèm phân tích ngữ cảnh và lưu ý lỗi sai thực tế.
+- **Cơ sở Dữ liệu & Migration**: `supabase/migrations/20260930_unify_grammar_roadmap.sql` nâng cấp check constraint cho các cấp độ CEFR A0–B2, khử trùng lặp order_index 1..62, liên kết 25 buổi cũ vào chủ điểm cha và tạo view `v_canonical_grammar_topics`.
+- **Verification**: `npm run type-check` PASS (0 errors), `npm run build` PASS (174/174 routes), `test-unified-grammar-roadmap.ts --strict` PASS 42/42 tests, security regression suites PASS.

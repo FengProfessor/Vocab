@@ -2,10 +2,10 @@
   "slug": "grammatical-collocations",
   "title": "Grammatical Collocations",
   "title_vi": "Kết hợp ngữ pháp (collocations)",
-  "level": "advanced",
+  "level": "B2",
   "order": 62,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **adjective + preposition** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **adjective + preposition** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -352,39 +352,128 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "There is ____ old man waiting at the gate.",
-      "opts": [],
-      "answer": "an",
-      "fb": "old bắt đầu bằng nguyên âm → an"
+      "id": "grammatical-collocations-ex-01",
+      "type": "fill_blank",
+      "question": "There is ____ old man waiting at the gate.",
+      "options": [],
+      "correct_answer": "an",
+      "explanation": "old bắt đầu bằng nguyên âm → an",
+      "distractor_breakdowns": [
+        {
+          "option": "an",
+          "isCorrect": true,
+          "pedagogicalReason": "old bắt đầu bằng nguyên âm → an"
+        },
+        {
+          "option": "ans",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"ans\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to an",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "She has ____ (many / much) homework tonight.",
-      "opts": [],
-      "answer": "much",
-      "fb": "homework không đếm được → much"
+      "id": "grammatical-collocations-ex-02",
+      "type": "multiple_choice",
+      "question": "She has ____ (many / much) homework tonight.",
+      "options": [
+        "many",
+        "much"
+      ],
+      "correct_answer": "much",
+      "explanation": "homework không đếm được → much",
+      "distractor_breakdowns": [
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"many\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "much",
+          "isCorrect": true,
+          "pedagogicalReason": "homework không đếm được → much"
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "____ (A few / Few) people came to her party, so it was really boring.",
-      "opts": [],
-      "answer": "Few",
-      "fb": "nghĩa xấu, gần như chẳng ai đến → Few"
+      "id": "grammatical-collocations-ex-03",
+      "type": "multiple_choice",
+      "question": "____ (A few / Few) people came to her party, so it was really boring.",
+      "options": [
+        "A few",
+        "Few"
+      ],
+      "correct_answer": "Few",
+      "explanation": "nghĩa xấu, gần như chẳng ai đến → Few",
+      "distractor_breakdowns": [
+        {
+          "option": "A few",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"A few\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Few",
+          "isCorrect": true,
+          "pedagogicalReason": "nghĩa xấu, gần như chẳng ai đến → Few"
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "My brother plays ____ guitar very well.",
-      "opts": [],
-      "answer": "the",
-      "fb": "nhạc cụ đứng sau play → the"
+      "id": "grammatical-collocations-ex-04",
+      "type": "fill_blank",
+      "question": "My brother plays ____ guitar very well.",
+      "options": [],
+      "correct_answer": "the",
+      "explanation": "nhạc cụ đứng sau play → the",
+      "distractor_breakdowns": [
+        {
+          "option": "the",
+          "isCorrect": true,
+          "pedagogicalReason": "nhạc cụ đứng sau play → the"
+        },
+        {
+          "option": "thes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"thes\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to the",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "There are ____ (a lot of / much) students in the library today.",
-      "opts": [],
-      "answer": "a lot of",
-      "fb": "students đếm được → a lot of, không dùng much"
+      "id": "grammatical-collocations-ex-05",
+      "type": "multiple_choice",
+      "question": "There are ____ (a lot of / much) students in the library today.",
+      "options": [
+        "a lot of",
+        "much"
+      ],
+      "correct_answer": "a lot of",
+      "explanation": "students đếm được → a lot of, không dùng much",
+      "distractor_breakdowns": [
+        {
+          "option": "a lot of",
+          "isCorrect": true,
+          "pedagogicalReason": "students đếm được → a lot of, không dùng much"
+        },
+        {
+          "option": "much",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"much\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 3
     }
   ]
 }

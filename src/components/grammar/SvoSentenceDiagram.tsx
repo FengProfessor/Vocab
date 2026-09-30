@@ -27,59 +27,59 @@ export default function SvoSentenceDiagram() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         {/* S */}
-        <div className="p-4 bg-muted/20 rounded-xl flex flex-col justify-between space-y-3">
+        <div className="p-4 bg-muted/20 border border-border rounded-none flex flex-col justify-between space-y-3">
           <div>
             <div className="flex items-center justify-between mb-2">
-              <span className="h-7 w-7 rounded-lg bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 font-bold text-sm flex items-center justify-center font-mono">S</span>
-              <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-sky-500/10 text-sky-700 dark:text-sky-300">
+              <span className="h-7 w-7 rounded-none border border-sky-300 dark:border-sky-800 bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 font-bold text-sm flex items-center justify-center font-mono">S</span>
+              <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-none border border-sky-500/30 bg-sky-500/10 text-sky-700 dark:text-sky-300">
                 Subject
               </span>
             </div>
             <h4 className="font-semibold text-sm text-foreground">Chủ ngữ (Ai? Cái gì?)</h4>
             <p className="text-xs text-muted-foreground mt-1">Danh từ, đại từ hoặc cụm danh từ thực hiện hành động.</p>
           </div>
-          <div className="p-2 rounded-lg bg-muted/40 text-xs font-mono font-medium text-foreground">
+          <div className="p-2 rounded-none border border-border/40 bg-muted/40 text-xs font-mono font-medium text-foreground">
             <span>My sister / Lan / They</span>
           </div>
         </div>
 
         {/* V */}
-        <div className="p-4 bg-muted/20 rounded-xl flex flex-col justify-between space-y-3">
+        <div className="p-4 bg-muted/20 border border-border rounded-none flex flex-col justify-between space-y-3">
           <div>
             <div className="flex items-center justify-between mb-2">
-              <span className="h-7 w-7 rounded-lg bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-300 font-bold text-sm flex items-center justify-center font-mono">V</span>
-              <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-700 dark:text-indigo-300">
+              <span className="h-7 w-7 rounded-none border border-indigo-300 dark:border-indigo-800 bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-300 font-bold text-sm flex items-center justify-center font-mono">V</span>
+              <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-none border border-indigo-500/30 bg-indigo-500/10 text-indigo-700 dark:text-indigo-300">
                 Verb
               </span>
             </div>
             <h4 className="font-semibold text-sm text-foreground">Động từ (Làm gì? Là gì?)</h4>
             <p className="text-xs text-muted-foreground mt-1">Trọng tâm của câu: động từ to-be (am/is/are) hoặc Động từ thường.</p>
           </div>
-          <div className="p-2 rounded-lg bg-muted/40 text-xs font-mono font-medium text-foreground">
+          <div className="p-2 rounded-none border border-border/40 bg-muted/40 text-xs font-mono font-medium text-foreground">
             <span>is / works / studies</span>
           </div>
         </div>
 
         {/* O */}
-        <div className="p-4 bg-muted/20 rounded-xl flex flex-col justify-between space-y-3">
+        <div className="p-4 bg-muted/20 border border-border rounded-none flex flex-col justify-between space-y-3">
           <div>
             <div className="flex items-center justify-between mb-2">
-              <span className="h-7 w-7 rounded-lg bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 font-bold text-sm flex items-center justify-center font-mono">O / C</span>
-              <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-300">
+              <span className="h-7 w-7 rounded-none border border-emerald-300 dark:border-emerald-800 bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 font-bold text-sm flex items-center justify-center font-mono">O / C</span>
+              <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-none border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300">
                 Object / Comp
               </span>
             </div>
             <h4 className="font-semibold text-sm text-foreground">Tân ngữ / Bổ ngữ</h4>
             <p className="text-xs text-muted-foreground mt-1">Đối tượng nhận tác động hoặc bổ sung ý nghĩa cho chủ ngữ.</p>
           </div>
-          <div className="p-2 rounded-lg bg-muted/40 text-xs font-mono font-medium text-foreground">
+          <div className="p-2 rounded-none border border-border/40 bg-muted/40 text-xs font-mono font-medium text-foreground">
             <span>a doctor / English</span>
           </div>
         </div>
       </div>
 
       {/* Interactive Example */}
-      <div className="p-3.5 bg-muted/20 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs sm:text-sm">
+      <div className="p-3.5 bg-muted/20 border border-border rounded-none flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs sm:text-sm">
         <div className="flex items-center gap-2">
           <span className="font-semibold text-foreground">Ví dụ minh họa:</span>
           <span className="font-mono text-foreground font-semibold">
@@ -91,7 +91,7 @@ export default function SvoSentenceDiagram() {
         <button
           type="button"
           onClick={() => speakSentence('My sister is a student.')}
-          className="px-3 py-1.5 rounded-lg bg-muted/40 hover:bg-muted text-foreground font-medium text-xs flex items-center gap-1.5 transition-colors shrink-0"
+          className="px-3 py-1.5 rounded-none border border-border bg-muted/40 hover:bg-muted text-foreground font-mono font-medium text-xs flex items-center gap-1.5 transition-colors shrink-0"
         >
           <Volume2 className="h-3.5 w-3.5 text-muted-foreground" />
           <span>Nghe phát âm</span>

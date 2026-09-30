@@ -75,7 +75,7 @@ export function GrammarFormula({ code }: { code: string }) {
           return (
             <div
               key={fIdx}
-              className="flex flex-nowrap items-center gap-2 sm:gap-2.5 py-2.5 px-3 bg-muted/20 rounded-xl overflow-x-auto whitespace-nowrap scrollbar-none"
+              className="flex flex-nowrap items-center gap-2 sm:gap-2.5 py-2.5 px-3 bg-muted/20 border border-border rounded-none overflow-x-auto whitespace-nowrap scrollbar-none"
             >
               {parts.map((part, pIdx) => {
                 // If part has choices like {am|is|are} or (don't | doesn't)
@@ -93,11 +93,11 @@ export function GrammarFormula({ code }: { code: string }) {
                     )}
 
                     {isStack ? (
-                      <div className="flex flex-col gap-1 p-1 bg-muted/40 rounded-lg shrink-0">
+                      <div className="flex flex-col gap-1 p-1 bg-muted/40 border border-border/50 rounded-none shrink-0">
                         {options.map((opt, oIdx) => (
                           <div
                             key={oIdx}
-                            className={`px-3 py-1 rounded-md text-xs font-semibold text-center transition-colors whitespace-nowrap shrink-0 ${getTokenBadgeStyle(opt)}`}
+                            className={`px-3 py-1 rounded-none border border-border/40 text-xs font-mono font-semibold text-center transition-colors whitespace-nowrap shrink-0 ${getTokenBadgeStyle(opt)}`}
                           >
                             {opt}
                           </div>
@@ -105,7 +105,7 @@ export function GrammarFormula({ code }: { code: string }) {
                       </div>
                     ) : (
                       <div
-                        className={`px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-colors whitespace-nowrap shrink-0 ${getTokenBadgeStyle(options[0])}`}
+                        className={`px-3.5 py-1.5 rounded-none border border-border/40 text-xs sm:text-sm font-mono font-semibold transition-colors whitespace-nowrap shrink-0 ${getTokenBadgeStyle(options[0])}`}
                       >
                         {options[0]}
                       </div>

@@ -2,10 +2,10 @@
   "slug": "phrasal-verbs",
   "title": "Phrasal Verbs (intro)",
   "title_vi": "Cụm động từ (nhập môn)",
-  "level": "intermediate",
-  "order": 43,
+  "level": "B1",
+  "order": 33,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **verb + particle** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **verb + particle** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -335,32 +335,108 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "My family decided ____ (buy) a new fridge.",
-      "opts": [],
-      "answer": "to buy",
-      "fb": "decide nằm nhóm to V"
+      "id": "phrasal-verbs-ex-01",
+      "type": "fill_blank",
+      "question": "My family decided ____ (buy) a new fridge.",
+      "options": [],
+      "correct_answer": "to buy",
+      "explanation": "decide nằm nhóm to V",
+      "distractor_breakdowns": [
+        {
+          "option": "to buy",
+          "isCorrect": true,
+          "pedagogicalReason": "decide nằm nhóm to V"
+        },
+        {
+          "option": "buying",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sau động từ \"decide\", động từ theo sau bắt buộc chia ở dạng to-V (\"to buy\"), không dùng V-ing."
+        },
+        {
+          "option": "buy",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sau \"decide\" không dùng động từ nguyên thể không to."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "I hope ____ (pass) the entrance exam next year.",
-      "opts": [],
-      "answer": "to pass",
-      "fb": "hope nằm nhóm to V"
+      "id": "phrasal-verbs-ex-02",
+      "type": "fill_blank",
+      "question": "I hope ____ (pass) the entrance exam next year.",
+      "options": [],
+      "correct_answer": "to pass",
+      "explanation": "hope nằm nhóm to V",
+      "distractor_breakdowns": [
+        {
+          "option": "to pass",
+          "isCorrect": true,
+          "pedagogicalReason": "hope nằm nhóm to V"
+        },
+        {
+          "option": "passing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sau động từ \"hope\", động từ theo sau bắt buộc dùng to-V (\"to pass\"), không dùng V-ing."
+        },
+        {
+          "option": "pass",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sau \"hope\" cần to-V chỉ mục tiêu tương lai."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "Remember ____ (water) the flowers this afternoon.",
-      "opts": [],
-      "answer": "to water",
-      "fb": "dặn việc chưa làm → to V"
+      "id": "phrasal-verbs-ex-03",
+      "type": "fill_blank",
+      "question": "Remember ____ (water) the flowers this afternoon.",
+      "options": [],
+      "correct_answer": "to water",
+      "explanation": "dặn việc chưa làm → to V",
+      "distractor_breakdowns": [
+        {
+          "option": "to water",
+          "isCorrect": true,
+          "pedagogicalReason": "dặn việc chưa làm → to V"
+        },
+        {
+          "option": "to waters",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"to waters\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to to water",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "The teacher wants us ____ (be) quiet in the library.",
-      "opts": [],
-      "answer": "to be",
-      "fb": "want ai làm gì → vẫn to V"
+      "id": "phrasal-verbs-ex-04",
+      "type": "fill_blank",
+      "question": "The teacher wants us ____ (be) quiet in the library.",
+      "options": [],
+      "correct_answer": "to be",
+      "explanation": "want ai làm gì → vẫn to V",
+      "distractor_breakdowns": [
+        {
+          "option": "to be",
+          "isCorrect": true,
+          "pedagogicalReason": "want ai làm gì → vẫn to V"
+        },
+        {
+          "option": "being",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc \"want someone to do something\" bắt buộc dùng to-V (\"to be\"), không dùng V-ing."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sau tân ngữ của \"want\" bắt buộc phải có \"to\"."
+        }
+      ],
+      "difficulty": 3
     }
   ]
 }

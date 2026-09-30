@@ -96,7 +96,7 @@ export function buildStudentNavSections(opts?: {
           onboardingId: 'nav-review',
         },
         {
-          href: '/grammar/learn',
+          href: '/grammar',
           label: 'Ngữ pháp ứng dụng',
           icon: BookA,
           badge: grammarBadge,

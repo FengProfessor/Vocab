@@ -2,10 +2,10 @@
   "slug": "modals-perfect",
   "title": "Perfect Modals (should have, etc.)",
   "title_vi": "Khuyết thiếu hoàn thành (should have...)",
-  "level": "advanced",
+  "level": "B2",
   "order": 49,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **modal + have + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **modal + have + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -351,12 +351,30 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "Hoàn thành theo mẫu: She ___ have forgotten.",
-      "answer": [
-        "must"
+      "id": "modals-perfect-ex-01",
+      "type": "fill_blank",
+      "question": "Hoàn thành theo mẫu: She ___ have forgotten.",
+      "options": [],
+      "correct_answer": "must",
+      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "must",
+          "isCorrect": true,
+          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+        },
+        {
+          "option": "can",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phán đoán chắc chắn về một sự việc trong quá khứ dựa trên bằng chứng dùng \"must have + V3\", không dùng \"can have + V3\"."
+        },
+        {
+          "option": "should",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"should have + V3\" diễn tả sự tiếc nuối về việc lẽ ra nên làm, không phù hợp với ý phán đoán."
+        }
       ],
-      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+      "difficulty": 1
     }
   ]
 }

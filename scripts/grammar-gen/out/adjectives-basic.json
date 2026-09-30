@@ -2,10 +2,10 @@
   "slug": "adjectives-basic",
   "title": "Adjectives (basic)",
   "title_vi": "Tính từ cơ bản",
-  "level": "beginner",
+  "level": "A0",
   "order": 6,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **adjective + noun** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **adjective + noun** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -312,83 +312,226 @@
   },
   "exercises": [
     {
-      "type": "mcq",
-      "q": "She has a ___ dress.",
-      "opts": [
+      "id": "adjectives-basic-ex-01",
+      "type": "multiple_choice",
+      "question": "She has a ___ dress.",
+      "options": [
         "beautiful",
         "beautifully",
         "beauty"
       ],
-      "answer": "beautiful",
-      "fb": "Trước danh từ dress dùng tính từ beautiful."
+      "correct_answer": "beautiful",
+      "explanation": "Trước danh từ dress dùng tính từ beautiful.",
+      "distractor_breakdowns": [
+        {
+          "option": "beautiful",
+          "isCorrect": true,
+          "pedagogicalReason": "Trước danh từ dress dùng tính từ beautiful."
+        },
+        {
+          "option": "beautifully",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"beautifully\" là trạng từ (adverb), không thể đứng trước danh từ hoặc làm bổ ngữ sau linking verb thay cho tính từ."
+        },
+        {
+          "option": "beauty",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"beauty\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "mcq",
-      "q": "The soup smells ___.",
-      "opts": [
+      "id": "adjectives-basic-ex-02",
+      "type": "multiple_choice",
+      "question": "The soup smells ___.",
+      "options": [
         "delicious",
         "deliciously",
         "delight"
       ],
-      "answer": "delicious",
-      "fb": "Sau động từ nối smells dùng tính từ delicious."
-    },
-    {
-      "type": "fill",
-      "q": "I am ___ today. (happy / happily)",
-      "answer": [
-        "happy"
+      "correct_answer": "delicious",
+      "explanation": "Sau động từ nối smells dùng tính từ delicious.",
+      "distractor_breakdowns": [
+        {
+          "option": "delicious",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau động từ nối smells dùng tính từ delicious."
+        },
+        {
+          "option": "deliciously",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"deliciously\" là trạng từ (adverb), không thể đứng trước danh từ hoặc làm bổ ngữ sau linking verb thay cho tính từ."
+        },
+        {
+          "option": "delight",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"delight\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
       ],
-      "fb": "Sau am dùng tính từ happy."
+      "difficulty": 1
     },
     {
-      "type": "mcq",
-      "q": "Choose the correct sentence.",
-      "opts": [
+      "id": "adjectives-basic-ex-03",
+      "type": "multiple_choice",
+      "question": "I am ___ today. (happy / happily)",
+      "options": [
+        "happy",
+        "happily"
+      ],
+      "correct_answer": "happy",
+      "explanation": "Sau am dùng tính từ happy.",
+      "distractor_breakdowns": [
+        {
+          "option": "happy",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau am dùng tính từ happy."
+        },
+        {
+          "option": "happily",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"happily\" là trạng từ (adverb), không thể đứng trước danh từ hoặc làm bổ ngữ sau linking verb thay cho tính từ."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "adjectives-basic-ex-04",
+      "type": "multiple_choice",
+      "question": "Choose the correct sentence.",
+      "options": [
         "She is tired.",
         "She is tiredly.",
         "She tired is."
       ],
-      "answer": "She is tired.",
-      "fb": "Be + tính từ: She is tired."
-    },
-    {
-      "type": "fill",
-      "q": "This is a ___ book. (new / newly)",
-      "answer": [
-        "new"
+      "correct_answer": "She is tired.",
+      "explanation": "Be + tính từ: She is tired.",
+      "distractor_breakdowns": [
+        {
+          "option": "She is tired.",
+          "isCorrect": true,
+          "pedagogicalReason": "Be + tính từ: She is tired."
+        },
+        {
+          "option": "She is tiredly.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"She is tiredly.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "She tired is.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"She tired is.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
       ],
-      "fb": "Trước danh từ book dùng tính từ new."
+      "difficulty": 2
     },
     {
-      "type": "mcq",
-      "q": "The flowers look ___.",
-      "opts": [
+      "id": "adjectives-basic-ex-05",
+      "type": "multiple_choice",
+      "question": "This is a ___ book. (new / newly)",
+      "options": [
+        "new",
+        "newly"
+      ],
+      "correct_answer": "new",
+      "explanation": "Trước danh từ book dùng tính từ new.",
+      "distractor_breakdowns": [
+        {
+          "option": "new",
+          "isCorrect": true,
+          "pedagogicalReason": "Trước danh từ book dùng tính từ new."
+        },
+        {
+          "option": "newly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"newly\" là trạng từ (adverb), không thể đứng trước danh từ hoặc làm bổ ngữ sau linking verb thay cho tính từ."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "adjectives-basic-ex-06",
+      "type": "multiple_choice",
+      "question": "The flowers look ___.",
+      "options": [
         "nice",
         "nicely",
         "niceness"
       ],
-      "answer": "nice",
-      "fb": "Look là động từ nối ở đây, sau đó dùng tính từ nice."
-    },
-    {
-      "type": "fill",
-      "q": "The room is ___. (small / smallly)",
-      "answer": [
-        "small"
+      "correct_answer": "nice",
+      "explanation": "Look là động từ nối ở đây, sau đó dùng tính từ nice.",
+      "distractor_breakdowns": [
+        {
+          "option": "nice",
+          "isCorrect": true,
+          "pedagogicalReason": "Look là động từ nối ở đây, sau đó dùng tính từ nice."
+        },
+        {
+          "option": "nicely",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"nicely\" là trạng từ (adverb), không thể đứng trước danh từ hoặc làm bổ ngữ sau linking verb thay cho tính từ."
+        },
+        {
+          "option": "niceness",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"niceness\" là danh từ trừu tượng, không thể đảm nhận vai trò tính từ hoặc động từ ở vị trí này."
+        }
       ],
-      "fb": "Sau is dùng tính từ small."
+      "difficulty": 2
     },
     {
-      "type": "mcq",
-      "q": "Which phrase describes a big house?",
-      "opts": [
+      "id": "adjectives-basic-ex-07",
+      "type": "multiple_choice",
+      "question": "The room is ___. (small / smallly)",
+      "options": [
+        "small",
+        "smallly"
+      ],
+      "correct_answer": "small",
+      "explanation": "Sau is dùng tính từ small.",
+      "distractor_breakdowns": [
+        {
+          "option": "small",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau is dùng tính từ small."
+        },
+        {
+          "option": "smallly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"smallly\" là trạng từ (adverb), không thể đứng trước danh từ hoặc làm bổ ngữ sau linking verb thay cho tính từ."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "adjectives-basic-ex-08",
+      "type": "multiple_choice",
+      "question": "Which phrase describes a big house?",
+      "options": [
         "a big house",
         "a house big",
         "a bigly house"
       ],
-      "answer": "a big house",
-      "fb": "Tính từ big đứng trước danh từ house."
+      "correct_answer": "a big house",
+      "explanation": "Tính từ big đứng trước danh từ house.",
+      "distractor_breakdowns": [
+        {
+          "option": "a big house",
+          "isCorrect": true,
+          "pedagogicalReason": "Tính từ big đứng trước danh từ house."
+        },
+        {
+          "option": "a house big",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"a house big\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "a bigly house",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"a bigly house\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 3
     }
   ]
 }

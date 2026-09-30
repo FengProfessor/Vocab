@@ -257,7 +257,7 @@ export default function TenseTimeline({ lessonTitle }: TenseTimelineProps) {
   return (
     <div className="my-6 space-y-4 animate-in fade-in duration-300">
       <div className="flex items-center gap-3">
-        <div className="p-2 bg-primary/10 rounded-lg text-primary shrink-0">
+        <div className="p-2 bg-primary/10 border border-border rounded-none text-primary shrink-0">
           <Clock className="h-5 w-5" />
         </div>
         <div>
@@ -272,7 +272,7 @@ export default function TenseTimeline({ lessonTitle }: TenseTimelineProps) {
       </div>
 
       {/* Responsive SVG Timeline container */}
-      <div className="bg-muted/20 rounded-xl p-4 sm:p-5">
+      <div className="bg-muted/20 border border-border rounded-none p-4 sm:p-5">
         <svg 
           viewBox={`0 0 ${width} ${height}`} 
           width="100%" 
@@ -315,24 +315,24 @@ export default function TenseTimeline({ lessonTitle }: TenseTimelineProps) {
 
       {/* Usage section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-        <div className="bg-muted/20 rounded-xl p-4 flex gap-3">
+        <div className="bg-muted/20 border border-border rounded-none p-4 flex gap-3">
           <Info className="h-4 w-4 text-primary shrink-0 mt-0.5" />
           <div>
             <p className="font-semibold text-foreground mb-1">Công thức chung</p>
-            <code className="bg-primary/10 text-primary font-semibold px-2 py-1 rounded-md font-mono inline-block">
+            <code className="bg-primary/10 border border-primary/20 text-primary font-semibold px-2 py-1 rounded-none font-mono inline-block">
               {tense.formula}
             </code>
             <p className="text-xs text-muted-foreground leading-relaxed mt-2">{tense.usage}</p>
           </div>
         </div>
 
-        <div className="bg-muted/20 rounded-xl p-4 flex gap-3">
+        <div className="bg-muted/20 border border-border rounded-none p-4 flex gap-3">
           <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
           <div>
             <p className="font-semibold text-foreground mb-1">Dấu hiệu nhận biết</p>
             <div className="flex flex-wrap gap-1.5 mt-1.5">
               {tense.markers.map(m => (
-                <span key={m} className="bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 font-medium px-2 py-0.5 rounded-md text-[11px]">
+                <span key={m} className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-800 dark:text-emerald-300 font-mono font-medium px-2 py-0.5 rounded-none text-[11px]">
                   {m}
                 </span>
               ))}

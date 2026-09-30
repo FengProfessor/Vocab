@@ -2,10 +2,10 @@
   "slug": "subjunctive",
   "title": "Subjunctive",
   "title_vi": "Thức giả định",
-  "level": "advanced",
+  "level": "B2",
   "order": 55,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **suggest/insist that + S + V nguyên thể** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **suggest/insist that + S + V nguyên thể** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -388,12 +388,30 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "Hoàn thành theo mẫu: It ___ essential that every member be present.",
-      "answer": [
-        "is"
+      "id": "subjunctive-ex-01",
+      "type": "fill_blank",
+      "question": "Hoàn thành theo mẫu: It ___ essential that every member be present.",
+      "options": [],
+      "correct_answer": "is",
+      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc giả định thức hiện tại (Subjunctive mood) dùng \"It is essential that...\"."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Mệnh đề chính cần động từ to-be chia ở hiện tại đơn \"is\"."
+        }
       ],
-      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+      "difficulty": 1
     }
   ]
 }

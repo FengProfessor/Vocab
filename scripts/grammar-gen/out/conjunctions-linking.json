@@ -2,10 +2,10 @@
   "slug": "conjunctions-linking",
   "title": "Conjunctions & Linking Words",
   "title_vi": "Liên từ & từ nối",
-  "level": "intermediate",
-  "order": 34,
+  "level": "B1",
+  "order": 31,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **clause + coordinating conjunction + clause** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **clause + coordinating conjunction + clause** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -402,81 +402,288 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "I am not rich. If I ____ (be) rich, I ____ (build) a big library for my village.",
-      "opts": [],
-      "answer": "were / would build",
-      "fb": "trái với sự thật vừa nêu → loại 2, to be dùng were"
+      "id": "conjunctions-linking-ex-01",
+      "type": "fill_blank",
+      "question": "I am not rich. If I ____ (be) rich, I ____ (build) a big library for my village.",
+      "options": [],
+      "correct_answer": "were / would build",
+      "explanation": "trái với sự thật vừa nêu → loại 2, to be dùng were",
+      "distractor_breakdowns": [
+        {
+          "option": "were / would build",
+          "isCorrect": true,
+          "pedagogicalReason": "trái với sự thật vừa nêu → loại 2, to be dùng were"
+        },
+        {
+          "option": "were / would builds",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"were / would builds\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to were / would build",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "Trang is always busy. If she ____ (have) more free time, she ____ (learn) the piano.",
-      "opts": [],
-      "answer": "had / would learn",
-      "fb": "trái với sự thật Trang rất bận → loại 2"
+      "id": "conjunctions-linking-ex-02",
+      "type": "fill_blank",
+      "question": "Trang is always busy. If she ____ (have) more free time, she ____ (learn) the piano.",
+      "options": [],
+      "correct_answer": "had / would learn",
+      "explanation": "trái với sự thật Trang rất bận → loại 2",
+      "distractor_breakdowns": [
+        {
+          "option": "had / would learn",
+          "isCorrect": true,
+          "pedagogicalReason": "trái với sự thật Trang rất bận → loại 2"
+        },
+        {
+          "option": "had / would learns",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"had / would learns\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to had / would learn",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "I live in Hue. If I ____ (live) in Ha Noi, I ____ (visit) the Old Quarter every week.",
-      "opts": [],
-      "answer": "lived / would visit",
-      "fb": "trái với sự thật đang sống ở Huế → loại 2"
+      "id": "conjunctions-linking-ex-03",
+      "type": "fill_blank",
+      "question": "I live in Hue. If I ____ (live) in Ha Noi, I ____ (visit) the Old Quarter every week.",
+      "options": [],
+      "correct_answer": "lived / would visit",
+      "explanation": "trái với sự thật đang sống ở Huế → loại 2",
+      "distractor_breakdowns": [
+        {
+          "option": "lived / would visit",
+          "isCorrect": true,
+          "pedagogicalReason": "trái với sự thật đang sống ở Huế → loại 2"
+        },
+        {
+          "option": "lived / would visits",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"lived / would visits\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to lived / would visit",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "Viết lại dùng if: Unless she says sorry, I won't talk to her again.",
-      "opts": [],
-      "answer": "If she doesn't say sorry, I won't talk to her again.",
-      "fb": "bỏ unless thì trả lại doesn't, động từ về dạng trơ"
+      "id": "conjunctions-linking-ex-04",
+      "type": "fill_blank",
+      "question": "Viết lại dùng if: Unless she says sorry, I won't talk to her again.",
+      "options": [],
+      "correct_answer": "If she doesn't say sorry, I won't talk to her again.",
+      "explanation": "bỏ unless thì trả lại doesn't, động từ về dạng trơ",
+      "distractor_breakdowns": [
+        {
+          "option": "If she doesn't say sorry, I won't talk to her again.",
+          "isCorrect": true,
+          "pedagogicalReason": "bỏ unless thì trả lại doesn't, động từ về dạng trơ"
+        },
+        {
+          "option": "If she says sorry, I won't talk to her again.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Unless\" tương đương với \"If ... not\". Bỏ \"unless\" mà không thêm phủ định sẽ làm đảo ngược hoàn toàn ý nghĩa của câu."
+        },
+        {
+          "option": "If she doesn't says sorry, I won't talk to her again.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sau trợ động từ phủ định \"doesn't\", động từ chính phải trở về dạng nguyên thể \"say\", không giữ đuôi \"-s\"."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "Mai is afraid of water. If she ____ (not / be) afraid, she ____ (learn) to swim.",
-      "opts": [],
-      "answer": "weren't / would learn",
-      "fb": "trái với sự thật Mai sợ nước → loại 2, phủ định to be là weren't"
+      "id": "conjunctions-linking-ex-05",
+      "type": "fill_blank",
+      "question": "Mai is afraid of water. If she ____ (not / be) afraid, she ____ (learn) to swim.",
+      "options": [],
+      "correct_answer": "weren't / would learn",
+      "explanation": "trái với sự thật Mai sợ nước → loại 2, phủ định to be là weren't",
+      "distractor_breakdowns": [
+        {
+          "option": "weren't / would learn",
+          "isCorrect": true,
+          "pedagogicalReason": "trái với sự thật Mai sợ nước → loại 2, phủ định to be là weren't"
+        },
+        {
+          "option": "wasn't / will learn",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Điều kiện loại 2 giả định trái hiện tại dùng to-be \"weren't\" và \"would learn\"."
+        },
+        {
+          "option": "aren't / would learn",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Mệnh đề if loại 2 phải lùi thì về quá khứ giả định."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "____ he got up early, he was late for the first train.",
-      "opts": [],
-      "answer": "Although",
-      "fb": "he got up là chủ ngữ + động từ → although"
+      "id": "conjunctions-linking-ex-06",
+      "type": "fill_blank",
+      "question": "____ he got up early, he was late for the first train.",
+      "options": [],
+      "correct_answer": "Although",
+      "explanation": "he got up là chủ ngữ + động từ → although",
+      "distractor_breakdowns": [
+        {
+          "option": "Although",
+          "isCorrect": true,
+          "pedagogicalReason": "he got up là chủ ngữ + động từ → although"
+        },
+        {
+          "option": "despite",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"despite\" đi kèm với danh từ hoặc V-ing, không đứng trước một mệnh đề có đầy đủ chủ vị (S + V)."
+        },
+        {
+          "option": "because",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"because\" chỉ nguyên nhân - kết quả, trong khi câu mang nghĩa nhượng bộ tương phản (dù thức dậy sớm nhưng vẫn muộn tàu)."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "The city council demolished the house ____ its bad condition.",
-      "opts": [],
-      "answer": "because of",
-      "fb": "its bad condition là cụm danh từ, nêu lý do → because of"
+      "id": "conjunctions-linking-ex-07",
+      "type": "fill_blank",
+      "question": "The city council demolished the house ____ its bad condition.",
+      "options": [],
+      "correct_answer": "because of",
+      "explanation": "its bad condition là cụm danh từ, nêu lý do → because of",
+      "distractor_breakdowns": [
+        {
+          "option": "because of",
+          "isCorrect": true,
+          "pedagogicalReason": "its bad condition là cụm danh từ, nêu lý do → because of"
+        },
+        {
+          "option": "because",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"because\" phải đi kèm một mệnh đề (S + V), trong khi phía sau chỗ trống là cụm danh từ hoặc V-ing."
+        },
+        {
+          "option": "although",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"although\" chỉ sự nhượng bộ tương phản, không dùng để nêu lý do, nguyên nhân."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "____ the hotel prices were too high, we decided to stay at home.",
-      "opts": [],
-      "answer": "Because",
-      "fb": "the hotel prices were là chủ ngữ + động từ, nêu lý do → because"
+      "id": "conjunctions-linking-ex-08",
+      "type": "fill_blank",
+      "question": "____ the hotel prices were too high, we decided to stay at home.",
+      "options": [],
+      "correct_answer": "Because",
+      "explanation": "the hotel prices were là chủ ngữ + động từ, nêu lý do → because",
+      "distractor_breakdowns": [
+        {
+          "option": "Because",
+          "isCorrect": true,
+          "pedagogicalReason": "the hotel prices were là chủ ngữ + động từ, nêu lý do → because"
+        },
+        {
+          "option": "because of",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"because of\" chỉ đi với cụm danh từ hoặc V-ing, không thể đi kèm một mệnh đề có chủ vị \"the hotel prices were\"."
+        },
+        {
+          "option": "although",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"although\" chỉ sự nhượng bộ tương phản, không dùng để giải thích nguyên nhân."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "____ not trying his best, he failed the exam.",
-      "opts": [],
-      "answer": "Because of",
-      "fb": "not trying là V-ing → because of"
+      "id": "conjunctions-linking-ex-09",
+      "type": "fill_blank",
+      "question": "____ not trying his best, he failed the exam.",
+      "options": [],
+      "correct_answer": "Because of",
+      "explanation": "not trying là V-ing → because of",
+      "distractor_breakdowns": [
+        {
+          "option": "Because of",
+          "isCorrect": true,
+          "pedagogicalReason": "not trying là V-ing → because of"
+        },
+        {
+          "option": "because",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"because\" phải đi kèm một mệnh đề (S + V), trong khi phía sau chỗ trống là cụm danh từ hoặc V-ing."
+        },
+        {
+          "option": "although",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"although\" chỉ sự nhượng bộ tương phản, không dùng để nêu lý do, nguyên nhân."
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "fill",
-      "q": "____ (Despite / Although) her poverty, everyone in the village respects her.",
-      "opts": [],
-      "answer": "Despite",
-      "fb": "her poverty là cụm danh từ → Despite"
+      "id": "conjunctions-linking-ex-10",
+      "type": "multiple_choice",
+      "question": "____ (Despite / Although) her poverty, everyone in the village respects her.",
+      "options": [
+        "Despite",
+        "Although"
+      ],
+      "correct_answer": "Despite",
+      "explanation": "her poverty là cụm danh từ → Despite",
+      "distractor_breakdowns": [
+        {
+          "option": "Despite",
+          "isCorrect": true,
+          "pedagogicalReason": "her poverty là cụm danh từ → Despite"
+        },
+        {
+          "option": "Although",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Although\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "fill",
-      "q": "He failed the exam because of his ____ (lazy).",
-      "opts": [],
-      "answer": "laziness",
-      "fb": "sau his → cần danh từ"
+      "id": "conjunctions-linking-ex-11",
+      "type": "fill_blank",
+      "question": "He failed the exam because of his ____ (lazy).",
+      "options": [],
+      "correct_answer": "laziness",
+      "explanation": "sau his → cần danh từ",
+      "distractor_breakdowns": [
+        {
+          "option": "laziness",
+          "isCorrect": true,
+          "pedagogicalReason": "sau his → cần danh từ"
+        },
+        {
+          "option": "lazinesss",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"lazinesss\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to laziness",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 3
     }
   ]
 }

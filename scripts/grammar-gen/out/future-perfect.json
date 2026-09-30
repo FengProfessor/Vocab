@@ -2,10 +2,10 @@
   "slug": "future-perfect",
   "title": "Future Perfect",
   "title_vi": "Thì Tương lai hoàn thành",
-  "level": "advanced",
+  "level": "B2",
   "order": 45,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **S + will have + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **S + will have + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -452,12 +452,30 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "Hoàn thành theo mẫu: She ___ have left before noon.",
-      "answer": [
-        "will"
+      "id": "future-perfect-ex-01",
+      "type": "fill_blank",
+      "question": "Hoàn thành theo mẫu: She ___ have left before noon.",
+      "options": [],
+      "correct_answer": "will",
+      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "will",
+          "isCorrect": true,
+          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+        },
+        {
+          "option": "would",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thì tương lai hoàn thành diễn tả hành động sẽ hoàn tất trước một mốc trong tương lai (\"before noon\") dùng \"will have + V3\"."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc hoàn thành dùng trợ động từ \"will have\", không dùng \"is have\"."
+        }
       ],
-      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+      "difficulty": 1
     }
   ]
 }

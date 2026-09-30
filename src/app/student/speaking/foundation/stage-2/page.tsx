@@ -177,7 +177,7 @@ export default function Stage2LegoSlotsPage() {
               Luyện tập thế khối Lego (Slot Substitution)
             </h1>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-0.5">
-              Khóa chặt khung đế ngữ pháp, hoán đổi thần tốc các khối Lego từ vựng để kích hoạt phản xạ vô thức
+              Khóa chặt khung đế ngữ pháp, hoán đổi linh hoạt các khối Lego từ vựng để kích hoạt phản xạ tự nhiên
             </p>
           </div>
 
@@ -290,7 +290,7 @@ export default function Stage2LegoSlotsPage() {
               {reflexTimeMs < 1000 ? (
                 <span className="inline-flex items-center gap-1 text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-100/60 dark:bg-emerald-950/50 px-2 py-0.5 rounded-full">
                   <Sparkles className="w-3.5 h-3.5" />
-                  ⚡ Phản xạ thần tốc (&lt;1s) - Đạt chuẩn vô thức!
+                  ⚡ Phản xạ tức thì (&lt;1s) - Đạt chuẩn tự nhiên!
                 </span>
               ) : reflexTimeMs < 2000 ? (
                 <span className="text-xs text-amber-600 dark:text-amber-400 font-medium">
@@ -370,7 +370,7 @@ export default function Stage2LegoSlotsPage() {
                       </span>
                     </div>
                     <span className="text-[11px] text-slate-400">
-                      Bấm vào khối để thay thế thần tốc
+                      Bấm vào khối để thay thế nhanh chóng
                     </span>
                   </div>
 

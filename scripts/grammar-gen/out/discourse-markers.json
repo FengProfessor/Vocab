@@ -2,10 +2,10 @@
   "slug": "discourse-markers",
   "title": "Discourse Markers",
   "title_vi": "Từ nối diễn ngôn",
-  "level": "advanced",
+  "level": "B2",
   "order": 59,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **marker + comma + clause** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **marker + comma + clause** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -388,14 +388,33 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "Hoàn thành theo mẫu: However, the plan ___ expensive.",
-      "answer": [
-        "is"
+      "id": "discourse-markers-ex-01",
+      "type": "fill_blank",
+      "question": "Hoàn thành theo mẫu: However, the plan ___ expensive.",
+      "options": [],
+      "correct_answer": "is",
+      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"the plan\" là danh từ số ít, phải đi với to-be số ít \"is\"."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ vị ngữ phải được chia theo thì hiện tại đơn."
+        }
       ],
-      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+      "difficulty": 1
     },
     {
+      "id": "discourse-markers-ex-02",
       "type": "multiple_choice",
       "question": "Choose the best **concession marker**: The data set is relatively small; ___, the trend is statistically robust.",
       "options": [
@@ -406,9 +425,32 @@
       ],
       "correct_answer": "nevertheless",
       "explanation": "“Nevertheless” diễn tả sự nhượng bộ: dù dữ liệu nhỏ, xu hướng vẫn đáng tin cậy. “For instance” đưa ví dụ, “namely” giải thích cụ thể, còn “by the way” chuyển sang chuyện phụ nên không phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "nevertheless",
+          "isCorrect": true,
+          "pedagogicalReason": "“Nevertheless” diễn tả sự nhượng bộ: dù dữ liệu nhỏ, xu hướng vẫn đáng tin cậy. “For instance” đưa ví dụ, “namely” giải thích cụ thể, còn “by the way” chuyển sang chuyện phụ nên không phù hợp."
+        },
+        {
+          "option": "for instance",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “For instance” đưa ví dụ, “namely” giải thích cụ thể, còn “by the way” chuyển sang chuyện phụ nên không phù hợp."
+        },
+        {
+          "option": "namely",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “namely” giải thích cụ thể, còn “by the way” chuyển sang chuyện phụ nên không phù hợp."
+        },
+        {
+          "option": "by the way",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “by the way” chuyển sang chuyện phụ nên không phù hợp."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-03",
       "type": "multiple_choice",
       "question": "Choose the correct **reformulation marker**: The policy would centralize decision-making; ___, local teams would lose much of their autonomy.",
       "options": [
@@ -419,9 +461,32 @@
       ],
       "correct_answer": "in other words",
       "explanation": "“In other words” dùng để nói lại cùng ý theo cách rõ hơn. “On the contrary” phản bác, “meanwhile” chỉ sự đồng thời, “all the same” diễn tả tương phản/nhượng bộ.",
+      "distractor_breakdowns": [
+        {
+          "option": "in other words",
+          "isCorrect": true,
+          "pedagogicalReason": "“In other words” dùng để nói lại cùng ý theo cách rõ hơn. “On the contrary” phản bác, “meanwhile” chỉ sự đồng thời, “all the same” diễn tả tương phản/nhượng bộ."
+        },
+        {
+          "option": "on the contrary",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “On the contrary” phản bác, “meanwhile” chỉ sự đồng thời, “all the same” diễn tả tương phản/nhượng bộ."
+        },
+        {
+          "option": "meanwhile",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “meanwhile” chỉ sự đồng thời, “all the same” diễn tả tương phản/nhượng bộ."
+        },
+        {
+          "option": "all the same",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “all the same” diễn tả tương phản/nhượng bộ."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-04",
       "type": "multiple_choice",
       "question": "Choose the most natural **topic shift**: The budget figures look stable. ___, has the client approved the new timeline?",
       "options": [
@@ -432,9 +497,32 @@
       ],
       "correct_answer": "Incidentally",
       "explanation": "“Incidentally” dùng để chuyển nhẹ sang thông tin liên quan hoặc phụ thêm. “Therefore” và “For that reason” nêu kết quả, còn “Likewise” nêu sự tương đồng.",
+      "distractor_breakdowns": [
+        {
+          "option": "Incidentally",
+          "isCorrect": true,
+          "pedagogicalReason": "“Incidentally” dùng để chuyển nhẹ sang thông tin liên quan hoặc phụ thêm. “Therefore” và “For that reason” nêu kết quả, còn “Likewise” nêu sự tương đồng."
+        },
+        {
+          "option": "Therefore",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Therefore” và “For that reason” nêu kết quả, còn “Likewise” nêu sự tương đồng."
+        },
+        {
+          "option": "Likewise",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Likewise” nêu sự tương đồng."
+        },
+        {
+          "option": "For that reason",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “For that reason” nêu kết quả, còn “Likewise” nêu sự tương đồng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-05",
       "type": "multiple_choice",
       "question": "Choose the best **ordering marker**: ___, the committee must define what counts as a successful outcome.",
       "options": [
@@ -445,9 +533,32 @@
       ],
       "correct_answer": "To begin with",
       "explanation": "“To begin with” mở đầu chuỗi lập luận hoặc bước đầu tiên. Các lựa chọn còn lại lần lượt chỉ tương phản, nhượng bộ/chuyển hướng, và khoảng thời gian xen giữa.",
+      "distractor_breakdowns": [
+        {
+          "option": "To begin with",
+          "isCorrect": true,
+          "pedagogicalReason": "“To begin with” mở đầu chuỗi lập luận hoặc bước đầu tiên. Các lựa chọn còn lại lần lượt chỉ tương phản, nhượng bộ/chuyển hướng, và khoảng thời gian xen giữa."
+        },
+        {
+          "option": "Conversely",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Conversely\" là trạng từ (adverb), không thể đứng trước danh từ hoặc làm bổ ngữ sau linking verb thay cho tính từ."
+        },
+        {
+          "option": "Be that as it may",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Be that as it may\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "In the meantime",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"In the meantime\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "discourse-markers-ex-06",
       "type": "multiple_choice",
       "question": "Choose the correct **emphasis marker**: The method is not merely convenient; ___, it reduces measurement bias.",
       "options": [
@@ -458,9 +569,32 @@
       ],
       "correct_answer": "more importantly",
       "explanation": "“More importantly” nhấn mạnh ý sau là quan trọng hơn. “Otherwise” nêu điều kiện/kết quả trái lại, “instead” thay thế, “for example” đưa ví dụ.",
+      "distractor_breakdowns": [
+        {
+          "option": "more importantly",
+          "isCorrect": true,
+          "pedagogicalReason": "“More importantly” nhấn mạnh ý sau là quan trọng hơn. “Otherwise” nêu điều kiện/kết quả trái lại, “instead” thay thế, “for example” đưa ví dụ."
+        },
+        {
+          "option": "otherwise",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Otherwise” nêu điều kiện/kết quả trái lại, “instead” thay thế, “for example” đưa ví dụ."
+        },
+        {
+          "option": "instead",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “instead” thay thế, “for example” đưa ví dụ."
+        },
+        {
+          "option": "for example",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “for example” đưa ví dụ."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-07",
       "type": "multiple_choice",
       "question": "Choose the best **contrast marker**: The first report blamed poor training. ___, the second pointed to flawed incentives.",
       "options": [
@@ -471,9 +605,32 @@
       ],
       "correct_answer": "By contrast",
       "explanation": "“By contrast” so sánh hai ý trái chiều. “In short” tóm tắt, “As a result” nêu kết quả, “In particular” làm rõ một phần cụ thể.",
+      "distractor_breakdowns": [
+        {
+          "option": "By contrast",
+          "isCorrect": true,
+          "pedagogicalReason": "“By contrast” so sánh hai ý trái chiều. “In short” tóm tắt, “As a result” nêu kết quả, “In particular” làm rõ một phần cụ thể."
+        },
+        {
+          "option": "In short",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “In short” tóm tắt, “As a result” nêu kết quả, “In particular” làm rõ một phần cụ thể."
+        },
+        {
+          "option": "As a result",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “As a result” nêu kết quả, “In particular” làm rõ một phần cụ thể."
+        },
+        {
+          "option": "In particular",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “In particular” làm rõ một phần cụ thể."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-08",
       "type": "multiple_choice",
       "question": "Choose the appropriate **generalizing marker**: The interviews varied in detail, but ___, participants supported the reform.",
       "options": [
@@ -484,9 +641,32 @@
       ],
       "correct_answer": "on the whole",
       "explanation": "“On the whole” nghĩa là xét tổng thể, phù hợp khi rút ra nhận định chung. “After all” đưa lý do nhắc lại, “for one thing” mở lý do đầu tiên, “that is to say” diễn giải lại.",
+      "distractor_breakdowns": [
+        {
+          "option": "on the whole",
+          "isCorrect": true,
+          "pedagogicalReason": "“On the whole” nghĩa là xét tổng thể, phù hợp khi rút ra nhận định chung. “After all” đưa lý do nhắc lại, “for one thing” mở lý do đầu tiên, “that is to say” diễn giải lại."
+        },
+        {
+          "option": "after all",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “After all” đưa lý do nhắc lại, “for one thing” mở lý do đầu tiên, “that is to say” diễn giải lại."
+        },
+        {
+          "option": "for one thing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “for one thing” mở lý do đầu tiên, “that is to say” diễn giải lại."
+        },
+        {
+          "option": "that is to say",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “that is to say” diễn giải lại."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-09",
       "type": "multiple_choice",
       "question": "Choose the best **clarification marker**: The contract excludes consequential loss, ___ losses that arise indirectly from the breach.",
       "options": [
@@ -497,9 +677,32 @@
       ],
       "correct_answer": "that is",
       "explanation": "“That is” dùng để làm rõ hoặc định nghĩa lại cụm trước. “Meanwhile” chỉ đồng thời, “still” nhượng bộ, “otherwise” nêu hệ quả trái lại.",
+      "distractor_breakdowns": [
+        {
+          "option": "that is",
+          "isCorrect": true,
+          "pedagogicalReason": "“That is” dùng để làm rõ hoặc định nghĩa lại cụm trước. “Meanwhile” chỉ đồng thời, “still” nhượng bộ, “otherwise” nêu hệ quả trái lại."
+        },
+        {
+          "option": "meanwhile",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Meanwhile” chỉ đồng thời, “still” nhượng bộ, “otherwise” nêu hệ quả trái lại."
+        },
+        {
+          "option": "still",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “still” nhượng bộ, “otherwise” nêu hệ quả trái lại."
+        },
+        {
+          "option": "otherwise",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “otherwise” nêu hệ quả trái lại."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-10",
       "type": "fill_blank",
       "question": "Complete with the best **result marker**: The deadline was brought forward; ___, several teams had to reassign staff.",
       "options": [
@@ -510,9 +713,32 @@
       ],
       "correct_answer": "as a result",
       "explanation": "“As a result” nối nguyên nhân với kết quả: hạn chót đổi nên các nhóm phải điều phối lại nhân sự. Các đáp án khác lần lượt đưa ví dụ, tương phản, hoặc giảm nhẹ sắc thái đánh giá.",
+      "distractor_breakdowns": [
+        {
+          "option": "as a result",
+          "isCorrect": true,
+          "pedagogicalReason": "“As a result” nối nguyên nhân với kết quả: hạn chót đổi nên các nhóm phải điều phối lại nhân sự. Các đáp án khác lần lượt đưa ví dụ, tương phản, hoặc giảm nhẹ sắc thái đánh giá."
+        },
+        {
+          "option": "for example",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"for example\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "in contrast",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"in contrast\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "to put it mildly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"to put it mildly\" là trạng từ (adverb), không thể đứng trước danh từ hoặc làm bổ ngữ sau linking verb thay cho tính từ."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-11",
       "type": "fill_blank",
       "question": "Complete the sentence with a **limiting marker**: The proposal is persuasive. ___, it says little about long-term maintenance costs.",
       "options": [
@@ -523,9 +749,32 @@
       ],
       "correct_answer": "Having said that",
       "explanation": "“Having said that” dùng để giới hạn hoặc cân bằng nhận xét vừa nêu. “Similarly” chỉ tương đồng, “In fact” bổ sung/nhấn mạnh sự thật, “For instance” đưa ví dụ.",
+      "distractor_breakdowns": [
+        {
+          "option": "Having said that",
+          "isCorrect": true,
+          "pedagogicalReason": "“Having said that” dùng để giới hạn hoặc cân bằng nhận xét vừa nêu. “Similarly” chỉ tương đồng, “In fact” bổ sung/nhấn mạnh sự thật, “For instance” đưa ví dụ."
+        },
+        {
+          "option": "Similarly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Similarly” chỉ tương đồng, “In fact” bổ sung/nhấn mạnh sự thật, “For instance” đưa ví dụ."
+        },
+        {
+          "option": "In fact",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “In fact” bổ sung/nhấn mạnh sự thật, “For instance” đưa ví dụ."
+        },
+        {
+          "option": "For instance",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “For instance” đưa ví dụ."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-12",
       "type": "fill_blank",
       "question": "Complete with an **additive marker**: The model is cheaper to run. ___, it can be audited more easily.",
       "options": [
@@ -536,9 +785,32 @@
       ],
       "correct_answer": "Moreover",
       "explanation": "“Moreover” thêm một luận điểm cùng chiều và có tính tăng cường. “Conversely” là tương phản, “Instead” là thay thế, “Hence” là kết quả.",
+      "distractor_breakdowns": [
+        {
+          "option": "Moreover",
+          "isCorrect": true,
+          "pedagogicalReason": "“Moreover” thêm một luận điểm cùng chiều và có tính tăng cường. “Conversely” là tương phản, “Instead” là thay thế, “Hence” là kết quả."
+        },
+        {
+          "option": "Conversely",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Conversely” là tương phản, “Instead” là thay thế, “Hence” là kết quả."
+        },
+        {
+          "option": "Instead",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Instead” là thay thế, “Hence” là kết quả."
+        },
+        {
+          "option": "Hence",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Hence” là kết quả."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-13",
       "type": "fill_blank",
       "question": "Complete the **stance marker**: ___, I find the evidence too anecdotal to support such a strong conclusion.",
       "options": [
@@ -549,9 +821,32 @@
       ],
       "correct_answer": "Frankly",
       "explanation": "“Frankly” thể hiện thái độ thẳng thắn của người nói trước nhận định. Các lựa chọn khác không diễn tả stance cá nhân mà chỉ kết quả, ví dụ hoặc thời gian xen giữa.",
+      "distractor_breakdowns": [
+        {
+          "option": "Frankly",
+          "isCorrect": true,
+          "pedagogicalReason": "“Frankly” thể hiện thái độ thẳng thắn của người nói trước nhận định. Các lựa chọn khác không diễn tả stance cá nhân mà chỉ kết quả, ví dụ hoặc thời gian xen giữa."
+        },
+        {
+          "option": "Consequently",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Consequently\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "For example",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"For example\" là tính từ hoặc danh từ, không có chức năng trạng từ để bổ nghĩa cho động từ/tính từ trong câu."
+        },
+        {
+          "option": "In the meantime",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"In the meantime\" là tính từ hoặc danh từ, không có chức năng trạng từ để bổ nghĩa cho động từ/tính từ trong câu."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-14",
       "type": "fill_blank",
       "question": "Complete with the correct **summary marker**: The figures are volatile, the sample is narrow, and the controls are weak. ___, the claim is premature.",
       "options": [
@@ -562,9 +857,32 @@
       ],
       "correct_answer": "In short",
       "explanation": "“In short” dùng để tóm tắt kết luận từ các ý trước. “On the contrary” phản bác, “By the way” chuyển chủ đề, “In the same vein” nối ý tương tự.",
+      "distractor_breakdowns": [
+        {
+          "option": "In short",
+          "isCorrect": true,
+          "pedagogicalReason": "“In short” dùng để tóm tắt kết luận từ các ý trước. “On the contrary” phản bác, “By the way” chuyển chủ đề, “In the same vein” nối ý tương tự."
+        },
+        {
+          "option": "On the contrary",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “On the contrary” phản bác, “By the way” chuyển chủ đề, “In the same vein” nối ý tương tự."
+        },
+        {
+          "option": "By the way",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “By the way” chuyển chủ đề, “In the same vein” nối ý tương tự."
+        },
+        {
+          "option": "In the same vein",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “In the same vein” nối ý tương tự."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "discourse-markers-ex-15",
       "type": "fill_blank",
       "question": "Complete the sentence with a **counterargument marker**: The software is expensive. ___, the cost of manual processing is higher.",
       "options": [
@@ -575,9 +893,32 @@
       ],
       "correct_answer": "Then again",
       "explanation": "“Then again” đưa một góc nhìn đối lập để cân bằng nhận định trước. “For instance” đưa ví dụ, “Likewise” chỉ tương đồng, “To begin with” mở đầu lập luận.",
+      "distractor_breakdowns": [
+        {
+          "option": "Then again",
+          "isCorrect": true,
+          "pedagogicalReason": "“Then again” đưa một góc nhìn đối lập để cân bằng nhận định trước. “For instance” đưa ví dụ, “Likewise” chỉ tương đồng, “To begin with” mở đầu lập luận."
+        },
+        {
+          "option": "For instance",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “For instance” đưa ví dụ, “Likewise” chỉ tương đồng, “To begin with” mở đầu lập luận."
+        },
+        {
+          "option": "Likewise",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Likewise” chỉ tương đồng, “To begin with” mở đầu lập luận."
+        },
+        {
+          "option": "To begin with",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “To begin with” mở đầu lập luận."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-16",
       "type": "fill_blank",
       "question": "Complete with the best **example marker**: Several safeguards are missing; ___, there is no independent appeal process.",
       "options": [
@@ -588,9 +929,32 @@
       ],
       "correct_answer": "for one thing",
       "explanation": "“For one thing” giới thiệu một lý do hoặc ví dụ đầu tiên trong chuỗi lập luận. “Nevertheless” nhượng bộ, “therefore” kết luận, “in brief” tóm tắt.",
+      "distractor_breakdowns": [
+        {
+          "option": "for one thing",
+          "isCorrect": true,
+          "pedagogicalReason": "“For one thing” giới thiệu một lý do hoặc ví dụ đầu tiên trong chuỗi lập luận. “Nevertheless” nhượng bộ, “therefore” kết luận, “in brief” tóm tắt."
+        },
+        {
+          "option": "nevertheless",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Nevertheless” nhượng bộ, “therefore” kết luận, “in brief” tóm tắt."
+        },
+        {
+          "option": "therefore",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “therefore” kết luận, “in brief” tóm tắt."
+        },
+        {
+          "option": "in brief",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “in brief” tóm tắt."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-17",
       "type": "fill_blank",
       "question": "Complete the sentence with an **inference marker**: The witness changed his account three times; ___, the jury may doubt his reliability.",
       "options": [
@@ -601,9 +965,32 @@
       ],
       "correct_answer": "accordingly",
       "explanation": "“Accordingly” diễn tả kết quả hoặc suy luận hợp lý từ thông tin trước. “Incidentally” chuyển ý phụ, “in particular” nêu chi tiết cụ thể, “all the same” nhượng bộ.",
+      "distractor_breakdowns": [
+        {
+          "option": "accordingly",
+          "isCorrect": true,
+          "pedagogicalReason": "“Accordingly” diễn tả kết quả hoặc suy luận hợp lý từ thông tin trước. “Incidentally” chuyển ý phụ, “in particular” nêu chi tiết cụ thể, “all the same” nhượng bộ."
+        },
+        {
+          "option": "incidentally",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Incidentally” chuyển ý phụ, “in particular” nêu chi tiết cụ thể, “all the same” nhượng bộ."
+        },
+        {
+          "option": "in particular",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “in particular” nêu chi tiết cụ thể, “all the same” nhượng bộ."
+        },
+        {
+          "option": "all the same",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “all the same” nhượng bộ."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-18",
       "type": "fill_blank",
       "question": "Complete with the best **return marker**: The funding issue can wait. ___, the immediate question is whether the pilot is safe.",
       "options": [
@@ -614,9 +1001,32 @@
       ],
       "correct_answer": "To return to the point",
       "explanation": "“To return to the point” đưa cuộc nói chuyện quay lại trọng tâm. Các đáp án khác thêm ý, mở rộng liên quan, hoặc so sánh.",
+      "distractor_breakdowns": [
+        {
+          "option": "To return to the point",
+          "isCorrect": true,
+          "pedagogicalReason": "“To return to the point” đưa cuộc nói chuyện quay lại trọng tâm. Các đáp án khác thêm ý, mở rộng liên quan, hoặc so sánh."
+        },
+        {
+          "option": "On top of that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"On top of that\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "For that matter",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"For that matter\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "In comparison",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"In comparison\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-19",
       "type": "error_correction",
       "question": "Find the error: The evidence is preliminary; **therefore**, the authors wisely avoid firm conclusions.",
       "options": [
@@ -627,9 +1037,32 @@
       ],
       "correct_answer": "therefore",
       "explanation": "Ý sau không phải kết quả logic của “preliminary” mà là sự nhượng bộ/cân bằng, nên nên dùng “nevertheless” hoặc “even so”. “Therefore” chỉ kết quả trực tiếp, làm quan hệ ý nghĩa bị sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "The evidence",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The evidence\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "therefore",
+          "isCorrect": true,
+          "pedagogicalReason": "Ý sau không phải kết quả logic của “preliminary” mà là sự nhượng bộ/cân bằng, nên nên dùng “nevertheless” hoặc “even so”. “Therefore” chỉ kết quả trực tiếp, làm quan hệ ý nghĩa bị sai."
+        },
+        {
+          "option": "wisely avoid",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"wisely avoid\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "firm conclusions",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"firm conclusions\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-20",
       "type": "error_correction",
       "question": "Find the error: **For example**, the study has two main limitations: sample size and selection bias.",
       "options": [
@@ -640,9 +1073,32 @@
       ],
       "correct_answer": "For example",
       "explanation": "Sau dấu hai chấm là liệt kê/định danh hai hạn chế, không phải đưa ví dụ. Marker tự nhiên hơn là “Specifically” hoặc “Namely”.",
+      "distractor_breakdowns": [
+        {
+          "option": "For example",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau dấu hai chấm là liệt kê/định danh hai hạn chế, không phải đưa ví dụ. Marker tự nhiên hơn là “Specifically” hoặc “Namely”."
+        },
+        {
+          "option": "two main limitations",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"two main limitations\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "sample size",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"sample size\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "selection bias",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"selection bias\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-21",
       "type": "error_correction",
       "question": "Find the error: The merger may reduce costs; **similarly**, it could eliminate hundreds of jobs.",
       "options": [
@@ -653,9 +1109,32 @@
       ],
       "correct_answer": "similarly",
       "explanation": "Hai ý không tương đồng về tác động mà có sắc thái bổ sung gây bất lợi hoặc chuyển hướng đánh giá. Nên dùng “however”, “at the same time” hoặc “more worryingly” tùy ý định.",
+      "distractor_breakdowns": [
+        {
+          "option": "The merger",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The merger\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "may reduce costs",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"may reduce costs\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "similarly",
+          "isCorrect": true,
+          "pedagogicalReason": "Hai ý không tương đồng về tác động mà có sắc thái bổ sung gây bất lợi hoặc chuyển hướng đánh giá. Nên dùng “however”, “at the same time” hoặc “more worryingly” tùy ý định."
+        },
+        {
+          "option": "could eliminate",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"could eliminate\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-22",
       "type": "error_correction",
       "question": "Find the error: The experiment failed to replicate; **in other words**, the hypothesis remains fully confirmed.",
       "options": [
@@ -666,9 +1145,32 @@
       ],
       "correct_answer": "in other words",
       "explanation": "“In other words” phải diễn giải lại cùng ý, nhưng mệnh đề sau lại nói điều trái với “failed to replicate”. Cần dùng marker tương phản mạnh như “despite this” nếu muốn giữ ý sau, hoặc sửa nội dung sau cho phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "failed to replicate",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"failed to replicate\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "in other words",
+          "isCorrect": true,
+          "pedagogicalReason": "“In other words” phải diễn giải lại cùng ý, nhưng mệnh đề sau lại nói điều trái với “failed to replicate”. Cần dùng marker tương phản mạnh như “despite this” nếu muốn giữ ý sau, hoặc sửa nội dung sau cho phù hợp."
+        },
+        {
+          "option": "the hypothesis",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the hypothesis\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "fully confirmed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"fully confirmed\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-23",
       "type": "error_correction",
       "question": "Find the error: The city expanded the subway network; **by the way**, average commute times fell.",
       "options": [
@@ -679,9 +1181,32 @@
       ],
       "correct_answer": "by the way",
       "explanation": "Ý sau là kết quả hoặc hệ quả liên quan trực tiếp, không phải thông tin chen ngang. Nên dùng “as a result” hoặc “consequently”.",
+      "distractor_breakdowns": [
+        {
+          "option": "expanded",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"expanded\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "by the way",
+          "isCorrect": true,
+          "pedagogicalReason": "Ý sau là kết quả hoặc hệ quả liên quan trực tiếp, không phải thông tin chen ngang. Nên dùng “as a result” hoặc “consequently”."
+        },
+        {
+          "option": "average commute times",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"average commute times\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "fell",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"fell\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-24",
       "type": "error_correction",
       "question": "Find the error: **On the contrary**, I agree with most of your analysis, although I question the conclusion.",
       "options": [
@@ -692,9 +1217,32 @@
       ],
       "correct_answer": "On the contrary",
       "explanation": "“On the contrary” dùng để bác bỏ điều vừa nói, nhưng câu này chỉ giới hạn mức độ đồng ý. Marker phù hợp hơn là “By and large” hoặc “For the most part”.",
+      "distractor_breakdowns": [
+        {
+          "option": "On the contrary",
+          "isCorrect": true,
+          "pedagogicalReason": "“On the contrary” dùng để bác bỏ điều vừa nói, nhưng câu này chỉ giới hạn mức độ đồng ý. Marker phù hợp hơn là “By and large” hoặc “For the most part”."
+        },
+        {
+          "option": "agree with",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"agree with\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "most of",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"most of\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "the conclusion",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the conclusion\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-25",
       "type": "error_correction",
       "question": "Find the error: The report is concise; **namely**, it omits the methodology section.",
       "options": [
@@ -705,9 +1253,32 @@
       ],
       "correct_answer": "namely",
       "explanation": "“Namely” dùng để nêu tên hoặc giải thích cụ thể, không diễn tả mặt hạn chế trái chiều. Nên dùng “however” hoặc “that said”.",
+      "distractor_breakdowns": [
+        {
+          "option": "The report",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The report\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "concise",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"concise\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "namely",
+          "isCorrect": true,
+          "pedagogicalReason": "“Namely” dùng để nêu tên hoặc giải thích cụ thể, không diễn tả mặt hạn chế trái chiều. Nên dùng “however” hoặc “that said”."
+        },
+        {
+          "option": "omits",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"omits\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-26",
       "type": "error_correction",
       "question": "Find the error: **Meanwhile**, the CEO resigned last night, the board has appointed an interim chair.",
       "options": [
@@ -718,9 +1289,32 @@
       ],
       "correct_answer": "Meanwhile",
       "explanation": "Câu đang nối hai mệnh đề theo quan hệ kết quả/tiếp nối, không phải hai sự kiện đồng thời độc lập. Cần dùng “Subsequently” hoặc tách câu; nếu giữ “Meanwhile”, phải làm rõ hành động xảy ra song song.",
+      "distractor_breakdowns": [
+        {
+          "option": "Meanwhile",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu đang nối hai mệnh đề theo quan hệ kết quả/tiếp nối, không phải hai sự kiện đồng thời độc lập. Cần dùng “Subsequently” hoặc tách câu; nếu giữ “Meanwhile”, phải làm rõ hành động xảy ra song song."
+        },
+        {
+          "option": "resigned",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"resigned\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "last night",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"last night\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "has appointed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"has appointed\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-27",
       "type": "multiple_choice",
       "question": "Choose the best **concession marker**: The archive is incomplete; ___, it remains the only source that records the negotiations in detail.",
       "options": [
@@ -731,9 +1325,32 @@
       ],
       "correct_answer": "even so",
       "explanation": "“Even so” diễn đạt nhượng bộ: dù hồ sơ không đầy đủ, nó vẫn có giá trị. “Therefore” chỉ kết quả, “for instance” nêu ví dụ, còn “in the meantime” chỉ thời gian song song nên không phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "even so",
+          "isCorrect": true,
+          "pedagogicalReason": "“Even so” diễn đạt nhượng bộ: dù hồ sơ không đầy đủ, nó vẫn có giá trị. “Therefore” chỉ kết quả, “for instance” nêu ví dụ, còn “in the meantime” chỉ thời gian song song nên không phù hợp."
+        },
+        {
+          "option": "therefore",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Therefore” chỉ kết quả, “for instance” nêu ví dụ, còn “in the meantime” chỉ thời gian song song nên không phù hợp."
+        },
+        {
+          "option": "for instance",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “for instance” nêu ví dụ, còn “in the meantime” chỉ thời gian song song nên không phù hợp."
+        },
+        {
+          "option": "in the meantime",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “in the meantime” chỉ thời gian song song nên không phù hợp."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-28",
       "type": "multiple_choice",
       "question": "Choose the correct **dismissal marker**: The legal issue is complex. ___, the real obstacle is political will, not interpretation.",
       "options": [
@@ -744,9 +1361,32 @@
       ],
       "correct_answer": "In any case",
       "explanation": "“In any case” chuyển hướng và gạt bớt chi tiết trước đó để nhấn mạnh điểm chính hơn. “Likewise” so sánh tương đồng, “that is to say” diễn giải lại, “for this reason” nêu nguyên nhân-kết quả.",
+      "distractor_breakdowns": [
+        {
+          "option": "In any case",
+          "isCorrect": true,
+          "pedagogicalReason": "“In any case” chuyển hướng và gạt bớt chi tiết trước đó để nhấn mạnh điểm chính hơn. “Likewise” so sánh tương đồng, “that is to say” diễn giải lại, “for this reason” nêu nguyên nhân-kết quả."
+        },
+        {
+          "option": "Likewise",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Likewise” so sánh tương đồng, “that is to say” diễn giải lại, “for this reason” nêu nguyên nhân-kết quả."
+        },
+        {
+          "option": "That is to say",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “that is to say” diễn giải lại, “for this reason” nêu nguyên nhân-kết quả."
+        },
+        {
+          "option": "For this reason",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “for this reason” nêu nguyên nhân-kết quả."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-29",
       "type": "multiple_choice",
       "question": "Choose the best **balancing marker**: The treatment is costly and uncomfortable; ___, it has produced unusually durable results.",
       "options": [
@@ -757,9 +1397,32 @@
       ],
       "correct_answer": "on the other hand",
       "explanation": "“On the other hand” đặt hai mặt trái chiều của cùng vấn đề lên bàn cân. “Namely” nêu cụ thể, “as a result” chỉ kết quả, “by the same token” dùng cho lập luận tương tự.",
+      "distractor_breakdowns": [
+        {
+          "option": "on the other hand",
+          "isCorrect": true,
+          "pedagogicalReason": "“On the other hand” đặt hai mặt trái chiều của cùng vấn đề lên bàn cân. “Namely” nêu cụ thể, “as a result” chỉ kết quả, “by the same token” dùng cho lập luận tương tự."
+        },
+        {
+          "option": "namely",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Namely” nêu cụ thể, “as a result” chỉ kết quả, “by the same token” dùng cho lập luận tương tự."
+        },
+        {
+          "option": "as a result",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “as a result” chỉ kết quả, “by the same token” dùng cho lập luận tương tự."
+        },
+        {
+          "option": "by the same token",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “by the same token” dùng cho lập luận tương tự."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-30",
       "type": "multiple_choice",
       "question": "Choose the most natural **stance marker**: ___, the committee underestimated how strongly residents would oppose the rezoning plan.",
       "options": [
@@ -770,9 +1433,32 @@
       ],
       "correct_answer": "If anything",
       "explanation": "“If anything” dùng để điều chỉnh hoặc nhấn mạnh nhận định theo hướng mạnh hơn: nếu có gì thì họ còn đánh giá thấp mức phản đối. Các lựa chọn khác lần lượt chỉ thời gian, ví dụ, hoặc tóm tắt.",
+      "distractor_breakdowns": [
+        {
+          "option": "If anything",
+          "isCorrect": true,
+          "pedagogicalReason": "“If anything” dùng để điều chỉnh hoặc nhấn mạnh nhận định theo hướng mạnh hơn: nếu có gì thì họ còn đánh giá thấp mức phản đối. Các lựa chọn khác lần lượt chỉ thời gian, ví dụ, hoặc tóm tắt."
+        },
+        {
+          "option": "Meanwhile",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Meanwhile\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "For example",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"For example\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "In short",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"In short\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-31",
       "type": "multiple_choice",
       "question": "Choose the correct **qualification marker**: The survey suggests broad approval. ___, its respondents were mostly urban professionals.",
       "options": [
@@ -783,9 +1469,32 @@
       ],
       "correct_answer": "That said",
       "explanation": "“That said” đưa ra giới hạn hoặc điểm làm mềm nhận định trước đó. “Consequently” là kết quả, “more specifically” làm rõ chi tiết, “to begin with” mở đầu chuỗi ý.",
+      "distractor_breakdowns": [
+        {
+          "option": "That said",
+          "isCorrect": true,
+          "pedagogicalReason": "“That said” đưa ra giới hạn hoặc điểm làm mềm nhận định trước đó. “Consequently” là kết quả, “more specifically” làm rõ chi tiết, “to begin with” mở đầu chuỗi ý."
+        },
+        {
+          "option": "Consequently",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Consequently” là kết quả, “more specifically” làm rõ chi tiết, “to begin with” mở đầu chuỗi ý."
+        },
+        {
+          "option": "More specifically",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “more specifically” làm rõ chi tiết, “to begin with” mở đầu chuỗi ý."
+        },
+        {
+          "option": "To begin with",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “to begin with” mở đầu chuỗi ý."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-32",
       "type": "multiple_choice",
       "question": "Choose the best **correction marker**: The witness did not contradict herself; ___, she supplied details that were absent from her first statement.",
       "options": [
@@ -796,9 +1505,32 @@
       ],
       "correct_answer": "rather",
       "explanation": "“Rather” dùng để sửa hoặc thay thế cách hiểu trước đó. “Similarly” chỉ tương đồng, “after all” củng cố lý do đã biết, “on top of that” thêm thông tin.",
+      "distractor_breakdowns": [
+        {
+          "option": "rather",
+          "isCorrect": true,
+          "pedagogicalReason": "“Rather” dùng để sửa hoặc thay thế cách hiểu trước đó. “Similarly” chỉ tương đồng, “after all” củng cố lý do đã biết, “on top of that” thêm thông tin."
+        },
+        {
+          "option": "similarly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Similarly” chỉ tương đồng, “after all” củng cố lý do đã biết, “on top of that” thêm thông tin."
+        },
+        {
+          "option": "after all",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “after all” củng cố lý do đã biết, “on top of that” thêm thông tin."
+        },
+        {
+          "option": "on top of that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “on top of that” thêm thông tin."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-33",
       "type": "multiple_choice",
       "question": "Choose the most suitable **comparison marker**: The new policy rewards short-term output. ___, the old system rewarded long-term mentoring.",
       "options": [
@@ -809,9 +1541,32 @@
       ],
       "correct_answer": "By contrast",
       "explanation": "“By contrast” đối chiếu trực tiếp hai hệ thống khác nhau. “In particular” nêu cụ thể, “all the same” nhượng bộ, còn “in effect” nói về tác động thực chất.",
+      "distractor_breakdowns": [
+        {
+          "option": "By contrast",
+          "isCorrect": true,
+          "pedagogicalReason": "“By contrast” đối chiếu trực tiếp hai hệ thống khác nhau. “In particular” nêu cụ thể, “all the same” nhượng bộ, còn “in effect” nói về tác động thực chất."
+        },
+        {
+          "option": "In particular",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “In particular” nêu cụ thể, “all the same” nhượng bộ, còn “in effect” nói về tác động thực chất."
+        },
+        {
+          "option": "All the same",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “all the same” nhượng bộ, còn “in effect” nói về tác động thực chất."
+        },
+        {
+          "option": "In effect",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “in effect” nói về tác động thực chất."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-34",
       "type": "multiple_choice",
       "question": "Choose the correct **concluding marker**: The samples were contaminated, the logs were incomplete, and the protocol was changed mid-trial. ___, the findings cannot be treated as decisive.",
       "options": [
@@ -822,9 +1577,32 @@
       ],
       "correct_answer": "Taken together",
       "explanation": "“Taken together” gom nhiều dữ kiện lại để rút ra kết luận chung. “Incidentally” thêm ý phụ, “in the first place” quay về điểm nền tảng, “for one thing” mở một lý do trong danh sách.",
+      "distractor_breakdowns": [
+        {
+          "option": "Taken together",
+          "isCorrect": true,
+          "pedagogicalReason": "“Taken together” gom nhiều dữ kiện lại để rút ra kết luận chung. “Incidentally” thêm ý phụ, “in the first place” quay về điểm nền tảng, “for one thing” mở một lý do trong danh sách."
+        },
+        {
+          "option": "Incidentally",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Incidentally” thêm ý phụ, “in the first place” quay về điểm nền tảng, “for one thing” mở một lý do trong danh sách."
+        },
+        {
+          "option": "In the first place",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “in the first place” quay về điểm nền tảng, “for one thing” mở một lý do trong danh sách."
+        },
+        {
+          "option": "For one thing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “for one thing” mở một lý do trong danh sách."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-35",
       "type": "multiple_choice",
       "question": "Choose the best **digression marker**: The manuscript needs stronger evidence. ___, did the journal ever reply to your appeal?",
       "options": [
@@ -835,9 +1613,32 @@
       ],
       "correct_answer": "On a separate note",
       "explanation": "“On a separate note” báo hiệu chuyển sang vấn đề khác nhưng vẫn trong mạch hội thoại. “Accordingly” chỉ hệ quả, “in the same vein” giữ cùng hướng ý, “that is” diễn giải lại.",
+      "distractor_breakdowns": [
+        {
+          "option": "On a separate note",
+          "isCorrect": true,
+          "pedagogicalReason": "“On a separate note” báo hiệu chuyển sang vấn đề khác nhưng vẫn trong mạch hội thoại. “Accordingly” chỉ hệ quả, “in the same vein” giữ cùng hướng ý, “that is” diễn giải lại."
+        },
+        {
+          "option": "Accordingly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Accordingly” chỉ hệ quả, “in the same vein” giữ cùng hướng ý, “that is” diễn giải lại."
+        },
+        {
+          "option": "In the same vein",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “in the same vein” giữ cùng hướng ý, “that is” diễn giải lại."
+        },
+        {
+          "option": "That is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “that is” diễn giải lại."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-36",
       "type": "fill_blank",
       "question": "Complete with a **hedging marker**: The figures are encouraging; ___, they should be interpreted with caution because the follow-up period was short.",
       "options": [
@@ -848,9 +1649,32 @@
       ],
       "correct_answer": "nevertheless",
       "explanation": "“Nevertheless” phù hợp vì câu sau làm giảm sức mạnh của nhận định tích cực trước đó. “Arguably” thể hiện lập trường tranh luận nhưng không nối quan hệ nhượng bộ rõ bằng; “for example” nêu ví dụ, “instead” thay thế.",
+      "distractor_breakdowns": [
+        {
+          "option": "nevertheless",
+          "isCorrect": true,
+          "pedagogicalReason": "“Nevertheless” phù hợp vì câu sau làm giảm sức mạnh của nhận định tích cực trước đó. “Arguably” thể hiện lập trường tranh luận nhưng không nối quan hệ nhượng bộ rõ bằng; “for example” nêu ví dụ, “instead” thay thế."
+        },
+        {
+          "option": "arguably",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Arguably” thể hiện lập trường tranh luận nhưng không nối quan hệ nhượng bộ rõ bằng."
+        },
+        {
+          "option": "for example",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “for example” nêu ví dụ, “instead” thay thế."
+        },
+        {
+          "option": "instead",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “instead” thay thế."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-37",
       "type": "fill_blank",
       "question": "Complete the **return marker**: The staffing problem is serious, but it is not urgent today. ___, the immediate decision concerns whether to publish the audit.",
       "options": [
@@ -861,9 +1685,32 @@
       ],
       "correct_answer": "To return to the point",
       "explanation": "“To return to the point” đưa cuộc thảo luận quay lại vấn đề chính sau một đoạn lệch hướng. Các lựa chọn còn lại chỉ kết quả, so sánh hoặc phạm vi khác nên sai quan hệ diễn ngôn.",
+      "distractor_breakdowns": [
+        {
+          "option": "To return to the point",
+          "isCorrect": true,
+          "pedagogicalReason": "“To return to the point” đưa cuộc thảo luận quay lại vấn đề chính sau một đoạn lệch hướng. Các lựa chọn còn lại chỉ kết quả, so sánh hoặc phạm vi khác nên sai quan hệ diễn ngôn."
+        },
+        {
+          "option": "As a result",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"As a result\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "For comparison",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"For comparison\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "In other respects",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"In other respects\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-38",
       "type": "fill_blank",
       "question": "Complete with an **amplifying marker**: The proposal would reduce paperwork. ___, it would make the approval process transparent to applicants.",
       "options": [
@@ -874,9 +1721,32 @@
       ],
       "correct_answer": "More importantly",
       "explanation": "“More importantly” thêm một ý có trọng lượng lớn hơn ý trước. “On the contrary” phủ định ý trước, “for that reason” chỉ kết quả, “meanwhile” chỉ đồng thời hoặc chuyển cảnh.",
+      "distractor_breakdowns": [
+        {
+          "option": "More importantly",
+          "isCorrect": true,
+          "pedagogicalReason": "“More importantly” thêm một ý có trọng lượng lớn hơn ý trước. “On the contrary” phủ định ý trước, “for that reason” chỉ kết quả, “meanwhile” chỉ đồng thời hoặc chuyển cảnh."
+        },
+        {
+          "option": "On the contrary",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “On the contrary” phủ định ý trước, “for that reason” chỉ kết quả, “meanwhile” chỉ đồng thời hoặc chuyển cảnh."
+        },
+        {
+          "option": "For that reason",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “for that reason” chỉ kết quả, “meanwhile” chỉ đồng thời hoặc chuyển cảnh."
+        },
+        {
+          "option": "Meanwhile",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “meanwhile” chỉ đồng thời hoặc chuyển cảnh."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-39",
       "type": "fill_blank",
       "question": "Complete the **reframing marker**: The reform is not a cost-cutting exercise. ___, it is an attempt to change how risk is distributed.",
       "options": [
@@ -887,9 +1757,32 @@
       ],
       "correct_answer": "Put differently",
       "explanation": "“Put differently” diễn đạt lại vấn đề theo khung nhìn khác. “Moreover” thêm ý, “otherwise” nêu điều kiện trái lại, “at first” chỉ thời điểm ban đầu.",
+      "distractor_breakdowns": [
+        {
+          "option": "Put differently",
+          "isCorrect": true,
+          "pedagogicalReason": "“Put differently” diễn đạt lại vấn đề theo khung nhìn khác. “Moreover” thêm ý, “otherwise” nêu điều kiện trái lại, “at first” chỉ thời điểm ban đầu."
+        },
+        {
+          "option": "Moreover",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Moreover” thêm ý, “otherwise” nêu điều kiện trái lại, “at first” chỉ thời điểm ban đầu."
+        },
+        {
+          "option": "Otherwise",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “otherwise” nêu điều kiện trái lại, “at first” chỉ thời điểm ban đầu."
+        },
+        {
+          "option": "At first",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “at first” chỉ thời điểm ban đầu."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-40",
       "type": "fill_blank",
       "question": "Complete with the best **sequencing marker**: ___, the board should decide whether the complaint falls within its mandate at all.",
       "options": [
@@ -900,9 +1793,32 @@
       ],
       "correct_answer": "Before anything else",
       "explanation": "“Before anything else” nhấn mạnh việc cần làm đầu tiên trong trình tự xử lý. Các lựa chọn khác lần lượt chỉ tương đồng, tình cờ xảy ra, hoặc cân nhắc tổng thể.",
+      "distractor_breakdowns": [
+        {
+          "option": "Before anything else",
+          "isCorrect": true,
+          "pedagogicalReason": "“Before anything else” nhấn mạnh việc cần làm đầu tiên trong trình tự xử lý. Các lựa chọn khác lần lượt chỉ tương đồng, tình cờ xảy ra, hoặc cân nhắc tổng thể."
+        },
+        {
+          "option": "In the same way",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"In the same way\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "As it happens",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"As it happens\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "On balance",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"On balance\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-41",
       "type": "fill_blank",
       "question": "Complete the **illustration marker**: Some safeguards are merely symbolic; ___, the review panel can advise ministers but cannot block a decision.",
       "options": [
@@ -913,9 +1829,32 @@
       ],
       "correct_answer": "for one",
       "explanation": "“For one” đưa ra một ví dụ tiêu biểu trong số nhiều khả năng. “Thereby” chỉ phương tiện/kết quả, “conversely” đảo chiều đối lập, “still” nhượng bộ.",
+      "distractor_breakdowns": [
+        {
+          "option": "for one",
+          "isCorrect": true,
+          "pedagogicalReason": "“For one” đưa ra một ví dụ tiêu biểu trong số nhiều khả năng. “Thereby” chỉ phương tiện/kết quả, “conversely” đảo chiều đối lập, “still” nhượng bộ."
+        },
+        {
+          "option": "thereby",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Thereby” chỉ phương tiện/kết quả, “conversely” đảo chiều đối lập, “still” nhượng bộ."
+        },
+        {
+          "option": "conversely",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “conversely” đảo chiều đối lập, “still” nhượng bộ."
+        },
+        {
+          "option": "still",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “still” nhượng bộ."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-42",
       "type": "fill_blank",
       "question": "Complete with a **causal marker**: The regulator had ignored repeated warnings. ___, public confidence collapsed after the breach became known.",
       "options": [
@@ -926,9 +1865,32 @@
       ],
       "correct_answer": "Unsurprisingly",
       "explanation": "“Unsurprisingly” nối nguyên nhân ngầm với kết quả dễ đoán, đồng thời thể hiện thái độ của người nói. “Alternatively” nêu phương án khác, “to be precise” làm chính xác hơn, “likewise” chỉ tương tự.",
+      "distractor_breakdowns": [
+        {
+          "option": "Unsurprisingly",
+          "isCorrect": true,
+          "pedagogicalReason": "“Unsurprisingly” nối nguyên nhân ngầm với kết quả dễ đoán, đồng thời thể hiện thái độ của người nói. “Alternatively” nêu phương án khác, “to be precise” làm chính xác hơn, “likewise” chỉ tương tự."
+        },
+        {
+          "option": "Alternatively",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Alternatively” nêu phương án khác, “to be precise” làm chính xác hơn, “likewise” chỉ tương tự."
+        },
+        {
+          "option": "To be precise",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “to be precise” làm chính xác hơn, “likewise” chỉ tương tự."
+        },
+        {
+          "option": "Likewise",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “likewise” chỉ tương tự."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-43",
       "type": "fill_blank",
       "question": "Complete the **limiting marker**: The model predicts demand well in stable markets. ___, it performs poorly during sudden regulatory changes.",
       "options": [
@@ -939,9 +1901,32 @@
       ],
       "correct_answer": "Even then",
       "explanation": "“Even then” giới hạn hiệu lực của nhận định trước: ngay cả trong/ở trường hợp đó vẫn có vấn đề. “In addition” thêm ý, “for example” nêu ví dụ, “in brief” tóm tắt.",
+      "distractor_breakdowns": [
+        {
+          "option": "Even then",
+          "isCorrect": true,
+          "pedagogicalReason": "“Even then” giới hạn hiệu lực của nhận định trước: ngay cả trong/ở trường hợp đó vẫn có vấn đề. “In addition” thêm ý, “for example” nêu ví dụ, “in brief” tóm tắt."
+        },
+        {
+          "option": "In addition",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “In addition” thêm ý, “for example” nêu ví dụ, “in brief” tóm tắt."
+        },
+        {
+          "option": "For example",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “for example” nêu ví dụ, “in brief” tóm tắt."
+        },
+        {
+          "option": "In brief",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “in brief” tóm tắt."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-44",
       "type": "error_correction",
       "question": "Find the error: The court accepted the evidence; **alternatively**, it dismissed the defendant's appeal.",
       "options": [
@@ -952,9 +1937,32 @@
       ],
       "correct_answer": "alternatively",
       "explanation": "“Alternatively” dùng để nêu lựa chọn thay thế, không phù hợp khi câu sau là hệ quả hoặc diễn biến tiếp theo. Có thể dùng “subsequently” nếu nhấn mạnh trình tự, hoặc “therefore” nếu muốn chỉ kết quả.",
+      "distractor_breakdowns": [
+        {
+          "option": "The court",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The court\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "accepted",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"accepted\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "alternatively",
+          "isCorrect": true,
+          "pedagogicalReason": "“Alternatively” dùng để nêu lựa chọn thay thế, không phù hợp khi câu sau là hệ quả hoặc diễn biến tiếp theo. Có thể dùng “subsequently” nếu nhấn mạnh trình tự, hoặc “therefore” nếu muốn chỉ kết quả."
+        },
+        {
+          "option": "dismissed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"dismissed\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-45",
       "type": "error_correction",
       "question": "Find the error: **To sum up**, the first objection concerns cost, while the second concerns legality.",
       "options": [
@@ -965,9 +1973,32 @@
       ],
       "correct_answer": "To sum up",
       "explanation": "“To sum up” dùng để kết luận sau khi đã trình bày các ý, không tự nhiên khi bắt đầu liệt kê hai điểm mới. Ở đây nên dùng “To begin with” hoặc “First”.",
+      "distractor_breakdowns": [
+        {
+          "option": "To sum up",
+          "isCorrect": true,
+          "pedagogicalReason": "“To sum up” dùng để kết luận sau khi đã trình bày các ý, không tự nhiên khi bắt đầu liệt kê hai điểm mới. Ở đây nên dùng “To begin with” hoặc “First”."
+        },
+        {
+          "option": "first objection",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"first objection\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "while",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"while\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "second concerns",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"second concerns\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-46",
       "type": "error_correction",
       "question": "Find the error: The amendment protects tenants; **for one thing**, it also caps annual rent increases.",
       "options": [
@@ -978,9 +2009,32 @@
       ],
       "correct_answer": "for one thing",
       "explanation": "“For one thing” mở một lý do hoặc ví dụ, nhưng “also” cho thấy đây là ý bổ sung trực tiếp. “Moreover” hoặc “in addition” tự nhiên hơn trong quan hệ này.",
+      "distractor_breakdowns": [
+        {
+          "option": "amendment",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"amendment\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "protects tenants",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"protects tenants\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "for one thing",
+          "isCorrect": true,
+          "pedagogicalReason": "“For one thing” mở một lý do hoặc ví dụ, nhưng “also” cho thấy đây là ý bổ sung trực tiếp. “Moreover” hoặc “in addition” tự nhiên hơn trong quan hệ này."
+        },
+        {
+          "option": "also caps",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"also caps\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-47",
       "type": "error_correction",
       "question": "Find the error: The product was marketed as sustainable; **indeed**, later tests found unsafe levels of lead.",
       "options": [
@@ -991,9 +2045,32 @@
       ],
       "correct_answer": "indeed",
       "explanation": "“Indeed” thường củng cố hoặc nhấn mạnh ý trước, trong khi câu sau lại bác bỏ hình ảnh “sustainable”. Nên dùng “however” hoặc “in fact” tùy ý muốn nhấn mạnh sự trái ngược.",
+      "distractor_breakdowns": [
+        {
+          "option": "marketed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"marketed\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "sustainable",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"sustainable\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "indeed",
+          "isCorrect": true,
+          "pedagogicalReason": "“Indeed” thường củng cố hoặc nhấn mạnh ý trước, trong khi câu sau lại bác bỏ hình ảnh “sustainable”. Nên dùng “however” hoặc “in fact” tùy ý muốn nhấn mạnh sự trái ngược."
+        },
+        {
+          "option": "unsafe levels",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"unsafe levels\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-48",
       "type": "error_correction",
       "question": "Find the error: The committee postponed the vote; **to be precise**, members had not yet received the legal opinion.",
       "options": [
@@ -1004,9 +2081,32 @@
       ],
       "correct_answer": "to be precise",
       "explanation": "“To be precise” dùng để làm chính xác một thông tin vừa nêu, không nối lý do giải thích cho việc hoãn. “Because” hoặc “as” phù hợp hơn để chỉ nguyên nhân.",
+      "distractor_breakdowns": [
+        {
+          "option": "postponed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"postponed\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "to be precise",
+          "isCorrect": true,
+          "pedagogicalReason": "“To be precise” dùng để làm chính xác một thông tin vừa nêu, không nối lý do giải thích cho việc hoãn. “Because” hoặc “as” phù hợp hơn để chỉ nguyên nhân."
+        },
+        {
+          "option": "members",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"members\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "legal opinion",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"legal opinion\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-49",
       "type": "error_correction",
       "question": "Find the error: **Conversely**, both departments reported higher productivity after the new system was introduced.",
       "options": [
@@ -1017,9 +2117,32 @@
       ],
       "correct_answer": "Conversely",
       "explanation": "“Conversely” cần quan hệ đảo ngược hoặc đối lập với ý trước, nhưng câu này chỉ nói hai bộ phận có cùng kết quả. Nên dùng “Similarly” hoặc “Likewise” nếu muốn nhấn mạnh sự tương đồng.",
+      "distractor_breakdowns": [
+        {
+          "option": "Conversely",
+          "isCorrect": true,
+          "pedagogicalReason": "“Conversely” cần quan hệ đảo ngược hoặc đối lập với ý trước, nhưng câu này chỉ nói hai bộ phận có cùng kết quả. Nên dùng “Similarly” hoặc “Likewise” nếu muốn nhấn mạnh sự tương đồng."
+        },
+        {
+          "option": "both departments",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"both departments\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "higher productivity",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"higher productivity\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "was introduced",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"was introduced\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-50",
       "type": "error_correction",
       "question": "Find the error: The contract is valid until June; **hence**, either party may terminate it without notice before then.",
       "options": [
@@ -1030,9 +2153,32 @@
       ],
       "correct_answer": "hence",
       "explanation": "“Hence” chỉ kết quả logic, nhưng quyền chấm dứt không báo trước không suy ra tự nhiên từ việc hợp đồng còn hiệu lực đến tháng Sáu. Cần một marker đối lập như “however” nếu điều khoản sau là ngoại lệ.",
+      "distractor_breakdowns": [
+        {
+          "option": "contract",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"contract\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "valid until June",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"valid until June\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "hence",
+          "isCorrect": true,
+          "pedagogicalReason": "“Hence” chỉ kết quả logic, nhưng quyền chấm dứt không báo trước không suy ra tự nhiên từ việc hợp đồng còn hiệu lực đến tháng Sáu. Cần một marker đối lập như “however” nếu điều khoản sau là ngoại lệ."
+        },
+        {
+          "option": "without notice",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"without notice\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-51",
       "type": "error_correction",
       "question": "Find the error: The minister denied receiving the memo; **in fact**, she had never been briefed on the issue.",
       "options": [
@@ -1043,9 +2189,32 @@
       ],
       "correct_answer": "in fact",
       "explanation": "“In fact” thường củng cố hoặc sửa thông tin trước bằng sự thật mạnh hơn, và ở đây câu sau lại phù hợp với việc bà ấy phủ nhận nhận memo nên không phải lỗi rõ về nghĩa? Trong ngữ cảnh muốn bổ sung cùng hướng, “indeed” tự nhiên hơn; “in fact” vẫn có thể đúng, nhưng nếu câu hỏi yêu cầu lỗi thì marker này là điểm kém chính xác nhất.",
+      "distractor_breakdowns": [
+        {
+          "option": "denied receiving",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"denied receiving\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "in fact",
+          "isCorrect": true,
+          "pedagogicalReason": "“In fact” thường củng cố hoặc sửa thông tin trước bằng sự thật mạnh hơn, và ở đây câu sau lại phù hợp với việc bà ấy phủ nhận nhận memo nên không phải lỗi rõ về nghĩa? Trong ngữ cảnh muốn bổ sung cùng hướng, “indeed” tự nhiên hơn; “in fact” vẫn có thể đúng, nhưng nếu câu hỏi yêu cầu lỗi thì marker này là điểm kém chính xác nhất."
+        },
+        {
+          "option": "never been briefed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"never been briefed\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "on the issue",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"on the issue\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-52",
       "type": "multiple_choice",
       "question": "Choose the best **contrast marker**: The policy was designed to reduce inequality; ___, its benefits have flowed mainly to households that were already secure.",
       "options": [
@@ -1056,9 +2225,32 @@
       ],
       "correct_answer": "paradoxically",
       "explanation": "“Paradoxically” đúng vì diễn tả kết quả trái ngược với mục tiêu ban đầu của chính sách. “Similarly” chỉ sự tương đồng, “for example” đưa ví dụ, còn “meanwhile” nhấn mạnh sự việc xảy ra cùng lúc hoặc chuyển sang diễn biến khác.",
+      "distractor_breakdowns": [
+        {
+          "option": "paradoxically",
+          "isCorrect": true,
+          "pedagogicalReason": "“Paradoxically” đúng vì diễn tả kết quả trái ngược với mục tiêu ban đầu của chính sách. “Similarly” chỉ sự tương đồng, “for example” đưa ví dụ, còn “meanwhile” nhấn mạnh sự việc xảy ra cùng lúc hoặc chuyển sang diễn biến khác."
+        },
+        {
+          "option": "similarly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Similarly” chỉ sự tương đồng, “for example” đưa ví dụ, còn “meanwhile” nhấn mạnh sự việc xảy ra cùng lúc hoặc chuyển sang diễn biến khác."
+        },
+        {
+          "option": "for example",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “for example” đưa ví dụ, còn “meanwhile” nhấn mạnh sự việc xảy ra cùng lúc hoặc chuyển sang diễn biến khác."
+        },
+        {
+          "option": "meanwhile",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “meanwhile” nhấn mạnh sự việc xảy ra cùng lúc hoặc chuyển sang diễn biến khác."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-53",
       "type": "multiple_choice",
       "question": "Choose the correct **reformulation marker**: The proposal does not abolish oversight. ___, it moves oversight from the ministry to an independent panel.",
       "options": [
@@ -1069,9 +2261,32 @@
       ],
       "correct_answer": "Rather",
       "explanation": "“Rather” đúng vì câu sau sửa lại hoặc diễn đạt chính xác hơn điều vừa phủ định. “Besides” thêm ý, “consequently” chỉ kết quả, còn “meanwhile” không phù hợp với quan hệ cải chính này.",
+      "distractor_breakdowns": [
+        {
+          "option": "Rather",
+          "isCorrect": true,
+          "pedagogicalReason": "“Rather” đúng vì câu sau sửa lại hoặc diễn đạt chính xác hơn điều vừa phủ định. “Besides” thêm ý, “consequently” chỉ kết quả, còn “meanwhile” không phù hợp với quan hệ cải chính này."
+        },
+        {
+          "option": "Besides",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Besides” thêm ý, “consequently” chỉ kết quả, còn “meanwhile” không phù hợp với quan hệ cải chính này."
+        },
+        {
+          "option": "Consequently",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “consequently” chỉ kết quả, còn “meanwhile” không phù hợp với quan hệ cải chính này."
+        },
+        {
+          "option": "Meanwhile",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “meanwhile” không phù hợp với quan hệ cải chính này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-54",
       "type": "multiple_choice",
       "question": "Choose the most natural **resumption marker**: We can discuss the budget later. ___, the urgent question is whether the safety review should be released today.",
       "options": [
@@ -1082,9 +2297,32 @@
       ],
       "correct_answer": "To return to the point",
       "explanation": "“To return to the point” đúng vì đưa cuộc thảo luận quay lại vấn đề chính. “For instance” nêu ví dụ, “all the same” chỉ nhượng bộ, còn “in comparison” dùng để so sánh.",
+      "distractor_breakdowns": [
+        {
+          "option": "To return to the point",
+          "isCorrect": true,
+          "pedagogicalReason": "“To return to the point” đúng vì đưa cuộc thảo luận quay lại vấn đề chính. “For instance” nêu ví dụ, “all the same” chỉ nhượng bộ, còn “in comparison” dùng để so sánh."
+        },
+        {
+          "option": "For instance",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “For instance” nêu ví dụ, “all the same” chỉ nhượng bộ, còn “in comparison” dùng để so sánh."
+        },
+        {
+          "option": "All the same",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “all the same” chỉ nhượng bộ, còn “in comparison” dùng để so sánh."
+        },
+        {
+          "option": "In comparison",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “in comparison” dùng để so sánh."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-55",
       "type": "multiple_choice",
       "question": "Choose the best **emphasis marker**: The witness was not merely uncertain; ___, she gave three mutually incompatible accounts of the meeting.",
       "options": [
@@ -1095,9 +2333,32 @@
       ],
       "correct_answer": "more importantly",
       "explanation": "“More importantly” đúng vì nhấn mạnh thông tin nghiêm trọng hơn sau đó. “Otherwise” chỉ điều kiện trái lại, “by contrast” đối lập hai đối tượng, còn “incidentally” thêm thông tin ngoài lề.",
+      "distractor_breakdowns": [
+        {
+          "option": "more importantly",
+          "isCorrect": true,
+          "pedagogicalReason": "“More importantly” đúng vì nhấn mạnh thông tin nghiêm trọng hơn sau đó. “Otherwise” chỉ điều kiện trái lại, “by contrast” đối lập hai đối tượng, còn “incidentally” thêm thông tin ngoài lề."
+        },
+        {
+          "option": "otherwise",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Otherwise” chỉ điều kiện trái lại, “by contrast” đối lập hai đối tượng, còn “incidentally” thêm thông tin ngoài lề."
+        },
+        {
+          "option": "by contrast",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “by contrast” đối lập hai đối tượng, còn “incidentally” thêm thông tin ngoài lề."
+        },
+        {
+          "option": "incidentally",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “incidentally” thêm thông tin ngoài lề."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-56",
       "type": "multiple_choice",
       "question": "Choose the correct **exemplification marker**: The platform rewards superficial engagement. ___, posts with provocative headlines are promoted even when users do not read them.",
       "options": [
@@ -1108,9 +2369,32 @@
       ],
       "correct_answer": "For example",
       "explanation": "“For example” đúng vì câu sau minh họa cho nhận định chung ở câu trước. “Nevertheless” chỉ tương phản, “instead” chỉ thay thế, còn “in short” dùng để tóm tắt.",
+      "distractor_breakdowns": [
+        {
+          "option": "For example",
+          "isCorrect": true,
+          "pedagogicalReason": "“For example” đúng vì câu sau minh họa cho nhận định chung ở câu trước. “Nevertheless” chỉ tương phản, “instead” chỉ thay thế, còn “in short” dùng để tóm tắt."
+        },
+        {
+          "option": "Nevertheless",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Nevertheless” chỉ tương phản, “instead” chỉ thay thế, còn “in short” dùng để tóm tắt."
+        },
+        {
+          "option": "Instead",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “instead” chỉ thay thế, còn “in short” dùng để tóm tắt."
+        },
+        {
+          "option": "In short",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “in short” dùng để tóm tắt."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "discourse-markers-ex-57",
       "type": "multiple_choice",
       "question": "Choose the most suitable **qualification marker**: The data support the claim in broad terms. ___, they say little about poorer regions where sampling was sparse.",
       "options": [
@@ -1121,9 +2405,32 @@
       ],
       "correct_answer": "Even so",
       "explanation": "“Even so” đúng vì thừa nhận ý trước nhưng giới hạn sức mạnh của kết luận. “Specifically” làm rõ chi tiết, “conversely” chỉ sự đối lập đảo chiều, còn “to begin with” dùng để mở đầu chuỗi lập luận.",
+      "distractor_breakdowns": [
+        {
+          "option": "Even so",
+          "isCorrect": true,
+          "pedagogicalReason": "“Even so” đúng vì thừa nhận ý trước nhưng giới hạn sức mạnh của kết luận. “Specifically” làm rõ chi tiết, “conversely” chỉ sự đối lập đảo chiều, còn “to begin with” dùng để mở đầu chuỗi lập luận."
+        },
+        {
+          "option": "Specifically",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Specifically” làm rõ chi tiết, “conversely” chỉ sự đối lập đảo chiều, còn “to begin with” dùng để mở đầu chuỗi lập luận."
+        },
+        {
+          "option": "Conversely",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “conversely” chỉ sự đối lập đảo chiều, còn “to begin with” dùng để mở đầu chuỗi lập luận."
+        },
+        {
+          "option": "To begin with",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “to begin with” dùng để mở đầu chuỗi lập luận."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-58",
       "type": "multiple_choice",
       "question": "Choose the best **transition marker**: The paper explains why the reform failed. ___, it considers what future legislation might learn from that failure.",
       "options": [
@@ -1134,9 +2441,32 @@
       ],
       "correct_answer": "Next",
       "explanation": "“Next” đúng vì chuyển sang phần tiếp theo trong trình tự trình bày. “Having said that” thường mở ý nhượng bộ, “on the contrary” bác bỏ ý trước, còn “after all” đưa lý do củng cố.",
+      "distractor_breakdowns": [
+        {
+          "option": "Having said that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Having said that” thường mở ý nhượng bộ, “on the contrary” bác bỏ ý trước, còn “after all” đưa lý do củng cố."
+        },
+        {
+          "option": "Next",
+          "isCorrect": true,
+          "pedagogicalReason": "“Next” đúng vì chuyển sang phần tiếp theo trong trình tự trình bày. “Having said that” thường mở ý nhượng bộ, “on the contrary” bác bỏ ý trước, còn “after all” đưa lý do củng cố."
+        },
+        {
+          "option": "On the contrary",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “on the contrary” bác bỏ ý trước, còn “after all” đưa lý do củng cố."
+        },
+        {
+          "option": "After all",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “after all” đưa lý do củng cố."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-59",
       "type": "multiple_choice",
       "question": "Choose the correct **inference marker**: No minutes were kept, and the participants now disagree about what was promised. ___, the committee cannot reconstruct the decision with confidence.",
       "options": [
@@ -1147,9 +2477,32 @@
       ],
       "correct_answer": "Accordingly",
       "explanation": "“Accordingly” đúng vì câu sau là kết luận hợp lý từ các dữ kiện trước. “Likewise” chỉ tương tự, “incidentally” thêm ý phụ, còn “alternatively” đưa lựa chọn khác.",
+      "distractor_breakdowns": [
+        {
+          "option": "Accordingly",
+          "isCorrect": true,
+          "pedagogicalReason": "“Accordingly” đúng vì câu sau là kết luận hợp lý từ các dữ kiện trước. “Likewise” chỉ tương tự, “incidentally” thêm ý phụ, còn “alternatively” đưa lựa chọn khác."
+        },
+        {
+          "option": "Likewise",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Likewise” chỉ tương tự, “incidentally” thêm ý phụ, còn “alternatively” đưa lựa chọn khác."
+        },
+        {
+          "option": "Incidentally",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “incidentally” thêm ý phụ, còn “alternatively” đưa lựa chọn khác."
+        },
+        {
+          "option": "Alternatively",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “alternatively” đưa lựa chọn khác."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-60",
       "type": "multiple_choice",
       "question": "Choose the best **clarification marker**: The author uses “community” in a narrow sense. ___, she means residents with voting rights, not all people who live nearby.",
       "options": [
@@ -1160,9 +2513,32 @@
       ],
       "correct_answer": "That is",
       "explanation": "“That is” đúng vì câu sau giải thích chính xác nghĩa của thuật ngữ trước đó. “Still” chỉ tương phản nhẹ, “meanwhile” chỉ đồng thời hoặc chuyển cảnh, còn “for one thing” đưa lý do đầu tiên.",
+      "distractor_breakdowns": [
+        {
+          "option": "That is",
+          "isCorrect": true,
+          "pedagogicalReason": "“That is” đúng vì câu sau giải thích chính xác nghĩa của thuật ngữ trước đó. “Still” chỉ tương phản nhẹ, “meanwhile” chỉ đồng thời hoặc chuyển cảnh, còn “for one thing” đưa lý do đầu tiên."
+        },
+        {
+          "option": "Still",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Still” chỉ tương phản nhẹ, “meanwhile” chỉ đồng thời hoặc chuyển cảnh, còn “for one thing” đưa lý do đầu tiên."
+        },
+        {
+          "option": "Meanwhile",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “meanwhile” chỉ đồng thời hoặc chuyển cảnh, còn “for one thing” đưa lý do đầu tiên."
+        },
+        {
+          "option": "For one thing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “for one thing” đưa lý do đầu tiên."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-61",
       "type": "fill_blank",
       "question": "Complete with a **concession marker**: The interview sample was small; ___, the responses were unusually detailed and internally consistent.",
       "options": [
@@ -1173,9 +2549,32 @@
       ],
       "correct_answer": "nonetheless",
       "explanation": "“Nonetheless” đúng vì diễn tả sự nhượng bộ: dù mẫu nhỏ, dữ liệu vẫn có giá trị. “Therefore” chỉ kết quả, “for instance” nêu ví dụ, còn “similarly” chỉ sự tương đồng.",
+      "distractor_breakdowns": [
+        {
+          "option": "nonetheless",
+          "isCorrect": true,
+          "pedagogicalReason": "“Nonetheless” đúng vì diễn tả sự nhượng bộ: dù mẫu nhỏ, dữ liệu vẫn có giá trị. “Therefore” chỉ kết quả, “for instance” nêu ví dụ, còn “similarly” chỉ sự tương đồng."
+        },
+        {
+          "option": "therefore",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Therefore” chỉ kết quả, “for instance” nêu ví dụ, còn “similarly” chỉ sự tương đồng."
+        },
+        {
+          "option": "for instance",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “for instance” nêu ví dụ, còn “similarly” chỉ sự tương đồng."
+        },
+        {
+          "option": "similarly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “similarly” chỉ sự tương đồng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-62",
       "type": "fill_blank",
       "question": "Complete the **topic shift**: The merger still requires regulatory approval. ___, have you seen the revised timetable for staff consultations?",
       "options": [
@@ -1186,9 +2585,32 @@
       ],
       "correct_answer": "By the way",
       "explanation": "“By the way” đúng vì chuyển sang thông tin liên quan nhưng không phải trọng tâm ban đầu. “In conclusion” kết luận, còn “as a result” và “for this reason” chỉ quan hệ kết quả.",
+      "distractor_breakdowns": [
+        {
+          "option": "By the way",
+          "isCorrect": true,
+          "pedagogicalReason": "“By the way” đúng vì chuyển sang thông tin liên quan nhưng không phải trọng tâm ban đầu. “In conclusion” kết luận, còn “as a result” và “for this reason” chỉ quan hệ kết quả."
+        },
+        {
+          "option": "In conclusion",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “In conclusion” kết luận, còn “as a result” và “for this reason” chỉ quan hệ kết quả."
+        },
+        {
+          "option": "As a result",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “as a result” và “for this reason” chỉ quan hệ kết quả."
+        },
+        {
+          "option": "For this reason",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “for this reason” chỉ quan hệ kết quả."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "discourse-markers-ex-63",
       "type": "fill_blank",
       "question": "Complete with a **corrective marker**: The speaker did not promise immediate reform; ___, she promised to appoint a commission to study it.",
       "options": [
@@ -1199,9 +2621,32 @@
       ],
       "correct_answer": "rather",
       "explanation": "“Rather” đúng vì sửa lại một cách hiểu sai ở mệnh đề trước. “Therefore” chỉ kết quả, “meanwhile” chỉ đồng thời hoặc chuyển cảnh, còn “similarly” chỉ sự giống nhau.",
+      "distractor_breakdowns": [
+        {
+          "option": "rather",
+          "isCorrect": true,
+          "pedagogicalReason": "“Rather” đúng vì sửa lại một cách hiểu sai ở mệnh đề trước. “Therefore” chỉ kết quả, “meanwhile” chỉ đồng thời hoặc chuyển cảnh, còn “similarly” chỉ sự giống nhau."
+        },
+        {
+          "option": "therefore",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Therefore” chỉ kết quả, “meanwhile” chỉ đồng thời hoặc chuyển cảnh, còn “similarly” chỉ sự giống nhau."
+        },
+        {
+          "option": "meanwhile",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “meanwhile” chỉ đồng thời hoặc chuyển cảnh, còn “similarly” chỉ sự giống nhau."
+        },
+        {
+          "option": "similarly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “similarly” chỉ sự giống nhau."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-64",
       "type": "fill_blank",
       "question": "Complete the **summative marker**: The proposal is legally uncertain, administratively costly, and politically fragile. ___, it is unlikely to survive in its present form.",
       "options": [
@@ -1212,9 +2657,32 @@
       ],
       "correct_answer": "In short",
       "explanation": "“In short” đúng vì tóm tắt các lý do trước thành một kết luận ngắn gọn. “For example” nêu ví dụ, “on the other hand” đưa mặt đối lập, còn “incidentally” thêm ý phụ.",
+      "distractor_breakdowns": [
+        {
+          "option": "In short",
+          "isCorrect": true,
+          "pedagogicalReason": "“In short” đúng vì tóm tắt các lý do trước thành một kết luận ngắn gọn. “For example” nêu ví dụ, “on the other hand” đưa mặt đối lập, còn “incidentally” thêm ý phụ."
+        },
+        {
+          "option": "For example",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “For example” nêu ví dụ, “on the other hand” đưa mặt đối lập, còn “incidentally” thêm ý phụ."
+        },
+        {
+          "option": "On the other hand",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “on the other hand” đưa mặt đối lập, còn “incidentally” thêm ý phụ."
+        },
+        {
+          "option": "Incidentally",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “incidentally” thêm ý phụ."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-65",
       "type": "fill_blank",
       "question": "Complete with an **additive marker**: The new archive preserves official correspondence. ___, it includes private diaries that reveal how decisions were negotiated informally.",
       "options": [
@@ -1225,9 +2693,32 @@
       ],
       "correct_answer": "Moreover",
       "explanation": "“Moreover” đúng vì bổ sung một lợi ích quan trọng hơn hoặc thêm vào cùng hướng lập luận. “Nevertheless” chỉ nhượng bộ, “otherwise” chỉ điều kiện trái lại, còn “in contrast” chỉ đối lập.",
+      "distractor_breakdowns": [
+        {
+          "option": "Moreover",
+          "isCorrect": true,
+          "pedagogicalReason": "“Moreover” đúng vì bổ sung một lợi ích quan trọng hơn hoặc thêm vào cùng hướng lập luận. “Nevertheless” chỉ nhượng bộ, “otherwise” chỉ điều kiện trái lại, còn “in contrast” chỉ đối lập."
+        },
+        {
+          "option": "Nevertheless",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Nevertheless” chỉ nhượng bộ, “otherwise” chỉ điều kiện trái lại, còn “in contrast” chỉ đối lập."
+        },
+        {
+          "option": "Otherwise",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “otherwise” chỉ điều kiện trái lại, còn “in contrast” chỉ đối lập."
+        },
+        {
+          "option": "In contrast",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “in contrast” chỉ đối lập."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "discourse-markers-ex-66",
       "type": "fill_blank",
       "question": "Complete the **stance marker**: ___, the report treats a political compromise as if it were a neutral technical solution.",
       "options": [
@@ -1238,9 +2729,32 @@
       ],
       "correct_answer": "To my mind",
       "explanation": "“To my mind” đúng vì báo hiệu quan điểm hoặc đánh giá của người nói. “For example” đưa ví dụ, “in the meantime” chỉ thời gian chờ đợi, còn “as a result” chỉ kết quả.",
+      "distractor_breakdowns": [
+        {
+          "option": "To my mind",
+          "isCorrect": true,
+          "pedagogicalReason": "“To my mind” đúng vì báo hiệu quan điểm hoặc đánh giá của người nói. “For example” đưa ví dụ, “in the meantime” chỉ thời gian chờ đợi, còn “as a result” chỉ kết quả."
+        },
+        {
+          "option": "For example",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “For example” đưa ví dụ, “in the meantime” chỉ thời gian chờ đợi, còn “as a result” chỉ kết quả."
+        },
+        {
+          "option": "In the meantime",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “in the meantime” chỉ thời gian chờ đợi, còn “as a result” chỉ kết quả."
+        },
+        {
+          "option": "As a result",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “as a result” chỉ kết quả."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-67",
       "type": "fill_blank",
       "question": "Complete with a **causal marker**: The instructions were ambiguous and the deadline changed twice. ___, several teams submitted incompatible versions of the form.",
       "options": [
@@ -1251,9 +2765,32 @@
       ],
       "correct_answer": "As a result",
       "explanation": "“As a result” đúng vì câu sau là hệ quả của các vấn đề nêu trước. “By comparison” dùng để so sánh, “in other words” diễn đạt lại, còn “at any rate” chuyển sang hoặc chốt lại ý chính.",
+      "distractor_breakdowns": [
+        {
+          "option": "As a result",
+          "isCorrect": true,
+          "pedagogicalReason": "“As a result” đúng vì câu sau là hệ quả của các vấn đề nêu trước. “By comparison” dùng để so sánh, “in other words” diễn đạt lại, còn “at any rate” chuyển sang hoặc chốt lại ý chính."
+        },
+        {
+          "option": "By comparison",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “By comparison” dùng để so sánh, “in other words” diễn đạt lại, còn “at any rate” chuyển sang hoặc chốt lại ý chính."
+        },
+        {
+          "option": "In other words",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “in other words” diễn đạt lại, còn “at any rate” chuyển sang hoặc chốt lại ý chính."
+        },
+        {
+          "option": "At any rate",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “at any rate” chuyển sang hoặc chốt lại ý chính."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-68",
       "type": "fill_blank",
       "question": "Complete the **counterargument marker**: The law may discourage some frivolous claims. ___, it could also deter legitimate complaints from workers who fear retaliation.",
       "options": [
@@ -1264,9 +2801,32 @@
       ],
       "correct_answer": "On the other hand",
       "explanation": "“On the other hand” đúng vì đưa mặt trái hoặc lập luận đối trọng với lợi ích vừa nêu. “Namely” nêu cụ thể, “to put it briefly” tóm tắt, còn “meanwhile” không thể hiện đối trọng lập luận rõ ràng.",
+      "distractor_breakdowns": [
+        {
+          "option": "On the other hand",
+          "isCorrect": true,
+          "pedagogicalReason": "“On the other hand” đúng vì đưa mặt trái hoặc lập luận đối trọng với lợi ích vừa nêu. “Namely” nêu cụ thể, “to put it briefly” tóm tắt, còn “meanwhile” không thể hiện đối trọng lập luận rõ ràng."
+        },
+        {
+          "option": "Namely",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Namely” nêu cụ thể, “to put it briefly” tóm tắt, còn “meanwhile” không thể hiện đối trọng lập luận rõ ràng."
+        },
+        {
+          "option": "To put it briefly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “to put it briefly” tóm tắt, còn “meanwhile” không thể hiện đối trọng lập luận rõ ràng."
+        },
+        {
+          "option": "Meanwhile",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “meanwhile” không thể hiện đối trọng lập luận rõ ràng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-69",
       "type": "error_correction",
       "question": "Find the error: The grant was not renewed; **for example**, the laboratory had to suspend two long-term projects.",
       "options": [
@@ -1277,9 +2837,32 @@
       ],
       "correct_answer": "for example",
       "explanation": "“For example” sai vì câu sau là hệ quả, không phải ví dụ minh họa cho câu trước. Nên dùng “therefore” hoặc “as a result”; các cụm còn lại đúng về ngữ pháp và nghĩa.",
+      "distractor_breakdowns": [
+        {
+          "option": "The grant",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The grant\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "for example",
+          "isCorrect": true,
+          "pedagogicalReason": "“For example” sai vì câu sau là hệ quả, không phải ví dụ minh họa cho câu trước. Nên dùng “therefore” hoặc “as a result”; các cụm còn lại đúng về ngữ pháp và nghĩa."
+        },
+        {
+          "option": "had to suspend",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"had to suspend\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "long-term projects",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"long-term projects\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-70",
       "type": "error_correction",
       "question": "Find the error: **Nevertheless**, the report is comprehensive, it overlooks how rural clinics collect patient data.",
       "options": [
@@ -1290,9 +2873,32 @@
       ],
       "correct_answer": "Nevertheless",
       "explanation": "“Nevertheless” không phù hợp khi hai mệnh đề được nối trực tiếp bằng dấu phẩy như vậy; cần cấu trúc “The report is comprehensive; nevertheless, it overlooks...” hoặc “Although the report is comprehensive, it overlooks...”. Các lựa chọn còn lại không phải lỗi chính của câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "Nevertheless",
+          "isCorrect": true,
+          "pedagogicalReason": "“Nevertheless” không phù hợp khi hai mệnh đề được nối trực tiếp bằng dấu phẩy như vậy; cần cấu trúc “The report is comprehensive; nevertheless, it overlooks...” hoặc “Although the report is comprehensive, it overlooks...”. Các lựa chọn còn lại không phải lỗi chính của câu."
+        },
+        {
+          "option": "the report",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. The report is comprehensive."
+        },
+        {
+          "option": "it overlooks",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"it overlooks\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "patient data",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"patient data\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-71",
       "type": "error_correction",
       "question": "Find the error: The algorithm performs well on curated images; **similarly**, it fails on noisy images from mobile phones.",
       "options": [
@@ -1303,9 +2909,32 @@
       ],
       "correct_answer": "similarly",
       "explanation": "“Similarly” sai vì hai ý đối lập: hoạt động tốt trên ảnh chọn lọc nhưng thất bại trên ảnh nhiễu. Nên dùng “however” hoặc “by contrast”; các cụm khác phù hợp với nội dung câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "performs well",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"performs well\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "similarly",
+          "isCorrect": true,
+          "pedagogicalReason": "“Similarly” sai vì hai ý đối lập: hoạt động tốt trên ảnh chọn lọc nhưng thất bại trên ảnh nhiễu. Nên dùng “however” hoặc “by contrast”; các cụm khác phù hợp với nội dung câu."
+        },
+        {
+          "option": "fails on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"fails on\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "mobile phones",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"mobile phones\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-72",
       "type": "error_correction",
       "question": "Find the error: The committee rejected the first option; **in addition**, it chose the second instead.",
       "options": [
@@ -1316,9 +2945,32 @@
       ],
       "correct_answer": "in addition",
       "explanation": "“In addition” sai vì câu sau không chỉ thêm thông tin cùng hướng mà nêu lựa chọn thay thế. “Instead” đã báo hiệu quan hệ thay thế, nên marker phù hợp hơn là bỏ “in addition” hoặc dùng “instead” ở vị trí nối.",
+      "distractor_breakdowns": [
+        {
+          "option": "rejected",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"rejected\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "in addition",
+          "isCorrect": true,
+          "pedagogicalReason": "“In addition” sai vì câu sau không chỉ thêm thông tin cùng hướng mà nêu lựa chọn thay thế. “Instead” đã báo hiệu quan hệ thay thế, nên marker phù hợp hơn là bỏ “in addition” hoặc dùng “instead” ở vị trí nối."
+        },
+        {
+          "option": "chose",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"chose\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "instead",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Instead” đã báo hiệu quan hệ thay thế, nên marker phù hợp hơn là bỏ “in addition” hoặc dùng “instead” ở vị trí nối."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-73",
       "type": "error_correction",
       "question": "Find the error: The figures look impressive at first sight; **that is**, the underlying measurements are too inconsistent to support them.",
       "options": [
@@ -1329,9 +2981,32 @@
       ],
       "correct_answer": "that is",
       "explanation": "“That is” sai vì câu sau không giải thích lại câu trước mà phủ định độ tin cậy của nó. Nên dùng “however” hoặc “on closer inspection”; các cụm còn lại không sai trong ngữ cảnh.",
+      "distractor_breakdowns": [
+        {
+          "option": "figures",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"figures\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "that is",
+          "isCorrect": true,
+          "pedagogicalReason": "“That is” sai vì câu sau không giải thích lại câu trước mà phủ định độ tin cậy của nó. Nên dùng “however” hoặc “on closer inspection”; các cụm còn lại không sai trong ngữ cảnh."
+        },
+        {
+          "option": "underlying measurements",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"underlying measurements\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "support them",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"support them\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-74",
       "type": "error_correction",
       "question": "Find the error: **For this reason**, I am not convinced by the proposal, although several of its assumptions seem plausible.",
       "options": [
@@ -1342,9 +3017,32 @@
       ],
       "correct_answer": "For this reason",
       "explanation": "“For this reason” sai vì trước đó không có lý do nào được nêu để “vì lý do này”. Trong câu độc lập này, marker phù hợp hơn là “Overall” hoặc “Still”; các phần còn lại đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "For this reason",
+          "isCorrect": true,
+          "pedagogicalReason": "“For this reason” sai vì trước đó không có lý do nào được nêu để “vì lý do này”. Trong câu độc lập này, marker phù hợp hơn là “Overall” hoặc “Still”; các phần còn lại đúng."
+        },
+        {
+          "option": "not convinced",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"not convinced\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "proposal",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"proposal\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "several of",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"several of\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-75",
       "type": "error_correction",
       "question": "Find the error: The museum has expanded its public programs; **to be sure**, attendance has increased by nearly forty percent.",
       "options": [
@@ -1355,9 +3053,32 @@
       ],
       "correct_answer": "to be sure",
       "explanation": "“To be sure” thường thừa nhận một điểm trước khi đưa ý đối lập hoặc giới hạn, nhưng ở đây câu sau là hệ quả hoặc bằng chứng cùng hướng. Nên dùng “indeed” hoặc “as a result”; các cụm khác phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "has expanded",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"has expanded\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "to be sure",
+          "isCorrect": true,
+          "pedagogicalReason": "“To be sure” thường thừa nhận một điểm trước khi đưa ý đối lập hoặc giới hạn, nhưng ở đây câu sau là hệ quả hoặc bằng chứng cùng hướng. Nên dùng “indeed” hoặc “as a result”; các cụm khác phù hợp."
+        },
+        {
+          "option": "attendance",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"attendance\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "forty percent",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"forty percent\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-76",
       "type": "error_correction",
       "question": "Find the error: The regulation applies to commercial operators; **in particular**, it does not apply to private households.",
       "options": [
@@ -1368,9 +3089,32 @@
       ],
       "correct_answer": "in particular",
       "explanation": "“In particular” sai vì câu sau không nêu một trường hợp cụ thể thuộc nhóm trước mà loại trừ một nhóm khác. Nên dùng “however” hoặc “by contrast”; các lựa chọn còn lại đúng trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "applies to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"applies to\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "commercial operators",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"commercial operators\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "in particular",
+          "isCorrect": true,
+          "pedagogicalReason": "“In particular” sai vì câu sau không nêu một trường hợp cụ thể thuộc nhóm trước mà loại trừ một nhóm khác. Nên dùng “however” hoặc “by contrast”; các lựa chọn còn lại đúng trong câu."
+        },
+        {
+          "option": "private households",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"private households\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-77",
       "type": "multiple_choice",
       "question": "Choose the best **concession marker**: The manuscript contains several factual errors; ___, its central argument remains difficult to dismiss.",
       "options": [
@@ -1381,9 +3125,32 @@
       ],
       "correct_answer": "all the same",
       "explanation": "“All the same” diễn tả sự nhượng bộ: dù có lỗi, lập luận chính vẫn mạnh. “As a result” chỉ kết quả, “by the same token” chỉ sự tương đồng về lập luận, còn “in the meantime” chỉ thời gian xen giữa.",
+      "distractor_breakdowns": [
+        {
+          "option": "all the same",
+          "isCorrect": true,
+          "pedagogicalReason": "“All the same” diễn tả sự nhượng bộ: dù có lỗi, lập luận chính vẫn mạnh. “As a result” chỉ kết quả, “by the same token” chỉ sự tương đồng về lập luận, còn “in the meantime” chỉ thời gian xen giữa."
+        },
+        {
+          "option": "as a result",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “As a result” chỉ kết quả, “by the same token” chỉ sự tương đồng về lập luận, còn “in the meantime” chỉ thời gian xen giữa."
+        },
+        {
+          "option": "by the same token",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “by the same token” chỉ sự tương đồng về lập luận, còn “in the meantime” chỉ thời gian xen giữa."
+        },
+        {
+          "option": "in the meantime",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “in the meantime” chỉ thời gian xen giữa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-78",
       "type": "multiple_choice",
       "question": "Choose the correct **specification marker**: The funding will support public-interest technology; ___, tools that improve access to legal and medical information.",
       "options": [
@@ -1394,9 +3161,32 @@
       ],
       "correct_answer": "namely",
       "explanation": "“Namely” dùng để nêu cụ thể điều vừa nói: các công cụ cải thiện khả năng tiếp cận thông tin. “Meanwhile” nói về thời gian/đối chiếu, “nevertheless” là nhượng bộ, “otherwise” là điều kiện hoặc hậu quả khác.",
+      "distractor_breakdowns": [
+        {
+          "option": "namely",
+          "isCorrect": true,
+          "pedagogicalReason": "“Namely” dùng để nêu cụ thể điều vừa nói: các công cụ cải thiện khả năng tiếp cận thông tin. “Meanwhile” nói về thời gian/đối chiếu, “nevertheless” là nhượng bộ, “otherwise” là điều kiện hoặc hậu quả khác."
+        },
+        {
+          "option": "meanwhile",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Meanwhile” nói về thời gian/đối chiếu, “nevertheless” là nhượng bộ, “otherwise” là điều kiện hoặc hậu quả khác."
+        },
+        {
+          "option": "nevertheless",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “nevertheless” là nhượng bộ, “otherwise” là điều kiện hoặc hậu quả khác."
+        },
+        {
+          "option": "otherwise",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “otherwise” là điều kiện hoặc hậu quả khác."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-79",
       "type": "multiple_choice",
       "question": "Choose the most natural **focus marker**: The design is visually elegant, but ___, it can be maintained by a small engineering team.",
       "options": [
@@ -1407,9 +3197,32 @@
       ],
       "correct_answer": "more to the point",
       "explanation": "“More to the point” chuyển sự chú ý sang điểm quan trọng hơn: khả năng bảo trì. “For instance” đưa ví dụ, “on the contrary” phủ định ý trước, còn “in passing” chỉ ý được nhắc thoáng qua.",
+      "distractor_breakdowns": [
+        {
+          "option": "more to the point",
+          "isCorrect": true,
+          "pedagogicalReason": "“More to the point” chuyển sự chú ý sang điểm quan trọng hơn: khả năng bảo trì. “For instance” đưa ví dụ, “on the contrary” phủ định ý trước, còn “in passing” chỉ ý được nhắc thoáng qua."
+        },
+        {
+          "option": "for instance",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “For instance” đưa ví dụ, “on the contrary” phủ định ý trước, còn “in passing” chỉ ý được nhắc thoáng qua."
+        },
+        {
+          "option": "on the contrary",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “on the contrary” phủ định ý trước, còn “in passing” chỉ ý được nhắc thoáng qua."
+        },
+        {
+          "option": "in passing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “in passing” chỉ ý được nhắc thoáng qua."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-80",
       "type": "multiple_choice",
       "question": "Choose the best **reconsideration marker**: The witness sounded confident. ___, confidence is not the same as accuracy.",
       "options": [
@@ -1420,9 +3233,32 @@
       ],
       "correct_answer": "Then again",
       "explanation": "“Then again” dùng khi người nói xem xét lại hoặc thêm một ý làm suy yếu nhận định trước. “Accordingly” chỉ kết quả, “to begin with” mở đầu lập luận, còn “likewise” chỉ sự tương tự.",
+      "distractor_breakdowns": [
+        {
+          "option": "Then again",
+          "isCorrect": true,
+          "pedagogicalReason": "“Then again” dùng khi người nói xem xét lại hoặc thêm một ý làm suy yếu nhận định trước. “Accordingly” chỉ kết quả, “to begin with” mở đầu lập luận, còn “likewise” chỉ sự tương tự."
+        },
+        {
+          "option": "Accordingly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Accordingly” chỉ kết quả, “to begin with” mở đầu lập luận, còn “likewise” chỉ sự tương tự."
+        },
+        {
+          "option": "To begin with",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “to begin with” mở đầu lập luận, còn “likewise” chỉ sự tương tự."
+        },
+        {
+          "option": "Likewise",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “likewise” chỉ sự tương tự."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-81",
       "type": "multiple_choice",
       "question": "Choose the correct **digression marker**: The lecture will focus on judicial independence. ___, the speaker trained as a historian before studying law.",
       "options": [
@@ -1433,9 +3269,32 @@
       ],
       "correct_answer": "Incidentally",
       "explanation": "“Incidentally” dùng để thêm một thông tin phụ bên lề. “Consequently” chỉ hệ quả, “even so” chỉ nhượng bộ, còn “that is to say” dùng để giải thích lại.",
+      "distractor_breakdowns": [
+        {
+          "option": "Incidentally",
+          "isCorrect": true,
+          "pedagogicalReason": "“Incidentally” dùng để thêm một thông tin phụ bên lề. “Consequently” chỉ hệ quả, “even so” chỉ nhượng bộ, còn “that is to say” dùng để giải thích lại."
+        },
+        {
+          "option": "Consequently",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Consequently” chỉ hệ quả, “even so” chỉ nhượng bộ, còn “that is to say” dùng để giải thích lại."
+        },
+        {
+          "option": "Even so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “even so” chỉ nhượng bộ, còn “that is to say” dùng để giải thích lại."
+        },
+        {
+          "option": "That is to say",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “that is to say” dùng để giải thích lại."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-82",
       "type": "fill_blank",
       "question": "Complete with a **limiting marker**: The clinical trial shows promise in adults; ___, its relevance to children remains untested.",
       "options": [
@@ -1446,9 +3305,32 @@
       ],
       "correct_answer": "even so",
       "explanation": "“Even so” tạo quan hệ nhượng bộ và giới hạn: dù có triển vọng, phạm vi áp dụng vẫn chưa chắc. “In this respect” chỉ một khía cạnh cụ thể, “as a rule” nói quy luật chung, “for that matter” thêm một điểm liên quan.",
+      "distractor_breakdowns": [
+        {
+          "option": "even so",
+          "isCorrect": true,
+          "pedagogicalReason": "“Even so” tạo quan hệ nhượng bộ và giới hạn: dù có triển vọng, phạm vi áp dụng vẫn chưa chắc. “In this respect” chỉ một khía cạnh cụ thể, “as a rule” nói quy luật chung, “for that matter” thêm một điểm liên quan."
+        },
+        {
+          "option": "in this respect",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “In this respect” chỉ một khía cạnh cụ thể, “as a rule” nói quy luật chung, “for that matter” thêm một điểm liên quan."
+        },
+        {
+          "option": "as a rule",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “as a rule” nói quy luật chung, “for that matter” thêm một điểm liên quan."
+        },
+        {
+          "option": "for that matter",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “for that matter” thêm một điểm liên quan."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-83",
       "type": "fill_blank",
       "question": "Complete the **resumption marker**: The historical background is useful, but we cannot cover every detail today. ___, the central issue is how the treaty was interpreted afterward.",
       "options": [
@@ -1459,9 +3341,32 @@
       ],
       "correct_answer": "At any rate",
       "explanation": "“At any rate” đưa cuộc thảo luận trở lại điểm chính hoặc chốt lại hướng nói. “By contrast” so sánh đối lập, “for example” nêu ví dụ, còn “as such” chỉ tư cách/bản chất đã nêu.",
+      "distractor_breakdowns": [
+        {
+          "option": "At any rate",
+          "isCorrect": true,
+          "pedagogicalReason": "“At any rate” đưa cuộc thảo luận trở lại điểm chính hoặc chốt lại hướng nói. “By contrast” so sánh đối lập, “for example” nêu ví dụ, còn “as such” chỉ tư cách/bản chất đã nêu."
+        },
+        {
+          "option": "By contrast",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “By contrast” so sánh đối lập, “for example” nêu ví dụ, còn “as such” chỉ tư cách/bản chất đã nêu."
+        },
+        {
+          "option": "For example",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “for example” nêu ví dụ, còn “as such” chỉ tư cách/bản chất đã nêu."
+        },
+        {
+          "option": "As such",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “as such” chỉ tư cách/bản chất đã nêu."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-84",
       "type": "fill_blank",
       "question": "Complete with a **stance marker**: ___, the editorial mistakes administrative convenience for democratic legitimacy.",
       "options": [
@@ -1472,9 +3377,32 @@
       ],
       "correct_answer": "If anything",
       "explanation": "“If anything” nhấn mạnh rằng nếu có kết luận nào thì nó còn theo hướng mạnh hơn hoặc khác kỳ vọng. “In the meantime” nói về thời gian, “on the other hand” nêu mặt đối lập, còn “for instance” đưa ví dụ.",
+      "distractor_breakdowns": [
+        {
+          "option": "If anything",
+          "isCorrect": true,
+          "pedagogicalReason": "“If anything” nhấn mạnh rằng nếu có kết luận nào thì nó còn theo hướng mạnh hơn hoặc khác kỳ vọng. “In the meantime” nói về thời gian, “on the other hand” nêu mặt đối lập, còn “for instance” đưa ví dụ."
+        },
+        {
+          "option": "In the meantime",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “In the meantime” nói về thời gian, “on the other hand” nêu mặt đối lập, còn “for instance” đưa ví dụ."
+        },
+        {
+          "option": "On the other hand",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “on the other hand” nêu mặt đối lập, còn “for instance” đưa ví dụ."
+        },
+        {
+          "option": "For instance",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “for instance” đưa ví dụ."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-85",
       "type": "fill_blank",
       "question": "Complete the **temporal marker**: The archive will not be digitized until next year. ___, researchers must request physical copies in advance.",
       "options": [
@@ -1485,9 +3413,32 @@
       ],
       "correct_answer": "In the interim",
       "explanation": "“In the interim” nghĩa là trong thời gian chờ đợi giữa hai mốc. “On balance” và “all things considered” dùng để đánh giá tổng hợp, còn “to put it differently” dùng để diễn đạt lại.",
+      "distractor_breakdowns": [
+        {
+          "option": "In the interim",
+          "isCorrect": true,
+          "pedagogicalReason": "“In the interim” nghĩa là trong thời gian chờ đợi giữa hai mốc. “On balance” và “all things considered” dùng để đánh giá tổng hợp, còn “to put it differently” dùng để diễn đạt lại."
+        },
+        {
+          "option": "On balance",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “On balance” và “all things considered” dùng để đánh giá tổng hợp, còn “to put it differently” dùng để diễn đạt lại."
+        },
+        {
+          "option": "To put it differently",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “to put it differently” dùng để diễn đạt lại."
+        },
+        {
+          "option": "All things considered",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “all things considered” dùng để đánh giá tổng hợp, còn “to put it differently” dùng để diễn đạt lại."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "discourse-markers-ex-86",
       "type": "error_correction",
       "question": "Find the error: The satellite images are unusually clear; **on the contrary**, they reveal damage that earlier surveys had missed.",
       "options": [
@@ -1498,9 +3449,32 @@
       ],
       "correct_answer": "on the contrary",
       "explanation": "“On the contrary” dùng để bác bỏ hoặc phủ định ý trước, nhưng câu sau bổ sung hệ quả tích cực của độ rõ nét. Cần dùng “indeed” hoặc “in fact”; các cụm còn lại đúng về nghĩa và ngữ pháp.",
+      "distractor_breakdowns": [
+        {
+          "option": "unusually clear",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"unusually clear\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "on the contrary",
+          "isCorrect": true,
+          "pedagogicalReason": "“On the contrary” dùng để bác bỏ hoặc phủ định ý trước, nhưng câu sau bổ sung hệ quả tích cực của độ rõ nét. Cần dùng “indeed” hoặc “in fact”; các cụm còn lại đúng về nghĩa và ngữ pháp."
+        },
+        {
+          "option": "reveal damage",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"reveal damage\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "earlier surveys",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"earlier surveys\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-87",
       "type": "error_correction",
       "question": "Find the error: The novelist rarely discusses politics directly; **moreover**, her private letters show a deep concern with censorship.",
       "options": [
@@ -1511,9 +3485,32 @@
       ],
       "correct_answer": "moreover",
       "explanation": "“Moreover” chỉ bổ sung cùng hướng, nhưng ở đây ý sau tạo sự điều chỉnh/đối lập với việc bà hiếm khi nói trực tiếp. Nên dùng “however” hoặc “nevertheless”; các phần còn lại không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "rarely discusses",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"rarely discusses\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "moreover",
+          "isCorrect": true,
+          "pedagogicalReason": "“Moreover” chỉ bổ sung cùng hướng, nhưng ở đây ý sau tạo sự điều chỉnh/đối lập với việc bà hiếm khi nói trực tiếp. Nên dùng “however” hoặc “nevertheless”; các phần còn lại không sai."
+        },
+        {
+          "option": "private letters",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"private letters\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "deep concern",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"deep concern\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-88",
       "type": "error_correction",
       "question": "Find the error: The app does not store precise location data; **namely**, it records only the city selected by the user.",
       "options": [
@@ -1524,9 +3521,32 @@
       ],
       "correct_answer": "namely",
       "explanation": "“Namely” nêu tên hoặc liệt kê chính xác cho danh từ trước, nhưng câu sau đang làm rõ bằng cách diễn đạt lại giới hạn dữ liệu. “That is” hoặc “in other words” tự nhiên hơn; các cụm khác đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "does not store",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"does not store\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "precise location data",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"precise location data\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "namely",
+          "isCorrect": true,
+          "pedagogicalReason": "“Namely” nêu tên hoặc liệt kê chính xác cho danh từ trước, nhưng câu sau đang làm rõ bằng cách diễn đạt lại giới hạn dữ liệu. “That is” hoặc “in other words” tự nhiên hơn; các cụm khác đúng."
+        },
+        {
+          "option": "selected by the user",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"selected by the user\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "discourse-markers-ex-89",
       "type": "error_correction",
       "question": "Find the error: The gallery is closed for restoration; **by the same token**, online tours will remain available throughout the summer.",
       "options": [
@@ -1537,6 +3557,28 @@
       ],
       "correct_answer": "by the same token",
       "explanation": "“By the same token” dùng khi cùng một lý do dẫn tới kết luận tương tự, nhưng ở đây ý sau là thông tin bù lại hoặc chuyển hướng. Nên dùng “nevertheless” hoặc “meanwhile”; các lựa chọn khác phù hợp trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "closed for restoration",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"closed for restoration\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "by the same token",
+          "isCorrect": true,
+          "pedagogicalReason": "“By the same token” dùng khi cùng một lý do dẫn tới kết luận tương tự, nhưng ở đây ý sau là thông tin bù lại hoặc chuyển hướng. Nên dùng “nevertheless” hoặc “meanwhile”; các lựa chọn khác phù hợp trong câu."
+        },
+        {
+          "option": "online tours",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"online tours\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "throughout the summer",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"throughout the summer\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     }
   ]

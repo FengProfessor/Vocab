@@ -216,7 +216,7 @@ export const toeicLessonFlashcards: LessonFlashcard[] = [
     collocation: 'despite torrential rain / although the weather was bad',
     exampleSentence: 'Although the marketing campaign was brief, product sales rose by fifteen percent.',
     exampleTranslation: 'Mặc dù chiến dịch tiếp thị diễn ra ngắn, doanh số bán sản phẩm đã tăng 15%.',
-    trapWarning: 'Mẹo 5s: Nhìn sau chỗ trống có S + V chọn "Although"; có Cụm danh từ chọn "Despite".',
+    trapWarning: 'Quy tắc phân biệt cú pháp: Theo sau là mệnh đề (S + V) chọn "Although"; theo sau là cụm danh từ hoặc V-ing chọn "Despite".',
   },
   {
     id: 'fc-g05-03',

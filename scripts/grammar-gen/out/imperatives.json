@@ -2,7 +2,7 @@
   "slug": "imperatives",
   "title": "Imperatives",
   "title_vi": "Câu mệnh lệnh",
-  "level": "beginner",
+  "level": "A1",
   "order": 15,
   "sections": {
     "definition": "**Câu mệnh lệnh** (imperatives) sử dụng dạng nguyên thể của động từ để đưa ra mệnh lệnh, chỉ dẫn, yêu cầu hoặc lời khuyên trực tiếp. Cấu trúc này thường lược bỏ chủ ngữ và có thể kết thúc bằng dấu chấm hoặc dấu chấm than để thể hiện mức độ khẩn cấp.",
@@ -337,118 +337,340 @@
         "why": "Sau don't là động từ nguyên thể KHÔNG TO."
       }
     ],
-    "tips": "**Mẹo:** Bắt đầu thẳng bằng động từ nguyên thể. Muốn nói “đừng” dùng **Don’t + V**; muốn rủ “chúng ta cùng...” dùng **Let’s + V**; thêm **please** để giảm sắc thái ra lệnh.",
+    "tips": "**Lưu ý trọng tâm:** Bắt đầu thẳng bằng động từ nguyên thể. Muốn nói “đừng” dùng **Don’t + V**; muốn rủ “chúng ta cùng...” dùng **Let’s + V**; thêm **please** để giảm sắc thái ra lệnh.",
     "comparison": "**Imperative vs câu trần thuật:** *You open the file* mô tả hành động; *Open the file* yêu cầu người nghe làm. **Don’t be...** là mệnh lệnh phủ định, còn **You aren’t...** là câu trần thuật.",
     "timeline": null
   },
   "exercises": [
     {
-      "type": "mcq",
-      "q": "___ careful when you cross the road.",
-      "opts": [
+      "id": "imperatives-ex-01",
+      "type": "multiple_choice",
+      "question": "___ careful when you cross the road.",
+      "options": [
         "Be",
         "Are",
         "To be"
       ],
-      "answer": "Be",
-      "fb": "Mệnh lệnh dùng động từ nguyên thể."
+      "correct_answer": "Be",
+      "explanation": "Mệnh lệnh dùng động từ nguyên thể.",
+      "distractor_breakdowns": [
+        {
+          "option": "Be",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh lệnh dùng động từ nguyên thể."
+        },
+        {
+          "option": "Are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng số nhiều \"Are\" không hòa hợp với chủ ngữ số ít hoặc danh từ không đếm được."
+        },
+        {
+          "option": "To be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"To be\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "mcq",
-      "q": "Choose the polite request.",
-      "opts": [
+      "id": "imperatives-ex-02",
+      "type": "multiple_choice",
+      "question": "Choose the polite request.",
+      "options": [
         "Give me water.",
         "Please give me some water.",
         "You give water."
       ],
-      "answer": "Please give me some water.",
-      "fb": "Please làm yêu cầu lịch sự hơn."
+      "correct_answer": "Please give me some water.",
+      "explanation": "Please làm yêu cầu lịch sự hơn.",
+      "distractor_breakdowns": [
+        {
+          "option": "Give me water.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Give me water.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Please give me some water.",
+          "isCorrect": true,
+          "pedagogicalReason": "Please làm yêu cầu lịch sự hơn."
+        },
+        {
+          "option": "You give water.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"You give water.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "mcq",
-      "q": "Choose the correct negative imperative.",
-      "opts": [
+      "id": "imperatives-ex-03",
+      "type": "multiple_choice",
+      "question": "Choose the correct negative imperative.",
+      "options": [
         "Not talk.",
         "Don't talk.",
         "Doesn't talk."
       ],
-      "answer": "Don't talk.",
-      "fb": "Phủ định dùng don't + V."
-    },
-    {
-      "type": "fill",
-      "q": "___ the medicine after lunch. (take)",
-      "answer": [
-        "take"
+      "correct_answer": "Don't talk.",
+      "explanation": "Phủ định dùng don't + V.",
+      "distractor_breakdowns": [
+        {
+          "option": "Not talk.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Not talk.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Don't talk.",
+          "isCorrect": true,
+          "pedagogicalReason": "Phủ định dùng don't + V."
+        },
+        {
+          "option": "Doesn't talk.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Doesn't talk.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
       ],
-      "fb": "Bắt đầu bằng động từ nguyên thể."
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "___ be noisy in the library. (don't)",
-      "answer": [
-        "don't"
+      "id": "imperatives-ex-04",
+      "type": "fill_blank",
+      "question": "___ the medicine after lunch. (take)",
+      "options": [],
+      "correct_answer": "take",
+      "explanation": "Bắt đầu bằng động từ nguyên thể.",
+      "distractor_breakdowns": [
+        {
+          "option": "take",
+          "isCorrect": true,
+          "pedagogicalReason": "Bắt đầu bằng động từ nguyên thể."
+        },
+        {
+          "option": "taking",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Câu mệnh lệnh khẳng định bắt đầu bằng động từ nguyên thể không \"to\", không dùng V-ing."
+        },
+        {
+          "option": "to take",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Câu mệnh lệnh không dùng động từ có \"to\"."
+        }
       ],
-      "fb": "Don't đứng trước be."
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "Let's ___ a taxi. (call)",
-      "answer": [
-        "call"
+      "id": "imperatives-ex-05",
+      "type": "fill_blank",
+      "question": "___ be noisy in the library. (don't)",
+      "options": [],
+      "correct_answer": "don't",
+      "explanation": "Don't đứng trước be.",
+      "distractor_breakdowns": [
+        {
+          "option": "don't",
+          "isCorrect": true,
+          "pedagogicalReason": "Don't đứng trước be."
+        },
+        {
+          "option": "not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Câu mệnh lệnh phủ định bắt đầu bằng trợ động từ \"Don't\", không thể chỉ dùng từ \"Not\" đứng trước động từ."
+        },
+        {
+          "option": "no",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"No\" dùng trước danh từ hoặc danh động từ, không đứng trước động từ nguyên mẫu \"be\"."
+        }
       ],
-      "fb": "Sau let's dùng V nguyên thể."
+      "difficulty": 1
     },
     {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"You close the door!\"",
-      "answer": false,
-      "fb": "SAI. Câu mệnh lệnh thông thường lược bỏ chủ ngữ you. Câu đúng: \"Close the door!\""
+      "id": "imperatives-ex-06",
+      "type": "fill_blank",
+      "question": "Let's ___ a taxi. (call)",
+      "options": [],
+      "correct_answer": "call",
+      "explanation": "Sau let's dùng V nguyên thể.",
+      "distractor_breakdowns": [
+        {
+          "option": "call",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau let's dùng V nguyên thể."
+        },
+        {
+          "option": "calling",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sau cấu trúc rủ rê \"Let's\", động từ luôn ở dạng nguyên thể không chia (\"call\"), không dùng V-ing."
+        },
+        {
+          "option": "to call",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sau \"Let's\" không dùng động từ có \"to\"."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"Don't to worry.\"",
-      "answer": false,
-      "fb": "SAI. Sau don't dùng động từ nguyên thể không to. Câu đúng: \"Don't worry.\""
+      "id": "imperatives-ex-07",
+      "type": "multiple_choice",
+      "question": "Câu sau đúng ngữ pháp không? → \"You close the door!\"",
+      "options": [
+        "Đúng",
+        "Sai"
+      ],
+      "correct_answer": "Sai",
+      "explanation": "SAI. Câu mệnh lệnh thông thường lược bỏ chủ ngữ you. Câu đúng: \"Close the door!\"",
+      "distractor_breakdowns": [
+        {
+          "option": "Đúng",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Khẳng định này không phản ánh đúng quy tắc ngữ pháp của câu đã cho."
+        },
+        {
+          "option": "Sai",
+          "isCorrect": true,
+          "pedagogicalReason": "SAI. Câu mệnh lệnh thông thường lược bỏ chủ ngữ you. Câu đúng: \"Close the door!\""
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"Let's to go home.\"",
-      "answer": false,
-      "fb": "SAI. Sau let's dùng động từ nguyên thể không to. Câu đúng: \"Let's go home.\""
+      "id": "imperatives-ex-08",
+      "type": "multiple_choice",
+      "question": "Câu sau đúng ngữ pháp không? → \"Don't to worry.\"",
+      "options": [
+        "Đúng",
+        "Sai"
+      ],
+      "correct_answer": "Sai",
+      "explanation": "SAI. Sau don't dùng động từ nguyên thể không to. Câu đúng: \"Don't worry.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "Đúng",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Khẳng định này không phản ánh đúng quy tắc ngữ pháp của câu đã cho."
+        },
+        {
+          "option": "Sai",
+          "isCorrect": true,
+          "pedagogicalReason": "SAI. Sau don't dùng động từ nguyên thể không to. Câu đúng: \"Don't worry.\""
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
+      "id": "imperatives-ex-09",
+      "type": "multiple_choice",
+      "question": "Câu sau đúng ngữ pháp không? → \"Let's to go home.\"",
+      "options": [
+        "Đúng",
+        "Sai"
+      ],
+      "correct_answer": "Sai",
+      "explanation": "SAI. Sau let's dùng động từ nguyên thể không to. Câu đúng: \"Let's go home.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "Đúng",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Khẳng định này không phản ánh đúng quy tắc ngữ pháp của câu đã cho."
+        },
+        {
+          "option": "Sai",
+          "isCorrect": true,
+          "pedagogicalReason": "SAI. Sau let's dùng động từ nguyên thể không to. Câu đúng: \"Let's go home.\""
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "imperatives-ex-10",
+      "type": "error_correction",
+      "question": "Câu nào SAI ngữ pháp?",
+      "options": [
         "Please write your name here.",
         "You close the door!",
         "Let's cook dinner together."
       ],
-      "answer": "You close the door!",
-      "fb": "Câu mệnh lệnh thông thường lược bỏ chủ ngữ you. Câu đúng: \"Close the door!\""
+      "correct_answer": "You close the door!",
+      "explanation": "Câu mệnh lệnh thông thường lược bỏ chủ ngữ you. Câu đúng: \"Close the door!\"",
+      "distractor_breakdowns": [
+        {
+          "option": "Please write your name here.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Please write your name here.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "You close the door!",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu mệnh lệnh thông thường lược bỏ chủ ngữ you. Câu đúng: \"Close the door!\""
+        },
+        {
+          "option": "Let's cook dinner together.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Let's cook dinner together.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
+      "id": "imperatives-ex-11",
+      "type": "error_correction",
+      "question": "Câu nào SAI ngữ pháp?",
+      "options": [
         "Don't open the window.",
         "Don't to worry.",
         "Take the second road on the right."
       ],
-      "answer": "Don't to worry.",
-      "fb": "Sau don't dùng động từ nguyên thể không to. Câu đúng: \"Don't worry.\""
+      "correct_answer": "Don't to worry.",
+      "explanation": "Sau don't dùng động từ nguyên thể không to. Câu đúng: \"Don't worry.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "Don't open the window.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Don't open the window.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "Don't to worry.",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau don't dùng động từ nguyên thể không to. Câu đúng: \"Don't worry.\""
+        },
+        {
+          "option": "Take the second road on the right.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Take the second road on the right.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
+      "id": "imperatives-ex-12",
+      "type": "error_correction",
+      "question": "Câu nào SAI ngữ pháp?",
+      "options": [
         "Be quiet during the test.",
         "Let's to go home.",
         "Let's not tell anyone yet."
       ],
-      "answer": "Let's to go home.",
-      "fb": "Sau let's dùng động từ nguyên thể không to. Câu đúng: \"Let's go home.\""
+      "correct_answer": "Let's to go home.",
+      "explanation": "Sau let's dùng động từ nguyên thể không to. Câu đúng: \"Let's go home.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "Be quiet during the test.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Be quiet during the test.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "Let's to go home.",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau let's dùng động từ nguyên thể không to. Câu đúng: \"Let's go home.\""
+        },
+        {
+          "option": "Let's not tell anyone yet.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Let's not tell anyone yet.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
     }
   ]
 }

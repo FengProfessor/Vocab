@@ -2,10 +2,10 @@
   "slug": "there-is-there-are",
   "title": "There is / There are",
   "title_vi": "Cấu trúc There is / There are",
-  "level": "beginner",
+  "level": "A1",
   "order": 7,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **There is + danh từ số ít/không đếm được** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **There is + danh từ số ít/không đếm được** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -364,12 +364,30 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "Hoàn thành theo mẫu: There ___ two messages for you.",
-      "answer": [
-        "are"
+      "id": "there-is-there-are-ex-01",
+      "type": "fill_blank",
+      "question": "Hoàn thành theo mẫu: There ___ two messages for you.",
+      "options": [],
+      "correct_answer": "are",
+      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Danh từ theo sau \"two messages\" là số nhiều, cấu trúc \"There are\" phải đi với danh từ số nhiều."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Ngữ cảnh thông báo hiện tại cần dùng to-be hiện tại số nhiều \"are\"."
+        }
       ],
-      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+      "difficulty": 1
     }
   ]
 }

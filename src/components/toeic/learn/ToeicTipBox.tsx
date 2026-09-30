@@ -18,7 +18,7 @@ export function ToeicTipBox({ tip, className = '' }: ToeicTipBoxProps) {
       container: 'border-amber-300/80 bg-amber-50/70 dark:border-amber-800/70 dark:bg-amber-950/20 text-amber-950 dark:text-amber-100',
       iconColor: 'text-amber-600 dark:text-amber-400',
       badge: 'bg-amber-200/80 dark:bg-amber-900/60 text-amber-900 dark:text-amber-200 border-amber-300 dark:border-amber-700',
-      label: 'Mẹo 5 Giây',
+      label: 'Dấu hiệu cốt lõi',
       Icon: Zap,
     },
     tip: {
@@ -46,7 +46,7 @@ export function ToeicTipBox({ tip, className = '' }: ToeicTipBoxProps) {
     container: 'border-amber-300/80 bg-amber-50/70 dark:border-amber-800/70 dark:bg-amber-950/20 text-amber-950 dark:text-amber-100',
     iconColor: 'text-amber-600 dark:text-amber-400',
     badge: 'bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 border-amber-300 dark:border-amber-700',
-    label: 'Mẹo Làm Bài',
+    label: 'Lưu ý sư phạm',
     Icon: Lightbulb,
   };
 

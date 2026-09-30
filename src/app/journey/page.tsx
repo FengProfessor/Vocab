@@ -475,7 +475,7 @@ OK = học lại · Cancel = giữ nguyên.`,
       } else if (step.type === 'grammar') {
         const replayQs = step.status === 'completed' ? '&replay=1' : '';
         router.push(
-          `/grammar/learn?topic=${encodeURIComponent(step.ref)}&roadmapStep=${step.id}${replayQs}`,
+          `/grammar?topic=${encodeURIComponent(step.ref)}&roadmapStep=${step.id}${replayQs}`,
         );
       } else if (step.type === 'pronunciation') {
         router.push(`/pronunciation/${encodeURIComponent(step.ref)}?roadmapStep=${step.id}`);

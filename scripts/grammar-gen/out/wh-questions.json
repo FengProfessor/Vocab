@@ -2,10 +2,10 @@
   "slug": "wh-questions",
   "title": "Wh- Questions",
   "title_vi": "Câu hỏi với từ để hỏi (Wh-)",
-  "level": "beginner",
+  "level": "A1",
   "order": 11,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **Wh-word + auxiliary + S + V?** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **Wh-word + auxiliary + S + V?** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -318,12 +318,30 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "Hoàn thành theo mẫu: Why ___ she upset?",
-      "answer": [
-        "was"
+      "id": "wh-questions-ex-01",
+      "type": "fill_blank",
+      "question": "Hoàn thành theo mẫu: Why ___ she upset?",
+      "options": [],
+      "correct_answer": "was",
+      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "was",
+          "isCorrect": true,
+          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+        },
+        {
+          "option": "were",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Chủ ngữ \"she\" là ngôi thứ ba số ít, to-be ở quá khứ phải là \"was\"."
+        },
+        {
+          "option": "did",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"upset\" là tính từ, câu hỏi với tính từ dùng to-be làm trợ động từ, không dùng trợ động từ \"did\"."
+        }
       ],
-      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+      "difficulty": 1
     }
   ]
 }

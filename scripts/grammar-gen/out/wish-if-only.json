@@ -2,10 +2,10 @@
   "slug": "wish-if-only",
   "title": "Wish / If only",
   "title_vi": "Cấu trúc Wish / If only",
-  "level": "advanced",
+  "level": "B2",
   "order": 48,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **wish + past simple (hiện tại)** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **wish + past simple (hiện tại)** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -380,39 +380,144 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "I wish I ____ (speak) English fluently.",
-      "opts": [],
-      "answer": "spoke",
-      "fb": "Ước chuyện bây giờ → V2"
+      "id": "wish-if-only-ex-01",
+      "type": "fill_blank",
+      "question": "I wish I ____ (speak) English fluently.",
+      "options": [],
+      "correct_answer": "spoke",
+      "explanation": "Ước chuyện bây giờ → V2",
+      "distractor_breakdowns": [
+        {
+          "option": "spoke",
+          "isCorrect": true,
+          "pedagogicalReason": "Ước chuyện bây giờ → V2"
+        },
+        {
+          "option": "speak",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Câu ước cho điều không có thật ở hiện tại phải lùi một thì về quá khứ đơn (\"spoke\"), không dùng hiện tại \"speak\"."
+        },
+        {
+          "option": "will speak",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sau \"wish\" ước ở hiện tại không dùng \"will speak\"."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "My sister wishes she ____ (be) a doctor.",
-      "opts": [],
-      "answer": "were",
-      "fb": "Sau wish, động từ be luôn là were"
+      "id": "wish-if-only-ex-02",
+      "type": "fill_blank",
+      "question": "My sister wishes she ____ (be) a doctor.",
+      "options": [],
+      "correct_answer": "were",
+      "explanation": "Sau wish, động từ be luôn là were",
+      "distractor_breakdowns": [
+        {
+          "option": "were",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau wish, động từ be luôn là were"
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Trong văn phong học thuật chuẩn ETS, câu ước cho hiện tại quy chuẩn dùng to-be \"were\" cho tất cả các ngôi."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sau \"wish\" ước ở hiện tại bắt buộc phải lùi thì về quá khứ, không dùng hiện tại \"is\"."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "I wish it ____ (not / rain) so much these days.",
-      "opts": [],
-      "answer": "didn't rain",
-      "fb": "these days = bây giờ → didn't + V"
+      "id": "wish-if-only-ex-03",
+      "type": "fill_blank",
+      "question": "I wish it ____ (not / rain) so much these days.",
+      "options": [],
+      "correct_answer": "didn't rain",
+      "explanation": "these days = bây giờ → didn't + V",
+      "distractor_breakdowns": [
+        {
+          "option": "didn't rain",
+          "isCorrect": true,
+          "pedagogicalReason": "these days = bây giờ → didn't + V"
+        },
+        {
+          "option": "doesn't rain",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Câu ước cho hiện tại phải lùi thì về quá khứ đơn (\"didn't rain\"), không dùng hiện tại đơn \"doesn't rain\"."
+        },
+        {
+          "option": "won't rain",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Ước cho hiện tại không dùng \"won't rain\"."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "I wish I ____ (go) to bed earlier last night.",
-      "opts": [],
-      "answer": "had gone",
-      "fb": "last night = chuyện đã qua → had + V3"
+      "id": "wish-if-only-ex-04",
+      "type": "fill_blank",
+      "question": "I wish I ____ (go) to bed earlier last night.",
+      "options": [],
+      "correct_answer": "had gone",
+      "explanation": "last night = chuyện đã qua → had + V3",
+      "distractor_breakdowns": [
+        {
+          "option": "had gone",
+          "isCorrect": true,
+          "pedagogicalReason": "last night = chuyện đã qua → had + V3"
+        },
+        {
+          "option": "went",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Ước cho một sự việc trái với quá khứ (\"last night\") phải lùi thì về quá khứ hoàn thành (\"had gone\"), không dùng quá khứ đơn."
+        },
+        {
+          "option": "have gone",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sau \"wish\" ước cho quá khứ phải dùng \"had + V3\", không dùng \"have gone\"."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "A. devoted   B. suggested   C. provided   D. wished",
-      "opts": [],
-      "answer": "D. wished",
-      "fb": "wished: trước -ed là /ʃ/ → /t/ · ba từ kia sau t/d → /ɪd/"
+      "id": "wish-if-only-ex-05",
+      "type": "multiple_choice",
+      "question": "Chọn từ có phát âm hoặc trọng âm khác với các từ còn lại:",
+      "options": [
+        "devoted",
+        "suggested",
+        "provided",
+        "wished"
+      ],
+      "correct_answer": "wished",
+      "explanation": "wished: trước -ed là /ʃ/ → /t/ · ba từ kia sau t/d → /ɪd/",
+      "distractor_breakdowns": [
+        {
+          "option": "devoted",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"devoted\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "suggested",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"suggested\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "provided",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"provided\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "wished",
+          "isCorrect": true,
+          "pedagogicalReason": "wished: trước -ed là /ʃ/ → /t/ · ba từ kia sau t/d → /ɪd/"
+        }
+      ],
+      "difficulty": 3
     }
   ]
 }

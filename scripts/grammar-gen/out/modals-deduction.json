@@ -2,10 +2,10 @@
   "slug": "modals-deduction",
   "title": "Modals: Deduction (must/might/can't)",
   "title_vi": "Khuyết thiếu: suy đoán (must/might/can't)",
-  "level": "intermediate",
-  "order": 41,
+  "level": "B1",
+  "order": 43,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **must + V: gần như chắc chắn** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **must + V: gần như chắc chắn** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -363,11 +363,30 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "Đổi sang gián tiếp: My teacher said to us: “You may use dictionaries for this test.”",
-      "opts": [],
-      "answer": "My teacher told us (that) we might use dictionaries for that test.",
-      "fb": "may lùi thành might · this → that"
+      "id": "modals-deduction-ex-01",
+      "type": "fill_blank",
+      "question": "Đổi sang gián tiếp: My teacher said to us: “You may use dictionaries for this test.”",
+      "options": [],
+      "correct_answer": "My teacher told us (that) we might use dictionaries for that test.",
+      "explanation": "may lùi thành might · this → that",
+      "distractor_breakdowns": [
+        {
+          "option": "My teacher told us (that) we might use dictionaries for that test.",
+          "isCorrect": true,
+          "pedagogicalReason": "may lùi thành might · this → that"
+        },
+        {
+          "option": "My teacher said us that we may use dictionaries for this test.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ tường thuật có tân ngữ dùng \"told us\", và cần lùi thì \"may\" thành \"might\", đổi \"this\" thành \"that\"."
+        },
+        {
+          "option": "My teacher told us we might use dictionaries for this test.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ chỉ định \"this test\" trong lời nói gián tiếp cần chuyển đổi thành \"that test\"."
+        }
+      ],
+      "difficulty": 1
     }
   ]
 }

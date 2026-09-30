@@ -206,7 +206,7 @@ export const STAGE_MINDSET_LESSONS: MindsetLesson[] = [
     corePrincipleVi:
       'Tiếng Anh giao tiếp đời sống là một Trò Chơi Hữu Hạn. Bạn không cần học vô tận hàng nghìn từ vựng để có thể nói chuyện tự tin.',
     psychologyRootVi:
-      'Học viên sợ học thiếu vì bị áp đảo bởi hàng trăm đầu sách và ứng dụng trên thị trường. Họ nghĩ ngoài kia có bí kíp thần thánh nào đó mà mình chưa biết. Sự thật theo nghiên cứu ngữ liệu của Đại học Oxford: 300 từ vựng cốt lõi và 28 khung câu sinh tồn chiếm tới 85% dung lượng mọi cuộc đàm thoại thường nhật. 15,000 từ vựng còn lại chỉ thuộc về văn bản học thuật hoặc chuyên ngành hẹp.',
+      'Học viên sợ học thiếu vì bị áp đảo bởi hàng trăm đầu sách và ứng dụng trên thị trường. Họ nghĩ ngoài kia có phương pháp thần thánh nào đó mà mình chưa biết. Sự thật theo nghiên cứu ngữ liệu của Đại học Oxford: 300 từ vựng cốt lõi và 28 khung câu sinh tồn chiếm tới 85% dung lượng mọi cuộc đàm thoại thường nhật. 15,000 từ vựng còn lại chỉ thuộc về văn bản học thuật hoặc chuyên ngành hẹp.',
     actionableTechniqueVi:
       'Xác lập "Cam Kết Khép Kín" (Closed Scope Guarantee): Tập trung toàn lực luyện nhuyễn 28 Khung câu của Chặng 1, 6 bài thế khối của Chặng 2 và 6 bài đàm thoại Chặng 3. Đừng sa đà vào việc học thêm từ mới khi các khung câu cơ bản chưa biến thành phản xạ tủy sống.',
     comparison: {

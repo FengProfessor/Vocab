@@ -162,4 +162,4 @@ Hệ thống sẽ được giám sát chặt chẽ thông qua các chỉ số c�
 
 Tài liệu này cùng toàn bộ gói đặc tả kỹ thuật đi kèm (`01_REWARD_POLICY.md` đến `05_TECHNICAL_SPEC.md` và `schema.sql`) cung cấp một bản thiết kế toàn diện, có cơ sở toán học vững chắc và khả thi 100% trên nền tảng công nghệ hiện tại của LingoPro. 
 
-Khi được đưa vào vận hành, chương trình sẽ là bệ phóng đưa LingoPro tăng trưởng người dùng thần tốc, hạ thấp chi phí thu hút khách hàng về mức tối ưu và thiết lập lợi thế cạnh tranh bền vững tại thị trường EdTech Việt Nam.
+Khi được đưa vào vận hành, chương trình sẽ là bệ phóng đưa LingoPro tăng trưởng người dùng bứt phá, hạ thấp chi phí thu hút khách hàng về mức tối ưu và thiết lập lợi thế cạnh tranh bền vững tại thị trường EdTech Việt Nam.

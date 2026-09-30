@@ -2,10 +2,10 @@
   "slug": "modals-advice",
   "title": "Modals: Advice (should/ought to)",
   "title_vi": "Khuyết thiếu: lời khuyên (should)",
-  "level": "beginner",
+  "level": "A2",
   "order": 27,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **S + should/ought to + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **S + should/ought to + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -327,39 +327,130 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "You should turn off the lights before you go to bed.  →  The lights ____ before you go to bed.",
-      "opts": [],
-      "answer": "should be turned off",
-      "fb": "Modal should → should be + V3"
+      "id": "modals-advice-ex-01",
+      "type": "fill_blank",
+      "question": "You should turn off the lights before you go to bed.  →  The lights ____ before you go to bed.",
+      "options": [],
+      "correct_answer": "should be turned off",
+      "explanation": "Modal should → should be + V3",
+      "distractor_breakdowns": [
+        {
+          "option": "should be turned off",
+          "isCorrect": true,
+          "pedagogicalReason": "Modal should → should be + V3"
+        },
+        {
+          "option": "should turn off",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Chủ ngữ \"The lights\" là đồ vật, phải chia bị động \"should be turned off\"."
+        },
+        {
+          "option": "should turned off",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sau modal verb \"should\" phải có \"be\" kết hợp phân từ hai, không dùng trực tiếp V-ed."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "I think you ____ go to bed earlier. (should / must)",
-      "opts": [],
-      "answer": "should",
-      "fb": "I think + lời khuyên → should"
+      "id": "modals-advice-ex-02",
+      "type": "multiple_choice",
+      "question": "I think you ____ go to bed earlier. (should / must)",
+      "options": [
+        "should",
+        "must"
+      ],
+      "correct_answer": "should",
+      "explanation": "I think + lời khuyên → should",
+      "distractor_breakdowns": [
+        {
+          "option": "should",
+          "isCorrect": true,
+          "pedagogicalReason": "I think + lời khuyên → should"
+        },
+        {
+          "option": "must",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"must\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "It's a school rule: we ____ speak English in class. (have to / should)",
-      "opts": [],
-      "answer": "have to",
-      "fb": "nội quy trường bắt → have to"
+      "id": "modals-advice-ex-03",
+      "type": "multiple_choice",
+      "question": "It's a school rule: we ____ speak English in class. (have to / should)",
+      "options": [
+        "have to",
+        "should"
+      ],
+      "correct_answer": "have to",
+      "explanation": "nội quy trường bắt → have to",
+      "distractor_breakdowns": [
+        {
+          "option": "have to",
+          "isCorrect": true,
+          "pedagogicalReason": "nội quy trường bắt → have to"
+        },
+        {
+          "option": "should",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"should\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "You should avoid ____ (eat) too much sugar.",
-      "opts": [],
-      "answer": "eating",
-      "fb": "avoid nằm nhóm V-ing"
+      "id": "modals-advice-ex-04",
+      "type": "fill_blank",
+      "question": "You should avoid ____ (eat) too much sugar.",
+      "options": [],
+      "correct_answer": "eating",
+      "explanation": "avoid nằm nhóm V-ing",
+      "distractor_breakdowns": [
+        {
+          "option": "eating",
+          "isCorrect": true,
+          "pedagogicalReason": "avoid nằm nhóm V-ing"
+        },
+        {
+          "option": "eatings",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"eatings\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to eating",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "Children should not depend ____ their parents for everything.",
-      "opts": [],
-      "answer": "on",
-      "fb": "depend luôn dính với on"
+      "id": "modals-advice-ex-05",
+      "type": "fill_blank",
+      "question": "Children should not depend ____ their parents for everything.",
+      "options": [],
+      "correct_answer": "on",
+      "explanation": "depend luôn dính với on",
+      "distractor_breakdowns": [
+        {
+          "option": "on",
+          "isCorrect": true,
+          "pedagogicalReason": "depend luôn dính với on"
+        },
+        {
+          "option": "in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Giới từ \"in\" dùng cho tháng, năm, mùa hoặc không gian kín, không dùng cho ngày cụ thể hoặc bề mặt phẳng."
+        },
+        {
+          "option": "at",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Giới từ \"at\" dùng cho mốc giờ chính xác hoặc địa điểm cụ thể, không dùng cho ngày trong tháng."
+        }
+      ],
+      "difficulty": 3
     }
   ]
 }

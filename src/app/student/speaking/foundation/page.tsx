@@ -94,7 +94,7 @@ export default function SpeakingFoundationHubPage() {
       highlights: [
         'Cơ chế đế Lego cố định + gắp lắp khối từ',
         'Đồng hồ đo phản xạ thời gian thực (<1s target)',
-        'Huy hiệu "Phản xạ thần tốc" khích lệ cơ miệng',
+        'Huy hiệu "Phản xạ tức thì" khích lệ cơ miệng',
         'Luyện tập nói câu hoàn chỉnh với SafeHarbor',
       ],
       icon: Layers,

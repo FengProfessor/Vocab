@@ -2,10 +2,10 @@
   "slug": "advanced-passive",
   "title": "Advanced Passive",
   "title_vi": "Bị động nâng cao",
-  "level": "advanced",
+  "level": "B2",
   "order": 51,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **It is said that + clause** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **It is said that + clause** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -417,11 +417,35 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "She made her son a paper boat.  →  A paper boat ____ her son.",
-      "opts": [],
-      "answer": "was made for",
-      "fb": "Đồ lên đầu · make đi với for"
+      "id": "advanced-passive-ex-01",
+      "type": "fill_blank",
+      "question": "She made her son a paper boat.  →  A paper boat ____ her son.",
+      "options": [],
+      "correct_answer": "was made for",
+      "explanation": "Đồ lên đầu · make đi với for",
+      "distractor_breakdowns": [
+        {
+          "option": "was made for",
+          "isCorrect": true,
+          "pedagogicalReason": "Đồ lên đầu · make đi với for"
+        },
+        {
+          "option": "was made to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Khi chuyển sang bị động với động từ \"make\", tân ngữ người đi với giới từ \"for\" (\"was made for her son\"), không dùng \"to\"."
+        },
+        {
+          "option": "made for",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Câu bị động ở thì quá khứ đơn bắt buộc phải có to-be \"was\" đi kèm phân từ hai."
+        },
+        {
+          "option": "was made",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thiếu giới từ \"for\" để kết nối với tân ngữ gián tiếp \"her son\"."
+        }
+      ],
+      "difficulty": 1
     }
   ]
 }

@@ -14,7 +14,7 @@ export interface RealWorldExample {
 }
 
 export interface TipBox {
-  title: string;            // e.g. "Quy Tắc 5 Giây: Nhận Diện Đuôi Danh Từ"
+  title: string;            // e.g. "Quy Tắc Nhận Diện Đuôi Danh Từ"
   type: 'tip' | 'shortcut' | 'rule' | 'warning';
   content: string;
   keySignals: string[];     // Bullet signals, e.g. ["a / an / the + [?] + Noun -> Chọn Tính từ"]
@@ -60,7 +60,7 @@ export type TheorySectionType =
   | 'rules'            // Quy tắc & Công thức cốt lõi
   | 'comparison'       // Bảng so sánh đối chiếu
   | 'traps'            // Bẫy thường gặp & Sai lầm phổ biến
-  | 'shortcuts'        // Mẹo nhận diện nhanh 5 giây
+  | 'shortcuts'        // Quy tắc nhận diện nhanh trọng tâm
   | 'real_examples';   // Trích dẫn ví dụ đề thi thật ETS
 
 export interface TheorySection {

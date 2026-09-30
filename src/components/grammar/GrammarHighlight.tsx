@@ -77,8 +77,8 @@ export default function GrammarHighlight({
   if (loading) {
     return (
       <div className="space-y-2">
-        <div className="h-6 w-full animate-pulse rounded bg-muted" />
-        <div className="h-4 w-2/3 animate-pulse rounded bg-muted/60" />
+        <div className="h-6 w-full animate-pulse rounded-none bg-muted" />
+        <div className="h-4 w-2/3 animate-pulse rounded-none bg-muted/60" />
       </div>
     );
   }
@@ -105,7 +105,7 @@ export default function GrammarHighlight({
       const cls = [
         config.bg,
         config.text,
-        'rounded',
+        'rounded-none',
         'px-0.5',
         'font-medium',
       ]
@@ -155,7 +155,7 @@ export default function GrammarHighlight({
             return (
               <span key={role} className="flex items-center gap-1 text-xs">
                 <span
-                  className="inline-block h-2 w-2 rounded-full"
+                  className="inline-block h-2 w-2 rounded-none"
                   style={{ backgroundColor: config.dotColor }}
                   aria-hidden="true"
                 />

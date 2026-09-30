@@ -2,10 +2,10 @@
   "slug": "past-simple",
   "title": "Past Simple",
   "title_vi": "Thì Quá khứ đơn",
-  "level": "beginner",
+  "level": "A2",
   "order": 20,
   "sections": {
-    "tips": "**Mẹo nhớ:** Sử dụng thì quá khứ đơn để diễn tả những hành động đã xảy ra và kết thúc trong quá khứ. Đa số động từ thêm -ed để tạo thành quá khứ đơn.",
+    "tips": "**Lưu ý trọng tâm:** Sử dụng thì quá khứ đơn để diễn tả những hành động đã xảy ra và kết thúc trong quá khứ. Đa số động từ thêm -ed để tạo thành quá khứ đơn.",
     "rules": [
       {
         "case": "Đa số động từ",
@@ -477,193 +477,714 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "The biscuit factory ____ (close) last year.",
-      "opts": [],
-      "answer": "closed",
-      "fb": "last year = mốc quá khứ"
+      "id": "past-simple-ex-01",
+      "type": "fill_blank",
+      "question": "The biscuit factory ____ (close) last year.",
+      "options": [],
+      "correct_answer": "closed",
+      "explanation": "last year = mốc quá khứ",
+      "distractor_breakdowns": [
+        {
+          "option": "closed",
+          "isCorrect": true,
+          "pedagogicalReason": "last year = mốc quá khứ"
+        },
+        {
+          "option": "closeds",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"closeds\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to closed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "Bill ____ (have) breakfast when I ____ (stop) at his house.",
-      "opts": [],
-      "answer": "was having / stopped",
-      "fb": "ăn sáng = việc dài · stop = việc ngắn xen vào"
+      "id": "past-simple-ex-02",
+      "type": "fill_blank",
+      "question": "Bill ____ (have) breakfast when I ____ (stop) at his house.",
+      "options": [],
+      "correct_answer": "was having / stopped",
+      "explanation": "ăn sáng = việc dài · stop = việc ngắn xen vào",
+      "distractor_breakdowns": [
+        {
+          "option": "was having / stopped",
+          "isCorrect": true,
+          "pedagogicalReason": "ăn sáng = việc dài · stop = việc ngắn xen vào"
+        },
+        {
+          "option": "was having / stoppeds",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"was having / stoppeds\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to was having / stopped",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "I last ____ (go) to Spain in 1990.",
-      "opts": [],
-      "answer": "went",
-      "fb": "in 1990 = mốc quá khứ"
+      "id": "past-simple-ex-03",
+      "type": "fill_blank",
+      "question": "I last ____ (go) to Spain in 1990.",
+      "options": [],
+      "correct_answer": "went",
+      "explanation": "in 1990 = mốc quá khứ",
+      "distractor_breakdowns": [
+        {
+          "option": "went",
+          "isCorrect": true,
+          "pedagogicalReason": "in 1990 = mốc quá khứ"
+        },
+        {
+          "option": "wents",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"wents\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to went",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "She ____ (not / know) my address then.",
-      "opts": [],
-      "answer": "didn't know",
-      "fb": "know = trong đầu → không -ing"
+      "id": "past-simple-ex-04",
+      "type": "fill_blank",
+      "question": "She ____ (not / know) my address then.",
+      "options": [],
+      "correct_answer": "didn't know",
+      "explanation": "know = trong đầu → không -ing",
+      "distractor_breakdowns": [
+        {
+          "option": "didn't know",
+          "isCorrect": true,
+          "pedagogicalReason": "know = trong đầu → không -ing"
+        },
+        {
+          "option": "doesn't know",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Trạng từ thời gian \"then\" (= lúc đó) ở quá khứ, phải dùng quá khứ đơn \"didn't know\"."
+        },
+        {
+          "option": "wasn't knowing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"know\" là động từ chỉ nhận thức, không chia ở thì tiếp diễn."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "____ you ____ (spend) a lot of money last month?",
-      "opts": [],
-      "answer": "Did … spend",
-      "fb": "câu hỏi QK → Did + V trơ"
+      "id": "past-simple-ex-05",
+      "type": "fill_blank",
+      "question": "____ you ____ (spend) a lot of money last month?",
+      "options": [],
+      "correct_answer": "Did … spend",
+      "explanation": "câu hỏi QK → Did + V trơ",
+      "distractor_breakdowns": [
+        {
+          "option": "Did … spend",
+          "isCorrect": true,
+          "pedagogicalReason": "câu hỏi QK → Did + V trơ"
+        },
+        {
+          "option": "Did … spends",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"Did … spends\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to Did … spend",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "When she ____ (be) young, she ____ (be) very beautiful.",
-      "opts": [],
-      "answer": "was / was",
-      "fb": "trạng thái trong quá khứ → QK đơn"
+      "id": "past-simple-ex-06",
+      "type": "fill_blank",
+      "question": "When she ____ (be) young, she ____ (be) very beautiful.",
+      "options": [],
+      "correct_answer": "was / was",
+      "explanation": "trạng thái trong quá khứ → QK đơn",
+      "distractor_breakdowns": [
+        {
+          "option": "was / was",
+          "isCorrect": true,
+          "pedagogicalReason": "trạng thái trong quá khứ → QK đơn"
+        },
+        {
+          "option": "was / wass",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"was / wass\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to was / was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "They ____ (visit) the zoo at ten o'clock yesterday.",
-      "opts": [],
-      "answer": "were visiting",
-      "fb": "at ten o'clock yesterday → đang giữa việc"
+      "id": "past-simple-ex-07",
+      "type": "fill_blank",
+      "question": "They ____ (visit) the zoo at ten o'clock yesterday.",
+      "options": [],
+      "correct_answer": "were visiting",
+      "explanation": "at ten o'clock yesterday → đang giữa việc",
+      "distractor_breakdowns": [
+        {
+          "option": "were visiting",
+          "isCorrect": true,
+          "pedagogicalReason": "at ten o'clock yesterday → đang giữa việc"
+        },
+        {
+          "option": "were visitings",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"were visitings\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to were visiting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "When the teacher ____ (come) in, the students ____ (stand) up.",
-      "opts": [],
-      "answer": "came / stood",
-      "fb": "2 việc ngắn nối nhau → cả 2 đơn"
+      "id": "past-simple-ex-08",
+      "type": "fill_blank",
+      "question": "When the teacher ____ (come) in, the students ____ (stand) up.",
+      "options": [],
+      "correct_answer": "came / stood",
+      "explanation": "2 việc ngắn nối nhau → cả 2 đơn",
+      "distractor_breakdowns": [
+        {
+          "option": "came / stood",
+          "isCorrect": true,
+          "pedagogicalReason": "2 việc ngắn nối nhau → cả 2 đơn"
+        },
+        {
+          "option": "came / stoods",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"came / stoods\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to came / stood",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "Bob ____ (buy) a new laptop last Sunday.",
-      "opts": [],
-      "answer": "bought",
-      "fb": "last Sunday = mốc chết → quá khứ đơn"
+      "id": "past-simple-ex-09",
+      "type": "fill_blank",
+      "question": "Bob ____ (buy) a new laptop last Sunday.",
+      "options": [],
+      "correct_answer": "bought",
+      "explanation": "last Sunday = mốc chết → quá khứ đơn",
+      "distractor_breakdowns": [
+        {
+          "option": "bought",
+          "isCorrect": true,
+          "pedagogicalReason": "last Sunday = mốc chết → quá khứ đơn"
+        },
+        {
+          "option": "boughts",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"boughts\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to bought",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "My family ____ (move) to Ha Noi three years ago.",
-      "opts": [],
-      "answer": "moved",
-      "fb": "… ago = mốc chết → quá khứ đơn"
+      "id": "past-simple-ex-10",
+      "type": "fill_blank",
+      "question": "My family ____ (move) to Ha Noi three years ago.",
+      "options": [],
+      "correct_answer": "moved",
+      "explanation": "… ago = mốc chết → quá khứ đơn",
+      "distractor_breakdowns": [
+        {
+          "option": "moved",
+          "isCorrect": true,
+          "pedagogicalReason": "… ago = mốc chết → quá khứ đơn"
+        },
+        {
+          "option": "moveds",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"moveds\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to moved",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "When I ____ (open) the door yesterday, the cat ____ (sleep) on the sofa.",
-      "opts": [],
-      "answer": "opened / was sleeping",
-      "fb": "mở cửa = việc ngắn · mèo đang ngủ sẵn"
+      "id": "past-simple-ex-11",
+      "type": "fill_blank",
+      "question": "When I ____ (open) the door yesterday, the cat ____ (sleep) on the sofa.",
+      "options": [],
+      "correct_answer": "opened / was sleeping",
+      "explanation": "mở cửa = việc ngắn · mèo đang ngủ sẵn",
+      "distractor_breakdowns": [
+        {
+          "option": "opened / was sleeping",
+          "isCorrect": true,
+          "pedagogicalReason": "mở cửa = việc ngắn · mèo đang ngủ sẵn"
+        },
+        {
+          "option": "opened / was sleepings",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"opened / was sleepings\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to opened / was sleeping",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "As soon as the rain ____ (stop) yesterday afternoon, the children ____ (run) outside.",
-      "opts": [],
-      "answer": "stopped / ran",
-      "fb": "hai việc ngắn nối đuôi → cả hai quá khứ đơn"
+      "id": "past-simple-ex-12",
+      "type": "fill_blank",
+      "question": "As soon as the rain ____ (stop) yesterday afternoon, the children ____ (run) outside.",
+      "options": [],
+      "correct_answer": "stopped / ran",
+      "explanation": "hai việc ngắn nối đuôi → cả hai quá khứ đơn",
+      "distractor_breakdowns": [
+        {
+          "option": "stopped / ran",
+          "isCorrect": true,
+          "pedagogicalReason": "hai việc ngắn nối đuôi → cả hai quá khứ đơn"
+        },
+        {
+          "option": "stopped / rans",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"stopped / rans\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to stopped / ran",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "While Nam ____ (walk) along the beach last week, he ____ (find) a wallet.",
-      "opts": [],
-      "answer": "was walking / found",
-      "fb": "đi dạo = việc dài · nhặt được ví = việc ngắn"
+      "id": "past-simple-ex-13",
+      "type": "fill_blank",
+      "question": "While Nam ____ (walk) along the beach last week, he ____ (find) a wallet.",
+      "options": [],
+      "correct_answer": "was walking / found",
+      "explanation": "đi dạo = việc dài · nhặt được ví = việc ngắn",
+      "distractor_breakdowns": [
+        {
+          "option": "was walking / found",
+          "isCorrect": true,
+          "pedagogicalReason": "đi dạo = việc dài · nhặt được ví = việc ngắn"
+        },
+        {
+          "option": "walked / was finding",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Hành động đi dạo đang diễn ra (\"was walking\"), hành động nhặt được ví ngắn cắt ngang (\"found\")."
+        },
+        {
+          "option": "walked / found",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Hành động kéo dài sau \"While\" trong quá khứ phải chia quá khứ tiếp diễn."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "After we ____ (finish) the exam last June, we ____ (have) a big party.",
-      "opts": [],
-      "answer": "finished / had",
-      "fb": "After + hai việc nối đuôi trong quá khứ → cả hai đơn"
+      "id": "past-simple-ex-14",
+      "type": "fill_blank",
+      "question": "After we ____ (finish) the exam last June, we ____ (have) a big party.",
+      "options": [],
+      "correct_answer": "finished / had",
+      "explanation": "After + hai việc nối đuôi trong quá khứ → cả hai đơn",
+      "distractor_breakdowns": [
+        {
+          "option": "finished / had",
+          "isCorrect": true,
+          "pedagogicalReason": "After + hai việc nối đuôi trong quá khứ → cả hai đơn"
+        },
+        {
+          "option": "had finished / had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Hai hành động quá khứ liên tiếp với \"After\" có thể dùng hai thì quá khứ đơn hoặc quá khứ hoàn thành."
+        },
+        {
+          "option": "finish / have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thời điểm \"last June\" ở quá khứ, không dùng hiện tại đơn."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "Before I ____ (go) to bed last night, I ____ (turn) off all the lights.",
-      "opts": [],
-      "answer": "went / turned",
-      "fb": "Before + hai việc nối đuôi trong quá khứ → cả hai đơn"
+      "id": "past-simple-ex-15",
+      "type": "fill_blank",
+      "question": "Before I ____ (go) to bed last night, I ____ (turn) off all the lights.",
+      "options": [],
+      "correct_answer": "went / turned",
+      "explanation": "Before + hai việc nối đuôi trong quá khứ → cả hai đơn",
+      "distractor_breakdowns": [
+        {
+          "option": "went / turned",
+          "isCorrect": true,
+          "pedagogicalReason": "Before + hai việc nối đuôi trong quá khứ → cả hai đơn"
+        },
+        {
+          "option": "go / turn",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thời điểm \"last night\" ở quá khứ, không dùng hiện tại đơn."
+        },
+        {
+          "option": "had gone / turned",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Hành động xảy ra theo trình tự trước sau thông thường trong quá khứ chia quá khứ đơn."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "What ____ you ____ (do) when the earthquake ____ (happen) last month?",
-      "opts": [],
-      "answer": "were … doing / happened",
-      "fb": "động đất = việc ngắn cắt ngang việc em đang làm dở"
+      "id": "past-simple-ex-16",
+      "type": "fill_blank",
+      "question": "What ____ you ____ (do) when the earthquake ____ (happen) last month?",
+      "options": [],
+      "correct_answer": "were … doing / happened",
+      "explanation": "động đất = việc ngắn cắt ngang việc em đang làm dở",
+      "distractor_breakdowns": [
+        {
+          "option": "were … doing / happened",
+          "isCorrect": true,
+          "pedagogicalReason": "động đất = việc ngắn cắt ngang việc em đang làm dở"
+        },
+        {
+          "option": "did … do / was happening",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Hành động đang diễn ra khi động đất ập tới chia quá khứ tiếp diễn (\"were doing\"), sự việc động đất xảy ra chia quá khứ đơn (\"happened\")."
+        },
+        {
+          "option": "were … doing / was happening",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động đất xảy ra bất ngờ cắt ngang chia quá khứ đơn, không dùng tiếp diễn."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "Gold ____ (discover) in California in the 19th century.",
-      "opts": [],
-      "answer": "was discovered",
-      "fb": "in the 19th century = quá khứ đơn → was + V3"
+      "id": "past-simple-ex-17",
+      "type": "fill_blank",
+      "question": "Gold ____ (discover) in California in the 19th century.",
+      "options": [],
+      "correct_answer": "was discovered",
+      "explanation": "in the 19th century = quá khứ đơn → was + V3",
+      "distractor_breakdowns": [
+        {
+          "option": "was discovered",
+          "isCorrect": true,
+          "pedagogicalReason": "in the 19th century = quá khứ đơn → was + V3"
+        },
+        {
+          "option": "discovered",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Vàng được con người phát hiện, phải chia bị động \"was discovered\", không dùng chủ động."
+        },
+        {
+          "option": "is discovered",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Ngữ cảnh xảy ra vào thế kỷ 19 (\"in the 19th century\"), phải dùng to-be quá khứ \"was\"."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "Lots of houses ____ (destroy) by the earthquake last week.",
-      "opts": [],
-      "answer": "were destroyed",
-      "fb": "houses số nhiều + last week → were + V3"
+      "id": "past-simple-ex-18",
+      "type": "fill_blank",
+      "question": "Lots of houses ____ (destroy) by the earthquake last week.",
+      "options": [],
+      "correct_answer": "were destroyed",
+      "explanation": "houses số nhiều + last week → were + V3",
+      "distractor_breakdowns": [
+        {
+          "option": "were destroyed",
+          "isCorrect": true,
+          "pedagogicalReason": "houses số nhiều + last week → were + V3"
+        },
+        {
+          "option": "destroyed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Những ngôi nhà bị động đất tàn phá, phải chia bị động \"were destroyed\"."
+        },
+        {
+          "option": "was destroyed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Chủ ngữ \"Lots of houses\" là danh từ số nhiều, phải dùng to-be \"were\"."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "A surprise party ____ (organize) by the children last night.",
-      "opts": [],
-      "answer": "was organized",
-      "fb": "last night = quá khứ đơn · party số ít → was + V3"
+      "id": "past-simple-ex-19",
+      "type": "fill_blank",
+      "question": "A surprise party ____ (organize) by the children last night.",
+      "options": [],
+      "correct_answer": "was organized",
+      "explanation": "last night = quá khứ đơn · party số ít → was + V3",
+      "distractor_breakdowns": [
+        {
+          "option": "was organized",
+          "isCorrect": true,
+          "pedagogicalReason": "last night = quá khứ đơn · party số ít → was + V3"
+        },
+        {
+          "option": "organized",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Bữa tiệc được tổ chức, phải chia bị động \"was organized\"."
+        },
+        {
+          "option": "is organized",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thời điểm là tối qua (\"last night\"), phải dùng thì quá khứ đơn."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "Somebody stole my phone yesterday.  →  My phone ____ yesterday.",
-      "opts": [],
-      "answer": "was stolen",
-      "fb": "Somebody → cắt by · quá khứ đơn → was + V3"
+      "id": "past-simple-ex-20",
+      "type": "fill_blank",
+      "question": "Somebody stole my phone yesterday.  →  My phone ____ yesterday.",
+      "options": [],
+      "correct_answer": "was stolen",
+      "explanation": "Somebody → cắt by · quá khứ đơn → was + V3",
+      "distractor_breakdowns": [
+        {
+          "option": "was stolen",
+          "isCorrect": true,
+          "pedagogicalReason": "Somebody → cắt by · quá khứ đơn → was + V3"
+        },
+        {
+          "option": "stole",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Điện thoại bị đánh cắp, phải chia bị động \"was stolen\"."
+        },
+        {
+          "option": "was stole",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phân từ hai (V3) của \"steal\" là \"stolen\", không dùng dạng quá khứ \"stole\"."
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "fill",
-      "q": "My cold is ____ (good) today than it was yesterday.",
-      "opts": [],
-      "answer": "better",
-      "fb": "good là bất quy tắc → better"
+      "id": "past-simple-ex-21",
+      "type": "fill_blank",
+      "question": "My cold is ____ (good) today than it was yesterday.",
+      "options": [],
+      "correct_answer": "better",
+      "explanation": "good là bất quy tắc → better",
+      "distractor_breakdowns": [
+        {
+          "option": "better",
+          "isCorrect": true,
+          "pedagogicalReason": "good là bất quy tắc → better"
+        },
+        {
+          "option": "gooder",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"good\" là tính từ biến đổi bất quy tắc trong so sánh hơn thành \"better\", không có dạng \"gooder\"."
+        },
+        {
+          "option": "more good",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng \"more good\" mà phải dùng dạng bất quy tắc \"better\"."
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "fill",
-      "q": "My best friend, ____ moved to Da Nang, called me yesterday.",
-      "opts": [],
-      "answer": "who",
-      "fb": "có phẩy + người → who, cấm that"
+      "id": "past-simple-ex-22",
+      "type": "fill_blank",
+      "question": "My best friend, ____ moved to Da Nang, called me yesterday.",
+      "options": [],
+      "correct_answer": "who",
+      "explanation": "có phẩy + người → who, cấm that",
+      "distractor_breakdowns": [
+        {
+          "option": "who",
+          "isCorrect": true,
+          "pedagogicalReason": "có phẩy + người → who, cấm that"
+        },
+        {
+          "option": "which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"which\" chỉ thay thế cho danh từ chỉ sự vật/hiện tượng, không dùng cho danh từ chỉ người."
+        },
+        {
+          "option": "whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"whom\" làm tân ngữ, không thể làm chủ ngữ đứng trước động từ vị ngữ trong mệnh đề quan hệ."
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "fill",
-      "q": "Nam wishes he ____ (not / break) his mother's vase yesterday.",
-      "opts": [],
-      "answer": "hadn't broken",
-      "fb": "yesterday = chuyện đã qua → hadn't + V3"
+      "id": "past-simple-ex-23",
+      "type": "fill_blank",
+      "question": "Nam wishes he ____ (not / break) his mother's vase yesterday.",
+      "options": [],
+      "correct_answer": "hadn't broken",
+      "explanation": "yesterday = chuyện đã qua → hadn't + V3",
+      "distractor_breakdowns": [
+        {
+          "option": "hadn't broken",
+          "isCorrect": true,
+          "pedagogicalReason": "yesterday = chuyện đã qua → hadn't + V3"
+        },
+        {
+          "option": "didn't break",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Ước trái với sự việc đã xảy ra trong quá khứ (\"yesterday\") phải lùi thì về quá khứ hoàn thành (\"hadn't broken\")."
+        },
+        {
+          "option": "doesn't break",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng thì hiện tại đơn sau câu ước cho sự việc quá khứ."
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "fill",
-      "q": "My best friend lives in Hue. I wish he ____ (live) closer to me.",
-      "opts": [],
-      "answer": "lived",
-      "fb": "Chuyện bây giờ, không có mốc quá khứ → V2"
+      "id": "past-simple-ex-24",
+      "type": "fill_blank",
+      "question": "My best friend lives in Hue. I wish he ____ (live) closer to me.",
+      "options": [],
+      "correct_answer": "lived",
+      "explanation": "Chuyện bây giờ, không có mốc quá khứ → V2",
+      "distractor_breakdowns": [
+        {
+          "option": "lived",
+          "isCorrect": true,
+          "pedagogicalReason": "Chuyện bây giờ, không có mốc quá khứ → V2"
+        },
+        {
+          "option": "live",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Ước cho hiện tại (bạn đang sống ở Huế) phải lùi thì về quá khứ đơn (\"lived\")."
+        },
+        {
+          "option": "lives",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sau \"wish\" không dùng thì hiện tại đơn."
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "fill",
-      "q": "Đổi sang gián tiếp: “Did you go with your mother yesterday?” he asked me.",
-      "opts": [],
-      "answer": "He asked me if I had gone with my mother the day before.",
-      "fb": "hỏi yes/no nên nối bằng if · quá khứ đơn lùi thành had gone"
+      "id": "past-simple-ex-25",
+      "type": "fill_blank",
+      "question": "Đổi sang gián tiếp: “Did you go with your mother yesterday?” he asked me.",
+      "options": [],
+      "correct_answer": "He asked me if I had gone with my mother the day before.",
+      "explanation": "hỏi yes/no nên nối bằng if · quá khứ đơn lùi thành had gone",
+      "distractor_breakdowns": [
+        {
+          "option": "He asked me if I had gone with my mother the day before.",
+          "isCorrect": true,
+          "pedagogicalReason": "hỏi yes/no nên nối bằng if · quá khứ đơn lùi thành had gone"
+        },
+        {
+          "option": "He asked me if did I go with my mother yesterday.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Trong câu hỏi gián tiếp, trật tự từ phải là khẳng định (S + V), không đảo trợ động từ \"did\" lên trước chủ ngữ."
+        },
+        {
+          "option": "He asked me that I went with my mother yesterday.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Câu hỏi Yes/No trong lời nói gián tiếp dùng từ nối \"if\" hoặc \"whether\", không dùng \"that\", và \"yesterday\" phải đổi thành \"the day before\"."
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "fill",
-      "q": "Everyone in the office ____ leave the building for a fire drill yesterday. (must / had to)",
-      "opts": [],
-      "answer": "had to",
-      "fb": "chuyện quá khứ nên dùng had to"
+      "id": "past-simple-ex-26",
+      "type": "multiple_choice",
+      "question": "Everyone in the office ____ leave the building for a fire drill yesterday. (must / had to)",
+      "options": [
+        "must",
+        "had to"
+      ],
+      "correct_answer": "had to",
+      "explanation": "chuyện quá khứ nên dùng had to",
+      "distractor_breakdowns": [
+        {
+          "option": "must",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"must\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "had to",
+          "isCorrect": true,
+          "pedagogicalReason": "chuyện quá khứ nên dùng had to"
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "fill",
-      "q": "By the time we arrived, the film ____ already started.  (A has · B had · C was · D did)",
-      "opts": [],
-      "answer": "B had",
-      "fb": "Xong trước một mốc quá khứ → had + V3 · buổi 6"
+      "id": "past-simple-ex-27",
+      "type": "multiple_choice",
+      "question": "By the time we arrived, the film ____ already started.",
+      "options": [
+        "has",
+        "had",
+        "was",
+        "did"
+      ],
+      "correct_answer": "had",
+      "explanation": "Xong trước một mốc quá khứ → had + V3 · buổi 6",
+      "distractor_breakdowns": [
+        {
+          "option": "has",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"has\" dùng cho chủ ngữ số ít (he/she/it), không phù hợp với chủ ngữ hiện tại."
+        },
+        {
+          "option": "had",
+          "isCorrect": true,
+          "pedagogicalReason": "Xong trước một mốc quá khứ → had + V3 · buổi 6"
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng số ít \"was\" không hòa hợp với chủ ngữ số nhiều hoặc \"you/we/they\"."
+        },
+        {
+          "option": "did",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"did\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 3
     }
   ]
 }

@@ -2,10 +2,10 @@
   "slug": "possessives",
   "title": "Possessive Adjectives & Pronouns",
   "title_vi": "Tính từ & đại từ sở hữu",
-  "level": "beginner",
+  "level": "A0",
   "order": 4,
   "sections": {
-    "tips": "**Mẹo:** Có danh từ ngay sau chỗ trống → chọn tính từ sở hữu. Không có danh từ sau chỗ trống → chọn đại từ sở hữu. Riêng **his** giống nhau ở cả hai vai trò; **its** không có dạng đại từ sở hữu thông dụng.",
+    "tips": "**Lưu ý trọng tâm:** Có danh từ ngay sau chỗ trống → chọn tính từ sở hữu. Không có danh từ sau chỗ trống → chọn đại từ sở hữu. Riêng **his** giống nhau ở cả hai vai trò; **its** không có dạng đại từ sở hữu thông dụng.",
     "rules": [
       {
         "case": "I / we",
@@ -344,112 +344,334 @@
   },
   "exercises": [
     {
-      "type": "mcq",
-      "q": "This laptop belongs to me. It is ___.",
-      "opts": [
+      "id": "possessives-ex-01",
+      "type": "multiple_choice",
+      "question": "This laptop belongs to me. It is ___.",
+      "options": [
         "my",
         "mine",
         "me"
       ],
-      "answer": "mine",
-      "fb": "mine thay cho my laptop."
+      "correct_answer": "mine",
+      "explanation": "mine thay cho my laptop.",
+      "distractor_breakdowns": [
+        {
+          "option": "my",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"my\" là tính từ sở hữu, bắt buộc phải có danh từ theo sau bổ nghĩa, không thể đứng độc lập."
+        },
+        {
+          "option": "mine",
+          "isCorrect": true,
+          "pedagogicalReason": "mine thay cho my laptop."
+        },
+        {
+          "option": "me",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"me\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "mcq",
-      "q": "Lan has a new bike. ___ bike is green.",
-      "opts": [
+      "id": "possessives-ex-02",
+      "type": "multiple_choice",
+      "question": "Lan has a new bike. ___ bike is green.",
+      "options": [
         "Her",
         "Hers",
         "She"
       ],
-      "answer": "Her",
-      "fb": "Her đứng trước danh từ bike."
+      "correct_answer": "Her",
+      "explanation": "Her đứng trước danh từ bike.",
+      "distractor_breakdowns": [
+        {
+          "option": "Her",
+          "isCorrect": true,
+          "pedagogicalReason": "Her đứng trước danh từ bike."
+        },
+        {
+          "option": "Hers",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Hers\" là đại từ sở hữu (thay thế cả cụm Noun), không đứng trực tiếp trước một danh từ đã có sẵn."
+        },
+        {
+          "option": "She",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"She\" là đại từ chủ ngữ (Subject Pronoun), không thể đứng ở vị trí tân ngữ sau động từ hoặc giới từ."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "mcq",
-      "q": "We own this house. It is ___.",
-      "opts": [
+      "id": "possessives-ex-03",
+      "type": "multiple_choice",
+      "question": "We own this house. It is ___.",
+      "options": [
         "our",
         "ours",
         "us"
       ],
-      "answer": "ours",
-      "fb": "Ours là đại từ sở hữu đứng độc lập."
-    },
-    {
-      "type": "fill",
-      "q": "They brought ___ children to the party. (they)",
-      "answer": [
-        "their"
+      "correct_answer": "ours",
+      "explanation": "Ours là đại từ sở hữu đứng độc lập.",
+      "distractor_breakdowns": [
+        {
+          "option": "our",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"our\" là tính từ sở hữu, bắt buộc phải có danh từ theo sau bổ nghĩa, không thể đứng độc lập."
+        },
+        {
+          "option": "ours",
+          "isCorrect": true,
+          "pedagogicalReason": "Ours là đại từ sở hữu đứng độc lập."
+        },
+        {
+          "option": "us",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"us\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
       ],
-      "fb": "Cần tính từ sở hữu trước children."
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "This seat is ___. (you)",
-      "answer": [
-        "yours"
+      "id": "possessives-ex-04",
+      "type": "fill_blank",
+      "question": "They brought ___ children to the party. (they)",
+      "options": [],
+      "correct_answer": "their",
+      "explanation": "Cần tính từ sở hữu trước children.",
+      "distractor_breakdowns": [
+        {
+          "option": "their",
+          "isCorrect": true,
+          "pedagogicalReason": "Cần tính từ sở hữu trước children."
+        },
+        {
+          "option": "theirs",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"theirs\" là đại từ sở hữu đứng độc lập, không đứng trước danh từ \"children\"."
+        },
+        {
+          "option": "them",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"them\" là đại từ tân ngữ, không có chức năng chỉ sự sở hữu trước danh từ."
+        }
       ],
-      "fb": "Cần đại từ sở hữu đứng độc lập."
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "The cat hurt ___ leg. (it)",
-      "answer": [
-        "its"
+      "id": "possessives-ex-05",
+      "type": "fill_blank",
+      "question": "This seat is ___. (you)",
+      "options": [],
+      "correct_answer": "yours",
+      "explanation": "Cần đại từ sở hữu đứng độc lập.",
+      "distractor_breakdowns": [
+        {
+          "option": "yours",
+          "isCorrect": true,
+          "pedagogicalReason": "Cần đại từ sở hữu đứng độc lập."
+        },
+        {
+          "option": "your",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"your\" là tính từ sở hữu, bắt buộc có danh từ theo sau; đứng độc lập làm bổ ngữ phải dùng đại từ sở hữu \"yours\"."
+        },
+        {
+          "option": "you",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"you\" là đại từ nhân xưng, không mang ý nghĩa sở hữu \"của bạn\"."
+        }
       ],
-      "fb": "its chỉ sự sở hữu."
+      "difficulty": 1
     },
     {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"This is mine book.\"",
-      "answer": false,
-      "fb": "SAI. Trước danh từ book phải dùng tính từ sở hữu my. Câu đúng: \"This is my book.\""
+      "id": "possessives-ex-06",
+      "type": "fill_blank",
+      "question": "The cat hurt ___ leg. (it)",
+      "options": [],
+      "correct_answer": "its",
+      "explanation": "its chỉ sự sở hữu.",
+      "distractor_breakdowns": [
+        {
+          "option": "its",
+          "isCorrect": true,
+          "pedagogicalReason": "its chỉ sự sở hữu."
+        },
+        {
+          "option": "it's",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"it's\" là dạng viết tắt của \"it is\" hoặc \"it has\", trong khi ngữ cảnh cần tính từ sở hữu \"its\" (không có dấu nháy đơn)."
+        },
+        {
+          "option": "it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"it\" là đại từ nhân xưng, không phải tính từ sở hữu bổ nghĩa cho danh từ \"leg\"."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"That bicycle is her.\"",
-      "answer": false,
-      "fb": "SAI. Đứng độc lập để chỉ sở hữu phải dùng hers. Câu đúng: \"That bicycle is hers.\""
+      "id": "possessives-ex-07",
+      "type": "multiple_choice",
+      "question": "Câu sau đúng ngữ pháp không? → \"This is mine book.\"",
+      "options": [
+        "Đúng",
+        "Sai"
+      ],
+      "correct_answer": "Sai",
+      "explanation": "SAI. Trước danh từ book phải dùng tính từ sở hữu my. Câu đúng: \"This is my book.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "Đúng",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Khẳng định này không phản ánh đúng quy tắc ngữ pháp của câu đã cho."
+        },
+        {
+          "option": "Sai",
+          "isCorrect": true,
+          "pedagogicalReason": "SAI. Trước danh từ book phải dùng tính từ sở hữu my. Câu đúng: \"This is my book.\""
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"The dog is eating it’s food.\"",
-      "answer": false,
-      "fb": "SAI. its là sở hữu; it’s là dạng rút gọn của it is/it has. Câu đúng: \"The dog is eating its food.\""
+      "id": "possessives-ex-08",
+      "type": "multiple_choice",
+      "question": "Câu sau đúng ngữ pháp không? → \"That bicycle is her.\"",
+      "options": [
+        "Đúng",
+        "Sai"
+      ],
+      "correct_answer": "Sai",
+      "explanation": "SAI. Đứng độc lập để chỉ sở hữu phải dùng hers. Câu đúng: \"That bicycle is hers.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "Đúng",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Khẳng định này không phản ánh đúng quy tắc ngữ pháp của câu đã cho."
+        },
+        {
+          "option": "Sai",
+          "isCorrect": true,
+          "pedagogicalReason": "SAI. Đứng độc lập để chỉ sở hữu phải dùng hers. Câu đúng: \"That bicycle is hers.\""
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
+      "id": "possessives-ex-09",
+      "type": "multiple_choice",
+      "question": "Câu sau đúng ngữ pháp không? → \"The dog is eating it’s food.\"",
+      "options": [
+        "Đúng",
+        "Sai"
+      ],
+      "correct_answer": "Sai",
+      "explanation": "SAI. its là sở hữu; it’s là dạng rút gọn của it is/it has. Câu đúng: \"The dog is eating its food.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "Đúng",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Khẳng định này không phản ánh đúng quy tắc ngữ pháp của câu đã cho."
+        },
+        {
+          "option": "Sai",
+          "isCorrect": true,
+          "pedagogicalReason": "SAI. its là sở hữu; it’s là dạng rút gọn của it is/it has. Câu đúng: \"The dog is eating its food.\""
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "possessives-ex-10",
+      "type": "error_correction",
+      "question": "Câu nào SAI ngữ pháp?",
+      "options": [
         "My brother is a doctor.",
         "This is mine book.",
         "Is this pen yours?"
       ],
-      "answer": "This is mine book.",
-      "fb": "Trước danh từ book phải dùng tính từ sở hữu my. Câu đúng: \"This is my book.\""
+      "correct_answer": "This is mine book.",
+      "explanation": "Trước danh từ book phải dùng tính từ sở hữu my. Câu đúng: \"This is my book.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "My brother is a doctor.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"My brother is a doctor.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "This is mine book.",
+          "isCorrect": true,
+          "pedagogicalReason": "Trước danh từ book phải dùng tính từ sở hữu my. Câu đúng: \"This is my book.\""
+        },
+        {
+          "option": "Is this pen yours?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Is this pen yours?\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
+      "id": "possessives-ex-11",
+      "type": "error_correction",
+      "question": "Câu nào SAI ngữ pháp?",
+      "options": [
         "That red umbrella is hers.",
         "That bicycle is her.",
         "The cat is washing its paws."
       ],
-      "answer": "That bicycle is her.",
-      "fb": "Đứng độc lập để chỉ sở hữu phải dùng hers. Câu đúng: \"That bicycle is hers.\""
+      "correct_answer": "That bicycle is her.",
+      "explanation": "Đứng độc lập để chỉ sở hữu phải dùng hers. Câu đúng: \"That bicycle is hers.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "That red umbrella is hers.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"That red umbrella is hers.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "That bicycle is her.",
+          "isCorrect": true,
+          "pedagogicalReason": "Đứng độc lập để chỉ sở hữu phải dùng hers. Câu đúng: \"That bicycle is hers.\""
+        },
+        {
+          "option": "The cat is washing its paws.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The cat is washing its paws.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
+      "id": "possessives-ex-12",
+      "type": "error_correction",
+      "question": "Câu nào SAI ngữ pháp?",
+      "options": [
         "Our classroom is larger than theirs.",
         "The dog is eating it’s food.",
         "His answer is different from mine."
       ],
-      "answer": "The dog is eating it’s food.",
-      "fb": "its là sở hữu; it’s là dạng rút gọn của it is/it has. Câu đúng: \"The dog is eating its food.\""
+      "correct_answer": "The dog is eating it’s food.",
+      "explanation": "its là sở hữu; it’s là dạng rút gọn của it is/it has. Câu đúng: \"The dog is eating its food.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "Our classroom is larger than theirs.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Our classroom is larger than theirs.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "The dog is eating it’s food.",
+          "isCorrect": true,
+          "pedagogicalReason": "its là sở hữu; it’s là dạng rút gọn của it is/it has. Câu đúng: \"The dog is eating its food.\""
+        },
+        {
+          "option": "His answer is different from mine.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"His answer is different from mine.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
     }
   ]
 }

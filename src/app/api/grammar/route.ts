@@ -225,15 +225,60 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     const { searchParams } = new URL(req.url);
     const classroomId = searchParams.get('classroomId');
     const lessonId = searchParams.get('lessonId');
+    const topicSlug = searchParams.get('topic');
 
     // Auth chỉ bắt buộc khi truy cập theo classroomId (lớp học riêng tư)
     if (!auth && classroomId) return unauthorized();
 
-    if (!classroomId && !lessonId) {
-      return NextResponse.json({ success: false, error: 'classroomId or lessonId is required' }, { status: 400 });
+    if (!classroomId && !lessonId && !topicSlug) {
+      return NextResponse.json({ success: false, error: 'classroomId, lessonId or topic is required' }, { status: 400 });
     }
 
     const supabase = createServiceClient();
+
+    // 0. Tự học theo Topic slug (?topic=...)
+    if (topicSlug && !classroomId && !lessonId) {
+      const { data: topic } = await supabase
+        .from('grammar_topics')
+        .select('id, title, level')
+        .eq('slug', topicSlug)
+        .maybeSingle();
+
+      if (topic) {
+        const { data: lesson } = await supabase
+          .from('grammar_lessons')
+          .select('id, exercises')
+          .eq('topic_id', topic.id)
+          .maybeSingle();
+
+        if (lesson && lesson.exercises && Array.isArray(lesson.exercises) && lesson.exercises.length > 0) {
+          const fallbackData = lesson.exercises.map((raw: unknown, i: number) =>
+            normalizeLessonExercise(raw, lesson.id, i, topic.title, topic.level),
+          );
+          return NextResponse.json({ success: true, data: fallbackData });
+        }
+      }
+
+      // Fallback: check scripts/grammar-gen/out/${topicSlug}.json
+      try {
+        const fs = await import('fs');
+        const path = await import('path');
+        const localPath = path.join(process.cwd(), 'scripts/grammar-gen/out', `${topicSlug}.json`);
+        if (fs.existsSync(localPath)) {
+          const rawContent = JSON.parse(fs.readFileSync(localPath, 'utf8'));
+          if (Array.isArray(rawContent.exercises)) {
+            const fallbackData = rawContent.exercises.map((raw: unknown, i: number) =>
+              normalizeLessonExercise(raw, topicSlug, i, rawContent.title || topicSlug, rawContent.level || 'A1'),
+            );
+            return NextResponse.json({ success: true, data: fallbackData });
+          }
+        }
+      } catch (err) {
+        console.error('Failed to load local topic exercises fallback:', err);
+      }
+
+      return NextResponse.json({ success: true, data: [] });
+    }
 
     // 1. Tự học (Self-practice) - không có classroomId:
     // Load trực tiếp từ kho câu hỏi có sẵn trong grammar_lessons.exercises

@@ -2,10 +2,10 @@
   "slug": "modals-permission",
   "title": "Modals: Permission & Requests",
   "title_vi": "Khuyết thiếu: xin phép & yêu cầu",
-  "level": "beginner",
+  "level": "A2",
   "order": 25,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **Can/Could/May + S + V?** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **Can/Could/May + S + V?** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -346,12 +346,30 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "Hoàn thành theo mẫu: ___ you open the window, please?",
-      "answer": [
-        "Could"
+      "id": "modals-permission-ex-01",
+      "type": "fill_blank",
+      "question": "Hoàn thành theo mẫu: ___ you open the window, please?",
+      "options": [],
+      "correct_answer": "Could",
+      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "Could",
+          "isCorrect": true,
+          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+        },
+        {
+          "option": "May",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"May\" dùng để xin phép cho bản thân (\"May I...?\"), không dùng để yêu cầu người khác làm gì (\"Could you...?\")."
+        },
+        {
+          "option": "Should",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Should\" dùng để hỏi xin lời khuyên, không dùng làm câu yêu cầu lịch sự."
+        }
       ],
-      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+      "difficulty": 1
     }
   ]
 }

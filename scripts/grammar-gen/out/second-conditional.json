@@ -2,10 +2,10 @@
   "slug": "second-conditional",
   "title": "Second Conditional",
   "title_vi": "Câu điều kiện loại 2",
-  "level": "intermediate",
-  "order": 39,
+  "level": "B1",
+  "order": 41,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **If + past simple, would + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **If + past simple, would + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -454,12 +454,30 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "Hoàn thành theo mẫu: She ___ travel more if she were rich.",
-      "answer": [
-        "would"
+      "id": "second-conditional-ex-01",
+      "type": "fill_blank",
+      "question": "Hoàn thành theo mẫu: She ___ travel more if she were rich.",
+      "options": [],
+      "correct_answer": "would",
+      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "would",
+          "isCorrect": true,
+          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+        },
+        {
+          "option": "will",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Mệnh đề if ở quá khứ giả định (\"if she were\"), câu điều kiện loại 2 dùng \"would + V\", không dùng \"will\"."
+        },
+        {
+          "option": "can",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Câu điều kiện loại 2 dùng \"could\" hoặc \"would\", không dùng \"can\"."
+        }
       ],
-      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+      "difficulty": 1
     }
   ]
 }

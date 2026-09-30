@@ -2,7 +2,7 @@
   "slug": "articles",
   "title": "Articles (a / an / the)",
   "title_vi": "Mạo từ (a / an / the)",
-  "level": "beginner",
+  "level": "A1",
   "order": 8,
   "sections": {
     "definition": "**Mạo từ** (Articles: a/an/the) là những từ đứng trước danh từ để chỉ định danh từ đó là **cụ thể** hay **không cụ thể**. Ta dùng **a/an** để nói về một danh từ đếm được, số ít, không xác định hoặc được đề cập lần đầu, còn **the** dùng cho danh từ đã xác định rõ ràng, đã được biết đến hoặc được đề cập trước đó.",
@@ -353,89 +353,232 @@
         "why": "Dùng the với sự vật duy nhất và đã được xác định như the sun."
       }
     ],
-    "tips": "**Mẹo nhớ:** Dùng **a** trước danh từ bắt đầu bằng phụ âm, dùng **an** trước danh từ bắt đầu bằng nguyên âm. Dùng **the** cho danh từ cụ thể hoặc đã được nhắc đến trước đó.",
+    "tips": "**Lưu ý trọng tâm:** Dùng **a** trước danh từ bắt đầu bằng phụ âm, dùng **an** trước danh từ bắt đầu bằng nguyên âm. Dùng **the** cho danh từ cụ thể hoặc đã được nhắc đến trước đó.",
     "comparison": "**Sự khác biệt giữa a, an, và the:** Dùng **a** và **an** cho danh từ không cụ thể, dùng **the** cho danh từ cụ thể hoặc đã được nhắc đến trước đó.",
     "timeline": null
   },
   "exercises": [
     {
-      "type": "mcq",
-      "q": "I have ___ book.",
-      "opts": [
+      "id": "articles-ex-01",
+      "type": "multiple_choice",
+      "question": "I have ___ book.",
+      "options": [
         "a",
         "an",
         "the"
       ],
-      "answer": "a",
-      "fb": "Book bắt đầu bằng âm phụ âm; nhắc lần đầu dùng a."
+      "correct_answer": "a",
+      "explanation": "Book bắt đầu bằng âm phụ âm; nhắc lần đầu dùng a.",
+      "distractor_breakdowns": [
+        {
+          "option": "a",
+          "isCorrect": true,
+          "pedagogicalReason": "Book bắt đầu bằng âm phụ âm; nhắc lần đầu dùng a."
+        },
+        {
+          "option": "an",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Mạo từ \"an\" chỉ đứng trước danh từ đếm được số ít phát âm bắt đầu bằng một nguyên âm."
+        },
+        {
+          "option": "the",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Mạo từ xác định \"the\" chỉ dùng cho đối tượng đã được xác định cụ thể trong ngữ cảnh."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "mcq",
-      "q": "She has ___ apple.",
-      "opts": [
+      "id": "articles-ex-02",
+      "type": "multiple_choice",
+      "question": "She has ___ apple.",
+      "options": [
         "an",
         "a",
         "some"
       ],
-      "answer": "an",
-      "fb": "Apple bắt đầu bằng âm nguyên âm; dùng an."
-    },
-    {
-      "type": "fill",
-      "q": "He is ___ teacher. (a / an)",
-      "answer": [
-        "a"
+      "correct_answer": "an",
+      "explanation": "Apple bắt đầu bằng âm nguyên âm; dùng an.",
+      "distractor_breakdowns": [
+        {
+          "option": "an",
+          "isCorrect": true,
+          "pedagogicalReason": "Apple bắt đầu bằng âm nguyên âm; dùng an."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Mạo từ \"a\" chỉ đứng trước danh từ đếm được số ít phát âm bắt đầu bằng một phụ âm."
+        },
+        {
+          "option": "some",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"some\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
       ],
-      "fb": "Teacher bắt đầu bằng âm /t/; dùng a."
+      "difficulty": 1
     },
     {
-      "type": "mcq",
-      "q": "I saw a dog. ___ dog was black.",
-      "opts": [
+      "id": "articles-ex-03",
+      "type": "multiple_choice",
+      "question": "He is ___ teacher. (a / an)",
+      "options": [
+        "a",
+        "an"
+      ],
+      "correct_answer": "a",
+      "explanation": "Teacher bắt đầu bằng âm /t/; dùng a.",
+      "distractor_breakdowns": [
+        {
+          "option": "a",
+          "isCorrect": true,
+          "pedagogicalReason": "Teacher bắt đầu bằng âm /t/; dùng a."
+        },
+        {
+          "option": "an",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Mạo từ \"an\" chỉ đứng trước danh từ đếm được số ít phát âm bắt đầu bằng một nguyên âm."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "articles-ex-04",
+      "type": "multiple_choice",
+      "question": "I saw a dog. ___ dog was black.",
+      "options": [
         "The",
         "A",
         "An"
       ],
-      "answer": "The",
-      "fb": "Đã nhắc a dog rồi, lần sau dùng the dog."
+      "correct_answer": "The",
+      "explanation": "Đã nhắc a dog rồi, lần sau dùng the dog.",
+      "distractor_breakdowns": [
+        {
+          "option": "The",
+          "isCorrect": true,
+          "pedagogicalReason": "Đã nhắc a dog rồi, lần sau dùng the dog."
+        },
+        {
+          "option": "A",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. A dog rồi, lần sau dùng the dog."
+        },
+        {
+          "option": "An",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Mạo từ \"an\" chỉ đứng trước danh từ đếm được số ít phát âm bắt đầu bằng một nguyên âm."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "This is ___ orange. (a / an)",
-      "answer": [
+      "id": "articles-ex-05",
+      "type": "multiple_choice",
+      "question": "This is ___ orange. (a / an)",
+      "options": [
+        "a",
         "an"
       ],
-      "fb": "Orange bắt đầu bằng âm nguyên âm; dùng an."
+      "correct_answer": "an",
+      "explanation": "Orange bắt đầu bằng âm nguyên âm; dùng an.",
+      "distractor_breakdowns": [
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Mạo từ \"a\" chỉ đứng trước danh từ đếm được số ít phát âm bắt đầu bằng một phụ âm."
+        },
+        {
+          "option": "an",
+          "isCorrect": true,
+          "pedagogicalReason": "Orange bắt đầu bằng âm nguyên âm; dùng an."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "mcq",
-      "q": "Choose the correct phrase.",
-      "opts": [
+      "id": "articles-ex-06",
+      "type": "multiple_choice",
+      "question": "Choose the correct phrase.",
+      "options": [
         "an umbrella",
         "a umbrella",
         "the umbrella for the first mention"
       ],
-      "answer": "an umbrella",
-      "fb": "Umbrella bắt đầu bằng âm nguyên âm; lần đầu nhắc dùng an umbrella."
-    },
-    {
-      "type": "fill",
-      "q": "Please close ___ door. (the / a; both people know which door)",
-      "answer": [
-        "the"
+      "correct_answer": "an umbrella",
+      "explanation": "Umbrella bắt đầu bằng âm nguyên âm; lần đầu nhắc dùng an umbrella.",
+      "distractor_breakdowns": [
+        {
+          "option": "an umbrella",
+          "isCorrect": true,
+          "pedagogicalReason": "Umbrella bắt đầu bằng âm nguyên âm; lần đầu nhắc dùng an umbrella."
+        },
+        {
+          "option": "a umbrella",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"a umbrella\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "the umbrella for the first mention",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"the umbrella for the first mention\" là danh từ trừu tượng, không thể đảm nhận vai trò tính từ hoặc động từ ở vị trí này."
+        }
       ],
-      "fb": "Hai người đều biết cánh cửa nào nên dùng the."
+      "difficulty": 2
     },
     {
-      "type": "mcq",
-      "q": "She bought a pen. Where is ___ pen now?",
-      "opts": [
+      "id": "articles-ex-07",
+      "type": "multiple_choice",
+      "question": "Please close ___ door. (the / a; both people know which door)",
+      "options": [
+        "the",
+        "a"
+      ],
+      "correct_answer": "the",
+      "explanation": "Hai người đều biết cánh cửa nào nên dùng the.",
+      "distractor_breakdowns": [
+        {
+          "option": "the",
+          "isCorrect": true,
+          "pedagogicalReason": "Hai người đều biết cánh cửa nào nên dùng the."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. A nào nên dùng the."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "articles-ex-08",
+      "type": "multiple_choice",
+      "question": "She bought a pen. Where is ___ pen now?",
+      "options": [
         "the",
         "a",
         "an"
       ],
-      "answer": "the",
-      "fb": "Chiếc bút đã được xác định ở câu trước."
+      "correct_answer": "the",
+      "explanation": "Chiếc bút đã được xác định ở câu trước.",
+      "distractor_breakdowns": [
+        {
+          "option": "the",
+          "isCorrect": true,
+          "pedagogicalReason": "Chiếc bút đã được xác định ở câu trước."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Mạo từ \"a\" chỉ đứng trước danh từ đếm được số ít phát âm bắt đầu bằng một phụ âm."
+        },
+        {
+          "option": "an",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Mạo từ \"an\" chỉ đứng trước danh từ đếm được số ít phát âm bắt đầu bằng một nguyên âm."
+        }
+      ],
+      "difficulty": 3
     }
   ]
 }

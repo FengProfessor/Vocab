@@ -2,10 +2,10 @@
   "slug": "relative-clauses",
   "title": "Relative Clauses",
   "title_vi": "Mệnh đề quan hệ",
-  "level": "intermediate",
-  "order": 38,
+  "level": "B1",
+  "order": 39,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **person + who/that + clause** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **person + who/that + clause** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -418,215 +418,738 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "People say that this castle is 500 years old.  →  It ____ that this castle is 500 years old.",
-      "opts": [],
-      "answer": "is said",
-      "fb": "Kiểu It: It + is said + that, vế sau giữ nguyên"
+      "id": "relative-clauses-ex-01",
+      "type": "fill_blank",
+      "question": "People say that this castle is 500 years old.  →  It ____ that this castle is 500 years old.",
+      "options": [],
+      "correct_answer": "is said",
+      "explanation": "Kiểu It: It + is said + that, vế sau giữ nguyên",
+      "distractor_breakdowns": [
+        {
+          "option": "is said",
+          "isCorrect": true,
+          "pedagogicalReason": "Kiểu It: It + is said + that, vế sau giữ nguyên"
+        },
+        {
+          "option": "is saying",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc bị động khách quan mở đầu bằng \"It is said that...\"."
+        },
+        {
+          "option": "says",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Chủ ngữ giả \"It\" không tự thực hiện hành động nói, phải chia bị động."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "This chair is ____ (comfortable) than that one.",
-      "opts": [],
-      "answer": "more comfortable",
-      "fb": "comfortable dài → more + tính từ"
+      "id": "relative-clauses-ex-02",
+      "type": "fill_blank",
+      "question": "This chair is ____ (comfortable) than that one.",
+      "options": [],
+      "correct_answer": "more comfortable",
+      "explanation": "comfortable dài → more + tính từ",
+      "distractor_breakdowns": [
+        {
+          "option": "more comfortable",
+          "isCorrect": true,
+          "pedagogicalReason": "comfortable dài → more + tính từ"
+        },
+        {
+          "option": "comfortabler",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"comfortable\" là tính từ dài 3 âm tiết, so sánh hơn dùng \"more comfortable\", không thêm đuôi \"-er\"."
+        },
+        {
+          "option": "most comfortable",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. So sánh hơn với \"than\" dùng \"more\", không dùng \"most\"."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "Which is ____ (dangerous) animal in the world?",
-      "opts": [],
-      "answer": "the most dangerous",
-      "fb": "in the world → nhất, dangerous dài nên the most"
+      "id": "relative-clauses-ex-03",
+      "type": "fill_blank",
+      "question": "Which is ____ (dangerous) animal in the world?",
+      "options": [],
+      "correct_answer": "the most dangerous",
+      "explanation": "in the world → nhất, dangerous dài nên the most",
+      "distractor_breakdowns": [
+        {
+          "option": "the most dangerous",
+          "isCorrect": true,
+          "pedagogicalReason": "in the world → nhất, dangerous dài nên the most"
+        },
+        {
+          "option": "more dangerous",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phạm vi \"in the world\" chỉ so sánh nhất trên toàn thế giới, phải dùng \"the most dangerous\"."
+        },
+        {
+          "option": "most dangerous",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. So sánh nhất bắt buộc phải có mạo từ \"the\" đi kèm."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "This exercise is ____ (easy) than that one.",
-      "opts": [],
-      "answer": "easier",
-      "fb": "easy đuôi -y → bỏ y thêm -ier"
+      "id": "relative-clauses-ex-04",
+      "type": "fill_blank",
+      "question": "This exercise is ____ (easy) than that one.",
+      "options": [],
+      "correct_answer": "easier",
+      "explanation": "easy đuôi -y → bỏ y thêm -ier",
+      "distractor_breakdowns": [
+        {
+          "option": "easier",
+          "isCorrect": true,
+          "pedagogicalReason": "easy đuôi -y → bỏ y thêm -ier"
+        },
+        {
+          "option": "more easy",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"easy\" là tính từ 2 âm tiết tận cùng bằng \"-y\", so sánh hơn đổi \"-y\" thành \"-ier\" (\"easier\"), không dùng \"more easy\"."
+        },
+        {
+          "option": "easiest",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"easiest\" là so sánh nhất, trong khi từ nhận biết \"than\" yêu cầu dạng so sánh hơn."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "It was ____ a cold night that the lake froze. (so / such)",
-      "opts": [],
-      "answer": "such",
-      "fb": "sau chỗ trống là a + adj + danh từ → such"
+      "id": "relative-clauses-ex-05",
+      "type": "multiple_choice",
+      "question": "It was ____ a cold night that the lake froze. (so / such)",
+      "options": [
+        "so",
+        "such"
+      ],
+      "correct_answer": "such",
+      "explanation": "sau chỗ trống là a + adj + danh từ → such",
+      "distractor_breakdowns": [
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"so\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "such",
+          "isCorrect": true,
+          "pedagogicalReason": "sau chỗ trống là a + adj + danh từ → such"
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "He has ____ many friends that he is never alone. (so / such)",
-      "opts": [],
-      "answer": "so",
-      "fb": "many luôn đi với so"
+      "id": "relative-clauses-ex-06",
+      "type": "multiple_choice",
+      "question": "He has ____ many friends that he is never alone. (so / such)",
+      "options": [
+        "so",
+        "such"
+      ],
+      "correct_answer": "so",
+      "explanation": "many luôn đi với so",
+      "distractor_breakdowns": [
+        {
+          "option": "so",
+          "isCorrect": true,
+          "pedagogicalReason": "many luôn đi với so"
+        },
+        {
+          "option": "such",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"such\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "The man ____ is standing at the door is my father.",
-      "opts": [],
-      "answer": [
+      "id": "relative-clauses-ex-07",
+      "type": "fill_blank",
+      "question": "The man ____ is standing at the door is my father.",
+      "options": [],
+      "correct_answer": "who",
+      "explanation": "the man = người → who",
+      "distractor_breakdowns": [
+        {
+          "option": "who",
+          "isCorrect": true,
+          "pedagogicalReason": "the man = người → who"
+        },
+        {
+          "option": "which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"which\" chỉ thay thế cho danh từ chỉ sự vật/hiện tượng, không dùng cho danh từ chỉ người."
+        },
+        {
+          "option": "whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"whom\" làm tân ngữ, không thể làm chủ ngữ đứng trước động từ vị ngữ trong mệnh đề quan hệ."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "relative-clauses-ex-08",
+      "type": "fill_blank",
+      "question": "I like the picture ____ hangs on the wall.",
+      "options": [],
+      "correct_answer": "which",
+      "explanation": "the picture = vật → which",
+      "distractor_breakdowns": [
+        {
+          "option": "which",
+          "isCorrect": true,
+          "pedagogicalReason": "the picture = vật → which"
+        },
+        {
+          "option": "who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"who\" chỉ thay thế cho danh từ chỉ người, không dùng cho danh từ chỉ đồ vật hay con vật."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"that\" ít trang trọng hơn hoặc không phù hợp với cấu trúc câu."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "relative-clauses-ex-09",
+      "type": "fill_blank",
+      "question": "Do you know the girl ____ brother won the race?",
+      "options": [],
+      "correct_answer": "whose",
+      "explanation": "sau chỗ trống là danh từ brother → whose",
+      "distractor_breakdowns": [
+        {
+          "option": "whose",
+          "isCorrect": true,
+          "pedagogicalReason": "sau chỗ trống là danh từ brother → whose"
+        },
+        {
+          "option": "who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"who\" là đại từ quan hệ chủ ngữ, không đứng trước danh từ để chỉ quan hệ sở hữu."
+        },
+        {
+          "option": "which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"which\" thay thế cho danh từ vật, không dùng chỉ quan hệ sở hữu giữa hai danh từ."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "relative-clauses-ex-10",
+      "type": "fill_blank",
+      "question": "Hue, ____ is famous for its food, is my hometown.",
+      "options": [],
+      "correct_answer": "which",
+      "explanation": "có phẩy + vật → which, cấm that",
+      "distractor_breakdowns": [
+        {
+          "option": "which",
+          "isCorrect": true,
+          "pedagogicalReason": "có phẩy + vật → which, cấm that"
+        },
+        {
+          "option": "who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"who\" chỉ thay thế cho danh từ chỉ người, không dùng cho danh từ chỉ đồ vật hay con vật."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Trong mệnh đề quan hệ không xác định (đứng sau dấu phẩy), tuyệt đối không được dùng đại từ \"that\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "relative-clauses-ex-11",
+      "type": "fill_blank",
+      "question": "The people ____ live upstairs are very noisy.",
+      "options": [],
+      "correct_answer": "who",
+      "explanation": "people = người → who",
+      "distractor_breakdowns": [
+        {
+          "option": "who",
+          "isCorrect": true,
+          "pedagogicalReason": "people = người → who"
+        },
+        {
+          "option": "which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"which\" chỉ thay thế cho danh từ chỉ sự vật/hiện tượng, không dùng cho danh từ chỉ người."
+        },
+        {
+          "option": "whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"whom\" làm tân ngữ, không thể làm chủ ngữ đứng trước động từ vị ngữ trong mệnh đề quan hệ."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "relative-clauses-ex-12",
+      "type": "fill_blank",
+      "question": "This is the dictionary ____ I borrowed from Lan.",
+      "options": [],
+      "correct_answer": "which",
+      "explanation": "the dictionary = vật → which",
+      "distractor_breakdowns": [
+        {
+          "option": "which",
+          "isCorrect": true,
+          "pedagogicalReason": "the dictionary = vật → which"
+        },
+        {
+          "option": "who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"who\" chỉ thay thế cho danh từ chỉ người, không dùng cho danh từ chỉ đồ vật hay con vật."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"that\" ít trang trọng hơn hoặc không phù hợp với cấu trúc câu."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "relative-clauses-ex-13",
+      "type": "fill_blank",
+      "question": "Mr Hung, ____ son studies with me, is a driver.",
+      "options": [],
+      "correct_answer": "whose",
+      "explanation": "sau chỗ trống là danh từ son → whose",
+      "distractor_breakdowns": [
+        {
+          "option": "whose",
+          "isCorrect": true,
+          "pedagogicalReason": "sau chỗ trống là danh từ son → whose"
+        },
+        {
+          "option": "who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"who\" là đại từ quan hệ chủ ngữ, không đứng trước danh từ để chỉ quan hệ sở hữu."
+        },
+        {
+          "option": "which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"which\" thay thế cho danh từ vật, không dùng chỉ quan hệ sở hữu giữa hai danh từ."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "relative-clauses-ex-14",
+      "type": "fill_blank",
+      "question": "The house ____ roof is red belongs to my aunt.",
+      "options": [],
+      "correct_answer": "whose",
+      "explanation": "sau chỗ trống là danh từ roof → whose",
+      "distractor_breakdowns": [
+        {
+          "option": "whose",
+          "isCorrect": true,
+          "pedagogicalReason": "sau chỗ trống là danh từ roof → whose"
+        },
+        {
+          "option": "who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"who\" là đại từ quan hệ chủ ngữ, không đứng trước danh từ để chỉ quan hệ sở hữu."
+        },
+        {
+          "option": "which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"which\" thay thế cho danh từ vật, không dùng chỉ quan hệ sở hữu giữa hai danh từ."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "relative-clauses-ex-15",
+      "type": "fill_blank",
+      "question": "The song ____ we heard on the radio is very old.",
+      "options": [],
+      "correct_answer": "which",
+      "explanation": "the song = vật → which",
+      "distractor_breakdowns": [
+        {
+          "option": "which",
+          "isCorrect": true,
+          "pedagogicalReason": "the song = vật → which"
+        },
+        {
+          "option": "who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"who\" chỉ thay thế cho danh từ chỉ người, không dùng cho danh từ chỉ đồ vật hay con vật."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"that\" ít trang trọng hơn hoặc không phù hợp với cấu trúc câu."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "relative-clauses-ex-16",
+      "type": "fill_blank",
+      "question": "Rút gọn: The man who is waiting outside wants to see you.",
+      "options": [],
+      "correct_answer": "The man waiting outside wants to see you.",
+      "explanation": "is waiting chủ động → waiting",
+      "distractor_breakdowns": [
+        {
+          "option": "The man waiting outside wants to see you.",
+          "isCorrect": true,
+          "pedagogicalReason": "is waiting chủ động → waiting"
+        },
+        {
+          "option": "The man waited outside wants to see you.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Người đàn ông đang chủ động chờ đợi, khi rút gọn mệnh đề chủ động dùng V-ing (\"waiting\"), không dùng V-ed."
+        },
+        {
+          "option": "The man to wait outside wants to see you.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không có từ bổ nghĩa như \"the only/the first\" nên không rút gọn bằng to-V."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "relative-clauses-ex-17",
+      "type": "fill_blank",
+      "question": "Rút gọn: Neil Armstrong was the first man who walked on the Moon.",
+      "options": [],
+      "correct_answer": "Neil Armstrong was the first man to walk on the Moon.",
+      "explanation": "the first → dùng to V",
+      "distractor_breakdowns": [
+        {
+          "option": "Neil Armstrong was the first man to walk on the Moon.",
+          "isCorrect": true,
+          "pedagogicalReason": "the first → dùng to V"
+        },
+        {
+          "option": "Neil Armstrong was the first man walking on the Moon.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Khi danh từ đứng trước có số thứ tự \"the first\", bắt buộc phải rút gọn bằng to-V (\"to walk\"), không dùng V-ing."
+        },
+        {
+          "option": "Neil Armstrong was the first man walked on the Moon.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thiếu \"to\", gây xung đột 2 động từ vị ngữ trong cùng một mệnh đề."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "relative-clauses-ex-18",
+      "type": "fill_blank",
+      "question": "Rút gọn: The people who live next door are very friendly.",
+      "options": [],
+      "correct_answer": "The people living next door are very friendly.",
+      "explanation": "live chủ động → living",
+      "distractor_breakdowns": [
+        {
+          "option": "The people living next door are very friendly.",
+          "isCorrect": true,
+          "pedagogicalReason": "live chủ động → living"
+        },
+        {
+          "option": "The people lived next door are very friendly.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ \"live\" ở thể chủ động, khi rút gọn mệnh đề quan hệ phải dùng V-ing (\"living\"), không dùng quá khứ \"lived\"."
+        },
+        {
+          "option": "The people to live next door are very friendly.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không có từ bổ nghĩa đặc biệt nên không rút gọn bằng to-V."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "relative-clauses-ex-19",
+      "type": "fill_blank",
+      "question": "Viết lại dùng in which: This is the house which my family lived in for ten years.",
+      "options": [],
+      "correct_answer": "This is the house in which my family lived for ten years.",
+      "explanation": "giới từ in lên trước which thì bỏ in ở cuối",
+      "distractor_breakdowns": [
+        {
+          "option": "This is the house in which my family lived for ten years.",
+          "isCorrect": true,
+          "pedagogicalReason": "giới từ in lên trước which thì bỏ in ở cuối"
+        },
+        {
+          "option": "This is the house in which my family lived in for ten years.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Khi đã đảo giới từ \"in\" lên trước \"which\", tuyệt đối không để lại giới từ \"in\" ở cuối mệnh đề."
+        },
+        {
+          "option": "This is the house in that my family lived for ten years.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Đại từ quan hệ \"that\" không bao giờ đứng ngay sau giới từ."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "relative-clauses-ex-20",
+      "type": "fill_blank",
+      "question": "Viết lại dùng what: I don't believe the thing which she told me.",
+      "options": [],
+      "correct_answer": "I don't believe what she told me.",
+      "explanation": "the thing which gộp lại thành what",
+      "distractor_breakdowns": [
+        {
+          "option": "I don't believe what she told me.",
+          "isCorrect": true,
+          "pedagogicalReason": "the thing which gộp lại thành what"
+        },
+        {
+          "option": "I don't believe that she told me.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"that\" thay thế cho danh từ đứng trước, trong khi ở đây cần đại từ quan hệ độc lập \"what\" (= the thing which)."
+        },
+        {
+          "option": "I don't believe which she told me.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"which\" không đứng độc lập mà cần có danh từ tiền ngữ đứng trước."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "relative-clauses-ex-21",
+      "type": "fill_blank",
+      "question": "Rút gọn: My father was the only person who noticed my mistake.",
+      "options": [],
+      "correct_answer": "My father was the only person to notice my mistake.",
+      "explanation": "the only → dùng to V",
+      "distractor_breakdowns": [
+        {
+          "option": "My father was the only person to notice my mistake.",
+          "isCorrect": true,
+          "pedagogicalReason": "the only → dùng to V"
+        },
+        {
+          "option": "My father was the only person noticing my mistake.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Khi danh từ đi kèm với \"the only\", mệnh đề quan hệ bắt buộc phải rút gọn bằng to-V (\"to notice\"), không dùng V-ing."
+        },
+        {
+          "option": "My father was the only person noticed my mistake.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thiếu \"to\", dẫn tới lỗi sai ngữ pháp 2 động từ vị ngữ đứng liền nhau."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "relative-clauses-ex-22",
+      "type": "fill_blank",
+      "question": "Viết lại dùng with whom: That is the friend who I often go to the cinema with.",
+      "options": [],
+      "correct_answer": "That is the friend with whom I often go to the cinema.",
+      "explanation": "giới từ with lên trước thì phải dùng whom",
+      "distractor_breakdowns": [
+        {
+          "option": "That is the friend with whom I often go to the cinema.",
+          "isCorrect": true,
+          "pedagogicalReason": "giới từ with lên trước thì phải dùng whom"
+        },
+        {
+          "option": "That is the friend with who I often go to the cinema.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sau giới từ \"with\", đại từ quan hệ chỉ người bắt buộc phải dùng dạng tân ngữ \"whom\", không dùng \"who\"."
+        },
+        {
+          "option": "That is the friend with that I often go to the cinema.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Đại từ quan hệ \"that\" không bao giờ đứng ngay sau giới từ."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "relative-clauses-ex-23",
+      "type": "fill_blank",
+      "question": "Đổi sang gián tiếp: He said: “Someone has stolen my bag.”",
+      "options": [],
+      "correct_answer": "He said (that) someone had stolen his bag.",
+      "explanation": "has stolen lùi thành had stolen",
+      "distractor_breakdowns": [
+        {
+          "option": "He said (that) someone had stolen his bag.",
+          "isCorrect": true,
+          "pedagogicalReason": "has stolen lùi thành had stolen"
+        },
+        {
+          "option": "He said someone has stolen his bag.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Khi động từ tường thuật ở quá khứ (\"said\"), thì hiện tại hoàn thành \"has stolen\" bắt buộc phải lùi thì thành \"had stolen\"."
+        },
+        {
+          "option": "He said that someone stole his bag.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Hành động trộm túi xảy ra trước thời điểm nói trong quá khứ, cần dùng quá khứ hoàn thành \"had stolen\"."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "relative-clauses-ex-24",
+      "type": "fill_blank",
+      "question": "Đổi sang gián tiếp: She said: “We are learning English now.”",
+      "options": [],
+      "correct_answer": "She said (that) they were learning English then.",
+      "explanation": "are lùi thành were · now → then",
+      "distractor_breakdowns": [
+        {
+          "option": "She said (that) they were learning English then.",
+          "isCorrect": true,
+          "pedagogicalReason": "are lùi thành were · now → then"
+        },
+        {
+          "option": "She said they are learning English now.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cần lùi thì \"are learning\" thành \"were learning\" và đổi trạng từ thời gian \"now\" thành \"then\"."
+        },
+        {
+          "option": "She said that they were learning English now.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Trạng từ chỉ thời gian \"now\" trong lời nói gián tiếp bắt buộc phải chuyển thành \"then\"."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "relative-clauses-ex-25",
+      "type": "fill_blank",
+      "question": "Đổi sang gián tiếp: Huong said: “We are going to have a party next weekend.”",
+      "options": [],
+      "correct_answer": "Huong said (that) they were going to have a party the following weekend.",
+      "explanation": "are going to lùi thành were going to · next weekend → the following weekend",
+      "distractor_breakdowns": [
+        {
+          "option": "Huong said (that) they were going to have a party the following weekend.",
+          "isCorrect": true,
+          "pedagogicalReason": "are going to lùi thành were going to · next weekend → the following weekend"
+        },
+        {
+          "option": "Huong said they are going to have a party next weekend.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cần lùi thì \"are going to\" thành \"were going to\" và đổi \"next weekend\" thành \"the following weekend\"."
+        },
+        {
+          "option": "Huong said that they were going to have a party next weekend.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cụm chỉ thời gian tương lai \"next weekend\" phải chuyển thành \"the following weekend\"."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "relative-clauses-ex-26",
+      "type": "fill_blank",
+      "question": "Who is that man standing ____ the school gate?",
+      "options": [],
+      "correct_answer": "at",
+      "explanation": "cổng trường là một điểm → at",
+      "distractor_breakdowns": [
+        {
+          "option": "at",
+          "isCorrect": true,
+          "pedagogicalReason": "cổng trường là một điểm → at"
+        },
+        {
+          "option": "in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Giới từ \"in\" dùng cho khoảng thời gian dài hoặc không gian kín, không dùng cho mốc giờ chính xác hoặc sự kiện lễ hội như Christmas."
+        },
+        {
+          "option": "on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Giới từ \"on\" chỉ dùng cho ngày trong tuần hoặc ngày cụ thể, không dùng cho mốc giờ."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "relative-clauses-ex-27",
+      "type": "fill_blank",
+      "question": "My friend wants to buy that new car ____ she doesn't have enough money.",
+      "options": [],
+      "correct_answer": "although",
+      "explanation": "she doesn't have là chủ ngữ + động từ, ý trái ngược → although",
+      "distractor_breakdowns": [
+        {
+          "option": "although",
+          "isCorrect": true,
+          "pedagogicalReason": "she doesn't have là chủ ngữ + động từ, ý trái ngược → although"
+        },
+        {
+          "option": "althoughs",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"althoughs\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to although",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "relative-clauses-ex-28",
+      "type": "multiple_choice",
+      "question": "The book ____ I borrowed from you is very interesting.",
+      "options": [
         "who",
-        "that"
-      ],
-      "fb": "the man = người → who"
-    },
-    {
-      "type": "fill",
-      "q": "I like the picture ____ hangs on the wall.",
-      "opts": [],
-      "answer": [
+        "whom",
         "which",
-        "that"
+        "whose"
       ],
-      "fb": "the picture = vật → which"
-    },
-    {
-      "type": "fill",
-      "q": "Do you know the girl ____ brother won the race?",
-      "opts": [],
-      "answer": "whose",
-      "fb": "sau chỗ trống là danh từ brother → whose"
-    },
-    {
-      "type": "fill",
-      "q": "Hue, ____ is famous for its food, is my hometown.",
-      "opts": [],
-      "answer": "which",
-      "fb": "có phẩy + vật → which, cấm that"
-    },
-    {
-      "type": "fill",
-      "q": "The people ____ live upstairs are very noisy.",
-      "opts": [],
-      "answer": [
-        "who",
-        "that"
+      "correct_answer": "which",
+      "explanation": "Thay cho vật là quyển sách → which · buổi 13",
+      "distractor_breakdowns": [
+        {
+          "option": "who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"who\" chỉ thay thế cho danh từ chỉ người, không dùng cho sự vật/hiện tượng."
+        },
+        {
+          "option": "whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"whom\" làm tân ngữ chỉ người, không thay thế cho chủ ngữ hoặc danh từ chỉ vật."
+        },
+        {
+          "option": "which",
+          "isCorrect": true,
+          "pedagogicalReason": "Thay cho vật là quyển sách → which · buổi 13"
+        },
+        {
+          "option": "whose",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"whose\" chỉ quan hệ sở hữu (whose + noun), không đứng độc lập làm đại từ quan hệ chủ ngữ."
+        }
       ],
-      "fb": "people = người → who"
-    },
-    {
-      "type": "fill",
-      "q": "This is the dictionary ____ I borrowed from Lan.",
-      "opts": [],
-      "answer": [
-        "which",
-        "that"
-      ],
-      "fb": "the dictionary = vật → which"
-    },
-    {
-      "type": "fill",
-      "q": "Mr Hung, ____ son studies with me, is a driver.",
-      "opts": [],
-      "answer": "whose",
-      "fb": "sau chỗ trống là danh từ son → whose"
-    },
-    {
-      "type": "fill",
-      "q": "The house ____ roof is red belongs to my aunt.",
-      "opts": [],
-      "answer": "whose",
-      "fb": "sau chỗ trống là danh từ roof → whose"
-    },
-    {
-      "type": "fill",
-      "q": "The song ____ we heard on the radio is very old.",
-      "opts": [],
-      "answer": [
-        "which",
-        "that"
-      ],
-      "fb": "the song = vật → which"
-    },
-    {
-      "type": "fill",
-      "q": "Rút gọn: The man who is waiting outside wants to see you.",
-      "opts": [],
-      "answer": "The man waiting outside wants to see you.",
-      "fb": "is waiting chủ động → waiting"
-    },
-    {
-      "type": "fill",
-      "q": "Rút gọn: Neil Armstrong was the first man who walked on the Moon.",
-      "opts": [],
-      "answer": "Neil Armstrong was the first man to walk on the Moon.",
-      "fb": "the first → dùng to V"
-    },
-    {
-      "type": "fill",
-      "q": "Rút gọn: The people who live next door are very friendly.",
-      "opts": [],
-      "answer": "The people living next door are very friendly.",
-      "fb": "live chủ động → living"
-    },
-    {
-      "type": "fill",
-      "q": "Viết lại dùng in which: This is the house which my family lived in for ten years.",
-      "opts": [],
-      "answer": "This is the house in which my family lived for ten years.",
-      "fb": "giới từ in lên trước which thì bỏ in ở cuối"
-    },
-    {
-      "type": "fill",
-      "q": "Viết lại dùng what: I don't believe the thing which she told me.",
-      "opts": [],
-      "answer": "I don't believe what she told me.",
-      "fb": "the thing which gộp lại thành what"
-    },
-    {
-      "type": "fill",
-      "q": "Rút gọn: My father was the only person who noticed my mistake.",
-      "opts": [],
-      "answer": "My father was the only person to notice my mistake.",
-      "fb": "the only → dùng to V"
-    },
-    {
-      "type": "fill",
-      "q": "Viết lại dùng with whom: That is the friend who I often go to the cinema with.",
-      "opts": [],
-      "answer": "That is the friend with whom I often go to the cinema.",
-      "fb": "giới từ with lên trước thì phải dùng whom"
-    },
-    {
-      "type": "fill",
-      "q": "Đổi sang gián tiếp: He said: “Someone has stolen my bag.”",
-      "opts": [],
-      "answer": "He said (that) someone had stolen his bag.",
-      "fb": "has stolen lùi thành had stolen"
-    },
-    {
-      "type": "fill",
-      "q": "Đổi sang gián tiếp: She said: “We are learning English now.”",
-      "opts": [],
-      "answer": "She said (that) they were learning English then.",
-      "fb": "are lùi thành were · now → then"
-    },
-    {
-      "type": "fill",
-      "q": "Đổi sang gián tiếp: Huong said: “We are going to have a party next weekend.”",
-      "opts": [],
-      "answer": "Huong said (that) they were going to have a party the following weekend.",
-      "fb": "are going to lùi thành were going to · next weekend → the following weekend"
-    },
-    {
-      "type": "fill",
-      "q": "Who is that man standing ____ the school gate?",
-      "opts": [],
-      "answer": "at",
-      "fb": "cổng trường là một điểm → at"
-    },
-    {
-      "type": "fill",
-      "q": "My friend wants to buy that new car ____ she doesn't have enough money.",
-      "opts": [],
-      "answer": "although",
-      "fb": "she doesn't have là chủ ngữ + động từ, ý trái ngược → although"
-    },
-    {
-      "type": "fill",
-      "q": "The book ____ I borrowed from you is very interesting.  (A who · B whom · C which · D whose)",
-      "opts": [],
-      "answer": "C which",
-      "fb": "Thay cho vật là quyển sách → which · buổi 13"
+      "difficulty": 3
     }
   ]
 }

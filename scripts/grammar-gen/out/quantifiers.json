@@ -2,10 +2,10 @@
   "slug": "quantifiers",
   "title": "Quantifiers (some/any/much/many)",
   "title_vi": "Lượng từ (some/any/much/many)",
-  "level": "beginner",
+  "level": "A2",
   "order": 18,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **many/few + danh từ đếm được số nhiều** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **many/few + danh từ đếm được số nhiều** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -336,130 +336,482 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "We ____ (have) English on Monday and Friday.",
-      "opts": [],
-      "answer": "have",
-      "fb": "We = số nhiều → V để trơ"
+      "id": "quantifiers-ex-01",
+      "type": "fill_blank",
+      "question": "We ____ (have) English on Monday and Friday.",
+      "options": [],
+      "correct_answer": "have",
+      "explanation": "We = số nhiều → V để trơ",
+      "distractor_breakdowns": [
+        {
+          "option": "have",
+          "isCorrect": true,
+          "pedagogicalReason": "We = số nhiều → V để trơ"
+        },
+        {
+          "option": "has",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Chủ ngữ \"We\" là ngôi thứ nhất số nhiều, động từ ở hiện tại đơn dùng \"have\", không dùng \"has\"."
+        },
+        {
+          "option": "are having",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Lịch học cố định hàng tuần dùng hiện tại đơn chỉ thói quen."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "____ your parents ____ (work) in a factory?",
-      "opts": [],
-      "answer": "Do … work",
-      "fb": "parents = số nhiều → Do + V để trơ"
+      "id": "quantifiers-ex-02",
+      "type": "fill_blank",
+      "question": "____ your parents ____ (work) in a factory?",
+      "options": [],
+      "correct_answer": "Do … work",
+      "explanation": "parents = số nhiều → Do + V để trơ",
+      "distractor_breakdowns": [
+        {
+          "option": "Do … work",
+          "isCorrect": true,
+          "pedagogicalReason": "parents = số nhiều → Do + V để trơ"
+        },
+        {
+          "option": "Does … work",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Chủ ngữ \"your parents\" là danh từ số nhiều, trợ động từ câu hỏi phải dùng \"Do\", không dùng \"Does\"."
+        },
+        {
+          "option": "Are … work",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng to-be với động từ nguyên thể \"work\"."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "Hoa and her sister ____ (go) to school by bike.",
-      "opts": [],
-      "answer": "go",
-      "fb": "and nối 2 người → số nhiều, V để trơ"
+      "id": "quantifiers-ex-03",
+      "type": "fill_blank",
+      "question": "Hoa and her sister ____ (go) to school by bike.",
+      "options": [],
+      "correct_answer": "go",
+      "explanation": "and nối 2 người → số nhiều, V để trơ",
+      "distractor_breakdowns": [
+        {
+          "option": "go",
+          "isCorrect": true,
+          "pedagogicalReason": "and nối 2 người → số nhiều, V để trơ"
+        },
+        {
+          "option": "goes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Chủ ngữ gồm 2 người (\"Hoa and her sister\") là chủ ngữ số nhiều, động từ để nguyên mẫu \"go\"."
+        },
+        {
+          "option": "are going",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thói quen đi học bằng xe đạp dùng hiện tại đơn, không dùng tiếp diễn."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "Every player in the team ____ (want) to win.",
-      "opts": [],
-      "answer": "wants",
-      "fb": "Every + danh từ số ít → V số ít"
+      "id": "quantifiers-ex-04",
+      "type": "fill_blank",
+      "question": "Every player in the team ____ (want) to win.",
+      "options": [],
+      "correct_answer": "wants",
+      "explanation": "Every + danh từ số ít → V số ít",
+      "distractor_breakdowns": [
+        {
+          "option": "wants",
+          "isCorrect": true,
+          "pedagogicalReason": "Every + danh từ số ít → V số ít"
+        },
+        {
+          "option": "is wanting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"want\" là stative verb (động từ chỉ nhu cầu/trạng thái), không chia ở thì tiếp diễn dù có \"at the moment\"."
+        },
+        {
+          "option": "want",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Chủ ngữ \"My mother\" là ngôi thứ ba số ít, động từ phải thêm \"-s\"."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "One of my brothers ____ (live) in Da Nang.",
-      "opts": [],
-      "answer": "lives",
-      "fb": "chủ ngữ chính là “One” → số ít"
+      "id": "quantifiers-ex-05",
+      "type": "fill_blank",
+      "question": "One of my brothers ____ (live) in Da Nang.",
+      "options": [],
+      "correct_answer": "lives",
+      "explanation": "chủ ngữ chính là “One” → số ít",
+      "distractor_breakdowns": [
+        {
+          "option": "lives",
+          "isCorrect": true,
+          "pedagogicalReason": "chủ ngữ chính là “One” → số ít"
+        },
+        {
+          "option": "live",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Chủ ngữ là \"One of my brothers\" (chỉ một người trong số các anh trai), động từ phải chia số ít \"lives\"."
+        },
+        {
+          "option": "living",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thiếu to-be nếu muốn dùng thì tiếp diễn."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "The cost of these books ____ (be) too high.",
-      "opts": [],
-      "answer": "is",
-      "fb": "chia theo “The cost” đứng trước of"
+      "id": "quantifiers-ex-06",
+      "type": "fill_blank",
+      "question": "The cost of these books ____ (be) too high.",
+      "options": [],
+      "correct_answer": "is",
+      "explanation": "chia theo “The cost” đứng trước of",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "chia theo “The cost” đứng trước of"
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"are\" dùng cho chủ ngữ số nhiều hoặc \"you/we/they\", không phù hợp với chủ ngữ số ít."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"am\" chỉ đi duy nhất với chủ ngữ ngôi thứ nhất \"I\"."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "Neither Bill nor Mary ____ (be) going to the party tonight.",
-      "opts": [],
-      "answer": "is",
-      "fb": "vế sau là “Mary” → số ít"
+      "id": "quantifiers-ex-07",
+      "type": "fill_blank",
+      "question": "Neither Bill nor Mary ____ (be) going to the party tonight.",
+      "options": [],
+      "correct_answer": "is",
+      "explanation": "vế sau là “Mary” → số ít",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "vế sau là “Mary” → số ít"
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"are\" dùng cho chủ ngữ số nhiều hoặc \"you/we/they\", không phù hợp với chủ ngữ số ít."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"am\" chỉ đi duy nhất với chủ ngữ ngôi thứ nhất \"I\"."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "Some of the money ____ (be) still in the box.",
-      "opts": [],
-      "answer": "is",
-      "fb": "some of + money không đếm được → số ít"
+      "id": "quantifiers-ex-08",
+      "type": "fill_blank",
+      "question": "Some of the money ____ (be) still in the box.",
+      "options": [],
+      "correct_answer": "is",
+      "explanation": "some of + money không đếm được → số ít",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "some of + money không đếm được → số ít"
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"are\" dùng cho chủ ngữ số nhiều hoặc \"you/we/they\", không phù hợp với chủ ngữ số ít."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"am\" chỉ đi duy nhất với chủ ngữ ngôi thứ nhất \"I\"."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "There ____ (be) no girls in this class.",
-      "opts": [],
-      "answer": "are",
-      "fb": "There + be theo “no girls” số nhiều"
+      "id": "quantifiers-ex-09",
+      "type": "fill_blank",
+      "question": "There ____ (be) no girls in this class.",
+      "options": [],
+      "correct_answer": "are",
+      "explanation": "There + be theo “no girls” số nhiều",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "There + be theo “no girls” số nhiều"
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"is\" dùng cho chủ ngữ số ít, không hòa hợp với chủ ngữ số nhiều."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Ngữ cảnh hiện tại không dùng to-be ở quá khứ đơn."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "Each item in the bill ____ (be) correct.",
-      "opts": [],
-      "answer": "is",
-      "fb": "Each + danh từ số ít → số ít"
+      "id": "quantifiers-ex-10",
+      "type": "fill_blank",
+      "question": "Each item in the bill ____ (be) correct.",
+      "options": [],
+      "correct_answer": "is",
+      "explanation": "Each + danh từ số ít → số ít",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "Each + danh từ số ít → số ít"
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"are\" dùng cho chủ ngữ số nhiều hoặc \"you/we/they\", không phù hợp với chủ ngữ số ít."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"am\" chỉ đi duy nhất với chủ ngữ ngôi thứ nhất \"I\"."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "Half of the students in my class ____ (wear) glasses.",
-      "opts": [],
-      "answer": "wear",
-      "fb": "half of + students số nhiều → số nhiều"
+      "id": "quantifiers-ex-11",
+      "type": "fill_blank",
+      "question": "Half of the students in my class ____ (wear) glasses.",
+      "options": [],
+      "correct_answer": "wear",
+      "explanation": "half of + students số nhiều → số nhiều",
+      "distractor_breakdowns": [
+        {
+          "option": "wear",
+          "isCorrect": true,
+          "pedagogicalReason": "half of + students số nhiều → số nhiều"
+        },
+        {
+          "option": "wears",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Half of the students\" chỉ một nửa số học sinh (danh từ số nhiều), động từ chia số nhiều \"wear\"."
+        },
+        {
+          "option": "is wearing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sự thật chung về việc đeo kính dùng hiện tại đơn."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "The boy with his two dogs ____ (be) waiting outside.",
-      "opts": [],
-      "answer": "is",
-      "fb": "with → theo “The boy” đứng trước"
+      "id": "quantifiers-ex-12",
+      "type": "fill_blank",
+      "question": "The boy with his two dogs ____ (be) waiting outside.",
+      "options": [],
+      "correct_answer": "is",
+      "explanation": "with → theo “The boy” đứng trước",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "with → theo “The boy” đứng trước"
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"are\" dùng cho chủ ngữ số nhiều hoặc \"you/we/they\", không phù hợp với chủ ngữ số ít."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"am\" chỉ đi duy nhất với chủ ngữ ngôi thứ nhất \"I\"."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "Not only my parents but also my sister ____ (like) this song.",
-      "opts": [],
-      "answer": "likes",
-      "fb": "vế sau là “my sister” → số ít"
+      "id": "quantifiers-ex-13",
+      "type": "fill_blank",
+      "question": "Not only my parents but also my sister ____ (like) this song.",
+      "options": [],
+      "correct_answer": "likes",
+      "explanation": "vế sau là “my sister” → số ít",
+      "distractor_breakdowns": [
+        {
+          "option": "likes",
+          "isCorrect": true,
+          "pedagogicalReason": "vế sau là “my sister” → số ít"
+        },
+        {
+          "option": "like",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc \"Not only... but also...\" hòa hợp theo chủ ngữ gần nhất \"my sister\" (số ít), động từ phải thêm \"-s\" (\"likes\")."
+        },
+        {
+          "option": "are liking",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"like\" là stative verb không chia tiếp diễn."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "These exercises ____ (check) by the teacher every Friday.",
-      "opts": [],
-      "answer": "are checked",
-      "fb": "exercises số nhiều + every Friday → are + V3"
+      "id": "quantifiers-ex-14",
+      "type": "fill_blank",
+      "question": "These exercises ____ (check) by the teacher every Friday.",
+      "options": [],
+      "correct_answer": "are checked",
+      "explanation": "exercises số nhiều + every Friday → are + V3",
+      "distractor_breakdowns": [
+        {
+          "option": "are checked",
+          "isCorrect": true,
+          "pedagogicalReason": "exercises số nhiều + every Friday → are + V3"
+        },
+        {
+          "option": "check",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Bài tập được giáo viên chấm vào mỗi thứ Sáu, phải chia bị động \"are checked\"."
+        },
+        {
+          "option": "is checked",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Chủ ngữ \"These exercises\" là danh từ số nhiều, phải dùng to-be \"are\"."
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "fill",
-      "q": "The company sent the customers a free gift.  →  The customers ____ a free gift.",
-      "opts": [],
-      "answer": "were sent",
-      "fb": "Người lên đầu, số nhiều → were + V3"
+      "id": "quantifiers-ex-15",
+      "type": "fill_blank",
+      "question": "The company sent the customers a free gift.  →  The customers ____ a free gift.",
+      "options": [],
+      "correct_answer": "were sent",
+      "explanation": "Người lên đầu, số nhiều → were + V3",
+      "distractor_breakdowns": [
+        {
+          "option": "were sent",
+          "isCorrect": true,
+          "pedagogicalReason": "Người lên đầu, số nhiều → were + V3"
+        },
+        {
+          "option": "sent",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Khách hàng được công ty gửi quà tặng miễn phí, phải chia bị động \"were sent\"."
+        },
+        {
+          "option": "was sent",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Chủ ngữ \"The customers\" là danh từ số nhiều, phải dùng to-be \"were\"."
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "fill",
-      "q": "My mother is ____ nurse at a big hospital.",
-      "opts": [],
-      "answer": "a",
-      "fb": "nghề nghiệp, đếm được số ít → a"
+      "id": "quantifiers-ex-16",
+      "type": "fill_blank",
+      "question": "My mother is ____ nurse at a big hospital.",
+      "options": [],
+      "correct_answer": "a",
+      "explanation": "nghề nghiệp, đếm được số ít → a",
+      "distractor_breakdowns": [
+        {
+          "option": "a",
+          "isCorrect": true,
+          "pedagogicalReason": "nghề nghiệp, đếm được số ít → a"
+        },
+        {
+          "option": "an",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Danh từ \"nurse\" phát âm bắt đầu bằng một phụ âm (/n/), do đó dùng mạo từ \"a\", không dùng \"an\"."
+        },
+        {
+          "option": "the",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Nghề nghiệp được giới thiệu lần đầu tiên dùng mạo từ bất định \"a\", không dùng mạo từ xác định \"the\"."
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "fill",
-      "q": "Many students in my class like ____ computer games.",
-      "opts": [],
-      "answer": "∅",
-      "fb": "danh từ số nhiều nói chung → để trống"
+      "id": "quantifiers-ex-17",
+      "type": "fill_blank",
+      "question": "Many students in my class like ____ computer games.",
+      "options": [],
+      "correct_answer": "∅",
+      "explanation": "danh từ số nhiều nói chung → để trống",
+      "distractor_breakdowns": [
+        {
+          "option": "∅",
+          "isCorrect": true,
+          "pedagogicalReason": "danh từ số nhiều nói chung → để trống"
+        },
+        {
+          "option": "the",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Khi nói về sở thích chung chung với danh từ số nhiều (\"computer games\"), không dùng mạo từ \"the\"."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"computer games\" là danh từ số nhiều, không thể đi với mạo từ số ít \"a\"."
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "fill",
-      "q": "Neither Lan nor her friends ____ late for class.  (A is · B am · C are · D was)",
-      "opts": [],
-      "answer": "C are",
-      "fb": "Neither… nor chia theo chủ ngữ gần nhất là her friends · buổi 8"
+      "id": "quantifiers-ex-18",
+      "type": "multiple_choice",
+      "question": "Neither Lan nor her friends ____ late for class.",
+      "options": [
+        "is",
+        "am",
+        "are",
+        "was"
+      ],
+      "correct_answer": "are",
+      "explanation": "Neither… nor chia theo chủ ngữ gần nhất là her friends · buổi 8",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng số ít \"is\" không hòa hợp với chủ ngữ số nhiều hoặc \"you/we/they\"."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ to-be \"am\" chỉ đi duy nhất với chủ ngữ ngôi thứ nhất \"I\"."
+        },
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "Neither… nor chia theo chủ ngữ gần nhất là her friends · buổi 8"
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng số ít \"was\" không hòa hợp với chủ ngữ số nhiều hoặc \"you/we/they\"."
+        }
+      ],
+      "difficulty": 3
     }
   ]
 }

@@ -2,10 +2,10 @@
   "slug": "causative",
   "title": "Causative (have/get something done)",
   "title_vi": "Thể nhờ/sai bảo (have/get sth done)",
-  "level": "advanced",
+  "level": "B2",
   "order": 50,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **have/get + object + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **have/get + object + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -374,14 +374,33 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "Hoàn thành theo mẫu: We ___ getting the roof repaired.",
-      "answer": [
-        "are"
+      "id": "causative-ex-01",
+      "type": "fill_blank",
+      "question": "Hoàn thành theo mẫu: We ___ getting the roof repaired.",
+      "options": [],
+      "correct_answer": "are",
+      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"is\" dùng cho chủ ngữ số ít, trong khi \"We\" là ngôi thứ nhất số nhiều."
+        },
+        {
+          "option": "have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc truyền khiến tiếp diễn ở đây dùng to-be: \"be getting something done\"."
+        }
       ],
-      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+      "difficulty": 1
     },
     {
+      "id": "causative-ex-02",
       "type": "multiple_choice",
       "question": "Choose the correct **causative form**: My laptop was overheating, so I ___ yesterday.",
       "options": [
@@ -392,9 +411,32 @@
       ],
       "correct_answer": "had it checked",
       "explanation": "Đáp án đúng là 'had it checked' vì cấu trúc have + object + V3 diễn tả việc nhờ/thuê người khác kiểm tra máy. 'checked it myself' nghĩa là tự làm, không phải causative; 'had checked it' là thì quá khứ hoàn thành; 'got check it' thiếu object và V3/to V.",
+      "distractor_breakdowns": [
+        {
+          "option": "had it checked",
+          "isCorrect": true,
+          "pedagogicalReason": "Đáp án đúng là 'had it checked' vì cấu trúc have + object + V3 diễn tả việc nhờ/thuê người khác kiểm tra máy. 'checked it myself' nghĩa là tự làm, không phải causative; 'had checked it' là thì quá khứ hoàn thành; 'got check it' thiếu object và V3/to V."
+        },
+        {
+          "option": "checked it myself",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'checked it myself' nghĩa là tự làm, không phải causative."
+        },
+        {
+          "option": "had checked it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'had checked it' là thì quá khứ hoàn thành."
+        },
+        {
+          "option": "got check it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'got check it' thiếu object và V3/to V."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-03",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **past participle**: We need to get the contract ___ before Friday.",
       "options": [
@@ -405,9 +447,32 @@
       ],
       "correct_answer": "signed",
       "explanation": "Sau get + object trong mẫu 'get something done' cần V3, nên 'signed' đúng. 'sign', 'to sign', và 'signing' không đúng dạng cho cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "signed",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau get + object trong mẫu 'get something done' cần V3, nên 'signed' đúng. 'sign', 'to sign', và 'signing' không đúng dạng cho cấu trúc này."
+        },
+        {
+          "option": "sign",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'sign', 'to sign', và 'signing' không đúng dạng cho cấu trúc này."
+        },
+        {
+          "option": "to sign",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'to sign', và 'signing' không đúng dạng cho cấu trúc này."
+        },
+        {
+          "option": "signing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'signing' không đúng dạng cho cấu trúc này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-04",
       "type": "error_correction",
       "question": "Find the error: Mark the wrong **verb form**: They had the broken window replace before the storm arrived.",
       "options": [
@@ -418,9 +483,32 @@
       ],
       "correct_answer": "replace",
       "explanation": "Trong cấu trúc have + object + V3, động từ phải là 'replaced'. 'Had', 'broken window', và 'arrived' đều phù hợp trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Had', 'broken window', và 'arrived' đều phù hợp trong câu."
+        },
+        {
+          "option": "broken window",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'broken window', và 'arrived' đều phù hợp trong câu."
+        },
+        {
+          "option": "replace",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong cấu trúc have + object + V3, động từ phải là 'replaced'. 'Had', 'broken window', và 'arrived' đều phù hợp trong câu."
+        },
+        {
+          "option": "arrived",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'arrived' đều phù hợp trong câu."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-05",
       "type": "multiple_choice",
       "question": "Choose the sentence with correct **word order**:",
       "options": [
@@ -431,9 +519,32 @@
       ],
       "correct_answer": "She got her passport renewed last week.",
       "explanation": "Cấu trúc đúng là get + object + V3: 'got her passport renewed'. Các lựa chọn khác sai thứ tự, sai dạng động từ, hoặc đổi nghĩa thành cô ấy tự đi gia hạn.",
+      "distractor_breakdowns": [
+        {
+          "option": "She got her passport renewed last week.",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc đúng là get + object + V3: 'got her passport renewed'. Các lựa chọn khác sai thứ tự, sai dạng động từ, hoặc đổi nghĩa thành cô ấy tự đi gia hạn."
+        },
+        {
+          "option": "She got renewed her passport last week.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"She got renewed her passport last week.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "She got her passport renew last week.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"She got her passport renew last week.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "She got to renew her passport last week.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"She got to renew her passport last week.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-06",
       "type": "fill_blank",
       "question": "Complete the question using the correct **causative verb**: Where did you ___ your phone repaired?",
       "options": [
@@ -444,9 +555,32 @@
       ],
       "correct_answer": "get",
       "explanation": "Sau trợ động từ 'did', động từ chính phải ở dạng nguyên mẫu, nên 'get' đúng. 'Got', 'getting', và 'gets' sai dạng sau 'did'.",
+      "distractor_breakdowns": [
+        {
+          "option": "get",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau trợ động từ 'did', động từ chính phải ở dạng nguyên mẫu, nên 'get' đúng. 'Got', 'getting', và 'gets' sai dạng sau 'did'."
+        },
+        {
+          "option": "got",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Got', 'getting', và 'gets' sai dạng sau 'did'."
+        },
+        {
+          "option": "getting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'getting', và 'gets' sai dạng sau 'did'."
+        },
+        {
+          "option": "gets",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'gets' sai dạng sau 'did'."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-07",
       "type": "error_correction",
       "question": "Find the error: Identify the wrong **causative pattern**: I got the mechanic to replaced the battery.",
       "options": [
@@ -457,9 +591,32 @@
       ],
       "correct_answer": "to replaced",
       "explanation": "Với get + person + to V, động từ sau 'to' phải là nguyên mẫu: 'to replace'. 'Got', 'the mechanic', và 'the battery' đúng vai trò trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "got",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Got', 'the mechanic', và 'the battery' đúng vai trò trong câu."
+        },
+        {
+          "option": "the mechanic",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'the mechanic', và 'the battery' đúng vai trò trong câu."
+        },
+        {
+          "option": "to replaced",
+          "isCorrect": true,
+          "pedagogicalReason": "Với get + person + to V, động từ sau 'to' phải là nguyên mẫu: 'to replace'. 'Got', 'the mechanic', và 'the battery' đúng vai trò trong câu."
+        },
+        {
+          "option": "the battery",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'the battery' đúng vai trò trong câu."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-08",
       "type": "multiple_choice",
       "question": "Choose the correct **person causative**: The manager ___ the technician restart the server.",
       "options": [
@@ -470,9 +627,32 @@
       ],
       "correct_answer": "had",
       "explanation": "Khi sai/bảo một người làm gì, dùng have + person + V nguyên mẫu: 'had the technician restart'. 'Got' cần 'to restart'; 'was had' và 'had got' không phù hợp ngữ pháp ở đây.",
+      "distractor_breakdowns": [
+        {
+          "option": "had",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi sai/bảo một người làm gì, dùng have + person + V nguyên mẫu: 'had the technician restart'. 'Got' cần 'to restart'; 'was had' và 'had got' không phù hợp ngữ pháp ở đây."
+        },
+        {
+          "option": "got",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Got' không phù hợp ngữ pháp ở đây."
+        },
+        {
+          "option": "was had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'was had' và 'had got' không phù hợp ngữ pháp ở đây."
+        },
+        {
+          "option": "had got",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'had got' không phù hợp ngữ pháp ở đây."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-09",
       "type": "fill_blank",
       "question": "Complete the sentence with correct **get pattern**: I finally got my landlord ___ the leak.",
       "options": [
@@ -483,9 +663,32 @@
       ],
       "correct_answer": "to fix",
       "explanation": "Với get + person, ta dùng to V: 'got my landlord to fix'. 'Fix' hợp với have + person, 'fixed' hợp với get + thing, còn 'fixing' sai cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "to fix",
+          "isCorrect": true,
+          "pedagogicalReason": "Với get + person, ta dùng to V: 'got my landlord to fix'. 'Fix' hợp với have + person, 'fixed' hợp với get + thing, còn 'fixing' sai cấu trúc."
+        },
+        {
+          "option": "fix",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Fix' hợp với have + person, 'fixed' hợp với get + thing, còn 'fixing' sai cấu trúc."
+        },
+        {
+          "option": "fixed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'fixed' hợp với get + thing, còn 'fixing' sai cấu trúc."
+        },
+        {
+          "option": "fixing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'fixing' sai cấu trúc."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-10",
       "type": "error_correction",
       "question": "Find the error: Choose the incorrect **object position**: We had painted the office by a professional team.",
       "options": [
@@ -496,9 +699,32 @@
       ],
       "correct_answer": "had painted",
       "explanation": "Câu muốn nói thuê người sơn văn phòng thì phải là 'had the office painted'. 'Had painted' biến câu thành quá khứ hoàn thành chủ động, không phải causative.",
+      "distractor_breakdowns": [
+        {
+          "option": "had painted",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu muốn nói thuê người sơn văn phòng thì phải là 'had the office painted'. 'Had painted' biến câu thành quá khứ hoàn thành chủ động, không phải causative."
+        },
+        {
+          "option": "the office",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. The office painted'."
+        },
+        {
+          "option": "by",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"by\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "a professional team",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"a professional team\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-11",
       "type": "multiple_choice",
       "question": "Choose the best **passive result** meaning: 'The company arranged for new software to be installed.'",
       "options": [
@@ -509,9 +735,32 @@
       ],
       "correct_answer": "The company had new software installed.",
       "explanation": "'Had new software installed' nhấn mạnh kết quả do người khác thực hiện. Các câu còn lại hoặc nói công ty tự cài, hoặc là thì quá khứ hoàn thành, hoặc sai dạng V3.",
+      "distractor_breakdowns": [
+        {
+          "option": "The company had new software installed.",
+          "isCorrect": true,
+          "pedagogicalReason": "'Had new software installed' nhấn mạnh kết quả do người khác thực hiện. Các câu còn lại hoặc nói công ty tự cài, hoặc là thì quá khứ hoàn thành, hoặc sai dạng V3."
+        },
+        {
+          "option": "The company installed new software itself.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"The company installed new software itself.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "The company had installed new software.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"The company had installed new software.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "The company got new software install.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"The company got new software install.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-12",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **tense**: By the time clients arrive, we will have ___ the room cleaned.",
       "options": [
@@ -522,9 +771,32 @@
       ],
       "correct_answer": "had",
       "explanation": "Trong tương lai hoàn thành của causative, dùng 'will have had + object + V3'. 'Have', 'having', và 'has' không đúng sau 'will have' trong cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "had",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong tương lai hoàn thành của causative, dùng 'will have had + object + V3'. 'Have', 'having', và 'has' không đúng sau 'will have' trong cấu trúc này."
+        },
+        {
+          "option": "have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Have', 'having', và 'has' không đúng sau 'will have' trong cấu trúc này."
+        },
+        {
+          "option": "having",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'having', và 'has' không đúng sau 'will have' trong cấu trúc này."
+        },
+        {
+          "option": "has",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'has' không đúng sau 'will have' trong cấu trúc này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "causative-ex-13",
       "type": "error_correction",
       "question": "Find the error: Identify the wrong **past participle**: She is getting her wedding dress alter this afternoon.",
       "options": [
@@ -535,9 +807,32 @@
       ],
       "correct_answer": "alter",
       "explanation": "Sau get + object phải dùng V3: 'altered'. 'Is getting' đúng cho hành động đã sắp xếp trong tương lai gần, các phần còn lại không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "is getting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Is getting' đúng cho hành động đã sắp xếp trong tương lai gần, các phần còn lại không sai."
+        },
+        {
+          "option": "her wedding dress",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"her wedding dress\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "alter",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau get + object phải dùng V3: 'altered'. 'Is getting' đúng cho hành động đã sắp xếp trong tương lai gần, các phần còn lại không sai."
+        },
+        {
+          "option": "this afternoon",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"this afternoon\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-14",
       "type": "multiple_choice",
       "question": "Choose the correct **modal causative**: You should ___ before the trip.",
       "options": [
@@ -548,9 +843,32 @@
       ],
       "correct_answer": "have your brakes checked",
       "explanation": "Sau modal 'should' dùng động từ nguyên mẫu 'have', và cấu trúc là have + object + V3. Các lựa chọn khác sai thứ tự, sai V3, hoặc sai dạng sau modal.",
+      "distractor_breakdowns": [
+        {
+          "option": "have your brakes checked",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau modal 'should' dùng động từ nguyên mẫu 'have', và cấu trúc là have + object + V3. Các lựa chọn khác sai thứ tự, sai V3, hoặc sai dạng sau modal."
+        },
+        {
+          "option": "have checked your brakes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have checked your brakes\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "get your brakes check",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"get your brakes check\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "had your brakes checked",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"had your brakes checked\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-15",
       "type": "fill_blank",
       "question": "Complete with the correct **have pattern**: The director had her assistant ___ the invitations.",
       "options": [
@@ -561,9 +879,32 @@
       ],
       "correct_answer": "send",
       "explanation": "Với have + person + V, động từ sau người thực hiện ở dạng nguyên mẫu không 'to'. 'Sent' dùng cho have + object + V3, 'to send' hợp với get + person, còn 'sending' sai cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "send",
+          "isCorrect": true,
+          "pedagogicalReason": "Với have + person + V, động từ sau người thực hiện ở dạng nguyên mẫu không 'to'. 'Sent' dùng cho have + object + V3, 'to send' hợp với get + person, còn 'sending' sai cấu trúc."
+        },
+        {
+          "option": "sent",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Sent' dùng cho have + object + V3, 'to send' hợp với get + person, còn 'sending' sai cấu trúc."
+        },
+        {
+          "option": "to send",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'to send' hợp với get + person, còn 'sending' sai cấu trúc."
+        },
+        {
+          "option": "sending",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'sending' sai cấu trúc."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-16",
       "type": "error_correction",
       "question": "Find the error: Mark the wrong **to-infinitive** use: The chef had the waiter to bring extra plates.",
       "options": [
@@ -574,9 +915,32 @@
       ],
       "correct_answer": "to bring",
       "explanation": "Sau have + person phải dùng động từ nguyên mẫu không 'to': 'bring'. 'Had', 'the waiter', và 'extra plates' đều đúng trong cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Had', 'the waiter', và 'extra plates' đều đúng trong cấu trúc này."
+        },
+        {
+          "option": "the waiter",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'the waiter', và 'extra plates' đều đúng trong cấu trúc này."
+        },
+        {
+          "option": "to bring",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau have + person phải dùng động từ nguyên mẫu không 'to': 'bring'. 'Had', 'the waiter', và 'extra plates' đều đúng trong cấu trúc này."
+        },
+        {
+          "option": "extra plates",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'extra plates' đều đúng trong cấu trúc này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-17",
       "type": "multiple_choice",
       "question": "Choose the correct **negative causative** sentence:",
       "options": [
@@ -587,9 +951,32 @@
       ],
       "correct_answer": "I didn't have the documents translated.",
       "explanation": "Phủ định quá khứ dùng 'didn't have', sau đó object + V3. Các câu khác sai dạng 'had', sai thứ tự, hoặc sai dạng động từ chính.",
+      "distractor_breakdowns": [
+        {
+          "option": "I didn't have the documents translated.",
+          "isCorrect": true,
+          "pedagogicalReason": "Phủ định quá khứ dùng 'didn't have', sau đó object + V3. Các câu khác sai dạng 'had', sai thứ tự, hoặc sai dạng động từ chính."
+        },
+        {
+          "option": "I didn't had the documents translated.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"I didn't had the documents translated.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "I didn't have translated the documents.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"I didn't have translated the documents.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "I didn't have the documents translate.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"I didn't have the documents translate.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-18",
       "type": "fill_blank",
       "question": "Complete with the correct **object form**: They got ___ redesigned by a local architect.",
       "options": [
@@ -600,9 +987,32 @@
       ],
       "correct_answer": "their kitchen",
       "explanation": "Mẫu đúng là get + object + V3: 'got their kitchen redesigned'. Các lựa chọn khác làm sai thứ tự hoặc dùng sai dạng động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "their kitchen",
+          "isCorrect": true,
+          "pedagogicalReason": "Mẫu đúng là get + object + V3: 'got their kitchen redesigned'. Các lựa chọn khác làm sai thứ tự hoặc dùng sai dạng động từ."
+        },
+        {
+          "option": "redesign their kitchen",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"redesign their kitchen\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "to redesign their kitchen",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to redesign their kitchen\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "their kitchen redesign",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"their kitchen redesign\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-19",
       "type": "error_correction",
       "question": "Find the error: Choose the incorrect **causative verb**: Did you got your eyes tested last month?",
       "options": [
@@ -613,9 +1023,32 @@
       ],
       "correct_answer": "got",
       "explanation": "Trong câu hỏi quá khứ với 'Did', động từ chính phải là 'get': 'Did you get...?'. 'Did', 'your eyes', và 'tested' đều đúng vai trò.",
+      "distractor_breakdowns": [
+        {
+          "option": "Did",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Did', động từ chính phải là 'get': 'Did you get."
+        },
+        {
+          "option": "got",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong câu hỏi quá khứ với 'Did', động từ chính phải là 'get': 'Did you get...?'. 'Did', 'your eyes', và 'tested' đều đúng vai trò."
+        },
+        {
+          "option": "your eyes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'your eyes', và 'tested' đều đúng vai trò."
+        },
+        {
+          "option": "tested",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'tested' đều đúng vai trò."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-20",
       "type": "multiple_choice",
       "question": "Choose the sentence that means someone else fixed it, focusing on the **service**:",
       "options": [
@@ -626,9 +1059,32 @@
       ],
       "correct_answer": "I got the air conditioner repaired.",
       "explanation": "'Got the air conditioner repaired' nghĩa là tôi sắp xếp để người khác sửa máy lạnh. Các lựa chọn khác nói tự sửa, được phép/có cơ hội sửa, hoặc dùng quá khứ hoàn thành.",
+      "distractor_breakdowns": [
+        {
+          "option": "I got the air conditioner repaired.",
+          "isCorrect": true,
+          "pedagogicalReason": "'Got the air conditioner repaired' nghĩa là tôi sắp xếp để người khác sửa máy lạnh. Các lựa chọn khác nói tự sửa, được phép/có cơ hội sửa, hoặc dùng quá khứ hoàn thành."
+        },
+        {
+          "option": "I repaired the air conditioner.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"I repaired the air conditioner.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "I got to repair the air conditioner.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"I got to repair the air conditioner.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "I had repaired the air conditioner.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"I had repaired the air conditioner.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-21",
       "type": "fill_blank",
       "question": "Complete with the correct **perfect form**: Have you ever ___ your portrait painted?",
       "options": [
@@ -639,9 +1095,32 @@
       ],
       "correct_answer": "had",
       "explanation": "Trong hiện tại hoàn thành, dùng 'have/has + V3', nên 'Have you ever had...?' là đúng. 'Have' không phải V3 ở đây, 'gotten to' đổi nghĩa, và 'having' sai dạng.",
+      "distractor_breakdowns": [
+        {
+          "option": "had",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong hiện tại hoàn thành, dùng 'have/has + V3', nên 'Have you ever had...?' là đúng. 'Have' không phải V3 ở đây, 'gotten to' đổi nghĩa, và 'having' sai dạng."
+        },
+        {
+          "option": "have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Have' không phải V3 ở đây, 'gotten to' đổi nghĩa, và 'having' sai dạng."
+        },
+        {
+          "option": "gotten to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'gotten to' đổi nghĩa, và 'having' sai dạng."
+        },
+        {
+          "option": "having",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'having' sai dạng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-22",
       "type": "error_correction",
       "question": "Find the error: Identify the wrong **word order**: Mark got checked his blood pressure at the clinic.",
       "options": [
@@ -652,9 +1131,32 @@
       ],
       "correct_answer": "got checked",
       "explanation": "Cấu trúc đúng là 'got his blood pressure checked'. 'Got checked his blood pressure' sai thứ tự giữa object và V3.",
+      "distractor_breakdowns": [
+        {
+          "option": "Mark",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Mark\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "got checked",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc đúng là 'got his blood pressure checked'. 'Got checked his blood pressure' sai thứ tự giữa object và V3."
+        },
+        {
+          "option": "his blood pressure",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. His blood pressure' sai thứ tự giữa object và V3."
+        },
+        {
+          "option": "at the clinic",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"at the clinic\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-23",
       "type": "multiple_choice",
       "question": "Choose the correct **reported plan**: Maria said she was going to ___ before the meeting.",
       "options": [
@@ -665,9 +1167,32 @@
       ],
       "correct_answer": "have the projector repaired",
       "explanation": "Sau 'was going to' dùng động từ nguyên mẫu 'have' và cấu trúc object + V3. Các đáp án còn lại sai nghĩa, sai V3, hoặc sai dạng sau 'to'.",
+      "distractor_breakdowns": [
+        {
+          "option": "have the projector repaired",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau 'was going to' dùng động từ nguyên mẫu 'have' và cấu trúc object + V3. Các đáp án còn lại sai nghĩa, sai V3, hoặc sai dạng sau 'to'."
+        },
+        {
+          "option": "have repaired the projector",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have repaired the projector\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "get the projector repair",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"get the projector repair\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "had the projector repaired",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"had the projector repaired\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-24",
       "type": "fill_blank",
       "question": "Complete with the correct **causative choice**: The teacher ___ the students rewrite the paragraph.",
       "options": [
@@ -678,9 +1203,32 @@
       ],
       "correct_answer": "had",
       "explanation": "Với have + person + V, 'had the students rewrite' là đúng. 'Got' cần 'to rewrite', 'was got' sai ngữ pháp, còn 'had to' nghĩa là 'phải', không phải sai bảo ai làm.",
+      "distractor_breakdowns": [
+        {
+          "option": "had",
+          "isCorrect": true,
+          "pedagogicalReason": "Với have + person + V, 'had the students rewrite' là đúng. 'Got' cần 'to rewrite', 'was got' sai ngữ pháp, còn 'had to' nghĩa là 'phải', không phải sai bảo ai làm."
+        },
+        {
+          "option": "got",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Got' cần 'to rewrite', 'was got' sai ngữ pháp, còn 'had to' nghĩa là 'phải', không phải sai bảo ai làm."
+        },
+        {
+          "option": "was got",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'was got' sai ngữ pháp, còn 'had to' nghĩa là 'phải', không phải sai bảo ai làm."
+        },
+        {
+          "option": "had to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'had to' nghĩa là 'phải', không phải sai bảo ai làm."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-25",
       "type": "error_correction",
       "question": "Find the error: Mark the wrong **get pattern**: We got a photographer take our family photos.",
       "options": [
@@ -691,9 +1239,32 @@
       ],
       "correct_answer": "take",
       "explanation": "Với get + person, cần 'to V': 'got a photographer to take'. 'Got', 'a photographer', và 'our family photos' không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "got",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Got', 'a photographer', và 'our family photos' không sai."
+        },
+        {
+          "option": "a photographer",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'a photographer', và 'our family photos' không sai."
+        },
+        {
+          "option": "take",
+          "isCorrect": true,
+          "pedagogicalReason": "Với get + person, cần 'to V': 'got a photographer to take'. 'Got', 'a photographer', và 'our family photos' không sai."
+        },
+        {
+          "option": "our family photos",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'our family photos' không sai."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-26",
       "type": "multiple_choice",
       "question": "Choose the correct **unpleasant event** causative:",
       "options": [
@@ -704,9 +1275,32 @@
       ],
       "correct_answer": "He had his wallet stolen on the bus.",
       "explanation": "'Had his wallet stolen' diễn tả một việc không mong muốn xảy ra với anh ấy, dùng have + object + V3. Các câu còn lại hoặc đổi nghĩa thành anh ấy ăn cắp, hoặc sai dạng động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "He had his wallet stolen on the bus.",
+          "isCorrect": true,
+          "pedagogicalReason": "'Had his wallet stolen' diễn tả một việc không mong muốn xảy ra với anh ấy, dùng have + object + V3. Các câu còn lại hoặc đổi nghĩa thành anh ấy ăn cắp, hoặc sai dạng động từ."
+        },
+        {
+          "option": "He had stolen his wallet on the bus.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"He had stolen his wallet on the bus.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "He got his wallet steal on the bus.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"He got his wallet steal on the bus.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "He had his wallet to steal on the bus.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"He had his wallet to steal on the bus.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "causative-ex-27",
       "type": "multiple_choice",
       "question": "Choose the correct **causative form**: After the accident, Nina ___ at the garage.",
       "options": [
@@ -717,9 +1311,32 @@
       ],
       "correct_answer": "had her scooter checked",
       "explanation": "Dùng 'have + object + V3' để nói Nina sắp xếp cho người khác kiểm tra xe. 'Had checked' dễ hiểu là Nina đã tự kiểm tra; hai đáp án còn lại sai cấu trúc sau 'have/get'.",
+      "distractor_breakdowns": [
+        {
+          "option": "had her scooter checked",
+          "isCorrect": true,
+          "pedagogicalReason": "Dùng 'have + object + V3' để nói Nina sắp xếp cho người khác kiểm tra xe. 'Had checked' dễ hiểu là Nina đã tự kiểm tra; hai đáp án còn lại sai cấu trúc sau 'have/get'."
+        },
+        {
+          "option": "checked her scooter by a garage",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"checked her scooter by a garage\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "had checked her scooter",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"had checked her scooter\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "got checking her scooter",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"got checking her scooter\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-28",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **past participle**: I'm going to have the documents ___ and sent today.",
       "options": [
@@ -730,9 +1347,32 @@
       ],
       "correct_answer": "scanned",
       "explanation": "Sau 'have + object' trong nghĩa nhờ/dịch vụ phải dùng V3: 'have the documents scanned'. 'Scan', 'to scan', và 'scanning' không đúng mẫu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "scanned",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau 'have + object' trong nghĩa nhờ/dịch vụ phải dùng V3: 'have the documents scanned'. 'Scan', 'to scan', và 'scanning' không đúng mẫu này."
+        },
+        {
+          "option": "scan",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Scan', 'to scan', và 'scanning' không đúng mẫu này."
+        },
+        {
+          "option": "to scan",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'to scan', và 'scanning' không đúng mẫu này."
+        },
+        {
+          "option": "scanning",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'scanning' không đúng mẫu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-29",
       "type": "error_correction",
       "question": "Find the error: Mark the wrong **verb form**: Olivia got the tailor shorten her sleeves before the interview.",
       "options": [
@@ -743,9 +1383,32 @@
       ],
       "correct_answer": "shorten",
       "explanation": "Với người thực hiện, cấu trúc đúng là 'get + person + to V', nên phải là 'got the tailor to shorten'. Các phần còn lại đúng vai trò trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "Olivia",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Olivia\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "got the tailor",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Got the tailor to shorten'."
+        },
+        {
+          "option": "shorten",
+          "isCorrect": true,
+          "pedagogicalReason": "Với người thực hiện, cấu trúc đúng là 'get + person + to V', nên phải là 'got the tailor to shorten'. Các phần còn lại đúng vai trò trong câu."
+        },
+        {
+          "option": "her sleeves",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"her sleeves\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-30",
       "type": "multiple_choice",
       "question": "Choose the correct **person pattern**: The coach ___ the players repeat the drill until it was perfect.",
       "options": [
@@ -756,9 +1419,32 @@
       ],
       "correct_answer": "had",
       "explanation": "'Have + person + V' dùng động từ nguyên mẫu không 'to': 'had the players repeat'. 'Got' cần 'to repeat', còn 'got to' và 'had to' làm câu sai nghĩa hoặc sai cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "had",
+          "isCorrect": true,
+          "pedagogicalReason": "'Have + person + V' dùng động từ nguyên mẫu không 'to': 'had the players repeat'. 'Got' cần 'to repeat', còn 'got to' và 'had to' làm câu sai nghĩa hoặc sai cấu trúc."
+        },
+        {
+          "option": "got",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Got' cần 'to repeat', còn 'got to' và 'had to' làm câu sai nghĩa hoặc sai cấu trúc."
+        },
+        {
+          "option": "got to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'got to' và 'had to' làm câu sai nghĩa hoặc sai cấu trúc."
+        },
+        {
+          "option": "had to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'had to' làm câu sai nghĩa hoặc sai cấu trúc."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-31",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **get pattern**: The sales team got the designer ___ the brochure overnight.",
       "options": [
@@ -769,9 +1455,32 @@
       ],
       "correct_answer": "to update",
       "explanation": "'Get + person + to V' là cấu trúc đúng khi thuyết phục/nhờ ai làm gì. 'Update' thiếu 'to', còn 'updated' và 'updating' không đi với mẫu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "to update",
+          "isCorrect": true,
+          "pedagogicalReason": "'Get + person + to V' là cấu trúc đúng khi thuyết phục/nhờ ai làm gì. 'Update' thiếu 'to', còn 'updated' và 'updating' không đi với mẫu này."
+        },
+        {
+          "option": "update",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Update' thiếu 'to', còn 'updated' và 'updating' không đi với mẫu này."
+        },
+        {
+          "option": "updated",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'updated' và 'updating' không đi với mẫu này."
+        },
+        {
+          "option": "updating",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'updating' không đi với mẫu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-32",
       "type": "error_correction",
       "question": "Find the error: Choose the incorrect **causative form**: We are having our security cameras install next week.",
       "options": [
@@ -782,9 +1491,32 @@
       ],
       "correct_answer": "install",
       "explanation": "Với đồ vật/dịch vụ, dùng 'have + object + V3': 'having our security cameras installed'. 'Install' là động từ nguyên mẫu nên sai trong cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "We are having",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"We are having\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "our security cameras",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Our security cameras installed'."
+        },
+        {
+          "option": "install",
+          "isCorrect": true,
+          "pedagogicalReason": "Với đồ vật/dịch vụ, dùng 'have + object + V3': 'having our security cameras installed'. 'Install' là động từ nguyên mẫu nên sai trong cấu trúc này."
+        },
+        {
+          "option": "next week",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"next week\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-33",
       "type": "multiple_choice",
       "question": "Choose the correct **future continuous** causative: At 3 p.m. tomorrow, Jason ___.",
       "options": [
@@ -795,9 +1527,32 @@
       ],
       "correct_answer": "will be getting his car washed",
       "explanation": "Câu diễn tả một dịch vụ đang diễn ra trong tương lai: 'will be getting + object + V3'. Các lựa chọn khác sai dạng động từ hoặc sai trật tự từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "will be getting his car washed",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu diễn tả một dịch vụ đang diễn ra trong tương lai: 'will be getting + object + V3'. Các lựa chọn khác sai dạng động từ hoặc sai trật tự từ."
+        },
+        {
+          "option": "will get washing his car",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will get washing his car\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will have washed his car by someone",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will have washed his car by someone\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will be gotten his car wash",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will be gotten his car wash\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "causative-ex-34",
       "type": "fill_blank",
       "question": "Complete with the correct **object**: After moving in, they had ___ fitted in every room.",
       "options": [
@@ -808,9 +1563,32 @@
       ],
       "correct_answer": "new blinds",
       "explanation": "Trong 'have + object + V3', chỗ trống cần một tân ngữ danh từ: 'new blinds'. Các đáp án khác là động từ, người thực hiện, hoặc dạng -ing nên không phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "new blinds",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong 'have + object + V3', chỗ trống cần một tân ngữ danh từ: 'new blinds'. Các đáp án khác là động từ, người thực hiện, hoặc dạng -ing nên không phù hợp."
+        },
+        {
+          "option": "fit new blinds",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"fit new blinds\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "the installer",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"the installer\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "fitting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"fitting\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-35",
       "type": "error_correction",
       "question": "Find the error: Identify the wrong **infinitive**: The producer had the sound engineer to adjust the volume during rehearsal.",
       "options": [
@@ -821,9 +1599,32 @@
       ],
       "correct_answer": "to adjust",
       "explanation": "Sau 'have + person' phải dùng động từ nguyên mẫu không 'to': 'had the sound engineer adjust'. 'To adjust' là lỗi thường gặp do nhầm với 'get + person + to V'.",
+      "distractor_breakdowns": [
+        {
+          "option": "The producer",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The producer\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Had the sound engineer adjust'."
+        },
+        {
+          "option": "the sound engineer",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. The sound engineer adjust'."
+        },
+        {
+          "option": "to adjust",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau 'have + person' phải dùng động từ nguyên mẫu không 'to': 'had the sound engineer adjust'. 'To adjust' là lỗi thường gặp do nhầm với 'get + person + to V'."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-36",
       "type": "multiple_choice",
       "question": "Choose the correct **meaning**: Which sentence means Lan arranged for someone else to translate the email?",
       "options": [
@@ -834,9 +1635,32 @@
       ],
       "correct_answer": "Lan had the email translated.",
       "explanation": "'Had the email translated' nhấn mạnh Lan sắp xếp để email được dịch. Các câu khác nói Lan tự dịch, dùng thì quá khứ hoàn thành, hoặc sai cấu trúc bị động.",
+      "distractor_breakdowns": [
+        {
+          "option": "Lan had the email translated.",
+          "isCorrect": true,
+          "pedagogicalReason": "'Had the email translated' nhấn mạnh Lan sắp xếp để email được dịch. Các câu khác nói Lan tự dịch, dùng thì quá khứ hoàn thành, hoặc sai cấu trúc bị động."
+        },
+        {
+          "option": "Lan translated the email herself.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Lan translated the email herself.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Lan had translated the email.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Lan had translated the email.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Lan was translated the email.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Lan was translated the email.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-37",
       "type": "fill_blank",
       "question": "Complete with the correct **causative verb**: Before signing the lease, you should ___ the wiring inspected by an electrician.",
       "options": [
@@ -847,9 +1671,32 @@
       ],
       "correct_answer": "have",
       "explanation": "'Should have + object + V3' diễn tả nên nhờ/thuê ai kiểm tra hệ thống dây điện. 'Make', 'let', và 'do' không tạo được cấu trúc dịch vụ này.",
+      "distractor_breakdowns": [
+        {
+          "option": "have",
+          "isCorrect": true,
+          "pedagogicalReason": "'Should have + object + V3' diễn tả nên nhờ/thuê ai kiểm tra hệ thống dây điện. 'Make', 'let', và 'do' không tạo được cấu trúc dịch vụ này."
+        },
+        {
+          "option": "make",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Make', 'let', và 'do' không tạo được cấu trúc dịch vụ này."
+        },
+        {
+          "option": "let",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'let', và 'do' không tạo được cấu trúc dịch vụ này."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'do' không tạo được cấu trúc dịch vụ này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-38",
       "type": "error_correction",
       "question": "Find the error: Mark the wrong **past participle**: Maya got her passport renew before the conference.",
       "options": [
@@ -860,9 +1707,32 @@
       ],
       "correct_answer": "renew",
       "explanation": "Sau 'get + object' trong nghĩa dịch vụ phải dùng V3: 'got her passport renewed'. 'Renew' là động từ nguyên mẫu nên sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "Maya",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Maya\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "got",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Got her passport renewed'."
+        },
+        {
+          "option": "her passport",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Her passport renewed'."
+        },
+        {
+          "option": "renew",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau 'get + object' trong nghĩa dịch vụ phải dùng V3: 'got her passport renewed'. 'Renew' là động từ nguyên mẫu nên sai."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-39",
       "type": "multiple_choice",
       "question": "Choose the correct **negative form**: The clinic didn't ___ before the test results were ready.",
       "options": [
@@ -873,9 +1743,32 @@
       ],
       "correct_answer": "have the samples analyzed",
       "explanation": "Sau 'didn't' dùng động từ nguyên mẫu 'have', và cấu trúc là 'have + object + V3'. Các đáp án khác sai thì, sai dạng sau 'get', hoặc đổi sang nghĩa chủ động không tự nhiên.",
+      "distractor_breakdowns": [
+        {
+          "option": "have the samples analyzed",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau 'didn't' dùng động từ nguyên mẫu 'have', và cấu trúc là 'have + object + V3'. Các đáp án khác sai thì, sai dạng sau 'get', hoặc đổi sang nghĩa chủ động không tự nhiên."
+        },
+        {
+          "option": "had the samples analyzed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"had the samples analyzed\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "got the samples analyze",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"got the samples analyze\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "have analyzed the samples by a lab",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have analyzed the samples by a lab\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-40",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **perfect causative**: By next Monday, they will have had the hallway ___.",
       "options": [
@@ -886,9 +1779,32 @@
       ],
       "correct_answer": "repainted",
       "explanation": "'Will have had + object + V3' diễn tả dịch vụ sẽ hoàn tất trước một mốc tương lai. Chỉ 'repainted' là quá khứ phân từ đúng sau tân ngữ.",
+      "distractor_breakdowns": [
+        {
+          "option": "repainted",
+          "isCorrect": true,
+          "pedagogicalReason": "'Will have had + object + V3' diễn tả dịch vụ sẽ hoàn tất trước một mốc tương lai. Chỉ 'repainted' là quá khứ phân từ đúng sau tân ngữ."
+        },
+        {
+          "option": "repaint",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"repaint\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "to repaint",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to repaint\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "repainting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"repainting\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "causative-ex-41",
       "type": "error_correction",
       "question": "Find the error: Mark the incorrect **question form**: Why did the school had the playground resurfaced?",
       "options": [
@@ -899,9 +1815,32 @@
       ],
       "correct_answer": "had",
       "explanation": "Trong câu hỏi quá khứ với 'did', động từ chính phải ở dạng nguyên mẫu: 'did the school have'. 'Had' sai vì đã có trợ động từ 'did'.",
+      "distractor_breakdowns": [
+        {
+          "option": "Why",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Why\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "did",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'did', động từ chính phải ở dạng nguyên mẫu: 'did the school have'."
+        },
+        {
+          "option": "had",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong câu hỏi quá khứ với 'did', động từ chính phải ở dạng nguyên mẫu: 'did the school have'. 'Had' sai vì đã có trợ động từ 'did'."
+        },
+        {
+          "option": "the playground",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the playground\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-42",
       "type": "multiple_choice",
       "question": "Choose the best **service verb**: After the breach, we ___ our passwords reset by IT.",
       "options": [
@@ -912,9 +1851,32 @@
       ],
       "correct_answer": "got",
       "explanation": "'Got our passwords reset' diễn tả việc nhờ bộ phận IT đặt lại mật khẩu. 'Made', 'let', và 'did' không phù hợp với cấu trúc 'object + V3' trong nghĩa dịch vụ.",
+      "distractor_breakdowns": [
+        {
+          "option": "got",
+          "isCorrect": true,
+          "pedagogicalReason": "'Got our passwords reset' diễn tả việc nhờ bộ phận IT đặt lại mật khẩu. 'Made', 'let', và 'did' không phù hợp với cấu trúc 'object + V3' trong nghĩa dịch vụ."
+        },
+        {
+          "option": "made",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Made', 'let', và 'did' không phù hợp với cấu trúc 'object + V3' trong nghĩa dịch vụ."
+        },
+        {
+          "option": "let",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'let', và 'did' không phù hợp với cấu trúc 'object + V3' trong nghĩa dịch vụ."
+        },
+        {
+          "option": "did",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'did' không phù hợp với cấu trúc 'object + V3' trong nghĩa dịch vụ."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-43",
       "type": "fill_blank",
       "question": "Complete with the correct **past participle**: The gallery had the painting ___ for the exhibition.",
       "options": [
@@ -925,9 +1887,32 @@
       ],
       "correct_answer": "restored",
       "explanation": "Cấu trúc đúng là 'had + object + V3': 'had the painting restored'. Ba đáp án còn lại không phải quá khứ phân từ trong mẫu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "restored",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc đúng là 'had + object + V3': 'had the painting restored'. Ba đáp án còn lại không phải quá khứ phân từ trong mẫu này."
+        },
+        {
+          "option": "restore",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"restore\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "to restore",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to restore\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "restoring",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"restoring\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-44",
       "type": "error_correction",
       "question": "Find the error: Choose the incorrect **object pattern**: They had their luggage to deliver to the hotel.",
       "options": [
@@ -938,9 +1923,32 @@
       ],
       "correct_answer": "to deliver",
       "explanation": "Với đồ vật được xử lý bởi người khác, dùng 'have + object + V3': 'had their luggage delivered'. 'To deliver' sai vì không dùng to-infinitive sau tân ngữ trong mẫu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "They had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"They had\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "their luggage",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Their luggage delivered'."
+        },
+        {
+          "option": "to deliver",
+          "isCorrect": true,
+          "pedagogicalReason": "Với đồ vật được xử lý bởi người khác, dùng 'have + object + V3': 'had their luggage delivered'. 'To deliver' sai vì không dùng to-infinitive sau tân ngữ trong mẫu này."
+        },
+        {
+          "option": "to the hotel",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"to the hotel\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-45",
       "type": "multiple_choice",
       "question": "Choose the correct **result focus**: The museum wanted to emphasize that the old coins became clean, not who cleaned them.",
       "options": [
@@ -951,9 +1959,32 @@
       ],
       "correct_answer": "The museum had the old coins cleaned.",
       "explanation": "'Had the old coins cleaned' tập trung vào kết quả/dịch vụ nhận được. Các lựa chọn khác sai dạng động từ, sai trật tự từ, hoặc sai nghĩa.",
+      "distractor_breakdowns": [
+        {
+          "option": "The museum had the old coins cleaned.",
+          "isCorrect": true,
+          "pedagogicalReason": "'Had the old coins cleaned' tập trung vào kết quả/dịch vụ nhận được. Các lựa chọn khác sai dạng động từ, sai trật tự từ, hoặc sai nghĩa."
+        },
+        {
+          "option": "The museum had specialists cleaned the old coins.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"The museum had specialists cleaned the old coins.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "The museum got the old coins clean specialists.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"The museum got the old coins clean specialists.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "The museum cleaned by the old coins.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"The museum cleaned by the old coins.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-46",
       "type": "fill_blank",
       "question": "Complete with the correct **agent phrase**: We had the menu translated ___ a professional interpreter.",
       "options": [
@@ -964,9 +1995,32 @@
       ],
       "correct_answer": "by",
       "explanation": "Khi muốn nêu người thực hiện trong cấu trúc giống bị động, dùng 'by': 'translated by a professional interpreter'. Các giới từ khác không chỉ tác nhân đúng trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "by",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi muốn nêu người thực hiện trong cấu trúc giống bị động, dùng 'by': 'translated by a professional interpreter'. Các giới từ khác không chỉ tác nhân đúng trong câu này."
+        },
+        {
+          "option": "with",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"with\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "from",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"from\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-47",
       "type": "error_correction",
       "question": "Find the error: Identify the wrong **participle**: Liam is getting his bicycle chain replace before the race.",
       "options": [
@@ -977,9 +2031,32 @@
       ],
       "correct_answer": "replace",
       "explanation": "Sau 'get + object' phải dùng V3: 'getting his bicycle chain replaced'. 'Replace' là động từ nguyên mẫu nên sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "Liam",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Liam\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "is getting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"is getting\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "his bicycle chain",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. His bicycle chain replaced'."
+        },
+        {
+          "option": "replace",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau 'get + object' phải dùng V3: 'getting his bicycle chain replaced'. 'Replace' là động từ nguyên mẫu nên sai."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-48",
       "type": "multiple_choice",
       "question": "Choose the correct **get clause**: I couldn't solve the tax form, so I ___.",
       "options": [
@@ -990,9 +2067,32 @@
       ],
       "correct_answer": "got an accountant to check it",
       "explanation": "Khi nhờ một người làm việc gì, dùng 'get + person + to V'. Các đáp án còn lại thiếu 'to', đảo sai tân ngữ, hoặc sai dạng động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "got an accountant to check it",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi nhờ một người làm việc gì, dùng 'get + person + to V'. Các đáp án còn lại thiếu 'to', đảo sai tân ngữ, hoặc sai dạng động từ."
+        },
+        {
+          "option": "got an accountant check it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"got an accountant check it\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "got it to check an accountant",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"got it to check an accountant\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "got checking it by an accountant",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"got checking it by an accountant\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-49",
       "type": "fill_blank",
       "question": "Complete with the correct **bare infinitive**: The supervisor had the interns ___ the files by client name.",
       "options": [
@@ -1003,9 +2103,32 @@
       ],
       "correct_answer": "sort",
       "explanation": "'Have + person + V' dùng động từ nguyên mẫu không 'to': 'had the interns sort'. 'To sort', 'sorted', và 'sorting' không đúng sau 'had the interns'.",
+      "distractor_breakdowns": [
+        {
+          "option": "sort",
+          "isCorrect": true,
+          "pedagogicalReason": "'Have + person + V' dùng động từ nguyên mẫu không 'to': 'had the interns sort'. 'To sort', 'sorted', và 'sorting' không đúng sau 'had the interns'."
+        },
+        {
+          "option": "to sort",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'To sort', 'sorted', và 'sorting' không đúng sau 'had the interns'."
+        },
+        {
+          "option": "sorted",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'sorted', và 'sorting' không đúng sau 'had the interns'."
+        },
+        {
+          "option": "sorting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'sorting' không đúng sau 'had the interns'."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-50",
       "type": "error_correction",
       "question": "Find the error: Mark the wrong **modal form**: Can we had the air conditioner serviced this afternoon?",
       "options": [
@@ -1016,9 +2139,32 @@
       ],
       "correct_answer": "had",
       "explanation": "Sau modal 'can' phải dùng động từ nguyên mẫu: 'Can we have the air conditioner serviced?' 'Serviced' vẫn đúng vì thuộc mẫu 'have + object + V3'.",
+      "distractor_breakdowns": [
+        {
+          "option": "Can",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'can' phải dùng động từ nguyên mẫu: 'Can we have the air conditioner serviced?' 'Serviced' vẫn đúng vì thuộc mẫu 'have + object + V3'."
+        },
+        {
+          "option": "we",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. We have the air conditioner serviced?' 'Serviced' vẫn đúng vì thuộc mẫu 'have + object + V3'."
+        },
+        {
+          "option": "had",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau modal 'can' phải dùng động từ nguyên mẫu: 'Can we have the air conditioner serviced?' 'Serviced' vẫn đúng vì thuộc mẫu 'have + object + V3'."
+        },
+        {
+          "option": "serviced",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Serviced?' 'Serviced' vẫn đúng vì thuộc mẫu 'have + object + V3'."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-51",
       "type": "multiple_choice",
       "question": "Choose the correct **perfect causative**: Before the audit started, the finance team ___.",
       "options": [
@@ -1029,9 +2175,32 @@
       ],
       "correct_answer": "had had the receipts organized",
       "explanation": "'Had had + object + V3' là quá khứ hoàn thành của cấu trúc causative, diễn tả việc đã nhờ sắp xếp xong trước cuộc kiểm toán. Các đáp án khác sai dạng V3 hoặc sai trật tự từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "had had the receipts organized",
+          "isCorrect": true,
+          "pedagogicalReason": "'Had had + object + V3' là quá khứ hoàn thành của cấu trúc causative, diễn tả việc đã nhờ sắp xếp xong trước cuộc kiểm toán. Các đáp án khác sai dạng V3 hoặc sai trật tự từ."
+        },
+        {
+          "option": "had the receipts organize",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"had the receipts organize\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "had been the receipts organized",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"had been the receipts organized\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "got organized the receipts",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"got organized the receipts\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "causative-ex-52",
       "type": "multiple_choice",
       "question": "Choose the correct **causative form**: Daniel ___ after he dropped it.",
       "options": [
@@ -1042,9 +2211,32 @@
       ],
       "correct_answer": "had his phone screen replaced",
       "explanation": "Đúng vì cấu trúc nhờ dịch vụ là have + object + V3: “had his phone screen replaced”. Các đáp án khác sai trật tự hoặc dùng sai dạng động từ sau object.",
+      "distractor_breakdowns": [
+        {
+          "option": "had his phone screen replaced",
+          "isCorrect": true,
+          "pedagogicalReason": "Đúng vì cấu trúc nhờ dịch vụ là have + object + V3: “had his phone screen replaced”. Các đáp án khác sai trật tự hoặc dùng sai dạng động từ sau object."
+        },
+        {
+          "option": "had replaced his phone screen",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"had replaced his phone screen\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "got his phone screen to replace",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"got his phone screen to replace\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "had his phone screen replace",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"had his phone screen replace\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-53",
       "type": "fill_blank",
       "question": "Complete with the correct **past participle**: The manager got the presentation slides ___ before the client call.",
       "options": [
@@ -1055,9 +2247,32 @@
       ],
       "correct_answer": "redesigned",
       "explanation": "Sau get + object trong nghĩa nhờ ai làm, động từ chính phải ở dạng quá khứ phân từ: “got the slides redesigned”. “redesign”, “to redesign”, và “redesigning” không đúng mẫu get + object + V3.",
+      "distractor_breakdowns": [
+        {
+          "option": "redesigned",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau get + object trong nghĩa nhờ ai làm, động từ chính phải ở dạng quá khứ phân từ: “got the slides redesigned”. “redesign”, “to redesign”, và “redesigning” không đúng mẫu get + object + V3."
+        },
+        {
+          "option": "redesign",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “redesign”, “to redesign”, và “redesigning” không đúng mẫu get + object + V3."
+        },
+        {
+          "option": "to redesign",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “to redesign”, và “redesigning” không đúng mẫu get + object + V3."
+        },
+        {
+          "option": "redesigning",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “redesigning” không đúng mẫu get + object + V3."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-54",
       "type": "error_correction",
       "question": "Find the error: Mark the wrong **verb form**: Emma had the plumber to fix the leaking sink.",
       "options": [
@@ -1068,9 +2283,32 @@
       ],
       "correct_answer": "to fix",
       "explanation": "Với have + person + V, động từ sau người phải là bare infinitive: “had the plumber fix”. “to fix” sai vì không dùng “to” sau have trong mẫu sai bảo này.",
+      "distractor_breakdowns": [
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Had the plumber fix”."
+        },
+        {
+          "option": "the plumber",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the plumber\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "to fix",
+          "isCorrect": true,
+          "pedagogicalReason": "Với have + person + V, động từ sau người phải là bare infinitive: “had the plumber fix”. “to fix” sai vì không dùng “to” sau have trong mẫu sai bảo này."
+        },
+        {
+          "option": "the leaking sink",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the leaking sink\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-55",
       "type": "multiple_choice",
       "question": "Choose the correct **get pattern**: I finally ___ my landlord to replace the broken heater.",
       "options": [
@@ -1081,9 +2319,32 @@
       ],
       "correct_answer": "got",
       "explanation": "Đúng vì get + person + to V diễn tả thuyết phục/nhờ ai làm: “got my landlord to replace”. “had” sẽ cần động từ nguyên mẫu không “to”, còn “made” đổi sắc thái ép buộc.",
+      "distractor_breakdowns": [
+        {
+          "option": "got",
+          "isCorrect": true,
+          "pedagogicalReason": "Đúng vì get + person + to V diễn tả thuyết phục/nhờ ai làm: “got my landlord to replace”. “had” sẽ cần động từ nguyên mẫu không “to”, còn “made” đổi sắc thái ép buộc."
+        },
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “had” sẽ cần động từ nguyên mẫu không “to”, còn “made” đổi sắc thái ép buộc."
+        },
+        {
+          "option": "made",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “made” đổi sắc thái ép buộc."
+        },
+        {
+          "option": "was got",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"was got\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-56",
       "type": "fill_blank",
       "question": "Complete with the correct **causative verb**: We need to ___ the documents checked by a lawyer.",
       "options": [
@@ -1094,9 +2355,32 @@
       ],
       "correct_answer": "have",
       "explanation": "“have the documents checked” đúng cấu trúc have + object + V3, nhấn mạnh kết quả kiểm tra. “make/let/do” không tạo cấu trúc nhờ dịch vụ với V3 như câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "have",
+          "isCorrect": true,
+          "pedagogicalReason": "“have the documents checked” đúng cấu trúc have + object + V3, nhấn mạnh kết quả kiểm tra. “make/let/do” không tạo cấu trúc nhờ dịch vụ với V3 như câu này."
+        },
+        {
+          "option": "make",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Make/let/do” không tạo cấu trúc nhờ dịch vụ với V3 như câu này."
+        },
+        {
+          "option": "let",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Let/do” không tạo cấu trúc nhờ dịch vụ với V3 như câu này."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Do” không tạo cấu trúc nhờ dịch vụ với V3 như câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-57",
       "type": "error_correction",
       "question": "Find the error: Identify the wrong **word order**: They got cleaned the carpets before the guests arrived.",
       "options": [
@@ -1107,9 +2391,32 @@
       ],
       "correct_answer": "got cleaned",
       "explanation": "Trật tự đúng là get + object + V3: “got the carpets cleaned”. “got cleaned the carpets” đặt V3 trước object nên sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "got cleaned",
+          "isCorrect": true,
+          "pedagogicalReason": "Trật tự đúng là get + object + V3: “got the carpets cleaned”. “got cleaned the carpets” đặt V3 trước object nên sai."
+        },
+        {
+          "option": "the carpets",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. The carpets” đặt V3 trước object nên sai."
+        },
+        {
+          "option": "before",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"before\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "arrived",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"arrived\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-58",
       "type": "multiple_choice",
       "question": "Choose the correct **negative form**: Sophie ___ her nails done because the salon was closed.",
       "options": [
@@ -1120,9 +2427,32 @@
       ],
       "correct_answer": "didn't get",
       "explanation": "Trong quá khứ phủ định, dùng did not + động từ nguyên mẫu: “didn't get her nails done”. “didn't got”, “wasn't get”, và “hadn't get” sai trợ động từ hoặc dạng động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "didn't get",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong quá khứ phủ định, dùng did not + động từ nguyên mẫu: “didn't get her nails done”. “didn't got”, “wasn't get”, và “hadn't get” sai trợ động từ hoặc dạng động từ."
+        },
+        {
+          "option": "didn't got",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “didn't got”, “wasn't get”, và “hadn't get” sai trợ động từ hoặc dạng động từ."
+        },
+        {
+          "option": "wasn't get",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “wasn't get”, và “hadn't get” sai trợ động từ hoặc dạng động từ."
+        },
+        {
+          "option": "hadn't get",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “hadn't get” sai trợ động từ hoặc dạng động từ."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-59",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **bare infinitive**: The director had the camera crew ___ the scene again.",
       "options": [
@@ -1133,9 +2463,32 @@
       ],
       "correct_answer": "film",
       "explanation": "Sau have + person, động từ theo sau ở dạng nguyên mẫu không “to”: “had the camera crew film”. Các dạng “filmed”, “to film”, “filming” không phù hợp mẫu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "film",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau have + person, động từ theo sau ở dạng nguyên mẫu không “to”: “had the camera crew film”. Các dạng “filmed”, “to film”, “filming” không phù hợp mẫu này."
+        },
+        {
+          "option": "filmed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “filmed”, “to film”, “filming” không phù hợp mẫu này."
+        },
+        {
+          "option": "to film",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “to film”, “filming” không phù hợp mẫu này."
+        },
+        {
+          "option": "filming",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “filming” không phù hợp mẫu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-60",
       "type": "error_correction",
       "question": "Find the error: Choose the incorrect **participle**: I got my laptop repair after it kept freezing.",
       "options": [
@@ -1146,9 +2499,32 @@
       ],
       "correct_answer": "repair",
       "explanation": "Cấu trúc get + object + V3 cần quá khứ phân từ: “got my laptop repaired”. “repair” là động từ nguyên mẫu nên sai trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "got",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Got my laptop repaired”."
+        },
+        {
+          "option": "my laptop",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. My laptop repaired”."
+        },
+        {
+          "option": "repair",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc get + object + V3 cần quá khứ phân từ: “got my laptop repaired”. “repair” là động từ nguyên mẫu nên sai trong câu này."
+        },
+        {
+          "option": "kept freezing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"kept freezing\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-61",
       "type": "multiple_choice",
       "question": "Choose the correct **question form**: When ___ your eyes tested?",
       "options": [
@@ -1159,9 +2535,32 @@
       ],
       "correct_answer": "did you last have",
       "explanation": "Câu hỏi quá khứ đơn dùng did + subject + base verb: “When did you last have your eyes tested?” Các lựa chọn khác sai trật tự hoặc dùng sai dạng “had”.",
+      "distractor_breakdowns": [
+        {
+          "option": "did you last have",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi quá khứ đơn dùng did + subject + base verb: “When did you last have your eyes tested?” Các lựa chọn khác sai trật tự hoặc dùng sai dạng “had”."
+        },
+        {
+          "option": "you last had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"you last had\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "did you last had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"did you last had\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "were you have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"were you have\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-62",
       "type": "fill_blank",
       "question": "Complete with the correct **object pattern**: My parents are having ___ installed this weekend.",
       "options": [
@@ -1172,9 +2571,32 @@
       ],
       "correct_answer": "solar panels",
       "explanation": "Câu cần object đứng giữa have và V3: “having solar panels installed”. Các đáp án còn lại làm câu dư hoặc sai dạng động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "solar panels",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu cần object đứng giữa have và V3: “having solar panels installed”. Các đáp án còn lại làm câu dư hoặc sai dạng động từ."
+        },
+        {
+          "option": "install solar panels",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"install solar panels\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "to install solar panels",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to install solar panels\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "solar panels install",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"solar panels install\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-63",
       "type": "error_correction",
       "question": "Find the error: Mark the wrong **get pattern**: Rachel got her cousin drive her to the station.",
       "options": [
@@ -1185,9 +2607,32 @@
       ],
       "correct_answer": "drive",
       "explanation": "Với get + person, cần to V: “got her cousin to drive”. “drive” chỉ đúng sau have + person, không đúng sau get + person.",
+      "distractor_breakdowns": [
+        {
+          "option": "got",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Got her cousin to drive”."
+        },
+        {
+          "option": "her cousin",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Her cousin to drive”."
+        },
+        {
+          "option": "drive",
+          "isCorrect": true,
+          "pedagogicalReason": "Với get + person, cần to V: “got her cousin to drive”. “drive” chỉ đúng sau have + person, không đúng sau get + person."
+        },
+        {
+          "option": "to the station",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"to the station\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-64",
       "type": "multiple_choice",
       "question": "Choose the correct **passive result**: The office looks brighter because we ___ yesterday.",
       "options": [
@@ -1198,9 +2643,32 @@
       ],
       "correct_answer": "had the windows cleaned",
       "explanation": "Câu nhấn mạnh kết quả dịch vụ nên dùng have + object + V3. Các đáp án khác hoặc nói tự làm, hoặc sai cấu trúc causative.",
+      "distractor_breakdowns": [
+        {
+          "option": "had the windows cleaned",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu nhấn mạnh kết quả dịch vụ nên dùng have + object + V3. Các đáp án khác hoặc nói tự làm, hoặc sai cấu trúc causative."
+        },
+        {
+          "option": "cleaned the windows by us",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"cleaned the windows by us\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "had cleaned the windows ourselves",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"had cleaned the windows ourselves\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "got the windows to clean",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"got the windows to clean\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-65",
       "type": "fill_blank",
       "question": "Complete with the correct **agent phrase**: Liam had his taxes prepared ___ an accountant.",
       "options": [
@@ -1211,9 +2679,32 @@
       ],
       "correct_answer": "by",
       "explanation": "Khi muốn nói người thực hiện trong cấu trúc bị động/causative, dùng “by”: “prepared by an accountant”. “with/from/for” không giới thiệu tác nhân thực hiện hành động trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "by",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi muốn nói người thực hiện trong cấu trúc bị động/causative, dùng “by”: “prepared by an accountant”. “with/from/for” không giới thiệu tác nhân thực hiện hành động trong câu này."
+        },
+        {
+          "option": "with",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. With/from/for” không giới thiệu tác nhân thực hiện hành động trong câu này."
+        },
+        {
+          "option": "from",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. From/for” không giới thiệu tác nhân thực hiện hành động trong câu này."
+        },
+        {
+          "option": "for",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. For” không giới thiệu tác nhân thực hiện hành động trong câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-66",
       "type": "error_correction",
       "question": "Find the error: Identify the wrong **tense form**: By noon, we will have get the invitations printed.",
       "options": [
@@ -1224,9 +2715,32 @@
       ],
       "correct_answer": "will have get",
       "explanation": "Sau “will have” trong thì tương lai hoàn thành cần V3: “will have got/gotten” hoặc tự nhiên hơn “will have had”. “will have get” sai vì “get” chưa chia quá khứ phân từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "By noon",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"By noon\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will have get",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “will have” trong thì tương lai hoàn thành cần V3: “will have got/gotten” hoặc tự nhiên hơn “will have had”. “will have get” sai vì “get” chưa chia quá khứ phân từ."
+        },
+        {
+          "option": "the invitations",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the invitations\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "printed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"printed\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "causative-ex-67",
       "type": "multiple_choice",
       "question": "Choose the correct **modal form**: You should ___ before buying that used car.",
       "options": [
@@ -1237,9 +2751,32 @@
       ],
       "correct_answer": "have it inspected",
       "explanation": "Sau modal “should” dùng động từ nguyên mẫu “have”, rồi object + V3: “have it inspected”. Các lựa chọn khác sai trật tự hoặc sai dạng động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "have it inspected",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau modal “should” dùng động từ nguyên mẫu “have”, rồi object + V3: “have it inspected”. Các lựa chọn khác sai trật tự hoặc sai dạng động từ."
+        },
+        {
+          "option": "have inspected it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have inspected it\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "get it inspect",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"get it inspect\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "have it to inspect",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have it to inspect\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-68",
       "type": "fill_blank",
       "question": "Complete with the correct **get clause**: After many emails, we got the supplier ___ the faulty parts.",
       "options": [
@@ -1250,9 +2787,32 @@
       ],
       "correct_answer": "to replace",
       "explanation": "Khi object là người/tổ chức thực hiện hành động, dùng get + person + to V. “replace” hợp với have, còn “replaced” là mẫu get + object + V3 khi object là vật bị tác động.",
+      "distractor_breakdowns": [
+        {
+          "option": "to replace",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi object là người/tổ chức thực hiện hành động, dùng get + person + to V. “replace” hợp với have, còn “replaced” là mẫu get + object + V3 khi object là vật bị tác động."
+        },
+        {
+          "option": "replace",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “replace” hợp với have, còn “replaced” là mẫu get + object + V3 khi object là vật bị tác động."
+        },
+        {
+          "option": "replaced",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “replaced” là mẫu get + object + V3 khi object là vật bị tác động."
+        },
+        {
+          "option": "replacing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"replacing\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-69",
       "type": "error_correction",
       "question": "Find the error: Mark the incorrect **object form**: The hotel had delivered our breakfast to the room.",
       "options": [
@@ -1263,9 +2823,32 @@
       ],
       "correct_answer": "had delivered",
       "explanation": "Nếu nghĩa là khách sạn sắp xếp để bữa sáng được giao, cần “had our breakfast delivered”. “had delivered” lại là quá khứ hoàn thành chủ động, không phải cấu trúc causative.",
+      "distractor_breakdowns": [
+        {
+          "option": "The hotel",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The hotel\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "had delivered",
+          "isCorrect": true,
+          "pedagogicalReason": "Nếu nghĩa là khách sạn sắp xếp để bữa sáng được giao, cần “had our breakfast delivered”. “had delivered” lại là quá khứ hoàn thành chủ động, không phải cấu trúc causative."
+        },
+        {
+          "option": "our breakfast",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Our breakfast delivered”."
+        },
+        {
+          "option": "to the room",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"to the room\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "causative-ex-70",
       "type": "multiple_choice",
       "question": "Choose the correct **person pattern**: The team leader ___ the analyst prepare a short summary.",
       "options": [
@@ -1276,9 +2859,32 @@
       ],
       "correct_answer": "had",
       "explanation": "Have + person + bare infinitive là cấu trúc sai bảo/nhờ ai làm: “had the analyst prepare”. “got” cần “to prepare”, còn “was had/gotten” không đúng ngữ pháp ở đây.",
+      "distractor_breakdowns": [
+        {
+          "option": "had",
+          "isCorrect": true,
+          "pedagogicalReason": "Have + person + bare infinitive là cấu trúc sai bảo/nhờ ai làm: “had the analyst prepare”. “got” cần “to prepare”, còn “was had/gotten” không đúng ngữ pháp ở đây."
+        },
+        {
+          "option": "got",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “got” cần “to prepare”, còn “was had/gotten” không đúng ngữ pháp ở đây."
+        },
+        {
+          "option": "was had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Was had/gotten” không đúng ngữ pháp ở đây."
+        },
+        {
+          "option": "gotten",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Gotten” không đúng ngữ pháp ở đây."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-71",
       "type": "fill_blank",
       "question": "Complete with the correct **past participle**: I'm getting my winter coat ___ before the trip.",
       "options": [
@@ -1289,9 +2895,32 @@
       ],
       "correct_answer": "dry-cleaned",
       "explanation": "Sau get + object, hành động được làm cho object phải ở dạng V3: “getting my coat dry-cleaned”. Các lựa chọn còn lại không phải quá khứ phân từ phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "dry-cleaned",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau get + object, hành động được làm cho object phải ở dạng V3: “getting my coat dry-cleaned”. Các lựa chọn còn lại không phải quá khứ phân từ phù hợp."
+        },
+        {
+          "option": "dry-clean",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"dry-clean\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "to dry-clean",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to dry-clean\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "dry-cleaning",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"dry-cleaning\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-72",
       "type": "error_correction",
       "question": "Find the error: Choose the wrong **question word**: Did you had your apartment painted last month?",
       "options": [
@@ -1302,9 +2931,32 @@
       ],
       "correct_answer": "had",
       "explanation": "Trong câu hỏi quá khứ đơn với “Did”, động từ chính phải ở dạng nguyên mẫu: “Did you have...?” “had” sai vì đã có trợ động từ “Did”.",
+      "distractor_breakdowns": [
+        {
+          "option": "Did",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Did”, động từ chính phải ở dạng nguyên mẫu: “Did you have."
+        },
+        {
+          "option": "had",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong câu hỏi quá khứ đơn với “Did”, động từ chính phải ở dạng nguyên mẫu: “Did you have...?” “had” sai vì đã có trợ động từ “Did”."
+        },
+        {
+          "option": "your apartment",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"your apartment\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "painted",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"painted\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-73",
       "type": "multiple_choice",
       "question": "Choose the correct **continuous form**: At the moment, Grace ___ at the studio.",
       "options": [
@@ -1315,9 +2967,32 @@
       ],
       "correct_answer": "is having her portrait taken",
       "explanation": "Hiện tại tiếp diễn causative dùng be + having + object + V3. Các đáp án khác sai dạng participle hoặc sai cấu trúc sau object.",
+      "distractor_breakdowns": [
+        {
+          "option": "is having her portrait taken",
+          "isCorrect": true,
+          "pedagogicalReason": "Hiện tại tiếp diễn causative dùng be + having + object + V3. Các đáp án khác sai dạng participle hoặc sai cấu trúc sau object."
+        },
+        {
+          "option": "has her portrait take",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has her portrait take\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "is getting her portrait to take",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is getting her portrait to take\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "had her portrait taking",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"had her portrait taking\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-74",
       "type": "fill_blank",
       "question": "Complete with the correct **causative form**: Before the launch, the company had its logo ___ on every box.",
       "options": [
@@ -1328,9 +3003,32 @@
       ],
       "correct_answer": "printed",
       "explanation": "“Had its logo printed” dùng have + object + V3 để nói công ty sắp xếp việc in logo. “print/to print/printing” không đúng sau object trong cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "printed",
+          "isCorrect": true,
+          "pedagogicalReason": "“Had its logo printed” dùng have + object + V3 để nói công ty sắp xếp việc in logo. “print/to print/printing” không đúng sau object trong cấu trúc này."
+        },
+        {
+          "option": "print",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Print/to print/printing” không đúng sau object trong cấu trúc này."
+        },
+        {
+          "option": "to print",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. To print/printing” không đúng sau object trong cấu trúc này."
+        },
+        {
+          "option": "printing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Printing” không đúng sau object trong cấu trúc này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-75",
       "type": "error_correction",
       "question": "Find the error: Identify the incorrect **causative verb**: We made the report proofread by a specialist.",
       "options": [
@@ -1341,9 +3039,32 @@
       ],
       "correct_answer": "made",
       "explanation": "Với nghĩa nhờ dịch vụ cho vật được xử lý, dùng “had/got the report proofread”. “made” không kết hợp tự nhiên với object + V3 + by agent trong nghĩa này.",
+      "distractor_breakdowns": [
+        {
+          "option": "made",
+          "isCorrect": true,
+          "pedagogicalReason": "Với nghĩa nhờ dịch vụ cho vật được xử lý, dùng “had/got the report proofread”. “made” không kết hợp tự nhiên với object + V3 + by agent trong nghĩa này."
+        },
+        {
+          "option": "the report",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. The report proofread”."
+        },
+        {
+          "option": "proofread",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"proofread\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "by a specialist",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"by a specialist\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "causative-ex-76",
       "type": "multiple_choice",
       "question": "Choose the sentence with correct **meaning**: Which sentence means Minh arranged for someone to frame the photo?",
       "options": [
@@ -1354,9 +3075,32 @@
       ],
       "correct_answer": "Minh had the photo framed.",
       "explanation": "“Had the photo framed” nghĩa là Minh sắp xếp để người khác đóng khung ảnh. Các câu còn lại hoặc nói tự làm, hoặc sai vì “frame” chưa ở dạng V3/đặt sai cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "Minh had the photo framed.",
+          "isCorrect": true,
+          "pedagogicalReason": "“Had the photo framed” nghĩa là Minh sắp xếp để người khác đóng khung ảnh. Các câu còn lại hoặc nói tự làm, hoặc sai vì “frame” chưa ở dạng V3/đặt sai cấu trúc."
+        },
+        {
+          "option": "Minh framed the photo himself.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Minh framed the photo himself.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Minh had the photo frame.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Minh had the photo frame.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Minh got the photo to frame.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Minh got the photo to frame.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-77",
       "type": "multiple_choice",
       "question": "Choose the correct **causative structure**: After the storm, Mr. Nguyen ___ by a professional.",
       "options": [
@@ -1367,9 +3111,32 @@
       ],
       "correct_answer": "had the fence repaired",
       "explanation": "Đáp án đúng là “had the fence repaired” vì cấu trúc nhờ/sắp xếp cho người khác làm là have + object + V3. “had repaired the fence” nghĩa là tự ông ấy đã sửa; “repair” và “to repair” sai dạng sau object trong cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "had the fence repaired",
+          "isCorrect": true,
+          "pedagogicalReason": "Đáp án đúng là “had the fence repaired” vì cấu trúc nhờ/sắp xếp cho người khác làm là have + object + V3. “had repaired the fence” nghĩa là tự ông ấy đã sửa; “repair” và “to repair” sai dạng sau object trong cấu trúc này."
+        },
+        {
+          "option": "had repaired the fence",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “had repaired the fence” nghĩa là tự ông ấy đã sửa."
+        },
+        {
+          "option": "got the fence repair",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"got the fence repair\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "had the fence to repair",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"had the fence to repair\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-78",
       "type": "fill_blank",
       "question": "Complete with the correct **past participle**: We're having the conference room ___ before Monday's meeting.",
       "options": [
@@ -1380,9 +3147,32 @@
       ],
       "correct_answer": "repainted",
       "explanation": "Sau “have + object” để nói căn phòng được người khác sơn lại, động từ phải ở dạng V3: “repainted”. Các lựa chọn còn lại là nguyên mẫu, to-infinitive hoặc V-ing nên không đúng cấu trúc have something done.",
+      "distractor_breakdowns": [
+        {
+          "option": "repainted",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “have + object” để nói căn phòng được người khác sơn lại, động từ phải ở dạng V3: “repainted”. Các lựa chọn còn lại là nguyên mẫu, to-infinitive hoặc V-ing nên không đúng cấu trúc have something done."
+        },
+        {
+          "option": "repaint",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"repaint\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "to repaint",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to repaint\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "repainting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"repainting\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-79",
       "type": "error_correction",
       "question": "Find the error: Choose the incorrect **verb form**: Maya got her passport renew before the business trip.",
       "options": [
@@ -1393,9 +3183,32 @@
       ],
       "correct_answer": "renew",
       "explanation": "Sai ở “renew” vì sau get + object trong nghĩa nhờ làm phải dùng quá khứ phân từ: “got her passport renewed”. “got”, “her passport” và “before” đều phù hợp trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "got",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “got”, “her passport” và “before” đều phù hợp trong câu."
+        },
+        {
+          "option": "her passport",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “her passport” và “before” đều phù hợp trong câu."
+        },
+        {
+          "option": "renew",
+          "isCorrect": true,
+          "pedagogicalReason": "Sai ở “renew” vì sau get + object trong nghĩa nhờ làm phải dùng quá khứ phân từ: “got her passport renewed”. “got”, “her passport” và “before” đều phù hợp trong câu."
+        },
+        {
+          "option": "before",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “before” đều phù hợp trong câu."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-80",
       "type": "multiple_choice",
       "question": "Choose the correct **person pattern**: The hotel manager ___ the technician check the elevator immediately.",
       "options": [
@@ -1406,9 +3219,32 @@
       ],
       "correct_answer": "had",
       "explanation": "Khi theo sau là người + động từ nguyên mẫu không “to”, ta dùng “have + person + V”: “had the technician check”. “got” cần “to check”, còn “was having/has gotten” không phù hợp với cấu trúc và thời của câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "had",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi theo sau là người + động từ nguyên mẫu không “to”, ta dùng “have + person + V”: “had the technician check”. “got” cần “to check”, còn “was having/has gotten” không phù hợp với cấu trúc và thời của câu này."
+        },
+        {
+          "option": "got",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “got” cần “to check”, còn “was having/has gotten” không phù hợp với cấu trúc và thời của câu này."
+        },
+        {
+          "option": "was having",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Was having/has gotten” không phù hợp với cấu trúc và thời của câu này."
+        },
+        {
+          "option": "has gotten",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Has gotten” không phù hợp với cấu trúc và thời của câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-81",
       "type": "fill_blank",
       "question": "Complete with the correct **to-infinitive**: Nina got the delivery driver ___ the package at the side door.",
       "options": [
@@ -1419,9 +3255,32 @@
       ],
       "correct_answer": "to leave",
       "explanation": "Với cấu trúc “get + person + to V”, đáp án đúng là “to leave”. “leave” dùng với have + person + V, “left” là V3/quá khứ, còn “leaving” không phù hợp sau “got the driver”.",
+      "distractor_breakdowns": [
+        {
+          "option": "to leave",
+          "isCorrect": true,
+          "pedagogicalReason": "Với cấu trúc “get + person + to V”, đáp án đúng là “to leave”. “leave” dùng với have + person + V, “left” là V3/quá khứ, còn “leaving” không phù hợp sau “got the driver”."
+        },
+        {
+          "option": "leave",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “leave” dùng với have + person + V, “left” là V3/quá khứ, còn “leaving” không phù hợp sau “got the driver”."
+        },
+        {
+          "option": "left",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “left” là V3/quá khứ, còn “leaving” không phù hợp sau “got the driver”."
+        },
+        {
+          "option": "leaving",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “leaving” không phù hợp sau “got the driver”."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-82",
       "type": "error_correction",
       "question": "Find the error: Mark the wrong **word order**: We had checked our smoke alarms by an electrician last Friday.",
       "options": [
@@ -1432,9 +3291,32 @@
       ],
       "correct_answer": "had checked",
       "explanation": "Sai ở “had checked” vì câu muốn nói chúng tôi thuê/nhờ người khác kiểm tra, nên phải là “had our smoke alarms checked”. Cụm “by an electrician” chỉ người thực hiện dịch vụ, và các phần còn lại đúng ngữ cảnh.",
+      "distractor_breakdowns": [
+        {
+          "option": "had checked",
+          "isCorrect": true,
+          "pedagogicalReason": "Sai ở “had checked” vì câu muốn nói chúng tôi thuê/nhờ người khác kiểm tra, nên phải là “had our smoke alarms checked”. Cụm “by an electrician” chỉ người thực hiện dịch vụ, và các phần còn lại đúng ngữ cảnh."
+        },
+        {
+          "option": "our smoke alarms",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Our smoke alarms checked”."
+        },
+        {
+          "option": "by an electrician",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “by an electrician” chỉ người thực hiện dịch vụ, và các phần còn lại đúng ngữ cảnh."
+        },
+        {
+          "option": "last Friday",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"last Friday\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-83",
       "type": "multiple_choice",
       "question": "Choose the correct **future causative**: Before we move in, we ___ professionally cleaned.",
       "options": [
@@ -1445,9 +3327,32 @@
       ],
       "correct_answer": "will get the flat",
       "explanation": "Câu đầy đủ là “we will get the flat professionally cleaned”, đúng mẫu get + object + V3. “will get the flat to” thiếu động từ chính, “will have cleaned the flat” dễ hiểu là tự hoàn tất việc dọn, còn “will get cleaned the flat” sai trật tự từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "will get the flat",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu đầy đủ là “we will get the flat professionally cleaned”, đúng mẫu get + object + V3. “will get the flat to” thiếu động từ chính, “will have cleaned the flat” dễ hiểu là tự hoàn tất việc dọn, còn “will get cleaned the flat” sai trật tự từ."
+        },
+        {
+          "option": "will get the flat to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “will get the flat to” thiếu động từ chính, “will have cleaned the flat” dễ hiểu là tự hoàn tất việc dọn, còn “will get cleaned the flat” sai trật tự từ."
+        },
+        {
+          "option": "will have cleaned the flat",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “will have cleaned the flat” dễ hiểu là tự hoàn tất việc dọn, còn “will get cleaned the flat” sai trật tự từ."
+        },
+        {
+          "option": "will get cleaned the flat",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “will get cleaned the flat” sai trật tự từ."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-84",
       "type": "fill_blank",
       "question": "Complete with the correct **causative verb**: The director wants to ___ the contract reviewed before signing it.",
       "options": [
@@ -1458,9 +3363,32 @@
       ],
       "correct_answer": "have",
       "explanation": "“Have the contract reviewed” diễn đạt việc sắp xếp để hợp đồng được người khác xem xét. “Make/let/do” không tạo cấu trúc have/get + object + V3 trong nghĩa nhờ làm dịch vụ này.",
+      "distractor_breakdowns": [
+        {
+          "option": "have",
+          "isCorrect": true,
+          "pedagogicalReason": "“Have the contract reviewed” diễn đạt việc sắp xếp để hợp đồng được người khác xem xét. “Make/let/do” không tạo cấu trúc have/get + object + V3 trong nghĩa nhờ làm dịch vụ này."
+        },
+        {
+          "option": "make",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Make/let/do” không tạo cấu trúc have/get + object + V3 trong nghĩa nhờ làm dịch vụ này."
+        },
+        {
+          "option": "let",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Let/do” không tạo cấu trúc have/get + object + V3 trong nghĩa nhờ làm dịch vụ này."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Do” không tạo cấu trúc have/get + object + V3 trong nghĩa nhờ làm dịch vụ này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-85",
       "type": "error_correction",
       "question": "Find the error: Identify the incorrect **get pattern**: Oliver got a designer redesign his website for the launch.",
       "options": [
@@ -1471,9 +3399,32 @@
       ],
       "correct_answer": "redesign",
       "explanation": "Sai ở “redesign” vì với get + person phải dùng “to V”: “got a designer to redesign”. “got”, “a designer” và “his website” đều đúng vai trò trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "got",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Got a designer to redesign”."
+        },
+        {
+          "option": "a designer",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. A designer to redesign”."
+        },
+        {
+          "option": "redesign",
+          "isCorrect": true,
+          "pedagogicalReason": "Sai ở “redesign” vì với get + person phải dùng “to V”: “got a designer to redesign”. “got”, “a designer” và “his website” đều đúng vai trò trong câu."
+        },
+        {
+          "option": "his website",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “his website” đều đúng vai trò trong câu."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-86",
       "type": "multiple_choice",
       "question": "Choose the correct **negative causative**: The tenants ___ until the owner approved the budget.",
       "options": [
@@ -1484,9 +3435,32 @@
       ],
       "correct_answer": "couldn't get the heater fixed",
       "explanation": "Sau modal “couldn't” dùng động từ nguyên mẫu “get”, và mẫu đúng là get + object + V3. “got” sau modal sai, “get fixed the heater” sai trật tự từ, còn “fix” phải là “fixed”.",
+      "distractor_breakdowns": [
+        {
+          "option": "couldn't get the heater fixed",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau modal “couldn't” dùng động từ nguyên mẫu “get”, và mẫu đúng là get + object + V3. “got” sau modal sai, “get fixed the heater” sai trật tự từ, còn “fix” phải là “fixed”."
+        },
+        {
+          "option": "couldn't got the heater fixed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"couldn't got the heater fixed\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "couldn't get fixed the heater",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"couldn't get fixed the heater\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "couldn't have the heater fix",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"couldn't have the heater fix\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "causative-ex-87",
       "type": "fill_blank",
       "question": "Complete with the correct **bare infinitive**: The coach had the players ___ their boots after training.",
       "options": [
@@ -1497,9 +3471,32 @@
       ],
       "correct_answer": "clean",
       "explanation": "Khi “have” mang nghĩa sai/bảo ai làm gì, cấu trúc là have + person + V nguyên mẫu không “to”. “to clean” dùng sai với have, “cleaned” là V3, còn “cleaning” không đúng mẫu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "clean",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi “have” mang nghĩa sai/bảo ai làm gì, cấu trúc là have + person + V nguyên mẫu không “to”. “to clean” dùng sai với have, “cleaned” là V3, còn “cleaning” không đúng mẫu này."
+        },
+        {
+          "option": "to clean",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “to clean” dùng sai với have, “cleaned” là V3, còn “cleaning” không đúng mẫu này."
+        },
+        {
+          "option": "cleaned",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “cleaned” là V3, còn “cleaning” không đúng mẫu này."
+        },
+        {
+          "option": "cleaning",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “cleaning” không đúng mẫu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-88",
       "type": "error_correction",
       "question": "Find the error: Choose the wrong **participle**: I am getting my wedding dress alter for the ceremony.",
       "options": [
@@ -1510,9 +3507,32 @@
       ],
       "correct_answer": "alter",
       "explanation": "Sai ở “alter” vì “get + object + V3” cần quá khứ phân từ: “altered”. “am getting” đúng cho hành động đang được sắp xếp, và các cụm còn lại đúng chức năng trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "am getting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “am getting” đúng cho hành động đang được sắp xếp, và các cụm còn lại đúng chức năng trong câu."
+        },
+        {
+          "option": "my wedding dress",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"my wedding dress\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "alter",
+          "isCorrect": true,
+          "pedagogicalReason": "Sai ở “alter” vì “get + object + V3” cần quá khứ phân từ: “altered”. “am getting” đúng cho hành động đang được sắp xếp, và các cụm còn lại đúng chức năng trong câu."
+        },
+        {
+          "option": "for the ceremony",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"for the ceremony\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "causative-ex-89",
       "type": "multiple_choice",
       "question": "Choose the correct **perfect form**: By the time guests arrive, Karen ___ tested.",
       "options": [
@@ -1523,6 +3543,28 @@
       ],
       "correct_answer": "will have had the sound system",
       "explanation": "Câu hoàn chỉnh là “Karen will have had the sound system tested”, đúng dạng tương lai hoàn thành của have + object + V3. Các lựa chọn khác sai cấu trúc: dùng “have” lặp sai, dùng V-ing, hoặc thiếu động từ sau “to”.",
+      "distractor_breakdowns": [
+        {
+          "option": "will have had the sound system",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hoàn chỉnh là “Karen will have had the sound system tested”, đúng dạng tương lai hoàn thành của have + object + V3. Các lựa chọn khác sai cấu trúc: dùng “have” lặp sai, dùng V-ing, hoặc thiếu động từ sau “to”."
+        },
+        {
+          "option": "will have the sound system have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will have the sound system have\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will get the sound system testing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will get the sound system testing\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will have got the sound system to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will have got the sound system to\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     }
   ]

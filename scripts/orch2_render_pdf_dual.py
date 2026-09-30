@@ -212,7 +212,7 @@ class LessonPlanParser:
 
         # Extract golden rule from dialogue if mentioned
         for _, d_body in p2_dialogues:
-            if "thần chú" in d_body.lower() or "quy tắc" in d_body.lower():
+            if "nguyên tắc" in d_body.lower() or "quy tắc" in d_body.lower():
                 rule_m = re.search(r"['\"]([^'\"]{10,120})['\"]", d_body)
                 if rule_m:
                     p2_golden_rule = f"⭐ NGUYÊN TẮC VÀNG: {rule_m.group(1)}"

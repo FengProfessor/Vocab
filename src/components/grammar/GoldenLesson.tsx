@@ -41,7 +41,7 @@ function Card({
     <div className="py-6 sm:py-8 space-y-3.5 border-b border-border/30 last:border-b-0">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2.5">
-          <div className="h-7 w-7 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+          <div className="h-7 w-7 rounded-none border border-border bg-primary/10 text-primary flex items-center justify-center shrink-0">
             {icon}
           </div>
           <h2 className="text-lg sm:text-xl font-serif font-semibold text-foreground">
@@ -119,9 +119,9 @@ function Exercise({ ex: rawEx, idx }: { ex: GrammarExerciseItem; idx: number }) 
   };
 
   return (
-    <div className="bg-muted/20 rounded-xl p-4 space-y-2.5">
+    <div className="bg-muted/20 border border-border rounded-none p-4 space-y-2.5">
       <div className="flex items-center gap-2">
-        <span className={`text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-md ${bcol}`}>
+        <span className={`text-[10px] font-mono font-semibold uppercase tracking-wider px-2 py-0.5 rounded-none border border-border/40 ${bcol}`}>
           {badge}
         </span>
       </div>
@@ -135,7 +135,7 @@ function Exercise({ ex: rawEx, idx }: { ex: GrammarExerciseItem; idx: number }) 
           {(opts ?? []).map((o: string) => {
             const isCorrect = isOptionCorrect(o);
             const show = done && (picked === o || isCorrect);
-            let btnClass = 'bg-muted/30 hover:bg-muted/60 text-foreground';
+            let btnClass = 'bg-muted/30 hover:bg-muted/60 text-foreground border-border/50';
             if (show) {
               if (isCorrect) {
                 btnClass = 'bg-emerald-500/15 text-emerald-800 dark:text-emerald-300 font-semibold ring-1 ring-emerald-500/30';
@@ -151,7 +151,7 @@ function Exercise({ ex: rawEx, idx }: { ex: GrammarExerciseItem; idx: number }) 
                   setPicked(o);
                   setDone(true);
                 }}
-                className={`text-left rounded-lg px-3.5 py-2 text-xs sm:text-sm font-medium transition-colors flex items-center justify-between gap-2 ${btnClass}`}
+                className={`text-left rounded-none border px-3.5 py-2 text-xs sm:text-sm font-mono font-medium transition-colors flex items-center justify-between gap-2 ${btnClass}`}
               >
                 <span>{o}</span>
                 {show && isCorrect && <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />}
@@ -183,7 +183,7 @@ function Exercise({ ex: rawEx, idx }: { ex: GrammarExerciseItem; idx: number }) 
                   setPicked(opt.l);
                   setDone(true);
                 }}
-                className={`flex-1 rounded-lg border px-3.5 py-2 text-xs sm:text-sm font-semibold transition-colors flex items-center justify-center gap-1.5 ${btnClass}`}
+                className={`flex-1 rounded-none font-mono border px-3.5 py-2 text-xs sm:text-sm font-semibold transition-colors flex items-center justify-center gap-1.5 ${btnClass}`}
               >
                 <span>{opt.l}</span>
                 {show && isCorrect && <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />}
@@ -205,12 +205,12 @@ function Exercise({ ex: rawEx, idx }: { ex: GrammarExerciseItem; idx: number }) 
               if (e.key === 'Enter' && val.trim()) setDone(true);
             }}
             placeholder="Nhập đáp án..."
-            className="flex-1 rounded-lg border border-border bg-background px-3.5 py-2 text-xs sm:text-sm font-medium text-foreground focus:outline-none focus:ring-1 focus:ring-primary disabled:opacity-70"
+            className="flex-1 rounded-none font-mono border border-border bg-background px-3.5 py-2 text-xs sm:text-sm font-medium text-foreground focus:outline-none focus:ring-1 focus:ring-primary disabled:opacity-70"
           />
           <button
             disabled={done || !val.trim()}
             onClick={() => setDone(true)}
-            className="rounded-lg bg-primary text-primary-foreground px-4 text-xs sm:text-sm font-semibold hover:bg-primary/90 disabled:opacity-40 transition-colors shadow-xs"
+            className="rounded-none font-mono bg-primary text-primary-foreground px-4 text-xs sm:text-sm font-semibold hover:bg-primary/90 disabled:opacity-40 transition-colors shadow-none border border-primary"
           >
             Kiểm tra
           </button>
@@ -219,7 +219,7 @@ function Exercise({ ex: rawEx, idx }: { ex: GrammarExerciseItem; idx: number }) 
 
       {done && (
         <div
-          className={`mt-2 p-3 rounded-lg border text-xs sm:text-sm font-medium leading-relaxed animate-in fade-in ${
+          className={`mt-2 p-3 rounded-none border text-xs sm:text-sm font-medium leading-relaxed animate-in fade-in ${
             (type === 'fill' && (opts?.length ?? 0) < 2
               ? (Array.isArray(answer) && answer.some((a) => norm(String(a)) === norm(val))) ||
                 norm(String(answer ?? '')) === norm(val)
@@ -289,9 +289,9 @@ export default function GoldenLesson({
         <Card tag="Khi nào dùng" icon={<Bookmark className="h-4 w-4" />} title="Các trường hợp dùng">
           <div className="grid sm:grid-cols-2 gap-2.5">
             {s.usage.map((u, i) => (
-              <div key={i} className="bg-muted/20 rounded-xl p-3.5 space-y-1">
+              <div key={i} className="bg-muted/20 border border-border rounded-none p-3.5 space-y-1">
                 <div className="font-semibold text-sm text-foreground flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+                  <span className="h-1.5 w-1.5 rounded-none bg-primary shrink-0" />
                   <span>{u.label}</span>
                 </div>
                 {u.en && <div className="text-xs sm:text-sm text-muted-foreground italic pl-3.5">{u.en}</div>}
@@ -329,7 +329,7 @@ export default function GoldenLesson({
             </table>
           </div>
           {s.formula.note && (
-            <div className="mt-3 text-xs sm:text-sm bg-amber-500/[0.04] border-l-2 border-amber-500/60 rounded-r-lg px-3.5 py-2.5 text-foreground leading-relaxed">
+            <div className="mt-3 text-xs sm:text-sm bg-amber-500/[0.04] border border-amber-500/40 border-l-2 border-l-amber-500/60 rounded-none px-3.5 py-2.5 text-foreground leading-relaxed">
               {md(s.formula.note)}
             </div>
           )}
@@ -404,7 +404,7 @@ export default function GoldenLesson({
                 </table>
               </div>
               {wb.note && (
-                <div className="mt-3 text-xs sm:text-sm bg-amber-500/[0.04] border-l-2 border-amber-500/60 rounded-r-lg px-3.5 py-2.5 text-foreground leading-relaxed">
+                <div className="mt-3 text-xs sm:text-sm bg-amber-500/[0.04] border border-amber-500/40 border-l-2 border-l-amber-500/60 rounded-none px-3.5 py-2.5 text-foreground leading-relaxed">
                   {md(wb.note)}
                 </div>
               )}
@@ -421,7 +421,7 @@ export default function GoldenLesson({
             {s.signals.map((x, i) => (
               <span
                 key={i}
-                className="bg-amber-500/10 text-amber-800 dark:text-amber-300 font-medium text-xs sm:text-sm px-3 py-1 rounded-lg"
+                className="bg-amber-500/10 border border-amber-500/30 text-amber-800 dark:text-amber-300 font-mono font-medium text-xs sm:text-sm px-3 py-1 rounded-none"
               >
                 {x}
               </span>
@@ -434,7 +434,7 @@ export default function GoldenLesson({
         <Card tag="Lỗi thường gặp" icon={<AlertTriangle className="h-4 w-4" />} title="Tránh các lỗi này">
           <div className="space-y-2.5">
             {s.mistakes.map((m, i) => (
-              <div key={i} className="p-3 bg-muted/20 rounded-xl text-xs sm:text-sm space-y-1">
+              <div key={i} className="p-3 bg-muted/20 border border-border rounded-none text-xs sm:text-sm space-y-1">
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="text-rose-600 dark:text-rose-400 line-through font-medium">{m.wrong}</span>
                   <span className="text-muted-foreground">→</span>
@@ -448,7 +448,7 @@ export default function GoldenLesson({
       )}
 
       {s.tips && (
-        <Card tag="Mẹo nhớ" icon={<Lightbulb className="h-4 w-4" />} title="Mẹo ghi nhớ">
+        <Card tag="Lưu ý trọng tâm" icon={<Bookmark className="h-4 w-4" />} title="Quy tắc cốt lõi & Lưu ý sư phạm">
           <div className="text-xs sm:text-sm text-foreground leading-relaxed">{md(s.tips)}</div>
         </Card>
       )}
@@ -466,7 +466,7 @@ export default function GoldenLesson({
             <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-border -translate-y-1/2" />
             {s.timeline.points.map((p, i) => (
               <div key={i} className="relative z-10 flex flex-col items-center flex-1 text-center">
-                <div className="w-3.5 h-3.5 rounded-full bg-primary border-2 border-background shadow-xs mb-1.5" />
+                <div className="w-3.5 h-3.5 rounded-none bg-primary border-2 border-background shadow-xs mb-1.5" />
                 <div className="text-[11px] font-semibold text-foreground leading-tight">{p.label}</div>
                 {p.note && <div className="text-[10px] text-muted-foreground">{p.note}</div>}
               </div>
@@ -490,12 +490,12 @@ export default function GoldenLesson({
             <button
               type="button"
               onClick={() => setShowAllEx((v) => !v)}
-              className="mt-3 w-full text-xs sm:text-sm font-semibold text-primary bg-primary/10 hover:bg-primary/20 border border-primary/20 rounded-xl py-2.5 transition-colors shadow-2xs cursor-pointer"
+              className="mt-3 w-full text-xs sm:text-sm font-mono font-semibold text-primary bg-primary/10 hover:bg-primary/20 border border-primary/20 rounded-none py-2.5 transition-colors shadow-none cursor-pointer"
             >
               {showAllEx ? 'Thu gọn' : `Xem thêm ${allExercises.length - PREVIEW_CAP} câu`}
             </button>
           )}
-          <p className="text-xs text-muted-foreground text-center mt-3 bg-muted/40 p-2.5 rounded-xl border border-dashed border-border">
+          <p className="text-xs text-muted-foreground text-center mt-3 bg-muted/40 p-2.5 rounded-none border border-dashed border-border">
             Luyện tập để nắm mẫu kiến thức. Nhấn <b>“Bắt đầu làm bài tập”</b> để chấm điểm tương tác và <b>ghi nhận tiến độ</b>.
           </p>
         </Card>

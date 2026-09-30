@@ -2,7 +2,7 @@
   "slug": "be-going-to",
   "title": "Future: be going to",
   "title_vi": "Tương lai gần (be going to)",
-  "level": "beginner",
+  "level": "A2",
   "order": 22,
   "sections": {
     "definition": "**Tương lai gần** (Future: be going to) là một trong những cách nói về tương lai trong tiếng Anh. Nó được sử dụng để nói về kế hoạch, dự định, hoặc những sự kiện sắp xảy ra trong tương lai gần. **Be going to** thường được dùng khi chúng ta đã có kế hoạch hoặc dự định từ trước, hoặc khi có một số dấu hiệu cho thấy một sự kiện sẽ xảy ra.",
@@ -567,7 +567,7 @@
         "why": "Sử dụng 'am' không đúng cách trước 'going to'."
       }
     ],
-    "tips": "**Mẹo nhớ:** Luôn nhớ sử dụng **am/is/are** trước **going to** khi nói về kế hoạch hoặc dự định trong tương lai gần.",
+    "tips": "**Lưu ý trọng tâm:** Luôn nhớ sử dụng **am/is/are** trước **going to** khi nói về kế hoạch hoặc dự định trong tương lai gần.",
     "comparison": "**Be going to vs Hiện tại tiếp diễn (nói về tương lai):** Going to = DỰ ĐỊNH / ý định, chưa chắc đã sắp xếp (*We're going to have a party* — định tổ chức). Tiếp diễn = lịch đã SẮP XẾP cố định với người khác (*We're having a party next week* — đã chốt, mời khách rồi).",
     "timeline": {
       "caption": "Going to = kế hoạch/dấu hiệu CÓ TỪ TRƯỚC now, mũi tên đã giương sẵn về tương lai (khác will = quyết định ngay tại chỗ).",
@@ -589,25 +589,82 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "The baby's face is red. She ____ (cry).",
-      "opts": [],
-      "answer": "is going to cry",
-      "fb": "mặt đỏ = dấu hiệu thấy được → be going to"
+      "id": "be-going-to-ex-01",
+      "type": "fill_blank",
+      "question": "The baby's face is red. She ____ (cry).",
+      "options": [],
+      "correct_answer": "is going to cry",
+      "explanation": "mặt đỏ = dấu hiệu thấy được → be going to",
+      "distractor_breakdowns": [
+        {
+          "option": "is going to cry",
+          "isCorrect": true,
+          "pedagogicalReason": "mặt đỏ = dấu hiệu thấy được → be going to"
+        },
+        {
+          "option": "will cry",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Khi có dấu hiệu trực quan rõ ràng (\"mặt em bé đỏ ửng\"), ta dùng thì tương lai gần \"is going to cry\", không dùng \"will cry\"."
+        },
+        {
+          "option": "cries",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Hiện tại đơn chỉ thói quen, không dùng cho sự việc sắp sửa xảy ra ngay trước mắt."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "My parents ____ (buy) a new house next year. They have saved money.",
-      "opts": [],
-      "answer": "are going to buy",
-      "fb": "đã dành tiền = kế hoạch có sẵn"
+      "id": "be-going-to-ex-02",
+      "type": "fill_blank",
+      "question": "My parents ____ (buy) a new house next year. They have saved money.",
+      "options": [],
+      "correct_answer": "are going to buy",
+      "explanation": "đã dành tiền = kế hoạch có sẵn",
+      "distractor_breakdowns": [
+        {
+          "option": "are going to buy",
+          "isCorrect": true,
+          "pedagogicalReason": "đã dành tiền = kế hoạch có sẵn"
+        },
+        {
+          "option": "will buy",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Đã có kế hoạch và tích lũy tiền từ trước (\"have saved money\"), phải dùng tương lai gần \"are going to buy\"."
+        },
+        {
+          "option": "buy",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sự việc xảy ra vào năm sau (\"next year\"), không dùng thì hiện tại đơn."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "They are going to build a new bridge here.  →  A new bridge ____ here.",
-      "opts": [],
-      "answer": "is going to be built",
-      "fb": "Tương lai gần → is going to be + V3, cắt by them"
+      "id": "be-going-to-ex-03",
+      "type": "fill_blank",
+      "question": "They are going to build a new bridge here.  →  A new bridge ____ here.",
+      "options": [],
+      "correct_answer": "is going to be built",
+      "explanation": "Tương lai gần → is going to be + V3, cắt by them",
+      "distractor_breakdowns": [
+        {
+          "option": "is going to be built",
+          "isCorrect": true,
+          "pedagogicalReason": "Tương lai gần → is going to be + V3, cắt by them"
+        },
+        {
+          "option": "is going to build",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Chủ ngữ \"A new bridge\" là vật tiếp nhận hành động, bắt buộc chia bị động \"is going to be built\", không dùng chủ động."
+        },
+        {
+          "option": "will build",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Kế hoạch đã định sẵn và ở thể bị động, không dùng \"will build\" chủ động."
+        }
+      ],
+      "difficulty": 2
     }
   ]
 }

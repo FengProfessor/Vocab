@@ -2,10 +2,10 @@
   "slug": "present-perfect-continuous",
   "title": "Present Perfect Continuous",
   "title_vi": "Hiện tại hoàn thành tiếp diễn",
-  "level": "intermediate",
-  "order": 30,
+  "level": "B1",
+  "order": 32,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **S + have/has been + V-ing** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **S + have/has been + V-ing** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -410,12 +410,30 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "Hoàn thành theo mẫu: She ___ been crying; her eyes are red.",
-      "answer": [
-        "has"
+      "id": "present-perfect-continuous-ex-01",
+      "type": "fill_blank",
+      "question": "Hoàn thành theo mẫu: She ___ been crying; her eyes are red.",
+      "options": [],
+      "correct_answer": "has",
+      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "has",
+          "isCorrect": true,
+          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+        },
+        {
+          "option": "have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Chủ ngữ \"She\" là ngôi thứ ba số ít, trợ động từ của thì hiện tại hoàn thành tiếp diễn phải là \"has been\"."
+        },
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Kết quả rõ ràng ở hiện tại (\"her eyes are red\"), phải dùng thì hiện tại hoàn thành tiếp diễn \"has been\"."
+        }
       ],
-      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+      "difficulty": 1
     }
   ]
 }

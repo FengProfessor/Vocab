@@ -60,7 +60,7 @@ Khi nhìn vào tranh Part 1, mắt bạn nhìn thấy đồ vật cụ thể và
 
 ### TẠI SAO LẠI NHƯ VẬY?
 - Trong kinh doanh và xuất nhập khẩu, hóa đơn và báo cáo luôn dùng tên danh mục tổng (*office furnishings, produce*) chứ không liệt kê lẻ tẻ từng chiếc ghế, quả cam.
-- **Mẹo phản xạ 3 giây cho bạn:** Nhìn thấy đồ vật cụ thể trong ảnh → Lập tức dịch nhẩm ngay sang tên nhóm lớn trước khi băng bắt đầu đọc phương án!
+- **Quy tắc phản xạ nhận diện:** Nhìn thấy đồ vật cụ thể trong ảnh → Lập tức dịch nhẩm ngay sang tên nhóm lớn trước khi băng bắt đầu đọc phương án!
 
 <div style="page-break-after: always;"></div>
 

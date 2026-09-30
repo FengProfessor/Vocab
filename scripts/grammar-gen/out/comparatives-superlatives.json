@@ -2,10 +2,10 @@
   "slug": "comparatives-superlatives",
   "title": "Comparatives & Superlatives",
   "title_vi": "So sánh hơn & so sánh nhất",
-  "level": "beginner",
+  "level": "A2",
   "order": 24,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **short adjective + -er / the + -est** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **short adjective + -er / the + -est** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -408,46 +408,170 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "Your flat is ____ (large) than mine.",
-      "opts": [],
-      "answer": "larger",
-      "fb": "than → hơn, large đã có e nên chỉ thêm r"
+      "id": "comparatives-superlatives-ex-01",
+      "type": "fill_blank",
+      "question": "Your flat is ____ (large) than mine.",
+      "options": [],
+      "correct_answer": "larger",
+      "explanation": "than → hơn, large đã có e nên chỉ thêm r",
+      "distractor_breakdowns": [
+        {
+          "option": "larger",
+          "isCorrect": true,
+          "pedagogicalReason": "than → hơn, large đã có e nên chỉ thêm r"
+        },
+        {
+          "option": "more large",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"large\" là tính từ ngắn 1 âm tiết, so sánh hơn là thêm đuôi -r (\"larger\"), không dùng \"more large\"."
+        },
+        {
+          "option": "largest",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"largest\" là dạng so sánh nhất, trong khi từ nhận biết \"than\" yêu cầu dạng so sánh hơn."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "Grace is ____ (old) girl in our class.",
-      "opts": [],
-      "answer": "the oldest",
-      "fb": "in our class → nhất, old ngắn nên the + -est"
+      "id": "comparatives-superlatives-ex-02",
+      "type": "fill_blank",
+      "question": "Grace is ____ (old) girl in our class.",
+      "options": [],
+      "correct_answer": "the oldest",
+      "explanation": "in our class → nhất, old ngắn nên the + -est",
+      "distractor_breakdowns": [
+        {
+          "option": "the oldest",
+          "isCorrect": true,
+          "pedagogicalReason": "in our class → nhất, old ngắn nên the + -est"
+        },
+        {
+          "option": "older",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cụm \"in our class\" chỉ phạm vi cả một tập thể từ 3 người trở lên, phải dùng so sánh nhất (\"the oldest\"), không dùng so sánh hơn."
+        },
+        {
+          "option": "oldest",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. So sánh nhất đứng trước danh từ xác định bắt buộc phải có mạo từ \"the\"."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "She sings ____ (beautiful) in this school.",
-      "opts": [],
-      "answer": "the most beautifully",
-      "fb": "in this school → nhất, bổ nghĩa cho sings nên là trạng từ dài"
+      "id": "comparatives-superlatives-ex-03",
+      "type": "fill_blank",
+      "question": "She sings ____ (beautiful) in this school.",
+      "options": [],
+      "correct_answer": "the most beautifully",
+      "explanation": "in this school → nhất, bổ nghĩa cho sings nên là trạng từ dài",
+      "distractor_breakdowns": [
+        {
+          "option": "the most beautifully",
+          "isCorrect": true,
+          "pedagogicalReason": "in this school → nhất, bổ nghĩa cho sings nên là trạng từ dài"
+        },
+        {
+          "option": "more beautifully",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cụm \"in this school\" chỉ phạm vi toàn bộ trường học, phải dùng so sánh nhất (\"the most beautifully\")."
+        },
+        {
+          "option": "most beautiful",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Bổ nghĩa cho động từ thường \"sings\" phải dùng trạng từ \"beautifully\", không dùng tính từ \"beautiful\"."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "Jane is not ____ (intelligent) as her brother.",
-      "opts": [],
-      "answer": "as intelligent",
-      "fb": "phủ định của so sánh bằng vẫn giữ tính từ gốc"
+      "id": "comparatives-superlatives-ex-04",
+      "type": "fill_blank",
+      "question": "Jane is not ____ (intelligent) as her brother.",
+      "options": [],
+      "correct_answer": "as intelligent",
+      "explanation": "phủ định của so sánh bằng vẫn giữ tính từ gốc",
+      "distractor_breakdowns": [
+        {
+          "option": "as intelligent",
+          "isCorrect": true,
+          "pedagogicalReason": "phủ định của so sánh bằng vẫn giữ tính từ gốc"
+        },
+        {
+          "option": "more intelligent",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc so sánh bằng/không bằng là \"not as + adj + as\", câu đã có \"as\" phía sau nên chỉ cần \"as intelligent\"."
+        },
+        {
+          "option": "intelligently",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sau động từ to-be \"is\" bổ nghĩa cho chủ ngữ cần tính từ \"intelligent\", không dùng trạng từ."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "____ Earth moves around ____ Sun.",
-      "opts": [],
-      "answer": "The / the",
-      "fb": "Trái Đất và Mặt Trời đều là duy nhất → the"
+      "id": "comparatives-superlatives-ex-05",
+      "type": "fill_blank",
+      "question": "____ Earth moves around ____ Sun.",
+      "options": [],
+      "correct_answer": "The / the",
+      "explanation": "Trái Đất và Mặt Trời đều là duy nhất → the",
+      "distractor_breakdowns": [
+        {
+          "option": "The / the",
+          "isCorrect": true,
+          "pedagogicalReason": "Trái Đất và Mặt Trời đều là duy nhất → the"
+        },
+        {
+          "option": "A / a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Trái Đất (\"Earth\") và Mặt Trời (\"Sun\") là các thiên thể duy nhất trong vũ trụ, bắt buộc dùng mạo từ xác định \"the\"."
+        },
+        {
+          "option": "∅ / ∅",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Danh từ chỉ thiên thể duy nhất không thể đứng trơ mà bắt buộc phải có mạo từ xác định \"the\"."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "Nam is the ____ student in our class.  (A tall · B taller · C tallest · D most tall)",
-      "opts": [],
-      "answer": "C tallest",
-      "fb": "So sánh nhất, tall là tính từ ngắn nên thêm -est · buổi 11"
+      "id": "comparatives-superlatives-ex-06",
+      "type": "multiple_choice",
+      "question": "Nam is the ____ student in our class.",
+      "options": [
+        "tall",
+        "taller",
+        "tallest",
+        "most tall"
+      ],
+      "correct_answer": "tallest",
+      "explanation": "So sánh nhất, tall là tính từ ngắn nên thêm -est · buổi 11",
+      "distractor_breakdowns": [
+        {
+          "option": "tall",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Tall là tính từ ngắn nên thêm -est · buổi 11."
+        },
+        {
+          "option": "taller",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"taller\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "tallest",
+          "isCorrect": true,
+          "pedagogicalReason": "So sánh nhất, tall là tính từ ngắn nên thêm -est · buổi 11"
+        },
+        {
+          "option": "most tall",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"most tall\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 3
     }
   ]
 }

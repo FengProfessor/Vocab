@@ -88,7 +88,7 @@ const STUDENT_CASES: StudentCase[] = [
     gain: 'Vượt chuẩn B2',
     exam: 'VSTEP B1–B2–C1',
     date: 'Thi đợt 18/08/2026',
-    highlight: 'Ăn trọn điểm Reading 4 bài',
+    highlight: 'Đạt điểm tối đa Reading 4 bài',
     quote:
       'Cần bằng B2 nộp chuẩn đầu ra thạc sĩ gấp trong 1 tháng. Mình cày nát 4 bài đọc học thuật và bộ từ vựng phân tầng C1 trên LingoPro. Phòng thi máy tính y hệt giao diện luyện tập nên tâm lý cực kỳ vững vàng.',
     proofBadge: 'Chứng chỉ VSTEP B2',

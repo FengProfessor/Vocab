@@ -2,10 +2,10 @@
   "slug": "conditionals-0-1",
   "title": "Zero & First Conditional",
   "title_vi": "Câu điều kiện loại 0 & loại 1",
-  "level": "beginner",
+  "level": "A2",
   "order": 28,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **If + present, present (loại 0)** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **If + present, present (loại 0)** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -399,6 +399,7 @@
   },
   "exercises": [
     {
+      "id": "conditionals-0-1-ex-01",
       "type": "multiple_choice",
       "question": "Choose the correct **zero conditional** sentence.",
       "options": [
@@ -409,9 +410,32 @@
       ],
       "correct_answer": "If water reaches 100°C, it boils.",
       "explanation": "Câu điều kiện loại 0 dùng If + hiện tại đơn, hiện tại đơn để nói sự thật chung. Các đáp án khác sai vì dùng “will” trong mệnh đề if hoặc chia sai động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "If water reaches 100°C, it boils.",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu điều kiện loại 0 dùng If + hiện tại đơn, hiện tại đơn để nói sự thật chung. Các đáp án khác sai vì dùng “will” trong mệnh đề if hoặc chia sai động từ."
+        },
+        {
+          "option": "If water reaches 100°C, it will boils.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If water reaches 100°C, it will boils.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If water will reach 100°C, it boils.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If water will reach 100°C, it boils.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If water reach 100°C, it boil.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If water reach 100°C, it boil.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-02",
       "type": "multiple_choice",
       "question": "Choose the correct **first conditional** sentence.",
       "options": [
@@ -422,9 +446,32 @@
       ],
       "correct_answer": "If I finish work early, I will cook dinner.",
       "explanation": "Câu điều kiện loại 1 dùng If + hiện tại đơn, will + V cho khả năng thật trong tương lai. Không dùng “will” ngay sau “if”, và không dùng quá khứ ở đây.",
+      "distractor_breakdowns": [
+        {
+          "option": "If I finish work early, I will cook dinner.",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu điều kiện loại 1 dùng If + hiện tại đơn, will + V cho khả năng thật trong tương lai. Không dùng “will” ngay sau “if”, và không dùng quá khứ ở đây."
+        },
+        {
+          "option": "If I will finish work early, I cook dinner.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If I will finish work early, I cook dinner.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If I finished work early, I will cook dinner.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If I finished work early, I will cook dinner.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If I finish work early, I cooked dinner.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If I finish work early, I cooked dinner.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-03",
       "type": "multiple_choice",
       "question": "Choose the best **if-clause** form.",
       "options": [
@@ -435,9 +482,32 @@
       ],
       "correct_answer": "If she studies tonight, she will understand the lesson.",
       "explanation": "Sau “if” trong câu điều kiện loại 1 dùng hiện tại đơn: “she studies”. Các lựa chọn khác sai vì dùng “will” sau if, sai thì, hoặc thiếu -s với chủ ngữ “she”.",
+      "distractor_breakdowns": [
+        {
+          "option": "If she studies tonight, she will understand the lesson.",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “if” trong câu điều kiện loại 1 dùng hiện tại đơn: “she studies”. Các lựa chọn khác sai vì dùng “will” sau if, sai thì, hoặc thiếu -s với chủ ngữ “she”."
+        },
+        {
+          "option": "If she will study tonight, she will understand the lesson.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If she will study tonight, she will understand the lesson.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If she studies tonight, she understands yesterday.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If she studies tonight, she understands yesterday.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If she study tonight, she will understand the lesson.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If she study tonight, she will understand the lesson.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-04",
       "type": "multiple_choice",
       "question": "Choose the correct **meaning** of the sentence: If you press this button, the machine starts.",
       "options": [
@@ -448,9 +518,32 @@
       ],
       "correct_answer": "This is a general result.",
       "explanation": "Câu này là điều kiện loại 0: khi điều kiện xảy ra thì kết quả thường luôn đúng. Nó không nói về mơ ước không thật, quá khứ, hay bắt buộc dùng thì quá khứ.",
+      "distractor_breakdowns": [
+        {
+          "option": "This is a general result.",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu này là điều kiện loại 0: khi điều kiện xảy ra thì kết quả thường luôn đúng. Nó không nói về mơ ước không thật, quá khứ, hay bắt buộc dùng thì quá khứ."
+        },
+        {
+          "option": "This is an unreal dream.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"This is an unreal dream.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "This happened only yesterday.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"This happened only yesterday.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "This must use past tense.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"This must use past tense.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-05",
       "type": "multiple_choice",
       "question": "Choose the correct **unless** sentence.",
       "options": [
@@ -461,9 +554,32 @@
       ],
       "correct_answer": "Unless you hurry, you will miss the bus.",
       "explanation": "“Unless” nghĩa là “if not” và thường dùng cấu trúc Unless + hiện tại đơn, will + V. Các câu còn lại sai vì dùng “will” sau unless, sai thì, hoặc chia sai động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "Unless you hurry, you will miss the bus.",
+          "isCorrect": true,
+          "pedagogicalReason": "“Unless” nghĩa là “if not” và thường dùng cấu trúc Unless + hiện tại đơn, will + V. Các câu còn lại sai vì dùng “will” sau unless, sai thì, hoặc chia sai động từ."
+        },
+        {
+          "option": "Unless you will hurry, you miss the bus.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"Unless you will hurry, you miss the bus.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "Unless you hurry, you missed the bus.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"Unless you hurry, you missed the bus.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "Unless you hurries, you will miss the bus.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"Unless you hurries, you will miss the bus.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-06",
       "type": "multiple_choice",
       "question": "Choose the correct **main clause**.",
       "options": [
@@ -474,9 +590,32 @@
       ],
       "correct_answer": "If Dad comes home late, we will eat first.",
       "explanation": "Mệnh đề chính của câu điều kiện loại 1 dùng “will + động từ nguyên mẫu”. “Will eats”, “eating”, và “eat yesterday” đều không đúng trong ngữ cảnh này.",
+      "distractor_breakdowns": [
+        {
+          "option": "If Dad comes home late, we will eat first.",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề chính của câu điều kiện loại 1 dùng “will + động từ nguyên mẫu”. “Will eats”, “eating”, và “eat yesterday” đều không đúng trong ngữ cảnh này."
+        },
+        {
+          "option": "If Dad comes home late, we eat yesterday.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If Dad comes home late, we eat yesterday.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If Dad comes home late, we will eats first.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If Dad comes home late, we will eats first.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If Dad comes home late, we eating first.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If Dad comes home late, we eating first.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-07",
       "type": "multiple_choice",
       "question": "Choose the correct **word order**.",
       "options": [
@@ -487,9 +626,32 @@
       ],
       "correct_answer": "I will text you if the meeting ends early.",
       "explanation": "Mệnh đề if có thể đứng sau mệnh đề chính: will + V + if + hiện tại đơn. Các lựa chọn khác sai trật tự từ nên không tự nhiên hoặc sai ngữ pháp.",
+      "distractor_breakdowns": [
+        {
+          "option": "I will text you if the meeting ends early.",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề if có thể đứng sau mệnh đề chính: will + V + if + hiện tại đơn. Các lựa chọn khác sai trật tự từ nên không tự nhiên hoặc sai ngữ pháp."
+        },
+        {
+          "option": "I will if text you the meeting ends early.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"I will if text you the meeting ends early.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If will the meeting ends early, I text you.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If will the meeting ends early, I text you.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "The meeting if ends early I will text you.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"The meeting if ends early I will text you.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-08",
       "type": "multiple_choice",
       "question": "Choose the correct **habit result** sentence.",
       "options": [
@@ -500,9 +662,32 @@
       ],
       "correct_answer": "If my phone battery is low, I charge it.",
       "explanation": "Câu này nói thói quen/kết quả thường xảy ra nên dùng điều kiện loại 0. Các đáp án khác sai vì dùng “will” trong mệnh đề if hoặc chia sai động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "If my phone battery is low, I charge it.",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu này nói thói quen/kết quả thường xảy ra nên dùng điều kiện loại 0. Các đáp án khác sai vì dùng “will” trong mệnh đề if hoặc chia sai động từ."
+        },
+        {
+          "option": "If my phone battery will be low, I charge it.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If my phone battery will be low, I charge it.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If my phone battery is low, I will charged it.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If my phone battery is low, I will charged it.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If my phone battery low, I charges it.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If my phone battery low, I charges it.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-09",
       "type": "multiple_choice",
       "question": "Choose the correct **future result** sentence.",
       "options": [
@@ -513,9 +698,32 @@
       ],
       "correct_answer": "If the shop is open, we will buy milk.",
       "explanation": "Đây là khả năng thật trong tương lai nên dùng If + hiện tại đơn, will + V. Các lựa chọn khác sai vì dùng “will” sau if, sai thì, hoặc chia sai động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "If the shop is open, we will buy milk.",
+          "isCorrect": true,
+          "pedagogicalReason": "Đây là khả năng thật trong tương lai nên dùng If + hiện tại đơn, will + V. Các lựa chọn khác sai vì dùng “will” sau if, sai thì, hoặc chia sai động từ."
+        },
+        {
+          "option": "If the shop will be open, we buy milk.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If the shop will be open, we buy milk.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If the shop is open, we bought milk.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If the shop is open, we bought milk.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If the shop open, we will buys milk.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If the shop open, we will buys milk.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-10",
       "type": "fill_blank",
       "question": "Choose the correct **verb form**: If salt mixes with water, it ___ .",
       "options": [
@@ -526,9 +734,32 @@
       ],
       "correct_answer": "dissolves",
       "explanation": "Đây là sự thật chung nên dùng hiện tại đơn ở cả hai mệnh đề. “It” cần động từ thêm -s: “dissolves”; các lựa chọn còn lại sai dạng hoặc sai thì.",
+      "distractor_breakdowns": [
+        {
+          "option": "dissolves",
+          "isCorrect": true,
+          "pedagogicalReason": "Đây là sự thật chung nên dùng hiện tại đơn ở cả hai mệnh đề. “It” cần động từ thêm -s: “dissolves”; các lựa chọn còn lại sai dạng hoặc sai thì."
+        },
+        {
+          "option": "will dissolves",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"will dissolves\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "dissolve",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"dissolve\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "dissolved",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"dissolved\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-11",
       "type": "fill_blank",
       "question": "Complete the **first conditional**: If you call me, I ___ you the address.",
       "options": [
@@ -539,9 +770,32 @@
       ],
       "correct_answer": "will send",
       "explanation": "Câu điều kiện loại 1 dùng mệnh đề chính “will + V”. “Send” là hiện tại đơn, “sent” là quá khứ, còn “will sends” sai vì sau will dùng động từ nguyên mẫu.",
+      "distractor_breakdowns": [
+        {
+          "option": "will send",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu điều kiện loại 1 dùng mệnh đề chính “will + V”. “Send” là hiện tại đơn, “sent” là quá khứ, còn “will sends” sai vì sau will dùng động từ nguyên mẫu."
+        },
+        {
+          "option": "send",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Send” là hiện tại đơn, “sent” là quá khứ, còn “will sends” sai vì sau will dùng động từ nguyên mẫu."
+        },
+        {
+          "option": "sent",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “sent” là quá khứ, còn “will sends” sai vì sau will dùng động từ nguyên mẫu."
+        },
+        {
+          "option": "will sends",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “will sends” sai vì sau will dùng động từ nguyên mẫu."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-12",
       "type": "fill_blank",
       "question": "Choose the correct **if-clause**: I will wait here if the train ___ late.",
       "options": [
@@ -552,9 +806,32 @@
       ],
       "correct_answer": "is",
       "explanation": "Sau “if” trong câu điều kiện loại 1 dùng hiện tại đơn, nên chọn “is”. “Will be” không dùng sau if; “be” và “was” sai dạng trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “if” trong câu điều kiện loại 1 dùng hiện tại đơn, nên chọn “is”. “Will be” không dùng sau if; “be” và “was” sai dạng trong câu này."
+        },
+        {
+          "option": "will be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Will be” không dùng sau if."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be” không dùng sau if."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “was” sai dạng trong câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-13",
       "type": "fill_blank",
       "question": "Complete the **zero conditional**: When people eat too much sugar, they often ___ tired later.",
       "options": [
@@ -565,9 +842,32 @@
       ],
       "correct_answer": "feel",
       "explanation": "Với sự thật/thói quen chung, dùng hiện tại đơn: “people feel”. “Feels” sai hòa hợp chủ ngữ, còn “will feel” và “felt” không phù hợp với loại 0 ở đây.",
+      "distractor_breakdowns": [
+        {
+          "option": "feel",
+          "isCorrect": true,
+          "pedagogicalReason": "Với sự thật/thói quen chung, dùng hiện tại đơn: “people feel”. “Feels” sai hòa hợp chủ ngữ, còn “will feel” và “felt” không phù hợp với loại 0 ở đây."
+        },
+        {
+          "option": "will feel",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “will feel” và “felt” không phù hợp với loại 0 ở đây."
+        },
+        {
+          "option": "feels",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Feels” sai hòa hợp chủ ngữ, còn “will feel” và “felt” không phù hợp với loại 0 ở đây."
+        },
+        {
+          "option": "felt",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “felt” không phù hợp với loại 0 ở đây."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-14",
       "type": "fill_blank",
       "question": "Choose the correct **unless form**: Unless he leaves now, he ___ on time.",
       "options": [
@@ -578,9 +878,32 @@
       ],
       "correct_answer": "will not arrive",
       "explanation": "“Unless + hiện tại đơn” đi với kết quả tương lai “will + V”. Các đáp án khác sai vì không diễn đạt kết quả tương lai đúng hoặc chia sai sau “will”.",
+      "distractor_breakdowns": [
+        {
+          "option": "will not arrive",
+          "isCorrect": true,
+          "pedagogicalReason": "“Unless + hiện tại đơn” đi với kết quả tương lai “will + V”. Các đáp án khác sai vì không diễn đạt kết quả tương lai đúng hoặc chia sai sau “will”."
+        },
+        {
+          "option": "does not arrive",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"does not arrive\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "will not arrives",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"will not arrives\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "did not arrive",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"did not arrive\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-15",
       "type": "fill_blank",
       "question": "Complete the **future result**: If we save enough money, we ___ a new laptop.",
       "options": [
@@ -591,9 +914,32 @@
       ],
       "correct_answer": "will buy",
       "explanation": "Đây là điều kiện có thể xảy ra trong tương lai nên mệnh đề chính dùng “will buy”. “Buy” là hiện tại đơn, “bought” là quá khứ, và “will bought” sai cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "will buy",
+          "isCorrect": true,
+          "pedagogicalReason": "Đây là điều kiện có thể xảy ra trong tương lai nên mệnh đề chính dùng “will buy”. “Buy” là hiện tại đơn, “bought” là quá khứ, và “will bought” sai cấu trúc."
+        },
+        {
+          "option": "buy",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Buy” là hiện tại đơn, “bought” là quá khứ, và “will bought” sai cấu trúc."
+        },
+        {
+          "option": "bought",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “bought” là quá khứ, và “will bought” sai cấu trúc."
+        },
+        {
+          "option": "will bought",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “will bought” sai cấu trúc."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-16",
       "type": "fill_blank",
       "question": "Choose the correct **present simple** form: If a child ___ hungry, he cries.",
       "options": [
@@ -604,9 +950,32 @@
       ],
       "correct_answer": "is",
       "explanation": "Câu điều kiện loại 0 dùng hiện tại đơn để nói kết quả thường đúng. “A child” là số ít nên dùng “is”; các đáp án khác sai thì hoặc sai hòa hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu điều kiện loại 0 dùng hiện tại đơn để nói kết quả thường đúng. “A child” là số ít nên dùng “is”; các đáp án khác sai thì hoặc sai hòa hợp."
+        },
+        {
+          "option": "will be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"will be\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng số nhiều \"are\" không hòa hợp với chủ ngữ số ít hoặc danh từ không đếm được."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng số ít \"was\" không hòa hợp với chủ ngữ số nhiều hoặc \"you/we/they\"."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-17",
       "type": "fill_blank",
       "question": "Complete the **negative condition**: If you do not wear a coat, you ___ cold.",
       "options": [
@@ -617,9 +986,32 @@
       ],
       "correct_answer": "will feel",
       "explanation": "Câu này nói khả năng trong tương lai nên dùng “will + V” ở mệnh đề chính. “Feel” là hiện tại đơn, “felt” là quá khứ, còn “will felt” sai vì sau will phải là động từ nguyên mẫu.",
+      "distractor_breakdowns": [
+        {
+          "option": "will feel",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu này nói khả năng trong tương lai nên dùng “will + V” ở mệnh đề chính. “Feel” là hiện tại đơn, “felt” là quá khứ, còn “will felt” sai vì sau will phải là động từ nguyên mẫu."
+        },
+        {
+          "option": "feel",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Feel” là hiện tại đơn, “felt” là quá khứ, còn “will felt” sai vì sau will phải là động từ nguyên mẫu."
+        },
+        {
+          "option": "felt",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “felt” là quá khứ, còn “will felt” sai vì sau will phải là động từ nguyên mẫu."
+        },
+        {
+          "option": "will felt",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “will felt” sai vì sau will phải là động từ nguyên mẫu."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-18",
       "type": "error_correction",
       "question": "Find the error: If she will arrive early, we will start the game.",
       "options": [
@@ -630,9 +1022,32 @@
       ],
       "correct_answer": "she will arrive",
       "explanation": "Sau “if” trong câu điều kiện loại 1 không dùng “will”; phải nói “If she arrives early”. Các phần còn lại đúng trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "If",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “if” trong câu điều kiện loại 1 không dùng “will”."
+        },
+        {
+          "option": "she will arrive",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “if” trong câu điều kiện loại 1 không dùng “will”; phải nói “If she arrives early”. Các phần còn lại đúng trong câu."
+        },
+        {
+          "option": "we will start",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"we will start\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "the game",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the game\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-19",
       "type": "error_correction",
       "question": "Find the error: If water freeze, it becomes ice.",
       "options": [
@@ -643,9 +1058,32 @@
       ],
       "correct_answer": "water freeze",
       "explanation": "“Water” là danh từ không đếm được số ít nên hiện tại đơn cần “freezes”. Các phần khác đúng cho câu điều kiện loại 0.",
+      "distractor_breakdowns": [
+        {
+          "option": "If",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"If\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "water freeze",
+          "isCorrect": true,
+          "pedagogicalReason": "“Water” là danh từ không đếm được số ít nên hiện tại đơn cần “freezes”. Các phần khác đúng cho câu điều kiện loại 0."
+        },
+        {
+          "option": "it becomes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"it becomes\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "ice",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"ice\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-20",
       "type": "error_correction",
       "question": "Find the error: If you touch fire, you will gets hurt.",
       "options": [
@@ -656,9 +1094,32 @@
       ],
       "correct_answer": "you will gets",
       "explanation": "Sau “will” phải dùng động từ nguyên mẫu: “will get”. “If you touch fire” đúng vì mệnh đề if dùng hiện tại đơn.",
+      "distractor_breakdowns": [
+        {
+          "option": "If you touch",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. If you touch fire” đúng vì mệnh đề if dùng hiện tại đơn."
+        },
+        {
+          "option": "fire",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Fire” đúng vì mệnh đề if dùng hiện tại đơn."
+        },
+        {
+          "option": "you will gets",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “will” phải dùng động từ nguyên mẫu: “will get”. “If you touch fire” đúng vì mệnh đề if dùng hiện tại đơn."
+        },
+        {
+          "option": "hurt",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"hurt\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-21",
       "type": "error_correction",
       "question": "Find the error: Unless it will stop soon, we will cancel the picnic.",
       "options": [
@@ -669,9 +1130,32 @@
       ],
       "correct_answer": "it will stop",
       "explanation": "Sau “unless” dùng hiện tại đơn, không dùng “will”: “Unless it stops soon”. Mệnh đề chính “we will cancel” đúng cho kết quả tương lai.",
+      "distractor_breakdowns": [
+        {
+          "option": "Unless",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “unless” dùng hiện tại đơn, không dùng “will”: “Unless it stops soon”."
+        },
+        {
+          "option": "it will stop",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “unless” dùng hiện tại đơn, không dùng “will”: “Unless it stops soon”. Mệnh đề chính “we will cancel” đúng cho kết quả tương lai."
+        },
+        {
+          "option": "soon",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"soon\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "we will cancel",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “we will cancel” đúng cho kết quả tương lai."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-22",
       "type": "error_correction",
       "question": "Find the error: If I am late tomorrow, I call you.",
       "options": [
@@ -682,9 +1166,32 @@
       ],
       "correct_answer": "I call",
       "explanation": "Vì có “tomorrow”, đây là khả năng tương lai nên mệnh đề chính cần “I will call”. “If I am” dùng hiện tại đơn sau if là đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "If I am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “If I am” dùng hiện tại đơn sau if là đúng."
+        },
+        {
+          "option": "late tomorrow",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"late tomorrow\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "I call",
+          "isCorrect": true,
+          "pedagogicalReason": "Vì có “tomorrow”, đây là khả năng tương lai nên mệnh đề chính cần “I will call”. “If I am” dùng hiện tại đơn sau if là đúng."
+        },
+        {
+          "option": "you",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"you\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-23",
       "type": "error_correction",
       "question": "Find the error: If the baby sleeps, please you turn off the TV.",
       "options": [
@@ -695,9 +1202,32 @@
       ],
       "correct_answer": "please you turn",
       "explanation": "Mệnh lệnh lịch sự dùng “please turn off”, không nói “please you turn”. Mệnh đề if dùng hiện tại đơn đúng cho tình huống thực tế.",
+      "distractor_breakdowns": [
+        {
+          "option": "If the baby sleeps",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"If the baby sleeps\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "please you turn",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh lệnh lịch sự dùng “please turn off”, không nói “please you turn”. Mệnh đề if dùng hiện tại đơn đúng cho tình huống thực tế."
+        },
+        {
+          "option": "off",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Off”, không nói “please you turn”."
+        },
+        {
+          "option": "the TV",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the TV\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "conditionals-0-1-ex-24",
       "type": "error_correction",
       "question": "Find the error: If he does not drinks water, he will feel weak.",
       "options": [
@@ -708,9 +1238,32 @@
       ],
       "correct_answer": "he does not drinks",
       "explanation": "Trong phủ định hiện tại đơn với “does not”, động từ chính phải ở dạng nguyên mẫu: “does not drink”. Mệnh đề chính “he will feel” đúng cho kết quả tương lai.",
+      "distractor_breakdowns": [
+        {
+          "option": "If",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"If\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "he does not drinks",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong phủ định hiện tại đơn với “does not”, động từ chính phải ở dạng nguyên mẫu: “does not drink”. Mệnh đề chính “he will feel” đúng cho kết quả tương lai."
+        },
+        {
+          "option": "water",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"water\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "he will feel",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “he will feel” đúng cho kết quả tương lai."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-25",
       "type": "error_correction",
       "question": "Find the error: If the class finishes early, we go to the cafe later today.",
       "options": [
@@ -721,9 +1274,32 @@
       ],
       "correct_answer": "we go",
       "explanation": "“Later today” cho thấy kết quả tương lai cụ thể, nên dùng “we will go”. Mệnh đề if dùng hiện tại đơn “finishes” là đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "If the class finishes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"If the class finishes\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "early",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"early\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "we go",
+          "isCorrect": true,
+          "pedagogicalReason": "“Later today” cho thấy kết quả tương lai cụ thể, nên dùng “we will go”. Mệnh đề if dùng hiện tại đơn “finishes” là đúng."
+        },
+        {
+          "option": "later today",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Later today” cho thấy kết quả tương lai cụ thể, nên dùng “we will go”."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-26",
       "type": "multiple_choice",
       "question": "Choose the correct **meaning**: If water reaches 100°C, it boils.",
       "options": [
@@ -734,9 +1310,32 @@
       ],
       "correct_answer": "a general fact",
       "explanation": "Đây là câu điều kiện loại 0: if + hiện tại đơn, hiện tại đơn, dùng cho sự thật luôn đúng. Các lựa chọn khác sai vì câu không nói về mơ ước, quá khứ hay chỉ một kế hoạch tương lai.",
+      "distractor_breakdowns": [
+        {
+          "option": "a general fact",
+          "isCorrect": true,
+          "pedagogicalReason": "Đây là câu điều kiện loại 0: if + hiện tại đơn, hiện tại đơn, dùng cho sự thật luôn đúng. Các lựa chọn khác sai vì câu không nói về mơ ước, quá khứ hay chỉ một kế hoạch tương lai."
+        },
+        {
+          "option": "an unreal dream",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"an unreal dream\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "a past event",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"a past event\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "a future plan only",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"a future plan only\" là trạng từ (adverb), không thể đứng trước danh từ hoặc làm bổ ngữ sau linking verb thay cho tính từ."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-27",
       "type": "multiple_choice",
       "question": "Choose the correct **future condition** sentence.",
       "options": [
@@ -747,9 +1346,32 @@
       ],
       "correct_answer": "If we leave now, we will catch the bus.",
       "explanation": "Câu đúng dùng loại 1: If + hiện tại đơn, will + V. Không dùng will trong mệnh đề if; “catches” sai sau will, và “left” không phù hợp với loại 1 cơ bản.",
+      "distractor_breakdowns": [
+        {
+          "option": "If we leave now, we will catch the bus.",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu đúng dùng loại 1: If + hiện tại đơn, will + V. Không dùng will trong mệnh đề if; “catches” sai sau will, và “left” không phù hợp với loại 1 cơ bản."
+        },
+        {
+          "option": "If we will leave now, we catch the bus.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If we will leave now, we catch the bus.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If we leave now, we catches the bus.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If we leave now, we catches the bus.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If we left now, we will catch the bus.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If we left now, we will catch the bus.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-28",
       "type": "multiple_choice",
       "question": "Choose the correct **zero conditional** sentence for a school rule.",
       "options": [
@@ -760,9 +1382,32 @@
       ],
       "correct_answer": "If students are late, the teacher marks them absent.",
       "explanation": "Quy tắc chung dùng loại 0: hiện tại đơn ở cả hai mệnh đề. Các câu còn lại sai vì dùng “will” trong if-clause, sai dạng “marked”, hoặc thiếu động từ “are”.",
+      "distractor_breakdowns": [
+        {
+          "option": "If students are late, the teacher marks them absent.",
+          "isCorrect": true,
+          "pedagogicalReason": "Quy tắc chung dùng loại 0: hiện tại đơn ở cả hai mệnh đề. Các câu còn lại sai vì dùng “will” trong if-clause, sai dạng “marked”, hoặc thiếu động từ “are”."
+        },
+        {
+          "option": "If students will be late, the teacher marks them absent.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If students will be late, the teacher marks them absent.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If students are late, the teacher will marked them absent.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If students are late, the teacher will marked them absent.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If students late, the teacher marks them absent.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If students late, the teacher marks them absent.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-29",
       "type": "multiple_choice",
       "question": "Choose the correct **comma** placement.",
       "options": [
@@ -773,9 +1418,32 @@
       ],
       "correct_answer": "If you finish the quiz, I will check it.",
       "explanation": "Khi mệnh đề if đứng đầu câu, thường đặt dấu phẩy sau mệnh đề đó. Các lựa chọn khác đặt dấu phẩy sai vị trí nên làm câu khó hiểu.",
+      "distractor_breakdowns": [
+        {
+          "option": "If you finish the quiz, I will check it.",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi mệnh đề if đứng đầu câu, thường đặt dấu phẩy sau mệnh đề đó. Các lựa chọn khác đặt dấu phẩy sai vị trí nên làm câu khó hiểu."
+        },
+        {
+          "option": "If you finish, the quiz I will check it.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If you finish, the quiz I will check it.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If, you finish the quiz I will check it.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If, you finish the quiz I will check it.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If you finish the quiz I, will check it.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If you finish the quiz I, will check it.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-30",
       "type": "multiple_choice",
       "question": "Choose the correct **unless** meaning: Unless you hurry, you will miss the bus.",
       "options": [
@@ -786,9 +1454,32 @@
       ],
       "correct_answer": "If you do not hurry, you will miss the bus.",
       "explanation": "“Unless” nghĩa là “if not”, nên câu tương đương là “If you do not hurry…”. Các lựa chọn khác đảo nghĩa, dùng lý do sai, hoặc sai ngữ pháp.",
+      "distractor_breakdowns": [
+        {
+          "option": "If you do not hurry, you will miss the bus.",
+          "isCorrect": true,
+          "pedagogicalReason": "“Unless” nghĩa là “if not”, nên câu tương đương là “If you do not hurry…”. Các lựa chọn khác đảo nghĩa, dùng lý do sai, hoặc sai ngữ pháp."
+        },
+        {
+          "option": "If you hurry, you will miss the bus.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If you hurry, you will miss the bus.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "Because you hurry, you will miss the bus.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"Because you hurry, you will miss the bus.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "When you missed the bus, hurry.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"When you missed the bus, hurry.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-31",
       "type": "multiple_choice",
       "question": "Choose the correct **main clause**: If Anna feels better tomorrow, ___",
       "options": [
@@ -799,9 +1490,32 @@
       ],
       "correct_answer": "she will come to class.",
       "explanation": "Với điều kiện có thể xảy ra trong tương lai, mệnh đề chính dùng “will + động từ nguyên mẫu”. “Comes” sau will, “yesterday”, và “coming” đều sai trong cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "she will come to class.",
+          "isCorrect": true,
+          "pedagogicalReason": "Với điều kiện có thể xảy ra trong tương lai, mệnh đề chính dùng “will + động từ nguyên mẫu”. “Comes” sau will, “yesterday”, và “coming” đều sai trong cấu trúc này."
+        },
+        {
+          "option": "she comes to class yesterday.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"she comes to class yesterday.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "she will comes to class.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"she will comes to class.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "she coming to class.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"she coming to class.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-32",
       "type": "multiple_choice",
       "question": "Choose the correct **if position** sentence.",
       "options": [
@@ -812,9 +1526,32 @@
       ],
       "correct_answer": "I will text you if the meeting ends early.",
       "explanation": "Khi if-clause đứng sau, không cần dấu phẩy và vẫn dùng hiện tại đơn sau “if”. Các lựa chọn khác sai vì dùng “will” trong if-clause hoặc sai trật tự từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "I will text you if the meeting ends early.",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi if-clause đứng sau, không cần dấu phẩy và vẫn dùng hiện tại đơn sau “if”. Các lựa chọn khác sai vì dùng “will” trong if-clause hoặc sai trật tự từ."
+        },
+        {
+          "option": "I will text you if the meeting will end early.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"I will text you if the meeting will end early.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "I text you will if the meeting ends early.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"I text you will if the meeting ends early.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "I will text you if ends early the meeting.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"I will text you if ends early the meeting.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-33",
       "type": "multiple_choice",
       "question": "Choose the correct **real possibility** sentence.",
       "options": [
@@ -825,9 +1562,32 @@
       ],
       "correct_answer": "If Dad works late, we will eat without him.",
       "explanation": "Đây là khả năng thực tế trong tương lai, nên dùng If + hiện tại đơn, will + V. Các câu khác sai vì dùng “will” trong if-clause, thiếu “will + V”, hoặc sai dạng động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "If Dad works late, we will eat without him.",
+          "isCorrect": true,
+          "pedagogicalReason": "Đây là khả năng thực tế trong tương lai, nên dùng If + hiện tại đơn, will + V. Các câu khác sai vì dùng “will” trong if-clause, thiếu “will + V”, hoặc sai dạng động từ."
+        },
+        {
+          "option": "If Dad will work late, we eat without him.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If Dad will work late, we eat without him.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If Dad works late, we eating without him.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If Dad works late, we eating without him.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If Dad worked late, we will ate without him.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If Dad worked late, we will ate without him.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-34",
       "type": "multiple_choice",
       "question": "Choose the correct **general result** sentence.",
       "options": [
@@ -838,9 +1598,32 @@
       ],
       "correct_answer": "If phones lose battery, they turn off.",
       "explanation": "Sự thật chung dùng loại 0 với hiện tại đơn ở cả hai mệnh đề. “Will” trong if-clause, “will turned”, và “phones loses” đều sai ngữ pháp.",
+      "distractor_breakdowns": [
+        {
+          "option": "If phones lose battery, they turn off.",
+          "isCorrect": true,
+          "pedagogicalReason": "Sự thật chung dùng loại 0 với hiện tại đơn ở cả hai mệnh đề. “Will” trong if-clause, “will turned”, và “phones loses” đều sai ngữ pháp."
+        },
+        {
+          "option": "If phones will lose battery, they turn off.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If phones will lose battery, they turn off.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If phones lose battery, they will turned off.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If phones lose battery, they will turned off.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If phones loses battery, they turn off.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If phones loses battery, they turn off.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-35",
       "type": "fill_blank",
       "question": "Complete the **zero conditional**: If milk stays outside for too long, it ___ bad.",
       "options": [
@@ -851,9 +1634,32 @@
       ],
       "correct_answer": "goes",
       "explanation": "Chủ ngữ “it” ở hiện tại đơn cần động từ thêm -s: “goes”. “Will go” là loại 1, “going” thiếu trợ động từ, và “go” không hòa hợp với “it”.",
+      "distractor_breakdowns": [
+        {
+          "option": "goes",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ “it” ở hiện tại đơn cần động từ thêm -s: “goes”. “Will go” là loại 1, “going” thiếu trợ động từ, và “go” không hòa hợp với “it”."
+        },
+        {
+          "option": "will go",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Will go” là loại 1, “going” thiếu trợ động từ, và “go” không hòa hợp với “it”."
+        },
+        {
+          "option": "going",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “going” thiếu trợ động từ, và “go” không hòa hợp với “it”."
+        },
+        {
+          "option": "go",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Go” là loại 1, “going” thiếu trợ động từ, và “go” không hòa hợp với “it”."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-36",
       "type": "fill_blank",
       "question": "Complete the **first conditional**: If I find your keys, I ___ you.",
       "options": [
@@ -864,9 +1670,32 @@
       ],
       "correct_answer": "will call",
       "explanation": "Kết quả tương lai dùng “will + động từ nguyên mẫu”. “Call” thiếu will trong ngữ cảnh tương lai, “called” là quá khứ, và “will calls” sai vì sau will dùng động từ nguyên mẫu.",
+      "distractor_breakdowns": [
+        {
+          "option": "will call",
+          "isCorrect": true,
+          "pedagogicalReason": "Kết quả tương lai dùng “will + động từ nguyên mẫu”. “Call” thiếu will trong ngữ cảnh tương lai, “called” là quá khứ, và “will calls” sai vì sau will dùng động từ nguyên mẫu."
+        },
+        {
+          "option": "call",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Call” thiếu will trong ngữ cảnh tương lai, “called” là quá khứ, và “will calls” sai vì sau will dùng động từ nguyên mẫu."
+        },
+        {
+          "option": "called",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “called” là quá khứ, và “will calls” sai vì sau will dùng động từ nguyên mẫu."
+        },
+        {
+          "option": "will calls",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “will calls” sai vì sau will dùng động từ nguyên mẫu."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-37",
       "type": "fill_blank",
       "question": "Choose the correct **if-clause** verb: I will open the window if the room ___ hot.",
       "options": [
@@ -877,9 +1706,32 @@
       ],
       "correct_answer": "gets",
       "explanation": "Sau “if” trong câu điều kiện loại 1 dùng hiện tại đơn, nên “the room gets” là đúng. Không dùng “will get” trong if-clause; “get” sai hòa hợp, còn “getting” thiếu trợ động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "gets",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “if” trong câu điều kiện loại 1 dùng hiện tại đơn, nên “the room gets” là đúng. Không dùng “will get” trong if-clause; “get” sai hòa hợp, còn “getting” thiếu trợ động từ."
+        },
+        {
+          "option": "will get",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “will get” trong if-clause."
+        },
+        {
+          "option": "get",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “get” sai hòa hợp, còn “getting” thiếu trợ động từ."
+        },
+        {
+          "option": "getting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “getting” thiếu trợ động từ."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-38",
       "type": "fill_blank",
       "question": "Complete the **zero conditional**: If you add sugar to tea, it ___ sweeter.",
       "options": [
@@ -890,9 +1742,32 @@
       ],
       "correct_answer": "tastes",
       "explanation": "Đây là kết quả chung, nên dùng hiện tại đơn: “it tastes”. “Will taste” nói về tương lai cụ thể, “taste” sai với “it”, và “tasted” là quá khứ.",
+      "distractor_breakdowns": [
+        {
+          "option": "tastes",
+          "isCorrect": true,
+          "pedagogicalReason": "Đây là kết quả chung, nên dùng hiện tại đơn: “it tastes”. “Will taste” nói về tương lai cụ thể, “taste” sai với “it”, và “tasted” là quá khứ."
+        },
+        {
+          "option": "will taste",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Will taste” nói về tương lai cụ thể, “taste” sai với “it”, và “tasted” là quá khứ."
+        },
+        {
+          "option": "taste",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Taste” nói về tương lai cụ thể, “taste” sai với “it”, và “tasted” là quá khứ."
+        },
+        {
+          "option": "tasted",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “tasted” là quá khứ."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-39",
       "type": "fill_blank",
       "question": "Complete the **unless clause**: Unless Mia studies tonight, she ___ ready for the test.",
       "options": [
@@ -903,9 +1778,32 @@
       ],
       "correct_answer": "will not be",
       "explanation": "“Unless + hiện tại đơn” đi với kết quả tương lai “will + V”. “Is not” là hiện tại đơn, “was not” là quá khứ, và “will not is” sai vì sau will dùng “be”.",
+      "distractor_breakdowns": [
+        {
+          "option": "will not be",
+          "isCorrect": true,
+          "pedagogicalReason": "“Unless + hiện tại đơn” đi với kết quả tương lai “will + V”. “Is not” là hiện tại đơn, “was not” là quá khứ, và “will not is” sai vì sau will dùng “be”."
+        },
+        {
+          "option": "is not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Is not” là hiện tại đơn, “was not” là quá khứ, và “will not is” sai vì sau will dùng “be”."
+        },
+        {
+          "option": "was not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “was not” là quá khứ, và “will not is” sai vì sau will dùng “be”."
+        },
+        {
+          "option": "will not is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “will not is” sai vì sau will dùng “be”."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-40",
       "type": "fill_blank",
       "question": "Choose the correct **present simple** form: If a dog ___ a stranger, it often barks.",
       "options": [
@@ -916,9 +1814,32 @@
       ],
       "correct_answer": "sees",
       "explanation": "Loại 0 dùng hiện tại đơn; với chủ ngữ “a dog”, động từ là “sees”. “Will see” không dùng cho sự thật chung, “see” sai hòa hợp, và “saw” là quá khứ.",
+      "distractor_breakdowns": [
+        {
+          "option": "sees",
+          "isCorrect": true,
+          "pedagogicalReason": "Loại 0 dùng hiện tại đơn; với chủ ngữ “a dog”, động từ là “sees”. “Will see” không dùng cho sự thật chung, “see” sai hòa hợp, và “saw” là quá khứ."
+        },
+        {
+          "option": "will see",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Will see” không dùng cho sự thật chung, “see” sai hòa hợp, và “saw” là quá khứ."
+        },
+        {
+          "option": "see",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. See” không dùng cho sự thật chung, “see” sai hòa hợp, và “saw” là quá khứ."
+        },
+        {
+          "option": "saw",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “saw” là quá khứ."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-41",
       "type": "fill_blank",
       "question": "Complete the **future result**: If the restaurant is full, we ___ another place.",
       "options": [
@@ -929,9 +1850,32 @@
       ],
       "correct_answer": "will try",
       "explanation": "Kết quả có thể xảy ra trong tương lai dùng “will + V”. “Try” thiếu will trong ý tương lai, “tried” là quá khứ, và “will trying” sai dạng động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "will try",
+          "isCorrect": true,
+          "pedagogicalReason": "Kết quả có thể xảy ra trong tương lai dùng “will + V”. “Try” thiếu will trong ý tương lai, “tried” là quá khứ, và “will trying” sai dạng động từ."
+        },
+        {
+          "option": "try",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Try” thiếu will trong ý tương lai, “tried” là quá khứ, và “will trying” sai dạng động từ."
+        },
+        {
+          "option": "tried",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “tried” là quá khứ, và “will trying” sai dạng động từ."
+        },
+        {
+          "option": "will trying",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “will trying” sai dạng động từ."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-42",
       "type": "fill_blank",
       "question": "Complete the **negative condition**: If you don't charge your phone, it ___ work later.",
       "options": [
@@ -942,9 +1886,32 @@
       ],
       "correct_answer": "will not",
       "explanation": "Trong loại 1, kết quả tương lai phủ định là “will not + V”. “Does not” là hiện tại đơn, “did not” là quá khứ, và “will not to” sai vì sau will không dùng “to”.",
+      "distractor_breakdowns": [
+        {
+          "option": "will not",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong loại 1, kết quả tương lai phủ định là “will not + V”. “Does not” là hiện tại đơn, “did not” là quá khứ, và “will not to” sai vì sau will không dùng “to”."
+        },
+        {
+          "option": "does not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Does not” là hiện tại đơn, “did not” là quá khứ, và “will not to” sai vì sau will không dùng “to”."
+        },
+        {
+          "option": "did not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “did not” là quá khứ, và “will not to” sai vì sau will không dùng “to”."
+        },
+        {
+          "option": "will not to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “will not to” sai vì sau will không dùng “to”."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-43",
       "type": "error_correction",
       "question": "Find the error: If the sun goes down, it will gets dark soon.",
       "options": [
@@ -955,9 +1922,32 @@
       ],
       "correct_answer": "will gets",
       "explanation": "Sau “will” phải dùng động từ nguyên mẫu, nên phải là “will get”. Các phần còn lại đúng trong câu điều kiện loại 1.",
+      "distractor_breakdowns": [
+        {
+          "option": "If",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"If\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "goes down",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"goes down\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will gets",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “will” phải dùng động từ nguyên mẫu, nên phải là “will get”. Các phần còn lại đúng trong câu điều kiện loại 1."
+        },
+        {
+          "option": "soon",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"soon\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-44",
       "type": "error_correction",
       "question": "Find the error: If coffee is too hot, I wait five minutes.",
       "options": [
@@ -968,9 +1958,32 @@
       ],
       "correct_answer": "wait",
       "explanation": "Nếu nói về một lần có thể xảy ra trong tương lai, mệnh đề chính nên là “will wait”. Các phần khác đúng: if + hiện tại đơn và tính từ sau “is”.",
+      "distractor_breakdowns": [
+        {
+          "option": "If",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. If + hiện tại đơn và tính từ sau “is”."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"is\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "too hot",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"too hot\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "wait",
+          "isCorrect": true,
+          "pedagogicalReason": "Nếu nói về một lần có thể xảy ra trong tương lai, mệnh đề chính nên là “will wait”. Các phần khác đúng: if + hiện tại đơn và tính từ sau “is”."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-45",
       "type": "error_correction",
       "question": "Find the error: If you will need help, ask your teacher.",
       "options": [
@@ -981,9 +1994,32 @@
       ],
       "correct_answer": "will need",
       "explanation": "Trong mệnh đề if của loại 1, không dùng “will”; câu đúng là “If you need help…”. Các phần khác phù hợp với lời khuyên hoặc mệnh lệnh.",
+      "distractor_breakdowns": [
+        {
+          "option": "If",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. If của loại 1, không dùng “will”."
+        },
+        {
+          "option": "will need",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong mệnh đề if của loại 1, không dùng “will”; câu đúng là “If you need help…”. Các phần khác phù hợp với lời khuyên hoặc mệnh lệnh."
+        },
+        {
+          "option": "help",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"help\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "ask",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"ask\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-46",
       "type": "error_correction",
       "question": "Find the error: If my sister miss the bus, she will walk home.",
       "options": [
@@ -994,9 +2030,32 @@
       ],
       "correct_answer": "miss",
       "explanation": "Chủ ngữ “my sister” là ngôi thứ ba số ít nên hiện tại đơn phải là “misses”. “Will walk” đúng cho kết quả tương lai.",
+      "distractor_breakdowns": [
+        {
+          "option": "If",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"If\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "miss",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ “my sister” là ngôi thứ ba số ít nên hiện tại đơn phải là “misses”. “Will walk” đúng cho kết quả tương lai."
+        },
+        {
+          "option": "will walk",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Will walk” đúng cho kết quả tương lai."
+        },
+        {
+          "option": "home",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"home\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-47",
       "type": "error_correction",
       "question": "Find the error: Unless the store opens soon, we will waits outside.",
       "options": [
@@ -1007,9 +2066,32 @@
       ],
       "correct_answer": "will waits",
       "explanation": "Sau “will” dùng động từ nguyên mẫu, nên phải là “will wait”. “Unless + hiện tại đơn” với “opens” là đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "Unless",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Unless + hiện tại đơn” với “opens” là đúng."
+        },
+        {
+          "option": "opens",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “opens” là đúng."
+        },
+        {
+          "option": "will waits",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “will” dùng động từ nguyên mẫu, nên phải là “will wait”. “Unless + hiện tại đơn” với “opens” là đúng."
+        },
+        {
+          "option": "outside",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"outside\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-48",
       "type": "error_correction",
       "question": "Find the error: If you mix yellow and blue, you will get green.",
       "options": [
@@ -1020,9 +2102,32 @@
       ],
       "correct_answer": "will get",
       "explanation": "Đây là sự thật chung, nên dùng loại 0: “you get green”. “Will get” biến câu thành kết quả tương lai cụ thể, không phù hợp với ý quy luật chung.",
+      "distractor_breakdowns": [
+        {
+          "option": "If",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"If\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "mix",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"mix\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will get",
+          "isCorrect": true,
+          "pedagogicalReason": "Đây là sự thật chung, nên dùng loại 0: “you get green”. “Will get” biến câu thành kết quả tương lai cụ thể, không phù hợp với ý quy luật chung."
+        },
+        {
+          "option": "green",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"green\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-49",
       "type": "error_correction",
       "question": "Find the error: I will buy some fruit if the market will be open.",
       "options": [
@@ -1033,9 +2138,32 @@
       ],
       "correct_answer": "will be",
       "explanation": "Sau “if” trong loại 1 dùng hiện tại đơn, nên phải là “is open”. “Will buy” đúng ở mệnh đề chính vì nói về kết quả tương lai.",
+      "distractor_breakdowns": [
+        {
+          "option": "will buy",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Will buy” đúng ở mệnh đề chính vì nói về kết quả tương lai."
+        },
+        {
+          "option": "fruit",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"fruit\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "if",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “if” trong loại 1 dùng hiện tại đơn, nên phải là “is open”."
+        },
+        {
+          "option": "will be",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “if” trong loại 1 dùng hiện tại đơn, nên phải là “is open”. “Will buy” đúng ở mệnh đề chính vì nói về kết quả tương lai."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-50",
       "type": "error_correction",
       "question": "Find the error: When water gets cold enough, it turn into ice.",
       "options": [
@@ -1046,9 +2174,32 @@
       ],
       "correct_answer": "turn",
       "explanation": "Chủ ngữ “it” cần động từ hiện tại đơn thêm -s: “turns”. “When” có thể dùng như “if” cho sự thật chung, và các phần khác đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "When",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “When” có thể dùng như “if” cho sự thật chung, và các phần khác đúng."
+        },
+        {
+          "option": "gets",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"gets\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "turn",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ “it” cần động từ hiện tại đơn thêm -s: “turns”. “When” có thể dùng như “if” cho sự thật chung, và các phần khác đúng."
+        },
+        {
+          "option": "ice",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"ice\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-51",
       "type": "multiple_choice",
       "question": "Choose the correct **general fact** sentence.",
       "options": [
@@ -1059,9 +2210,32 @@
       ],
       "correct_answer": "If people eat too much sugar, they often feel tired.",
       "explanation": "Đây là sự thật chung nên dùng điều kiện loại 0: If + hiện tại đơn, hiện tại đơn. People là số nhiều nên dùng eat, feel; không dùng will trong mệnh đề if.",
+      "distractor_breakdowns": [
+        {
+          "option": "If people eat too much sugar, they often feel tired.",
+          "isCorrect": true,
+          "pedagogicalReason": "Đây là sự thật chung nên dùng điều kiện loại 0: If + hiện tại đơn, hiện tại đơn. People là số nhiều nên dùng eat, feel; không dùng will trong mệnh đề if."
+        },
+        {
+          "option": "If people will eat too much sugar, they often feel tired.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If people will eat too much sugar, they often feel tired.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If people eat too much sugar, they will often feels tired.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If people eat too much sugar, they will often feels tired.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If people eats too much sugar, they often feel tired.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If people eats too much sugar, they often feel tired.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-52",
       "type": "multiple_choice",
       "question": "Choose the correct **order** sentence.",
       "options": [
@@ -1072,9 +2246,32 @@
       ],
       "correct_answer": "I will text you if the meeting ends early.",
       "explanation": "Mệnh đề if có thể đứng sau mệnh đề chính và không cần dấu phẩy. Trong mệnh đề if vẫn dùng hiện tại đơn ends, còn mệnh đề chính dùng will text.",
+      "distractor_breakdowns": [
+        {
+          "option": "I will text you if the meeting ends early.",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề if có thể đứng sau mệnh đề chính và không cần dấu phẩy. Trong mệnh đề if vẫn dùng hiện tại đơn ends, còn mệnh đề chính dùng will text."
+        },
+        {
+          "option": "I text you if the meeting will end early.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"I text you if the meeting will end early.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "I will text you if the meeting will ends early.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"I will text you if the meeting will ends early.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "I will texts you if the meeting ends early.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"I will texts you if the meeting ends early.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-53",
       "type": "multiple_choice",
       "question": "Choose the correct **negative condition** sentence.",
       "options": [
@@ -1085,9 +2282,32 @@
       ],
       "correct_answer": "If you don't save the file, you will lose your work.",
       "explanation": "Điều kiện tương lai dùng hiện tại đơn ở mệnh đề if: don't save. Sau will dùng động từ nguyên mẫu lose; you không đi với doesn't.",
+      "distractor_breakdowns": [
+        {
+          "option": "If you don't save the file, you will lose your work.",
+          "isCorrect": true,
+          "pedagogicalReason": "Điều kiện tương lai dùng hiện tại đơn ở mệnh đề if: don't save. Sau will dùng động từ nguyên mẫu lose; you không đi với doesn't."
+        },
+        {
+          "option": "If you won't save the file, you lose your work.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If you won't save the file, you lose your work.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If you don't save the file, you will loses your work.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If you don't save the file, you will loses your work.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If you doesn't save the file, you will lose your work.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If you doesn't save the file, you will lose your work.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-54",
       "type": "multiple_choice",
       "question": "Choose the correct **request condition** sentence.",
       "options": [
@@ -1098,9 +2318,32 @@
       ],
       "correct_answer": "If you finish the report, please send it to me.",
       "explanation": "Trong câu điều kiện dùng để nhờ/yêu cầu, mệnh đề if vẫn dùng hiện tại đơn. Please + động từ nguyên mẫu là send, không phải sends; you đi với finish.",
+      "distractor_breakdowns": [
+        {
+          "option": "If you finish the report, please send it to me.",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong câu điều kiện dùng để nhờ/yêu cầu, mệnh đề if vẫn dùng hiện tại đơn. Please + động từ nguyên mẫu là send, không phải sends; you đi với finish."
+        },
+        {
+          "option": "If you will finish the report, please send it to me.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If you will finish the report, please send it to me.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If you finish the report, please sends it to me.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If you finish the report, please sends it to me.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If you finishes the report, please send it to me.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If you finishes the report, please send it to me.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-55",
       "type": "fill_blank",
       "question": "Complete the **zero conditional**: If metal gets very hot, it ___ larger.",
       "options": [
@@ -1111,9 +2354,32 @@
       ],
       "correct_answer": "becomes",
       "explanation": "Đây là sự thật khoa học nên dùng hiện tại đơn ở mệnh đề kết quả. Metal là số ít nên động từ phải thêm -s: becomes; will become là loại 1, còn become/became sai dạng.",
+      "distractor_breakdowns": [
+        {
+          "option": "becomes",
+          "isCorrect": true,
+          "pedagogicalReason": "Đây là sự thật khoa học nên dùng hiện tại đơn ở mệnh đề kết quả. Metal là số ít nên động từ phải thêm -s: becomes; will become là loại 1, còn become/became sai dạng."
+        },
+        {
+          "option": "will become",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Will become là loại 1, còn become/became sai dạng."
+        },
+        {
+          "option": "become",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Become là loại 1, còn become/became sai dạng."
+        },
+        {
+          "option": "became",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Became sai dạng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-56",
       "type": "fill_blank",
       "question": "Complete the **first conditional**: If Dad comes home early, we ___ dinner together.",
       "options": [
@@ -1124,9 +2390,32 @@
       ],
       "correct_answer": "will have",
       "explanation": "Câu nói về khả năng thật trong tương lai nên dùng will + V ở mệnh đề chính. Have là hiện tại đơn, has sai chủ ngữ we, còn had là quá khứ.",
+      "distractor_breakdowns": [
+        {
+          "option": "will have",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu nói về khả năng thật trong tương lai nên dùng will + V ở mệnh đề chính. Have là hiện tại đơn, has sai chủ ngữ we, còn had là quá khứ."
+        },
+        {
+          "option": "have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Have là hiện tại đơn, has sai chủ ngữ we, còn had là quá khứ."
+        },
+        {
+          "option": "has",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Has sai chủ ngữ we, còn had là quá khứ."
+        },
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"had\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-57",
       "type": "fill_blank",
       "question": "Choose the correct **if-clause** verb: We will go swimming if the weather ___ warm.",
       "options": [
@@ -1137,9 +2426,32 @@
       ],
       "correct_answer": "is",
       "explanation": "Trong câu điều kiện loại 1, mệnh đề if dùng hiện tại đơn, không dùng will. Weather là danh từ số ít/không đếm được nên dùng is, không dùng are hoặc be.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong câu điều kiện loại 1, mệnh đề if dùng hiện tại đơn, không dùng will. Weather là danh từ số ít/không đếm được nên dùng is, không dùng are hoặc be."
+        },
+        {
+          "option": "will be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"will be\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng số nhiều \"are\" không hòa hợp với chủ ngữ số ít hoặc danh từ không đếm được."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"be\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-58",
       "type": "fill_blank",
       "question": "Complete the **unless condition**: Unless the alarm rings, I ___ wake up early.",
       "options": [
@@ -1150,9 +2462,32 @@
       ],
       "correct_answer": "won't",
       "explanation": "Unless the alarm rings nghĩa là nếu chuông không reo; kết quả tương lai cần won't + V. Don't/am not/didn't không phù hợp với ý tương lai trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "won't",
+          "isCorrect": true,
+          "pedagogicalReason": "Unless the alarm rings nghĩa là nếu chuông không reo; kết quả tương lai cần won't + V. Don't/am not/didn't không phù hợp với ý tương lai trong câu này."
+        },
+        {
+          "option": "don't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Don't/am not/didn't không phù hợp với ý tương lai trong câu này."
+        },
+        {
+          "option": "am not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am not/didn't không phù hợp với ý tương lai trong câu này."
+        },
+        {
+          "option": "didn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Didn't không phù hợp với ý tương lai trong câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-59",
       "type": "fill_blank",
       "question": "Complete the **general truth**: If children don't sleep enough, they ___ tired.",
       "options": [
@@ -1163,9 +2498,32 @@
       ],
       "correct_answer": "feel",
       "explanation": "Đây là sự thật chung nên dùng hiện tại đơn ở mệnh đề kết quả. Children là số nhiều nên dùng feel; feels sai chủ ngữ, felt là quá khứ, will feels sai vì sau will phải là động từ nguyên mẫu.",
+      "distractor_breakdowns": [
+        {
+          "option": "feel",
+          "isCorrect": true,
+          "pedagogicalReason": "Đây là sự thật chung nên dùng hiện tại đơn ở mệnh đề kết quả. Children là số nhiều nên dùng feel; feels sai chủ ngữ, felt là quá khứ, will feels sai vì sau will phải là động từ nguyên mẫu."
+        },
+        {
+          "option": "will feels",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Will feels sai vì sau will phải là động từ nguyên mẫu."
+        },
+        {
+          "option": "feels",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Feels sai chủ ngữ, felt là quá khứ, will feels sai vì sau will phải là động từ nguyên mẫu."
+        },
+        {
+          "option": "felt",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Felt là quá khứ, will feels sai vì sau will phải là động từ nguyên mẫu."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-60",
       "type": "fill_blank",
       "question": "Complete the **future plan**: If I see Lan at school, I ___ her your message.",
       "options": [
@@ -1176,9 +2534,32 @@
       ],
       "correct_answer": "will give",
       "explanation": "Câu nói về việc có thể xảy ra trong tương lai nên dùng will give ở mệnh đề chính. Give là hiện tại đơn, gave là quá khứ, và will gives sai vì sau will không thêm -s.",
+      "distractor_breakdowns": [
+        {
+          "option": "will give",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu nói về việc có thể xảy ra trong tương lai nên dùng will give ở mệnh đề chính. Give là hiện tại đơn, gave là quá khứ, và will gives sai vì sau will không thêm -s."
+        },
+        {
+          "option": "give",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Give là hiện tại đơn, gave là quá khứ, và will gives sai vì sau will không thêm -s."
+        },
+        {
+          "option": "gave",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Gave là quá khứ, và will gives sai vì sau will không thêm -s."
+        },
+        {
+          "option": "will gives",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Will gives sai vì sau will không thêm -s."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-61",
       "type": "fill_blank",
       "question": "Choose the correct **present simple** form: If this app ___ slowly, restart your phone.",
       "options": [
@@ -1189,9 +2570,32 @@
       ],
       "correct_answer": "runs",
       "explanation": "Mệnh đề if trong câu chỉ lời khuyên dùng hiện tại đơn. This app là số ít nên dùng runs; không dùng will run, run hoặc running trong cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "runs",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề if trong câu chỉ lời khuyên dùng hiện tại đơn. This app là số ít nên dùng runs; không dùng will run, run hoặc running trong cấu trúc này."
+        },
+        {
+          "option": "will run",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Will run, run hoặc running trong cấu trúc này."
+        },
+        {
+          "option": "run",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Run, run hoặc running trong cấu trúc này."
+        },
+        {
+          "option": "running",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Running trong cấu trúc này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-62",
       "type": "fill_blank",
       "question": "Complete the **real possibility**: If they invite us, we ___ to the party.",
       "options": [
@@ -1202,9 +2606,32 @@
       ],
       "correct_answer": "will go",
       "explanation": "Đây là khả năng thật trong tương lai nên mệnh đề chính dùng will + V. Go ở hiện tại đơn không nêu rõ kết quả tương lai trong cấu trúc loại 1; went và goes sai thì/dạng.",
+      "distractor_breakdowns": [
+        {
+          "option": "will go",
+          "isCorrect": true,
+          "pedagogicalReason": "Đây là khả năng thật trong tương lai nên mệnh đề chính dùng will + V. Go ở hiện tại đơn không nêu rõ kết quả tương lai trong cấu trúc loại 1; went và goes sai thì/dạng."
+        },
+        {
+          "option": "go",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Go ở hiện tại đơn không nêu rõ kết quả tương lai trong cấu trúc loại 1."
+        },
+        {
+          "option": "went",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Went và goes sai thì/dạng."
+        },
+        {
+          "option": "goes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Goes sai thì/dạng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-63",
       "type": "fill_blank",
       "question": "Complete the **zero conditional**: If you freeze water, it ___ ice.",
       "options": [
@@ -1215,9 +2642,32 @@
       ],
       "correct_answer": "becomes",
       "explanation": "Đây là sự thật luôn đúng nên dùng điều kiện loại 0: hiện tại đơn, hiện tại đơn. It là số ít nên dùng becomes; các lựa chọn khác sai thì hoặc sai dạng.",
+      "distractor_breakdowns": [
+        {
+          "option": "becomes",
+          "isCorrect": true,
+          "pedagogicalReason": "Đây là sự thật luôn đúng nên dùng điều kiện loại 0: hiện tại đơn, hiện tại đơn. It là số ít nên dùng becomes; các lựa chọn khác sai thì hoặc sai dạng."
+        },
+        {
+          "option": "will become",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"will become\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "become",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"become\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "is becoming",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"is becoming\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-64",
       "type": "error_correction",
       "question": "Find the error: Choose the **incorrect** word/phrase: If you will visit Grandma tomorrow, bring these photos.",
       "options": [
@@ -1228,9 +2678,32 @@
       ],
       "correct_answer": "will visit",
       "explanation": "Trong mệnh đề if của điều kiện loại 1 không dùng will; cần sửa thành visit. Các phần còn lại đúng trong câu: tomorrow chỉ thời gian tương lai, bring là mệnh lệnh đúng, these photos là tân ngữ đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "will visit",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong mệnh đề if của điều kiện loại 1 không dùng will; cần sửa thành visit. Các phần còn lại đúng trong câu: tomorrow chỉ thời gian tương lai, bring là mệnh lệnh đúng, these photos là tân ngữ đúng."
+        },
+        {
+          "option": "tomorrow",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Tomorrow chỉ thời gian tương lai, bring là mệnh lệnh đúng, these photos là tân ngữ đúng."
+        },
+        {
+          "option": "bring",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Bring là mệnh lệnh đúng, these photos là tân ngữ đúng."
+        },
+        {
+          "option": "these photos",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. These photos là tân ngữ đúng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-65",
       "type": "error_correction",
       "question": "Find the error: Choose the **incorrect** word/phrase: If the door is locked, you will needs a key.",
       "options": [
@@ -1241,9 +2714,32 @@
       ],
       "correct_answer": "will needs",
       "explanation": "Sau will phải dùng động từ nguyên mẫu, nên sửa will needs thành will need. The door, is locked và a key đều đúng trong ngữ cảnh này.",
+      "distractor_breakdowns": [
+        {
+          "option": "the door",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. The door, is locked và a key đều đúng trong ngữ cảnh này."
+        },
+        {
+          "option": "is locked",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is locked và a key đều đúng trong ngữ cảnh này."
+        },
+        {
+          "option": "will needs",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau will phải dùng động từ nguyên mẫu, nên sửa will needs thành will need. The door, is locked và a key đều đúng trong ngữ cảnh này."
+        },
+        {
+          "option": "a key",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. A key đều đúng trong ngữ cảnh này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-66",
       "type": "error_correction",
       "question": "Find the error: Choose the **incorrect** word/phrase: Unless Jack calls, we don't leave soon.",
       "options": [
@@ -1254,9 +2750,32 @@
       ],
       "correct_answer": "don't leave",
       "explanation": "Câu nói về kết quả tương lai nên cần won't leave, không phải don't leave. Unless và Jack calls đúng vì mệnh đề điều kiện dùng hiện tại đơn; soon là trạng từ thời gian phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "Unless",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Unless và Jack calls đúng vì mệnh đề điều kiện dùng hiện tại đơn."
+        },
+        {
+          "option": "Jack calls",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Jack calls đúng vì mệnh đề điều kiện dùng hiện tại đơn."
+        },
+        {
+          "option": "don't leave",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu nói về kết quả tương lai nên cần won't leave, không phải don't leave. Unless và Jack calls đúng vì mệnh đề điều kiện dùng hiện tại đơn; soon là trạng từ thời gian phù hợp."
+        },
+        {
+          "option": "soon",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Soon là trạng từ thời gian phù hợp."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-67",
       "type": "error_correction",
       "question": "Find the error: Choose the **incorrect** word/phrase: If eggs are fresh, they will sink in water.",
       "options": [
@@ -1267,9 +2786,32 @@
       ],
       "correct_answer": "will sink",
       "explanation": "Câu này diễn tả một kết quả kiểm tra mang tính chung, nên dùng loại 0: they sink. Các phần eggs, are fresh và in water đều đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "eggs",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Eggs, are fresh và in water đều đúng."
+        },
+        {
+          "option": "are fresh",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are fresh và in water đều đúng."
+        },
+        {
+          "option": "will sink",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu này diễn tả một kết quả kiểm tra mang tính chung, nên dùng loại 0: they sink. Các phần eggs, are fresh và in water đều đúng."
+        },
+        {
+          "option": "in water",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. In water đều đúng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-68",
       "type": "error_correction",
       "question": "Find the error: Choose the **incorrect** word/phrase: If Mark forgets his password, he reset it online.",
       "options": [
@@ -1280,9 +2822,32 @@
       ],
       "correct_answer": "reset",
       "explanation": "Với chủ ngữ he ở hiện tại đơn, động từ phải là resets nếu nói quy trình chung, hoặc will reset nếu nói tương lai. Mark, forgets và online không sai trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "Mark",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Mark, forgets và online không sai trong câu này."
+        },
+        {
+          "option": "forgets",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Forgets và online không sai trong câu này."
+        },
+        {
+          "option": "reset",
+          "isCorrect": true,
+          "pedagogicalReason": "Với chủ ngữ he ở hiện tại đơn, động từ phải là resets nếu nói quy trình chung, hoặc will reset nếu nói tương lai. Mark, forgets và online không sai trong câu này."
+        },
+        {
+          "option": "online",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Online không sai trong câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-69",
       "type": "error_correction",
       "question": "Find the error: Choose the **incorrect** word/phrase: If the shop closes before six, I won't bought bread.",
       "options": [
@@ -1293,9 +2858,32 @@
       ],
       "correct_answer": "won't bought",
       "explanation": "Sau won't phải dùng động từ nguyên mẫu, nên sửa thành won't buy. The shop là chủ ngữ đúng, closes đúng hiện tại đơn trong mệnh đề if, và bread là tân ngữ đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "the shop",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. The shop là chủ ngữ đúng, closes đúng hiện tại đơn trong mệnh đề if, và bread là tân ngữ đúng."
+        },
+        {
+          "option": "closes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Closes đúng hiện tại đơn trong mệnh đề if, và bread là tân ngữ đúng."
+        },
+        {
+          "option": "won't bought",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau won't phải dùng động từ nguyên mẫu, nên sửa thành won't buy. The shop là chủ ngữ đúng, closes đúng hiện tại đơn trong mệnh đề if, và bread là tân ngữ đúng."
+        },
+        {
+          "option": "bread",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Bread là tân ngữ đúng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-70",
       "type": "error_correction",
       "question": "Find the error: Choose the **incorrect** word/phrase: I stay at home if it will snow tonight.",
       "options": [
@@ -1306,9 +2894,32 @@
       ],
       "correct_answer": "will snow",
       "explanation": "Trong mệnh đề if của điều kiện loại 1 không dùng will, nên sửa thành snows. Stay at home có thể là mệnh đề chính hiện tại, nhưng để rõ ý tương lai thường nên nói will stay; lỗi ngữ pháp chính ở đây là will snow sau if.",
+      "distractor_breakdowns": [
+        {
+          "option": "stay",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Stay at home có thể là mệnh đề chính hiện tại, nhưng để rõ ý tương lai thường nên nói will stay."
+        },
+        {
+          "option": "at home",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. At home có thể là mệnh đề chính hiện tại, nhưng để rõ ý tương lai thường nên nói will stay."
+        },
+        {
+          "option": "will snow",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong mệnh đề if của điều kiện loại 1 không dùng will, nên sửa thành snows. Stay at home có thể là mệnh đề chính hiện tại, nhưng để rõ ý tương lai thường nên nói will stay; lỗi ngữ pháp chính ở đây là will snow sau if."
+        },
+        {
+          "option": "tonight",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"tonight\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-71",
       "type": "error_correction",
       "question": "Find the error: Choose the **incorrect** word/phrase: If a student ask a question, the teacher answers it.",
       "options": [
@@ -1319,9 +2930,32 @@
       ],
       "correct_answer": "ask",
       "explanation": "A student là số ít nên động từ hiện tại đơn phải là asks. The teacher answers it đúng vì teacher là số ít và đây là câu điều kiện loại 0.",
+      "distractor_breakdowns": [
+        {
+          "option": "a student",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. A student là số ít nên động từ hiện tại đơn phải là asks."
+        },
+        {
+          "option": "ask",
+          "isCorrect": true,
+          "pedagogicalReason": "A student là số ít nên động từ hiện tại đơn phải là asks. The teacher answers it đúng vì teacher là số ít và đây là câu điều kiện loại 0."
+        },
+        {
+          "option": "the teacher",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. The teacher answers it đúng vì teacher là số ít và đây là câu điều kiện loại 0."
+        },
+        {
+          "option": "answers",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Answers it đúng vì teacher là số ít và đây là câu điều kiện loại 0."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-72",
       "type": "multiple_choice",
       "question": "Choose the correct **general rule** sentence.",
       "options": [
@@ -1332,9 +2966,32 @@
       ],
       "correct_answer": "If you press the red button, the machine stops.",
       "explanation": "Đây là quy tắc chung nên dùng câu điều kiện loại 0: hiện tại đơn ở cả hai mệnh đề. Các câu khác sai vì dùng sai dạng sau will, dùng will trong mệnh đề if, hoặc chia presses sai với you.",
+      "distractor_breakdowns": [
+        {
+          "option": "If you press the red button, the machine stops.",
+          "isCorrect": true,
+          "pedagogicalReason": "Đây là quy tắc chung nên dùng câu điều kiện loại 0: hiện tại đơn ở cả hai mệnh đề. Các câu khác sai vì dùng sai dạng sau will, dùng will trong mệnh đề if, hoặc chia presses sai với you."
+        },
+        {
+          "option": "If you press the red button, the machine will stopped.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If you press the red button, the machine will stopped.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If you will press the red button, the machine stops.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If you will press the red button, the machine stops.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If you presses the red button, the machine stops.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If you presses the red button, the machine stops.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-73",
       "type": "multiple_choice",
       "question": "Choose the correct **sentence order**.",
       "options": [
@@ -1345,9 +3002,32 @@
       ],
       "correct_answer": "The lights turn on if you open the door.",
       "explanation": "Mệnh đề if có thể đứng sau mệnh đề chính; với sự thật/hoạt động thường đúng, dùng hiện tại đơn ở cả hai vế. Các câu sai vì will turns không đúng, dùng will trong mệnh đề if, hoặc chia turns sai với lights số nhiều.",
+      "distractor_breakdowns": [
+        {
+          "option": "The lights turn on if you open the door.",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề if có thể đứng sau mệnh đề chính; với sự thật/hoạt động thường đúng, dùng hiện tại đơn ở cả hai vế. Các câu sai vì will turns không đúng, dùng will trong mệnh đề if, hoặc chia turns sai với lights số nhiều."
+        },
+        {
+          "option": "The lights will turns on if you open the door.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"The lights will turns on if you open the door.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "The lights turn on if you will open the door.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"The lights turn on if you will open the door.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "The lights turns on if you open the door.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"The lights turns on if you open the door.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-74",
       "type": "fill_blank",
       "question": "Complete the **zero conditional**: If bread gets wet, it ___ soft.",
       "options": [
@@ -1358,9 +3038,32 @@
       ],
       "correct_answer": "becomes",
       "explanation": "Đây là kết quả thường đúng nên dùng hiện tại đơn: it becomes. Will become dùng cho tương lai cụ thể, became là quá khứ, còn become thiếu -s với it.",
+      "distractor_breakdowns": [
+        {
+          "option": "becomes",
+          "isCorrect": true,
+          "pedagogicalReason": "Đây là kết quả thường đúng nên dùng hiện tại đơn: it becomes. Will become dùng cho tương lai cụ thể, became là quá khứ, còn become thiếu -s với it."
+        },
+        {
+          "option": "will become",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Will become dùng cho tương lai cụ thể, became là quá khứ, còn become thiếu -s với it."
+        },
+        {
+          "option": "became",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Became là quá khứ, còn become thiếu -s với it."
+        },
+        {
+          "option": "become",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Become dùng cho tương lai cụ thể, became là quá khứ, còn become thiếu -s với it."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-75",
       "type": "fill_blank",
       "question": "Complete the **first conditional**: If I finish work early, I ___ you a text.",
       "options": [
@@ -1371,9 +3074,32 @@
       ],
       "correct_answer": "will send",
       "explanation": "Câu loại 1 nói khả năng trong tương lai: If + hiện tại đơn, will + V. Send là hiện tại đơn không diễn tả rõ kết quả tương lai ở đây, sent là quá khứ, will sends sai vì sau will dùng động từ nguyên mẫu.",
+      "distractor_breakdowns": [
+        {
+          "option": "will send",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu loại 1 nói khả năng trong tương lai: If + hiện tại đơn, will + V. Send là hiện tại đơn không diễn tả rõ kết quả tương lai ở đây, sent là quá khứ, will sends sai vì sau will dùng động từ nguyên mẫu."
+        },
+        {
+          "option": "send",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Send là hiện tại đơn không diễn tả rõ kết quả tương lai ở đây, sent là quá khứ, will sends sai vì sau will dùng động từ nguyên mẫu."
+        },
+        {
+          "option": "sent",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sent là quá khứ, will sends sai vì sau will dùng động từ nguyên mẫu."
+        },
+        {
+          "option": "will sends",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Will sends sai vì sau will dùng động từ nguyên mẫu."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-76",
       "type": "fill_blank",
       "question": "Choose the correct **if-clause** verb: We will make tea if Mom ___ home soon.",
       "options": [
@@ -1384,9 +3110,32 @@
       ],
       "correct_answer": "comes",
       "explanation": "Trong mệnh đề if của câu loại 1, dùng hiện tại đơn: Mom comes. Will come không dùng sau if trong cấu trúc này, come thiếu -s, came là quá khứ.",
+      "distractor_breakdowns": [
+        {
+          "option": "comes",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong mệnh đề if của câu loại 1, dùng hiện tại đơn: Mom comes. Will come không dùng sau if trong cấu trúc này, come thiếu -s, came là quá khứ."
+        },
+        {
+          "option": "will come",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Will come không dùng sau if trong cấu trúc này, come thiếu -s, came là quá khứ."
+        },
+        {
+          "option": "come",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Come không dùng sau if trong cấu trúc này, come thiếu -s, came là quá khứ."
+        },
+        {
+          "option": "came",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Came là quá khứ."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-77",
       "type": "fill_blank",
       "question": "Complete the **unless clause**: Unless Ben studies tonight, he ___ the quiz.",
       "options": [
@@ -1397,9 +3146,32 @@
       ],
       "correct_answer": "will fail",
       "explanation": "Unless + hiện tại đơn diễn tả điều kiện; kết quả tương lai dùng will + V. Fails là hiện tại đơn không phù hợp bằng will fail trong kết quả tương lai, failed là quá khứ, will fails sai dạng động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "will fail",
+          "isCorrect": true,
+          "pedagogicalReason": "Unless + hiện tại đơn diễn tả điều kiện; kết quả tương lai dùng will + V. Fails là hiện tại đơn không phù hợp bằng will fail trong kết quả tương lai, failed là quá khứ, will fails sai dạng động từ."
+        },
+        {
+          "option": "fails",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Fails là hiện tại đơn không phù hợp bằng will fail trong kết quả tương lai, failed là quá khứ, will fails sai dạng động từ."
+        },
+        {
+          "option": "failed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Failed là quá khứ, will fails sai dạng động từ."
+        },
+        {
+          "option": "will fails",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Will fails sai dạng động từ."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-78",
       "type": "fill_blank",
       "question": "Complete the **general fact**: If people eat too much salt, they ___ thirsty.",
       "options": [
@@ -1410,9 +3182,32 @@
       ],
       "correct_answer": "get",
       "explanation": "Đây là sự thật chung nên dùng hiện tại đơn: people get. Gets sai vì people là số nhiều, got là quá khứ, will got sai vì sau will phải là get.",
+      "distractor_breakdowns": [
+        {
+          "option": "get",
+          "isCorrect": true,
+          "pedagogicalReason": "Đây là sự thật chung nên dùng hiện tại đơn: people get. Gets sai vì people là số nhiều, got là quá khứ, will got sai vì sau will phải là get."
+        },
+        {
+          "option": "will got",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Will got sai vì sau will phải là get."
+        },
+        {
+          "option": "gets",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Gets sai vì people là số nhiều, got là quá khứ, will got sai vì sau will phải là get."
+        },
+        {
+          "option": "got",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Got là quá khứ, will got sai vì sau will phải là get."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-79",
       "type": "fill_blank",
       "question": "Complete the **future condition**: I won't go outside if it ___ very windy.",
       "options": [
@@ -1423,9 +3218,32 @@
       ],
       "correct_answer": "is",
       "explanation": "Trong mệnh đề if của câu loại 1, dùng hiện tại đơn: it is. Will be không dùng trong mệnh đề if, was là quá khứ, be thiếu chủ ngữ/dạng chia phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong mệnh đề if của câu loại 1, dùng hiện tại đơn: it is. Will be không dùng trong mệnh đề if, was là quá khứ, be thiếu chủ ngữ/dạng chia phù hợp."
+        },
+        {
+          "option": "will be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Will be không dùng trong mệnh đề if, was là quá khứ, be thiếu chủ ngữ/dạng chia phù hợp."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Was là quá khứ, be thiếu chủ ngữ/dạng chia phù hợp."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không dùng trong mệnh đề if, was là quá khứ, be thiếu chủ ngữ/dạng chia phù hợp."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-80",
       "type": "error_correction",
       "question": "Find the error: Choose the **incorrect** word/phrase: If the baby sleeps now, she will wakes up happy.",
       "options": [
@@ -1436,9 +3254,32 @@
       ],
       "correct_answer": "will wakes",
       "explanation": "Sau will phải dùng động từ nguyên mẫu: will wake. Sleeps đúng vì mệnh đề if dùng hiện tại đơn; now và happy không sai ngữ pháp trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "sleeps",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sleeps đúng vì mệnh đề if dùng hiện tại đơn."
+        },
+        {
+          "option": "now",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Now và happy không sai ngữ pháp trong câu này."
+        },
+        {
+          "option": "will wakes",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau will phải dùng động từ nguyên mẫu: will wake. Sleeps đúng vì mệnh đề if dùng hiện tại đơn; now và happy không sai ngữ pháp trong câu này."
+        },
+        {
+          "option": "happy",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Happy không sai ngữ pháp trong câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-81",
       "type": "error_correction",
       "question": "Find the error: Choose the **incorrect** word/phrase: If you touches this wire, it hurts.",
       "options": [
@@ -1449,9 +3290,32 @@
       ],
       "correct_answer": "touches",
       "explanation": "Với chủ ngữ you, động từ hiện tại đơn là touch, không thêm -es. It hurts đúng vì chủ ngữ it cần -s; các cụm còn lại không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "you",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. You, động từ hiện tại đơn là touch, không thêm -es."
+        },
+        {
+          "option": "touches",
+          "isCorrect": true,
+          "pedagogicalReason": "Với chủ ngữ you, động từ hiện tại đơn là touch, không thêm -es. It hurts đúng vì chủ ngữ it cần -s; các cụm còn lại không sai."
+        },
+        {
+          "option": "this wire",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"this wire\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "hurts",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Hurts đúng vì chủ ngữ it cần -s."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-82",
       "type": "error_correction",
       "question": "Find the error: Choose the **incorrect** word/phrase: If Leo finds his keys, he call me.",
       "options": [
@@ -1462,9 +3326,32 @@
       ],
       "correct_answer": "call",
       "explanation": "Đây là kết quả tương lai nên cần he will call me. Finds đúng trong mệnh đề if; his keys và me không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "finds",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Finds đúng trong mệnh đề if."
+        },
+        {
+          "option": "his keys",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. His keys và me không sai."
+        },
+        {
+          "option": "call",
+          "isCorrect": true,
+          "pedagogicalReason": "Đây là kết quả tương lai nên cần he will call me. Finds đúng trong mệnh đề if; his keys và me không sai."
+        },
+        {
+          "option": "me",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"me\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-83",
       "type": "error_correction",
       "question": "Find the error: Choose the **incorrect** word/phrase: Unless the children are quiet, the movie won't starts.",
       "options": [
@@ -1475,9 +3362,32 @@
       ],
       "correct_answer": "won't starts",
       "explanation": "Sau won't phải dùng động từ nguyên mẫu: won't start. Unless và are quiet đúng trong mệnh đề điều kiện; the movie là chủ ngữ hợp lý.",
+      "distractor_breakdowns": [
+        {
+          "option": "Unless",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Unless và are quiet đúng trong mệnh đề điều kiện."
+        },
+        {
+          "option": "are quiet",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are quiet đúng trong mệnh đề điều kiện."
+        },
+        {
+          "option": "won't starts",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau won't phải dùng động từ nguyên mẫu: won't start. Unless và are quiet đúng trong mệnh đề điều kiện; the movie là chủ ngữ hợp lý."
+        },
+        {
+          "option": "the movie",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. The movie là chủ ngữ hợp lý."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "conditionals-0-1-ex-84",
       "type": "error_correction",
       "question": "Find the error: Choose the **incorrect** word/phrase: If the soup boil, it makes bubbles.",
       "options": [
@@ -1488,9 +3398,32 @@
       ],
       "correct_answer": "boil",
       "explanation": "The soup là danh từ số ít nên hiện tại đơn phải là boils. Makes đúng vì chủ ngữ it là số ít; các cụm còn lại không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "the soup",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. The soup là danh từ số ít nên hiện tại đơn phải là boils."
+        },
+        {
+          "option": "boil",
+          "isCorrect": true,
+          "pedagogicalReason": "The soup là danh từ số ít nên hiện tại đơn phải là boils. Makes đúng vì chủ ngữ it là số ít; các cụm còn lại không sai."
+        },
+        {
+          "option": "makes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Makes đúng vì chủ ngữ it là số ít."
+        },
+        {
+          "option": "bubbles",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"bubbles\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-85",
       "type": "multiple_choice",
       "question": "Choose the correct sentence for a **general truth** about colors.",
       "options": [
@@ -1501,9 +3434,32 @@
       ],
       "correct_answer": "If you mix red and blue, you get purple.",
       "explanation": "Câu điều kiện loại 0 dùng thì hiện tại đơn ở cả hai mệnh đề để diễn tả một sự thật hiển nhiên hoặc một điều luôn đúng. Cấu trúc là \"If + S + V(hiện tại đơn), S + V(hiện tại đơn)\".",
+      "distractor_breakdowns": [
+        {
+          "option": "If you mix red and blue, you get purple.",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu điều kiện loại 0 dùng thì hiện tại đơn ở cả hai mệnh đề để diễn tả một sự thật hiển nhiên hoặc một điều luôn đúng. Cấu trúc là \"If + S + V(hiện tại đơn), S + V(hiện tại đơn)\"."
+        },
+        {
+          "option": "If you will mix red and blue, you get purple.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If you will mix red and blue, you get purple.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If you mix red and blue, you will get purple.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If you mix red and blue, you will get purple.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "If you mixed red and blue, you got purple.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"If you mixed red and blue, you got purple.\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-86",
       "type": "fill_blank",
       "question": "Complete the sentence: If my brother **studies** hard, he ___ the exam easily.",
       "options": [
@@ -1514,9 +3470,32 @@
       ],
       "correct_answer": "will pass",
       "explanation": "Đây là câu điều kiện loại 1, diễn tả một khả năng có thật trong tương lai. Mệnh đề If dùng thì hiện tại đơn (\"studies\"), còn mệnh đề chính dùng thì tương lai đơn (\"will + động từ nguyên mẫu\").",
+      "distractor_breakdowns": [
+        {
+          "option": "passes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"passes\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "will pass",
+          "isCorrect": true,
+          "pedagogicalReason": "Đây là câu điều kiện loại 1, diễn tả một khả năng có thật trong tương lai. Mệnh đề If dùng thì hiện tại đơn (\"studies\"), còn mệnh đề chính dùng thì tương lai đơn (\"will + động từ nguyên mẫu\")."
+        },
+        {
+          "option": "passed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"passed\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "is passing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"is passing\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-87",
       "type": "error_correction",
       "question": "Find the **incorrect** word/phrase: If you **don't eats** breakfast, you feel hungry.",
       "options": [
@@ -1527,9 +3506,32 @@
       ],
       "correct_answer": "don't eats",
       "explanation": "Trong câu điều kiện loại 0, mệnh đề If dùng thì hiện tại đơn. Với chủ ngữ \"you\", động từ phủ định phải là \"don't eat\" (dạng nguyên mẫu), không phải \"don't eats\".",
+      "distractor_breakdowns": [
+        {
+          "option": "don't eats",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong câu điều kiện loại 0, mệnh đề If dùng thì hiện tại đơn. Với chủ ngữ \"you\", động từ phủ định phải là \"don't eat\" (dạng nguyên mẫu), không phải \"don't eats\"."
+        },
+        {
+          "option": "breakfast",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"breakfast\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "feel",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"feel\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "hungry",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"hungry\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "conditionals-0-1-ex-88",
       "type": "multiple_choice",
       "question": "Choose the correct **main clause** for the first conditional: If it rains tomorrow, ___.",
       "options": [
@@ -1540,6 +3542,28 @@
       ],
       "correct_answer": "we will stay home",
       "explanation": "Đây là câu điều kiện loại 1, diễn tả một khả năng có thể xảy ra trong tương lai. Mệnh đề If dùng thì hiện tại đơn (\"rains\"), và mệnh đề chính phải dùng thì tương lai đơn (\"will + động từ nguyên mẫu\").",
+      "distractor_breakdowns": [
+        {
+          "option": "we stay home",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"we stay home\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "we stayed home",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"we stayed home\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        },
+        {
+          "option": "we will stay home",
+          "isCorrect": true,
+          "pedagogicalReason": "Đây là câu điều kiện loại 1, diễn tả một khả năng có thể xảy ra trong tương lai. Mệnh đề If dùng thì hiện tại đơn (\"rains\"), và mệnh đề chính phải dùng thì tương lai đơn (\"will + động từ nguyên mẫu\")."
+        },
+        {
+          "option": "we are staying home",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc động từ của \"we are staying home\" không khớp với quy tắc thì của mệnh đề điều kiện hoặc đảo ngữ tương ứng."
+        }
+      ],
       "difficulty": 1
     }
   ]

@@ -5,7 +5,7 @@ export const readingMasteryModule: TheoryModule = {
   title: 'Chinh Phục Đọc Hiểu & Quản Lý Thời Gian',
   shortTitle: 'Đọc hiểu Part 7',
   description:
-    'Chiến lược Skimming & Scanning, định vị thông tin trong Thư tín & Lịch trình, làm chủ bài đọc kép/ba và bẻ khóa câu hỏi suy luận chuyên sâu.',
+    'Chiến lược Skimming & Scanning, định vị thông tin trong Thư tín & Lịch trình, làm chủ bài đọc kép/ba và xử lý câu hỏi suy luận chuyên sâu.',
   targetParts: [7],
   icon: 'BookOpen',
   badgeColor: 'emerald',
@@ -733,7 +733,7 @@ export const readingMasteryModule: TheoryModule = {
           title: 'Bộ Lọc Từ Cực Đoan (The Extreme Word Filter)',
           sectionType: 'shortcuts',
           tipBox: {
-            title: 'Quy Tắc 5 Giây: Tiêu Diệt Các Từ Cực Đoan',
+            title: 'Quy Tắc Nhận Diện Từ Khẳng Định Cực Đoan',
             type: 'rule',
             content: 'Trong đề thi TOEIC chuẩn ETS, các phương án chứa từ ngữ mang tính khẳng định tuyệt đối hoặc cực đoan hầu như luôn là PHƯƠNG ÁN SAI (đối với câu hỏi TRUE/Inference) và là ĐÁP ÁN ĐÚNG (đối với câu hỏi NOT).',
             keySignals: [

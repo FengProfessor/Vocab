@@ -2,10 +2,10 @@
   "slug": "emphasis-structures",
   "title": "Emphasis Structures",
   "title_vi": "Cấu trúc nhấn mạnh",
-  "level": "advanced",
+  "level": "B2",
   "order": 56,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **do/does/did + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **do/does/did + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -382,6 +382,7 @@
   },
   "exercises": [
     {
+      "id": "emphasis-structures-ex-01",
       "type": "multiple_choice",
       "question": "Choose the correct **cleft sentence**: Normal sentence: “Maya solved the funding problem.” Focus on Maya.",
       "options": [
@@ -392,9 +393,32 @@
       ],
       "correct_answer": "It was Maya who solved the funding problem.",
       "explanation": "Câu chẻ “It was Maya who...” nhấn mạnh chủ thể Maya. Các lựa chọn khác sai vì thừa đại từ “it”, đảo cấu trúc không đúng, hoặc dùng “what” không hợp lý.",
+      "distractor_breakdowns": [
+        {
+          "option": "It was Maya who solved the funding problem.",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu chẻ “It was Maya who...” nhấn mạnh chủ thể Maya. Các lựa chọn khác sai vì thừa đại từ “it”, đảo cấu trúc không đúng, hoặc dùng “what” không hợp lý."
+        },
+        {
+          "option": "It was the funding problem which Maya solved it.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"It was the funding problem which Maya solved it.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "What Maya solved was she the funding problem.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"What Maya solved was she the funding problem.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Maya was it who solved the funding problem.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Maya was it who solved the funding problem.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-02",
       "type": "multiple_choice",
       "question": "Choose the correct **negative inversion**:",
       "options": [
@@ -405,9 +429,32 @@
       ],
       "correct_answer": "Rarely do senior officials admit mistakes publicly.",
       "explanation": "Với trạng từ phủ định/giới hạn “Rarely” đứng đầu câu, cần đảo trợ động từ trước chủ ngữ: “do senior officials admit”. Các phương án còn lại giữ trật tự thường hoặc đặt trợ động từ sai vị trí.",
+      "distractor_breakdowns": [
+        {
+          "option": "Rarely do senior officials admit mistakes publicly.",
+          "isCorrect": true,
+          "pedagogicalReason": "Với trạng từ phủ định/giới hạn “Rarely” đứng đầu câu, cần đảo trợ động từ trước chủ ngữ: “do senior officials admit”. Các phương án còn lại giữ trật tự thường hoặc đặt trợ động từ sai vị trí."
+        },
+        {
+          "option": "Rarely senior officials do admit mistakes publicly.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Rarely senior officials do admit mistakes publicly.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Rarely admit senior officials do mistakes publicly.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Rarely admit senior officials do mistakes publicly.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Rarely senior officials admit do mistakes publicly.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Rarely senior officials admit do mistakes publicly.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-03",
       "type": "multiple_choice",
       "question": "Choose the correct **what-cleft** sentence:",
       "options": [
@@ -418,9 +465,32 @@
       ],
       "correct_answer": "What the committee needs is a credible timeline.",
       "explanation": "What-cleft có dạng “What + clause + be + focus”, nên “What the committee needs is...” là đúng. Các câu khác sai do đảo từ sai, thừa “it”, hoặc thiếu mệnh đề hoàn chỉnh.",
+      "distractor_breakdowns": [
+        {
+          "option": "What the committee needs is a credible timeline.",
+          "isCorrect": true,
+          "pedagogicalReason": "What-cleft có dạng “What + clause + be + focus”, nên “What the committee needs is...” là đúng. Các câu khác sai do đảo từ sai, thừa “it”, hoặc thiếu mệnh đề hoàn chỉnh."
+        },
+        {
+          "option": "What needs the committee is a credible timeline.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"What needs the committee is a credible timeline.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "What the committee needs it is a credible timeline.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"What the committee needs it is a credible timeline.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "What is the committee needs a credible timeline.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"What is the committee needs a credible timeline.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-04",
       "type": "multiple_choice",
       "question": "Choose the correct **so inversion** structure:",
       "options": [
@@ -431,9 +501,32 @@
       ],
       "correct_answer": "So convincing was her explanation that nobody questioned it.",
       "explanation": "Khi “So + adjective” đứng đầu để nhấn mạnh, cần đảo “be” trước chủ ngữ: “So convincing was her explanation...”. Các lựa chọn khác dùng trật tự thường hoặc kết hợp sai trợ động từ với “was”.",
+      "distractor_breakdowns": [
+        {
+          "option": "So convincing was her explanation that nobody questioned it.",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi “So + adjective” đứng đầu để nhấn mạnh, cần đảo “be” trước chủ ngữ: “So convincing was her explanation...”. Các lựa chọn khác dùng trật tự thường hoặc kết hợp sai trợ động từ với “was”."
+        },
+        {
+          "option": "So convincing her explanation was that nobody questioned it.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"So convincing her explanation was that nobody questioned it.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "So was convincing her explanation that nobody questioned it.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"So was convincing her explanation that nobody questioned it.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "So convincing did her explanation was that nobody questioned it.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"So convincing did her explanation was that nobody questioned it.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-05",
       "type": "multiple_choice",
       "question": "Choose the correct **emphatic do** sentence:",
       "options": [
@@ -444,9 +537,32 @@
       ],
       "correct_answer": "I do appreciate how carefully you handled the complaint.",
       "explanation": "“Do + V nguyên mẫu” dùng để nhấn mạnh ở hiện tại, nên “do appreciate” đúng. Các câu khác sai vì thêm “am”, dùng V-ing, hoặc sai hòa hợp động từ “handles”.",
+      "distractor_breakdowns": [
+        {
+          "option": "I do appreciate how carefully you handled the complaint.",
+          "isCorrect": true,
+          "pedagogicalReason": "“Do + V nguyên mẫu” dùng để nhấn mạnh ở hiện tại, nên “do appreciate” đúng. Các câu khác sai vì thêm “am”, dùng V-ing, hoặc sai hòa hợp động từ “handles”."
+        },
+        {
+          "option": "I am do appreciate how carefully you handled the complaint.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"I am do appreciate how carefully you handled the complaint.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "I do appreciating how carefully you handled the complaint.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"I do appreciating how carefully you handled the complaint.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "I did appreciate how carefully you handles the complaint.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"I did appreciate how carefully you handles the complaint.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-06",
       "type": "multiple_choice",
       "question": "Choose the correct **such that** sentence:",
       "options": [
@@ -457,9 +573,32 @@
       ],
       "correct_answer": "It was such a compelling argument that even the skeptics listened.",
       "explanation": "Với cụm danh từ đếm được số ít, dùng “such + a/an + adjective + noun + that”. “So” không đứng trước cụm danh từ theo cách này, và “such compelling argument” thiếu mạo từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "It was such a compelling argument that even the skeptics listened.",
+          "isCorrect": true,
+          "pedagogicalReason": "Với cụm danh từ đếm được số ít, dùng “such + a/an + adjective + noun + that”. “So” không đứng trước cụm danh từ theo cách này, và “such compelling argument” thiếu mạo từ."
+        },
+        {
+          "option": "It was so a compelling argument that even the skeptics listened.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"It was so a compelling argument that even the skeptics listened.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "It was such compelling argument that even the skeptics listened.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"It was such compelling argument that even the skeptics listened.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "It was a so compelling argument that even the skeptics listened.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"It was a so compelling argument that even the skeptics listened.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-07",
       "type": "multiple_choice",
       "question": "Choose the correct **only inversion** sentence:",
       "options": [
@@ -470,9 +609,32 @@
       ],
       "correct_answer": "Only after the contract was signed did the risks become obvious.",
       "explanation": "Khi “Only after...” đứng đầu câu, mệnh đề chính phải đảo trợ động từ: “did the risks become”. Các câu khác thiếu đảo ngữ, sai bị động, hoặc dùng sai dạng động từ sau “did”.",
+      "distractor_breakdowns": [
+        {
+          "option": "Only after the contract was signed did the risks become obvious.",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi “Only after...” đứng đầu câu, mệnh đề chính phải đảo trợ động từ: “did the risks become”. Các câu khác thiếu đảo ngữ, sai bị động, hoặc dùng sai dạng động từ sau “did”."
+        },
+        {
+          "option": "Only after the contract was signed the risks became obvious.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Only after the contract was signed the risks became obvious.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Only after did the contract was signed the risks become obvious.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Only after did the contract was signed the risks become obvious.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Only after the contract signed did the risks became obvious.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Only after the contract signed did the risks became obvious.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-08",
       "type": "multiple_choice",
       "question": "Choose the correct **reflexive emphasis** sentence:",
       "options": [
@@ -483,9 +645,32 @@
       ],
       "correct_answer": "The director herself rejected the proposal.",
       "explanation": "Đại từ phản thân “herself” đặt ngay sau danh từ để nhấn mạnh chính giám đốc là người làm việc đó. “Herselves” không tồn tại, “her” sai dạng, còn “by herself” thiên về nghĩa một mình hơn là nhấn mạnh danh tính.",
+      "distractor_breakdowns": [
+        {
+          "option": "The director herself rejected the proposal.",
+          "isCorrect": true,
+          "pedagogicalReason": "Đại từ phản thân “herself” đặt ngay sau danh từ để nhấn mạnh chính giám đốc là người làm việc đó. “Herselves” không tồn tại, “her” sai dạng, còn “by herself” thiên về nghĩa một mình hơn là nhấn mạnh danh tính."
+        },
+        {
+          "option": "The director herselves rejected the proposal.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"The director herselves rejected the proposal.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "The director her rejected the proposal herself.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"The director her rejected the proposal herself.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "The director by herself rejected the proposal meaning personally.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"The director by herself rejected the proposal meaning personally.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-09",
       "type": "multiple_choice",
       "question": "Choose the correct **not only** inversion:",
       "options": [
@@ -496,9 +681,32 @@
       ],
       "correct_answer": "Not only did he ignore the warning, but he also deleted the evidence.",
       "explanation": "“Not only” đầu câu cần đảo trợ động từ “did” và động từ chính về nguyên mẫu “ignore”. Các lựa chọn khác thiếu đảo, dùng “ignored” sau “did”, hoặc đặt “also” sai vị trí.",
+      "distractor_breakdowns": [
+        {
+          "option": "Not only did he ignore the warning, but he also deleted the evidence.",
+          "isCorrect": true,
+          "pedagogicalReason": "“Not only” đầu câu cần đảo trợ động từ “did” và động từ chính về nguyên mẫu “ignore”. Các lựa chọn khác thiếu đảo, dùng “ignored” sau “did”, hoặc đặt “also” sai vị trí."
+        },
+        {
+          "option": "Not only he ignored the warning, but he also deleted the evidence.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Not only he ignored the warning, but he also deleted the evidence.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Not only did he ignored the warning, but he also deleted the evidence.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Not only did he ignored the warning, but he also deleted the evidence.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Not only he did ignore the warning, but deleted also the evidence.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Not only he did ignore the warning, but deleted also the evidence.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-10",
       "type": "fill_blank",
       "question": "Complete the **negative inversion**: Under no circumstances ___ the data be shared with third parties.",
       "options": [
@@ -509,9 +717,32 @@
       ],
       "correct_answer": "should",
       "explanation": "Sau “Under no circumstances” cần đảo trợ động từ trước chủ ngữ: “should the data be shared”. Ở đây chủ ngữ “the data” đã có sẵn sau chỗ trống, nên chỉ cần “should”; các lựa chọn còn lại phá vỡ trật tự hoặc sai cấu trúc modal.",
+      "distractor_breakdowns": [
+        {
+          "option": "should",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “Under no circumstances” cần đảo trợ động từ trước chủ ngữ: “should the data be shared”. Ở đây chủ ngữ “the data” đã có sẵn sau chỗ trống, nên chỉ cần “should”; các lựa chọn còn lại phá vỡ trật tự hoặc sai cấu trúc modal."
+        },
+        {
+          "option": "the team should",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"the team should\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "the team must to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"the team must to\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "does the team should",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"does the team should\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-11",
       "type": "fill_blank",
       "question": "Complete the **cleft sentence**: It was the sudden change in policy ___ caused the confusion.",
       "options": [
@@ -522,9 +753,32 @@
       ],
       "correct_answer": "that",
       "explanation": "Câu chẻ nhấn mạnh nguyên nhân dùng “It was + focus + that...”. “What” tạo cấu trúc khác, “where” chỉ nơi chốn, còn “which it” thừa đại từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "that",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu chẻ nhấn mạnh nguyên nhân dùng “It was + focus + that...”. “What” tạo cấu trúc khác, “where” chỉ nơi chốn, còn “which it” thừa đại từ."
+        },
+        {
+          "option": "what",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “What” tạo cấu trúc khác, “where” chỉ nơi chốn, còn “which it” thừa đại từ."
+        },
+        {
+          "option": "where",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “where” chỉ nơi chốn, còn “which it” thừa đại từ."
+        },
+        {
+          "option": "which it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “which it” thừa đại từ."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-12",
       "type": "fill_blank",
       "question": "Complete the **emphatic auxiliary**: She ___ insist that the figures had been misreported.",
       "options": [
@@ -535,9 +789,32 @@
       ],
       "correct_answer": "did",
       "explanation": "Vì mệnh đề sau dùng quá khứ “had been misreported”, “did + V nguyên mẫu” nhấn mạnh hành động trong quá khứ. “Does” sai thì, “was” và “has” không đi trực tiếp với “insist” nguyên mẫu theo nghĩa này.",
+      "distractor_breakdowns": [
+        {
+          "option": "did",
+          "isCorrect": true,
+          "pedagogicalReason": "Vì mệnh đề sau dùng quá khứ “had been misreported”, “did + V nguyên mẫu” nhấn mạnh hành động trong quá khứ. “Does” sai thì, “was” và “has” không đi trực tiếp với “insist” nguyên mẫu theo nghĩa này."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “was” và “has” không đi trực tiếp với “insist” nguyên mẫu theo nghĩa này."
+        },
+        {
+          "option": "has",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “has” không đi trực tiếp với “insist” nguyên mẫu theo nghĩa này."
+        },
+        {
+          "option": "does",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Does” sai thì, “was” và “has” không đi trực tiếp với “insist” nguyên mẫu theo nghĩa này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-13",
       "type": "fill_blank",
       "question": "Complete the **hardly inversion**: Hardly ___ the CEO begun speaking when the microphones failed.",
       "options": [
@@ -548,9 +825,32 @@
       ],
       "correct_answer": "had",
       "explanation": "Cấu trúc “Hardly had + subject + past participle + when...” diễn tả hai sự việc xảy ra sát nhau. “Did” không đi với phân từ “begun”, “has” lệch thì, còn “was” không tạo được thì hoàn thành.",
+      "distractor_breakdowns": [
+        {
+          "option": "had",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc “Hardly had + subject + past participle + when...” diễn tả hai sự việc xảy ra sát nhau. “Did” không đi với phân từ “begun”, “has” lệch thì, còn “was” không tạo được thì hoàn thành."
+        },
+        {
+          "option": "did",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Did” không đi với phân từ “begun”, “has” lệch thì, còn “was” không tạo được thì hoàn thành."
+        },
+        {
+          "option": "has",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “has” lệch thì, còn “was” không tạo được thì hoàn thành."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “was” không tạo được thì hoàn thành."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-14",
       "type": "fill_blank",
       "question": "Complete the **so that** structure: The evidence was ___ inconclusive that the jury requested further analysis.",
       "options": [
@@ -561,9 +861,32 @@
       ],
       "correct_answer": "so",
       "explanation": "Với tính từ “inconclusive”, dùng “so + adjective + that”. “Such” cần danh từ, “too” thường đi với “to-infinitive”, còn “very” không tạo cấu trúc kết quả với “that” theo cách này.",
+      "distractor_breakdowns": [
+        {
+          "option": "so",
+          "isCorrect": true,
+          "pedagogicalReason": "Với tính từ “inconclusive”, dùng “so + adjective + that”. “Such” cần danh từ, “too” thường đi với “to-infinitive”, còn “very” không tạo cấu trúc kết quả với “that” theo cách này."
+        },
+        {
+          "option": "such",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Such” cần danh từ, “too” thường đi với “to-infinitive”, còn “very” không tạo cấu trúc kết quả với “that” theo cách này."
+        },
+        {
+          "option": "too",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “too” thường đi với “to-infinitive”, còn “very” không tạo cấu trúc kết quả với “that” theo cách này."
+        },
+        {
+          "option": "very",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “very” không tạo cấu trúc kết quả với “that” theo cách này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-15",
       "type": "fill_blank",
       "question": "Complete the **what-cleft**: What I object to ___ the assumption that silence means consent.",
       "options": [
@@ -574,9 +897,32 @@
       ],
       "correct_answer": "is",
       "explanation": "Chủ ngữ của what-cleft là cả mệnh đề “What I object to”, được xem như số ít, nên dùng “is”. “Are” sai hòa hợp, còn “be/being” không phù hợp với câu hữu hạn.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ của what-cleft là cả mệnh đề “What I object to”, được xem như số ít, nên dùng “is”. “Are” sai hòa hợp, còn “be/being” không phù hợp với câu hữu hạn."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Are” sai hòa hợp, còn “be/being” không phù hợp với câu hữu hạn."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be/being” không phù hợp với câu hữu hạn."
+        },
+        {
+          "option": "being",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Being” không phù hợp với câu hữu hạn."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-16",
       "type": "fill_blank",
       "question": "Complete the **little inversion**: Little ___ the researchers realise how controversial their findings would become.",
       "options": [
@@ -587,9 +933,32 @@
       ],
       "correct_answer": "did",
       "explanation": "“Little” đầu câu mang nghĩa phủ định nên cần đảo trợ động từ; với động từ thường ở quá khứ dùng “did + realise”. “Were” không đi với động từ thường, “had” cần phân từ, “do” sai thì.",
+      "distractor_breakdowns": [
+        {
+          "option": "did",
+          "isCorrect": true,
+          "pedagogicalReason": "“Little” đầu câu mang nghĩa phủ định nên cần đảo trợ động từ; với động từ thường ở quá khứ dùng “did + realise”. “Were” không đi với động từ thường, “had” cần phân từ, “do” sai thì."
+        },
+        {
+          "option": "were",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Were” không đi với động từ thường, “had” cần phân từ, “do” sai thì."
+        },
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “had” cần phân từ, “do” sai thì."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Trợ động từ \"do\" không dùng cho chủ ngữ ngôi thứ ba số ít ở thì hiện tại đơn."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-17",
       "type": "fill_blank",
       "question": "Complete the **such inversion**: Such ___ the pressure on the minister that she resigned within days.",
       "options": [
@@ -600,9 +969,32 @@
       ],
       "correct_answer": "was",
       "explanation": "Cấu trúc nhấn mạnh “Such was + noun phrase + that...” dùng đảo với động từ “be”. “Pressure” là danh từ không đếm được số ít nên “was” đúng; các lựa chọn khác sai trợ động từ hoặc sai số.",
+      "distractor_breakdowns": [
+        {
+          "option": "was",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc nhấn mạnh “Such was + noun phrase + that...” dùng đảo với động từ “be”. “Pressure” là danh từ không đếm được số ít nên “was” đúng; các lựa chọn khác sai trợ động từ hoặc sai số."
+        },
+        {
+          "option": "did",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"did\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "were",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng số nhiều \"were\" không hòa hợp với chủ ngữ số ít hoặc danh từ không đếm được."
+        },
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"had\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-18",
       "type": "fill_blank",
       "question": "Complete the **focus cleft**: The person ___ I blame is the consultant, not the junior analyst.",
       "options": [
@@ -613,9 +1005,32 @@
       ],
       "correct_answer": "whom",
       "explanation": "“The person whom I blame” dùng “whom” làm tân ngữ của “blame” trong mệnh đề quan hệ trang trọng. “What” không thay cho người trong cấu trúc này, “where” chỉ nơi chốn, “whose” chỉ sở hữu.",
+      "distractor_breakdowns": [
+        {
+          "option": "whom",
+          "isCorrect": true,
+          "pedagogicalReason": "“The person whom I blame” dùng “whom” làm tân ngữ của “blame” trong mệnh đề quan hệ trang trọng. “What” không thay cho người trong cấu trúc này, “where” chỉ nơi chốn, “whose” chỉ sở hữu."
+        },
+        {
+          "option": "what",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “What” không thay cho người trong cấu trúc này, “where” chỉ nơi chốn, “whose” chỉ sở hữu."
+        },
+        {
+          "option": "where",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “where” chỉ nơi chốn, “whose” chỉ sở hữu."
+        },
+        {
+          "option": "whose",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “whose” chỉ sở hữu."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-19",
       "type": "error_correction",
       "question": "Find the error: Never before **I had seen** such a carefully staged apology.",
       "options": [
@@ -626,9 +1041,32 @@
       ],
       "correct_answer": "I had seen",
       "explanation": "Sau “Never before” đầu câu phải đảo: “had I seen”. Các cụm còn lại đúng về nghĩa và hình thức trong câu nhấn mạnh phủ định.",
+      "distractor_breakdowns": [
+        {
+          "option": "Never before",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Never before” đầu câu phải đảo: “had I seen”."
+        },
+        {
+          "option": "I had seen",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “Never before” đầu câu phải đảo: “had I seen”. Các cụm còn lại đúng về nghĩa và hình thức trong câu nhấn mạnh phủ định."
+        },
+        {
+          "option": "such",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"such\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "a carefully staged apology",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"a carefully staged apology\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-20",
       "type": "error_correction",
       "question": "Find the error: It was the auditors **who they** discovered the discrepancy.",
       "options": [
@@ -639,9 +1077,32 @@
       ],
       "correct_answer": "who they",
       "explanation": "Trong câu chẻ, sau “who” không lặp lại chủ ngữ “they”: đúng là “It was the auditors who discovered...”. Các phần khác đúng cho cấu trúc nhấn mạnh chủ thể.",
+      "distractor_breakdowns": [
+        {
+          "option": "It was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. It was the auditors who discovered."
+        },
+        {
+          "option": "the auditors",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. The auditors who discovered."
+        },
+        {
+          "option": "who they",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong câu chẻ, sau “who” không lặp lại chủ ngữ “they”: đúng là “It was the auditors who discovered...”. Các phần khác đúng cho cấu trúc nhấn mạnh chủ thể."
+        },
+        {
+          "option": "discovered the discrepancy",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"discovered the discrepancy\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-21",
       "type": "error_correction",
       "question": "Find the error: So **persuasively she spoke** that the opposition withdrew its objection.",
       "options": [
@@ -652,9 +1113,32 @@
       ],
       "correct_answer": "persuasively she spoke",
       "explanation": "Với “So + adverb” đứng đầu, cần đảo trợ động từ: “So persuasively did she speak...”. Các phần còn lại phù hợp với cấu trúc kết quả “so...that”.",
+      "distractor_breakdowns": [
+        {
+          "option": "So",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. So + adverb” đứng đầu, cần đảo trợ động từ: “So persuasively did she speak."
+        },
+        {
+          "option": "persuasively she spoke",
+          "isCorrect": true,
+          "pedagogicalReason": "Với “So + adverb” đứng đầu, cần đảo trợ động từ: “So persuasively did she speak...”. Các phần còn lại phù hợp với cấu trúc kết quả “so...that”."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"that\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "withdrew its objection",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"withdrew its objection\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-22",
       "type": "error_correction",
       "question": "Find the error: Not until the archive was opened **historians understood** the scale of the cover-up.",
       "options": [
@@ -665,9 +1149,32 @@
       ],
       "correct_answer": "historians understood",
       "explanation": "Sau “Not until...” đầu câu, mệnh đề chính phải đảo: “did historians understand”. Các cụm khác đúng và tạo bối cảnh thời gian cho nhấn mạnh.",
+      "distractor_breakdowns": [
+        {
+          "option": "Not until",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Not until\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "the archive was opened",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the archive was opened\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "historians understood",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “Not until...” đầu câu, mệnh đề chính phải đảo: “did historians understand”. Các cụm khác đúng và tạo bối cảnh thời gian cho nhấn mạnh."
+        },
+        {
+          "option": "the scale of the cover-up",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the scale of the cover-up\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-23",
       "type": "error_correction",
       "question": "Find the error: What makes the proposal risky **are** its reliance on untested assumptions.",
       "options": [
@@ -678,9 +1185,32 @@
       ],
       "correct_answer": "are",
       "explanation": "Chủ ngữ thật được nhấn mạnh là “its reliance”, số ít, nên dùng “is”. Các phần khác đúng cho cấu trúc what-cleft nhấn mạnh lý do.",
+      "distractor_breakdowns": [
+        {
+          "option": "What makes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"What makes\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "the proposal risky",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the proposal risky\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ thật được nhấn mạnh là “its reliance”, số ít, nên dùng “is”. Các phần khác đúng cho cấu trúc what-cleft nhấn mạnh lý do."
+        },
+        {
+          "option": "its reliance on untested assumptions",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"its reliance on untested assumptions\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-24",
       "type": "error_correction",
       "question": "Find the error: It was such **convincing evidence** that the judge dismissed the case immediately.",
       "options": [
@@ -691,9 +1221,32 @@
       ],
       "correct_answer": "such",
       "explanation": "Với danh từ không đếm được “evidence”, “such convincing evidence that...” thực ra đúng nếu không có “a”; lỗi nằm ở việc câu thiếu vấn đề? Câu này không có lỗi, nên cần chọn một câu khác trong dạng bài này.",
+      "distractor_breakdowns": [
+        {
+          "option": "It was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"It was\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "such",
+          "isCorrect": true,
+          "pedagogicalReason": "Với danh từ không đếm được “evidence”, “such convincing evidence that...” thực ra đúng nếu không có “a”; lỗi nằm ở việc câu thiếu vấn đề? Câu này không có lỗi, nên cần chọn một câu khác trong dạng bài này."
+        },
+        {
+          "option": "convincing evidence",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"convincing evidence\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "that the judge dismissed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"that the judge dismissed\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-25",
       "type": "error_correction",
       "question": "Find the error: Only when the final witness testified **the truth became** undeniable.",
       "options": [
@@ -704,9 +1257,32 @@
       ],
       "correct_answer": "the truth became",
       "explanation": "Sau “Only when...” đứng đầu, mệnh đề chính cần đảo: “did the truth become undeniable”. Các cụm còn lại đúng về nghĩa và trật tự trong mệnh đề phụ.",
+      "distractor_breakdowns": [
+        {
+          "option": "Only when",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Only when\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "the final witness testified",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the final witness testified\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "the truth became",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “Only when...” đứng đầu, mệnh đề chính cần đảo: “did the truth become undeniable”. Các cụm còn lại đúng về nghĩa và trật tự trong mệnh đề phụ."
+        },
+        {
+          "option": "undeniable",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"undeniable\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-26",
       "type": "multiple_choice",
       "question": "Choose the correct **it-cleft**: Normal sentence: “The board rejected the proposal because of its hidden costs.” Focus on the reason.",
       "options": [
@@ -717,9 +1293,32 @@
       ],
       "correct_answer": "It was because of its hidden costs that the board rejected the proposal.",
       "explanation": "Cấu trúc cleft đúng là “It was + focus + that + clause”, và phần được nhấn mạnh ở đây là lý do. Các lựa chọn khác sai vì đảo trật tự không tự nhiên, thiếu mệnh đề “that”, hoặc nhấn mạnh sai thành phần.",
+      "distractor_breakdowns": [
+        {
+          "option": "It was because of its hidden costs that the board rejected the proposal.",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc cleft đúng là “It was + focus + that + clause”, và phần được nhấn mạnh ở đây là lý do. Các lựa chọn khác sai vì đảo trật tự không tự nhiên, thiếu mệnh đề “that”, hoặc nhấn mạnh sai thành phần."
+        },
+        {
+          "option": "It was its hidden costs because the board rejected the proposal.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"It was its hidden costs because the board rejected the proposal.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Because of its hidden costs was it that the board rejected the proposal.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Because of its hidden costs was it that the board rejected the proposal.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "It was the board that because of its hidden costs rejected the proposal.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"It was the board that because of its hidden costs rejected the proposal.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-27",
       "type": "multiple_choice",
       "question": "Choose the correct **pseudo-cleft** sentence: Normal sentence: “The committee needs a transparent audit, not another promise.”",
       "options": [
@@ -730,9 +1329,32 @@
       ],
       "correct_answer": "What the committee needs is a transparent audit, not another promise.",
       "explanation": "Trong pseudo-cleft, “What + clause” làm chủ ngữ và cần động từ “is” khi trọng tâm là một danh ngữ số ít. Các phương án khác sai vì đảo sai trật tự, sai hòa hợp “are”, hoặc thêm “It” không đúng cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "What the committee needs is a transparent audit, not another promise.",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong pseudo-cleft, “What + clause” làm chủ ngữ và cần động từ “is” khi trọng tâm là một danh ngữ số ít. Các phương án khác sai vì đảo sai trật tự, sai hòa hợp “are”, hoặc thêm “It” không đúng cấu trúc."
+        },
+        {
+          "option": "What needs the committee is a transparent audit, not another promise.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"What needs the committee is a transparent audit, not another promise.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "What the committee does need are a transparent audit, not another promise.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"What the committee does need are a transparent audit, not another promise.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "It what the committee needs is a transparent audit, not another promise.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"It what the committee needs is a transparent audit, not another promise.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-28",
       "type": "multiple_choice",
       "question": "Choose the correct **no sooner** inversion:",
       "options": [
@@ -743,9 +1365,32 @@
       ],
       "correct_answer": "No sooner had the report been published than the minister denied its conclusions.",
       "explanation": "“No sooner” đứng đầu câu yêu cầu đảo trợ động từ và đi với “than”. Các lựa chọn khác sai vì không đảo, dùng “when/that” thay vì “than”, hoặc dùng cấu trúc không chuẩn.",
+      "distractor_breakdowns": [
+        {
+          "option": "No sooner had the report been published than the minister denied its conclusions.",
+          "isCorrect": true,
+          "pedagogicalReason": "“No sooner” đứng đầu câu yêu cầu đảo trợ động từ và đi với “than”. Các lựa chọn khác sai vì không đảo, dùng “when/that” thay vì “than”, hoặc dùng cấu trúc không chuẩn."
+        },
+        {
+          "option": "No sooner the report had been published than the minister denied its conclusions.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"No sooner the report had been published than the minister denied its conclusions.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "No sooner had the report been published when the minister denied its conclusions.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"No sooner had the report been published when the minister denied its conclusions.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "No sooner was the report published that the minister denied its conclusions.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"No sooner was the report published that the minister denied its conclusions.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-29",
       "type": "multiple_choice",
       "question": "Choose the correct **scarcely inversion** sentence:",
       "options": [
@@ -756,9 +1401,32 @@
       ],
       "correct_answer": "Scarcely had the witness left the room when the lawyers began arguing.",
       "explanation": "Với “Scarcely” đầu câu, ta dùng đảo ngữ “had + subject + past participle” và thường đi với “when”. Các câu khác sai vì thiếu đảo, đảo sai vị trí chủ ngữ, hoặc dùng “did” với động từ quá khứ phân từ sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "Scarcely had the witness left the room when the lawyers began arguing.",
+          "isCorrect": true,
+          "pedagogicalReason": "Với “Scarcely” đầu câu, ta dùng đảo ngữ “had + subject + past participle” và thường đi với “when”. Các câu khác sai vì thiếu đảo, đảo sai vị trí chủ ngữ, hoặc dùng “did” với động từ quá khứ phân từ sai."
+        },
+        {
+          "option": "Scarcely the witness had left the room when the lawyers began arguing.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Scarcely the witness had left the room when the lawyers began arguing.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Scarcely had left the witness the room when the lawyers began arguing.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Scarcely had left the witness the room when the lawyers began arguing.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Scarcely did the witness left the room when the lawyers began arguing.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Scarcely did the witness left the room when the lawyers began arguing.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-30",
       "type": "multiple_choice",
       "question": "Choose the correct **all-cleft** sentence: Normal sentence: “We simply want a clear explanation.”",
       "options": [
@@ -769,9 +1437,32 @@
       ],
       "correct_answer": "All we want is a clear explanation.",
       "explanation": "“All + clause + be + focus” là cấu trúc nhấn mạnh tự nhiên, và “a clear explanation” là số ít nên dùng “is”. Các lựa chọn khác sai vì “All what” không chuẩn, sai hòa hợp, hoặc sai trật tự câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "All we want is a clear explanation.",
+          "isCorrect": true,
+          "pedagogicalReason": "“All + clause + be + focus” là cấu trúc nhấn mạnh tự nhiên, và “a clear explanation” là số ít nên dùng “is”. Các lựa chọn khác sai vì “All what” không chuẩn, sai hòa hợp, hoặc sai trật tự câu."
+        },
+        {
+          "option": "All what we want is a clear explanation.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"All what we want is a clear explanation.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "All we want are a clear explanation.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"All we want are a clear explanation.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "All is we want a clear explanation.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"All is we want a clear explanation.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-31",
       "type": "multiple_choice",
       "question": "Choose the correct **fronting** for emphasis: Normal sentence: “I will not tolerate this level of negligence.”",
       "options": [
@@ -782,9 +1473,32 @@
       ],
       "correct_answer": "This level of negligence I will not tolerate.",
       "explanation": "Fronting đưa tân ngữ lên đầu để nhấn mạnh nhưng vẫn giữ trật tự chủ ngữ + trợ động từ + động từ chính. Các phương án khác đảo trợ động từ sai hoặc đặt phủ định sai vị trí.",
+      "distractor_breakdowns": [
+        {
+          "option": "This level of negligence I will not tolerate.",
+          "isCorrect": true,
+          "pedagogicalReason": "Fronting đưa tân ngữ lên đầu để nhấn mạnh nhưng vẫn giữ trật tự chủ ngữ + trợ động từ + động từ chính. Các phương án khác đảo trợ động từ sai hoặc đặt phủ định sai vị trí."
+        },
+        {
+          "option": "This level of negligence will not I tolerate.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"This level of negligence will not I tolerate.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Not tolerate I will this level of negligence.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Not tolerate I will this level of negligence.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "This level of negligence I not will tolerate.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"This level of negligence I not will tolerate.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-32",
       "type": "multiple_choice",
       "question": "Choose the correct **only after** inversion:",
       "options": [
@@ -795,9 +1509,32 @@
       ],
       "correct_answer": "Only after the data had been verified did the team release the findings.",
       "explanation": "Khi cụm “Only after + clause” đứng đầu, mệnh đề chính phải đảo trợ động từ: “did the team release”. Các lựa chọn khác thiếu đảo ở mệnh đề chính, đảo nhầm trong mệnh đề phụ, hoặc sai dạng động từ sau “did”.",
+      "distractor_breakdowns": [
+        {
+          "option": "Only after the data had been verified did the team release the findings.",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi cụm “Only after + clause” đứng đầu, mệnh đề chính phải đảo trợ động từ: “did the team release”. Các lựa chọn khác thiếu đảo ở mệnh đề chính, đảo nhầm trong mệnh đề phụ, hoặc sai dạng động từ sau “did”."
+        },
+        {
+          "option": "Only after the data had been verified the team released the findings.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Only after the data had been verified the team released the findings.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Only after had the data been verified did the team release the findings.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Only after had the data been verified did the team release the findings.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Only after the data verified did the team released the findings.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Only after the data verified did the team released the findings.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-33",
       "type": "multiple_choice",
       "question": "Choose the correct **so emphatic** structure:",
       "options": [
@@ -808,9 +1545,32 @@
       ],
       "correct_answer": "So damaging were the allegations that the company withdrew the campaign.",
       "explanation": "Cấu trúc nhấn mạnh đúng là “So + adjective + be + subject + that + clause”. Các phương án khác sai vì không đảo sau “so”, đảo sai vị trí tính từ, hoặc dùng “which” thay cho “that” trong cấu trúc kết quả.",
+      "distractor_breakdowns": [
+        {
+          "option": "So damaging were the allegations that the company withdrew the campaign.",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc nhấn mạnh đúng là “So + adjective + be + subject + that + clause”. Các phương án khác sai vì không đảo sau “so”, đảo sai vị trí tính từ, hoặc dùng “which” thay cho “that” trong cấu trúc kết quả."
+        },
+        {
+          "option": "So damaging the allegations were that the company withdrew the campaign.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"So damaging the allegations were that the company withdrew the campaign.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "So were damaging the allegations that the company withdrew the campaign.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"So were damaging the allegations that the company withdrew the campaign.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "So damaging were the allegations which the company withdrew the campaign.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"So damaging were the allegations which the company withdrew the campaign.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-34",
       "type": "fill_blank",
       "question": "Complete the **not until** structure: Not until the accounts were independently audited ___ investors regain confidence.",
       "options": [
@@ -821,9 +1581,32 @@
       ],
       "correct_answer": "did",
       "explanation": "“Not until” đứng đầu câu yêu cầu đảo trợ động từ ở mệnh đề chính: “did investors regain”. “Had/were/do” sai vì không phù hợp thì, động từ chính “regain”, hoặc chủ ngữ số nhiều trong ngữ cảnh này.",
+      "distractor_breakdowns": [
+        {
+          "option": "did",
+          "isCorrect": true,
+          "pedagogicalReason": "“Not until” đứng đầu câu yêu cầu đảo trợ động từ ở mệnh đề chính: “did investors regain”. “Had/were/do” sai vì không phù hợp thì, động từ chính “regain”, hoặc chủ ngữ số nhiều trong ngữ cảnh này."
+        },
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Had/were/do” sai vì không phù hợp thì, động từ chính “regain”, hoặc chủ ngữ số nhiều trong ngữ cảnh này."
+        },
+        {
+          "option": "were",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Were/do” sai vì không phù hợp thì, động từ chính “regain”, hoặc chủ ngữ số nhiều trong ngữ cảnh này."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Do” sai vì không phù hợp thì, động từ chính “regain”, hoặc chủ ngữ số nhiều trong ngữ cảnh này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-35",
       "type": "fill_blank",
       "question": "Complete the **it-cleft** sentence: It is the lack of accountability, not the initial mistake, ___ concerns the public most.",
       "options": [
@@ -834,9 +1617,32 @@
       ],
       "correct_answer": "that",
       "explanation": "Trong cleft sentence, “It is + focus + that + clause” là lựa chọn chuẩn khi nhấn mạnh sự vật/ý tưởng. “What” tạo pseudo-cleft khác, “which” kém tự nhiên trong cấu trúc này, còn “who” chỉ dùng cho người.",
+      "distractor_breakdowns": [
+        {
+          "option": "that",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong cleft sentence, “It is + focus + that + clause” là lựa chọn chuẩn khi nhấn mạnh sự vật/ý tưởng. “What” tạo pseudo-cleft khác, “which” kém tự nhiên trong cấu trúc này, còn “who” chỉ dùng cho người."
+        },
+        {
+          "option": "what",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “What” tạo pseudo-cleft khác, “which” kém tự nhiên trong cấu trúc này, còn “who” chỉ dùng cho người."
+        },
+        {
+          "option": "which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “which” kém tự nhiên trong cấu trúc này, còn “who” chỉ dùng cho người."
+        },
+        {
+          "option": "who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “who” chỉ dùng cho người."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-36",
       "type": "fill_blank",
       "question": "Complete the **emphatic auxiliary**: The mayor ___ accept responsibility for the delay, although she denied misconduct.",
       "options": [
@@ -847,9 +1653,32 @@
       ],
       "correct_answer": "did",
       "explanation": "Câu nói về quá khứ nên dùng “did + V nguyên mẫu” để nhấn mạnh hành động “accept”. “Does” sai thì, còn “had/was” không đi trực tiếp với động từ nguyên mẫu “accept” trong cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "did",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu nói về quá khứ nên dùng “did + V nguyên mẫu” để nhấn mạnh hành động “accept”. “Does” sai thì, còn “had/was” không đi trực tiếp với động từ nguyên mẫu “accept” trong cấu trúc này."
+        },
+        {
+          "option": "does",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Does” sai thì, còn “had/was” không đi trực tiếp với động từ nguyên mẫu “accept” trong cấu trúc này."
+        },
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Had/was” không đi trực tiếp với động từ nguyên mẫu “accept” trong cấu trúc này."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Was” không đi trực tiếp với động từ nguyên mẫu “accept” trong cấu trúc này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "emphasis-structures-ex-37",
       "type": "fill_blank",
       "question": "Complete the **such inversion**: Such ___ the complexity of the case that even senior lawyers disagreed.",
       "options": [
@@ -860,9 +1689,32 @@
       ],
       "correct_answer": "was",
       "explanation": "Với “Such + be + noun phrase + that”, chủ ngữ thật là “the complexity” số ít nên dùng “was”. “Were” sai hòa hợp, còn “did/had” không phù hợp với cấu trúc “such + be”.",
+      "distractor_breakdowns": [
+        {
+          "option": "was",
+          "isCorrect": true,
+          "pedagogicalReason": "Với “Such + be + noun phrase + that”, chủ ngữ thật là “the complexity” số ít nên dùng “was”. “Were” sai hòa hợp, còn “did/had” không phù hợp với cấu trúc “such + be”."
+        },
+        {
+          "option": "were",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Were” sai hòa hợp, còn “did/had” không phù hợp với cấu trúc “such + be”."
+        },
+        {
+          "option": "did",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Did/had” không phù hợp với cấu trúc “such + be”."
+        },
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Had” không phù hợp với cấu trúc “such + be”."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-38",
       "type": "fill_blank",
       "question": "Complete the **what-cleft**: What the report fails to explain ___ why the figures changed overnight.",
       "options": [
@@ -873,9 +1725,32 @@
       ],
       "correct_answer": "is",
       "explanation": "Mệnh đề “What the report fails to explain” được xem như một đơn vị số ít, nên dùng “is”. “Are” sai hòa hợp, còn “be/being” không chia theo thì và chủ ngữ.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề “What the report fails to explain” được xem như một đơn vị số ít, nên dùng “is”. “Are” sai hòa hợp, còn “be/being” không chia theo thì và chủ ngữ."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Are” sai hòa hợp, còn “be/being” không chia theo thì và chủ ngữ."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be/being” không chia theo thì và chủ ngữ."
+        },
+        {
+          "option": "being",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Being” không chia theo thì và chủ ngữ."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-39",
       "type": "fill_blank",
       "question": "Complete the **on no account** inversion: On no account ___ visitors enter the laboratory without protective clothing.",
       "options": [
@@ -886,9 +1761,32 @@
       ],
       "correct_answer": "may",
       "explanation": "“On no account” đầu câu yêu cầu đảo trợ động từ: “may visitors enter”. “They may” không đảo, “are” không đi với động từ nguyên mẫu “enter”, còn “do” không phù hợp với sắc thái cấm đoán bằng modal.",
+      "distractor_breakdowns": [
+        {
+          "option": "may",
+          "isCorrect": true,
+          "pedagogicalReason": "“On no account” đầu câu yêu cầu đảo trợ động từ: “may visitors enter”. “They may” không đảo, “are” không đi với động từ nguyên mẫu “enter”, còn “do” không phù hợp với sắc thái cấm đoán bằng modal."
+        },
+        {
+          "option": "they may",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “They may” không đảo, “are” không đi với động từ nguyên mẫu “enter”, còn “do” không phù hợp với sắc thái cấm đoán bằng modal."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “are” không đi với động từ nguyên mẫu “enter”, còn “do” không phù hợp với sắc thái cấm đoán bằng modal."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “do” không phù hợp với sắc thái cấm đoán bằng modal."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-40",
       "type": "fill_blank",
       "question": "Complete the **so that** structure: The explanation was ___ technical that several board members asked for a summary.",
       "options": [
@@ -899,9 +1797,32 @@
       ],
       "correct_answer": "so",
       "explanation": "Với tính từ “technical”, cấu trúc đúng là “so + adjective + that”. “Such” đi với danh từ/cụm danh từ, “too” thường đi với “to”, còn “very” không tạo cấu trúc kết quả “that” mạnh như vậy.",
+      "distractor_breakdowns": [
+        {
+          "option": "so",
+          "isCorrect": true,
+          "pedagogicalReason": "Với tính từ “technical”, cấu trúc đúng là “so + adjective + that”. “Such” đi với danh từ/cụm danh từ, “too” thường đi với “to”, còn “very” không tạo cấu trúc kết quả “that” mạnh như vậy."
+        },
+        {
+          "option": "such",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Such” đi với danh từ/cụm danh từ, “too” thường đi với “to”, còn “very” không tạo cấu trúc kết quả “that” mạnh như vậy."
+        },
+        {
+          "option": "too",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “too” thường đi với “to”, còn “very” không tạo cấu trúc kết quả “that” mạnh như vậy."
+        },
+        {
+          "option": "very",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “very” không tạo cấu trúc kết quả “that” mạnh như vậy."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "emphasis-structures-ex-41",
       "type": "fill_blank",
       "question": "Complete the **reflexive emphasis**: The director ___ approved the revised safety protocol.",
       "options": [
@@ -912,9 +1833,32 @@
       ],
       "correct_answer": "herself",
       "explanation": "Đại từ phản thân “herself” nhấn mạnh chính giám đốc là người phê duyệt. “Her/hers” sai chức năng, còn “she” không thể đứng sau danh từ để tạo nhấn mạnh kiểu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "herself",
+          "isCorrect": true,
+          "pedagogicalReason": "Đại từ phản thân “herself” nhấn mạnh chính giám đốc là người phê duyệt. “Her/hers” sai chức năng, còn “she” không thể đứng sau danh từ để tạo nhấn mạnh kiểu này."
+        },
+        {
+          "option": "her",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Her/hers” sai chức năng, còn “she” không thể đứng sau danh từ để tạo nhấn mạnh kiểu này."
+        },
+        {
+          "option": "she",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “she” không thể đứng sau danh từ để tạo nhấn mạnh kiểu này."
+        },
+        {
+          "option": "hers",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Hers” sai chức năng, còn “she” không thể đứng sau danh từ để tạo nhấn mạnh kiểu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "emphasis-structures-ex-42",
       "type": "fill_blank",
       "question": "Complete the **inversion**: Rarely ___ a policy caused such widespread confusion so quickly.",
       "options": [
@@ -925,9 +1869,32 @@
       ],
       "correct_answer": "has",
       "explanation": "“Rarely” đầu câu với nghĩa trải nghiệm đến hiện tại thường dùng đảo hiện tại hoàn thành: “has a policy caused”. “Did/does” không phù hợp với “caused” trong cấu trúc này, còn “was” không đi với động từ chính dạng quá khứ phân từ như vậy.",
+      "distractor_breakdowns": [
+        {
+          "option": "has",
+          "isCorrect": true,
+          "pedagogicalReason": "“Rarely” đầu câu với nghĩa trải nghiệm đến hiện tại thường dùng đảo hiện tại hoàn thành: “has a policy caused”. “Did/does” không phù hợp với “caused” trong cấu trúc này, còn “was” không đi với động từ chính dạng quá khứ phân từ như vậy."
+        },
+        {
+          "option": "did",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Did/does” không phù hợp với “caused” trong cấu trúc này, còn “was” không đi với động từ chính dạng quá khứ phân từ như vậy."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “was” không đi với động từ chính dạng quá khứ phân từ như vậy."
+        },
+        {
+          "option": "does",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Does” không phù hợp với “caused” trong cấu trúc này, còn “was” không đi với động từ chính dạng quá khứ phân từ như vậy."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-43",
       "type": "error_correction",
       "question": "Find the error: Seldom **the committee has** faced a decision of such constitutional significance.",
       "options": [
@@ -938,9 +1905,32 @@
       ],
       "correct_answer": "the committee has",
       "explanation": "Sau trạng từ phủ định “Seldom” ở đầu câu phải đảo trợ động từ: “has the committee faced”. Các cụm còn lại đúng về vị trí và nghĩa trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "Seldom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Seldom” ở đầu câu phải đảo trợ động từ: “has the committee faced”."
+        },
+        {
+          "option": "the committee has",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau trạng từ phủ định “Seldom” ở đầu câu phải đảo trợ động từ: “has the committee faced”. Các cụm còn lại đúng về vị trí và nghĩa trong câu."
+        },
+        {
+          "option": "a decision",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"a decision\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "constitutional significance",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"constitutional significance\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-44",
       "type": "error_correction",
       "question": "Find the error: It was the confidential memo **which revealed** the extent of the internal disagreement.",
       "options": [
@@ -951,9 +1941,32 @@
       ],
       "correct_answer": "which revealed",
       "explanation": "Trong it-cleft trang trọng, nên dùng “that revealed” để nối phần nhấn mạnh với mệnh đề còn lại. Các cụm khác đúng: “It was” mở cleft, “confidential memo” là trọng tâm, và “internal disagreement” là danh ngữ hợp lệ.",
+      "distractor_breakdowns": [
+        {
+          "option": "It was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “It was” mở cleft, “confidential memo” là trọng tâm, và “internal disagreement” là danh ngữ hợp lệ."
+        },
+        {
+          "option": "confidential memo",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “confidential memo” là trọng tâm, và “internal disagreement” là danh ngữ hợp lệ."
+        },
+        {
+          "option": "which revealed",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong it-cleft trang trọng, nên dùng “that revealed” để nối phần nhấn mạnh với mệnh đề còn lại. Các cụm khác đúng: “It was” mở cleft, “confidential memo” là trọng tâm, và “internal disagreement” là danh ngữ hợp lệ."
+        },
+        {
+          "option": "internal disagreement",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “internal disagreement” là danh ngữ hợp lệ."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-45",
       "type": "error_correction",
       "question": "Find the error: Only if the contract is amended **the supplier will** accept the revised schedule.",
       "options": [
@@ -964,9 +1977,32 @@
       ],
       "correct_answer": "the supplier will",
       "explanation": "“Only if” đứng đầu câu yêu cầu đảo ở mệnh đề chính: “will the supplier accept”. Các phần “Only if”, “the contract”, và “is amended” đều đúng trong mệnh đề điều kiện bị động.",
+      "distractor_breakdowns": [
+        {
+          "option": "Only if",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Only if” đứng đầu câu yêu cầu đảo ở mệnh đề chính: “will the supplier accept”."
+        },
+        {
+          "option": "the contract",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “the contract”, và “is amended” đều đúng trong mệnh đề điều kiện bị động."
+        },
+        {
+          "option": "is amended",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “is amended” đều đúng trong mệnh đề điều kiện bị động."
+        },
+        {
+          "option": "the supplier will",
+          "isCorrect": true,
+          "pedagogicalReason": "“Only if” đứng đầu câu yêu cầu đảo ở mệnh đề chính: “will the supplier accept”. Các phần “Only if”, “the contract”, và “is amended” đều đúng trong mệnh đề điều kiện bị động."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-46",
       "type": "error_correction",
       "question": "Find the error: What the negotiators demanded **were** immediate safeguards for local workers.",
       "options": [
@@ -977,9 +2013,32 @@
       ],
       "correct_answer": "were",
       "explanation": "Trong pseudo-cleft này, mệnh đề “What the negotiators demanded” thường được xử lý như một đơn vị số ít, nên dùng “was”. Các cụm còn lại đúng về cấu trúc và nghĩa.",
+      "distractor_breakdowns": [
+        {
+          "option": "What the negotiators demanded",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “What the negotiators demanded” thường được xử lý như một đơn vị số ít, nên dùng “was”."
+        },
+        {
+          "option": "were",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong pseudo-cleft này, mệnh đề “What the negotiators demanded” thường được xử lý như một đơn vị số ít, nên dùng “was”. Các cụm còn lại đúng về cấu trúc và nghĩa."
+        },
+        {
+          "option": "immediate safeguards",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"immediate safeguards\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "local workers",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"local workers\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-47",
       "type": "error_correction",
       "question": "Find the error: So severe **the backlash was** that the publisher withdrew the article within hours.",
       "options": [
@@ -990,9 +2049,32 @@
       ],
       "correct_answer": "the backlash was",
       "explanation": "Khi “So + adjective” đứng đầu để nhấn mạnh, cần đảo “was the backlash”. Các phần khác đúng: “So severe” mở cấu trúc kết quả, mệnh đề “that...” nêu hệ quả, và “within hours” là trạng ngữ thời gian.",
+      "distractor_breakdowns": [
+        {
+          "option": "So severe",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “So severe” mở cấu trúc kết quả, mệnh đề “that."
+        },
+        {
+          "option": "the backlash was",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi “So + adjective” đứng đầu để nhấn mạnh, cần đảo “was the backlash”. Các phần khác đúng: “So severe” mở cấu trúc kết quả, mệnh đề “that...” nêu hệ quả, và “within hours” là trạng ngữ thời gian."
+        },
+        {
+          "option": "the publisher withdrew",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the publisher withdrew\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "within hours",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “within hours” là trạng ngữ thời gian."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-48",
       "type": "error_correction",
       "question": "Find the error: The policy itself **were** not controversial; what angered voters was the timing.",
       "options": [
@@ -1003,9 +2085,32 @@
       ],
       "correct_answer": "were",
       "explanation": "Chủ ngữ “The policy itself” là số ít nên động từ phải là “was”. “Itself” dùng đúng để nhấn mạnh, và cấu trúc “what angered voters was...” cũng đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "The policy itself",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “The policy itself” là số ít nên động từ phải là “was”."
+        },
+        {
+          "option": "were",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ “The policy itself” là số ít nên động từ phải là “was”. “Itself” dùng đúng để nhấn mạnh, và cấu trúc “what angered voters was...” cũng đúng."
+        },
+        {
+          "option": "what angered voters",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"what angered voters\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "the timing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the timing\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "emphasis-structures-ex-49",
       "type": "error_correction",
       "question": "Find the error: In no way **the report suggests** that the witnesses coordinated their stories.",
       "options": [
@@ -1016,9 +2121,32 @@
       ],
       "correct_answer": "the report suggests",
       "explanation": "“In no way” đứng đầu câu yêu cầu đảo trợ động từ: “does the report suggest”. Các cụm còn lại đúng về nghĩa và chức năng trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "In no way",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “In no way” đứng đầu câu yêu cầu đảo trợ động từ: “does the report suggest”."
+        },
+        {
+          "option": "the report suggests",
+          "isCorrect": true,
+          "pedagogicalReason": "“In no way” đứng đầu câu yêu cầu đảo trợ động từ: “does the report suggest”. Các cụm còn lại đúng về nghĩa và chức năng trong câu."
+        },
+        {
+          "option": "the witnesses",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the witnesses\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "their stories",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"their stories\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-50",
       "type": "multiple_choice",
       "question": "Choose the correct **it-cleft**: Normal sentence: “The whistleblower exposed the fraud through encrypted emails.” Focus on the means.",
       "options": [
@@ -1029,9 +2157,32 @@
       ],
       "correct_answer": "It was through encrypted emails that the whistleblower exposed the fraud.",
       "explanation": "Câu chẻ it-cleft nhấn mạnh phương tiện bằng cấu trúc “It was + phrase + that + clause”. “Who” không dùng cho phương tiện, còn các lựa chọn khác sai trật tự từ hoặc làm mờ trọng tâm.",
+      "distractor_breakdowns": [
+        {
+          "option": "It was through encrypted emails that the whistleblower exposed the fraud.",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu chẻ it-cleft nhấn mạnh phương tiện bằng cấu trúc “It was + phrase + that + clause”. “Who” không dùng cho phương tiện, còn các lựa chọn khác sai trật tự từ hoặc làm mờ trọng tâm."
+        },
+        {
+          "option": "It was encrypted emails who the whistleblower exposed the fraud through.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"It was encrypted emails who the whistleblower exposed the fraud through.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "It was through encrypted emails which exposed the whistleblower the fraud.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"It was through encrypted emails which exposed the whistleblower the fraud.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "It was the fraud that through encrypted emails the whistleblower exposed.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"It was the fraud that through encrypted emails the whistleblower exposed.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-51",
       "type": "multiple_choice",
       "question": "Choose the correct **what-cleft** sentence: Normal sentence: “The researchers discovered a flaw in the sampling method.”",
       "options": [
@@ -1042,9 +2193,32 @@
       ],
       "correct_answer": "What the researchers discovered was a flaw in the sampling method.",
       "explanation": "What-cleft dùng “What + clause + be + focus”; chủ ngữ “What the researchers discovered” xem như một đơn vị nên dùng “was”. Các câu khác sai đảo trật tự, sai hòa hợp hoặc ghép mệnh đề không đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "What the researchers discovered was a flaw in the sampling method.",
+          "isCorrect": true,
+          "pedagogicalReason": "What-cleft dùng “What + clause + be + focus”; chủ ngữ “What the researchers discovered” xem như một đơn vị nên dùng “was”. Các câu khác sai đảo trật tự, sai hòa hợp hoặc ghép mệnh đề không đúng."
+        },
+        {
+          "option": "What discovered the researchers was a flaw in the sampling method.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"What discovered the researchers was a flaw in the sampling method.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "What the researchers discovered were a flaw in the sampling method.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"What the researchers discovered were a flaw in the sampling method.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "What was the researchers discovered a flaw in the sampling method.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"What was the researchers discovered a flaw in the sampling method.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-52",
       "type": "multiple_choice",
       "question": "Choose the correct **negative inversion** sentence:",
       "options": [
@@ -1055,9 +2229,32 @@
       ],
       "correct_answer": "Under no circumstances should confidential data be shared with contractors.",
       "explanation": "Sau cụm phủ định đầu câu “Under no circumstances”, cần đảo trợ động từ trước chủ ngữ: “should confidential data”. Các lựa chọn khác giữ trật tự thường hoặc đảo sai vị trí thành phần.",
+      "distractor_breakdowns": [
+        {
+          "option": "Under no circumstances should confidential data be shared with contractors.",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau cụm phủ định đầu câu “Under no circumstances”, cần đảo trợ động từ trước chủ ngữ: “should confidential data”. Các lựa chọn khác giữ trật tự thường hoặc đảo sai vị trí thành phần."
+        },
+        {
+          "option": "Under no circumstances confidential data should be shared with contractors.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Under no circumstances confidential data should be shared with contractors.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Under no circumstances should be shared confidential data with contractors.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Under no circumstances should be shared confidential data with contractors.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Under no circumstances data confidential should be shared with contractors.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Under no circumstances data confidential should be shared with contractors.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-53",
       "type": "multiple_choice",
       "question": "Choose the correct **little inversion** sentence:",
       "options": [
@@ -1068,9 +2265,32 @@
       ],
       "correct_answer": "Little did we realize how quickly the rumor would spread.",
       "explanation": "“Little” mang nghĩa phủ định khi đứng đầu câu nên cần đảo trợ động từ “did” trước chủ ngữ. Các phương án còn lại thiếu trợ động từ hoặc đảo sai vị trí chủ ngữ và động từ chính.",
+      "distractor_breakdowns": [
+        {
+          "option": "Little did we realize how quickly the rumor would spread.",
+          "isCorrect": true,
+          "pedagogicalReason": "“Little” mang nghĩa phủ định khi đứng đầu câu nên cần đảo trợ động từ “did” trước chủ ngữ. Các phương án còn lại thiếu trợ động từ hoặc đảo sai vị trí chủ ngữ và động từ chính."
+        },
+        {
+          "option": "Little we realized how quickly the rumor would spread.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Little we realized how quickly the rumor would spread.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Little did realize we how quickly the rumor would spread.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Little did realize we how quickly the rumor would spread.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Little realized we how quickly the rumor would spread.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Little realized we how quickly the rumor would spread.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-54",
       "type": "multiple_choice",
       "question": "Choose the correct **such inversion** sentence:",
       "options": [
@@ -1081,9 +2301,32 @@
       ],
       "correct_answer": "Such was the pressure on the jury that deliberations lasted three days.",
       "explanation": "Với “Such + be + noun phrase + that”, “pressure” là danh từ không đếm được số ít nên dùng “was”. Các lựa chọn khác sai trật tự đảo hoặc sai hòa hợp chủ ngữ - động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "Such was the pressure on the jury that deliberations lasted three days.",
+          "isCorrect": true,
+          "pedagogicalReason": "Với “Such + be + noun phrase + that”, “pressure” là danh từ không đếm được số ít nên dùng “was”. Các lựa chọn khác sai trật tự đảo hoặc sai hòa hợp chủ ngữ - động từ."
+        },
+        {
+          "option": "Such the pressure was on the jury that deliberations lasted three days.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Such the pressure was on the jury that deliberations lasted three days.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Such was on the jury the pressure that deliberations lasted three days.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Such was on the jury the pressure that deliberations lasted three days.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Such were the pressure on the jury that deliberations lasted three days.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Such were the pressure on the jury that deliberations lasted three days.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-55",
       "type": "multiple_choice",
       "question": "Choose the correct **fronting** for emphasis: Normal sentence: “I had never seen such a blatant breach of protocol.”",
       "options": [
@@ -1094,9 +2337,32 @@
       ],
       "correct_answer": "Such a blatant breach of protocol I had never seen.",
       "explanation": "Fronting đưa tân ngữ lên đầu để nhấn mạnh nhưng không nhất thiết đảo trợ động từ nếu không bắt đầu bằng trạng từ phủ định. Các lựa chọn khác đảo sai hoặc phá cấu trúc câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "Such a blatant breach of protocol I had never seen.",
+          "isCorrect": true,
+          "pedagogicalReason": "Fronting đưa tân ngữ lên đầu để nhấn mạnh nhưng không nhất thiết đảo trợ động từ nếu không bắt đầu bằng trạng từ phủ định. Các lựa chọn khác đảo sai hoặc phá cấu trúc câu."
+        },
+        {
+          "option": "Such a blatant breach of protocol had I never seen.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Such a blatant breach of protocol had I never seen.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Never such a blatant breach of protocol I had seen.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Never such a blatant breach of protocol I had seen.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Seen I had never such a blatant breach of protocol.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Seen I had never such a blatant breach of protocol.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-56",
       "type": "multiple_choice",
       "question": "Choose the correct **all-cleft** sentence: Normal sentence: “The witnesses merely requested legal protection.”",
       "options": [
@@ -1107,9 +2373,32 @@
       ],
       "correct_answer": "All the witnesses requested was legal protection.",
       "explanation": "All-cleft dùng “All + clause + be + focus”; “All the witnesses requested” được xem như một ý nên dùng “was”. “All what” thừa “what”, còn các lựa chọn khác sai hòa hợp hoặc sai trật tự.",
+      "distractor_breakdowns": [
+        {
+          "option": "All the witnesses requested was legal protection.",
+          "isCorrect": true,
+          "pedagogicalReason": "All-cleft dùng “All + clause + be + focus”; “All the witnesses requested” được xem như một ý nên dùng “was”. “All what” thừa “what”, còn các lựa chọn khác sai hòa hợp hoặc sai trật tự."
+        },
+        {
+          "option": "All what the witnesses requested was legal protection.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"All what the witnesses requested was legal protection.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "All the witnesses requested were legal protection.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"All the witnesses requested were legal protection.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "All was the witnesses requested legal protection.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"All was the witnesses requested legal protection.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-57",
       "type": "multiple_choice",
       "question": "Choose the correct **only by** inversion:",
       "options": [
@@ -1120,9 +2409,32 @@
       ],
       "correct_answer": "Only by cross-checking the metadata could investigators verify the timeline.",
       "explanation": "Sau “Only by + V-ing” đầu câu, mệnh đề chính đảo trợ động từ: “could investigators verify”. Các lựa chọn khác thiếu đảo, đảo sai, hoặc dùng sai dạng động từ sau giới từ “by”.",
+      "distractor_breakdowns": [
+        {
+          "option": "Only by cross-checking the metadata could investigators verify the timeline.",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “Only by + V-ing” đầu câu, mệnh đề chính đảo trợ động từ: “could investigators verify”. Các lựa chọn khác thiếu đảo, đảo sai, hoặc dùng sai dạng động từ sau giới từ “by”."
+        },
+        {
+          "option": "Only by cross-checking the metadata investigators could verify the timeline.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Only by cross-checking the metadata investigators could verify the timeline.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Only by cross-checking the metadata could verify investigators the timeline.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Only by cross-checking the metadata could verify investigators the timeline.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Only by cross-check the metadata could investigators verify the timeline.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Only by cross-check the metadata could investigators verify the timeline.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-58",
       "type": "fill_blank",
       "question": "Complete the **hardly inversion**: Hardly ___ the press conference begun when the minister was challenged about the missing funds.",
       "options": [
@@ -1133,9 +2445,32 @@
       ],
       "correct_answer": "had",
       "explanation": "Cấu trúc “Hardly had + subject + past participle + when” diễn tả việc vừa xảy ra thì việc khác xảy đến. “Has” sai thì, “did” không đi với past participle, và “was” không tạo được cấu trúc đảo này.",
+      "distractor_breakdowns": [
+        {
+          "option": "had",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc “Hardly had + subject + past participle + when” diễn tả việc vừa xảy ra thì việc khác xảy đến. “Has” sai thì, “did” không đi với past participle, và “was” không tạo được cấu trúc đảo này."
+        },
+        {
+          "option": "has",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Has” sai thì, “did” không đi với past participle, và “was” không tạo được cấu trúc đảo này."
+        },
+        {
+          "option": "did",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “did” không đi với past participle, và “was” không tạo được cấu trúc đảo này."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “was” không tạo được cấu trúc đảo này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-59",
       "type": "fill_blank",
       "question": "Complete the **so emphatic** structure: So damaging ___ the leak that the company suspended all external communications.",
       "options": [
@@ -1146,9 +2481,32 @@
       ],
       "correct_answer": "was",
       "explanation": "Cấu trúc “So + adjective + be + subject + that” cần “was” vì “the leak” là danh từ số ít. “Were” sai hòa hợp, còn “did/had” không phù hợp với tính từ “damaging”.",
+      "distractor_breakdowns": [
+        {
+          "option": "was",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc “So + adjective + be + subject + that” cần “was” vì “the leak” là danh từ số ít. “Were” sai hòa hợp, còn “did/had” không phù hợp với tính từ “damaging”."
+        },
+        {
+          "option": "were",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Were” sai hòa hợp, còn “did/had” không phù hợp với tính từ “damaging”."
+        },
+        {
+          "option": "did",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Did/had” không phù hợp với tính từ “damaging”."
+        },
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Had” không phù hợp với tính từ “damaging”."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-60",
       "type": "fill_blank",
       "question": "Complete the **it-cleft** sentence: It was not the delay itself but the lack of explanation ___ frustrated passengers most.",
       "options": [
@@ -1159,9 +2517,32 @@
       ],
       "correct_answer": "that",
       "explanation": "It-cleft dùng “It was + focus + that + clause” để nhấn mạnh đối tượng gây bực bội. “What” tạo pseudo-cleft, “who” chỉ người, và “where” chỉ nơi chốn nên không đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "that",
+          "isCorrect": true,
+          "pedagogicalReason": "It-cleft dùng “It was + focus + that + clause” để nhấn mạnh đối tượng gây bực bội. “What” tạo pseudo-cleft, “who” chỉ người, và “where” chỉ nơi chốn nên không đúng."
+        },
+        {
+          "option": "what",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “What” tạo pseudo-cleft, “who” chỉ người, và “where” chỉ nơi chốn nên không đúng."
+        },
+        {
+          "option": "who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “who” chỉ người, và “where” chỉ nơi chốn nên không đúng."
+        },
+        {
+          "option": "where",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “where” chỉ nơi chốn nên không đúng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-61",
       "type": "fill_blank",
       "question": "Complete the **emphatic auxiliary**: The defendant ___ deny signing the document, but the handwriting expert was unconvinced.",
       "options": [
@@ -1172,9 +2553,32 @@
       ],
       "correct_answer": "did",
       "explanation": "Nhấn mạnh hành động trong quá khứ dùng “did + V nguyên thể”: “did deny”. “Does” sai thì, “was” không đi trực tiếp với “deny”, và “had deny” sai dạng động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "did",
+          "isCorrect": true,
+          "pedagogicalReason": "Nhấn mạnh hành động trong quá khứ dùng “did + V nguyên thể”: “did deny”. “Does” sai thì, “was” không đi trực tiếp với “deny”, và “had deny” sai dạng động từ."
+        },
+        {
+          "option": "does",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Does” sai thì, “was” không đi trực tiếp với “deny”, và “had deny” sai dạng động từ."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “was” không đi trực tiếp với “deny”, và “had deny” sai dạng động từ."
+        },
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Had deny” sai dạng động từ."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "emphasis-structures-ex-62",
       "type": "fill_blank",
       "question": "Complete the **what-cleft**: What the panel objected to ___ the absence of independent oversight.",
       "options": [
@@ -1185,9 +2589,32 @@
       ],
       "correct_answer": "was",
       "explanation": "Mệnh đề “What the panel objected to” làm chủ ngữ số ít về mặt ngữ pháp nên dùng “was”. “Were” sai hòa hợp, còn “be/being” không chia theo thì và cấu trúc câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "was",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề “What the panel objected to” làm chủ ngữ số ít về mặt ngữ pháp nên dùng “was”. “Were” sai hòa hợp, còn “be/being” không chia theo thì và cấu trúc câu."
+        },
+        {
+          "option": "were",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Were” sai hòa hợp, còn “be/being” không chia theo thì và cấu trúc câu."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be/being” không chia theo thì và cấu trúc câu."
+        },
+        {
+          "option": "being",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Being” không chia theo thì và cấu trúc câu."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-63",
       "type": "fill_blank",
       "question": "Complete the **only when** inversion: Only when the original files were recovered ___ the analysts confirm the manipulation.",
       "options": [
@@ -1198,9 +2625,32 @@
       ],
       "correct_answer": "could",
       "explanation": "Sau “Only when” đầu câu, mệnh đề chính đảo trợ động từ trước chủ ngữ: “could the analysts confirm”. Vì chỗ trống đứng trước chủ ngữ đã có sẵn, đáp án là “could”; các lựa chọn khác giữ trật tự sai hoặc thừa trợ động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "could",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “Only when” đầu câu, mệnh đề chính đảo trợ động từ trước chủ ngữ: “could the analysts confirm”. Vì chỗ trống đứng trước chủ ngữ đã có sẵn, đáp án là “could”; các lựa chọn khác giữ trật tự sai hoặc thừa trợ động từ."
+        },
+        {
+          "option": "they could",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"they could\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "did they could",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"did they could\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "were",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng số nhiều \"were\" không hòa hợp với chủ ngữ số ít hoặc danh từ không đếm được."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-64",
       "type": "fill_blank",
       "question": "Complete the **such that** structure: It was such an implausible excuse ___ even his closest allies refused to defend it.",
       "options": [
@@ -1211,9 +2661,32 @@
       ],
       "correct_answer": "that",
       "explanation": "Cấu trúc đúng là “such + noun phrase + that + clause”. “So” đi với tính từ/trạng từ, “as” không diễn tả kết quả ở đây, và “than” dùng để so sánh.",
+      "distractor_breakdowns": [
+        {
+          "option": "that",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc đúng là “such + noun phrase + that + clause”. “So” đi với tính từ/trạng từ, “as” không diễn tả kết quả ở đây, và “than” dùng để so sánh."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “So” đi với tính từ/trạng từ, “as” không diễn tả kết quả ở đây, và “than” dùng để so sánh."
+        },
+        {
+          "option": "as",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “as” không diễn tả kết quả ở đây, và “than” dùng để so sánh."
+        },
+        {
+          "option": "than",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “than” dùng để so sánh."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-65",
       "type": "fill_blank",
       "question": "Complete the **reflexive emphasis**: The chief engineer ___ inspected the damaged reactor before authorizing the restart.",
       "options": [
@@ -1224,9 +2697,32 @@
       ],
       "correct_answer": "herself",
       "explanation": "Đại từ phản thân “herself” nhấn mạnh chính chủ ngữ đã thực hiện hành động. “Her” là tân ngữ/tính từ sở hữu, “she” là chủ ngữ, và “hers” là đại từ sở hữu nên không đúng vị trí này.",
+      "distractor_breakdowns": [
+        {
+          "option": "herself",
+          "isCorrect": true,
+          "pedagogicalReason": "Đại từ phản thân “herself” nhấn mạnh chính chủ ngữ đã thực hiện hành động. “Her” là tân ngữ/tính từ sở hữu, “she” là chủ ngữ, và “hers” là đại từ sở hữu nên không đúng vị trí này."
+        },
+        {
+          "option": "her",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Her” là tân ngữ/tính từ sở hữu, “she” là chủ ngữ, và “hers” là đại từ sở hữu nên không đúng vị trí này."
+        },
+        {
+          "option": "she",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “she” là chủ ngữ, và “hers” là đại từ sở hữu nên không đúng vị trí này."
+        },
+        {
+          "option": "hers",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “hers” là đại từ sở hữu nên không đúng vị trí này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "emphasis-structures-ex-66",
       "type": "fill_blank",
       "question": "Complete the **not only** inversion: Not only ___ the ruling undermine public trust, but it also set a troubling precedent.",
       "options": [
@@ -1237,9 +2733,32 @@
       ],
       "correct_answer": "did",
       "explanation": "Với “Not only” đầu câu nói về quá khứ, cần đảo trợ động từ “did” trước chủ ngữ và dùng động từ chính nguyên thể “undermine”. “Does” sai thì, còn “was/had” không phù hợp với động từ chính trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "did",
+          "isCorrect": true,
+          "pedagogicalReason": "Với “Not only” đầu câu nói về quá khứ, cần đảo trợ động từ “did” trước chủ ngữ và dùng động từ chính nguyên thể “undermine”. “Does” sai thì, còn “was/had” không phù hợp với động từ chính trong câu."
+        },
+        {
+          "option": "does",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Does” sai thì, còn “was/had” không phù hợp với động từ chính trong câu."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Was/had” không phù hợp với động từ chính trong câu."
+        },
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Had” không phù hợp với động từ chính trong câu."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-67",
       "type": "error_correction",
       "question": "Find the error: Not only **the CEO apologized** publicly, but she also commissioned an independent review.",
       "options": [
@@ -1250,9 +2769,32 @@
       ],
       "correct_answer": "the CEO apologized",
       "explanation": "Sau “Not only” đứng đầu câu, cần đảo trợ động từ: “did the CEO apologize”. Các phần còn lại đúng về nghĩa và ngữ pháp trong cấu trúc tương phản “but also”.",
+      "distractor_breakdowns": [
+        {
+          "option": "Not only",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Not only” đứng đầu câu, cần đảo trợ động từ: “did the CEO apologize”."
+        },
+        {
+          "option": "the CEO apologized",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “Not only” đứng đầu câu, cần đảo trợ động từ: “did the CEO apologize”. Các phần còn lại đúng về nghĩa và ngữ pháp trong cấu trúc tương phản “but also”."
+        },
+        {
+          "option": "publicly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"publicly\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "commissioned",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"commissioned\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-68",
       "type": "error_correction",
       "question": "Find the error: It was the sudden resignation **what** forced the council to postpone the vote.",
       "options": [
@@ -1263,9 +2805,32 @@
       ],
       "correct_answer": "what",
       "explanation": "It-cleft cần “that” hoặc đôi khi “which” tùy ngữ cảnh, nhưng “what” không dùng sau “It was + focus”. Các cụm khác đúng vai trò trong câu nhấn mạnh.",
+      "distractor_breakdowns": [
+        {
+          "option": "It was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. It was + focus”."
+        },
+        {
+          "option": "sudden resignation",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"sudden resignation\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "what",
+          "isCorrect": true,
+          "pedagogicalReason": "It-cleft cần “that” hoặc đôi khi “which” tùy ngữ cảnh, nhưng “what” không dùng sau “It was + focus”. Các cụm khác đúng vai trò trong câu nhấn mạnh."
+        },
+        {
+          "option": "to postpone",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"to postpone\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-69",
       "type": "error_correction",
       "question": "Find the error: What the investigation uncovered **were** a network of shell companies and falsified invoices.",
       "options": [
@@ -1276,9 +2841,32 @@
       ],
       "correct_answer": "were",
       "explanation": "Chủ ngữ là mệnh đề “What the investigation uncovered” và phần bổ ngữ chính bắt đầu bằng “a network” số ít, nên dùng “was”. Các cụm còn lại đúng về từ vựng và cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "What the investigation uncovered",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “What the investigation uncovered” và phần bổ ngữ chính bắt đầu bằng “a network” số ít, nên dùng “was”."
+        },
+        {
+          "option": "were",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ là mệnh đề “What the investigation uncovered” và phần bổ ngữ chính bắt đầu bằng “a network” số ít, nên dùng “was”. Các cụm còn lại đúng về từ vựng và cấu trúc."
+        },
+        {
+          "option": "a network",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “a network” số ít, nên dùng “was”."
+        },
+        {
+          "option": "falsified invoices",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"falsified invoices\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-70",
       "type": "error_correction",
       "question": "Find the error: Rarely **we have seen** a witness remain so composed under hostile questioning.",
       "options": [
@@ -1289,9 +2877,32 @@
       ],
       "correct_answer": "we have seen",
       "explanation": "“Rarely” đầu câu có nghĩa phủ định nên cần đảo: “have we seen”. Các thành phần khác đúng và bổ nghĩa tự nhiên cho câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "Rarely",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Rarely” đầu câu có nghĩa phủ định nên cần đảo: “have we seen”."
+        },
+        {
+          "option": "we have seen",
+          "isCorrect": true,
+          "pedagogicalReason": "“Rarely” đầu câu có nghĩa phủ định nên cần đảo: “have we seen”. Các thành phần khác đúng và bổ nghĩa tự nhiên cho câu."
+        },
+        {
+          "option": "a witness",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"a witness\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "under hostile questioning",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"under hostile questioning\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-71",
       "type": "error_correction",
       "question": "Find the error: The governor **himself** were present when the emergency order was signed.",
       "options": [
@@ -1302,9 +2913,32 @@
       ],
       "correct_answer": "were",
       "explanation": "Chủ ngữ “The governor” số ít nên động từ phải là “was”; “himself” chỉ là thành phần nhấn mạnh và không làm đổi hòa hợp. Các phần còn lại đúng chức năng trong câu bị động.",
+      "distractor_breakdowns": [
+        {
+          "option": "The governor",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “The governor” số ít nên động từ phải là “was”."
+        },
+        {
+          "option": "himself",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “himself” chỉ là thành phần nhấn mạnh và không làm đổi hòa hợp."
+        },
+        {
+          "option": "were",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ “The governor” số ít nên động từ phải là “was”; “himself” chỉ là thành phần nhấn mạnh và không làm đổi hòa hợp. Các phần còn lại đúng chức năng trong câu bị động."
+        },
+        {
+          "option": "was signed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"was signed\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-72",
       "type": "error_correction",
       "question": "Find the error: So quietly **did she speak** that the microphone barely picked up her answer.",
       "options": [
@@ -1315,9 +2949,32 @@
       ],
       "correct_answer": "did she speak",
       "explanation": "Với “So + adverb + that”, cách tự nhiên là “So quietly did she speak...” trong văn phong trang trọng có đảo, nhưng động từ “speak” cần phù hợp nghĩa; ở đây cấu trúc thực ra đúng. Tuy nhiên câu cần lỗi rõ: đáp án này nên sửa thành “she spoke” nếu không dùng đảo, nhưng với đảo thì không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "So quietly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. So quietly did she speak."
+        },
+        {
+          "option": "did she speak",
+          "isCorrect": true,
+          "pedagogicalReason": "Với “So + adverb + that”, cách tự nhiên là “So quietly did she speak...” trong văn phong trang trọng có đảo, nhưng động từ “speak” cần phù hợp nghĩa; ở đây cấu trúc thực ra đúng. Tuy nhiên câu cần lỗi rõ: đáp án này nên sửa thành “she spoke” nếu không dùng đảo, nhưng với đảo thì không sai."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. That”, cách tự nhiên là “So quietly did she speak."
+        },
+        {
+          "option": "picked up",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"picked up\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-73",
       "type": "error_correction",
       "question": "Find the error: No sooner **the merger had been announced** than several senior analysts downgraded the stock.",
       "options": [
@@ -1328,9 +2985,32 @@
       ],
       "correct_answer": "the merger had been announced",
       "explanation": "Sau “No sooner” đầu câu phải đảo trợ động từ: “had the merger been announced”. “Than” là liên từ đúng của cấu trúc này, và các phần còn lại đúng ngữ pháp.",
+      "distractor_breakdowns": [
+        {
+          "option": "No sooner",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “No sooner” đầu câu phải đảo trợ động từ: “had the merger been announced”."
+        },
+        {
+          "option": "the merger had been announced",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “No sooner” đầu câu phải đảo trợ động từ: “had the merger been announced”. “Than” là liên từ đúng của cấu trúc này, và các phần còn lại đúng ngữ pháp."
+        },
+        {
+          "option": "than",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Than” là liên từ đúng của cấu trúc này, và các phần còn lại đúng ngữ pháp."
+        },
+        {
+          "option": "downgraded",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"downgraded\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-74",
       "type": "multiple_choice",
       "question": "Choose the correct **it-cleft**: Normal sentence: “The audit committee rejected the proposal because of undisclosed liabilities.” Focus on the reason.",
       "options": [
@@ -1341,9 +3021,32 @@
       ],
       "correct_answer": "It was because of undisclosed liabilities that the audit committee rejected the proposal.",
       "explanation": "Câu đúng dùng cấu trúc it-cleft: “It was + cụm được nhấn mạnh + that + mệnh đề”. Các lựa chọn khác sai vì dùng “why” không phù hợp trong it-cleft, đảo trật tự câu sai, hoặc tạo cấu trúc gượng ép không chuẩn.",
+      "distractor_breakdowns": [
+        {
+          "option": "It was because of undisclosed liabilities that the audit committee rejected the proposal.",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu đúng dùng cấu trúc it-cleft: “It was + cụm được nhấn mạnh + that + mệnh đề”. Các lựa chọn khác sai vì dùng “why” không phù hợp trong it-cleft, đảo trật tự câu sai, hoặc tạo cấu trúc gượng ép không chuẩn."
+        },
+        {
+          "option": "It was undisclosed liabilities why the audit committee rejected the proposal.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"It was undisclosed liabilities why the audit committee rejected the proposal.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "It was the audit committee that rejected because of undisclosed liabilities the proposal.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"It was the audit committee that rejected because of undisclosed liabilities the proposal.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Because of undisclosed liabilities was it that the audit committee rejected the proposal.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Because of undisclosed liabilities was it that the audit committee rejected the proposal.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-75",
       "type": "multiple_choice",
       "question": "Choose the correct **what-cleft** sentence: Normal sentence: “The board needs greater transparency from the finance team.”",
       "options": [
@@ -1354,9 +3057,32 @@
       ],
       "correct_answer": "What the board needs from the finance team is greater transparency.",
       "explanation": "What-cleft dùng “What + mệnh đề + be + phần được nhấn mạnh”; “greater transparency” là danh từ không đếm được nên đi với “is”. Các lựa chọn khác sai vì đảo từ sai, đặt bổ ngữ sai vị trí, hoặc dùng “are” không hòa hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "What the board needs from the finance team is greater transparency.",
+          "isCorrect": true,
+          "pedagogicalReason": "What-cleft dùng “What + mệnh đề + be + phần được nhấn mạnh”; “greater transparency” là danh từ không đếm được nên đi với “is”. Các lựa chọn khác sai vì đảo từ sai, đặt bổ ngữ sai vị trí, hoặc dùng “are” không hòa hợp."
+        },
+        {
+          "option": "What needs the board from the finance team is greater transparency.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"What needs the board from the finance team is greater transparency.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "What the board needs greater transparency is from the finance team.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"What the board needs greater transparency is from the finance team.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "What the board does need from the finance team are greater transparency.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"What the board does need from the finance team are greater transparency.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-76",
       "type": "multiple_choice",
       "question": "Choose the correct **not until** inversion:",
       "options": [
@@ -1367,9 +3093,32 @@
       ],
       "correct_answer": "Not until the final witness testified did the prosecution alter its theory of the case.",
       "explanation": "Với “Not until + mệnh đề thời gian” ở đầu câu, đảo ngữ xảy ra ở mệnh đề chính: “did the prosecution alter”. Các đáp án khác sai vì không đảo mệnh đề chính hoặc đảo sai trong mệnh đề thời gian.",
+      "distractor_breakdowns": [
+        {
+          "option": "Not until the final witness testified did the prosecution alter its theory of the case.",
+          "isCorrect": true,
+          "pedagogicalReason": "Với “Not until + mệnh đề thời gian” ở đầu câu, đảo ngữ xảy ra ở mệnh đề chính: “did the prosecution alter”. Các đáp án khác sai vì không đảo mệnh đề chính hoặc đảo sai trong mệnh đề thời gian."
+        },
+        {
+          "option": "Not until the final witness testified the prosecution altered its theory of the case.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Not until the final witness testified the prosecution altered its theory of the case.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Not until did the final witness testify the prosecution altered its theory of the case.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Not until did the final witness testify the prosecution altered its theory of the case.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Not until the final witness did testified did the prosecution alter its theory of the case.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Not until the final witness did testified did the prosecution alter its theory of the case.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-77",
       "type": "multiple_choice",
       "question": "Choose the correct **emphatic auxiliary** sentence:",
       "options": [
@@ -1380,9 +3129,32 @@
       ],
       "correct_answer": "I do accept responsibility for the oversight, though I dispute the figures.",
       "explanation": "Nhấn mạnh ở hiện tại dùng “do + động từ nguyên mẫu”: “do accept”. Các lựa chọn khác sai vì dùng sai trợ động từ hoặc dùng động từ chính không ở dạng nguyên mẫu sau “do/did”.",
+      "distractor_breakdowns": [
+        {
+          "option": "I do accept responsibility for the oversight, though I dispute the figures.",
+          "isCorrect": true,
+          "pedagogicalReason": "Nhấn mạnh ở hiện tại dùng “do + động từ nguyên mẫu”: “do accept”. Các lựa chọn khác sai vì dùng sai trợ động từ hoặc dùng động từ chính không ở dạng nguyên mẫu sau “do/did”."
+        },
+        {
+          "option": "I am accept responsibility for the oversight, though I dispute the figures.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"I am accept responsibility for the oversight, though I dispute the figures.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "I did accepted responsibility for the oversight, though I dispute the figures.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"I did accepted responsibility for the oversight, though I dispute the figures.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "I do accepting responsibility for the oversight, though I dispute the figures.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"I do accepting responsibility for the oversight, though I dispute the figures.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-78",
       "type": "fill_blank",
       "question": "Complete the **only after** inversion: Only after the encrypted archive was restored ___ the investigators identify the missing transactions.",
       "options": [
@@ -1393,9 +3165,32 @@
       ],
       "correct_answer": "could they",
       "explanation": "Sau “Only after” đứng đầu câu, mệnh đề chính phải đảo trợ động từ trước chủ ngữ: “could they identify”. Các lựa chọn khác thiếu chủ ngữ, không đảo ngữ, hoặc lặp lại chủ ngữ không phù hợp với vị trí trống.",
+      "distractor_breakdowns": [
+        {
+          "option": "could",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Could they identify”."
+        },
+        {
+          "option": "the investigators could",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"the investigators could\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "could they",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “Only after” đứng đầu câu, mệnh đề chính phải đảo trợ động từ trước chủ ngữ: “could they identify”. Các lựa chọn khác thiếu chủ ngữ, không đảo ngữ, hoặc lặp lại chủ ngữ không phù hợp với vị trí trống."
+        },
+        {
+          "option": "they could",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"they could\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-79",
       "type": "fill_blank",
       "question": "Complete the **scarcely inversion**: Scarcely ___ the committee reached a compromise when a new objection was raised.",
       "options": [
@@ -1406,9 +3201,32 @@
       ],
       "correct_answer": "had",
       "explanation": "Cấu trúc chuẩn là “Scarcely had + subject + past participle + when ...”. “Reached” ở đây là quá khứ phân từ trong thì quá khứ hoàn thành, nên “had” đúng; các trợ động từ khác không tạo được cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "had",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc chuẩn là “Scarcely had + subject + past participle + when ...”. “Reached” ở đây là quá khứ phân từ trong thì quá khứ hoàn thành, nên “had” đúng; các trợ động từ khác không tạo được cấu trúc này."
+        },
+        {
+          "option": "did",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"did\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "has",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"has\" dùng cho chủ ngữ số ít (he/she/it), không phù hợp với chủ ngữ hiện tại."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng số ít \"was\" không hòa hợp với chủ ngữ số nhiều hoặc \"you/we/they\"."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-80",
       "type": "fill_blank",
       "question": "Complete the **such that** structure: It was such a meticulously documented appeal ___ the panel agreed to reopen the case.",
       "options": [
@@ -1419,9 +3237,32 @@
       ],
       "correct_answer": "that",
       "explanation": "Cấu trúc nhấn mạnh mức độ là “such + noun phrase + that + clause”. “Which” tạo mệnh đề quan hệ, “so” không đi trực tiếp sau cụm danh từ này, còn “as” không hoàn thành cấu trúc kết quả.",
+      "distractor_breakdowns": [
+        {
+          "option": "that",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc nhấn mạnh mức độ là “such + noun phrase + that + clause”. “Which” tạo mệnh đề quan hệ, “so” không đi trực tiếp sau cụm danh từ này, còn “as” không hoàn thành cấu trúc kết quả."
+        },
+        {
+          "option": "which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Which” tạo mệnh đề quan hệ, “so” không đi trực tiếp sau cụm danh từ này, còn “as” không hoàn thành cấu trúc kết quả."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “so” không đi trực tiếp sau cụm danh từ này, còn “as” không hoàn thành cấu trúc kết quả."
+        },
+        {
+          "option": "as",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “as” không hoàn thành cấu trúc kết quả."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-81",
       "type": "fill_blank",
       "question": "Complete the **reflexive emphasis**: The ambassador ___ drafted the final paragraph to avoid any ambiguity.",
       "options": [
@@ -1432,9 +3273,32 @@
       ],
       "correct_answer": "herself",
       "explanation": "Đại từ phản thân “herself” dùng để nhấn mạnh chính chủ thể “the ambassador” đã làm việc đó. “Her”, “hers”, và “she” không có chức năng nhấn mạnh phản thân trong vị trí này.",
+      "distractor_breakdowns": [
+        {
+          "option": "herself",
+          "isCorrect": true,
+          "pedagogicalReason": "Đại từ phản thân “herself” dùng để nhấn mạnh chính chủ thể “the ambassador” đã làm việc đó. “Her”, “hers”, và “she” không có chức năng nhấn mạnh phản thân trong vị trí này."
+        },
+        {
+          "option": "her",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Her”, “hers”, và “she” không có chức năng nhấn mạnh phản thân trong vị trí này."
+        },
+        {
+          "option": "hers",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “hers”, và “she” không có chức năng nhấn mạnh phản thân trong vị trí này."
+        },
+        {
+          "option": "she",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “she” không có chức năng nhấn mạnh phản thân trong vị trí này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-82",
       "type": "fill_blank",
       "question": "Complete the **fronted object** sentence: A more evasive answer ___ I have never heard from a senior official.",
       "options": [
@@ -1445,9 +3309,32 @@
       ],
       "correct_answer": "than that",
       "explanation": "Câu nhấn mạnh bằng fronting dùng mẫu so sánh: “A more evasive answer than that I have never heard”. Các lựa chọn khác không hoàn thành cấu trúc so sánh và làm câu sai nghĩa hoặc sai ngữ pháp.",
+      "distractor_breakdowns": [
+        {
+          "option": "than that",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu nhấn mạnh bằng fronting dùng mẫu so sánh: “A more evasive answer than that I have never heard”. Các lựa chọn khác không hoàn thành cấu trúc so sánh và làm câu sai nghĩa hoặc sai ngữ pháp."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. That I have never heard”."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. So sánh và làm câu sai nghĩa hoặc sai ngữ pháp."
+        },
+        {
+          "option": "as",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"as\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-83",
       "type": "error_correction",
       "question": "Find the error: Seldom **the committee has** faced such intense scrutiny from both regulators and shareholders.",
       "options": [
@@ -1458,9 +3345,32 @@
       ],
       "correct_answer": "the committee has",
       "explanation": "Sau trạng từ phủ định “Seldom” ở đầu câu phải đảo ngữ: “has the committee faced”. Cụm “the committee has” sai vì giữ trật tự câu khẳng định thông thường.",
+      "distractor_breakdowns": [
+        {
+          "option": "Seldom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Seldom” ở đầu câu phải đảo ngữ: “has the committee faced”."
+        },
+        {
+          "option": "the committee has",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau trạng từ phủ định “Seldom” ở đầu câu phải đảo ngữ: “has the committee faced”. Cụm “the committee has” sai vì giữ trật tự câu khẳng định thông thường."
+        },
+        {
+          "option": "such intense scrutiny",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"such intense scrutiny\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "from both regulators and shareholders",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"from both regulators and shareholders\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-84",
       "type": "error_correction",
       "question": "Find the error: It was the absence of reliable data **why** made the forecast impossible to defend.",
       "options": [
@@ -1471,9 +3381,32 @@
       ],
       "correct_answer": "why",
       "explanation": "Trong it-cleft, liên từ chuẩn thường là “that”: “It was the absence of reliable data that made...”. “Why” không phù hợp vì phần được nhấn mạnh là một cụm danh từ, không phải lý do được diễn đạt bằng mệnh đề.",
+      "distractor_breakdowns": [
+        {
+          "option": "It was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. It was the absence of reliable data that made."
+        },
+        {
+          "option": "the absence of reliable data",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. The absence of reliable data that made."
+        },
+        {
+          "option": "why",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong it-cleft, liên từ chuẩn thường là “that”: “It was the absence of reliable data that made...”. “Why” không phù hợp vì phần được nhấn mạnh là một cụm danh từ, không phải lý do được diễn đạt bằng mệnh đề."
+        },
+        {
+          "option": "made",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"made\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-85",
       "type": "error_correction",
       "question": "Find the error: What the editors ultimately approved **were** a shorter introduction and a stricter citation policy.",
       "options": [
@@ -1484,9 +3417,32 @@
       ],
       "correct_answer": "were",
       "explanation": "Chủ ngữ là mệnh đề “What the editors ultimately approved”, nên động từ liên kết thường dùng số ít “was” khi giới thiệu nội dung được phê duyệt. “Were” bị nhiễm bởi hai danh ngữ phía sau nên sai hòa hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "What the editors ultimately approved",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “What the editors ultimately approved”, nên động từ liên kết thường dùng số ít “was” khi giới thiệu nội dung được phê duyệt."
+        },
+        {
+          "option": "were",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ là mệnh đề “What the editors ultimately approved”, nên động từ liên kết thường dùng số ít “was” khi giới thiệu nội dung được phê duyệt. “Were” bị nhiễm bởi hai danh ngữ phía sau nên sai hòa hợp."
+        },
+        {
+          "option": "a shorter introduction",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"a shorter introduction\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "a stricter citation policy",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"a stricter citation policy\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-86",
       "type": "error_correction",
       "question": "Find the error: On no account **visitors may** enter the archive without written authorization.",
       "options": [
@@ -1497,9 +3453,32 @@
       ],
       "correct_answer": "visitors may",
       "explanation": "Sau cụm phủ định đầu câu “On no account”, phải đảo trợ động từ: “may visitors enter”. “Visitors may” sai vì không áp dụng negative inversion.",
+      "distractor_breakdowns": [
+        {
+          "option": "On no account",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “On no account”, phải đảo trợ động từ: “may visitors enter”."
+        },
+        {
+          "option": "visitors may",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau cụm phủ định đầu câu “On no account”, phải đảo trợ động từ: “may visitors enter”. “Visitors may” sai vì không áp dụng negative inversion."
+        },
+        {
+          "option": "enter the archive",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"enter the archive\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "without written authorization",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"without written authorization\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "emphasis-structures-ex-87",
       "type": "error_correction",
       "question": "Find the error: The consultant **himself** were unable to explain the discrepancy in the revenue model.",
       "options": [
@@ -1510,9 +3489,32 @@
       ],
       "correct_answer": "were unable",
       "explanation": "Chủ ngữ “The consultant” là số ít, dù có “himself” để nhấn mạnh, nên động từ phải là “was unable”. “Were unable” sai hòa hợp chủ ngữ - động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "The consultant",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “The consultant” là số ít, dù có “himself” để nhấn mạnh, nên động từ phải là “was unable”."
+        },
+        {
+          "option": "himself",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “himself” để nhấn mạnh, nên động từ phải là “was unable”."
+        },
+        {
+          "option": "were unable",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ “The consultant” là số ít, dù có “himself” để nhấn mạnh, nên động từ phải là “was unable”. “Were unable” sai hòa hợp chủ ngữ - động từ."
+        },
+        {
+          "option": "the discrepancy",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the discrepancy\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "emphasis-structures-ex-88",
       "type": "error_correction",
       "question": "Find the error in the following sentence related to **negative inversion**: \"Under no circumstances the security team allows unauthorized personnel to access the server room.\"",
       "options": [
@@ -1523,6 +3525,28 @@
       ],
       "correct_answer": "the security team allows",
       "explanation": "Cụm từ phủ định \"Under no circumstances\" khi đặt ở đầu câu đòi hỏi phải có đảo ngữ (inversion). Cấu trúc đúng phải là \"Under no circumstances + trợ động từ + chủ ngữ + động từ chính\". Do đó, \"the security team allows\" cần được sửa thành \"does the security team allow\" để tuân thủ quy tắc đảo ngữ.",
+      "distractor_breakdowns": [
+        {
+          "option": "Under no circumstances",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Under no circumstances\" khi đặt ở đầu câu đòi hỏi phải có đảo ngữ (inversion)."
+        },
+        {
+          "option": "the security team allows",
+          "isCorrect": true,
+          "pedagogicalReason": "Cụm từ phủ định \"Under no circumstances\" khi đặt ở đầu câu đòi hỏi phải có đảo ngữ (inversion). Cấu trúc đúng phải là \"Under no circumstances + trợ động từ + chủ ngữ + động từ chính\". Do đó, \"the security team allows\" cần được sửa thành \"does the security team allow\" để tuân thủ quy tắc đảo ngữ."
+        },
+        {
+          "option": "unauthorized personnel",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"unauthorized personnel\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "to access the server room",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"to access the server room\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     }
   ]

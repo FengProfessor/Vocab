@@ -2,10 +2,10 @@
   "slug": "gerunds-infinitives",
   "title": "Gerunds & Infinitives",
   "title_vi": "Danh động từ & động từ nguyên mẫu",
-  "level": "intermediate",
-  "order": 35,
+  "level": "B1",
+  "order": 37,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **verb + V-ing** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **verb + V-ing** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -330,88 +330,326 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "The ____ (high) you climb, the colder it becomes.",
-      "opts": [],
-      "answer": "higher",
-      "fb": "high là tính từ ngắn → higher"
+      "id": "gerunds-infinitives-ex-01",
+      "type": "fill_blank",
+      "question": "The ____ (high) you climb, the colder it becomes.",
+      "options": [],
+      "correct_answer": "higher",
+      "explanation": "high là tính từ ngắn → higher",
+      "distractor_breakdowns": [
+        {
+          "option": "higher",
+          "isCorrect": true,
+          "pedagogicalReason": "high là tính từ ngắn → higher"
+        },
+        {
+          "option": "more high",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"high\" là tính từ ngắn 1 âm tiết, so sánh hơn là \"higher\", không dùng \"more high\"."
+        },
+        {
+          "option": "highest",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cấu trúc so sánh kép (The + comparative, the + comparative) yêu cầu dạng so sánh hơn \"higher\"."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "The ____ (careful) you are, the fewer mistakes you make.",
-      "opts": [],
-      "answer": "more careful",
-      "fb": "careful là tính từ dài → more careful"
+      "id": "gerunds-infinitives-ex-02",
+      "type": "fill_blank",
+      "question": "The ____ (careful) you are, the fewer mistakes you make.",
+      "options": [],
+      "correct_answer": "more careful",
+      "explanation": "careful là tính từ dài → more careful",
+      "distractor_breakdowns": [
+        {
+          "option": "more careful",
+          "isCorrect": true,
+          "pedagogicalReason": "careful là tính từ dài → more careful"
+        },
+        {
+          "option": "more carefuls",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"more carefuls\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to more careful",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "The ____ (little) I sleep, the worse I feel.",
-      "opts": [],
-      "answer": "less",
-      "fb": "little bất quy tắc → less"
+      "id": "gerunds-infinitives-ex-03",
+      "type": "fill_blank",
+      "question": "The ____ (little) I sleep, the worse I feel.",
+      "options": [],
+      "correct_answer": "less",
+      "explanation": "little bất quy tắc → less",
+      "distractor_breakdowns": [
+        {
+          "option": "less",
+          "isCorrect": true,
+          "pedagogicalReason": "little bất quy tắc → less"
+        },
+        {
+          "option": "lesss",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"lesss\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to less",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "The days are getting ____ (short) in winter.",
-      "opts": [],
-      "answer": "shorter and shorter",
-      "fb": "short ngắn → -er and -er"
+      "id": "gerunds-infinitives-ex-04",
+      "type": "fill_blank",
+      "question": "The days are getting ____ (short) in winter.",
+      "options": [],
+      "correct_answer": "shorter and shorter",
+      "explanation": "short ngắn → -er and -er",
+      "distractor_breakdowns": [
+        {
+          "option": "shorter and shorter",
+          "isCorrect": true,
+          "pedagogicalReason": "short ngắn → -er and -er"
+        },
+        {
+          "option": "shorter and shorters",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"shorter and shorters\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to shorter and shorter",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "The story is becoming ____ (interesting).",
-      "opts": [],
-      "answer": "more and more interesting",
-      "fb": "interesting là tính từ dài → more and more"
+      "id": "gerunds-infinitives-ex-05",
+      "type": "fill_blank",
+      "question": "The story is becoming ____ (interesting).",
+      "options": [],
+      "correct_answer": "more and more interesting",
+      "explanation": "interesting là tính từ dài → more and more",
+      "distractor_breakdowns": [
+        {
+          "option": "more and more interesting",
+          "isCorrect": true,
+          "pedagogicalReason": "interesting là tính từ dài → more and more"
+        },
+        {
+          "option": "more and more interestings",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"more and more interestings\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to more and more interesting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "Smartphones are getting ____ (cheap) every year.",
-      "opts": [],
-      "answer": "cheaper and cheaper",
-      "fb": "cheap là tính từ ngắn → -er and -er"
+      "id": "gerunds-infinitives-ex-06",
+      "type": "fill_blank",
+      "question": "Smartphones are getting ____ (cheap) every year.",
+      "options": [],
+      "correct_answer": "cheaper and cheaper",
+      "explanation": "cheap là tính từ ngắn → -er and -er",
+      "distractor_breakdowns": [
+        {
+          "option": "cheaper and cheaper",
+          "isCorrect": true,
+          "pedagogicalReason": "cheap là tính từ ngắn → -er and -er"
+        },
+        {
+          "option": "cheaper and cheapers",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"cheaper and cheapers\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to cheaper and cheaper",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "The ____ (much) you practise, the better you get.",
-      "opts": [],
-      "answer": "more",
-      "fb": "much bất quy tắc → more"
+      "id": "gerunds-infinitives-ex-07",
+      "type": "fill_blank",
+      "question": "The ____ (much) you practise, the better you get.",
+      "options": [],
+      "correct_answer": "more",
+      "explanation": "much bất quy tắc → more",
+      "distractor_breakdowns": [
+        {
+          "option": "more",
+          "isCorrect": true,
+          "pedagogicalReason": "much bất quy tắc → more"
+        },
+        {
+          "option": "mores",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"mores\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to more",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "My brother enjoys ____ (play) computer games.",
-      "opts": [],
-      "answer": "playing",
-      "fb": "enjoy nằm nhóm V-ing"
+      "id": "gerunds-infinitives-ex-08",
+      "type": "fill_blank",
+      "question": "My brother enjoys ____ (play) computer games.",
+      "options": [],
+      "correct_answer": "playing",
+      "explanation": "enjoy nằm nhóm V-ing",
+      "distractor_breakdowns": [
+        {
+          "option": "playing",
+          "isCorrect": true,
+          "pedagogicalReason": "enjoy nằm nhóm V-ing"
+        },
+        {
+          "option": "playings",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"playings\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to playing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "Would you mind ____ (turn) down the music?",
-      "opts": [],
-      "answer": "turning",
-      "fb": "mind nằm nhóm V-ing"
+      "id": "gerunds-infinitives-ex-09",
+      "type": "fill_blank",
+      "question": "Would you mind ____ (turn) down the music?",
+      "options": [],
+      "correct_answer": "turning",
+      "explanation": "mind nằm nhóm V-ing",
+      "distractor_breakdowns": [
+        {
+          "option": "turning",
+          "isCorrect": true,
+          "pedagogicalReason": "mind nằm nhóm V-ing"
+        },
+        {
+          "option": "turnings",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"turnings\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to turning",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "My father stopped ____ (drink) coffee after the doctor's advice.",
-      "opts": [],
-      "answer": "drinking",
-      "fb": "bỏ hẳn cà phê → V-ing"
+      "id": "gerunds-infinitives-ex-10",
+      "type": "fill_blank",
+      "question": "My father stopped ____ (drink) coffee after the doctor's advice.",
+      "options": [],
+      "correct_answer": "drinking",
+      "explanation": "bỏ hẳn cà phê → V-ing",
+      "distractor_breakdowns": [
+        {
+          "option": "drinking",
+          "isCorrect": true,
+          "pedagogicalReason": "bỏ hẳn cà phê → V-ing"
+        },
+        {
+          "option": "drinkings",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"drinkings\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to drinking",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "fill",
-      "q": "I still remember ____ (visit) Ha Long Bay when I was ten.",
-      "opts": [],
-      "answer": "visiting",
-      "fb": "nhớ chuyện đã xảy ra → V-ing"
+      "id": "gerunds-infinitives-ex-11",
+      "type": "fill_blank",
+      "question": "I still remember ____ (visit) Ha Long Bay when I was ten.",
+      "options": [],
+      "correct_answer": "visiting",
+      "explanation": "nhớ chuyện đã xảy ra → V-ing",
+      "distractor_breakdowns": [
+        {
+          "option": "visiting",
+          "isCorrect": true,
+          "pedagogicalReason": "nhớ chuyện đã xảy ra → V-ing"
+        },
+        {
+          "option": "visitings",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"visitings\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to visiting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "fill",
-      "q": "He enjoys ____ football with his friends.  (A play · B to play · C playing · D played)",
-      "opts": [],
-      "answer": "C playing",
-      "fb": "Sau enjoy luôn là V-ing · buổi 19"
+      "id": "gerunds-infinitives-ex-12",
+      "type": "multiple_choice",
+      "question": "He enjoys ____ football with his friends.",
+      "options": [
+        "play",
+        "to play",
+        "playing",
+        "played"
+      ],
+      "correct_answer": "playing",
+      "explanation": "Sau enjoy luôn là V-ing · buổi 19",
+      "distractor_breakdowns": [
+        {
+          "option": "play",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"play\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "to play",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to play\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "playing",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau enjoy luôn là V-ing · buổi 19"
+        },
+        {
+          "option": "played",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"played\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 3
     }
   ]
 }

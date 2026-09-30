@@ -8,6 +8,8 @@
  * - Chỉ map sang `error_correction` khi ≥2 options xuất hiện trong nội dung câu hỏi.
  */
 
+import type { DistractorBreakdown } from './grammar-types';
+
 export type DrillExerciseType = 'multiple_choice' | 'fill_blank' | 'error_correction';
 
 export type NormalizedDrillExercise = {
@@ -17,6 +19,7 @@ export type NormalizedDrillExercise = {
   options: string[];
   correct_answer: string;
   explanation: string;
+  distractor_breakdowns?: DistractorBreakdown[];
   topic: string;
   level: string;
   type: DrillExerciseType;
@@ -154,8 +157,15 @@ export function normalizeLessonExercise(
   idPrefix = 'pre',
 ): NormalizedDrillExercise {
   const ex = asExerciseRecord(raw);
+  const rawDiff = ex.difficulty;
   const difficulty =
-    typeof ex.difficulty === 'number' && [1, 2, 3].includes(ex.difficulty) ? ex.difficulty : 2;
+    typeof rawDiff === 'number' && [1, 2, 3].includes(rawDiff)
+      ? rawDiff
+      : rawDiff === 'easy'
+      ? 1
+      : rawDiff === 'hard'
+      ? 3
+      : 2;
 
   const rawType = typeof ex.type === 'string' ? ex.type : undefined;
   // Nhiều schema: question | q | prompt | sentence | stem | text
@@ -210,6 +220,9 @@ export function normalizeLessonExercise(
     options: optionsList,
     correct_answer: finalCorrect,
     explanation: explanationText,
+    distractor_breakdowns: Array.isArray(ex.distractor_breakdowns)
+      ? (ex.distractor_breakdowns as DistractorBreakdown[])
+      : undefined,
     topic: topicTitle,
     level,
     type: qType,

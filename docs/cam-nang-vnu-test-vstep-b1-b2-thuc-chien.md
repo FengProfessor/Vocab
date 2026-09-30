@@ -12,7 +12,7 @@
 3. [Cào Kho Đề Thi Thật 2024–2026: Các Chủ Đề Lặp Lại Nhiều Nhất](#3-cao-kho-de-thi-that-20242026)
 4. [Bộ Khung Master Templates Bất Bại Cho Writing Task 1 & Task 2 (Chuẩn B1 & B2)](#4-bo-khung-master-templates-writing)
 5. [Chiến Thuật Speaking 3 Part Đạt Chuẩn B1/B2: Khung "Cứu Sinh" Part 2 & Part 3](#5-chien-thuat-speaking-3-part)
-6. [Chiến Lược Hack Điểm Listening & Reading Cho Người Mất Gốc B1 & Bứt Phá B2](#6-chien-luoc-hack-diem-listening--reading)
+6. [Chiến Lược Tối Ưu Hóa Điểm Số Listening & Reading Cho Người Mất Gốc B1 & Bứt Phá B2](#6-chien-luoc-toi-uu-hoa-diem-so-listening--reading)
 7. [Checklist Chuẩn Bị & Quy Tắc Sinh Tử Trong Ngày Thi Tại ULIS](#7-checklist-chuan-bi-ngay-thi)
 
 ---
@@ -213,7 +213,7 @@ Similarly, as for [Lựa chọn C], although it sounds interesting at first glan
 
 ---
 
-## 6. CHIẾN LƯỢC HACK ĐIỂM LISTENING & READING CHO NGƯỜI MẤT GỐC B1 & BỨT PHÁ B2
+## 6. CHIẾN LƯỢC TỐI ƯU HÓA ĐIỂM SỐ LISTENING & READING CHO NGƯỜI MẤT GỐC B1 & BỨT PHÁ B2
 
 ### 6.1 Chiến Thuật Listening: Kỹ Thuật "Bắt Sóng Tần Số"
 *   **Quy tắc bất di bất dịch**: File nghe VSTEP chỉ chạy **ĐÚNG 1 LẦN DUY NHẤT**! Không bao giờ có lần nghe thứ hai như bài kiểm tra trên lớp.

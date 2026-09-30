@@ -2,10 +2,10 @@
   "slug": "passive-voice",
   "title": "Passive Voice",
   "title_vi": "Câu bị động",
-  "level": "intermediate",
+  "level": "B1",
   "order": 36,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **S + be + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **S + be + V3** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -345,46 +345,170 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "The telephone ____ (invent) by Alexander Graham Bell.",
-      "opts": [],
-      "answer": "was invented",
-      "fb": "chuyện đã xong trong quá khứ → was + V3"
+      "id": "passive-voice-ex-01",
+      "type": "fill_blank",
+      "question": "The telephone ____ (invent) by Alexander Graham Bell.",
+      "options": [],
+      "correct_answer": "was invented",
+      "explanation": "chuyện đã xong trong quá khứ → was + V3",
+      "distractor_breakdowns": [
+        {
+          "option": "was invented",
+          "isCorrect": true,
+          "pedagogicalReason": "chuyện đã xong trong quá khứ → was + V3"
+        },
+        {
+          "option": "was inventeds",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"was inventeds\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to was invented",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "Trees ____ (plant) in our schoolyard since Monday.",
-      "opts": [],
-      "answer": "have been planted",
-      "fb": "since Monday = kéo tới giờ → have been + V3"
+      "id": "passive-voice-ex-02",
+      "type": "fill_blank",
+      "question": "Trees ____ (plant) in our schoolyard since Monday.",
+      "options": [],
+      "correct_answer": "have been planted",
+      "explanation": "since Monday = kéo tới giờ → have been + V3",
+      "distractor_breakdowns": [
+        {
+          "option": "have been planted",
+          "isCorrect": true,
+          "pedagogicalReason": "since Monday = kéo tới giờ → have been + V3"
+        },
+        {
+          "option": "were",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cụm thời gian \"for a long time\" chỉ sự việc kéo dài từ quá khứ đến hiện tại, phải dùng hiện tại hoàn thành."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không thể dùng hiện tại đơn với khoảng thời gian \"for a long time\"."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "Nobody can answer this question.  →  This question ____.",
-      "opts": [],
-      "answer": "can't be answered",
-      "fb": "Nobody + can → can't be + V3, cắt by"
+      "id": "passive-voice-ex-03",
+      "type": "fill_blank",
+      "question": "Nobody can answer this question.  →  This question ____.",
+      "options": [],
+      "correct_answer": "can't be answered",
+      "explanation": "Nobody + can → can't be + V3, cắt by",
+      "distractor_breakdowns": [
+        {
+          "option": "can't be answered",
+          "isCorrect": true,
+          "pedagogicalReason": "Nobody + can → can't be + V3, cắt by"
+        },
+        {
+          "option": "can be answered",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Câu gốc có chủ ngữ phủ định \"Nobody\", khi chuyển bị động phải dùng thể phủ định \"can't be answered\"."
+        },
+        {
+          "option": "cannot answer",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Chủ ngữ \"This question\" cần thể bị động, không dùng chủ động \"cannot answer\"."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "Rút gọn: The cakes which are sold in that shop are delicious.",
-      "opts": [],
-      "answer": "The cakes sold in that shop are delicious.",
-      "fb": "are sold bị động → giữ sold"
+      "id": "passive-voice-ex-04",
+      "type": "fill_blank",
+      "question": "Rút gọn: The cakes which are sold in that shop are delicious.",
+      "options": [],
+      "correct_answer": "The cakes sold in that shop are delicious.",
+      "explanation": "are sold bị động → giữ sold",
+      "distractor_breakdowns": [
+        {
+          "option": "The cakes sold in that shop are delicious.",
+          "isCorrect": true,
+          "pedagogicalReason": "are sold bị động → giữ sold"
+        },
+        {
+          "option": "The cakes selling in that shop are delicious.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Những chiếc bánh được bán là mang nghĩa bị động, rút gọn bằng V-ed/V3 (\"sold\"), không dùng V-ing (\"selling\")."
+        },
+        {
+          "option": "The cakes to sell in that shop are delicious.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không có các từ bổ nghĩa đặc biệt như the only/the first nên không rút gọn bằng to-V."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "Rút gọn: The letters which were written by my grandfather are in this box.",
-      "opts": [],
-      "answer": "The letters written by my grandfather are in this box.",
-      "fb": "were written bị động → giữ written"
+      "id": "passive-voice-ex-05",
+      "type": "fill_blank",
+      "question": "Rút gọn: The letters which were written by my grandfather are in this box.",
+      "options": [],
+      "correct_answer": "The letters written by my grandfather are in this box.",
+      "explanation": "were written bị động → giữ written",
+      "distractor_breakdowns": [
+        {
+          "option": "The letters written by my grandfather are in this box.",
+          "isCorrect": true,
+          "pedagogicalReason": "were written bị động → giữ written"
+        },
+        {
+          "option": "The letters writing by my grandfather are in this box.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Những bức thư được ông viết mang nghĩa bị động, rút gọn bằng V-ed/V3 (\"written\"), không dùng V-ing (\"writing\")."
+        },
+        {
+          "option": "The letters to write by my grandfather are in this box.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng to-V để rút gọn mệnh đề quan hệ bị động thông thường."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "The homework ____ by the students last night.  (A did · B was done · C is done · D does)",
-      "opts": [],
-      "answer": "B was done",
-      "fb": "Bài tập được làm, mốc last night → bị động quá khứ · buổi 9"
+      "id": "passive-voice-ex-06",
+      "type": "multiple_choice",
+      "question": "The homework ____ by the students last night.",
+      "options": [
+        "did",
+        "was done",
+        "is done",
+        "does"
+      ],
+      "correct_answer": "was done",
+      "explanation": "Bài tập được làm, mốc last night → bị động quá khứ · buổi 9",
+      "distractor_breakdowns": [
+        {
+          "option": "did",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"did\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "was done",
+          "isCorrect": true,
+          "pedagogicalReason": "Bài tập được làm, mốc last night → bị động quá khứ · buổi 9"
+        },
+        {
+          "option": "is done",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is done\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "does",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Trợ động từ \"does\" chỉ dùng cho chủ ngữ ngôi thứ ba số ít (he/she/it)."
+        }
+      ],
+      "difficulty": 3
     }
   ]
 }

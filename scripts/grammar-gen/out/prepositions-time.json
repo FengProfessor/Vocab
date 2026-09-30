@@ -2,7 +2,7 @@
   "slug": "prepositions-time",
   "title": "Prepositions of Time (in/on/at)",
   "title_vi": "Giới từ chỉ thời gian (in/on/at)",
-  "level": "beginner",
+  "level": "A2",
   "order": 19,
   "sections": {
     "definition": "**Giới từ chỉ thời gian** (*in, on, at*) được sử dụng để xác định thời điểm, ngày tháng, hoặc khoảng thời gian diễn ra một sự kiện. Thông thường, *in* dùng cho tháng, năm, mùa; *on* dùng cho ngày cụ thể; và *at* dùng cho giờ hoặc thời điểm chính xác.",
@@ -400,24 +400,72 @@
         "why": "Dùng on với ngày trong tuần."
       }
     ],
-    "tips": "**Mẹo nhớ:** Sử dụng **in** với tháng, năm, thế kỷ, mùa; sử dụng **on** với ngày trong tuần, ngày lễ; sử dụng **at** với giờ, thời điểm cụ thể.",
+    "tips": "**Lưu ý trọng tâm:** Sử dụng **in** với tháng, năm, thế kỷ, mùa; sử dụng **on** với ngày trong tuần, ngày lễ; sử dụng **at** với giờ, thời điểm cụ thể.",
     "comparison": "**In**, **on**, và **at** là ba giới từ chỉ thời gian khác nhau. Sử dụng **in** với thời gian dài, sử dụng **on** với thời gian ngắn, và sử dụng **at** với thời điểm cụ thể.",
     "timeline": null
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "My father gave me a new laptop.  →  I ____ a new laptop by my father.",
-      "opts": [],
-      "answer": "was given",
-      "fb": "Người lên đầu → be + V3, không thêm giới từ"
+      "id": "prepositions-time-ex-01",
+      "type": "fill_blank",
+      "question": "My father gave me a new laptop.  →  I ____ a new laptop by my father.",
+      "options": [],
+      "correct_answer": "was given",
+      "explanation": "Người lên đầu → be + V3, không thêm giới từ",
+      "distractor_breakdowns": [
+        {
+          "option": "was given",
+          "isCorrect": true,
+          "pedagogicalReason": "Người lên đầu → be + V3, không thêm giới từ"
+        },
+        {
+          "option": "gave",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Chủ ngữ \"I\" nhận máy tính từ bố, phải chia bị động \"was given\"."
+        },
+        {
+          "option": "was gave",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phân từ hai (V3) của \"give\" là \"given\", không dùng dạng quá khứ \"gave\"."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "She is good ____ Maths.  (A in · B at · C on · D for)",
-      "opts": [],
-      "answer": "B at",
-      "fb": "good đi cố định với giới từ at · buổi 21"
+      "id": "prepositions-time-ex-02",
+      "type": "multiple_choice",
+      "question": "She is good ____ Maths.",
+      "options": [
+        "in",
+        "at",
+        "on",
+        "for"
+      ],
+      "correct_answer": "at",
+      "explanation": "good đi cố định với giới từ at · buổi 21",
+      "distractor_breakdowns": [
+        {
+          "option": "in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Giới từ \"in\" dùng cho khoảng thời gian dài (tháng, năm, mùa) hoặc không gian kín, không phù hợp ở đây."
+        },
+        {
+          "option": "at",
+          "isCorrect": true,
+          "pedagogicalReason": "good đi cố định với giới từ at · buổi 21"
+        },
+        {
+          "option": "on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"on\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "for",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"for\" diễn đạt khoảng thời gian đo đếm được, không dùng cho mốc thời gian xác định (dùng \"since\")."
+        }
+      ],
+      "difficulty": 2
     }
   ]
 }

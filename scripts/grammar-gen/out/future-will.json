@@ -2,7 +2,7 @@
   "slug": "future-will",
   "title": "Future Simple (will)",
   "title_vi": "Thì Tương lai đơn (will)",
-  "level": "beginner",
+  "level": "A2",
   "order": 23,
   "sections": {
     "definition": "**Tương lai đơn với will** diễn tả quyết định ngay lúc nói, dự đoán dựa trên ý kiến, lời hứa, lời đề nghị và sự việc tương lai được xem là chắc chắn. **Will** dùng như nhau với mọi chủ ngữ và động từ sau will luôn ở nguyên thể.",
@@ -356,7 +356,7 @@
         "why": "Will là modal — không chia -s theo ngôi."
       }
     ],
-    "tips": "**Mẹo:** Sau **will/won’t** luôn đặt động từ nguyên thể. Gặp quyết định tức thời, lời hứa, đề nghị giúp hoặc cụm **I think/probably**, hãy cân nhắc dùng will.",
+    "tips": "**Lưu ý trọng tâm:** Sau **will/won’t** luôn đặt động từ nguyên thể. Gặp quyết định tức thời, lời hứa, đề nghị giúp hoặc cụm **I think/probably**, hãy cân nhắc dùng will.",
     "comparison": "**Will vs Be going to:** Will = quyết định BỘT PHÁT ngay lúc nói (*I'll turn on the light* — vừa nghĩ ra). Be going to = dự định đã có TRƯỚC khi nói (*I'm going to clean my shoes* — đã định từ trước).",
     "timeline": {
       "caption": "Will = đứng ở NOW quyết định/dự đoán ngay tại chỗ cho việc phía trước — chưa có kế hoạch từ trước.",
@@ -374,116 +374,428 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "I'm sure our team ____ (win) the match tomorrow.",
-      "opts": [],
-      "answer": "will win",
-      "fb": "I'm sure = tin chắc, chỉ là đoán → will"
+      "id": "future-will-ex-01",
+      "type": "fill_blank",
+      "question": "I'm sure our team ____ (win) the match tomorrow.",
+      "options": [],
+      "correct_answer": "will win",
+      "explanation": "I'm sure = tin chắc, chỉ là đoán → will",
+      "distractor_breakdowns": [
+        {
+          "option": "will win",
+          "isCorrect": true,
+          "pedagogicalReason": "I'm sure = tin chắc, chỉ là đoán → will"
+        },
+        {
+          "option": "wins",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sự việc xảy ra vào ngày mai (\"tomorrow\"), không dùng hiện tại đơn."
+        },
+        {
+          "option": "is winning",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dự đoán chủ quan (\"I'm sure\") dùng thì tương lai đơn \"will win\"."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "I don't think it ____ (rain) this evening.",
-      "opts": [],
-      "answer": "will rain",
-      "fb": "I don't think = đoán, chưa thấy bằng chứng nào → will"
+      "id": "future-will-ex-02",
+      "type": "fill_blank",
+      "question": "I don't think it ____ (rain) this evening.",
+      "options": [],
+      "correct_answer": "will rain",
+      "explanation": "I don't think = đoán, chưa thấy bằng chứng nào → will",
+      "distractor_breakdowns": [
+        {
+          "option": "will rain",
+          "isCorrect": true,
+          "pedagogicalReason": "I don't think = đoán, chưa thấy bằng chứng nào → will"
+        },
+        {
+          "option": "is raining",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dự đoán tương lai không có căn cứ (\"I don't think\") dùng \"will rain\", không dùng hiện tại tiếp diễn."
+        },
+        {
+          "option": "rains",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thời điểm tối nay (\"this evening\") mang nghĩa tương lai, không dùng hiện tại đơn chỉ thói quen."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "The phone is ringing! — Don't stand up, I ____ (answer) it.",
-      "opts": [],
-      "answer": "will answer",
-      "fb": "vừa nghe chuông mới quyết nhận giúp → will"
+      "id": "future-will-ex-03",
+      "type": "fill_blank",
+      "question": "The phone is ringing! — Don't stand up, I ____ (answer) it.",
+      "options": [],
+      "correct_answer": "will answer",
+      "explanation": "vừa nghe chuông mới quyết nhận giúp → will",
+      "distractor_breakdowns": [
+        {
+          "option": "will answer",
+          "isCorrect": true,
+          "pedagogicalReason": "vừa nghe chuông mới quyết nhận giúp → will"
+        },
+        {
+          "option": "answer",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Quyết định đưa ra ngay tại thời điểm nói khi chuông reo dùng \"will answer\"."
+        },
+        {
+          "option": "am going to answer",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không phải kế hoạch dự định từ trước mà là phản xạ tức thì, không dùng \"be going to\"."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "Nam is very sad now. — Don't worry, I ____ (not / tell) him the truth.",
-      "opts": [],
-      "answer": "won't tell",
-      "fb": "hứa ngay lúc nói → will, phủ định là won't"
+      "id": "future-will-ex-04",
+      "type": "fill_blank",
+      "question": "Nam is very sad now. — Don't worry, I ____ (not / tell) him the truth.",
+      "options": [],
+      "correct_answer": "won't tell",
+      "explanation": "hứa ngay lúc nói → will, phủ định là won't",
+      "distractor_breakdowns": [
+        {
+          "option": "won't tell",
+          "isCorrect": true,
+          "pedagogicalReason": "hứa ngay lúc nói → will, phủ định là won't"
+        },
+        {
+          "option": "don't tell",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Lời hứa đưa ra ngay tại thời điểm nói (\"Don't worry\") dùng tương lai đơn \"won't tell\"."
+        },
+        {
+          "option": "not tell",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thiếu trợ động từ tương lai phủ định \"won't\"."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "In 2030 people ____ (live) on the Moon, I think.",
-      "opts": [],
-      "answer": "will live",
-      "fb": "I think = đoán chuyện xa → will"
+      "id": "future-will-ex-05",
+      "type": "fill_blank",
+      "question": "In 2030 people ____ (live) on the Moon, I think.",
+      "options": [],
+      "correct_answer": "will live",
+      "explanation": "I think = đoán chuyện xa → will",
+      "distractor_breakdowns": [
+        {
+          "option": "will live",
+          "isCorrect": true,
+          "pedagogicalReason": "I think = đoán chuyện xa → will"
+        },
+        {
+          "option": "live",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thời điểm năm 2030 là tương lai xa kèm phán đoán \"I think\", phải dùng \"will live\"."
+        },
+        {
+          "option": "are living",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng hiện tại tiếp diễn cho phán đoán viễn tưởng xa."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "The new stadium will ____ (open) next June.",
-      "opts": [],
-      "answer": "be opened",
-      "fb": "sau will → be + V3"
+      "id": "future-will-ex-06",
+      "type": "fill_blank",
+      "question": "The new stadium will ____ (open) next June.",
+      "options": [],
+      "correct_answer": "be opened",
+      "explanation": "sau will → be + V3",
+      "distractor_breakdowns": [
+        {
+          "option": "be opened",
+          "isCorrect": true,
+          "pedagogicalReason": "sau will → be + V3"
+        },
+        {
+          "option": "open",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sân vận động là đối tượng được khánh thành, sau will phải là dạng bị động \"be opened\"."
+        },
+        {
+          "option": "opened",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sau động từ khuyết thiếu \"will\", không thể đi trực tiếp với V-ed mà cần có \"be\"."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "People expect that the price will fall.  →  The price ____ to fall.",
-      "opts": [],
-      "answer": "is expected",
-      "fb": "Chủ ngữ thật lên đầu · việc ở vế sau xảy ra SAU → to + V (will fall → to fall)"
+      "id": "future-will-ex-07",
+      "type": "fill_blank",
+      "question": "People expect that the price will fall.  →  The price ____ to fall.",
+      "options": [],
+      "correct_answer": "is expected",
+      "explanation": "Chủ ngữ thật lên đầu · việc ở vế sau xảy ra SAU → to + V (will fall → to fall)",
+      "distractor_breakdowns": [
+        {
+          "option": "is expected",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ thật lên đầu · việc ở vế sau xảy ra SAU → to + V (will fall → to fall)"
+        },
+        {
+          "option": "expects",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Chủ ngữ \"The price\" là đối tượng được kỳ vọng, phải chia bị động \"is expected\"."
+        },
+        {
+          "option": "is expecting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng chủ động tiếp diễn không phù hợp khi chủ ngữ là vật chịu sự đánh giá của mọi người."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "If Minh ____ (come) to my house tomorrow, we ____ (play) football together.",
-      "opts": [],
-      "answer": "comes / will play",
-      "fb": "tomorrow còn xảy ra được → loại 1, Minh = he nên thêm -s"
+      "id": "future-will-ex-08",
+      "type": "fill_blank",
+      "question": "If Minh ____ (come) to my house tomorrow, we ____ (play) football together.",
+      "options": [],
+      "correct_answer": "comes / will play",
+      "explanation": "tomorrow còn xảy ra được → loại 1, Minh = he nên thêm -s",
+      "distractor_breakdowns": [
+        {
+          "option": "comes / will play",
+          "isCorrect": true,
+          "pedagogicalReason": "tomorrow còn xảy ra được → loại 1, Minh = he nên thêm -s"
+        },
+        {
+          "option": "come / will play",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Chủ ngữ \"Minh\" là ngôi thứ ba số ít ở thì hiện tại đơn, động từ phải thêm \"-s\" (\"comes\")."
+        },
+        {
+          "option": "will come / will play",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Trong mệnh đề trạng ngữ chỉ thời gian/điều kiện (if/when), cấm dùng thì tương lai với \"will\"."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "If Nam ____ (not / wake) up early, he ____ (be) late for school tomorrow.",
-      "opts": [],
-      "answer": "doesn't wake / will be",
-      "fb": "tomorrow → loại 1 · Nam = he nên dùng doesn't"
+      "id": "future-will-ex-09",
+      "type": "fill_blank",
+      "question": "If Nam ____ (not / wake) up early, he ____ (be) late for school tomorrow.",
+      "options": [],
+      "correct_answer": "doesn't wake / will be",
+      "explanation": "tomorrow → loại 1 · Nam = he nên dùng doesn't",
+      "distractor_breakdowns": [
+        {
+          "option": "doesn't wake / will be",
+          "isCorrect": true,
+          "pedagogicalReason": "tomorrow → loại 1 · Nam = he nên dùng doesn't"
+        },
+        {
+          "option": "don't wake / will be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Chủ ngữ \"Nam\" là ngôi thứ ba số ít, trợ động từ phủ định ở hiện tại đơn là \"doesn't\", không dùng \"don't\"."
+        },
+        {
+          "option": "won't wake / will be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Mệnh đề điều kiện \"If\" không dùng thì tương lai với \"will/won't\"."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "If it ____ (not / rain) this weekend, we ____ (go) camping.",
-      "opts": [],
-      "answer": "doesn't rain / will go",
-      "fb": "this weekend còn xảy ra được → loại 1"
+      "id": "future-will-ex-10",
+      "type": "fill_blank",
+      "question": "If it ____ (not / rain) this weekend, we ____ (go) camping.",
+      "options": [],
+      "correct_answer": "doesn't rain / will go",
+      "explanation": "this weekend còn xảy ra được → loại 1",
+      "distractor_breakdowns": [
+        {
+          "option": "doesn't rain / will go",
+          "isCorrect": true,
+          "pedagogicalReason": "this weekend còn xảy ra được → loại 1"
+        },
+        {
+          "option": "don't rain / will go",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Chủ ngữ ngôi thứ ba số ít \"it\" đi với \"doesn't\", không đi với \"don't\"."
+        },
+        {
+          "option": "not rain / will go",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thì hiện tại đơn phủ định cần trợ động từ \"doesn't\", không chỉ dùng \"not\"."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "Viết lại dùng unless: If you don't turn off the lights, the bill will be very high.",
-      "opts": [],
-      "answer": "Unless you turn off the lights, the bill will be very high.",
-      "fb": "unless đã mang nghĩa “không” → bỏ don't"
+      "id": "future-will-ex-11",
+      "type": "fill_blank",
+      "question": "Viết lại dùng unless: If you don't turn off the lights, the bill will be very high.",
+      "options": [],
+      "correct_answer": "Unless you turn off the lights, the bill will be very high.",
+      "explanation": "unless đã mang nghĩa “không” → bỏ don't",
+      "distractor_breakdowns": [
+        {
+          "option": "Unless you turn off the lights, the bill will be very high.",
+          "isCorrect": true,
+          "pedagogicalReason": "unless đã mang nghĩa “không” → bỏ don't"
+        },
+        {
+          "option": "Unless you don't turn off the lights, the bill will be very high.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Unless\" đã mang nghĩa phủ định (\"nếu không\"), không được dùng thêm trợ động từ phủ định \"don't\"."
+        },
+        {
+          "option": "Unless you turn on the lights, the bill will be very high.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thay đổi động từ thành \"turn on\" làm sai lệch ý nghĩa logic của câu điều kiện ban đầu."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "If my parents ____ (agree), I ____ (join) the English club next month.",
-      "opts": [],
-      "answer": "agree / will join",
-      "fb": "next month → loại 1"
+      "id": "future-will-ex-12",
+      "type": "fill_blank",
+      "question": "If my parents ____ (agree), I ____ (join) the English club next month.",
+      "options": [],
+      "correct_answer": "agree / will join",
+      "explanation": "next month → loại 1",
+      "distractor_breakdowns": [
+        {
+          "option": "agree / will join",
+          "isCorrect": true,
+          "pedagogicalReason": "next month → loại 1"
+        },
+        {
+          "option": "agrees / will join",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Chủ ngữ \"my parents\" là danh từ số nhiều, động từ ở hiện tại đơn để nguyên mẫu \"agree\", không thêm \"-s\"."
+        },
+        {
+          "option": "will agree / will join",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Mệnh đề if không dùng thì tương lai với \"will\"."
+        }
+      ],
+      "difficulty": 2
     },
     {
-      "type": "fill",
-      "q": "Đổi sang gián tiếp: Lan said to me: “I will call you tonight.”",
-      "opts": [],
-      "answer": "Lan told me (that) she would call me that night.",
-      "fb": "said to me → told me · will lùi thành would · tonight → that night"
+      "id": "future-will-ex-13",
+      "type": "fill_blank",
+      "question": "Đổi sang gián tiếp: Lan said to me: “I will call you tonight.”",
+      "options": [],
+      "correct_answer": "Lan told me (that) she would call me that night.",
+      "explanation": "said to me → told me · will lùi thành would · tonight → that night",
+      "distractor_breakdowns": [
+        {
+          "option": "Lan told me (that) she would call me that night.",
+          "isCorrect": true,
+          "pedagogicalReason": "said to me → told me · will lùi thành would · tonight → that night"
+        },
+        {
+          "option": "Lan said me she will call me tonight.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"said\" không đi trực tiếp với tân ngữ người mà phải dùng \"told me\", và \"will\" cần lùi thì thành \"would\"."
+        },
+        {
+          "option": "Lan told to me she would call me tonight.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ \"told\" đi trực tiếp với tân ngữ người không có \"to\" (\"told me\"), và \"tonight\" cần đổi thành \"that night\"."
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "fill",
-      "q": "I don't know where Mai is. She ____ in the library. (may be / must be)",
-      "opts": [],
-      "answer": "may be",
-      "fb": "không biết chắc nên chỉ đoán → may be"
+      "id": "future-will-ex-14",
+      "type": "multiple_choice",
+      "question": "I don't know where Mai is. She ____ in the library. (may be / must be)",
+      "options": [
+        "may be",
+        "must be"
+      ],
+      "correct_answer": "may be",
+      "explanation": "không biết chắc nên chỉ đoán → may be",
+      "distractor_breakdowns": [
+        {
+          "option": "may be",
+          "isCorrect": true,
+          "pedagogicalReason": "không biết chắc nên chỉ đoán → may be"
+        },
+        {
+          "option": "must be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"must be\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "fill",
-      "q": "Don't forget to lock the door, ____?",
-      "opts": [],
-      "answer": "will you",
-      "fb": "câu mệnh lệnh → đuôi will you"
+      "id": "future-will-ex-15",
+      "type": "fill_blank",
+      "question": "Don't forget to lock the door, ____?",
+      "options": [],
+      "correct_answer": "will you",
+      "explanation": "câu mệnh lệnh → đuôi will you",
+      "distractor_breakdowns": [
+        {
+          "option": "will you",
+          "isCorrect": true,
+          "pedagogicalReason": "câu mệnh lệnh → đuôi will you"
+        },
+        {
+          "option": "will yous",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng biến thể \"will yous\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+        },
+        {
+          "option": "to will you",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        }
+      ],
+      "difficulty": 3
     },
     {
-      "type": "fill",
-      "q": "If I ____ you, I would tell the truth.  (A am · B was · C were · D will be)",
-      "opts": [],
-      "answer": "C were",
-      "fb": "Điều kiện loại 2 dùng were cho mọi chủ ngữ · buổi 15"
+      "id": "future-will-ex-16",
+      "type": "multiple_choice",
+      "question": "If I ____ you, I would tell the truth.",
+      "options": [
+        "am",
+        "was",
+        "were",
+        "will be"
+      ],
+      "correct_answer": "were",
+      "explanation": "Điều kiện loại 2 dùng were cho mọi chủ ngữ · buổi 15",
+      "distractor_breakdowns": [
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ to-be \"am\" chỉ đi duy nhất với chủ ngữ ngôi thứ nhất \"I\"."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Dạng số ít \"was\" không hòa hợp với chủ ngữ số nhiều hoặc \"you/we/they\"."
+        },
+        {
+          "option": "were",
+          "isCorrect": true,
+          "pedagogicalReason": "Điều kiện loại 2 dùng were cho mọi chủ ngữ · buổi 15"
+        },
+        {
+          "option": "will be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will be\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 3
     }
   ]
 }

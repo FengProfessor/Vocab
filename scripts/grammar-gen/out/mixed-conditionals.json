@@ -2,10 +2,10 @@
   "slug": "mixed-conditionals",
   "title": "Mixed Conditionals",
   "title_vi": "Câu điều kiện hỗn hợp",
-  "level": "advanced",
+  "level": "B2",
   "order": 47,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **If + had + V3, would + V (quá khứ → hiện tại)** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **If + had + V3, would + V (quá khứ → hiện tại)** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -560,12 +560,30 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "Hoàn thành theo mẫu: If she ___ more organized, she wouldn't have missed the deadline.",
-      "answer": [
-        "were"
+      "id": "mixed-conditionals-ex-01",
+      "type": "fill_blank",
+      "question": "Hoàn thành theo mẫu: If she ___ more organized, she wouldn't have missed the deadline.",
+      "options": [],
+      "correct_answer": "were",
+      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "were",
+          "isCorrect": true,
+          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"was\" dùng cho chủ ngữ số ít, không hòa hợp với chủ ngữ số nhiều."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sự việc đã xảy ra trong quá khứ, không dùng to-be ở hiện tại."
+        }
       ],
-      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+      "difficulty": 1
     }
   ]
 }

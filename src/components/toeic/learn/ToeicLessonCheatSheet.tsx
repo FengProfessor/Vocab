@@ -97,11 +97,11 @@ export function ToeicLessonCheatSheet({ lesson, className = '' }: ToeicLessonChe
           </ul>
         </div>
 
-        {/* Speed Tricks (Mẹo 5 Giây) */}
+        {/* Quick Recognition Rules (Quy Tắc Nhận Diện Trọng Tâm) */}
         <div className="rounded-xs border border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-950/50 p-4 space-y-3">
           <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase text-slate-900 dark:text-slate-100 border-b border-slate-200 dark:border-slate-800 pb-2">
             <Lightbulb className="h-4 w-4 text-amber-500" />
-            <span>Mẹo Bấm Giờ 5 Giây (Speed Tricks)</span>
+            <span>Quy Tắc Nhận Diện Trọng Tâm (Core Recognition Rules)</span>
           </div>
 
           <ul className="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">

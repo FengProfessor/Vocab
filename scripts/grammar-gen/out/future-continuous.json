@@ -2,10 +2,10 @@
   "slug": "future-continuous",
   "title": "Future Continuous",
   "title_vi": "Thì Tương lai tiếp diễn",
-  "level": "intermediate",
-  "order": 33,
+  "level": "B1",
+  "order": 35,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **S + will be + V-ing** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **S + will be + V-ing** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -416,14 +416,33 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "Hoàn thành theo mẫu: She ___ be working at nine.",
-      "answer": [
-        "will"
+      "id": "future-continuous-ex-01",
+      "type": "fill_blank",
+      "question": "Hoàn thành theo mẫu: She ___ be working at nine.",
+      "options": [],
+      "correct_answer": "will",
+      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "will",
+          "isCorrect": true,
+          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+        },
+        {
+          "option": "would",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thì tương lai tiếp diễn diễn tả hành động sẽ đang diễn ra tại một thời điểm xác định trong tương lai dùng \"will be + V-ing\"."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng \"is be working\" vì thừa 2 trợ động từ to-be liền nhau."
+        }
       ],
-      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+      "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-02",
       "type": "multiple_choice",
       "question": "Choose the sentence with the correct **Future Continuous** form for a future action in progress at 10 p.m.",
       "options": [
@@ -434,9 +453,32 @@
       ],
       "correct_answer": "At 10 p.m., I will be revising for my exam.",
       "explanation": "Đáp án đúng dùng cấu trúc will be + V-ing để diễn tả hành động đang diễn ra tại một thời điểm tương lai. Các lựa chọn khác sai vì thiếu V-ing, dùng sai thì, hoặc kết hợp thời gian không hợp lý.",
+      "distractor_breakdowns": [
+        {
+          "option": "At 10 p.m., I will be revising for my exam.",
+          "isCorrect": true,
+          "pedagogicalReason": "Đáp án đúng dùng cấu trúc will be + V-ing để diễn tả hành động đang diễn ra tại một thời điểm tương lai. Các lựa chọn khác sai vì thiếu V-ing, dùng sai thì, hoặc kết hợp thời gian không hợp lý."
+        },
+        {
+          "option": "At 10 p.m., I will revise for my exam yesterday.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At 10 p.m., I will revise for my exam yesterday.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "At 10 p.m., I will be revise for my exam.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At 10 p.m., I will be revise for my exam.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "At 10 p.m., I am revise for my exam.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At 10 p.m., I am revise for my exam.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-03",
       "type": "multiple_choice",
       "question": "Choose the most natural **question form** for asking about someone’s plan tonight.",
       "options": [
@@ -447,9 +489,32 @@
       ],
       "correct_answer": "Will you be attending the meeting tonight?",
       "explanation": "Câu hỏi Future Continuous đúng có dạng Will + S + be + V-ing. Các phương án khác sai vì thiếu be hoặc dùng trợ động từ thừa/sai cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "Will you be attending the meeting tonight?",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi Future Continuous đúng có dạng Will + S + be + V-ing. Các phương án khác sai vì thiếu be hoặc dùng trợ động từ thừa/sai cấu trúc."
+        },
+        {
+          "option": "Will you attending the meeting tonight?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Will you attending the meeting tonight?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Do you will be attending the meeting tonight?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Do you will be attending the meeting tonight?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Are you be attending the meeting tonight?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Are you be attending the meeting tonight?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-04",
       "type": "multiple_choice",
       "question": "Which sentence uses the correct **negative form** of Future Continuous?",
       "options": [
@@ -460,9 +525,32 @@
       ],
       "correct_answer": "They won’t be driving through the city at rush hour.",
       "explanation": "Dạng phủ định đúng là will not/won’t be + V-ing. Các lựa chọn còn lại thiếu be, dùng động từ nguyên mẫu sau be, hoặc dùng don’t sai với will.",
+      "distractor_breakdowns": [
+        {
+          "option": "They won’t be driving through the city at rush hour.",
+          "isCorrect": true,
+          "pedagogicalReason": "Dạng phủ định đúng là will not/won’t be + V-ing. Các lựa chọn còn lại thiếu be, dùng động từ nguyên mẫu sau be, hoặc dùng don’t sai với will."
+        },
+        {
+          "option": "They won’t driving through the city at rush hour.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"They won’t driving through the city at rush hour.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "They won’t be drive through the city at rush hour.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"They won’t be drive through the city at rush hour.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "They don’t will be driving through the city at rush hour.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"They don’t will be driving through the city at rush hour.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-05",
       "type": "multiple_choice",
       "question": "Choose the sentence that best shows a **temporary action** in progress next week.",
       "options": [
@@ -473,9 +561,32 @@
       ],
       "correct_answer": "Next week, I’ll be staying with my cousin while my flat is repaired.",
       "explanation": "Future Continuous phù hợp để nói về việc tạm thời sẽ đang diễn ra trong tương lai. Các câu khác sai vì dùng sai dạng động từ hoặc trộn thì quá khứ với tương lai.",
+      "distractor_breakdowns": [
+        {
+          "option": "Next week, I’ll be staying with my cousin while my flat is repaired.",
+          "isCorrect": true,
+          "pedagogicalReason": "Future Continuous phù hợp để nói về việc tạm thời sẽ đang diễn ra trong tương lai. Các câu khác sai vì dùng sai dạng động từ hoặc trộn thì quá khứ với tương lai."
+        },
+        {
+          "option": "Next week, I stay with my cousin while my flat was repaired.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Next week, I stay with my cousin while my flat was repaired.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Next week, I’ll be stay with my cousin while my flat is repaired.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Next week, I’ll be stay with my cousin while my flat is repaired.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Next week, I was staying with my cousin while my flat is repaired.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Next week, I was staying with my cousin while my flat is repaired.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-06",
       "type": "multiple_choice",
       "question": "Select the correct **time expression** sentence using Future Continuous.",
       "options": [
@@ -486,9 +597,32 @@
       ],
       "correct_answer": "At this time on Friday, we will be presenting our proposal.",
       "explanation": "“At this time on Friday” chỉ một thời điểm cụ thể trong tương lai nên hợp với will be presenting. Các lựa chọn khác dùng thời gian quá khứ hoặc mâu thuẫn thời gian.",
+      "distractor_breakdowns": [
+        {
+          "option": "At this time on Friday, we will be presenting our proposal.",
+          "isCorrect": true,
+          "pedagogicalReason": "“At this time on Friday” chỉ một thời điểm cụ thể trong tương lai nên hợp với will be presenting. Các lựa chọn khác dùng thời gian quá khứ hoặc mâu thuẫn thời gian."
+        },
+        {
+          "option": "Last Friday, we will be presenting our proposal.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Last Friday, we will be presenting our proposal.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Every Friday, we will be presenting our proposal now.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Every Friday, we will be presenting our proposal now.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "At this time yesterday, we will be presenting our proposal.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At this time yesterday, we will be presenting our proposal.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-07",
       "type": "multiple_choice",
       "question": "Choose the sentence with the correct **verb spelling** after adding -ing.",
       "options": [
@@ -499,9 +633,32 @@
       ],
       "correct_answer": "She will be running the workshop tomorrow afternoon.",
       "explanation": "Với run, nhân đôi phụ âm cuối rồi thêm -ing: running. Các đáp án khác sai chính tả hoặc dùng sai dạng động từ sau will be.",
+      "distractor_breakdowns": [
+        {
+          "option": "She will be running the workshop tomorrow afternoon.",
+          "isCorrect": true,
+          "pedagogicalReason": "Với run, nhân đôi phụ âm cuối rồi thêm -ing: running. Các đáp án khác sai chính tả hoặc dùng sai dạng động từ sau will be."
+        },
+        {
+          "option": "She will be runing the workshop tomorrow afternoon.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"She will be runing the workshop tomorrow afternoon.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "She will be runs the workshop tomorrow afternoon.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"She will be runs the workshop tomorrow afternoon.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "She will be ran the workshop tomorrow afternoon.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"She will be ran the workshop tomorrow afternoon.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-08",
       "type": "multiple_choice",
       "question": "Which option sounds most polite as a **future arrangement** question?",
       "options": [
@@ -512,9 +669,32 @@
       ],
       "correct_answer": "Will you be taking the early train tomorrow?",
       "explanation": "Future Continuous thường dùng để hỏi lịch trình một cách tự nhiên, lịch sự. Các câu khác sai do thời gian không khớp, dùng trợ động từ sai, hoặc dùng quá khứ phân từ sau be.",
+      "distractor_breakdowns": [
+        {
+          "option": "Will you be taking the early train tomorrow?",
+          "isCorrect": true,
+          "pedagogicalReason": "Future Continuous thường dùng để hỏi lịch trình một cách tự nhiên, lịch sự. Các câu khác sai do thời gian không khớp, dùng trợ động từ sai, hoặc dùng quá khứ phân từ sau be."
+        },
+        {
+          "option": "Will you take the early train yesterday?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Will you take the early train yesterday?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Do you be taking the early train tomorrow?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Do you be taking the early train tomorrow?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Will you be took the early train tomorrow?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Will you be took the early train tomorrow?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-09",
       "type": "multiple_choice",
       "question": "Choose the correct sentence for an action that will be in progress **during** another future event.",
       "options": [
@@ -525,9 +705,32 @@
       ],
       "correct_answer": "While you are giving your speech, I will be taking notes.",
       "explanation": "Mệnh đề while có thể dùng hiện tại tiếp diễn để nói về bối cảnh tương lai, và mệnh đề chính dùng will be + V-ing. Các câu khác sai vì thiếu be, dùng sai dạng động từ, hoặc lệch thì.",
+      "distractor_breakdowns": [
+        {
+          "option": "While you are giving your speech, I will be taking notes.",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề while có thể dùng hiện tại tiếp diễn để nói về bối cảnh tương lai, và mệnh đề chính dùng will be + V-ing. Các câu khác sai vì thiếu be, dùng sai dạng động từ, hoặc lệch thì."
+        },
+        {
+          "option": "While you will give your speech, I will taking notes.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"While you will give your speech, I will taking notes.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "While you are giving your speech, I will be take notes.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"While you are giving your speech, I will be take notes.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "While you gave your speech, I will be taking notes.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"While you gave your speech, I will be taking notes.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "future-continuous-ex-10",
       "type": "multiple_choice",
       "question": "Choose the best **scheduled activity** sentence.",
       "options": [
@@ -538,9 +741,32 @@
       ],
       "correct_answer": "The engineers will be testing the system all morning tomorrow.",
       "explanation": "Câu đúng diễn tả hoạt động đã nằm trong lịch trình và sẽ kéo dài trong tương lai. Các lựa chọn khác sai vì thiếu be hoặc dùng sai dạng động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "The engineers will be testing the system all morning tomorrow.",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu đúng diễn tả hoạt động đã nằm trong lịch trình và sẽ kéo dài trong tương lai. Các lựa chọn khác sai vì thiếu be hoặc dùng sai dạng động từ."
+        },
+        {
+          "option": "The engineers will testing the system all morning tomorrow.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"The engineers will testing the system all morning tomorrow.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "The engineers will be tested the system all morning tomorrow.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"The engineers will be tested the system all morning tomorrow.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "The engineers are be testing the system all morning tomorrow.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"The engineers are be testing the system all morning tomorrow.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-11",
       "type": "fill_blank",
       "question": "Complete the **verb form**: At 7 a.m. tomorrow, my brother ___ to Hanoi.",
       "options": [
@@ -551,9 +777,32 @@
       ],
       "correct_answer": "will be flying",
       "explanation": "Future Continuous cần will be + V-ing, nên “will be flying” là đúng. Các đáp án khác thiếu be, thiếu V-ing hoặc dùng sai cấu trúc hiện tại tiếp diễn.",
+      "distractor_breakdowns": [
+        {
+          "option": "will be flying",
+          "isCorrect": true,
+          "pedagogicalReason": "Future Continuous cần will be + V-ing, nên “will be flying” là đúng. Các đáp án khác thiếu be, thiếu V-ing hoặc dùng sai cấu trúc hiện tại tiếp diễn."
+        },
+        {
+          "option": "will flying",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will flying\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will be fly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"will be fly\" là trạng từ (adverb), không thể đứng trước danh từ hoặc làm bổ ngữ sau linking verb thay cho tính từ."
+        },
+        {
+          "option": "is fly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"is fly\" là trạng từ (adverb), không thể đứng trước danh từ hoặc làm bổ ngữ sau linking verb thay cho tính từ."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-12",
       "type": "fill_blank",
       "question": "Fill in the blank with the correct **negative form**: We ___ late tonight.",
       "options": [
@@ -564,9 +813,32 @@
       ],
       "correct_answer": "won’t be working",
       "explanation": "Dạng phủ định đúng là won’t be + V-ing. Các lựa chọn khác thiếu be hoặc dùng trợ động từ không phù hợp với Future Continuous.",
+      "distractor_breakdowns": [
+        {
+          "option": "won’t be working",
+          "isCorrect": true,
+          "pedagogicalReason": "Dạng phủ định đúng là won’t be + V-ing. Các lựa chọn khác thiếu be hoặc dùng trợ động từ không phù hợp với Future Continuous."
+        },
+        {
+          "option": "won’t working",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"won’t working\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will not working",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will not working\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "don’t be working",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"don’t be working\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-13",
       "type": "fill_blank",
       "question": "Complete the polite **question**: ___ you ___ the printer this afternoon?",
       "options": [
@@ -577,9 +849,32 @@
       ],
       "correct_answer": "Will / be using",
       "explanation": "Câu hỏi Future Continuous có dạng Will + S + be + V-ing. Các đáp án khác thiếu will/be hoặc dùng trợ động từ sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "Will / be using",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi Future Continuous có dạng Will + S + be + V-ing. Các đáp án khác thiếu will/be hoặc dùng trợ động từ sai."
+        },
+        {
+          "option": "Do / be using",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Do / be using\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Will / using",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Will / using\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Are / be using",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Are / be using\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-14",
       "type": "fill_blank",
       "question": "Choose the correct **-ing spelling**: At noon, they will be ___ lunch with the clients.",
       "options": [
@@ -590,9 +885,32 @@
       ],
       "correct_answer": "having",
       "explanation": "Động từ have bỏ e rồi thêm -ing thành having. Các đáp án khác sai chính tả hoặc không phải dạng V-ing cần dùng sau will be.",
+      "distractor_breakdowns": [
+        {
+          "option": "having",
+          "isCorrect": true,
+          "pedagogicalReason": "Động từ have bỏ e rồi thêm -ing thành having. Các đáp án khác sai chính tả hoặc không phải dạng V-ing cần dùng sau will be."
+        },
+        {
+          "option": "haveing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"haveing\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Have bỏ e rồi thêm -ing thành having."
+        },
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"had\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-15",
       "type": "fill_blank",
       "question": "Complete the sentence with Future Continuous **duration**: I ___ online from 8 to 10 tonight.",
       "options": [
@@ -603,9 +921,32 @@
       ],
       "correct_answer": "will be studying",
       "explanation": "Khoảng thời gian “from 8 to 10 tonight” nhấn mạnh hành động đang diễn ra trong tương lai, nên dùng will be studying. Các lựa chọn khác không diễn tả đúng hành động tiếp diễn hoặc sai dạng động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "will be studying",
+          "isCorrect": true,
+          "pedagogicalReason": "Khoảng thời gian “from 8 to 10 tonight” nhấn mạnh hành động đang diễn ra trong tương lai, nên dùng will be studying. Các lựa chọn khác không diễn tả đúng hành động tiếp diễn hoặc sai dạng động từ."
+        },
+        {
+          "option": "will study",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will study\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will be studied",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will be studied\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "am study",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"am study\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-16",
       "type": "fill_blank",
       "question": "Fill in the blank with the best **future action**: Don’t call at midnight; I ___ then.",
       "options": [
@@ -616,9 +957,32 @@
       ],
       "correct_answer": "will be sleeping",
       "explanation": "“Then” chỉ thời điểm trong tương lai khi hành động đang diễn ra, nên cần will be + V-ing. Các đáp án khác hoặc quá chung, hoặc sai cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "will be sleeping",
+          "isCorrect": true,
+          "pedagogicalReason": "“Then” chỉ thời điểm trong tương lai khi hành động đang diễn ra, nên cần will be + V-ing. Các đáp án khác hoặc quá chung, hoặc sai cấu trúc."
+        },
+        {
+          "option": "will sleep",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will sleep\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "sleep",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"sleep\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will be sleep",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will be sleep\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-17",
       "type": "fill_blank",
       "question": "Complete the **natural plan** sentence: The team ___ the new app throughout July.",
       "options": [
@@ -629,9 +993,32 @@
       ],
       "correct_answer": "will be developing",
       "explanation": "“Throughout July” cho thấy hoạt động kéo dài trong tương lai, phù hợp với Future Continuous. Các lựa chọn khác sai vì chia động từ sai hoặc dùng thì quá khứ.",
+      "distractor_breakdowns": [
+        {
+          "option": "will be developing",
+          "isCorrect": true,
+          "pedagogicalReason": "“Throughout July” cho thấy hoạt động kéo dài trong tương lai, phù hợp với Future Continuous. Các lựa chọn khác sai vì chia động từ sai hoặc dùng thì quá khứ."
+        },
+        {
+          "option": "will develops",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will develops\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will be develop",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will be develop\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "developed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"developed\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-18",
       "type": "fill_blank",
       "question": "Choose the correct **word order**: What time ___ the guests ___ tomorrow?",
       "options": [
@@ -642,9 +1029,32 @@
       ],
       "correct_answer": "will / be arriving",
       "explanation": "Câu hỏi Future Continuous với từ hỏi có dạng Wh-word + will + S + be + V-ing. Các lựa chọn khác thiếu be hoặc dùng trợ động từ sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "will / be arriving",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi Future Continuous với từ hỏi có dạng Wh-word + will + S + be + V-ing. Các lựa chọn khác thiếu be hoặc dùng trợ động từ sai."
+        },
+        {
+          "option": "will / arriving",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will / arriving\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "are / be arriving",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"are / be arriving\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "do / be arriving",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"do / be arriving\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-19",
       "type": "error_correction",
       "question": "Find the error: **Future Continuous** sentence: At 6 p.m., Lisa will be cook dinner for her family.",
       "options": [
@@ -655,9 +1065,32 @@
       ],
       "correct_answer": "will be cook",
       "explanation": "Sau will be phải dùng V-ing, nên cần sửa thành “will be cooking”. Các phần còn lại đúng về nghĩa và vị trí trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "At 6 p.m.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"At 6 p.m.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "Lisa",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Lisa\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will be cook",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau will be phải dùng V-ing, nên cần sửa thành “will be cooking”. Các phần còn lại đúng về nghĩa và vị trí trong câu."
+        },
+        {
+          "option": "dinner for her family",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"dinner for her family\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-20",
       "type": "error_correction",
       "question": "Find the error: **question form** sentence: Will be you waiting outside the station at noon?",
       "options": [
@@ -668,9 +1101,32 @@
       ],
       "correct_answer": "Will be",
       "explanation": "Câu hỏi đúng phải là “Will you be waiting...?” với thứ tự Will + S + be + V-ing. Các cụm còn lại phù hợp với cấu trúc và nghĩa của câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "Will be",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi đúng phải là “Will you be waiting...?” với thứ tự Will + S + be + V-ing. Các cụm còn lại phù hợp với cấu trúc và nghĩa của câu."
+        },
+        {
+          "option": "you",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"you\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "waiting outside",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"waiting outside\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "at noon",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"at noon\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-21",
       "type": "error_correction",
       "question": "Find the error: **negative form** sentence: They will not watching the match at that time.",
       "options": [
@@ -681,9 +1137,32 @@
       ],
       "correct_answer": "will not watching",
       "explanation": "Dạng phủ định Future Continuous cần “will not be watching”. Cụm hiện tại thiếu be nên sai, còn các phần khác đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "They",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"They\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will not watching",
+          "isCorrect": true,
+          "pedagogicalReason": "Dạng phủ định Future Continuous cần “will not be watching”. Cụm hiện tại thiếu be nên sai, còn các phần khác đúng."
+        },
+        {
+          "option": "the match",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the match\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "at that time",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"at that time\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-22",
       "type": "error_correction",
       "question": "Find the error: **verb spelling** sentence: This time next month, we will be travelng around Europe.",
       "options": [
@@ -694,9 +1173,32 @@
       ],
       "correct_answer": "will be travelng",
       "explanation": "Dạng -ing đúng của travel là “travelling” hoặc “traveling”, không phải “travelng”. Cấu trúc will be là đúng, nhưng chính tả của V-ing sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "This time next month",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"This time next month\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "we",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"we\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will be travelng",
+          "isCorrect": true,
+          "pedagogicalReason": "Dạng -ing đúng của travel là “travelling” hoặc “traveling”, không phải “travelng”. Cấu trúc will be là đúng, nhưng chính tả của V-ing sai."
+        },
+        {
+          "option": "around Europe",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"around Europe\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-23",
       "type": "error_correction",
       "question": "Find the error: **time clause** sentence: When you will arrive tomorrow, I will be preparing dinner.",
       "options": [
@@ -707,9 +1209,32 @@
       ],
       "correct_answer": "When you will arrive",
       "explanation": "Trong mệnh đề thời gian nói về tương lai sau when, thường dùng hiện tại đơn: “When you arrive tomorrow”. Mệnh đề chính “I will be preparing dinner” là Future Continuous đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "When you will arrive",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong mệnh đề thời gian nói về tương lai sau when, thường dùng hiện tại đơn: “When you arrive tomorrow”. Mệnh đề chính “I will be preparing dinner” là Future Continuous đúng."
+        },
+        {
+          "option": "tomorrow",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"tomorrow\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "I",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. I gian nói về tương lai sau when, thường dùng hiện tại đơn: “When you arrive tomorrow”."
+        },
+        {
+          "option": "will be preparing dinner",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Will be preparing dinner” là Future Continuous đúng."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "future-continuous-ex-24",
       "type": "error_correction",
       "question": "Find the error: **auxiliary verb** sentence: At this time Sunday, Mark will be plays football with his friends.",
       "options": [
@@ -720,9 +1245,32 @@
       ],
       "correct_answer": "will be plays",
       "explanation": "Sau will be phải dùng V-ing, nên sửa thành “will be playing”. “Plays” là dạng hiện tại đơn ngôi thứ ba, không dùng trong cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "At this time Sunday",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"At this time Sunday\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "Mark",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Mark\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will be plays",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau will be phải dùng V-ing, nên sửa thành “will be playing”. “Plays” là dạng hiện tại đơn ngôi thứ ba, không dùng trong cấu trúc này."
+        },
+        {
+          "option": "with his friends",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"with his friends\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-25",
       "type": "error_correction",
       "question": "Find the error: **future schedule** sentence: The nurses will be worked the night shift this weekend.",
       "options": [
@@ -733,9 +1281,32 @@
       ],
       "correct_answer": "will be worked",
       "explanation": "Future Continuous dùng will be + V-ing, nên đúng là “will be working”. “Worked” là quá khứ/quá khứ phân từ, không phù hợp sau will be trong câu chủ động này.",
+      "distractor_breakdowns": [
+        {
+          "option": "The nurses",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The nurses\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will be worked",
+          "isCorrect": true,
+          "pedagogicalReason": "Future Continuous dùng will be + V-ing, nên đúng là “will be working”. “Worked” là quá khứ/quá khứ phân từ, không phù hợp sau will be trong câu chủ động này."
+        },
+        {
+          "option": "the night shift",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the night shift\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "this weekend",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"this weekend\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-26",
       "type": "error_correction",
       "question": "Find the error: **polite question** sentence: Will you be useing your laptop after class?",
       "options": [
@@ -746,9 +1317,32 @@
       ],
       "correct_answer": "be useing",
       "explanation": "Động từ use bỏ e rồi thêm -ing thành “using”, nên cụm đúng là “be using”. Các phần khác đúng với mẫu câu hỏi Future Continuous.",
+      "distractor_breakdowns": [
+        {
+          "option": "Will you",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Will you\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "be useing",
+          "isCorrect": true,
+          "pedagogicalReason": "Động từ use bỏ e rồi thêm -ing thành “using”, nên cụm đúng là “be using”. Các phần khác đúng với mẫu câu hỏi Future Continuous."
+        },
+        {
+          "option": "your laptop",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"your laptop\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "after class",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"after class\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-27",
       "type": "multiple_choice",
       "question": "Choose the correct **Future Continuous** sentence for an action in progress at 8 a.m. tomorrow.",
       "options": [
@@ -759,9 +1353,32 @@
       ],
       "correct_answer": "At 8 a.m. tomorrow, I will be taking my driving test.",
       "explanation": "Đáp án đúng dùng cấu trúc will be + V-ing để nhấn mạnh hành động đang diễn ra tại một thời điểm tương lai. Các lựa chọn khác dùng Future Simple, sai dạng động từ, hoặc thiếu V-ing sau will be.",
+      "distractor_breakdowns": [
+        {
+          "option": "At 8 a.m. tomorrow, I will be taking my driving test.",
+          "isCorrect": true,
+          "pedagogicalReason": "Đáp án đúng dùng cấu trúc will be + V-ing để nhấn mạnh hành động đang diễn ra tại một thời điểm tương lai. Các lựa chọn khác dùng Future Simple, sai dạng động từ, hoặc thiếu V-ing sau will be."
+        },
+        {
+          "option": "At 8 a.m. tomorrow, I will take my driving test.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At 8 a.m. tomorrow, I will take my driving test.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "At 8 a.m. tomorrow, I am take my driving test.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At 8 a.m. tomorrow, I am take my driving test.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "At 8 a.m. tomorrow, I will be take my driving test.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At 8 a.m. tomorrow, I will be take my driving test.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-28",
       "type": "multiple_choice",
       "question": "Choose the best **question form** to ask about a future activity in progress.",
       "options": [
@@ -772,9 +1389,32 @@
       ],
       "correct_answer": "Will Sarah be giving the presentation at 3 p.m.?",
       "explanation": "Câu hỏi Future Continuous có trật tự Will + S + be + V-ing. Các đáp án sai thiếu be, sai trật tự trợ động từ, hoặc chỉ lên giọng từ câu khẳng định.",
+      "distractor_breakdowns": [
+        {
+          "option": "Will Sarah be giving the presentation at 3 p.m.?",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi Future Continuous có trật tự Will + S + be + V-ing. Các đáp án sai thiếu be, sai trật tự trợ động từ, hoặc chỉ lên giọng từ câu khẳng định."
+        },
+        {
+          "option": "Will Sarah giving the presentation at 3 p.m.?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Will Sarah giving the presentation at 3 p.m.?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Sarah will be giving the presentation at 3 p.m.?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Sarah will be giving the presentation at 3 p.m.?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Will be Sarah giving the presentation at 3 p.m.?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Will be Sarah giving the presentation at 3 p.m.?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-29",
       "type": "multiple_choice",
       "question": "Which sentence correctly uses the **negative form** for Future Continuous?",
       "options": [
@@ -785,9 +1425,32 @@
       ],
       "correct_answer": "The students won't be attending the workshop on Friday morning.",
       "explanation": "Dạng phủ định đúng là will not/won't be + V-ing. Các câu còn lại thiếu be, dùng động từ nguyên mẫu sau be, hoặc kết hợp sai aren't be.",
+      "distractor_breakdowns": [
+        {
+          "option": "The students won't be attending the workshop on Friday morning.",
+          "isCorrect": true,
+          "pedagogicalReason": "Dạng phủ định đúng là will not/won't be + V-ing. Các câu còn lại thiếu be, dùng động từ nguyên mẫu sau be, hoặc kết hợp sai aren't be."
+        },
+        {
+          "option": "The students won't attending the workshop on Friday morning.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"The students won't attending the workshop on Friday morning.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "The students won't be attend the workshop on Friday morning.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"The students won't be attend the workshop on Friday morning.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "The students aren't be attending the workshop on Friday morning.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"The students aren't be attending the workshop on Friday morning.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-30",
       "type": "multiple_choice",
       "question": "Choose the sentence that shows a **future interruption** correctly.",
       "options": [
@@ -798,9 +1461,32 @@
       ],
       "correct_answer": "At 6:30, we will be eating dinner when the delivery arrives.",
       "explanation": "Hành động đang diễn ra trong tương lai dùng will be eating, còn mệnh đề thời gian với when dùng hiện tại đơn arrives. Các đáp án khác sai dạng Future Continuous hoặc dùng will trong mệnh đề when.",
+      "distractor_breakdowns": [
+        {
+          "option": "At 6:30, we will be eating dinner when the delivery arrives.",
+          "isCorrect": true,
+          "pedagogicalReason": "Hành động đang diễn ra trong tương lai dùng will be eating, còn mệnh đề thời gian với when dùng hiện tại đơn arrives. Các đáp án khác sai dạng Future Continuous hoặc dùng will trong mệnh đề when."
+        },
+        {
+          "option": "At 6:30, we will eat dinner when the delivery will arrive.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At 6:30, we will eat dinner when the delivery will arrive.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "At 6:30, we will be eat dinner when the delivery arrives.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At 6:30, we will be eat dinner when the delivery arrives.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "At 6:30, we are eating dinner when the delivery will arrive.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At 6:30, we are eating dinner when the delivery will arrive.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-31",
       "type": "multiple_choice",
       "question": "Choose the most natural **polite inquiry** about someone's future schedule.",
       "options": [
@@ -811,9 +1497,32 @@
       ],
       "correct_answer": "Will you be joining the client call later today?",
       "explanation": "Will you be + V-ing thường dùng lịch sự để hỏi về kế hoạch/sắp xếp tương lai. Future Simple vẫn hiểu được nhưng kém tự nhiên hơn trong ngữ cảnh hỏi lịch trình; are you join sai ngữ pháp.",
+      "distractor_breakdowns": [
+        {
+          "option": "Will you be joining the client call later today?",
+          "isCorrect": true,
+          "pedagogicalReason": "Will you be + V-ing thường dùng lịch sự để hỏi về kế hoạch/sắp xếp tương lai. Future Simple vẫn hiểu được nhưng kém tự nhiên hơn trong ngữ cảnh hỏi lịch trình; are you join sai ngữ pháp."
+        },
+        {
+          "option": "Do you join the client call later today?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Do you join the client call later today?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Will you join the client call later today?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Will you join the client call later today?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Are you join the client call later today?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Are you join the client call later today?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-32",
       "type": "multiple_choice",
       "question": "Which option best expresses a **background action** in the future?",
       "options": [
@@ -824,9 +1533,32 @@
       ],
       "correct_answer": "While you are taking the exam, I will be waiting in the lobby.",
       "explanation": "Mệnh đề while dùng hiện tại tiếp diễn để chỉ hành động tương lai, còn hành động nền dùng will be waiting. Các lựa chọn khác dùng will sai trong mệnh đề thời gian hoặc sai dạng động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "While you are taking the exam, I will be waiting in the lobby.",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề while dùng hiện tại tiếp diễn để chỉ hành động tương lai, còn hành động nền dùng will be waiting. Các lựa chọn khác dùng will sai trong mệnh đề thời gian hoặc sai dạng động từ."
+        },
+        {
+          "option": "While you will take the exam, I will wait in the lobby.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"While you will take the exam, I will wait in the lobby.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "While you are taking the exam, I will waiting in the lobby.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"While you are taking the exam, I will waiting in the lobby.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "While you take the exam, I will be waited in the lobby.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"While you take the exam, I will be waited in the lobby.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "future-continuous-ex-33",
       "type": "multiple_choice",
       "question": "Choose the correct sentence with **by then** and Future Continuous.",
       "options": [
@@ -837,9 +1569,32 @@
       ],
       "correct_answer": "By then, the engineers will be testing the new security system.",
       "explanation": "By then có thể chỉ một thời điểm tương lai, nên will be testing diễn tả hành động đang diễn ra lúc đó. Các đáp án khác là Future Simple, dạng bị động không phù hợp, hoặc thiếu be.",
+      "distractor_breakdowns": [
+        {
+          "option": "By then, the engineers will be testing the new security system.",
+          "isCorrect": true,
+          "pedagogicalReason": "By then có thể chỉ một thời điểm tương lai, nên will be testing diễn tả hành động đang diễn ra lúc đó. Các đáp án khác là Future Simple, dạng bị động không phù hợp, hoặc thiếu be."
+        },
+        {
+          "option": "By then, the engineers will test the new security system.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"By then, the engineers will test the new security system.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "By then, the engineers will be tested the new security system.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"By then, the engineers will be tested the new security system.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "By then, the engineers will testing the new security system.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"By then, the engineers will testing the new security system.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-34",
       "type": "multiple_choice",
       "question": "Choose the correct **scheduled plan** sentence.",
       "options": [
@@ -850,9 +1605,32 @@
       ],
       "correct_answer": "Next Monday at noon, the director will be meeting the regional managers.",
       "explanation": "Một hoạt động đã nằm trong lịch trình tương lai có thể dùng will be + V-ing. Các lựa chọn sai vì thiếu be, dùng động từ nguyên mẫu sau be, hoặc dùng is be không đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "Next Monday at noon, the director will be meeting the regional managers.",
+          "isCorrect": true,
+          "pedagogicalReason": "Một hoạt động đã nằm trong lịch trình tương lai có thể dùng will be + V-ing. Các lựa chọn sai vì thiếu be, dùng động từ nguyên mẫu sau be, hoặc dùng is be không đúng."
+        },
+        {
+          "option": "Next Monday at noon, the director will meeting the regional managers.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Next Monday at noon, the director will meeting the regional managers.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Next Monday at noon, the director will be meet the regional managers.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Next Monday at noon, the director will be meet the regional managers.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Next Monday at noon, the director is be meeting the regional managers.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Next Monday at noon, the director is be meeting the regional managers.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-35",
       "type": "multiple_choice",
       "question": "Which sentence has the correct **-ing form** after will be?",
       "options": [
@@ -863,9 +1641,32 @@
       ],
       "correct_answer": "At this time next year, she will be running her own studio.",
       "explanation": "Run nhân đôi phụ âm n trước -ing thành running. Các dạng runing, ran, runs đều không phải V-ing đúng sau will be.",
+      "distractor_breakdowns": [
+        {
+          "option": "At this time next year, she will be running her own studio.",
+          "isCorrect": true,
+          "pedagogicalReason": "Run nhân đôi phụ âm n trước -ing thành running. Các dạng runing, ran, runs đều không phải V-ing đúng sau will be."
+        },
+        {
+          "option": "At this time next year, she will be runing her own studio.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At this time next year, she will be runing her own studio.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "At this time next year, she will be ran her own studio.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At this time next year, she will be ran her own studio.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "At this time next year, she will be runs her own studio.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At this time next year, she will be runs her own studio.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-36",
       "type": "fill_blank",
       "question": "Complete the **verb phrase**: At this time tomorrow morning, the committee ___ the final proposal.",
       "options": [
@@ -876,9 +1677,32 @@
       ],
       "correct_answer": "will be reviewing",
       "explanation": "At this time tomorrow morning chỉ thời điểm cụ thể trong tương lai, nên dùng will be reviewing. Will review không nhấn mạnh hành động đang diễn ra; hai lựa chọn còn lại sai dạng động từ sau will/be.",
+      "distractor_breakdowns": [
+        {
+          "option": "will be reviewing",
+          "isCorrect": true,
+          "pedagogicalReason": "At this time tomorrow morning chỉ thời điểm cụ thể trong tương lai, nên dùng will be reviewing. Will review không nhấn mạnh hành động đang diễn ra; hai lựa chọn còn lại sai dạng động từ sau will/be."
+        },
+        {
+          "option": "will review",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Will review không nhấn mạnh hành động đang diễn ra."
+        },
+        {
+          "option": "will reviewed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will reviewed\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will be review",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will be review\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-37",
       "type": "fill_blank",
       "question": "Fill in the blank with the correct **negative form**: Please don't call during lunch; I ___ with a recruiter.",
       "options": [
@@ -889,9 +1713,32 @@
       ],
       "correct_answer": "won't be available because I will be speaking",
       "explanation": "Cụm đúng diễn tả trạng thái không rảnh và hành động đang diễn ra trong tương lai: will be speaking. Các đáp án khác thiếu be, sai trật tự trợ động từ, hoặc sai dạng động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "won't be available because I will be speaking",
+          "isCorrect": true,
+          "pedagogicalReason": "Cụm đúng diễn tả trạng thái không rảnh và hành động đang diễn ra trong tương lai: will be speaking. Các đáp án khác thiếu be, sai trật tự trợ động từ, hoặc sai dạng động từ."
+        },
+        {
+          "option": "won't available because I speak",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"won't available because I speak\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will not be speak",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will not be speak\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "am not will be speaking",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"am not will be speaking\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-38",
       "type": "fill_blank",
       "question": "Complete the **question word order**: Where ___ during the conference next week?",
       "options": [
@@ -902,9 +1749,32 @@
       ],
       "correct_answer": "will you be staying",
       "explanation": "Câu hỏi với từ để hỏi dùng Where + will + S + be + V-ing. Các lựa chọn khác sai trật tự câu hỏi hoặc thiếu be.",
+      "distractor_breakdowns": [
+        {
+          "option": "will you be staying",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi với từ để hỏi dùng Where + will + S + be + V-ing. Các lựa chọn khác sai trật tự câu hỏi hoặc thiếu be."
+        },
+        {
+          "option": "you will be staying",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"you will be staying\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will you staying",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will you staying\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "you will staying",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"you will staying\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-39",
       "type": "fill_blank",
       "question": "Choose the correct **-ing spelling**: Around midnight, the technicians will be ___ the server logs.",
       "options": [
@@ -915,9 +1785,32 @@
       ],
       "correct_answer": "checking",
       "explanation": "Check thêm -ing thành checking; không nhân đôi k trong cách viết này. Checked là quá khứ/phân từ, checks là hiện tại đơn, không dùng sau will be.",
+      "distractor_breakdowns": [
+        {
+          "option": "checking",
+          "isCorrect": true,
+          "pedagogicalReason": "Check thêm -ing thành checking; không nhân đôi k trong cách viết này. Checked là quá khứ/phân từ, checks là hiện tại đơn, không dùng sau will be."
+        },
+        {
+          "option": "checkking",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"checkking\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "checked",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Checked là quá khứ/phân từ, checks là hiện tại đơn, không dùng sau will be."
+        },
+        {
+          "option": "checks",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Checks là hiện tại đơn, không dùng sau will be."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-40",
       "type": "fill_blank",
       "question": "Complete the sentence with Future Continuous **duration**: From 2 to 5 tomorrow, Maya ___ interviews for the research project.",
       "options": [
@@ -928,9 +1821,32 @@
       ],
       "correct_answer": "will be conducting",
       "explanation": "From 2 to 5 tomorrow nhấn mạnh khoảng thời gian hành động đang diễn ra trong tương lai, nên dùng will be conducting. Will conduct chỉ nói chung về tương lai; hai đáp án còn lại sai dạng chủ động hoặc thiếu be.",
+      "distractor_breakdowns": [
+        {
+          "option": "will be conducting",
+          "isCorrect": true,
+          "pedagogicalReason": "From 2 to 5 tomorrow nhấn mạnh khoảng thời gian hành động đang diễn ra trong tương lai, nên dùng will be conducting. Will conduct chỉ nói chung về tương lai; hai đáp án còn lại sai dạng chủ động hoặc thiếu be."
+        },
+        {
+          "option": "will conduct",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Will conduct chỉ nói chung về tương lai."
+        },
+        {
+          "option": "will be conducted",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will be conducted\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will conducting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will conducting\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-41",
       "type": "fill_blank",
       "question": "Fill in the blank for a **future plan**: Don't worry about the airport; Alex ___ you there after the meeting.",
       "options": [
@@ -941,9 +1857,32 @@
       ],
       "correct_answer": "will be driving",
       "explanation": "Câu này nói về diễn biến/kế hoạch tự nhiên trong tương lai, dùng will be driving. Các lựa chọn khác thiếu be, sai dạng sau be, hoặc dùng hiện tại đơn không phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "will be driving",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu này nói về diễn biến/kế hoạch tự nhiên trong tương lai, dùng will be driving. Các lựa chọn khác thiếu be, sai dạng sau be, hoặc dùng hiện tại đơn không phù hợp."
+        },
+        {
+          "option": "will driving",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will driving\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will be drive",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will be drive\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "drives",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"drives\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-42",
       "type": "fill_blank",
       "question": "Complete the **time clause** sentence: When the manager calls tomorrow, we ___ the budget figures.",
       "options": [
@@ -954,9 +1893,32 @@
       ],
       "correct_answer": "will be discussing",
       "explanation": "Mệnh đề when dùng hiện tại đơn calls, còn hành động đang diễn ra lúc đó dùng will be discussing. Will discuss không nhấn mạnh tiến trình; are discuss và will be discussed sai dạng trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "will be discussing",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề when dùng hiện tại đơn calls, còn hành động đang diễn ra lúc đó dùng will be discussing. Will discuss không nhấn mạnh tiến trình; are discuss và will be discussed sai dạng trong câu này."
+        },
+        {
+          "option": "will discuss",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Will discuss không nhấn mạnh tiến trình."
+        },
+        {
+          "option": "are discuss",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are discuss và will be discussed sai dạng trong câu này."
+        },
+        {
+          "option": "will be discussed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Will be discussed sai dạng trong câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-43",
       "type": "fill_blank",
       "question": "Choose the best **continuous form**: This evening at seven, the orchestra ___ on the main stage.",
       "options": [
@@ -967,9 +1929,32 @@
       ],
       "correct_answer": "will be performing",
       "explanation": "At seven là thời điểm cụ thể trong tương lai, nên dùng will be performing. Will perform là tương lai đơn; will be perform và is performed sai dạng/nghĩa.",
+      "distractor_breakdowns": [
+        {
+          "option": "will be performing",
+          "isCorrect": true,
+          "pedagogicalReason": "At seven là thời điểm cụ thể trong tương lai, nên dùng will be performing. Will perform là tương lai đơn; will be perform và is performed sai dạng/nghĩa."
+        },
+        {
+          "option": "will perform",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Will perform là tương lai đơn."
+        },
+        {
+          "option": "will be perform",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Will be perform và is performed sai dạng/nghĩa."
+        },
+        {
+          "option": "is performed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is performed sai dạng/nghĩa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-44",
       "type": "error_correction",
       "question": "Find the error: In the **future form** sentence: At 4 p.m. tomorrow, Nora will be writes the monthly report.",
       "options": [
@@ -980,9 +1965,32 @@
       ],
       "correct_answer": "will be writes",
       "explanation": "Sau will be phải dùng V-ing: will be writing. Các cụm còn lại không sai về cấu trúc Future Continuous trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "At 4 p.m. tomorrow",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"At 4 p.m. tomorrow\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "Nora",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Nora\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will be writes",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau will be phải dùng V-ing: will be writing. Các cụm còn lại không sai về cấu trúc Future Continuous trong câu này."
+        },
+        {
+          "option": "the monthly report",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the monthly report\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-45",
       "type": "error_correction",
       "question": "Find the error: In the **question order** sentence: What will be the interns doing during the training session?",
       "options": [
@@ -993,9 +2001,32 @@
       ],
       "correct_answer": "will be the interns",
       "explanation": "Trật tự đúng là What will the interns be doing...? Chủ ngữ the interns phải đứng sau will và trước be; các phần khác phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "What",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. What will the interns be doing."
+        },
+        {
+          "option": "will be the interns",
+          "isCorrect": true,
+          "pedagogicalReason": "Trật tự đúng là What will the interns be doing...? Chủ ngữ the interns phải đứng sau will và trước be; các phần khác phù hợp."
+        },
+        {
+          "option": "doing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"doing\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "during the training session",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"during the training session\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-46",
       "type": "error_correction",
       "question": "Find the error: In the **negative sentence**: The speakers will not be answer questions after the panel.",
       "options": [
@@ -1006,9 +2037,32 @@
       ],
       "correct_answer": "will not be answer",
       "explanation": "Sau will not be cần V-ing, nên phải là will not be answering. Các cụm còn lại đúng và không gây lỗi chính.",
+      "distractor_breakdowns": [
+        {
+          "option": "The speakers",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The speakers\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will not be answer",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau will not be cần V-ing, nên phải là will not be answering. Các cụm còn lại đúng và không gây lỗi chính."
+        },
+        {
+          "option": "questions",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"questions\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "after the panel",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"after the panel\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-47",
       "type": "error_correction",
       "question": "Find the error: In the **time expression** sentence: Tomorrow at noon, I will eating with my project team.",
       "options": [
@@ -1019,9 +2073,32 @@
       ],
       "correct_answer": "will eating",
       "explanation": "Future Continuous cần đầy đủ will be + V-ing: will be eating. Cụm thời gian, chủ ngữ và tân ngữ/giới từ đều đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "Tomorrow at noon",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Tomorrow at noon\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "I",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. I gian, chủ ngữ và tân ngữ/giới từ đều đúng."
+        },
+        {
+          "option": "will eating",
+          "isCorrect": true,
+          "pedagogicalReason": "Future Continuous cần đầy đủ will be + V-ing: will be eating. Cụm thời gian, chủ ngữ và tân ngữ/giới từ đều đúng."
+        },
+        {
+          "option": "with my project team",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"with my project team\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-48",
       "type": "error_correction",
       "question": "Find the error: In the **time clause** sentence: While the guests will arrive, the staff will be setting up the buffet.",
       "options": [
@@ -1032,9 +2109,32 @@
       ],
       "correct_answer": "While the guests will arrive",
       "explanation": "Trong mệnh đề thời gian với while/when để chỉ tương lai, không dùng will; nên viết While the guests arrive hoặc While the guests are arriving. Vế chính will be setting up là đúng Future Continuous.",
+      "distractor_breakdowns": [
+        {
+          "option": "While the guests will arrive",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong mệnh đề thời gian với while/when để chỉ tương lai, không dùng will; nên viết While the guests arrive hoặc While the guests are arriving. Vế chính will be setting up là đúng Future Continuous."
+        },
+        {
+          "option": "the staff",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the staff\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will be setting up",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Will be setting up là đúng Future Continuous."
+        },
+        {
+          "option": "the buffet",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the buffet\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "future-continuous-ex-49",
       "type": "error_correction",
       "question": "Find the error: In the **verb spelling** sentence: By 9 p.m., the volunteers will be makeing signs for the event.",
       "options": [
@@ -1045,9 +2145,32 @@
       ],
       "correct_answer": "will be makeing",
       "explanation": "Make bỏ e trước khi thêm -ing: will be making. Các phần còn lại đúng về nghĩa và cấu trúc câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "By 9 p.m.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"By 9 p.m.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "the volunteers",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the volunteers\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will be makeing",
+          "isCorrect": true,
+          "pedagogicalReason": "Make bỏ e trước khi thêm -ing: will be making. Các phần còn lại đúng về nghĩa và cấu trúc câu."
+        },
+        {
+          "option": "signs for the event",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"signs for the event\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-50",
       "type": "error_correction",
       "question": "Find the error: In the **auxiliary phrase** sentence: At this time next Friday, the sales team will being presenting the quarterly results.",
       "options": [
@@ -1058,9 +2181,32 @@
       ],
       "correct_answer": "will being presenting",
       "explanation": "Sau will dùng động từ nguyên mẫu be, không dùng being: will be presenting. Các cụm khác không sai trong cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "At this time next Friday",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"At this time next Friday\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "the sales team",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the sales team\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will being presenting",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau will dùng động từ nguyên mẫu be, không dùng being: will be presenting. Các cụm khác không sai trong cấu trúc này."
+        },
+        {
+          "option": "the quarterly results",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the quarterly results\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-51",
       "type": "error_correction",
       "question": "Find the error: In the **future question** sentence: Will they be works remotely during the renovation?",
       "options": [
@@ -1071,9 +2217,32 @@
       ],
       "correct_answer": "be works",
       "explanation": "Sau be trong Future Continuous phải là V-ing: be working. Will they là mở đầu câu hỏi đúng; các cụm còn lại không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "Will they",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Will they là mở đầu câu hỏi đúng."
+        },
+        {
+          "option": "be works",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau be trong Future Continuous phải là V-ing: be working. Will they là mở đầu câu hỏi đúng; các cụm còn lại không sai."
+        },
+        {
+          "option": "remotely",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"remotely\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "during the renovation",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"during the renovation\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-52",
       "type": "error_correction",
       "question": "Find the error: In the **natural plan** sentence: The marketing team will be launches the campaign throughout September.",
       "options": [
@@ -1084,9 +2253,32 @@
       ],
       "correct_answer": "will be launches",
       "explanation": "Cấu trúc đúng là will be launching, không phải will be launches. Chủ ngữ, tân ngữ và cụm thời gian đều phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "The marketing team",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The marketing team\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will be launches",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc đúng là will be launching, không phải will be launches. Chủ ngữ, tân ngữ và cụm thời gian đều phù hợp."
+        },
+        {
+          "option": "the campaign",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the campaign\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "throughout September",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"throughout September\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-53",
       "type": "multiple_choice",
       "question": "Choose the correct **Future Continuous** sentence for an action in progress at 6 p.m. next Monday.",
       "options": [
@@ -1097,9 +2289,32 @@
       ],
       "correct_answer": "At 6 p.m. next Monday, I will be attending a client meeting.",
       "explanation": "Đáp án đúng dùng cấu trúc Future Continuous: will be + V-ing để diễn tả hành động đang diễn ra tại một thời điểm tương lai. Các lựa chọn khác sai vì thiếu be, thiếu will be, hoặc dùng trạng từ thời gian không phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "At 6 p.m. next Monday, I will be attending a client meeting.",
+          "isCorrect": true,
+          "pedagogicalReason": "Đáp án đúng dùng cấu trúc Future Continuous: will be + V-ing để diễn tả hành động đang diễn ra tại một thời điểm tương lai. Các lựa chọn khác sai vì thiếu be, thiếu will be, hoặc dùng trạng từ thời gian không phù hợp."
+        },
+        {
+          "option": "At 6 p.m. next Monday, I will attend a client meeting yesterday.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At 6 p.m. next Monday, I will attend a client meeting yesterday.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "At 6 p.m. next Monday, I will be attend a client meeting.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At 6 p.m. next Monday, I will be attend a client meeting.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "At 6 p.m. next Monday, I will attending a client meeting.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At 6 p.m. next Monday, I will attending a client meeting.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-54",
       "type": "multiple_choice",
       "question": "Choose the best **polite question** about someone's plans tonight.",
       "options": [
@@ -1110,9 +2325,32 @@
       ],
       "correct_answer": "Will you be joining the online class tonight?",
       "explanation": "Câu hỏi Future Continuous đúng có trật tự Will + S + be + V-ing. Các câu còn lại sai vì dùng trợ động từ sai hoặc thiếu be sau will.",
+      "distractor_breakdowns": [
+        {
+          "option": "Will you be joining the online class tonight?",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi Future Continuous đúng có trật tự Will + S + be + V-ing. Các câu còn lại sai vì dùng trợ động từ sai hoặc thiếu be sau will."
+        },
+        {
+          "option": "Do you be joining the online class tonight?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Do you be joining the online class tonight?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Will you joining the online class tonight?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Will you joining the online class tonight?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Are you be joining the online class tonight?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Are you be joining the online class tonight?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-55",
       "type": "multiple_choice",
       "question": "Which sentence correctly uses the **negative form** of Future Continuous?",
       "options": [
@@ -1123,9 +2361,32 @@
       ],
       "correct_answer": "We will not be discussing salaries in tomorrow's meeting.",
       "explanation": "Dạng phủ định đúng là will not be + V-ing. Các phương án sai vì thiếu be, đặt not sai, hoặc dùng động từ nguyên mẫu sau be.",
+      "distractor_breakdowns": [
+        {
+          "option": "We will not be discussing salaries in tomorrow's meeting.",
+          "isCorrect": true,
+          "pedagogicalReason": "Dạng phủ định đúng là will not be + V-ing. Các phương án sai vì thiếu be, đặt not sai, hoặc dùng động từ nguyên mẫu sau be."
+        },
+        {
+          "option": "We will not discussing salaries in tomorrow's meeting.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"We will not discussing salaries in tomorrow's meeting.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "We will be not discuss salaries in tomorrow's meeting.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"We will be not discuss salaries in tomorrow's meeting.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "We will not be discuss salaries in tomorrow's meeting.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"We will not be discuss salaries in tomorrow's meeting.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-56",
       "type": "multiple_choice",
       "question": "Choose the sentence with correct **time clause** use.",
       "options": [
@@ -1136,9 +2397,32 @@
       ],
       "correct_answer": "When the train leaves, I will be waiting near the information desk.",
       "explanation": "Trong mệnh đề thời gian với when, ta dùng hiện tại đơn cho sự việc tương lai; mệnh đề chính dùng will be + V-ing. Các đáp án khác sai vì dùng will trong mệnh đề when hoặc thiếu cấu trúc Future Continuous.",
+      "distractor_breakdowns": [
+        {
+          "option": "When the train leaves, I will be waiting near the information desk.",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong mệnh đề thời gian với when, ta dùng hiện tại đơn cho sự việc tương lai; mệnh đề chính dùng will be + V-ing. Các đáp án khác sai vì dùng will trong mệnh đề when hoặc thiếu cấu trúc Future Continuous."
+        },
+        {
+          "option": "When the train will leave, I will be waiting near the information desk.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"When the train will leave, I will be waiting near the information desk.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "When the train leaves, I will waiting near the information desk.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"When the train leaves, I will waiting near the information desk.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "When the train leaving, I will be waiting near the information desk.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"When the train leaving, I will be waiting near the information desk.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-57",
       "type": "multiple_choice",
       "question": "Choose the most natural **planned activity** sentence.",
       "options": [
@@ -1149,9 +2433,32 @@
       ],
       "correct_answer": "The design team will be reviewing the new logo all afternoon tomorrow.",
       "explanation": "Future Continuous phù hợp để nói một hoạt động đã được dự kiến sẽ diễn ra trong một khoảng thời gian tương lai. Các lựa chọn sai vì thiếu be hoặc dùng sai dạng động từ sau be.",
+      "distractor_breakdowns": [
+        {
+          "option": "The design team will be reviewing the new logo all afternoon tomorrow.",
+          "isCorrect": true,
+          "pedagogicalReason": "Future Continuous phù hợp để nói một hoạt động đã được dự kiến sẽ diễn ra trong một khoảng thời gian tương lai. Các lựa chọn sai vì thiếu be hoặc dùng sai dạng động từ sau be."
+        },
+        {
+          "option": "The design team will reviewing the new logo all afternoon tomorrow.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"The design team will reviewing the new logo all afternoon tomorrow.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "The design team will be reviewed the new logo all afternoon tomorrow.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"The design team will be reviewed the new logo all afternoon tomorrow.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "The design team will be review the new logo all afternoon tomorrow.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"The design team will be review the new logo all afternoon tomorrow.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-58",
       "type": "multiple_choice",
       "question": "Which sentence correctly shows a **future background** action?",
       "options": [
@@ -1162,9 +2469,32 @@
       ],
       "correct_answer": "At the festival, music will be playing while people browse the stalls.",
       "explanation": "Will be playing diễn tả âm nhạc như một hành động nền đang diễn ra trong tương lai. Các câu khác sai vì thiếu be, chuyển sang bị động không đúng ý, hoặc dùng will trong mệnh đề while không tự nhiên.",
+      "distractor_breakdowns": [
+        {
+          "option": "At the festival, music will be playing while people browse the stalls.",
+          "isCorrect": true,
+          "pedagogicalReason": "Will be playing diễn tả âm nhạc như một hành động nền đang diễn ra trong tương lai. Các câu khác sai vì thiếu be, chuyển sang bị động không đúng ý, hoặc dùng will trong mệnh đề while không tự nhiên."
+        },
+        {
+          "option": "At the festival, music will playing while people browse the stalls.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At the festival, music will playing while people browse the stalls.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "At the festival, music will be played while people browse the stalls.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At the festival, music will be played while people browse the stalls.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "At the festival, music will play while people will browse the stalls.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At the festival, music will play while people will browse the stalls.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-59",
       "type": "multiple_choice",
       "question": "Choose the correct **question order** for a future arrangement.",
       "options": [
@@ -1175,9 +2505,32 @@
       ],
       "correct_answer": "What will your team be testing on Friday afternoon?",
       "explanation": "Câu hỏi với từ để hỏi theo trật tự Wh-word + will + subject + be + V-ing. Các lựa chọn khác sai vì đảo sai vị trí chủ ngữ, be hoặc cụm V-ing.",
+      "distractor_breakdowns": [
+        {
+          "option": "What will your team be testing on Friday afternoon?",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi với từ để hỏi theo trật tự Wh-word + will + subject + be + V-ing. Các lựa chọn khác sai vì đảo sai vị trí chủ ngữ, be hoặc cụm V-ing."
+        },
+        {
+          "option": "What your team will be testing on Friday afternoon?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"What your team will be testing on Friday afternoon?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "What will be your team testing on Friday afternoon?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"What will be your team testing on Friday afternoon?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "What will your team testing be on Friday afternoon?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"What will your team testing be on Friday afternoon?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-60",
       "type": "multiple_choice",
       "question": "Choose the correct **-ing spelling** sentence.",
       "options": [
@@ -1188,9 +2541,32 @@
       ],
       "correct_answer": "At sunrise, the hikers will be beginning their final climb.",
       "explanation": "Begin thêm -ing thành beginning vì nhân đôi n trước -ing. Các lựa chọn khác sai chính tả hoặc dùng quá khứ phân từ sau be.",
+      "distractor_breakdowns": [
+        {
+          "option": "At sunrise, the hikers will be beginning their final climb.",
+          "isCorrect": true,
+          "pedagogicalReason": "Begin thêm -ing thành beginning vì nhân đôi n trước -ing. Các lựa chọn khác sai chính tả hoặc dùng quá khứ phân từ sau be."
+        },
+        {
+          "option": "At sunrise, the hikers will be begining their final climb.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At sunrise, the hikers will be begining their final climb.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "At sunrise, the hikers will be begginning their final climb.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At sunrise, the hikers will be begginning their final climb.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "At sunrise, the hikers will be begun their final climb.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At sunrise, the hikers will be begun their final climb.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-61",
       "type": "multiple_choice",
       "question": "Which option best expresses a **temporary future** situation?",
       "options": [
@@ -1201,9 +2577,32 @@
       ],
       "correct_answer": "For the next two weeks, I will be staying with my aunt.",
       "explanation": "Will be staying diễn tả tình huống tạm thời kéo dài trong tương lai. Các đáp án khác sai vì thiếu be, sai dạng động từ, hoặc dùng quá khứ.",
+      "distractor_breakdowns": [
+        {
+          "option": "For the next two weeks, I will be staying with my aunt.",
+          "isCorrect": true,
+          "pedagogicalReason": "Will be staying diễn tả tình huống tạm thời kéo dài trong tương lai. Các đáp án khác sai vì thiếu be, sai dạng động từ, hoặc dùng quá khứ."
+        },
+        {
+          "option": "For the next two weeks, I will staying with my aunt.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"For the next two weeks, I will staying with my aunt.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "For the next two weeks, I will be stay with my aunt.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"For the next two weeks, I will be stay with my aunt.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "For the next two weeks, I will stayed with my aunt.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"For the next two weeks, I will stayed with my aunt.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-62",
       "type": "fill_blank",
       "question": "Complete the **verb phrase**: Tomorrow at 11 a.m., the legal team ___ the contract details.",
       "options": [
@@ -1214,9 +2613,32 @@
       ],
       "correct_answer": "will be checking",
       "explanation": "Cấu trúc đúng là will be + V-ing: will be checking. Các lựa chọn khác thiếu be, dùng động từ nguyên mẫu sau be, hoặc dùng quá khứ sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "will be checking",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc đúng là will be + V-ing: will be checking. Các lựa chọn khác thiếu be, dùng động từ nguyên mẫu sau be, hoặc dùng quá khứ sai."
+        },
+        {
+          "option": "will checking",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will checking\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will be check",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will be check\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will checked",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will checked\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-63",
       "type": "fill_blank",
       "question": "Fill in the blank with the correct **negative form**: I can't join the call at noon because I ___ my final exam.",
       "options": [
@@ -1227,9 +2649,32 @@
       ],
       "correct_answer": "will not be taking",
       "explanation": "Dạng phủ định chuẩn là will not be + V-ing. Các đáp án khác sai vị trí not, thiếu be, hoặc dùng sai dạng động từ sau be.",
+      "distractor_breakdowns": [
+        {
+          "option": "will not be taking",
+          "isCorrect": true,
+          "pedagogicalReason": "Dạng phủ định chuẩn là will not be + V-ing. Các đáp án khác sai vị trí not, thiếu be, hoặc dùng sai dạng động từ sau be."
+        },
+        {
+          "option": "will be not taking",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will be not taking\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will not taking",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will not taking\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will not be take",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will not be take\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-64",
       "type": "fill_blank",
       "question": "Complete the **question form**: ___ the projector during the workshop tomorrow?",
       "options": [
@@ -1240,9 +2685,32 @@
       ],
       "correct_answer": "Will you be using",
       "explanation": "Câu hỏi Future Continuous dùng Will + S + be + V-ing. Các lựa chọn khác sai vì thiếu be, dùng do không phù hợp, hoặc đảo sai trật tự.",
+      "distractor_breakdowns": [
+        {
+          "option": "Will you be using",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi Future Continuous dùng Will + S + be + V-ing. Các lựa chọn khác sai vì thiếu be, dùng do không phù hợp, hoặc đảo sai trật tự."
+        },
+        {
+          "option": "Will you using",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Will you using\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Do you be using",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Do you be using\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Will be you using",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Will be you using\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-65",
       "type": "fill_blank",
       "question": "Choose the correct **time expression** form: This time next month, Sarah ___ in a new department.",
       "options": [
@@ -1253,9 +2721,32 @@
       ],
       "correct_answer": "will be working",
       "explanation": "This time next month chỉ một thời điểm cụ thể trong tương lai, nên dùng will be working. Các lựa chọn còn lại sai về thời gian hoặc thiếu thành phần của Future Continuous.",
+      "distractor_breakdowns": [
+        {
+          "option": "will be working",
+          "isCorrect": true,
+          "pedagogicalReason": "This time next month chỉ một thời điểm cụ thể trong tương lai, nên dùng will be working. Các lựa chọn còn lại sai về thời gian hoặc thiếu thành phần của Future Continuous."
+        },
+        {
+          "option": "will work yesterday",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will work yesterday\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will be work",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will be work\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will working",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will working\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-66",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **future action**: While you are presenting, I ___ notes for the report.",
       "options": [
@@ -1266,9 +2757,32 @@
       ],
       "correct_answer": "will be taking",
       "explanation": "Mệnh đề chính dùng will be taking để diễn tả hành động đang diễn ra song song trong tương lai. Các đáp án khác thiếu be, sai dạng động từ, hoặc sai chính tả taking.",
+      "distractor_breakdowns": [
+        {
+          "option": "will be taking",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề chính dùng will be taking để diễn tả hành động đang diễn ra song song trong tương lai. Các đáp án khác thiếu be, sai dạng động từ, hoặc sai chính tả taking."
+        },
+        {
+          "option": "will taking",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will taking\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will be took",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will be took\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will takeing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will takeing\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-67",
       "type": "fill_blank",
       "question": "Fill in the blank for a **scheduled process**: From Monday to Wednesday, the engineers ___ the new payment system.",
       "options": [
@@ -1279,9 +2793,32 @@
       ],
       "correct_answer": "will be monitoring",
       "explanation": "Khoảng thời gian từ Monday to Wednesday trong tương lai phù hợp với will be monitoring. Các lựa chọn khác sai vì mâu thuẫn thời gian, thiếu be, hoặc dùng sai dạng động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "will be monitoring",
+          "isCorrect": true,
+          "pedagogicalReason": "Khoảng thời gian từ Monday to Wednesday trong tương lai phù hợp với will be monitoring. Các lựa chọn khác sai vì mâu thuẫn thời gian, thiếu be, hoặc dùng sai dạng động từ."
+        },
+        {
+          "option": "will monitor yesterday",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will monitor yesterday\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will be monitor",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will be monitor\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will monitoring",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will monitoring\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-68",
       "type": "fill_blank",
       "question": "Complete the **polite inquiry**: ___ the conference room at 3 p.m.?",
       "options": [
@@ -1292,9 +2829,32 @@
       ],
       "correct_answer": "Will Ms. Tran be using",
       "explanation": "Câu hỏi lịch sự về kế hoạch tương lai dùng Will + subject + be + V-ing. Các đáp án khác sai vì thiếu be, đảo sai vị trí be, hoặc dùng does với be không đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "Will Ms. Tran be using",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi lịch sự về kế hoạch tương lai dùng Will + subject + be + V-ing. Các đáp án khác sai vì thiếu be, đảo sai vị trí be, hoặc dùng does với be không đúng."
+        },
+        {
+          "option": "Will Ms. Tran using",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Will Ms. Tran using\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Will be Ms. Tran using",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Will be Ms. Tran using\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Does Ms. Tran be using",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Does Ms. Tran be using\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-69",
       "type": "fill_blank",
       "question": "Choose the correct **-ing form**: At 8 tonight, the chef will be ___ fresh pasta for the guests.",
       "options": [
@@ -1305,9 +2865,32 @@
       ],
       "correct_answer": "making",
       "explanation": "Make bỏ e rồi thêm -ing thành making. Makeing sai chính tả, còn made và make không phải dạng V-ing sau will be.",
+      "distractor_breakdowns": [
+        {
+          "option": "making",
+          "isCorrect": true,
+          "pedagogicalReason": "Make bỏ e rồi thêm -ing thành making. Makeing sai chính tả, còn made và make không phải dạng V-ing sau will be."
+        },
+        {
+          "option": "makeing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Makeing sai chính tả, còn made và make không phải dạng V-ing sau will be."
+        },
+        {
+          "option": "made",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Made và make không phải dạng V-ing sau will be."
+        },
+        {
+          "option": "make",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Make không phải dạng V-ing sau will be."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-70",
       "type": "error_correction",
       "question": "Find the error: In the **verb form** sentence: At 7 tomorrow morning, Dana will be driveing across the bridge.",
       "options": [
@@ -1318,9 +2901,32 @@
       ],
       "correct_answer": "will be driveing",
       "explanation": "Drive bỏ e rồi thêm -ing thành driving, nên cụm đúng là will be driving. Các phần còn lại phù hợp với câu Future Continuous.",
+      "distractor_breakdowns": [
+        {
+          "option": "At 7 tomorrow morning",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"At 7 tomorrow morning\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "Dana",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Dana\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will be driveing",
+          "isCorrect": true,
+          "pedagogicalReason": "Drive bỏ e rồi thêm -ing thành driving, nên cụm đúng là will be driving. Các phần còn lại phù hợp với câu Future Continuous."
+        },
+        {
+          "option": "across the bridge",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"across the bridge\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-71",
       "type": "error_correction",
       "question": "Find the error: In the **auxiliary phrase** sentence: Next Friday at noon, the director will presenting the annual plan.",
       "options": [
@@ -1331,9 +2937,32 @@
       ],
       "correct_answer": "will presenting",
       "explanation": "Future Continuous cần đầy đủ will be + V-ing, nên phải là will be presenting. Các cụm còn lại không sai về ngữ pháp trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "Next Friday at noon",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Next Friday at noon\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "the director",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the director\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will presenting",
+          "isCorrect": true,
+          "pedagogicalReason": "Future Continuous cần đầy đủ will be + V-ing, nên phải là will be presenting. Các cụm còn lại không sai về ngữ pháp trong câu này."
+        },
+        {
+          "option": "the annual plan",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the annual plan\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-72",
       "type": "error_correction",
       "question": "Find the error: In the **question form** sentence: Will the students be writes essays during the exam period?",
       "options": [
@@ -1344,9 +2973,32 @@
       ],
       "correct_answer": "be writes",
       "explanation": "Sau be trong Future Continuous phải dùng V-ing: be writing. Writes là dạng hiện tại đơn ngôi thứ ba, không dùng sau be ở đây.",
+      "distractor_breakdowns": [
+        {
+          "option": "Will",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Will\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "the students",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the students\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "be writes",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau be trong Future Continuous phải dùng V-ing: be writing. Writes là dạng hiện tại đơn ngôi thứ ba, không dùng sau be ở đây."
+        },
+        {
+          "option": "during the exam period",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"during the exam period\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-73",
       "type": "error_correction",
       "question": "Find the error: In the **negative form** sentence: The visitors won't be enter the gallery during the private tour.",
       "options": [
@@ -1357,9 +3009,32 @@
       ],
       "correct_answer": "won't be enter",
       "explanation": "Sau won't be phải là V-ing, nên đúng là won't be entering. Các cụm còn lại chỉ đóng vai trò chủ ngữ, tân ngữ và trạng ngữ thời gian.",
+      "distractor_breakdowns": [
+        {
+          "option": "The visitors",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The visitors\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "won't be enter",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau won't be phải là V-ing, nên đúng là won't be entering. Các cụm còn lại chỉ đóng vai trò chủ ngữ, tân ngữ và trạng ngữ thời gian."
+        },
+        {
+          "option": "the gallery",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the gallery\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "during the private tour",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"during the private tour\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-74",
       "type": "error_correction",
       "question": "Find the error: In the **time clause** sentence: As soon as the bell will ring, the teachers will be collecting the papers.",
       "options": [
@@ -1370,9 +3045,32 @@
       ],
       "correct_answer": "the bell will ring",
       "explanation": "Trong mệnh đề thời gian với as soon as, dùng hiện tại đơn cho tương lai: the bell rings. Mệnh đề chính will be collecting đã đúng Future Continuous.",
+      "distractor_breakdowns": [
+        {
+          "option": "As soon as",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. As soon as, dùng hiện tại đơn cho tương lai: the bell rings."
+        },
+        {
+          "option": "the bell will ring",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong mệnh đề thời gian với as soon as, dùng hiện tại đơn cho tương lai: the bell rings. Mệnh đề chính will be collecting đã đúng Future Continuous."
+        },
+        {
+          "option": "the teachers",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the teachers\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will be collecting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Will be collecting đã đúng Future Continuous."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-75",
       "type": "error_correction",
       "question": "Find the error: In the **word order** sentence: Why will be your brother sleeping in the guest room tonight?",
       "options": [
@@ -1383,9 +3081,32 @@
       ],
       "correct_answer": "will be your brother sleeping",
       "explanation": "Trật tự đúng là Why will your brother be sleeping...? Be phải đứng sau chủ ngữ, không đứng trước chủ ngữ trong cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "Why",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Why will your brother be sleeping."
+        },
+        {
+          "option": "will be your brother sleeping",
+          "isCorrect": true,
+          "pedagogicalReason": "Trật tự đúng là Why will your brother be sleeping...? Be phải đứng sau chủ ngữ, không đứng trước chủ ngữ trong cấu trúc này."
+        },
+        {
+          "option": "in the guest room",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"in the guest room\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "tonight",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"tonight\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-76",
       "type": "error_correction",
       "question": "Find the error: In the **future duration** sentence: Between 1 and 3 tomorrow, the analysts will be compared the sales data.",
       "options": [
@@ -1396,9 +3117,32 @@
       ],
       "correct_answer": "will be compared",
       "explanation": "Future Continuous dùng will be + V-ing, nên phải là will be comparing. Compared là quá khứ/quá khứ phân từ, không đúng sau will be khi diễn tả tiếp diễn.",
+      "distractor_breakdowns": [
+        {
+          "option": "Between 1 and 3 tomorrow",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Between 1 and 3 tomorrow\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "the analysts",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the analysts\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will be compared",
+          "isCorrect": true,
+          "pedagogicalReason": "Future Continuous dùng will be + V-ing, nên phải là will be comparing. Compared là quá khứ/quá khứ phân từ, không đúng sau will be khi diễn tả tiếp diễn."
+        },
+        {
+          "option": "the sales data",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the sales data\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-77",
       "type": "error_correction",
       "question": "Find the error: In the **natural plan** sentence: During the renovation, our staff will be works from a nearby office.",
       "options": [
@@ -1409,9 +3153,32 @@
       ],
       "correct_answer": "will be works",
       "explanation": "Sau will be phải dùng V-ing: will be working. Works là hiện tại đơn ngôi thứ ba nên không phù hợp trong Future Continuous.",
+      "distractor_breakdowns": [
+        {
+          "option": "During the renovation",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"During the renovation\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "our staff",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"our staff\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will be works",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau will be phải dùng V-ing: will be working. Works là hiện tại đơn ngôi thứ ba nên không phù hợp trong Future Continuous."
+        },
+        {
+          "option": "from a nearby office",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"from a nearby office\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-78",
       "type": "multiple_choice",
       "question": "Choose the correct **verb phrase** for an action in progress at 10 a.m. tomorrow.",
       "options": [
@@ -1422,9 +3189,32 @@
       ],
       "correct_answer": "At 10 a.m. tomorrow, Maya will be attending a client meeting.",
       "explanation": "Future Continuous có dạng S + will be + V-ing, nên 'will be attending' là đúng. Các lựa chọn khác sai vì thiếu 'be', dùng động từ nguyên mẫu sau 'be', hoặc kết hợp sai 'is be'.",
+      "distractor_breakdowns": [
+        {
+          "option": "At 10 a.m. tomorrow, Maya will be attending a client meeting.",
+          "isCorrect": true,
+          "pedagogicalReason": "Future Continuous có dạng S + will be + V-ing, nên 'will be attending' là đúng. Các lựa chọn khác sai vì thiếu 'be', dùng động từ nguyên mẫu sau 'be', hoặc kết hợp sai 'is be'."
+        },
+        {
+          "option": "At 10 a.m. tomorrow, Maya will attending a client meeting.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At 10 a.m. tomorrow, Maya will attending a client meeting.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "At 10 a.m. tomorrow, Maya will be attend a client meeting.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At 10 a.m. tomorrow, Maya will be attend a client meeting.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "At 10 a.m. tomorrow, Maya is be attending a client meeting.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At 10 a.m. tomorrow, Maya is be attending a client meeting.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-79",
       "type": "multiple_choice",
       "question": "Choose the most natural **polite inquiry** about a future plan.",
       "options": [
@@ -1435,9 +3225,32 @@
       ],
       "correct_answer": "Will you be taking the early train tomorrow?",
       "explanation": "Câu hỏi Future Continuous 'Will you be taking...?' thường dùng để hỏi lịch trình một cách lịch sự, tự nhiên. Các câu còn lại sai cấu trúc hoặc thêm 'now' không phù hợp với tương lai.",
+      "distractor_breakdowns": [
+        {
+          "option": "Will you be taking the early train tomorrow?",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi Future Continuous 'Will you be taking...?' thường dùng để hỏi lịch trình một cách lịch sự, tự nhiên. Các câu còn lại sai cấu trúc hoặc thêm 'now' không phù hợp với tương lai."
+        },
+        {
+          "option": "Will you take the early train tomorrow now?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Will you take the early train tomorrow now?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Are you be taking the early train tomorrow?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Are you be taking the early train tomorrow?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Will you be take the early train tomorrow?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Will you be take the early train tomorrow?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-80",
       "type": "multiple_choice",
       "question": "Which sentence correctly uses the **negative continuous** form?",
       "options": [
@@ -1448,9 +3261,32 @@
       ],
       "correct_answer": "We won't be accepting new orders during the system upgrade.",
       "explanation": "Dạng phủ định đúng là S + won't be + V-ing. Các đáp án khác thiếu 'be', dùng sai dạng động từ sau 'be', hoặc ghép sai trợ động từ với 'are'.",
+      "distractor_breakdowns": [
+        {
+          "option": "We won't be accepting new orders during the system upgrade.",
+          "isCorrect": true,
+          "pedagogicalReason": "Dạng phủ định đúng là S + won't be + V-ing. Các đáp án khác thiếu 'be', dùng sai dạng động từ sau 'be', hoặc ghép sai trợ động từ với 'are'."
+        },
+        {
+          "option": "We won't accepting new orders during the system upgrade.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"We won't accepting new orders during the system upgrade.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "We won't be accept new orders during the system upgrade.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"We won't be accept new orders during the system upgrade.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "We won't are accepting new orders during the system upgrade.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"We won't are accepting new orders during the system upgrade.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-81",
       "type": "fill_blank",
       "question": "Complete the **continuous form**: At this time next week, Omar ___ for his driving test.",
       "options": [
@@ -1461,9 +3297,32 @@
       ],
       "correct_answer": "will be practicing",
       "explanation": "Với thời điểm cụ thể trong tương lai 'At this time next week', cần dùng Future Continuous: 'will be practicing'. 'Will practice' là tương lai đơn, còn hai lựa chọn kia sai cấu trúc động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "will be practicing",
+          "isCorrect": true,
+          "pedagogicalReason": "Với thời điểm cụ thể trong tương lai 'At this time next week', cần dùng Future Continuous: 'will be practicing'. 'Will practice' là tương lai đơn, còn hai lựa chọn kia sai cấu trúc động từ."
+        },
+        {
+          "option": "will practice",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Will practice' là tương lai đơn, còn hai lựa chọn kia sai cấu trúc động từ."
+        },
+        {
+          "option": "will be practice",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will be practice\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "is practice",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is practice\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-82",
       "type": "fill_blank",
       "question": "Fill in the blank with the correct **question form**: ___ near the stadium after the concert?",
       "options": [
@@ -1474,9 +3333,32 @@
       ],
       "correct_answer": "Will you be parking",
       "explanation": "Câu hỏi Future Continuous có trật tự Will + S + be + V-ing. Các lựa chọn khác thiếu 'be', không đảo trợ động từ, hoặc đảo sai vị trí của chủ ngữ.",
+      "distractor_breakdowns": [
+        {
+          "option": "Will you be parking",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi Future Continuous có trật tự Will + S + be + V-ing. Các lựa chọn khác thiếu 'be', không đảo trợ động từ, hoặc đảo sai vị trí của chủ ngữ."
+        },
+        {
+          "option": "Will you parking",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Will you parking\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "You will be parking",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"You will be parking\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Will be you parking",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Will be you parking\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-83",
       "type": "fill_blank",
       "question": "Complete the **planned process**: Throughout July, the museum ___ its main entrance.",
       "options": [
@@ -1487,9 +3369,32 @@
       ],
       "correct_answer": "will be restoring",
       "explanation": "'Throughout July' nhấn mạnh một quá trình kéo dài trong tương lai, nên dùng 'will be restoring'. Các đáp án khác sai vì thiếu 'be', dùng phân từ bị động không đúng nghĩa, hoặc viết sai dạng -ing.",
+      "distractor_breakdowns": [
+        {
+          "option": "will be restoring",
+          "isCorrect": true,
+          "pedagogicalReason": "'Throughout July' nhấn mạnh một quá trình kéo dài trong tương lai, nên dùng 'will be restoring'. Các đáp án khác sai vì thiếu 'be', dùng phân từ bị động không đúng nghĩa, hoặc viết sai dạng -ing."
+        },
+        {
+          "option": "will restoring",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will restoring\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will be restored",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will be restored\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "will restoreing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will restoreing\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-84",
       "type": "fill_blank",
       "question": "Choose the correct **negative phrase**: Please don't call at six; I ___ dinner with my manager.",
       "options": [
@@ -1500,9 +3405,32 @@
       ],
       "correct_answer": "won't be having",
       "explanation": "Hành động đang diễn ra tại một thời điểm tương lai dùng 'won't be having' khi ở dạng phủ định. Các phương án khác thiếu 'be', dùng thì khác, hoặc dùng sai dạng động từ sau 'be'.",
+      "distractor_breakdowns": [
+        {
+          "option": "won't be having",
+          "isCorrect": true,
+          "pedagogicalReason": "Hành động đang diễn ra tại một thời điểm tương lai dùng 'won't be having' khi ở dạng phủ định. Các phương án khác thiếu 'be', dùng thì khác, hoặc dùng sai dạng động từ sau 'be'."
+        },
+        {
+          "option": "will not having",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will not having\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "won't have been",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"won't have been\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "won't be have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"won't be have\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-85",
       "type": "error_correction",
       "question": "Find the error: In the **verb form** sentence: At sunrise tomorrow, the hikers will be climb the northern trail.",
       "options": [
@@ -1513,9 +3441,32 @@
       ],
       "correct_answer": "will be climb",
       "explanation": "Sau 'will be' phải dùng V-ing, nên 'will be climb' phải sửa thành 'will be climbing'. Các cụm còn lại phù hợp về nghĩa và vị trí trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "At sunrise tomorrow",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"At sunrise tomorrow\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "hikers",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"hikers\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will be climb",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau 'will be' phải dùng V-ing, nên 'will be climb' phải sửa thành 'will be climbing'. Các cụm còn lại phù hợp về nghĩa và vị trí trong câu."
+        },
+        {
+          "option": "northern trail",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"northern trail\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "future-continuous-ex-86",
       "type": "error_correction",
       "question": "Find the error: In the **word order** sentence: What will be the technician checking during the inspection?",
       "options": [
@@ -1526,9 +3477,32 @@
       ],
       "correct_answer": "will be the technician checking",
       "explanation": "Câu hỏi Future Continuous đúng là 'What will the technician be checking...?'. Cụm sai đã đặt 'be' trước chủ ngữ, còn các phần khác không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "What",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. What will the technician be checking."
+        },
+        {
+          "option": "will be the technician checking",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi Future Continuous đúng là 'What will the technician be checking...?'. Cụm sai đã đặt 'be' trước chủ ngữ, còn các phần khác không sai."
+        },
+        {
+          "option": "during",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"during\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "the inspection",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the inspection\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "future-continuous-ex-87",
       "type": "error_correction",
       "question": "Find the error: In the **time clause** sentence: Before the CEO will speak, the translators will be testing their microphones.",
       "options": [
@@ -1539,9 +3513,32 @@
       ],
       "correct_answer": "the CEO will speak",
       "explanation": "Trong mệnh đề thời gian sau 'before', không dùng 'will'; phải nói 'Before the CEO speaks'. Mệnh đề chính 'will be testing' dùng đúng Future Continuous.",
+      "distractor_breakdowns": [
+        {
+          "option": "Before",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'before', không dùng 'will'."
+        },
+        {
+          "option": "the CEO will speak",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong mệnh đề thời gian sau 'before', không dùng 'will'; phải nói 'Before the CEO speaks'. Mệnh đề chính 'will be testing' dùng đúng Future Continuous."
+        },
+        {
+          "option": "will be testing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'will be testing' dùng đúng Future Continuous."
+        },
+        {
+          "option": "their microphones",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"their microphones\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "future-continuous-ex-88",
       "type": "error_correction",
       "question": "Find the error: In the **spelling rule** sentence: Around 5 p.m., Nina will be writeing updates for the project blog.",
       "options": [
@@ -1552,9 +3549,32 @@
       ],
       "correct_answer": "will be writeing",
       "explanation": "Động từ 'write' bỏ 'e' trước khi thêm '-ing', nên dạng đúng là 'will be writing'. Các cụm còn lại không có lỗi ngữ pháp trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "Around 5 p.m.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Around 5 p.m.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "Nina",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Nina\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will be writeing",
+          "isCorrect": true,
+          "pedagogicalReason": "Động từ 'write' bỏ 'e' trước khi thêm '-ing', nên dạng đúng là 'will be writing'. Các cụm còn lại không có lỗi ngữ pháp trong câu này."
+        },
+        {
+          "option": "project blog",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"project blog\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "future-continuous-ex-89",
       "type": "error_correction",
       "question": "Find the error related to the **auxiliary verb phrase** in the sentence: \"At this time next year, I will being studying abroad.\"",
       "options": [
@@ -1565,6 +3585,28 @@
       ],
       "correct_answer": "B. \"I will being studying\"",
       "explanation": "Lỗi sai nằm ở cụm \"will being studying\". Cấu trúc đúng của thì Tương lai tiếp diễn là S + will be + V-ing. Trong câu này, \"being\" đã bị dùng sai thay vì \"be\". Câu đúng phải là \"At this time next year, I will be studying abroad.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "A. \"At this time next year\"",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. At this time next year, I will be studying abroad."
+        },
+        {
+          "option": "B. \"I will being studying\"",
+          "isCorrect": true,
+          "pedagogicalReason": "Lỗi sai nằm ở cụm \"will being studying\". Cấu trúc đúng của thì Tương lai tiếp diễn là S + will be + V-ing. Trong câu này, \"being\" đã bị dùng sai thay vì \"be\". Câu đúng phải là \"At this time next year, I will be studying abroad.\""
+        },
+        {
+          "option": "C. \"studying abroad\"",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"studying abroad\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "D. No error",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"No error\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     }
   ]

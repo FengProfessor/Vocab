@@ -2,10 +2,10 @@
   "slug": "advanced-relative-clauses",
   "title": "Advanced Relative Clauses",
   "title_vi": "Mệnh đề quan hệ nâng cao",
-  "level": "advanced",
+  "level": "B2",
   "order": 52,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **preposition + whom/which** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **preposition + whom/which** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -447,14 +447,33 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "Hoàn thành theo mẫu: She ___ three sons, all of whom are doctors.",
-      "answer": [
-        "has"
+      "id": "advanced-relative-clauses-ex-01",
+      "type": "fill_blank",
+      "question": "Hoàn thành theo mẫu: She ___ three sons, all of whom are doctors.",
+      "options": [],
+      "correct_answer": "has",
+      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "has",
+          "isCorrect": true,
+          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+        },
+        {
+          "option": "have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Chủ ngữ \"She\" là ngôi thứ ba số ít, phải chia động từ \"has\", không dùng \"have\"."
+        },
+        {
+          "option": "is having",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ \"have\" mang nghĩa sở hữu là động từ chỉ trạng thái, không dùng ở thì tiếp diễn."
+        }
       ],
-      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+      "difficulty": 1
     },
     {
+      "id": "advanced-relative-clauses-ex-02",
       "type": "multiple_choice",
       "question": "Choose the correct **relative phrase**: The manager ___ I sent the report replied immediately.",
       "options": [
@@ -465,9 +484,32 @@
       ],
       "correct_answer": "to whom",
       "explanation": "Đáp án đúng là “to whom” vì ta gửi báo cáo cho một người: send something to someone. “To which” dùng cho vật/ý tưởng, “who” thiếu giới từ “to”, còn “whose” chỉ sở hữu.",
+      "distractor_breakdowns": [
+        {
+          "option": "to whom",
+          "isCorrect": true,
+          "pedagogicalReason": "Đáp án đúng là “to whom” vì ta gửi báo cáo cho một người: send something to someone. “To which” dùng cho vật/ý tưởng, “who” thiếu giới từ “to”, còn “whose” chỉ sở hữu."
+        },
+        {
+          "option": "to which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “To which” dùng cho vật/ý tưởng, “who” thiếu giới từ “to”, còn “whose” chỉ sở hữu."
+        },
+        {
+          "option": "who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “who” thiếu giới từ “to”, còn “whose” chỉ sở hữu."
+        },
+        {
+          "option": "whose",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “whose” chỉ sở hữu."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-03",
       "type": "multiple_choice",
       "question": "Choose the best **clause connector**: The train was delayed for two hours, ___ made us miss the interview.",
       "options": [
@@ -478,9 +520,32 @@
       ],
       "correct_answer": "which",
       "explanation": "“Which” sau dấu phẩy có thể thay cho cả mệnh đề trước: việc tàu trễ làm chúng tôi lỡ phỏng vấn. “That” không dùng trong mệnh đề quan hệ không xác định sau dấu phẩy; “what” và “who” không phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "which",
+          "isCorrect": true,
+          "pedagogicalReason": "“Which” sau dấu phẩy có thể thay cho cả mệnh đề trước: việc tàu trễ làm chúng tôi lỡ phỏng vấn. “That” không dùng trong mệnh đề quan hệ không xác định sau dấu phẩy; “what” và “who” không phù hợp."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “That” không dùng trong mệnh đề quan hệ không xác định sau dấu phẩy."
+        },
+        {
+          "option": "what",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “what” và “who” không phù hợp."
+        },
+        {
+          "option": "who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “who” không phù hợp."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-04",
       "type": "multiple_choice",
       "question": "Choose the correct **of phrase**: The course has twelve modules, ___ focus on academic writing.",
       "options": [
@@ -491,9 +556,32 @@
       ],
       "correct_answer": "several of which",
       "explanation": "“Modules” là vật/khái niệm nên dùng “which”; sau lượng từ “several” cần cấu trúc “of which”. “Whom” dùng cho người, còn thiếu “of” là sai cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "several of which",
+          "isCorrect": true,
+          "pedagogicalReason": "“Modules” là vật/khái niệm nên dùng “which”; sau lượng từ “several” cần cấu trúc “of which”. “Whom” dùng cho người, còn thiếu “of” là sai cấu trúc."
+        },
+        {
+          "option": "several of whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"several of whom\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "several which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"several which\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "several whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"several whom\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-05",
       "type": "multiple_choice",
       "question": "Choose the formal **preposition** structure: This is the policy ___ our decision was based.",
       "options": [
@@ -504,9 +592,32 @@
       ],
       "correct_answer": "on which",
       "explanation": "Cụm đúng là “be based on”, nên dạng trang trọng là “on which”. “Which on” sai trật tự, “where” dùng cho nơi chốn, “what” không phải đại từ quan hệ ở đây.",
+      "distractor_breakdowns": [
+        {
+          "option": "on which",
+          "isCorrect": true,
+          "pedagogicalReason": "Cụm đúng là “be based on”, nên dạng trang trọng là “on which”. “Which on” sai trật tự, “where” dùng cho nơi chốn, “what” không phải đại từ quan hệ ở đây."
+        },
+        {
+          "option": "which on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Which on” sai trật tự, “where” dùng cho nơi chốn, “what” không phải đại từ quan hệ ở đây."
+        },
+        {
+          "option": "where",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “where” dùng cho nơi chốn, “what” không phải đại từ quan hệ ở đây."
+        },
+        {
+          "option": "what",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “what” không phải đại từ quan hệ ở đây."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-06",
       "type": "multiple_choice",
       "question": "Choose the correct **non-defining** clause: My sister lives in Da Nang, ___ she runs a small design studio.",
       "options": [
@@ -517,9 +628,32 @@
       ],
       "correct_answer": "where",
       "explanation": "“Where” thay cho địa điểm “in Da Nang” trong mệnh đề quan hệ không xác định. “That” không dùng sau dấu phẩy, “which” cần giới từ nếu chỉ nơi chốn, và “what” không phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "where",
+          "isCorrect": true,
+          "pedagogicalReason": "“Where” thay cho địa điểm “in Da Nang” trong mệnh đề quan hệ không xác định. “That” không dùng sau dấu phẩy, “which” cần giới từ nếu chỉ nơi chốn, và “what” không phù hợp."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “That” không dùng sau dấu phẩy, “which” cần giới từ nếu chỉ nơi chốn, và “what” không phù hợp."
+        },
+        {
+          "option": "which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “which” cần giới từ nếu chỉ nơi chốn, và “what” không phù hợp."
+        },
+        {
+          "option": "what",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “what” không phù hợp."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "advanced-relative-clauses-ex-07",
       "type": "multiple_choice",
       "question": "Choose the correct **relative pronoun**: The scientist, ___ latest paper won an award, teaches at our university.",
       "options": [
@@ -530,9 +664,32 @@
       ],
       "correct_answer": "whose",
       "explanation": "“Whose” diễn tả sở hữu: bài báo của nhà khoa học. “Whom” là tân ngữ chỉ người, “which” chỉ vật, và “that” không dùng trong mệnh đề không xác định sau dấu phẩy.",
+      "distractor_breakdowns": [
+        {
+          "option": "whose",
+          "isCorrect": true,
+          "pedagogicalReason": "“Whose” diễn tả sở hữu: bài báo của nhà khoa học. “Whom” là tân ngữ chỉ người, “which” chỉ vật, và “that” không dùng trong mệnh đề không xác định sau dấu phẩy."
+        },
+        {
+          "option": "whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Whom” là tân ngữ chỉ người, “which” chỉ vật, và “that” không dùng trong mệnh đề không xác định sau dấu phẩy."
+        },
+        {
+          "option": "which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “which” chỉ vật, và “that” không dùng trong mệnh đề không xác định sau dấu phẩy."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “that” không dùng trong mệnh đề không xác định sau dấu phẩy."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-08",
       "type": "multiple_choice",
       "question": "Choose the correct **quantifier clause**: The applicants submitted portfolios, ___ were reviewed by two judges.",
       "options": [
@@ -543,9 +700,32 @@
       ],
       "correct_answer": "all of which",
       "explanation": "“Portfolios” là vật nên dùng “which”, và sau “all” cần “of which”. “Whom” dùng cho người; “all which” và “which all” không đúng cấu trúc chuẩn.",
+      "distractor_breakdowns": [
+        {
+          "option": "all of which",
+          "isCorrect": true,
+          "pedagogicalReason": "“Portfolios” là vật nên dùng “which”, và sau “all” cần “of which”. “Whom” dùng cho người; “all which” và “which all” không đúng cấu trúc chuẩn."
+        },
+        {
+          "option": "all of whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"all of whom\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "all which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “all which” và “which all” không đúng cấu trúc chuẩn."
+        },
+        {
+          "option": "which all",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “which all” không đúng cấu trúc chuẩn."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-09",
       "type": "multiple_choice",
       "question": "Choose the best **formal clause**: The committee interviewed three experts, ___ had worked abroad.",
       "options": [
@@ -556,9 +736,32 @@
       ],
       "correct_answer": "two of whom",
       "explanation": "“Experts” là người nên dùng “whom” sau lượng từ “two of”. “Which” dùng cho vật; hai lựa chọn còn lại sai trật tự hoặc thiếu “of”.",
+      "distractor_breakdowns": [
+        {
+          "option": "two of whom",
+          "isCorrect": true,
+          "pedagogicalReason": "“Experts” là người nên dùng “whom” sau lượng từ “two of”. “Which” dùng cho vật; hai lựa chọn còn lại sai trật tự hoặc thiếu “of”."
+        },
+        {
+          "option": "two of which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"two of which\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "two whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"two whom\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "whom two",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"whom two\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-10",
       "type": "multiple_choice",
       "question": "Choose the correct **preposition choice**: The topic ___ they disagreed was later removed from the agenda.",
       "options": [
@@ -569,9 +772,32 @@
       ],
       "correct_answer": "about which",
       "explanation": "Ta nói “disagree about a topic”, nên dạng trang trọng là “about which”. “Which about” sai trật tự, “to whom” dùng cho người, còn “whose” chỉ sở hữu.",
+      "distractor_breakdowns": [
+        {
+          "option": "about which",
+          "isCorrect": true,
+          "pedagogicalReason": "Ta nói “disagree about a topic”, nên dạng trang trọng là “about which”. “Which about” sai trật tự, “to whom” dùng cho người, còn “whose” chỉ sở hữu."
+        },
+        {
+          "option": "which about",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Which about” sai trật tự, “to whom” dùng cho người, còn “whose” chỉ sở hữu."
+        },
+        {
+          "option": "to whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “to whom” dùng cho người, còn “whose” chỉ sở hữu."
+        },
+        {
+          "option": "whose",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “whose” chỉ sở hữu."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "advanced-relative-clauses-ex-11",
       "type": "fill_blank",
       "question": "Complete the **relative clause**: The printer broke again, ___ delayed the whole project.",
       "options": [
@@ -582,9 +808,32 @@
       ],
       "correct_answer": "which",
       "explanation": "“Which” thay cho cả mệnh đề “The printer broke again”. “That” không dùng sau dấu phẩy trong mệnh đề không xác định; “who” dùng cho người, “whose” chỉ sở hữu.",
+      "distractor_breakdowns": [
+        {
+          "option": "which",
+          "isCorrect": true,
+          "pedagogicalReason": "“Which” thay cho cả mệnh đề “The printer broke again”. “That” không dùng sau dấu phẩy trong mệnh đề không xác định; “who” dùng cho người, “whose” chỉ sở hữu."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “That” không dùng sau dấu phẩy trong mệnh đề không xác định."
+        },
+        {
+          "option": "who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “who” dùng cho người, “whose” chỉ sở hữu."
+        },
+        {
+          "option": "whose",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “whose” chỉ sở hữu."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "advanced-relative-clauses-ex-12",
       "type": "fill_blank",
       "question": "Complete the **formal phrase**: The client ___ we prepared the proposal was very demanding.",
       "options": [
@@ -595,9 +844,32 @@
       ],
       "correct_answer": "for whom",
       "explanation": "“Prepare something for someone” nên dùng “for whom” với người. “For which” dùng cho vật, “who for” là dạng kém trang trọng/sai trong vị trí này, “whose” chỉ sở hữu.",
+      "distractor_breakdowns": [
+        {
+          "option": "for whom",
+          "isCorrect": true,
+          "pedagogicalReason": "“Prepare something for someone” nên dùng “for whom” với người. “For which” dùng cho vật, “who for” là dạng kém trang trọng/sai trong vị trí này, “whose” chỉ sở hữu."
+        },
+        {
+          "option": "for which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “For which” dùng cho vật, “who for” là dạng kém trang trọng/sai trong vị trí này, “whose” chỉ sở hữu."
+        },
+        {
+          "option": "who for",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “who for” là dạng kém trang trọng/sai trong vị trí này, “whose” chỉ sở hữu."
+        },
+        {
+          "option": "whose",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “whose” chỉ sở hữu."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-13",
       "type": "fill_blank",
       "question": "Complete the **of whom** clause: She invited six colleagues, ___ had worked with her before.",
       "options": [
@@ -608,9 +880,32 @@
       ],
       "correct_answer": "three of whom",
       "explanation": "“Colleagues” là người nên dùng “three of whom”. “Which” dùng cho vật, còn “three whom” và “whom three” sai cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "three of whom",
+          "isCorrect": true,
+          "pedagogicalReason": "“Colleagues” là người nên dùng “three of whom”. “Which” dùng cho vật, còn “three whom” và “whom three” sai cấu trúc."
+        },
+        {
+          "option": "three of which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"three of which\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "three whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “three whom” và “whom three” sai cấu trúc."
+        },
+        {
+          "option": "whom three",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “whom three” sai cấu trúc."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-14",
       "type": "fill_blank",
       "question": "Complete the **of which** clause: The company opened five branches, ___ are in the north.",
       "options": [
@@ -621,9 +916,32 @@
       ],
       "correct_answer": "two of which",
       "explanation": "“Branches” là vật/địa điểm nên dùng “two of which”. “Whom” dùng cho người, hai lựa chọn còn lại thiếu hoặc sai vị trí “of”.",
+      "distractor_breakdowns": [
+        {
+          "option": "two of which",
+          "isCorrect": true,
+          "pedagogicalReason": "“Branches” là vật/địa điểm nên dùng “two of which”. “Whom” dùng cho người, hai lựa chọn còn lại thiếu hoặc sai vị trí “of”."
+        },
+        {
+          "option": "two of whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"two of whom\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "two which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"two which\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "which two",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"which two\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-15",
       "type": "fill_blank",
       "question": "Complete the **preposition clause**: The contract ___ both sides referred was signed last year.",
       "options": [
@@ -634,9 +952,32 @@
       ],
       "correct_answer": "to which",
       "explanation": "Ta nói “refer to a contract”, nên dạng trang trọng là “to which”. “Whom” dùng cho người, “which to” và “that to” sai trật tự/cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "to which",
+          "isCorrect": true,
+          "pedagogicalReason": "Ta nói “refer to a contract”, nên dạng trang trọng là “to which”. “Whom” dùng cho người, “which to” và “that to” sai trật tự/cấu trúc."
+        },
+        {
+          "option": "to whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to whom\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "which to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “which to” và “that to” sai trật tự/cấu trúc."
+        },
+        {
+          "option": "that to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “that to” sai trật tự/cấu trúc."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "advanced-relative-clauses-ex-16",
       "type": "fill_blank",
       "question": "Complete the **whole-clause** reference: He forgot to attach the file, ___ meant we had to resend the email.",
       "options": [
@@ -647,9 +988,32 @@
       ],
       "correct_answer": "which",
       "explanation": "“Which” tham chiếu cả việc anh ấy quên đính kèm file. “What” không dùng làm đại từ quan hệ kiểu này, “that” không dùng sau dấu phẩy, “who” dùng cho người.",
+      "distractor_breakdowns": [
+        {
+          "option": "which",
+          "isCorrect": true,
+          "pedagogicalReason": "“Which” tham chiếu cả việc anh ấy quên đính kèm file. “What” không dùng làm đại từ quan hệ kiểu này, “that” không dùng sau dấu phẩy, “who” dùng cho người."
+        },
+        {
+          "option": "what",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “What” không dùng làm đại từ quan hệ kiểu này, “that” không dùng sau dấu phẩy, “who” dùng cho người."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “that” không dùng sau dấu phẩy, “who” dùng cho người."
+        },
+        {
+          "option": "who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “who” dùng cho người."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-17",
       "type": "fill_blank",
       "question": "Complete the **whose clause**: The author, ___ novel was translated into Vietnamese, visited Hanoi.",
       "options": [
@@ -660,9 +1024,32 @@
       ],
       "correct_answer": "whose",
       "explanation": "“Whose novel” nghĩa là cuốn tiểu thuyết của tác giả. “Whom” là tân ngữ, “which” dùng cho vật, “that” không dùng trong mệnh đề không xác định sau dấu phẩy.",
+      "distractor_breakdowns": [
+        {
+          "option": "whose",
+          "isCorrect": true,
+          "pedagogicalReason": "“Whose novel” nghĩa là cuốn tiểu thuyết của tác giả. “Whom” là tân ngữ, “which” dùng cho vật, “that” không dùng trong mệnh đề không xác định sau dấu phẩy."
+        },
+        {
+          "option": "whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Whom” là tân ngữ, “which” dùng cho vật, “that” không dùng trong mệnh đề không xác định sau dấu phẩy."
+        },
+        {
+          "option": "which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “which” dùng cho vật, “that” không dùng trong mệnh đề không xác định sau dấu phẩy."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “that” không dùng trong mệnh đề không xác định sau dấu phẩy."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "advanced-relative-clauses-ex-18",
       "type": "fill_blank",
       "question": "Complete the **formal object** clause: The candidate ___ the panel selected had excellent references.",
       "options": [
@@ -673,9 +1060,32 @@
       ],
       "correct_answer": "whom",
       "explanation": "“Whom” là tân ngữ chỉ người của động từ “selected” trong văn phong trang trọng. “Which” dùng cho vật, “whose” chỉ sở hữu, “where” chỉ nơi chốn.",
+      "distractor_breakdowns": [
+        {
+          "option": "whom",
+          "isCorrect": true,
+          "pedagogicalReason": "“Whom” là tân ngữ chỉ người của động từ “selected” trong văn phong trang trọng. “Which” dùng cho vật, “whose” chỉ sở hữu, “where” chỉ nơi chốn."
+        },
+        {
+          "option": "which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Which” dùng cho vật, “whose” chỉ sở hữu, “where” chỉ nơi chốn."
+        },
+        {
+          "option": "whose",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “whose” chỉ sở hữu, “where” chỉ nơi chốn."
+        },
+        {
+          "option": "where",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “where” chỉ nơi chốn."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-19",
       "type": "error_correction",
       "question": "Find the error: The article **to whom** I referred was published in 2021.",
       "options": [
@@ -686,9 +1096,32 @@
       ],
       "correct_answer": "to whom",
       "explanation": "Sai ở “to whom” vì “article” là vật/ văn bản, phải dùng “to which”. “I referred” cần giới từ “to”, và các phần còn lại đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "The article",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The article\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "to whom",
+          "isCorrect": true,
+          "pedagogicalReason": "Sai ở “to whom” vì “article” là vật/ văn bản, phải dùng “to which”. “I referred” cần giới từ “to”, và các phần còn lại đúng."
+        },
+        {
+          "option": "I referred",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “I referred” cần giới từ “to”, và các phần còn lại đúng."
+        },
+        {
+          "option": "was published",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"was published\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-20",
       "type": "error_correction",
       "question": "Find the error: The seminar was postponed, **that** disappointed many students.",
       "options": [
@@ -699,9 +1132,32 @@
       ],
       "correct_answer": "that",
       "explanation": "Sau dấu phẩy, khi thay cho cả mệnh đề trước, phải dùng “which”, không dùng “that”. Các phần khác đúng về nghĩa và ngữ pháp.",
+      "distractor_breakdowns": [
+        {
+          "option": "The seminar",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The seminar\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "was postponed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"was postponed\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "that",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau dấu phẩy, khi thay cho cả mệnh đề trước, phải dùng “which”, không dùng “that”. Các phần khác đúng về nghĩa và ngữ pháp."
+        },
+        {
+          "option": "many students",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"many students\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-21",
       "type": "error_correction",
       "question": "Find the error: The engineers, **many of which** had overseas experience, solved the issue quickly.",
       "options": [
@@ -712,9 +1168,32 @@
       ],
       "correct_answer": "many of which",
       "explanation": "“Engineers” là người nên phải dùng “many of whom”. “Which” dùng cho vật; các cụm còn lại không sai trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "The engineers",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The engineers\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "many of which",
+          "isCorrect": true,
+          "pedagogicalReason": "“Engineers” là người nên phải dùng “many of whom”. “Which” dùng cho vật; các cụm còn lại không sai trong câu này."
+        },
+        {
+          "option": "overseas experience",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"overseas experience\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "solved",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"solved\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-22",
       "type": "error_correction",
       "question": "Find the error: The plan **which on** we relied failed after two months.",
       "options": [
@@ -725,9 +1204,32 @@
       ],
       "correct_answer": "which on",
       "explanation": "Cụm đúng là “rely on”, nên dạng trang trọng phải là “on which we relied”. “The plan”, “we relied” và “failed” không phải lỗi chính.",
+      "distractor_breakdowns": [
+        {
+          "option": "The plan",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “The plan”, “we relied” và “failed” không phải lỗi chính."
+        },
+        {
+          "option": "which on",
+          "isCorrect": true,
+          "pedagogicalReason": "Cụm đúng là “rely on”, nên dạng trang trọng phải là “on which we relied”. “The plan”, “we relied” và “failed” không phải lỗi chính."
+        },
+        {
+          "option": "we relied",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “we relied” và “failed” không phải lỗi chính."
+        },
+        {
+          "option": "failed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “failed” không phải lỗi chính."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "advanced-relative-clauses-ex-23",
       "type": "error_correction",
       "question": "Find the error: Our office, **that** is near the station, closes at six.",
       "options": [
@@ -738,9 +1240,32 @@
       ],
       "correct_answer": "that",
       "explanation": "Mệnh đề không xác định sau dấu phẩy không dùng “that”; phải dùng “which”. Các phần còn lại đúng về nghĩa và cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "Our office",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Our office\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "that",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề không xác định sau dấu phẩy không dùng “that”; phải dùng “which”. Các phần còn lại đúng về nghĩa và cấu trúc."
+        },
+        {
+          "option": "near the station",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"near the station\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "closes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"closes\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-24",
       "type": "error_correction",
       "question": "Find the error: The students submitted essays, **all of whom** were checked for plagiarism.",
       "options": [
@@ -751,9 +1276,32 @@
       ],
       "correct_answer": "all of whom",
       "explanation": "Cụm này bổ nghĩa cho “essays”, là vật, nên phải dùng “all of which”. “Whom” chỉ người, còn các phần khác không sai trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "The students",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The students\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "submitted essays",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"submitted essays\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "all of whom",
+          "isCorrect": true,
+          "pedagogicalReason": "Cụm này bổ nghĩa cho “essays”, là vật, nên phải dùng “all of which”. “Whom” chỉ người, còn các phần khác không sai trong câu này."
+        },
+        {
+          "option": "were checked",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"were checked\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "advanced-relative-clauses-ex-25",
       "type": "error_correction",
       "question": "Find the error: The hotel **in whom** we stayed had a beautiful rooftop cafe.",
       "options": [
@@ -764,9 +1312,32 @@
       ],
       "correct_answer": "in whom",
       "explanation": "“Hotel” là nơi chốn, nên dùng “where” hoặc “in which”, không dùng “whom”. Các cụm còn lại đúng trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "The hotel",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The hotel\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "in whom",
+          "isCorrect": true,
+          "pedagogicalReason": "“Hotel” là nơi chốn, nên dùng “where” hoặc “in which”, không dùng “whom”. Các cụm còn lại đúng trong câu."
+        },
+        {
+          "option": "we stayed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"we stayed\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"had\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-26",
       "type": "error_correction",
       "question": "Find the error: The report, **whose** was submitted late, still received a high score.",
       "options": [
@@ -777,9 +1348,32 @@
       ],
       "correct_answer": "whose",
       "explanation": "“Whose” phải đi với một danh từ phía sau, ví dụ “whose findings”. Ở đây cần “which was submitted late” vì nói về bản báo cáo; các phần khác đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "The report",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The report\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "whose",
+          "isCorrect": true,
+          "pedagogicalReason": "“Whose” phải đi với một danh từ phía sau, ví dụ “whose findings”. Ở đây cần “which was submitted late” vì nói về bản báo cáo; các phần khác đúng."
+        },
+        {
+          "option": "was submitted",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Was submitted late” vì nói về bản báo cáo."
+        },
+        {
+          "option": "a high score",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"a high score\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "advanced-relative-clauses-ex-27",
       "type": "multiple_choice",
       "question": "Choose the correct **relative phrase**: The lawyer ___ we gave the documents explained the risks clearly.",
       "options": [
@@ -790,9 +1384,32 @@
       ],
       "correct_answer": "to whom",
       "explanation": "Đáp án đúng là “to whom” vì “give documents to someone” và danh từ chỉ người là “the lawyer”. “To which” dùng cho vật/ý, còn “whom to” và “which to” sai trật tự trong mệnh đề quan hệ trang trọng.",
+      "distractor_breakdowns": [
+        {
+          "option": "to whom",
+          "isCorrect": true,
+          "pedagogicalReason": "Đáp án đúng là “to whom” vì “give documents to someone” và danh từ chỉ người là “the lawyer”. “To which” dùng cho vật/ý, còn “whom to” và “which to” sai trật tự trong mệnh đề quan hệ trang trọng."
+        },
+        {
+          "option": "to which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “To which” dùng cho vật/ý, còn “whom to” và “which to” sai trật tự trong mệnh đề quan hệ trang trọng."
+        },
+        {
+          "option": "whom to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “whom to” và “which to” sai trật tự trong mệnh đề quan hệ trang trọng."
+        },
+        {
+          "option": "which to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “which to” sai trật tự trong mệnh đề quan hệ trang trọng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-28",
       "type": "multiple_choice",
       "question": "Choose the best **whole-clause** reference: He missed the final deadline, ___ put the team under pressure.",
       "options": [
@@ -803,9 +1420,32 @@
       ],
       "correct_answer": "which",
       "explanation": "“Which” có thể thay cho cả mệnh đề trước: việc anh ấy lỡ hạn chót gây áp lực cho nhóm. “That” không dùng sau dấu phẩy trong mệnh đề quan hệ không xác định, “what” không thay thế mệnh đề trước, và “who” chỉ người.",
+      "distractor_breakdowns": [
+        {
+          "option": "which",
+          "isCorrect": true,
+          "pedagogicalReason": "“Which” có thể thay cho cả mệnh đề trước: việc anh ấy lỡ hạn chót gây áp lực cho nhóm. “That” không dùng sau dấu phẩy trong mệnh đề quan hệ không xác định, “what” không thay thế mệnh đề trước, và “who” chỉ người."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “That” không dùng sau dấu phẩy trong mệnh đề quan hệ không xác định, “what” không thay thế mệnh đề trước, và “who” chỉ người."
+        },
+        {
+          "option": "what",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “what” không thay thế mệnh đề trước, và “who” chỉ người."
+        },
+        {
+          "option": "who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “who” chỉ người."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-29",
       "type": "multiple_choice",
       "question": "Choose the correct **of which** phrase: The project has four stages, ___ requires separate approval.",
       "options": [
@@ -816,9 +1456,32 @@
       ],
       "correct_answer": "each of which",
       "explanation": "“Stages” là vật/khái niệm nên dùng “each of which” để nói mỗi giai đoạn đều cần phê duyệt. “Each of whom” dùng cho người, còn “which each” và “each that” không đúng cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "each of which",
+          "isCorrect": true,
+          "pedagogicalReason": "“Stages” là vật/khái niệm nên dùng “each of which” để nói mỗi giai đoạn đều cần phê duyệt. “Each of whom” dùng cho người, còn “which each” và “each that” không đúng cấu trúc."
+        },
+        {
+          "option": "each of whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Each of whom” dùng cho người, còn “which each” và “each that” không đúng cấu trúc."
+        },
+        {
+          "option": "which each",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “which each” và “each that” không đúng cấu trúc."
+        },
+        {
+          "option": "each that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “each that” không đúng cấu trúc."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-30",
       "type": "multiple_choice",
       "question": "Choose the formal **preposition** structure: The evidence ___ the conclusion depends is still incomplete.",
       "options": [
@@ -829,9 +1492,32 @@
       ],
       "correct_answer": "on which",
       "explanation": "Ta nói “depend on something”, nên cấu trúc trang trọng là “on which”. “Which on” sai vị trí giới từ, “on whom” dùng cho người, và “that on” không dùng trong cấu trúc giới từ + đại từ quan hệ.",
+      "distractor_breakdowns": [
+        {
+          "option": "on which",
+          "isCorrect": true,
+          "pedagogicalReason": "Ta nói “depend on something”, nên cấu trúc trang trọng là “on which”. “Which on” sai vị trí giới từ, “on whom” dùng cho người, và “that on” không dùng trong cấu trúc giới từ + đại từ quan hệ."
+        },
+        {
+          "option": "which on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Which on” sai vị trí giới từ, “on whom” dùng cho người, và “that on” không dùng trong cấu trúc giới từ + đại từ quan hệ."
+        },
+        {
+          "option": "on whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “on whom” dùng cho người, và “that on” không dùng trong cấu trúc giới từ + đại từ quan hệ."
+        },
+        {
+          "option": "that on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “that on” không dùng trong cấu trúc giới từ + đại từ quan hệ."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-31",
       "type": "multiple_choice",
       "question": "Choose the correct **whose clause**: The village, ___ roads were damaged by the storm, received emergency support.",
       "options": [
@@ -842,9 +1528,32 @@
       ],
       "correct_answer": "whose",
       "explanation": "“Whose” diễn tả sở hữu: roads của ngôi làng. “Which” không đứng trực tiếp trước danh từ để chỉ sở hữu, “where” chỉ nơi chốn, và “that” không dùng sau dấu phẩy trong mệnh đề không xác định.",
+      "distractor_breakdowns": [
+        {
+          "option": "whose",
+          "isCorrect": true,
+          "pedagogicalReason": "“Whose” diễn tả sở hữu: roads của ngôi làng. “Which” không đứng trực tiếp trước danh từ để chỉ sở hữu, “where” chỉ nơi chốn, và “that” không dùng sau dấu phẩy trong mệnh đề không xác định."
+        },
+        {
+          "option": "which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Which” không đứng trực tiếp trước danh từ để chỉ sở hữu, “where” chỉ nơi chốn, và “that” không dùng sau dấu phẩy trong mệnh đề không xác định."
+        },
+        {
+          "option": "where",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “where” chỉ nơi chốn, và “that” không dùng sau dấu phẩy trong mệnh đề không xác định."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “that” không dùng sau dấu phẩy trong mệnh đề không xác định."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-32",
       "type": "multiple_choice",
       "question": "Choose the correct **relative adverb**: The archive, ___ many rare letters are kept, is open to researchers.",
       "options": [
@@ -855,9 +1564,32 @@
       ],
       "correct_answer": "where",
       "explanation": "“Where” thay cho nơi chốn trong mệnh đề quan hệ: thư được lưu giữ ở kho lưu trữ đó. “Which” cần giới từ như “in which”, “that” không dùng sau dấu phẩy, và “whose” chỉ sở hữu.",
+      "distractor_breakdowns": [
+        {
+          "option": "where",
+          "isCorrect": true,
+          "pedagogicalReason": "“Where” thay cho nơi chốn trong mệnh đề quan hệ: thư được lưu giữ ở kho lưu trữ đó. “Which” cần giới từ như “in which”, “that” không dùng sau dấu phẩy, và “whose” chỉ sở hữu."
+        },
+        {
+          "option": "which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Which” cần giới từ như “in which”, “that” không dùng sau dấu phẩy, và “whose” chỉ sở hữu."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “that” không dùng sau dấu phẩy, và “whose” chỉ sở hữu."
+        },
+        {
+          "option": "whose",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “whose” chỉ sở hữu."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "advanced-relative-clauses-ex-33",
       "type": "multiple_choice",
       "question": "Choose the best **quantifier** clause: The volunteers brought ten laptops, ___ were donated to local schools.",
       "options": [
@@ -868,9 +1600,32 @@
       ],
       "correct_answer": "most of which",
       "explanation": "“Laptops” là vật nên dùng “most of which”. “Most of whom” dùng cho người, còn “which most” và “most that” sai cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "most of which",
+          "isCorrect": true,
+          "pedagogicalReason": "“Laptops” là vật nên dùng “most of which”. “Most of whom” dùng cho người, còn “which most” và “most that” sai cấu trúc."
+        },
+        {
+          "option": "most of whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Most of whom” dùng cho người, còn “which most” và “most that” sai cấu trúc."
+        },
+        {
+          "option": "which most",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “which most” và “most that” sai cấu trúc."
+        },
+        {
+          "option": "most that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “most that” sai cấu trúc."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-34",
       "type": "multiple_choice",
       "question": "Choose the correct **formal clause**: The consultant ___ we turned for advice suggested a simpler solution.",
       "options": [
@@ -881,9 +1636,32 @@
       ],
       "correct_answer": "to whom",
       "explanation": "Ta nói “turn to someone for advice”, nên dùng “to whom” với người. “To which” dùng cho vật/ý, còn “whom to” và “who to” sai cấu trúc mệnh đề quan hệ trang trọng.",
+      "distractor_breakdowns": [
+        {
+          "option": "to whom",
+          "isCorrect": true,
+          "pedagogicalReason": "Ta nói “turn to someone for advice”, nên dùng “to whom” với người. “To which” dùng cho vật/ý, còn “whom to” và “who to” sai cấu trúc mệnh đề quan hệ trang trọng."
+        },
+        {
+          "option": "to which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “To which” dùng cho vật/ý, còn “whom to” và “who to” sai cấu trúc mệnh đề quan hệ trang trọng."
+        },
+        {
+          "option": "whom to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “whom to” và “who to” sai cấu trúc mệnh đề quan hệ trang trọng."
+        },
+        {
+          "option": "who to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “who to” sai cấu trúc mệnh đề quan hệ trang trọng."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "advanced-relative-clauses-ex-35",
       "type": "multiple_choice",
       "question": "Choose the correct **non-defining** clause: Our main server, ___ stores all customer records, will be upgraded tonight.",
       "options": [
@@ -894,9 +1672,32 @@
       ],
       "correct_answer": "which",
       "explanation": "“Which” dùng cho vật trong mệnh đề quan hệ không xác định sau dấu phẩy. “That” không dùng sau dấu phẩy, “who” dùng cho người, và “where” chỉ nơi chốn chứ không làm chủ ngữ cho “stores”.",
+      "distractor_breakdowns": [
+        {
+          "option": "which",
+          "isCorrect": true,
+          "pedagogicalReason": "“Which” dùng cho vật trong mệnh đề quan hệ không xác định sau dấu phẩy. “That” không dùng sau dấu phẩy, “who” dùng cho người, và “where” chỉ nơi chốn chứ không làm chủ ngữ cho “stores”."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “That” không dùng sau dấu phẩy, “who” dùng cho người, và “where” chỉ nơi chốn chứ không làm chủ ngữ cho “stores”."
+        },
+        {
+          "option": "who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “who” dùng cho người, và “where” chỉ nơi chốn chứ không làm chủ ngữ cho “stores”."
+        },
+        {
+          "option": "where",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “where” chỉ nơi chốn chứ không làm chủ ngữ cho “stores”."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "advanced-relative-clauses-ex-36",
       "type": "fill_blank",
       "question": "Complete the **preposition phrase**: The research method ___ they objected was later revised.",
       "options": [
@@ -907,9 +1708,32 @@
       ],
       "correct_answer": "to which",
       "explanation": "Ta nói “object to something”, nên với “method” phải dùng “to which”. “Which to” sai trật tự, “to whom” dùng cho người, và “that to” không đúng trong cấu trúc trang trọng.",
+      "distractor_breakdowns": [
+        {
+          "option": "to which",
+          "isCorrect": true,
+          "pedagogicalReason": "Ta nói “object to something”, nên với “method” phải dùng “to which”. “Which to” sai trật tự, “to whom” dùng cho người, và “that to” không đúng trong cấu trúc trang trọng."
+        },
+        {
+          "option": "which to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Which to” sai trật tự, “to whom” dùng cho người, và “that to” không đúng trong cấu trúc trang trọng."
+        },
+        {
+          "option": "to whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “to whom” dùng cho người, và “that to” không đúng trong cấu trúc trang trọng."
+        },
+        {
+          "option": "that to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “that to” không đúng trong cấu trúc trang trọng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-37",
       "type": "fill_blank",
       "question": "Complete the **whole-clause** reference: The lights went out during the exam, ___ caused a short delay.",
       "options": [
@@ -920,9 +1744,32 @@
       ],
       "correct_answer": "which",
       "explanation": "“Which” thay cho toàn bộ sự việc đèn tắt trong lúc thi. “That” không dùng sau dấu phẩy kiểu này, “what” không tham chiếu mệnh đề trước, và “where” chỉ nơi chốn.",
+      "distractor_breakdowns": [
+        {
+          "option": "which",
+          "isCorrect": true,
+          "pedagogicalReason": "“Which” thay cho toàn bộ sự việc đèn tắt trong lúc thi. “That” không dùng sau dấu phẩy kiểu này, “what” không tham chiếu mệnh đề trước, và “where” chỉ nơi chốn."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “That” không dùng sau dấu phẩy kiểu này, “what” không tham chiếu mệnh đề trước, và “where” chỉ nơi chốn."
+        },
+        {
+          "option": "what",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “what” không tham chiếu mệnh đề trước, và “where” chỉ nơi chốn."
+        },
+        {
+          "option": "where",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “where” chỉ nơi chốn."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-38",
       "type": "fill_blank",
       "question": "Complete the **of whom** clause: The panel included five judges, ___ had taught at international universities.",
       "options": [
@@ -933,9 +1780,32 @@
       ],
       "correct_answer": "three of whom",
       "explanation": "“Judges” là người nên dùng “three of whom” để nói ba trong số họ. “Three of which” dùng cho vật, còn “whom three” và “three that” sai cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "three of whom",
+          "isCorrect": true,
+          "pedagogicalReason": "“Judges” là người nên dùng “three of whom” để nói ba trong số họ. “Three of which” dùng cho vật, còn “whom three” và “three that” sai cấu trúc."
+        },
+        {
+          "option": "three of which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Three of which” dùng cho vật, còn “whom three” và “three that” sai cấu trúc."
+        },
+        {
+          "option": "whom three",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “whom three” và “three that” sai cấu trúc."
+        },
+        {
+          "option": "three that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “three that” sai cấu trúc."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-39",
       "type": "fill_blank",
       "question": "Complete the **of which** clause: The report listed several causes, ___ was poor communication.",
       "options": [
@@ -946,9 +1816,32 @@
       ],
       "correct_answer": "one of which",
       "explanation": "“Causes” là ý/vật nên dùng “one of which”. “One of whom” dùng cho người, “which one” là dạng câu hỏi/lựa chọn, và “one that” không phù hợp sau dấu phẩy trong cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "one of which",
+          "isCorrect": true,
+          "pedagogicalReason": "“Causes” là ý/vật nên dùng “one of which”. “One of whom” dùng cho người, “which one” là dạng câu hỏi/lựa chọn, và “one that” không phù hợp sau dấu phẩy trong cấu trúc này."
+        },
+        {
+          "option": "one of whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “One of whom” dùng cho người, “which one” là dạng câu hỏi/lựa chọn, và “one that” không phù hợp sau dấu phẩy trong cấu trúc này."
+        },
+        {
+          "option": "which one",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “which one” là dạng câu hỏi/lựa chọn, và “one that” không phù hợp sau dấu phẩy trong cấu trúc này."
+        },
+        {
+          "option": "one that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “one that” không phù hợp sau dấu phẩy trong cấu trúc này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-40",
       "type": "fill_blank",
       "question": "Complete the **formal relative** clause: The mentor ___ I owe much of my progress still teaches online.",
       "options": [
@@ -959,9 +1852,32 @@
       ],
       "correct_answer": "to whom",
       "explanation": "Ta nói “owe something to someone”, nên cấu trúc đúng là “to whom”. “To which” dùng cho vật/ý, còn “whom to” và “who to” sai trật tự trong mệnh đề quan hệ.",
+      "distractor_breakdowns": [
+        {
+          "option": "to whom",
+          "isCorrect": true,
+          "pedagogicalReason": "Ta nói “owe something to someone”, nên cấu trúc đúng là “to whom”. “To which” dùng cho vật/ý, còn “whom to” và “who to” sai trật tự trong mệnh đề quan hệ."
+        },
+        {
+          "option": "to which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “To which” dùng cho vật/ý, còn “whom to” và “who to” sai trật tự trong mệnh đề quan hệ."
+        },
+        {
+          "option": "whom to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “whom to” và “who to” sai trật tự trong mệnh đề quan hệ."
+        },
+        {
+          "option": "who to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “who to” sai trật tự trong mệnh đề quan hệ."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "advanced-relative-clauses-ex-41",
       "type": "fill_blank",
       "question": "Complete the **whose phrase**: The start-up, ___ founders met at university, has just raised new funding.",
       "options": [
@@ -972,9 +1888,32 @@
       ],
       "correct_answer": "whose",
       "explanation": "“Whose founders” nghĩa là những người sáng lập của công ty đó. “Which” không chỉ sở hữu trực tiếp trước danh từ, “that” không dùng sau dấu phẩy, và “where” chỉ nơi chốn.",
+      "distractor_breakdowns": [
+        {
+          "option": "whose",
+          "isCorrect": true,
+          "pedagogicalReason": "“Whose founders” nghĩa là những người sáng lập của công ty đó. “Which” không chỉ sở hữu trực tiếp trước danh từ, “that” không dùng sau dấu phẩy, và “where” chỉ nơi chốn."
+        },
+        {
+          "option": "which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Which” không chỉ sở hữu trực tiếp trước danh từ, “that” không dùng sau dấu phẩy, và “where” chỉ nơi chốn."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “that” không dùng sau dấu phẩy, và “where” chỉ nơi chốn."
+        },
+        {
+          "option": "where",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “where” chỉ nơi chốn."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-42",
       "type": "fill_blank",
       "question": "Complete the **relative place** clause: The laboratory, ___ the samples were tested, follows strict safety rules.",
       "options": [
@@ -985,9 +1924,32 @@
       ],
       "correct_answer": "where",
       "explanation": "“Where” thay cho nơi chốn: các mẫu được kiểm tra trong phòng thí nghiệm. “Which” cần giới từ “in which”, “that” không dùng sau dấu phẩy, và “whose” diễn tả sở hữu.",
+      "distractor_breakdowns": [
+        {
+          "option": "where",
+          "isCorrect": true,
+          "pedagogicalReason": "“Where” thay cho nơi chốn: các mẫu được kiểm tra trong phòng thí nghiệm. “Which” cần giới từ “in which”, “that” không dùng sau dấu phẩy, và “whose” diễn tả sở hữu."
+        },
+        {
+          "option": "which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Which” cần giới từ “in which”, “that” không dùng sau dấu phẩy, và “whose” diễn tả sở hữu."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “that” không dùng sau dấu phẩy, và “whose” diễn tả sở hữu."
+        },
+        {
+          "option": "whose",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “whose” diễn tả sở hữu."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "advanced-relative-clauses-ex-43",
       "type": "fill_blank",
       "question": "Complete the **quantifier phrase**: The company hired twelve interns, ___ were assigned to the data team.",
       "options": [
@@ -998,9 +1960,32 @@
       ],
       "correct_answer": "half of whom",
       "explanation": "“Interns” là người nên dùng “half of whom”. “Half of which” dùng cho vật, còn “whom half” và “half that” sai cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "half of whom",
+          "isCorrect": true,
+          "pedagogicalReason": "“Interns” là người nên dùng “half of whom”. “Half of which” dùng cho vật, còn “whom half” và “half that” sai cấu trúc."
+        },
+        {
+          "option": "half of which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Half of which” dùng cho vật, còn “whom half” và “half that” sai cấu trúc."
+        },
+        {
+          "option": "whom half",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “whom half” và “half that” sai cấu trúc."
+        },
+        {
+          "option": "half that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “half that” sai cấu trúc."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-44",
       "type": "error_correction",
       "question": "Find the error: The conference, **that** attracted speakers from six countries, ended on Friday.",
       "options": [
@@ -1011,9 +1996,32 @@
       ],
       "correct_answer": "that",
       "explanation": "Sau dấu phẩy trong mệnh đề quan hệ không xác định, không dùng “that”; cần dùng “which” cho “conference”. Các từ còn lại đúng về vai trò trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "conference",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"conference\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "that",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau dấu phẩy trong mệnh đề quan hệ không xác định, không dùng “that”; cần dùng “which” cho “conference”. Các từ còn lại đúng về vai trò trong câu."
+        },
+        {
+          "option": "speakers",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"speakers\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "ended",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"ended\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "advanced-relative-clauses-ex-45",
       "type": "error_correction",
       "question": "Find the error: The professor **to which** I sent my draft gave detailed comments.",
       "options": [
@@ -1024,9 +2032,32 @@
       ],
       "correct_answer": "to which",
       "explanation": "“Professor” là người nên dùng “to whom”, không phải “to which”. Các lựa chọn khác là danh từ đúng và không gây lỗi ngữ pháp trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "professor",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Professor” là người nên dùng “to whom”, không phải “to which”."
+        },
+        {
+          "option": "to which",
+          "isCorrect": true,
+          "pedagogicalReason": "“Professor” là người nên dùng “to whom”, không phải “to which”. Các lựa chọn khác là danh từ đúng và không gây lỗi ngữ pháp trong câu."
+        },
+        {
+          "option": "draft",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"draft\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "comments",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"comments\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-46",
       "type": "error_correction",
       "question": "Find the error: The two solutions, **both of whom** seemed practical, were tested immediately.",
       "options": [
@@ -1037,9 +2068,32 @@
       ],
       "correct_answer": "both of whom",
       "explanation": "“Solutions” là vật/ý nên phải dùng “both of which”. “Both of whom” chỉ dùng cho người; các phần còn lại đúng trong câu bị động và nghĩa của câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "solutions",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Solutions” là vật/ý nên phải dùng “both of which”."
+        },
+        {
+          "option": "both of whom",
+          "isCorrect": true,
+          "pedagogicalReason": "“Solutions” là vật/ý nên phải dùng “both of which”. “Both of whom” chỉ dùng cho người; các phần còn lại đúng trong câu bị động và nghĩa của câu."
+        },
+        {
+          "option": "practical",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"practical\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "tested",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"tested\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-47",
       "type": "error_correction",
       "question": "Find the error: The deadline was moved forward, **what** upset several departments.",
       "options": [
@@ -1050,9 +2104,32 @@
       ],
       "correct_answer": "what",
       "explanation": "Khi tham chiếu cả mệnh đề trước sau dấu phẩy, dùng “which”, không dùng “what”. Các cụm còn lại đúng về nghĩa và cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "deadline",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"deadline\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "moved forward",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"moved forward\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "what",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi tham chiếu cả mệnh đề trước sau dấu phẩy, dùng “which”, không dùng “what”. Các cụm còn lại đúng về nghĩa và cấu trúc."
+        },
+        {
+          "option": "departments",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"departments\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-48",
       "type": "error_correction",
       "question": "Find the error: The charity **for whom** the concert raised money supports children with disabilities.",
       "options": [
@@ -1063,9 +2140,32 @@
       ],
       "correct_answer": "for whom",
       "explanation": "“Charity” là tổ chức/vật theo ngữ pháp nên dùng “for which”, không phải “for whom”. Các từ còn lại đúng trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "charity",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Charity” là tổ chức/vật theo ngữ pháp nên dùng “for which”, không phải “for whom”."
+        },
+        {
+          "option": "for whom",
+          "isCorrect": true,
+          "pedagogicalReason": "“Charity” là tổ chức/vật theo ngữ pháp nên dùng “for which”, không phải “for whom”. Các từ còn lại đúng trong câu."
+        },
+        {
+          "option": "concert",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"concert\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "supports",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"supports\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-49",
       "type": "error_correction",
       "question": "Find the error: The guidebook, **whose** explains local customs, is available at the airport.",
       "options": [
@@ -1076,9 +2176,32 @@
       ],
       "correct_answer": "whose",
       "explanation": "“Whose” phải đi với một danh từ như “whose author”; ở đây cần “which explains”. Các lựa chọn khác không sai về ngữ pháp trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "guidebook",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"guidebook\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "whose",
+          "isCorrect": true,
+          "pedagogicalReason": "“Whose” phải đi với một danh từ như “whose author”; ở đây cần “which explains”. Các lựa chọn khác không sai về ngữ pháp trong câu."
+        },
+        {
+          "option": "customs",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"customs\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "available",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"available\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-50",
       "type": "error_correction",
       "question": "Find the error: The survey included 800 responses, **many of whom** came from rural areas.",
       "options": [
@@ -1089,9 +2212,32 @@
       ],
       "correct_answer": "many of whom",
       "explanation": "“Responses” là vật/ý nên dùng “many of which”. “Many of whom” chỉ dùng cho người; các cụm còn lại phù hợp về nghĩa.",
+      "distractor_breakdowns": [
+        {
+          "option": "survey",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"survey\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "responses",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Responses” là vật/ý nên dùng “many of which”."
+        },
+        {
+          "option": "many of whom",
+          "isCorrect": true,
+          "pedagogicalReason": "“Responses” là vật/ý nên dùng “many of which”. “Many of whom” chỉ dùng cho người; các cụm còn lại phù hợp về nghĩa."
+        },
+        {
+          "option": "rural areas",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"rural areas\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-51",
       "type": "error_correction",
       "question": "Find the error: The issue **about whom** we were concerned has now been resolved.",
       "options": [
@@ -1102,9 +2248,32 @@
       ],
       "correct_answer": "about whom",
       "explanation": "“Issue” là vấn đề, không phải người, nên dùng “about which”. Các phần khác đúng: “be concerned about” và “has been resolved” đều phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "issue",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Issue” là vấn đề, không phải người, nên dùng “about which”."
+        },
+        {
+          "option": "about whom",
+          "isCorrect": true,
+          "pedagogicalReason": "“Issue” là vấn đề, không phải người, nên dùng “about which”. Các phần khác đúng: “be concerned about” và “has been resolved” đều phù hợp."
+        },
+        {
+          "option": "concerned",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Concerned about” và “has been resolved” đều phù hợp."
+        },
+        {
+          "option": "resolved",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Resolved” đều phù hợp."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "advanced-relative-clauses-ex-52",
       "type": "multiple_choice",
       "question": "Choose the correct **formal phrase**: The committee ___ the grant was awarded had proposed a community garden.",
       "options": [
@@ -1115,9 +2284,32 @@
       ],
       "correct_answer": "to which",
       "explanation": "“Committee” là một tổ chức/nhóm nên dùng “which”, và động từ “award” đi với giới từ “to”. “Whom” dùng cho người, còn “for whom/at which” không đúng quan hệ ý nghĩa ở đây.",
+      "distractor_breakdowns": [
+        {
+          "option": "to which",
+          "isCorrect": true,
+          "pedagogicalReason": "“Committee” là một tổ chức/nhóm nên dùng “which”, và động từ “award” đi với giới từ “to”. “Whom” dùng cho người, còn “for whom/at which” không đúng quan hệ ý nghĩa ở đây."
+        },
+        {
+          "option": "for whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. For whom/at which” không đúng quan hệ ý nghĩa ở đây."
+        },
+        {
+          "option": "to whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to whom\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "at which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. At which” không đúng quan hệ ý nghĩa ở đây."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-53",
       "type": "multiple_choice",
       "question": "Choose the best **whole-clause** reference: She ignored the safety warning, ___ led to a serious delay.",
       "options": [
@@ -1128,9 +2320,32 @@
       ],
       "correct_answer": "which",
       "explanation": "Dấu phẩy + “which” có thể thay cho cả mệnh đề trước: việc cô ấy bỏ qua cảnh báo. “That” không dùng sau dấu phẩy trong mệnh đề không xác định, “what” và “whose” không phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "which",
+          "isCorrect": true,
+          "pedagogicalReason": "Dấu phẩy + “which” có thể thay cho cả mệnh đề trước: việc cô ấy bỏ qua cảnh báo. “That” không dùng sau dấu phẩy trong mệnh đề không xác định, “what” và “whose” không phù hợp."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “That” không dùng sau dấu phẩy trong mệnh đề không xác định, “what” và “whose” không phù hợp."
+        },
+        {
+          "option": "what",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “what” và “whose” không phù hợp."
+        },
+        {
+          "option": "whose",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “whose” không phù hợp."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-54",
       "type": "multiple_choice",
       "question": "Choose the correct **quantifier phrase**: The museum owns six paintings by the artist, ___ are rarely displayed.",
       "options": [
@@ -1141,9 +2356,32 @@
       ],
       "correct_answer": "two of which",
       "explanation": "“Paintings” là vật nên dùng “which” trong cấu trúc “two of which”. “Whom” dùng cho người, còn “that” không đứng sau “of” trong cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "two of which",
+          "isCorrect": true,
+          "pedagogicalReason": "“Paintings” là vật nên dùng “which” trong cấu trúc “two of which”. “Whom” dùng cho người, còn “that” không đứng sau “of” trong cấu trúc này."
+        },
+        {
+          "option": "two of whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"two of whom\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "two of that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"two of that\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "two whose",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"two whose\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-55",
       "type": "multiple_choice",
       "question": "Choose the correct **relative pronoun**: The translator, ___ native language is Korean, checked the final version.",
       "options": [
@@ -1154,9 +2392,32 @@
       ],
       "correct_answer": "whose",
       "explanation": "“Whose” diễn tả sở hữu: ngôn ngữ mẹ đẻ của người phiên dịch. “Who/whom” không đứng trực tiếp trước danh từ “native language”, còn “which” không dùng cho người trong ngữ cảnh này.",
+      "distractor_breakdowns": [
+        {
+          "option": "whose",
+          "isCorrect": true,
+          "pedagogicalReason": "“Whose” diễn tả sở hữu: ngôn ngữ mẹ đẻ của người phiên dịch. “Who/whom” không đứng trực tiếp trước danh từ “native language”, còn “which” không dùng cho người trong ngữ cảnh này."
+        },
+        {
+          "option": "who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Who/whom” không đứng trực tiếp trước danh từ “native language”, còn “which” không dùng cho người trong ngữ cảnh này."
+        },
+        {
+          "option": "whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Whom” không đứng trực tiếp trước danh từ “native language”, còn “which” không dùng cho người trong ngữ cảnh này."
+        },
+        {
+          "option": "which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “which” không dùng cho người trong ngữ cảnh này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "advanced-relative-clauses-ex-56",
       "type": "multiple_choice",
       "question": "Choose the correct **preposition clause**: The theory ___ the experiment was based has been questioned.",
       "options": [
@@ -1167,9 +2428,32 @@
       ],
       "correct_answer": "on which",
       "explanation": "Cụm đúng là “be based on”, nên dạng trang trọng là “on which”. “In whom” sai vì “theory” không phải người, “which on” sai trật tự, và “on that” không dùng trong mệnh đề quan hệ trang trọng sau danh từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "on which",
+          "isCorrect": true,
+          "pedagogicalReason": "Cụm đúng là “be based on”, nên dạng trang trọng là “on which”. “In whom” sai vì “theory” không phải người, “which on” sai trật tự, và “on that” không dùng trong mệnh đề quan hệ trang trọng sau danh từ."
+        },
+        {
+          "option": "in whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “In whom” sai vì “theory” không phải người, “which on” sai trật tự, và “on that” không dùng trong mệnh đề quan hệ trang trọng sau danh từ."
+        },
+        {
+          "option": "which on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “which on” sai trật tự, và “on that” không dùng trong mệnh đề quan hệ trang trọng sau danh từ."
+        },
+        {
+          "option": "on that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “on that” không dùng trong mệnh đề quan hệ trang trọng sau danh từ."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-57",
       "type": "multiple_choice",
       "question": "Choose the best **time phrase**: The train arrived late, ___ most passengers had missed their connections.",
       "options": [
@@ -1180,9 +2464,32 @@
       ],
       "correct_answer": "by which time",
       "explanation": "“By which time” nghĩa là “vào thời điểm đó thì”, phù hợp với việc hành khách đã lỡ chuyến nối. Các lựa chọn còn lại nói về trường hợp, nơi chốn hoặc lý do nên không đúng nghĩa.",
+      "distractor_breakdowns": [
+        {
+          "option": "by which time",
+          "isCorrect": true,
+          "pedagogicalReason": "“By which time” nghĩa là “vào thời điểm đó thì”, phù hợp với việc hành khách đã lỡ chuyến nối. Các lựa chọn còn lại nói về trường hợp, nơi chốn hoặc lý do nên không đúng nghĩa."
+        },
+        {
+          "option": "in which case",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"in which case\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "at which place",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"at which place\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "for which reason",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"for which reason\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "advanced-relative-clauses-ex-58",
       "type": "multiple_choice",
       "question": "Choose the correct **of whom** clause: The research team included three statisticians, ___ had worked in public health.",
       "options": [
@@ -1193,9 +2500,32 @@
       ],
       "correct_answer": "one of whom",
       "explanation": "“Statisticians” là người nên dùng “one of whom”. “Which” dùng cho vật, còn “one whom/one whose” thiếu cấu trúc “of” hoặc sai quan hệ sở hữu.",
+      "distractor_breakdowns": [
+        {
+          "option": "one of whom",
+          "isCorrect": true,
+          "pedagogicalReason": "“Statisticians” là người nên dùng “one of whom”. “Which” dùng cho vật, còn “one whom/one whose” thiếu cấu trúc “of” hoặc sai quan hệ sở hữu."
+        },
+        {
+          "option": "one of which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"one of which\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "one whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. One whom/one whose” thiếu cấu trúc “of” hoặc sai quan hệ sở hữu."
+        },
+        {
+          "option": "one whose",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. One whose” thiếu cấu trúc “of” hoặc sai quan hệ sở hữu."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-59",
       "type": "multiple_choice",
       "question": "Choose the correct **place clause**: The courthouse, ___ the documents were signed, is now a museum.",
       "options": [
@@ -1206,9 +2536,32 @@
       ],
       "correct_answer": "where",
       "explanation": "“Where” thay cho nơi chốn: tại tòa án đó các tài liệu được ký. “Which” cần giới từ như “in which/at which”, còn “whose/whom” không phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "where",
+          "isCorrect": true,
+          "pedagogicalReason": "“Where” thay cho nơi chốn: tại tòa án đó các tài liệu được ký. “Which” cần giới từ như “in which/at which”, còn “whose/whom” không phù hợp."
+        },
+        {
+          "option": "which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Which” cần giới từ như “in which/at which”, còn “whose/whom” không phù hợp."
+        },
+        {
+          "option": "whose",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Whose/whom” không phù hợp."
+        },
+        {
+          "option": "whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Whom” không phù hợp."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "advanced-relative-clauses-ex-60",
       "type": "multiple_choice",
       "question": "Choose the correct **reason phrase**: The data were incomplete, ___ the results should be treated carefully.",
       "options": [
@@ -1219,9 +2572,32 @@
       ],
       "correct_answer": "for which reason",
       "explanation": "“For which reason” nối với cả ý trước và diễn tả lý do dẫn đến kết luận sau. Các lựa chọn khác không diễn đạt quan hệ nguyên nhân đúng hoặc sai cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "for which reason",
+          "isCorrect": true,
+          "pedagogicalReason": "“For which reason” nối với cả ý trước và diễn tả lý do dẫn đến kết luận sau. Các lựa chọn khác không diễn đạt quan hệ nguyên nhân đúng hoặc sai cấu trúc."
+        },
+        {
+          "option": "in whose case",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"in whose case\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "at which point",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"at which point\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "of which reason",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"of which reason\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "advanced-relative-clauses-ex-61",
       "type": "fill_blank",
       "question": "Complete the **formal clause**: The client ___ we sent the invoice has requested a revision.",
       "options": [
@@ -1232,9 +2608,32 @@
       ],
       "correct_answer": "to whom",
       "explanation": "“Client” là người/tổ chức được xem như bên nhận, và “send something to someone” dùng “to whom” trong văn viết trang trọng. “To which” thường dùng cho vật/tổ chức theo nghĩa vật thể hơn, “whom to/that to” sai trật tự hoặc sai cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "to whom",
+          "isCorrect": true,
+          "pedagogicalReason": "“Client” là người/tổ chức được xem như bên nhận, và “send something to someone” dùng “to whom” trong văn viết trang trọng. “To which” thường dùng cho vật/tổ chức theo nghĩa vật thể hơn, “whom to/that to” sai trật tự hoặc sai cấu trúc."
+        },
+        {
+          "option": "to which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “To which” thường dùng cho vật/tổ chức theo nghĩa vật thể hơn, “whom to/that to” sai trật tự hoặc sai cấu trúc."
+        },
+        {
+          "option": "whom to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Whom to/that to” sai trật tự hoặc sai cấu trúc."
+        },
+        {
+          "option": "that to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. That to” sai trật tự hoặc sai cấu trúc."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-62",
       "type": "fill_blank",
       "question": "Complete the **whole-clause** reference: The software crashed twice during the demo, ___ made the investors nervous.",
       "options": [
@@ -1245,9 +2644,32 @@
       ],
       "correct_answer": "which",
       "explanation": "“Which” sau dấu phẩy có thể thay cho cả sự việc phần trước. “That” không dùng trong mệnh đề không xác định sau dấu phẩy, còn “what/who” không đúng chức năng.",
+      "distractor_breakdowns": [
+        {
+          "option": "which",
+          "isCorrect": true,
+          "pedagogicalReason": "“Which” sau dấu phẩy có thể thay cho cả sự việc phần trước. “That” không dùng trong mệnh đề không xác định sau dấu phẩy, còn “what/who” không đúng chức năng."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “That” không dùng trong mệnh đề không xác định sau dấu phẩy, còn “what/who” không đúng chức năng."
+        },
+        {
+          "option": "what",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. What/who” không đúng chức năng."
+        },
+        {
+          "option": "who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Who” không đúng chức năng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-63",
       "type": "fill_blank",
       "question": "Complete the **of which** phrase: The contract contains several conditions, ___ must be approved by the board.",
       "options": [
@@ -1258,9 +2680,32 @@
       ],
       "correct_answer": "each of which",
       "explanation": "“Conditions” là vật/ý nên dùng “each of which”. “Whom” dùng cho người, còn “each which/each of that” sai cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "each of which",
+          "isCorrect": true,
+          "pedagogicalReason": "“Conditions” là vật/ý nên dùng “each of which”. “Whom” dùng cho người, còn “each which/each of that” sai cấu trúc."
+        },
+        {
+          "option": "each of whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"each of whom\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "each which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Each which/each of that” sai cấu trúc."
+        },
+        {
+          "option": "each of that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Each of that” sai cấu trúc."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-64",
       "type": "fill_blank",
       "question": "Complete the **whose clause**: The novelist, ___ first book became a bestseller, avoids interviews.",
       "options": [
@@ -1271,9 +2716,32 @@
       ],
       "correct_answer": "whose",
       "explanation": "“Whose first book” nghĩa là “cuốn sách đầu tiên của nhà văn đó”. “Who/whom” không thể đứng trước danh từ “first book”, còn “which” không chỉ sở hữu người.",
+      "distractor_breakdowns": [
+        {
+          "option": "whose",
+          "isCorrect": true,
+          "pedagogicalReason": "“Whose first book” nghĩa là “cuốn sách đầu tiên của nhà văn đó”. “Who/whom” không thể đứng trước danh từ “first book”, còn “which” không chỉ sở hữu người."
+        },
+        {
+          "option": "who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Who/whom” không thể đứng trước danh từ “first book”, còn “which” không chỉ sở hữu người."
+        },
+        {
+          "option": "whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Whom” không thể đứng trước danh từ “first book”, còn “which” không chỉ sở hữu người."
+        },
+        {
+          "option": "which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “which” không chỉ sở hữu người."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "advanced-relative-clauses-ex-65",
       "type": "fill_blank",
       "question": "Complete the **preposition phrase**: The policy ___ many employees complained was changed last week.",
       "options": [
@@ -1284,9 +2752,32 @@
       ],
       "correct_answer": "about which",
       "explanation": "Động từ “complain” đi với “about”, và “policy” là vật/ý nên dùng “about which”. “Whom” dùng cho người, còn “which about/that about” sai trật tự hoặc sai cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "about which",
+          "isCorrect": true,
+          "pedagogicalReason": "Động từ “complain” đi với “about”, và “policy” là vật/ý nên dùng “about which”. “Whom” dùng cho người, còn “which about/that about” sai trật tự hoặc sai cấu trúc."
+        },
+        {
+          "option": "about whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"about whom\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "which about",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Which about/that about” sai trật tự hoặc sai cấu trúc."
+        },
+        {
+          "option": "that about",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. That about” sai trật tự hoặc sai cấu trúc."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-66",
       "type": "fill_blank",
       "question": "Complete the **relative phrase**: The candidate ___ the committee finally agreed withdrew yesterday.",
       "options": [
@@ -1297,9 +2788,32 @@
       ],
       "correct_answer": "on whom",
       "explanation": "“Agree on someone” nghĩa là thống nhất chọn ai, nên với “candidate” dùng “on whom”. “Which” không dùng cho người trong câu này, còn hai lựa chọn sau sai trật tự.",
+      "distractor_breakdowns": [
+        {
+          "option": "on whom",
+          "isCorrect": true,
+          "pedagogicalReason": "“Agree on someone” nghĩa là thống nhất chọn ai, nên với “candidate” dùng “on whom”. “Which” không dùng cho người trong câu này, còn hai lựa chọn sau sai trật tự."
+        },
+        {
+          "option": "on which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"on which\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "whom on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"whom on\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "that on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"that on\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "advanced-relative-clauses-ex-67",
       "type": "fill_blank",
       "question": "Complete the **case phrase**: You may need extra documents, ___ you should contact the embassy.",
       "options": [
@@ -1310,9 +2824,32 @@
       ],
       "correct_answer": "in which case",
       "explanation": "“In which case” nghĩa là “trong trường hợp đó”, nối với toàn bộ khả năng ở mệnh đề trước. Các cụm còn lại không phù hợp về nghĩa hoặc sai cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "in which case",
+          "isCorrect": true,
+          "pedagogicalReason": "“In which case” nghĩa là “trong trường hợp đó”, nối với toàn bộ khả năng ở mệnh đề trước. Các cụm còn lại không phù hợp về nghĩa hoặc sai cấu trúc."
+        },
+        {
+          "option": "by which time",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"by which time\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "for which place",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"for which place\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "of which case",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"of which case\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "advanced-relative-clauses-ex-68",
       "type": "fill_blank",
       "question": "Complete the **non-defining** clause: My laptop, ___ I bought in 2021, still runs smoothly.",
       "options": [
@@ -1323,9 +2860,32 @@
       ],
       "correct_answer": "which",
       "explanation": "Mệnh đề sau dấu phẩy là không xác định nên dùng “which” cho vật. “That” không dùng sau dấu phẩy trong loại mệnh đề này, còn “what/whom” sai chức năng.",
+      "distractor_breakdowns": [
+        {
+          "option": "which",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề sau dấu phẩy là không xác định nên dùng “which” cho vật. “That” không dùng sau dấu phẩy trong loại mệnh đề này, còn “what/whom” sai chức năng."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “That” không dùng sau dấu phẩy trong loại mệnh đề này, còn “what/whom” sai chức năng."
+        },
+        {
+          "option": "what",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. What/whom” sai chức năng."
+        },
+        {
+          "option": "whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Whom” sai chức năng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "advanced-relative-clauses-ex-69",
       "type": "error_correction",
       "question": "Find the error: The manuscript, **that** was rejected twice, later won a national prize.",
       "options": [
@@ -1336,9 +2896,32 @@
       ],
       "correct_answer": "that",
       "explanation": "Sau dấu phẩy trong mệnh đề quan hệ không xác định phải dùng “which”, không dùng “that”. Các phần còn lại đúng về ngữ pháp và nghĩa.",
+      "distractor_breakdowns": [
+        {
+          "option": "The manuscript",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The manuscript\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "that",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau dấu phẩy trong mệnh đề quan hệ không xác định phải dùng “which”, không dùng “that”. Các phần còn lại đúng về ngữ pháp và nghĩa."
+        },
+        {
+          "option": "was rejected",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"was rejected\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "won",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"won\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "advanced-relative-clauses-ex-70",
       "type": "error_correction",
       "question": "Find the error: The engineer **to which** we described the problem suggested a quick fix.",
       "options": [
@@ -1349,9 +2932,32 @@
       ],
       "correct_answer": "to which",
       "explanation": "“Engineer” là người nên phải dùng “to whom”, không phải “to which”. Các động từ và chủ ngữ còn lại phù hợp với câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "The engineer",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The engineer\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "to which",
+          "isCorrect": true,
+          "pedagogicalReason": "“Engineer” là người nên phải dùng “to whom”, không phải “to which”. Các động từ và chủ ngữ còn lại phù hợp với câu."
+        },
+        {
+          "option": "described",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"described\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "suggested",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"suggested\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-71",
       "type": "error_correction",
       "question": "Find the error: The devices, **several of whom** were brand new, stopped working after the update.",
       "options": [
@@ -1362,9 +2968,32 @@
       ],
       "correct_answer": "several of whom",
       "explanation": "“Devices” là vật nên dùng “several of which”. “Whom” chỉ dùng cho người, còn các phần khác đúng trong ngữ cảnh này.",
+      "distractor_breakdowns": [
+        {
+          "option": "The devices",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The devices\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "several of whom",
+          "isCorrect": true,
+          "pedagogicalReason": "“Devices” là vật nên dùng “several of which”. “Whom” chỉ dùng cho người, còn các phần khác đúng trong ngữ cảnh này."
+        },
+        {
+          "option": "were brand new",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"were brand new\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "stopped working",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"stopped working\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-72",
       "type": "error_correction",
       "question": "Find the error: The manager, **whose** approved the budget, asked for a shorter report.",
       "options": [
@@ -1375,9 +3004,32 @@
       ],
       "correct_answer": "whose",
       "explanation": "Ở đây cần đại từ chủ ngữ “who”: “the manager, who approved the budget”. “Whose” phải đi với danh từ phía sau để chỉ sở hữu, còn các phần khác đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "The manager",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. The manager, who approved the budget”."
+        },
+        {
+          "option": "whose",
+          "isCorrect": true,
+          "pedagogicalReason": "Ở đây cần đại từ chủ ngữ “who”: “the manager, who approved the budget”. “Whose” phải đi với danh từ phía sau để chỉ sở hữu, còn các phần khác đúng."
+        },
+        {
+          "option": "approved",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Approved the budget”."
+        },
+        {
+          "option": "asked for",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"asked for\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-73",
       "type": "error_correction",
       "question": "Find the error: The bridge **over whom** we drove was built in the 1930s.",
       "options": [
@@ -1388,9 +3040,32 @@
       ],
       "correct_answer": "over whom",
       "explanation": "“Bridge” là vật nên dùng “over which”, không dùng “whom”. Các phần còn lại đúng về thì và cấu trúc câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "The bridge",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The bridge\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "over whom",
+          "isCorrect": true,
+          "pedagogicalReason": "“Bridge” là vật nên dùng “over which”, không dùng “whom”. Các phần còn lại đúng về thì và cấu trúc câu."
+        },
+        {
+          "option": "we drove",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"we drove\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "was built",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"was built\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-74",
       "type": "error_correction",
       "question": "Find the error: The announcement was delayed, **that** confused many applicants.",
       "options": [
@@ -1401,9 +3076,32 @@
       ],
       "correct_answer": "that",
       "explanation": "Khi đại từ quan hệ thay cho cả mệnh đề trước sau dấu phẩy, phải dùng “which”. “That” không dùng cho mệnh đề không xác định kiểu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "The announcement",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The announcement\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "was delayed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"was delayed\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "that",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi đại từ quan hệ thay cho cả mệnh đề trước sau dấu phẩy, phải dùng “which”. “That” không dùng cho mệnh đề không xác định kiểu này."
+        },
+        {
+          "option": "confused",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"confused\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-75",
       "type": "error_correction",
       "question": "Find the error: The workshop had twenty participants, **most of which** were teachers.",
       "options": [
@@ -1414,9 +3112,32 @@
       ],
       "correct_answer": "most of which",
       "explanation": "“Participants” là người nên dùng “most of whom”. “Which” dùng cho vật hoặc ý, còn các phần khác đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "The workshop",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The workshop\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "twenty participants",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"twenty participants\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "most of which",
+          "isCorrect": true,
+          "pedagogicalReason": "“Participants” là người nên dùng “most of whom”. “Which” dùng cho vật hoặc ý, còn các phần khác đúng."
+        },
+        {
+          "option": "were teachers",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"were teachers\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-76",
       "type": "error_correction",
       "question": "Find the error: The town **in where** she grew up has become a tourist destination.",
       "options": [
@@ -1427,9 +3148,32 @@
       ],
       "correct_answer": "in where",
       "explanation": "Không dùng “in where”; phải dùng “where” hoặc “in which”. Các phần còn lại đúng về nghĩa và cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "The town",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The town\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "in where",
+          "isCorrect": true,
+          "pedagogicalReason": "Không dùng “in where”; phải dùng “where” hoặc “in which”. Các phần còn lại đúng về nghĩa và cấu trúc."
+        },
+        {
+          "option": "she grew up",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"she grew up\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "has become",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"has become\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "advanced-relative-clauses-ex-77",
       "type": "multiple_choice",
       "question": "Choose the correct **preposition phrase**: The professor ___ the article was dedicated retired last year.",
       "options": [
@@ -1440,9 +3184,32 @@
       ],
       "correct_answer": "to whom",
       "explanation": "Ta dùng “to whom” vì cấu trúc là “dedicate something to someone”. “For which” dùng cho vật/ý tưởng, “whose” chỉ sở hữu, còn “that” không đứng sau giới từ trong lối viết trang trọng này.",
+      "distractor_breakdowns": [
+        {
+          "option": "to whom",
+          "isCorrect": true,
+          "pedagogicalReason": "Ta dùng “to whom” vì cấu trúc là “dedicate something to someone”. “For which” dùng cho vật/ý tưởng, “whose” chỉ sở hữu, còn “that” không đứng sau giới từ trong lối viết trang trọng này."
+        },
+        {
+          "option": "for which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “For which” dùng cho vật/ý tưởng, “whose” chỉ sở hữu, còn “that” không đứng sau giới từ trong lối viết trang trọng này."
+        },
+        {
+          "option": "whose",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “whose” chỉ sở hữu, còn “that” không đứng sau giới từ trong lối viết trang trọng này."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “that” không đứng sau giới từ trong lối viết trang trọng này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-78",
       "type": "multiple_choice",
       "question": "Choose the best **whole-clause** reference: He submitted the application after the deadline, ___ meant he could not be considered.",
       "options": [
@@ -1453,9 +3220,32 @@
       ],
       "correct_answer": "which",
       "explanation": "“Which” có thể thay cho cả mệnh đề trước: việc nộp muộn dẫn đến không được xét. “What” không dùng sau dấu phẩy kiểu này, “that” không dùng trong mệnh đề quan hệ không xác định, và “who” chỉ người.",
+      "distractor_breakdowns": [
+        {
+          "option": "which",
+          "isCorrect": true,
+          "pedagogicalReason": "“Which” có thể thay cho cả mệnh đề trước: việc nộp muộn dẫn đến không được xét. “What” không dùng sau dấu phẩy kiểu này, “that” không dùng trong mệnh đề quan hệ không xác định, và “who” chỉ người."
+        },
+        {
+          "option": "what",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “What” không dùng sau dấu phẩy kiểu này, “that” không dùng trong mệnh đề quan hệ không xác định, và “who” chỉ người."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “that” không dùng trong mệnh đề quan hệ không xác định, và “who” chỉ người."
+        },
+        {
+          "option": "who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “who” chỉ người."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-79",
       "type": "multiple_choice",
       "question": "Choose the correct **of which** phrase: The report listed five recommendations, ___ required immediate action.",
       "options": [
@@ -1466,9 +3256,32 @@
       ],
       "correct_answer": "two of which",
       "explanation": "“Recommendations” là vật/ý tưởng nên dùng “two of which”. “Whom” chỉ người, “two which” thiếu “of”, còn “whose two” sai cấu trúc trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "two of which",
+          "isCorrect": true,
+          "pedagogicalReason": "“Recommendations” là vật/ý tưởng nên dùng “two of which”. “Whom” chỉ người, “two which” thiếu “of”, còn “whose two” sai cấu trúc trong câu này."
+        },
+        {
+          "option": "two of whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"two of whom\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "two which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “two which” thiếu “of”, còn “whose two” sai cấu trúc trong câu này."
+        },
+        {
+          "option": "whose two",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “whose two” sai cấu trúc trong câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-80",
       "type": "multiple_choice",
       "question": "Choose the correct **formal clause**: The legal principles ___ the decision rested were rarely discussed in class.",
       "options": [
@@ -1479,9 +3292,32 @@
       ],
       "correct_answer": "on which",
       "explanation": "Cụm đúng là “rest on principles”, nên dạng trang trọng là “on which”. “In whom” dùng cho người, “where” chỉ nơi chốn, và “whose” chỉ sở hữu.",
+      "distractor_breakdowns": [
+        {
+          "option": "on which",
+          "isCorrect": true,
+          "pedagogicalReason": "Cụm đúng là “rest on principles”, nên dạng trang trọng là “on which”. “In whom” dùng cho người, “where” chỉ nơi chốn, và “whose” chỉ sở hữu."
+        },
+        {
+          "option": "in whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “In whom” dùng cho người, “where” chỉ nơi chốn, và “whose” chỉ sở hữu."
+        },
+        {
+          "option": "where",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “where” chỉ nơi chốn, và “whose” chỉ sở hữu."
+        },
+        {
+          "option": "whose",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “whose” chỉ sở hữu."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "advanced-relative-clauses-ex-81",
       "type": "multiple_choice",
       "question": "Choose the correct **relative determiner**: The company, ___ overseas branches are expanding quickly, needs more bilingual staff.",
       "options": [
@@ -1492,9 +3328,32 @@
       ],
       "correct_answer": "whose",
       "explanation": "“Whose” dùng để diễn đạt sở hữu: các chi nhánh của công ty. “Which” không đứng trực tiếp trước danh từ theo nghĩa sở hữu, “of which” cần cấu trúc khác, còn “whom” dùng cho người làm tân ngữ.",
+      "distractor_breakdowns": [
+        {
+          "option": "whose",
+          "isCorrect": true,
+          "pedagogicalReason": "“Whose” dùng để diễn đạt sở hữu: các chi nhánh của công ty. “Which” không đứng trực tiếp trước danh từ theo nghĩa sở hữu, “of which” cần cấu trúc khác, còn “whom” dùng cho người làm tân ngữ."
+        },
+        {
+          "option": "which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Which” không đứng trực tiếp trước danh từ theo nghĩa sở hữu, “of which” cần cấu trúc khác, còn “whom” dùng cho người làm tân ngữ."
+        },
+        {
+          "option": "of which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “of which” cần cấu trúc khác, còn “whom” dùng cho người làm tân ngữ."
+        },
+        {
+          "option": "whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “whom” dùng cho người làm tân ngữ."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "advanced-relative-clauses-ex-82",
       "type": "fill_blank",
       "question": "Complete the **relative phrase**: The river ___ the village depends has become badly polluted.",
       "options": [
@@ -1505,9 +3364,32 @@
       ],
       "correct_answer": "on which",
       "explanation": "Ta nói “depend on something”, nên cần “on which” cho “the river”. “To whom” dùng cho người, “where” không diễn đạt quan hệ “depend on”, và “whose” chỉ sở hữu.",
+      "distractor_breakdowns": [
+        {
+          "option": "on which",
+          "isCorrect": true,
+          "pedagogicalReason": "Ta nói “depend on something”, nên cần “on which” cho “the river”. “To whom” dùng cho người, “where” không diễn đạt quan hệ “depend on”, và “whose” chỉ sở hữu."
+        },
+        {
+          "option": "to whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “To whom” dùng cho người, “where” không diễn đạt quan hệ “depend on”, và “whose” chỉ sở hữu."
+        },
+        {
+          "option": "where",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “where” không diễn đạt quan hệ “depend on”, và “whose” chỉ sở hữu."
+        },
+        {
+          "option": "whose",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “whose” chỉ sở hữu."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-83",
       "type": "fill_blank",
       "question": "Complete the **whole-clause** reference: The speaker changed the topic suddenly, ___ made the audience uneasy.",
       "options": [
@@ -1518,9 +3400,32 @@
       ],
       "correct_answer": "which",
       "explanation": "“Which” thay cho toàn bộ hành động “changed the topic suddenly”. “That” không dùng sau dấu phẩy trong mệnh đề không xác định, “what” không phù hợp ở đây, và “who” chỉ người.",
+      "distractor_breakdowns": [
+        {
+          "option": "which",
+          "isCorrect": true,
+          "pedagogicalReason": "“Which” thay cho toàn bộ hành động “changed the topic suddenly”. “That” không dùng sau dấu phẩy trong mệnh đề không xác định, “what” không phù hợp ở đây, và “who” chỉ người."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “That” không dùng sau dấu phẩy trong mệnh đề không xác định, “what” không phù hợp ở đây, và “who” chỉ người."
+        },
+        {
+          "option": "what",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “what” không phù hợp ở đây, và “who” chỉ người."
+        },
+        {
+          "option": "who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “who” chỉ người."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "advanced-relative-clauses-ex-84",
       "type": "fill_blank",
       "question": "Complete the **quantifier phrase**: The candidates answered ten questions, ___ were about environmental policy.",
       "options": [
@@ -1531,9 +3436,32 @@
       ],
       "correct_answer": "three of which",
       "explanation": "“Questions” là vật nên dùng “three of which”. “Whom” chỉ người, “which three” sai trật tự, còn “three whose” sai cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "three of which",
+          "isCorrect": true,
+          "pedagogicalReason": "“Questions” là vật nên dùng “three of which”. “Whom” chỉ người, “which three” sai trật tự, còn “three whose” sai cấu trúc."
+        },
+        {
+          "option": "three of whom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"three of whom\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "which three",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “which three” sai trật tự, còn “three whose” sai cấu trúc."
+        },
+        {
+          "option": "three whose",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “three whose” sai cấu trúc."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-85",
       "type": "fill_blank",
       "question": "Complete the **formal clause**: The witnesses ___ the lawyer referred were not present in court.",
       "options": [
@@ -1544,9 +3472,32 @@
       ],
       "correct_answer": "to whom",
       "explanation": "Cụm đúng là “refer to someone”, nên dạng trang trọng là “to whom”. “For which” dùng cho vật hoặc mục đích, “whose” chỉ sở hữu, còn “that” không đi sau giới từ trong cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "to whom",
+          "isCorrect": true,
+          "pedagogicalReason": "Cụm đúng là “refer to someone”, nên dạng trang trọng là “to whom”. “For which” dùng cho vật hoặc mục đích, “whose” chỉ sở hữu, còn “that” không đi sau giới từ trong cấu trúc này."
+        },
+        {
+          "option": "for which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “For which” dùng cho vật hoặc mục đích, “whose” chỉ sở hữu, còn “that” không đi sau giới từ trong cấu trúc này."
+        },
+        {
+          "option": "whose",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “whose” chỉ sở hữu, còn “that” không đi sau giới từ trong cấu trúc này."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “that” không đi sau giới từ trong cấu trúc này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "advanced-relative-clauses-ex-86",
       "type": "error_correction",
       "question": "Find the error: The negotiations, **during which** lasted six months, finally produced an agreement.",
       "options": [
@@ -1557,9 +3508,32 @@
       ],
       "correct_answer": "during which",
       "explanation": "“During which” cần một mệnh đề đầy đủ sau nó, nhưng “lasted six months” đã dùng “lasted” trực tiếp cho “negotiations”. Câu đúng có thể là “which lasted six months” hoặc “during which several issues were discussed”.",
+      "distractor_breakdowns": [
+        {
+          "option": "The negotiations",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The negotiations\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "during which",
+          "isCorrect": true,
+          "pedagogicalReason": "“During which” cần một mệnh đề đầy đủ sau nó, nhưng “lasted six months” đã dùng “lasted” trực tiếp cho “negotiations”. Câu đúng có thể là “which lasted six months” hoặc “during which several issues were discussed”."
+        },
+        {
+          "option": "lasted six months",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “lasted six months” đã dùng “lasted” trực tiếp cho “negotiations”."
+        },
+        {
+          "option": "an agreement",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"an agreement\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "advanced-relative-clauses-ex-87",
       "type": "error_correction",
       "question": "Find the error: The interns, **each of which** received a certificate, completed the training program.",
       "options": [
@@ -1570,9 +3544,32 @@
       ],
       "correct_answer": "each of which",
       "explanation": "“Interns” là người nên phải dùng “each of whom”. “Which” dùng cho vật hoặc ý tưởng, không phù hợp khi nói về người trong cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "The interns",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The interns\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "each of which",
+          "isCorrect": true,
+          "pedagogicalReason": "“Interns” là người nên phải dùng “each of whom”. “Which” dùng cho vật hoặc ý tưởng, không phù hợp khi nói về người trong cấu trúc này."
+        },
+        {
+          "option": "received a certificate",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"received a certificate\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "the training program",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the training program\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "advanced-relative-clauses-ex-88",
       "type": "error_correction",
       "question": "Find the error: The decision was announced without warning, **what** caused confusion among staff.",
       "options": [
@@ -1583,9 +3580,32 @@
       ],
       "correct_answer": "what",
       "explanation": "Sau dấu phẩy để nói cả mệnh đề trước gây ra kết quả, ta dùng “which”, không dùng “what”. Các cụm còn lại đúng về nghĩa và ngữ pháp trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "The decision",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The decision\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "without warning",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"without warning\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "what",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau dấu phẩy để nói cả mệnh đề trước gây ra kết quả, ta dùng “which”, không dùng “what”. Các cụm còn lại đúng về nghĩa và ngữ pháp trong câu."
+        },
+        {
+          "option": "among staff",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"among staff\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "advanced-relative-clauses-ex-89",
       "type": "error_correction",
       "question": "Find the error: The apartment **in which** balcony faces the park is on the top floor.",
       "options": [
@@ -1596,6 +3616,28 @@
       ],
       "correct_answer": "in which",
       "explanation": "Cần diễn đạt sở hữu “ban công của căn hộ”, nên phải dùng “whose balcony”. “In which” chỉ vị trí bên trong, không thể đứng trước danh từ “balcony” theo nghĩa sở hữu.",
+      "distractor_breakdowns": [
+        {
+          "option": "The apartment",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"The apartment\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "in which",
+          "isCorrect": true,
+          "pedagogicalReason": "Cần diễn đạt sở hữu “ban công của căn hộ”, nên phải dùng “whose balcony”. “In which” chỉ vị trí bên trong, không thể đứng trước danh từ “balcony” theo nghĩa sở hữu."
+        },
+        {
+          "option": "balcony faces",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"balcony faces\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "the top floor",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the top floor\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     }
   ]

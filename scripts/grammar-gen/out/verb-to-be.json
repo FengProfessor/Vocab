@@ -2,7 +2,7 @@
   "slug": "verb-to-be",
   "title": "Verb to be (am / is / are)",
   "title_vi": "Động từ to be (am / is / are)",
-  "level": "beginner",
+  "level": "A0",
   "order": 2,
   "sections": {
     "definition": "Động từ **to be** ở hiện tại có ba dạng: **am, is, are**. Ta dùng to be để nói ai đó hoặc vật gì đó **là ai, như thế nào, ở đâu**. To be tự tạo câu phủ định và câu hỏi, không cần dùng do hoặc does.",
@@ -354,12 +354,13 @@
         "why": "Câu hỏi với to be không dùng do; chỉ đưa are lên trước chủ ngữ."
       }
     ],
-    "tips": "**Mẹo nhớ:** **I am**, **một người/vật is**, **nhiều người/vật are**. Hỏi thì đảo to be lên đầu; phủ định thì thêm **not** sau to be.",
+    "tips": "**Lưu ý trọng tâm:** **I am**, **một người/vật is**, **nhiều người/vật are**. Hỏi thì đảo to be lên đầu; phủ định thì thêm **not** sau to be.",
     "comparison": "**To be và động từ thường:** To be tự tạo câu hỏi/phủ định (*Is she happy? She isn't happy.*). Động từ thường cần do/does (*Does she work? She doesn't work.*). Không nói *Does she be happy?*.",
     "timeline": null
   },
   "exercises": [
     {
+      "id": "verb-to-be-ex-01",
       "type": "multiple_choice",
       "question": "Choose the correct **to be**: I ___ from Vietnam.",
       "options": [
@@ -370,9 +371,32 @@
       ],
       "correct_answer": "am",
       "explanation": "Chủ ngữ I luôn đi với am. Is dùng với he/she/it hoặc một người/vật; are dùng với you/we/they hoặc số nhiều; be không dùng trực tiếp ở hiện tại đơn như câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "am",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ I luôn đi với am. Is dùng với he/she/it hoặc một người/vật; are dùng với you/we/they hoặc số nhiều; be không dùng trực tiếp ở hiện tại đơn như câu này."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is dùng với he/she/it hoặc một người/vật."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are dùng với you/we/they hoặc số nhiều."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không dùng trực tiếp ở hiện tại đơn như câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-02",
       "type": "multiple_choice",
       "question": "Choose the correct **to be**: She ___ my teacher.",
       "options": [
@@ -383,9 +407,32 @@
       ],
       "correct_answer": "is",
       "explanation": "She là ngôi thứ ba số ít nên dùng is. Am chỉ dùng với I; are dùng với you/we/they hoặc danh từ số nhiều; be không phù hợp trong câu khẳng định hiện tại đơn này.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "She là ngôi thứ ba số ít nên dùng is. Am chỉ dùng với I; are dùng với you/we/they hoặc danh từ số nhiều; be không phù hợp trong câu khẳng định hiện tại đơn này."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am chỉ dùng với I."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are dùng với you/we/they hoặc danh từ số nhiều."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không phù hợp trong câu khẳng định hiện tại đơn này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-03",
       "type": "multiple_choice",
       "question": "Choose the correct **question form**: ___ you a student?",
       "options": [
@@ -396,9 +443,32 @@
       ],
       "correct_answer": "Are",
       "explanation": "Với chủ ngữ you, câu hỏi dùng Are đứng trước chủ ngữ. Is dùng với he/she/it; am dùng với I; be không dùng làm trợ động từ trực tiếp ở đây.",
+      "distractor_breakdowns": [
+        {
+          "option": "Are",
+          "isCorrect": true,
+          "pedagogicalReason": "Với chủ ngữ you, câu hỏi dùng Are đứng trước chủ ngữ. Is dùng với he/she/it; am dùng với I; be không dùng làm trợ động từ trực tiếp ở đây."
+        },
+        {
+          "option": "Is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is dùng với he/she/it."
+        },
+        {
+          "option": "Am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ to-be \"am\" chỉ đi duy nhất với chủ ngữ ngôi thứ nhất \"I\"."
+        },
+        {
+          "option": "Be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không dùng làm trợ động từ trực tiếp ở đây."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-04",
       "type": "multiple_choice",
       "question": "Choose the correct **verb form**: My parents ___ at home.",
       "options": [
@@ -409,9 +479,32 @@
       ],
       "correct_answer": "are",
       "explanation": "My parents là danh từ số nhiều nên dùng are. Is dùng cho số ít; am chỉ dùng với I; be không đúng trong cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "My parents là danh từ số nhiều nên dùng are. Is dùng cho số ít; am chỉ dùng với I; be không đúng trong cấu trúc này."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is dùng cho số ít."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am chỉ dùng với I."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không đúng trong cấu trúc này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-05",
       "type": "multiple_choice",
       "question": "Choose the correct **negative form**: The door ___ not open.",
       "options": [
@@ -422,9 +515,32 @@
       ],
       "correct_answer": "is",
       "explanation": "The door là một vật số ít nên dùng is not. Are not dùng cho số nhiều hoặc you/we/they; am not chỉ đi với I; be not không đúng ở hiện tại đơn này.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "The door là một vật số ít nên dùng is not. Are not dùng cho số nhiều hoặc you/we/they; am not chỉ đi với I; be not không đúng ở hiện tại đơn này."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are not dùng cho số nhiều hoặc you/we/they."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am not chỉ đi với I."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be not không đúng ở hiện tại đơn này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-06",
       "type": "multiple_choice",
       "question": "Choose the correct **short answer**: Are they ready? Yes, they ___.",
       "options": [
@@ -435,9 +551,32 @@
       ],
       "correct_answer": "are",
       "explanation": "Câu hỏi bắt đầu bằng Are they nên câu trả lời ngắn khẳng định là they are. Is và am không hòa hợp với they; be không dùng trong short answer này.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi bắt đầu bằng Are they nên câu trả lời ngắn khẳng định là they are. Is và am không hòa hợp với they; be không dùng trong short answer này."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is và am không hòa hợp với they."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am không hòa hợp với they."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không dùng trong short answer này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-07",
       "type": "multiple_choice",
       "question": "Choose the correct **contraction**: She is my sister. = ___ my sister.",
       "options": [
@@ -448,9 +587,32 @@
       ],
       "correct_answer": "She's",
       "explanation": "She is có dạng rút gọn là She's. She're và She'm sai vì she không đi với are hoặc am; She thiếu động từ to be.",
+      "distractor_breakdowns": [
+        {
+          "option": "She's",
+          "isCorrect": true,
+          "pedagogicalReason": "She is có dạng rút gọn là She's. She're và She'm sai vì she không đi với are hoặc am; She thiếu động từ to be."
+        },
+        {
+          "option": "She're",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. She're và She'm sai vì she không đi với are hoặc am."
+        },
+        {
+          "option": "She'm",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. She'm sai vì she không đi với are hoặc am."
+        },
+        {
+          "option": "She",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. She're và She'm sai vì she không đi với are hoặc am."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-08",
       "type": "multiple_choice",
       "question": "Choose the correct **to be**: This book ___ interesting.",
       "options": [
@@ -461,9 +623,32 @@
       ],
       "correct_answer": "is",
       "explanation": "This book là một vật số ít nên dùng is. Are dùng cho số nhiều; am chỉ dùng với I; be không đúng trong câu hiện tại đơn này.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "This book là một vật số ít nên dùng is. Are dùng cho số nhiều; am chỉ dùng với I; be không đúng trong câu hiện tại đơn này."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are dùng cho số nhiều."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am chỉ dùng với I."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không đúng trong câu hiện tại đơn này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-09",
       "type": "multiple_choice",
       "question": "Choose the correct **subject agreement**: You and Mai ___ classmates.",
       "options": [
@@ -474,9 +659,32 @@
       ],
       "correct_answer": "are",
       "explanation": "You and Mai chỉ hai người nên là chủ ngữ số nhiều, dùng are. Is dùng cho số ít; am chỉ dùng với I; be không phù hợp ở đây.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "You and Mai chỉ hai người nên là chủ ngữ số nhiều, dùng are. Is dùng cho số ít; am chỉ dùng với I; be không phù hợp ở đây."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is dùng cho số ít."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am chỉ dùng với I."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không phù hợp ở đây."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-10",
       "type": "fill_blank",
       "question": "Fill in the correct **verb form**: I ___ eleven years old.",
       "options": [
@@ -487,9 +695,32 @@
       ],
       "correct_answer": "am",
       "explanation": "Khi nói tuổi với chủ ngữ I, ta dùng I am. Is, are và be không hòa hợp với I trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "am",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi nói tuổi với chủ ngữ I, ta dùng I am. Is, are và be không hòa hợp với I trong câu này."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is, are và be không hòa hợp với I trong câu này."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are và be không hòa hợp với I trong câu này."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không hòa hợp với I trong câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-11",
       "type": "fill_blank",
       "question": "Fill in the correct **to be**: The cats ___ under the chair.",
       "options": [
@@ -500,9 +731,32 @@
       ],
       "correct_answer": "are",
       "explanation": "The cats là danh từ số nhiều nên dùng are. Is dùng với một con mèo hoặc một vật/người số ít; am chỉ dùng với I; be không đúng ở đây.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "The cats là danh từ số nhiều nên dùng are. Is dùng với một con mèo hoặc một vật/người số ít; am chỉ dùng với I; be không đúng ở đây."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is dùng với một con mèo hoặc một vật/người số ít."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am chỉ dùng với I."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không đúng ở đây."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-12",
       "type": "fill_blank",
       "question": "Fill in the correct **negative form**: We ___ not tired.",
       "options": [
@@ -513,9 +767,32 @@
       ],
       "correct_answer": "are",
       "explanation": "We đi với are, nên câu đúng là We are not tired. Is dùng với he/she/it; am dùng với I; be không dùng trực tiếp sau we trong câu hiện tại đơn này.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "We đi với are, nên câu đúng là We are not tired. Is dùng với he/she/it; am dùng với I; be không dùng trực tiếp sau we trong câu hiện tại đơn này."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is dùng với he/she/it."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ to-be \"am\" chỉ đi duy nhất với chủ ngữ ngôi thứ nhất \"I\"."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không dùng trực tiếp sau we trong câu hiện tại đơn này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-13",
       "type": "fill_blank",
       "question": "Fill in the correct **question form**: ___ he your brother?",
       "options": [
@@ -526,9 +803,32 @@
       ],
       "correct_answer": "Is",
       "explanation": "He là ngôi thứ ba số ít nên câu hỏi dùng Is he. Are dùng với you/we/they hoặc số nhiều; am dùng với I; be không đúng trong câu hỏi này.",
+      "distractor_breakdowns": [
+        {
+          "option": "Is",
+          "isCorrect": true,
+          "pedagogicalReason": "He là ngôi thứ ba số ít nên câu hỏi dùng Is he. Are dùng với you/we/they hoặc số nhiều; am dùng với I; be không đúng trong câu hỏi này."
+        },
+        {
+          "option": "Are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are dùng với you/we/they hoặc số nhiều."
+        },
+        {
+          "option": "Am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ to-be \"am\" chỉ đi duy nhất với chủ ngữ ngôi thứ nhất \"I\"."
+        },
+        {
+          "option": "Be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không đúng trong câu hỏi này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-14",
       "type": "fill_blank",
       "question": "Fill in the correct **verb form**: These pencils ___ new.",
       "options": [
@@ -539,9 +839,32 @@
       ],
       "correct_answer": "are",
       "explanation": "These pencils là danh từ số nhiều nên dùng are. Is dùng cho số ít; am chỉ dùng với I; be không phù hợp trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "These pencils là danh từ số nhiều nên dùng are. Is dùng cho số ít; am chỉ dùng với I; be không phù hợp trong câu này."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is dùng cho số ít."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am chỉ dùng với I."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không phù hợp trong câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-15",
       "type": "fill_blank",
       "question": "Fill in the correct **to be**: It ___ a sunny day.",
       "options": [
@@ -552,9 +875,32 @@
       ],
       "correct_answer": "is",
       "explanation": "It là chủ ngữ số ít nên dùng is. Are dùng cho số nhiều hoặc you/we/they; am chỉ dùng với I; be không đúng ở hiện tại đơn này.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "It là chủ ngữ số ít nên dùng is. Are dùng cho số nhiều hoặc you/we/they; am chỉ dùng với I; be không đúng ở hiện tại đơn này."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are dùng cho số nhiều hoặc you/we/they."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am chỉ dùng với I."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không đúng ở hiện tại đơn này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-16",
       "type": "fill_blank",
       "question": "Fill in the correct **short answer**: Is your mother a doctor? No, she ___.",
       "options": [
@@ -565,9 +911,32 @@
       ],
       "correct_answer": "isn't",
       "explanation": "Câu hỏi dùng Is your mother, nên câu trả lời phủ định ngắn là she isn't. Aren't dùng với are; am not dùng với I; be not không tự nhiên trong cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "isn't",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi dùng Is your mother, nên câu trả lời phủ định ngắn là she isn't. Aren't dùng với are; am not dùng với I; be not không tự nhiên trong cấu trúc này."
+        },
+        {
+          "option": "aren't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Aren't dùng với are."
+        },
+        {
+          "option": "am not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am not dùng với I."
+        },
+        {
+          "option": "be not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be not không tự nhiên trong cấu trúc này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-17",
       "type": "fill_blank",
       "question": "Fill in the correct **contraction**: They are in the classroom. = ___ in the classroom.",
       "options": [
@@ -578,9 +947,32 @@
       ],
       "correct_answer": "They're",
       "explanation": "They are được rút gọn thành They're. They's, They'm và They is đều sai vì they phải đi với are.",
+      "distractor_breakdowns": [
+        {
+          "option": "They're",
+          "isCorrect": true,
+          "pedagogicalReason": "They are được rút gọn thành They're. They's, They'm và They is đều sai vì they phải đi với are."
+        },
+        {
+          "option": "They's",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. They's, They'm và They is đều sai vì they phải đi với are."
+        },
+        {
+          "option": "They'm",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. They'm và They is đều sai vì they phải đi với are."
+        },
+        {
+          "option": "They is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. They is đều sai vì they phải đi với are."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-18",
       "type": "error_correction",
       "question": "Find the error: I is happy today.",
       "options": [
@@ -591,9 +983,32 @@
       ],
       "correct_answer": "is",
       "explanation": "Lỗi là is vì chủ ngữ I phải đi với am: I am happy today. Các từ I, happy và today không sai trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "I",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. I, happy và today không sai trong câu này."
+        },
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "Lỗi là is vì chủ ngữ I phải đi với am: I am happy today. Các từ I, happy và today không sai trong câu này."
+        },
+        {
+          "option": "happy",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Happy và today không sai trong câu này."
+        },
+        {
+          "option": "today",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Today không sai trong câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-19",
       "type": "error_correction",
       "question": "Find the error: They is in the park.",
       "options": [
@@ -604,9 +1019,32 @@
       ],
       "correct_answer": "is",
       "explanation": "They phải đi với are, nên câu đúng là They are in the park. They, in và the park không phải lỗi ngữ pháp ở đây.",
+      "distractor_breakdowns": [
+        {
+          "option": "They",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. They, in và the park không phải lỗi ngữ pháp ở đây."
+        },
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "They phải đi với are, nên câu đúng là They are in the park. They, in và the park không phải lỗi ngữ pháp ở đây."
+        },
+        {
+          "option": "in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. In và the park không phải lỗi ngữ pháp ở đây."
+        },
+        {
+          "option": "the park",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. The park không phải lỗi ngữ pháp ở đây."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-20",
       "type": "error_correction",
       "question": "Find the error: She are very kind.",
       "options": [
@@ -617,9 +1055,32 @@
       ],
       "correct_answer": "are",
       "explanation": "She là số ít nên phải dùng is: She is very kind. She, very và kind đều phù hợp trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "She",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. She là số ít nên phải dùng is: She is very kind."
+        },
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "She là số ít nên phải dùng is: She is very kind. She, very và kind đều phù hợp trong câu."
+        },
+        {
+          "option": "very",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Very và kind đều phù hợp trong câu."
+        },
+        {
+          "option": "kind",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Kind đều phù hợp trong câu."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-21",
       "type": "error_correction",
       "question": "Find the error: We am classmates.",
       "options": [
@@ -630,9 +1091,32 @@
       ],
       "correct_answer": "am",
       "explanation": "We phải đi với are, nên câu đúng là We are classmates. We và classmates đúng; dấu chấm không phải lỗi ngữ pháp cần sửa.",
+      "distractor_breakdowns": [
+        {
+          "option": "We",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. We phải đi với are, nên câu đúng là We are classmates."
+        },
+        {
+          "option": "am",
+          "isCorrect": true,
+          "pedagogicalReason": "We phải đi với are, nên câu đúng là We are classmates. We và classmates đúng; dấu chấm không phải lỗi ngữ pháp cần sửa."
+        },
+        {
+          "option": "classmates",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"classmates\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": ".",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \".\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-22",
       "type": "error_correction",
       "question": "Find the error: Are she your friend?",
       "options": [
@@ -643,9 +1127,32 @@
       ],
       "correct_answer": "Are",
       "explanation": "Với she, câu hỏi phải bắt đầu bằng Is: Is she your friend? She, your và friend không sai trong câu hỏi này.",
+      "distractor_breakdowns": [
+        {
+          "option": "Are",
+          "isCorrect": true,
+          "pedagogicalReason": "Với she, câu hỏi phải bắt đầu bằng Is: Is she your friend? She, your và friend không sai trong câu hỏi này."
+        },
+        {
+          "option": "she",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. She, câu hỏi phải bắt đầu bằng Is: Is she your friend? She, your và friend không sai trong câu hỏi này."
+        },
+        {
+          "option": "your",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Your friend? She, your và friend không sai trong câu hỏi này."
+        },
+        {
+          "option": "friend",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Friend? She, your và friend không sai trong câu hỏi này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-23",
       "type": "error_correction",
       "question": "Find the error: My bags is heavy.",
       "options": [
@@ -656,9 +1163,32 @@
       ],
       "correct_answer": "is",
       "explanation": "My bags là số nhiều nên phải dùng are: My bags are heavy. My bags và heavy đúng; dấu chấm không phải lỗi cần sửa.",
+      "distractor_breakdowns": [
+        {
+          "option": "My bags",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. My bags là số nhiều nên phải dùng are: My bags are heavy."
+        },
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "My bags là số nhiều nên phải dùng are: My bags are heavy. My bags và heavy đúng; dấu chấm không phải lỗi cần sửa."
+        },
+        {
+          "option": "heavy",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"heavy\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": ".",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \".\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-24",
       "type": "error_correction",
       "question": "Find the error: You is not late.",
       "options": [
@@ -669,9 +1199,32 @@
       ],
       "correct_answer": "is not",
       "explanation": "You phải đi với are, nên dạng phủ định đúng là are not: You are not late. You và late không sai; dấu chấm không phải lỗi ngữ pháp.",
+      "distractor_breakdowns": [
+        {
+          "option": "You",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. You và late không sai."
+        },
+        {
+          "option": "is not",
+          "isCorrect": true,
+          "pedagogicalReason": "You phải đi với are, nên dạng phủ định đúng là are not: You are not late. You và late không sai; dấu chấm không phải lỗi ngữ pháp."
+        },
+        {
+          "option": "late",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"late\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": ".",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \".\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-25",
       "type": "error_correction",
       "question": "Find the error: He's are my cousin.",
       "options": [
@@ -682,9 +1235,32 @@
       ],
       "correct_answer": "are",
       "explanation": "He's đã có nghĩa là He is, nên không được thêm are sau đó. Câu đúng là He's my cousin hoặc He is my cousin; my và cousin đúng trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "He's",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. He's đã có nghĩa là He is, nên không được thêm are sau đó."
+        },
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "He's đã có nghĩa là He is, nên không được thêm are sau đó. Câu đúng là He's my cousin hoặc He is my cousin; my và cousin đúng trong câu."
+        },
+        {
+          "option": "my",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. My cousin hoặc He is my cousin."
+        },
+        {
+          "option": "cousin",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cousin hoặc He is my cousin."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "verb-to-be-ex-26",
       "type": "multiple_choice",
       "question": "Choose the correct **to be**: I ___ a little hungry.",
       "options": [
@@ -695,9 +1271,32 @@
       ],
       "correct_answer": "am",
       "explanation": "Với chủ ngữ I, ta dùng am. Is dùng cho he/she/it hoặc một danh từ số ít; are dùng cho you/we/they hoặc số nhiều; be không dùng trực tiếp trong câu hiện tại đơn này.",
+      "distractor_breakdowns": [
+        {
+          "option": "am",
+          "isCorrect": true,
+          "pedagogicalReason": "Với chủ ngữ I, ta dùng am. Is dùng cho he/she/it hoặc một danh từ số ít; are dùng cho you/we/they hoặc số nhiều; be không dùng trực tiếp trong câu hiện tại đơn này."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is dùng cho he/she/it hoặc một danh từ số ít."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are dùng cho you/we/they hoặc số nhiều."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không dùng trực tiếp trong câu hiện tại đơn này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-27",
       "type": "multiple_choice",
       "question": "Choose the correct **verb form**: Tom ___ in the kitchen.",
       "options": [
@@ -708,9 +1307,32 @@
       ],
       "correct_answer": "is",
       "explanation": "Tom là một người số ít, tương đương he, nên dùng is. Am chỉ đi với I, are đi với chủ ngữ số nhiều hoặc you, còn be không phù hợp ở hiện tại đơn.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "Tom là một người số ít, tương đương he, nên dùng is. Am chỉ đi với I, are đi với chủ ngữ số nhiều hoặc you, còn be không phù hợp ở hiện tại đơn."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am chỉ đi với I, are đi với chủ ngữ số nhiều hoặc you, còn be không phù hợp ở hiện tại đơn."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are đi với chủ ngữ số nhiều hoặc you, còn be không phù hợp ở hiện tại đơn."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không phù hợp ở hiện tại đơn."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-28",
       "type": "multiple_choice",
       "question": "Choose the correct **agreement**: The windows ___ clean.",
       "options": [
@@ -721,9 +1343,32 @@
       ],
       "correct_answer": "are",
       "explanation": "The windows là danh từ số nhiều nên dùng are. Is dùng cho danh từ số ít, am chỉ dùng với I, be không phải dạng chia đúng trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "The windows là danh từ số nhiều nên dùng are. Is dùng cho danh từ số ít, am chỉ dùng với I, be không phải dạng chia đúng trong câu này."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am chỉ dùng với I, be không phải dạng chia đúng trong câu này."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is dùng cho danh từ số ít, am chỉ dùng với I, be không phải dạng chia đúng trong câu này."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không phải dạng chia đúng trong câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-29",
       "type": "multiple_choice",
       "question": "Choose the correct **question form**: ___ your name Anna?",
       "options": [
@@ -734,9 +1379,32 @@
       ],
       "correct_answer": "Is",
       "explanation": "Your name là danh từ số ít, nên câu hỏi dùng Is ở đầu câu. Are dùng với số nhiều/you, Am dùng với I, Be không dùng để bắt đầu câu hỏi hiện tại đơn như vậy.",
+      "distractor_breakdowns": [
+        {
+          "option": "Is",
+          "isCorrect": true,
+          "pedagogicalReason": "Your name là danh từ số ít, nên câu hỏi dùng Is ở đầu câu. Are dùng với số nhiều/you, Am dùng với I, Be không dùng để bắt đầu câu hỏi hiện tại đơn như vậy."
+        },
+        {
+          "option": "Are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are dùng với số nhiều/you, Am dùng với I, Be không dùng để bắt đầu câu hỏi hiện tại đơn như vậy."
+        },
+        {
+          "option": "Am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am dùng với I, Be không dùng để bắt đầu câu hỏi hiện tại đơn như vậy."
+        },
+        {
+          "option": "Be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không dùng để bắt đầu câu hỏi hiện tại đơn như vậy."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-30",
       "type": "multiple_choice",
       "question": "Choose the correct **negative form**: His shoes ___ not blue.",
       "options": [
@@ -747,9 +1415,32 @@
       ],
       "correct_answer": "are",
       "explanation": "His shoes là danh từ số nhiều nên dùng are not. Is not dùng cho số ít, am not chỉ đi với I, còn be not không đúng ở hiện tại đơn.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "His shoes là danh từ số nhiều nên dùng are not. Is not dùng cho số ít, am not chỉ đi với I, còn be not không đúng ở hiện tại đơn."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is not dùng cho số ít, am not chỉ đi với I, còn be not không đúng ở hiện tại đơn."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am not chỉ đi với I, còn be not không đúng ở hiện tại đơn."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be not không đúng ở hiện tại đơn."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-31",
       "type": "multiple_choice",
       "question": "Choose the correct **short answer**: Is the baby asleep? Yes, it ___.",
       "options": [
@@ -760,9 +1451,32 @@
       ],
       "correct_answer": "is",
       "explanation": "The baby có thể thay bằng it, nên câu trả lời ngắn là Yes, it is. Are và am không hợp với it, còn be không dùng trong short answer này.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "The baby có thể thay bằng it, nên câu trả lời ngắn là Yes, it is. Are và am không hợp với it, còn be không dùng trong short answer này."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are và am không hợp với it, còn be không dùng trong short answer này."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am không hợp với it, còn be không dùng trong short answer này."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không dùng trong short answer này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-32",
       "type": "multiple_choice",
       "question": "Choose the correct **contraction**: We are on the bus. = ___ on the bus.",
       "options": [
@@ -773,9 +1487,32 @@
       ],
       "correct_answer": "We're",
       "explanation": "We are rút gọn thành We're. They're là they are, You're là you are, còn I'm là I am nên không đúng nghĩa chủ ngữ.",
+      "distractor_breakdowns": [
+        {
+          "option": "We're",
+          "isCorrect": true,
+          "pedagogicalReason": "We are rút gọn thành We're. They're là they are, You're là you are, còn I'm là I am nên không đúng nghĩa chủ ngữ."
+        },
+        {
+          "option": "They're",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. They're là they are, You're là you are, còn I'm là I am nên không đúng nghĩa chủ ngữ."
+        },
+        {
+          "option": "You're",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. You're là you are, còn I'm là I am nên không đúng nghĩa chủ ngữ."
+        },
+        {
+          "option": "I'm",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. I'm là I am nên không đúng nghĩa chủ ngữ."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-33",
       "type": "multiple_choice",
       "question": "Choose the correct **to be**: These oranges ___ sweet.",
       "options": [
@@ -786,9 +1523,32 @@
       ],
       "correct_answer": "are",
       "explanation": "These oranges là nhiều quả cam, nên dùng are. Is dùng cho một vật/người số ít, am chỉ dùng với I, be không phải dạng chia ở đây.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "These oranges là nhiều quả cam, nên dùng are. Is dùng cho một vật/người số ít, am chỉ dùng với I, be không phải dạng chia ở đây."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is dùng cho một vật/người số ít, am chỉ dùng với I, be không phải dạng chia ở đây."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am chỉ dùng với I, be không phải dạng chia ở đây."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không phải dạng chia ở đây."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-34",
       "type": "multiple_choice",
       "question": "Choose the correct **word order**: ___ cold today?",
       "options": [
@@ -799,9 +1559,32 @@
       ],
       "correct_answer": "Is it",
       "explanation": "Câu hỏi với it dùng cấu trúc Is + it + tính từ. It is là câu khẳng định, còn Are it và Am it sai vì it đi với is.",
+      "distractor_breakdowns": [
+        {
+          "option": "Is it",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi với it dùng cấu trúc Is + it + tính từ. It is là câu khẳng định, còn Are it và Am it sai vì it đi với is."
+        },
+        {
+          "option": "It is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. It is là câu khẳng định, còn Are it và Am it sai vì it đi với is."
+        },
+        {
+          "option": "Are it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are it và Am it sai vì it đi với is."
+        },
+        {
+          "option": "Am it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am it sai vì it đi với is."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-35",
       "type": "fill_blank",
       "question": "Fill in the correct **to be**: My phone ___ on the desk.",
       "options": [
@@ -812,9 +1595,32 @@
       ],
       "correct_answer": "is",
       "explanation": "My phone là một vật số ít nên dùng is. Am chỉ dùng với I, are dùng cho số nhiều hoặc you/we/they, còn be không phù hợp trong câu hiện tại đơn.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "My phone là một vật số ít nên dùng is. Am chỉ dùng với I, are dùng cho số nhiều hoặc you/we/they, còn be không phù hợp trong câu hiện tại đơn."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am chỉ dùng với I, are dùng cho số nhiều hoặc you/we/they, còn be không phù hợp trong câu hiện tại đơn."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are dùng cho số nhiều hoặc you/we/they, còn be không phù hợp trong câu hiện tại đơn."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không phù hợp trong câu hiện tại đơn."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-36",
       "type": "fill_blank",
       "question": "Fill in the correct **verb form**: You ___ my best friend.",
       "options": [
@@ -825,9 +1631,32 @@
       ],
       "correct_answer": "are",
       "explanation": "Chủ ngữ you luôn đi với are trong hiện tại đơn. Am chỉ đi với I, is đi với he/she/it hoặc số ít, be không đúng dạng chia.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ you luôn đi với are trong hiện tại đơn. Am chỉ đi với I, is đi với he/she/it hoặc số ít, be không đúng dạng chia."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am chỉ đi với I, is đi với he/she/it hoặc số ít, be không đúng dạng chia."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is đi với he/she/it hoặc số ít, be không đúng dạng chia."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không đúng dạng chia."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-37",
       "type": "fill_blank",
       "question": "Fill in the correct **negative form**: I ___ not afraid.",
       "options": [
@@ -838,9 +1667,32 @@
       ],
       "correct_answer": "am",
       "explanation": "Với I ở câu phủ định, ta dùng am not. Is not và are not dùng cho chủ ngữ khác, còn be not không phải cách chia đúng ở đây.",
+      "distractor_breakdowns": [
+        {
+          "option": "am",
+          "isCorrect": true,
+          "pedagogicalReason": "Với I ở câu phủ định, ta dùng am not. Is not và are not dùng cho chủ ngữ khác, còn be not không phải cách chia đúng ở đây."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is not và are not dùng cho chủ ngữ khác, còn be not không phải cách chia đúng ở đây."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are not dùng cho chủ ngữ khác, còn be not không phải cách chia đúng ở đây."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be not không phải cách chia đúng ở đây."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-38",
       "type": "fill_blank",
       "question": "Fill in the correct **question form**: ___ the girls in the garden?",
       "options": [
@@ -851,9 +1703,32 @@
       ],
       "correct_answer": "Are",
       "explanation": "The girls là danh từ số nhiều nên câu hỏi bắt đầu bằng Are. Is dùng cho số ít, Am dùng với I, Be không dùng trực tiếp trong cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "Are",
+          "isCorrect": true,
+          "pedagogicalReason": "The girls là danh từ số nhiều nên câu hỏi bắt đầu bằng Are. Is dùng cho số ít, Am dùng với I, Be không dùng trực tiếp trong cấu trúc này."
+        },
+        {
+          "option": "Is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is dùng cho số ít, Am dùng với I, Be không dùng trực tiếp trong cấu trúc này."
+        },
+        {
+          "option": "Am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am dùng với I, Be không dùng trực tiếp trong cấu trúc này."
+        },
+        {
+          "option": "Be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không dùng trực tiếp trong cấu trúc này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-39",
       "type": "fill_blank",
       "question": "Fill in the correct **short answer**: Are your socks white? No, they ___.",
       "options": [
@@ -864,9 +1739,32 @@
       ],
       "correct_answer": "aren't",
       "explanation": "Your socks là số nhiều, thay bằng they, nên phủ định ngắn là they aren't. Isn't dùng cho số ít, am not dùng với I, be not không đúng trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "aren't",
+          "isCorrect": true,
+          "pedagogicalReason": "Your socks là số nhiều, thay bằng they, nên phủ định ngắn là they aren't. Isn't dùng cho số ít, am not dùng với I, be not không đúng trong câu này."
+        },
+        {
+          "option": "isn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Isn't dùng cho số ít, am not dùng với I, be not không đúng trong câu này."
+        },
+        {
+          "option": "am not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am not dùng với I, be not không đúng trong câu này."
+        },
+        {
+          "option": "be not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be not không đúng trong câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-40",
       "type": "fill_blank",
       "question": "Fill in the correct **contraction**: It is a red apple. = ___ a red apple.",
       "options": [
@@ -877,9 +1775,32 @@
       ],
       "correct_answer": "It's",
       "explanation": "It is rút gọn thành It's. He's là he is, She's là she is, They're là they are nên không thay thế được it is.",
+      "distractor_breakdowns": [
+        {
+          "option": "It's",
+          "isCorrect": true,
+          "pedagogicalReason": "It is rút gọn thành It's. He's là he is, She's là she is, They're là they are nên không thay thế được it is."
+        },
+        {
+          "option": "He's",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. He's là he is, She's là she is, They're là they are nên không thay thế được it is."
+        },
+        {
+          "option": "She's",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. She's là she is, They're là they are nên không thay thế được it is."
+        },
+        {
+          "option": "They're",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. They're là they are nên không thay thế được it is."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-41",
       "type": "fill_blank",
       "question": "Fill in the correct **to be**: Ben and I ___ neighbors.",
       "options": [
@@ -890,9 +1811,32 @@
       ],
       "correct_answer": "are",
       "explanation": "Ben and I nghĩa là chúng tôi, tương đương we, nên dùng are. Am chỉ đi với I đứng một mình, is dùng cho số ít, be không phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "Ben and I nghĩa là chúng tôi, tương đương we, nên dùng are. Am chỉ đi với I đứng một mình, is dùng cho số ít, be không phù hợp."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am chỉ đi với I đứng một mình, is dùng cho số ít, be không phù hợp."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is dùng cho số ít, be không phù hợp."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không phù hợp."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-42",
       "type": "fill_blank",
       "question": "Fill in the correct **verb form**: The soup ___ hot.",
       "options": [
@@ -903,9 +1847,32 @@
       ],
       "correct_answer": "is",
       "explanation": "The soup là danh từ không đếm được và được xem như số ít, nên dùng is. Are dùng cho số nhiều, am dùng với I, be không đúng dạng chia.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "The soup là danh từ không đếm được và được xem như số ít, nên dùng is. Are dùng cho số nhiều, am dùng với I, be không đúng dạng chia."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are dùng cho số nhiều, am dùng với I, be không đúng dạng chia."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am dùng với I, be không đúng dạng chia."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không đúng dạng chia."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-43",
       "type": "error_correction",
       "question": "Find the error: He am seven years old.",
       "options": [
@@ -916,9 +1883,32 @@
       ],
       "correct_answer": "am",
       "explanation": "He phải đi với is, nên lỗi là am. He là chủ ngữ đúng, seven years old là cụm nói tuổi đúng, và old không sai trong cụm này.",
+      "distractor_breakdowns": [
+        {
+          "option": "He",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. He là chủ ngữ đúng, seven years old là cụm nói tuổi đúng, và old không sai trong cụm này."
+        },
+        {
+          "option": "am",
+          "isCorrect": true,
+          "pedagogicalReason": "He phải đi với is, nên lỗi là am. He là chủ ngữ đúng, seven years old là cụm nói tuổi đúng, và old không sai trong cụm này."
+        },
+        {
+          "option": "seven years old",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Seven years old là cụm nói tuổi đúng, và old không sai trong cụm này."
+        },
+        {
+          "option": "old",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Old là cụm nói tuổi đúng, và old không sai trong cụm này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-44",
       "type": "error_correction",
       "question": "Find the error: The flowers is beautiful.",
       "options": [
@@ -929,9 +1919,32 @@
       ],
       "correct_answer": "is",
       "explanation": "The flowers là danh từ số nhiều nên phải dùng are. The flowers và flowers đúng về nghĩa số nhiều, beautiful là tính từ đúng sau to be.",
+      "distractor_breakdowns": [
+        {
+          "option": "The flowers",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. The flowers là danh từ số nhiều nên phải dùng are."
+        },
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "The flowers là danh từ số nhiều nên phải dùng are. The flowers và flowers đúng về nghĩa số nhiều, beautiful là tính từ đúng sau to be."
+        },
+        {
+          "option": "beautiful",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Beautiful là tính từ đúng sau to be."
+        },
+        {
+          "option": "flowers",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Flowers là danh từ số nhiều nên phải dùng are."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-45",
       "type": "error_correction",
       "question": "Find the error: Am you okay now?",
       "options": [
@@ -942,9 +1955,32 @@
       ],
       "correct_answer": "Am",
       "explanation": "Với chủ ngữ you, câu hỏi phải bắt đầu bằng Are, không phải Am. You là chủ ngữ đúng, okay là tính từ đúng, now là trạng từ thời gian đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "Am",
+          "isCorrect": true,
+          "pedagogicalReason": "Với chủ ngữ you, câu hỏi phải bắt đầu bằng Are, không phải Am. You là chủ ngữ đúng, okay là tính từ đúng, now là trạng từ thời gian đúng."
+        },
+        {
+          "option": "you",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. You, câu hỏi phải bắt đầu bằng Are, không phải Am."
+        },
+        {
+          "option": "okay",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Okay là tính từ đúng, now là trạng từ thời gian đúng."
+        },
+        {
+          "option": "now",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Now là trạng từ thời gian đúng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-46",
       "type": "error_correction",
       "question": "Find the error: I are at the supermarket.",
       "options": [
@@ -955,9 +1991,32 @@
       ],
       "correct_answer": "are",
       "explanation": "I luôn đi với am, nên are là lỗi. I là chủ ngữ đúng, at chỉ vị trí đúng, và the supermarket là địa điểm đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "I",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. I là chủ ngữ đúng, at chỉ vị trí đúng, và the supermarket là địa điểm đúng."
+        },
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "I luôn đi với am, nên are là lỗi. I là chủ ngữ đúng, at chỉ vị trí đúng, và the supermarket là địa điểm đúng."
+        },
+        {
+          "option": "at",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. At chỉ vị trí đúng, và the supermarket là địa điểm đúng."
+        },
+        {
+          "option": "the supermarket",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. The supermarket là địa điểm đúng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-47",
       "type": "error_correction",
       "question": "Find the error: The rice are in the bowl.",
       "options": [
@@ -968,9 +2027,32 @@
       ],
       "correct_answer": "are",
       "explanation": "Rice là danh từ không đếm được, thường xem như số ít, nên dùng is. The rice là chủ ngữ đúng, in và the bowl tạo cụm vị trí đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "The rice",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. The rice là chủ ngữ đúng, in và the bowl tạo cụm vị trí đúng."
+        },
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "Rice là danh từ không đếm được, thường xem như số ít, nên dùng is. The rice là chủ ngữ đúng, in và the bowl tạo cụm vị trí đúng."
+        },
+        {
+          "option": "in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. In và the bowl tạo cụm vị trí đúng."
+        },
+        {
+          "option": "the bowl",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. The bowl tạo cụm vị trí đúng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-48",
       "type": "error_correction",
       "question": "Find the error: Your eyes is green.",
       "options": [
@@ -981,9 +2063,32 @@
       ],
       "correct_answer": "is",
       "explanation": "Your eyes là số nhiều nên phải dùng are. Your eyes là chủ ngữ đúng, green là tính từ đúng, và eyes thể hiện số nhiều đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "Your eyes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Your eyes là số nhiều nên phải dùng are."
+        },
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "Your eyes là số nhiều nên phải dùng are. Your eyes là chủ ngữ đúng, green là tính từ đúng, và eyes thể hiện số nhiều đúng."
+        },
+        {
+          "option": "green",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Green là tính từ đúng, và eyes thể hiện số nhiều đúng."
+        },
+        {
+          "option": "eyes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Eyes là số nhiều nên phải dùng are."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-49",
       "type": "error_correction",
       "question": "Find the error: They am not from Korea.",
       "options": [
@@ -994,9 +2099,32 @@
       ],
       "correct_answer": "am not",
       "explanation": "They phải đi với are not, nên am not là lỗi. They là chủ ngữ đúng, from dùng để nói nguồn gốc đúng, và Korea là tên quốc gia đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "They",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. They là chủ ngữ đúng, from dùng để nói nguồn gốc đúng, và Korea là tên quốc gia đúng."
+        },
+        {
+          "option": "am not",
+          "isCorrect": true,
+          "pedagogicalReason": "They phải đi với are not, nên am not là lỗi. They là chủ ngữ đúng, from dùng để nói nguồn gốc đúng, và Korea là tên quốc gia đúng."
+        },
+        {
+          "option": "from",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. From dùng để nói nguồn gốc đúng, và Korea là tên quốc gia đúng."
+        },
+        {
+          "option": "Korea",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Korea là tên quốc gia đúng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-50",
       "type": "error_correction",
       "question": "Find the error: Mia and Leo is twins.",
       "options": [
@@ -1007,9 +2135,32 @@
       ],
       "correct_answer": "is",
       "explanation": "Mia and Leo là hai người, tương đương they, nên dùng are. Mia and Leo là chủ ngữ số nhiều đúng, twins là danh từ số nhiều đúng, Leo không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "Mia and Leo",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Mia and Leo là hai người, tương đương they, nên dùng are."
+        },
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "Mia and Leo là hai người, tương đương they, nên dùng are. Mia and Leo là chủ ngữ số nhiều đúng, twins là danh từ số nhiều đúng, Leo không sai."
+        },
+        {
+          "option": "twins",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Twins là danh từ số nhiều đúng, Leo không sai."
+        },
+        {
+          "option": "Leo",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Leo là hai người, tương đương they, nên dùng are."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-51",
       "type": "multiple_choice",
       "question": "Choose the correct **verb form**: Sarah ___ my sister.",
       "options": [
@@ -1020,9 +2171,32 @@
       ],
       "correct_answer": "is",
       "explanation": "Sarah là một người số ít nên dùng is. Am chỉ đi với I, are đi với chủ ngữ số nhiều hoặc you, còn be không phù hợp trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "Sarah là một người số ít nên dùng is. Am chỉ đi với I, are đi với chủ ngữ số nhiều hoặc you, còn be không phù hợp trong câu này."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am chỉ đi với I, are đi với chủ ngữ số nhiều hoặc you, còn be không phù hợp trong câu này."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are đi với chủ ngữ số nhiều hoặc you, còn be không phù hợp trong câu này."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không phù hợp trong câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-52",
       "type": "multiple_choice",
       "question": "Choose the correct **agreement**: The chairs ___ in the classroom.",
       "options": [
@@ -1033,9 +2207,32 @@
       ],
       "correct_answer": "are",
       "explanation": "The chairs là danh từ số nhiều nên dùng are. Is dùng cho số ít, am dùng với I, be không phải dạng chia đúng ở hiện tại đơn.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "The chairs là danh từ số nhiều nên dùng are. Is dùng cho số ít, am dùng với I, be không phải dạng chia đúng ở hiện tại đơn."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is dùng cho số ít, am dùng với I, be không phải dạng chia đúng ở hiện tại đơn."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am dùng với I, be không phải dạng chia đúng ở hiện tại đơn."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không phải dạng chia đúng ở hiện tại đơn."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-53",
       "type": "multiple_choice",
       "question": "Choose the correct **question form**: ___ your father a doctor?",
       "options": [
@@ -1046,9 +2243,32 @@
       ],
       "correct_answer": "Is",
       "explanation": "Your father là một người số ít nên câu hỏi bắt đầu bằng Is. Are dùng với you/we/they hoặc số nhiều; Am chỉ dùng với I; Be không đứng đầu câu hỏi kiểu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "Is",
+          "isCorrect": true,
+          "pedagogicalReason": "Your father là một người số ít nên câu hỏi bắt đầu bằng Is. Are dùng với you/we/they hoặc số nhiều; Am chỉ dùng với I; Be không đứng đầu câu hỏi kiểu này."
+        },
+        {
+          "option": "Are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are dùng với you/we/they hoặc số nhiều."
+        },
+        {
+          "option": "Am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am chỉ dùng với I."
+        },
+        {
+          "option": "Be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không đứng đầu câu hỏi kiểu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-54",
       "type": "multiple_choice",
       "question": "Choose the correct **short answer**: Are the children noisy? Yes, they ___.",
       "options": [
@@ -1059,9 +2279,32 @@
       ],
       "correct_answer": "are",
       "explanation": "Câu hỏi dùng Are với the children, nên câu trả lời ngắn là Yes, they are. Is và am không khớp với they; be không phải dạng trả lời đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi dùng Are với the children, nên câu trả lời ngắn là Yes, they are. Is và am không khớp với they; be không phải dạng trả lời đúng."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is và am không khớp với they."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am không khớp với they."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không phải dạng trả lời đúng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-55",
       "type": "multiple_choice",
       "question": "Choose the correct **contraction**: You are early. = ___ early.",
       "options": [
@@ -1072,9 +2315,32 @@
       ],
       "correct_answer": "You're",
       "explanation": "You are rút gọn thành You're. I'm là I am, She's là She is, They're là They are nên không đúng với chủ ngữ you.",
+      "distractor_breakdowns": [
+        {
+          "option": "You're",
+          "isCorrect": true,
+          "pedagogicalReason": "You are rút gọn thành You're. I'm là I am, She's là She is, They're là They are nên không đúng với chủ ngữ you."
+        },
+        {
+          "option": "I'm",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. I'm là I am, She's là She is, They're là They are nên không đúng với chủ ngữ you."
+        },
+        {
+          "option": "She's",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. She's là She is, They're là They are nên không đúng với chủ ngữ you."
+        },
+        {
+          "option": "They're",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. They're là They are nên không đúng với chủ ngữ you."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-56",
       "type": "multiple_choice",
       "question": "Choose the correct **word order**: ___ the tickets on the table?",
       "options": [
@@ -1085,9 +2351,32 @@
       ],
       "correct_answer": "Are",
       "explanation": "The tickets là danh từ số nhiều nên câu hỏi dùng Are. Is dùng cho số ít, Am dùng với I, Be không dùng để mở câu hỏi hiện tại đơn như vậy.",
+      "distractor_breakdowns": [
+        {
+          "option": "Are",
+          "isCorrect": true,
+          "pedagogicalReason": "The tickets là danh từ số nhiều nên câu hỏi dùng Are. Is dùng cho số ít, Am dùng với I, Be không dùng để mở câu hỏi hiện tại đơn như vậy."
+        },
+        {
+          "option": "Is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is dùng cho số ít, Am dùng với I, Be không dùng để mở câu hỏi hiện tại đơn như vậy."
+        },
+        {
+          "option": "Am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am dùng với I, Be không dùng để mở câu hỏi hiện tại đơn như vậy."
+        },
+        {
+          "option": "Be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không dùng để mở câu hỏi hiện tại đơn như vậy."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-57",
       "type": "multiple_choice",
       "question": "Choose the correct **to be**: This cake ___ delicious.",
       "options": [
@@ -1098,9 +2387,32 @@
       ],
       "correct_answer": "is",
       "explanation": "This cake là một vật số ít nên dùng is. Are dùng cho số nhiều, am dùng với I, còn be không được chia theo chủ ngữ.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "This cake là một vật số ít nên dùng is. Are dùng cho số nhiều, am dùng với I, còn be không được chia theo chủ ngữ."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are dùng cho số nhiều, am dùng với I, còn be không được chia theo chủ ngữ."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am dùng với I, còn be không được chia theo chủ ngữ."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không được chia theo chủ ngữ."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-58",
       "type": "fill_blank",
       "question": "Fill in the correct **to be**: We ___ ready for class.",
       "options": [
@@ -1111,9 +2423,32 @@
       ],
       "correct_answer": "are",
       "explanation": "We luôn đi với are ở hiện tại. Is dùng với he/she/it hoặc danh từ số ít, am dùng với I, be không phải dạng chia đúng trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "We luôn đi với are ở hiện tại. Is dùng với he/she/it hoặc danh từ số ít, am dùng với I, be không phải dạng chia đúng trong câu này."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is dùng với he/she/it hoặc danh từ số ít, am dùng với I, be không phải dạng chia đúng trong câu này."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am dùng với I, be không phải dạng chia đúng trong câu này."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không phải dạng chia đúng trong câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-59",
       "type": "fill_blank",
       "question": "Fill in the correct **verb form**: The dog ___ under the bed.",
       "options": [
@@ -1124,9 +2459,32 @@
       ],
       "correct_answer": "is",
       "explanation": "The dog là một con vật số ít nên dùng is. Are dùng cho số nhiều, am dùng với I, be không phù hợp sau chủ ngữ này.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "The dog là một con vật số ít nên dùng is. Are dùng cho số nhiều, am dùng với I, be không phù hợp sau chủ ngữ này."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are dùng cho số nhiều, am dùng với I, be không phù hợp sau chủ ngữ này."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am dùng với I, be không phù hợp sau chủ ngữ này."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không phù hợp sau chủ ngữ này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-60",
       "type": "fill_blank",
       "question": "Fill in the correct **negative form**: They ___ not at school today.",
       "options": [
@@ -1137,9 +2495,32 @@
       ],
       "correct_answer": "are",
       "explanation": "They đi với are, nên phủ định là are not. Is not dùng với số ít, am not dùng với I, be not không đúng trong câu hiện tại đơn này.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "They đi với are, nên phủ định là are not. Is not dùng với số ít, am not dùng với I, be not không đúng trong câu hiện tại đơn này."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is not dùng với số ít, am not dùng với I, be not không đúng trong câu hiện tại đơn này."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am not dùng với I, be not không đúng trong câu hiện tại đơn này."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be not không đúng trong câu hiện tại đơn này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-61",
       "type": "fill_blank",
       "question": "Fill in the correct **question form**: ___ I late for the meeting?",
       "options": [
@@ -1150,9 +2531,32 @@
       ],
       "correct_answer": "Am",
       "explanation": "Trong câu hỏi với chủ ngữ I, ta dùng Am I. Is và Are không đi trực tiếp với I trong cấu trúc này; Be không đúng dạng.",
+      "distractor_breakdowns": [
+        {
+          "option": "Am",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong câu hỏi với chủ ngữ I, ta dùng Am I. Is và Are không đi trực tiếp với I trong cấu trúc này; Be không đúng dạng."
+        },
+        {
+          "option": "Is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is và Are không đi trực tiếp với I trong cấu trúc này."
+        },
+        {
+          "option": "Are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are không đi trực tiếp với I trong cấu trúc này."
+        },
+        {
+          "option": "Be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không đúng dạng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-62",
       "type": "fill_blank",
       "question": "Fill in the correct **short answer**: Is your room clean? No, it ___.",
       "options": [
@@ -1163,9 +2567,32 @@
       ],
       "correct_answer": "isn't",
       "explanation": "Your room là it, nên câu trả lời phủ định ngắn là No, it isn't. Aren't dùng với are, am not dùng với I, be not không tự nhiên và không đúng ở mức này.",
+      "distractor_breakdowns": [
+        {
+          "option": "isn't",
+          "isCorrect": true,
+          "pedagogicalReason": "Your room là it, nên câu trả lời phủ định ngắn là No, it isn't. Aren't dùng với are, am not dùng với I, be not không tự nhiên và không đúng ở mức này."
+        },
+        {
+          "option": "aren't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Aren't dùng với are, am not dùng với I, be not không tự nhiên và không đúng ở mức này."
+        },
+        {
+          "option": "am not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am not dùng với I, be not không tự nhiên và không đúng ở mức này."
+        },
+        {
+          "option": "be not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be not không tự nhiên và không đúng ở mức này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-63",
       "type": "fill_blank",
       "question": "Fill in the correct **contraction**: They are my neighbors. = ___ my neighbors.",
       "options": [
@@ -1176,9 +2603,32 @@
       ],
       "correct_answer": "They're",
       "explanation": "They are rút gọn thành They're. We're là We are, You're là You are, He's là He is nên không đúng chủ ngữ.",
+      "distractor_breakdowns": [
+        {
+          "option": "They're",
+          "isCorrect": true,
+          "pedagogicalReason": "They are rút gọn thành They're. We're là We are, You're là You are, He's là He is nên không đúng chủ ngữ."
+        },
+        {
+          "option": "We're",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. We're là We are, You're là You are, He's là He is nên không đúng chủ ngữ."
+        },
+        {
+          "option": "You're",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. You're là You are, He's là He is nên không đúng chủ ngữ."
+        },
+        {
+          "option": "He's",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. He's là He is nên không đúng chủ ngữ."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-64",
       "type": "fill_blank",
       "question": "Fill in the correct **agreement**: Anna and Mark ___ in the park.",
       "options": [
@@ -1189,9 +2639,32 @@
       ],
       "correct_answer": "are",
       "explanation": "Anna and Mark là hai người, tức chủ ngữ số nhiều, nên dùng are. Is dùng cho một người/vật số ít, am dùng với I, be không chia đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "Anna and Mark là hai người, tức chủ ngữ số nhiều, nên dùng are. Is dùng cho một người/vật số ít, am dùng với I, be không chia đúng."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is dùng cho một người/vật số ít, am dùng với I, be không chia đúng."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am dùng với I, be không chia đúng."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không chia đúng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-65",
       "type": "fill_blank",
       "question": "Fill in the correct **to be**: My mother ___ very kind.",
       "options": [
@@ -1202,9 +2675,32 @@
       ],
       "correct_answer": "is",
       "explanation": "My mother là một người số ít nên dùng is. Are dùng với số nhiều hoặc you; am chỉ dùng với I; be không đúng trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "My mother là một người số ít nên dùng is. Are dùng với số nhiều hoặc you; am chỉ dùng với I; be không đúng trong câu này."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are dùng với số nhiều hoặc you."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am chỉ dùng với I."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không đúng trong câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-66",
       "type": "error_correction",
       "question": "Find the error: The students is in the library.",
       "options": [
@@ -1215,9 +2711,32 @@
       ],
       "correct_answer": "is",
       "explanation": "The students là số nhiều nên phải dùng are, không dùng is. Các phần còn lại đúng về nghĩa và vị trí trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "The students",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. The students là số nhiều nên phải dùng are, không dùng is."
+        },
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "The students là số nhiều nên phải dùng are, không dùng is. Các phần còn lại đúng về nghĩa và vị trí trong câu."
+        },
+        {
+          "option": "in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"in\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "the library",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the library\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-67",
       "type": "error_correction",
       "question": "Find the error: Is they your classmates?",
       "options": [
@@ -1228,9 +2747,32 @@
       ],
       "correct_answer": "Is",
       "explanation": "They phải đi với are trong câu hỏi: Are they your classmates? Các từ they, your, classmates đều phù hợp trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "Is",
+          "isCorrect": true,
+          "pedagogicalReason": "They phải đi với are trong câu hỏi: Are they your classmates? Các từ they, your, classmates đều phù hợp trong câu."
+        },
+        {
+          "option": "they",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. They phải đi với are trong câu hỏi: Are they your classmates? Các từ they, your, classmates đều phù hợp trong câu."
+        },
+        {
+          "option": "your",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Your classmates? Các từ they, your, classmates đều phù hợp trong câu."
+        },
+        {
+          "option": "classmates",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Classmates? Các từ they, your, classmates đều phù hợp trong câu."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-68",
       "type": "error_correction",
       "question": "Find the error: I is twelve years old.",
       "options": [
@@ -1241,9 +2783,32 @@
       ],
       "correct_answer": "is",
       "explanation": "Chủ ngữ I phải đi với am, nên câu đúng là I am twelve years old. Các phần khác không sai trong câu nói tuổi.",
+      "distractor_breakdowns": [
+        {
+          "option": "I",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. I phải đi với am, nên câu đúng là I am twelve years old."
+        },
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ I phải đi với am, nên câu đúng là I am twelve years old. Các phần khác không sai trong câu nói tuổi."
+        },
+        {
+          "option": "twelve",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Twelve years old."
+        },
+        {
+          "option": "years old",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"years old\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-69",
       "type": "error_correction",
       "question": "Find the error: Her brothers am tall.",
       "options": [
@@ -1254,9 +2819,32 @@
       ],
       "correct_answer": "am",
       "explanation": "Her brothers là số nhiều nên phải dùng are, không dùng am. Tall là tính từ đúng, và Her brothers là chủ ngữ phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "Her brothers",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Her brothers là số nhiều nên phải dùng are, không dùng am."
+        },
+        {
+          "option": "am",
+          "isCorrect": true,
+          "pedagogicalReason": "Her brothers là số nhiều nên phải dùng are, không dùng am. Tall là tính từ đúng, và Her brothers là chủ ngữ phù hợp."
+        },
+        {
+          "option": "tall",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Tall là tính từ đúng, và Her brothers là chủ ngữ phù hợp."
+        },
+        {
+          "option": "Her",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Her brothers là số nhiều nên phải dùng are, không dùng am."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-70",
       "type": "error_correction",
       "question": "Find the error: You am welcome here.",
       "options": [
@@ -1267,9 +2855,32 @@
       ],
       "correct_answer": "am",
       "explanation": "You luôn đi với are ở hiện tại, nên câu đúng là You are welcome here. Các từ còn lại đúng về nghĩa và trật tự.",
+      "distractor_breakdowns": [
+        {
+          "option": "You",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. You luôn đi với are ở hiện tại, nên câu đúng là You are welcome here."
+        },
+        {
+          "option": "am",
+          "isCorrect": true,
+          "pedagogicalReason": "You luôn đi với are ở hiện tại, nên câu đúng là You are welcome here. Các từ còn lại đúng về nghĩa và trật tự."
+        },
+        {
+          "option": "welcome",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"welcome\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "here",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"here\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-71",
       "type": "error_correction",
       "question": "Find the error: The milk are cold.",
       "options": [
@@ -1280,9 +2891,32 @@
       ],
       "correct_answer": "are",
       "explanation": "The milk được xem là danh từ không đếm được số ít nên dùng is. Cold là tính từ đúng, và The milk là chủ ngữ đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "The milk",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. The milk được xem là danh từ không đếm được số ít nên dùng is."
+        },
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "The milk được xem là danh từ không đếm được số ít nên dùng is. Cold là tính từ đúng, và The milk là chủ ngữ đúng."
+        },
+        {
+          "option": "cold",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cold là tính từ đúng, và The milk là chủ ngữ đúng."
+        },
+        {
+          "option": "milk",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Milk được xem là danh từ không đếm được số ít nên dùng is."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-72",
       "type": "error_correction",
       "question": "Find the error: Are it your pencil?",
       "options": [
@@ -1293,9 +2927,32 @@
       ],
       "correct_answer": "Are",
       "explanation": "It phải đi với is trong câu hỏi: Is it your pencil? Các từ it, your, pencil đều phù hợp với nghĩa câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "Are",
+          "isCorrect": true,
+          "pedagogicalReason": "It phải đi với is trong câu hỏi: Is it your pencil? Các từ it, your, pencil đều phù hợp với nghĩa câu."
+        },
+        {
+          "option": "it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. It phải đi với is trong câu hỏi: Is it your pencil? Các từ it, your, pencil đều phù hợp với nghĩa câu."
+        },
+        {
+          "option": "your",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Your pencil? Các từ it, your, pencil đều phù hợp với nghĩa câu."
+        },
+        {
+          "option": "pencil",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Pencil? Các từ it, your, pencil đều phù hợp với nghĩa câu."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-73",
       "type": "error_correction",
       "question": "Find the error: We're is at home now.",
       "options": [
@@ -1306,9 +2963,32 @@
       ],
       "correct_answer": "is",
       "explanation": "We're đã có nghĩa là We are, nên không thêm is sau đó. At home và now là các cụm đúng để nói vị trí và thời gian.",
+      "distractor_breakdowns": [
+        {
+          "option": "We're",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. We're đã có nghĩa là We are, nên không thêm is sau đó."
+        },
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "We're đã có nghĩa là We are, nên không thêm is sau đó. At home và now là các cụm đúng để nói vị trí và thời gian."
+        },
+        {
+          "option": "at home",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. At home và now là các cụm đúng để nói vị trí và thời gian."
+        },
+        {
+          "option": "now",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Now là các cụm đúng để nói vị trí và thời gian."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-74",
       "type": "multiple_choice",
       "question": "Choose the correct **to be**: I ___ in grade six.",
       "options": [
@@ -1319,9 +2999,32 @@
       ],
       "correct_answer": "am",
       "explanation": "Với chủ ngữ I, ta dùng am. Is dùng với he/she/it hoặc một người/vật; are dùng với you/we/they hoặc số nhiều; be không dùng trực tiếp ở thì hiện tại đơn như câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "am",
+          "isCorrect": true,
+          "pedagogicalReason": "Với chủ ngữ I, ta dùng am. Is dùng với he/she/it hoặc một người/vật; are dùng với you/we/they hoặc số nhiều; be không dùng trực tiếp ở thì hiện tại đơn như câu này."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is dùng với he/she/it hoặc một người/vật."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are dùng với you/we/they hoặc số nhiều."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không dùng trực tiếp ở thì hiện tại đơn như câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-75",
       "type": "multiple_choice",
       "question": "Choose the correct **verb form**: My backpack ___ blue.",
       "options": [
@@ -1332,9 +3035,32 @@
       ],
       "correct_answer": "is",
       "explanation": "My backpack là một vật số ít nên dùng is. Am chỉ đi với I; are dùng với chủ ngữ số nhiều hoặc you/we/they; be không phù hợp trong câu khẳng định hiện tại đơn này.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "My backpack là một vật số ít nên dùng is. Am chỉ đi với I; are dùng với chủ ngữ số nhiều hoặc you/we/they; be không phù hợp trong câu khẳng định hiện tại đơn này."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am chỉ đi với I."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are dùng với chủ ngữ số nhiều hoặc you/we/they."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không phù hợp trong câu khẳng định hiện tại đơn này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-76",
       "type": "multiple_choice",
       "question": "Choose the correct **agreement**: You and I ___ in the same class.",
       "options": [
@@ -1345,9 +3071,32 @@
       ],
       "correct_answer": "are",
       "explanation": "You and I tương đương we, nên dùng are. Am chỉ dùng với I đứng một mình; is dùng với chủ ngữ số ít; be không phải dạng chia đúng ở đây.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "You and I tương đương we, nên dùng are. Am chỉ dùng với I đứng một mình; is dùng với chủ ngữ số ít; be không phải dạng chia đúng ở đây."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am chỉ dùng với I đứng một mình."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is dùng với chủ ngữ số ít."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không phải dạng chia đúng ở đây."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-77",
       "type": "multiple_choice",
       "question": "Choose the correct **question form**: ___ your grandparents at home?",
       "options": [
@@ -1358,9 +3107,32 @@
       ],
       "correct_answer": "Are",
       "explanation": "Your grandparents là chủ ngữ số nhiều nên câu hỏi dùng Are ở đầu câu. Is dùng cho số ít; Am dùng với I; Be không đứng đầu câu hỏi hiện tại đơn như vậy.",
+      "distractor_breakdowns": [
+        {
+          "option": "Are",
+          "isCorrect": true,
+          "pedagogicalReason": "Your grandparents là chủ ngữ số nhiều nên câu hỏi dùng Are ở đầu câu. Is dùng cho số ít; Am dùng với I; Be không đứng đầu câu hỏi hiện tại đơn như vậy."
+        },
+        {
+          "option": "Is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is dùng cho số ít."
+        },
+        {
+          "option": "Am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ to-be \"am\" chỉ đi duy nhất với chủ ngữ ngôi thứ nhất \"I\"."
+        },
+        {
+          "option": "Be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không đứng đầu câu hỏi hiện tại đơn như vậy."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-78",
       "type": "multiple_choice",
       "question": "Choose the correct **negative form**: The soup ___ hot.",
       "options": [
@@ -1371,9 +3143,32 @@
       ],
       "correct_answer": "is not",
       "explanation": "The soup là danh từ không đếm được, xem như số ít nên dùng is not. Are not dùng với số nhiều; am not chỉ đi với I; be not không tự nhiên trong mẫu câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "is not",
+          "isCorrect": true,
+          "pedagogicalReason": "The soup là danh từ không đếm được, xem như số ít nên dùng is not. Are not dùng với số nhiều; am not chỉ đi với I; be not không tự nhiên trong mẫu câu này."
+        },
+        {
+          "option": "are not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are not dùng với số nhiều."
+        },
+        {
+          "option": "am not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am not chỉ đi với I."
+        },
+        {
+          "option": "be not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be not không tự nhiên trong mẫu câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-79",
       "type": "multiple_choice",
       "question": "Choose the correct **short answer**: Is Tom from Canada? Yes, he ___.",
       "options": [
@@ -1384,9 +3179,32 @@
       ],
       "correct_answer": "is",
       "explanation": "Câu hỏi bắt đầu bằng Is và chủ ngữ là Tom = he, nên câu trả lời ngắn là Yes, he is. Are và am không hợp với he; isn't là phủ định nên sai với Yes.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi bắt đầu bằng Is và chủ ngữ là Tom = he, nên câu trả lời ngắn là Yes, he is. Are và am không hợp với he; isn't là phủ định nên sai với Yes."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are và am không hợp với he."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am không hợp với he."
+        },
+        {
+          "option": "isn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Isn't là phủ định nên sai với Yes."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-80",
       "type": "multiple_choice",
       "question": "Choose the correct **contraction**: She is my teacher. = ___ my teacher.",
       "options": [
@@ -1397,9 +3215,32 @@
       ],
       "correct_answer": "She's",
       "explanation": "She is được rút gọn thành She's. She're và She'm không tồn tại; Shes thiếu dấu nháy và không phải dạng rút gọn chuẩn.",
+      "distractor_breakdowns": [
+        {
+          "option": "She's",
+          "isCorrect": true,
+          "pedagogicalReason": "She is được rút gọn thành She's. She're và She'm không tồn tại; Shes thiếu dấu nháy và không phải dạng rút gọn chuẩn."
+        },
+        {
+          "option": "She're",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. She're và She'm không tồn tại."
+        },
+        {
+          "option": "She'm",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. She'm không tồn tại."
+        },
+        {
+          "option": "Shes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Shes thiếu dấu nháy và không phải dạng rút gọn chuẩn."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-81",
       "type": "multiple_choice",
       "question": "Choose the correct **word order**: ___ your new shoes expensive?",
       "options": [
@@ -1410,9 +3251,32 @@
       ],
       "correct_answer": "Are",
       "explanation": "Your new shoes là số nhiều nên dùng Are trong câu hỏi. Is dùng cho số ít; Am dùng với I; Do không dùng để tạo câu hỏi với động từ to be.",
+      "distractor_breakdowns": [
+        {
+          "option": "Are",
+          "isCorrect": true,
+          "pedagogicalReason": "Your new shoes là số nhiều nên dùng Are trong câu hỏi. Is dùng cho số ít; Am dùng với I; Do không dùng để tạo câu hỏi với động từ to be."
+        },
+        {
+          "option": "Is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is dùng cho số ít."
+        },
+        {
+          "option": "Am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ to-be \"am\" chỉ đi duy nhất với chủ ngữ ngôi thứ nhất \"I\"."
+        },
+        {
+          "option": "Do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Do không dùng để tạo câu hỏi với động từ to be."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-82",
       "type": "multiple_choice",
       "question": "Choose the correct **to be**: My best friend and I ___ from Vietnam.",
       "options": [
@@ -1423,9 +3287,32 @@
       ],
       "correct_answer": "are",
       "explanation": "My best friend and I là hai người, nghĩa là we, nên dùng are. Is dùng cho một người/vật; am chỉ dùng với I đứng riêng; be không phải dạng chia đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "My best friend and I là hai người, nghĩa là we, nên dùng are. Is dùng cho một người/vật; am chỉ dùng với I đứng riêng; be không phải dạng chia đúng."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is dùng cho một người/vật."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am chỉ dùng với I đứng riêng."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không phải dạng chia đúng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-83",
       "type": "fill_blank",
       "question": "Fill in the correct **to be**: It ___ sunny today.",
       "options": [
@@ -1436,9 +3323,32 @@
       ],
       "correct_answer": "is",
       "explanation": "It đi với is trong thì hiện tại. Am chỉ dùng với I; are dùng với you/we/they hoặc số nhiều; be không phù hợp sau It trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "It đi với is trong thì hiện tại. Am chỉ dùng với I; are dùng với you/we/they hoặc số nhiều; be không phù hợp sau It trong câu này."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am chỉ dùng với I."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are dùng với you/we/they hoặc số nhiều."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không phù hợp sau It trong câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-84",
       "type": "fill_blank",
       "question": "Fill in the correct **verb form**: I ___ not tired.",
       "options": [
@@ -1449,9 +3359,32 @@
       ],
       "correct_answer": "am",
       "explanation": "Với chủ ngữ I, dạng phủ định là I am not. Is not và are not dùng với chủ ngữ khác; be not không phải cấu trúc cơ bản trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "am",
+          "isCorrect": true,
+          "pedagogicalReason": "Với chủ ngữ I, dạng phủ định là I am not. Is not và are not dùng với chủ ngữ khác; be not không phải cấu trúc cơ bản trong câu này."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is not và are not dùng với chủ ngữ khác."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are not dùng với chủ ngữ khác."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be not không phải cấu trúc cơ bản trong câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-85",
       "type": "fill_blank",
       "question": "Fill in the correct **agreement**: These oranges ___ sweet.",
       "options": [
@@ -1462,9 +3395,32 @@
       ],
       "correct_answer": "are",
       "explanation": "These oranges là danh từ số nhiều nên dùng are. Is dùng cho số ít; am chỉ đi với I; be không phải dạng chia đúng ở hiện tại đơn.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "These oranges là danh từ số nhiều nên dùng are. Is dùng cho số ít; am chỉ đi với I; be không phải dạng chia đúng ở hiện tại đơn."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is dùng cho số ít."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am chỉ đi với I."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không phải dạng chia đúng ở hiện tại đơn."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-86",
       "type": "fill_blank",
       "question": "Fill in the correct **question form**: ___ she your cousin?",
       "options": [
@@ -1475,9 +3431,32 @@
       ],
       "correct_answer": "Is",
       "explanation": "She là chủ ngữ ngôi thứ ba số ít nên câu hỏi bắt đầu bằng Is. Are không đi với she; Am chỉ dùng với I; Be không đúng trong câu hỏi hiện tại đơn này.",
+      "distractor_breakdowns": [
+        {
+          "option": "Is",
+          "isCorrect": true,
+          "pedagogicalReason": "She là chủ ngữ ngôi thứ ba số ít nên câu hỏi bắt đầu bằng Is. Are không đi với she; Am chỉ dùng với I; Be không đúng trong câu hỏi hiện tại đơn này."
+        },
+        {
+          "option": "Are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are không đi với she."
+        },
+        {
+          "option": "Am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am chỉ dùng với I."
+        },
+        {
+          "option": "Be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không đúng trong câu hỏi hiện tại đơn này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-87",
       "type": "fill_blank",
       "question": "Fill in the correct **negative form**: We ___ at the bus stop.",
       "options": [
@@ -1488,9 +3467,32 @@
       ],
       "correct_answer": "are not",
       "explanation": "We đi với are, nên dạng phủ định là are not. Is not dùng với số ít; am not dùng với I; be not không phải mẫu câu cơ bản ở đây.",
+      "distractor_breakdowns": [
+        {
+          "option": "are not",
+          "isCorrect": true,
+          "pedagogicalReason": "We đi với are, nên dạng phủ định là are not. Is not dùng với số ít; am not dùng với I; be not không phải mẫu câu cơ bản ở đây."
+        },
+        {
+          "option": "is not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is not dùng với số ít."
+        },
+        {
+          "option": "am not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am not dùng với I."
+        },
+        {
+          "option": "be not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be not không phải mẫu câu cơ bản ở đây."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-88",
       "type": "fill_blank",
       "question": "Fill in the correct **short answer**: Are you hungry? No, I ___.",
       "options": [
@@ -1501,9 +3503,32 @@
       ],
       "correct_answer": "am not",
       "explanation": "Khi trả lời về you nhưng người nói nói về bản thân, ta dùng I am not. Is not không đi với I; are not đi với you/we/they; be not sai trong mẫu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "am not",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi trả lời về you nhưng người nói nói về bản thân, ta dùng I am not. Is not không đi với I; are not đi với you/we/they; be not sai trong mẫu này."
+        },
+        {
+          "option": "is not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is not không đi với I."
+        },
+        {
+          "option": "are not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are not đi với you/we/they."
+        },
+        {
+          "option": "be not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be not sai trong mẫu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-89",
       "type": "fill_blank",
       "question": "Fill in the correct **contraction**: We are on the train. = ___ on the train.",
       "options": [
@@ -1514,9 +3539,32 @@
       ],
       "correct_answer": "We're",
       "explanation": "We are được rút gọn thành We're. We's không đúng; I'm nghĩa là I am; They're nghĩa là they are nên không giữ đúng chủ ngữ we.",
+      "distractor_breakdowns": [
+        {
+          "option": "We're",
+          "isCorrect": true,
+          "pedagogicalReason": "We are được rút gọn thành We're. We's không đúng; I'm nghĩa là I am; They're nghĩa là they are nên không giữ đúng chủ ngữ we."
+        },
+        {
+          "option": "We's",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. We's không đúng."
+        },
+        {
+          "option": "I'm",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. I'm nghĩa là I am."
+        },
+        {
+          "option": "They're",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. They're nghĩa là they are nên không giữ đúng chủ ngữ we."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-90",
       "type": "fill_blank",
       "question": "Fill in the correct **to be**: His new phone ___ very small.",
       "options": [
@@ -1527,9 +3575,32 @@
       ],
       "correct_answer": "is",
       "explanation": "His new phone là một vật số ít nên dùng is. Are dùng với số nhiều; am dùng với I; be không được chia theo chủ ngữ ở câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "His new phone là một vật số ít nên dùng is. Are dùng với số nhiều; am dùng với I; be không được chia theo chủ ngữ ở câu này."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are dùng với số nhiều."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ to-be \"am\" chỉ đi duy nhất với chủ ngữ ngôi thứ nhất \"I\"."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Be không được chia theo chủ ngữ ở câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-91",
       "type": "error_correction",
       "question": "Find the error: My hands is cold.",
       "options": [
@@ -1540,9 +3611,32 @@
       ],
       "correct_answer": "is",
       "explanation": "My hands là số nhiều nên phải dùng are, không dùng is. Cold là tính từ đúng; My hands là chủ ngữ đúng về nghĩa; My không phải lỗi ngữ pháp trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "My hands",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. My hands là số nhiều nên phải dùng are, không dùng is."
+        },
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "My hands là số nhiều nên phải dùng are, không dùng is. Cold là tính từ đúng; My hands là chủ ngữ đúng về nghĩa; My không phải lỗi ngữ pháp trong câu này."
+        },
+        {
+          "option": "cold",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Cold là tính từ đúng."
+        },
+        {
+          "option": "My",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. My hands là số nhiều nên phải dùng are, không dùng is."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-92",
       "type": "error_correction",
       "question": "Find the error: Are your sister at school?",
       "options": [
@@ -1553,9 +3647,32 @@
       ],
       "correct_answer": "Are",
       "explanation": "Your sister là một người số ít nên câu hỏi phải là Is your sister at school? Your sister và at school đúng; school chỉ là danh từ trong cụm vị trí.",
+      "distractor_breakdowns": [
+        {
+          "option": "Are",
+          "isCorrect": true,
+          "pedagogicalReason": "Your sister là một người số ít nên câu hỏi phải là Is your sister at school? Your sister và at school đúng; school chỉ là danh từ trong cụm vị trí."
+        },
+        {
+          "option": "your sister",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Your sister là một người số ít nên câu hỏi phải là Is your sister at school? Your sister và at school đúng."
+        },
+        {
+          "option": "at school",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. At school? Your sister và at school đúng."
+        },
+        {
+          "option": "school",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. School chỉ là danh từ trong cụm vị trí."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-93",
       "type": "error_correction",
       "question": "Find the error: I am not a doctor?",
       "options": [
@@ -1566,9 +3683,32 @@
       ],
       "correct_answer": "?",
       "explanation": "Đây là trật tự câu khẳng định/phủ định, không phải câu hỏi, nên không nên dùng dấu hỏi. Nếu muốn hỏi, phải viết Am I not a doctor? Các phần I, am not, a doctor đều đúng trong câu phủ định.",
+      "distractor_breakdowns": [
+        {
+          "option": "I",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. I câu hỏi, nên không nên dùng dấu hỏi."
+        },
+        {
+          "option": "am not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Am not, a doctor đều đúng trong câu phủ định."
+        },
+        {
+          "option": "a doctor",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. A doctor? Các phần I, am not, a doctor đều đúng trong câu phủ định."
+        },
+        {
+          "option": "?",
+          "isCorrect": true,
+          "pedagogicalReason": "Đây là trật tự câu khẳng định/phủ định, không phải câu hỏi, nên không nên dùng dấu hỏi. Nếu muốn hỏi, phải viết Am I not a doctor? Các phần I, am not, a doctor đều đúng trong câu phủ định."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "verb-to-be-ex-94",
       "type": "error_correction",
       "question": "Find the error: The baby are asleep.",
       "options": [
@@ -1579,9 +3719,32 @@
       ],
       "correct_answer": "are",
       "explanation": "The baby là một người số ít nên phải dùng is. Asleep là tính từ đúng; The baby là chủ ngữ đúng; baby không phải lỗi riêng trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "The baby",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. The baby là một người số ít nên phải dùng is."
+        },
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "The baby là một người số ít nên phải dùng is. Asleep là tính từ đúng; The baby là chủ ngữ đúng; baby không phải lỗi riêng trong câu."
+        },
+        {
+          "option": "asleep",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Asleep là tính từ đúng."
+        },
+        {
+          "option": "baby",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Baby là một người số ít nên phải dùng is."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-95",
       "type": "error_correction",
       "question": "Find the error: We is in the kitchen.",
       "options": [
@@ -1592,9 +3755,32 @@
       ],
       "correct_answer": "is",
       "explanation": "We phải đi với are, nên is là lỗi. We là chủ ngữ đúng; in và the kitchen tạo cụm chỉ vị trí đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "We",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. We phải đi với are, nên is là lỗi."
+        },
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "We phải đi với are, nên is là lỗi. We là chủ ngữ đúng; in và the kitchen tạo cụm chỉ vị trí đúng."
+        },
+        {
+          "option": "in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. In và the kitchen tạo cụm chỉ vị trí đúng."
+        },
+        {
+          "option": "the kitchen",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. The kitchen tạo cụm chỉ vị trí đúng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "verb-to-be-ex-96",
       "type": "error_correction",
       "question": "Find the error: Is the socks in your bag?",
       "options": [
@@ -1605,9 +3791,32 @@
       ],
       "correct_answer": "Is",
       "explanation": "The socks là danh từ số nhiều nên câu hỏi phải dùng Are. The socks, in và your bag đều đúng về nghĩa và cấu trúc vị trí.",
+      "distractor_breakdowns": [
+        {
+          "option": "Is",
+          "isCorrect": true,
+          "pedagogicalReason": "The socks là danh từ số nhiều nên câu hỏi phải dùng Are. The socks, in và your bag đều đúng về nghĩa và cấu trúc vị trí."
+        },
+        {
+          "option": "the socks",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. The socks là danh từ số nhiều nên câu hỏi phải dùng Are."
+        },
+        {
+          "option": "in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. In và your bag đều đúng về nghĩa và cấu trúc vị trí."
+        },
+        {
+          "option": "your bag",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Your bag đều đúng về nghĩa và cấu trúc vị trí."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-97",
       "type": "error_correction",
       "question": "Find the error: He's are my uncle.",
       "options": [
@@ -1618,9 +3827,32 @@
       ],
       "correct_answer": "are",
       "explanation": "He's đã có nghĩa là He is, nên không được thêm are sau đó. My và uncle đúng trong cụm my uncle; lỗi chính là dùng thừa are.",
+      "distractor_breakdowns": [
+        {
+          "option": "He's",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. He's đã có nghĩa là He is, nên không được thêm are sau đó."
+        },
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "He's đã có nghĩa là He is, nên không được thêm are sau đó. My và uncle đúng trong cụm my uncle; lỗi chính là dùng thừa are."
+        },
+        {
+          "option": "my",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. My và uncle đúng trong cụm my uncle."
+        },
+        {
+          "option": "uncle",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Uncle đúng trong cụm my uncle."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "verb-to-be-ex-98",
       "type": "error_correction",
       "question": "Find the error: Their house am near the river.",
       "options": [
@@ -1631,6 +3863,28 @@
       ],
       "correct_answer": "am",
       "explanation": "Their house là một vật số ít nên phải dùng is. Am chỉ dùng với I; near the river là cụm chỉ vị trí đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "Their house",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Their house là một vật số ít nên phải dùng is."
+        },
+        {
+          "option": "am",
+          "isCorrect": true,
+          "pedagogicalReason": "Their house là một vật số ít nên phải dùng is. Am chỉ dùng với I; near the river là cụm chỉ vị trí đúng."
+        },
+        {
+          "option": "near",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Near the river là cụm chỉ vị trí đúng."
+        },
+        {
+          "option": "the river",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. The river là cụm chỉ vị trí đúng."
+        }
+      ],
       "difficulty": 2
     }
   ]

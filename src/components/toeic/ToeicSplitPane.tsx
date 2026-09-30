@@ -937,7 +937,7 @@ export function ToeicSplitPane({
               <ToeicAudioPlayer
                 key={cluster.clusterId}
                 src={cluster.audioUrl}
-                title={`Part ${cluster.part}: Hội thoại câu ${cluster.startQuestionNumber} – ${cluster.endQuestionNumber}`}
+                title={`Part ${cluster.part}: ${cluster.part === 4 ? 'Bài nói' : 'Hội thoại'} câu ${cluster.startQuestionNumber} – ${cluster.endQuestionNumber}`}
                 mode={mode}
                 autoPlayInExamMode={true}
               />
@@ -949,7 +949,7 @@ export function ToeicSplitPane({
             <div className="max-w-4xl mx-auto flex items-center justify-between text-xs font-mono">
               <div className="flex items-center gap-2">
                 <span className="font-bold text-slate-800 dark:text-slate-200">
-                  Part {cluster.part}: Hội thoại câu [{cluster.startQuestionNumber} – {cluster.endQuestionNumber}]
+                  Part {cluster.part}: {cluster.part === 4 ? 'Bài nói' : 'Hội thoại'} câu [{cluster.startQuestionNumber} – {cluster.endQuestionNumber}]
                 </span>
                 <span className="text-slate-400">/ {totalQuestions}</span>
               </div>
@@ -1054,7 +1054,7 @@ export function ToeicSplitPane({
                   <ToeicAudioPlayer
                     key={cluster.clusterId}
                     src={cluster.audioUrl}
-                    title={`Part ${cluster.part}: Hội thoại câu ${cluster.startQuestionNumber} – ${cluster.endQuestionNumber}`}
+                    title={`Part ${cluster.part}: ${cluster.part === 4 ? 'Bài nói' : 'Hội thoại'} câu ${cluster.startQuestionNumber} – ${cluster.endQuestionNumber}`}
                     mode={mode}
                     autoPlayInExamMode={true}
                   />
@@ -1252,7 +1252,7 @@ export function ToeicSplitPane({
                 <div className="shrink-0 flex items-center justify-between border-b border-slate-200 px-3 py-1.5 sm:px-4 sm:py-2 bg-slate-50 dark:border-slate-800 dark:bg-slate-900">
                   <div className="flex items-center gap-1.5 font-mono tabular-nums">
                     <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
-                      Hội thoại câu [{cluster.startQuestionNumber} – {cluster.endQuestionNumber}]
+                      {cluster.part === 4 ? 'Bài nói' : 'Hội thoại'} câu [{cluster.startQuestionNumber} – {cluster.endQuestionNumber}]
                     </span>
                     <span className="text-[11px] sm:text-xs text-slate-500">/ {totalQuestions}</span>
                   </div>

@@ -546,7 +546,7 @@ export const STAGE_0_PHONETIC_LESSONS: Stage0PhoneticLesson[] = [
     descriptionVi:
       'Người mất gốc hay mắc lỗi đọc đuôi "-ed" thành một âm tiết riêng biệt cho mọi từ (e.g. "looked" đọc thành "lục-kịt", "played" thành "play-ịt"). Trên thực tế, 90% động từ trong tiếng Anh chỉ biến thành âm bật /-t/ hoặc âm rung /-d/ mà không tăng thêm số âm tiết.',
     mouthTipVi:
-      'Ghi nhớ thần chú: (1) Chỉ từ tận cùng bằng âm /t/ hoặc /d/ mới đọc là /-ɪd/ và thêm 1 âm tiết (e.g. wanted, needed). (2) Tận cùng bằng phụ âm vô thanh: bật âm /-t/ (e.g. looked, stopped, washed). (3) Tận cùng bằng nguyên âm hoặc âm hữu thanh: rung âm /-d/ (e.g. played, cleaned, loved).',
+      'Quy tắc cốt lõi: (1) Chỉ từ tận cùng bằng âm /t/ hoặc /d/ mới đọc là /-ɪd/ và thêm 1 âm tiết (e.g. wanted, needed). (2) Tận cùng bằng phụ âm vô thanh: bật âm /-t/ (e.g. looked, stopped, washed). (3) Tận cùng bằng nguyên âm hoặc âm hữu thanh: rung âm /-d/ (e.g. played, cleaned, loved).',
     video: {
       youtubeVideoId: 'gftHWQ6CLu8',
       channelName: "Rachel's English",

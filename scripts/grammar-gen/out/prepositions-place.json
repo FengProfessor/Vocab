@@ -2,10 +2,10 @@
   "slug": "prepositions-place",
   "title": "Prepositions of Place",
   "title_vi": "Giới từ chỉ nơi chốn",
-  "level": "beginner",
+  "level": "A1",
   "order": 14,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **in + không gian bao quanh** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **in + không gian bao quanh** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -372,12 +372,30 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "Hoàn thành theo mẫu: Your phone ___ on the desk.",
-      "answer": [
-        "is"
+      "id": "prepositions-place-ex-01",
+      "type": "fill_blank",
+      "question": "Hoàn thành theo mẫu: Your phone ___ on the desk.",
+      "options": [],
+      "correct_answer": "is",
+      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Your phone\" là danh từ số ít, phải đi với to-be \"is\"."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ vị ngữ phải được chia phù hợp với ngôi và thì."
+        }
       ],
-      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+      "difficulty": 1
     }
   ]
 }

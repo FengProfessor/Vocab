@@ -719,7 +719,10 @@ async function ensurePart3Stage(page, questionsData, imageUrl = null, currentPar
 
     const statusText = document.createElement('div');
     statusText.id = 'p3-status-text';
-    statusText.textContent = imgUrl ? 'Đang nghe hội thoại & Quan sát bảng...' : 'Đang nghe hội thoại (Đọc trước 3 câu)...';
+    statusText.textContent =
+      partNum === 4
+        ? (imgUrl ? 'Đang nghe bài nói & Quan sát bảng...' : 'Đang nghe bài nói (Đọc trước 3 câu)...')
+        : (imgUrl ? 'Đang nghe hội thoại & Quan sát bảng...' : 'Đang nghe hội thoại (Đọc trước 3 câu)...');
     statusText.style.fontSize = '11px';
     statusText.style.fontWeight = '600';
     statusText.style.color = '#cbd5e1';
@@ -1741,7 +1744,7 @@ async function muxAudio(videoPath, audioEvents, finalPath, tempDir, videoRate = 
   }
 
   filters.push(
-    `${mixLabels.join('')}amix=inputs=${mixLabels.length}:duration=longest:dropout_transition=0,apad[aout]`
+    `${mixLabels.join('')}amix=inputs=${mixLabels.length}:duration=longest:dropout_transition=0:normalize=0,dynaudnorm=f=150:g=15:p=0.95:m=8.0:r=0.9,apad[aout]`
   );
 
   await run('ffmpeg', [
@@ -2031,9 +2034,9 @@ async function renderOne(browser, videoNumber, trackerSlot = null) {
 
   await muxAudio(rawVideo, audioEvents, coreVideo, workDir, [2, 3, 4].includes(part) ? captureSpeed : 1);
   const outroAudioPath = path.resolve('public/sfx/outro/lingopro-soft-marimba.mp3');
-  await createStillSegment(outroImage, 3.8, outroVideo, { audioPath: outroAudioPath, audioGain: 1.25 });
+  await createStillSegment(outroImage, 3.8, outroVideo, { audioPath: outroAudioPath, audioGain: 0.7 });
   const hookAudioPath = path.resolve('out/audio-hook-samples/06-lingopro-two-note.mp3');
-  await createStillSegment(introImage, 0.7, introVideo, { audioPath: hookAudioPath, audioGain: 9 });
+  await createStillSegment(introImage, 0.7, introVideo, { audioPath: hookAudioPath, audioGain: 3.5 });
   await concatSegments([introVideo, coreVideo, outroVideo], finalVideo);
   if (trackerPath && trackerSlot) {
     const campaign = await markRendered({

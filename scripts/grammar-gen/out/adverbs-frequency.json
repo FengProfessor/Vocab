@@ -2,10 +2,10 @@
   "slug": "adverbs-frequency",
   "title": "Adverbs of Frequency",
   "title_vi": "Trạng từ chỉ tần suất",
-  "level": "beginner",
+  "level": "A1",
   "order": 12,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **S + adverb + động từ thường** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **S + adverb + động từ thường** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -323,14 +323,33 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "Hoàn thành theo mẫu: She ___ always helpful.",
-      "answer": [
-        "is"
+      "id": "adverbs-frequency-ex-01",
+      "type": "fill_blank",
+      "question": "Hoàn thành theo mẫu: She ___ always helpful.",
+      "options": [],
+      "correct_answer": "is",
+      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"are\" dùng cho chủ ngữ số nhiều, trong khi \"She\" là ngôi thứ ba số ít."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ to-be cần chia theo thì hiện tại đơn phù hợp với chủ ngữ số ít."
+        }
       ],
-      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+      "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-02",
       "type": "multiple_choice",
       "question": "Choose the correct **adverb position**: My brother ___ plays soccer after school.",
       "options": [
@@ -341,9 +360,32 @@
       ],
       "correct_answer": "often",
       "explanation": "Đáp án đúng là 'often' vì trạng từ chỉ tần suất đứng trước động từ thường 'plays'. 'Oftenly' không phải từ đúng, còn 'is often' và 'does often' không phù hợp trong câu khẳng định này.",
+      "distractor_breakdowns": [
+        {
+          "option": "often",
+          "isCorrect": true,
+          "pedagogicalReason": "Đáp án đúng là 'often' vì trạng từ chỉ tần suất đứng trước động từ thường 'plays'. 'Oftenly' không phải từ đúng, còn 'is often' và 'does often' không phù hợp trong câu khẳng định này."
+        },
+        {
+          "option": "oftenly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Oftenly' không phải từ đúng, còn 'is often' và 'does often' không phù hợp trong câu khẳng định này."
+        },
+        {
+          "option": "is often",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'is often' và 'does often' không phù hợp trong câu khẳng định này."
+        },
+        {
+          "option": "does often",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'does often' không phù hợp trong câu khẳng định này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-03",
       "type": "multiple_choice",
       "question": "Choose the correct **frequency adverb**: I ___ drink coffee at night because I cannot sleep.",
       "options": [
@@ -354,9 +396,32 @@
       ],
       "correct_answer": "never",
       "explanation": "'Never' diễn tả tần suất bằng 0 và phù hợp với ý 'không uống cà phê vào ban đêm'. 'Every' cần danh từ theo sau, còn 'many' và 'much' nói về số lượng, không phải tần suất.",
+      "distractor_breakdowns": [
+        {
+          "option": "never",
+          "isCorrect": true,
+          "pedagogicalReason": "'Never' diễn tả tần suất bằng 0 và phù hợp với ý 'không uống cà phê vào ban đêm'. 'Every' cần danh từ theo sau, còn 'many' và 'much' nói về số lượng, không phải tần suất."
+        },
+        {
+          "option": "every",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Every' cần danh từ theo sau, còn 'many' và 'much' nói về số lượng, không phải tần suất."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'many' và 'much' nói về số lượng, không phải tần suất."
+        },
+        {
+          "option": "much",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'much' nói về số lượng, không phải tần suất."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-04",
       "type": "multiple_choice",
       "question": "Choose the correct **word order**: They are ___ tired after work.",
       "options": [
@@ -367,9 +432,32 @@
       ],
       "correct_answer": "usually",
       "explanation": "Với động từ 'be', trạng từ tần suất đứng sau 'are': 'are usually tired'. 'Usual' là tính từ, còn các lựa chọn khác sai trật tự từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "usually",
+          "isCorrect": true,
+          "pedagogicalReason": "Với động từ 'be', trạng từ tần suất đứng sau 'are': 'are usually tired'. 'Usual' là tính từ, còn các lựa chọn khác sai trật tự từ."
+        },
+        {
+          "option": "usual",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Usual' là tính từ, còn các lựa chọn khác sai trật tự từ."
+        },
+        {
+          "option": "usually are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"usually are\" là tính từ hoặc danh từ, không có chức năng trạng từ để bổ nghĩa cho động từ/tính từ trong câu."
+        },
+        {
+          "option": "tired usually",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"tired usually\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-05",
       "type": "multiple_choice",
       "question": "Choose the correct **question form**: ___ you often watch TV in the evening?",
       "options": [
@@ -380,9 +468,32 @@
       ],
       "correct_answer": "Do",
       "explanation": "Với chủ ngữ 'you' và động từ thường 'watch', câu hỏi hiện tại đơn dùng 'Do'. 'Does' dùng cho he/she/it, còn 'Are/Is' dùng với động từ 'be'.",
+      "distractor_breakdowns": [
+        {
+          "option": "Do",
+          "isCorrect": true,
+          "pedagogicalReason": "Với chủ ngữ 'you' và động từ thường 'watch', câu hỏi hiện tại đơn dùng 'Do'. 'Does' dùng cho he/she/it, còn 'Are/Is' dùng với động từ 'be'."
+        },
+        {
+          "option": "Are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are/Is' dùng với động từ 'be'."
+        },
+        {
+          "option": "Does",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Does' dùng cho he/she/it, còn 'Are/Is' dùng với động từ 'be'."
+        },
+        {
+          "option": "Is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is' dùng với động từ 'be'."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-06",
       "type": "multiple_choice",
       "question": "Choose the correct **negative form**: Anna ___ goes to bed after midnight.",
       "options": [
@@ -393,9 +504,32 @@
       ],
       "correct_answer": "never",
       "explanation": "'Never' đã mang nghĩa phủ định nên đứng trước động từ thường 'goes'. 'Does never', 'is never' và 'not never' không đúng cấu trúc trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "never",
+          "isCorrect": true,
+          "pedagogicalReason": "'Never' đã mang nghĩa phủ định nên đứng trước động từ thường 'goes'. 'Does never', 'is never' và 'not never' không đúng cấu trúc trong câu này."
+        },
+        {
+          "option": "does never",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Does never', 'is never' và 'not never' không đúng cấu trúc trong câu này."
+        },
+        {
+          "option": "is never",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'is never' và 'not never' không đúng cấu trúc trong câu này."
+        },
+        {
+          "option": "not never",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'not never' không đúng cấu trúc trong câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-07",
       "type": "multiple_choice",
       "question": "Choose the correct **sentence** with a frequency adverb.",
       "options": [
@@ -406,9 +540,32 @@
       ],
       "correct_answer": "He sometimes cooks dinner.",
       "explanation": "'He sometimes cooks dinner' đúng vì trạng từ đứng trước động từ thường và động từ thêm -s với 'he'. Câu 'Sometimes he cooks dinner' cũng tự nhiên nhưng bài yêu cầu chọn vị trí cơ bản trong câu; các câu còn lại sai trật tự hoặc sai dạng động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "He sometimes cooks dinner.",
+          "isCorrect": true,
+          "pedagogicalReason": "'He sometimes cooks dinner' đúng vì trạng từ đứng trước động từ thường và động từ thêm -s với 'he'. Câu 'Sometimes he cooks dinner' cũng tự nhiên nhưng bài yêu cầu chọn vị trí cơ bản trong câu; các câu còn lại sai trật tự hoặc sai dạng động từ."
+        },
+        {
+          "option": "He cooks sometimes dinner.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"He cooks sometimes dinner.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Sometimes he cooks dinner.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Sometimes he cooks dinner.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "He cook sometimes dinner.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"He cook sometimes dinner.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-08",
       "type": "multiple_choice",
       "question": "Choose the correct **be placement**: The classroom ___ quiet in the morning.",
       "options": [
@@ -419,9 +576,32 @@
       ],
       "correct_answer": "is always",
       "explanation": "Với động từ 'be', cấu trúc đúng là 'S + be + adverb': 'The classroom is always quiet'. Các đáp án khác thiếu 'be' hoặc đặt trạng từ sai vị trí.",
+      "distractor_breakdowns": [
+        {
+          "option": "is always",
+          "isCorrect": true,
+          "pedagogicalReason": "Với động từ 'be', cấu trúc đúng là 'S + be + adverb': 'The classroom is always quiet'. Các đáp án khác thiếu 'be' hoặc đặt trạng từ sai vị trí."
+        },
+        {
+          "option": "always is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"always is\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "always",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"always\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "does always",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"does always\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-09",
       "type": "multiple_choice",
       "question": "Choose the correct **frequency phrase**: We go swimming ___.",
       "options": [
@@ -432,9 +612,32 @@
       ],
       "correct_answer": "twice a week",
       "explanation": "'Twice a week' là cụm chỉ tần suất đúng, nghĩa là hai lần một tuần. Các lựa chọn còn lại thiếu 'a' hoặc dùng sai dạng diễn đạt.",
+      "distractor_breakdowns": [
+        {
+          "option": "twice a week",
+          "isCorrect": true,
+          "pedagogicalReason": "'Twice a week' là cụm chỉ tần suất đúng, nghĩa là hai lần một tuần. Các lựa chọn còn lại thiếu 'a' hoặc dùng sai dạng diễn đạt."
+        },
+        {
+          "option": "twice week",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"twice week\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "two a week",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"two a week\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "two times week",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"two times week\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-10",
       "type": "multiple_choice",
       "question": "Choose the best **adverb meaning**: 'rarely' means ___.",
       "options": [
@@ -445,9 +648,32 @@
       ],
       "correct_answer": "not often",
       "explanation": "'Rarely' nghĩa là hiếm khi, tức là 'not often'. Các đáp án còn lại chỉ tần suất cao hoặc tốc độ, không đúng nghĩa.",
+      "distractor_breakdowns": [
+        {
+          "option": "not often",
+          "isCorrect": true,
+          "pedagogicalReason": "'Rarely' nghĩa là hiếm khi, tức là 'not often'. Các đáp án còn lại chỉ tần suất cao hoặc tốc độ, không đúng nghĩa."
+        },
+        {
+          "option": "every day",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"every day\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "all the time",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"all the time\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "very fast",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"very fast\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-11",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **frequency adverb**: I ___ brush my teeth before bed.",
       "options": [
@@ -458,9 +684,32 @@
       ],
       "correct_answer": "always",
       "explanation": "'Always' phù hợp vì diễn tả thói quen xảy ra mọi lần. 'Yesterday' là thời gian quá khứ, 'soon' là tương lai gần, còn 'fast' chỉ cách hành động xảy ra.",
+      "distractor_breakdowns": [
+        {
+          "option": "always",
+          "isCorrect": true,
+          "pedagogicalReason": "'Always' phù hợp vì diễn tả thói quen xảy ra mọi lần. 'Yesterday' là thời gian quá khứ, 'soon' là tương lai gần, còn 'fast' chỉ cách hành động xảy ra."
+        },
+        {
+          "option": "yesterday",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Yesterday' là thời gian quá khứ, 'soon' là tương lai gần, còn 'fast' chỉ cách hành động xảy ra."
+        },
+        {
+          "option": "soon",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'soon' là tương lai gần, còn 'fast' chỉ cách hành động xảy ra."
+        },
+        {
+          "option": "fast",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'fast' chỉ cách hành động xảy ra."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-12",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **adverb position**: Mark ___ eats breakfast at 7 a.m.",
       "options": [
@@ -471,9 +720,32 @@
       ],
       "correct_answer": "usually",
       "explanation": "Với động từ thường 'eats', trạng từ tần suất đứng trước động từ: 'usually eats'. Các lựa chọn có 'is' không phù hợp, còn 'usual' là tính từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "usually",
+          "isCorrect": true,
+          "pedagogicalReason": "Với động từ thường 'eats', trạng từ tần suất đứng trước động từ: 'usually eats'. Các lựa chọn có 'is' không phù hợp, còn 'usual' là tính từ."
+        },
+        {
+          "option": "is usually",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is usually\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "usually is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"usually is\" là tính từ hoặc danh từ, không có chức năng trạng từ để bổ nghĩa cho động từ/tính từ trong câu."
+        },
+        {
+          "option": "usual",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'usual' là tính từ."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-13",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **be form**: My parents are ___ busy on Mondays.",
       "options": [
@@ -484,9 +756,32 @@
       ],
       "correct_answer": "sometimes",
       "explanation": "Sau động từ 'are', ta đặt trạng từ tần suất 'sometimes'. Các đáp án khác sai trật tự, sai trợ động từ hoặc sai loại từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "sometimes",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau động từ 'are', ta đặt trạng từ tần suất 'sometimes'. Các đáp án khác sai trật tự, sai trợ động từ hoặc sai loại từ."
+        },
+        {
+          "option": "sometimes are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"sometimes are\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "do sometimes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"do sometimes\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "usual",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"usual\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-14",
       "type": "fill_blank",
       "question": "Complete the question with the correct **auxiliary**: ___ she usually take the bus?",
       "options": [
@@ -497,9 +792,32 @@
       ],
       "correct_answer": "Does",
       "explanation": "Chủ ngữ 'she' đi với trợ động từ 'Does' trong câu hỏi hiện tại đơn. 'Do' dùng cho I/you/we/they, còn 'Is/Are' dùng với động từ 'be'.",
+      "distractor_breakdowns": [
+        {
+          "option": "Does",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ 'she' đi với trợ động từ 'Does' trong câu hỏi hiện tại đơn. 'Do' dùng cho I/you/we/they, còn 'Is/Are' dùng với động từ 'be'."
+        },
+        {
+          "option": "Do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Do' dùng cho I/you/we/they, còn 'Is/Are' dùng với động từ 'be'."
+        },
+        {
+          "option": "Is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is/Are' dùng với động từ 'be'."
+        },
+        {
+          "option": "Are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are' dùng với động từ 'be'."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-15",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **main verb**: Peter often ___ his homework after dinner.",
       "options": [
@@ -510,9 +828,32 @@
       ],
       "correct_answer": "does",
       "explanation": "Với chủ ngữ 'Peter' số ít, động từ thường ở hiện tại đơn thêm -s: 'does'. 'Do', 'doing' và 'is doing' không đúng cấu trúc thói quen ở đây.",
+      "distractor_breakdowns": [
+        {
+          "option": "does",
+          "isCorrect": true,
+          "pedagogicalReason": "Với chủ ngữ 'Peter' số ít, động từ thường ở hiện tại đơn thêm -s: 'does'. 'Do', 'doing' và 'is doing' không đúng cấu trúc thói quen ở đây."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Do', 'doing' và 'is doing' không đúng cấu trúc thói quen ở đây."
+        },
+        {
+          "option": "is doing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'is doing' không đúng cấu trúc thói quen ở đây."
+        },
+        {
+          "option": "doing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'doing' và 'is doing' không đúng cấu trúc thói quen ở đây."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-16",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **word order**: Lisa is ___ late for class.",
       "options": [
@@ -523,9 +864,32 @@
       ],
       "correct_answer": "hardly ever",
       "explanation": "'Hardly ever' nghĩa là hầu như không bao giờ và đứng sau 'is'. 'Hard ever' và 'ever hardly' sai cụm, còn 'hardly' một mình không diễn tả tần suất tự nhiên bằng cụm này.",
+      "distractor_breakdowns": [
+        {
+          "option": "hardly ever",
+          "isCorrect": true,
+          "pedagogicalReason": "'Hardly ever' nghĩa là hầu như không bao giờ và đứng sau 'is'. 'Hard ever' và 'ever hardly' sai cụm, còn 'hardly' một mình không diễn tả tần suất tự nhiên bằng cụm này."
+        },
+        {
+          "option": "hard ever",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Hard ever' và 'ever hardly' sai cụm, còn 'hardly' một mình không diễn tả tần suất tự nhiên bằng cụm này."
+        },
+        {
+          "option": "ever hardly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'ever hardly' sai cụm, còn 'hardly' một mình không diễn tả tần suất tự nhiên bằng cụm này."
+        },
+        {
+          "option": "hardly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Hardly ever' nghĩa là hầu như không bao giờ và đứng sau 'is'."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-17",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **frequency phrase**: I visit my grandmother ___.",
       "options": [
@@ -536,9 +900,32 @@
       ],
       "correct_answer": "once a month",
       "explanation": "'Once a month' là cách nói đúng cho 'một lần mỗi tháng'. Các lựa chọn còn lại thiếu 'a' hoặc dùng sai cấu trúc tần suất.",
+      "distractor_breakdowns": [
+        {
+          "option": "once a month",
+          "isCorrect": true,
+          "pedagogicalReason": "'Once a month' là cách nói đúng cho 'một lần mỗi tháng'. Các lựa chọn còn lại thiếu 'a' hoặc dùng sai cấu trúc tần suất."
+        },
+        {
+          "option": "one month",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"one month\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "once month",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"once month\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "one time month",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"one time month\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-18",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **sentence adverb**: ___, we have lunch at school.",
       "options": [
@@ -549,9 +936,32 @@
       ],
       "correct_answer": "Sometimes",
       "explanation": "'Sometimes' có thể đứng đầu câu để nói 'đôi khi'. 'Neverly' và 'Oftenly' không phải từ đúng, còn 'Usually are' không phù hợp đầu câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "Sometimes",
+          "isCorrect": true,
+          "pedagogicalReason": "'Sometimes' có thể đứng đầu câu để nói 'đôi khi'. 'Neverly' và 'Oftenly' không phải từ đúng, còn 'Usually are' không phù hợp đầu câu này."
+        },
+        {
+          "option": "Neverly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Neverly' và 'Oftenly' không phải từ đúng, còn 'Usually are' không phù hợp đầu câu này."
+        },
+        {
+          "option": "Oftenly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Oftenly' không phải từ đúng, còn 'Usually are' không phù hợp đầu câu này."
+        },
+        {
+          "option": "Usually are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Usually are' không phù hợp đầu câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-19",
       "type": "error_correction",
       "question": "Find the error: He **always** **go** **to** **school** by bike.",
       "options": [
@@ -562,9 +972,32 @@
       ],
       "correct_answer": "go",
       "explanation": "Lỗi là 'go' vì chủ ngữ 'He' cần động từ hiện tại đơn thêm -s: 'goes'. 'Always' đúng vị trí trước động từ thường, còn 'to' và 'school' đúng trong cụm 'goes to school'.",
+      "distractor_breakdowns": [
+        {
+          "option": "always",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Always' đúng vị trí trước động từ thường, còn 'to' và 'school' đúng trong cụm 'goes to school'."
+        },
+        {
+          "option": "go",
+          "isCorrect": true,
+          "pedagogicalReason": "Lỗi là 'go' vì chủ ngữ 'He' cần động từ hiện tại đơn thêm -s: 'goes'. 'Always' đúng vị trí trước động từ thường, còn 'to' và 'school' đúng trong cụm 'goes to school'."
+        },
+        {
+          "option": "to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'to' và 'school' đúng trong cụm 'goes to school'."
+        },
+        {
+          "option": "school",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'school' đúng trong cụm 'goes to school'."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-20",
       "type": "error_correction",
       "question": "Find the error: My sister **is** **often** **goes** **shopping** on Sundays.",
       "options": [
@@ -575,9 +1008,32 @@
       ],
       "correct_answer": "is",
       "explanation": "Lỗi là 'is' vì câu dùng động từ thường 'goes', không cần 'be'. Câu đúng là 'My sister often goes shopping on Sundays'; 'often', 'goes' và 'shopping' đều phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "Lỗi là 'is' vì câu dùng động từ thường 'goes', không cần 'be'. Câu đúng là 'My sister often goes shopping on Sundays'; 'often', 'goes' và 'shopping' đều phù hợp."
+        },
+        {
+          "option": "often",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'often', 'goes' và 'shopping' đều phù hợp."
+        },
+        {
+          "option": "goes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'goes', không cần 'be'."
+        },
+        {
+          "option": "shopping",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'shopping' đều phù hợp."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-21",
       "type": "error_correction",
       "question": "Find the error: They **usually** **are** **happy** **after lunch**.",
       "options": [
@@ -588,9 +1044,32 @@
       ],
       "correct_answer": "usually",
       "explanation": "Lỗi là vị trí 'usually' trong câu này; với động từ 'be', nên nói 'They are usually happy after lunch'. 'Are', 'happy' và 'after lunch' đều đúng chức năng.",
+      "distractor_breakdowns": [
+        {
+          "option": "usually",
+          "isCorrect": true,
+          "pedagogicalReason": "Lỗi là vị trí 'usually' trong câu này; với động từ 'be', nên nói 'They are usually happy after lunch'. 'Are', 'happy' và 'after lunch' đều đúng chức năng."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are usually happy after lunch'."
+        },
+        {
+          "option": "happy",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Happy after lunch'."
+        },
+        {
+          "option": "after lunch",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"after lunch\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-22",
       "type": "error_correction",
       "question": "Find the error: Do **your brother** **often** **play** **tennis**?",
       "options": [
@@ -601,9 +1080,32 @@
       ],
       "correct_answer": "your brother",
       "explanation": "Lỗi là 'your brother' vì chủ ngữ số ít cần trợ động từ 'Does': 'Does your brother often play tennis?'. 'Often' đứng đúng trước động từ thường, 'play' dùng nguyên mẫu sau 'does', và 'tennis' đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "your brother",
+          "isCorrect": true,
+          "pedagogicalReason": "Lỗi là 'your brother' vì chủ ngữ số ít cần trợ động từ 'Does': 'Does your brother often play tennis?'. 'Often' đứng đúng trước động từ thường, 'play' dùng nguyên mẫu sau 'does', và 'tennis' đúng."
+        },
+        {
+          "option": "often",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Often' đứng đúng trước động từ thường, 'play' dùng nguyên mẫu sau 'does', và 'tennis' đúng."
+        },
+        {
+          "option": "play",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'play' dùng nguyên mẫu sau 'does', và 'tennis' đúng."
+        },
+        {
+          "option": "tennis",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"tennis\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-23",
       "type": "error_correction",
       "question": "Find the error: She **never** **doesn't** **eat** **meat**.",
       "options": [
@@ -614,9 +1116,32 @@
       ],
       "correct_answer": "doesn't",
       "explanation": "Lỗi là 'doesn't' vì 'never' đã mang nghĩa phủ định, không dùng thêm phủ định nữa. Câu đúng là 'She never eats meat'; 'never', 'eat/meat' phù hợp về nghĩa nhưng động từ sẽ đổi thành 'eats'.",
+      "distractor_breakdowns": [
+        {
+          "option": "never",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'never' đã mang nghĩa phủ định, không dùng thêm phủ định nữa."
+        },
+        {
+          "option": "doesn't",
+          "isCorrect": true,
+          "pedagogicalReason": "Lỗi là 'doesn't' vì 'never' đã mang nghĩa phủ định, không dùng thêm phủ định nữa. Câu đúng là 'She never eats meat'; 'never', 'eat/meat' phù hợp về nghĩa nhưng động từ sẽ đổi thành 'eats'."
+        },
+        {
+          "option": "eat",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Eat/meat' phù hợp về nghĩa nhưng động từ sẽ đổi thành 'eats'."
+        },
+        {
+          "option": "meat",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Meat' phù hợp về nghĩa nhưng động từ sẽ đổi thành 'eats'."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-24",
       "type": "error_correction",
       "question": "Find the error: We **oftenly** **clean** **our room** **on Saturday**.",
       "options": [
@@ -627,9 +1152,32 @@
       ],
       "correct_answer": "oftenly",
       "explanation": "Lỗi là 'oftenly' vì từ đúng là 'often'. 'Clean', 'our room' và 'on Saturday' đều đúng trong câu nói về thói quen.",
+      "distractor_breakdowns": [
+        {
+          "option": "oftenly",
+          "isCorrect": true,
+          "pedagogicalReason": "Lỗi là 'oftenly' vì từ đúng là 'often'. 'Clean', 'our room' và 'on Saturday' đều đúng trong câu nói về thói quen."
+        },
+        {
+          "option": "clean",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Clean', 'our room' và 'on Saturday' đều đúng trong câu nói về thói quen."
+        },
+        {
+          "option": "our room",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'our room' và 'on Saturday' đều đúng trong câu nói về thói quen."
+        },
+        {
+          "option": "on Saturday",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'on Saturday' đều đúng trong câu nói về thói quen."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-25",
       "type": "error_correction",
       "question": "Find the error: Tom **hardly ever** **is** **angry** **at home**.",
       "options": [
@@ -640,9 +1188,32 @@
       ],
       "correct_answer": "hardly ever",
       "explanation": "Lỗi là vị trí 'hardly ever'; với động từ 'be', câu đúng là 'Tom is hardly ever angry at home'. 'Is', 'angry' và 'at home' đều đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "hardly ever",
+          "isCorrect": true,
+          "pedagogicalReason": "Lỗi là vị trí 'hardly ever'; với động từ 'be', câu đúng là 'Tom is hardly ever angry at home'. 'Is', 'angry' và 'at home' đều đúng."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is hardly ever angry at home'."
+        },
+        {
+          "option": "angry",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"angry\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "at home",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"at home\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "adverbs-frequency-ex-26",
       "type": "error_correction",
       "question": "Find the error: My friends **seldom** **plays** **computer games** **at night**.",
       "options": [
@@ -653,9 +1224,32 @@
       ],
       "correct_answer": "plays",
       "explanation": "Lỗi là 'plays' vì chủ ngữ số nhiều 'My friends' cần động từ nguyên mẫu 'play'. 'Seldom' đúng vị trí trước động từ thường, còn các cụm còn lại đúng nghĩa.",
+      "distractor_breakdowns": [
+        {
+          "option": "seldom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Seldom' đúng vị trí trước động từ thường, còn các cụm còn lại đúng nghĩa."
+        },
+        {
+          "option": "plays",
+          "isCorrect": true,
+          "pedagogicalReason": "Lỗi là 'plays' vì chủ ngữ số nhiều 'My friends' cần động từ nguyên mẫu 'play'. 'Seldom' đúng vị trí trước động từ thường, còn các cụm còn lại đúng nghĩa."
+        },
+        {
+          "option": "computer games",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"computer games\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "at night",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"at night\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-27",
       "type": "multiple_choice",
       "question": "Choose the correct **adverb position**: Sarah ___ cooks dinner at home.",
       "options": [
@@ -666,9 +1260,32 @@
       ],
       "correct_answer": "usually",
       "explanation": "Với động từ thường “cooks”, trạng từ tần suất đứng trước động từ: “Sarah usually cooks...”. Các lựa chọn có “is” hoặc “does” làm câu sai cấu trúc vì câu khẳng định hiện tại đơn không cần trợ động từ ở đây.",
+      "distractor_breakdowns": [
+        {
+          "option": "usually",
+          "isCorrect": true,
+          "pedagogicalReason": "Với động từ thường “cooks”, trạng từ tần suất đứng trước động từ: “Sarah usually cooks...”. Các lựa chọn có “is” hoặc “does” làm câu sai cấu trúc vì câu khẳng định hiện tại đơn không cần trợ động từ ở đây."
+        },
+        {
+          "option": "is usually",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is usually\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "usually is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"usually is\" là tính từ hoặc danh từ, không có chức năng trạng từ để bổ nghĩa cho động từ/tính từ trong câu."
+        },
+        {
+          "option": "does usually",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"does usually\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-28",
       "type": "multiple_choice",
       "question": "Choose the correct **be position**: Ben is ___ ready for class.",
       "options": [
@@ -679,9 +1296,32 @@
       ],
       "correct_answer": "always",
       "explanation": "Với động từ “be”, trạng từ tần suất đứng sau “be”: “Ben is always ready...”. “always is” đảo sai vị trí, “does always” không dùng với “be”, còn “ready always” đặt trạng từ sai chỗ.",
+      "distractor_breakdowns": [
+        {
+          "option": "always",
+          "isCorrect": true,
+          "pedagogicalReason": "Với động từ “be”, trạng từ tần suất đứng sau “be”: “Ben is always ready...”. “always is” đảo sai vị trí, “does always” không dùng với “be”, còn “ready always” đặt trạng từ sai chỗ."
+        },
+        {
+          "option": "always is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “always is” đảo sai vị trí, “does always” không dùng với “be”, còn “ready always” đặt trạng từ sai chỗ."
+        },
+        {
+          "option": "does always",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “does always” không dùng với “be”, còn “ready always” đặt trạng từ sai chỗ."
+        },
+        {
+          "option": "ready always",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “ready always” đặt trạng từ sai chỗ."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-29",
       "type": "multiple_choice",
       "question": "Choose the correct **frequency adverb**: I ___ forget my keys because I check my bag.",
       "options": [
@@ -692,9 +1332,32 @@
       ],
       "correct_answer": "never",
       "explanation": "Vì người nói kiểm tra túi nên ý phù hợp là “không bao giờ quên”: “I never forget...”. “Always”, “usually”, “often” đều diễn tả có xảy ra, trái nghĩa với ngữ cảnh.",
+      "distractor_breakdowns": [
+        {
+          "option": "never",
+          "isCorrect": true,
+          "pedagogicalReason": "Vì người nói kiểm tra túi nên ý phù hợp là “không bao giờ quên”: “I never forget...”. “Always”, “usually”, “often” đều diễn tả có xảy ra, trái nghĩa với ngữ cảnh."
+        },
+        {
+          "option": "always",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Always”, “usually”, “often” đều diễn tả có xảy ra, trái nghĩa với ngữ cảnh."
+        },
+        {
+          "option": "usually",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “usually”, “often” đều diễn tả có xảy ra, trái nghĩa với ngữ cảnh."
+        },
+        {
+          "option": "often",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “often” đều diễn tả có xảy ra, trái nghĩa với ngữ cảnh."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-30",
       "type": "multiple_choice",
       "question": "Choose the correct **question order**: How often ___ your mother cook dinner?",
       "options": [
@@ -705,9 +1368,32 @@
       ],
       "correct_answer": "does",
       "explanation": "Chủ ngữ “your mother” là ngôi thứ ba số ít nên câu hỏi hiện tại đơn dùng “does”. “Do” dùng với I/you/we/they, còn “is/are” không dùng với động từ thường “cook” trong câu hỏi này.",
+      "distractor_breakdowns": [
+        {
+          "option": "does",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ “your mother” là ngôi thứ ba số ít nên câu hỏi hiện tại đơn dùng “does”. “Do” dùng với I/you/we/they, còn “is/are” không dùng với động từ thường “cook” trong câu hỏi này."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Do” dùng với I/you/we/they, còn “is/are” không dùng với động từ thường “cook” trong câu hỏi này."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is/are” không dùng với động từ thường “cook” trong câu hỏi này."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are” không dùng với động từ thường “cook” trong câu hỏi này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-31",
       "type": "multiple_choice",
       "question": "Choose the correct **sentence order**: ___ go to the park on Sundays.",
       "options": [
@@ -718,9 +1404,32 @@
       ],
       "correct_answer": "We sometimes",
       "explanation": "Với động từ thường “go”, trạng từ tần suất có thể đứng trước động từ: “We sometimes go...”. “Sometimes we” cũng có thể đúng nếu viết thành cả câu, nhưng lựa chọn này thiếu vị trí tự nhiên theo phần trống đã cho; hai lựa chọn có “are” sai vì “go” là động từ thường.",
+      "distractor_breakdowns": [
+        {
+          "option": "We sometimes",
+          "isCorrect": true,
+          "pedagogicalReason": "Với động từ thường “go”, trạng từ tần suất có thể đứng trước động từ: “We sometimes go...”. “Sometimes we” cũng có thể đúng nếu viết thành cả câu, nhưng lựa chọn này thiếu vị trí tự nhiên theo phần trống đã cho; hai lựa chọn có “are” sai vì “go” là động từ thường."
+        },
+        {
+          "option": "Sometimes we",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Sometimes we” cũng có thể đúng nếu viết thành cả câu, nhưng lựa chọn này thiếu vị trí tự nhiên theo phần trống đã cho."
+        },
+        {
+          "option": "We are sometimes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"We are sometimes\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Sometimes are we",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Sometimes are we\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-32",
       "type": "multiple_choice",
       "question": "Choose the correct **verb form**: David often ___ emails in the morning.",
       "options": [
@@ -731,9 +1440,32 @@
       ],
       "correct_answer": "checks",
       "explanation": "Chủ ngữ “David” là ngôi thứ ba số ít nên động từ hiện tại đơn thêm -s: “checks”. “Check” thiếu -s, “checking” thiếu động từ “be”, còn “is check” sai cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "checks",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ “David” là ngôi thứ ba số ít nên động từ hiện tại đơn thêm -s: “checks”. “Check” thiếu -s, “checking” thiếu động từ “be”, còn “is check” sai cấu trúc."
+        },
+        {
+          "option": "check",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Check” thiếu -s, “checking” thiếu động từ “be”, còn “is check” sai cấu trúc."
+        },
+        {
+          "option": "checking",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “checking” thiếu động từ “be”, còn “is check” sai cấu trúc."
+        },
+        {
+          "option": "is check",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “is check” sai cấu trúc."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-33",
       "type": "multiple_choice",
       "question": "Choose the correct **meaning**: “hardly ever” means ___.",
       "options": [
@@ -744,9 +1476,32 @@
       ],
       "correct_answer": "almost never",
       "explanation": "“Hardly ever” nghĩa là “hầu như không bao giờ”, gần với “almost never”. Các lựa chọn còn lại diễn tả tần suất cao, không đúng nghĩa.",
+      "distractor_breakdowns": [
+        {
+          "option": "almost never",
+          "isCorrect": true,
+          "pedagogicalReason": "“Hardly ever” nghĩa là “hầu như không bao giờ”, gần với “almost never”. Các lựa chọn còn lại diễn tả tần suất cao, không đúng nghĩa."
+        },
+        {
+          "option": "every day",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"every day\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "many times",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"many times\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "at all times",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"at all times\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-34",
       "type": "multiple_choice",
       "question": "Choose the correct **negative idea**: Mia ___ eats fast food because she likes healthy meals.",
       "options": [
@@ -757,9 +1512,32 @@
       ],
       "correct_answer": "rarely",
       "explanation": "Ngữ cảnh nói Mia thích đồ ăn lành mạnh nên “rarely eats fast food” là hợp lý. “Always”, “usually”, “often” đều chỉ tần suất cao, không phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "rarely",
+          "isCorrect": true,
+          "pedagogicalReason": "Ngữ cảnh nói Mia thích đồ ăn lành mạnh nên “rarely eats fast food” là hợp lý. “Always”, “usually”, “often” đều chỉ tần suất cao, không phù hợp."
+        },
+        {
+          "option": "always",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Always”, “usually”, “often” đều chỉ tần suất cao, không phù hợp."
+        },
+        {
+          "option": "usually",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “usually”, “often” đều chỉ tần suất cao, không phù hợp."
+        },
+        {
+          "option": "often",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “often” đều chỉ tần suất cao, không phù hợp."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-35",
       "type": "multiple_choice",
       "question": "Choose the correct **front adverb**: ___, I read before bed.",
       "options": [
@@ -770,9 +1548,32 @@
       ],
       "correct_answer": "Usually",
       "explanation": "“Usually” có thể đứng đầu câu và theo sau bằng dấu phẩy: “Usually, I read...”. “Usual” là tính từ, “I usually” không phù hợp sau dấu phẩy, và “Usually I am” thừa “am” trước động từ thường “read”.",
+      "distractor_breakdowns": [
+        {
+          "option": "Usually",
+          "isCorrect": true,
+          "pedagogicalReason": "“Usually” có thể đứng đầu câu và theo sau bằng dấu phẩy: “Usually, I read...”. “Usual” là tính từ, “I usually” không phù hợp sau dấu phẩy, và “Usually I am” thừa “am” trước động từ thường “read”."
+        },
+        {
+          "option": "Usual",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Usual” là tính từ, “I usually” không phù hợp sau dấu phẩy, và “Usually I am” thừa “am” trước động từ thường “read”."
+        },
+        {
+          "option": "I usually",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “I usually” không phù hợp sau dấu phẩy, và “Usually I am” thừa “am” trước động từ thường “read”."
+        },
+        {
+          "option": "Usually I am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Usually I am” thừa “am” trước động từ thường “read”."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-36",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **frequency adverb**: Nina ___ drinks tea after lunch.",
       "options": [
@@ -783,9 +1584,32 @@
       ],
       "correct_answer": "often",
       "explanation": "Với động từ thường “drinks”, trạng từ tần suất đứng trước động từ: “Nina often drinks...”. Các lựa chọn có “does” hoặc “is” làm câu sai vì đây là câu khẳng định hiện tại đơn với động từ thường.",
+      "distractor_breakdowns": [
+        {
+          "option": "often",
+          "isCorrect": true,
+          "pedagogicalReason": "Với động từ thường “drinks”, trạng từ tần suất đứng trước động từ: “Nina often drinks...”. Các lựa chọn có “does” hoặc “is” làm câu sai vì đây là câu khẳng định hiện tại đơn với động từ thường."
+        },
+        {
+          "option": "does often",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"does often\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "is often",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is often\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "often is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"often is\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-37",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **be placement**: The shops are ___ closed on holidays.",
       "options": [
@@ -796,9 +1620,32 @@
       ],
       "correct_answer": "usually",
       "explanation": "Sau động từ “be”, ta đặt trạng từ tần suất: “are usually closed”. “Usually are” đảo sai vị trí trong câu này, “do usually” không dùng với “be”, và “closed usually” kém tự nhiên, sai trọng tâm ngữ pháp.",
+      "distractor_breakdowns": [
+        {
+          "option": "usually",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau động từ “be”, ta đặt trạng từ tần suất: “are usually closed”. “Usually are” đảo sai vị trí trong câu này, “do usually” không dùng với “be”, và “closed usually” kém tự nhiên, sai trọng tâm ngữ pháp."
+        },
+        {
+          "option": "usually are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Usually are” đảo sai vị trí trong câu này, “do usually” không dùng với “be”, và “closed usually” kém tự nhiên, sai trọng tâm ngữ pháp."
+        },
+        {
+          "option": "do usually",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “do usually” không dùng với “be”, và “closed usually” kém tự nhiên, sai trọng tâm ngữ pháp."
+        },
+        {
+          "option": "closed usually",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “closed usually” kém tự nhiên, sai trọng tâm ngữ pháp."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-38",
       "type": "fill_blank",
       "question": "Complete the question with the correct **auxiliary**: ___ they always eat breakfast at home?",
       "options": [
@@ -809,9 +1656,32 @@
       ],
       "correct_answer": "Do",
       "explanation": "Chủ ngữ “they” dùng trợ động từ “do” trong câu hỏi hiện tại đơn. “Does” dùng cho ngôi thứ ba số ít, còn “are/is” không dùng với động từ thường “eat” ở cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "Do",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ “they” dùng trợ động từ “do” trong câu hỏi hiện tại đơn. “Does” dùng cho ngôi thứ ba số ít, còn “are/is” không dùng với động từ thường “eat” ở cấu trúc này."
+        },
+        {
+          "option": "Does",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Does” dùng cho ngôi thứ ba số ít, còn “are/is” không dùng với động từ thường “eat” ở cấu trúc này."
+        },
+        {
+          "option": "Are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are/is” không dùng với động từ thường “eat” ở cấu trúc này."
+        },
+        {
+          "option": "Is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is” không dùng với động từ thường “eat” ở cấu trúc này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-39",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **main verb**: Lucy usually ___ her room on Friday.",
       "options": [
@@ -822,9 +1692,32 @@
       ],
       "correct_answer": "cleans",
       "explanation": "“Lucy” là ngôi thứ ba số ít nên động từ hiện tại đơn cần thêm -s: “cleans”. “Clean” thiếu -s, “cleaning” thiếu “be”, còn “is clean” biến “clean” thành tính từ nên sai nghĩa.",
+      "distractor_breakdowns": [
+        {
+          "option": "cleans",
+          "isCorrect": true,
+          "pedagogicalReason": "“Lucy” là ngôi thứ ba số ít nên động từ hiện tại đơn cần thêm -s: “cleans”. “Clean” thiếu -s, “cleaning” thiếu “be”, còn “is clean” biến “clean” thành tính từ nên sai nghĩa."
+        },
+        {
+          "option": "clean",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Clean” thiếu -s, “cleaning” thiếu “be”, còn “is clean” biến “clean” thành tính từ nên sai nghĩa."
+        },
+        {
+          "option": "cleaning",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “cleaning” thiếu “be”, còn “is clean” biến “clean” thành tính từ nên sai nghĩa."
+        },
+        {
+          "option": "is clean",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “is clean” biến “clean” thành tính từ nên sai nghĩa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-40",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **adverb position**: My cousins ___ visit us in summer.",
       "options": [
@@ -835,9 +1728,32 @@
       ],
       "correct_answer": "sometimes",
       "explanation": "Với động từ thường “visit”, trạng từ tần suất đứng trước động từ: “My cousins sometimes visit...”. Các lựa chọn còn lại thêm “are/do” không cần thiết hoặc đặt sai vị trí.",
+      "distractor_breakdowns": [
+        {
+          "option": "sometimes",
+          "isCorrect": true,
+          "pedagogicalReason": "Với động từ thường “visit”, trạng từ tần suất đứng trước động từ: “My cousins sometimes visit...”. Các lựa chọn còn lại thêm “are/do” không cần thiết hoặc đặt sai vị trí."
+        },
+        {
+          "option": "are sometimes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"are sometimes\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "sometimes are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"sometimes are\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "do sometimes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"do sometimes\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-41",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **frequency phrase**: We have English class ___.",
       "options": [
@@ -848,9 +1764,32 @@
       ],
       "correct_answer": "twice a week",
       "explanation": "Cụm đúng là “twice a week” nghĩa là “hai lần một tuần”. Các lựa chọn còn lại sai dạng diễn đạt tần suất trong tiếng Anh.",
+      "distractor_breakdowns": [
+        {
+          "option": "twice a week",
+          "isCorrect": true,
+          "pedagogicalReason": "Cụm đúng là “twice a week” nghĩa là “hai lần một tuần”. Các lựa chọn còn lại sai dạng diễn đạt tần suất trong tiếng Anh."
+        },
+        {
+          "option": "twice week",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"twice week\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "two a week",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"two a week\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "two time week",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"two time week\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-42",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **word order**: Emma is ___ at the library after school.",
       "options": [
@@ -861,9 +1800,32 @@
       ],
       "correct_answer": "often",
       "explanation": "Với “be”, trạng từ tần suất đứng sau động từ “is”: “Emma is often at the library”. Các lựa chọn khác sai vị trí hoặc dùng trợ động từ không phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "often",
+          "isCorrect": true,
+          "pedagogicalReason": "Với “be”, trạng từ tần suất đứng sau động từ “is”: “Emma is often at the library”. Các lựa chọn khác sai vị trí hoặc dùng trợ động từ không phù hợp."
+        },
+        {
+          "option": "often is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"often is\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "does often",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"does often\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "at often",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"at often\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-43",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **sentence start**: ___, Dad makes pancakes on Sunday.",
       "options": [
@@ -874,9 +1836,32 @@
       ],
       "correct_answer": "Sometimes",
       "explanation": "“Sometimes” là trạng từ tần suất và có thể đứng đầu câu. “Some times” nghĩa khác và không tự nhiên ở đây, còn “Sometimes he” và “He sometimes” làm câu bị thừa chủ ngữ khi đã có “Dad”.",
+      "distractor_breakdowns": [
+        {
+          "option": "Sometimes",
+          "isCorrect": true,
+          "pedagogicalReason": "“Sometimes” là trạng từ tần suất và có thể đứng đầu câu. “Some times” nghĩa khác và không tự nhiên ở đây, còn “Sometimes he” và “He sometimes” làm câu bị thừa chủ ngữ khi đã có “Dad”."
+        },
+        {
+          "option": "Some times",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Some times” nghĩa khác và không tự nhiên ở đây, còn “Sometimes he” và “He sometimes” làm câu bị thừa chủ ngữ khi đã có “Dad”."
+        },
+        {
+          "option": "Sometimes he",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Sometimes he” và “He sometimes” làm câu bị thừa chủ ngữ khi đã có “Dad”."
+        },
+        {
+          "option": "He sometimes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “He sometimes” làm câu bị thừa chủ ngữ khi đã có “Dad”."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-44",
       "type": "error_correction",
       "question": "Find the error: Maria **usually** **walk** **to work** **on Mondays**.",
       "options": [
@@ -887,9 +1872,32 @@
       ],
       "correct_answer": "walk",
       "explanation": "“Maria” là ngôi thứ ba số ít nên động từ phải là “walks”. “Usually” đúng vị trí trước động từ thường, còn “to work” và “on Mondays” đúng nghĩa.",
+      "distractor_breakdowns": [
+        {
+          "option": "usually",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Usually” đúng vị trí trước động từ thường, còn “to work” và “on Mondays” đúng nghĩa."
+        },
+        {
+          "option": "walk",
+          "isCorrect": true,
+          "pedagogicalReason": "“Maria” là ngôi thứ ba số ít nên động từ phải là “walks”. “Usually” đúng vị trí trước động từ thường, còn “to work” và “on Mondays” đúng nghĩa."
+        },
+        {
+          "option": "to work",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “to work” và “on Mondays” đúng nghĩa."
+        },
+        {
+          "option": "on Mondays",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “on Mondays” đúng nghĩa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-45",
       "type": "error_correction",
       "question": "Find the error: The baby **often** **is** **sleepy** **after lunch**.",
       "options": [
@@ -900,9 +1908,32 @@
       ],
       "correct_answer": "often",
       "explanation": "Với động từ “be”, trạng từ tần suất đứng sau “is”: “The baby is often sleepy...”. Các phần “is”, “sleepy”, “after lunch” đều đúng nếu đặt lại trạng từ đúng vị trí.",
+      "distractor_breakdowns": [
+        {
+          "option": "often",
+          "isCorrect": true,
+          "pedagogicalReason": "Với động từ “be”, trạng từ tần suất đứng sau “is”: “The baby is often sleepy...”. Các phần “is”, “sleepy”, “after lunch” đều đúng nếu đặt lại trạng từ đúng vị trí."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “is”: “The baby is often sleepy."
+        },
+        {
+          "option": "sleepy",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"sleepy\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "after lunch",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “after lunch” đều đúng nếu đặt lại trạng từ đúng vị trí."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-46",
       "type": "error_correction",
       "question": "Find the error: **Does** **Mike** **usually goes** **to bed early**?",
       "options": [
@@ -913,9 +1944,32 @@
       ],
       "correct_answer": "usually goes",
       "explanation": "Sau “Does”, động từ chính dùng dạng nguyên mẫu: “usually go”. “Does” đúng cho chủ ngữ “Mike”, và các phần còn lại không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "Does",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Does”, động từ chính dùng dạng nguyên mẫu: “usually go”."
+        },
+        {
+          "option": "Mike",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Mike”, và các phần còn lại không sai."
+        },
+        {
+          "option": "usually goes",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “Does”, động từ chính dùng dạng nguyên mẫu: “usually go”. “Does” đúng cho chủ ngữ “Mike”, và các phần còn lại không sai."
+        },
+        {
+          "option": "to bed early",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"to bed early\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-47",
       "type": "error_correction",
       "question": "Find the error: We **are** **never** **take** **the bus** to school.",
       "options": [
@@ -926,9 +1980,32 @@
       ],
       "correct_answer": "are",
       "explanation": "Với động từ thường “take”, câu khẳng định không dùng “are”: “We never take the bus...”. “Never” đúng vị trí trước động từ thường, “take” đúng với “we”, và “the bus” đúng cụm từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "Với động từ thường “take”, câu khẳng định không dùng “are”: “We never take the bus...”. “Never” đúng vị trí trước động từ thường, “take” đúng với “we”, và “the bus” đúng cụm từ."
+        },
+        {
+          "option": "never",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Never take the bus."
+        },
+        {
+          "option": "take",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “take”, câu khẳng định không dùng “are”: “We never take the bus."
+        },
+        {
+          "option": "the bus",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the bus\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-48",
       "type": "error_correction",
       "question": "Find the error: Jack **seldom** **eat** **breakfast** **before seven**.",
       "options": [
@@ -939,9 +2016,32 @@
       ],
       "correct_answer": "eat",
       "explanation": "“Jack” là ngôi thứ ba số ít nên cần “eats”. “Seldom” đúng vị trí trước động từ thường, còn “breakfast” và “before seven” đúng ngữ cảnh.",
+      "distractor_breakdowns": [
+        {
+          "option": "seldom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Seldom” đúng vị trí trước động từ thường, còn “breakfast” và “before seven” đúng ngữ cảnh."
+        },
+        {
+          "option": "eat",
+          "isCorrect": true,
+          "pedagogicalReason": "“Jack” là ngôi thứ ba số ít nên cần “eats”. “Seldom” đúng vị trí trước động từ thường, còn “breakfast” và “before seven” đúng ngữ cảnh."
+        },
+        {
+          "option": "breakfast",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “breakfast” và “before seven” đúng ngữ cảnh."
+        },
+        {
+          "option": "before seven",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “before seven” đúng ngữ cảnh."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-49",
       "type": "error_correction",
       "question": "Find the error: They **hardly ever** **watch** **TV** **never** at night.",
       "options": [
@@ -952,9 +2052,32 @@
       ],
       "correct_answer": "never",
       "explanation": "Không dùng thêm “never” khi đã có “hardly ever” trong cùng ý tần suất. “Hardly ever watch TV at night” đã đủ nghĩa “hầu như không bao giờ xem TV vào buổi tối”.",
+      "distractor_breakdowns": [
+        {
+          "option": "hardly ever",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Hardly ever watch TV at night” đã đủ nghĩa “hầu như không bao giờ xem TV vào buổi tối”."
+        },
+        {
+          "option": "watch",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Watch TV at night” đã đủ nghĩa “hầu như không bao giờ xem TV vào buổi tối”."
+        },
+        {
+          "option": "TV",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. TV at night” đã đủ nghĩa “hầu như không bao giờ xem TV vào buổi tối”."
+        },
+        {
+          "option": "never",
+          "isCorrect": true,
+          "pedagogicalReason": "Không dùng thêm “never” khi đã có “hardly ever” trong cùng ý tần suất. “Hardly ever watch TV at night” đã đủ nghĩa “hầu như không bao giờ xem TV vào buổi tối”."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "adverbs-frequency-ex-50",
       "type": "error_correction",
       "question": "Find the error: **Are** **you** **often visit** **your aunt**?",
       "options": [
@@ -965,9 +2088,32 @@
       ],
       "correct_answer": "Are",
       "explanation": "Với động từ thường “visit”, câu hỏi hiện tại đơn dùng “Do”: “Do you often visit your aunt?”. “You”, “often visit”, và “your aunt” đúng nếu thay “Are” bằng “Do”.",
+      "distractor_breakdowns": [
+        {
+          "option": "Are",
+          "isCorrect": true,
+          "pedagogicalReason": "Với động từ thường “visit”, câu hỏi hiện tại đơn dùng “Do”: “Do you often visit your aunt?”. “You”, “often visit”, và “your aunt” đúng nếu thay “Are” bằng “Do”."
+        },
+        {
+          "option": "you",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. You often visit your aunt?”."
+        },
+        {
+          "option": "often visit",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Often visit your aunt?”."
+        },
+        {
+          "option": "your aunt",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"your aunt\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-51",
       "type": "error_correction",
       "question": "Find the error: Our teacher **is** **always** **gives** **clear examples**.",
       "options": [
@@ -978,9 +2124,32 @@
       ],
       "correct_answer": "is",
       "explanation": "Với động từ thường “gives”, không dùng “is” trong câu khẳng định hiện tại đơn: “Our teacher always gives...”. “Always” đúng vị trí trước động từ thường, “gives” đúng với chủ ngữ số ít, và “clear examples” đúng nghĩa.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "Với động từ thường “gives”, không dùng “is” trong câu khẳng định hiện tại đơn: “Our teacher always gives...”. “Always” đúng vị trí trước động từ thường, “gives” đúng với chủ ngữ số ít, và “clear examples” đúng nghĩa."
+        },
+        {
+          "option": "always",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"always\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "gives",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “gives”, không dùng “is” trong câu khẳng định hiện tại đơn: “Our teacher always gives."
+        },
+        {
+          "option": "clear examples",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “clear examples” đúng nghĩa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-52",
       "type": "multiple_choice",
       "question": "Choose the correct **adverb position**: Liam ___ brushes his teeth after breakfast.",
       "options": [
@@ -991,9 +2160,32 @@
       ],
       "correct_answer": "always",
       "explanation": "Với động từ thường “brushes”, trạng từ chỉ tần suất đứng trước động từ chính: “always brushes”. Các lựa chọn còn lại đặt trạng từ sai vị trí hoặc thêm “is” không cần thiết.",
+      "distractor_breakdowns": [
+        {
+          "option": "always",
+          "isCorrect": true,
+          "pedagogicalReason": "Với động từ thường “brushes”, trạng từ chỉ tần suất đứng trước động từ chính: “always brushes”. Các lựa chọn còn lại đặt trạng từ sai vị trí hoặc thêm “is” không cần thiết."
+        },
+        {
+          "option": "brushes always",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"brushes always\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "is always",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is always\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "always is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"always is\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-53",
       "type": "multiple_choice",
       "question": "Choose the correct **be position**: The classroom is ___ quiet in the morning.",
       "options": [
@@ -1004,9 +2196,32 @@
       ],
       "correct_answer": "usually",
       "explanation": "Sau động từ “be” ta đặt trạng từ tần suất: “is usually quiet”. “usually is” lặp lại “is”, còn “quiet usually” và “is usually” không phù hợp với chỗ trống sau “is”.",
+      "distractor_breakdowns": [
+        {
+          "option": "usually",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau động từ “be” ta đặt trạng từ tần suất: “is usually quiet”. “usually is” lặp lại “is”, còn “quiet usually” và “is usually” không phù hợp với chỗ trống sau “is”."
+        },
+        {
+          "option": "usually is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “usually is” lặp lại “is”, còn “quiet usually” và “is usually” không phù hợp với chỗ trống sau “is”."
+        },
+        {
+          "option": "quiet usually",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “quiet usually” và “is usually” không phù hợp với chỗ trống sau “is”."
+        },
+        {
+          "option": "is usually",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “is usually” không phù hợp với chỗ trống sau “is”."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-54",
       "type": "multiple_choice",
       "question": "Choose the correct **question order**: ___ you usually drink milk at breakfast?",
       "options": [
@@ -1017,9 +2232,32 @@
       ],
       "correct_answer": "Do",
       "explanation": "Câu hỏi với chủ ngữ “you” và động từ thường “drink” dùng trợ động từ “Do”. “Does” dùng cho he/she/it, còn “Are/Is” dùng với động từ “be” hoặc tiếp diễn.",
+      "distractor_breakdowns": [
+        {
+          "option": "Do",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi với chủ ngữ “you” và động từ thường “drink” dùng trợ động từ “Do”. “Does” dùng cho he/she/it, còn “Are/Is” dùng với động từ “be” hoặc tiếp diễn."
+        },
+        {
+          "option": "Are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are/Is” dùng với động từ “be” hoặc tiếp diễn."
+        },
+        {
+          "option": "Does",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Does” dùng cho he/she/it, còn “Are/Is” dùng với động từ “be” hoặc tiếp diễn."
+        },
+        {
+          "option": "Is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is” dùng với động từ “be” hoặc tiếp diễn."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-55",
       "type": "multiple_choice",
       "question": "Choose the correct **verb form**: Anna sometimes ___ the guitar after school.",
       "options": [
@@ -1030,9 +2268,32 @@
       ],
       "correct_answer": "plays",
       "explanation": "Chủ ngữ “Anna” là ngôi thứ ba số ít nên động từ thường thêm “s”: “plays”. “play” thiếu -s, “playing” thiếu trợ động từ, và “is play” sai cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "plays",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ “Anna” là ngôi thứ ba số ít nên động từ thường thêm “s”: “plays”. “play” thiếu -s, “playing” thiếu trợ động từ, và “is play” sai cấu trúc."
+        },
+        {
+          "option": "play",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “play” thiếu -s, “playing” thiếu trợ động từ, và “is play” sai cấu trúc."
+        },
+        {
+          "option": "playing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “playing” thiếu trợ động từ, và “is play” sai cấu trúc."
+        },
+        {
+          "option": "is play",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “is play” sai cấu trúc."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-56",
       "type": "multiple_choice",
       "question": "Choose the correct **frequency meaning**: “once a week” means ___.",
       "options": [
@@ -1043,9 +2304,32 @@
       ],
       "correct_answer": "one time every week",
       "explanation": "“Once a week” nghĩa là một lần mỗi tuần. Các lựa chọn khác diễn tả tần suất khác: mỗi ngày, hai lần một tuần, hoặc không bao giờ.",
+      "distractor_breakdowns": [
+        {
+          "option": "one time every week",
+          "isCorrect": true,
+          "pedagogicalReason": "“Once a week” nghĩa là một lần mỗi tuần. Các lựa chọn khác diễn tả tần suất khác: mỗi ngày, hai lần một tuần, hoặc không bao giờ."
+        },
+        {
+          "option": "every day",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"every day\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "two times a week",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"two times a week\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "never",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"never\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-57",
       "type": "multiple_choice",
       "question": "Choose the correct **negative sentence**: He ___ late for school.",
       "options": [
@@ -1056,9 +2340,32 @@
       ],
       "correct_answer": "is never",
       "explanation": "Với động từ “be”, trạng từ tần suất đứng sau “be”: “He is never late”. “never is” sai vị trí thông thường, “never are” sai động từ, và “does never” không dùng với tính từ “late”.",
+      "distractor_breakdowns": [
+        {
+          "option": "is never",
+          "isCorrect": true,
+          "pedagogicalReason": "Với động từ “be”, trạng từ tần suất đứng sau “be”: “He is never late”. “never is” sai vị trí thông thường, “never are” sai động từ, và “does never” không dùng với tính từ “late”."
+        },
+        {
+          "option": "never is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “never is” sai vị trí thông thường, “never are” sai động từ, và “does never” không dùng với tính từ “late”."
+        },
+        {
+          "option": "never are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “never are” sai động từ, và “does never” không dùng với tính từ “late”."
+        },
+        {
+          "option": "does never",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “does never” không dùng với tính từ “late”."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-58",
       "type": "multiple_choice",
       "question": "Choose the correct **word order**: We visit Grandma ___.",
       "options": [
@@ -1069,9 +2376,32 @@
       ],
       "correct_answer": "every Sunday",
       "explanation": "Cụm tần suất đúng là “every Sunday”. Các cách “Sunday every”, “every on Sunday”, và “on every Sunday” sai trật tự hoặc thừa giới từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "every Sunday",
+          "isCorrect": true,
+          "pedagogicalReason": "Cụm tần suất đúng là “every Sunday”. Các cách “Sunday every”, “every on Sunday”, và “on every Sunday” sai trật tự hoặc thừa giới từ."
+        },
+        {
+          "option": "Sunday every",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Sunday every”, “every on Sunday”, và “on every Sunday” sai trật tự hoặc thừa giới từ."
+        },
+        {
+          "option": "every on Sunday",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “every on Sunday”, và “on every Sunday” sai trật tự hoặc thừa giới từ."
+        },
+        {
+          "option": "on every Sunday",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “on every Sunday” sai trật tự hoặc thừa giới từ."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-59",
       "type": "multiple_choice",
       "question": "Choose the correct **answer**: “How often do you exercise?” - “___.”",
       "options": [
@@ -1082,9 +2412,32 @@
       ],
       "correct_answer": "Twice a week",
       "explanation": "“How often” hỏi về tần suất, nên “Twice a week” là câu trả lời đúng. Các lựa chọn khác trả lời nơi chốn, lý do hoặc người đi cùng.",
+      "distractor_breakdowns": [
+        {
+          "option": "Twice a week",
+          "isCorrect": true,
+          "pedagogicalReason": "“How often” hỏi về tần suất, nên “Twice a week” là câu trả lời đúng. Các lựa chọn khác trả lời nơi chốn, lý do hoặc người đi cùng."
+        },
+        {
+          "option": "At the gym",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At the gym\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Because I like it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Because I like it\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "With my brother",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"With my brother\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-60",
       "type": "multiple_choice",
       "question": "Choose the correct **front position**: ___, we have soup for dinner.",
       "options": [
@@ -1095,9 +2448,32 @@
       ],
       "correct_answer": "Sometimes",
       "explanation": "“Sometimes” có thể đứng đầu câu để nói thỉnh thoảng. “Neverly”, “Oftenly”, và “Alwaysly” không phải dạng trạng từ tần suất đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "Sometimes",
+          "isCorrect": true,
+          "pedagogicalReason": "“Sometimes” có thể đứng đầu câu để nói thỉnh thoảng. “Neverly”, “Oftenly”, và “Alwaysly” không phải dạng trạng từ tần suất đúng."
+        },
+        {
+          "option": "Neverly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Neverly”, “Oftenly”, và “Alwaysly” không phải dạng trạng từ tần suất đúng."
+        },
+        {
+          "option": "Oftenly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Oftenly”, và “Alwaysly” không phải dạng trạng từ tần suất đúng."
+        },
+        {
+          "option": "Alwaysly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Alwaysly” không phải dạng trạng từ tần suất đúng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-61",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **frequency adverb**: I ___ make my bed in the morning.",
       "options": [
@@ -1108,9 +2484,32 @@
       ],
       "correct_answer": "usually",
       "explanation": "Với động từ thường “make”, trạng từ tần suất đứng trước động từ: “usually make”. “usual” là tính từ, còn hai lựa chọn có “am” không phù hợp với động từ thường này.",
+      "distractor_breakdowns": [
+        {
+          "option": "usually",
+          "isCorrect": true,
+          "pedagogicalReason": "Với động từ thường “make”, trạng từ tần suất đứng trước động từ: “usually make”. “usual” là tính từ, còn hai lựa chọn có “am” không phù hợp với động từ thường này."
+        },
+        {
+          "option": "usual",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “usual” là tính từ, còn hai lựa chọn có “am” không phù hợp với động từ thường này."
+        },
+        {
+          "option": "am usually",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"am usually\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "usually am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"usually am\" là tính từ hoặc danh từ, không có chức năng trạng từ để bổ nghĩa cho động từ/tính từ trong câu."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-62",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **be placement**: My parents are ___ busy on weekdays.",
       "options": [
@@ -1121,9 +2520,32 @@
       ],
       "correct_answer": "often",
       "explanation": "Sau “are”, ta đặt trạng từ tần suất: “are often busy”. Các lựa chọn còn lại sai vị trí hoặc lặp lại động từ “are”.",
+      "distractor_breakdowns": [
+        {
+          "option": "often",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “are”, ta đặt trạng từ tần suất: “are often busy”. Các lựa chọn còn lại sai vị trí hoặc lặp lại động từ “are”."
+        },
+        {
+          "option": "often are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"often are\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "busy often",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"busy often\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "are often",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are often busy”."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-63",
       "type": "fill_blank",
       "question": "Complete the question with the correct **auxiliary**: ___ your sister always walk to school?",
       "options": [
@@ -1134,9 +2556,32 @@
       ],
       "correct_answer": "Does",
       "explanation": "Chủ ngữ “your sister” là ngôi thứ ba số ít nên câu hỏi với động từ thường dùng “Does”. “Do” dùng cho I/you/we/they, còn “Is/Are” không dùng với động từ thường “walk” trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "Does",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ “your sister” là ngôi thứ ba số ít nên câu hỏi với động từ thường dùng “Does”. “Do” dùng cho I/you/we/they, còn “Is/Are” không dùng với động từ thường “walk” trong câu này."
+        },
+        {
+          "option": "Do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Do” dùng cho I/you/we/they, còn “Is/Are” không dùng với động từ thường “walk” trong câu này."
+        },
+        {
+          "option": "Is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Is/Are” không dùng với động từ thường “walk” trong câu này."
+        },
+        {
+          "option": "Are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are” không dùng với động từ thường “walk” trong câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-64",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **verb form**: Peter rarely ___ coffee at night.",
       "options": [
@@ -1147,9 +2592,32 @@
       ],
       "correct_answer": "drinks",
       "explanation": "“Peter” là ngôi thứ ba số ít nên động từ thêm “s”: “drinks”. “drink” thiếu -s, “drinking” thiếu trợ động từ, và “is drink” sai ngữ pháp.",
+      "distractor_breakdowns": [
+        {
+          "option": "drinks",
+          "isCorrect": true,
+          "pedagogicalReason": "“Peter” là ngôi thứ ba số ít nên động từ thêm “s”: “drinks”. “drink” thiếu -s, “drinking” thiếu trợ động từ, và “is drink” sai ngữ pháp."
+        },
+        {
+          "option": "drink",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “drink” thiếu -s, “drinking” thiếu trợ động từ, và “is drink” sai ngữ pháp."
+        },
+        {
+          "option": "drinking",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “drinking” thiếu trợ động từ, và “is drink” sai ngữ pháp."
+        },
+        {
+          "option": "is drink",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “is drink” sai ngữ pháp."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-65",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **frequency phrase**: We clean the kitchen ___.",
       "options": [
@@ -1160,9 +2628,32 @@
       ],
       "correct_answer": "every evening",
       "explanation": "Cụm đúng là “every evening” để nói mỗi tối. Các lựa chọn khác sai trật tự hoặc dùng thừa giới từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "every evening",
+          "isCorrect": true,
+          "pedagogicalReason": "Cụm đúng là “every evening” để nói mỗi tối. Các lựa chọn khác sai trật tự hoặc dùng thừa giới từ."
+        },
+        {
+          "option": "evening every",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"evening every\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "every in evening",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"every in evening\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "on every evening",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"on every evening\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-66",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **adverb position**: Chloe ___ forgets her homework.",
       "options": [
@@ -1173,9 +2664,32 @@
       ],
       "correct_answer": "hardly ever",
       "explanation": "Với động từ thường “forgets”, cụm “hardly ever” đứng trước động từ chính. Các lựa chọn khác đảo sai trật tự hoặc thêm “is” không cần thiết.",
+      "distractor_breakdowns": [
+        {
+          "option": "hardly ever",
+          "isCorrect": true,
+          "pedagogicalReason": "Với động từ thường “forgets”, cụm “hardly ever” đứng trước động từ chính. Các lựa chọn khác đảo sai trật tự hoặc thêm “is” không cần thiết."
+        },
+        {
+          "option": "ever hardly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"ever hardly\" là trạng từ (adverb), không thể đứng trước danh từ hoặc làm bổ ngữ sau linking verb thay cho tính từ."
+        },
+        {
+          "option": "is hardly ever",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is hardly ever\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "hardly ever is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"hardly ever is\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-67",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **sentence start**: ___, I ride my bike to school.",
       "options": [
@@ -1186,9 +2700,32 @@
       ],
       "correct_answer": "Usually",
       "explanation": "“Usually” có thể đứng đầu câu để nhấn mạnh thói quen. “Usual” là tính từ, còn hai lựa chọn có “am” sai vì câu đã có động từ thường “ride”.",
+      "distractor_breakdowns": [
+        {
+          "option": "Usually",
+          "isCorrect": true,
+          "pedagogicalReason": "“Usually” có thể đứng đầu câu để nhấn mạnh thói quen. “Usual” là tính từ, còn hai lựa chọn có “am” sai vì câu đã có động từ thường “ride”."
+        },
+        {
+          "option": "Usual",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Usual” là tính từ, còn hai lựa chọn có “am” sai vì câu đã có động từ thường “ride”."
+        },
+        {
+          "option": "Usually I am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Usually I am\" là tính từ hoặc danh từ, không có chức năng trạng từ để bổ nghĩa cho động từ/tính từ trong câu."
+        },
+        {
+          "option": "I usually am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"I usually am\" là tính từ hoặc danh từ, không có chức năng trạng từ để bổ nghĩa cho động từ/tính từ trong câu."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-68",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **question phrase**: ___ do they go swimming?",
       "options": [
@@ -1199,9 +2736,32 @@
       ],
       "correct_answer": "How often",
       "explanation": "“How often” dùng để hỏi tần suất. Các lựa chọn khác hỏi số lượng, tuổi hoặc lượng không đếm được.",
+      "distractor_breakdowns": [
+        {
+          "option": "How often",
+          "isCorrect": true,
+          "pedagogicalReason": "“How often” dùng để hỏi tần suất. Các lựa chọn khác hỏi số lượng, tuổi hoặc lượng không đếm được."
+        },
+        {
+          "option": "How many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"How many\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "How old",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"How old\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "How much",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"How much\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-69",
       "type": "error_correction",
       "question": "Find the error: Grace **usually** **go** **shopping** **after lunch**.",
       "options": [
@@ -1212,9 +2772,32 @@
       ],
       "correct_answer": "go",
       "explanation": "Chủ ngữ “Grace” là ngôi thứ ba số ít nên động từ phải là “goes”. Các phần còn lại đúng: “usually” đúng vị trí, “shopping” và “after lunch” phù hợp ngữ cảnh.",
+      "distractor_breakdowns": [
+        {
+          "option": "usually",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “usually” đúng vị trí, “shopping” và “after lunch” phù hợp ngữ cảnh."
+        },
+        {
+          "option": "go",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ “Grace” là ngôi thứ ba số ít nên động từ phải là “goes”. Các phần còn lại đúng: “usually” đúng vị trí, “shopping” và “after lunch” phù hợp ngữ cảnh."
+        },
+        {
+          "option": "shopping",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “shopping” và “after lunch” phù hợp ngữ cảnh."
+        },
+        {
+          "option": "after lunch",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “after lunch” phù hợp ngữ cảnh."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-70",
       "type": "error_correction",
       "question": "Find the error: My uncle **is** **often** **drive** **to work**.",
       "options": [
@@ -1225,9 +2808,32 @@
       ],
       "correct_answer": "is",
       "explanation": "Với động từ thường “drive”, không dùng “is”; câu đúng là “My uncle often drives to work.” “often” đúng vị trí, “drive” cần đổi thành “drives” sau khi bỏ “is”, và “to work” đúng nghĩa.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "Với động từ thường “drive”, không dùng “is”; câu đúng là “My uncle often drives to work.” “often” đúng vị trí, “drive” cần đổi thành “drives” sau khi bỏ “is”, và “to work” đúng nghĩa."
+        },
+        {
+          "option": "often",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Often drives to work."
+        },
+        {
+          "option": "drive",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “drive”, không dùng “is”."
+        },
+        {
+          "option": "to work",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"to work\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-71",
       "type": "error_correction",
       "question": "Find the error: **Does** **Ella** **always helps** **her mom**?",
       "options": [
@@ -1238,9 +2844,32 @@
       ],
       "correct_answer": "always helps",
       "explanation": "Sau “Does”, động từ chính phải ở dạng nguyên mẫu: “always help”. “Does”, “Ella”, và “her mom” đều phù hợp trong câu hỏi này.",
+      "distractor_breakdowns": [
+        {
+          "option": "Does",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Does”, “Ella”, và “her mom” đều phù hợp trong câu hỏi này."
+        },
+        {
+          "option": "Ella",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Ella”, và “her mom” đều phù hợp trong câu hỏi này."
+        },
+        {
+          "option": "always helps",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “Does”, động từ chính phải ở dạng nguyên mẫu: “always help”. “Does”, “Ella”, và “her mom” đều phù hợp trong câu hỏi này."
+        },
+        {
+          "option": "her mom",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “her mom” đều phù hợp trong câu hỏi này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-72",
       "type": "error_correction",
       "question": "Find the error: The buses **always** **are** **full** **at six**.",
       "options": [
@@ -1251,9 +2880,32 @@
       ],
       "correct_answer": "always",
       "explanation": "Với động từ “be”, trạng từ tần suất đứng sau “are”: “The buses are always full”. Các phần “are”, “full”, và “at six” đúng trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "always",
+          "isCorrect": true,
+          "pedagogicalReason": "Với động từ “be”, trạng từ tần suất đứng sau “are”: “The buses are always full”. Các phần “are”, “full”, và “at six” đúng trong câu."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “are”: “The buses are always full”."
+        },
+        {
+          "option": "full",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"full\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "at six",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “at six” đúng trong câu."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-73",
       "type": "error_correction",
       "question": "Find the error: We **never** **don't drink** **soda** **at home**.",
       "options": [
@@ -1264,9 +2916,32 @@
       ],
       "correct_answer": "don't drink",
       "explanation": "“Never” đã mang nghĩa phủ định, nên không dùng thêm “don’t”; câu đúng là “We never drink soda at home.” Các phần còn lại đúng nghĩa và đúng vị trí.",
+      "distractor_breakdowns": [
+        {
+          "option": "never",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Never” đã mang nghĩa phủ định, nên không dùng thêm “don’t”."
+        },
+        {
+          "option": "don't drink",
+          "isCorrect": true,
+          "pedagogicalReason": "“Never” đã mang nghĩa phủ định, nên không dùng thêm “don’t”; câu đúng là “We never drink soda at home.” Các phần còn lại đúng nghĩa và đúng vị trí."
+        },
+        {
+          "option": "soda",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"soda\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "at home",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"at home\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-74",
       "type": "error_correction",
       "question": "Find the error: Jenny **sometimes** **watchs** **cartoons** **on Friday**.",
       "options": [
@@ -1277,9 +2952,32 @@
       ],
       "correct_answer": "watchs",
       "explanation": "Động từ “watch” thêm “es” với chủ ngữ ngôi thứ ba số ít: “watches”. “sometimes” đúng vị trí, “cartoons” và “on Friday” phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "sometimes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “sometimes” đúng vị trí, “cartoons” và “on Friday” phù hợp."
+        },
+        {
+          "option": "watchs",
+          "isCorrect": true,
+          "pedagogicalReason": "Động từ “watch” thêm “es” với chủ ngữ ngôi thứ ba số ít: “watches”. “sometimes” đúng vị trí, “cartoons” và “on Friday” phù hợp."
+        },
+        {
+          "option": "cartoons",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “cartoons” và “on Friday” phù hợp."
+        },
+        {
+          "option": "on Friday",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “on Friday” phù hợp."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-75",
       "type": "error_correction",
       "question": "Find the error: **Do** **the children** **usually plays** **outside**?",
       "options": [
@@ -1290,9 +2988,32 @@
       ],
       "correct_answer": "usually plays",
       "explanation": "Sau “Do”, động từ chính ở dạng nguyên mẫu: “usually play”. “Do” đúng với chủ ngữ số nhiều, còn “the children” và “outside” đúng trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "Do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Do”, động từ chính ở dạng nguyên mẫu: “usually play”."
+        },
+        {
+          "option": "the children",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “the children” và “outside” đúng trong câu."
+        },
+        {
+          "option": "usually plays",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “Do”, động từ chính ở dạng nguyên mẫu: “usually play”. “Do” đúng với chủ ngữ số nhiều, còn “the children” và “outside” đúng trong câu."
+        },
+        {
+          "option": "outside",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “outside” đúng trong câu."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-76",
       "type": "error_correction",
       "question": "Find the error: Our dog **rarely** **barks** **loudly** **never**.",
       "options": [
@@ -1303,9 +3024,32 @@
       ],
       "correct_answer": "never",
       "explanation": "Không dùng thêm “never” khi câu đã có “rarely”; câu đúng là “Our dog rarely barks loudly.” Các phần “rarely”, “barks”, và “loudly” đều đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "rarely",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"rarely\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "barks",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"barks\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "loudly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"loudly\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "never",
+          "isCorrect": true,
+          "pedagogicalReason": "Không dùng thêm “never” khi câu đã có “rarely”; câu đúng là “Our dog rarely barks loudly.” Các phần “rarely”, “barks”, và “loudly” đều đúng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-77",
       "type": "multiple_choice",
       "question": "Choose the correct **adverb position**: Tom ___ reads a book before bed.",
       "options": [
@@ -1316,9 +3060,32 @@
       ],
       "correct_answer": "always",
       "explanation": "Đáp án đúng là “always” vì trạng từ tần suất đứng trước động từ thường “reads”. “is always” và “always is” dùng sai vì không có động từ to-be trong câu; “does always” không dùng trong câu khẳng định đơn giản này.",
+      "distractor_breakdowns": [
+        {
+          "option": "always",
+          "isCorrect": true,
+          "pedagogicalReason": "Đáp án đúng là “always” vì trạng từ tần suất đứng trước động từ thường “reads”. “is always” và “always is” dùng sai vì không có động từ to-be trong câu; “does always” không dùng trong câu khẳng định đơn giản này."
+        },
+        {
+          "option": "is always",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “is always” và “always is” dùng sai vì không có động từ to-be trong câu."
+        },
+        {
+          "option": "always is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “always is” dùng sai vì không có động từ to-be trong câu."
+        },
+        {
+          "option": "does always",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “does always” không dùng trong câu khẳng định đơn giản này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-78",
       "type": "multiple_choice",
       "question": "Choose the correct **be position**: My brother is ___ hungry after school.",
       "options": [
@@ -1329,9 +3096,32 @@
       ],
       "correct_answer": "usually",
       "explanation": "Đáp án đúng là “usually” vì với động từ to-be, trạng từ tần suất đứng sau “is”. Các lựa chọn khác làm sai trật tự câu hoặc thêm trợ động từ không cần thiết.",
+      "distractor_breakdowns": [
+        {
+          "option": "usually",
+          "isCorrect": true,
+          "pedagogicalReason": "Đáp án đúng là “usually” vì với động từ to-be, trạng từ tần suất đứng sau “is”. Các lựa chọn khác làm sai trật tự câu hoặc thêm trợ động từ không cần thiết."
+        },
+        {
+          "option": "usually is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"usually is\" là tính từ hoặc danh từ, không có chức năng trạng từ để bổ nghĩa cho động từ/tính từ trong câu."
+        },
+        {
+          "option": "does usually",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"does usually\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "hungry usually",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"hungry usually\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-79",
       "type": "multiple_choice",
       "question": "Choose the correct **question order**: Does Maria ___ listen to music in the evening?",
       "options": [
@@ -1342,9 +3132,32 @@
       ],
       "correct_answer": "often",
       "explanation": "Đáp án đúng là “often” vì trong câu hỏi với “Does”, động từ chính dùng dạng nguyên mẫu “listen” và trạng từ đứng trước động từ chính. “often listens” và “listens often” sai dạng/trật tự; “is often” sai vì không dùng to-be ở đây.",
+      "distractor_breakdowns": [
+        {
+          "option": "often",
+          "isCorrect": true,
+          "pedagogicalReason": "Đáp án đúng là “often” vì trong câu hỏi với “Does”, động từ chính dùng dạng nguyên mẫu “listen” và trạng từ đứng trước động từ chính. “often listens” và “listens often” sai dạng/trật tự; “is often” sai vì không dùng to-be ở đây."
+        },
+        {
+          "option": "is often",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “is often” sai vì không dùng to-be ở đây."
+        },
+        {
+          "option": "often listens",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “often listens” và “listens often” sai dạng/trật tự."
+        },
+        {
+          "option": "listens often",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “listens often” sai dạng/trật tự."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-80",
       "type": "multiple_choice",
       "question": "Choose the correct **sentence**:",
       "options": [
@@ -1355,9 +3168,32 @@
       ],
       "correct_answer": "Ben never eats fish.",
       "explanation": "Đáp án đúng là “Ben never eats fish” vì “never” đứng trước động từ thường và chủ ngữ ngôi ba số ít cần “eats”. Các câu còn lại sai vị trí trạng từ, thừa “is”, hoặc sai dạng động từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "Ben never eats fish.",
+          "isCorrect": true,
+          "pedagogicalReason": "Đáp án đúng là “Ben never eats fish” vì “never” đứng trước động từ thường và chủ ngữ ngôi ba số ít cần “eats”. Các câu còn lại sai vị trí trạng từ, thừa “is”, hoặc sai dạng động từ."
+        },
+        {
+          "option": "Ben eats never fish.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Ben eats never fish.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Ben is never eats fish.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Ben is never eats fish.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Ben never eat fish.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Ben never eat fish.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-81",
       "type": "multiple_choice",
       "question": "Choose the correct **frequency phrase**: I go to the library ___.",
       "options": [
@@ -1368,9 +3204,32 @@
       ],
       "correct_answer": "twice a month",
       "explanation": "Đáp án đúng là “twice a month”, nghĩa là hai lần mỗi tháng. Các lựa chọn khác thiếu mạo từ “a” hoặc dùng cấu trúc không tự nhiên trong tiếng Anh.",
+      "distractor_breakdowns": [
+        {
+          "option": "twice a month",
+          "isCorrect": true,
+          "pedagogicalReason": "Đáp án đúng là “twice a month”, nghĩa là hai lần mỗi tháng. Các lựa chọn khác thiếu mạo từ “a” hoặc dùng cấu trúc không tự nhiên trong tiếng Anh."
+        },
+        {
+          "option": "twice month",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"twice month\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "two a month",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"two a month\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "twice in month",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"twice in month\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-82",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **frequency adverb**: We ___ play football on Sundays.",
       "options": [
@@ -1381,9 +3240,32 @@
       ],
       "correct_answer": "usually",
       "explanation": "Đáp án đúng là “usually” vì trạng từ tần suất đứng trước động từ thường “play”. Các đáp án có “are” hoặc “does” không phù hợp với cấu trúc câu khẳng định này.",
+      "distractor_breakdowns": [
+        {
+          "option": "usually",
+          "isCorrect": true,
+          "pedagogicalReason": "Đáp án đúng là “usually” vì trạng từ tần suất đứng trước động từ thường “play”. Các đáp án có “are” hoặc “does” không phù hợp với cấu trúc câu khẳng định này."
+        },
+        {
+          "option": "are usually",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"are usually\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "usually are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"usually are\" là tính từ hoặc danh từ, không có chức năng trạng từ để bổ nghĩa cho động từ/tính từ trong câu."
+        },
+        {
+          "option": "does usually",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"does usually\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-83",
       "type": "fill_blank",
       "question": "Complete the question with the correct **question phrase**: ___ do you visit your grandparents?",
       "options": [
@@ -1394,9 +3276,32 @@
       ],
       "correct_answer": "How often",
       "explanation": "Đáp án đúng là “How often” vì cụm này dùng để hỏi tần suất. “How many” hỏi số lượng, còn “What often” và “When often” không phải cấu trúc đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "How often",
+          "isCorrect": true,
+          "pedagogicalReason": "Đáp án đúng là “How often” vì cụm này dùng để hỏi tần suất. “How many” hỏi số lượng, còn “What often” và “When often” không phải cấu trúc đúng."
+        },
+        {
+          "option": "How many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “How many” hỏi số lượng, còn “What often” và “When often” không phải cấu trúc đúng."
+        },
+        {
+          "option": "What often",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “What often” và “When often” không phải cấu trúc đúng."
+        },
+        {
+          "option": "When often",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “When often” không phải cấu trúc đúng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-84",
       "type": "fill_blank",
       "question": "Complete the sentence with the correct **verb form**: Lucy seldom ___ her room before breakfast.",
       "options": [
@@ -1407,9 +3312,32 @@
       ],
       "correct_answer": "cleans",
       "explanation": "Đáp án đúng là “cleans” vì chủ ngữ “Lucy” là ngôi ba số ít ở hiện tại đơn. “clean” thiếu -s, “cleaning” thiếu trợ động từ, và “is clean” sai nghĩa/cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "cleans",
+          "isCorrect": true,
+          "pedagogicalReason": "Đáp án đúng là “cleans” vì chủ ngữ “Lucy” là ngôi ba số ít ở hiện tại đơn. “clean” thiếu -s, “cleaning” thiếu trợ động từ, và “is clean” sai nghĩa/cấu trúc."
+        },
+        {
+          "option": "clean",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “clean” thiếu -s, “cleaning” thiếu trợ động từ, và “is clean” sai nghĩa/cấu trúc."
+        },
+        {
+          "option": "cleaning",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “cleaning” thiếu trợ động từ, và “is clean” sai nghĩa/cấu trúc."
+        },
+        {
+          "option": "is clean",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “is clean” sai nghĩa/cấu trúc."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-85",
       "type": "error_correction",
       "question": "Find the error: Nina **usually** **walk** **to school** **on weekdays**.",
       "options": [
@@ -1420,9 +3348,32 @@
       ],
       "correct_answer": "walk",
       "explanation": "Lỗi là “walk” vì chủ ngữ “Nina” là ngôi ba số ít nên cần “walks”. “usually” đúng vị trí trước động từ thường, còn “to school” và “on weekdays” đúng về nghĩa.",
+      "distractor_breakdowns": [
+        {
+          "option": "usually",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “usually” đúng vị trí trước động từ thường, còn “to school” và “on weekdays” đúng về nghĩa."
+        },
+        {
+          "option": "walk",
+          "isCorrect": true,
+          "pedagogicalReason": "Lỗi là “walk” vì chủ ngữ “Nina” là ngôi ba số ít nên cần “walks”. “usually” đúng vị trí trước động từ thường, còn “to school” và “on weekdays” đúng về nghĩa."
+        },
+        {
+          "option": "to school",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “to school” và “on weekdays” đúng về nghĩa."
+        },
+        {
+          "option": "on weekdays",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “on weekdays” đúng về nghĩa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "adverbs-frequency-ex-86",
       "type": "error_correction",
       "question": "Find the error: The baby **is** **never** **cries** **at night**.",
       "options": [
@@ -1433,9 +3384,32 @@
       ],
       "correct_answer": "is",
       "explanation": "Lỗi là “is” vì câu dùng động từ thường “cries”, không cần thêm to-be. Câu đúng là “The baby never cries at night”; “never” đứng đúng trước động từ thường.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "Lỗi là “is” vì câu dùng động từ thường “cries”, không cần thêm to-be. Câu đúng là “The baby never cries at night”; “never” đứng đúng trước động từ thường."
+        },
+        {
+          "option": "never",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Never cries at night”."
+        },
+        {
+          "option": "cries",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “cries”, không cần thêm to-be."
+        },
+        {
+          "option": "at night",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"at night\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-87",
       "type": "error_correction",
       "question": "Find the error: **Do** **your friends** **always are** **kind**?",
       "options": [
@@ -1446,9 +3420,32 @@
       ],
       "correct_answer": "Do",
       "explanation": "Lỗi là “Do” vì câu hỏi với động từ to-be phải dùng “Are your friends always kind?”. “your friends”, “always are” trong câu gốc bị ảnh hưởng bởi trợ động từ sai, và “kind” là tính từ đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "Do",
+          "isCorrect": true,
+          "pedagogicalReason": "Lỗi là “Do” vì câu hỏi với động từ to-be phải dùng “Are your friends always kind?”. “your friends”, “always are” trong câu gốc bị ảnh hưởng bởi trợ động từ sai, và “kind” là tính từ đúng."
+        },
+        {
+          "option": "your friends",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “your friends”, “always are” trong câu gốc bị ảnh hưởng bởi trợ động từ sai, và “kind” là tính từ đúng."
+        },
+        {
+          "option": "always are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “always are” trong câu gốc bị ảnh hưởng bởi trợ động từ sai, và “kind” là tính từ đúng."
+        },
+        {
+          "option": "kind",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"kind\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-88",
       "type": "error_correction",
       "question": "Find the error: Dad **sometimes** **cooks** **never** **on Saturday**.",
       "options": [
@@ -1459,9 +3456,32 @@
       ],
       "correct_answer": "never",
       "explanation": "Lỗi là “never” vì không nên dùng hai trạng từ tần suất “sometimes” và “never” cùng mô tả một hành động trong câu đơn này. “sometimes” đứng đúng trước “cooks”, và các phần còn lại đúng cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "sometimes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “sometimes” và “never” cùng mô tả một hành động trong câu đơn này."
+        },
+        {
+          "option": "cooks",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “cooks”, và các phần còn lại đúng cấu trúc."
+        },
+        {
+          "option": "never",
+          "isCorrect": true,
+          "pedagogicalReason": "Lỗi là “never” vì không nên dùng hai trạng từ tần suất “sometimes” và “never” cùng mô tả một hành động trong câu đơn này. “sometimes” đứng đúng trước “cooks”, và các phần còn lại đúng cấu trúc."
+        },
+        {
+          "option": "on Saturday",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"on Saturday\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "adverbs-frequency-ex-89",
       "type": "multiple_choice",
       "question": "Choose the sentence where the adverb of frequency is used **correctly**:",
       "options": [
@@ -1472,6 +3492,28 @@
       ],
       "correct_answer": "We usually play football on Saturdays.",
       "explanation": "Trạng từ \"usually\" đứng trước động từ thường \"play\" và câu diễn tả một hành động thường xuyên diễn ra vào thứ Bảy, ngữ pháp và nghĩa đều đúng. Các lựa chọn khác sai về vị trí trạng từ (A), cấu trúc phủ định (lặp từ phủ định - B) hoặc lạm dụng trạng từ (D).",
+      "distractor_breakdowns": [
+        {
+          "option": "My cat often is sleeping on the sofa.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"My cat often is sleeping on the sofa.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "They don't never visit their grandparents.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"They don't never visit their grandparents.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "We usually play football on Saturdays.",
+          "isCorrect": true,
+          "pedagogicalReason": "Trạng từ \"usually\" đứng trước động từ thường \"play\" và câu diễn tả một hành động thường xuyên diễn ra vào thứ Bảy, ngữ pháp và nghĩa đều đúng. Các lựa chọn khác sai về vị trí trạng từ (A), cấu trúc phủ định (lặp từ phủ định - B) hoặc lạm dụng trạng từ (D)."
+        },
+        {
+          "option": "He always has sometimes breakfast at 7 AM.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"He always has sometimes breakfast at 7 AM.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     }
   ]

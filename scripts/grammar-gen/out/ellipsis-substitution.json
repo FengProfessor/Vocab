@@ -2,10 +2,10 @@
   "slug": "ellipsis-substitution",
   "title": "Ellipsis & Substitution",
   "title_vi": "Lược bỏ & thay thế",
-  "level": "advanced",
+  "level": "B2",
   "order": 54,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **auxiliary thay cụm động từ** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **auxiliary thay cụm động từ** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -424,14 +424,33 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "Hoàn thành theo mẫu: I need a pen. Do you ___ one?",
-      "answer": [
-        "have"
+      "id": "ellipsis-substitution-ex-01",
+      "type": "fill_blank",
+      "question": "Hoàn thành theo mẫu: I need a pen. Do you ___ one?",
+      "options": [],
+      "correct_answer": "have",
+      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "have",
+          "isCorrect": true,
+          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+        },
+        {
+          "option": "has",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Sau trợ động từ \"Do you\", động từ chính phải ở dạng nguyên thể không chia \"have\"."
+        },
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Trợ động từ \"Do\" ở thì hiện tại, động từ chính không lùi về quá khứ."
+        }
       ],
-      "fb": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+      "difficulty": 1
     },
     {
+      "id": "ellipsis-substitution-ex-02",
       "type": "multiple_choice",
       "question": "Choose the best **substitution**: The committee has not endorsed the plan, and the board is unlikely to ___ before Friday.",
       "options": [
@@ -442,9 +461,32 @@
       ],
       "correct_answer": "do so",
       "explanation": "“Do so” thay cho cả cụm động từ “endorse the plan” trong văn phong trang trọng. “Make so” sai cấu trúc, “do it” kém tự nhiên trong ngữ cảnh này, còn “endorse” lặp thiếu tân ngữ.",
+      "distractor_breakdowns": [
+        {
+          "option": "do so",
+          "isCorrect": true,
+          "pedagogicalReason": "“Do so” thay cho cả cụm động từ “endorse the plan” trong văn phong trang trọng. “Make so” sai cấu trúc, “do it” kém tự nhiên trong ngữ cảnh này, còn “endorse” lặp thiếu tân ngữ."
+        },
+        {
+          "option": "make so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Make so” sai cấu trúc, “do it” kém tự nhiên trong ngữ cảnh này, còn “endorse” lặp thiếu tân ngữ."
+        },
+        {
+          "option": "do it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “do it” kém tự nhiên trong ngữ cảnh này, còn “endorse” lặp thiếu tân ngữ."
+        },
+        {
+          "option": "endorse",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “endorse” lặp thiếu tân ngữ."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-03",
       "type": "multiple_choice",
       "question": "Choose the correct **ellipsis**: The first proposal was practical; the second, ___.",
       "options": [
@@ -455,9 +497,32 @@
       ],
       "correct_answer": "visionary",
       "explanation": "Sau dấu chấm phẩy, ta có thể lược bỏ “was” khi cấu trúc song song đã rõ. Các lựa chọn còn lại không sai tuyệt đối trong câu khác, nhưng không thể hiện ellipsis gọn và tự nhiên như yêu cầu.",
+      "distractor_breakdowns": [
+        {
+          "option": "visionary",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau dấu chấm phẩy, ta có thể lược bỏ “was” khi cấu trúc song song đã rõ. Các lựa chọn còn lại không sai tuyệt đối trong câu khác, nhưng không thể hiện ellipsis gọn và tự nhiên như yêu cầu."
+        },
+        {
+          "option": "was visionary",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"was visionary\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "it was visionary",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"it was visionary\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "being visionary",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"being visionary\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-04",
       "type": "multiple_choice",
       "question": "Choose the most natural **one** substitution: These leather gloves are too tight; could I try the woollen ___?",
       "options": [
@@ -468,9 +533,32 @@
       ],
       "correct_answer": "ones",
       "explanation": "“Gloves” là danh từ số nhiều đếm được nên thay bằng “ones”. “One” dùng cho số ít, còn “so/do” không thay danh từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "ones",
+          "isCorrect": true,
+          "pedagogicalReason": "“Gloves” là danh từ số nhiều đếm được nên thay bằng “ones”. “One” dùng cho số ít, còn “so/do” không thay danh từ."
+        },
+        {
+          "option": "one",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “One” dùng cho số ít, còn “so/do” không thay danh từ."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. So/do” không thay danh từ."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Do” không thay danh từ."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "ellipsis-substitution-ex-05",
       "type": "multiple_choice",
       "question": "Choose the correct **so** substitution: The report suggests demand will fall, and market analysts believe ___.",
       "options": [
@@ -481,9 +569,32 @@
       ],
       "correct_answer": "so",
       "explanation": "“Believe so” thay cho cả mệnh đề “that demand will fall”. “It/that” không tự nhiên sau “believe” trong cấu trúc này, còn “do” thay động từ chứ không thay mệnh đề.",
+      "distractor_breakdowns": [
+        {
+          "option": "so",
+          "isCorrect": true,
+          "pedagogicalReason": "“Believe so” thay cho cả mệnh đề “that demand will fall”. “It/that” không tự nhiên sau “believe” trong cấu trúc này, còn “do” thay động từ chứ không thay mệnh đề."
+        },
+        {
+          "option": "it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. It/that” không tự nhiên sau “believe” trong cấu trúc này, còn “do” thay động từ chứ không thay mệnh đề."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. That” không tự nhiên sau “believe” trong cấu trúc này, còn “do” thay động từ chứ không thay mệnh đề."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “do” thay động từ chứ không thay mệnh đề."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-06",
       "type": "multiple_choice",
       "question": "Choose the correct **not** substitution: Will the hearing be postponed? I hope ___.",
       "options": [
@@ -494,9 +605,32 @@
       ],
       "correct_answer": "not",
       "explanation": "Sau “hope”, dùng “not” để thay cho mệnh đề phủ định “that it will not be postponed”. “No”, “so not”, và “it not” đều sai cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "not",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “hope”, dùng “not” để thay cho mệnh đề phủ định “that it will not be postponed”. “No”, “so not”, và “it not” đều sai cấu trúc."
+        },
+        {
+          "option": "no",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “No”, “so not”, và “it not” đều sai cấu trúc."
+        },
+        {
+          "option": "so not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “so not”, và “it not” đều sai cấu trúc."
+        },
+        {
+          "option": "it not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “it not” đều sai cấu trúc."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "ellipsis-substitution-ex-07",
       "type": "multiple_choice",
       "question": "Choose the best **auxiliary**: Maya will submit the abstract if Karim ___.",
       "options": [
@@ -507,9 +641,32 @@
       ],
       "correct_answer": "does",
       "explanation": "Trong mệnh đề điều kiện, “does” thay cho “submits the abstract” để tránh lặp. “Will” thường không dùng trong if-clause kiểu này, “submits” không phải substitution, còn “so” không thay cụm động từ ở đây.",
+      "distractor_breakdowns": [
+        {
+          "option": "does",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong mệnh đề điều kiện, “does” thay cho “submits the abstract” để tránh lặp. “Will” thường không dùng trong if-clause kiểu này, “submits” không phải substitution, còn “so” không thay cụm động từ ở đây."
+        },
+        {
+          "option": "will",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Will” thường không dùng trong if-clause kiểu này, “submits” không phải substitution, còn “so” không thay cụm động từ ở đây."
+        },
+        {
+          "option": "submits",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “submits” không phải substitution, còn “so” không thay cụm động từ ở đây."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “so” không thay cụm động từ ở đây."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-08",
       "type": "multiple_choice",
       "question": "Choose the correct **comparative ellipsis**: The negotiations proved more complex than anyone had expected ___.",
       "options": [
@@ -520,9 +677,32 @@
       ],
       "correct_answer": "them to be",
       "explanation": "Trong so sánh, có thể dùng “expected them to be” với phần “complex” được hiểu ngầm. “To”, “so”, và “it” không hoàn chỉnh hoặc không đúng quan hệ cú pháp trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "them to be",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong so sánh, có thể dùng “expected them to be” với phần “complex” được hiểu ngầm. “To”, “so”, và “it” không hoàn chỉnh hoặc không đúng quan hệ cú pháp trong câu này."
+        },
+        {
+          "option": "to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “To”, “so”, và “it” không hoàn chỉnh hoặc không đúng quan hệ cú pháp trong câu này."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. So sánh, có thể dùng “expected them to be” với phần “complex” được hiểu ngầm."
+        },
+        {
+          "option": "it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “it” không hoàn chỉnh hoặc không đúng quan hệ cú pháp trong câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-09",
       "type": "multiple_choice",
       "question": "Choose the best **reduced clause**: Although ___ by several reviewers, the article was eventually accepted.",
       "options": [
@@ -533,9 +713,32 @@
       ],
       "correct_answer": "criticised",
       "explanation": "“Although criticised” là mệnh đề trạng ngữ được rút gọn, chủ ngữ ngầm là “the article”. Các lựa chọn khác hoặc không rút gọn, hoặc làm sai quan hệ bị động.",
+      "distractor_breakdowns": [
+        {
+          "option": "criticised",
+          "isCorrect": true,
+          "pedagogicalReason": "“Although criticised” là mệnh đề trạng ngữ được rút gọn, chủ ngữ ngầm là “the article”. Các lựa chọn khác hoặc không rút gọn, hoặc làm sai quan hệ bị động."
+        },
+        {
+          "option": "it was criticised",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"it was criticised\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "criticising",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"criticising\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "to criticise",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to criticise\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-10",
       "type": "multiple_choice",
       "question": "Choose the correct **do so** form: The minister denied leaking the memo, but several aides claimed she had ___.",
       "options": [
@@ -546,9 +749,32 @@
       ],
       "correct_answer": "done so",
       "explanation": "Sau “had” cần quá khứ phân từ, nên “done so” thay cho “leaked the memo”. “Did so” sai thì sau “had”, “done it” kém trang trọng và dễ ám chỉ hành động cụ thể khác, còn “so done” sai trật tự.",
+      "distractor_breakdowns": [
+        {
+          "option": "done so",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “had” cần quá khứ phân từ, nên “done so” thay cho “leaked the memo”. “Did so” sai thì sau “had”, “done it” kém trang trọng và dễ ám chỉ hành động cụ thể khác, còn “so done” sai trật tự."
+        },
+        {
+          "option": "did so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Did so” sai thì sau “had”, “done it” kém trang trọng và dễ ám chỉ hành động cụ thể khác, còn “so done” sai trật tự."
+        },
+        {
+          "option": "done it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “done it” kém trang trọng và dễ ám chỉ hành động cụ thể khác, còn “so done” sai trật tự."
+        },
+        {
+          "option": "so done",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “so done” sai trật tự."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-11",
       "type": "fill_blank",
       "question": "Complete the **ellipsis**: Some delegates backed reform; others, ___.",
       "options": [
@@ -559,9 +785,32 @@
       ],
       "correct_answer": "resignation",
       "explanation": "Câu lược bỏ động từ “backed”: “others [backed] resignation”. Các lựa chọn còn lại sai vì thêm trợ động từ không phù hợp hoặc dùng “so” không thay được danh từ này.",
+      "distractor_breakdowns": [
+        {
+          "option": "resignation",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu lược bỏ động từ “backed”: “others [backed] resignation”. Các lựa chọn còn lại sai vì thêm trợ động từ không phù hợp hoặc dùng “so” không thay được danh từ này."
+        },
+        {
+          "option": "did resignation",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"did resignation\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "were resignation",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"were resignation\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “so” không thay được danh từ này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-12",
       "type": "fill_blank",
       "question": "Complete the **substitution**: I have not read the full judgment, but my supervisor has ___ .",
       "options": [
@@ -572,9 +821,32 @@
       ],
       "correct_answer": "done so",
       "explanation": "“Done so” thay cho “read the full judgment” và giữ câu gọn. “Read so” và “so read” sai cấu trúc, còn “done it” không trang trọng và không chính xác bằng.",
+      "distractor_breakdowns": [
+        {
+          "option": "done so",
+          "isCorrect": true,
+          "pedagogicalReason": "“Done so” thay cho “read the full judgment” và giữ câu gọn. “Read so” và “so read” sai cấu trúc, còn “done it” không trang trọng và không chính xác bằng."
+        },
+        {
+          "option": "read so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Read so” và “so read” sai cấu trúc, còn “done it” không trang trọng và không chính xác bằng."
+        },
+        {
+          "option": "done it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “done it” không trang trọng và không chính xác bằng."
+        },
+        {
+          "option": "so read",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “so read” sai cấu trúc, còn “done it” không trang trọng và không chính xác bằng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-13",
       "type": "fill_blank",
       "question": "Complete with **one**: The old printer is unreliable, so we should buy a new ___ before term starts.",
       "options": [
@@ -585,9 +857,32 @@
       ],
       "correct_answer": "one",
       "explanation": "“Printer” là danh từ đếm được số ít, nên dùng “one”. “Ones” dùng cho số nhiều, còn “so/do” không thay danh từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "one",
+          "isCorrect": true,
+          "pedagogicalReason": "“Printer” là danh từ đếm được số ít, nên dùng “one”. “Ones” dùng cho số nhiều, còn “so/do” không thay danh từ."
+        },
+        {
+          "option": "ones",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Ones” dùng cho số nhiều, còn “so/do” không thay danh từ."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. So/do” không thay danh từ."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Do” không thay danh từ."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "ellipsis-substitution-ex-14",
       "type": "fill_blank",
       "question": "Complete with **so/not**: Is the archive open on Sundays? I believe ___, but check the website.",
       "options": [
@@ -598,9 +893,32 @@
       ],
       "correct_answer": "so",
       "explanation": "“I believe so” thay cho mệnh đề “that the archive is open on Sundays”. “Not” tạo nghĩa phủ định, “it” không phù hợp sau “believe” ở đây, còn “yes” không kết hợp tự nhiên với cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "so",
+          "isCorrect": true,
+          "pedagogicalReason": "“I believe so” thay cho mệnh đề “that the archive is open on Sundays”. “Not” tạo nghĩa phủ định, “it” không phù hợp sau “believe” ở đây, còn “yes” không kết hợp tự nhiên với cấu trúc này."
+        },
+        {
+          "option": "not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Not” tạo nghĩa phủ định, “it” không phù hợp sau “believe” ở đây, còn “yes” không kết hợp tự nhiên với cấu trúc này."
+        },
+        {
+          "option": "it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “it” không phù hợp sau “believe” ở đây, còn “yes” không kết hợp tự nhiên với cấu trúc này."
+        },
+        {
+          "option": "yes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “yes” không kết hợp tự nhiên với cấu trúc này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "ellipsis-substitution-ex-15",
       "type": "fill_blank",
       "question": "Complete the **auxiliary ellipsis**: The researchers predicted a decline, and the data eventually ___ too.",
       "options": [
@@ -611,9 +929,32 @@
       ],
       "correct_answer": "did",
       "explanation": "“Did” thay cho cụm “showed a decline” hoặc “declined” tùy ngữ cảnh, giúp tránh lặp động từ. “Were”, “so”, và “done” không phù hợp với cấu trúc trợ động từ này.",
+      "distractor_breakdowns": [
+        {
+          "option": "did",
+          "isCorrect": true,
+          "pedagogicalReason": "“Did” thay cho cụm “showed a decline” hoặc “declined” tùy ngữ cảnh, giúp tránh lặp động từ. “Were”, “so”, và “done” không phù hợp với cấu trúc trợ động từ này."
+        },
+        {
+          "option": "were",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Were”, “so”, và “done” không phù hợp với cấu trúc trợ động từ này."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “so”, và “done” không phù hợp với cấu trúc trợ động từ này."
+        },
+        {
+          "option": "done",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “done” không phù hợp với cấu trúc trợ động từ này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-16",
       "type": "fill_blank",
       "question": "Complete the **bare infinitive** ellipsis: You can attend the briefing if you want ___ .",
       "options": [
@@ -624,9 +965,32 @@
       ],
       "correct_answer": "to",
       "explanation": "Sau “want”, có thể dùng “to” thay cho “to attend the briefing”. “So”, “it”, và “do” không thay được cụm động từ nguyên mẫu trong cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "to",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “want”, có thể dùng “to” thay cho “to attend the briefing”. “So”, “it”, và “do” không thay được cụm động từ nguyên mẫu trong cấu trúc này."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “So”, “it”, và “do” không thay được cụm động từ nguyên mẫu trong cấu trúc này."
+        },
+        {
+          "option": "it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “it”, và “do” không thay được cụm động từ nguyên mẫu trong cấu trúc này."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “do” không thay được cụm động từ nguyên mẫu trong cấu trúc này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-17",
       "type": "fill_blank",
       "question": "Complete the **than-clause** ellipsis: The solution was less elegant than we had hoped ___ .",
       "options": [
@@ -637,9 +1001,32 @@
       ],
       "correct_answer": "for",
       "explanation": "“Hoped for” giữ đúng giới từ của động từ “hope for”, phần “an elegant solution” được hiểu ngầm. Các lựa chọn khác không tạo cụm đúng nghĩa sau “hoped”.",
+      "distractor_breakdowns": [
+        {
+          "option": "for",
+          "isCorrect": true,
+          "pedagogicalReason": "“Hoped for” giữ đúng giới từ của động từ “hope for”, phần “an elegant solution” được hiểu ngầm. Các lựa chọn khác không tạo cụm đúng nghĩa sau “hoped”."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"so\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"it\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "one",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"one\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-18",
       "type": "fill_blank",
       "question": "Complete the **substitute** form: If the director refuses to apologise, the chair may have to ___ instead.",
       "options": [
@@ -650,9 +1037,32 @@
       ],
       "correct_answer": "do so",
       "explanation": "“Do so” thay cho hành động “apologise” trong ngữ cảnh trang trọng. “Do” thiếu rõ nghĩa, “make so” sai cấu trúc, còn “one” chỉ thay danh từ đếm được.",
+      "distractor_breakdowns": [
+        {
+          "option": "do so",
+          "isCorrect": true,
+          "pedagogicalReason": "“Do so” thay cho hành động “apologise” trong ngữ cảnh trang trọng. “Do” thiếu rõ nghĩa, “make so” sai cấu trúc, còn “one” chỉ thay danh từ đếm được."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Do so” thay cho hành động “apologise” trong ngữ cảnh trang trọng."
+        },
+        {
+          "option": "make so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “make so” sai cấu trúc, còn “one” chỉ thay danh từ đếm được."
+        },
+        {
+          "option": "one",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “one” chỉ thay danh từ đếm được."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-19",
       "type": "error_correction",
       "question": "Find the error: The first version was persuasive, but the revised **one** was even more so.",
       "options": [
@@ -663,9 +1073,32 @@
       ],
       "correct_answer": "revised one",
       "explanation": "“Version” là danh từ số ít đếm được nên “one” có thể đúng, nhưng khi đã có “the revised one” thì câu không lỗi; tuy nhiên ở dạng bài này lỗi nằm ở “revised one” vì cần “revision” để tránh tham chiếu nhập nhằng. Các cụm còn lại đúng trong cấu trúc so sánh và substitution.",
+      "distractor_breakdowns": [
+        {
+          "option": "first version",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"first version\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "persuasive",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"persuasive\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "revised one",
+          "isCorrect": true,
+          "pedagogicalReason": "“Version” là danh từ số ít đếm được nên “one” có thể đúng, nhưng khi đã có “the revised one” thì câu không lỗi; tuy nhiên ở dạng bài này lỗi nằm ở “revised one” vì cần “revision” để tránh tham chiếu nhập nhằng. Các cụm còn lại đúng trong cấu trúc so sánh và substitution."
+        },
+        {
+          "option": "more so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"more so\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-20",
       "type": "error_correction",
       "question": "Find the error: If Clara will endorse the proposal, the trustees probably **will do so** as well.",
       "options": [
@@ -676,9 +1109,32 @@
       ],
       "correct_answer": "If Clara will endorse",
       "explanation": "Trong mệnh đề điều kiện loại 1, không dùng “will” sau “if”; cần “If Clara endorses”. “Will do so” đúng vì thay cho “endorse the proposal”.",
+      "distractor_breakdowns": [
+        {
+          "option": "If Clara will endorse",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong mệnh đề điều kiện loại 1, không dùng “will” sau “if”; cần “If Clara endorses”. “Will do so” đúng vì thay cho “endorse the proposal”."
+        },
+        {
+          "option": "the proposal",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"the proposal\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "trustees",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"trustees\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will do so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Will do so” đúng vì thay cho “endorse the proposal”."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-21",
       "type": "error_correction",
       "question": "Find the error: The blue files are archived, but the red **one** are still on my desk.",
       "options": [
@@ -689,9 +1145,32 @@
       ],
       "correct_answer": "red one",
       "explanation": "“Files” là danh từ số nhiều nên phải dùng “red ones”. “Archived” và “are still” phù hợp với chủ ngữ số nhiều, còn “blue files” đúng nghĩa.",
+      "distractor_breakdowns": [
+        {
+          "option": "blue files",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “blue files” đúng nghĩa."
+        },
+        {
+          "option": "archived",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Archived” và “are still” phù hợp với chủ ngữ số nhiều, còn “blue files” đúng nghĩa."
+        },
+        {
+          "option": "red one",
+          "isCorrect": true,
+          "pedagogicalReason": "“Files” là danh từ số nhiều nên phải dùng “red ones”. “Archived” và “are still” phù hợp với chủ ngữ số nhiều, còn “blue files” đúng nghĩa."
+        },
+        {
+          "option": "are still",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “are still” phù hợp với chủ ngữ số nhiều, còn “blue files” đúng nghĩa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "ellipsis-substitution-ex-22",
       "type": "error_correction",
       "question": "Find the error: She expected the merger to fail, and most investors feared **it** too.",
       "options": [
@@ -702,9 +1181,32 @@
       ],
       "correct_answer": "feared it",
       "explanation": "Sau “fear” để thay cả mệnh đề “that the merger would fail”, tự nhiên hơn là “feared so” thường cũng không chuẩn; nên viết “feared that too” hoặc lặp mệnh đề. “Expected” và “merger to fail” đúng cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "expected",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Expected” và “merger to fail” đúng cấu trúc."
+        },
+        {
+          "option": "merger to fail",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “merger to fail” đúng cấu trúc."
+        },
+        {
+          "option": "feared it",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “fear” để thay cả mệnh đề “that the merger would fail”, tự nhiên hơn là “feared so” thường cũng không chuẩn; nên viết “feared that too” hoặc lặp mệnh đề. “Expected” và “merger to fail” đúng cấu trúc."
+        },
+        {
+          "option": "too",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Too” hoặc lặp mệnh đề."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-23",
       "type": "error_correction",
       "question": "Find the error: The witness refused to answer, although repeatedly **asking** to do so.",
       "options": [
@@ -715,9 +1217,32 @@
       ],
       "correct_answer": "although repeatedly asking",
       "explanation": "Chủ ngữ “the witness” là người bị yêu cầu, nên cần dạng bị động rút gọn “although repeatedly asked”. “To do so” đúng vì thay cho “answer”.",
+      "distractor_breakdowns": [
+        {
+          "option": "witness",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Witness” là người bị yêu cầu, nên cần dạng bị động rút gọn “although repeatedly asked”."
+        },
+        {
+          "option": "refused",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"refused\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "although repeatedly asking",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ “the witness” là người bị yêu cầu, nên cần dạng bị động rút gọn “although repeatedly asked”. “To do so” đúng vì thay cho “answer”."
+        },
+        {
+          "option": "to do so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “To do so” đúng vì thay cho “answer”."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-24",
       "type": "error_correction",
       "question": "Find the error: I have not submitted the appendix, but Daniel has **done** yesterday.",
       "options": [
@@ -728,9 +1253,32 @@
       ],
       "correct_answer": "has done",
       "explanation": "Với thời điểm quá khứ cụ thể “yesterday”, phải dùng “did so”, không dùng present perfect “has done”. Các cụm khác đúng về nghĩa và cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "have not submitted",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"have not submitted\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "appendix",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"appendix\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "has done",
+          "isCorrect": true,
+          "pedagogicalReason": "Với thời điểm quá khứ cụ thể “yesterday”, phải dùng “did so”, không dùng present perfect “has done”. Các cụm khác đúng về nghĩa và cấu trúc."
+        },
+        {
+          "option": "yesterday",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “yesterday”, phải dùng “did so”, không dùng present perfect “has done”."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-25",
       "type": "error_correction",
       "question": "Find the error: A few candidates chose statistics; the rest **did** philosophy.",
       "options": [
@@ -741,9 +1289,32 @@
       ],
       "correct_answer": "did philosophy",
       "explanation": "Khi lược bỏ động từ song song, cần “the rest, philosophy” hoặc “the rest chose philosophy”; “did philosophy” không thay đúng động từ “chose”. Các phần còn lại đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "few candidates",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"few candidates\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "chose statistics",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"chose statistics\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "the rest",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. The rest, philosophy” hoặc “the rest chose philosophy”."
+        },
+        {
+          "option": "did philosophy",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi lược bỏ động từ song song, cần “the rest, philosophy” hoặc “the rest chose philosophy”; “did philosophy” không thay đúng động từ “chose”. Các phần còn lại đúng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-26",
       "type": "error_correction",
       "question": "Find the error: The committee believed the figures were reliable, but the auditors did **not so**.",
       "options": [
@@ -754,9 +1325,32 @@
       ],
       "correct_answer": "not so",
       "explanation": "Với “believe”, phủ định thay mệnh đề là “did not believe so” hoặc “believed otherwise”, không dùng “did not so”. Các cụm còn lại đúng nghĩa.",
+      "distractor_breakdowns": [
+        {
+          "option": "committee believed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"committee believed\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "figures were reliable",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"figures were reliable\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "auditors",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"auditors\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "not so",
+          "isCorrect": true,
+          "pedagogicalReason": "Với “believe”, phủ định thay mệnh đề là “did not believe so” hoặc “believed otherwise”, không dùng “did not so”. Các cụm còn lại đúng nghĩa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-27",
       "type": "error_correction",
       "question": "Find the error: The laptop I bought is faster than the **one** you did last year.",
       "options": [
@@ -767,9 +1361,32 @@
       ],
       "correct_answer": "you did",
       "explanation": "“Did” không thay được “bought” khi tân ngữ đã là “the one”; cần “the one you bought last year”. “One” đúng vì thay cho “laptop”.",
+      "distractor_breakdowns": [
+        {
+          "option": "laptop",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"laptop\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "faster than",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"faster than\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "one",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “One” đúng vì thay cho “laptop”."
+        },
+        {
+          "option": "you did",
+          "isCorrect": true,
+          "pedagogicalReason": "“Did” không thay được “bought” khi tân ngữ đã là “the one”; cần “the one you bought last year”. “One” đúng vì thay cho “laptop”."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-28",
       "type": "multiple_choice",
       "question": "Choose the best **ellipsis**: Elena may brief the donors before noon, and Omar certainly ___.",
       "options": [
@@ -780,9 +1397,32 @@
       ],
       "correct_answer": "may",
       "explanation": "Đáp án đúng là “may” vì trợ động từ có thể thay cho toàn bộ cụm “brief the donors before noon” khi ý đã rõ. “may brief” lặp thiếu tự nhiên, “may do” không dùng cho động từ chính như vậy trong câu này, và “may so” sai cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "may",
+          "isCorrect": true,
+          "pedagogicalReason": "Đáp án đúng là “may” vì trợ động từ có thể thay cho toàn bộ cụm “brief the donors before noon” khi ý đã rõ. “may brief” lặp thiếu tự nhiên, “may do” không dùng cho động từ chính như vậy trong câu này, và “may so” sai cấu trúc."
+        },
+        {
+          "option": "may brief",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “may brief” lặp thiếu tự nhiên, “may do” không dùng cho động từ chính như vậy trong câu này, và “may so” sai cấu trúc."
+        },
+        {
+          "option": "may do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “may do” không dùng cho động từ chính như vậy trong câu này, và “may so” sai cấu trúc."
+        },
+        {
+          "option": "may so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “may so” sai cấu trúc."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-29",
       "type": "multiple_choice",
       "question": "Choose the correct **substitute**: I need a sharper scalpel; this ___ is too blunt for the procedure.",
       "options": [
@@ -793,9 +1433,32 @@
       ],
       "correct_answer": "one",
       "explanation": "“One” thay cho danh từ đếm được số ít “scalpel” khi nói đến một cái khác cùng loại. “It” sẽ chỉ chính cái dao mổ đã nhắc tới, còn “so” và “do” không thay danh từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "one",
+          "isCorrect": true,
+          "pedagogicalReason": "“One” thay cho danh từ đếm được số ít “scalpel” khi nói đến một cái khác cùng loại. “It” sẽ chỉ chính cái dao mổ đã nhắc tới, còn “so” và “do” không thay danh từ."
+        },
+        {
+          "option": "it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “It” sẽ chỉ chính cái dao mổ đã nhắc tới, còn “so” và “do” không thay danh từ."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “so” và “do” không thay danh từ."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “do” không thay danh từ."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-30",
       "type": "multiple_choice",
       "question": "Choose the most natural **so** substitution: The curator insists the painting is authentic, and the insurance experts seem to think ___.",
       "options": [
@@ -806,9 +1469,32 @@
       ],
       "correct_answer": "so",
       "explanation": "“Think so” thay cho cả mệnh đề “the painting is authentic”. “It/that” không tự nhiên sau “think” trong cấu trúc thay thế này, còn “such” không thay mệnh đề.",
+      "distractor_breakdowns": [
+        {
+          "option": "so",
+          "isCorrect": true,
+          "pedagogicalReason": "“Think so” thay cho cả mệnh đề “the painting is authentic”. “It/that” không tự nhiên sau “think” trong cấu trúc thay thế này, còn “such” không thay mệnh đề."
+        },
+        {
+          "option": "it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. It/that” không tự nhiên sau “think” trong cấu trúc thay thế này, còn “such” không thay mệnh đề."
+        },
+        {
+          "option": "such",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “such” không thay mệnh đề."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. That” không tự nhiên sau “think” trong cấu trúc thay thế này, còn “such” không thay mệnh đề."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-31",
       "type": "multiple_choice",
       "question": "Choose the best **do so** form: The company promised to disclose the defect, but it failed to ___ until regulators intervened.",
       "options": [
@@ -819,9 +1505,32 @@
       ],
       "correct_answer": "do so",
       "explanation": "“Do so” thay cho hành động đã nêu trước: “disclose the defect”. “Do it/do that” kém trang trọng và có thể ám chỉ một hành động cụ thể khác, còn “so do” đảo sai vị trí.",
+      "distractor_breakdowns": [
+        {
+          "option": "do so",
+          "isCorrect": true,
+          "pedagogicalReason": "“Do so” thay cho hành động đã nêu trước: “disclose the defect”. “Do it/do that” kém trang trọng và có thể ám chỉ một hành động cụ thể khác, còn “so do” đảo sai vị trí."
+        },
+        {
+          "option": "do it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Do it/do that” kém trang trọng và có thể ám chỉ một hành động cụ thể khác, còn “so do” đảo sai vị trí."
+        },
+        {
+          "option": "do that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Do that” kém trang trọng và có thể ám chỉ một hành động cụ thể khác, còn “so do” đảo sai vị trí."
+        },
+        {
+          "option": "so do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “so do” đảo sai vị trí."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-32",
       "type": "multiple_choice",
       "question": "Choose the correct **gapping**: The chief economist favoured austerity; her deputy, ___.",
       "options": [
@@ -832,9 +1541,32 @@
       ],
       "correct_answer": "stimulus",
       "explanation": "Trong gapping, động từ “favoured” được lược bỏ ở vế sau: “her deputy [favoured] stimulus”. Các lựa chọn còn lại hoặc lặp không cần thiết, hoặc sai ngữ pháp.",
+      "distractor_breakdowns": [
+        {
+          "option": "stimulus",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong gapping, động từ “favoured” được lược bỏ ở vế sau: “her deputy [favoured] stimulus”. Các lựa chọn còn lại hoặc lặp không cần thiết, hoặc sai ngữ pháp."
+        },
+        {
+          "option": "did stimulus",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"did stimulus\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "favoured stimulus",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"favoured stimulus\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "was stimulus",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"was stimulus\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-33",
       "type": "multiple_choice",
       "question": "Choose the correct **comparative** ellipsis: The review was harsher than the editor had intended ___.",
       "options": [
@@ -845,9 +1577,32 @@
       ],
       "correct_answer": "it to be",
       "explanation": "Sau “intended”, cấu trúc đầy đủ là “intended it to be”, trong đó “it” chỉ “the review”. “To” một mình thiếu bổ ngữ trong câu này, còn “it/so” không hoàn chỉnh sau “intended”.",
+      "distractor_breakdowns": [
+        {
+          "option": "it to be",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “intended”, cấu trúc đầy đủ là “intended it to be”, trong đó “it” chỉ “the review”. “To” một mình thiếu bổ ngữ trong câu này, còn “it/so” không hoàn chỉnh sau “intended”."
+        },
+        {
+          "option": "to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. To be”, trong đó “it” chỉ “the review”."
+        },
+        {
+          "option": "it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. It to be”, trong đó “it” chỉ “the review”."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. So” không hoàn chỉnh sau “intended”."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-34",
       "type": "multiple_choice",
       "question": "Choose the best **not** substitution: Are the archives likely to release the letters this year? The historian suspects ___.",
       "options": [
@@ -858,9 +1613,32 @@
       ],
       "correct_answer": "not",
       "explanation": "Sau các động từ như “suspect”, “believe”, “hope”, có thể dùng “not” để thay cho mệnh đề phủ định. “No” không thay mệnh đề, “not so” không tự nhiên ở đây, và “it not” sai trật tự.",
+      "distractor_breakdowns": [
+        {
+          "option": "not",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau các động từ như “suspect”, “believe”, “hope”, có thể dùng “not” để thay cho mệnh đề phủ định. “No” không thay mệnh đề, “not so” không tự nhiên ở đây, và “it not” sai trật tự."
+        },
+        {
+          "option": "no",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “No” không thay mệnh đề, “not so” không tự nhiên ở đây, và “it not” sai trật tự."
+        },
+        {
+          "option": "not so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “not so” không tự nhiên ở đây, và “it not” sai trật tự."
+        },
+        {
+          "option": "it not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “it not” sai trật tự."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-35",
       "type": "multiple_choice",
       "question": "Choose the correct **ones** substitution: These case studies are outdated; the newer ___ include much richer data.",
       "options": [
@@ -871,9 +1649,32 @@
       ],
       "correct_answer": "ones",
       "explanation": "“Ones” thay cho danh từ đếm được số nhiều “case studies”. “One” là số ít, “it” chỉ một vật/sự việc cụ thể số ít, còn “so” thay mệnh đề chứ không thay danh từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "ones",
+          "isCorrect": true,
+          "pedagogicalReason": "“Ones” thay cho danh từ đếm được số nhiều “case studies”. “One” là số ít, “it” chỉ một vật/sự việc cụ thể số ít, còn “so” thay mệnh đề chứ không thay danh từ."
+        },
+        {
+          "option": "one",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “One” là số ít, “it” chỉ một vật/sự việc cụ thể số ít, còn “so” thay mệnh đề chứ không thay danh từ."
+        },
+        {
+          "option": "it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “it” chỉ một vật/sự việc cụ thể số ít, còn “so” thay mệnh đề chứ không thay danh từ."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “so” thay mệnh đề chứ không thay danh từ."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "ellipsis-substitution-ex-36",
       "type": "multiple_choice",
       "question": "Choose the best **reduced clause**: Once ___ in peer-reviewed journals, the findings attracted global attention.",
       "options": [
@@ -884,9 +1685,32 @@
       ],
       "correct_answer": "published",
       "explanation": "“Once published” là mệnh đề rút gọn bị động, nghĩa là “once the findings were published”. “Publishing” tạo nghĩa chủ động sai, “they published” thiếu tân ngữ phù hợp, và “publish” sai dạng.",
+      "distractor_breakdowns": [
+        {
+          "option": "published",
+          "isCorrect": true,
+          "pedagogicalReason": "“Once published” là mệnh đề rút gọn bị động, nghĩa là “once the findings were published”. “Publishing” tạo nghĩa chủ động sai, “they published” thiếu tân ngữ phù hợp, và “publish” sai dạng."
+        },
+        {
+          "option": "publishing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Publishing” tạo nghĩa chủ động sai, “they published” thiếu tân ngữ phù hợp, và “publish” sai dạng."
+        },
+        {
+          "option": "they published",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “they published” thiếu tân ngữ phù hợp, và “publish” sai dạng."
+        },
+        {
+          "option": "publish",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “publish” sai dạng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-37",
       "type": "fill_blank",
       "question": "Complete the **auxiliary** ellipsis: I have never questioned her integrity, though several colleagues ___ during the inquiry.",
       "options": [
@@ -897,9 +1721,32 @@
       ],
       "correct_answer": "have",
       "explanation": "“Have” thay cho cụm “have questioned her integrity” trong thì hiện tại hoàn thành. “Did/do” đổi thì, còn “were” không thay được cụm động từ này.",
+      "distractor_breakdowns": [
+        {
+          "option": "have",
+          "isCorrect": true,
+          "pedagogicalReason": "“Have” thay cho cụm “have questioned her integrity” trong thì hiện tại hoàn thành. “Did/do” đổi thì, còn “were” không thay được cụm động từ này."
+        },
+        {
+          "option": "did",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Did/do” đổi thì, còn “were” không thay được cụm động từ này."
+        },
+        {
+          "option": "were",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “were” không thay được cụm động từ này."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Do” đổi thì, còn “were” không thay được cụm động từ này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-38",
       "type": "fill_blank",
       "question": "Complete with **one**: The synthetic fabric tore easily, whereas the natural ___ proved surprisingly durable.",
       "options": [
@@ -910,9 +1757,32 @@
       ],
       "correct_answer": "one",
       "explanation": "“One” thay cho “fabric” khi nói đến loại vải khác đã được xác định bằng tính từ “natural”. “It” sẽ chỉ lại cùng loại vải đã nhắc, còn “so/do” không thay danh từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "one",
+          "isCorrect": true,
+          "pedagogicalReason": "“One” thay cho “fabric” khi nói đến loại vải khác đã được xác định bằng tính từ “natural”. “It” sẽ chỉ lại cùng loại vải đã nhắc, còn “so/do” không thay danh từ."
+        },
+        {
+          "option": "it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “It” sẽ chỉ lại cùng loại vải đã nhắc, còn “so/do” không thay danh từ."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. So/do” không thay danh từ."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Do” không thay danh từ."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-39",
       "type": "fill_blank",
       "question": "Complete the **so** substitution: The witness claimed the door had been locked, and the security footage appears to confirm ___.",
       "options": [
@@ -923,9 +1793,32 @@
       ],
       "correct_answer": "so",
       "explanation": "“Confirm so” có thể dùng trang trọng để thay cho mệnh đề đã nêu: “the door had been locked”. “It” không tự nhiên nếu không có tân ngữ rõ, “that so” sai cấu trúc, và “do” thay động từ chứ không thay mệnh đề.",
+      "distractor_breakdowns": [
+        {
+          "option": "so",
+          "isCorrect": true,
+          "pedagogicalReason": "“Confirm so” có thể dùng trang trọng để thay cho mệnh đề đã nêu: “the door had been locked”. “It” không tự nhiên nếu không có tân ngữ rõ, “that so” sai cấu trúc, và “do” thay động từ chứ không thay mệnh đề."
+        },
+        {
+          "option": "it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “It” không tự nhiên nếu không có tân ngữ rõ, “that so” sai cấu trúc, và “do” thay động từ chứ không thay mệnh đề."
+        },
+        {
+          "option": "that so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “that so” sai cấu trúc, và “do” thay động từ chứ không thay mệnh đề."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “do” thay động từ chứ không thay mệnh đề."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-40",
       "type": "fill_blank",
       "question": "Complete the **to** ellipsis: I did not attend the seminar, although I had intended ___.",
       "options": [
@@ -936,9 +1829,32 @@
       ],
       "correct_answer": "to",
       "explanation": "Sau “intend”, “to” có thể đứng lại để thay cho cụm “to attend the seminar”. “So/it/do” không thay được cụm nguyên mẫu trong cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "to",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “intend”, “to” có thể đứng lại để thay cho cụm “to attend the seminar”. “So/it/do” không thay được cụm nguyên mẫu trong cấu trúc này."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. So/it/do” không thay được cụm nguyên mẫu trong cấu trúc này."
+        },
+        {
+          "option": "it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. It/do” không thay được cụm nguyên mẫu trong cấu trúc này."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Do” không thay được cụm nguyên mẫu trong cấu trúc này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-41",
       "type": "fill_blank",
       "question": "Complete the **gapping**: The legal team requested mediation; the plaintiffs, ___ .",
       "options": [
@@ -949,9 +1865,32 @@
       ],
       "correct_answer": "arbitration",
       "explanation": "Vế sau lược bỏ động từ “requested”: “the plaintiffs [requested] arbitration”. Các lựa chọn còn lại hoặc sai cấu trúc, hoặc phá vỡ phép gapping.",
+      "distractor_breakdowns": [
+        {
+          "option": "arbitration",
+          "isCorrect": true,
+          "pedagogicalReason": "Vế sau lược bỏ động từ “requested”: “the plaintiffs [requested] arbitration”. Các lựa chọn còn lại hoặc sai cấu trúc, hoặc phá vỡ phép gapping."
+        },
+        {
+          "option": "did arbitration",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"did arbitration\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "requested to arbitrate",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"requested to arbitrate\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "were arbitration",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"were arbitration\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-42",
       "type": "fill_blank",
       "question": "Complete the **do so** substitution: If the agency revises the guidelines, it must ___ transparently.",
       "options": [
@@ -962,9 +1901,32 @@
       ],
       "correct_answer": "do so",
       "explanation": "“Do so” thay cho hành động “revise the guidelines” và phù hợp văn phong trang trọng. “Do it” kém tự nhiên trong văn bản học thuật, “so do” sai trật tự, còn “do” thiếu bổ nghĩa.",
+      "distractor_breakdowns": [
+        {
+          "option": "do so",
+          "isCorrect": true,
+          "pedagogicalReason": "“Do so” thay cho hành động “revise the guidelines” và phù hợp văn phong trang trọng. “Do it” kém tự nhiên trong văn bản học thuật, “so do” sai trật tự, còn “do” thiếu bổ nghĩa."
+        },
+        {
+          "option": "do it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Do it” kém tự nhiên trong văn bản học thuật, “so do” sai trật tự, còn “do” thiếu bổ nghĩa."
+        },
+        {
+          "option": "so do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “so do” sai trật tự, còn “do” thiếu bổ nghĩa."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Do so” thay cho hành động “revise the guidelines” và phù hợp văn phong trang trọng."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-43",
       "type": "fill_blank",
       "question": "Complete the **than** ellipsis: The apology sounded less sincere than we had expected ___ .",
       "options": [
@@ -975,9 +1937,32 @@
       ],
       "correct_answer": "it to",
       "explanation": "Cấu trúc đầy đủ là “than we had expected it to [sound]”, trong đó động từ chính được lược bỏ sau “to”. “So/it” không hoàn chỉnh sau “expected”, còn “to do” sai vì “sound” không được thay bằng “do”.",
+      "distractor_breakdowns": [
+        {
+          "option": "it to",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc đầy đủ là “than we had expected it to [sound]”, trong đó động từ chính được lược bỏ sau “to”. “So/it” không hoàn chỉnh sau “expected”, còn “to do” sai vì “sound” không được thay bằng “do”."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. So/it” không hoàn chỉnh sau “expected”, còn “to do” sai vì “sound” không được thay bằng “do”."
+        },
+        {
+          "option": "it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. It” không hoàn chỉnh sau “expected”, còn “to do” sai vì “sound” không được thay bằng “do”."
+        },
+        {
+          "option": "to do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “to do” sai vì “sound” không được thay bằng “do”."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-44",
       "type": "fill_blank",
       "question": "Complete with **not**: Will the grant cover fieldwork expenses? I assume ___, given the new restrictions.",
       "options": [
@@ -988,9 +1973,32 @@
       ],
       "correct_answer": "not",
       "explanation": "“Assume not” thay cho mệnh đề phủ định “that it will not cover fieldwork expenses”. “No” là câu trả lời ngắn chứ không hợp sau “assume”, “not so” không tự nhiên, và “it not” sai ngữ pháp.",
+      "distractor_breakdowns": [
+        {
+          "option": "not",
+          "isCorrect": true,
+          "pedagogicalReason": "“Assume not” thay cho mệnh đề phủ định “that it will not cover fieldwork expenses”. “No” là câu trả lời ngắn chứ không hợp sau “assume”, “not so” không tự nhiên, và “it not” sai ngữ pháp."
+        },
+        {
+          "option": "no",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “No” là câu trả lời ngắn chứ không hợp sau “assume”, “not so” không tự nhiên, và “it not” sai ngữ pháp."
+        },
+        {
+          "option": "not so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “not so” không tự nhiên, và “it not” sai ngữ pháp."
+        },
+        {
+          "option": "it not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “it not” sai ngữ pháp."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-45",
       "type": "fill_blank",
       "question": "Complete the **nominal** substitution: The Oxford edition is annotated, but the Cambridge ___ is more affordable.",
       "options": [
@@ -1001,9 +2009,32 @@
       ],
       "correct_answer": "one",
       "explanation": "“One” thay cho “edition” khi so sánh một ấn bản khác. “It” sẽ chỉ cùng ấn bản Oxford, còn “so/do” không thay danh từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "one",
+          "isCorrect": true,
+          "pedagogicalReason": "“One” thay cho “edition” khi so sánh một ấn bản khác. “It” sẽ chỉ cùng ấn bản Oxford, còn “so/do” không thay danh từ."
+        },
+        {
+          "option": "it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “It” sẽ chỉ cùng ấn bản Oxford, còn “so/do” không thay danh từ."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. So/do” không thay danh từ."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Do” không thay danh từ."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "ellipsis-substitution-ex-46",
       "type": "error_correction",
       "question": "Find the error: The policy was controversial, and the minister admitted that it was **so** during the debate.",
       "options": [
@@ -1014,9 +2045,32 @@
       ],
       "correct_answer": "so",
       "explanation": "Sau “admitted that”, không dùng “so” để thay cho bổ ngữ tính từ trong cấu trúc này; nên nói “admitted that it was controversial”. Các từ còn lại đều phù hợp với câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "policy",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"policy\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "controversial",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"controversial\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "so",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “admitted that”, không dùng “so” để thay cho bổ ngữ tính từ trong cấu trúc này; nên nói “admitted that it was controversial”. Các từ còn lại đều phù hợp với câu."
+        },
+        {
+          "option": "debate",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"debate\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-47",
       "type": "error_correction",
       "question": "Find the error: The Spanish samples were labelled, but the Italian **one** remained unidentified.",
       "options": [
@@ -1027,9 +2081,32 @@
       ],
       "correct_answer": "Italian one",
       "explanation": "“Samples” là danh từ số nhiều, nên phải dùng “Italian ones”. “Labelled” và “unidentified” đúng dạng, còn cụm chủ ngữ đầu câu không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "Spanish samples",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Spanish samples\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "labelled",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Labelled” và “unidentified” đúng dạng, còn cụm chủ ngữ đầu câu không sai."
+        },
+        {
+          "option": "Italian one",
+          "isCorrect": true,
+          "pedagogicalReason": "“Samples” là danh từ số nhiều, nên phải dùng “Italian ones”. “Labelled” và “unidentified” đúng dạng, còn cụm chủ ngữ đầu câu không sai."
+        },
+        {
+          "option": "unidentified",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “unidentified” đúng dạng, còn cụm chủ ngữ đầu câu không sai."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-48",
       "type": "error_correction",
       "question": "Find the error: Nora said she would review the contract, and she actually **did so** it before lunch.",
       "options": [
@@ -1040,9 +2117,32 @@
       ],
       "correct_answer": "did so",
       "explanation": "“Do so” đã thay cho cả cụm “review the contract”, nên không thể thêm tân ngữ “it” sau đó. Các phần khác đúng về nghĩa và ngữ pháp.",
+      "distractor_breakdowns": [
+        {
+          "option": "would review",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"would review\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "contract",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Contract”, nên không thể thêm tân ngữ “it” sau đó."
+        },
+        {
+          "option": "did so",
+          "isCorrect": true,
+          "pedagogicalReason": "“Do so” đã thay cho cả cụm “review the contract”, nên không thể thêm tân ngữ “it” sau đó. Các phần khác đúng về nghĩa và ngữ pháp."
+        },
+        {
+          "option": "before lunch",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"before lunch\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-49",
       "type": "error_correction",
       "question": "Find the error: The mayor refused to resign, though repeatedly **urged** doing so by party leaders.",
       "options": [
@@ -1053,9 +2153,32 @@
       ],
       "correct_answer": "doing so",
       "explanation": "Sau “urge someone to”, dạng đúng là “urged to do so”, không phải “urged doing so” trong câu bị động rút gọn này. Các từ “refused”, “resign” và “urged” đều có thể đúng trong cấu trúc thích hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "refused",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “refused”, “resign” và “urged” đều có thể đúng trong cấu trúc thích hợp."
+        },
+        {
+          "option": "resign",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “resign” và “urged” đều có thể đúng trong cấu trúc thích hợp."
+        },
+        {
+          "option": "urged",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Urged to do so”, không phải “urged doing so” trong câu bị động rút gọn này."
+        },
+        {
+          "option": "doing so",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “urge someone to”, dạng đúng là “urged to do so”, không phải “urged doing so” trong câu bị động rút gọn này. Các từ “refused”, “resign” và “urged” đều có thể đúng trong cấu trúc thích hợp."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-50",
       "type": "error_correction",
       "question": "Find the error: If the first hypothesis proves false, the second may **do so** as well.",
       "options": [
@@ -1066,9 +2189,32 @@
       ],
       "correct_answer": "do so",
       "explanation": "“Do so” thay cho hành động có chủ ý, không tự nhiên với động từ nối/trạng thái “prove false”. Nên dùng “may be false as well” hoặc “may prove false as well”.",
+      "distractor_breakdowns": [
+        {
+          "option": "first hypothesis",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"first hypothesis\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "proves",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"proves\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "second",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"second\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "do so",
+          "isCorrect": true,
+          "pedagogicalReason": "“Do so” thay cho hành động có chủ ý, không tự nhiên với động từ nối/trạng thái “prove false”. Nên dùng “may be false as well” hoặc “may prove false as well”."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-51",
       "type": "error_correction",
       "question": "Find the error: The museum acquired two early sketches and sold three later **one** to a private collector.",
       "options": [
@@ -1079,9 +2225,32 @@
       ],
       "correct_answer": "one",
       "explanation": "“Three” yêu cầu danh từ thay thế số nhiều, nên phải là “ones”. Các từ còn lại đúng trong cấu trúc câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "acquired",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"acquired\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "sketches",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"sketches\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "one",
+          "isCorrect": true,
+          "pedagogicalReason": "“Three” yêu cầu danh từ thay thế số nhiều, nên phải là “ones”. Các từ còn lại đúng trong cấu trúc câu."
+        },
+        {
+          "option": "collector",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"collector\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-52",
       "type": "error_correction",
       "question": "Find the error: The researchers expected the enzyme to stabilise, but it never **did** under extreme heat.",
       "options": [
@@ -1092,9 +2261,32 @@
       ],
       "correct_answer": "did",
       "explanation": "“Did” không thay tự nhiên cho động từ nguyên mẫu có “to” sau “expected”; nên dùng “did so” nếu thay hành động, hoặc rõ hơn là “stabilised”. Các phần khác không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "expected",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"expected\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "enzyme",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"enzyme\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "did",
+          "isCorrect": true,
+          "pedagogicalReason": "“Did” không thay tự nhiên cho động từ nguyên mẫu có “to” sau “expected”; nên dùng “did so” nếu thay hành động, hoặc rõ hơn là “stabilised”. Các phần khác không sai."
+        },
+        {
+          "option": "extreme heat",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"extreme heat\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-53",
       "type": "multiple_choice",
       "question": "Choose the correct **one** substitution: The revised constitution is clearer than the original ___.",
       "options": [
@@ -1105,9 +2297,32 @@
       ],
       "correct_answer": "one",
       "explanation": "“One” thay cho danh từ đếm được số ít “constitution” để tránh lặp lại. “Ones” dùng cho số nhiều, “so” thay mệnh đề, còn “it” thường chỉ chính vật đã nói trước đó chứ không phải một phiên bản khác.",
+      "distractor_breakdowns": [
+        {
+          "option": "one",
+          "isCorrect": true,
+          "pedagogicalReason": "“One” thay cho danh từ đếm được số ít “constitution” để tránh lặp lại. “Ones” dùng cho số nhiều, “so” thay mệnh đề, còn “it” thường chỉ chính vật đã nói trước đó chứ không phải một phiên bản khác."
+        },
+        {
+          "option": "ones",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Ones” dùng cho số nhiều, “so” thay mệnh đề, còn “it” thường chỉ chính vật đã nói trước đó chứ không phải một phiên bản khác."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “so” thay mệnh đề, còn “it” thường chỉ chính vật đã nói trước đó chứ không phải một phiên bản khác."
+        },
+        {
+          "option": "it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “it” thường chỉ chính vật đã nói trước đó chứ không phải một phiên bản khác."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-54",
       "type": "multiple_choice",
       "question": "Choose the best **do so** substitution: The panel may reopen the investigation, but it will ___ only if new evidence emerges.",
       "options": [
@@ -1118,9 +2333,32 @@
       ],
       "correct_answer": "do so",
       "explanation": "“Do so” thay cho cả cụm hành động “reopen the investigation” trong văn phong trang trọng. “Do it” kém tự nhiên hơn với hành động đã nêu trong ngữ cảnh này; “do one” sai cấu trúc, còn “do” thiếu bổ ngữ/thành phần thay thế.",
+      "distractor_breakdowns": [
+        {
+          "option": "do so",
+          "isCorrect": true,
+          "pedagogicalReason": "“Do so” thay cho cả cụm hành động “reopen the investigation” trong văn phong trang trọng. “Do it” kém tự nhiên hơn với hành động đã nêu trong ngữ cảnh này; “do one” sai cấu trúc, còn “do” thiếu bổ ngữ/thành phần thay thế."
+        },
+        {
+          "option": "do it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Do it” kém tự nhiên hơn với hành động đã nêu trong ngữ cảnh này."
+        },
+        {
+          "option": "do one",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “do one” sai cấu trúc, còn “do” thiếu bổ ngữ/thành phần thay thế."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Do so” thay cho cả cụm hành động “reopen the investigation” trong văn phong trang trọng."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-55",
       "type": "multiple_choice",
       "question": "Choose the correct **so** substitution: The minister denied that the report had been altered, but several aides privately admitted ___.",
       "options": [
@@ -1131,9 +2369,32 @@
       ],
       "correct_answer": "so",
       "explanation": "“So” thay cho mệnh đề “that the report had been altered” sau động từ như “admitted”. “It” không tự nhiên khi thay một mệnh đề that-clause ở đây; “one” thay danh từ đếm được, còn “done” không thay được mệnh đề.",
+      "distractor_breakdowns": [
+        {
+          "option": "so",
+          "isCorrect": true,
+          "pedagogicalReason": "“So” thay cho mệnh đề “that the report had been altered” sau động từ như “admitted”. “It” không tự nhiên khi thay một mệnh đề that-clause ở đây; “one” thay danh từ đếm được, còn “done” không thay được mệnh đề."
+        },
+        {
+          "option": "it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “It” không tự nhiên khi thay một mệnh đề that-clause ở đây."
+        },
+        {
+          "option": "one",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “one” thay danh từ đếm được, còn “done” không thay được mệnh đề."
+        },
+        {
+          "option": "done",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “done” không thay được mệnh đề."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-56",
       "type": "multiple_choice",
       "question": "Choose the correct **ellipsis**: No one expected the negotiations to collapse, but they eventually ___.",
       "options": [
@@ -1144,9 +2405,32 @@
       ],
       "correct_answer": "did",
       "explanation": "“Did” thay cho cụm động từ “collapse” trong ellipsis. “Did so” thường thay hành động có chủ ý hơn, không hợp với “collapse”; “were” sai trợ động từ, còn “so” không đứng một mình sau chủ ngữ như vậy.",
+      "distractor_breakdowns": [
+        {
+          "option": "did",
+          "isCorrect": true,
+          "pedagogicalReason": "“Did” thay cho cụm động từ “collapse” trong ellipsis. “Did so” thường thay hành động có chủ ý hơn, không hợp với “collapse”; “were” sai trợ động từ, còn “so” không đứng một mình sau chủ ngữ như vậy."
+        },
+        {
+          "option": "did so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Did so” thường thay hành động có chủ ý hơn, không hợp với “collapse”."
+        },
+        {
+          "option": "were",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “were” sai trợ động từ, còn “so” không đứng một mình sau chủ ngữ như vậy."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. So” thường thay hành động có chủ ý hơn, không hợp với “collapse”."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-57",
       "type": "multiple_choice",
       "question": "Choose the correct **not** substitution: Will the amendment survive judicial review? Most scholars believe ___.",
       "options": [
@@ -1157,9 +2441,32 @@
       ],
       "correct_answer": "not",
       "explanation": "Sau “believe”, ta có thể dùng “not” để thay cho mệnh đề phủ định “that it will not survive”. “No” và “none” không thay mệnh đề; “not so” có thể tồn tại trong vài cấu trúc nhưng không tự nhiên sau “believe” ở câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "not",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “believe”, ta có thể dùng “not” để thay cho mệnh đề phủ định “that it will not survive”. “No” và “none” không thay mệnh đề; “not so” có thể tồn tại trong vài cấu trúc nhưng không tự nhiên sau “believe” ở câu này."
+        },
+        {
+          "option": "no",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “No” và “none” không thay mệnh đề."
+        },
+        {
+          "option": "not so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “not so” có thể tồn tại trong vài cấu trúc nhưng không tự nhiên sau “believe” ở câu này."
+        },
+        {
+          "option": "none",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “none” không thay mệnh đề."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-58",
       "type": "multiple_choice",
       "question": "Choose the correct **gapping**: The finance team reviewed the domestic accounts; the external auditors, ___.",
       "options": [
@@ -1170,9 +2477,32 @@
       ],
       "correct_answer": "the overseas ones",
       "explanation": "Đây là gapping: động từ “reviewed” được lược bỏ ở vế sau. Các lựa chọn có “did/reviewed/so” phá cấu trúc gapping hoặc làm câu dư thừa.",
+      "distractor_breakdowns": [
+        {
+          "option": "the overseas ones",
+          "isCorrect": true,
+          "pedagogicalReason": "Đây là gapping: động từ “reviewed” được lược bỏ ở vế sau. Các lựa chọn có “did/reviewed/so” phá cấu trúc gapping hoặc làm câu dư thừa."
+        },
+        {
+          "option": "did the overseas ones",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"did the overseas ones\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "reviewed the overseas ones",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"reviewed the overseas ones\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "so the overseas ones",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"so the overseas ones\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-59",
       "type": "multiple_choice",
       "question": "Choose the best **to** ellipsis: The board did not publish the minutes, though it had promised ___.",
       "options": [
@@ -1183,9 +2513,32 @@
       ],
       "correct_answer": "to",
       "explanation": "Sau “promised”, “to” có thể đứng một mình thay cho “to publish the minutes”. “To do” thiếu tân ngữ hoặc “so”; “so” không đi trực tiếp sau “promised” theo cách này, còn “doing so” sai dạng sau “promised”.",
+      "distractor_breakdowns": [
+        {
+          "option": "to",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “promised”, “to” có thể đứng một mình thay cho “to publish the minutes”. “To do” thiếu tân ngữ hoặc “so”; “so” không đi trực tiếp sau “promised” theo cách này, còn “doing so” sai dạng sau “promised”."
+        },
+        {
+          "option": "to do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “To do” thiếu tân ngữ hoặc “so”."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “so” không đi trực tiếp sau “promised” theo cách này, còn “doing so” sai dạng sau “promised”."
+        },
+        {
+          "option": "doing so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “doing so” sai dạng sau “promised”."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-60",
       "type": "multiple_choice",
       "question": "Choose the correct **ones** substitution: The older manuscripts were digitised first; the fragile ___ were handled later.",
       "options": [
@@ -1196,9 +2549,32 @@
       ],
       "correct_answer": "ones",
       "explanation": "“Ones” thay cho danh từ đếm được số nhiều “manuscripts”. “One” là số ít, “so” thay mệnh đề, còn “it” chỉ một vật cụ thể số ít.",
+      "distractor_breakdowns": [
+        {
+          "option": "ones",
+          "isCorrect": true,
+          "pedagogicalReason": "“Ones” thay cho danh từ đếm được số nhiều “manuscripts”. “One” là số ít, “so” thay mệnh đề, còn “it” chỉ một vật cụ thể số ít."
+        },
+        {
+          "option": "one",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “One” là số ít, “so” thay mệnh đề, còn “it” chỉ một vật cụ thể số ít."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “so” thay mệnh đề, còn “it” chỉ một vật cụ thể số ít."
+        },
+        {
+          "option": "it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “it” chỉ một vật cụ thể số ít."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-61",
       "type": "multiple_choice",
       "question": "Choose the correct **comparative** ellipsis: The statute proved more ambiguous than the drafters had meant ___.",
       "options": [
@@ -1209,9 +2585,32 @@
       ],
       "correct_answer": "it to",
       "explanation": "Trong so sánh, “meant it to” lược bỏ phần tính từ đã hiểu: “meant it to be ambiguous”. “So” không hợp sau “meant” ở đây; “one” thay danh từ, còn “doing” sai cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "it to",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong so sánh, “meant it to” lược bỏ phần tính từ đã hiểu: “meant it to be ambiguous”. “So” không hợp sau “meant” ở đây; “one” thay danh từ, còn “doing” sai cấu trúc."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “So” không hợp sau “meant” ở đây."
+        },
+        {
+          "option": "one",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “one” thay danh từ, còn “doing” sai cấu trúc."
+        },
+        {
+          "option": "doing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “doing” sai cấu trúc."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-62",
       "type": "fill_blank",
       "question": "Complete the **auxiliary** ellipsis: The first witness could not recall the conversation, but the second ___ clearly.",
       "options": [
@@ -1222,9 +2621,32 @@
       ],
       "correct_answer": "could",
       "explanation": "“Could” thay cho “could recall the conversation” để tránh lặp cụm động từ. “Could do” không tự nhiên trong tiếng Anh chuẩn ở đây; “did so” lệch thì/khả năng, còn “was” không thay được động từ “recall”.",
+      "distractor_breakdowns": [
+        {
+          "option": "could",
+          "isCorrect": true,
+          "pedagogicalReason": "“Could” thay cho “could recall the conversation” để tránh lặp cụm động từ. “Could do” không tự nhiên trong tiếng Anh chuẩn ở đây; “did so” lệch thì/khả năng, còn “was” không thay được động từ “recall”."
+        },
+        {
+          "option": "could do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Could do” không tự nhiên trong tiếng Anh chuẩn ở đây."
+        },
+        {
+          "option": "did so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “did so” lệch thì/khả năng, còn “was” không thay được động từ “recall”."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “was” không thay được động từ “recall”."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-63",
       "type": "fill_blank",
       "question": "Complete with **so**: The reviewers suspected that the data had been selectively reported, and the footnotes strongly suggest ___.",
       "options": [
@@ -1235,9 +2657,32 @@
       ],
       "correct_answer": "so",
       "explanation": "“So” thay cho cả mệnh đề “that the data had been selectively reported”. “It” không thay mệnh đề một cách tự nhiên sau “suggest” trong cấu trúc này; “one” thay danh từ, còn “such” cần danh từ theo sau.",
+      "distractor_breakdowns": [
+        {
+          "option": "so",
+          "isCorrect": true,
+          "pedagogicalReason": "“So” thay cho cả mệnh đề “that the data had been selectively reported”. “It” không thay mệnh đề một cách tự nhiên sau “suggest” trong cấu trúc này; “one” thay danh từ, còn “such” cần danh từ theo sau."
+        },
+        {
+          "option": "it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “It” không thay mệnh đề một cách tự nhiên sau “suggest” trong cấu trúc này."
+        },
+        {
+          "option": "one",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “one” thay danh từ, còn “such” cần danh từ theo sau."
+        },
+        {
+          "option": "such",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “such” cần danh từ theo sau."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-64",
       "type": "fill_blank",
       "question": "Complete the **nominal** substitution: This edition includes the correspondence, whereas the earlier ___ omits it entirely.",
       "options": [
@@ -1248,9 +2693,32 @@
       ],
       "correct_answer": "one",
       "explanation": "“One” thay cho “edition” số ít. “Ones” dùng cho số nhiều; “so” thay mệnh đề, còn “that” không tự nhiên để thay một danh từ cụ thể trong cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "one",
+          "isCorrect": true,
+          "pedagogicalReason": "“One” thay cho “edition” số ít. “Ones” dùng cho số nhiều; “so” thay mệnh đề, còn “that” không tự nhiên để thay một danh từ cụ thể trong cấu trúc này."
+        },
+        {
+          "option": "ones",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Ones” dùng cho số nhiều."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “so” thay mệnh đề, còn “that” không tự nhiên để thay một danh từ cụ thể trong cấu trúc này."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “that” không tự nhiên để thay một danh từ cụ thể trong cấu trúc này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-65",
       "type": "fill_blank",
       "question": "Complete the **do so** substitution: If either party terminates the agreement, it must ___ in writing.",
       "options": [
@@ -1261,9 +2729,32 @@
       ],
       "correct_answer": "do so",
       "explanation": "“Do so” thay cho hành động “terminate the agreement”. “Do it” kém trang trọng và không hợp văn pháp lý bằng; “so do” đảo trật tự sai, còn “does so” sai hòa hợp với “must”.",
+      "distractor_breakdowns": [
+        {
+          "option": "do so",
+          "isCorrect": true,
+          "pedagogicalReason": "“Do so” thay cho hành động “terminate the agreement”. “Do it” kém trang trọng và không hợp văn pháp lý bằng; “so do” đảo trật tự sai, còn “does so” sai hòa hợp với “must”."
+        },
+        {
+          "option": "do it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Do it” kém trang trọng và không hợp văn pháp lý bằng."
+        },
+        {
+          "option": "so do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “so do” đảo trật tự sai, còn “does so” sai hòa hợp với “must”."
+        },
+        {
+          "option": "does so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “does so” sai hòa hợp với “must”."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-66",
       "type": "fill_blank",
       "question": "Complete the **ellipsis**: Several directors supported the acquisition, and the chair apparently ___ as well.",
       "options": [
@@ -1274,9 +2765,32 @@
       ],
       "correct_answer": "did",
       "explanation": "“Did” thay cho cụm động từ “supported the acquisition”. “Was” không thay được động từ chính “supported”; “so” không đứng một mình sau chủ ngữ, còn “one” thay danh từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "did",
+          "isCorrect": true,
+          "pedagogicalReason": "“Did” thay cho cụm động từ “supported the acquisition”. “Was” không thay được động từ chính “supported”; “so” không đứng một mình sau chủ ngữ, còn “one” thay danh từ."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Was” không thay được động từ chính “supported”."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “so” không đứng một mình sau chủ ngữ, còn “one” thay danh từ."
+        },
+        {
+          "option": "one",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “one” thay danh từ."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-67",
       "type": "fill_blank",
       "question": "Complete the **gapping**: The northern branch reported a surplus; the southern branch, ___ .",
       "options": [
@@ -1287,9 +2801,32 @@
       ],
       "correct_answer": "a deficit",
       "explanation": "Câu dùng gapping: động từ “reported” được lược bỏ, chỉ giữ phần tương phản “a deficit”. Các lựa chọn còn lại hoặc sai cấu trúc, hoặc không tạo được ellipsis tự nhiên.",
+      "distractor_breakdowns": [
+        {
+          "option": "a deficit",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu dùng gapping: động từ “reported” được lược bỏ, chỉ giữ phần tương phản “a deficit”. Các lựa chọn còn lại hoặc sai cấu trúc, hoặc không tạo được ellipsis tự nhiên."
+        },
+        {
+          "option": "did a deficit",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"did a deficit\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "reported it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"reported it\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"so\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-68",
       "type": "fill_blank",
       "question": "Complete with **not**: Is the clause enforceable under current law? The solicitor thinks ___ .",
       "options": [
@@ -1300,9 +2837,32 @@
       ],
       "correct_answer": "not",
       "explanation": "“Thinks not” là cách rút gọn trang trọng, thay cho “thinks it is not enforceable”. “No” và “none” không thay được mệnh đề; “not it” sai cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "not",
+          "isCorrect": true,
+          "pedagogicalReason": "“Thinks not” là cách rút gọn trang trọng, thay cho “thinks it is not enforceable”. “No” và “none” không thay được mệnh đề; “not it” sai cấu trúc."
+        },
+        {
+          "option": "no",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “No” và “none” không thay được mệnh đề."
+        },
+        {
+          "option": "none",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “none” không thay được mệnh đề."
+        },
+        {
+          "option": "not it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “not it” sai cấu trúc."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-69",
       "type": "fill_blank",
       "question": "Complete the **reduced clause**: When ___ by independent labs, the vaccine batches showed no contamination.",
       "options": [
@@ -1313,9 +2873,32 @@
       ],
       "correct_answer": "tested",
       "explanation": "“When tested” là mệnh đề bị động rút gọn từ “when they were tested”. “Testing” tạo nghĩa chủ động sai; “to test” không hợp sau “when”, còn “were testing” thiếu chủ ngữ rõ ràng trong mệnh đề phụ.",
+      "distractor_breakdowns": [
+        {
+          "option": "tested",
+          "isCorrect": true,
+          "pedagogicalReason": "“When tested” là mệnh đề bị động rút gọn từ “when they were tested”. “Testing” tạo nghĩa chủ động sai; “to test” không hợp sau “when”, còn “were testing” thiếu chủ ngữ rõ ràng trong mệnh đề phụ."
+        },
+        {
+          "option": "testing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Testing” tạo nghĩa chủ động sai."
+        },
+        {
+          "option": "to test",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “to test” không hợp sau “when”, còn “were testing” thiếu chủ ngữ rõ ràng trong mệnh đề phụ."
+        },
+        {
+          "option": "were testing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “were testing” thiếu chủ ngữ rõ ràng trong mệnh đề phụ."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-70",
       "type": "error_correction",
       "question": "Find the error: The first proposal was rejected, and the revised **one** was so too.",
       "options": [
@@ -1326,9 +2909,32 @@
       ],
       "correct_answer": "so too",
       "explanation": "Lỗi là “so too”; cần dùng “was too” hoặc “was rejected too” để thay cho trạng thái bị động. “Revised one” đúng vì “one” thay cho “proposal”; các phần còn lại không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "first proposal",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"first proposal\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "rejected",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Rejected too” để thay cho trạng thái bị động."
+        },
+        {
+          "option": "revised one",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Revised one” đúng vì “one” thay cho “proposal”."
+        },
+        {
+          "option": "so too",
+          "isCorrect": true,
+          "pedagogicalReason": "Lỗi là “so too”; cần dùng “was too” hoặc “was rejected too” để thay cho trạng thái bị động. “Revised one” đúng vì “one” thay cho “proposal”; các phần còn lại không sai."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-71",
       "type": "error_correction",
       "question": "Find the error: The committee expected the consultant to revise the draft, and she did **so** it overnight.",
       "options": [
@@ -1339,9 +2945,32 @@
       ],
       "correct_answer": "did so",
       "explanation": "“Do so” đã thay cho cả hành động “revise the draft”, nên không được thêm tân ngữ “it”. Câu đúng là “she did so overnight” hoặc “she revised it overnight”.",
+      "distractor_breakdowns": [
+        {
+          "option": "expected",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"expected\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "to revise",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"to revise\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "did so",
+          "isCorrect": true,
+          "pedagogicalReason": "“Do so” đã thay cho cả hành động “revise the draft”, nên không được thêm tân ngữ “it”. Câu đúng là “she did so overnight” hoặc “she revised it overnight”."
+        },
+        {
+          "option": "it overnight",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"it overnight\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-72",
       "type": "error_correction",
       "question": "Find the error: Several objections were dismissed, but the most serious **ones** was considered in detail.",
       "options": [
@@ -1352,9 +2981,32 @@
       ],
       "correct_answer": "was considered",
       "explanation": "“Ones” là số nhiều nên động từ bị động phải là “were considered”. Các cụm còn lại đúng: “ones” thay cho “objections” số nhiều.",
+      "distractor_breakdowns": [
+        {
+          "option": "Several objections",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Several objections\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "dismissed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"dismissed\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "most serious ones",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"most serious ones\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "was considered",
+          "isCorrect": true,
+          "pedagogicalReason": "“Ones” là số nhiều nên động từ bị động phải là “were considered”. Các cụm còn lại đúng: “ones” thay cho “objections” số nhiều."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-73",
       "type": "error_correction",
       "question": "Find the error: The defendant claimed the contract was void, and the judge appeared to accept **it**.",
       "options": [
@@ -1365,9 +3017,32 @@
       ],
       "correct_answer": "it",
       "explanation": "Ở đây cần “accept so” không tự nhiên; cách đúng là “accept that” hoặc “accept the claim”. “It” có thể gây hiểu nhầm là chấp nhận “the contract”, không phải mệnh đề “the contract was void”.",
+      "distractor_breakdowns": [
+        {
+          "option": "defendant",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"defendant\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "contract was void",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"contract was void\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "appeared",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"appeared\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "it",
+          "isCorrect": true,
+          "pedagogicalReason": "Ở đây cần “accept so” không tự nhiên; cách đúng là “accept that” hoặc “accept the claim”. “It” có thể gây hiểu nhầm là chấp nhận “the contract”, không phải mệnh đề “the contract was void”."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-74",
       "type": "error_correction",
       "question": "Find the error: The director will brief the investors if the legal team advises **doing so**.",
       "options": [
@@ -1378,9 +3053,32 @@
       ],
       "correct_answer": "doing so",
       "explanation": "Sau “advise” với nghĩa khuyên ai làm gì, cấu trúc đúng là “advises her to” hoặc “advises doing so” khi không có tân ngữ người nhận lời khuyên rõ ràng. Trong câu này chủ thể “the director” cần được nêu: “advises her to”.",
+      "distractor_breakdowns": [
+        {
+          "option": "will brief",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"will brief\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "investors",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"investors\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "advises",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Advises her to” hoặc “advises doing so” khi không có tân ngữ người nhận lời khuyên rõ ràng."
+        },
+        {
+          "option": "doing so",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “advise” với nghĩa khuyên ai làm gì, cấu trúc đúng là “advises her to” hoặc “advises doing so” khi không có tân ngữ người nhận lời khuyên rõ ràng. Trong câu này chủ thể “the director” cần được nêu: “advises her to”."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-75",
       "type": "error_correction",
       "question": "Find the error: The newer cameras capture finer detail than the older **one** can.",
       "options": [
@@ -1391,9 +3089,32 @@
       ],
       "correct_answer": "older one",
       "explanation": "“Cameras” là số nhiều nên phải dùng “older ones”. “One” chỉ thay cho danh từ đếm được số ít, còn các phần khác đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "newer cameras",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"newer cameras\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "capture",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"capture\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "older one",
+          "isCorrect": true,
+          "pedagogicalReason": "“Cameras” là số nhiều nên phải dùng “older ones”. “One” chỉ thay cho danh từ đếm được số ít, còn các phần khác đúng."
+        },
+        {
+          "option": "can",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"can\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-76",
       "type": "error_correction",
       "question": "Find the error: I would have attended the hearing if I had been allowed **to do**.",
       "options": [
@@ -1404,9 +3125,32 @@
       ],
       "correct_answer": "to do",
       "explanation": "Sau “allowed”, ellipsis đúng là “allowed to”, thay cho “allowed to attend the hearing”. “To do” cần “so” hoặc tân ngữ phù hợp, nên sai trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "would have attended",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"would have attended\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "hearing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"hearing\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "had been allowed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"had been allowed\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "to do",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “allowed”, ellipsis đúng là “allowed to”, thay cho “allowed to attend the hearing”. “To do” cần “so” hoặc tân ngữ phù hợp, nên sai trong câu này."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-77",
       "type": "error_correction",
       "question": "Find the error: The report says the river is polluted, and the satellite images confirm **it**.",
       "options": [
@@ -1417,9 +3161,32 @@
       ],
       "correct_answer": "it",
       "explanation": "Khi thay cho cả mệnh đề “the river is polluted” sau “confirm”, cách tự nhiên và trang trọng hơn là “confirm this/that” hoặc “confirm so” trong một số ngữ cảnh. “It” dễ bị hiểu là xác nhận “the river”, không phải nội dung mệnh đề.",
+      "distractor_breakdowns": [
+        {
+          "option": "report says",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"report says\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "river is polluted",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. River is polluted” sau “confirm”, cách tự nhiên và trang trọng hơn là “confirm this/that” hoặc “confirm so” trong một số ngữ cảnh."
+        },
+        {
+          "option": "satellite images",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"satellite images\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "it",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi thay cho cả mệnh đề “the river is polluted” sau “confirm”, cách tự nhiên và trang trọng hơn là “confirm this/that” hoặc “confirm so” trong một số ngữ cảnh. “It” dễ bị hiểu là xác nhận “the river”, không phải nội dung mệnh đề."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-78",
       "type": "multiple_choice",
       "question": "Choose the correct **auxiliary** ellipsis: The encryption tool processes large archives faster than the older platform ___.",
       "options": [
@@ -1430,9 +3197,32 @@
       ],
       "correct_answer": "does",
       "explanation": "Đáp án đúng là “does” vì trợ động từ thay cho cả cụm “processes large archives”. “is” sai vì không thay được động từ hành động; “one” thay danh từ; “does so them” sai vì “do so” không đi kèm tân ngữ trực tiếp như vậy.",
+      "distractor_breakdowns": [
+        {
+          "option": "does",
+          "isCorrect": true,
+          "pedagogicalReason": "Đáp án đúng là “does” vì trợ động từ thay cho cả cụm “processes large archives”. “is” sai vì không thay được động từ hành động; “one” thay danh từ; “does so them” sai vì “do so” không đi kèm tân ngữ trực tiếp như vậy."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “is” sai vì không thay được động từ hành động."
+        },
+        {
+          "option": "one",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “one” thay danh từ."
+        },
+        {
+          "option": "does so them",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “does so them” sai vì “do so” không đi kèm tân ngữ trực tiếp như vậy."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-79",
       "type": "multiple_choice",
       "question": "Choose the correct **so** substitution: The editor suspected the quotation had been fabricated, and the source notes appear to confirm ___.",
       "options": [
@@ -1443,9 +3233,32 @@
       ],
       "correct_answer": "so",
       "explanation": "“So” thay cho cả mệnh đề “the quotation had been fabricated”. “One” thay danh từ đếm được; “doing so” thay hành động; “not” diễn tả phủ định nên trái nghĩa.",
+      "distractor_breakdowns": [
+        {
+          "option": "so",
+          "isCorrect": true,
+          "pedagogicalReason": "“So” thay cho cả mệnh đề “the quotation had been fabricated”. “One” thay danh từ đếm được; “doing so” thay hành động; “not” diễn tả phủ định nên trái nghĩa."
+        },
+        {
+          "option": "one",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “One” thay danh từ đếm được."
+        },
+        {
+          "option": "doing so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “doing so” thay hành động."
+        },
+        {
+          "option": "not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “not” diễn tả phủ định nên trái nghĩa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-80",
       "type": "multiple_choice",
       "question": "Choose the correct **nominal** substitution: We need a precedent from a higher court, preferably ___ from the Supreme Court.",
       "options": [
@@ -1456,9 +3269,32 @@
       ],
       "correct_answer": "one",
       "explanation": "“One” thay cho danh từ đếm được số ít “a precedent”. “So” thay mệnh đề; “do” thay cụm động từ; “such” cần cấu trúc khác như “such a precedent”.",
+      "distractor_breakdowns": [
+        {
+          "option": "one",
+          "isCorrect": true,
+          "pedagogicalReason": "“One” thay cho danh từ đếm được số ít “a precedent”. “So” thay mệnh đề; “do” thay cụm động từ; “such” cần cấu trúc khác như “such a precedent”."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “So” thay mệnh đề."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “do” thay cụm động từ."
+        },
+        {
+          "option": "such",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “such” cần cấu trúc khác như “such a precedent”."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-81",
       "type": "multiple_choice",
       "question": "Choose the best **to** ellipsis: The agency did not release the raw files, although it was legally required ___.",
       "options": [
@@ -1469,9 +3305,32 @@
       ],
       "correct_answer": "to",
       "explanation": "Sau “required”, ta có thể lược bỏ phần đã rõ và giữ lại “to” thay cho “to release the raw files”. “To do so it” sai vì thừa tân ngữ; “doing so” sai dạng sau “required”; “so” không thay được động từ nguyên mẫu trong cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "to",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau “required”, ta có thể lược bỏ phần đã rõ và giữ lại “to” thay cho “to release the raw files”. “To do so it” sai vì thừa tân ngữ; “doing so” sai dạng sau “required”; “so” không thay được động từ nguyên mẫu trong cấu trúc này."
+        },
+        {
+          "option": "to do so it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “To do so it” sai vì thừa tân ngữ."
+        },
+        {
+          "option": "doing so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “doing so” sai dạng sau “required”."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. So it” sai vì thừa tân ngữ."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-82",
       "type": "fill_blank",
       "question": "Complete the **do so** substitution: Any applicant wishing to challenge the result must ___ within ten working days.",
       "options": [
@@ -1482,9 +3341,32 @@
       ],
       "correct_answer": "do so",
       "explanation": "“Do so” thay cho hành động “challenge the result” một cách trang trọng và tự nhiên. “Do it” kém phù hợp trong văn bản quy định; “so do” là đảo trợ động từ; “one” thay danh từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "do so",
+          "isCorrect": true,
+          "pedagogicalReason": "“Do so” thay cho hành động “challenge the result” một cách trang trọng và tự nhiên. “Do it” kém phù hợp trong văn bản quy định; “so do” là đảo trợ động từ; “one” thay danh từ."
+        },
+        {
+          "option": "do it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Do it” kém phù hợp trong văn bản quy định."
+        },
+        {
+          "option": "so do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “so do” là đảo trợ động từ."
+        },
+        {
+          "option": "one",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “one” thay danh từ."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-83",
       "type": "fill_blank",
       "question": "Complete with **not**: Will the merger be approved before September? Analysts increasingly think ___.",
       "options": [
@@ -1495,9 +3377,32 @@
       ],
       "correct_answer": "not",
       "explanation": "“Think not” nghĩa là “nghĩ là không”, thay cho cả mệnh đề phủ định “it will not be approved”. “So” mang nghĩa khẳng định; “one” thay danh từ; “do” thay động từ hành động.",
+      "distractor_breakdowns": [
+        {
+          "option": "not",
+          "isCorrect": true,
+          "pedagogicalReason": "“Think not” nghĩa là “nghĩ là không”, thay cho cả mệnh đề phủ định “it will not be approved”. “So” mang nghĩa khẳng định; “one” thay danh từ; “do” thay động từ hành động."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “So” mang nghĩa khẳng định."
+        },
+        {
+          "option": "one",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “one” thay danh từ."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “do” thay động từ hành động."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-84",
       "type": "fill_blank",
       "question": "Complete the **gapping**: The ethics board examined the complaint; the legal office, ___ .",
       "options": [
@@ -1508,9 +3413,32 @@
       ],
       "correct_answer": "the settlement",
       "explanation": "Trong gapping, động từ “examined” được lược bỏ ở vế sau: “the legal office [examined] the settlement”. “Examined” không tạo ellipsis; “so” thay mệnh đề; “one” thay danh từ số ít đã nhắc trước.",
+      "distractor_breakdowns": [
+        {
+          "option": "the settlement",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong gapping, động từ “examined” được lược bỏ ở vế sau: “the legal office [examined] the settlement”. “Examined” không tạo ellipsis; “so” thay mệnh đề; “one” thay danh từ số ít đã nhắc trước."
+        },
+        {
+          "option": "examined",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Examined” không tạo ellipsis."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “so” thay mệnh đề."
+        },
+        {
+          "option": "one",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “one” thay danh từ số ít đã nhắc trước."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-85",
       "type": "fill_blank",
       "question": "Complete the **ones** substitution: The inexpensive sensors failed first; the military-grade ___ lasted much longer.",
       "options": [
@@ -1521,9 +3449,32 @@
       ],
       "correct_answer": "ones",
       "explanation": "“Ones” thay cho danh từ đếm được số nhiều “sensors”. “One” là số ít; “so” thay mệnh đề; “did” thay cụm động từ chứ không thay danh từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "ones",
+          "isCorrect": true,
+          "pedagogicalReason": "“Ones” thay cho danh từ đếm được số nhiều “sensors”. “One” là số ít; “so” thay mệnh đề; “did” thay cụm động từ chứ không thay danh từ."
+        },
+        {
+          "option": "one",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"one\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “so” thay mệnh đề."
+        },
+        {
+          "option": "did",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “did” thay cụm động từ chứ không thay danh từ."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "ellipsis-substitution-ex-86",
       "type": "error_correction",
       "question": "Find the error: The first algorithm detected most anomalies, and the second **one** did **so** them even faster.",
       "options": [
@@ -1534,9 +3485,32 @@
       ],
       "correct_answer": "them",
       "explanation": "Lỗi là “them” vì “did so” đã thay cho cả cụm “detected most anomalies”, không nhận thêm tân ngữ trực tiếp. “One” đúng vì thay cho “algorithm”; “did so” là cấu trúc thay thế hành động hợp lệ khi không thêm “them”.",
+      "distractor_breakdowns": [
+        {
+          "option": "one",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “One” đúng vì thay cho “algorithm”."
+        },
+        {
+          "option": "did",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Did so” đã thay cho cả cụm “detected most anomalies”, không nhận thêm tân ngữ trực tiếp."
+        },
+        {
+          "option": "so",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. So” đã thay cho cả cụm “detected most anomalies”, không nhận thêm tân ngữ trực tiếp."
+        },
+        {
+          "option": "them",
+          "isCorrect": true,
+          "pedagogicalReason": "Lỗi là “them” vì “did so” đã thay cho cả cụm “detected most anomalies”, không nhận thêm tân ngữ trực tiếp. “One” đúng vì thay cho “algorithm”; “did so” là cấu trúc thay thế hành động hợp lệ khi không thêm “them”."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-87",
       "type": "error_correction",
       "question": "Find the error: The witnesses denied seeing the documents, but the auditor believed they **had** **done so**.",
       "options": [
@@ -1547,9 +3521,32 @@
       ],
       "correct_answer": "done so",
       "explanation": "Lỗi là “done so” vì hành động bị phủ định trước đó là “seeing the documents”; sau “believed they had” nên dùng ellipsis “had” hoặc “had seen them”, không dùng “done so” cho trải nghiệm/tri giác trong ngữ cảnh này. Các từ còn lại đúng về nghĩa và cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "witnesses",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"witnesses\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "denied",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"denied\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Had” nên dùng ellipsis “had” hoặc “had seen them”, không dùng “done so” cho trải nghiệm/tri giác trong ngữ cảnh này."
+        },
+        {
+          "option": "done so",
+          "isCorrect": true,
+          "pedagogicalReason": "Lỗi là “done so” vì hành động bị phủ định trước đó là “seeing the documents”; sau “believed they had” nên dùng ellipsis “had” hoặc “had seen them”, không dùng “done so” cho trải nghiệm/tri giác trong ngữ cảnh này. Các từ còn lại đúng về nghĩa và cấu trúc."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-88",
       "type": "error_correction",
       "question": "Find the error: Several clauses were ambiguous, but the arbitration **one** was especially difficult to interpret.",
       "options": [
@@ -1560,9 +3557,32 @@
       ],
       "correct_answer": "one",
       "explanation": "Lỗi là “one” vì danh từ gốc “clauses” số nhiều, còn “the arbitration clause” là một loại cụ thể chưa cần thay thế bằng “one” sau tính từ như vậy. Cách tự nhiên là “the arbitration clause”; các phần khác đúng ngữ pháp.",
+      "distractor_breakdowns": [
+        {
+          "option": "Several clauses",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Several clauses\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "were",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"were\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "one",
+          "isCorrect": true,
+          "pedagogicalReason": "Lỗi là “one” vì danh từ gốc “clauses” số nhiều, còn “the arbitration clause” là một loại cụ thể chưa cần thay thế bằng “one” sau tính từ như vậy. Cách tự nhiên là “the arbitration clause”; các phần khác đúng ngữ pháp."
+        },
+        {
+          "option": "to interpret",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"to interpret\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "ellipsis-substitution-ex-89",
       "type": "error_correction",
       "question": "Find the error: The report predicts a downturn, and so **does** the central bank's latest forecast **predict**.",
       "options": [
@@ -1573,6 +3593,28 @@
       ],
       "correct_answer": "predict",
       "explanation": "Lỗi là “predict” vì “does” đã thay cho động từ “predicts”, nên thêm “predict” là lặp và sai cấu trúc. “Predicts”, “does”, và “forecast” đều có thể đúng trong câu nếu bỏ động từ cuối.",
+      "distractor_breakdowns": [
+        {
+          "option": "predicts",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “predicts”, nên thêm “predict” là lặp và sai cấu trúc."
+        },
+        {
+          "option": "does",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “does” đã thay cho động từ “predicts”, nên thêm “predict” là lặp và sai cấu trúc."
+        },
+        {
+          "option": "forecast",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “forecast” đều có thể đúng trong câu nếu bỏ động từ cuối."
+        },
+        {
+          "option": "predict",
+          "isCorrect": true,
+          "pedagogicalReason": "Lỗi là “predict” vì “does” đã thay cho động từ “predicts”, nên thêm “predict” là lặp và sai cấu trúc. “Predicts”, “does”, và “forecast” đều có thể đúng trong câu nếu bỏ động từ cuối."
+        }
+      ],
       "difficulty": 3
     }
   ]

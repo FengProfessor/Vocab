@@ -2,10 +2,10 @@
   "slug": "question-tags",
   "title": "Question Tags",
   "title_vi": "Câu hỏi đuôi",
-  "level": "intermediate",
-  "order": 42,
+  "level": "B1",
+  "order": 40,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **mệnh đề khẳng định, trợ động từ phủ định + đại từ?** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **mệnh đề khẳng định, trợ động từ phủ định + đại từ?** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -314,9 +314,125 @@
     "definition": "**Câu hỏi đuôi** là các cụm từ ngắn được thêm vào cuối câu khẳng định hoặc phủ định để xác nhận thông tin, bày tỏ sự ngạc nhiên hoặc mời người nghe đồng tình. Cấu trúc phổ biến là câu khẳng định đi với đuôi phủ định và ngược lại."
   },
   "exercises": [
-    {"type":"multiple_choice","question":"She is a teacher, ___?","options":["is she","isn't she","doesn't she"],"correct_answer":"isn't she","explanation":"Mệnh đề khẳng định với is đi cùng đuôi phủ định isn't she."},
-    {"type":"multiple_choice","question":"They don't live here, ___?","options":["do they","don't they","are they"],"correct_answer":"do they","explanation":"Mệnh đề phủ định với don't đi cùng đuôi khẳng định do they."},
-    {"type":"multiple_choice","question":"You can swim, ___?","options":["do you","can't you","can you"],"correct_answer":"can't you","explanation":"Giữ trợ động từ can và đảo khẳng định thành phủ định."},
-    {"type":"multiple_choice","question":"Let's go, ___?","options":["shall we","will you","do we"],"correct_answer":"shall we","explanation":"Với lời rủ rê Let's..., đuôi thông dụng là shall we?"}
+    {
+      "id": "question-tags-ex-01",
+      "type": "multiple_choice",
+      "question": "She is a teacher, ___?",
+      "options": [
+        "is she",
+        "isn't she",
+        "doesn't she"
+      ],
+      "correct_answer": "isn't she",
+      "explanation": "Mệnh đề khẳng định với is đi cùng đuôi phủ định isn't she.",
+      "distractor_breakdowns": [
+        {
+          "option": "is she",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is she\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "isn't she",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề khẳng định với is đi cùng đuôi phủ định isn't she."
+        },
+        {
+          "option": "doesn't she",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"doesn't she\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "question-tags-ex-02",
+      "type": "multiple_choice",
+      "question": "They don't live here, ___?",
+      "options": [
+        "do they",
+        "don't they",
+        "are they"
+      ],
+      "correct_answer": "do they",
+      "explanation": "Mệnh đề phủ định với don't đi cùng đuôi khẳng định do they.",
+      "distractor_breakdowns": [
+        {
+          "option": "do they",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề phủ định với don't đi cùng đuôi khẳng định do they."
+        },
+        {
+          "option": "don't they",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"don't they\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "are they",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"are they\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "question-tags-ex-03",
+      "type": "multiple_choice",
+      "question": "You can swim, ___?",
+      "options": [
+        "do you",
+        "can't you",
+        "can you"
+      ],
+      "correct_answer": "can't you",
+      "explanation": "Giữ trợ động từ can và đảo khẳng định thành phủ định.",
+      "distractor_breakdowns": [
+        {
+          "option": "do you",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"do you\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "can't you",
+          "isCorrect": true,
+          "pedagogicalReason": "Giữ trợ động từ can và đảo khẳng định thành phủ định."
+        },
+        {
+          "option": "can you",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"can you\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "question-tags-ex-04",
+      "type": "multiple_choice",
+      "question": "Let's go, ___?",
+      "options": [
+        "shall we",
+        "will you",
+        "do we"
+      ],
+      "correct_answer": "shall we",
+      "explanation": "Với lời rủ rê Let's..., đuôi thông dụng là shall we?",
+      "distractor_breakdowns": [
+        {
+          "option": "shall we",
+          "isCorrect": true,
+          "pedagogicalReason": "Với lời rủ rê Let's..., đuôi thông dụng là shall we?"
+        },
+        {
+          "option": "will you",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will you\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "do we",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"do we\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 3
+    }
   ]
 }

@@ -2,7 +2,7 @@
   "slug": "demonstratives",
   "title": "Demonstratives (this/that/these/those)",
   "title_vi": "Từ chỉ định (this/that/these/those)",
-  "level": "beginner",
+  "level": "A0",
   "order": 3,
   "sections": {
     "definition": "**Từ chỉ định** (Demonstratives: *this, that, these, those*) được dùng để xác định, chỉ ra một người, vật hoặc ý tưởng cụ thể mà ta đang nói đến. Chúng chỉ rõ danh từ được nhắc đến là số ít hay số nhiều, và khoảng cách gần hay xa so với người nói.",
@@ -325,120 +325,343 @@
         "why": "Keys số nhiều → those are, không dùng that is."
       }
     ],
-    "tips": "**Mẹo 2×2:** gần: **this/these**; xa: **that/those**. Số ít kết thúc bằng **-t** (this, that); số nhiều có âm /z/ ở cuối (these, those). Luôn kiểm tra is/are và danh từ số ít/số nhiều.",
+    "tips": "**Lưu ý trọng tâm:** gần: **this/these**; xa: **that/those**. Số ít kết thúc bằng **-t** (this, that); số nhiều có âm /z/ ở cuối (these, those). Luôn kiểm tra is/are và danh từ số ít/số nhiều.",
     "comparison": "**this vs it:** *This is my phone* dùng khi chỉ/giới thiệu điện thoại; *It is new* dùng it để nhắc lại vật đã xác định. **that vs those:** cùng chỉ xa nhưng that số ít, those số nhiều.",
     "timeline": null
   },
   "exercises": [
     {
-      "type": "mcq",
-      "q": "___ flowers here smell wonderful.",
-      "opts": [
+      "id": "demonstratives-ex-01",
+      "type": "multiple_choice",
+      "question": "___ flowers here smell wonderful.",
+      "options": [
         "This",
         "These",
         "That"
       ],
-      "answer": "These",
-      "fb": "Flowers số nhiều và ở gần."
+      "correct_answer": "These",
+      "explanation": "Flowers số nhiều và ở gần.",
+      "distractor_breakdowns": [
+        {
+          "option": "This",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"This\" là đại từ/tính từ chỉ định số ít, không thể đi với danh từ hoặc động từ số nhiều."
+        },
+        {
+          "option": "These",
+          "isCorrect": true,
+          "pedagogicalReason": "Flowers số nhiều và ở gần."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"That\" là đại từ/tính từ chỉ định số ít, không thể đi với danh từ hoặc động từ số nhiều."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "mcq",
-      "q": "Look at ___ star over there.",
-      "opts": [
+      "id": "demonstratives-ex-02",
+      "type": "multiple_choice",
+      "question": "Look at ___ star over there.",
+      "options": [
         "this",
         "these",
         "that"
       ],
-      "answer": "that",
-      "fb": "Star số ít và ở xa."
+      "correct_answer": "that",
+      "explanation": "Star số ít và ở xa.",
+      "distractor_breakdowns": [
+        {
+          "option": "this",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"this\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "these",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"these\" là đại từ/tính từ chỉ định số nhiều, không thể đi với danh từ hoặc động từ số ít."
+        },
+        {
+          "option": "that",
+          "isCorrect": true,
+          "pedagogicalReason": "Star số ít và ở xa."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "mcq",
-      "q": "___ are my parents in this photo.",
-      "opts": [
+      "id": "demonstratives-ex-03",
+      "type": "multiple_choice",
+      "question": "___ are my parents in this photo.",
+      "options": [
         "This",
         "These",
         "That"
       ],
-      "answer": "These",
-      "fb": "Parents là số nhiều."
-    },
-    {
-      "type": "fill",
-      "q": "___ is my desk here. (near, singular)",
-      "answer": [
-        "this"
+      "correct_answer": "These",
+      "explanation": "Parents là số nhiều.",
+      "distractor_breakdowns": [
+        {
+          "option": "This",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"This\" là đại từ/tính từ chỉ định số ít, không thể đi với danh từ hoặc động từ số nhiều."
+        },
+        {
+          "option": "These",
+          "isCorrect": true,
+          "pedagogicalReason": "Parents là số nhiều."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"That\" là đại từ/tính từ chỉ định số ít, không thể đi với danh từ hoặc động từ số nhiều."
+        }
       ],
-      "fb": "Gần và số ít dùng this."
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "___ houses across the river are old. (far, plural)",
-      "answer": [
-        "those"
+      "id": "demonstratives-ex-04",
+      "type": "fill_blank",
+      "question": "___ is my desk here. (near, singular)",
+      "options": [],
+      "correct_answer": "this",
+      "explanation": "Gần và số ít dùng this.",
+      "distractor_breakdowns": [
+        {
+          "option": "this",
+          "isCorrect": true,
+          "pedagogicalReason": "Gần và số ít dùng this."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"that\" chỉ vật ở khoảng cách xa (far), trong khi câu có từ nhận biết \"here\" chỉ khoảng cách gần (near)."
+        },
+        {
+          "option": "these",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"these\" đi với danh từ số nhiều, trong khi \"desk\" là danh từ số ít."
+        }
       ],
-      "fb": "Xa và số nhiều dùng those."
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "___ are fresh cookies on this plate. (near, plural)",
-      "answer": [
-        "these"
+      "id": "demonstratives-ex-05",
+      "type": "fill_blank",
+      "question": "___ houses across the river are old. (far, plural)",
+      "options": [],
+      "correct_answer": "those",
+      "explanation": "Xa và số nhiều dùng those.",
+      "distractor_breakdowns": [
+        {
+          "option": "those",
+          "isCorrect": true,
+          "pedagogicalReason": "Xa và số nhiều dùng those."
+        },
+        {
+          "option": "these",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"these\" chỉ đối tượng ở gần, trong khi \"across the river\" chỉ khoảng cách xa (far)."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"that\" là số ít, trong khi \"houses\" là danh từ số nhiều."
+        }
       ],
-      "fb": "Gần và số nhiều dùng these."
+      "difficulty": 1
     },
     {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"This books are new.\"",
-      "answer": false,
-      "fb": "SAI. Books là số nhiều nên dùng these. Câu đúng: \"These books are new.\""
+      "id": "demonstratives-ex-06",
+      "type": "fill_blank",
+      "question": "___ are fresh cookies on this plate. (near, plural)",
+      "options": [],
+      "correct_answer": "these",
+      "explanation": "Gần và số nhiều dùng these.",
+      "distractor_breakdowns": [
+        {
+          "option": "these",
+          "isCorrect": true,
+          "pedagogicalReason": "Gần và số nhiều dùng these."
+        },
+        {
+          "option": "this",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"this\" là số ít, trong khi \"cookies\" và to-be \"are\" là số nhiều."
+        },
+        {
+          "option": "those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"those\" chỉ khoảng cách xa, trong khi \"on this plate\" là khoảng cách gần."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"Those car is fast.\"",
-      "answer": false,
-      "fb": "SAI. Car là số ít nên dùng that. Câu đúng: \"That car is fast.\""
+      "id": "demonstratives-ex-07",
+      "type": "multiple_choice",
+      "question": "Câu sau đúng ngữ pháp không? → \"This books are new.\"",
+      "options": [
+        "Đúng",
+        "Sai"
+      ],
+      "correct_answer": "Sai",
+      "explanation": "SAI. Books là số nhiều nên dùng these. Câu đúng: \"These books are new.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "Đúng",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Khẳng định này không phản ánh đúng quy tắc ngữ pháp của câu đã cho."
+        },
+        {
+          "option": "Sai",
+          "isCorrect": true,
+          "pedagogicalReason": "SAI. Books là số nhiều nên dùng these. Câu đúng: \"These books are new.\""
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "tf",
-      "q": "Câu sau đúng ngữ pháp không? → \"This is a my bag.\"",
-      "answer": false,
-      "fb": "SAI. Không dùng a trước cụm my bag. Câu đúng: \"This is my bag.\""
+      "id": "demonstratives-ex-08",
+      "type": "multiple_choice",
+      "question": "Câu sau đúng ngữ pháp không? → \"Those car is fast.\"",
+      "options": [
+        "Đúng",
+        "Sai"
+      ],
+      "correct_answer": "Sai",
+      "explanation": "SAI. Car là số ít nên dùng that. Câu đúng: \"That car is fast.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "Đúng",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Khẳng định này không phản ánh đúng quy tắc ngữ pháp của câu đã cho."
+        },
+        {
+          "option": "Sai",
+          "isCorrect": true,
+          "pedagogicalReason": "SAI. Car là số ít nên dùng that. Câu đúng: \"That car is fast.\""
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
+      "id": "demonstratives-ex-09",
+      "type": "multiple_choice",
+      "question": "Câu sau đúng ngữ pháp không? → \"This is a my bag.\"",
+      "options": [
+        "Đúng",
+        "Sai"
+      ],
+      "correct_answer": "Sai",
+      "explanation": "SAI. Không dùng a trước cụm my bag. Câu đúng: \"This is my bag.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "Đúng",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Khẳng định này không phản ánh đúng quy tắc ngữ pháp của câu đã cho."
+        },
+        {
+          "option": "Sai",
+          "isCorrect": true,
+          "pedagogicalReason": "SAI. Không dùng a trước cụm my bag. Câu đúng: \"This is my bag.\""
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "demonstratives-ex-10",
+      "type": "error_correction",
+      "question": "Câu nào SAI ngữ pháp?",
+      "options": [
         "This apple is sweet.",
         "This books are new.",
         "Those birds are flying south."
       ],
-      "answer": "This books are new.",
-      "fb": "Books là số nhiều nên dùng these. Câu đúng: \"These books are new.\""
+      "correct_answer": "This books are new.",
+      "explanation": "Books là số nhiều nên dùng these. Câu đúng: \"These books are new.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "This apple is sweet.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"This apple is sweet.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "This books are new.",
+          "isCorrect": true,
+          "pedagogicalReason": "Books là số nhiều nên dùng these. Câu đúng: \"These books are new.\""
+        },
+        {
+          "option": "Those birds are flying south.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Those birds are flying south.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
+      "id": "demonstratives-ex-11",
+      "type": "error_correction",
+      "question": "Câu nào SAI ngữ pháp?",
+      "options": [
         "That car over there is expensive.",
         "Those car is fast.",
         "Who is that?"
       ],
-      "answer": "Those car is fast.",
-      "fb": "Car là số ít nên dùng that. Câu đúng: \"That car is fast.\""
+      "correct_answer": "Those car is fast.",
+      "explanation": "Car là số ít nên dùng that. Câu đúng: \"That car is fast.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "That car over there is expensive.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"That car over there is expensive.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "Those car is fast.",
+          "isCorrect": true,
+          "pedagogicalReason": "Car là số ít nên dùng that. Câu đúng: \"That car is fast.\""
+        },
+        {
+          "option": "Who is that?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Who is that?\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "error",
-      "q": "Câu nào SAI ngữ pháp?",
-      "opts": [
+      "id": "demonstratives-ex-12",
+      "type": "error_correction",
+      "question": "Câu nào SAI ngữ pháp?",
+      "options": [
         "These shoes fit me well.",
         "This is a my bag.",
         "This is my colleague, Nam."
       ],
-      "answer": "This is a my bag.",
-      "fb": "Không dùng a trước cụm my bag. Câu đúng: \"This is my bag.\""
+      "correct_answer": "This is a my bag.",
+      "explanation": "Không dùng a trước cụm my bag. Câu đúng: \"This is my bag.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "These shoes fit me well.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"These shoes fit me well.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "This is a my bag.",
+          "isCorrect": true,
+          "pedagogicalReason": "Không dùng a trước cụm my bag. Câu đúng: \"This is my bag.\""
+        },
+        {
+          "option": "This is my colleague, Nam.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"This is my colleague, Nam.\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-13",
       "type": "multiple_choice",
       "question": "Choose the correct **demonstrative**: ___ pen in my hand is blue.",
       "options": [
@@ -449,9 +672,32 @@
       ],
       "correct_answer": "This",
       "explanation": "Dùng \"This\" vì cây bút ở gần người nói và là số ít. \"That\" dùng cho vật ở xa; \"These\" và \"Those\" dùng cho số nhiều.",
+      "distractor_breakdowns": [
+        {
+          "option": "This",
+          "isCorrect": true,
+          "pedagogicalReason": "Dùng \"This\" vì cây bút ở gần người nói và là số ít. \"That\" dùng cho vật ở xa; \"These\" và \"Those\" dùng cho số nhiều."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"That\" dùng cho vật ở xa."
+        },
+        {
+          "option": "These",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"These\" và \"Those\" dùng cho số nhiều."
+        },
+        {
+          "option": "Those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Those\" dùng cho số nhiều."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-14",
       "type": "multiple_choice",
       "question": "Choose the correct **demonstrative**: ___ birds in the tree over there are noisy.",
       "options": [
@@ -462,9 +708,32 @@
       ],
       "correct_answer": "Those",
       "explanation": "Dùng \"Those\" vì có nhiều con chim và chúng ở xa. \"This/That\" dùng cho số ít; \"These\" dùng cho nhiều vật ở gần.",
+      "distractor_breakdowns": [
+        {
+          "option": "Those",
+          "isCorrect": true,
+          "pedagogicalReason": "Dùng \"Those\" vì có nhiều con chim và chúng ở xa. \"This/That\" dùng cho số ít; \"These\" dùng cho nhiều vật ở gần."
+        },
+        {
+          "option": "This",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. This/That\" dùng cho số ít."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. That\" dùng cho số ít."
+        },
+        {
+          "option": "These",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"These\" dùng cho nhiều vật ở gần."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-15",
       "type": "multiple_choice",
       "question": "Choose the correct **verb**: These shoes ___ too small for me.",
       "options": [
@@ -475,9 +744,32 @@
       ],
       "correct_answer": "are",
       "explanation": "\"These\" đi với danh từ số nhiều nên dùng \"are\". \"Is\" dùng với số ít; \"am\" chỉ đi với \"I\"; \"be\" không phù hợp trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "\"These\" đi với danh từ số nhiều nên dùng \"are\". \"Is\" dùng với số ít; \"am\" chỉ đi với \"I\"; \"be\" không phù hợp trong câu này."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Is\" dùng với số ít."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"am\" chỉ đi với \"I\"."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"be\" không phù hợp trong câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-16",
       "type": "multiple_choice",
       "question": "Choose the correct **demonstrative**: ___ is my sister, Lan.",
       "options": [
@@ -488,9 +780,32 @@
       ],
       "correct_answer": "This",
       "explanation": "Khi giới thiệu người ở gần hoặc trong tình huống trực tiếp, dùng \"This is...\". \"These/Those\" là số nhiều; \"That book\" không dùng để giới thiệu người.",
+      "distractor_breakdowns": [
+        {
+          "option": "This",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi giới thiệu người ở gần hoặc trong tình huống trực tiếp, dùng \"This is...\". \"These/Those\" là số nhiều; \"That book\" không dùng để giới thiệu người."
+        },
+        {
+          "option": "These",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. These/Those\" là số nhiều."
+        },
+        {
+          "option": "Those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Those\" là số nhiều."
+        },
+        {
+          "option": "That book",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"That book\" không dùng để giới thiệu người."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-17",
       "type": "multiple_choice",
       "question": "Choose the correct **noun form**: That ___ is very old.",
       "options": [
@@ -501,9 +816,32 @@
       ],
       "correct_answer": "watch",
       "explanation": "\"That\" đi với danh từ số ít, nên dùng \"watch\". \"Watches\" là số nhiều; \"watchs\" sai chính tả; không dùng \"that a watch\" trước danh từ.",
+      "distractor_breakdowns": [
+        {
+          "option": "watch",
+          "isCorrect": true,
+          "pedagogicalReason": "\"That\" đi với danh từ số ít, nên dùng \"watch\". \"Watches\" là số nhiều; \"watchs\" sai chính tả; không dùng \"that a watch\" trước danh từ."
+        },
+        {
+          "option": "watches",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Watches\" là số nhiều."
+        },
+        {
+          "option": "watchs",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"watchs\" sai chính tả."
+        },
+        {
+          "option": "a watch",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. A watch\" trước danh từ."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-18",
       "type": "multiple_choice",
       "question": "Choose the correct **demonstrative**: ___ oranges in this basket are sweet.",
       "options": [
@@ -514,9 +852,32 @@
       ],
       "correct_answer": "These",
       "explanation": "Dùng \"These\" vì có nhiều quả cam và chúng ở gần trong cái giỏ này. \"This/That\" dùng cho số ít; \"Those\" dùng cho nhiều vật ở xa.",
+      "distractor_breakdowns": [
+        {
+          "option": "These",
+          "isCorrect": true,
+          "pedagogicalReason": "Dùng \"These\" vì có nhiều quả cam và chúng ở gần trong cái giỏ này. \"This/That\" dùng cho số ít; \"Those\" dùng cho nhiều vật ở xa."
+        },
+        {
+          "option": "This",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. This/That\" dùng cho số ít."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. That\" dùng cho số ít."
+        },
+        {
+          "option": "Those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Those\" dùng cho nhiều vật ở xa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-19",
       "type": "multiple_choice",
       "question": "Choose the correct **sentence**:",
       "options": [
@@ -527,9 +888,32 @@
       ],
       "correct_answer": "This is my teacher.",
       "explanation": "\"This is...\" đúng khi nói về một người. \"These/Those\" là số nhiều nên không đi với \"is\" trong các câu kia; \"That are\" cũng sai vì \"that\" là số ít.",
+      "distractor_breakdowns": [
+        {
+          "option": "This is my teacher.",
+          "isCorrect": true,
+          "pedagogicalReason": "\"This is...\" đúng khi nói về một người. \"These/Those\" là số nhiều nên không đi với \"is\" trong các câu kia; \"That are\" cũng sai vì \"that\" là số ít."
+        },
+        {
+          "option": "These is my teacher.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"These is my teacher.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "That are my teacher.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"That are my teacher.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Those is my teacher.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Those is my teacher.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-20",
       "type": "multiple_choice",
       "question": "Choose the correct **demonstrative**: Can you see ___ bus at the end of the street?",
       "options": [
@@ -540,9 +924,32 @@
       ],
       "correct_answer": "that",
       "explanation": "Dùng \"that\" vì chiếc xe buýt ở xa và là số ít. \"This\" dùng cho vật gần; \"these/those\" dùng cho số nhiều.",
+      "distractor_breakdowns": [
+        {
+          "option": "that",
+          "isCorrect": true,
+          "pedagogicalReason": "Dùng \"that\" vì chiếc xe buýt ở xa và là số ít. \"This\" dùng cho vật gần; \"these/those\" dùng cho số nhiều."
+        },
+        {
+          "option": "this",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"This\" dùng cho vật gần."
+        },
+        {
+          "option": "these",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. These/those\" dùng cho số nhiều."
+        },
+        {
+          "option": "those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Those\" dùng cho số nhiều."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-21",
       "type": "multiple_choice",
       "question": "Choose the correct **form**: ___ are my new glasses.",
       "options": [
@@ -553,9 +960,32 @@
       ],
       "correct_answer": "These",
       "explanation": "\"Glasses\" là danh từ số nhiều nên dùng \"These are\" khi ở gần. \"This/That\" là số ít; \"A these\" sai vì không dùng mạo từ \"a\" trước từ chỉ định.",
+      "distractor_breakdowns": [
+        {
+          "option": "These",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Glasses\" là danh từ số nhiều nên dùng \"These are\" khi ở gần. \"This/That\" là số ít; \"A these\" sai vì không dùng mạo từ \"a\" trước từ chỉ định."
+        },
+        {
+          "option": "This",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. This/That\" là số ít."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"That\" là đại từ/tính từ chỉ định số ít, không thể đi với danh từ hoặc động từ số nhiều."
+        },
+        {
+          "option": "A these",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"A these\" sai vì không dùng mạo từ \"a\" trước từ chỉ định."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-22",
       "type": "fill_blank",
       "question": "Fill in the correct **demonstrative**: ___ cup beside me is hot.",
       "options": [
@@ -566,9 +996,32 @@
       ],
       "correct_answer": "This",
       "explanation": "Chiếc cốc ở ngay bên cạnh người nói nên dùng \"This\" cho số ít, ở gần. \"That\" là số ít nhưng ở xa; \"These/Those\" dùng cho số nhiều.",
+      "distractor_breakdowns": [
+        {
+          "option": "This",
+          "isCorrect": true,
+          "pedagogicalReason": "Chiếc cốc ở ngay bên cạnh người nói nên dùng \"This\" cho số ít, ở gần. \"That\" là số ít nhưng ở xa; \"These/Those\" dùng cho số nhiều."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"That\" là số ít nhưng ở xa."
+        },
+        {
+          "option": "These",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. These/Those\" dùng cho số nhiều."
+        },
+        {
+          "option": "Those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Those\" dùng cho số nhiều."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-23",
       "type": "fill_blank",
       "question": "Fill in the correct **demonstrative**: ___ trees on the hill are tall.",
       "options": [
@@ -579,9 +1032,32 @@
       ],
       "correct_answer": "Those",
       "explanation": "Có nhiều cây và chúng ở trên ngọn đồi xa, nên dùng \"Those\". \"These\" dùng cho nhiều vật ở gần; \"This/That\" dùng cho số ít.",
+      "distractor_breakdowns": [
+        {
+          "option": "Those",
+          "isCorrect": true,
+          "pedagogicalReason": "Có nhiều cây và chúng ở trên ngọn đồi xa, nên dùng \"Those\". \"These\" dùng cho nhiều vật ở gần; \"This/That\" dùng cho số ít."
+        },
+        {
+          "option": "These",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"These\" dùng cho nhiều vật ở gần."
+        },
+        {
+          "option": "This",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. This/That\" dùng cho số ít."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. That\" dùng cho số ít."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-24",
       "type": "fill_blank",
       "question": "Fill in the correct **demonstrative**: ___ is my phone, not yours.",
       "options": [
@@ -592,9 +1068,32 @@
       ],
       "correct_answer": "This",
       "explanation": "\"Phone\" được hiểu là một vật số ít ở gần, nên dùng \"This is\". \"These/Those\" là số nhiều; \"A this\" sai vì không dùng \"a\" trước từ chỉ định.",
+      "distractor_breakdowns": [
+        {
+          "option": "This",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Phone\" được hiểu là một vật số ít ở gần, nên dùng \"This is\". \"These/Those\" là số nhiều; \"A this\" sai vì không dùng \"a\" trước từ chỉ định."
+        },
+        {
+          "option": "These",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. These/Those\" là số nhiều."
+        },
+        {
+          "option": "Those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Those\" là số nhiều."
+        },
+        {
+          "option": "A this",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"A this\" sai vì không dùng \"a\" trước từ chỉ định."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-25",
       "type": "fill_blank",
       "question": "Fill in the correct **demonstrative**: ___ children in the playground are my cousins.",
       "options": [
@@ -605,9 +1104,32 @@
       ],
       "correct_answer": "Those",
       "explanation": "\"Children\" là số nhiều và ở sân chơi xa người nói, nên dùng \"Those\". \"This/That\" dùng cho số ít; \"A those\" sai cấu trúc.",
+      "distractor_breakdowns": [
+        {
+          "option": "Those",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Children\" là số nhiều và ở sân chơi xa người nói, nên dùng \"Those\". \"This/That\" dùng cho số ít; \"A those\" sai cấu trúc."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. That\" dùng cho số ít."
+        },
+        {
+          "option": "This",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. This/That\" dùng cho số ít."
+        },
+        {
+          "option": "A those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"A those\" sai cấu trúc."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-26",
       "type": "fill_blank",
       "question": "Fill in the correct **verb**: That cat ___ under the car.",
       "options": [
@@ -618,9 +1140,32 @@
       ],
       "correct_answer": "is",
       "explanation": "\"That cat\" là danh từ số ít, nên động từ đúng là \"is\". \"Are\" dùng cho số nhiều; \"am\" chỉ đi với \"I\"; \"be\" không dùng trực tiếp ở thì hiện tại đơn như vậy.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "\"That cat\" là danh từ số ít, nên động từ đúng là \"is\". \"Are\" dùng cho số nhiều; \"am\" chỉ đi với \"I\"; \"be\" không dùng trực tiếp ở thì hiện tại đơn như vậy."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Are\" dùng cho số nhiều."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"am\" chỉ đi với \"I\"."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"be\" không dùng trực tiếp ở thì hiện tại đơn như vậy."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-27",
       "type": "fill_blank",
       "question": "Fill in the correct **demonstrative**: I like ___ pictures on your phone.",
       "options": [
@@ -631,9 +1176,32 @@
       ],
       "correct_answer": "these",
       "explanation": "\"Pictures\" là số nhiều và ở gần trên điện thoại của người nghe, nên dùng \"these\". \"This/that\" dùng cho số ít; \"a these\" sai vì \"these\" không đi với \"a\".",
+      "distractor_breakdowns": [
+        {
+          "option": "these",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Pictures\" là số nhiều và ở gần trên điện thoại của người nghe, nên dùng \"these\". \"This/that\" dùng cho số ít; \"a these\" sai vì \"these\" không đi với \"a\"."
+        },
+        {
+          "option": "this",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. This/that\" dùng cho số ít."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. That\" dùng cho số ít."
+        },
+        {
+          "option": "a these",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"a these\" sai vì \"these\" không đi với \"a\"."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-28",
       "type": "fill_blank",
       "question": "Fill in the correct **demonstrative**: ___ man across the road is our doctor.",
       "options": [
@@ -644,9 +1212,32 @@
       ],
       "correct_answer": "That",
       "explanation": "\"Man\" là số ít và ở bên kia đường, tức là xa, nên dùng \"That\". \"This\" dùng cho người/vật ở gần; \"These/Those\" dùng cho số nhiều.",
+      "distractor_breakdowns": [
+        {
+          "option": "That",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Man\" là số ít và ở bên kia đường, tức là xa, nên dùng \"That\". \"This\" dùng cho người/vật ở gần; \"These/Those\" dùng cho số nhiều."
+        },
+        {
+          "option": "This",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"This\" dùng cho người/vật ở gần."
+        },
+        {
+          "option": "These",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. These/Those\" dùng cho số nhiều."
+        },
+        {
+          "option": "Those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Those\" dùng cho số nhiều."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-29",
       "type": "fill_blank",
       "question": "Fill in the correct **verb**: Those bags ___ very heavy.",
       "options": [
@@ -657,9 +1248,32 @@
       ],
       "correct_answer": "are",
       "explanation": "\"Those bags\" là cụm danh từ số nhiều nên dùng \"are\". \"Is\" dùng cho số ít; \"am\" đi với \"I\"; \"being\" không phù hợp ở câu hiện tại đơn này.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Those bags\" là cụm danh từ số nhiều nên dùng \"are\". \"Is\" dùng cho số ít; \"am\" đi với \"I\"; \"being\" không phù hợp ở câu hiện tại đơn này."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Is\" dùng cho số ít."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"am\" đi với \"I\"."
+        },
+        {
+          "option": "being",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"being\" không phù hợp ở câu hiện tại đơn này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-30",
       "type": "error_correction",
       "question": "Find the error: **This/These** apples are from my garden.",
       "options": [
@@ -670,9 +1284,32 @@
       ],
       "correct_answer": "This",
       "explanation": "\"Apples\" là số nhiều nên phải dùng \"These apples\". \"Are\" đúng với số nhiều; các cụm còn lại không sai ngữ pháp trong câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "This",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Apples\" là số nhiều nên phải dùng \"These apples\". \"Are\" đúng với số nhiều; các cụm còn lại không sai ngữ pháp trong câu."
+        },
+        {
+          "option": "apples",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Apples\" là số nhiều nên phải dùng \"These apples\"."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Are\" đúng với số nhiều."
+        },
+        {
+          "option": "from my garden",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"from my garden\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-31",
       "type": "error_correction",
       "question": "Find the error: **That/Those** pencils is on the shelf.",
       "options": [
@@ -683,9 +1320,32 @@
       ],
       "correct_answer": "That",
       "explanation": "\"Pencils\" là số nhiều nên phải dùng \"Those pencils are\" hoặc \"These pencils are\" tùy khoảng cách. \"That\" sai vì dùng cho số ít; câu cũng cần \"are\" nếu giữ danh từ số nhiều.",
+      "distractor_breakdowns": [
+        {
+          "option": "That",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Pencils\" là số nhiều nên phải dùng \"Those pencils are\" hoặc \"These pencils are\" tùy khoảng cách. \"That\" sai vì dùng cho số ít; câu cũng cần \"are\" nếu giữ danh từ số nhiều."
+        },
+        {
+          "option": "pencils",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Pencils\" là số nhiều nên phải dùng \"Those pencils are\" hoặc \"These pencils are\" tùy khoảng cách."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"is\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "on the shelf",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"on the shelf\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-32",
       "type": "error_correction",
       "question": "Find the error: **These/This** sandwich is for you.",
       "options": [
@@ -696,9 +1356,32 @@
       ],
       "correct_answer": "These",
       "explanation": "\"Sandwich\" là số ít nên phải dùng \"This sandwich\" nếu ở gần. \"Is\" đúng với danh từ số ít; các phần còn lại không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "These",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Sandwich\" là số ít nên phải dùng \"This sandwich\" nếu ở gần. \"Is\" đúng với danh từ số ít; các phần còn lại không sai."
+        },
+        {
+          "option": "sandwich",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Sandwich\" là số ít nên phải dùng \"This sandwich\" nếu ở gần."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Is\" đúng với danh từ số ít."
+        },
+        {
+          "option": "for you",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"for you\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-33",
       "type": "error_correction",
       "question": "Find the error: **Those/That** are my aunt in the photo.",
       "options": [
@@ -709,9 +1392,32 @@
       ],
       "correct_answer": "Those",
       "explanation": "\"My aunt\" là một người số ít, nên dùng \"That is my aunt\" hoặc \"This is my aunt\". \"Those are\" dùng cho nhiều người/vật, nên không hợp với \"my aunt\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Those",
+          "isCorrect": true,
+          "pedagogicalReason": "\"My aunt\" là một người số ít, nên dùng \"That is my aunt\" hoặc \"This is my aunt\". \"Those are\" dùng cho nhiều người/vật, nên không hợp với \"my aunt\"."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are\" dùng cho nhiều người/vật, nên không hợp với \"my aunt\"."
+        },
+        {
+          "option": "my aunt",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"My aunt\" là một người số ít, nên dùng \"That is my aunt\" hoặc \"This is my aunt\"."
+        },
+        {
+          "option": "in the photo",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"in the photo\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-34",
       "type": "error_correction",
       "question": "Find the error: **No a/an** I want this a notebook.",
       "options": [
@@ -722,9 +1428,32 @@
       ],
       "correct_answer": "this a notebook",
       "explanation": "Không dùng \"a\" sau từ chỉ định trước danh từ; câu đúng là \"I want this notebook.\" \"I want\", \"notebook\" và \"this\" riêng lẻ không phải lỗi chính.",
+      "distractor_breakdowns": [
+        {
+          "option": "I want",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"I want\", \"notebook\" và \"this\" riêng lẻ không phải lỗi chính."
+        },
+        {
+          "option": "this a notebook",
+          "isCorrect": true,
+          "pedagogicalReason": "Không dùng \"a\" sau từ chỉ định trước danh từ; câu đúng là \"I want this notebook.\" \"I want\", \"notebook\" và \"this\" riêng lẻ không phải lỗi chính."
+        },
+        {
+          "option": "notebook",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"notebook\" và \"this\" riêng lẻ không phải lỗi chính."
+        },
+        {
+          "option": "this",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"this\" riêng lẻ không phải lỗi chính."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-35",
       "type": "error_correction",
       "question": "Find the error: **These/Those** are that socks under the bed.",
       "options": [
@@ -735,9 +1464,32 @@
       ],
       "correct_answer": "that socks",
       "explanation": "\"Socks\" là số nhiều nên phải dùng \"these socks\" hoặc \"those socks\", không dùng \"that socks\". \"Are\" đúng với chủ ngữ số nhiều; các cụm còn lại có thể đúng tùy ngữ cảnh.",
+      "distractor_breakdowns": [
+        {
+          "option": "These",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. These socks\" hoặc \"those socks\", không dùng \"that socks\"."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Are\" đúng với chủ ngữ số nhiều."
+        },
+        {
+          "option": "that socks",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Socks\" là số nhiều nên phải dùng \"these socks\" hoặc \"those socks\", không dùng \"that socks\". \"Are\" đúng với chủ ngữ số nhiều; các cụm còn lại có thể đúng tùy ngữ cảnh."
+        },
+        {
+          "option": "under the bed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"under the bed\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "demonstratives-ex-36",
       "type": "error_correction",
       "question": "Find the error: **This/These** are my favorite song.",
       "options": [
@@ -748,9 +1500,32 @@
       ],
       "correct_answer": "are",
       "explanation": "\"This\" và \"song\" là số ít nên động từ phải là \"is\": \"This is my favorite song.\" \"This\" phù hợp với số ít; \"my favorite\" và \"song\" không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "This",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"This\" phù hợp với số ít."
+        },
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "\"This\" và \"song\" là số ít nên động từ phải là \"is\": \"This is my favorite song.\" \"This\" phù hợp với số ít; \"my favorite\" và \"song\" không sai."
+        },
+        {
+          "option": "my favorite",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"my favorite\" và \"song\" không sai."
+        },
+        {
+          "option": "song",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"song\" không sai."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-37",
       "type": "error_correction",
       "question": "Find the error: **That/Those** posters near us are expensive.",
       "options": [
@@ -761,9 +1536,32 @@
       ],
       "correct_answer": "That",
       "explanation": "\"Posters\" là số nhiều nên phải dùng \"These posters\" nếu ở gần hoặc \"Those posters\" nếu ở xa. \"That\" sai vì chỉ dùng với danh từ số ít.",
+      "distractor_breakdowns": [
+        {
+          "option": "That",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Posters\" là số nhiều nên phải dùng \"These posters\" nếu ở gần hoặc \"Those posters\" nếu ở xa. \"That\" sai vì chỉ dùng với danh từ số ít."
+        },
+        {
+          "option": "posters",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Posters\" là số nhiều nên phải dùng \"These posters\" nếu ở gần hoặc \"Those posters\" nếu ở xa."
+        },
+        {
+          "option": "near us",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"near us\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "are expensive",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"are expensive\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-38",
       "type": "multiple_choice",
       "question": "Choose the correct **demonstrative**: ___ backpack next to me is red.",
       "options": [
@@ -774,9 +1572,32 @@
       ],
       "correct_answer": "This",
       "explanation": "Dùng “This” vì “backpack” là danh từ số ít và ở gần người nói (“next to me”). “That” chỉ vật ở xa, còn “These/Those” dùng cho số nhiều.",
+      "distractor_breakdowns": [
+        {
+          "option": "This",
+          "isCorrect": true,
+          "pedagogicalReason": "Dùng “This” vì “backpack” là danh từ số ít và ở gần người nói (“next to me”). “That” chỉ vật ở xa, còn “These/Those” dùng cho số nhiều."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “That” chỉ vật ở xa, còn “These/Those” dùng cho số nhiều."
+        },
+        {
+          "option": "These",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. These/Those” dùng cho số nhiều."
+        },
+        {
+          "option": "Those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Those” dùng cho số nhiều."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-39",
       "type": "multiple_choice",
       "question": "Choose the correct **demonstrative**: ___ houses across the river are small.",
       "options": [
@@ -787,9 +1608,32 @@
       ],
       "correct_answer": "Those",
       "explanation": "Dùng “Those” vì “houses” là số nhiều và ở xa (“across the river”). “These” dùng cho nhiều vật ở gần, còn “This/That” dùng cho số ít.",
+      "distractor_breakdowns": [
+        {
+          "option": "Those",
+          "isCorrect": true,
+          "pedagogicalReason": "Dùng “Those” vì “houses” là số nhiều và ở xa (“across the river”). “These” dùng cho nhiều vật ở gần, còn “This/That” dùng cho số ít."
+        },
+        {
+          "option": "These",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “These” dùng cho nhiều vật ở gần, còn “This/That” dùng cho số ít."
+        },
+        {
+          "option": "This",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. This/That” dùng cho số ít."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. That” dùng cho số ít."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-40",
       "type": "multiple_choice",
       "question": "Choose the correct **verb**: This room ___ very quiet.",
       "options": [
@@ -800,9 +1644,32 @@
       ],
       "correct_answer": "is",
       "explanation": "“This room” là danh từ số ít nên đi với “is”. “Are” dùng cho số nhiều, “am” đi với “I”, còn “be” không phù hợp trong câu hiện tại đơn này.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "“This room” là danh từ số ít nên đi với “is”. “Are” dùng cho số nhiều, “am” đi với “I”, còn “be” không phù hợp trong câu hiện tại đơn này."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Are” dùng cho số nhiều, “am” đi với “I”, còn “be” không phù hợp trong câu hiện tại đơn này."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “am” đi với “I”, còn “be” không phù hợp trong câu hiện tại đơn này."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “be” không phù hợp trong câu hiện tại đơn này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-41",
       "type": "multiple_choice",
       "question": "Choose the correct **noun form**: These ___ are clean.",
       "options": [
@@ -813,9 +1680,32 @@
       ],
       "correct_answer": "plates",
       "explanation": "“These” dùng với danh từ số nhiều, nên cần “plates”. “Plate” và “a plate” là số ít, còn “the plate” không phù hợp với “These”.",
+      "distractor_breakdowns": [
+        {
+          "option": "plates",
+          "isCorrect": true,
+          "pedagogicalReason": "“These” dùng với danh từ số nhiều, nên cần “plates”. “Plate” và “a plate” là số ít, còn “the plate” không phù hợp với “These”."
+        },
+        {
+          "option": "plate",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Plate” và “a plate” là số ít, còn “the plate” không phù hợp với “These”."
+        },
+        {
+          "option": "a plate",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “a plate” là số ít, còn “the plate” không phù hợp với “These”."
+        },
+        {
+          "option": "the plate",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “the plate” không phù hợp với “These”."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-42",
       "type": "multiple_choice",
       "question": "Choose the correct **demonstrative**: ___ cookies on this plate are for you.",
       "options": [
@@ -826,9 +1716,32 @@
       ],
       "correct_answer": "These",
       "explanation": "Dùng “These” vì “cookies” là số nhiều và ở gần (“on this plate”). “Those” chỉ số nhiều ở xa, còn “This/That” dùng cho số ít.",
+      "distractor_breakdowns": [
+        {
+          "option": "These",
+          "isCorrect": true,
+          "pedagogicalReason": "Dùng “These” vì “cookies” là số nhiều và ở gần (“on this plate”). “Those” chỉ số nhiều ở xa, còn “This/That” dùng cho số ít."
+        },
+        {
+          "option": "Those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Those” chỉ số nhiều ở xa, còn “This/That” dùng cho số ít."
+        },
+        {
+          "option": "This",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. This/That” dùng cho số ít."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. That” dùng cho số ít."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-43",
       "type": "multiple_choice",
       "question": "Choose the correct **form**: ___ are my parents in the photo.",
       "options": [
@@ -839,9 +1752,32 @@
       ],
       "correct_answer": "Those",
       "explanation": "Dùng “Those are” vì “parents” là số nhiều và trong ảnh thường là người/vật được chỉ ra ở khoảng cách xa hơn. “That/This/It” dùng cho số ít.",
+      "distractor_breakdowns": [
+        {
+          "option": "Those",
+          "isCorrect": true,
+          "pedagogicalReason": "Dùng “Those are” vì “parents” là số nhiều và trong ảnh thường là người/vật được chỉ ra ở khoảng cách xa hơn. “That/This/It” dùng cho số ít."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. That/This/It” dùng cho số ít."
+        },
+        {
+          "option": "This",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. This/It” dùng cho số ít."
+        },
+        {
+          "option": "It",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. It” dùng cho số ít."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-44",
       "type": "multiple_choice",
       "question": "Choose the correct **demonstrative**: Is ___ your umbrella over there?",
       "options": [
@@ -852,9 +1788,32 @@
       ],
       "correct_answer": "that",
       "explanation": "“Umbrella” là số ít và “over there” cho biết ở xa, nên dùng “that”. “This” dùng cho gần, còn “these/those” dùng cho số nhiều.",
+      "distractor_breakdowns": [
+        {
+          "option": "that",
+          "isCorrect": true,
+          "pedagogicalReason": "“Umbrella” là số ít và “over there” cho biết ở xa, nên dùng “that”. “This” dùng cho gần, còn “these/those” dùng cho số nhiều."
+        },
+        {
+          "option": "this",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “This” dùng cho gần, còn “these/those” dùng cho số nhiều."
+        },
+        {
+          "option": "these",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. These/those” dùng cho số nhiều."
+        },
+        {
+          "option": "those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Those” dùng cho số nhiều."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-45",
       "type": "multiple_choice",
       "question": "Choose the correct **word order**:",
       "options": [
@@ -865,9 +1824,32 @@
       ],
       "correct_answer": "This is my teacher.",
       "explanation": "Khi giới thiệu người, mẫu đúng là “This is + người”. Các lựa chọn khác sai trật tự từ hoặc thiếu dấu câu phù hợp nếu là câu hỏi.",
+      "distractor_breakdowns": [
+        {
+          "option": "This is my teacher.",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi giới thiệu người, mẫu đúng là “This is + người”. Các lựa chọn khác sai trật tự từ hoặc thiếu dấu câu phù hợp nếu là câu hỏi."
+        },
+        {
+          "option": "This my is teacher.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"This my is teacher.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Is this my teacher.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Is this my teacher.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "This is teacher my.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"This is teacher my.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-46",
       "type": "fill_blank",
       "question": "Fill in the correct **demonstrative**: ___ laptop on my desk is new.",
       "options": [
@@ -878,9 +1860,32 @@
       ],
       "correct_answer": "This",
       "explanation": "“Laptop” là số ít và ở gần người nói (“on my desk”), nên dùng “This”. “That” chỉ xa, còn “These/Those” dùng cho số nhiều.",
+      "distractor_breakdowns": [
+        {
+          "option": "This",
+          "isCorrect": true,
+          "pedagogicalReason": "“Laptop” là số ít và ở gần người nói (“on my desk”), nên dùng “This”. “That” chỉ xa, còn “These/Those” dùng cho số nhiều."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “That” chỉ xa, còn “These/Those” dùng cho số nhiều."
+        },
+        {
+          "option": "These",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. These/Those” dùng cho số nhiều."
+        },
+        {
+          "option": "Those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Those” dùng cho số nhiều."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-47",
       "type": "fill_blank",
       "question": "Fill in the correct **demonstrative**: ___ stars in the sky are bright tonight.",
       "options": [
@@ -891,9 +1896,32 @@
       ],
       "correct_answer": "Those",
       "explanation": "“Stars” là số nhiều và ở xa trên bầu trời, nên dùng “Those”. “These” chỉ nhiều vật ở gần, còn “This/That” dùng cho số ít.",
+      "distractor_breakdowns": [
+        {
+          "option": "Those",
+          "isCorrect": true,
+          "pedagogicalReason": "“Stars” là số nhiều và ở xa trên bầu trời, nên dùng “Those”. “These” chỉ nhiều vật ở gần, còn “This/That” dùng cho số ít."
+        },
+        {
+          "option": "These",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “These” chỉ nhiều vật ở gần, còn “This/That” dùng cho số ít."
+        },
+        {
+          "option": "This",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. This/That” dùng cho số ít."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. That” dùng cho số ít."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-48",
       "type": "fill_blank",
       "question": "Fill in the correct **verb**: Those flowers ___ beautiful.",
       "options": [
@@ -904,9 +1932,32 @@
       ],
       "correct_answer": "are",
       "explanation": "“Those flowers” là chủ ngữ số nhiều nên đi với “are”. “Is” dùng cho số ít, “am” đi với “I”, còn “be” không đúng trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "“Those flowers” là chủ ngữ số nhiều nên đi với “are”. “Is” dùng cho số ít, “am” đi với “I”, còn “be” không đúng trong câu này."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Is” dùng cho số ít, “am” đi với “I”, còn “be” không đúng trong câu này."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “am” đi với “I”, còn “be” không đúng trong câu này."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “be” không đúng trong câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-49",
       "type": "fill_blank",
       "question": "Fill in the correct **demonstrative**: ___ is my brother, Minh.",
       "options": [
@@ -917,9 +1968,32 @@
       ],
       "correct_answer": "This",
       "explanation": "Khi giới thiệu một người, ta dùng “This is...”. “These/Those/They” dùng cho số nhiều nên không phù hợp với một người.",
+      "distractor_breakdowns": [
+        {
+          "option": "This",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi giới thiệu một người, ta dùng “This is...”. “These/Those/They” dùng cho số nhiều nên không phù hợp với một người."
+        },
+        {
+          "option": "These",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. These/Those/They” dùng cho số nhiều nên không phù hợp với một người."
+        },
+        {
+          "option": "Those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Those/They” dùng cho số nhiều nên không phù hợp với một người."
+        },
+        {
+          "option": "They",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. They” dùng cho số nhiều nên không phù hợp với một người."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-50",
       "type": "fill_blank",
       "question": "Fill in the correct **noun form**: That ___ is closed today.",
       "options": [
@@ -930,9 +2004,32 @@
       ],
       "correct_answer": "shop",
       "explanation": "“That” đứng trước danh từ số ít, nên dùng “shop”. “Shops” là số nhiều, “a shop” sai vì không dùng “a/an” sau “that”, còn “shopes” sai chính tả.",
+      "distractor_breakdowns": [
+        {
+          "option": "shop",
+          "isCorrect": true,
+          "pedagogicalReason": "“That” đứng trước danh từ số ít, nên dùng “shop”. “Shops” là số nhiều, “a shop” sai vì không dùng “a/an” sau “that”, còn “shopes” sai chính tả."
+        },
+        {
+          "option": "shops",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Shops” là số nhiều, “a shop” sai vì không dùng “a/an” sau “that”, còn “shopes” sai chính tả."
+        },
+        {
+          "option": "a shop",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “a shop” sai vì không dùng “a/an” sau “that”, còn “shopes” sai chính tả."
+        },
+        {
+          "option": "shopes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “shopes” sai chính tả."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-51",
       "type": "fill_blank",
       "question": "Fill in the correct **demonstrative**: ___ chairs near the window are free.",
       "options": [
@@ -943,9 +2040,32 @@
       ],
       "correct_answer": "These",
       "explanation": "“Chairs” là số nhiều và ở gần (“near the window”), nên dùng “These”. “Those” chỉ số nhiều ở xa, còn “This/That” dùng cho số ít.",
+      "distractor_breakdowns": [
+        {
+          "option": "These",
+          "isCorrect": true,
+          "pedagogicalReason": "“Chairs” là số nhiều và ở gần (“near the window”), nên dùng “These”. “Those” chỉ số nhiều ở xa, còn “This/That” dùng cho số ít."
+        },
+        {
+          "option": "Those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Those” chỉ số nhiều ở xa, còn “This/That” dùng cho số ít."
+        },
+        {
+          "option": "This",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. This/That” dùng cho số ít."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. That” dùng cho số ít."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-52",
       "type": "fill_blank",
       "question": "Fill in the correct **demonstrative**: I don't like ___ noise from the next room.",
       "options": [
@@ -956,9 +2076,32 @@
       ],
       "correct_answer": "that",
       "explanation": "“Noise” là danh từ không đếm được, thường được xem như số ít; “from the next room” gợi ý ở xa hơn nên dùng “that”. “These/Those” dùng cho số nhiều, còn “thises” không phải dạng đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "that",
+          "isCorrect": true,
+          "pedagogicalReason": "“Noise” là danh từ không đếm được, thường được xem như số ít; “from the next room” gợi ý ở xa hơn nên dùng “that”. “These/Those” dùng cho số nhiều, còn “thises” không phải dạng đúng."
+        },
+        {
+          "option": "these",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. These/Those” dùng cho số nhiều, còn “thises” không phải dạng đúng."
+        },
+        {
+          "option": "those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Those” dùng cho số nhiều, còn “thises” không phải dạng đúng."
+        },
+        {
+          "option": "thises",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “thises” không phải dạng đúng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-53",
       "type": "fill_blank",
       "question": "Fill in the correct **form**: ___ are not my keys; my keys are here.",
       "options": [
@@ -969,9 +2112,32 @@
       ],
       "correct_answer": "Those",
       "explanation": "“Keys” là số nhiều, nên dùng “Those are”. “That/This/It” dùng cho số ít nên không hợp với “are” và “keys”.",
+      "distractor_breakdowns": [
+        {
+          "option": "Those",
+          "isCorrect": true,
+          "pedagogicalReason": "“Keys” là số nhiều, nên dùng “Those are”. “That/This/It” dùng cho số ít nên không hợp với “are” và “keys”."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. That/This/It” dùng cho số ít nên không hợp với “are” và “keys”."
+        },
+        {
+          "option": "This",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. This/It” dùng cho số ít nên không hợp với “are” và “keys”."
+        },
+        {
+          "option": "It",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. It” dùng cho số ít nên không hợp với “are” và “keys”."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-54",
       "type": "error_correction",
       "question": "Find the error: **This** shoes are wet.",
       "options": [
@@ -982,9 +2148,32 @@
       ],
       "correct_answer": "This",
       "explanation": "“Shoes” là danh từ số nhiều, nên phải dùng “These shoes are wet”. “Are” đúng với số nhiều, còn “shoes” và “wet” không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "This",
+          "isCorrect": true,
+          "pedagogicalReason": "“Shoes” là danh từ số nhiều, nên phải dùng “These shoes are wet”. “Are” đúng với số nhiều, còn “shoes” và “wet” không sai."
+        },
+        {
+          "option": "shoes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Shoes” là danh từ số nhiều, nên phải dùng “These shoes are wet”."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Are” đúng với số nhiều, còn “shoes” và “wet” không sai."
+        },
+        {
+          "option": "wet",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “wet” không sai."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-55",
       "type": "error_correction",
       "question": "Find the error: That **books** is on the table.",
       "options": [
@@ -995,9 +2184,32 @@
       ],
       "correct_answer": "books",
       "explanation": "“That” đi với danh từ số ít, nên phải là “That book is on the table”. “That” và “is” đúng cho số ít, “on the table” là cụm chỉ nơi chốn đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “That” và “is” đúng cho số ít, “on the table” là cụm chỉ nơi chốn đúng."
+        },
+        {
+          "option": "books",
+          "isCorrect": true,
+          "pedagogicalReason": "“That” đi với danh từ số ít, nên phải là “That book is on the table”. “That” và “is” đúng cho số ít, “on the table” là cụm chỉ nơi chốn đúng."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “is” đúng cho số ít, “on the table” là cụm chỉ nơi chốn đúng."
+        },
+        {
+          "option": "on the table",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “on the table” là cụm chỉ nơi chốn đúng."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-56",
       "type": "error_correction",
       "question": "Find the error: These cups **is** clean.",
       "options": [
@@ -1008,9 +2220,32 @@
       ],
       "correct_answer": "is",
       "explanation": "“These cups” là số nhiều nên động từ đúng là “are”. “These” và “cups” phù hợp với số nhiều, còn “clean” là tính từ đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "These",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “These” và “cups” phù hợp với số nhiều, còn “clean” là tính từ đúng."
+        },
+        {
+          "option": "cups",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “cups” phù hợp với số nhiều, còn “clean” là tính từ đúng."
+        },
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "“These cups” là số nhiều nên động từ đúng là “are”. “These” và “cups” phù hợp với số nhiều, còn “clean” là tính từ đúng."
+        },
+        {
+          "option": "clean",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “clean” là tính từ đúng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-57",
       "type": "error_correction",
       "question": "Find the error: I want **that a** pencil.",
       "options": [
@@ -1021,9 +2256,32 @@
       ],
       "correct_answer": "that a",
       "explanation": "Không dùng “a/an” ngay sau từ chỉ định; câu đúng là “I want that pencil”. Các phần “I”, “want” và “pencil” không sai trong cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "I",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “I”, “want” và “pencil” không sai trong cấu trúc này."
+        },
+        {
+          "option": "want",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “want” và “pencil” không sai trong cấu trúc này."
+        },
+        {
+          "option": "that a",
+          "isCorrect": true,
+          "pedagogicalReason": "Không dùng “a/an” ngay sau từ chỉ định; câu đúng là “I want that pencil”. Các phần “I”, “want” và “pencil” không sai trong cấu trúc này."
+        },
+        {
+          "option": "pencil",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “pencil” không sai trong cấu trúc này."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-58",
       "type": "error_correction",
       "question": "Find the error: **Those** girl is my classmate.",
       "options": [
@@ -1034,9 +2292,32 @@
       ],
       "correct_answer": "Those",
       "explanation": "“Girl” là danh từ số ít nên phải dùng “That girl” hoặc “This girl”. “Is” đúng với số ít, còn “girl” và “my classmate” không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "Those",
+          "isCorrect": true,
+          "pedagogicalReason": "“Girl” là danh từ số ít nên phải dùng “That girl” hoặc “This girl”. “Is” đúng với số ít, còn “girl” và “my classmate” không sai."
+        },
+        {
+          "option": "girl",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Girl” là danh từ số ít nên phải dùng “That girl” hoặc “This girl”."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Is” đúng với số ít, còn “girl” và “my classmate” không sai."
+        },
+        {
+          "option": "my classmate",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “my classmate” không sai."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-59",
       "type": "error_correction",
       "question": "Find the error: This is **a** my father.",
       "options": [
@@ -1047,9 +2328,32 @@
       ],
       "correct_answer": "a",
       "explanation": "Không dùng mạo từ “a” trước cụm sở hữu “my father”; câu đúng là “This is my father”. “This is” đúng khi giới thiệu người, và “my father” là cụm danh từ đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "This",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. This is my father”."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"is\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "a",
+          "isCorrect": true,
+          "pedagogicalReason": "Không dùng mạo từ “a” trước cụm sở hữu “my father”; câu đúng là “This is my father”. “This is” đúng khi giới thiệu người, và “my father” là cụm danh từ đúng."
+        },
+        {
+          "option": "my father",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"my father\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-60",
       "type": "error_correction",
       "question": "Find the error: **Those** milk is cold.",
       "options": [
@@ -1060,9 +2364,32 @@
       ],
       "correct_answer": "Those",
       "explanation": "“Milk” là danh từ không đếm được và thường được xem như số ít, nên dùng “This/That milk is cold”. “Is” đúng với danh từ số ít/không đếm được, còn “milk” và “cold” không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "Those",
+          "isCorrect": true,
+          "pedagogicalReason": "“Milk” là danh từ không đếm được và thường được xem như số ít, nên dùng “This/That milk is cold”. “Is” đúng với danh từ số ít/không đếm được, còn “milk” và “cold” không sai."
+        },
+        {
+          "option": "milk",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Milk” là danh từ không đếm được và thường được xem như số ít, nên dùng “This/That milk is cold”."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Is” đúng với danh từ số ít/không đếm được, còn “milk” và “cold” không sai."
+        },
+        {
+          "option": "cold",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “cold” không sai."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-61",
       "type": "error_correction",
       "question": "Find the error: These are my **book**.",
       "options": [
@@ -1073,9 +2400,32 @@
       ],
       "correct_answer": "book",
       "explanation": "“These are” dùng cho số nhiều, nên danh từ phải là “books”. “These” và “are” đúng cho số nhiều, còn “my” là tính từ sở hữu đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "These",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. These are” dùng cho số nhiều, nên danh từ phải là “books”."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Are” dùng cho số nhiều, nên danh từ phải là “books”."
+        },
+        {
+          "option": "my",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “my” là tính từ sở hữu đúng."
+        },
+        {
+          "option": "book",
+          "isCorrect": true,
+          "pedagogicalReason": "“These are” dùng cho số nhiều, nên danh từ phải là “books”. “These” và “are” đúng cho số nhiều, còn “my” là tính từ sở hữu đúng."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-62",
       "type": "multiple_choice",
       "question": "Choose the correct **demonstrative**: ___ trees on the hill are very tall.",
       "options": [
@@ -1086,9 +2436,32 @@
       ],
       "correct_answer": "Those",
       "explanation": "Dùng \"Those\" vì \"trees\" là số nhiều và ở xa trên ngọn đồi. \"These\" dùng cho số nhiều ở gần, còn \"This/That\" dùng cho số ít.",
+      "distractor_breakdowns": [
+        {
+          "option": "Those",
+          "isCorrect": true,
+          "pedagogicalReason": "Dùng \"Those\" vì \"trees\" là số nhiều và ở xa trên ngọn đồi. \"These\" dùng cho số nhiều ở gần, còn \"This/That\" dùng cho số ít."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. That\" dùng cho số ít."
+        },
+        {
+          "option": "This",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. This/That\" dùng cho số ít."
+        },
+        {
+          "option": "These",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"These\" dùng cho số nhiều ở gần, còn \"This/That\" dùng cho số ít."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-63",
       "type": "multiple_choice",
       "question": "Choose the correct **verb**: These apples ___ fresh.",
       "options": [
@@ -1099,9 +2472,32 @@
       ],
       "correct_answer": "are",
       "explanation": "\"These apples\" là chủ ngữ số nhiều nên đi với \"are\". \"Is\" dùng cho số ít, \"am\" dùng với \"I\", còn \"be\" không đúng trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "\"These apples\" là chủ ngữ số nhiều nên đi với \"are\". \"Is\" dùng cho số ít, \"am\" dùng với \"I\", còn \"be\" không đúng trong câu này."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Is\" dùng cho số ít, \"am\" dùng với \"I\", còn \"be\" không đúng trong câu này."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"am\" dùng với \"I\", còn \"be\" không đúng trong câu này."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"be\" không đúng trong câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-64",
       "type": "multiple_choice",
       "question": "Choose the correct **form**: ___ is my new teacher, Ms. Lan.",
       "options": [
@@ -1112,9 +2508,32 @@
       ],
       "correct_answer": "This",
       "explanation": "Khi giới thiệu một người ở gần, ta dùng \"This is...\". \"These/Those\" dùng cho số nhiều, còn \"They\" không phải từ chỉ định trong mẫu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "This",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi giới thiệu một người ở gần, ta dùng \"This is...\". \"These/Those\" dùng cho số nhiều, còn \"They\" không phải từ chỉ định trong mẫu này."
+        },
+        {
+          "option": "These",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. These/Those\" dùng cho số nhiều, còn \"They\" không phải từ chỉ định trong mẫu này."
+        },
+        {
+          "option": "Those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Those\" dùng cho số nhiều, còn \"They\" không phải từ chỉ định trong mẫu này."
+        },
+        {
+          "option": "They",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"They\" không phải từ chỉ định trong mẫu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-65",
       "type": "multiple_choice",
       "question": "Choose the correct **demonstrative**: Are ___ your bicycles near the gate?",
       "options": [
@@ -1125,9 +2544,32 @@
       ],
       "correct_answer": "these",
       "explanation": "\"Bicycles\" là số nhiều và ở gần cổng, nên dùng \"these\". \"This/that\" dùng cho số ít, còn \"it\" không đi trực tiếp với danh từ số nhiều như vậy.",
+      "distractor_breakdowns": [
+        {
+          "option": "these",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Bicycles\" là số nhiều và ở gần cổng, nên dùng \"these\". \"This/that\" dùng cho số ít, còn \"it\" không đi trực tiếp với danh từ số nhiều như vậy."
+        },
+        {
+          "option": "this",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. This/that\" dùng cho số ít, còn \"it\" không đi trực tiếp với danh từ số nhiều như vậy."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. That\" dùng cho số ít, còn \"it\" không đi trực tiếp với danh từ số nhiều như vậy."
+        },
+        {
+          "option": "it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"it\" không đi trực tiếp với danh từ số nhiều như vậy."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-66",
       "type": "multiple_choice",
       "question": "Choose the correct **demonstrative**: ___ cups in this box are for the party.",
       "options": [
@@ -1138,9 +2580,32 @@
       ],
       "correct_answer": "These",
       "explanation": "\"Cups\" là số nhiều và ở trong chiếc hộp gần người nói, nên dùng \"These\". \"Those\" chỉ số nhiều ở xa, còn \"This/That\" dùng cho số ít.",
+      "distractor_breakdowns": [
+        {
+          "option": "These",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Cups\" là số nhiều và ở trong chiếc hộp gần người nói, nên dùng \"These\". \"Those\" chỉ số nhiều ở xa, còn \"This/That\" dùng cho số ít."
+        },
+        {
+          "option": "This",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. This/That\" dùng cho số ít."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. That\" dùng cho số ít."
+        },
+        {
+          "option": "Those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Those\" chỉ số nhiều ở xa, còn \"This/That\" dùng cho số ít."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-67",
       "type": "fill_blank",
       "question": "Fill in the correct **demonstrative**: ___ cat on my lap is sleeping.",
       "options": [
@@ -1151,9 +2616,32 @@
       ],
       "correct_answer": "This",
       "explanation": "Con mèo ở trên đùi người nói nên rất gần và là số ít, vì vậy dùng \"This\". \"That\" chỉ số ít ở xa, còn \"These/Those\" chỉ số nhiều.",
+      "distractor_breakdowns": [
+        {
+          "option": "This",
+          "isCorrect": true,
+          "pedagogicalReason": "Con mèo ở trên đùi người nói nên rất gần và là số ít, vì vậy dùng \"This\". \"That\" chỉ số ít ở xa, còn \"These/Those\" chỉ số nhiều."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"That\" chỉ số ít ở xa, còn \"These/Those\" chỉ số nhiều."
+        },
+        {
+          "option": "These",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. These/Those\" chỉ số nhiều."
+        },
+        {
+          "option": "Those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Those\" chỉ số nhiều."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-68",
       "type": "fill_blank",
       "question": "Fill in the correct **demonstrative**: ___ birds in that tree are noisy.",
       "options": [
@@ -1164,9 +2652,32 @@
       ],
       "correct_answer": "Those",
       "explanation": "\"Birds\" là số nhiều và ở cái cây kia, nên dùng \"Those\". \"These\" dùng cho số nhiều ở gần; \"This/That\" dùng cho số ít.",
+      "distractor_breakdowns": [
+        {
+          "option": "Those",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Birds\" là số nhiều và ở cái cây kia, nên dùng \"Those\". \"These\" dùng cho số nhiều ở gần; \"This/That\" dùng cho số ít."
+        },
+        {
+          "option": "These",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"These\" dùng cho số nhiều ở gần."
+        },
+        {
+          "option": "This",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. This/That\" dùng cho số ít."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. That\" dùng cho số ít."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-69",
       "type": "fill_blank",
       "question": "Fill in the correct **verb**: That door ___ open.",
       "options": [
@@ -1177,9 +2688,32 @@
       ],
       "correct_answer": "is",
       "explanation": "\"That door\" là danh từ số ít nên đi với \"is\". \"Are\" dùng cho số nhiều, \"am\" dùng với \"I\", còn \"be\" không đúng ở thì hiện tại đơn trong câu này.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "\"That door\" là danh từ số ít nên đi với \"is\". \"Are\" dùng cho số nhiều, \"am\" dùng với \"I\", còn \"be\" không đúng ở thì hiện tại đơn trong câu này."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Are\" dùng cho số nhiều, \"am\" dùng với \"I\", còn \"be\" không đúng ở thì hiện tại đơn trong câu này."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"am\" dùng với \"I\", còn \"be\" không đúng ở thì hiện tại đơn trong câu này."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"be\" không đúng ở thì hiện tại đơn trong câu này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-70",
       "type": "fill_blank",
       "question": "Fill in the correct **noun form**: These ___ are heavy.",
       "options": [
@@ -1190,9 +2724,32 @@
       ],
       "correct_answer": "bags",
       "explanation": "\"These\" đi với danh từ số nhiều, nên cần \"bags\". \"Bag\" là số ít, \"bag's\" là sở hữu/cách viết khác, còn \"bagging\" không phải danh từ phù hợp ở đây.",
+      "distractor_breakdowns": [
+        {
+          "option": "bags",
+          "isCorrect": true,
+          "pedagogicalReason": "\"These\" đi với danh từ số nhiều, nên cần \"bags\". \"Bag\" là số ít, \"bag's\" là sở hữu/cách viết khác, còn \"bagging\" không phải danh từ phù hợp ở đây."
+        },
+        {
+          "option": "bag",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Bag\" là số ít, \"bag's\" là sở hữu/cách viết khác, còn \"bagging\" không phải danh từ phù hợp ở đây."
+        },
+        {
+          "option": "bag's",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"bag's\" là sở hữu/cách viết khác, còn \"bagging\" không phải danh từ phù hợp ở đây."
+        },
+        {
+          "option": "bagging",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"bagging\" không phải danh từ phù hợp ở đây."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-71",
       "type": "fill_blank",
       "question": "Fill in the correct **demonstrative**: Who is ___ man at the bus stop?",
       "options": [
@@ -1203,9 +2760,32 @@
       ],
       "correct_answer": "that",
       "explanation": "\"Man\" là số ít và ở xa tại trạm xe buýt, nên dùng \"that\". \"These/Those\" dùng cho số nhiều, còn \"they\" không đứng trước danh từ số ít như vậy.",
+      "distractor_breakdowns": [
+        {
+          "option": "that",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Man\" là số ít và ở xa tại trạm xe buýt, nên dùng \"that\". \"These/Those\" dùng cho số nhiều, còn \"they\" không đứng trước danh từ số ít như vậy."
+        },
+        {
+          "option": "these",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. These/Those\" dùng cho số nhiều, còn \"they\" không đứng trước danh từ số ít như vậy."
+        },
+        {
+          "option": "those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Those\" dùng cho số nhiều, còn \"they\" không đứng trước danh từ số ít như vậy."
+        },
+        {
+          "option": "they",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"they\" không đứng trước danh từ số ít như vậy."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-72",
       "type": "fill_blank",
       "question": "Fill in the correct **form**: ___ are my classmates, Nam and Hoa.",
       "options": [
@@ -1216,9 +2796,32 @@
       ],
       "correct_answer": "These",
       "explanation": "Có hai người được giới thiệu nên dùng \"These are\". \"This/That/It\" chỉ một người hoặc một vật số ít.",
+      "distractor_breakdowns": [
+        {
+          "option": "These",
+          "isCorrect": true,
+          "pedagogicalReason": "Có hai người được giới thiệu nên dùng \"These are\". \"This/That/It\" chỉ một người hoặc một vật số ít."
+        },
+        {
+          "option": "This",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. This/That/It\" chỉ một người hoặc một vật số ít."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. That/It\" chỉ một người hoặc một vật số ít."
+        },
+        {
+          "option": "It",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. It\" chỉ một người hoặc một vật số ít."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-73",
       "type": "fill_blank",
       "question": "Fill in the correct **demonstrative**: I like ___ picture here on the wall.",
       "options": [
@@ -1229,9 +2832,32 @@
       ],
       "correct_answer": "this",
       "explanation": "\"Picture\" là số ít và có \"here\" nên ở gần người nói, vì vậy dùng \"this\". \"That\" chỉ số ít ở xa, còn \"these/those\" dùng cho số nhiều.",
+      "distractor_breakdowns": [
+        {
+          "option": "this",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Picture\" là số ít và có \"here\" nên ở gần người nói, vì vậy dùng \"this\". \"That\" chỉ số ít ở xa, còn \"these/those\" dùng cho số nhiều."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"That\" chỉ số ít ở xa, còn \"these/those\" dùng cho số nhiều."
+        },
+        {
+          "option": "these",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. These/those\" dùng cho số nhiều."
+        },
+        {
+          "option": "those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Those\" dùng cho số nhiều."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-74",
       "type": "fill_blank",
       "question": "Fill in the correct **verb**: Those plates ___ dirty.",
       "options": [
@@ -1242,9 +2868,32 @@
       ],
       "correct_answer": "are",
       "explanation": "\"Those plates\" là chủ ngữ số nhiều nên dùng \"are\". \"Is\" dùng cho số ít, \"am\" dùng với \"I\", còn \"being\" không tạo câu đúng ở đây.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Those plates\" là chủ ngữ số nhiều nên dùng \"are\". \"Is\" dùng cho số ít, \"am\" dùng với \"I\", còn \"being\" không tạo câu đúng ở đây."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Is\" dùng cho số ít, \"am\" dùng với \"I\", còn \"being\" không tạo câu đúng ở đây."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"am\" dùng với \"I\", còn \"being\" không tạo câu đúng ở đây."
+        },
+        {
+          "option": "being",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"being\" không tạo câu đúng ở đây."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-75",
       "type": "error_correction",
       "question": "Find the error: **These** dog is very friendly.",
       "options": [
@@ -1255,9 +2904,32 @@
       ],
       "correct_answer": "These",
       "explanation": "\"Dog\" là danh từ số ít nên phải dùng \"This\" hoặc \"That\", không dùng \"These\". Các từ \"dog\", \"is\", \"friendly\" đều phù hợp với chủ ngữ số ít.",
+      "distractor_breakdowns": [
+        {
+          "option": "These",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Dog\" là danh từ số ít nên phải dùng \"This\" hoặc \"That\", không dùng \"These\". Các từ \"dog\", \"is\", \"friendly\" đều phù hợp với chủ ngữ số ít."
+        },
+        {
+          "option": "dog",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Dog\" là danh từ số ít nên phải dùng \"This\" hoặc \"That\", không dùng \"These\"."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"is\", \"friendly\" đều phù hợp với chủ ngữ số ít."
+        },
+        {
+          "option": "friendly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"friendly\" đều phù hợp với chủ ngữ số ít."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-76",
       "type": "error_correction",
       "question": "Find the error: That cars are parked outside.",
       "options": [
@@ -1268,9 +2940,32 @@
       ],
       "correct_answer": "That",
       "explanation": "\"Cars\" là danh từ số nhiều nên phải dùng \"Those\" hoặc \"These\", không dùng \"That\". \"Are\" đúng với danh từ số nhiều, các phần còn lại không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "That",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Cars\" là danh từ số nhiều nên phải dùng \"Those\" hoặc \"These\", không dùng \"That\". \"Are\" đúng với danh từ số nhiều, các phần còn lại không sai."
+        },
+        {
+          "option": "cars",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Cars\" là danh từ số nhiều nên phải dùng \"Those\" hoặc \"These\", không dùng \"That\"."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Are\" đúng với danh từ số nhiều, các phần còn lại không sai."
+        },
+        {
+          "option": "outside",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"outside\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-77",
       "type": "error_correction",
       "question": "Find the error: This boxes are under the table.",
       "options": [
@@ -1281,9 +2976,32 @@
       ],
       "correct_answer": "This",
       "explanation": "\"Boxes\" là số nhiều nên phải dùng \"These\" hoặc \"Those\". \"Are\" đúng với danh từ số nhiều, còn \"under the table\" dùng đúng để chỉ vị trí.",
+      "distractor_breakdowns": [
+        {
+          "option": "This",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Boxes\" là số nhiều nên phải dùng \"These\" hoặc \"Those\". \"Are\" đúng với danh từ số nhiều, còn \"under the table\" dùng đúng để chỉ vị trí."
+        },
+        {
+          "option": "boxes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Boxes\" là số nhiều nên phải dùng \"These\" hoặc \"Those\"."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Are\" đúng với danh từ số nhiều, còn \"under the table\" dùng đúng để chỉ vị trí."
+        },
+        {
+          "option": "under",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Under the table\" dùng đúng để chỉ vị trí."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-78",
       "type": "error_correction",
       "question": "Find the error: Those child is my cousin.",
       "options": [
@@ -1294,9 +3012,32 @@
       ],
       "correct_answer": "Those",
       "explanation": "\"Child\" là danh từ số ít nên cần \"That\" hoặc \"This\", không dùng \"Those\". \"Is\" đúng với danh từ số ít, và các từ còn lại phù hợp nghĩa câu.",
+      "distractor_breakdowns": [
+        {
+          "option": "Those",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Child\" là danh từ số ít nên cần \"That\" hoặc \"This\", không dùng \"Those\". \"Is\" đúng với danh từ số ít, và các từ còn lại phù hợp nghĩa câu."
+        },
+        {
+          "option": "child",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Child\" là danh từ số ít nên cần \"That\" hoặc \"This\", không dùng \"Those\"."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Is\" đúng với danh từ số ít, và các từ còn lại phù hợp nghĩa câu."
+        },
+        {
+          "option": "cousin",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"cousin\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-79",
       "type": "error_correction",
       "question": "Find the error: I like this a song.",
       "options": [
@@ -1307,9 +3048,32 @@
       ],
       "correct_answer": "this a",
       "explanation": "Sau từ chỉ định \"this\" không dùng thêm \"a/an\" trước danh từ. Câu đúng là \"I like this song\"; các phần khác không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "I",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. I like this song\"."
+        },
+        {
+          "option": "like",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Like this song\"."
+        },
+        {
+          "option": "this a",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau từ chỉ định \"this\" không dùng thêm \"a/an\" trước danh từ. Câu đúng là \"I like this song\"; các phần khác không sai."
+        },
+        {
+          "option": "song",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"song\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-80",
       "type": "error_correction",
       "question": "Find the error: These is my sister, Linh.",
       "options": [
@@ -1320,9 +3084,32 @@
       ],
       "correct_answer": "These",
       "explanation": "Khi giới thiệu một người, dùng \"This is...\", không dùng \"These is\". \"Is\" đúng với \"This\", còn \"my sister\" và tên riêng không sai.",
+      "distractor_breakdowns": [
+        {
+          "option": "These",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi giới thiệu một người, dùng \"This is...\", không dùng \"These is\". \"Is\" đúng với \"This\", còn \"my sister\" và tên riêng không sai."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Is\" đúng với \"This\", còn \"my sister\" và tên riêng không sai."
+        },
+        {
+          "option": "my sister",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"my sister\" và tên riêng không sai."
+        },
+        {
+          "option": "Linh",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"Linh\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-81",
       "type": "error_correction",
       "question": "Find the error: Those are my pencil case.",
       "options": [
@@ -1333,9 +3120,32 @@
       ],
       "correct_answer": "Those",
       "explanation": "\"Pencil case\" là một vật số ít, nên phải dùng \"That is\" hoặc \"This is\". \"Are\" chỉ đúng nếu chủ ngữ và danh từ đều số nhiều, còn \"my\" và \"pencil case\" không sai về nghĩa.",
+      "distractor_breakdowns": [
+        {
+          "option": "Those",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Pencil case\" là một vật số ít, nên phải dùng \"That is\" hoặc \"This is\". \"Are\" chỉ đúng nếu chủ ngữ và danh từ đều số nhiều, còn \"my\" và \"pencil case\" không sai về nghĩa."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Are\" chỉ đúng nếu chủ ngữ và danh từ đều số nhiều, còn \"my\" và \"pencil case\" không sai về nghĩa."
+        },
+        {
+          "option": "my",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"my\" và \"pencil case\" không sai về nghĩa."
+        },
+        {
+          "option": "pencil case",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Pencil case\" là một vật số ít, nên phải dùng \"That is\" hoặc \"This is\"."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-82",
       "type": "error_correction",
       "question": "Find the error: This glasses are mine.",
       "options": [
@@ -1346,9 +3156,32 @@
       ],
       "correct_answer": "This",
       "explanation": "\"Glasses\" là danh từ số nhiều nên phải dùng \"These\" hoặc \"Those\". \"Are\" đúng với danh từ số nhiều, và \"mine\" dùng đúng để chỉ sở hữu.",
+      "distractor_breakdowns": [
+        {
+          "option": "This",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Glasses\" là danh từ số nhiều nên phải dùng \"These\" hoặc \"Those\". \"Are\" đúng với danh từ số nhiều, và \"mine\" dùng đúng để chỉ sở hữu."
+        },
+        {
+          "option": "glasses",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Glasses\" là danh từ số nhiều nên phải dùng \"These\" hoặc \"Those\"."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"Are\" đúng với danh từ số nhiều, và \"mine\" dùng đúng để chỉ sở hữu."
+        },
+        {
+          "option": "mine",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"mine\" dùng đúng để chỉ sở hữu."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-83",
       "type": "multiple_choice",
       "question": "Choose the correct **demonstrative**: ___ clouds over there are dark.",
       "options": [
@@ -1359,9 +3192,32 @@
       ],
       "correct_answer": "Those",
       "explanation": "“Clouds” là danh từ số nhiều và “over there” chỉ ở xa, nên dùng “Those”. “These” dùng cho số nhiều ở gần; “This/That” dùng cho số ít.",
+      "distractor_breakdowns": [
+        {
+          "option": "This",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. This/That” dùng cho số ít."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. That” dùng cho số ít."
+        },
+        {
+          "option": "These",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “These” dùng cho số nhiều ở gần."
+        },
+        {
+          "option": "Those",
+          "isCorrect": true,
+          "pedagogicalReason": "“Clouds” là danh từ số nhiều và “over there” chỉ ở xa, nên dùng “Those”. “These” dùng cho số nhiều ở gần; “This/That” dùng cho số ít."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-84",
       "type": "multiple_choice",
       "question": "Choose the correct **verb form**: That orange ___ sweet.",
       "options": [
@@ -1372,9 +3228,32 @@
       ],
       "correct_answer": "is",
       "explanation": "“That orange” là chủ ngữ số ít, nên đi với “is”. “Are” dùng cho số nhiều; “am” đi với “I”; “be” không dùng trực tiếp sau chủ ngữ này ở hiện tại đơn.",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "“That orange” là chủ ngữ số ít, nên đi với “is”. “Are” dùng cho số nhiều; “am” đi với “I”; “be” không dùng trực tiếp sau chủ ngữ này ở hiện tại đơn."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Are” dùng cho số nhiều."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “am” đi với “I”."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “be” không dùng trực tiếp sau chủ ngữ này ở hiện tại đơn."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-85",
       "type": "multiple_choice",
       "question": "Choose the correct **form**: Hello, class. ___ is my cousin, Minh.",
       "options": [
@@ -1385,9 +3264,32 @@
       ],
       "correct_answer": "This",
       "explanation": "Khi giới thiệu một người đang ở gần hoặc đang được đưa vào cuộc trò chuyện, ta dùng “This is...”. “That” thường chỉ người/vật ở xa; “These/Those” dùng cho số nhiều.",
+      "distractor_breakdowns": [
+        {
+          "option": "This",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi giới thiệu một người đang ở gần hoặc đang được đưa vào cuộc trò chuyện, ta dùng “This is...”. “That” thường chỉ người/vật ở xa; “These/Those” dùng cho số nhiều."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “That” thường chỉ người/vật ở xa."
+        },
+        {
+          "option": "These",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. These/Those” dùng cho số nhiều."
+        },
+        {
+          "option": "Those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Those” dùng cho số nhiều."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-86",
       "type": "multiple_choice",
       "question": "Choose the correct **noun form**: These ___ are red.",
       "options": [
@@ -1398,9 +3300,32 @@
       ],
       "correct_answer": "flowers",
       "explanation": "“These” dùng với danh từ số nhiều, nên cần “flowers”. “Flower” và “a flower” là số ít; “floweres” sai chính tả dạng số nhiều.",
+      "distractor_breakdowns": [
+        {
+          "option": "flowers",
+          "isCorrect": true,
+          "pedagogicalReason": "“These” dùng với danh từ số nhiều, nên cần “flowers”. “Flower” và “a flower” là số ít; “floweres” sai chính tả dạng số nhiều."
+        },
+        {
+          "option": "flower",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Flower” và “a flower” là số ít."
+        },
+        {
+          "option": "a flower",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “a flower” là số ít."
+        },
+        {
+          "option": "floweres",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “floweres” sai chính tả dạng số nhiều."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-87",
       "type": "multiple_choice",
       "question": "Choose the correct **phrase**: I need ___ notebook on your desk.",
       "options": [
@@ -1411,9 +3336,32 @@
       ],
       "correct_answer": "that",
       "explanation": "“Notebook” là số ít và ở trên bàn của người khác, thường hiểu là xa người nói, nên dùng “that”. “Those/these” dùng với số nhiều; “this a” sai vì không dùng “a” sau từ chỉ định.",
+      "distractor_breakdowns": [
+        {
+          "option": "that",
+          "isCorrect": true,
+          "pedagogicalReason": "“Notebook” là số ít và ở trên bàn của người khác, thường hiểu là xa người nói, nên dùng “that”. “Those/these” dùng với số nhiều; “this a” sai vì không dùng “a” sau từ chỉ định."
+        },
+        {
+          "option": "those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Those/these” dùng với số nhiều."
+        },
+        {
+          "option": "these",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. These” dùng với số nhiều."
+        },
+        {
+          "option": "this a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “this a” sai vì không dùng “a” sau từ chỉ định."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-88",
       "type": "fill_blank",
       "question": "Fill in the correct **demonstrative**: ___ sandwich here is for you.",
       "options": [
@@ -1424,9 +3372,32 @@
       ],
       "correct_answer": "This",
       "explanation": "“Sandwich” là số ít và “here” cho biết ở gần, nên dùng “This”. “That” chỉ số ít ở xa; “These/Those” dùng cho số nhiều.",
+      "distractor_breakdowns": [
+        {
+          "option": "This",
+          "isCorrect": true,
+          "pedagogicalReason": "“Sandwich” là số ít và “here” cho biết ở gần, nên dùng “This”. “That” chỉ số ít ở xa; “These/Those” dùng cho số nhiều."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “That” chỉ số ít ở xa."
+        },
+        {
+          "option": "These",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. These/Those” dùng cho số nhiều."
+        },
+        {
+          "option": "Those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Those” dùng cho số nhiều."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-89",
       "type": "fill_blank",
       "question": "Fill in the correct **demonstrative**: ___ houses across the river are old.",
       "options": [
@@ -1437,9 +3408,32 @@
       ],
       "correct_answer": "Those",
       "explanation": "“Houses” là số nhiều và “across the river” cho thấy ở xa, nên dùng “Those”. “These” dùng cho số nhiều ở gần; “This/That” dùng cho số ít.",
+      "distractor_breakdowns": [
+        {
+          "option": "This",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. This/That” dùng cho số ít."
+        },
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. That” dùng cho số ít."
+        },
+        {
+          "option": "These",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “These” dùng cho số nhiều ở gần."
+        },
+        {
+          "option": "Those",
+          "isCorrect": true,
+          "pedagogicalReason": "“Houses” là số nhiều và “across the river” cho thấy ở xa, nên dùng “Those”. “These” dùng cho số nhiều ở gần; “This/That” dùng cho số ít."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-90",
       "type": "fill_blank",
       "question": "Fill in the correct **verb**: These socks ___ dry now.",
       "options": [
@@ -1450,9 +3444,32 @@
       ],
       "correct_answer": "are",
       "explanation": "“These socks” là chủ ngữ số nhiều, nên đi với “are”. “Is” dùng cho số ít; “am” chỉ đi với “I”; “be” không phù hợp trong câu hiện tại đơn này.",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "“These socks” là chủ ngữ số nhiều, nên đi với “are”. “Is” dùng cho số ít; “am” chỉ đi với “I”; “be” không phù hợp trong câu hiện tại đơn này."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Is” dùng cho số ít."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “am” chỉ đi với “I”."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “be” không phù hợp trong câu hiện tại đơn này."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-91",
       "type": "fill_blank",
       "question": "Fill in the correct **form**: ___ is not my umbrella; mine is black.",
       "options": [
@@ -1463,9 +3480,32 @@
       ],
       "correct_answer": "This",
       "explanation": "“Umbrella” là danh từ số ít, nên dùng “This” hoặc “That”; trong các lựa chọn chỉ “This” phù hợp ngữ pháp. “These/Those” dùng cho số nhiều; “Are” là động từ, không phải từ chỉ định đứng trước “is”.",
+      "distractor_breakdowns": [
+        {
+          "option": "This",
+          "isCorrect": true,
+          "pedagogicalReason": "“Umbrella” là danh từ số ít, nên dùng “This” hoặc “That”; trong các lựa chọn chỉ “This” phù hợp ngữ pháp. “These/Those” dùng cho số nhiều; “Are” là động từ, không phải từ chỉ định đứng trước “is”."
+        },
+        {
+          "option": "These",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. These/Those” dùng cho số nhiều."
+        },
+        {
+          "option": "Those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Those” dùng cho số nhiều."
+        },
+        {
+          "option": "Are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Are” là động từ, không phải từ chỉ định đứng trước “is”."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-92",
       "type": "fill_blank",
       "question": "Fill in the correct **noun form**: Those ___ are expensive.",
       "options": [
@@ -1476,9 +3516,32 @@
       ],
       "correct_answer": "watches",
       "explanation": "“Those” cần danh từ số nhiều, nên đáp án đúng là “watches”. “Watch” và “a watch” là số ít; “watchs” là dạng số nhiều sai chính tả.",
+      "distractor_breakdowns": [
+        {
+          "option": "watches",
+          "isCorrect": true,
+          "pedagogicalReason": "“Those” cần danh từ số nhiều, nên đáp án đúng là “watches”. “Watch” và “a watch” là số ít; “watchs” là dạng số nhiều sai chính tả."
+        },
+        {
+          "option": "watch",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Watch” và “a watch” là số ít."
+        },
+        {
+          "option": "a watch",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “a watch” là số ít."
+        },
+        {
+          "option": "watchs",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “watchs” là dạng số nhiều sai chính tả."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-93",
       "type": "fill_blank",
       "question": "Fill in the correct **demonstrative**: Can you see ___ plane in the sky?",
       "options": [
@@ -1489,9 +3552,32 @@
       ],
       "correct_answer": "that",
       "explanation": "“Plane” là số ít và ở xa trên bầu trời, nên dùng “that”. “This” chỉ số ít ở gần; “these/those” dùng cho số nhiều.",
+      "distractor_breakdowns": [
+        {
+          "option": "that",
+          "isCorrect": true,
+          "pedagogicalReason": "“Plane” là số ít và ở xa trên bầu trời, nên dùng “that”. “This” chỉ số ít ở gần; “these/those” dùng cho số nhiều."
+        },
+        {
+          "option": "this",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “This” chỉ số ít ở gần."
+        },
+        {
+          "option": "these",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. These/those” dùng cho số nhiều."
+        },
+        {
+          "option": "those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Those” dùng cho số nhiều."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-94",
       "type": "error_correction",
       "question": "Find the error: **These** chair is near the window.",
       "options": [
@@ -1502,9 +3588,32 @@
       ],
       "correct_answer": "These",
       "explanation": "“Chair” là danh từ số ít, nên phải dùng “This” hoặc “That”, không dùng “These”. Các phần còn lại phù hợp với câu số ít: “chair” và “is” đi với nhau đúng.",
+      "distractor_breakdowns": [
+        {
+          "option": "These",
+          "isCorrect": true,
+          "pedagogicalReason": "“Chair” là danh từ số ít, nên phải dùng “This” hoặc “That”, không dùng “These”. Các phần còn lại phù hợp với câu số ít: “chair” và “is” đi với nhau đúng."
+        },
+        {
+          "option": "chair",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Chair” là danh từ số ít, nên phải dùng “This” hoặc “That”, không dùng “These”."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “is” đi với nhau đúng."
+        },
+        {
+          "option": "near the window",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"near the window\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-95",
       "type": "error_correction",
       "question": "Find the error: That **bananas** is on the shelf.",
       "options": [
@@ -1515,9 +3624,32 @@
       ],
       "correct_answer": "bananas",
       "explanation": "“That” và “is” đều dùng cho số ít, nên danh từ phải là “banana”. “Bananas” là số nhiều nên sai trong cấu trúc này.",
+      "distractor_breakdowns": [
+        {
+          "option": "That",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “That” và “is” đều dùng cho số ít, nên danh từ phải là “banana”."
+        },
+        {
+          "option": "bananas",
+          "isCorrect": true,
+          "pedagogicalReason": "“That” và “is” đều dùng cho số ít, nên danh từ phải là “banana”. “Bananas” là số nhiều nên sai trong cấu trúc này."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “is” đều dùng cho số ít, nên danh từ phải là “banana”."
+        },
+        {
+          "option": "on the shelf",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"on the shelf\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-96",
       "type": "error_correction",
       "question": "Find the error: Those bags **is** under the bed.",
       "options": [
@@ -1528,9 +3660,32 @@
       ],
       "correct_answer": "is",
       "explanation": "“Those bags” là chủ ngữ số nhiều, nên động từ phải là “are”. “Those” và “bags” đã đúng vì đều ở dạng số nhiều.",
+      "distractor_breakdowns": [
+        {
+          "option": "Those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Those bags” là chủ ngữ số nhiều, nên động từ phải là “are”."
+        },
+        {
+          "option": "bags",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Bags” là chủ ngữ số nhiều, nên động từ phải là “are”."
+        },
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "“Those bags” là chủ ngữ số nhiều, nên động từ phải là “are”. “Those” và “bags” đã đúng vì đều ở dạng số nhiều."
+        },
+        {
+          "option": "under the bed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"under the bed\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 1
     },
     {
+      "id": "demonstratives-ex-97",
       "type": "error_correction",
       "question": "Find the error: I want **this an** eraser.",
       "options": [
@@ -1541,9 +3696,32 @@
       ],
       "correct_answer": "this an",
       "explanation": "Không dùng “a/an” sau từ chỉ định trước danh từ; phải nói “this eraser”. “I want” đúng cấu trúc, và “eraser” là danh từ phù hợp.",
+      "distractor_breakdowns": [
+        {
+          "option": "I",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. I want” đúng cấu trúc, và “eraser” là danh từ phù hợp."
+        },
+        {
+          "option": "want",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Want” đúng cấu trúc, và “eraser” là danh từ phù hợp."
+        },
+        {
+          "option": "this an",
+          "isCorrect": true,
+          "pedagogicalReason": "Không dùng “a/an” sau từ chỉ định trước danh từ; phải nói “this eraser”. “I want” đúng cấu trúc, và “eraser” là danh từ phù hợp."
+        },
+        {
+          "option": "eraser",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “eraser” là danh từ phù hợp."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-98",
       "type": "error_correction",
       "question": "Find the error: **That** notebooks are in my bag.",
       "options": [
@@ -1554,9 +3732,32 @@
       ],
       "correct_answer": "That",
       "explanation": "“Notebooks” là danh từ số nhiều, nên phải dùng “These” hoặc “Those”, không dùng “That”. “Are” đúng với chủ ngữ số nhiều.",
+      "distractor_breakdowns": [
+        {
+          "option": "That",
+          "isCorrect": true,
+          "pedagogicalReason": "“Notebooks” là danh từ số nhiều, nên phải dùng “These” hoặc “Those”, không dùng “That”. “Are” đúng với chủ ngữ số nhiều."
+        },
+        {
+          "option": "notebooks",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Notebooks” là danh từ số nhiều, nên phải dùng “These” hoặc “Those”, không dùng “That”."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “Are” đúng với chủ ngữ số nhiều."
+        },
+        {
+          "option": "in my bag",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"in my bag\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        }
+      ],
       "difficulty": 2
     },
     {
+      "id": "demonstratives-ex-99",
       "type": "error_correction",
       "question": "Find the error: This **are** my headphones.",
       "options": [
@@ -1567,9 +3768,32 @@
       ],
       "correct_answer": "are",
       "explanation": "“This” là số ít nên đi với “is”, không đi với “are”. Nếu muốn giữ “headphones” số nhiều, câu nên là “These are my headphones.”",
+      "distractor_breakdowns": [
+        {
+          "option": "This",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “This” là số ít nên đi với “is”, không đi với “are”."
+        },
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "“This” là số ít nên đi với “is”, không đi với “are”. Nếu muốn giữ “headphones” số nhiều, câu nên là “These are my headphones.”"
+        },
+        {
+          "option": "my",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Từ hoặc cụm từ \"my\" được sử dụng hoàn toàn đúng ngữ pháp trong câu, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "headphones",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. “headphones” số nhiều, câu nên là “These are my headphones."
+        }
+      ],
       "difficulty": 3
     },
     {
+      "id": "demonstratives-ex-100",
       "type": "multiple_choice",
       "question": "Choose the correct **demonstrative**: My keys are lost. I think I left them on ___ table over there.",
       "options": [
@@ -1580,6 +3804,28 @@
       ],
       "correct_answer": "that",
       "explanation": "Từ 'table' là danh từ số ít, nên ta cần dùng từ chỉ định số ít (this/that). Vì cái bàn ở 'over there' (đằng kia, xa), ta dùng 'that' để chỉ vật ở xa và số ít. Các lựa chọn 'these' và 'those' dùng cho danh từ số nhiều.",
+      "distractor_breakdowns": [
+        {
+          "option": "this",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"this\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "that",
+          "isCorrect": true,
+          "pedagogicalReason": "Từ 'table' là danh từ số ít, nên ta cần dùng từ chỉ định số ít (this/that). Vì cái bàn ở 'over there' (đằng kia, xa), ta dùng 'that' để chỉ vật ở xa và số ít. Các lựa chọn 'these' và 'those' dùng cho danh từ số nhiều."
+        },
+        {
+          "option": "these",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'these' và 'those' dùng cho danh từ số nhiều."
+        },
+        {
+          "option": "those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'those' dùng cho danh từ số nhiều."
+        }
+      ],
       "difficulty": 1
     }
   ]

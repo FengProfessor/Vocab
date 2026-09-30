@@ -1,1078 +1,689 @@
 'use client';
 
-import { useState, useEffect, useRef, Suspense, type ReactNode } from 'react';
+import { useState, useEffect, useMemo, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { supabase } from '@/lib/supabase';
-import type { GrammarExercise } from '@/lib/supabase';
 import {
-  Brain, ChevronLeft, CheckCircle2, XCircle, Lightbulb, Loader2, RotateCcw, Home, Sparkles, Volume2
+  Search,
+  BookOpen,
+  Dumbbell,
+  CheckCircle2,
+  Clock,
+  RotateCcw,
+  X,
+  ChevronRight,
+  Sparkles,
+  Info,
+  Loader2,
+  ExternalLink,
+  PlayCircle,
 } from 'lucide-react';
-import { toast } from 'sonner';
-import { track } from '@/lib/analytics';
-import { speak } from '@/lib/study';
+import { supabase } from '@/lib/supabase';
+import type { CefrLevel } from '@/lib/grammar-types';
 import {
-  canUseErrorClickMode,
-  sanitizeDrillExercises,
-  isGrammarAnswerCorrect,
-  isOptionMatchingCorrect,
-} from '@/lib/grammar-exercises';
-import { completeRoadmapStep, getLastRoadmapStepError } from '@/lib/roadmap-client';
+  UNIFIED_GRAMMAR_TOPICS,
+  GRAMMAR_STAGES,
+  getTopicBySlug,
+  type GrammarRoadmapTopic,
+} from '@/lib/grammar-roadmap-data';
+import VettedMediaCard from '@/components/grammar/VettedMediaCard';
+import GrammarReferenceTable from '@/components/grammar/GrammarReferenceTable';
+import GrammarVideoPlayer from '@/components/grammar/GrammarVideoPlayer';
+import FormattedText from '@/components/grammar/FormattedText';
+import topicAssetsData from '@/data/grammar-topic-assets.json';
 
-/** Bump khi đổi shape/logic drill — bỏ localStorage session cũ (type/options sai). */
-const GRAMMAR_STATE_VER = 'v2';
-
-
-
-function grammarStateKey(userId: string, kind: 'review' | 'lesson' | 'class', id?: string | null): string {
-  if (kind === 'review') return `lingopro_grammar_state_${GRAMMAR_STATE_VER}_${userId}_review`;
-  if (kind === 'lesson') return `lingopro_grammar_state_${GRAMMAR_STATE_VER}_${userId}_lesson_${id}`;
-  return `lingopro_grammar_state_${GRAMMAR_STATE_VER}_${userId}_class_${id}`;
+interface TopicProgress {
+  topic_id: string;
+  total_lessons: number;
+  completed_lessons: number;
+  accuracy: number;
 }
 
-/** Có dấu tiếng Việt → gần như chắc là VI. */
-function hasVietnameseDiacritics(s: string): boolean {
-  return /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i.test(s);
-}
-
-/**
- * Trích phần tiếng Anh để TTS.
- * - Câu thuần Việt → null (không hiện nút nghe)
- * - Câu mix VI + EN (quote / sau → / sau :) → chỉ lấy đoạn EN
- * - Câu EN → đọc cả câu (đã strip markdown / blank)
- *
- * Không scan mảnh Latin rời trong câu có dấu Việt (tránh "o SAI ng" từ "Câu nào SAI ngữ…").
- */
-function extractEnglishForSpeech(raw: string): string | null {
-  if (!raw?.trim()) return null;
-
-  const cleaned = raw
-    .replace(/^find\s+the\s+error:\s*/i, '')
-    .replace(/\*\*([^*]+)\*\*/g, '$1')
-    .replace(/_{2,}/g, 'blank')
-    .trim();
-
-  const looksEnglish = (s: string): boolean => {
-    const t = s.trim();
-    if (!t || hasVietnameseDiacritics(t)) return false;
-    const words = t.match(/[A-Za-z]+(?:'[A-Za-z]+)?/g) ?? [];
-    if (words.length === 0) return false;
-    // Bỏ token ngắn (A/B, OK…)
-    const real = words.filter((w) => w.length >= 2);
-    if (real.length === 0) return false;
-    // 1 từ: chỉ nhận nếu đủ dài (studied) — tránh "SAI"
-    if (real.length === 1) return real[0].length >= 4;
-    return true;
+interface TheoryData {
+  slug?: string;
+  title?: string;
+  title_vi?: string;
+  level?: string;
+  definition?: string;
+  usage?: { label: string; en: string; vi: string }[];
+  formula?: {
+    rows: any[];
+    note?: string;
   };
-
-  const normalizeSpeak = (s: string) =>
-    s
-      .replace(/^[\s"'“”‘’`→:\-–—]+|[\s"'“”‘’`]+$/g, '')
-      .replace(/\s+/g, ' ')
-      .trim();
-
-  // 1) Ưu tiên đoạn trong ngoặc kép / nháy đơn
-  const quoted = [...cleaned.matchAll(/["'“”‘’`]([^"'“”‘’`]{2,})["'“”‘’`]/g)]
-    .map((m) => normalizeSpeak(m[1]))
-    .filter((q) => looksEnglish(q));
-  if (quoted.length > 0) return quoted.join('. ');
-
-  // 2) Sau mũi tên → thường là câu ví dụ EN
-  if (cleaned.includes('→')) {
-    const after = normalizeSpeak(cleaned.split('→').slice(1).join(' '));
-    if (looksEnglish(after)) return after;
-  }
-
-  // 3) Sau dấu hai chấm (Complete the sentence: She has…)
-  const segments = cleaned.split(/[:：]\s*/);
-  if (segments.length > 1) {
-    const enSegs = segments
-      .slice(1)
-      .map((s) => normalizeSpeak(s))
-      .filter((s) => looksEnglish(s));
-    if (enSegs.length > 0) return enSegs.join('. ');
-  }
-
-  // 4) Cả câu là tiếng Anh (không có dấu Việt)
-  if (!hasVietnameseDiacritics(cleaned) && looksEnglish(cleaned)) {
-    return normalizeSpeak(cleaned);
-  }
-
-  return null;
+  rules?: { case: string; rule: string; example: string }[];
+  signals?: string[];
+  mistakes?: { wrong: string; right: string; why: string }[];
+  bilingual_examples?: { en: string; vi: string; note?: string; annotations?: any[] }[];
+  tips?: string;
+  comparison?: string;
+  timeline?: any;
 }
 
-/** Đọc tiếng Anh — chỉ gọi khi đã extractEnglishForSpeech. */
-function speakEnglish(text: string) {
-  if (typeof window === 'undefined') return;
-  const en = extractEnglishForSpeech(text);
-  if (!en) return;
-  speak(en, 0.9);
-}
-
-/**
- * Render text có chứa **bold** markdown và "___" blank.
- * Không dùng react-markdown vì chỉ cần 2 features đơn giản, tránh dependency overhead.
- */
-function renderRichText(text: string): ReactNode[] {
-  const raw = String(text ?? '');
-  if (!raw.trim()) {
-    return [
-      <span key="empty" className="text-muted-foreground font-medium">
-        (Không có đề bài — chọn đáp án phù hợp nhất)
-      </span>,
-    ];
-  }
-  const nodes: ReactNode[] = [];
-  // Split theo **bold** trước
-  const boldSegs = raw.split(/(\*\*[^*]+\*\*)/g);
-  boldSegs.forEach((seg, i) => {
-    if (/^\*\*[^*]+\*\*$/.test(seg)) {
-      nodes.push(
-        <strong key={`b-${i}`} className="text-primary font-extrabold">
-          {seg.slice(2, -2)}
-        </strong>,
-      );
-      return;
-    }
-    // Trong text thường, thay "___" (3+ underscore) thành blank box visual
-    const blankSegs = seg.split(/(_{3,})/g);
-    blankSegs.forEach((bs, j) => {
-      if (/^_{3,}$/.test(bs)) {
-        nodes.push(
-          <span
-            key={`bl-${i}-${j}`}
-            className="inline-block min-w-[3.5rem] px-2 mx-1 border-b-4 border-dashed border-primary/60 align-baseline"
-            aria-label="Chỗ trống cần điền"
-          />,
-        );
-      } else if (bs) {
-        nodes.push(<span key={`t-${i}-${j}`}>{bs}</span>);
-      }
-    });
-  });
-  return nodes;
-}
-
-/**
- * Tách câu thành tokens, đánh dấu token nào nằm trong optionSet để click chọn.
- * Dùng cho error_correction UI: user click trực tiếp từ SAI trong câu.
- */
-function ErrorCorrectionSentence({
-  sentence,
-  options,
-  selected,
-  correctAnswer,
-  onSelect,
-}: {
-  sentence: string;
-  options: string[];
-  selected: string | null;
-  correctAnswer: string;
-  onSelect: (token: string) => void;
-}) {
-  // Bóc prefix hướng dẫn nếu có (Find / Identify / Spot the error)
-  const cleanSentence = sentence.replace(
-    /^(find|identify|spot|correct)\s+the\s+error\s*:\s*/i,
-    '',
-  );
-
-  if (!options || options.length === 0) {
-    return <p className="text-xl font-semibold text-foreground leading-loose">{cleanSentence}</p>;
-  }
-
-  // Tạo regex từ options, sắp xếp theo độ dài giảm dần để khớp cụm dài trước
-  const escapedOptions = [...options]
-    .map((opt) => opt.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'))
-    .sort((a, b) => b.length - a.length);
-  const regex = new RegExp(`(${escapedOptions.join('|')})`, 'gi');
-
-  // Split câu dựa trên các options
-  const parts = cleanSentence.split(regex);
-
-  return (
-    <p className="text-xl font-semibold text-foreground leading-loose">
-      {parts.map((part, i) => {
-        const trimmed = part.trim();
-        const matchedOption = options.find((opt) => opt.toLowerCase() === trimmed.toLowerCase());
-
-        if (!matchedOption) {
-          return <span key={i}>{part}</span>;
-        }
-
-        const isCorrect = isGrammarAnswerCorrect(matchedOption, correctAnswer, options);
-        const isSel = !!selected && (isGrammarAnswerCorrect(selected, matchedOption, options) || selected.toLowerCase() === matchedOption.toLowerCase());
-
-        let cn = 'inline-block mx-0.5 px-1.5 py-0.5 rounded-md border-b-2 transition-all ';
-        if (selected) {
-          if (isCorrect) cn += 'bg-emerald-100 border-emerald-500 text-emerald-900 font-bold ';
-          else if (isSel) cn += 'bg-red-100 border-red-500 text-red-900 line-through ';
-          else cn += 'opacity-40 border-transparent ';
-        } else {
-          cn += 'border-dashed border-primary/50 hover:bg-primary/10 hover:border-primary cursor-pointer ';
-        }
-
-        return (
-          <button
-            key={i}
-            className={cn}
-            disabled={!!selected}
-            onClick={() => onSelect(matchedOption)}
-            type="button"
-          >
-            {part}
-          </button>
-        );
-      })}
-    </p>
-  );
-}
-
-// Animate progress bar width: dùng inline style transition, không cần thư viện
-function ProgressBar({ current, total }: { current: number; total: number }) {
-  const pct = total > 0 ? Math.round((current / total) * 100) : 0;
-  return (
-    <div className="px-4 sm:px-8 pt-2 pb-1">
-      <div className="flex items-center justify-between mb-1.5">
-        <span className="text-xs font-semibold text-muted-foreground">
-          Câu {current} / {total}
-        </span>
-        <span className="text-xs font-bold text-primary">{pct}%</span>
-      </div>
-      <div className="h-2.5 bg-muted rounded-full overflow-hidden">
-        <div
-          className="h-full bg-primary rounded-full transition-all duration-500 ease-out"
-          style={{ width: `${pct}%` }}
-        />
-      </div>
-    </div>
-  );
-}
-
-// Flash overlay — hiện brief khi đúng/sai
-function FeedbackFlash({ type }: { type: 'correct' | 'wrong' | null }) {
-  if (!type) return null;
-  return (
-    <div
-      className={[
-        'fixed inset-0 pointer-events-none z-50 transition-opacity duration-300',
-        type === 'correct' ? 'bg-emerald-400/20' : 'bg-red-400/20',
-      ].join(' ')}
-    />
-  );
-}
-
-// Score card hiển thị khi done
-function ScoreCard({
-  correct,
-  total,
-  onRetry,
-  backHref,
-}: {
-  correct: number;
-  total: number;
-  onRetry: () => void;
-  backHref: string;
-}) {
-  const accuracy = total > 0 ? Math.round((correct / total) * 100) : 0;
-  const emoji = accuracy >= 80 ? '🏆' : accuracy >= 60 ? '🎯' : '💪';
-  const label = accuracy >= 80 ? 'Xuất sắc!' : accuracy >= 60 ? 'Khá tốt!' : 'Cố lên!';
-
-  // Vẽ vòng tròn accuracy bằng SVG stroke-dashoffset
-  const r = 40;
-  const circumference = 2 * Math.PI * r;
-  const offset = circumference - (accuracy / 100) * circumference;
-
-  return (
-    <main className="min-h-dvh flex flex-col items-center justify-center gap-8 bg-gradient-to-br from-primary/5 to-muted/40 p-6">
-      {/* Hero */}
-      <div className="text-center">
-        <div className="text-6xl mb-3">{emoji}</div>
-        <h1 className="text-3xl font-bold mb-1">Grammar Drill Complete!</h1>
-        <p className="text-muted-foreground text-sm">{label}</p>
-      </div>
-
-      {/* Accuracy ring + stats */}
-      <div className="bg-background border rounded-2xl p-6 w-full max-w-sm shadow-xl flex flex-col items-center gap-5">
-        {/* SVG ring */}
-        <div className="relative flex items-center justify-center">
-          <svg width="100" height="100" className="-rotate-90">
-            <circle cx="50" cy="50" r={r} stroke="currentColor" strokeWidth="8" fill="none"
-              className="text-muted" />
-            <circle
-              cx="50" cy="50" r={r}
-              stroke="currentColor" strokeWidth="8" fill="none"
-              strokeDasharray={circumference}
-              strokeDashoffset={offset}
-              strokeLinecap="round"
-              className={accuracy >= 60 ? 'text-emerald-500' : 'text-red-500'}
-              style={{ transition: 'stroke-dashoffset 0.8s ease-out' }}
-            />
-          </svg>
-          <span className="absolute text-2xl font-bold">{accuracy}%</span>
-        </div>
-
-        {/* Correct / Wrong */}
-        <div className="grid grid-cols-2 gap-4 w-full text-center">
-          <div className="bg-emerald-50 rounded-xl p-4">
-            <div className="text-3xl font-bold text-emerald-600">{correct}</div>
-            <div className="text-xs text-emerald-700 font-semibold mt-1 flex items-center justify-center gap-1">
-              <CheckCircle2 className="h-3.5 w-3.5" /> Đúng
-            </div>
-          </div>
-          <div className="bg-red-50 rounded-xl p-4">
-            <div className="text-3xl font-bold text-red-600">{total - correct}</div>
-            <div className="text-xs text-red-700 font-semibold mt-1 flex items-center justify-center gap-1">
-              <XCircle className="h-3.5 w-3.5" /> Sai
-            </div>
-          </div>
-        </div>
-
-        {/* Accuracy bar */}
-        <div className="w-full">
-          <div className="h-2 bg-muted rounded-full overflow-hidden">
-            <div
-              className="h-full rounded-full transition-all duration-700 ease-out"
-              style={{
-                width: `${accuracy}%`,
-                backgroundColor: accuracy >= 60 ? 'var(--color-emerald-500, #10b981)' : 'var(--color-red-500, #ef4444)',
-              }}
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Actions */}
-      <div className="flex gap-3 w-full max-w-sm">
-        <Link href={backHref} className="flex-1">
-          <button className="w-full border rounded-xl px-4 py-3 font-semibold hover:bg-muted transition-colors flex items-center justify-center gap-2 text-sm">
-            <Home className="h-4 w-4" /> Về trang học
-          </button>
-        </Link>
-        <button
-          onClick={onRetry}
-          className="flex-1 bg-primary text-white rounded-xl px-4 py-3 font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 text-sm"
-        >
-          <RotateCcw className="h-4 w-4" /> Làm lại
-        </button>
-      </div>
-    </main>
-  );
-}
-
-function GrammarContent() {
+function GrammarRoadmapContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const classroomId = searchParams.get('class');
-  const lessonId = searchParams.get('lesson');
-  const reviewMode = searchParams.get('review') === '1';
-  const roadmapStepId = searchParams.get('roadmapStep');
 
-  const [exercises, setExercises] = useState<GrammarExercise[]>([]);
-  const [current, setCurrent] = useState<GrammarExercise | null>(null);
-  const [qIndex, setQIndex] = useState(0);
-  const [selected, setSelected] = useState<string | null>(null);
-  const [typedAnswer, setTypedAnswer] = useState('');
-  const [showExplanation, setShowExplanation] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [score, setScore] = useState({ correct: 0, wrong: 0 });
-  const [done, setDone] = useState(false);
-  const [startTime, setStartTime] = useState(Date.now());
+  // Search parameters
+  const initialLevel = (searchParams.get('level') as CefrLevel) || 'ALL';
+  const initialTopic = searchParams.get('topic');
+  const initialSearch = searchParams.get('search') || '';
+
+  // Transparent redirect for legacy drill params (?review=1, ?lesson=..., ?class=...)
+  useEffect(() => {
+    const isReview = searchParams.get('review') === '1' || searchParams.get('reviewMode') === '1';
+    const classroomId = searchParams.get('class') || searchParams.get('classroomId');
+    const lessonId = searchParams.get('lesson') || searchParams.get('lessonId');
+
+    if (isReview || classroomId || lessonId) {
+      const p = new URLSearchParams(searchParams.toString());
+      router.replace(`/grammar/practice?${p.toString()}`);
+    }
+  }, [searchParams, router]);
+
+  // State
+  const [activeLevel, setActiveLevel] = useState<CefrLevel | 'ALL'>(
+    ['A0', 'A1', 'A2', 'B1', 'B2'].includes(initialLevel) ? initialLevel : 'ALL'
+  );
+  const [searchQuery, setSearchQuery] = useState(initialSearch);
+  const [selectedTopicSlug, setSelectedTopicSlug] = useState<string | null>(initialTopic);
+  const [theoryLoading, setTheoryLoading] = useState(false);
+  const [theoryData, setTheoryData] = useState<TheoryData | null>(null);
+  const [theoryTab, setTheoryTab] = useState<'theory' | 'table' | 'video' | 'examples' | 'media'>('theory');
+
+  // User progress
   const [userId, setUserId] = useState<string | null>(null);
-  // flash: null | 'correct' | 'wrong' — tự tắt sau 400ms
-  const [flash, setFlash] = useState<'correct' | 'wrong' | null>(null);
-  const flashTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  /** Vùng cuộn quiz — tránh justify-center cắt đề bài phía trên */
-  const quizScrollRef = useRef<HTMLDivElement | null>(null);
-
-  // Nguồn exercises thô (chưa shuffle) để có thể reset
-  const rawExercises = useRef<GrammarExercise[]>([]);
-  // State cho AI quiz generation (student self-practice)
-  const [generatingQuiz, setGeneratingQuiz] = useState(false);
-  const answering = useRef(false);
+  const [progressMap, setProgressMap] = useState<Record<string, TopicProgress>>({});
 
   useEffect(() => {
-    const init = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (user) setUserId(user.id);
+    const fetchProgress = async () => {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+      if (!user) return;
+      setUserId(user.id);
 
-      // Mode 1: review câu sai
-      if (reviewMode) {
-        if (!user) {
-          toast.error('Cần đăng nhập để ôn câu sai.');
-          setIsLoading(false);
-          return;
-        }
-        const { data: { session } } = await supabase.auth.getSession();
-        const res = await fetch('/api/grammar/review?days=14', {
-          headers: session?.access_token ? { Authorization: `Bearer ${session.access_token}` } : {},
-        });
-        const data = await res.json();
-        if (data.success && data.data?.length > 0) {
-          const cleaned = sanitizeDrillExercises(data.data as GrammarExercise[]);
-          rawExercises.current = cleaned;
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+      const res = await fetch('/api/grammar/progress?view=topics', {
+        headers: session?.access_token ? { Authorization: `Bearer ${session.access_token}` } : {},
+      }).catch(() => null);
 
-          // Check if there is saved progress
-          const savedKey = grammarStateKey(user.id, 'review');
-          const saved = localStorage.getItem(savedKey);
-          if (saved) {
-            try {
-              const parsed = JSON.parse(saved);
-              if (parsed && parsed.exercises && parsed.exercises.length > 0) {
-                const restored = sanitizeDrillExercises(parsed.exercises as GrammarExercise[]);
-                const qi = Math.min(parsed.qIndex ?? 0, restored.length - 1);
-                setExercises(restored);
-                setCurrent(restored[qi]);
-                setQIndex(qi);
-                setSelected(parsed.selected);
-                setTypedAnswer(parsed.typedAnswer || '');
-                setShowExplanation(parsed.showExplanation || false);
-                setScore(parsed.score);
-                setDone(parsed.done || false);
-                setStartTime(parsed.startTime || Date.now());
-                answering.current = false;
-                toast.success('Đã khôi phục tiến trình ôn câu sai!');
-                setIsLoading(false);
-                return;
-              }
-            } catch (e) {
-              console.error('Failed to parse saved state:', e);
-            }
+      if (res?.ok) {
+        const json = await res.json();
+        if (json?.success && Array.isArray(json.data)) {
+          const map: Record<string, TopicProgress> = {};
+          for (const item of json.data) {
+            if (item.topic_slug) map[item.topic_slug] = item;
           }
-
-          startSession(cleaned);
-        } else {
-          toast.success('Tuyệt vời! Bạn không có câu sai nào trong 14 ngày qua.');
+          setProgressMap(map);
         }
-        setIsLoading(false);
-        return;
       }
-
-      // Mode 2: drill theo classroom / lesson
-      if (!classroomId && !lessonId) { setIsLoading(false); return; }
-
-      const params = new URLSearchParams();
-      if (classroomId) params.set('classroomId', classroomId);
-      if (lessonId) params.set('lessonId', lessonId);
-      const { data: { session } } = await supabase.auth.getSession();
-      const res = await fetch(`/api/grammar?${params.toString()}`, {
-        headers: { Authorization: `Bearer ${session?.access_token ?? ''}` },
-      });
-      const data = await res.json();
-      if (data.success && data.data?.length > 0) {
-        const cleaned = sanitizeDrillExercises(data.data as GrammarExercise[]);
-        rawExercises.current = cleaned;
-
-        // Check if there is saved progress (key v2 — bỏ session cũ type/options sai)
-        if (user) {
-          const savedKey = lessonId
-            ? grammarStateKey(user.id, 'lesson', lessonId)
-            : grammarStateKey(user.id, 'class', classroomId);
-          const saved = localStorage.getItem(savedKey);
-          if (saved) {
-            try {
-              const parsed = JSON.parse(saved);
-              if (parsed && parsed.exercises && parsed.exercises.length > 0) {
-                const restored = sanitizeDrillExercises(parsed.exercises as GrammarExercise[]);
-                const qi = Math.min(parsed.qIndex ?? 0, restored.length - 1);
-                setExercises(restored);
-                setCurrent(restored[qi]);
-                setQIndex(qi);
-                setSelected(parsed.selected);
-                setTypedAnswer(parsed.typedAnswer || '');
-                setShowExplanation(parsed.showExplanation || false);
-                setScore(parsed.score);
-                setDone(parsed.done || false);
-                setStartTime(parsed.startTime || Date.now());
-                answering.current = false;
-                toast.success('Đã khôi phục tiến trình làm bài của bạn!');
-                setIsLoading(false);
-                return;
-              }
-            } catch (e) {
-              console.error('Failed to parse saved state:', e);
-            }
-          }
-        }
-
-        startSession(cleaned);
-      } else {
-        toast.error('Chưa có bài tập grammar cho lớp này.');
-      }
-      setIsLoading(false);
     };
-    init();
-  }, [classroomId, lessonId, reviewMode]);
+    fetchProgress();
+  }, []);
 
-  // Auto-save grammar exercises progress when state changes
+  // Update selected topic when searchParams change
   useEffect(() => {
-    if (isLoading || !userId || exercises.length === 0 || done) return;
-
-    let key = '';
-    if (reviewMode) {
-      key = grammarStateKey(userId, 'review');
-    } else if (lessonId) {
-      key = grammarStateKey(userId, 'lesson', lessonId);
-    } else if (classroomId) {
-      key = grammarStateKey(userId, 'class', classroomId);
+    if (initialTopic) {
+      setSelectedTopicSlug(initialTopic);
     }
+  }, [initialTopic]);
 
-    if (key) {
-      const stateToSave = {
-        exercises,
-        qIndex,
-        selected,
-        typedAnswer,
-        showExplanation,
-        score,
-        done,
-        startTime,
-      };
-      localStorage.setItem(key, JSON.stringify(stateToSave));
-    }
-  }, [exercises, qIndex, selected, typedAnswer, showExplanation, score, done, startTime, userId, isLoading, reviewMode, lessonId, classroomId]);
-
-  const startSession = (source: GrammarExercise[]) => {
-    const cleaned = sanitizeDrillExercises(source);
-    const shuffled = [...cleaned].sort(() => Math.random() - 0.5);
-    setExercises(shuffled);
-    setCurrent(shuffled[0]);
-    setQIndex(0);
-    setSelected(null);
-    setTypedAnswer('');
-    setShowExplanation(false);
-    setScore({ correct: 0, wrong: 0 });
-    setDone(false);
-    setStartTime(Date.now());
-    setFlash(null);
-    answering.current = false;
-  };
-
-  const handleRetry = () => {
-    if (userId) {
-      let key = '';
-      if (reviewMode) key = grammarStateKey(userId, 'review');
-      else if (lessonId) key = grammarStateKey(userId, 'lesson', lessonId);
-      else if (classroomId) key = grammarStateKey(userId, 'class', classroomId);
-      if (key) localStorage.removeItem(key);
-    }
-    startSession(rawExercises.current);
-  };
-
-  /**
-   * Gọi AI tạo 5 câu hỏi quiz từ bài học (student self-practice, không cần classroom).
-   * Route /api/grammar/quiz trả về QuizQuestion[] không lưu DB.
-   */
-  const generateAIQuiz = async () => {
-    if (!lessonId) return;
-    setGeneratingQuiz(true);
-    try {
-      // Gửi kèm token để server resolve gói (gate Premium khi đã bật enforcement)
-      const { data: { session } } = await supabase.auth.getSession();
-      const res = await fetch('/api/grammar/quiz', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          ...(session?.access_token ? { Authorization: `Bearer ${session.access_token}` } : {}),
-        },
-        body: JSON.stringify({ lessonId }),
-      });
-      const data = await res.json() as { success: boolean; data?: GrammarExercise[]; error?: string; upgradeTo?: string };
-
-      // Bị chặn vì chưa đủ gói → upsell thay vì báo lỗi chung
-      if (res.status === 403 || data.error === 'premium_required') {
-        track('premium_gate_hit', { feature: 'grammar_ai', upgradeTo: data.upgradeTo ?? 'premium' });
-        toast.error('Tính năng AI tạo bài tập ngữ pháp thuộc gói Premium. Nâng cấp để dùng nhé!');
-        return;
-      }
-
-      if (data.success && data.data && data.data.length > 0) {
-        data.data = sanitizeDrillExercises(data.data as GrammarExercise[]);
-        rawExercises.current = data.data;
-        startSession(data.data);
-        track('grammar_quiz_generated', { lessonId, count: data.data.length });
-        toast.success('Đã tạo bài tập! Bắt đầu thôi!');
-      } else {
-        toast.error(data.error ?? 'Không thể tạo bài tập. Thử lại sau.');
-      }
-    } catch {
-      toast.error('Lỗi kết nối. Thử lại sau.');
-    } finally {
-      setGeneratingQuiz(false);
-    }
-  };
-
-  const triggerFlash = (type: 'correct' | 'wrong') => {
-    if (flashTimer.current) clearTimeout(flashTimer.current);
-    setFlash(type);
-    flashTimer.current = setTimeout(() => setFlash(null), 400);
-  };
-
-  const handleAnswer = async (choice: string) => {
-    if (!current || selected || answering.current) return;
-    answering.current = true;
-
-    const currentOptions = Array.isArray(current.options) ? current.options : [];
-    const isCorrect = isGrammarAnswerCorrect(choice, current.correct_answer || '', currentOptions);
-
-    // Gán selected thành correct_answer nếu đúng để UI chuyển màu xanh lá đồng bộ
-    const finalChoice = isCorrect ? (current.correct_answer || choice) : choice;
-    setSelected(finalChoice);
-    setShowExplanation(true);
-
-    setScore(prev => ({
-      correct: prev.correct + (isCorrect ? 1 : 0),
-      wrong: prev.wrong + (isCorrect ? 0 : 1),
-    }));
-    triggerFlash(isCorrect ? 'correct' : 'wrong');
-
-    // Lưu kết quả vào Supabase — chỉ khi exercise có UUID thật (không phải AI-generated "ai-0", "ai-1")
-    const isRealUuid = current && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(current.id);
-    if (userId && current && isRealUuid) {
-      await supabase.from('grammar_results').insert({
-        user_id: userId,
-        exercise_id: current.id,
-        chosen_answer: finalChoice,
-        time_taken_ms: Date.now() - startTime,
-      });
-    }
-  };
-
-  const submitGrammarProgress = async (finalCorrect: number, total: number) => {
-    if (!lessonId || !userId) {
-      if (roadmapStepId) {
-        toast.error('Chưa đăng nhập — không ghi được tiến độ lộ trình.');
-      }
+  // Fetch theory content when a topic is selected
+  useEffect(() => {
+    if (!selectedTopicSlug) {
+      setTheoryData(null);
       return;
     }
-    const accuracy = total > 0 ? finalCorrect / total : 0;
-    try {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session?.access_token) {
-        toast.error('Phiên đăng nhập hết hạn — tải lại trang rồi làm lại bài.');
-        return;
-      }
-      const res = await fetch('/api/grammar/progress', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${session.access_token}`,
-        },
-        body: JSON.stringify({ lessonId, accuracy }),
-      });
-      const data = await res.json().catch(() => null) as {
-        success?: boolean;
-        error?: string;
-        roadmapCredited?: number;
-      } | null;
-      if (!res.ok || !data?.success) {
-        console.error('[Grammar] progress save failed:', data?.error || res.status);
-        toast.error(data?.error || 'Không lưu được tiến độ ngữ pháp. Thử lại.');
-        return;
-      }
-      const credited = typeof data.roadmapCredited === 'number' ? data.roadmapCredited : 0;
-      // Drill xong: credit server chỉ tick khi topic đã học hết bài.
-      // completeRoadmapStep chỉ gọi khi đã credit (tránh tick sớm 1/nhiều bài).
-      if (roadmapStepId) {
-        if (credited > 0) {
-          const result = await completeRoadmapStep(roadmapStepId);
-          if (result) {
-            toast.success(`+${result.xpAwarded} XP lộ trình — chặng ngữ pháp đã ghi!`);
-          } else {
-            toast.success('Đã đồng bộ tiến độ vào lộ trình.');
+
+    let isMounted = true;
+    const loadTheory = async () => {
+      setTheoryLoading(true);
+      try {
+        // 1. Fetch comprehensive structured theory from API
+        const res = await fetch(`/api/grammar/theory?topic=${encodeURIComponent(selectedTopicSlug)}`);
+        if (res.ok) {
+          const json = await res.json();
+          if (json?.success && json?.data && isMounted) {
+            setTheoryData(json.data);
+            return;
           }
-          router.push('/journey');
-        } else {
-          toast.success('Đã lưu kết quả bài tập. Học hết các bài còn lại trong chủ đề để hoàn thành chặng lộ trình.');
-          router.push(roadmapStepId ? `/grammar/learn?roadmapStep=${encodeURIComponent(roadmapStepId)}` : '/grammar/learn');
         }
+
+        // 2. Fallback if API fails or offline
+        const topicObj = getTopicBySlug(selectedTopicSlug);
+        if (topicObj && isMounted) {
+          setTheoryData({
+            definition: topicObj.summary,
+            usage: [
+              { label: 'Quy tắc trọng tâm', en: topicObj.title, vi: topicObj.title_vi },
+              { label: 'Cấp độ tiêu chuẩn', en: `CEFR Level: ${topicObj.level}`, vi: topicObj.stageLabel },
+              { label: 'Thời lượng khuyến nghị', en: `${topicObj.estimatedMinutes} minutes`, vi: `Khoảng ${topicObj.estimatedMinutes} phút học tập tập trung` },
+            ],
+            formula: {
+              rows: [
+                { form: 'Khẳng định (+)', structure: 'Subject + Verb + Object / Complement', example: 'She learns English every day.' },
+                { form: 'Phủ định (-)', structure: 'Subject + Auxiliary + not + Verb', example: 'She does not skip lessons.' },
+                { form: 'Nghi vấn (?)', structure: 'Auxiliary + Subject + Verb...?', example: 'Does she understand the concept?' },
+              ],
+            },
+            bilingual_examples: [
+              {
+                en: `Mastering ${topicObj.title} provides a solid linguistic foundation.`,
+                vi: `Nắm vững ${topicObj.title_vi} tạo nền tảng ngôn ngữ vững chắc cho giao tiếp học thuật và đời sống.`,
+                note: `Cấp độ CEFR: ${topicObj.level} • Khung bài học chuẩn hóa`,
+              },
+            ],
+          });
+        }
+      } catch (err) {
+        console.error('Failed to load topic theory:', err);
+      } finally {
+        if (isMounted) setTheoryLoading(false);
       }
-    } catch (err) {
-      console.error('[Grammar] submitGrammarProgress:', err);
-      toast.error('Lỗi mạng khi lưu tiến độ. Kiểm tra kết nối rồi thử lại.');
+    };
+
+    loadTheory();
+    return () => {
+      isMounted = false;
+    };
+  }, [selectedTopicSlug]);
+
+  // Filtered topics
+  const filteredTopics = useMemo(() => {
+    let result = UNIFIED_GRAMMAR_TOPICS;
+
+    if (activeLevel !== 'ALL') {
+      result = result.filter((t) => t.level === activeLevel);
     }
-  };
 
-  const scrollQuizTop = () => {
-    // Tránh đề bài bị flex center đẩy ra ngoài viewport (đặc biệt mobile + explanation)
-    requestAnimationFrame(() => {
-      quizScrollRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  };
-
-  const handleNext = () => {
-    const nextIdx = qIndex + 1;
-    if (nextIdx >= exercises.length) {
-      // Tính score cuối từ state hiện tại (đã updated trong handleAnswer)
-      setDone(true);
-
-      // Clear saved progress when completed
-      if (userId) {
-        let key = '';
-        if (reviewMode) key = `lingopro_grammar_state_${userId}_review`;
-        else if (lessonId) key = `lingopro_grammar_state_${userId}_lesson_${lessonId}`;
-        else if (classroomId) key = `lingopro_grammar_state_${userId}_class_${classroomId}`;
-        if (key) localStorage.removeItem(key);
-      }
-
-      const total = score.correct + score.wrong;
-      submitGrammarProgress(score.correct, total);
-      track('grammar_quiz_completed', {
-        correct: score.correct,
-        total,
-        accuracy: total > 0 ? Math.round((score.correct / total) * 100) : 0,
-        mode: reviewMode ? 'review' : lessonId ? 'lesson' : 'classroom',
-      });
-    } else {
-      setQIndex(nextIdx);
-      setCurrent(exercises[nextIdx]);
-      setSelected(null);
-      setTypedAnswer('');
-      setShowExplanation(false);
-      setStartTime(Date.now());
-      answering.current = false;
-      scrollQuizTop();
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase().trim();
+      result = result.filter(
+        (t) =>
+          t.title.toLowerCase().includes(q) ||
+          t.title_vi.toLowerCase().includes(q) ||
+          t.slug.toLowerCase().includes(q) ||
+          t.summary.toLowerCase().includes(q)
+      );
     }
-  };
 
-  /* ── Loading ──────────────────────────────────────────────── */
-  if (isLoading) {
-    return (
-      <main className="min-h-dvh flex items-center justify-center bg-muted/40">
-        <div className="flex flex-col items-center gap-3">
-          <Loader2 className="h-8 w-8 animate-spin text-primary" />
-          <p className="text-muted-foreground animate-pulse">Đang tải bài tập...</p>
-        </div>
-      </main>
-    );
-  }
+    return result;
+  }, [activeLevel, searchQuery]);
 
-  /* ── Empty state ──────────────────────────────────────────── */
-  if ((!classroomId && !lessonId && !reviewMode) || exercises.length === 0) {
-    return (
-      <main className="min-h-dvh flex flex-col items-center justify-center gap-4 bg-muted/40 p-6">
-        <Brain className="h-16 w-16 text-muted-foreground/20" />
-        <h2 className="text-xl font-bold">
-          {reviewMode ? 'Không có câu sai để ôn' : 'Chưa có bài tập'}
-        </h2>
-        {reviewMode ? (
-          <>
-            <p className="text-muted-foreground text-sm text-center max-w-xs">
-              Bạn chưa làm sai câu nào trong 14 ngày qua. Tuyệt vời! 🎉
-            </p>
-            <Link href="/grammar/learn">
-              <button className="bg-primary text-white px-6 py-3 rounded-xl font-semibold hover:bg-primary/90 transition-colors">
-                Học bài mới
-              </button>
-            </Link>
-          </>
-        ) : lessonId ? (
-          <>
-            <p className="text-muted-foreground text-sm text-center max-w-xs">
-              Bài học này chưa có bài tập ngữ pháp được tải lên.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 w-full max-w-sm">
-              <Link href="/grammar/learn" className="w-full">
-                <button className="w-full border px-6 py-3 rounded-xl font-semibold hover:bg-muted transition-colors text-sm">
-                  ← Quay lại trang học
+  const activeTopic = selectedTopicSlug ? getTopicBySlug(selectedTopicSlug) : null;
+
+  return (
+    <main className="min-h-dvh bg-background text-foreground flex flex-col">
+      {/* Top Banner / Hero */}
+      <section className="border-b border-border bg-card px-4 py-8 sm:py-12">
+        <div className="max-w-5xl mx-auto flex flex-col gap-6">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div>
+              <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-muted-foreground mb-2">
+                <span className="px-1.5 py-0.5 border border-border bg-muted/30">Lộ trình chuẩn hóa</span>
+                <span>•</span>
+                <span>62 Chủ điểm CEFR A0 – B2</span>
+              </div>
+              <h1 className="text-3xl sm:text-4xl font-bold text-foreground">
+                Lộ trình Ngữ pháp Tiếng Anh Toàn diện
+              </h1>
+              <p className="text-sm sm:text-base text-muted-foreground mt-2 max-w-2xl leading-relaxed">
+                Hệ thống 62 chủ điểm ngữ pháp từ căn bản (A0) tới nâng cao học thuật (B2), xây dựng
+                theo khung năng lực Châu Âu và tiêu chuẩn giảng dạy ngữ pháp ứng dụng.
+              </p>
+            </div>
+
+            {/* Quick Actions */}
+            <div className="flex items-center gap-2 shrink-0">
+              <Link href="/grammar/practice?mode=review">
+                <button className="border border-border bg-card hover:bg-muted text-foreground px-4 py-2.5 font-mono text-xs uppercase tracking-wider font-semibold rounded-none flex items-center gap-2 transition-colors">
+                  <RotateCcw className="h-3.5 w-3.5 text-primary" />
+                  Ôn câu sai (14 ngày)
                 </button>
               </Link>
             </div>
-          </>
-        ) : (
-          <>
-            <p className="text-muted-foreground text-sm text-center max-w-xs">
-              Giáo viên chưa tạo bài tập grammar cho lớp này.
-            </p>
-            <Link href="/student">
-              <button className="bg-primary text-white px-6 py-3 rounded-xl font-semibold hover:bg-primary/90 transition-colors">
-                Về Dashboard
+          </div>
+
+          {/* Search bar */}
+          <div className="relative w-full">
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Tìm kiếm theo tên chủ điểm, quy tắc (ví dụ: to be, present simple, mệnh đề, câu chẻ)..."
+              className="w-full border border-border bg-background pl-10 pr-10 py-3 rounded-none font-mono text-sm focus:outline-none focus:border-foreground transition-colors"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery('')}
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-muted-foreground hover:text-foreground"
+              >
+                <X className="h-4 w-4" />
               </button>
-            </Link>
-          </>
-        )}
-      </main>
-    );
-  }
-
-  /* ── Done / Score card ────────────────────────────────────── */
-  if (done) {
-    return (
-      <ScoreCard
-        correct={score.correct}
-        total={score.correct + score.wrong}
-        onRetry={handleRetry}
-        backHref={reviewMode ? '/grammar/learn' : lessonId ? '/grammar/learn' : '/student'}
-      />
-    );
-  }
-
-  if (!current) return null;
-
-  // An toàn: options null/undefined → []; error_correction chỉ khi click-trong-câu khả thi
-  const options = Array.isArray(current.options) ? current.options : [];
-  const useErrorClick = current.type === 'error_correction' && canUseErrorClickMode(current.question, options);
-  const answersMatch = (a: string | null, b: string | undefined) =>
-    isGrammarAnswerCorrect(a || '', b || '', options);
-  const isCorrectSelected = answersMatch(selected, current.correct_answer);
-
-  /* ── Quiz ─────────────────────────────────────────────────── */
-  return (
-    <main className="flex h-dvh max-h-dvh min-h-0 flex-col overflow-hidden bg-gradient-to-br from-primary/5 to-muted/40">
-      {/* Flash overlay */}
-      <FeedbackFlash type={flash} />
-
-      {/* Header */}
-      <header className="flex items-center justify-between p-4 sm:p-6">
-        <Link href={reviewMode || lessonId ? '/grammar/learn' : '/student'}>
-          <button className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-            <ChevronLeft className="h-4 w-4" /> Back
-          </button>
-        </Link>
-        <h1 className="flex items-center gap-2 font-bold text-primary text-base">
-          <Brain className="h-5 w-5" /> {reviewMode ? 'Ôn câu sai' : 'Grammar Drill'}
-        </h1>
-        {/* Score badges */}
-        <div className="flex gap-2">
-          <span className="bg-emerald-50 text-emerald-700 text-xs font-bold px-2.5 py-1 rounded-xl flex items-center gap-1">
-            <CheckCircle2 className="h-3.5 w-3.5" /> {score.correct}
-          </span>
-          <span className="bg-red-50 text-red-700 text-xs font-bold px-2.5 py-1 rounded-xl flex items-center gap-1">
-            <XCircle className="h-3.5 w-3.5" /> {score.wrong}
-          </span>
-        </div>
-      </header>
-
-      {/* Progress bar — tính dựa trên câu đã làm xong (sau khi selected) */}
-      <ProgressBar
-        current={selected ? qIndex + 1 : qIndex}
-        total={exercises.length}
-      />
-
-      <div
-        ref={quizScrollRef}
-        className="min-h-0 flex-1 overflow-y-auto overscroll-contain"
-      >
-      <div className="mx-auto flex min-h-full w-full max-w-lg flex-col items-stretch justify-start gap-5 p-4 pb-10 sm:p-8">
-        {/* Question card — key ép remount khi đổi câu, tránh state UI cũ */}
-        <div
-          key={current.id || `q-${qIndex}`}
-          className={[
-            'w-full bg-background border rounded-2xl p-6 shadow-2xl shadow-primary/10 transition-all duration-300',
-            selected
-              ? isCorrectSelected
-                ? 'border-emerald-400 shadow-emerald-100'
-                : 'border-red-300 shadow-red-100'
-              : '',
-          ].join(' ')}
-        >
-          <div className="flex items-center justify-between mb-3">
-            <div className="flex items-center gap-2">
-              <p className="text-xs font-bold text-primary uppercase tracking-widest">
-                Câu {qIndex + 1}/{exercises.length} · {current.topic}
-                {useErrorClick && ' · TÌM LỖI'}
-                {current.type === 'fill_blank' && ' · ĐIỀN CHỖ TRỐNG'}
-              </p>
-              {/* Chỉ hiện nút nghe khi câu có đoạn tiếng Anh — không TTS tiếng Việt bằng giọng EN */}
-              {extractEnglishForSpeech(current.question) && (
-                <button
-                  type="button"
-                  onClick={() => speakEnglish(current.question)}
-                  className="h-6 w-6 flex items-center justify-center rounded-full border border-primary/30 text-primary hover:bg-primary hover:text-white transition-colors"
-                  title="Nghe phát âm tiếng Anh"
-                >
-                  <Volume2 className="h-3 w-3" />
-                </button>
-              )}
-            </div>
-            {/* Feedback icon ngay trên card */}
-            {selected && (
-              <span className={[
-                'flex items-center gap-1 text-xs font-bold px-2 py-0.5 rounded-lg',
-                isCorrectSelected
-                  ? 'bg-emerald-100 text-emerald-700'
-                  : 'bg-red-100 text-red-700',
-              ].join(' ')}>
-                {isCorrectSelected
-                  ? <><CheckCircle2 className="h-3.5 w-3.5" /> Đúng!</>
-                  : <><XCircle className="h-3.5 w-3.5" /> Sai</>}
-              </span>
             )}
           </div>
 
-          {useErrorClick ? (
-            <>
-              <p className="text-xs text-muted-foreground mb-2 italic">
-                🔍 Click vào từ <b>SAI</b> trong câu dưới đây:
-              </p>
-              <ErrorCorrectionSentence
-                sentence={current.question}
-                options={options}
-                selected={selected}
-                correctAnswer={current.correct_answer}
-                onSelect={handleAnswer}
-              />
-            </>
-          ) : (
-            <p className="text-lg font-bold text-foreground leading-relaxed">
-              {renderRichText(current.question)}
-            </p>
-          )}
-        </div>
-
-        {/* Choices — MCQ / fill / error dạng chọn câu. error click-mode tự chọn trong câu. */}
-        {!useErrorClick && (
-          options.length === 0 ? (
-            <div className="w-full space-y-3">
-              <input
-                type="text"
-                className={[
-                  "w-full px-5 py-4 rounded-xl border text-sm font-medium focus:outline-none focus:ring-2 transition-all duration-200",
-                  selected
-                    ? isCorrectSelected
-                      ? "border-emerald-400 bg-emerald-50 text-emerald-950 focus:ring-emerald-200"
-                      : "border-red-400 bg-red-50 text-red-950 focus:ring-red-200"
-                    : "border-muted bg-background text-foreground focus:border-primary focus:ring-primary/20"
-                ].join(' ')}
-                placeholder="Nhập đáp án của bạn..."
-                value={typedAnswer}
-                onChange={(e) => setTypedAnswer(e.target.value)}
-                disabled={!!selected}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' && typedAnswer.trim()) {
-                    handleAnswer(typedAnswer.trim());
-                  }
-                }}
-              />
-              {!selected && (
+          {/* Level Filter Tabs */}
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 border-b border-border/40 scrollbar-none">
+            <button
+              onClick={() => setActiveLevel('ALL')}
+              className={`px-3.5 py-2 font-mono text-xs uppercase tracking-wider font-medium rounded-none border transition-colors whitespace-nowrap ${
+                activeLevel === 'ALL'
+                  ? 'border-foreground bg-foreground text-background font-bold'
+                  : 'border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              Tất cả (62)
+            </button>
+            {GRAMMAR_STAGES.map((stg) => {
+              const isActive = activeLevel === stg.id;
+              return (
                 <button
-                  type="button"
-                  onClick={() => handleAnswer(typedAnswer.trim())}
-                  disabled={!typedAnswer.trim()}
-                  className="w-full bg-primary text-white font-bold py-3.5 rounded-xl hover:bg-primary/90 transition-colors disabled:opacity-50"
+                  key={stg.id}
+                  onClick={() => setActiveLevel(stg.id)}
+                  className={`px-3.5 py-2 font-mono text-xs uppercase tracking-wider font-medium rounded-none border transition-colors whitespace-nowrap flex items-center gap-1.5 ${
+                    isActive
+                      ? 'border-foreground bg-foreground text-background font-bold'
+                      : 'border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground'
+                  }`}
                 >
-                  Xác nhận
+                  <span className="font-bold">{stg.id}</span>
+                  <span className="hidden sm:inline opacity-80">— {stg.nameVi}</span>
+                  <span className="text-[10px] opacity-60">({stg.topicCount})</span>
                 </button>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Main Roadmap Grid */}
+      <section className="max-w-5xl w-full mx-auto px-4 py-8 flex-1">
+        {filteredTopics.length === 0 ? (
+          <div className="border border-border p-12 text-center bg-card rounded-none flex flex-col items-center justify-center gap-4">
+            <Search className="h-8 w-8 text-muted-foreground/40" />
+            <h3 className="font-serif font-bold text-lg">Không tìm thấy chủ điểm phù hợp</h3>
+            <p className="text-sm text-muted-foreground max-w-sm">
+              Không có chủ điểm ngữ pháp nào khớp với từ khóa &ldquo;{searchQuery}&rdquo;. Vui lòng thử từ khóa khác.
+            </p>
+            <button
+              onClick={() => {
+                setSearchQuery('');
+                setActiveLevel('ALL');
+              }}
+              className="mt-2 border border-border px-4 py-2 font-mono text-xs uppercase tracking-wider font-semibold rounded-none hover:bg-muted"
+            >
+              Xóa bộ lọc
+            </button>
+          </div>
+        ) : (
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center justify-between text-xs font-mono text-muted-foreground">
+              <span>HIỂN THỊ {filteredTopics.length} / 62 CHỦ ĐIỂM</span>
+              {activeLevel !== 'ALL' && (
+                <span className="uppercase">CẤP ĐỘ {activeLevel}</span>
               )}
             </div>
-          ) : (
-            <div className="grid w-full grid-cols-1 gap-3">
-              {options.map((opt, i) => {
-                const cleanOpt = opt.replace(/^[A-D]\.\s*/i, '').trim();
-                const letter = String.fromCharCode(65 + i);
-                const isCorrect = isOptionMatchingCorrect(opt, i, current.correct_answer);
-                const isSelected = selected
-                  ? isGrammarAnswerCorrect(selected, opt, options) ||
-                    selected.trim().toLowerCase() === opt.trim().toLowerCase() ||
-                    selected.trim().toLowerCase() === cleanOpt.toLowerCase()
-                  : false;
-                let cn = 'w-full text-left h-auto py-4 px-5 rounded-xl border text-sm font-medium transition-all duration-200 ';
-                if (selected) {
-                  if (isCorrect) {
-                    cn += 'bg-emerald-50 border-emerald-400 text-emerald-800 shadow-sm ';
-                  } else if (isSelected) {
-                    cn += 'bg-red-50 border-red-400 text-red-800 ';
-                  } else {
-                    cn += 'opacity-40 border-muted bg-background ';
-                  }
-                } else {
-                  cn += 'bg-background hover:bg-primary/5 hover:border-primary/40 border-muted hover:shadow-sm cursor-pointer ';
-                }
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+              {filteredTopics.map((topic) => {
+                const isSelected = selectedTopicSlug === topic.slug;
+                const pInfo = progressMap[topic.slug];
+                const isCompleted = pInfo && pInfo.completed_lessons > 0;
 
                 return (
-                  <button
-                    key={`${opt}-${i}`}
-                    className={cn}
-                    onClick={() => handleAnswer(cleanOpt)}
-                    disabled={!!selected}
+                  <div
+                    key={topic.slug}
+                    className={`border p-5 bg-card rounded-none transition-all flex flex-col justify-between gap-4 ${
+                      isSelected
+                        ? 'border-primary ring-1 ring-primary'
+                        : 'border-border hover:border-foreground/40'
+                    }`}
                   >
-                    <div className="flex items-center gap-3">
-                      <span className="text-xs font-bold text-muted-foreground w-5 shrink-0">
-                        {letter}
-                      </span>
-                      <span className="flex-1">{cleanOpt}</span>
-                      {selected && isCorrect && (
-                        <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
-                      )}
-                      {selected && isSelected && !isCorrect && (
-                        <XCircle className="h-4 w-4 text-red-600 shrink-0" />
+                    <div>
+                      {/* Card Header */}
+                      <div className="flex items-center justify-between gap-2 mb-2">
+                        <div className="flex items-center gap-2">
+                          <span className="font-mono text-xs font-bold text-muted-foreground">
+                            #{topic.order < 10 ? '0' : ''}
+                            {topic.order}
+                          </span>
+                          <span className="font-mono text-[10px] font-bold uppercase px-1.5 py-0.5 border border-border bg-muted/30">
+                            {topic.level}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-1.5 text-xs font-mono text-muted-foreground">
+                          <Clock className="h-3 w-3" />
+                          <span>{topic.estimatedMinutes} phút</span>
+                        </div>
+                      </div>
+
+                      {/* Titles */}
+                      <h2 className="text-base font-serif font-bold text-foreground leading-snug">
+                        {topic.title}
+                      </h2>
+                      <div className="text-xs text-muted-foreground mt-0.5 font-medium">
+                        {topic.title_vi}
+                      </div>
+
+                      {/* Summary */}
+                      <p className="text-xs text-muted-foreground/90 mt-2.5 leading-relaxed line-clamp-2">
+                        <FormattedText text={topic.summary} />
+                      </p>
+                    </div>
+
+                    {/* Card Actions */}
+                    <div className="pt-3 border-t border-border/40 flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2">
+                        <button
+                          onClick={() => setSelectedTopicSlug(topic.slug)}
+                          className="border border-border hover:border-foreground bg-background hover:bg-muted text-foreground px-3 py-1.5 font-mono text-xs uppercase tracking-wider font-semibold rounded-none flex items-center gap-1.5 transition-colors"
+                        >
+                          <BookOpen className="h-3.5 w-3.5 text-primary" />
+                          <span>Học lý thuyết</span>
+                        </button>
+                        <Link href={`/grammar/practice?topic=${encodeURIComponent(topic.slug)}`}>
+                          <button className="bg-primary text-primary-foreground border border-primary hover:bg-primary/90 px-3 py-1.5 font-mono text-xs uppercase tracking-wider font-semibold rounded-none flex items-center gap-1.5 transition-colors">
+                            <Dumbbell className="h-3.5 w-3.5" />
+                            <span>Luyện tập</span>
+                          </button>
+                        </Link>
+                      </div>
+
+                      {isCompleted && (
+                        <div
+                          className="flex items-center gap-1 text-[11px] font-mono text-emerald-600 dark:text-emerald-400"
+                          title="Đã luyện tập chủ điểm này"
+                        >
+                          <CheckCircle2 className="h-3.5 w-3.5" />
+                          <span className="hidden sm:inline">Đã học</span>
+                        </div>
                       )}
                     </div>
-                  </button>
+                  </div>
                 );
               })}
             </div>
-          )
-        )}
-
-        {/* Explanation — sau khi đã chọn, ưu tiên hiển thị comparison nếu sai */}
-        {showExplanation && selected && (
-          <div className="w-full space-y-2 animate-in fade-in slide-in-from-bottom-4 duration-300">
-            {/* So sánh đáp án của bạn vs đáp án đúng — chỉ khi sai */}
-            {!isCorrectSelected && (
-              <div className="bg-red-50 border border-red-200 rounded-2xl p-4">
-                <div className="grid grid-cols-2 gap-3 text-sm">
-                  <div>
-                    <p className="text-xs font-bold text-red-700 mb-1 flex items-center gap-1">
-                      <XCircle className="h-3.5 w-3.5" /> Bạn chọn
-                    </p>
-                    <p className="font-mono bg-white border border-red-200 rounded-lg px-2 py-1 text-red-900 break-words">
-                      {selected}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold text-emerald-700 mb-1 flex items-center gap-1">
-                      <CheckCircle2 className="h-3.5 w-3.5" /> Đáp án đúng
-                    </p>
-                    <p className="font-mono bg-white border border-emerald-200 rounded-lg px-2 py-1 text-emerald-900 break-words">
-                      {current.correct_answer}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Lý giải ngữ pháp — luôn hiển thị nếu có explanation */}
-            {current.explanation && (
-              <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4">
-                <div className="flex items-start gap-3">
-                  <Lightbulb className="h-5 w-5 text-amber-600 shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-xs font-bold text-amber-800 mb-1">
-                      {isCorrectSelected ? 'Vì sao đúng' : 'Phân tích'}
-                    </p>
-                    <p className="text-sm text-amber-900 leading-relaxed whitespace-pre-wrap">
-                      {current.explanation}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
           </div>
         )}
+      </section>
 
-        {/* Next button — chỉ hiện sau khi đã chọn */}
-        {selected && (
-          <button
-            onClick={handleNext}
-            className="w-full bg-primary text-white font-bold py-4 rounded-xl hover:bg-primary/90 active:translate-y-0.5 transition-all animate-in fade-in duration-300"
-          >
-            {qIndex + 1 >= exercises.length ? 'Xem kết quả →' : 'Tiếp theo →'}
-          </button>
-        )}
-      </div>
-      </div>
+      {/* Slide-over Theory Drawer / Modal */}
+      {selectedTopicSlug && activeTopic && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-background/80 backdrop-blur-sm">
+          <div className="border border-border bg-card w-full max-w-4xl max-h-[85vh] rounded-none flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+            {/* Drawer Header */}
+            <div className="border-b border-border p-4 sm:p-6 flex items-start justify-between gap-4 bg-muted/10">
+              <div>
+                <div className="flex items-center gap-2 font-mono text-xs uppercase text-muted-foreground mb-1">
+                  <span>#{activeTopic.order < 10 ? '0' : ''}{activeTopic.order}</span>
+                  <span>•</span>
+                  <span className="px-1.5 py-0.2 border border-border bg-muted/40 font-bold">
+                    {activeTopic.level}
+                  </span>
+                  <span>•</span>
+                  <span>{activeTopic.stageLabel}</span>
+                </div>
+                <h2 className="text-xl sm:text-2xl font-serif font-bold text-foreground">
+                  {activeTopic.title}
+                </h2>
+                <div className="text-sm text-muted-foreground mt-0.5">
+                  {activeTopic.title_vi}
+                </div>
+              </div>
+              <button
+                onClick={() => setSelectedTopicSlug(null)}
+                className="p-1.5 border border-border rounded-none hover:bg-muted text-muted-foreground hover:text-foreground"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            {/* Theory Tabs */}
+            <div className="border-b border-border flex bg-muted/20 px-4 sm:px-6 overflow-x-auto">
+              <button
+                onClick={() => setTheoryTab('theory')}
+                className={`py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-b-2 transition-colors shrink-0 ${
+                  theoryTab === 'theory'
+                    ? 'border-foreground text-foreground font-bold'
+                    : 'border-transparent text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                Lý thuyết cốt lõi
+              </button>
+              <button
+                onClick={() => setTheoryTab('table')}
+                className={`py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-b-2 transition-colors shrink-0 ${
+                  theoryTab === 'table'
+                    ? 'border-foreground text-foreground font-bold'
+                    : 'border-transparent text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                Bảng tra cứu
+              </button>
+              <button
+                onClick={() => setTheoryTab('video')}
+                className={`py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-b-2 transition-colors shrink-0 flex items-center gap-1.5 ${
+                  theoryTab === 'video'
+                    ? 'border-foreground text-foreground font-bold'
+                    : 'border-transparent text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                <PlayCircle className="h-3.5 w-3.5 text-rose-600" />
+                <span>Video bài giảng</span>
+              </button>
+              <button
+                onClick={() => setTheoryTab('examples')}
+                className={`py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-b-2 transition-colors shrink-0 ${
+                  theoryTab === 'examples'
+                    ? 'border-foreground text-foreground font-bold'
+                    : 'border-transparent text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                Ví dụ song ngữ
+              </button>
+              <button
+                onClick={() => setTheoryTab('media')}
+                className={`py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-b-2 transition-colors shrink-0 ${
+                  theoryTab === 'media'
+                    ? 'border-foreground text-foreground font-bold'
+                    : 'border-transparent text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                Hình ảnh thực tế ({((topicAssetsData as Record<string, any[]>)[activeTopic.slug] || []).length})
+              </button>
+            </div>
+
+            {/* Drawer Content */}
+            <div className="p-4 sm:p-6 overflow-y-auto flex-1 text-sm space-y-6">
+              {theoryLoading ? (
+                <div className="py-12 flex flex-col items-center justify-center gap-2">
+                  <Loader2 className="h-6 w-6 animate-spin text-primary" />
+                  <span className="font-mono text-xs text-muted-foreground uppercase">
+                    Đang nạp dữ liệu bài học...
+                  </span>
+                </div>
+              ) : theoryTab === 'video' ? (
+                <GrammarVideoPlayer
+                  topicSlug={activeTopic.slug}
+                  topicTitle={activeTopic.title}
+                  topicTitleVi={activeTopic.title_vi}
+                />
+              ) : theoryTab === 'table' ? (
+                <GrammarReferenceTable
+                  topicSlug={activeTopic.slug}
+                  topicTitle={activeTopic.title}
+                  topicTitleVi={activeTopic.title_vi}
+                  topicSummary={activeTopic.summary}
+                  theoryData={theoryData}
+                />
+              ) : theoryTab === 'theory' ? (
+                <>
+                  {/* Definition */}
+                  <div className="border border-border p-4 bg-background">
+                    <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-1 flex items-center gap-1.5">
+                      <Info className="h-3.5 w-3.5 text-primary" />
+                      Định nghĩa & Bản chất
+                    </div>
+                    <p className="text-foreground leading-relaxed mt-1 font-serif text-base">
+                      <FormattedText text={theoryData?.definition || activeTopic.summary} />
+                    </p>
+                  </div>
+
+                  {/* Usage Points */}
+                  {theoryData?.usage && theoryData.usage.length > 0 && (
+                    <div className="space-y-2">
+                      <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
+                        Quy tắc & Ngữ cảnh áp dụng
+                      </div>
+                      <div className="grid grid-cols-1 gap-2">
+                        {theoryData.usage.map((u, i) => (
+                          <div key={i} className="border border-border p-3 bg-muted/10 flex flex-col gap-1">
+                            <span className="font-mono text-xs font-semibold text-primary">
+                              <FormattedText text={u.label} />
+                            </span>
+                            <span className="font-medium text-foreground">
+                              <FormattedText text={u.en} />
+                            </span>
+                            <span className="text-xs text-muted-foreground">
+                              <FormattedText text={u.vi} />
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Formulas */}
+                  {theoryData?.formula?.rows && theoryData.formula.rows.length > 0 && (
+                    <div className="space-y-2">
+                      <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
+                        Bảng công thức chuẩn
+                      </div>
+                      <div className="border border-border overflow-x-auto">
+                        <table className="w-full text-left font-mono text-xs">
+                          <thead className="bg-muted/30 border-b border-border text-muted-foreground uppercase">
+                            <tr>
+                              <th className="p-2.5">Dạng</th>
+                              <th className="p-2.5">Cấu trúc</th>
+                              <th className="p-2.5">Ví dụ</th>
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-border/60">
+                            {theoryData.formula.rows.map((r, i) => (
+                              <tr key={i} className="hover:bg-muted/10">
+                                <td className="p-2.5 font-semibold text-primary">
+                                  <FormattedText text={r.form} />
+                                </td>
+                                <td className="p-2.5 font-bold text-foreground">
+                                  <FormattedText text={r.structure || r.base} />
+                                </td>
+                                <td className="p-2.5 text-muted-foreground">
+                                  <FormattedText text={r.example} />
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  )}
+                </>
+              ) : theoryTab === 'media' ? (
+                <div className="space-y-4">
+                  <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground pb-2 border-b border-border/40">
+                    <span>Hình ảnh & Tình huống thực tế</span>
+                  </div>
+                  {((topicAssetsData as Record<string, any[]>)[activeTopic.slug] || []).length > 0 ? (
+                    ((topicAssetsData as Record<string, any[]>)[activeTopic.slug] || []).map((asset, i) => (
+                      <VettedMediaCard
+                        key={i}
+                        imageUrl={asset.image}
+                        imageAlt={asset.imageAlt}
+                        caption={asset.caption}
+                        rule={asset.usageAnalysisVi?.rule}
+                        contextReason={asset.usageAnalysisVi?.contextReason}
+                        commonMistake={asset.usageAnalysisVi?.commonMistake}
+                        audioUrl={asset.audio}
+                        initialExpanded={true}
+                      />
+                    ))
+                  ) : (
+                    <p className="text-xs text-muted-foreground py-4">
+                      Tư liệu trực quan cho chủ điểm này đang được chuẩn hóa bổ sung.
+                    </p>
+                  )}
+                </div>
+              ) : (
+                <div className="space-y-3">
+                  <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
+                    Câu ví dụ đối chiếu ngữ pháp
+                  </div>
+                  {theoryData?.bilingual_examples && theoryData.bilingual_examples.length > 0 ? (
+                    theoryData.bilingual_examples.map((ex, i) => (
+                      <div key={i} className="border border-border p-3.5 bg-background space-y-1">
+                        <div className="font-semibold text-foreground text-sm font-serif">
+                          <FormattedText text={ex.en} />
+                        </div>
+                        <div className="text-xs text-muted-foreground">
+                          <FormattedText text={ex.vi} />
+                        </div>
+                        {ex.note && (
+                          <div className="text-[11px] font-mono text-primary/80 pt-1 border-t border-border/40 mt-1">
+                            Ghi chú: <FormattedText text={ex.note} />
+                          </div>
+                        )}
+                      </div>
+                    ))
+                  ) : (
+                    <p className="text-xs text-muted-foreground">
+                      Ví dụ song ngữ đang được biên soạn chi tiết cho chủ điểm này.
+                    </p>
+                  )}
+                </div>
+              )}
+            </div>
+
+            {/* Drawer Footer CTA */}
+            <div className="border-t border-border p-4 bg-card flex items-center justify-between gap-3">
+              <button
+                onClick={() => setSelectedTopicSlug(null)}
+                className="border border-border px-4 py-2.5 font-mono text-xs uppercase tracking-wider font-semibold rounded-none hover:bg-muted text-muted-foreground hover:text-foreground"
+              >
+                Đóng
+              </button>
+              <Link href={`/grammar/practice?topic=${encodeURIComponent(activeTopic.slug)}`}>
+                <button className="bg-primary text-primary-foreground border border-primary hover:bg-primary/90 px-6 py-2.5 font-mono text-xs uppercase tracking-wider font-semibold rounded-none flex items-center gap-2">
+                  <span>Bắt đầu luyện tập</span>
+                  <ChevronRight className="h-4 w-4" />
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
 
 export default function GrammarPage() {
   return (
-    <Suspense fallback={
-      <div className="min-h-dvh flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
-      </div>
-    }>
-      <GrammarContent />
+    <Suspense
+      fallback={
+        <main className="min-h-dvh flex flex-col items-center justify-center p-6 bg-background">
+          <div className="flex flex-col items-center gap-3">
+            <Loader2 className="h-6 w-6 animate-spin text-primary" />
+            <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
+              Đang tải lộ trình ngữ pháp...
+            </span>
+          </div>
+        </main>
+      }
+    >
+      <GrammarRoadmapContent />
     </Suspense>
   );
 }

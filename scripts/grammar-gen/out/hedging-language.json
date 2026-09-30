@@ -2,10 +2,10 @@
   "slug": "hedging-language",
   "title": "Hedging Language",
   "title_vi": "Ngôn ngữ rào đón (hedging)",
-  "level": "advanced",
+  "level": "B2",
   "order": 61,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **modal + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **modal + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -400,9 +400,125 @@
     "definition": "**Ngôn ngữ rào đón (Hedging Language)** là việc sử dụng các từ hoặc cụm từ để giảm bớt tính chắc chắn hoặc mạnh mẽ của một phát ngôn, giúp thể hiện sự lịch sự, khiêm tốn hoặc duy trì khoảng cách chuyên nghiệp. Chúng ta dùng hedging để làm cho lời nói hoặc văn viết trở nên mềm mại, ít mang tính khẳng định tuyệt đối hơn."
   },
   "exercises": [
-    {"type":"multiple_choice","question":"Cách nói nào thể hiện sự chưa chắc chắn?","options":["This is certainly the only cause.","This might be one cause.","This must be the only cause."],"correct_answer":"This might be one cause.","explanation":"Might làm giảm mức độ chắc chắn của nhận định."},
-    {"type":"multiple_choice","question":"___, the results suggest a small improvement.","options":["It seems that","It proves beyond doubt that","It guarantees that"],"correct_answer":"It seems that","explanation":"It seems that báo hiệu kết luận thận trọng."},
-    {"type":"multiple_choice","question":"Chọn câu lịch sự hơn khi góp ý.","options":["Your plan is wrong.","Your plan may need some changes.","Your plan can never work."],"correct_answer":"Your plan may need some changes.","explanation":"May need làm lời góp ý mềm hơn mà vẫn rõ ý."},
-    {"type":"multiple_choice","question":"Từ nào là dấu hiệu rào đón?","options":["definitely","perhaps","always"],"correct_answer":"perhaps","explanation":"Perhaps nghĩa là có lẽ, không khẳng định tuyệt đối."}
+    {
+      "id": "hedging-language-ex-01",
+      "type": "multiple_choice",
+      "question": "Cách nói nào thể hiện sự chưa chắc chắn?",
+      "options": [
+        "This is certainly the only cause.",
+        "This might be one cause.",
+        "This must be the only cause."
+      ],
+      "correct_answer": "This might be one cause.",
+      "explanation": "Might làm giảm mức độ chắc chắn của nhận định.",
+      "distractor_breakdowns": [
+        {
+          "option": "This is certainly the only cause.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"This is certainly the only cause.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "This might be one cause.",
+          "isCorrect": true,
+          "pedagogicalReason": "Might làm giảm mức độ chắc chắn của nhận định."
+        },
+        {
+          "option": "This must be the only cause.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"This must be the only cause.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "hedging-language-ex-02",
+      "type": "multiple_choice",
+      "question": "___, the results suggest a small improvement.",
+      "options": [
+        "It seems that",
+        "It proves beyond doubt that",
+        "It guarantees that"
+      ],
+      "correct_answer": "It seems that",
+      "explanation": "It seems that báo hiệu kết luận thận trọng.",
+      "distractor_breakdowns": [
+        {
+          "option": "It seems that",
+          "isCorrect": true,
+          "pedagogicalReason": "It seems that báo hiệu kết luận thận trọng."
+        },
+        {
+          "option": "It proves beyond doubt that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"It proves beyond doubt that\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "It guarantees that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"It guarantees that\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "hedging-language-ex-03",
+      "type": "multiple_choice",
+      "question": "Chọn câu lịch sự hơn khi góp ý.",
+      "options": [
+        "Your plan is wrong.",
+        "Your plan may need some changes.",
+        "Your plan can never work."
+      ],
+      "correct_answer": "Your plan may need some changes.",
+      "explanation": "May need làm lời góp ý mềm hơn mà vẫn rõ ý.",
+      "distractor_breakdowns": [
+        {
+          "option": "Your plan is wrong.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Your plan is wrong.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        },
+        {
+          "option": "Your plan may need some changes.",
+          "isCorrect": true,
+          "pedagogicalReason": "May need làm lời góp ý mềm hơn mà vẫn rõ ý."
+        },
+        {
+          "option": "Your plan can never work.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Your plan can never work.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "hedging-language-ex-04",
+      "type": "multiple_choice",
+      "question": "Từ nào là dấu hiệu rào đón?",
+      "options": [
+        "definitely",
+        "perhaps",
+        "always"
+      ],
+      "correct_answer": "perhaps",
+      "explanation": "Perhaps nghĩa là có lẽ, không khẳng định tuyệt đối.",
+      "distractor_breakdowns": [
+        {
+          "option": "definitely",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"definitely\" là trạng từ (adverb), không thể đứng trước danh từ hoặc làm bổ ngữ sau linking verb thay cho tính từ."
+        },
+        {
+          "option": "perhaps",
+          "isCorrect": true,
+          "pedagogicalReason": "Perhaps nghĩa là có lẽ, không khẳng định tuyệt đối."
+        },
+        {
+          "option": "always",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"always\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 3
+    }
   ]
 }

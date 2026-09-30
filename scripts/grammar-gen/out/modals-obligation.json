@@ -2,10 +2,10 @@
   "slug": "modals-obligation",
   "title": "Modals: Obligation (must/have to)",
   "title_vi": "Khuyết thiếu: bắt buộc (must/have to)",
-  "level": "beginner",
+  "level": "A2",
   "order": 26,
   "sections": {
-    "tips": "**Mẹo nhớ:** học mẫu **S + must + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
+    "tips": "**Lưu ý trọng tâm:** học mẫu **S + must + V** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
       {
         "case": "Chọn cấu trúc theo ý nghĩa",
@@ -364,25 +364,76 @@
   },
   "exercises": [
     {
-      "type": "fill",
-      "q": "Children ____ play with matches. (mustn't / needn't)",
-      "opts": [],
-      "answer": "mustn't",
-      "fb": "nguy hiểm nên cấm hẳn → mustn't"
+      "id": "modals-obligation-ex-01",
+      "type": "multiple_choice",
+      "question": "Children ____ play with matches. (mustn't / needn't)",
+      "options": [
+        "mustn't",
+        "needn't"
+      ],
+      "correct_answer": "mustn't",
+      "explanation": "nguy hiểm nên cấm hẳn → mustn't",
+      "distractor_breakdowns": [
+        {
+          "option": "mustn't",
+          "isCorrect": true,
+          "pedagogicalReason": "nguy hiểm nên cấm hẳn → mustn't"
+        },
+        {
+          "option": "needn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"needn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "It's Sunday tomorrow, so I ____ get up early. (needn't / mustn't)",
-      "opts": [],
-      "answer": "needn't",
-      "fb": "chủ nhật nghỉ nên khỏi cần dậy sớm, không phải cấm"
+      "id": "modals-obligation-ex-02",
+      "type": "multiple_choice",
+      "question": "It's Sunday tomorrow, so I ____ get up early. (needn't / mustn't)",
+      "options": [
+        "needn't",
+        "mustn't"
+      ],
+      "correct_answer": "needn't",
+      "explanation": "chủ nhật nghỉ nên khỏi cần dậy sớm, không phải cấm",
+      "distractor_breakdowns": [
+        {
+          "option": "needn't",
+          "isCorrect": true,
+          "pedagogicalReason": "chủ nhật nghỉ nên khỏi cần dậy sớm, không phải cấm"
+        },
+        {
+          "option": "mustn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"mustn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 1
     },
     {
-      "type": "fill",
-      "q": "You ____ take photos in this museum. Look at the sign. (mustn't / needn't)",
-      "opts": [],
-      "answer": "mustn't",
-      "fb": "có biển cấm → mustn't"
+      "id": "modals-obligation-ex-03",
+      "type": "multiple_choice",
+      "question": "You ____ take photos in this museum. Look at the sign. (mustn't / needn't)",
+      "options": [
+        "mustn't",
+        "needn't"
+      ],
+      "correct_answer": "mustn't",
+      "explanation": "có biển cấm → mustn't",
+      "distractor_breakdowns": [
+        {
+          "option": "mustn't",
+          "isCorrect": true,
+          "pedagogicalReason": "có biển cấm → mustn't"
+        },
+        {
+          "option": "needn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"needn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+        }
+      ],
+      "difficulty": 2
     }
   ]
 }
