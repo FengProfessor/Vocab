@@ -84,3 +84,13 @@ crawlers/
 !src/data/toeic/datasets/
 *.mp4
 supabase/.temp/
+
+# Generated Python bytecode and browser/backup reports
+__pycache__/
+*.py[cod]
+/test-results/
+/playwright-report/
+/lingopro_backup_*.sql*
+/scripts/logs/*.out
+/scripts/logs/*.err
+/scripts/lists/_staging/*.err
