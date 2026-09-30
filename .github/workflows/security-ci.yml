@@ -124,6 +124,8 @@ jobs:
           node tests/deploy/ssh-render.test.mjs
       - name: Build application
         run: npm run build
+      - name: Session boundary behind production reverse proxy
+        run: node tests/security/phase2c-proxy-runtime.test.mjs
       - name: Verify documented typecheck baseline
         shell: bash
         run: |

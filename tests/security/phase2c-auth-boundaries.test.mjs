@@ -84,6 +84,25 @@ try {
   assert(!JSON.stringify(first.publicSession).includes('access_token'));
   assert(!JSON.stringify(first.publicSession).includes('provider_token'));
   assert.equal((await auth.verifiedAppSession(request())).user.id, uuid);
+  const proxied = new Request('https://127.0.0.1:3000/api/auth/session', {
+    headers: { Host: 'lingopro.online', Origin: origin, 'X-LingoPro-Request': '1' },
+  });
+  assert.equal(auth.appOrigin(proxied), origin, 'public allowlisted Host overrides internal Next URL');
+  auth.assertAppRequest(proxied);
+  for (const headers of [
+    { Host: 'evil.example', 'X-Forwarded-Host': 'lingopro.online' },
+    { Host: 'evil.example@lingopro.online' },
+    { Host: 'lingopro.online/other' },
+    { Host: 'lingopro.online', Origin: 'https://evil.example' },
+  ]) {
+    const rejected = new Request('https://127.0.0.1:3000/api/auth/session', {
+      headers: { Origin: origin, 'X-LingoPro-Request': '1', ...headers },
+    });
+    assert.throws(() => auth.assertAppRequest(rejected), error => error.status === 403);
+  }
+  assert.throws(() => auth.appOrigin(new Request('http://127.0.0.1:3000/api/auth/session', {
+    headers: { Host: 'lingopro.online' },
+  })), error => error.status === 403, 'production transport must remain HTTPS');
   for (const headers of [{ Origin:'https://evil.example' }, { 'X-LingoPro-Request':'' }, { 'Sec-Fetch-Site':'cross-site' }, { Authorization:'Bearer '+jwt() }]) {
     await assert.rejects(auth.verifiedAppSession(request('/api/auth/session', 'GET', {headers})), error => error.status === 403);
   }

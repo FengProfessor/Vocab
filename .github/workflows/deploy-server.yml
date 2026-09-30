@@ -112,6 +112,8 @@ jobs:
         run: npx eslint src/app/api/health/route.ts
       - name: Build application
         run: npm run build
+      - name: Session boundary behind production reverse proxy
+        run: node tests/security/phase2c-proxy-runtime.test.mjs
       - name: Full typecheck (known baseline debt; reporting only)
         if: ${{ !cancelled() }}
         continue-on-error: true
