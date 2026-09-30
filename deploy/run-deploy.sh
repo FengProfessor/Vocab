@@ -31,6 +31,11 @@ if [[ -n "${UPSTASH_REDIS_REST_URL:-}" || -n "${UPSTASH_REDIS_REST_TOKEN:-}" ]];
 fi
 
 expected_sha="$1"
+if [[ -n "${AUTH_SESSION_ENCRYPTION_KEY:-}" ]] &&
+   [[ ! "$AUTH_SESSION_ENCRYPTION_KEY" =~ ^[0-9a-fA-F]{64}$ ]]; then
+  echo '[Deploy] Auth session encryption key must be 32 bytes encoded as hex' >&2
+  exit 1
+fi
 build_dir="$2"
 live_dir="$3"
 
@@ -75,6 +80,10 @@ if [[ -n "${UPSTASH_REDIS_REST_URL:-}" ]]; then
   set_staging_env UPSTASH_REDIS_REST_URL "$UPSTASH_REDIS_REST_URL"
   set_staging_env UPSTASH_REDIS_REST_TOKEN "$UPSTASH_REDIS_REST_TOKEN"
   echo '[Deploy] Distributed limiter configuration staged'
+fi
+if [[ -n "${AUTH_SESSION_ENCRYPTION_KEY:-}" ]]; then
+  set_staging_env AUTH_SESSION_ENCRYPTION_KEY "$AUTH_SESSION_ENCRYPTION_KEY"
+  echo '[Deploy] Auth session encryption configuration staged'
 fi
 
 echo '[Deploy] Installing dependencies in staging'

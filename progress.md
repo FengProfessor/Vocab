@@ -634,3 +634,12 @@
 - JWT getUser đơn lẻ chưa chứng minh provider session còn active; cần auth.sessions metadata preflight. Đã chuẩn bị trusted same-repo PR workflow, transaction BEGIN READ ONLY, chỉ information_schema columns, không chọn user/session rows hoặc apply SQL.
 - Operator xác nhận existing verified non-admin safe test account và sẽ tự đăng nhập khi production smoke cần. Không yêu cầu password/token trong chat.
 - Audit authoritative: P1-C-03/C05 CLOSED từ PR18 / canonical 36699466025 / provider evidence đã có; main docs closeout cũ chưa được merge. P1-C-02 vẫn OPEN. High 0, Medium 1, Low 3. Phase 2C IN PROGRESS.
+
+### Phase 2C Stage A — foundation prepared
+
+- CA public operator cung cấp đã kiểm tra X509/CA/validity (2031). Read-only preflight 36740260165 PASS, xác nhận auth.sessions id/user_id/not_after và auth.users id/email_confirmed_at/banned_until; không đọc user/session rows. Hai preflight trước fail TLS; không tắt certificate verification.
+- Server foundation: opaque 256-bit ID, hash key namespace, AES-256-GCM vault/key binding, 7-day absolute TTL, 10-minute single-use PKCE flow, distributed refresh lease/CAS và logout delete không resurrection. AUTH_SESSION_ENCRYPTION_KEY tạo CSPRNG trong bộ nhớ, lưu GitHub Secret; không ghi/in giá trị.
+- Migration mới 20261001_app_auth_session_active.sql chỉ service-role boolean lookup active/expiry/verified/banned state; không tạo bảng session/PII mới. Cần vì getUser/unexpired JWT không tự bảo đảm session_id chưa logout. Session data vẫn trong Redis. Owner postgres, search_path='', PUBLIC/anon/authenticated revoked, service_role EXECUTE only; không drop/CASCADE.
+- Stage A giữ nguyên browser login và guards hiện hữu. Cutover edits đang làm trong working tree, chưa nằm trong foundation commit/production.
+- Local store encryption/basic lifecycle/one-time flow/outage tests PASS; real Redis races/expiry và PostgreSQL provider/grant tests bắt buộc trong clean CI. Actionlint, Bash/Node syntax, SSH render và run-deploy suite PASS. Không gọi real Redis/SQL test local là PASS khi chưa có services.
+- Stage A canonical infrastructure forward key qua staging/activation rollback hiện hữu; chưa chuyển browser token architecture. P1-C-02 OPEN, Phase 2C IN PROGRESS.

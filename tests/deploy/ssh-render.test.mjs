@@ -25,6 +25,7 @@ const forwardedEnv = stepLines.find((line) => /^\s+envs:/.test(line))?.trim().sl
 assert.deepEqual(forwardedEnv, [
   'EXPECTED_SHA', 'CRON_SECRET', 'BILLING_WEBHOOK_SECRET',
   'UPSTASH_REDIS_REST_URL', 'UPSTASH_REDIS_REST_TOKEN',
+  'AUTH_SESSION_ENCRYPTION_KEY',
 ]);
 
 const scriptLine = lines.findIndex(
@@ -52,6 +53,7 @@ const rendered = [
   "export BILLING_WEBHOOK_SECRET='synthetic-billing-credential-with-safe-characters'",
   "export UPSTASH_REDIS_REST_URL='https://test.upstash.io'",
   "export UPSTASH_REDIS_REST_TOKEN='synthetic/redis+token=_-'",
+  "export AUTH_SESSION_ENCRYPTION_KEY='aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'",
   script,
 ].join('\n');
 const tempRoot = mkdtempSync(join(tmpdir(), 'ssh-render-'));
