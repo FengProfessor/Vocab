@@ -1,5 +1,5 @@
 /**
- * TOEIC Part 3 & Part 4 Comprehensive E2E Cluster Test Suite (Tiers 1-4).
+ * TOEIC Part 3 & Part 4 Contract Cluster Test Suite (Tiers 1-4).
  *
  * Implements authoritative verification per TEST_INFRA.md and PROJECT.md:
  * - Tier 1: Feature Coverage (Features 1 to 13, >=5 tests per feature = 65 tests)

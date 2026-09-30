@@ -4,11 +4,12 @@ import path from "path";
 /** Cố định root = thư mục web-app (tránh Turbopack nhảy lên D:\Vibe khi có nhiều lockfile) */
 const configDir = path.resolve(process.cwd());
 
-// CSP: giữ 'unsafe-inline' (Next.js/React inline style+script) và 'unsafe-eval'
-// (Next dev dùng eval cho HMR) — tradeoff chấp nhận được, chưa dùng nonce.
+// Next bootstrap/inline styles cần unsafe-inline; nonce cần thiết kế lại static rendering.
+// unsafe-eval chỉ dành cho development/HMR, không cho production.
+const devEval = process.env.NODE_ENV === 'development' ? " 'unsafe-eval'" : '';
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://us-assets.i.posthog.com https://www.youtube.com https://s.ytimg.com",
+  `script-src 'self' 'unsafe-inline'${devEval} https://www.gstatic.com https://us-assets.i.posthog.com https://www.youtube.com https://s.ytimg.com`,
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "img-src 'self' data: blob: https:",
   "font-src 'self' data: https://fonts.gstatic.com",
@@ -21,6 +22,7 @@ const csp = [
   "frame-src 'self' blob: https://www.youtube.com https://www.youtube-nocookie.com",
   "object-src 'none'",
   "base-uri 'self'",
+  "form-action 'self'",
 ].join('; ');
 
 const nextConfig: NextConfig = {

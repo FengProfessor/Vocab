@@ -1,9 +1,11 @@
-# E2E Test Infrastructure: LingoPro Speaking Module Scaffolding
+> Phân loại hiện tại: contract/fixture/scaffolding; không chạy browser, Next HTTP server hoặc live database/auth. Xem [test classification](docs/testing/test-classification.md).
+
+# Contract Test Infrastructure: LingoPro Speaking Module Scaffolding
 
 ## 1. Test Philosophy
 
 - **Opaque-Box & Requirement-Driven**: Tests are designed strictly from the user requirements (`ORIGINAL_REQUEST.md` § `2026-09-23T05:44:21Z`), architectural specifications in `PROJECT.md`, and technical surveys (`explorer_survey_1`, `explorer_survey_2`, `explorer_survey_3`).
-- **Progressive Testability**: Tests validate formal interface contracts (`ISTTService`, `SpeakingPrompt`, `AudioUploadPayload`, `SplitPaneLayoutProps`). If production modules are present on disk, tests dynamically exercise them; if being authored concurrently, tests validate authoritative reference oracles to maintain 100% CI reproducibility and zero compilation errors under `npx tsc --noEmit`.
+- **Progressive Testability**: Tests validate formal interface contracts (`ISTTService`, `SpeakingPrompt`, `AudioUploadPayload`, `SplitPaneLayoutProps`). If production modules are present on disk, tests dynamically exercise them; if being authored concurrently, tests validate authoritative reference oracles to maintain 100% CI reproducibility and deterministic contract checks; full typecheck has a separately documented baseline.
 - **Zero-External-Dependency Runner**: Tests execute via `npx tsx tests/speaking/run-scaffolding-tests.ts` in <3 seconds using in-memory mock browser primitives without requiring heavyweight Puppeteer or browser binaries.
 - **Adversarial & Fault Injection**: Rigorous coverage of boundary limits (10MB audio ceiling, 0-byte blobs, invalid MIME types, Web Speech permission denials, network failures, state machine race conditions).
 

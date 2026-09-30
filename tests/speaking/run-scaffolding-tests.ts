@@ -1,5 +1,5 @@
 /**
- * Master Test Runner for LingoPro Speaking Scaffolding E2E Test Suite
+ * Master Test Runner for LingoPro Speaking Scaffolding Contract Test Suite
  *
  * Runs all 4 Tiers:
  * - Tier 1: Feature Coverage (30 tests)
@@ -22,7 +22,7 @@ import { runTier4Tests } from './speaking-scaffolding-tier4.test';
 
 async function main() {
   console.log('================================================================================');
-  console.log('  LINGOPRO SPEAKING SCAFFOLDING — MASTER E2E AUTOMATED TEST SUITE');
+  console.log('  LINGOPRO SPEAKING SCAFFOLDING — MASTER CONTRACT AUTOMATED TEST SUITE');
   console.log('  Mode: Opaque-Box, Requirement-Driven, Tiers 1-4 Verification');
   console.log('================================================================================\n');
 
@@ -102,7 +102,7 @@ async function main() {
     process.exit(1);
   }
 
-  console.log('\n✅ ALL TESTS PASSED: Speaking Scaffolding E2E test suite verified 100% successfully.');
+  console.log('\n✅ ALL TESTS PASSED: Speaking Scaffolding Contract test suite verified 100% successfully.');
   process.exit(0);
 }
 

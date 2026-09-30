@@ -24,7 +24,8 @@
     "video:toeic:status": "node scripts/toeic-tiktok-tracker.mjs status",
     "force-onboarding": "node scripts/force-onboarding.js",
     "docker:build": "docker build -t lingopro:latest .",
-    "docker:up": "docker compose up -d --build"
+    "docker:up": "docker compose up -d --build",
+    "test:e2e:smoke": "node tests/e2e/application-smoke.test.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.2.0",

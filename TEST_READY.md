@@ -1,6 +1,8 @@
-# TEST_READY: TOEIC Part 3 & Part 4 Overhaul Comprehensive E2E Test Suite
+> Phân loại hiện tại: contract/fixture/scaffolding; không chạy browser, Next HTTP server hoặc live database/auth. Xem [test classification](docs/testing/test-classification.md).
 
-**Status**: READY (150 / 150 PASSED — 100% Pass Rate)  
+# TEST_READY: TOEIC Part 3 & Part 4 Overhaul Comprehensive Contract Test Suite
+
+**Status**: historical fixture result (150 / 150); not evidence of browser or production success
 **Execution Command**:
 ```bash
 npx tsx tests/toeic/toeic-cluster-e2e.test.ts
@@ -9,12 +11,12 @@ npx tsx tests/toeic/toeic-cluster-e2e.test.ts
 ```bash
 npx tsc --noEmit
 ```
-(Exit Code 0 — 0 TypeScript errors)
+(Historical claim superseded: current clean baseline is 10 Speaking TS2307/TS7006 errors; see docs/testing/test-classification.md.)
 
-**Execution Duration**: ~338ms  
-**Test File**: `tests/toeic/toeic-cluster-e2e.test.ts` (2,181 lines, 150 tests)  
-**Helper Harness**: `tests/toeic/test-harness.ts`  
-**Test Framework**: TypeScript native test runner with opaque-box assertion library  
+**Execution Duration**: ~338ms
+**Test File**: `tests/toeic/toeic-cluster-e2e.test.ts` (2,181 lines, 150 tests)
+**Helper Harness**: `tests/toeic/test-harness.ts`
+**Test Framework**: TypeScript native test runner with opaque-box assertion library
 **Authoritative References**:
 - `ORIGINAL_REQUEST.md` (TOEIC Listening Part 3 & 4 Cluster overhaul specifications)
 - `d:\Vibe\Vocab\web-app\.agents\orchestrator_toeic_5\PROJECT.md`
@@ -31,7 +33,7 @@ npx tsc --noEmit
 | **Tier 2: Boundary & Corner Cases** | Boundary conditions across all 13 features | $\ge 65$ | **65** | **100%** | **PASS** | 128ms |
 | **Tier 3: Cross-Feature Combinations** | Pairwise and multi-feature interaction cascades | $\ge 15$ | **15** | **100%** | **PASS** | 24ms |
 | **Tier 4: Real-World Exam Scenarios** | Full application-level workloads & attack simulations | $\ge 5$ | **5** | **100%** | **PASS** | 24ms |
-| **TOTAL** | **Full 4-Tier Opaque-Box E2E Suite** | **$\ge 150$** | **150** | **100%** | **PASS** | **338ms** |
+| **TOTAL** | **Full 4-Tier Opaque-Box Contract Suite** | **$\ge 150$** | **150** | **100%** | **PASS** | **338ms** |
 
 ---
 
