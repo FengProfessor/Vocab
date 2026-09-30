@@ -1,0 +1,33 @@
+name: P2C Auth Read-only Preflight
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/auth-session-preflight.yml'
+      - 'scripts/audit-auth-session-schema.mjs'
+      - 'docs/security/p1-phase2c-*'
+      - 'docs/security/supabase-prod-ca-2021.crt'
+
+permissions:
+  contents: read
+
+jobs:
+  schema:
+    if: >-
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.head.ref == 'codex/p2c-auth-session'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install metadata client without lifecycle scripts
+        run: npm install --prefix scripts --no-save --package-lock=false --ignore-scripts pg@8.16.3
+      - name: Inspect auth schema metadata in read-only transaction
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+        run: node scripts/audit-auth-session-schema.mjs

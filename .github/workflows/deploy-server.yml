@@ -18,6 +18,18 @@ jobs:
     name: Validate exact source before production changes
     runs-on: ubuntu-latest
     services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_PASSWORD: p2c-isolated-test
+          POSTGRES_DB: p2c_session_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 10
       redis:
         image: redis:7.4
         ports:
@@ -50,6 +62,8 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
+      - name: Install isolated SQL test client without lifecycle scripts
+        run: npm install --prefix scripts --no-save --package-lock=false --ignore-scripts pg@8.16.3
       - uses: actions/setup-go@v5
         with:
           go-version: '1.24'
@@ -69,6 +83,8 @@ jobs:
       - name: Security regression tests
         env:
           P2B_REDIS_TEST_PORT: '6379'
+          P2C_REDIS_TEST_PORT: '6379'
+          P2C_POSTGRES_TEST_URL: 'postgresql://postgres:p2c-isolated-test@127.0.0.1:5432/p2c_session_test'
         run: |
           node tests/security/cron-auth.test.mjs
           node tests/security/cron-auth-probe.test.mjs
@@ -76,6 +92,8 @@ jobs:
           node tests/security/phase1c-auth-boundaries.test.mjs
           node tests/security/phase2a-medium.test.mjs
           node tests/security/phase2b-enforcement.test.mjs
+          node tests/security/phase2c-session-store.test.mjs
+          node tests/security/phase2c-provider-session.test.mjs
       - name: Lint changed TypeScript deployment route
         run: npx eslint src/app/api/health/route.ts
       - name: Build application
@@ -113,6 +131,7 @@ jobs:
           BILLING_WEBHOOK_SECRET: ${{ secrets.BILLING_WEBHOOK_SECRET }}
           UPSTASH_REDIS_REST_URL: ${{ secrets.UPSTASH_REDIS_REST_URL }}
           UPSTASH_REDIS_REST_TOKEN: ${{ secrets.UPSTASH_REDIS_REST_TOKEN }}
+          AUTH_SESSION_ENCRYPTION_KEY: ${{ secrets.AUTH_SESSION_ENCRYPTION_KEY }}
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
@@ -120,7 +139,7 @@ jobs:
           port: 22
           timeout: 120s
           command_timeout: 30m
-          envs: EXPECTED_SHA,CRON_SECRET,BILLING_WEBHOOK_SECRET,UPSTASH_REDIS_REST_URL,UPSTASH_REDIS_REST_TOKEN
+          envs: EXPECTED_SHA,CRON_SECRET,BILLING_WEBHOOK_SECRET,UPSTASH_REDIS_REST_URL,UPSTASH_REDIS_REST_TOKEN,AUTH_SESSION_ENCRYPTION_KEY
           script: |
             set -eu
             echo "[CI/CD] Starting deployment on Ubuntu Server..."

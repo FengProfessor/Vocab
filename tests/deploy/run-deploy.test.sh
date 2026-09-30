@@ -50,11 +50,12 @@ MOCK
   chmod +x "$case_dir/build/deploy/"*.sh
 
   export TEST_SCENARIO="$scenario" TEST_DEPLOY_LOG="$case_dir/deploy.log" CRON_SECRET='test-secret'
-  unset BILLING_WEBHOOK_SECRET UPSTASH_REDIS_REST_URL UPSTASH_REDIS_REST_TOKEN
+  unset BILLING_WEBHOOK_SECRET UPSTASH_REDIS_REST_URL UPSTASH_REDIS_REST_TOKEN AUTH_SESSION_ENCRYPTION_KEY
   if [[ "$scenario" == 'configured-success' ]]; then
     export BILLING_WEBHOOK_SECRET='synthetic-billing-key-32-characters-minimum'
     export UPSTASH_REDIS_REST_URL='https://test.upstash.io'
     export UPSTASH_REDIS_REST_TOKEN='synthetic/redis+token=_-'
+    export AUTH_SESSION_ENCRYPTION_KEY='aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
   fi
   bash "$repo_root/deploy/run-deploy.sh" "$expected_sha" "$case_dir/build" "$case_dir/live" \
     > "$case_dir/run.log" 2>&1 || status=$?
@@ -86,6 +87,7 @@ MOCK
       ! grep -Eq '^[[:space:]]*(export[[:space:]]+)?WEBHOOK_SECRET[[:space:]]*=' "$case_dir/build/$env_file"
       grep -q '^UPSTASH_REDIS_REST_URL="https://test.upstash.io"$' "$case_dir/build/$env_file"
       grep -q '^UPSTASH_REDIS_REST_TOKEN="synthetic/redis+token=_-"$' "$case_dir/build/$env_file"
+      grep -q '^AUTH_SESSION_ENCRYPTION_KEY="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"$' "$case_dir/build/$env_file"
       [[ "$(grep -c 'BILLING_WEBHOOK_SECRET=' "$case_dir/build/$env_file")" == 1 ]]
     done
     ! grep -q 'synthetic-billing-key\|synthetic/redis+token' "$case_dir/run.log"

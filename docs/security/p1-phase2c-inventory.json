@@ -1,0 +1,2923 @@
+{
+  "baseline": "a68304895a7a1e4fa6b44c452324271f72e359ca",
+  "sourceFiles": 739,
+  "clientRoots": 296,
+  "clientReachableModules": 505,
+  "browserSupabase": [
+    {
+      "file": "src/hooks/useRoomPresence.ts",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 50,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": false,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/hooks/usePlan.ts",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 42,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 53,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "profiles"
+        }
+      ],
+      "readsAccessToken": false,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/hooks/useGamification.ts",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 32,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "user_gamification"
+        },
+        {
+          "line": 49,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "user_gamification"
+        }
+      ],
+      "readsAccessToken": false,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/_components/AuthRedirectGate.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 15,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": false,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/writing/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 63,
+          "method": "getUser",
+          "api": "supabase.auth.getUser",
+          "target": null
+        }
+      ],
+      "readsAccessToken": false,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/components/upsell/UpsellProvider.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 146,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/components/upsell/FreeQuotaBanner.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 38,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/upgrade/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 171,
+          "method": "getUser",
+          "api": "supabase.auth.getUser",
+          "target": null
+        },
+        {
+          "line": 181,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "profiles"
+        },
+        {
+          "line": 211,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "orders"
+        },
+        {
+          "line": 285,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 351,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 411,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/auth/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 132,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 135,
+          "method": "rpc",
+          "api": "supabase.rpc",
+          "target": "claim_teacher_role"
+        },
+        {
+          "line": 220,
+          "method": "signInWithPassword",
+          "api": "supabase.auth.signInWithPassword",
+          "target": null
+        },
+        {
+          "line": 318,
+          "method": "signInWithOAuth",
+          "api": "supabase.auth.signInWithOAuth",
+          "target": null
+        },
+        {
+          "line": 527,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": true
+    },
+    {
+      "file": "src/app/auth/callback/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 76,
+          "method": "exchangeCodeForSession",
+          "api": "supabase.auth.exchangeCodeForSession",
+          "target": null
+        },
+        {
+          "line": 82,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 88,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 119,
+          "method": "rpc",
+          "api": "supabase.rpc",
+          "target": "claim_teacher_role"
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/library/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 91,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 93,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "words"
+        },
+        {
+          "line": 138,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": false,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/lib/auth-fetch.ts",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 17,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 23,
+          "method": "refreshSession",
+          "api": "supabase.auth.refreshSession",
+          "target": null
+        },
+        {
+          "line": 41,
+          "method": "refreshSession",
+          "api": "supabase.auth.refreshSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/components/teacher/GrammarPanel.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 34,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 70,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 91,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 109,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "grammar_exercises"
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/flashcard/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 89,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 133,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 276,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 592,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": true
+    },
+    {
+      "file": "src/app/flashcard/LearnMode.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 91,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 265,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": false,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/journey/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 269,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": false,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/lib/toeic-question-history.ts",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 477,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 503,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "user_toeic_question_history"
+        },
+        {
+          "line": 532,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 538,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "user_toeic_question_history"
+        },
+        {
+          "line": 636,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 639,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "user_toeic_question_history"
+        }
+      ],
+      "readsAccessToken": false,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/components/student/WordDetailModal.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 105,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "words"
+        },
+        {
+          "line": 106,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 121,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "srs_progress"
+        }
+      ],
+      "readsAccessToken": false,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/components/student/StudentShell.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 176,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 200,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 221,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "profiles"
+        },
+        {
+          "line": 232,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "classrooms"
+        },
+        {
+          "line": 275,
+          "method": "onAuthStateChange",
+          "api": "supabase.auth.onAuthStateChange",
+          "target": null
+        },
+        {
+          "line": 423,
+          "method": "signOut",
+          "api": "supabase.auth.signOut",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/components/student/StudentProvider.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 77,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 96,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "profiles"
+        },
+        {
+          "line": 123,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "user_gamification"
+        },
+        {
+          "line": 154,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "classrooms"
+        },
+        {
+          "line": 422,
+          "method": "onAuthStateChange",
+          "api": "supabase.auth.onAuthStateChange",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": true
+    },
+    {
+      "file": "src/app/dictionary/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 254,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 287,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 291,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "classrooms"
+        },
+        {
+          "line": 300,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "words"
+        }
+      ],
+      "readsAccessToken": false,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/toeic/exam/[examId]/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 256,
+          "method": "getUser",
+          "api": "supabase.auth.getUser",
+          "target": null
+        },
+        {
+          "line": 260,
+          "method": "onAuthStateChange",
+          "api": "supabase.auth.onAuthStateChange",
+          "target": null
+        },
+        {
+          "line": 548,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 641,
+          "method": "signInWithOAuth",
+          "api": "supabase.auth.signInWithOAuth",
+          "target": null
+        }
+      ],
+      "readsAccessToken": false,
+      "referencesSessionType": true
+    },
+    {
+      "file": "src/components/grammar/GrammarMicroCourse.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 98,
+          "method": "getUser",
+          "api": "supabase.auth.getUser",
+          "target": null
+        },
+        {
+          "line": 105,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "grammar_micro_progress"
+        },
+        {
+          "line": 119,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "grammar_micro_progress"
+        },
+        {
+          "line": 133,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "grammar_micro_progress"
+        }
+      ],
+      "readsAccessToken": false,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/components/listening/WordLookupPopover.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 261,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/ipa/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 48,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": false,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/components/onboarding/SurveyModal.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 41,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 43,
+          "method": "updateUser",
+          "api": "supabase.auth.updateUser",
+          "target": null
+        }
+      ],
+      "readsAccessToken": false,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/components/onboarding/SetupModal.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 35,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/components/onboarding/OnboardingProvider.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 137,
+          "method": "updateUser",
+          "api": "supabase.auth.updateUser",
+          "target": null
+        },
+        {
+          "line": 153,
+          "method": "rpc",
+          "api": "supabase.rpc",
+          "target": "claim_onboarding_xp"
+        }
+      ],
+      "readsAccessToken": false,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/components/gamification/ProTrialMilestoneCard.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 98,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 173,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/test-fcm/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 31,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 72,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/invite/[code]/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 58,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 98,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/components/exam/ExamWordLookupCard.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 96,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/components/EnableNotifications.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 92,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 125,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/import/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 112,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 196,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 381,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 462,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/hub/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 34,
+          "method": "getUser",
+          "api": "supabase.auth.getUser",
+          "target": null
+        },
+        {
+          "line": 41,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "profiles"
+        },
+        {
+          "line": 50,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "enrollments"
+        }
+      ],
+      "readsAccessToken": false,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/group/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 47,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/grammar/practice/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 411,
+          "method": "getUser",
+          "api": "supabase.auth.getUser",
+          "target": null
+        },
+        {
+          "line": 425,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 529,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": true
+    },
+    {
+      "file": "src/app/grammar/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 118,
+          "method": "getUser",
+          "api": "supabase.auth.getUser",
+          "target": null
+        },
+        {
+          "line": 124,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/teacher/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 147,
+          "method": "getUser",
+          "api": "supabase.auth.getUser",
+          "target": null
+        },
+        {
+          "line": 161,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "profiles"
+        },
+        {
+          "line": 205,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "classrooms"
+        },
+        {
+          "line": 233,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "classrooms"
+        },
+        {
+          "line": 253,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "classrooms"
+        },
+        {
+          "line": 302,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 320,
+          "method": "signOut",
+          "api": "supabase.auth.signOut",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/components/campaign/WelcomeKhaiGiangModal.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 110,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/teacher/grammar/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 97,
+          "method": "getUser",
+          "api": "supabase.auth.getUser",
+          "target": null
+        },
+        {
+          "line": 234,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 289,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/quiz/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 91,
+          "method": "getUser",
+          "api": "supabase.auth.getUser",
+          "target": null
+        }
+      ],
+      "readsAccessToken": false,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/admin/pilot-leads/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 52,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/admin/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 32,
+          "method": "getUser",
+          "api": "supabase.auth.getUser",
+          "target": null
+        }
+      ],
+      "readsAccessToken": false,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/admin/challenges/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 107,
+          "method": "getUser",
+          "api": "supabase.auth.getUser",
+          "target": null
+        }
+      ],
+      "readsAccessToken": false,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/admin/crm/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 166,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/admin/billing/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 119,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 170,
+          "method": "getUser",
+          "api": "supabase.auth.getUser",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/student/speaking/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 55,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": false,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/student/leaderboard/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 52,
+          "method": "getUser",
+          "api": "supabase.auth.getUser",
+          "target": null
+        },
+        {
+          "line": 56,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "enrollments"
+        },
+        {
+          "line": 80,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/review/session/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 217,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 245,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "srs_progress"
+        },
+        {
+          "line": 300,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 378,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "srs_progress"
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/review/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 29,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/student/referral/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 250,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 399,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/practice/listening/components/WordLookupPopover.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 255,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/student/profile/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 114,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 126,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "profiles"
+        },
+        {
+          "line": 160,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 205,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 247,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    },
+    {
+      "file": "src/app/student/page.tsx",
+      "clientReachable": true,
+      "operations": [
+        {
+          "line": 236,
+          "method": "getSession",
+          "api": "supabase.auth.getSession",
+          "target": null
+        },
+        {
+          "line": 282,
+          "method": "onAuthStateChange",
+          "api": "supabase.auth.onAuthStateChange",
+          "target": null
+        },
+        {
+          "line": 423,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "profiles"
+        },
+        {
+          "line": 483,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "profiles"
+        },
+        {
+          "line": 1015,
+          "method": "from",
+          "api": "supabase.from",
+          "target": "profiles"
+        }
+      ],
+      "readsAccessToken": true,
+      "referencesSessionType": false
+    }
+  ],
+  "nonClientSupabase": [],
+  "api": [
+    {
+      "file": "src/app/api/import/packages/route.ts",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/classrooms/[id]/leaderboard/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/import/ocr/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/words/[id]/status/route.ts",
+      "methods": [
+        "PATCH"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/classrooms/join/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": true,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/image-proxy/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/words/verify-image/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/words/srs/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/words/route.ts",
+      "methods": [
+        "POST",
+        "GET",
+        "PUT",
+        "DELETE"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/challenges/[id]/route.ts",
+      "methods": [
+        "GET",
+        "PATCH"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/hub/presence/route.ts",
+      "methods": [
+        "GET",
+        "POST",
+        "DELETE"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/challenges/[id]/progress/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/challenges/[id]/participants/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/challenges/[id]/join/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/health/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/challenges/widget/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/challenges/route.ts",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/challenges/check-daily/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": true,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/billing/webhook/route.ts",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": true,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/groups/[id]/remove/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": true,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/billing/stats/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": true,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/groups/mine/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": true,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/challenge/lead/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/billing/redeem-gift/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": true,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/groups/leave/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": true,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/billing/pro-milestone/route.ts",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": true,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/groups/join/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": true,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/words/refresh-image/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/campaign/khaigiang/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/words/refresh/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/campaign/claim-upgrade-gift/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/billing/orders/[id]/confirm/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": true,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/billing/orders/route.ts",
+      "methods": [
+        "POST",
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": true,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/grammar/topics/route.ts",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/grammar/theory/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/grammar/route.ts",
+      "methods": [
+        "POST",
+        "GET"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/auth/register/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/billing/coupons/validate/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": true,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/billing/coupons/route.ts",
+      "methods": [
+        "GET",
+        "POST",
+        "DELETE"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": true,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/grammar/review/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": true,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/bot/synant-save/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/billing/claim-upgrade-gift/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/admin/crm/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/admin/stats/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/vstep/test/route.ts",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/grammar/quiz/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/bot/synant-batch/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/bot/family-save/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/ai-router/stats/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/admin/pilot-leads/route.ts",
+      "methods": [
+        "GET",
+        "PATCH"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": true,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/vstep/submit/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/bot/save-batch/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/bot/family-batch/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/bot/example-vi-batch/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/bot/example-vi-save/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/vstep/explain/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/grammar/progress/route.ts",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": true,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/bot/next-batch/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/bot/fill-images/route.ts",
+      "methods": [
+        "POST",
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/extension-token/route.ts",
+      "methods": [
+        "GET",
+        "POST",
+        "DELETE"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": true,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/grammar/lessons/route.ts",
+      "methods": [
+        "GET",
+        "POST",
+        "PATCH",
+        "PUT",
+        "DELETE"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/grammar/annotate/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/bot/grammar/save/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/grammar/generate/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/demo/pack-passage/route.ts",
+      "methods": [],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/cron/push-due/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": true,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/bot/grammar/next/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/vocab/topic/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/demo/codemix-upgrade/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/cron/email-due/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": true,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/dictionary/suggest/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/dictionary/ai-speaking/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/vocab/packs/route.ts",
+      "methods": [
+        "GET",
+        "PATCH"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/quiz/save/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/mindmap/nlm/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/cron/check-expired/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": true,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/library/gloss/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/dictionary/smart-lookup/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/dictionary/ai-sentence/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/cron/auth-check/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": true,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/mindmap/generate/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/tts/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/dictionary/lookup/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/dictionary/ai-phrase-lookup/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/lead-magnet/subscribe/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/push/fcm-register/route.ts",
+      "methods": [
+        "POST",
+        "GET"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/translate/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/lead-magnet/download/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/dictionary/external/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/dictionary/ai-lookup/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/listening/video/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/lead-magnet/ebook/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/listening/complete/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/profile/route.ts",
+      "methods": [
+        "GET",
+        "PUT"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/practice/pack-passage/route.ts",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/roadmap/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/pilot/leads/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/speaking/upload-audio/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/referral/resolve/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/toeic/test/route.ts",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/roadmap/checkpoint/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/roadmap/progress/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/practice/codemix-upgrade/route.ts",
+      "methods": [],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/toeic/submit/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/roadmap/assessment/route.ts",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/roadmap/placement/route.ts",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/teacher/coaching-insight/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/practice/daily-reading/route.ts",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/referral/payout/route.ts",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": true,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/practice/daily-reading/save-word/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/teacher/analytics/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/toeic/explain/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": false
+    },
+    {
+      "file": "src/app/api/referral/link/route.ts",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": true,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/teacher/student-detail/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/teacher/assign-drill/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/teacher/stats/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/teacher/student-errors/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/teacher/students/remove/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/referral/evaluate-activation/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": true,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/referral/hub/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": true,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/referral/claim/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": true,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/teacher/students/add/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/student/stats/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": true,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/student/classrooms/route.ts",
+      "methods": [
+        "GET"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/test/notify/route.ts",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "sharedGuard": true,
+      "manualSupabaseUser": false,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": false,
+      "privilegedFactory": true
+    },
+    {
+      "file": "src/app/api/test/push-due/route.ts",
+      "methods": [
+        "POST"
+      ],
+      "sharedGuard": false,
+      "manualSupabaseUser": true,
+      "cron": false,
+      "billingWebhook": false,
+      "bearer": true,
+      "privilegedFactory": true
+    }
+  ],
+  "storage": [
+    "src/hooks/useToeicExamSession.ts",
+    "src/hooks/useRoomPresence.ts",
+    "src/components/upsell/UpsellProvider.tsx",
+    "src/components/upsell/FreeQuotaBanner.tsx",
+    "src/components/upsell/CohortProPromoBanner.tsx",
+    "src/app/vstep/page.tsx",
+    "src/app/vstep/exam/[examId]/page.tsx",
+    "src/app/auth/page.tsx",
+    "src/app/auth/callback/page.tsx",
+    "src/components/toeic/learn/ToeicQuickQuiz.tsx",
+    "src/components/toeic/learn/ToeicLessonNotes.tsx",
+    "src/components/toeic/learn/ToeicLessonFlashcards.tsx",
+    "src/components/toeic/learn/ToeicCertificateModal.tsx",
+    "src/lib/word-summary-cache.ts",
+    "src/lib/vstep-history.ts",
+    "src/lib/dict-cache.ts",
+    "src/lib/exam-dict-cache.ts",
+    "src/lib/grammar-exercises.ts",
+    "src/components/StudyGuideModal.tsx",
+    "src/lib/push-device-state.ts",
+    "src/lib/pro-trial-milestone.ts",
+    "src/lib/presence-local.ts",
+    "src/lib/listening.ts",
+    "src/lib/listening-utils.ts",
+    "src/lib/listening-recommendation.ts",
+    "src/lib/lingo-town.ts",
+    "src/lib/lingo-town-activities.ts",
+    "src/lib/ipa-client.ts",
+    "src/app/flashcard/page.tsx",
+    "src/app/flashcard/LearnMode.tsx",
+    "src/app/journey/page.tsx",
+    "src/lib/supabase.ts",
+    "src/lib/toeic-question-history.ts",
+    "src/lib/upsell.ts",
+    "src/components/student/StudentShell.tsx",
+    "src/components/student/StudentProvider.tsx",
+    "src/app/toeic/page.tsx",
+    "src/app/toeic/learn/page.tsx",
+    "src/components/InstallPrompt.tsx",
+    "src/lib/roadmap-client.ts",
+    "src/lib/roadmap-assessment.ts",
+    "src/lib/referral-tracker.ts",
+    "src/lib/push-force-gen.ts",
+    "src/app/journey/exam/[levelId]/page.tsx",
+    "src/app/dictionary/page.tsx",
+    "src/components/marketing/TeacherPilotClient.tsx",
+    "src/app/toeic/exam/[examId]/page.tsx",
+    "src/app/journey/checkpoint/[unitId]/page.tsx",
+    "src/components/grammar/GrammarMicroCourse.tsx",
+    "src/components/listening/WordLookupPopover.tsx",
+    "src/components/listening/ClozeListeningExercise.tsx",
+    "src/components/onboarding/SurveyModal.tsx",
+    "src/components/onboarding/OnboardingProvider.tsx",
+    "src/components/gamification/ProTrialMilestoneCard.tsx",
+    "src/components/FirebaseInitializer.tsx",
+    "src/components/lead-magnet/DiagnosticScorecard.tsx",
+    "src/components/EnableNotifications.tsx",
+    "src/components/dictionary/SentenceTranslator.tsx",
+    "src/components/journey/VocabRoadmapSection.tsx",
+    "src/components/challenge-landing/ChallengeInteractiveWrapper.tsx",
+    "src/app/grammar/practice/page.tsx",
+    "src/app/teacher/page.tsx",
+    "src/components/campaign/WelcomeKhaiGiangModal.tsx",
+    "src/app/demo/lingo-town/page.tsx",
+    "src/app/practice/vocab-station/page.tsx",
+    "src/app/practice/verb-drill/page.tsx",
+    "src/app/practice/pack-reading/page.tsx",
+    "src/app/practice/listening/[videoId]/page.tsx",
+    "src/app/practice/listening/page.tsx",
+    "src/app/practice/games/page.tsx",
+    "src/app/student/referral/page.tsx",
+    "src/app/practice/listening/components/WordLookupPopover.tsx",
+    "src/app/practice/codemix/page.tsx",
+    "src/app/student/page.tsx"
+  ]
+}

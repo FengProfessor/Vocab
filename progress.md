@@ -664,3 +664,26 @@
   - Deploy job: PASS (standalone staging build in `$HOME/Vocab-build`, atomic `.next` swap qua `activate-release.sh`, `lingopro.service` restart và dual HTTP 200 health check verification).
   - Live production verification: `curl.exe https://lingopro.online/api/health` trả về HTTP 200 `{"status":"ok"}`.
   - Live UI verification: Puppeteer truy cập `https://lingopro.online/grammar` xác nhận nút `[← VỀ DASHBOARD]` và `[← DASHBOARD]` hiển thị đúng ở đầu trang, liên kết trỏ chính xác về `/student`.
+
+## P1 PHASE 2C — Inventory / architecture preflight (2026-10-01)
+
+- Branch codex/p2c-auth-session từ origin/main a68304895a7a1e4fa6b44c452324271f72e359ca; không redo Phase 1/2A/2B. Baseline production dca534dc266f1dc5fc80a2e26cf165dc7872bd86; independent CRM canonical 36733665363 sau đó PASS, cần đối chiếu marker trước P2C rollout.
+- Inventory AST: 739 source files; client reachability upper bound 505; 55 browser Supabase files (54 auth, 20 direct data); 10 tables/2 RPC; không thấy browser Realtime/Storage runtime. API 126 route files; 58 shared guards và 23 manual auth files. External extension lpext_, bot/cron/SePay auth riêng giữ nguyên.
+- Chọn Architecture B: server token vault + opaque HttpOnly cookie + user-context/RLS BFF; xem docs/security/p1-phase2c-session-architecture.md. Chưa auth runtime change hoặc session cutover.
+- Fresh export checkout/cache riêng: npm ci 1.871 packages và build PASS; typecheck 10 Speaking baseline TS2307/TS7006; full lint 122 errors/448 warnings. Working checkout có 3 stale generated validator errors không thuộc source baseline; không sửa debt unrelated. npm audit 45 (22 moderate/18 high/5 critical) vẫn deferred.
+- Public Supabase settings read-only: Google/email enabled, mailer_autoconfirm=false, signup enabled. Không credentials/user data output.
+- JWT getUser đơn lẻ chưa chứng minh provider session còn active; cần auth.sessions metadata preflight. Đã chuẩn bị trusted same-repo PR workflow, transaction BEGIN READ ONLY, chỉ information_schema columns, không chọn user/session rows hoặc apply SQL.
+- Operator xác nhận existing verified non-admin safe test account và sẽ tự đăng nhập khi production smoke cần. Không yêu cầu password/token trong chat.
+- Audit authoritative: P1-C-03/C05 CLOSED từ PR18 / canonical 36699466025 / provider evidence đã có; main docs closeout cũ chưa được merge. P1-C-02 vẫn OPEN. High 0, Medium 1, Low 3. Phase 2C IN PROGRESS.
+
+### Phase 2C Stage A — foundation prepared
+
+- CA public operator cung cấp đã kiểm tra X509/CA/validity (2031). Read-only preflight 36740260165 PASS, xác nhận auth.sessions id/user_id/not_after và auth.users id/email_confirmed_at/banned_until; không đọc user/session rows. Hai preflight trước fail TLS; không tắt certificate verification.
+- Server foundation: opaque 256-bit ID, hash key namespace, AES-256-GCM vault/key binding, 7-day absolute TTL, 10-minute single-use PKCE flow, distributed refresh lease/CAS và logout delete không resurrection. AUTH_SESSION_ENCRYPTION_KEY tạo CSPRNG trong bộ nhớ, lưu GitHub Secret; không ghi/in giá trị.
+- Migration mới 20261001_app_auth_session_active.sql chỉ service-role boolean lookup active/expiry/verified/banned state; không tạo bảng session/PII mới. Cần vì getUser/unexpired JWT không tự bảo đảm session_id chưa logout. Session data vẫn trong Redis. Owner postgres, search_path='', PUBLIC/anon/authenticated revoked, service_role EXECUTE only; không drop/CASCADE.
+- Stage A giữ nguyên browser login và guards hiện hữu. Cutover edits đang làm trong working tree, chưa nằm trong foundation commit/production.
+- Local store encryption/basic lifecycle/one-time flow/outage tests PASS; real Redis races/expiry và PostgreSQL provider/grant tests bắt buộc trong clean CI. Actionlint, Bash/Node syntax, SSH render và run-deploy suite PASS. Không gọi real Redis/SQL test local là PASS khi chưa có services.
+- Stage A canonical infrastructure forward key qua staging/activation rollback hiện hữu; chưa chuyển browser token architecture. P1-C-02 OPEN, Phase 2C IN PROGRESS.
+
+
+- Stage A baseline synchronized with main 80ed596e83e3dc59d9600bc2644cf1b515ee6fe5 (personal classroom isolation and grammar navigation preserved). Clean CI36746328374 passed earlier foundation head61c19a4; rerun required on merged source before release. Browser cutover WIP is preserved in stash5965297af7278a2cade37bd14907eda36500d0e1, not included in Stage A.

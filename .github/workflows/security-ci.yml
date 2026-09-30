@@ -23,6 +23,14 @@ on:
       - 'src/lib/cron-auth.ts'
       - 'src/lib/supabase.ts'
       - 'src/lib/supabase-server.ts'
+      - 'src/lib/server-session-store.ts'
+      - 'src/lib/server-auth-session.ts'
+      - 'src/lib/session-response.ts'
+      - 'src/lib/app-session-types.ts'
+      - 'src/lib/app-auth-client.ts'
+      - 'src/lib/auth-fetch.ts'
+      - 'src/app/api/auth/**'
+      - 'supabase/migrations/20261001_app_auth_session_active.sql'
       - 'src/lib/ai-router.ts'
       - 'src/lib/gemini-multi.ts'
       - 'src/lib/notifications.ts'
@@ -53,6 +61,18 @@ jobs:
   cron-auth:
     runs-on: ubuntu-latest
     services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_PASSWORD: p2c-isolated-test
+          POSTGRES_DB: p2c_session_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 10
       redis:
         image: redis:7.4
         ports:
@@ -73,9 +93,13 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
+      - name: Install isolated SQL test client without lifecycle scripts
+        run: npm install --prefix scripts --no-save --package-lock=false --ignore-scripts pg@8.16.3
       - name: Security regression tests
         env:
           P2B_REDIS_TEST_PORT: '6379'
+          P2C_REDIS_TEST_PORT: '6379'
+          P2C_POSTGRES_TEST_URL: 'postgresql://postgres:p2c-isolated-test@127.0.0.1:5432/p2c_session_test'
         run: |
           node tests/security/cron-auth.test.mjs
           node tests/security/cron-auth-probe.test.mjs
@@ -83,6 +107,8 @@ jobs:
           node tests/security/phase1c-auth-boundaries.test.mjs
           node tests/security/phase2a-medium.test.mjs
           node tests/security/phase2b-enforcement.test.mjs
+          node tests/security/phase2c-session-store.test.mjs
+          node tests/security/phase2c-provider-session.test.mjs
       - uses: actions/setup-go@v5
         with:
           go-version: '1.24'
