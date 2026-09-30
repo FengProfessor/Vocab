@@ -20,6 +20,7 @@ import { StageProgressNav } from '@/components/speaking/foundation/StageProgress
 import { DualSpeedAudioButton } from '@/components/speaking/foundation/DualSpeedAudioButton';
 import { SafeHarborRecorder } from '@/components/speaking/foundation/SafeHarborRecorder';
 import { InteractiveIpaVideoPlayer } from '@/components/pronunciation/InteractiveIpaVideoPlayer';
+import { MouthAnatomyStudio } from '@/components/speaking/foundation/MouthAnatomyStudio';
 import {
   STAGE_0_PHONETIC_LESSONS,
   getStage0Lessons,
@@ -163,36 +164,30 @@ export default function Stage0PhoneticsPage() {
               </p>
             </div>
 
-            {/* Rachel's English Video Player */}
-            <div className="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-950 shadow-md">
-              <InteractiveIpaVideoPlayer
-                video={{
-                  youtubeVideoId: activeLesson.video.youtubeVideoId,
-                  startSeconds: activeLesson.video.startSeconds,
-                  endSeconds: activeLesson.video.endSeconds,
-                  channelName: "Rachel's English",
-                  videoTip: activeLesson.video.videoTip || activeLesson.video.mouthTipSummary || activeLesson.mouthTipVi,
-                  clipTitle: activeLesson.video.title,
-                  mouthTipSummary: activeLesson.video.mouthTipSummary,
-                }}
-                ipa={activeLesson.phonemes.join(' ')}
-                title={activeLesson.video.title}
-                cleanMode={true}
-                keyArticulationTip={activeLesson.video.mouthTipSummary || activeLesson.mouthTipVi}
-                className="w-full"
-              />
-            </div>
-
-            {/* Mouth Articulation Tips Callout */}
-            <div className="p-4 rounded-xl border border-amber-200/80 dark:border-amber-900/50 bg-amber-50/60 dark:bg-amber-950/20 space-y-2">
-              <div className="flex items-center gap-2 text-amber-800 dark:text-amber-300 font-bold text-xs sm:text-sm">
-                <Info className="w-4 h-4 text-amber-600 flex-shrink-0" />
-                <span>Mẹo khẩu hình chuẩn (Rachel’s Articulation Tip)</span>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed pl-6">
-                {activeLesson.mouthTipVi}
-              </p>
-            </div>
+            {/* Modern Interactive Mouth Anatomy Studio with Optional Video Masterclass */}
+            <MouthAnatomyStudio
+              lesson={activeLesson}
+              videoNode={
+                <div className="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-950 shadow-md">
+                  <InteractiveIpaVideoPlayer
+                    video={{
+                      youtubeVideoId: activeLesson.video.youtubeVideoId,
+                      startSeconds: activeLesson.video.startSeconds,
+                      endSeconds: activeLesson.video.endSeconds,
+                      channelName: "Rachel's English",
+                      videoTip: activeLesson.video.videoTip || activeLesson.video.mouthTipSummary || activeLesson.mouthTipVi,
+                      clipTitle: activeLesson.video.title,
+                      mouthTipSummary: activeLesson.video.mouthTipSummary,
+                    }}
+                    ipa={activeLesson.phonemes.join(' ')}
+                    title={activeLesson.video.title}
+                    cleanMode={true}
+                    keyArticulationTip={activeLesson.video.mouthTipSummary || activeLesson.mouthTipVi}
+                    className="w-full"
+                  />
+                </div>
+              }
+            />
           </div>
 
           {/* Right Column: Interactive Drills (Minimal Pairs & Practice Words) (5 cols) */}

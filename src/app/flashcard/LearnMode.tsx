@@ -547,6 +547,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
                     example={w.example}
                     exampleVi={w.example_vi}
                     defaultShowVi
+                    autoTranslateIfMissing
                     className="line-clamp-5 border-l-4 border-slate-200 pl-2.5 text-left"
                     enClassName="text-xs font-medium italic leading-snug text-slate-500 sm:text-sm"
                     viClassName="mt-1 text-[11px] font-medium leading-snug text-slate-400 sm:text-xs not-italic"

@@ -20,6 +20,8 @@ import { StudentShell } from '@/components/student/StudentShell';
 import { StageProgressNav } from '@/components/speaking/foundation/StageProgressNav';
 import { getSpeakingStats } from '@/data/speaking/foundation';
 import { Button } from '@/components/ui/button';
+import { MasterSpeakingRoadmap } from '@/components/speaking/MasterSpeakingRoadmap';
+import { BookOpen, Bot } from 'lucide-react';
 
 export default function SpeakingFoundationHubPage() {
   const stats = getSpeakingStats();
@@ -125,6 +127,9 @@ export default function SpeakingFoundationHubPage() {
   return (
     <StudentShell title="Luyện nói Nền tảng cho Người mất gốc">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-8">
+        {/* Master Speaking 4-Step Progressive Roadmap */}
+        <MasterSpeakingRoadmap currentStage="foundation" />
+
         {/* Navigation Breadcrumbs */}
         <StageProgressNav showBreadcrumbs={true} />
 
@@ -351,23 +356,83 @@ export default function SpeakingFoundationHubPage() {
           </div>
         </div>
 
-        {/* Transition to Advanced Speaking CTA */}
-        <div className="rounded-xl border border-indigo-200 dark:border-indigo-900/60 bg-gradient-to-r from-indigo-50/70 to-purple-50/70 dark:from-indigo-950/30 dark:to-purple-950/30 p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div className="space-y-1">
-            <div className="flex items-center gap-2 text-indigo-700 dark:text-indigo-400 font-bold text-sm">
-              <Award className="w-4 h-4" />
-              Bước tiếp theo sau khi hoàn thành 4 Chặng
-            </div>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
-              Đã làm chủ ngữ âm và phản xạ khung câu? Hãy bước vào{' '}
-              <strong>Luyện nói AI (MVA)</strong> với 24+ chủ đề công sở, tranh biện và đời sống.
-            </p>
+        {/* Transition to Next Steps in Speaking Roadmap */}
+        <div className="rounded-2xl border border-indigo-200 dark:border-indigo-900/60 bg-gradient-to-r from-indigo-50/70 via-purple-50/50 to-indigo-50/70 dark:from-indigo-950/40 dark:via-purple-950/30 dark:to-indigo-950/40 p-5 sm:p-6 space-y-4 shadow-lg">
+          <div className="flex items-center gap-2 text-indigo-700 dark:text-indigo-400 font-bold text-sm sm:text-base">
+            <Award className="w-5 h-5 text-indigo-500" />
+            <span>Tốt Nghiệp Bước 1 (Nền Tảng) — Bước Tiếp Theo Của Bạn</span>
           </div>
-          <Link href="/student/speaking" className="flex-shrink-0">
-            <Button variant="outline" className="border-indigo-300 dark:border-indigo-700">
-              Khám phá Luyện nói AI
-            </Button>
-          </Link>
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
+            Khi đã làm chủ khẩu hình và phản xạ 28 khung câu đúc sẵn, bạn đã sẵn sàng bước tiếp theo lộ trình từ đơn giản đến nâng cao:
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+            <Link
+              href="/student/speaking/curriculum"
+              className="p-3.5 rounded-xl border border-indigo-500/30 bg-white dark:bg-slate-900 hover:border-indigo-500 transition-all flex flex-col justify-between group"
+            >
+              <div>
+                <div className="flex items-center justify-between text-xs font-bold text-indigo-400 mb-1">
+                  <span>Bước 2 (Khuyên tiếp theo)</span>
+                  <BookOpen className="size-4" />
+                </div>
+                <h5 className="font-bold text-slate-900 dark:text-slate-100 text-xs sm:text-sm group-hover:text-indigo-400 transition-colors">
+                  Lộ Trình 32 Bài Chuẩn Hóa
+                </h5>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 line-clamp-2">
+                  Giáo trình 3 Phase nâng band từ 0 đến 6.5 IELTS với phương pháp 4 bước khép kín.
+                </p>
+              </div>
+              <div className="mt-3 text-xs text-indigo-400 font-semibold flex items-center gap-1">
+                <span>Vào học 32 bài</span>
+                <ArrowRight className="size-3 group-hover:translate-x-0.5 transition-transform" />
+              </div>
+            </Link>
+
+            <Link
+              href="/student/speaking/topics"
+              className="p-3.5 rounded-xl border border-amber-500/30 bg-white dark:bg-slate-900 hover:border-amber-500 transition-all flex flex-col justify-between group"
+            >
+              <div>
+                <div className="flex items-center justify-between text-xs font-bold text-amber-400 mb-1">
+                  <span>Bước 3 (Thực chiến)</span>
+                  <Compass className="size-4" />
+                </div>
+                <h5 className="font-bold text-slate-900 dark:text-slate-100 text-xs sm:text-sm group-hover:text-amber-400 transition-colors">
+                  Thư Viện 250+ Chủ Đề
+                </h5>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 line-clamp-2">
+                  Làm giàu vốn từ và mẫu câu theo tình huống đời sống, du lịch và công sở.
+                </p>
+              </div>
+              <div className="mt-3 text-xs text-amber-400 font-semibold flex items-center gap-1">
+                <span>Xem 250+ chủ đề</span>
+                <ArrowRight className="size-3 group-hover:translate-x-0.5 transition-transform" />
+              </div>
+            </Link>
+
+            <Link
+              href="/student/speaking"
+              className="p-3.5 rounded-xl border border-purple-500/30 bg-white dark:bg-slate-900 hover:border-purple-500 transition-all flex flex-col justify-between group"
+            >
+              <div>
+                <div className="flex items-center justify-between text-xs font-bold text-purple-400 mb-1">
+                  <span>Bước 4 (Đối thoại AI)</span>
+                  <Bot className="size-4" />
+                </div>
+                <h5 className="font-bold text-slate-900 dark:text-slate-100 text-xs sm:text-sm group-hover:text-purple-400 transition-colors">
+                  AI Speaking Tutor
+                </h5>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 line-clamp-2">
+                  Đàm thoại 1:1 trực tiếp bằng giọng nói, sửa ngữ pháp & phát âm tức thì.
+                </p>
+              </div>
+              <div className="mt-3 text-xs text-purple-400 font-semibold flex items-center gap-1">
+                <span>Luyện cùng AI</span>
+                <ArrowRight className="size-3 group-hover:translate-x-0.5 transition-transform" />
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
     </StudentShell>

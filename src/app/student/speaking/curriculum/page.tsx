@@ -26,6 +26,7 @@ import {
   allCurriculumLessons,
 } from '@/data/speaking/curriculum';
 import type { SpeakingPhaseId } from '@/types/speaking-curriculum';
+import { MasterSpeakingRoadmap } from '@/components/speaking/MasterSpeakingRoadmap';
 
 export default function SpeakingCurriculumCatalogPage() {
   const [activePhase, setActivePhase] = useState<SpeakingPhaseId>('phase-1-beginner');
@@ -93,6 +94,13 @@ export default function SpeakingCurriculumCatalogPage() {
             </Link>
           </div>
         </header>
+
+        {/* Master Speaking 4-Step Progressive Roadmap */}
+        <div className="border-b border-slate-800/80 bg-slate-950/80 px-4 py-4 sm:px-8 backdrop-blur">
+          <div className="max-w-6xl mx-auto">
+            <MasterSpeakingRoadmap currentStage="curriculum" />
+          </div>
+        </div>
 
         {/* Hero Section & Visual Statistics Bar */}
         <div className="relative border-b border-slate-800/70 bg-gradient-to-b from-slate-900 via-slate-900/80 to-slate-950 px-4 py-8 sm:px-8 sm:py-10">

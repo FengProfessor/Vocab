@@ -6,3 +6,4 @@
 export * from './SafeHarborRecorder';
 export * from './DualSpeedAudioButton';
 export * from './StageProgressNav';
+export * from './MouthAnatomyStudio';

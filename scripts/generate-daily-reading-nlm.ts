@@ -32,7 +32,12 @@ import {
   checkPassageRepetition,
   type AdaptiveLevelConfig,
 } from '../src/lib/daily-reading-level';
-import { geminiGenerate, hasGeminiKeys } from '../src/lib/gemini-multi';
+import {
+  geminiGenerate,
+  hasGeminiKeys,
+  waitOutGeminiCooldown,
+  getMinCooldownWaitMs,
+} from '../src/lib/gemini-multi';
 
 const execFileAsync = promisify(execFile);
 dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
@@ -464,6 +469,53 @@ async function exerciseExists(userId: string, exerciseDate: string): Promise<boo
   }
 }
 
+/**
+ * Checks if user has a previous ready exercise that is not yet completed.
+ * If previous exercise exists and lacks completed_at in daily_reading_completions,
+ * we keep the unread exercise as active and skip generating a new one.
+ */
+export async function hasUncompletedPreviousExercise(
+  userId: string,
+  targetExerciseDate: string,
+): Promise<{ id: string; exercise_date: string; title: string } | null> {
+  if (FORCE) return null;
+  try {
+    const [y, m, d] = targetExerciseDate.split('-').map(Number);
+    const cutoffDt = new Date(Date.UTC(y, m - 1, d - 14));
+    const cutoffDate = cutoffDt.toISOString().slice(0, 10);
+
+    const { data: previousEx, error } = await supabase
+      .from('daily_reading_exercises')
+      .select('id, exercise_date, title')
+      .eq('target_user_id', userId)
+      .eq('status', 'ready')
+      .lt('exercise_date', targetExerciseDate)
+      .gte('exercise_date', cutoffDate)
+      .order('exercise_date', { ascending: false })
+      .limit(1);
+
+    if (error || !previousEx || previousEx.length === 0) {
+      return null;
+    }
+
+    const prevId = previousEx[0].id;
+    const { data: comp } = await supabase
+      .from('daily_reading_completions')
+      .select('completed_at')
+      .eq('user_id', userId)
+      .eq('exercise_id', prevId)
+      .maybeSingle();
+
+    if (!comp || !comp.completed_at) {
+      return previousEx[0];
+    }
+    return null;
+  } catch (err) {
+    console.warn(`   [completion-check] Failed:`, err);
+    return null;
+  }
+}
+
 // ── Build Adaptive NLM prompt (R2) ──
 export function buildPrompt(
   words: WordItem[],
@@ -719,10 +771,19 @@ export async function generateWithGeminiFallback(
         `  [gemini-fallback] coverage=${(result.coverage * 100).toFixed(0)}% questions=${result.questions.length} — retry`,
       );
     } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
       console.error(
         `  [gemini-fallback] Attempt ${attempt} failed:`,
-        err instanceof Error ? err.message : err,
+        msg,
       );
+      if (/cooldown|rate.?limit|429/i.test(msg)) {
+        console.log('  [gemini-fallback] Gemini rate limit / key cooldown detected. Waiting out cooldown...');
+        const waited = await waitOutGeminiCooldown(65_000);
+        if (waited) {
+          console.log('  [gemini-fallback] Key cooldown elapsed. Retrying user generation...');
+          continue;
+        }
+      }
     }
 
     if (attempt < maxAttempts) await sleep(2000);
@@ -1032,6 +1093,17 @@ async function main() {
       continue;
     }
 
+    // Skip users whose previous exercise is not yet completed
+    if (!DRY && !FORCE) {
+      const uncompletedPrev = await hasUncompletedPreviousExercise(candidate.userId, exerciseDate);
+      if (uncompletedPrev) {
+        console.log(
+          `   [skip] User ${candidate.email} has uncompleted previous exercise "${uncompletedPrev.title}" (${uncompletedPrev.exercise_date}) — keeping it active, skip generating new one.`,
+        );
+        continue;
+      }
+    }
+
     const startMs = Date.now();
 
     try {
@@ -1106,10 +1178,16 @@ async function main() {
       totalFail++;
     }
 
-    // Delay between users
+    // Delay between users with queue fairness rate-limit check
     if (i < activeUsers.length - 1) {
-      console.log(`   Waiting ${DELAY_MS}ms before next user...`);
-      await sleep(DELAY_MS);
+      const cooldownWaitMs = getMinCooldownWaitMs();
+      if (cooldownWaitMs > 0) {
+        console.log(`   [queue-fairness] Rate-limit cooldown active. Waiting ${Math.ceil(cooldownWaitMs / 1000)}s before next user...`);
+        await sleep(cooldownWaitMs + 500);
+      } else {
+        console.log(`   Waiting ${DELAY_MS}ms before next user...`);
+        await sleep(DELAY_MS);
+      }
     }
   }
 

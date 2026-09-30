@@ -25,9 +25,10 @@ let rr = 0;
 let loaded = false;
 
 function loadKeys(): void {
-  if (loaded) return;
-  loaded = true;
+  if (loaded && keys.length > 0) return;
   const raw = process.env.GEMINI_API_KEY || '';
+  if (!raw) return;
+  loaded = true;
   keys = raw
     .split(',')
     .map((k) => k.trim())
@@ -85,6 +86,23 @@ function pickKeyOnce(): KeyState {
     Math.min(...keys.map((k) => k.cooldownUntil - now)) / 1000,
   );
   throw new Error(`${LOG} all ${keys.length} keys in cooldown (~${waitSec}s)`);
+}
+
+export function getMinCooldownWaitMs(): number {
+  loadKeys();
+  if (keys.length === 0) return 0;
+  const now = Date.now();
+  const waitTimes = keys.map((k) => Math.max(0, k.cooldownUntil - now));
+  return Math.min(...waitTimes);
+}
+
+export async function waitOutGeminiCooldown(maxWaitMs = 65_000): Promise<boolean> {
+  const waitMs = getMinCooldownWaitMs();
+  if (waitMs <= 0) return true;
+  if (waitMs > maxWaitMs) return false;
+  console.log(`${LOG} Waiting ${Math.ceil(waitMs / 1000)}s for key cooldown to expire...`);
+  await new Promise((r) => setTimeout(r, waitMs + 200));
+  return true;
 }
 
 function mark429(entry: KeyState): void {

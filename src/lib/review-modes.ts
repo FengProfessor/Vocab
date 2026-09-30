@@ -23,6 +23,7 @@ export interface ReviewWordLike {
   word: string;
   translation: string;
   example?: string | null;
+  example_vi?: string | null;
   srsLevel?: number;
   reviewCount?: number;
   isDue?: boolean;

@@ -75,7 +75,10 @@ export async function GET(req: Request): Promise<NextResponse> {
     }).format(new Date());
 
     const targetDate = searchParams.get('date') || todayVN;
-    const recentDays = Math.min(Math.max(parseInt(searchParams.get('recent') || '0', 10), 0), 7);
+    const recentParam = searchParams.get('recent');
+    const recentDays = recentParam !== null
+      ? Math.min(Math.max(parseInt(recentParam, 10) || 0, 0), 14)
+      : 7;
     const mode = searchParams.get('mode') || 'personal';
 
     // Calculate date range using UTC math to avoid timezone shifts
@@ -109,6 +112,33 @@ export async function GET(req: Request): Promise<NextResponse> {
     } catch {
       // Table may not exist yet or query failed
     }
+
+    // Ensure any recent ready exercises from the last 14 days are included so uncompleted exercises are never hidden
+    try {
+      const [y, m, d] = todayVN.split('-').map(Number);
+      const dt14 = new Date(Date.UTC(y, m - 1, d - 14));
+      const cutoff14 = dt14.toISOString().slice(0, 10);
+
+      const { data: latestRows } = await supabase
+        .from('daily_reading_exercises')
+        .select('*')
+        .eq('target_user_id', auth.userId)
+        .eq('status', 'ready')
+        .gte('exercise_date', cutoff14)
+        .order('exercise_date', { ascending: false })
+        .limit(10);
+
+      if (latestRows && latestRows.length > 0) {
+        const existingIds = new Set(userExercises.map((e) => e.id));
+        for (const row of latestRows) {
+          if (!existingIds.has(row.id)) {
+            userExercises.push(row as unknown as ExerciseRow);
+            existingIds.add(row.id);
+          }
+        }
+      }
+      userExercises.sort((a, b) => b.exercise_date.localeCompare(a.exercise_date));
+    } catch {}
 
     // 2. Classroom-wide exercises only when explicitly requested via ?mode=classroom
     // R4 requirement: If user has no personalized exercise today, show friendly empty state
@@ -234,11 +264,18 @@ export async function GET(req: Request): Promise<NextResponse> {
     const hasNew = result.some(
       (e) => e.exerciseDate === todayVN && !e.completion?.completedAt,
     );
+    const hasUncompleted = result.some((e) => !e.completion?.completedAt);
+    const uncompletedExercise = result.find((e) => !e.completion?.completedAt);
+    const hasToday = result.some((e) => e.exerciseDate === todayVN);
+    const canGenerateToday = !hasToday && !hasUncompleted;
 
     return NextResponse.json({
       success: true,
       exercises: result,
       hasNew,
+      hasUncompleted,
+      uncompletedExerciseId: uncompletedExercise?.id || null,
+      canGenerateToday,
       date: targetDate,
       todayVN,
     });
@@ -290,17 +327,43 @@ export async function POST(req: Request): Promise<NextResponse> {
     const clozeScore = Math.max(0, Math.min(100, Math.floor(Number(body.clozeScore) || 0)));
     const clozeTotal = Math.max(0, Math.min(100, Math.floor(Number(body.clozeTotal) || 0)));
 
+    const hasMcq = body.mcqTotal !== undefined && Number(body.mcqTotal) > 0;
+    const hasCloze = body.clozeTotal !== undefined && Number(body.clozeTotal) > 0;
+
     const supabase = createServiceClient();
 
     try {
+      let finalMcqScore = mcqScore;
+      let finalMcqTotal = mcqTotal;
+      let finalClozeScore = clozeScore;
+      let finalClozeTotal = clozeTotal;
+
+      const { data: existingComp } = await supabase
+        .from('daily_reading_completions')
+        .select('*')
+        .eq('user_id', auth.userId)
+        .eq('exercise_id', exerciseId)
+        .maybeSingle();
+
+      if (existingComp) {
+        if (!hasMcq && existingComp.mcq_total > 0) {
+          finalMcqScore = existingComp.mcq_score;
+          finalMcqTotal = existingComp.mcq_total;
+        }
+        if (!hasCloze && existingComp.cloze_total > 0) {
+          finalClozeScore = existingComp.cloze_score;
+          finalClozeTotal = existingComp.cloze_total;
+        }
+      }
+
       const { error } = await supabase.from('daily_reading_completions').upsert(
         {
           user_id: auth.userId,
           exercise_id: exerciseId,
-          mcq_score: mcqScore,
-          mcq_total: mcqTotal,
-          cloze_score: clozeScore,
-          cloze_total: clozeTotal,
+          mcq_score: finalMcqScore,
+          mcq_total: finalMcqTotal,
+          cloze_score: finalClozeScore,
+          cloze_total: finalClozeTotal,
           completed_at: new Date().toISOString(),
         },
         { onConflict: 'user_id,exercise_id' },
