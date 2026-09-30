@@ -21,6 +21,8 @@ import {
   TableProperties,
   FileText,
   Image as ImageIcon,
+  ArrowLeft,
+  Compass,
 } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import type { CefrLevel } from '@/lib/grammar-types';
@@ -236,12 +238,49 @@ function GrammarRoadmapContent() {
 
   return (
     <main className="min-h-dvh bg-background text-foreground flex flex-col">
+      {/* Sticky Top Navigation Bar */}
+      <header className="sticky top-0 z-30 border-b border-border bg-card/95 backdrop-blur-md px-4 sm:px-6 h-12 sm:h-14 flex items-center shrink-0">
+        <div className="max-w-5xl w-full mx-auto flex items-center justify-between gap-3">
+          <Link
+            href="/student"
+            className="inline-flex items-center gap-1.5 sm:gap-2 font-mono text-xs uppercase tracking-wider font-semibold border border-border px-2.5 sm:px-3 py-1.5 hover:bg-muted text-muted-foreground hover:text-foreground transition-colors rounded-none shrink-0"
+          >
+            <ArrowLeft className="h-4 w-4 shrink-0 text-primary" />
+            <span className="hidden sm:inline">Về Dashboard</span>
+            <span className="sm:hidden">Dashboard</span>
+          </Link>
+
+          <div className="flex items-center gap-2 shrink-0">
+            <Link
+              href="/journey"
+              className="hidden md:inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider font-semibold border border-border px-3 py-1.5 hover:bg-muted text-muted-foreground hover:text-foreground transition-colors rounded-none"
+            >
+              <Compass className="h-3.5 w-3.5 text-primary" />
+              <span>Lộ trình học</span>
+            </Link>
+            <Link
+              href="/grammar/practice?mode=review"
+              className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider font-semibold border border-border bg-card hover:bg-muted text-foreground px-2.5 sm:px-3 py-1.5 rounded-none transition-colors"
+            >
+              <RotateCcw className="h-3.5 w-3.5 text-primary" />
+              <span className="hidden sm:inline">Ôn câu sai (14 ngày)</span>
+              <span className="sm:hidden">Ôn câu sai</span>
+            </Link>
+          </div>
+        </div>
+      </header>
+
       {/* Top Banner / Hero */}
       <section className="border-b border-border bg-card px-4 py-8 sm:py-12">
         <div className="max-w-5xl mx-auto flex flex-col gap-6">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
-              <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-muted-foreground mb-2">
+              <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-muted-foreground mb-2 flex-wrap">
+                <Link href="/student" className="hover:text-foreground hover:underline flex items-center gap-1 text-primary">
+                  <ArrowLeft className="h-3 w-3" />
+                  <span>Dashboard</span>
+                </Link>
+                <span>/</span>
                 <span className="px-1.5 py-0.5 border border-border bg-muted/30">Lộ trình chuẩn hóa</span>
                 <span>•</span>
                 <span>62 Chủ điểm CEFR A0 – B2</span>
@@ -253,16 +292,6 @@ function GrammarRoadmapContent() {
                 Hệ thống 62 chủ điểm ngữ pháp từ căn bản (A0) tới nâng cao học thuật (B2), xây dựng
                 theo khung năng lực Châu Âu và tiêu chuẩn giảng dạy ngữ pháp ứng dụng.
               </p>
-            </div>
-
-            {/* Quick Actions */}
-            <div className="flex items-center gap-2 shrink-0">
-              <Link href="/grammar/practice?mode=review">
-                <button className="border border-border bg-card hover:bg-muted text-foreground px-4 py-2.5 font-mono text-xs uppercase tracking-wider font-semibold rounded-none flex items-center gap-2 transition-colors">
-                  <RotateCcw className="h-3.5 w-3.5 text-primary" />
-                  Ôn câu sai (14 ngày)
-                </button>
-              </Link>
             </div>
           </div>
 
