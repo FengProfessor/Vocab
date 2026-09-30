@@ -378,3 +378,9 @@ Không thay đổi P0 deploy flow, migration runner, health endpoint, systemd ho
 P1-C-03 và P1-C-05 CLOSED theo PR18 merge 805cc56e65f75362d5310f351f44b9504d43a6c5, clean CI36699080822, canonical36699466025 và SePay send-test200. Các bảng Phase2B preparation phía trên là lịch sử, không phải trạng thái hiện tại. High0 / Medium1 (P1-C-02 OPEN) / Low3. Không downgrade severity.
 
 Phase2C mới hoàn tất inventory và lựa chọn Architecture B server-managed token vault; chưa implementation/cutover, chưa closure. Map và required evidence: p1-phase2c-session-architecture.md, p1-phase2c-inventory.json. Fresh source baseline a683048: npm ci/build PASS, typecheck10 known Speaking errors, lint122 errors/448 warnings. Runtime storage/login chưa kiểm chứng. Provider-session metadata preflight chỉ read-only; không SQL mutation.
+
+## Phase 2C — Implementation / clean CI checkpoint
+
+Foundation PR #19 canonical run36749311479 PASS at905d9bb; old browser login remains until cutover. Cookie/BFF implementation PR #20 commit4333d2e clean CI36753194465 PASS, including isolated Redis/PostgreSQL and prior security regressions. P1-C-02 remains OPEN until canonical cutover and dedicated production browser login/navigation/storage/logout/replay evidence. Pre-merge read-only host inspection currently waits for operator to reconnect local Tailscale; no manual deployment or SQL workaround.
+
+Current High0 / Medium1 OPEN / Low3. Existing accepted Windows/Ubuntu host-compromise residual risk remains; this auth redesign does not replace reimage/credential remediation. npm audit46 (22 moderate/19 high/5 critical), no dependency churn.
