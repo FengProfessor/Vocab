@@ -2,6 +2,8 @@
 
 # Phase 2B — staged rollout
 
+**Latest:** Stage B PASS; C03/C05 CLOSED, C02 OPEN/STOP. PR #18, clean Redis CI `36699080822`, canonical `36699466025`, verified production SHA `805cc56e65f75362d5310f351f44b9504d43a6c5`. SePay post-enforcement send-test HTTP 200 (873 ms), zero payment confirmation. Baseline/preparation dưới đây giữ làm lịch sử.
+
 ## Baseline và điểm dừng
 
 - Baseline thực tế: `219482bca9b05a2f48b61221376892c3097ace1e`, descendant của `baef25b92ccc2133c27374c4766cec52199867ba`. Commit mới chỉ sửa TOEIC/TikTok, không thay root cause của ba findings. Canonical run `36314116565` PASS; build HEAD/build marker/live marker khớp, service active/MainPID `1097282`.
@@ -46,6 +48,15 @@ Baseline trước Stage B: `checkRateLimitAsync` fallback memory khi thiếu con
 - Direct callers, anti-scrape và quota wrappers dùng cùng helper; hai sync callers chuyển async. Route keys grammar/dictionary tách theo route; translation window 60 giây. Không đổi paid quotas/schema/dependencies/order confirmation.
 - Clean CI bắt buộc Redis service cô lập: thực thi Lua, race 40 requests qua hai module instances, restart, TTL không renew, expiry và persistent legacy key repair. Billing tests dùng actual route/confirmOrder với stateful isolated RPC adapter; không phải live PostgreSQL concurrency test.
 - Preflight production EVAL/count/TTL quyền Upstash PASS trên synthetic key tự hết hạn. Không fault-inject hoặc tắt Redis production. C03/C05 chỉ CLOSED sau clean CI và canonical exact-SHA rollout/probes PASS; C02 vẫn OPEN/STOP.
+
+### Closure evidence
+
+- CI Node 22.23.2/npm 10.9.8 PASS, gồm actual Lua race/restart/expiry/TTL repair. Canonical quality → migration → exact-SHA build → activation/restart → health PASS; tám history/checksum migrations SKIP, không có migration mới của Phase 2B.
+- Build HEAD/build marker/live marker khớp SHA; service active/MainPID 1252562 ổn định; local/public health no-store 200 và root 200. Alias WEBHOOK_SECRET absent; billing/cron/Redis settings khác alias giữ nguyên so với rollback snapshot.
+- Dedicated auth empty payload 200/processed 0; missing/wrong/cron/previous rotated key/Bearer/legacy headers 401. Safe cron auth-check vẫn 204. Một empty registration 400 trước signUp tạo isolated Redis counter 1 có TTL <=60 s; không spam để test quota production.
+- Provider send-test 200/873 ms; journal chỉ summarize counts: unmatched order pattern 1, payment confirmation attempts/success 0. 55 HTTP 401 deliveries cũ vẫn hiện trên dashboard; chưa replay, cần operator đối soát riêng nếu có giao dịch cần xử lý.
+- Outage/missing-config/negative mutation tests ở isolated CI; không tắt Redis hoặc tạo paid event production. Billing race/replay dùng actual service + RPC adapter, không phải live DB concurrency proof. SePay API Key vẫn cần được giữ bí mật; không tuyên bố cơ chế này loại bỏ mọi replay/XSS risk.
+- Medium before 3, closed 2 (C03/C05), remaining 1 (C02); High 0, Low 3. Auth session redesign và dependency triage ở phase riêng.
 
 Nguồn: [Upstash atomic Lua over HTTP](https://upstash.com/blog/lua-scripting-on-upstash-redis-atomic-operations-over-http), [EVAL command](https://upstash.com/docs/redis/sdks/ts/commands/scripts/eval).
 

@@ -318,9 +318,9 @@ Audit ban đầu liệt kê sáu Medium dưới dạng bullet nhưng chưa gắn
 |---|---|---|---|---|
 | `P1-C-01` | OPEN | Shared Supabase client | Service-role factory nằm cùng browser client và fallback sang anon key khi thiếu secret | 2A |
 | `P1-C-02` | OPEN | Browser auth/session | Access/refresh token persist trong localStorage; không có cookie SSR/session refresh boundary | 2B |
-| `P1-C-03` | OPEN | `/api/billing/webhook` | Webhook chấp nhận nhiều shared secret, gồm `CRON_SECRET`, bằng direct string comparison | 2B |
+| `P1-C-03` | CLOSED | `/api/billing/webhook` | Dedicated SePay Apikey + constant-time; shared/cron/management credentials reject; Stage B verified | 2B |
 | `P1-C-04` | OPEN | `/api/test/notify` | Bật `ALLOW_TEST_ROUTES=true` biến route thành anonymous arbitrary-user service-role lookup/send và trả PII/provider response | 2A |
-| `P1-C-05` | OPEN | Shared rate limiter và public/expensive APIs | Thiếu/ lỗi Upstash tự fallback về counter theo process | 2B |
+| `P1-C-05` | CLOSED | Shared rate limiter và public/expensive APIs | Atomic distributed Lua counter/TTL; missing/error 503; không fallback memory; Stage B verified | 2B |
 | `P1-C-06` | OPEN | Operational scripts/provider routers | Temporary password, FCM/API-key fragments và user identifier xuất hiện trong console/error output | 2A |
 
 Code tại base `c4f81f3a5c76415c58592b3036d26ccbb683dabd` khớp cả sáu assumptions; không finding Medium nào đã đủ evidence để đóng. Phase 1A/1B/1C regressions PASS nên không High nào reopen.
@@ -350,7 +350,7 @@ Code tại base `c4f81f3a5c76415c58592b3036d26ccbb683dabd` khớp cả sáu assu
 
 ## Phase 2B — Configuration preparation (2026-09-30)
 
-**Latest Stage B checkpoint:** operator đổi SePay key; provider send-test HTTP 200, zero payment confirmation. Dedicated billing auth và atomic distributed limiter đã implement/test local; clean Redis CI/canonical rollout còn pending. C03/C05 chưa CLOSED; C02 OPEN/STOP. Chi tiết và evidence tại `progress.md` / [runbook](p1-phase2b-rollout.md).
+**Authoritative Stage B closeout:** `P1-C-03`/`P1-C-05` **CLOSED**. PR #18 clean Redis CI `36699080822` PASS; canonical run `36699466025` PASS tại `805cc56e65f75362d5310f351f44b9504d43a6c5`. Independent release/PID/health, dedicated positive/legacy negative auth và live Redis counter/TTL PASS. SePay send-test sau enforcement HTTP 200 (873 ms), zero payment confirmation. `P1-C-02` **OPEN/STOP**; Phase 2B PARTIAL, High 0, Medium còn 1, Low 3. Các đoạn preparation bên dưới là lịch sử, không thay thế closeout. Chi tiết tại `progress.md` / [runbook](p1-phase2b-rollout.md).
 
 - Base hiện tại `219482bca9b05a2f48b61221376892c3097ace1e` chứa Phase 2A; thay đổi main kế tiếp chỉ TOEIC/TikTok. Canonical run `36314116565` PASS, read-only host build HEAD/build marker/live marker cùng SHA; service active/MainPID `1097282`.
 - Authoritative OPEN IDs: `P1-C-02`, `P1-C-03`, `P1-C-05`. Không đóng/reopen finding vì endpoint/file count.

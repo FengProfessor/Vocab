@@ -2,7 +2,7 @@
 
 # Production deploy
 
-**Trạng thái:** Luồng dưới đây **VERIFIED IN REPOSITORY** bằng source review và local tests. GitHub Actions thực tế và cấu hình host **NOT YET VERIFIED**. Không trigger workflow/SSH production nếu operator chưa ủy quyền rõ ràng.
+**Trạng thái:** Canonical flow VERIFIED qua run 36699466025 và independent host probes tại SHA 805cc56e65f75362d5310f351f44b9504d43a6c5 (2026-09-30). Không xác nhận các rollout độc lập chạy sau đó. Không trigger workflow/SSH production nếu operator chưa ủy quyền rõ ràng.
 
 ## Trigger và commit
 
@@ -10,11 +10,15 @@ Workflow `deploy-server.yml` chạy khi push `main` hoặc `workflow_dispatch` c
 
 ## Quality gate
 
-Trước khi chạm DB hoặc server, job `quality` chạy trên Ubuntu: `npm ci`, actionlint mọi workflow, Bash syntax các script deploy/test, `node --check` migration runner và test render SSH, các bộ test deploy, ESLint riêng health route, và `npm run build`. Test render tái tạo payload shell mà SSH action gửi sang host và chạy `bash -n`, nhằm phát hiện lỗi do action biến đổi script. Mỗi bước này blocking. Full `npm run typecheck` và `npm run lint` chạy với `continue-on-error: true` để báo nợ baseline, không được gọi là repo sạch. Baseline tại checkpoint: 10 lỗi Speaking TypeScript, lint 102 errors/467 warnings; kiểm tra lại khi sửa các phần đó. `npm test` không có script.
+Trước khi chạm DB hoặc server, job `quality` chạy trên Ubuntu: `npm ci`, actionlint mọi workflow, Bash syntax các script deploy/test, `node --check` migration runner và test render SSH, các bộ test deploy/security và isolated Redis Lua integration, ESLint riêng health route, và `npm run build`. Test render tái tạo payload shell mà SSH action gửi sang host và chạy `bash -n`, nhằm phát hiện lỗi do action biến đổi script. Mỗi bước này blocking. Full `npm run typecheck` và `npm run lint` chạy với `continue-on-error: true` để báo nợ baseline, không được gọi là repo sạch. Baseline tại checkpoint: 10 lỗi Speaking TypeScript, lint 110 errors/465 warnings (verified Phase 2B, bằng prior run 36691839537); kiểm tra lại khi sửa các phần đó. `npm test` không có script.
 
 ## Migration và build production
 
 `migrate` cần `quality`; gọi reusable `apply-p0-migrations.yml` với secrets được kế thừa. `deploy` cần `migrate`. Lỗi migration chặn deploy. SSH chỉ chạy bootstrap tối thiểu: nhận event SHA qua action environment, kiểm tra SHA, fetch và detached checkout đúng SHA vào `$HOME/Vocab-build`, rồi gọi `deploy/run-deploy.sh` từ chính commit đó. Không dùng `script_stop` vì drone-ssh 1.7.3 chèn lệnh vào từng dòng và có thể phá cú pháp shell nhiều dòng. `run-deploy.sh` gọi `prepare-source.sh` để đối chiếu `git rev-parse HEAD` và từ chối source bẩn. Git lỗi hoặc SHA sai làm job FAIL, không fallback branch. Server chép env từ `$HOME/Vocab`, cập nhật CRON_SECRET, chạy `npm ci` và `npm run build`. SHA được ghi trong `.next/.release-commit`; activation xác nhận metadata khớp SHA trước khi đổi release. Live Git checkout không bị reset; runtime lấy bundle từ staging.
+
+## Phase 2B config
+
+Runner chuyển BILLING_WEBHOOK_SECRET và UPSTASH_REDIS_REST_URL/TOKEN vào staging; bỏ alias WEBHOOK_SECRET trước canonical activation. Absent optional transport giữ copied dedicated/Redis settings; billing thiếu config reject, limiter thiếu/lỗi config HTTP 503 không fallback RAM. Billing phải khác CRON_SECRET; Upstash cần pair URL/token hợp lệ. Không in giá trị hoặc ghi env live ngoài activation. Rollback bundle/env giữ flow hiện hữu.
 
 ## Activation và thành công
 
