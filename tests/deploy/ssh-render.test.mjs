@@ -21,7 +21,11 @@ assert.equal(
   false,
   'script_stop mutates multiline shell syntax in drone-ssh v1.7.3',
 );
-assert(stepLines.some((line) => /^\s+envs:\s*EXPECTED_SHA,CRON_SECRET\s*$/.test(line)));
+const forwardedEnv = stepLines.find((line) => /^\s+envs:/.test(line))?.trim().slice('envs:'.length).trim().split(',');
+assert.deepEqual(forwardedEnv, [
+  'EXPECTED_SHA', 'CRON_SECRET', 'BILLING_WEBHOOK_SECRET',
+  'UPSTASH_REDIS_REST_URL', 'UPSTASH_REDIS_REST_TOKEN',
+]);
 
 const scriptLine = lines.findIndex(
   (line, index) => index > actionLine && index < stepEnd && /^\s+script:\s*\|\s*$/.test(line),
@@ -45,6 +49,9 @@ assert(!script.includes('npm ci'), 'build logic must not remain inline');
 const rendered = [
   "export EXPECTED_SHA='aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'",
   "export CRON_SECRET='test-secret-with-escaped-'\"'\"'-quote'",
+  "export BILLING_WEBHOOK_SECRET='synthetic-billing-credential-with-safe-characters'",
+  "export UPSTASH_REDIS_REST_URL='https://test.upstash.io'",
+  "export UPSTASH_REDIS_REST_TOKEN='synthetic/redis+token=_-'",
   script,
 ].join('\n');
 const tempRoot = mkdtempSync(join(tmpdir(), 'ssh-render-'));

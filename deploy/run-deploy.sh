@@ -10,6 +10,26 @@ if [[ -z "${CRON_SECRET:-}" ]]; then
   exit 1
 fi
 
+# Chặn ký tự có thể phá dotenv; không ghi giá trị credential vào log.
+if [[ -n "${BILLING_WEBHOOK_SECRET:-}" ]]; then
+  if [[ ! "$BILLING_WEBHOOK_SECRET" =~ ^[A-Za-z0-9_-]+$ ]] ||
+     (( ${#BILLING_WEBHOOK_SECRET} < 32 || ${#BILLING_WEBHOOK_SECRET} > 512 )); then
+    echo '[Deploy] BILLING_WEBHOOK_SECRET must be 32-512 URL-safe characters' >&2
+    exit 1
+  fi
+  if [[ "$BILLING_WEBHOOK_SECRET" == "$CRON_SECRET" ]]; then
+    echo '[Deploy] Billing and cron credentials must be distinct' >&2
+    exit 1
+  fi
+fi
+if [[ -n "${UPSTASH_REDIS_REST_URL:-}" || -n "${UPSTASH_REDIS_REST_TOKEN:-}" ]]; then
+  if [[ ! "${UPSTASH_REDIS_REST_URL:-}" =~ ^https://[a-zA-Z0-9-]+\.upstash\.io/?$ ]] ||
+     [[ ! "${UPSTASH_REDIS_REST_TOKEN:-}" =~ ^[A-Za-z0-9._=+/\-]+$ ]]; then
+    echo '[Deploy] Both valid Upstash REST settings are required together' >&2
+    exit 1
+  fi
+fi
+
 expected_sha="$1"
 build_dir="$2"
 live_dir="$3"
@@ -36,6 +56,26 @@ sed -i '/^CRON_SECRET=/d' .env
 printf 'CRON_SECRET="%s"\n' "$CRON_SECRET" >> .env
 sed -i '/^CRON_SECRET=/d' .env.local
 printf 'CRON_SECRET="%s"\n' "$CRON_SECRET" >> .env.local
+
+# Stage A: giữ auth legacy trong code; alias riêng giúp SePay đổi key sau rollout.
+# Biến không truyền từ CI được giữ nguyên từ env live, không xóa cấu hình host.
+set_staging_env() {
+  local name="$1" value="$2" env_file
+  for env_file in .env .env.local; do
+    sed -i "/^[[:space:]]*\(export[[:space:]]\+\)\?${name}[[:space:]]*=/d" "$env_file"
+    printf '%s="%s"\n' "$name" "$value" >> "$env_file"
+  done
+}
+if [[ -n "${BILLING_WEBHOOK_SECRET:-}" ]]; then
+  set_staging_env BILLING_WEBHOOK_SECRET "$BILLING_WEBHOOK_SECRET"
+  set_staging_env WEBHOOK_SECRET "$BILLING_WEBHOOK_SECRET"
+  echo '[Deploy] Dedicated billing webhook credential staged (compatibility alias enabled)'
+fi
+if [[ -n "${UPSTASH_REDIS_REST_URL:-}" ]]; then
+  set_staging_env UPSTASH_REDIS_REST_URL "$UPSTASH_REDIS_REST_URL"
+  set_staging_env UPSTASH_REDIS_REST_TOKEN "$UPSTASH_REDIS_REST_TOKEN"
+  echo '[Deploy] Distributed limiter configuration staged'
+fi
 
 echo '[Deploy] Installing dependencies in staging'
 npm ci
