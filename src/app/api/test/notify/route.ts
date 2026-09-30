@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { getAdminEmails, getAuthUser, forbidden, unauthorized } from '@/lib/api-security';
@@ -16,6 +17,7 @@ async function sendTelegram(chatId: string, text: string): Promise<TelegramRespo
     });
     return (await res.json()) as TelegramResponse;
   } catch (err: unknown) {
+
     const msg = err instanceof Error ? err.message : 'Unknown error';
     return { ok: false, error: msg };
   }
@@ -65,13 +67,15 @@ export async function POST(req: Request): Promise<NextResponse> {
     }
 
     const testMsg = `🔔 <b>TEST THÀNH CÔNG!</b>\n\nChào <b>${p.full_name}</b>,\nĐây là tin nhắn thử nghiệm từ hệ thống LingoPro.\n\nThông báo SRS của bạn sẽ được gửi về đây khi có từ vựng đến hạn!`;
-    
+
     const result = await sendTelegram(p.telegram_id, testMsg);
     if (!result.ok) {
       return NextResponse.json({ success: false, error: 'Notification provider failed' }, { status: 502 });
     }
     return NextResponse.json({ success: true });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     console.error('[TestNotify] Request failed:', err instanceof Error ? err.message : 'Unknown error');
     return NextResponse.json({ success: false, error: 'Internal Server Error' }, { status: 500 });
   }

@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { getAuthUser, safeErrorResponse } from '@/lib/api-security';
@@ -13,14 +14,14 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
     const user = authUser ? { id: authUser.userId } : null;
 
     const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id);
-    
+
     let query = supabase.from('challenges').select('*, challenge_participants(count)');
     if (isUuid) {
       query = query.eq('id', id);
     } else {
       query = query.eq('slug', id);
     }
-    
+
     const { data: challenge, error } = await query.single();
     if (error) throw error;
     if (!challenge) return NextResponse.json({ success: false, error: 'Không tìm thấy challenge' }, { status: 404 });
@@ -38,6 +39,8 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
 
     return NextResponse.json({ success: true, data: { challenge, participation } });
   } catch (error: any) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(error, 'Lỗi khi tải chi tiết challenge');
   }
 }
@@ -65,7 +68,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
       .select('status')
       .eq('id', id)
       .single();
-      
+
     if (!existing || (existing.status !== 'draft' && existing.status !== 'open')) {
       return NextResponse.json({ success: false, error: 'Không thể cập nhật challenge ở trạng thái hiện tại' }, { status: 400 });
     }
@@ -82,6 +85,8 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
 
     return NextResponse.json({ success: true, data });
   } catch (error: any) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(error, 'Lỗi khi cập nhật challenge');
   }
 }

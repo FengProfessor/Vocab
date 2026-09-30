@@ -24,7 +24,6 @@ export default function AuthCallbackPage() {
 
     (async () => {
       const url = new URL(window.location.href);
-      const code = url.searchParams.get('code');
       const oauthError = url.searchParams.get('error');
       const oauthDesc = url.searchParams.get('error_description');
 
@@ -72,12 +71,6 @@ export default function AuthCallbackPage() {
           ReturnType<typeof supabase.auth.getSession>
         >['data']['session'];
 
-        if (code) {
-          const { data, error } = await supabase.auth.exchangeCodeForSession(code);
-          if (error) console.warn('[AuthCallback] exchange:', error.message);
-          session = data.session ?? null;
-        }
-
         if (!session) {
           const { data } = await supabase.auth.getSession();
           session = data.session;
@@ -96,14 +89,14 @@ export default function AuthCallbackPage() {
 
         // Claim referral attribution if present
         const refCode = getStoredReferralCode();
-        if (refCode && session.access_token) {
+        if (refCode && session.user) {
           try {
             await Promise.race([
               fetch('/api/referral/claim', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
-                  Authorization: `Bearer ${session.access_token}`,
+                  'X-LingoPro-Request': '1',
                 },
                 body: JSON.stringify({ referralCode: refCode }),
                 keepalive: true,

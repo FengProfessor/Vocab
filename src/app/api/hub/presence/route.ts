@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import {
@@ -121,6 +122,8 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       onlineCount: onlineMembers.length,
     });
   } catch (e) {
+    const sessionFailure = sessionErrorResponse(e);
+    if (sessionFailure) return sessionFailure;
     console.error('[HubPresence] GET', e);
     return NextResponse.json({ success: false, error: 'Server error' }, { status: 500 });
   }
@@ -218,6 +221,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
     return NextResponse.json({ success: true, roomId, at: now });
   } catch (e) {
+    const sessionFailure = sessionErrorResponse(e);
+    if (sessionFailure) return sessionFailure;
     console.error('[HubPresence] POST', e);
     return NextResponse.json({ success: false, error: 'Server error' }, { status: 500 });
   }

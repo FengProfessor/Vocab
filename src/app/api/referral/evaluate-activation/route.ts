@@ -1,3 +1,5 @@
+import { sessionErrorResponse } from '@/lib/session-response';
+import { getWebUser } from '@/lib/server-auth-session';
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 
@@ -6,10 +8,8 @@ export const dynamic = 'force-dynamic';
 export async function POST(req: NextRequest) {
   try {
     const supabase = createServiceClient();
-    const token = req.headers.get('authorization')?.replace('Bearer ', '');
-    if (!token) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
-    const { data: { user } } = await supabase.auth.getUser(token);
+    const { data: { user } } = await getWebUser(req);
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
     // Check if user has an unactivated referral log
@@ -64,6 +64,8 @@ export async function POST(req: NextRequest) {
       message: res.message || (res.success ? 'Kích hoạt thành công +7 ngày Pro VIP!' : 'Chưa đủ điều kiện kích hoạt'),
     });
   } catch (err: any) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     return NextResponse.json({ error: err.message || 'Internal error' }, { status: 500 });
   }
 }

@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { createServiceClient } from '@/lib/supabase-server';
 import { NextResponse } from 'next/server';
 import { getAuthUser, unauthorized } from '@/lib/api-security';
@@ -47,7 +48,7 @@ export async function GET(req: Request) {
         .select('*')
         .eq('classroom_id', classroomId)
         .order('avg_quiz_accuracy', { ascending: false });
-      
+
       if (studentErr) throw studentErr;
 
       const studentIds = (studentData || []).map(s => s.student_id);
@@ -165,6 +166,8 @@ export async function GET(req: Request) {
       }
     );
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     const msg = error instanceof Error ? error.message : 'Unknown error';
     console.error('Teacher API Error:', msg);
     return NextResponse.json({ success: false, error: msg }, { status: 500 });

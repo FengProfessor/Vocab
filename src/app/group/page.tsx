@@ -43,16 +43,16 @@ export default function GroupPage() {
   const [joined, setJoined] = useState<JoinedGroup | null>(null);
   const [joinCode, setJoinCode] = useState('');
 
-  const token = useCallback(async () => {
+  const hasSession = useCallback(async () => {
     const { data: { session } } = await supabase.auth.getSession();
-    return session?.access_token;
+    return Boolean(session?.user);
   }, []);
 
   const load = useCallback(async () => {
-    const t = await token();
+    const t = await hasSession();
     if (!t) { router.push('/auth'); return; }
     try {
-      const res = await fetch('/api/groups/mine', { headers: { Authorization: `Bearer ${t}` } });
+      const res = await fetch('/api/groups/mine', { headers: { 'X-LingoPro-Request': '1' } });
       const json = await res.json();
       if (res.ok && json.success) {
         setOwned(json.data.owned);
@@ -63,7 +63,7 @@ export default function GroupPage() {
     } finally {
       setLoading(false);
     }
-  }, [router, token]);
+  }, [router, hasSession]);
 
   useEffect(() => {
     // Prefill mã mời từ URL ?code=
@@ -83,10 +83,10 @@ export default function GroupPage() {
     if (!code) { toast.error('Nhập mã nhóm'); return; }
     setBusy(true);
     try {
-      const t = await token();
+      const _t = await hasSession();
       const res = await fetch('/api/groups/join', {
         method: 'POST',
-        headers: { Authorization: `Bearer ${t}`, 'Content-Type': 'application/json' },
+        headers: { 'X-LingoPro-Request': '1', 'Content-Type': 'application/json' },
         body: JSON.stringify({ inviteCode: code }),
       });
       const json = await res.json();
@@ -106,10 +106,10 @@ export default function GroupPage() {
     if (!confirm(`Xóa ${name} khỏi nhóm? Họ sẽ mất quyền Pro.`)) return;
     setBusy(true);
     try {
-      const t = await token();
+      const _t = await hasSession();
       const res = await fetch(`/api/groups/${owned.id}/remove`, {
         method: 'POST',
-        headers: { Authorization: `Bearer ${t}`, 'Content-Type': 'application/json' },
+        headers: { 'X-LingoPro-Request': '1', 'Content-Type': 'application/json' },
         body: JSON.stringify({ userId }),
       });
       const json = await res.json();
@@ -127,10 +127,10 @@ export default function GroupPage() {
     if (!confirm('Rời nhóm? Bạn sẽ mất quyền Pro từ nhóm.')) return;
     setBusy(true);
     try {
-      const t = await token();
+      const _t = await hasSession();
       const res = await fetch('/api/groups/leave', {
         method: 'POST',
-        headers: { Authorization: `Bearer ${t}`, 'Content-Type': 'application/json' },
+        headers: { 'X-LingoPro-Request': '1', 'Content-Type': 'application/json' },
         body: JSON.stringify({}),
       });
       const json = await res.json();

@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { getAuthUser, safeErrorResponse } from '@/lib/api-security';
@@ -86,6 +87,8 @@ export async function POST(req: Request) {
       isCompleted: true,
     });
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(error, 'Internal Server Error');
   }
 }

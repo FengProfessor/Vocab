@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import {
   generatePackPassage,
@@ -43,6 +44,7 @@ function getPrebuiltPassages(): Record<string, any> {
         return prebuiltCache || {};
       }
     } catch (e) {
+
       console.warn(`[PackPassage] Path check failed for ${filePath}:`, e);
     }
   }
@@ -134,6 +136,8 @@ export async function POST(req: Request): Promise<NextResponse> {
         const supabase = createServiceClient();
         plan = await resolvePlanByUserId(supabase, userId);
       } catch (e) {
+    const sessionFailure = sessionErrorResponse(e);
+    if (sessionFailure) return sessionFailure;
         console.warn('[PackPassage] resolvePlan failed:', e);
         plan = 'free';
       }
@@ -276,6 +280,8 @@ export async function POST(req: Request): Promise<NextResponse> {
       },
     });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const unavailable = rateLimitUnavailableResponse(err);
     if (unavailable) return unavailable;
     const msg = err instanceof Error ? err.message : String(err);

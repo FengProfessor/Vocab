@@ -91,6 +91,8 @@ export default function AuthPage() {
         setDebugError(
           'Google chặn đăng nhập trong Zalo/Facebook/WebView. Mở Chrome hoặc Safari rồi vào lingopro.online/auth',
         );
+      } else if (err === 'oauth_relogin') {
+        setDebugError('Phiên xác minh đã hết hạn hoặc mở trên thiết bị khác. Đăng nhập lại bằng email hoặc Google.');
       } else if (err === 'oauth' || err === 'oauth_no_session') {
         setDebugError(
           'Đăng nhập Google chưa hoàn tất. Mở Chrome/Safari (không mở trong Zalo/FB) rồi thử lại.',
@@ -187,7 +189,7 @@ export default function AuthPage() {
 
         const res = await fetch('/api/auth/register', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json', 'X-LingoPro-Request': '1' },
           body: JSON.stringify({
             email: email.trim(),
             password,
@@ -233,14 +235,14 @@ export default function AuthPage() {
       }
 
       const refCode = getStoredReferralCode();
-      if (refCode && session.access_token) {
+      if (refCode && session.user) {
         try {
           await Promise.race([
             fetch('/api/referral/claim', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${session.access_token}`,
+                'X-LingoPro-Request': '1',
               },
               body: JSON.stringify({ referralCode: refCode }),
               keepalive: true,
@@ -319,7 +321,7 @@ export default function AuthPage() {
         provider: 'google',
         options: {
           redirectTo,
-          skipBrowserRedirect: false,
+          skipBrowserRedirect: true,
           queryParams: {
             // ép màn chọn tài khoản (tránh session Google cũ / WebView lỗi)
             prompt: 'select_account',

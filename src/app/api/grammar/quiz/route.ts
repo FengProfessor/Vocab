@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextRequest, NextResponse } from 'next/server';
 import { getRouter } from '@/lib/ai-router';
 import { createServiceClient } from '@/lib/supabase-server';
@@ -53,8 +54,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const supabase = createServiceClient();
 
     // Gate: AI quiz ngữ pháp là tính năng Premium. (Không chặn khi ENTITLEMENT_ENFORCED=false.)
-    const token = req.headers.get('authorization')?.replace('Bearer ', '');
-    const { plan } = await resolveUserPlan(supabase, token);
+    const { plan } = await resolveUserPlan(supabase, req);
     const access = checkAccess(plan, 'grammar_ai');
     if (!access.allowed) {
       return NextResponse.json(
@@ -144,8 +144,6 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         `  ${i + 1}. ${ex.en ?? ''}${ex.vi ? ` (VN: ${ex.vi})` : ''}`,
       )
       .join('\n');
-
-
 
     const levelLabel = { beginner: 'cơ bản (A1-A2)', intermediate: 'trung cấp (B1-B2)', advanced: 'nâng cao (C1-C2)' }[level as 'beginner' | 'intermediate' | 'advanced'] ?? 'trung cấp (B1-B2)';
 
@@ -287,12 +285,16 @@ Constraints:
           { onConflict: 'lesson_id' },
         );
     } catch (cacheErr) {
+    const sessionFailure = sessionErrorResponse(cacheErr);
+    if (sessionFailure) return sessionFailure;
       // Lỗi cache không được chặn response
       console.warn('[GrammarQuiz] Cache write failed:', cacheErr instanceof Error ? cacheErr.message : cacheErr);
     }
 
     return NextResponse.json({ success: true, data: questions, cached: false });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(err, 'Failed to generate quiz');
   }
 }

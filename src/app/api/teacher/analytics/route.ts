@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { fetchAllRows } from '@/lib/supabase';
 import { createServiceClient } from '@/lib/supabase-server';
 import { NextResponse } from 'next/server';
@@ -286,6 +287,8 @@ export async function GET(req: Request) {
       { headers: { 'Cache-Control': 'private, max-age=20, stale-while-revalidate=40' } },
     );
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(error, 'Không tải được phân tích lớp');
   }
 }

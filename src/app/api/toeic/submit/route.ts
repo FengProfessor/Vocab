@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextRequest, NextResponse } from 'next/server';
 import { rateLimitUnavailableResponse, getClientIp, checkRateLimitAsync, tooManyRequests, getAuthUser } from '@/lib/api-security';
 import { createServiceClient } from '@/lib/supabase-server';
@@ -193,6 +194,8 @@ export async function POST(req: NextRequest) {
           console.warn('[TOEIC Submit] Supabase assessment insert error:', dbError.message);
         }
       } catch (dbErr) {
+    const sessionFailure = sessionErrorResponse(dbErr);
+    if (sessionFailure) return sessionFailure;
         console.warn('[TOEIC Submit] Database connection error:', dbErr);
       }
     }
@@ -245,6 +248,8 @@ export async function POST(req: NextRequest) {
       isGuest: !auth?.userId,
     });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const unavailable = rateLimitUnavailableResponse(err);
     if (unavailable) return unavailable;
     const msg = err instanceof Error ? err.message : 'Server error during submission';

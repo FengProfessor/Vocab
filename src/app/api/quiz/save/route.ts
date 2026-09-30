@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import { type QuizType } from '@/lib/supabase';
 import { createServiceClient } from '@/lib/supabase-server';
@@ -175,6 +176,8 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true, data, xpAwarded: xp });
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(error, 'Internal Server Error');
   }
 }

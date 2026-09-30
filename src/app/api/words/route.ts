@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import { type DictionaryData, type SRSProgress, type Word } from '@/lib/supabase';
 import { createServiceClient } from '@/lib/supabase-server';
@@ -40,7 +41,6 @@ async function userOwnsWord(
 type SRSProgressWithStability = SRSProgress & { stability?: number };
 type WordWithSrsList = Word & { srs_progress?: SRSProgressWithStability[] };
 const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Helper: Lấy hoặc tạo "personal classroom" của user
@@ -612,6 +612,7 @@ async function enrichWord(wordId: string, originalInput: string, userId: string,
     await supabase.from('words').update(finalUpdate).eq('id', wordId);
 
   } catch (err: unknown) {
+
     const msg = err instanceof Error ? err.message : 'Unknown error';
     console.error(`AI enrichment failed for "${originalInput}":`, msg);
     try {
@@ -621,10 +622,10 @@ async function enrichWord(wordId: string, originalInput: string, userId: string,
         .select('translation')
         .eq('id', wordId)
         .maybeSingle();
-      
+
       const currentT = currentWord?.translation || '';
       const isPending = !currentT || currentT.includes('⏳') || currentT.includes('Analyzing');
-      
+
       if (isPending) {
         await supabase.from('words').update({
           translation: '❌ Analysis failed - click Retry',
@@ -770,7 +771,7 @@ export async function POST(req: Request): Promise<NextResponse> {
 
       void enrichWord(data.id, word, userId, undefined, dictData, userSelectedTranslation);
     }
-    
+
     // used trước insert; sau insert +1 (cho UI near-limit 150+)
     const usedAfter = (saveQuota.used ?? 0) + 1;
     const limit = saveQuota.limit;
@@ -791,6 +792,8 @@ export async function POST(req: Request): Promise<NextResponse> {
     });
 
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     const unavailable = rateLimitUnavailableResponse(error);
     if (unavailable) return unavailable;
     const msg = error instanceof Error ? error.message : 'Unknown error';
@@ -1164,7 +1167,7 @@ export async function GET(req: Request): Promise<NextResponse> {
         totalWords: counts.total,
         ...counts,
       }), {
-        headers: { 'Cache-Control': 'private, no-cache, stale-while-revalidate=15' },
+        headers: { 'Cache-Control': 'private, no-store' },
       });
     }
 
@@ -1239,9 +1242,11 @@ export async function GET(req: Request): Promise<NextResponse> {
       hasMore: total != null ? offset + limit < total : enriched.length >= limit,
     }), {
       // Private browser cache 15s — bớt spam khi user reload/đổi tab
-      headers: { 'Cache-Control': 'private, max-age=15, stale-while-revalidate=30' },
+      headers: { 'Cache-Control': 'private, no-store' },
     });
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     const msg = error instanceof Error
       ? error.message
       : typeof error === 'object' && error !== null && 'message' in error
@@ -1304,6 +1309,8 @@ export async function PUT(req: Request): Promise<NextResponse> {
     if (error) throw error;
     return NextResponse.json({ success: true });
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     const msg = error instanceof Error ? error.message : 'Unknown error';
     return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }
@@ -1327,6 +1334,8 @@ export async function DELETE(req: Request): Promise<NextResponse> {
     purgeLocalWordSummaryCache(auth.userId);
     return NextResponse.json({ success: true });
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     const msg = error instanceof Error ? error.message : 'Unknown error';
     return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }

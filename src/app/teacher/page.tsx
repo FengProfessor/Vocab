@@ -116,7 +116,7 @@ export default function TeacherDashboard() {
 
   const loadPendingWords = useCallback(async (classroomId: string) => {
     try {
-      const res = await fetch(`/api/words?classroomId=${classroomId}&status=pending`);
+      const res = await authFetch(`/api/words?classroomId=${classroomId}&status=pending`);
       const data = (await res.json()) as { success?: boolean; data?: PendingWord[] };
       if (data.success) setPendingWords(data.data ?? []);
     } catch {
@@ -297,12 +297,9 @@ export default function TeacherDashboard() {
   const handleWordStatus = async (wordId: string, status: 'approved' | 'rejected') => {
     setApprovingId(wordId);
     try {
-      const {
-        data: { session },
-      } = await supabase.auth.getSession();
       const res = await fetch(`/api/words/${wordId}/status`, {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token}` },
+        headers: { 'Content-Type': 'application/json', 'X-LingoPro-Request': '1' },
         body: JSON.stringify({ status }),
       });
       const json = (await res.json()) as { success?: boolean };
@@ -317,7 +314,8 @@ export default function TeacherDashboard() {
   };
 
   const handleSignOut = async () => {
-    await supabase.auth.signOut();
+    const { error } = await supabase.auth.signOut();
+    if (error) { alert(error.message); return; }
     router.push('/');
   };
 

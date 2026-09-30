@@ -1,3 +1,5 @@
+import { sessionErrorResponse } from '@/lib/session-response';
+import { getWebUser } from '@/lib/server-auth-session';
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { resolvePublicOrigin } from '@/lib/referral-tracker';
@@ -28,10 +30,8 @@ function generateRandomCode(length = 6): string {
 export async function GET(req: NextRequest) {
   try {
     const supabase = createServiceClient();
-    const token = req.headers.get('authorization')?.replace('Bearer ', '');
-    if (!token) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
-    const { data: { user } } = await supabase.auth.getUser(token);
+    const { data: { user } } = await getWebUser(req);
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
     // 1. Fetch referral link, logs, ledger transactions, and payout requests concurrently
@@ -236,6 +236,8 @@ export async function GET(req: NextRequest) {
       payouts: formattedPayouts,
     });
   } catch (err: any) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     return NextResponse.json({ error: err.message || 'Internal error' }, { status: 500 });
   }
 }

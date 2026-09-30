@@ -36,11 +36,11 @@ export function FreeQuotaBanner() {
       const {
         data: { session },
       } = await supabase.auth.getSession();
-      if (!session?.access_token || cancelled) return;
+      if (!session?.user || cancelled) return;
 
       try {
         const res = await fetch('/api/profile', {
-          headers: { Authorization: `Bearer ${session.access_token}` },
+          headers: { 'X-LingoPro-Request': '1' },
         });
         if (!res.ok || cancelled) return;
         const json = (await res.json()) as {

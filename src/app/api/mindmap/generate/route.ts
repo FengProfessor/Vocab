@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import {
   generateMindMap,
@@ -79,6 +80,8 @@ export async function POST(req: Request): Promise<NextResponse> {
       meta: { wordCount: inputs.length },
     });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const unavailable = rateLimitUnavailableResponse(err);
     if (unavailable) return unavailable;
     const msg = err instanceof Error ? err.message : String(err);

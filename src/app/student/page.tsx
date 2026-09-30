@@ -174,7 +174,7 @@ export default function StudentDashboard() {
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [wordsOffset, setWordsOffset] = useState(0);
   const WORDS_PAGE_SIZE = 20;
-  const accessTokenRef = useRef<string | null>(null);
+
   const [searchQuery, setSearchQuery] = useState('');
   const [debouncedQuery, setDebouncedQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState<'all' | 'new' | 'due' | 'learned' | 'mastered'>('all');
@@ -216,9 +216,9 @@ export default function StudentDashboard() {
   // Chặn double-load: getSession + onAuthStateChange SIGNED_IN/INITIAL_SESSION
   const loadStartedRef = useRef(false);
 
-  const fetchClassrooms = async (token?: string | null): Promise<EnrolledClassroom[]> => {
+  const fetchClassrooms = async (): Promise<EnrolledClassroom[]> => {
     try {
-      const res = await authFetch('/api/student/classrooms', {}, token);
+      const res = await authFetch('/api/student/classrooms', {});
       const json = await res.json();
       if (json.success && Array.isArray(json.classrooms)) {
         setEnrolledClassrooms(json.classrooms);
@@ -236,7 +236,7 @@ export default function StudentDashboard() {
       const { data: { session } } = await supabase.auth.getSession();
 
       if (session?.user) {
-        accessTokenRef.current = session.access_token;
+
 
         let initialScope = '__personal__';
         if (typeof window !== 'undefined') {
@@ -263,11 +263,11 @@ export default function StudentDashboard() {
           }
         }
 
-        void fetchClassrooms(session.access_token);
+        void fetchClassrooms();
 
         if (!loadStartedRef.current) {
           loadStartedRef.current = true;
-          loadData(session.user.id, session.access_token, initialScope);
+          loadData(session.user.id, initialScope);
         }
       } else {
         setIsLoading(false);
@@ -281,16 +281,16 @@ export default function StudentDashboard() {
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       if (event === 'SIGNED_IN' && session?.user) {
-        accessTokenRef.current = session.access_token;
-        void fetchClassrooms(session.access_token);
+
+        void fetchClassrooms();
         // Chỉ reload khi chưa load (tránh double với getSession)
         if (!loadStartedRef.current) {
           loadStartedRef.current = true;
-          loadData(session.user.id, session.access_token, currentClassScopeRef.current);
+          loadData(session.user.id, currentClassScopeRef.current);
         }
       } else if (event === 'SIGNED_OUT') {
         loadStartedRef.current = false;
-        accessTokenRef.current = null;
+
         router.push('/auth');
       }
     });
@@ -347,8 +347,8 @@ export default function StudentDashboard() {
   };
 
   /** Heatmap + streak liên tiếp (stats lite). Gọi sau shell. */
-  const loadActivityStats = (token?: string | null) => {
-    void authFetch('/api/student/stats?lite=1', {}, token)
+  const loadActivityStats = () => {
+    void authFetch('/api/student/stats?lite=1', {})
       .then((r) => r.json())
       .then((st) => {
         if (!st?.success) return;
@@ -378,13 +378,13 @@ export default function StudentDashboard() {
   }, [dailyActivity, gamification.current_streak, gamification.last_active_date]);
 
   /** Levels L1–L6 + grammar due + packs — idle, không chặn first paint. */
-  const loadSecondaryDashboard = (userId: string, token?: string | null, targetScope?: string) => {
+  const loadSecondaryDashboard = (userId: string, targetScope?: string) => {
     const scope = targetScope !== undefined ? targetScope : currentClassScope;
     const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '&classroomId=__personal__';
 
-    loadActivityStats(token);
+    loadActivityStats();
 
-    void authFetch('/api/vocab/packs', {}, token)
+    void authFetch('/api/vocab/packs', {})
       .then((response) => response.json())
       .then((packData: { success?: boolean; packs?: ActiveVocabPack[] }) => {
         if (!packData.success || !packData.packs) return;
@@ -393,7 +393,7 @@ export default function StudentDashboard() {
       .catch(() => {});
 
     const loadLevels = () => {
-      void authFetch(`/api/words?summary=1&levels=1${scopeParam}`, {}, token)
+      void authFetch(`/api/words?summary=1&levels=1${scopeParam}`, {})
         .then((r) => r.json())
         .then((sum) => {
           if (sum?.success) applySummaryCounts(userId, sum, scope);
@@ -407,8 +407,8 @@ export default function StudentDashboard() {
     }
   };
 
-  const loadData = async (userId: string, accessToken?: string, targetScope?: string) => {
-    const token = accessToken ?? accessTokenRef.current;
+  const loadData = async (userId: string, targetScope?: string) => {
+
     const scope = targetScope !== undefined ? targetScope : currentClassScopeRef.current;
     const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '&classroomId=__personal__';
     try {
@@ -428,11 +428,11 @@ export default function StudentDashboard() {
 
         // Fast-path: Nạp số đếm từ cần ôn và từ mới tức thì qua single-flight promise
         if (!scope || scope === '__personal__') {
-          void fetchWordSummaryOnce(userId, token).then((sum) => {
+          void fetchWordSummaryOnce(userId).then((sum) => {
             if (sum) applySummaryCounts(userId, sum, scope);
           });
         } else {
-          void authFetch(`/api/words?summary=1${scopeParam}`, {}, token)
+          void authFetch(`/api/words?summary=1${scopeParam}`, {})
             .then((r) => r.json())
             .then((sum) => {
               if (sum?.success) applySummaryCounts(userId, sum, scope);
@@ -445,7 +445,6 @@ export default function StudentDashboard() {
           authFetch(
             `/api/words?limit=${WORDS_PAGE_SIZE}&offset=0&noCount=1${scopeParam}`,
             {},
-            token,
           )
             .then((r) => r.json())
             .catch(() => null),
@@ -466,12 +465,12 @@ export default function StudentDashboard() {
         }
         setWordsLoading(false);
         // Sau shell: heatmap + đếm từ hôm nay + chart L1–L6 (không chặn paint)
-        loadSecondaryDashboard(userId, token, scope);
+        loadSecondaryDashboard(userId, scope);
         return;
       }
 
       // ── Full mode (STAMPEDE=0): progressive load, đủ packs/grammar/heatmap ──
-      const summaryP = authFetch(`/api/words?summary=1${scopeParam}`, {}, token)
+      const summaryP = authFetch(`/api/words?summary=1${scopeParam}`, {})
         .then((r) => r.json())
         .then((sum) => {
           if (sum?.success) applySummaryCounts(userId, sum, scope);
@@ -493,13 +492,12 @@ export default function StudentDashboard() {
       setIsLoading(false);
       setWordsLoading(true);
 
-      loadSecondaryDashboard(userId, token, scope);
+      loadSecondaryDashboard(userId, scope);
 
       try {
         const wordsJson = await authFetch(
           `/api/words?limit=${WORDS_PAGE_SIZE}&offset=0${scopeParam}`,
           {},
-          token,
         ).then((r) => r.json()).catch(() => null);
 
         if (wordsJson?.success) {
@@ -534,7 +532,6 @@ export default function StudentDashboard() {
       const res = await authFetch(
         `/api/words?limit=${WORDS_PAGE_SIZE}&offset=${wordsOffset}${scopeParam}`,
         {},
-        accessTokenRef.current,
       );
       const data = await res.json();
       if (data.success && data.data?.length > 0) {
@@ -555,7 +552,7 @@ export default function StudentDashboard() {
     try {
       const scope = currentClassScopeRef.current;
       const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '&classroomId=__personal__';
-      const res = await authFetch(`/api/words?summary=1${scopeParam}`, {}, accessTokenRef.current);
+      const res = await authFetch(`/api/words?summary=1${scopeParam}`, {});
       const data = await res.json();
       if (data.success) {
         applySummaryCounts(userId, data, scope);
@@ -591,7 +588,7 @@ export default function StudentDashboard() {
     }
 
     if (profile?.id) {
-      void loadData(profile.id, accessTokenRef.current || undefined, newScope);
+      void loadData(profile.id, newScope);
     }
   };
 
@@ -738,7 +735,7 @@ export default function StudentDashboard() {
       if (res.ok) {
         toast.success('✅ Meaning updated!');
         setSelectedWord(null);
-        if (profile?.id) void loadData(profile.id, accessTokenRef.current || undefined, currentClassScopeRef.current);
+        if (profile?.id) void loadData(profile.id, currentClassScopeRef.current);
       } else {
         throw new Error('Update failed');
       }
@@ -774,7 +771,7 @@ export default function StudentDashboard() {
       toast.success(`Đã tham gia lớp ${result.data?.name ?? ''}!`);
       if (result.data) {
         setClassroomId(result.data.id);
-        void fetchClassrooms(accessTokenRef.current);
+        void fetchClassrooms();
         handleSwitchScope(result.data.id);
       }
       setIsJoinModalOpen(false);
@@ -1440,7 +1437,7 @@ export default function StudentDashboard() {
                 <X className="h-6 w-6" />
               </button>
             </div>
-            
+
             <div className="p-6 max-h-[60vh] overflow-y-auto space-y-4">
               {/* Dictionary data shape từ external API khác với DictionaryData interface — dùng narrow type */}
               {(selectedWord.dictionary_data as unknown as Array<{
@@ -1543,4 +1540,3 @@ export default function StudentDashboard() {
     </>
   );
 }
-

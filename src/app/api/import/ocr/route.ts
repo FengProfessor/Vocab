@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import { rateLimitUnavailableResponse, getAuthUser, unauthorized, checkRateLimitAsync } from '@/lib/api-security';
 
@@ -113,6 +114,8 @@ If no clear vocabulary words are found, return: {"words": []}`;
 
     return NextResponse.json({ success: true, words: [...new Set(filtered)] });
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     const unavailable = rateLimitUnavailableResponse(error);
     if (unavailable) return unavailable;
     const msg = error instanceof Error ? error.message : 'Unknown error';

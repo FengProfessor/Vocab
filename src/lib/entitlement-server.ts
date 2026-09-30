@@ -1,5 +1,6 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { Plan } from '@/lib/supabase';
+import { getAuthUser } from '@/lib/api-security';
 import { 
   getEffectivePlan, 
   startOfStudentCycle, 
@@ -88,13 +89,12 @@ export async function resolvePlanByUserId(
  */
 export async function resolveUserPlan(
   supabase: SupabaseClient,
-  token: string | undefined,
+  req: Request,
 ): Promise<{ userId: string | null; plan: Plan }> {
-  if (!token) return { userId: null, plan: 'free' };
-  const { data: { user } } = await supabase.auth.getUser(token);
+  const user = await getAuthUser(req);
   if (!user) return { userId: null, plan: 'free' };
-  const plan = await resolvePlanByUserId(supabase, user.id);
-  return { userId: user.id, plan };
+  const plan = await resolvePlanByUserId(supabase, user.userId);
+  return { userId: user.userId, plan };
 }
 
 /**

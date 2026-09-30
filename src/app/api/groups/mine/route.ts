@@ -1,3 +1,5 @@
+import { sessionErrorResponse } from '@/lib/session-response';
+import { getWebUser } from '@/lib/server-auth-session';
 /**
  * GET /api/groups/mine — Nhóm user sở hữu (kèm danh sách member + ghế đã dùng)
  * và/hoặc nhóm user đang tham gia.
@@ -8,14 +10,9 @@ import { createServiceClient } from '@/lib/supabase-server';
 
 export async function GET(req: NextRequest) {
   try {
-    const authHeader = req.headers.get('authorization');
-    if (!authHeader?.startsWith('Bearer ')) {
-      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
-    }
-    const token = authHeader.slice(7);
 
     const supabase = createServiceClient();
-    const { data: { user }, error: authError } = await supabase.auth.getUser(token);
+    const { data: { user }, error: authError } = await getWebUser(req);
     if (authError || !user) {
       return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
     }
@@ -98,6 +95,8 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json({ success: true, data: { owned: ownedWithMembers, joined: joinedGroup } });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const msg = err instanceof Error ? err.message : 'Unknown error';
     console.error('[Groups/mine] Unexpected error:', msg);
     return NextResponse.json({ success: false, error: msg }, { status: 500 });

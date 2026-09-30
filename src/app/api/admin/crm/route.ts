@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { getAuthUser, unauthorized, safeErrorResponse, getAdminEmails } from '@/lib/api-security';
@@ -637,6 +638,8 @@ export async function GET(req: Request): Promise<NextResponse> {
       },
     });
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(error, 'Failed to fetch CRM data');
   }
 }

@@ -688,6 +688,37 @@
 
 - Stage A baseline synchronized with main 80ed596e83e3dc59d9600bc2644cf1b515ee6fe5 (personal classroom isolation and grammar navigation preserved). Clean CI36746328374 passed earlier foundation head61c19a4; rerun required on merged source before release. Browser cutover WIP is preserved in stash5965297af7278a2cade37bd14907eda36500d0e1, not included in Stage A.
 
+## P1 PHASE 2C — Stage A canonical PASS / cookie cutover prepared (2026-10-01)
+
+- PR #19 scope: server-session foundation only, existing browser auth unchanged. Clean CI 36748045809 PASS at 8e62b87; merged 905d9bbbc54c9571dfc73332fecdf1f8d6322685. Canonical run 36749311479 Quality/Migration/exact-SHA activation/health PASS.
+- New additive service-only boolean predicate checks provider session revocation/expiry/verified user. Isolated PostgreSQL and Redis tests PASS in clean CI; no ad hoc production SQL or manual restart.
+- Cutover branch codex/p2c-cookie-cutover: same-origin HttpOnly opaque cookie, encrypted Redis token vault, strict Origin/proof-header CSRF, server PKCE OAuth/registration, BFF user-RLS data proxy. Browser SDK persistence/refresh/direct user JWT retired; dedicated extension/cron/bot/provider credentials retain separate paths.
+- Preserved current main personal-classroom isolation and removal of student-pack auto-sync during conflicts. Stage B/C stash 5965297 remains recovery backup.
+- Actual auth/route fixture tests PASS: public DTO/cookie, CSRF, revoked session/logout replay, provider/Redis outage, refresh single flight, one-time OAuth callback, safe redirect, verification-only signup, data proxy schema/path boundary. Browser stale-read/logout race and storage cleanup PASS; 295 browser roots / 506 reachable files graph PASS.
+- Six existing security suites remain required. Deployment script rejects missing/malformed session key/Redis before source/build/activation; canonical quality checks required secrets before migrations. No dependencies changed.
+- P1-C-02 remains OPEN until clean cutover CI + canonical deployment + dedicated production login/navigation/logout/storage smoke. No reusable credential or user data printed.
+
+- Stage A independent post-check: build/live markers 905d9bb, staging clean, service active/MainPID 1272922; local/public health/root 200. Active process has valid session key and Redis pair; read-only missing-id predicate returns false. No credential values printed.
+- Clean cutover checkout/cache: D:/Vibe/.codex-tmp/p2c-cutover-clean-20261001 / p2c-cutover-cache-20261001; npm ci PASS 1,871 packages. Node 24.14.0/npm 11.9.0. Six prior + new local security suites, four deployment suites, clean build PASS. Post-build typecheck exactly 10 baseline Speaking errors, no generated-validator/source regressions. Real Redis/PostgreSQL matrix still mandatory in clean Node 22 CI.
+- npm audit observation now 46 (22 moderate/19 high/5 critical), dependency files unchanged; no blind upgrade. First targeted lint 131 files: 31 baseline errors/91 warnings, 0 new. Additional 27 existing browser API calls migrated to central proof/cookie helper; regression scan enforces guarded calls. User-impact/re-login and rollback documented.
+
+## P1 PHASE 2C — Clean cutover CI PASS / Tailscale preflight pending
+
+- Cutover commit 4333d2ed4f8fe2966342d3fd32d3d5337ec1e783, PR #20. Clean Node 22 Security CI 36753194465 PASS: real Redis lease/CAS/logout-race/TTL, isolated PostgreSQL provider predicate/grants/reapply, ten security suites, four deployment suites, actionlint/build and exact 10-error typecheck baseline.
+- Final targeted lint 131+ changed/new files: baseline 31 errors/92 warnings; the extra WordsPanel hook message also exists unchanged at HEAD^. No new lint regression. Built static output: 402 browser JS chunks, zero AUTH_SESSION_ENCRYPTION_KEY/SUPABASE_SERVICE_ROLE_KEY/auth-vault markers. Added-line secret scan zero candidates; dependency files unchanged.
+- Before merging PR #20, local Tailscale switched to NoState/offline and SSH read-only preflight timed out twice. Public production health remains 200; latest independently verified live release remains Stage A 905d9bb/MainPID1272922. No merge/deploy/restart was attempted after the failed preflight. Operator requested to reconnect Tailscale; Stage B/C production remains pending.
+- P1-C-02 OPEN. Implementation/clean CI PASS is insufficient for closure without canonical cutover and dedicated login/storage/logout smoke.
+
+## Phase 2C — Tailscale restored / proxy preflight fix (2026-10-01)
+
+- Operator bật Tailscale; Running/online, SSH read-only restored. Initial live/build905d9bbb, clean staging, activePID1272922, health200, disk ~70GiB free; actual process environment booleans key-valid/Redis PING/billing distinct/public Auth config/provider active-session RPC all PASS, no secret/user data output.
+- Concurrent independent Reading/Speaking main3057f997c7eed784d955f6d6a84aa7c7248ba607 rollout36780818282 PASS; afterward build HEAD/build marker/live marker all3057f99, clean staging, activePID1284197, local/public health200. Preserve these main changes.
+- Synced PR20 by merge (no rebase/history rewrite), heada0b34f8 clean security CI36781505970 PASS; browser graph now297 roots/509 files with no server credentials or reusable token consumers. PR21 synced main12b79b1, clean CI36781648391 PASS; still separate.
+- **Premerge blocker discovered and fixed before production cutover:** real Next production server on loopback with public Host/HTTPS forwarded headers returned anonymous session403 instead of401. Next16 reconstructs req.url with internal hostname, so old appOrigin rejected legitimate proxy requests although mocked Request tests passed.
+- Narrow fix: production origin derives from syntactically validated Host in explicit HTTPS origin allowlist; still requires HTTPS request URL/protocol, exact Origin, X-LingoPro proof and same-origin fetch-site. Never trust X-Forwarded-Host; unknown host/userinfo/path/header spoof rejects. Development unchanged. No schema/dependency change.
+- Added guard regressions plus real Next HTTP reverse-proxy regression as blocking security/canonical quality step after build. Local auth/browser-boundary tests PASS. Fresh CI/build/runtime-proxy verification pending on fixed head; **do not merge/cutover before PASS**.
+- User will sign in directly with dedicated verified non-admin account for production login/navigation/reload/storage/logout/replay smoke after canonical rollout. Temporary local test helper prints booleans/status only, never password/token/cookie/user data; no manual production SQL/restart/deploy.
+
 ## 2026-10-01 · PRODUCTION RELEASE: INTERACTIVE EXAMPLE SENTENCES WITH AUDIO & AI ON-DEMAND SUBTITLES
 
 - **Nâng cấp toàn diện Câu ví dụ (Example Sentences) đa tương tác**:

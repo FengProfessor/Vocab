@@ -95,7 +95,7 @@ export function ExamWordLookupCard({
         data: { session },
       } = await supabase.auth.getSession();
 
-      if (session?.access_token) {
+      if (session?.user) {
         await authFetch('/api/words', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },

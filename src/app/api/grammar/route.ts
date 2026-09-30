@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextRequest, NextResponse } from 'next/server';
 import { getRouter } from '@/lib/ai-router';
 import { createServiceClient } from '@/lib/supabase-server';
@@ -213,6 +214,8 @@ Return JSON array only, no other text.`;
 
     return NextResponse.json({ success: true, data, count: data.length });
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(error, 'Failed to generate exercises');
   }
 }
@@ -274,6 +277,8 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
           }
         }
       } catch (err) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
         console.error('Failed to load local topic exercises fallback:', err);
       }
 
@@ -359,6 +364,8 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
 
     return NextResponse.json({ success: true, data: safeData });
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(error, 'Failed to fetch exercises');
   }
 }

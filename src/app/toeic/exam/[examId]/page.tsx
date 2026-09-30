@@ -43,7 +43,7 @@ import {
 } from '@/lib/toeic-question-history';
 import { completeRoadmapStep, setRoadmapCelebrateFlag } from '@/lib/roadmap-client';
 import { supabase } from '@/lib/supabase';
-import type { User } from '@supabase/supabase-js';
+import type { AppUser as User } from '@/lib/app-session-types';
 import { authFetch } from '@/lib/auth-fetch';
 import type {
   ToeicUnifiedQuestion,

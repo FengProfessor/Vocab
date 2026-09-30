@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { getAuthUser, unauthorized } from '@/lib/api-security';
 import { createServiceClient } from '@/lib/supabase-server';
 import { NextResponse } from 'next/server';
@@ -251,6 +252,8 @@ export async function GET(req: Request): Promise<NextResponse> {
       timeline,
     });
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     const msg = error instanceof Error ? error.message : 'Unknown error';
     console.error('Student Detail API Error:', msg);
     return NextResponse.json({ success: false, error: msg }, { status: 500 });

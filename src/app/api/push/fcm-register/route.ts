@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { getAuthUser, unauthorized, safeErrorResponse } from '@/lib/api-security';
@@ -63,6 +64,8 @@ export async function POST(req: Request): Promise<NextResponse> {
     console.log(`[FCM] Token registered for user ${userId}`);
     return NextResponse.json({ success: true, forceGen: PUSH_FORCE_GEN });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(err, 'Internal Server Error');
   }
 }
@@ -115,6 +118,8 @@ export async function GET(req: Request): Promise<NextResponse> {
       forceGen: PUSH_FORCE_GEN,
     });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(err, 'Internal Server Error');
   }
 }

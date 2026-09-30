@@ -31,6 +31,10 @@ if [[ -n "${UPSTASH_REDIS_REST_URL:-}" || -n "${UPSTASH_REDIS_REST_TOKEN:-}" ]];
 fi
 
 expected_sha="$1"
+if [[ -z "${AUTH_SESSION_ENCRYPTION_KEY:-}" || -z "${UPSTASH_REDIS_REST_URL:-}" || -z "${UPSTASH_REDIS_REST_TOKEN:-}" ]]; then
+  echo '[Deploy] Server-session encryption and Redis configuration are required' >&2
+  exit 1
+fi
 if [[ -n "${AUTH_SESSION_ENCRYPTION_KEY:-}" ]] &&
    [[ ! "$AUTH_SESSION_ENCRYPTION_KEY" =~ ^[0-9a-fA-F]{64}$ ]]; then
   echo '[Deploy] Auth session encryption key must be 32 bytes encoded as hex' >&2

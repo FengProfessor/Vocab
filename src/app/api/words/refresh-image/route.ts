@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { resolveWordImage } from '@/lib/image-pipeline';
@@ -69,6 +70,8 @@ export async function POST(req: Request) {
       confidence: img.confidence,
     });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const unavailable = rateLimitUnavailableResponse(err);
     if (unavailable) return unavailable;
     const msg = err instanceof Error ? err.message : 'Unknown error';

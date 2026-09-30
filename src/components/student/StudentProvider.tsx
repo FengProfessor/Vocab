@@ -9,10 +9,11 @@ import React, {
   useMemo,
   type ReactNode,
 } from 'react';
-import type { Session } from '@supabase/supabase-js';
+import type { AppSession as Session } from '@/lib/app-session-types';
 import { supabase, type Profile, type UserGamification } from '@/lib/supabase';
 import { effectiveCurrentStreak } from '@/lib/gamification';
 import { authFetch } from '@/lib/auth-fetch';
+import { authStateVersion } from '@/lib/app-auth-client';
 import {
   readWordSummaryCache,
   readLastWordSummaryCache,
@@ -91,6 +92,7 @@ export function fetchProfileOnce(userId: string): Promise<ShellProfile | null> {
   const existing = inFlightProfiles.get(userId);
   if (existing) return existing;
 
+  const version = authStateVersion();
   const promise = (async () => {
     try {
       const { data, error } = await supabase
@@ -98,6 +100,7 @@ export function fetchProfileOnce(userId: string): Promise<ShellProfile | null> {
         .select('id, full_name, email, role, avatar_url, plan, plan_expires_at, created_at')
         .eq('id', userId)
         .single();
+      if (version !== authStateVersion()) return null;
       if (!error && data) {
         setStoredProfile(userId, data as ShellProfile);
         return data as ShellProfile;
@@ -118,6 +121,7 @@ export function fetchGamificationOnce(userId: string): Promise<UserGamification 
   const existing = inFlightGamifications.get(userId);
   if (existing) return existing;
 
+  const version = authStateVersion();
   const promise = (async () => {
     try {
       const { data, error } = await supabase
@@ -125,6 +129,7 @@ export function fetchGamificationOnce(userId: string): Promise<UserGamification 
         .select('*')
         .eq('user_id', userId)
         .single();
+      if (version !== authStateVersion()) return null;
       if (!error && data) {
         const normalized: UserGamification = {
           ...data,
@@ -149,6 +154,7 @@ export function fetchTeacherCheckOnce(userId: string): Promise<boolean> {
   const existing = inFlightTeacherChecks.get(userId);
   if (existing) return existing;
 
+  const version = authStateVersion();
   const promise = (async () => {
     try {
       const { data, error } = await supabase
@@ -157,6 +163,7 @@ export function fetchTeacherCheckOnce(userId: string): Promise<boolean> {
         .eq('teacher_id', userId)
         .neq('name', '__personal__')
         .limit(1);
+      if (version !== authStateVersion()) return false;
       const isTeacher = !error && Boolean(data && data.length > 0);
       setStoredTeacher(userId, isTeacher);
       return isTeacher;
@@ -173,14 +180,16 @@ export function fetchTeacherCheckOnce(userId: string): Promise<boolean> {
 
 const inFlightWordSummaries = new Map<string, Promise<WordSummaryData | null>>();
 
-export function fetchWordSummaryOnce(userId: string, token?: string | null): Promise<WordSummaryData | null> {
+export function fetchWordSummaryOnce(userId: string): Promise<WordSummaryData | null> {
   const existing = inFlightWordSummaries.get(userId);
   if (existing) return existing;
 
+  const version = authStateVersion();
   const promise = (async () => {
     try {
-      const res = await authFetch('/api/words?summary=1&classroomId=__personal__', {}, token);
+      const res = await authFetch('/api/words?summary=1&classroomId=__personal__', {});
       const json = await res.json();
+      if (version !== authStateVersion()) return null;
       if (json?.success) {
         const summary: WordSummaryData = {
           total: Number(json.total ?? 0),
@@ -335,9 +344,10 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
     let isCancelled = false;
 
     const bootstrap = async () => {
+      const version = authStateVersion();
       try {
         const currentSession = await fetchSessionOnce();
-        if (isCancelled) return;
+        if (isCancelled || version !== authStateVersion()) return;
         setSession(currentSession);
 
         const userId = currentSession?.user?.id;
@@ -372,10 +382,10 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
           fetchProfileOnce(userId),
           fetchGamificationOnce(userId),
           fetchTeacherCheckOnce(userId),
-          fetchWordSummaryOnce(userId, currentSession?.access_token),
+          fetchWordSummaryOnce(userId),
         ]);
 
-        if (isCancelled) return;
+        if (isCancelled || version !== authStateVersion()) return;
 
         if (profData) {
           setProfile(profData);
@@ -387,13 +397,13 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
         }
 
         // Background check referral activation milestone
-        if (currentSession?.access_token && typeof window !== 'undefined') {
+        if (currentSession?.user && typeof window !== 'undefined') {
           try {
             if (!sessionStorage.getItem('lp_ref_checked')) {
               sessionStorage.setItem('lp_ref_checked', '1');
               void fetch('/api/referral/evaluate-activation', {
                 method: 'POST',
-                headers: { Authorization: `Bearer ${currentSession.access_token}` },
+                headers: { 'X-LingoPro-Request': '1' },
               }).catch(() => null);
             }
           } catch {

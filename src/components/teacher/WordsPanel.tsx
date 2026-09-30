@@ -167,7 +167,7 @@ function parseBulkWords(text: string): string[] {
     // Kích hoạt AI enrichment nền cho cả lớp học mà không bị nghẽn rate-limit
     if (addedCount > 0) {
       try {
-        await fetch('/api/words/refresh', {
+        await authFetch('/api/words/refresh', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ classroomId }),
@@ -243,7 +243,7 @@ function parseBulkWords(text: string): string[] {
     const prev = words;
     setWords(words.filter(w => w.id !== wordId));
     try {
-      const res = await fetch('/api/words', {
+      const res = await authFetch('/api/words', {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ wordId }),

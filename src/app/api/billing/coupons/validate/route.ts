@@ -1,3 +1,5 @@
+import { sessionErrorResponse } from '@/lib/session-response';
+import { getWebUser } from '@/lib/server-auth-session';
 /**
  * POST /api/billing/coupons/validate
  * Auth required — preview mã giảm giá trước khi tạo đơn (không tăng used_count).
@@ -22,14 +24,10 @@ import {
 
 export async function POST(req: NextRequest) {
   const supabase = createServiceClient();
-  const token = req.headers.get('authorization')?.replace('Bearer ', '');
-  if (!token) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
 
   const {
     data: { user },
-  } = await supabase.auth.getUser(token);
+  } = await getWebUser(req);
   if (!user) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
@@ -55,6 +53,8 @@ export async function POST(req: NextRequest) {
       seats = normalizeSeats(body.seats ?? 5);
     }
   } catch (err) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     return NextResponse.json(
       { error: err instanceof Error ? err.message : 'Tham số không hợp lệ' },
       { status: 400 },
@@ -145,6 +145,8 @@ export async function POST(req: NextRequest) {
       periodMonths,
     });
   } catch (err) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     return NextResponse.json(
       { valid: false, error: err instanceof Error ? err.message : 'Mã không hợp lệ với kỳ hạn này' },
       { status: 400 },

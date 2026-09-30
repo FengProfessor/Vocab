@@ -106,7 +106,7 @@ export default function InviteLandingPage({
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${session.access_token}`,
+          'X-LingoPro-Request': '1',
         },
         body: JSON.stringify({ referralCode: code }),
       });

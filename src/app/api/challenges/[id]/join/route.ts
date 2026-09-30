@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { getAuthUser, safeErrorResponse } from '@/lib/api-security';
@@ -50,7 +51,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     if (existingPart) throw new Error('Bạn đã tham gia challenge này rồi');
 
     const amount = challenge.deposit_amount;
-    
+
     const { data: order, error: orderError } = await supabase
       .from('orders')
       .insert({
@@ -61,7 +62,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
       })
       .select()
       .single();
-      
+
     if (orderError) throw orderError;
 
     const { data: participant, error: partError } = await supabase
@@ -85,6 +86,8 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
 
     return NextResponse.json({ success: true, order, participant, qrUrl });
   } catch (error: any) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(error, 'Lỗi khi đăng ký tham gia challenge');
   }
 }

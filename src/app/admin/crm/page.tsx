@@ -167,7 +167,7 @@ export default function CrmDashboard() {
       if (!session?.user) { router.push('/auth'); return; }
       const url = forceRefresh ? '/api/admin/crm?refresh=1' : '/api/admin/crm';
       const res = await fetch(url, {
-        headers: { Authorization: `Bearer ${session.access_token}` },
+        headers: { 'X-LingoPro-Request': '1' },
       });
       const json = await res.json().catch(() => null);
 
@@ -784,4 +784,3 @@ function CrmSkeleton() {
     </div>
   );
 }
-

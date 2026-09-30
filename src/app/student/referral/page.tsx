@@ -251,7 +251,7 @@ export default function ReferralHubPage() {
       if (!session) return;
 
       const res = await fetch('/api/referral/hub', {
-        headers: { Authorization: `Bearer ${session.access_token}` },
+        headers: { 'X-LingoPro-Request': '1' },
       });
 
       if (!res.ok) throw new Error('Không thể tải dữ liệu');
@@ -403,7 +403,7 @@ export default function ReferralHubPage() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${session.access_token}`,
+          'X-LingoPro-Request': '1',
         },
         body: JSON.stringify({
           amount: amountNum,

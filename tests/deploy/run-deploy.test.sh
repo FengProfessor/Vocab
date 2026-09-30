@@ -51,6 +51,9 @@ MOCK
 
   export TEST_SCENARIO="$scenario" TEST_DEPLOY_LOG="$case_dir/deploy.log" CRON_SECRET='test-secret'
   unset BILLING_WEBHOOK_SECRET UPSTASH_REDIS_REST_URL UPSTASH_REDIS_REST_TOKEN AUTH_SESSION_ENCRYPTION_KEY
+  export UPSTASH_REDIS_REST_URL='https://test.upstash.io'
+  export UPSTASH_REDIS_REST_TOKEN='synthetic/redis+token=_-'
+  export AUTH_SESSION_ENCRYPTION_KEY='aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
   if [[ "$scenario" == 'configured-success' ]]; then
     export BILLING_WEBHOOK_SECRET='synthetic-billing-key-32-characters-minimum'
     export UPSTASH_REDIS_REST_URL='https://test.upstash.io'
@@ -79,7 +82,7 @@ MOCK
     grep -q '^CRON_SECRET="test-secret"$' "$case_dir/build/.env"
     grep -q '^CRON_SECRET="test-secret"$' "$case_dir/build/.env.local"
     grep -q '^export BILLING_WEBHOOK_SECRET="old-billing"$' "$case_dir/build/.env.local"
-    grep -q '^UPSTASH_REDIS_REST_TOKEN="old-token"$' "$case_dir/build/.env.local"
+    grep -q '^UPSTASH_REDIS_REST_TOKEN="synthetic/redis+token=_-"$' "$case_dir/build/.env.local"
     ! grep -Eq '^[[:space:]]*(export[[:space:]]+)?WEBHOOK_SECRET[[:space:]]*=' "$case_dir/build/.env.local"
   elif [[ "$scenario" == 'configured-success' ]]; then
     for env_file in .env .env.local; do
@@ -136,5 +139,16 @@ for scenario in malformed-billing coupled-billing partial-redis malformed-redis;
     > "$test_root/$scenario.log" 2>&1 || status=$?
   [[ "$status" == 1 ]]
   ! grep -q 'DOTENV_INJECTION\|synthetic-token' "$test_root/$scenario.log"
+  printf 'PASS %s\n' "$scenario"
+done
+
+for scenario in missing-auth-key malformed-auth-key; do
+  export UPSTASH_REDIS_REST_URL='https://test.upstash.io' UPSTASH_REDIS_REST_TOKEN='synthetic-token'
+  export AUTH_SESSION_ENCRYPTION_KEY='not-valid-hex-secret'
+  if [[ "$scenario" == 'missing-auth-key' ]]; then unset AUTH_SESSION_ENCRYPTION_KEY; fi
+  status=0
+  CRON_SECRET='test-secret' bash "$repo_root/deploy/run-deploy.sh" "$expected_sha" "$missing_secret_dir/build" "$missing_secret_dir/live" > "$test_root/$scenario.log" 2>&1 || status=$?
+  [[ "$status" == 1 ]]
+  ! grep -q 'not-valid-hex-secret\|synthetic-token' "$test_root/$scenario.log"
   printf 'PASS %s\n' "$scenario"
 done

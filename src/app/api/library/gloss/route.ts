@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 /**
  * POST /api/library/gloss
  * Body: { words: string[] }
@@ -198,6 +199,8 @@ export async function POST(req: Request) {
       stats: { requested: words.length, withDefinition: withDef, withIpa },
     });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const msg = err instanceof Error ? err.message : 'Unknown error';
     console.error('[library/gloss]', msg);
     return NextResponse.json({ success: false, error: msg }, { status: 500 });

@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { getAuthUser, safeErrorResponse } from '@/lib/api-security';
@@ -98,6 +99,8 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
 
     return NextResponse.json({ success: true });
   } catch (err) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(err, 'Failed to load challenge widget');
   }
 }

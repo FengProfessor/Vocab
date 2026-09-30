@@ -1,4 +1,6 @@
 'use client';
+import { authFetch } from '@/lib/auth-fetch';
+
 
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
@@ -31,11 +33,10 @@ export default function GrammarPanel({ classroomId }: GrammarPanelProps) {
   useEffect(() => {
     const loadData = async () => {
       setIsLoading(true);
-      const { data: { session } } = await supabase.auth.getSession();
-      const authHeaders = { Authorization: `Bearer ${session?.access_token ?? ''}` };
+      const authHeaders = { 'X-LingoPro-Request': '1' };
       const [exRes, topicRes] = await Promise.all([
-        fetch(`/api/grammar?classroomId=${classroomId}`, { headers: authHeaders }).then((r) => r.json()).catch(() => null),
-        fetch('/api/grammar/topics').then((r) => r.json()).catch(() => null),
+        authFetch(`/api/grammar?classroomId=${classroomId}`, { headers: authHeaders }).then((r) => r.json()).catch(() => null),
+        authFetch('/api/grammar/topics').then((r) => r.json()).catch(() => null),
       ]);
       if (exRes?.success) setExercises(exRes.data);
       if (topicRes?.success) setTopics(topicRes.data);
@@ -52,7 +53,7 @@ export default function GrammarPanel({ classroomId }: GrammarPanelProps) {
     setExpandedTopic(topicId);
     if (!lessonsByTopic[topicId]) {
       setLoadingTopic(topicId);
-      const res = await fetch(`/api/grammar/lessons?topicId=${topicId}`).then((r) => r.json()).catch(() => null);
+      const res = await authFetch(`/api/grammar/lessons?topicId=${topicId}`).then((r) => r.json()).catch(() => null);
       if (res?.success) setLessonsByTopic((prev) => ({ ...prev, [topicId]: res.data }));
       setLoadingTopic(null);
     }
@@ -67,10 +68,9 @@ export default function GrammarPanel({ classroomId }: GrammarPanelProps) {
     }
     setIsGenerating(true);
     try {
-      const { data: { session } } = await supabase.auth.getSession();
       const res = await fetch('/api/grammar', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token ?? ''}` },
+        headers: { 'Content-Type': 'application/json', 'X-LingoPro-Request': '1' },
         body: JSON.stringify({ classroomId, topic, level, count }),
       });
       const data = await res.json();
@@ -88,10 +88,9 @@ export default function GrammarPanel({ classroomId }: GrammarPanelProps) {
   const handleGenerateForLesson = async (lesson: GrammarLesson) => {
     setGeneratingLesson(lesson.id);
     try {
-      const { data: { session } } = await supabase.auth.getSession();
       const res = await fetch('/api/grammar', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token ?? ''}` },
+        headers: { 'Content-Type': 'application/json', 'X-LingoPro-Request': '1' },
         body: JSON.stringify({ classroomId, topic: lesson.title, level, count, lessonId: lesson.id }),
       });
       const data = await res.json();

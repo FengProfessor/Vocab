@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { getAuthUser, unauthorized } from '@/lib/api-security';
@@ -155,6 +156,8 @@ export async function GET(req: Request): Promise<NextResponse> {
 
     return NextResponse.json({ success: true, routes, microPackSize: MICRO_PACK_SIZE, catalogVersion: CATALOG_VERSION });
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     const msg = error instanceof Error ? error.message : 'Unknown error';
     console.error('GET packages error:', msg);
     return NextResponse.json({ success: false, error: msg }, { status: 500 });
@@ -253,6 +256,8 @@ export async function POST(req: Request): Promise<NextResponse> {
     if (result.error) return NextResponse.json({ success: false, error: result.error.message }, { status: result.error.status });
     return NextResponse.json({ success: true, ...result.ok, message: result.ok!.imported > 0 ? `Đã thêm ${result.ok!.imported} từ.` : 'Đã mở lại chặng học này.' });
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     const msg = error instanceof Error ? error.message : 'Unknown error';
     console.error('POST import package error:', msg);
     return NextResponse.json({ success: false, error: msg }, { status: 500 });

@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextRequest, NextResponse } from 'next/server';
 import { fetchAllRows } from '@/lib/supabase';
 import { createServiceClient } from '@/lib/supabase-server';
@@ -219,9 +220,11 @@ export async function GET(
         period,
         classroomName: classroom.name as string,
       },
-      { headers: { 'Cache-Control': 'private, max-age=30, stale-while-revalidate=60' } },
+      { headers: { 'Cache-Control': 'private, no-store' } },
     );
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(err, 'Không tải được bảng xếp hạng');
   }
 }

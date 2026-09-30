@@ -1,3 +1,5 @@
+import { sessionErrorResponse } from '@/lib/session-response';
+import { getWebUser } from '@/lib/server-auth-session';
 import { NextRequest, NextResponse } from 'next/server';
 import { safeErrorResponse } from '@/lib/api-security';
 import { isPilotLeadStatus } from '@/lib/pilot-sales';
@@ -9,10 +11,9 @@ const ADMIN_EMAILS = (process.env.ADMIN_EMAILS ?? '')
   .filter(Boolean);
 
 async function authorize(req: NextRequest) {
-  const token = req.headers.get('authorization')?.replace('Bearer ', '');
-  if (!token) return null;
+
   const supabase = createServiceClient();
-  const { data: { user } } = await supabase.auth.getUser(token);
+  const { data: { user } } = await getWebUser(req);
   if (!user) return null;
   const { data: callerProfile } = await supabase.from('profiles').select('email, role').eq('id', user.id).maybeSingle();
   const callerEmail = (callerProfile?.email || user.email || '').toLowerCase().trim();
@@ -36,6 +37,8 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     if (error) throw error;
     return NextResponse.json({ success: true, leads: data ?? [] });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(err, 'Không thể tải lead pilot.');
   }
 }
@@ -81,6 +84,8 @@ export async function PATCH(req: NextRequest): Promise<NextResponse> {
     if (error) throw error;
     return NextResponse.json({ success: true, lead: data });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(err, 'Không thể cập nhật lead pilot.');
   }
 }
