@@ -2,7 +2,7 @@
 
 # Production deploy
 
-**Trạng thái:** Luồng dưới đây **VERIFIED IN REPOSITORY** bằng source review và local tests. GitHub Actions thực tế và cấu hình host **NOT YET VERIFIED**. Không trigger workflow/SSH production nếu operator chưa ủy quyền rõ ràng.
+**Trạng thái:** Luồng dưới đây **VERIFIED IN REPOSITORY** bằng source review và local tests. Canonical run [36749311479](https://github.com/FengProfessor/Vocab/actions/runs/36749311479) đã PASS tại main 905d9bbb; host/release marker đã có evidence ở checkpoint. Fresh read-only preflight hiện pending Tailscale. Không trigger workflow/SSH production nếu operator chưa ủy quyền rõ ràng.
 
 ## Trigger và commit
 
@@ -10,7 +10,7 @@ Workflow `deploy-server.yml` chạy khi push `main` hoặc `workflow_dispatch` c
 
 ## Quality gate
 
-Trước khi chạm DB hoặc server, job `quality` chạy trên Ubuntu: `npm ci`, actionlint mọi workflow, Bash syntax các script deploy/test, `node --check` migration runner và test render SSH, các bộ test deploy, ESLint riêng health route, và `npm run build`. Test render tái tạo payload shell mà SSH action gửi sang host và chạy `bash -n`, nhằm phát hiện lỗi do action biến đổi script. Mỗi bước này blocking. Full `npm run typecheck` và `npm run lint` chạy với `continue-on-error: true` để báo nợ baseline, không được gọi là repo sạch. Baseline tại checkpoint: 10 lỗi Speaking TypeScript, lint 102 errors/467 warnings; kiểm tra lại khi sửa các phần đó. `npm test` không có script.
+Trước khi chạm DB hoặc server, job `quality` chạy trên Ubuntu: `npm ci`, actionlint mọi workflow, Bash syntax các script deploy/test, `node --check` migration runner và test render SSH, các bộ test deploy, ESLint riêng health route, và `npm run build`; CSP/backup fixture tests và local production browser smoke là blocking gates trong PR followup. Test render tái tạo payload shell mà SSH action gửi sang host và chạy `bash -n`, nhằm phát hiện lỗi do action biến đổi script. Mỗi bước này blocking. Full `npm run typecheck` và `npm run lint` chạy với `continue-on-error: true` để báo nợ baseline, không được gọi là repo sạch. Baseline tại checkpoint: 10 lỗi Speaking TypeScript, full lint 122 errors/448 warnings tại clean a683048 (debt baseline, cần đo lại khi thay source); kiểm tra lại khi sửa các phần đó. `npm test` không có script.
 
 ## Migration và build production
 
