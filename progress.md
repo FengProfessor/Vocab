@@ -623,3 +623,14 @@
   - Live probe `https://lingopro.online/grammar` trả về HTTP 200 với độ trễ phản hồi 187ms.
   - Live probe `https://lingopro.online/api/grammar/theory?topic=personal-pronouns` trả về HTTP 200 với dữ liệu chuẩn hóa sạch.
   - Live probe `https://lingopro.online/grammar/practice?topic=personal-pronouns` trả về HTTP 200.
+
+## P1 PHASE 2C — Inventory / architecture preflight (2026-10-01)
+
+- Branch codex/p2c-auth-session từ origin/main a68304895a7a1e4fa6b44c452324271f72e359ca; không redo Phase 1/2A/2B. Baseline production dca534dc266f1dc5fc80a2e26cf165dc7872bd86; independent CRM canonical 36733665363 sau đó PASS, cần đối chiếu marker trước P2C rollout.
+- Inventory AST: 739 source files; client reachability upper bound 505; 55 browser Supabase files (54 auth, 20 direct data); 10 tables/2 RPC; không thấy browser Realtime/Storage runtime. API 126 route files; 58 shared guards và 23 manual auth files. External extension lpext_, bot/cron/SePay auth riêng giữ nguyên.
+- Chọn Architecture B: server token vault + opaque HttpOnly cookie + user-context/RLS BFF; xem docs/security/p1-phase2c-session-architecture.md. Chưa auth runtime change hoặc session cutover.
+- Fresh export checkout/cache riêng: npm ci 1.871 packages và build PASS; typecheck 10 Speaking baseline TS2307/TS7006; full lint 122 errors/448 warnings. Working checkout có 3 stale generated validator errors không thuộc source baseline; không sửa debt unrelated. npm audit 45 (22 moderate/18 high/5 critical) vẫn deferred.
+- Public Supabase settings read-only: Google/email enabled, mailer_autoconfirm=false, signup enabled. Không credentials/user data output.
+- JWT getUser đơn lẻ chưa chứng minh provider session còn active; cần auth.sessions metadata preflight. Đã chuẩn bị trusted same-repo PR workflow, transaction BEGIN READ ONLY, chỉ information_schema columns, không chọn user/session rows hoặc apply SQL.
+- Operator xác nhận existing verified non-admin safe test account và sẽ tự đăng nhập khi production smoke cần. Không yêu cầu password/token trong chat.
+- Audit authoritative: P1-C-03/C05 CLOSED từ PR18 / canonical 36699466025 / provider evidence đã có; main docs closeout cũ chưa được merge. P1-C-02 vẫn OPEN. High 0, Medium 1, Low 3. Phase 2C IN PROGRESS.
