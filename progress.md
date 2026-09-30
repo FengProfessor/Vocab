@@ -623,3 +623,26 @@
   - Live probe `https://lingopro.online/grammar` trả về HTTP 200 với độ trễ phản hồi 187ms.
   - Live probe `https://lingopro.online/api/grammar/theory?topic=personal-pronouns` trả về HTTP 200 với dữ liệu chuẩn hóa sạch.
   - Live probe `https://lingopro.online/grammar/practice?topic=personal-pronouns` trả về HTTP 200.
+
+## 2026-09-30 · PRODUCTION RELEASE: GRAMMAR THEORY TABS UI & STABILITY FIX
+
+- **Khắc phục lỗi vạch đôi / gạch chân lơ lửng (Floating Underline Glitch)**:
+  - Đưa thuộc tính `-mb-px` và chuyển nền active thành `bg-card text-foreground font-bold`, loại bỏ hoàn toàn khoảng hở 8px giữa thanh chỉ báo tab và đường viền container.
+  - Bổ sung vách ngăn kỹ thuật sắc sảo (`border-r border-border`) đồng bộ phong cách Technical Minimalist với các bảng ma trận ngữ pháp và feedback panel.
+- **Khắc phục lỗi co rút khung modal (Flexbox Shrink Glitch)**:
+  - Bổ sung `shrink-0` cho Header, Theory Tabs container và Footer CTA trong modal drawer (`src/app/grammar/page.tsx`).
+  - Bổ sung `min-h-0` cho vùng nội dung cuộn để ngăn Flexbox bóp nghẹt thanh tab xuống 7.75px khi tải bảng tra cứu nhiều dòng.
+- **Đồng bộ hệ thống Icon kỹ thuật 14px cho toàn bộ 5 tab**:
+  - `Lý thuyết cốt lõi` (`<BookOpen>`), `Bảng tra cứu` (`<TableProperties>`), `Ví dụ song ngữ` (`<FileText>`), `Hình ảnh thực tế` (`<ImageIcon>`), `Video bài giảng` (`<PlayCircle>`).
+- **Verification**:
+  - `npm run build`: PASS (174/174 routes Turbopack).
+  - `npx tsx tests/grammar/test-unified-grammar-roadmap.ts --strict`: PASS 42/42 tests (100%).
+  - `npx tsc --noEmit`: PASS (0 errors).
+  - `npx eslint src/app/grammar/page.tsx`: PASS (0 errors).
+- **Canonical Production Deployment Verified**:
+  - Push `main` (commit `b298a5f`) kích hoạt canonical GitHub Actions workflow `deploy-server.yml` (run [`36738850886`](https://github.com/FengProfessor/Vocab/actions/runs/36738850886)).
+  - Quality gate: PASS (actionlint, safety tests, security suites, route lint, exact-SHA verification).
+  - Migration runner: PASS (8 existing migrations verified and skipped safely).
+  - Deploy job: PASS (standalone staging build in `$HOME/Vocab-build`, atomic `.next` swap qua `activate-release.sh`, `lingopro.service` restart và dual HTTP 200 health check verification).
+  - Live production verification: `curl.exe https://lingopro.online/api/health` trả về HTTP 200 `{"status":"ok"}`.
+  - Live UI verification: Puppeteer truy cập `https://lingopro.online/grammar?topic=personal-pronouns` xác nhận 5 tab chuyển đổi mượt mà, vạch tab dính liền khít với viền, không còn bất kỳ lỗi vạch đôi nào.
