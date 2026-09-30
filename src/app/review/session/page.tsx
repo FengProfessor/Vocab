@@ -22,6 +22,7 @@ import {
 } from '@/lib/study';
 import { playWordWithBuffer } from '@/lib/audio-sync';
 import { stopWordAudio } from '@/lib/audio';
+import { ExampleWithSub } from '@/components/study/ExampleWithSub';
 import {
   type ItemMode,
   type ReviewSessionMode,
@@ -917,18 +918,18 @@ function SessionContent() {
                   </div>
                 )}
 
-                {/* Dịch câu Tiếng Việt cho dạng Cloze (Điền chỗ trống) */}
-                {(itemMode === 'cloze_mcq' || itemMode === 'cloze_type') && current?.example && (
-                  <div className="mt-1 w-full border-t border-slate-200/60 pt-1.5 text-xs font-medium text-slate-700">
-                    {extractVietnameseSentenceTranslation(current.example) ? (
-                      <p className="italic text-emerald-900/90 font-semibold">
-                        &ldquo;{extractVietnameseSentenceTranslation(current.example)}&rdquo;
-                      </p>
-                    ) : (
-                      <p className="italic text-slate-600 opacity-90">
-                        &ldquo;{stripEmbeddedVietnamese(current.example)}&rdquo;
-                      </p>
-                    )}
+                {/* Câu ví dụ ngữ cảnh + Audio + Sub + Chạm tra từ */}
+                {current?.example && (
+                  <div className="mt-2 w-full border-t border-slate-200/60 pt-2 text-left">
+                    <ExampleWithSub
+                      example={current.example}
+                      exampleVi={current.example_vi}
+                      defaultShowVi
+                      autoTranslateIfMissing
+                      showSlowAudio
+                      enClassName="text-xs font-medium italic text-slate-700 dark:text-slate-300 leading-snug sm:text-sm"
+                      viClassName="mt-1 text-xs font-medium text-slate-600 dark:text-slate-400 not-italic leading-snug"
+                    />
                   </div>
                 )}
               </div>

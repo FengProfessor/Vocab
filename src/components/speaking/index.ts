@@ -13,3 +13,6 @@ export { StageProgressNav, FOUNDATION_STAGES } from './stage-progress-nav';
 export type { StageProgressNavProps, StageNavInfo, StageNavStep } from './stage-progress-nav';
 
 export { SpeechRecorder } from './SpeechRecorder';
+
+export { MasterSpeakingRoadmap, SPEAKING_ROADMAP_STAGES } from './MasterSpeakingRoadmap';
+export type { MasterSpeakingRoadmapProps, SpeakingRoadmapStage, SpeakingStageMetadata } from './MasterSpeakingRoadmap';

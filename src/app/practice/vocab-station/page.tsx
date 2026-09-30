@@ -43,6 +43,7 @@ import { StudentShell } from '@/components/student/StudentShell';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
+import { ExampleWithSub } from '@/components/study/ExampleWithSub';
 import { Celebration } from '@/components/gamification/Celebration';
 import { playWordAudio } from '@/lib/audio';
 import {
@@ -672,27 +673,18 @@ function VocabStationContent() {
                   </div>
 
                   <div className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-3.5 dark:border-emerald-900/40 dark:bg-emerald-950/20">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400">
-                        Ví dụ thực tế:
-                      </span>
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handlePlayAudio(currentVerb.example);
-                        }}
-                        className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-700 hover:underline dark:text-emerald-400"
-                      >
-                        <Volume2 className="h-3.5 w-3.5" /> Nghe câu
-                      </button>
-                    </div>
-                    <p className="mt-1 text-sm font-bold text-slate-900 dark:text-white">
-                      {currentVerb.example}
-                    </p>
-                    <p className="mt-0.5 text-xs text-slate-600 dark:text-slate-300">
-                      {currentVerb.exampleVi}
-                    </p>
+                    <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400 block mb-1.5">
+                      Ví dụ thực tế:
+                    </span>
+                    <ExampleWithSub
+                      example={currentVerb.example}
+                      exampleVi={currentVerb.exampleVi}
+                      defaultShowVi
+                      autoTranslateIfMissing
+                      showSlowAudio
+                      enClassName="text-sm font-bold text-slate-900 dark:text-white leading-relaxed"
+                      viClassName="mt-1 text-xs font-medium text-slate-600 dark:text-slate-300 not-italic leading-relaxed"
+                    />
                   </div>
                 </div>
               )}

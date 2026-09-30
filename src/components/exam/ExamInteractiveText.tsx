@@ -13,6 +13,8 @@ export interface ExamInteractiveTextProps {
   text?: string;
   enabled?: boolean;
   className?: string;
+  wordClassName?: string;
+  activeWordClassName?: string;
   as?: 'span' | 'p' | 'div';
 }
 
@@ -34,6 +36,8 @@ export function ExamInteractiveText({
   text = '',
   enabled = false,
   className = '',
+  wordClassName = '',
+  activeWordClassName = '',
   as: Component = 'span',
 }: ExamInteractiveTextProps) {
   const [activeWord, setActiveWord] = useState<string | null>(null);
@@ -333,8 +337,8 @@ export function ExamInteractiveText({
             }}
             className={`exam-lookup-trigger inline-block rounded-xs px-0.5 transition-colors cursor-pointer outline-hidden select-text ${
               isCurrentlyActive
-                ? 'bg-indigo-600 text-white dark:bg-indigo-500 font-semibold'
-                : 'hover:bg-indigo-100 hover:text-indigo-950 dark:hover:bg-indigo-950/80 dark:hover:text-indigo-200 underline decoration-indigo-300/60 hover:decoration-indigo-500 underline-offset-3'
+                ? (activeWordClassName || 'bg-indigo-600 text-white dark:bg-indigo-500 font-semibold')
+                : (wordClassName || 'hover:bg-indigo-100 hover:text-indigo-950 dark:hover:bg-indigo-950/80 dark:hover:text-indigo-200 underline decoration-indigo-300/60 hover:decoration-indigo-500 underline-offset-3')
             }`}
             title="Nhấn để tra nghĩa & nghe phát âm"
           >

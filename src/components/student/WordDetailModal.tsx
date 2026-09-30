@@ -324,8 +324,10 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
                     example={word.example}
                     exampleVi={word.example_vi}
                     defaultShowVi
-                    enClassName="text-sm italic text-slate-600 leading-relaxed"
-                    viClassName="mt-1 text-sm font-medium text-slate-500 leading-relaxed not-italic"
+                    autoTranslateIfMissing
+                    showSlowAudio
+                    enClassName="text-sm italic text-slate-600 dark:text-slate-300 leading-relaxed"
+                    viClassName="mt-1 text-sm font-medium text-slate-500 dark:text-slate-400 leading-relaxed not-italic"
                   />
                 </div>
               )}
