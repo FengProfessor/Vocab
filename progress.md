@@ -718,3 +718,22 @@
 - Narrow fix: production origin derives from syntactically validated Host in explicit HTTPS origin allowlist; still requires HTTPS request URL/protocol, exact Origin, X-LingoPro proof and same-origin fetch-site. Never trust X-Forwarded-Host; unknown host/userinfo/path/header spoof rejects. Development unchanged. No schema/dependency change.
 - Added guard regressions plus real Next HTTP reverse-proxy regression as blocking security/canonical quality step after build. Local auth/browser-boundary tests PASS. Fresh CI/build/runtime-proxy verification pending on fixed head; **do not merge/cutover before PASS**.
 - User will sign in directly with dedicated verified non-admin account for production login/navigation/reload/storage/logout/replay smoke after canonical rollout. Temporary local test helper prints booleans/status only, never password/token/cookie/user data; no manual production SQL/restart/deploy.
+
+## 2026-10-01 · PRODUCTION RELEASE: INTERACTIVE EXAMPLE SENTENCES WITH AUDIO & AI ON-DEMAND SUBTITLES
+
+- **Nâng cấp toàn diện Câu ví dụ (Example Sentences) đa tương tác**:
+  - `src/components/study/ExampleWithSub.tsx`:
+    - **Audio phát âm cả câu ví dụ**: Nút loa `Volume2` tích hợp Neural TTS/Youdao/Web Speech, có animation pulse khi phát và hỗ trợ nghe chậm `0.7x` (`Snail`).
+    - **Chạm tra từ tương tác (Interactive Word Tap)**: Tích hợp `ExamInteractiveText`. Học viên có thể chạm vào bất kỳ từ tiếng Anh nào trong câu để mở card tra từ tức thì (`ExamWordLookupCard`), xem IPA, từ loại, nghĩa tiếng Việt, phát âm từ đơn và lưu vào sổ từ SRS trực tiếp.
+    - **Sub tiếng Việt thông minh & Tự động dịch AI on-demand**: Tự động bóc tách bản dịch tiếng Việt nếu câu chứa sẵn dạng ngoặc hoặc song ngữ; cung cấp nút `✨ Dịch câu` (hoặc `autoTranslateIfMissing`) gọi API `/api/translate` tức thì và lưu vào session cache.
+  - Đồng bộ trên các màn hình trọng điểm: Flashcard Luyện tập (`/flashcard`), Chế độ làm quen từ mới (`LearnMode.tsx`), Ôn tập SRS Review Session (`/review/session`), Modal chi tiết từ vựng (`WordDetailModal.tsx`), Từ điển trực tuyến (`/dictionary`), Trạm luyện từ vựng (`/practice/vocab-station`).
+- **Verification**:
+  - `npx tsc --noEmit`: PASS (0 errors).
+  - `npm run build`: PASS (174 routes).
+- **Canonical Production Deployment Verified**:
+  - Commit `3057f99` kích hoạt canonical GitHub Actions workflow `deploy-server.yml` (run [`36780818282`](https://github.com/FengProfessor/Vocab/actions/runs/36780818282)).
+  - Quality gate: PASS (actionlint, safety tests, security suites, route lint, exact-SHA verification, application build).
+  - Migration runner: PASS (existing migrations verified and skipped safely).
+  - Deploy job: PASS (standalone staging build in `$HOME/Vocab-build`, atomic `.next` swap qua `activate-release.sh`, `lingopro.service` restart và dual HTTP 200 health check verification).
+  - Live production verification: `curl.exe https://lingopro.online/api/health` trả về HTTP 200 `{"status":"ok"}`.
+
