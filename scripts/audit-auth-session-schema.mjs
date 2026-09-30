@@ -9,9 +9,12 @@ const client = new pg.Client({
   connectionTimeoutMillis: 15000,
   statement_timeout: 10000,
 });
+let stage = 'connect';
 try {
   await client.connect();
+  stage = 'read-only transaction';
   await client.query('BEGIN READ ONLY');
+  stage = 'schema metadata';
   const { rows } = await client.query(`
     SELECT table_schema, table_name, column_name, data_type
     FROM information_schema.columns
@@ -28,8 +31,13 @@ try {
   console.log('[AuthSchema] Metadata:', JSON.stringify(rows));
   await client.query('ROLLBACK');
   console.log('[AuthSchema] Read-only preflight PASS; no user/session rows selected');
-} catch {
-  console.error('[AuthSchema] Read-only preflight FAIL; details suppressed');
+} catch (error) {
+  const code = typeof error?.code === 'string' ? error.code : '';
+  const category = ['SELF_SIGNED_CERT_IN_CHAIN', 'UNABLE_TO_VERIFY_LEAF_SIGNATURE',
+    'CERT_HAS_EXPIRED', 'DEPTH_ZERO_SELF_SIGNED_CERT', 'ERR_TLS_CERT_ALTNAME_INVALID'].includes(code)
+    ? 'TLS verification' : ['28P01', '28000'].includes(code) ? 'database authorization'
+      : code === '42501' ? 'metadata permission' : stage;
+  console.error(`[AuthSchema] Read-only preflight FAIL at ${category}; details suppressed`);
   process.exitCode = 1;
 } finally {
   await client.end().catch(() => {});
