@@ -87,12 +87,12 @@ async function getUserClassroomIds(
   supabase: ReturnType<typeof createServiceClient>,
   userId: string,
 ): Promise<string[]> {
-  const [{ data: ownedClasses }, { data: enrolledClasses }] = await Promise.all([
-    supabase.from('classrooms').select('id').eq('teacher_id', userId),
+  const [{ data: personalClass }, { data: enrolledClasses }] = await Promise.all([
+    supabase.from('classrooms').select('id').eq('teacher_id', userId).eq('name', '__personal__').maybeSingle(),
     supabase.from('enrollments').select('classroom_id').eq('student_id', userId),
   ]);
   const cids = new Set<string>();
-  (ownedClasses || []).forEach((c) => { if (c.id) cids.add(c.id as string); });
+  if (personalClass?.id) cids.add(personalClass.id as string);
   (enrolledClasses || []).forEach((e) => { if (e.classroom_id) cids.add(e.classroom_id as string); });
   return Array.from(cids);
 }
@@ -844,8 +844,10 @@ export async function GET(req: Request): Promise<NextResponse> {
 
     const supabase = createServiceClient();
 
-    // Nếu truyền classroomId, xác minh user là teacher của classroom đó hoặc đã enrolled (chống đọc lén)
-    if (classroomId) {
+    // Nếu truyền classroomId là '__personal__', tự động resolve sang UUID personal classroom
+    if (classroomId === '__personal__') {
+      classroomId = await getOrCreatePersonalClassroom(supabase, userId);
+    } else if (classroomId) {
       const { data: cls } = await supabase
         .from('classrooms')
         .select('teacher_id')
