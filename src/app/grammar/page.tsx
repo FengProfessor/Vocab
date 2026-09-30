@@ -18,6 +18,9 @@ import {
   Lightbulb,
   AlertTriangle,
   ArrowLeftRight,
+  TableProperties,
+  FileText,
+  Image as ImageIcon,
 } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import type { CefrLevel } from '@/lib/grammar-types';
@@ -433,7 +436,7 @@ function GrammarRoadmapContent() {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-background/80 backdrop-blur-sm">
           <div className="border border-border bg-card w-full max-w-4xl max-h-[92vh] sm:max-h-[85vh] rounded-none flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
             {/* Drawer Header */}
-            <div className="border-b border-border p-4 sm:p-6 flex items-start justify-between gap-4 bg-muted/10">
+            <div className="border-b border-border p-4 sm:p-6 flex items-start justify-between gap-4 bg-muted/10 shrink-0">
               <div>
                 <div className="flex items-center gap-2 font-mono text-xs uppercase text-muted-foreground mb-1">
                   <span>#{activeTopic.order < 10 ? '0' : ''}{activeTopic.order}</span>
@@ -460,62 +463,71 @@ function GrammarRoadmapContent() {
             </div>
 
             {/* Theory Tabs */}
-            <div className="border-b border-border flex bg-muted/20 px-4 sm:px-6 overflow-x-auto scrollbar-none">
+            <div className="shrink-0 border-b border-border bg-muted/20 flex overflow-x-auto scrollbar-none">
               <button
+                type="button"
                 onClick={() => setTheoryTab('theory')}
-                className={`py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-b-2 transition-colors shrink-0 ${
+                className={`py-3 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-r border-border inline-flex items-center gap-2 whitespace-nowrap shrink-0 transition-colors ${
                   theoryTab === 'theory'
-                    ? 'border-foreground text-foreground font-bold'
-                    : 'border-transparent text-muted-foreground hover:text-foreground'
+                    ? 'bg-card text-foreground font-bold border-b-2 border-b-foreground -mb-px'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/40 border-b-2 border-b-transparent'
                 }`}
               >
-                Lý thuyết cốt lõi
+                <BookOpen className="h-3.5 w-3.5" />
+                <span>Lý thuyết cốt lõi</span>
               </button>
               <button
+                type="button"
                 onClick={() => setTheoryTab('table')}
-                className={`py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-b-2 transition-colors shrink-0 ${
+                className={`py-3 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-r border-border inline-flex items-center gap-2 whitespace-nowrap shrink-0 transition-colors ${
                   theoryTab === 'table'
-                    ? 'border-foreground text-foreground font-bold'
-                    : 'border-transparent text-muted-foreground hover:text-foreground'
+                    ? 'bg-card text-foreground font-bold border-b-2 border-b-foreground -mb-px'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/40 border-b-2 border-b-transparent'
                 }`}
               >
-                Bảng tra cứu
+                <TableProperties className="h-3.5 w-3.5" />
+                <span>Bảng tra cứu</span>
               </button>
               <button
+                type="button"
+                onClick={() => setTheoryTab('examples')}
+                className={`py-3 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-r border-border inline-flex items-center gap-2 whitespace-nowrap shrink-0 transition-colors ${
+                  theoryTab === 'examples'
+                    ? 'bg-card text-foreground font-bold border-b-2 border-b-foreground -mb-px'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/40 border-b-2 border-b-transparent'
+                }`}
+              >
+                <FileText className="h-3.5 w-3.5" />
+                <span>Ví dụ song ngữ</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setTheoryTab('media')}
+                className={`py-3 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-r border-border inline-flex items-center gap-2 whitespace-nowrap shrink-0 transition-colors ${
+                  theoryTab === 'media'
+                    ? 'bg-card text-foreground font-bold border-b-2 border-b-foreground -mb-px'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/40 border-b-2 border-b-transparent'
+                }`}
+              >
+                <ImageIcon className="h-3.5 w-3.5" />
+                <span>Hình ảnh thực tế ({((topicAssetsData as Record<string, TopicAssetItem[]>)[activeTopic.slug] || []).length})</span>
+              </button>
+              <button
+                type="button"
                 onClick={() => setTheoryTab('video')}
-                className={`py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-b-2 transition-colors shrink-0 flex items-center gap-1.5 ${
+                className={`py-3 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-r border-border inline-flex items-center gap-2 whitespace-nowrap shrink-0 transition-colors ${
                   theoryTab === 'video'
-                    ? 'border-foreground text-foreground font-bold'
-                    : 'border-transparent text-muted-foreground hover:text-foreground'
+                    ? 'bg-card text-foreground font-bold border-b-2 border-b-foreground -mb-px'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/40 border-b-2 border-b-transparent'
                 }`}
               >
                 <PlayCircle className="h-3.5 w-3.5 text-rose-600" />
                 <span>Video bài giảng</span>
               </button>
-              <button
-                onClick={() => setTheoryTab('examples')}
-                className={`py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-b-2 transition-colors shrink-0 ${
-                  theoryTab === 'examples'
-                    ? 'border-foreground text-foreground font-bold'
-                    : 'border-transparent text-muted-foreground hover:text-foreground'
-                }`}
-              >
-                Ví dụ song ngữ
-              </button>
-              <button
-                onClick={() => setTheoryTab('media')}
-                className={`py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-b-2 transition-colors shrink-0 ${
-                  theoryTab === 'media'
-                    ? 'border-foreground text-foreground font-bold'
-                    : 'border-transparent text-muted-foreground hover:text-foreground'
-                }`}
-              >
-                Hình ảnh thực tế ({((topicAssetsData as Record<string, TopicAssetItem[]>)[activeTopic.slug] || []).length})
-              </button>
             </div>
 
             {/* Drawer Content */}
-            <div className="p-4 sm:p-6 overflow-y-auto flex-1 text-sm space-y-6">
+            <div className="p-4 sm:p-6 overflow-y-auto flex-1 min-h-0 text-sm space-y-6">
               {theoryLoading ? (
                 <div className="py-12 flex flex-col items-center justify-center gap-2">
                   <Loader2 className="h-6 w-6 animate-spin text-primary" />
@@ -720,7 +732,7 @@ function GrammarRoadmapContent() {
             </div>
 
             {/* Drawer Footer CTA */}
-            <div className="border-t border-border p-4 bg-card flex flex-wrap sm:flex-nowrap items-center justify-between gap-3">
+            <div className="border-t border-border p-4 bg-card flex flex-wrap sm:flex-nowrap items-center justify-between gap-3 shrink-0">
               <button
                 onClick={() => setSelectedTopicSlug(null)}
                 className="border border-border px-4 py-2.5 font-mono text-xs uppercase tracking-wider font-semibold rounded-none hover:bg-muted text-muted-foreground hover:text-foreground shrink-0"
