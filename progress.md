@@ -581,3 +581,15 @@
 - Chưa đổi khóa SePay; chưa loại legacy billing auth hoặc limiter memory fallback. `P1-C-02`, `P1-C-03`, `P1-C-05` vẫn OPEN; Phase 2B PARTIAL.
 - **Stage A = PASS; provider transition = PENDING OPERATOR.** Bước kế tiếp: operator sửa webhook hiện có trên SePay, giữ URL `https://lingopro.online/api/billing/webhook`, chọn API Key bằng dedicated credential đã lưu; cần xác nhận cấu hình/delivery trước Stage B enforcement. Không dùng token quản trị SePay hoặc tạo webhook trùng.
 - Không SSH deploy, SQL ad hoc, restart thủ công hoặc bypass CI. SSH chỉ preflight/metadata và safe synthetic probes; rollout do canonical controller thực hiện.
+
+## P1 PHASE 2B — Billing key replacement (2026-09-30)
+
+- Operator không còn bản lưu khóa billing ban đầu; đã tạo/lưu khóa mới và xác nhận cập nhật GitHub Secret. Name-only inventory: `BILLING_WEBHOOK_SECRET` updated `2026-09-30T08:45:11Z` (15:45:11 VN); không in giá trị.
+- Preflight: main/build/live cùng SHA `9a6cd04dc3172bdec15b1dd2c1c3f960838aa3c6`, staging sạch, service active/MainPID `1244944`, local health 200, disk còn 78 GB. Working tree sạch tại HEAD `a43d3bb2bb13b0d2f364a77350023cd05fc2d97f`.
+- Canonical workflow dispatch trên main: [36691839537](https://github.com/FengProfessor/Vocab/actions/runs/36691839537), exact SHA giữ nguyên. Không đổi source/dependencies/schema/deploy architecture, không manual env edit/restart/SQL.
+- Canonical run `36691839537` **PASS**: Quality → Migration → exact-SHA build/activation/restart → health. CI Node `22.23.2`/npm `10.9.8`: clean npm ci/build, deployment/security regressions và actionlint/syntax PASS; typecheck đúng 10 baseline Speaking errors TS2307/TS7006, 0 unexpected errors. Tám migrations đã áp được SKIP; không có schema change mới.
+- Independent post-rollout: main/build HEAD/build marker/live marker vẫn bằng `9a6cd04dc3172bdec15b1dd2c1c3f960838aa3c6`; service active/MainPID ổn định `1249314`; local/public health và public root HTTP 200.
+- So sánh active env với canonical rollback snapshot trong bộ nhớ xác nhận billing key đã đổi, alias `WEBHOOK_SECRET` khớp dedicated key, billing khác cron; `CRON_SECRET` và Redis URL/token giữ nguyên. Không in credential hoặc fingerprint.
+- Public webhook: new dedicated `Apikey` PASS HTTP 200/success/processed 0; previous billing key, missing auth, wrong auth đều HTTP 401. Payload rỗng `{"error":0,"data":[]}` trả trước database/payment/entitlement mutation; không dùng sự kiện thanh toán thật hoặc gửi email/notification.
+- Redis PING, synthetic SET NX EX 60/INCR/GET/TTL PASS. Empty local registration bị reject 400 trước signUp và tạo riêng counter Redis có TTL <=60 giây, xác nhận live app dùng config. Probes chỉ chạm keys synthetic tự hết hạn, không counters người dùng.
+- **Billing key replacement on app = PASS; SePay provider transition = PENDING OPERATOR.** Operator cần sửa API Key trên webhook hiện có bằng đúng khóa mới vừa lưu/cập nhật GitHub; giữ URL `https://lingopro.online/api/billing/webhook`. Chưa có delivery evidence từ SePay, chưa bật Stage B enforcement. `P1-C-02`, `P1-C-03`, `P1-C-05` vẫn OPEN; Phase 2B PARTIAL.
