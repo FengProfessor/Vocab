@@ -9,7 +9,7 @@ const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const paths = {
   redirect: 'src/lib/internal-redirect.ts',
   authPage: 'src/app/auth/page.tsx',
-  callback: 'src/app/auth/callback/page.tsx',
+  callback: 'src/app/auth/complete/page.tsx',
   upload: 'src/app/api/speaking/upload-audio/route.ts',
   register: 'src/app/api/auth/register/route.ts',
   security: 'src/lib/api-security.ts',
@@ -34,6 +34,7 @@ const responseJson = (body, init = {}) => new Response(JSON.stringify(body), {
 
 async function loadModule(name, source) {
   const modulePath = join(tempRoot, `${name}-${Date.now()}-${Math.random()}.mjs`);
+  source = source.replace(/import \{ sessionErrorResponse \} from '@\/lib\/session-response';/, 'const sessionErrorResponse = () => null;');
   writeFileSync(modulePath, compile(source, paths[name]));
   return import(pathToFileURL(modulePath).href);
 }
@@ -180,7 +181,9 @@ try {
   };
   const registerSource = sources.register
     .replace("import { NextResponse } from 'next/server';", 'const NextResponse = globalThis.__nextResponse;')
-    .replace("import { createPublicAuthClient } from '@/lib/supabase';", 'const createPublicAuthClient = globalThis.__createPublicAuthClient;')
+    .replace(/import \{[^}]+\} from '@\/lib\/server-auth-session';/, `const assertAppRequest = () => {}; const appOrigin = req => new URL(req.url).origin; const cookieHeader = () => 'test-flow'; const flowCookieName = () => 'test-flow'; const serverAuthClient = () => ({ client: globalThis.__createPublicAuthClient(), verifier: () => 'test-verifier' });`)
+    .replace(/import \{[^}]+\} from '@\/lib\/server-session-store';/, "const createAuthFlow = async () => 'test-flow'; const FLOW_LIFETIME_MS = 600000;")
+    .replace(/import \{[^}]+\} from '@\/lib\/session-response';/, 'const PRIVATE_SESSION_HEADERS = {}; const sessionErrorResponse = () => null;')
     .replace("import { createServiceClient } from '@/lib/supabase-server';", 'const createServiceClient = globalThis.__createServiceClient;')
     .replace(
       /import \{ ([^}]+) \} from '@\/lib\/api-security';/,
@@ -240,6 +243,7 @@ try {
     'src/lib/distributed-rate-limit.ts',
   ));
   const securitySource = sources.security
+    .replace(/import \{[^}]+\} from '@\/lib\/server-auth-session';/, "const getWebUser = async () => ({data:{user:null}}); const sessionCookieName = () => '__Host-lingopro-session';")
     .replaceAll("'@/lib/distributed-rate-limit'", JSON.stringify(pathToFileURL(distributedModulePath).href))
     .replace("import { NextResponse } from 'next/server';", 'const NextResponse = globalThis.__nextResponse;')
     .replace("import { createServiceClient } from '@/lib/supabase-server';", 'const createServiceClient = globalThis.__createServiceClient;')

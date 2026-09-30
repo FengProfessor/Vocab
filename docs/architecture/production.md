@@ -7,9 +7,9 @@
 | Public URL | `https://lingopro.online`; Cloudflare edge đã thấy ở probes; origin Tunnel/proxy config cần read-only host check khi Tailscale hoạt động |
 | Host/runtime | Ubuntu, systemd `lingopro.service`, Node/Next standalone; canonical run `36749311479` PASS tại main `905d9bbb` |
 | Directories | `$HOME/Vocab-build` checkout/build exact SHA; `$HOME/Vocab` live bundle/env; `.next/.release-commit` là runtime marker, live checkout HEAD không phải release identity |
-| Management | Tailscale + SSH; `100.104.5.79` là địa chỉ quản trị đã dùng. Agent Windows Tailscale NoState tại preflight gần nhất; chưa có host audit mới |
-| Database/auth | Supabase PostgreSQL + RLS/Auth; user JWT browser hiện hữu; service-role server guarded operations; C02 PR #20 pending |
-| Rate limit / session foundation | Upstash Redis REST; quota atomic Lua; encrypted opaque session vault Stage A đã phát hành, runtime cutover chưa phát hành |
+| Management | Tailscale + SSH; `100.104.5.79`; operator đã bật lại, read-only preflight restored, service/config/Redis PING PASS |
+| Database/auth | Supabase PostgreSQL + RLS/Auth; PR #20 đã merge tại `44ad7c92`, canonical cutover `36784213532` đang chạy; browser smoke còn pending |
+| Rate limit / session foundation | Upstash Redis REST; quota atomic Lua; encrypted opaque session vault Stage A; cutover giữ user JWT trên server và user-context RLS BFF |
 | Background | GitHub `push-cron.yml` gọi cron API với credential riêng; Firebase Cloud Messaging, Gemini multi-key server logic; root cron/timer inventory theo checkpoint, không suy ra từ code |
 | Payments | SePay webhook dedicated billing secret + server verification/idempotency; không dùng cron secret chung |
 | Mobile | `capacitor.config.ts`: Android/iOS WebView `https://lingopro.online`, cleartext=false; build workflow riêng, không một backend mobile độc lập |

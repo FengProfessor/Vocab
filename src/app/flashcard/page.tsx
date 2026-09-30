@@ -1,4 +1,6 @@
 'use client';
+import { authFetch } from '@/lib/auth-fetch';
+
 
 import { useState, useEffect, useRef, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
@@ -97,7 +99,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
           : `/api/words?filter=review&limit=40`;
 
         const res = await fetch(url, {
-          headers: { Authorization: `Bearer ${session.access_token}` },
+          headers: { 'X-LingoPro-Request': '1' },
         });
         const data = await res.json();
 
@@ -136,7 +138,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
         ? `/api/words?classroomId=${classroomId}&limit=40`
         : `/api/words?limit=40`;
       const res = await fetch(url, {
-        headers: { Authorization: `Bearer ${session.access_token}` },
+        headers: { 'X-LingoPro-Request': '1' },
       });
       const data = await res.json();
       if (data.success && Array.isArray(data.data) && data.data.length > 0) {
@@ -280,7 +282,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
       return;
     }
     try {
-      await saveSrsReview(currentWordId, quality, session.access_token);
+      await saveSrsReview(currentWordId, quality);
       invalidateWordSummaryCache(session.user.id);
     } catch (error) {
       ratingSavingRef.current = false;
@@ -308,10 +310,10 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     setSessionXp(prev => prev + xp);
     setXpPopup({ show: true, amount: xp });
     setTimeout(() => setXpPopup({ show: false, amount: 0 }), 900);
- 
+
     const newQueue = queue.slice(1);
     if (quality === 0) newQueue.push(currentWord); 
- 
+
     setQueue(newQueue);
     setCurrent(newQueue[0] || null);
     setFlipped(false);
@@ -320,7 +322,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     setSpellingInput('');
     setSpellingError(false);
     setHasSpelledCorrectly(false);
-    
+
     // Briefly disable transition to "warp" to front of next card
     setTimeout(() => {
       setIsSwapping(false);
@@ -335,7 +337,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
 
     // Lưu thống kê phiên ở nền; SRS phía trên đã được server xác nhận.
     (async () => {
-      const authHeaders = { 'Content-Type': 'application/json', Authorization: `Bearer ${session.access_token}` };
+      const authHeaders = { 'Content-Type': 'application/json', 'X-LingoPro-Request': '1' };
 
       if (newQueue.length === 0) {
         try {
@@ -343,7 +345,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
           // sessionResults là snapshot TRƯỚC thẻ này nên cộng thêm thẻ hiện tại; clamp ≤ total.
           const remembered = (quality === 4 || quality === 5) ? sessionResults.easy + 1 : sessionResults.easy;
           const finalScore = Math.min(remembered, total);
-          await fetch('/api/quiz/save', {
+          await authFetch('/api/quiz/save', {
             method: 'POST',
             headers: authHeaders,
             body: JSON.stringify({
@@ -589,12 +591,11 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                         e.stopPropagation();
                         toast.info('Finding a better image...', { icon: '🔍' });
                         try {
-                          const { data: { session } } = await supabase.auth.getSession();
                           const res = await fetch('/api/words/refresh-image', {
                             method: 'POST',
                             headers: {
                               'Content-Type': 'application/json',
-                              Authorization: `Bearer ${session?.access_token ?? ''}`,
+                              'X-LingoPro-Request': '1',
                             },
                             body: JSON.stringify({ wordId: current.id }),
                           });

@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import { getAuthUser, isValidString } from '@/lib/api-security';
 import { createServiceClient } from '@/lib/supabase-server';
@@ -160,6 +161,8 @@ export async function GET(req: Request): Promise<NextResponse> {
 
     return await loadPacks(auth.userId, packId);
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     console.error('[VocabPacks] GET failed:', error instanceof Error ? error.message : String(error));
     return json({ success: false, error: 'Failed to load vocabulary packs.' }, 500);
   }
@@ -206,6 +209,8 @@ export async function PATCH(req: Request): Promise<NextResponse> {
     if (updateError) return databaseError(updateError, 'Continue pack failed');
     return await loadPacks(auth.userId, packId);
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     if (error instanceof SyntaxError) {
       return json({ success: false, error: 'Invalid JSON body.' }, 400);
     }

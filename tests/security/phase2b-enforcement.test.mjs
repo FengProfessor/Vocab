@@ -189,6 +189,8 @@ try {
   globalThis.__p2bStubs['@/lib/supabase-server'] = { createServiceClient: () => { throw new Error('Unexpected service client'); } };
   globalThis.__p2bStubs['@/lib/ttl-cache'] = { cacheGet: () => undefined, cacheSet: () => {} };
   globalThis.__p2bStubs['@/lib/cron-auth'] = { isCronAuthorizationValid: () => false };
+  globalThis.__p2bStubs['@/lib/server-auth-session'] = { getWebUser: async () => ({data:{user:null}}), sessionCookieName: () => '__Host-lingopro-session', assertAppRequest: () => {} };
+  globalThis.__p2bStubs['@/lib/session-response'] = { sessionErrorResponse: () => null, PRIVATE_SESSION_HEADERS: {} };
   const security = await load('security', replaceImports(securitySource));
   const outageResponse = security.rateLimitUnavailableResponse(new unavailable());
   assert.equal(outageResponse.status, 503);

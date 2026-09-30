@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { mapQualityToRating } from '@/lib/srs';
@@ -161,6 +162,7 @@ async function mirrorSrsProgress(
     }
     invalidateServerWordSummaryCache(userId);
   } catch (mirrorErr) {
+
     console.warn('[SRS] Failed to mirror progress:', mirrorErr);
   }
 }
@@ -282,6 +284,8 @@ export async function POST(req: Request) {
       }
     );
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(error, 'Internal Server Error');
   }
 }

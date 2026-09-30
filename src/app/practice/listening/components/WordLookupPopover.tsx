@@ -253,7 +253,7 @@ export const WordLookupPopover: React.FC<WordLookupPopoverProps> = ({
 
     try {
       const { data: { session } } = await supabase.auth.getSession();
-      if (session?.access_token) {
+      if (session?.user) {
         const res = await authFetch('/api/words', {
           method: 'POST',
           headers: {

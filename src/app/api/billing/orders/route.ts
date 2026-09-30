@@ -1,3 +1,5 @@
+import { sessionErrorResponse } from '@/lib/session-response';
+import { getWebUser } from '@/lib/server-auth-session';
 /**
  * POST /api/billing/orders  — User tạo order mới (pending)
  * GET  /api/billing/orders  — Admin: tất cả orders | User: orders của mình
@@ -16,10 +18,8 @@ export async function POST(req: NextRequest) {
     const supabase = createServiceClient();
 
     // Auth
-    const token = req.headers.get('authorization')?.replace('Bearer ', '');
-    if (!token) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
-    const { data: { user } } = await supabase.auth.getUser(token);
+    const { data: { user } } = await getWebUser(req);
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
     const body = await req.json() as {
@@ -68,6 +68,8 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ success: true, ...result });
   } catch (err) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(err, 'Không tạo được đơn hàng');
   }
 }
@@ -76,10 +78,7 @@ export async function GET(req: NextRequest) {
   try {
     const supabase = createServiceClient();
 
-    const token = req.headers.get('authorization')?.replace('Bearer ', '');
-    if (!token) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-
-    const { data: { user } } = await supabase.auth.getUser(token);
+    const { data: { user } } = await getWebUser(req);
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
     const { data: callerProfile } = await supabase.from('profiles').select('email, role').eq('id', user.id).maybeSingle();
@@ -117,6 +116,8 @@ export async function GET(req: NextRequest) {
       limit,
     });
   } catch (err) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(err, 'Không tải được đơn hàng');
   }
 }

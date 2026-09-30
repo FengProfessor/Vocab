@@ -1,3 +1,5 @@
+import { sessionErrorResponse } from '@/lib/session-response';
+import { getWebUser } from '@/lib/server-auth-session';
 /**
  * GET  /api/billing/pro-milestone — tiến độ mốc Pro trial (streak + từ)
  * POST /api/billing/pro-milestone — claim Pro 7 ngày khi đủ mốc (NEWBIE1W)
@@ -16,11 +18,10 @@ import {
 
 async function authUser(req: NextRequest) {
   const supabase = createServiceClient();
-  const token = req.headers.get('authorization')?.replace('Bearer ', '');
-  if (!token) return { supabase, user: null as null };
+
   const {
     data: { user },
-  } = await supabase.auth.getUser(token);
+  } = await getWebUser(req);
   return { supabase, user };
 }
 
@@ -45,6 +46,8 @@ export async function GET(req: NextRequest) {
       { headers: { 'Cache-Control': 'private, no-store' } },
     );
   } catch (err) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const msg = err instanceof Error ? err.message : String(err);
     console.error('[ProMilestone] GET error:', msg);
     return NextResponse.json({ error: msg }, { status: 500 });
@@ -101,6 +104,8 @@ export async function POST(req: NextRequest) {
       milestone: after,
     });
   } catch (err) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const msg = err instanceof Error ? err.message : String(err);
     console.error('[ProMilestone] POST error:', msg);
     return NextResponse.json({ error: msg }, { status: 400 });

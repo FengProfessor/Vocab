@@ -1,4 +1,6 @@
 'use client';
+import { authFetch } from '@/lib/auth-fetch';
+
 
 import { useEffect, useMemo, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
@@ -68,7 +70,7 @@ export default function TeacherGrammarEditorPage() {
     if (!aiTopic.trim()) return;
     setIsGenerating(true);
     try {
-      const res = await fetch('/api/grammar/generate', {
+      const res = await authFetch('/api/grammar/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ topic: aiTopic.trim(), level: aiLevel }),
@@ -103,8 +105,8 @@ export default function TeacherGrammarEditorPage() {
 
       try {
         const [topicsRes, lessonsRes] = await Promise.all([
-          fetch('/api/grammar/topics').then((r) => r.json()),
-          fetch('/api/grammar/lessons').then((r) => r.json()),
+          authFetch('/api/grammar/topics').then((r) => r.json()),
+          authFetch('/api/grammar/lessons').then((r) => r.json()),
         ]);
         if (topicsRes?.success) setTopics(topicsRes.data as GrammarTopic[]);
         if (lessonsRes?.success) setLessons(lessonsRes.data as GrammarLesson[]);
@@ -134,7 +136,7 @@ export default function TeacherGrammarEditorPage() {
       }
       // Fallback: fetch chi tiết
       try {
-        const res = await fetch(`/api/grammar/lessons?id=${lessonId}`).then((r) => r.json());
+        const res = await authFetch(`/api/grammar/lessons?id=${lessonId}`).then((r) => r.json());
         if (res?.success && res.data) {
           const l = res.data as GrammarLesson;
           setForm({
@@ -231,11 +233,10 @@ export default function TeacherGrammarEditorPage() {
 
     setIsSaving(true);
     try {
-      const { data: { session } } = await supabase.auth.getSession();
       if (isNewLesson) {
         const res = await fetch('/api/grammar/lessons', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token ?? ''}` },
+          headers: { 'Content-Type': 'application/json', 'X-LingoPro-Request': '1' },
           body: JSON.stringify({
             topic_id: form.topic_id,
             title: form.title.trim(),
@@ -255,7 +256,7 @@ export default function TeacherGrammarEditorPage() {
       } else if (selectedLessonId) {
         const res = await fetch('/api/grammar/lessons', {
           method: 'PUT',
-          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session?.access_token ?? ''}` },
+          headers: { 'Content-Type': 'application/json', 'X-LingoPro-Request': '1' },
           body: JSON.stringify({
             id: selectedLessonId,
             topic_id: form.topic_id,
@@ -286,10 +287,9 @@ export default function TeacherGrammarEditorPage() {
 
     setIsDeleting(true);
     try {
-      const { data: { session } } = await supabase.auth.getSession();
       const res = await fetch(`/api/grammar/lessons?id=${selectedLessonId}`, {
         method: 'DELETE',
-        headers: { Authorization: `Bearer ${session?.access_token ?? ''}` },
+        headers: { 'X-LingoPro-Request': '1' },
       });
       const data = await res.json();
       if (!data.success) throw new Error(data.error || 'Delete failed');

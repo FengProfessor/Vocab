@@ -39,7 +39,7 @@ export default function FirebaseInitializer() {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${session.access_token}`,
+            'X-LingoPro-Request': '1',
           },
           body: JSON.stringify({ fcmToken: token }),
         });
@@ -72,7 +72,7 @@ export default function FirebaseInitializer() {
           console.log('[FCM] Foreground message:', payload);
           const title = payload.notification?.title || 'Thông báo mới';
           const body = payload.notification?.body || '';
-          
+
           toast(title, {
             description: body,
             duration: 5000,

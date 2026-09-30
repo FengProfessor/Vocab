@@ -1,3 +1,4 @@
+import { getWebUser } from '@/lib/server-auth-session';
 /**
  * GET    /api/billing/coupons — List coupons (admin only)
  * POST   /api/billing/coupons — Create coupon (admin only)
@@ -12,10 +13,10 @@ export const dynamic = 'force-dynamic';
 
 async function requireAdmin(req: NextRequest) {
   const supabase = createServiceClient();
-  const token = req.headers.get('authorization')?.replace('Bearer ', '');
-  if (!token) return { error: 'Unauthorized', status: 401, supabase, user: null };
 
-  const { data: { user } } = await supabase.auth.getUser(token);
+
+
+  const { data: { user } } = await getWebUser(req);
   if (!user) return { error: 'Unauthorized', status: 401, supabase, user: null };
 
   const { data: callerProfile } = await supabase.from('profiles').select('email, role').eq('id', user.id).maybeSingle();

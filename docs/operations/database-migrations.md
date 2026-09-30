@@ -2,7 +2,7 @@
 
 # Database migrations
 
-**Trạng thái:** Workflow/runner **VERIFIED IN REPOSITORY**; migration runner/history của 10 file đã PASS canonical [36749311479](https://github.com/FengProfessor/Vocab/actions/runs/36749311479); fresh DB audit cho thay đổi mới vẫn cần gate và authorization. Không kết nối hay ghi production DB nếu chưa được operator ủy quyền.
+**Trạng thái:** Workflow/runner **VERIFIED IN REPOSITORY**; migration history/checksum skip and new service-only auth predicate **VERIFIED** in canonical Stage A run `36749311479`; existing schema verification is scoped to runbook/progress evidence. Không kết nối hay ghi production DB nếu chưa được operator ủy quyền.
 
 Workflow `deploy-server.yml` gọi `apply-p0-migrations.yml` chỉ sau quality gate. Reusable workflow cài `pg@8.16.3` trong `scripts/`, kiểm tra có một trong `DATABASE_URL`, `SUPABASE_DB_URL`, `SUPABASE_DB_PASSWORD`, rồi chạy `scripts/apply-p0-migrations.mjs`. Không có dispatch độc lập. Thiếu credentials hoặc SQL/probe lỗi trả non-zero, ngăn deploy.
 

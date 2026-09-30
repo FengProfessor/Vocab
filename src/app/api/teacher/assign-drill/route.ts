@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { createServiceClient } from '@/lib/supabase-server';
 import { NextResponse } from 'next/server';
 import { getAuthUser, unauthorized, forbidden, safeErrorResponse } from '@/lib/api-security';
@@ -109,6 +110,8 @@ export async function POST(req: Request): Promise<NextResponse> {
       message: `Assigned ${targetWordIds.length} words for extra practice: ${wordListStr}`,
     });
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(error, 'Không giao được bài luyện');
   }
 }

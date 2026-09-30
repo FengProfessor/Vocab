@@ -1,3 +1,5 @@
+import { sessionErrorResponse } from '@/lib/session-response';
+import { getWebUser } from '@/lib/server-auth-session';
 /**
  * GET /api/billing/stats — Revenue analytics (admin only)
  *
@@ -14,10 +16,7 @@ export async function GET(req: NextRequest) {
   try {
     const supabase = createServiceClient();
 
-    const token = req.headers.get('authorization')?.replace('Bearer ', '');
-    if (!token) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-
-    const { data: { user } } = await supabase.auth.getUser(token);
+    const { data: { user } } = await getWebUser(req);
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
     const { data: callerProfile } = await supabase.from('profiles').select('email, role').eq('id', user.id).maybeSingle();
@@ -110,6 +109,8 @@ export async function GET(req: NextRequest) {
       recentChanges: recentChanges ?? [],
     });
   } catch (err) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const msg = err instanceof Error ? err.message : String(err);
     console.error('[Billing] Stats error:', msg);
     return NextResponse.json({ error: msg }, { status: 500 });

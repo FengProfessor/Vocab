@@ -77,10 +77,9 @@ function LeaderboardContent() {
   const loadLeaderboard = async () => {
     setIsLoading(true);
     try {
-      const { data: { session } } = await supabase.auth.getSession();
       const res = await fetch(
         `/api/classrooms/${selectedClassId}/leaderboard?period=${period}`,
-        { headers: { Authorization: `Bearer ${session?.access_token}` } }
+        { headers: { 'X-LingoPro-Request': '1' } }
       );
       const data = await res.json() as { success: boolean; data?: LeaderboardEntry[]; classroomName?: string };
       if (data.success) {

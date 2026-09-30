@@ -1,19 +1,17 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import { randomBytes } from 'crypto';
 import { createServiceClient } from '@/lib/supabase-server';
+import { getWebUser } from '@/lib/server-auth-session';
 import { rateLimitUnavailableResponse, EXT_TOKEN_PREFIX, hashExtensionToken, unauthorized, checkRateLimitAsync } from '@/lib/api-security';
 
 const DEFAULT_TTL_MS = 90 * 24 * 60 * 60 * 1000; // 90 ngày (giảm blast nếu máy lab lộ token)
 
 async function requireWebUser(req: Request) {
-  const authHeader = req.headers.get('authorization');
-  const jwt = authHeader?.startsWith('Bearer ') ? authHeader.slice(7).trim() : '';
-  if (!jwt || jwt.startsWith(EXT_TOKEN_PREFIX)) return null;
-
+  const { data: { user } } = await getWebUser(req);
+  if (!user) return null;
   const supabase = createServiceClient();
-  const { data, error } = await supabase.auth.getUser(jwt);
-  if (error || !data.user) return null;
-  return { supabase, user: data.user };
+  return { supabase, user };
 }
 
 /**
@@ -47,6 +45,8 @@ export async function GET(req: Request): Promise<NextResponse> {
       })),
     });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const msg = err instanceof Error ? err.message : 'Unknown error';
     console.error('[ExtToken] list failed:', msg);
     return NextResponse.json({ success: false, error: 'Failed to list tokens' }, { status: 500 });
@@ -118,6 +118,8 @@ export async function POST(req: Request): Promise<NextResponse> {
       createdAt: row.created_at,
     });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const unavailable = rateLimitUnavailableResponse(err);
     if (unavailable) return unavailable;
     const msg = err instanceof Error ? err.message : 'Unknown error';
@@ -168,6 +170,8 @@ export async function DELETE(req: Request): Promise<NextResponse> {
 
     return NextResponse.json({ success: true, revoked: data.id });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const msg = err instanceof Error ? err.message : 'Unknown error';
     console.error('[ExtToken] revoke failed:', msg);
     return NextResponse.json({ success: false, error: 'Failed to revoke token' }, { status: 500 });

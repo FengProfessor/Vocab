@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { AIRouter, getRouter } from '@/lib/ai-router';
@@ -568,10 +569,14 @@ CRITICAL RESTRICTIONS:
       try {
         text = (await router.generate(prompt, 'fast', true)).trim();
       } catch (firstErr) {
+    const sessionFailure = sessionErrorResponse(firstErr);
+    if (sessionFailure) return sessionFailure;
         console.warn('[ai-sentence] fast failed, retry normal:', firstErr);
         try {
           text = (await router.generate(prompt, 'normal', true)).trim();
         } catch (secondErr) {
+    const sessionFailure = sessionErrorResponse(secondErr);
+    if (sessionFailure) return sessionFailure;
           if (hasGeminiKeys()) {
             console.warn('[ai-sentence] Groq/Zhipu normal failed, trying Gemini fallback:', secondErr);
             text = (await geminiGenerate(prompt, { json: true })).trim();
@@ -591,6 +596,8 @@ CRITICAL RESTRICTIONS:
         parsed = JSON.parse(m[0]) as AiSentenceJson;
       }
     } catch (aiErr) {
+    const sessionFailure = sessionErrorResponse(aiErr);
+    if (sessionFailure) return sessionFailure;
       // KHÔNG 500 — fallback heuristic để desktop/live luôn có kết quả
       console.warn('[ai-sentence] AI failed, advanced heuristic fallback:', aiErr);
       parsed = null;
@@ -609,6 +616,8 @@ CRITICAL RESTRICTIONS:
       try {
         chunks = await enrichChunksFromDb(chunks);
       } catch (dbErr) {
+    const sessionFailure = sessionErrorResponse(dbErr);
+    if (sessionFailure) return sessionFailure;
         console.warn('[ai-sentence] DB enrich skipped:', dbErr);
       }
 
@@ -776,6 +785,8 @@ CRITICAL RESTRICTIONS:
       plan,
     });
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     console.error('[ai-sentence] unhandled:', error);
     return safeErrorResponse(error, 'Failed to analyze sentence');
   }
@@ -834,4 +845,3 @@ const DET_STOP = new Set([
 function heuristicAnalysis(sentence: string): SentenceAnalysisData {
   return advancedHeuristicAnalysis(sentence);
 }
-

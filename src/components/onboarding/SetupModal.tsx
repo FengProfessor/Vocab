@@ -38,7 +38,7 @@ export function SetupModal() {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${session.access_token}`,
+            'X-LingoPro-Request': '1',
           },
           body: JSON.stringify({ fcmToken: token }),
         });
@@ -97,7 +97,7 @@ export function SetupModal() {
 
         {/* Body */}
         <div className="p-6 pt-5 space-y-4">
-          
+
           {/* Card 1: Notifications */}
           <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100 space-y-3">
             <div className="flex items-start gap-3">
@@ -170,7 +170,7 @@ export function SetupModal() {
                   <li>Chọn <strong>Thêm vào MH chính</strong> <PlusSquare className="inline h-3.5 w-3.5 text-indigo-500" /></li>
                 </ul>
               </div>
-              
+
               <div className="bg-white rounded-xl p-3 border border-slate-100 space-y-1.5">
                 <div className="font-black text-slate-700 flex items-center gap-1.5">
                   🤖 Trên Android (Chrome)

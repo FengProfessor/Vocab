@@ -116,6 +116,8 @@ jobs:
           node tests/security/phase2b-enforcement.test.mjs
           node tests/security/phase2c-session-store.test.mjs
           node tests/security/phase2c-provider-session.test.mjs
+          node tests/security/phase2c-auth-boundaries.test.mjs
+          node tests/security/phase2c-browser-boundaries.test.mjs
           node tests/security/csp.test.mjs
       - name: Backup safety tests with isolated fixture and age round trip
         run: |
@@ -137,6 +139,8 @@ jobs:
           node tests/deploy/ssh-render.test.mjs
       - name: Build application
         run: npm run build
+      - name: Session boundary behind production reverse proxy
+        run: node tests/security/phase2c-proxy-runtime.test.mjs
       - name: Browser smoke on local production build
         run: npm run test:e2e:smoke
       - name: Verify documented typecheck baseline

@@ -3,7 +3,9 @@
  * Public registration giữ nguyên email verification policy của Supabase.
  */
 import { NextResponse } from 'next/server';
-import { createPublicAuthClient } from '@/lib/supabase';
+import { appOrigin, assertAppRequest, cookieHeader, flowCookieName, serverAuthClient } from '@/lib/server-auth-session';
+import { createAuthFlow, FLOW_LIFETIME_MS } from '@/lib/server-session-store';
+import { PRIVATE_SESSION_HEADERS, sessionErrorResponse } from '@/lib/session-response';
 import { createServiceClient } from '@/lib/supabase-server';
 import { checkRateLimitAsync, getClientIp, rateLimitUnavailableResponse } from '@/lib/api-security';
 
@@ -19,6 +21,7 @@ type Body = {
 
 export async function POST(req: Request) {
   try {
+    assertAppRequest(req);
     const ip = getClientIp(req);
     // 8 đăng ký / IP / phút — chống spam, đủ cho lớp học chung IP
     const rl = await checkRateLimitAsync(`auth-register:${ip}`, 8, 60_000);
@@ -55,9 +58,9 @@ export async function POST(req: Request) {
       );
     }
 
-    const auth = createPublicAuthClient();
-    const appUrl = process.env.NEXT_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_SITE_URL || 'https://lingopro.online';
-    const emailRedirectTo = new URL('/auth', appUrl).toString();
+    const serverAuth = serverAuthClient();
+    const auth = serverAuth.client;
+    const emailRedirectTo = new URL('/auth/callback', appOrigin(req)).toString();
     const { data, error } = await auth.auth.signUp({
       email,
       password,
@@ -83,7 +86,7 @@ export async function POST(req: Request) {
           { status: 429 },
         );
       }
-      console.error('[Register]', msg);
+      console.error('[Register] provider rejected registration');
       return NextResponse.json(
         { error: 'Không tạo được tài khoản. Kiểm tra lại email/mật khẩu hoặc thử Google.', code: 'create_failed' },
         { status: 400 },
@@ -105,14 +108,19 @@ export async function POST(req: Request) {
       );
     }
 
+    const verifier = serverAuth.verifier();
+    if (!verifier) return NextResponse.json({ error: 'Verification temporarily unavailable' }, { status: 503, headers: PRIVATE_SESSION_HEADERS });
+    const flow = await createAuthFlow({ verifier, next: '/auth?confirmed=1', kind: 'signup' });
     return NextResponse.json({
       success: true,
       verificationRequired: true,
-    });
+    }, { headers: { ...PRIVATE_SESSION_HEADERS, 'Set-Cookie': cookieHeader(flowCookieName(), flow, FLOW_LIFETIME_MS / 1000) } });
   } catch (err) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const unavailable = rateLimitUnavailableResponse(err);
     if (unavailable) return unavailable;
-    console.error('[Register] unexpected:', err);
+    console.error('[Register] unexpected failure');
     return NextResponse.json(
       { error: 'Lỗi máy chủ khi đăng ký. Thử Google hoặc lại sau.', code: 'server_error' },
       { status: 500 },

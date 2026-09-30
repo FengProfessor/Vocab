@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { getAuthUser, unauthorized, forbidden, isValidString, safeErrorResponse } from '@/lib/api-security';
@@ -46,6 +47,8 @@ export async function POST(req: Request): Promise<NextResponse> {
       message: 'Đã xóa học sinh khỏi lớp thành công',
     });
   } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(error, 'Không thể xóa học sinh khỏi lớp');
   }
 }

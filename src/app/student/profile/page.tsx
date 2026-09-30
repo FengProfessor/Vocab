@@ -118,7 +118,7 @@ export default function ProfilePage() {
       }
 
       const statsPromise = fetch('/api/student/stats', {
-        headers: { Authorization: `Bearer ${session.access_token}` },
+        headers: { 'X-LingoPro-Request': '1' },
       })
         .then((response) => response.json())
         .catch(() => null);
@@ -158,13 +158,13 @@ export default function ProfilePage() {
       const {
         data: { session },
       } = await supabase.auth.getSession();
-      if (!session?.access_token) throw new Error('Chưa đăng nhập');
+      if (!session?.user) throw new Error('Chưa đăng nhập');
 
       const res = await fetch('/api/profile', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${session.access_token}`,
+          'X-LingoPro-Request': '1',
         },
         body: JSON.stringify({
           full_name: fullName,
@@ -203,33 +203,17 @@ export default function ProfilePage() {
       const {
         data: { session },
       } = await supabase.auth.getSession();
-      const jwt = session?.access_token;
-      if (!jwt) throw new Error('Chưa đăng nhập');
-
-      let token = jwt;
-      let isLongLived = false;
-
-      try {
-        const res = await fetch('/api/extension-token', {
-          method: 'POST',
-          headers: { Authorization: `Bearer ${jwt}` },
-        });
-        const result = (await res.json()) as { success?: boolean; token?: string };
-        if (result.success && typeof result.token === 'string') {
-          token = result.token;
-          isLongLived = true;
-        }
-      } catch {
-        // Fallback access token
+      if (!session?.user) throw new Error('Chưa đăng nhập');
+      const res = await fetch('/api/extension-token', {
+        method: 'POST', headers: { 'X-LingoPro-Request': '1' },
+      });
+      const result = (await res.json()) as { success?: boolean; token?: string };
+      if (!res.ok || !result.success || !result.token?.startsWith('lpext_')) {
+        throw new Error('Không tạo được token extension. Thử lại sau.');
       }
-
-      await navigator.clipboard.writeText(token);
+      await navigator.clipboard.writeText(result.token);
       setTokenCopied(true);
-      toast.success(
-        isLongLived
-          ? 'Đã copy token extension.'
-          : 'Đã copy token tạm. Nếu 401, copy lại.',
-      );
+      toast.success('Đã copy token extension.');
       window.setTimeout(() => setTokenCopied(false), 3000);
     } catch (err: unknown) {
       toast.error(err instanceof Error ? err.message : 'Không copy được token');
@@ -245,7 +229,7 @@ export default function ProfilePage() {
       const {
         data: { session },
       } = await supabase.auth.getSession();
-      if (!session?.access_token) throw new Error('Chưa đăng nhập');
+      if (!session?.user) throw new Error('Chưa đăng nhập');
 
       const fcmToken = await requestForToken();
       if (!fcmToken) throw new Error('Không lấy được mã thiết bị');
@@ -254,7 +238,7 @@ export default function ProfilePage() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${session.access_token}`,
+          'X-LingoPro-Request': '1',
         },
         body: JSON.stringify({ fcmToken }),
       });

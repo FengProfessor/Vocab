@@ -1,3 +1,5 @@
+import { sessionErrorResponse } from '@/lib/session-response';
+import { getWebUser } from '@/lib/server-auth-session';
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { FSRSRating } from '@/lib/srs';
@@ -32,12 +34,9 @@ export interface TopicProgressSummary {
  */
 export async function GET(req: Request): Promise<NextResponse> {
   try {
-    const authHeader = req.headers.get('authorization');
-    const token = authHeader?.replace('Bearer ', '');
-    if (!token) return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
 
     const supabase = createServiceClient();
-    const { data: { user }, error: authError } = await supabase.auth.getUser(token);
+    const { data: { user }, error: authError } = await getWebUser(req);
     if (authError || !user) return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
     const userId = user.id;
 
@@ -168,6 +167,8 @@ export async function GET(req: Request): Promise<NextResponse> {
     ).length;
     return NextResponse.json({ success: true, data: data || [], dueCount });
   } catch (e: unknown) {
+    const sessionFailure = sessionErrorResponse(e);
+    if (sessionFailure) return sessionFailure;
     const msg = e instanceof Error ? e.message : 'Unknown error';
     return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }
@@ -180,12 +181,9 @@ export async function GET(req: Request): Promise<NextResponse> {
 export async function POST(req: Request): Promise<NextResponse> {
   try {
     // userId BẮT BUỘC lấy từ JWT đã verify — KHÔNG nhận từ body (chống IDOR)
-    const authHeader = req.headers.get('authorization');
-    const token = authHeader?.replace('Bearer ', '');
-    if (!token) return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
 
     const supabase = createServiceClient();
-    const { data: { user }, error: authError } = await supabase.auth.getUser(token);
+    const { data: { user }, error: authError } = await getWebUser(req);
     if (authError || !user) return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
     const userId = user.id;
 
@@ -264,6 +262,8 @@ export async function POST(req: Request): Promise<NextResponse> {
       const credit = await creditGrammarLessonToRoadmap(supabase, userId, lessonId);
       roadmapCredited = credit.creditedStepIds.length;
     } catch (creditErr) {
+    const sessionFailure = sessionErrorResponse(creditErr);
+    if (sessionFailure) return sessionFailure;
       console.error('[GrammarProgress] roadmap credit failed:', creditErr);
     }
 
@@ -273,6 +273,8 @@ export async function POST(req: Request): Promise<NextResponse> {
       roadmapCredited,
     });
   } catch (e: unknown) {
+    const sessionFailure = sessionErrorResponse(e);
+    if (sessionFailure) return sessionFailure;
     const msg = e instanceof Error ? e.message : 'Unknown error';
     return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }

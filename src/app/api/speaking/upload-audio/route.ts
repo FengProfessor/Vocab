@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextRequest, NextResponse } from 'next/server';
 import { randomUUID } from 'crypto';
 import { createServiceClient } from '@/lib/supabase-server';
@@ -177,6 +178,8 @@ export async function POST(req: NextRequest): Promise<NextResponse<AudioUploadAp
         }
       }
     } catch (err) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
       console.warn(
         '[upload-audio] Supabase client error during audio upload. Operating in resilient fallback mode:',
         err
@@ -200,6 +203,8 @@ export async function POST(req: NextRequest): Promise<NextResponse<AudioUploadAp
 
     return NextResponse.json(responsePayload, { status: 200 });
   } catch (err) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     console.error('[upload-audio] Internal unexpected error:', err);
     return NextResponse.json(
       {

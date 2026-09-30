@@ -130,7 +130,7 @@ function SessionContent() {
   const [canSkip, setCanSkip] = useState(false);
 
   const inputRef = useRef<HTMLInputElement>(null);
-  const accessTokenRef = useRef<string | null>(null);
+
   const startedAt = useRef<number>(0);
   const advanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const advanceFn = useRef<(() => void) | null>(null);
@@ -221,8 +221,8 @@ function SessionContent() {
         return;
       }
       const user = session.user;
-      const token = session.access_token;
-      accessTokenRef.current = token;
+
+
       setUserId(user.id);
 
       let freeWords: WordItem[] = [];
@@ -231,7 +231,7 @@ function SessionContent() {
         : `/api/words`;
 
       try {
-        const res = await authFetch(`${base}${base.includes('?') ? '&' : '?'}limit=40&noCount=1`, {}, token);
+        const res = await authFetch(`${base}${base.includes('?') ? '&' : '?'}limit=40&noCount=1`, {});
         const json = await res.json().catch(() => ({ success: false }));
         if (json.success && Array.isArray(json.data) && json.data.length > 0) {
           freeWords = (json.data as WordItem[]).filter(isCardReady);
@@ -304,8 +304,8 @@ function SessionContent() {
           return;
         }
         const user = session.user;
-        const token = session.access_token;
-        accessTokenRef.current = token;
+
+
         setUserId(user.id);
 
         if (searchParams.get('free') === '1') {
@@ -317,7 +317,7 @@ function SessionContent() {
           ? `/api/words?classroomId=${encodeURIComponent(classroomId)}`
           : `/api/words`;
         // Ưu tiên nạp danh sách đến hạn ôn (RPC get_due_words_list, siêu nhẹ ~120ms)
-        const dueRes = await authFetch(`${base}${base.includes('?') ? '&' : '?'}filter=review&limit=${SESSION_CAP}`, {}, token);
+        const dueRes = await authFetch(`${base}${base.includes('?') ? '&' : '?'}filter=review&limit=${SESSION_CAP}`, {});
         const dueJson = await dueRes.json().catch(() => ({ success: false }));
 
         if (!dueJson.success) {
@@ -334,7 +334,7 @@ function SessionContent() {
         let allWords: WordItem[] = [];
         if (dueWords.length > 0 && dueWords.length < 4) {
           try {
-            const allRes = await authFetch(`${base}${base.includes('?') ? '&' : '?'}limit=30&noCount=1`, {}, token);
+            const allRes = await authFetch(`${base}${base.includes('?') ? '&' : '?'}limit=30&noCount=1`, {});
             const allJson = await allRes.json().catch(() => ({ success: false }));
             if (allJson.success && Array.isArray(allJson.data)) {
               allWords = allJson.data as WordItem[];
@@ -467,7 +467,7 @@ function SessionContent() {
       // không làm chậm nhịp học hoặc giữ giao diện ở trạng thái chưa chấm.
       // Chỉ lưu FSRS khi KHÔNG ở chế độ Ôn tập tự do (Free Review) để bảo toàn thuật toán FSRS.
       if (!isFreeReview) {
-        void saveSrsReview(current.id, quality, accessTokenRef.current).catch((error: unknown) => {
+        void saveSrsReview(current.id, quality).catch((error: unknown) => {
           const message = error instanceof Error ? error.message : 'Không lưu được lịch ôn';
           toast.error(message);
         });

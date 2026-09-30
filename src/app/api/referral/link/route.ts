@@ -1,3 +1,5 @@
+import { sessionErrorResponse } from '@/lib/session-response';
+import { getWebUser } from '@/lib/server-auth-session';
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { resolvePublicOrigin } from '@/lib/referral-tracker';
@@ -16,10 +18,8 @@ function generateRandomCode(length = 6): string {
 export async function GET(req: NextRequest) {
   try {
     const supabase = createServiceClient();
-    const token = req.headers.get('authorization')?.replace('Bearer ', '');
-    if (!token) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
-    const { data: { user } } = await supabase.auth.getUser(token);
+    const { data: { user } } = await getWebUser(req);
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
     // Fetch existing link
@@ -49,6 +49,8 @@ export async function GET(req: NextRequest) {
       shareUrl: null,
     });
   } catch (err: any) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     return NextResponse.json({ error: err.message || 'Internal error' }, { status: 500 });
   }
 }
@@ -56,10 +58,8 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
   try {
     const supabase = createServiceClient();
-    const token = req.headers.get('authorization')?.replace('Bearer ', '');
-    if (!token) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
-    const { data: { user } } = await supabase.auth.getUser(token);
+    const { data: { user } } = await getWebUser(req);
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
     // Check if link already exists
@@ -121,6 +121,8 @@ export async function POST(req: NextRequest) {
       clicksCount: 0,
     });
   } catch (err: any) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     return NextResponse.json({ error: err.message || 'Internal error' }, { status: 500 });
   }
 }

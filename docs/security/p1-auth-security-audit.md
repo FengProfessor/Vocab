@@ -379,8 +379,14 @@ P1-C-03 và P1-C-05 CLOSED theo PR18 merge 805cc56e65f75362d5310f351f44b9504d43a
 
 Phase2C mới hoàn tất inventory và lựa chọn Architecture B server-managed token vault; chưa implementation/cutover, chưa closure. Map và required evidence: p1-phase2c-session-architecture.md, p1-phase2c-inventory.json. Fresh source baseline a683048: npm ci/build PASS, typecheck10 known Speaking errors, lint122 errors/448 warnings. Runtime storage/login chưa kiểm chứng. Provider-session metadata preflight chỉ read-only; không SQL mutation.
 
+## Phase 2C — Implementation / clean CI checkpoint
+
+Foundation PR #19 canonical run36749311479 PASS at905d9bb; old browser login remains until cutover. Cookie/BFF implementation PR #20 commit4333d2e clean CI36753194465 PASS, including isolated Redis/PostgreSQL and prior security regressions. P1-C-02 remains OPEN until canonical cutover and dedicated production browser login/navigation/storage/logout/replay evidence. Pre-merge read-only host inspection currently waits for operator to reconnect local Tailscale; no manual deployment or SQL workaround.
+
+Current High0 / Medium1 OPEN / Low3. Existing accepted Windows/Ubuntu host-compromise residual risk remains; this auth redesign does not replace reimage/credential remediation. npm audit46 (22 moderate/19 high/5 critical), no dependency churn.
+
 ## Independent followup phases 7–12 (2026-10-01)
 
-Stage A foundation đã phát hành canonical `36749311479` tại main `905d9bbb`; C02 cutover PR #20 head4333d2 có clean CI `36753194465` PASS nhưng chưa merge/preflight/live smoke. P1-C-02 vẫn OPEN; C03/C05 giữ CLOSED. Phần inventory ở trên là historical checkpoint, không trạng thái implementation mới nhất.
+Stage A foundation đã phát hành canonical `36749311479` tại main `905d9bbb`; C02 cutover PR #20 clean proxy-fix CI `36783452187` PASS, đã merge tại `44ad7c92`. Canonical cutover `36784213532` đang chạy; live login/storage/logout smoke còn pending. P1-C-02 vẫn OPEN; C03/C05 giữ CLOSED. Phần inventory ở trên là historical checkpoint, không trạng thái implementation mới nhất.
 
 PR #21 xử lý độc lập test classification/browser foundation, production CSP dev separation, backup safety/optional age, bốn unused auth dependencies, actual Ubuntu docs và generated-file hygiene. Không auth runtime cutover, production mutation hoặc live closure. Xem docs/testing/test-classification.md, content-security-policy.md, authentication-stack.md và ../operations/database-backup.md. Public referral service-role/data-minimization/rate-limit review, inline CSP, backup recipient/restore và authenticated browser journey còn pending; không tự gán CLOSED hoặc giảm severity.

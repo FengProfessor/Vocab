@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import { spawn } from 'child_process';
 import { writeFile, unlink, mkdir } from 'fs/promises';
@@ -299,6 +300,8 @@ export async function POST(req: Request): Promise<NextResponse> {
       },
     });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const unavailable = rateLimitUnavailableResponse(err);
     if (unavailable) return unavailable;
     const msg = err instanceof Error ? err.message : String(err);

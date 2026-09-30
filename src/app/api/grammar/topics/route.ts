@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import { type GrammarTopic } from '@/lib/supabase';
 import { createServiceClient } from '@/lib/supabase-server';
@@ -59,6 +60,8 @@ export async function GET(req: Request): Promise<NextResponse> {
       }
     );
   } catch (e: unknown) {
+    const sessionFailure = sessionErrorResponse(e);
+    if (sessionFailure) return sessionFailure;
     const msg = e instanceof Error ? e.message : 'Unknown error';
     return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }
@@ -86,6 +89,8 @@ export async function POST(req: Request): Promise<NextResponse> {
     if (error) throw error;
     return NextResponse.json({ success: true, data });
   } catch (e: unknown) {
+    const sessionFailure = sessionErrorResponse(e);
+    if (sessionFailure) return sessionFailure;
     const msg = e instanceof Error ? e.message : 'Unknown error';
     return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }

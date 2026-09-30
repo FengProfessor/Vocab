@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextRequest, NextResponse } from 'next/server';
 import { getRouter } from '@/lib/ai-router';
 import { checkRateLimitAsync, safeErrorResponse, sanitizeForPrompt, getAuthUser, unauthorized } from '@/lib/api-security';
@@ -55,8 +56,6 @@ export async function POST(req: NextRequest) {
     if (/[\x00-\x1F\x7F]|```/.test(sentence)) {
       return NextResponse.json({ success: false, error: 'sentence contains invalid characters' }, { status: 400 });
     }
-
-
 
     const topicLine = typeof topic === 'string' && topic.trim() ? `Grammar topic context: ${sanitizeForPrompt(topic, 100)}` : '';
     const prompt = `You are an English linguist. Tag every meaningful token in this sentence with ITS PART OF SPEECH (not its syntactic function).
@@ -138,6 +137,8 @@ Sentence: "${sentence}"`;
 
     return NextResponse.json({ success: true, data: annotations });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(err, 'Failed to annotate grammar');
   }
 }

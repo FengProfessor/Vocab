@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { getAuthUser, unauthorized } from '@/lib/api-security';
@@ -53,6 +54,8 @@ export async function GET(req: NextRequest) {
         data: data ?? [],
       });
     } catch (dbErr) {
+    const sessionFailure = sessionErrorResponse(dbErr);
+    if (sessionFailure) return sessionFailure;
       console.warn('[Assessment GET] Database connection error:', dbErr);
       return NextResponse.json({
         success: true,
@@ -61,6 +64,8 @@ export async function GET(req: NextRequest) {
       });
     }
   } catch (err) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const message = err instanceof Error ? err.message : 'Server error';
     return NextResponse.json({ success: false, error: message }, { status: 500 });
   }
@@ -145,6 +150,8 @@ export async function POST(req: NextRequest) {
         data,
       });
     } catch (dbErr) {
+    const sessionFailure = sessionErrorResponse(dbErr);
+    if (sessionFailure) return sessionFailure;
       console.warn('[Assessment POST] Database exception, fallback acknowledging:', dbErr);
       return NextResponse.json({
         success: true,
@@ -157,6 +164,8 @@ export async function POST(req: NextRequest) {
       });
     }
   } catch (err) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const message = err instanceof Error ? err.message : 'Server error';
     return NextResponse.json({ success: false, error: message }, { status: 500 });
   }

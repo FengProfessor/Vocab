@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { getAuthUser, safeErrorResponse } from '@/lib/api-security';
@@ -46,6 +47,8 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
       today,
     });
   } catch (error) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(error, 'Lỗi khi tải tiến độ cá nhân');
   }
 }

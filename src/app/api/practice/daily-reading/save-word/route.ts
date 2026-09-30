@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import { getAuthUser, isValidString } from '@/lib/api-security';
 import { createServiceClient } from '@/lib/supabase-server';
@@ -160,6 +161,8 @@ export async function POST(req: Request): Promise<NextResponse> {
       message: existing ? 'Từ đã có — đã thêm vào ôn tập' : 'Đã lưu từ mới!',
     });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const msg = err instanceof Error ? err.message : String(err);
     console.error('[SaveWord] error:', msg);
     return NextResponse.json({ success: false, error: msg }, { status: 500 });

@@ -688,6 +688,56 @@
 
 - Stage A baseline synchronized with main 80ed596e83e3dc59d9600bc2644cf1b515ee6fe5 (personal classroom isolation and grammar navigation preserved). Clean CI36746328374 passed earlier foundation head61c19a4; rerun required on merged source before release. Browser cutover WIP is preserved in stash5965297af7278a2cade37bd14907eda36500d0e1, not included in Stage A.
 
+## P1 PHASE 2C — Stage A canonical PASS / cookie cutover prepared (2026-10-01)
+
+- PR #19 scope: server-session foundation only, existing browser auth unchanged. Clean CI 36748045809 PASS at 8e62b87; merged 905d9bbbc54c9571dfc73332fecdf1f8d6322685. Canonical run 36749311479 Quality/Migration/exact-SHA activation/health PASS.
+- New additive service-only boolean predicate checks provider session revocation/expiry/verified user. Isolated PostgreSQL and Redis tests PASS in clean CI; no ad hoc production SQL or manual restart.
+- Cutover branch codex/p2c-cookie-cutover: same-origin HttpOnly opaque cookie, encrypted Redis token vault, strict Origin/proof-header CSRF, server PKCE OAuth/registration, BFF user-RLS data proxy. Browser SDK persistence/refresh/direct user JWT retired; dedicated extension/cron/bot/provider credentials retain separate paths.
+- Preserved current main personal-classroom isolation and removal of student-pack auto-sync during conflicts. Stage B/C stash 5965297 remains recovery backup.
+- Actual auth/route fixture tests PASS: public DTO/cookie, CSRF, revoked session/logout replay, provider/Redis outage, refresh single flight, one-time OAuth callback, safe redirect, verification-only signup, data proxy schema/path boundary. Browser stale-read/logout race and storage cleanup PASS; 295 browser roots / 506 reachable files graph PASS.
+- Six existing security suites remain required. Deployment script rejects missing/malformed session key/Redis before source/build/activation; canonical quality checks required secrets before migrations. No dependencies changed.
+- P1-C-02 remains OPEN until clean cutover CI + canonical deployment + dedicated production login/navigation/logout/storage smoke. No reusable credential or user data printed.
+
+- Stage A independent post-check: build/live markers 905d9bb, staging clean, service active/MainPID 1272922; local/public health/root 200. Active process has valid session key and Redis pair; read-only missing-id predicate returns false. No credential values printed.
+- Clean cutover checkout/cache: D:/Vibe/.codex-tmp/p2c-cutover-clean-20261001 / p2c-cutover-cache-20261001; npm ci PASS 1,871 packages. Node 24.14.0/npm 11.9.0. Six prior + new local security suites, four deployment suites, clean build PASS. Post-build typecheck exactly 10 baseline Speaking errors, no generated-validator/source regressions. Real Redis/PostgreSQL matrix still mandatory in clean Node 22 CI.
+- npm audit observation now 46 (22 moderate/19 high/5 critical), dependency files unchanged; no blind upgrade. First targeted lint 131 files: 31 baseline errors/91 warnings, 0 new. Additional 27 existing browser API calls migrated to central proof/cookie helper; regression scan enforces guarded calls. User-impact/re-login and rollback documented.
+
+## P1 PHASE 2C — Clean cutover CI PASS / Tailscale preflight pending
+
+- Cutover commit 4333d2ed4f8fe2966342d3fd32d3d5337ec1e783, PR #20. Clean Node 22 Security CI 36753194465 PASS: real Redis lease/CAS/logout-race/TTL, isolated PostgreSQL provider predicate/grants/reapply, ten security suites, four deployment suites, actionlint/build and exact 10-error typecheck baseline.
+- Final targeted lint 131+ changed/new files: baseline 31 errors/92 warnings; the extra WordsPanel hook message also exists unchanged at HEAD^. No new lint regression. Built static output: 402 browser JS chunks, zero AUTH_SESSION_ENCRYPTION_KEY/SUPABASE_SERVICE_ROLE_KEY/auth-vault markers. Added-line secret scan zero candidates; dependency files unchanged.
+- Before merging PR #20, local Tailscale switched to NoState/offline and SSH read-only preflight timed out twice. Public production health remains 200; latest independently verified live release remains Stage A 905d9bb/MainPID1272922. No merge/deploy/restart was attempted after the failed preflight. Operator requested to reconnect Tailscale; Stage B/C production remains pending.
+- P1-C-02 OPEN. Implementation/clean CI PASS is insufficient for closure without canonical cutover and dedicated login/storage/logout smoke.
+
+## Phase 2C — Tailscale restored / proxy preflight fix (2026-10-01)
+
+- Operator bật Tailscale; Running/online, SSH read-only restored. Initial live/build905d9bbb, clean staging, activePID1272922, health200, disk ~70GiB free; actual process environment booleans key-valid/Redis PING/billing distinct/public Auth config/provider active-session RPC all PASS, no secret/user data output.
+- Concurrent independent Reading/Speaking main3057f997c7eed784d955f6d6a84aa7c7248ba607 rollout36780818282 PASS; afterward build HEAD/build marker/live marker all3057f99, clean staging, activePID1284197, local/public health200. Preserve these main changes.
+- Synced PR20 by merge (no rebase/history rewrite), heada0b34f8 clean security CI36781505970 PASS; browser graph now297 roots/509 files with no server credentials or reusable token consumers. PR21 synced main12b79b1, clean CI36781648391 PASS; still separate.
+- **Premerge blocker discovered and fixed before production cutover:** real Next production server on loopback with public Host/HTTPS forwarded headers returned anonymous session403 instead of401. Next16 reconstructs req.url with internal hostname, so old appOrigin rejected legitimate proxy requests although mocked Request tests passed.
+- Narrow fix: production origin derives from syntactically validated Host in explicit HTTPS origin allowlist; still requires HTTPS request URL/protocol, exact Origin, X-LingoPro proof and same-origin fetch-site. Never trust X-Forwarded-Host; unknown host/userinfo/path/header spoof rejects. Development unchanged. No schema/dependency change.
+- Added guard regressions plus real Next HTTP reverse-proxy regression as blocking security/canonical quality step after build. Local auth/browser-boundary tests PASS. Fresh CI/build/runtime-proxy verification pending on fixed head; **do not merge/cutover before PASS**.
+- User will sign in directly with dedicated verified non-admin account for production login/navigation/reload/storage/logout/replay smoke after canonical rollout. Temporary local test helper prints booleans/status only, never password/token/cookie/user data; no manual production SQL/restart/deploy.
+
+## 2026-10-01 · PRODUCTION RELEASE: INTERACTIVE EXAMPLE SENTENCES WITH AUDIO & AI ON-DEMAND SUBTITLES
+
+- **Nâng cấp toàn diện Câu ví dụ (Example Sentences) đa tương tác**:
+  - `src/components/study/ExampleWithSub.tsx`:
+    - **Audio phát âm cả câu ví dụ**: Nút loa `Volume2` tích hợp Neural TTS/Youdao/Web Speech, có animation pulse khi phát và hỗ trợ nghe chậm `0.7x` (`Snail`).
+    - **Chạm tra từ tương tác (Interactive Word Tap)**: Tích hợp `ExamInteractiveText`. Học viên có thể chạm vào bất kỳ từ tiếng Anh nào trong câu để mở card tra từ tức thì (`ExamWordLookupCard`), xem IPA, từ loại, nghĩa tiếng Việt, phát âm từ đơn và lưu vào sổ từ SRS trực tiếp.
+    - **Sub tiếng Việt thông minh & Tự động dịch AI on-demand**: Tự động bóc tách bản dịch tiếng Việt nếu câu chứa sẵn dạng ngoặc hoặc song ngữ; cung cấp nút `✨ Dịch câu` (hoặc `autoTranslateIfMissing`) gọi API `/api/translate` tức thì và lưu vào session cache.
+  - Đồng bộ trên các màn hình trọng điểm: Flashcard Luyện tập (`/flashcard`), Chế độ làm quen từ mới (`LearnMode.tsx`), Ôn tập SRS Review Session (`/review/session`), Modal chi tiết từ vựng (`WordDetailModal.tsx`), Từ điển trực tuyến (`/dictionary`), Trạm luyện từ vựng (`/practice/vocab-station`).
+- **Verification**:
+  - `npx tsc --noEmit`: PASS (0 errors).
+  - `npm run build`: PASS (174 routes).
+- **Canonical Production Deployment Verified**:
+  - Commit `3057f99` kích hoạt canonical GitHub Actions workflow `deploy-server.yml` (run [`36780818282`](https://github.com/FengProfessor/Vocab/actions/runs/36780818282)).
+  - Quality gate: PASS (actionlint, safety tests, security suites, route lint, exact-SHA verification, application build).
+  - Migration runner: PASS (existing migrations verified and skipped safely).
+  - Deploy job: PASS (standalone staging build in `$HOME/Vocab-build`, atomic `.next` swap qua `activate-release.sh`, `lingopro.service` restart và dual HTTP 200 health check verification).
+  - Live production verification: `curl.exe https://lingopro.online/api/health` trả về HTTP 200 `{"status":"ok"}`.
+
+
 ## PHASE 7–12 — Independent followup hardening (2026-10-01)
 
 - Operator steering: tiếp tục phase độc lập, tồn đọng tính sau. Branch `codex/p1-followup-hardening` từ main `905d9bbbc54c9571dfc73332fecdf1f8d6322685`; không mang C02 runtime cutover vào branch này.
@@ -709,3 +759,11 @@
 - Nine local security suites PASS (real Redis/PostgreSQL integration intentionally deferred locally), four deployment safety suites PASS; Python parser3/backup fixtures/CSP/Bash/Node syntax/actionlint/git diff --check PASS. Contract Speaking78/78 and TOEIC150/150 PASS without assertion changes.
 - Clean Linux security CI [36757046244](https://github.com/FengProfessor/Vocab/actions/runs/36757046244) PASS at pushed code/checkpoint head e062d51f5444faa2d1e365cee5e40a3940881ecd: real isolated Redis/PostgreSQL tests, real age encrypt/decrypt roundtrip, deployment safety, actionlint, npm ci/build, real Chromium smoke and baseline guard. Duplicate queued manual CI36757080238 cancelled; no production workflow cancelled/triggered.
 - PR [#21](https://github.com/FengProfessor/Vocab/pull/21), main base905d9bbb; code ready with explicit deferred items. Final checkpoint/doc-only commit will receive exact-head clean CI via same security workflow; refer current PR checks for that run. Main/production unchanged, no migration/deploy/restart. Do not merge/deploy until fresh host preflight and operator-authorized canonical rollout.
+
+## Phase 2C — Cutover merged / independent hardening integration (2026-10-01)
+
+- Operator restored Tailscale. Clean proxy-fix CI [36783452187](https://github.com/FengProfessor/Vocab/actions/runs/36783452187) PASS at b0fa287c97d1fe13f1f03de1b3974b08f4ef2809: fresh Node22 npm ci/build, isolated Redis/PostgreSQL, auth/browser/deployment regressions, real Next reverse-proxy HTTP test, actionlint and exact documented typecheck baseline.
+- Previous main doc-only canonical [36782572493](https://github.com/FengProfessor/Vocab/actions/runs/36782572493) PASS; independent build/live markers match 0cd0f6baf0293893c9242fe4e66c9527ada86613, service active and public health200 before merge.
+- PR #20 merged normally at 44ad7c92e51287ee1aa22f5955f2186c0f92da12. Canonical [36784213532](https://github.com/FengProfessor/Vocab/actions/runs/36784213532) in progress; no manual deploy/restart/production SQL. Do not claim runtime cutover PASS until exact release markers/health and dedicated browser smoke.
+- PR #21 merged current main into its branch with all auth cutover guards/tests and original Reading/Speaking features preserved. Conflicts resolved retaining both auth/proxy security gates and CSP/backup/browser smoke/full action SHA pins; historical checkpoint sections preserved.
+- Local combined auth/browser graph (297 roots/509 files), CSP, SSH payload syntax, actionlint and whitespace checks PASS. Clean exact-head CI still required before PR #21 merge. Production login/navigation/reload/storage/logout/replay requires operator entering dedicated account directly. P1-C-02 OPEN; deferred backlog/residual host risk unchanged.

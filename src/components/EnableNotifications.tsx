@@ -92,7 +92,7 @@ export function EnableNotifications() {
         const { data: { session } } = await supabase.auth.getSession();
         if (!session) return;
         const res = await fetch('/api/push/fcm-register', {
-          headers: { Authorization: `Bearer ${session.access_token}` },
+          headers: { 'X-LingoPro-Request': '1' },
         });
         const data = await res.json() as {
           success?: boolean;
@@ -128,7 +128,7 @@ export function EnableNotifications() {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${session.access_token}`,
+            'X-LingoPro-Request': '1',
           },
           body: JSON.stringify({ fcmToken: token }),
         });

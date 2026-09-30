@@ -2,7 +2,7 @@
 
 # Production deploy
 
-**Trạng thái:** Luồng dưới đây **VERIFIED IN REPOSITORY** bằng source review và local tests. Canonical run [36749311479](https://github.com/FengProfessor/Vocab/actions/runs/36749311479) đã PASS tại main 905d9bbb; host/release marker đã có evidence ở checkpoint. Fresh read-only preflight hiện pending Tailscale. Không trigger workflow/SSH production nếu operator chưa ủy quyền rõ ràng.
+**Trạng thái:** Luồng dưới đây **VERIFIED IN REPOSITORY** bằng source review và local tests. Canonical Actions/host deployment **VERIFIED**: Phase 2C Stage A run `36749311479`, exact SHA `905d9bb`, quality/migration/activation/health PASS. Historical baseline notes below do not replace current progress evidence. Không trigger workflow/SSH production nếu operator chưa ủy quyền rõ ràng.
 
 ## Trigger và commit
 
@@ -27,3 +27,7 @@ Quality lỗi: không migration. Migration lỗi: không SSH/deploy. Fetch/check
 ## Đường cũ
 
 `deploy/update.sh`, `deploy/push-to-vps.ps1`, `deploy/bootstrap-vps.sh`, hướng dẫn webhook tự pull trong README và kế hoạch Hetzner/PM2 là **LEGACY / NON-CANONICAL**. Không dùng các lệnh đó để deploy production. Cần xác nhận ngoài repo rằng PC webhook, Vercel hay Docker daemon cũ đã tắt; code repo không chứng minh trạng thái host ngoài.
+
+## Auth session cutover
+
+Quality requires AUTH_SESSION_ENCRYPTION_KEY (64 hex) and both Upstash variables before migration. The canonical runner stages these values, checks format and preserves matching env during activation/rollback. Server-only encrypted sessions fail closed on missing config/outage. Dedicated browser smoke is required to close C02; HTTP health alone is insufficient.

@@ -56,7 +56,7 @@ export function proxy(request: NextRequest) {
   }
 
   const origin = request.headers.get('origin');
-  
+
   // Preflight (OPTIONS)
   if (request.method === 'OPTIONS') {
     const response = new NextResponse(null, { status: 204 });
@@ -71,6 +71,10 @@ export function proxy(request: NextRequest) {
 
   // Actual request — set CORS header on response
   const response = NextResponse.next();
+  if (request.cookies.has('__Host-lingopro-session') || request.cookies.has('lingopro-session-dev')) {
+    response.headers.set('Cache-Control', 'private, no-store');
+    response.headers.set('Vary', 'Cookie, Origin');
+  }
   if (isAllowedOrigin(origin)) {
     response.headers.set('Access-Control-Allow-Origin', origin!);
   }

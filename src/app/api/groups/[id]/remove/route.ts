@@ -1,3 +1,5 @@
+import { sessionErrorResponse } from '@/lib/session-response';
+import { getWebUser } from '@/lib/server-auth-session';
 /**
  * POST /api/groups/[id]/remove — Owner xóa 1 thành viên khỏi nhóm.
  * Body: { userId }. Revert entitlement nếu nó đến từ chính nhóm này.
@@ -14,14 +16,8 @@ export async function POST(
   try {
     const { id: groupId } = await params;
 
-    const authHeader = req.headers.get('authorization');
-    if (!authHeader?.startsWith('Bearer ')) {
-      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
-    }
-    const token = authHeader.slice(7);
-
     const supabase = createServiceClient();
-    const { data: { user }, error: authError } = await supabase.auth.getUser(token);
+    const { data: { user }, error: authError } = await getWebUser(req);
     if (authError || !user) {
       return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
     }
@@ -64,6 +60,8 @@ export async function POST(
 
     return NextResponse.json({ success: true });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const msg = err instanceof Error ? err.message : 'Unknown error';
     console.error('[Groups/remove] Unexpected error:', msg);
     return NextResponse.json({ success: false, error: msg }, { status: 500 });

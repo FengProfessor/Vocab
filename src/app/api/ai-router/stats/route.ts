@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import { getRouter } from '@/lib/ai-router';
 import { createServiceClient } from '@/lib/supabase-server';
@@ -24,6 +25,8 @@ export async function GET(req: Request): Promise<NextResponse> {
     const stats = getRouter().stats();
     return NextResponse.json({ success: true, stats });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     return safeErrorResponse(err, 'Failed to fetch AI router stats');
   }
 }

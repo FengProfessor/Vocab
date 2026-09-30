@@ -44,10 +44,18 @@ export function appOrigin(req: Request): string {
     (process.env.NODE_ENV === 'production' ? 'https://lingopro.online' : 'http://localhost:3000');
   try {
     const allowed = new URL(configured).origin;
-    const actual = new URL(req.url).origin;
-    const origins = process.env.NODE_ENV === 'production'
+    const production = process.env.NODE_ENV === 'production';
+    const requestUrl = new URL(req.url);
+    const host = req.headers.get('host');
+    // Next standalone có thể dùng hostname nội bộ trong req.url. Chỉ nhận public
+    // Host thuộc allowlist; không tin X-Forwarded-Host hoặc nới CSRF theo proxy.
+    if (production && host !== null && !/^[a-z0-9.-]+(?::[0-9]{1,5})?$/i.test(host)) {
+      throw new SessionRequestError(403);
+    }
+    const actual = production && host !== null ? new URL(`https://${host}`).origin : requestUrl.origin;
+    const origins = production
       ? [allowed, 'https://lingopro.online', 'https://www.lingopro.online'] : [allowed];
-    if (!origins.includes(actual) || (process.env.NODE_ENV === 'production' && !actual.startsWith('https://'))) {
+    if (!origins.includes(actual) || (production && requestUrl.protocol !== 'https:')) {
       throw new SessionRequestError(403);
     }
     return actual;

@@ -1,3 +1,4 @@
+import { sessionErrorResponse } from '@/lib/session-response';
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { getAuthUser, unauthorized } from '@/lib/api-security';
@@ -417,6 +418,8 @@ export async function GET(req: NextRequest) {
       },
     });
   } catch (err) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const message = err instanceof Error ? err.message : 'Server error';
     return NextResponse.json({ success: false, error: message }, { status: 500 });
   }
