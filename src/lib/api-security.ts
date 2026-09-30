@@ -3,6 +3,9 @@ import { createHash, timingSafeEqual } from 'crypto';
 import { createServiceClient } from '@/lib/supabase-server';
 import { cacheGet, cacheSet } from '@/lib/ttl-cache';
 import { isCronAuthorizationValid } from '@/lib/cron-auth';
+import { RateLimitUnavailableError } from '@/lib/distributed-rate-limit';
+export { checkRateLimitAsync, RateLimitUnavailableError } from '@/lib/distributed-rate-limit';
+export type { RateLimitResult } from '@/lib/distributed-rate-limit';
 
 /** Secret bot yếu / mẫu — từ chối ở production. */
 const WEAK_SECRETS = new Set([
@@ -242,16 +245,8 @@ export function sanitizeForPrompt(input: string, maxLen = 200): string {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// In-memory rate limiter (per IP, per bucket)
+// Distributed rate limiter (mọi caller đều dùng Redis; không fallback process memory)
 // ─────────────────────────────────────────────────────────────────────────────
-
-interface Bucket {
-  count: number;
-  resetAt: number;
-}
-
-const buckets = new Map<string, Bucket>();
-let lastCleanup = Date.now();
 
 /** Đọc IP client từ header (x-forwarded-for / x-real-ip). */
 export function getClientIp(req: Request): string {
@@ -260,117 +255,13 @@ export function getClientIp(req: Request): string {
   return req.headers.get('x-real-ip')?.trim() || 'unknown';
 }
 
-/**
- * Kiểm tra rate limit cho một IP trong một "scope" (vd: 'ai').
- * Trả về `true` nếu request được phép, `false` nếu vượt quá giới hạn.
- *
- * @param scope    namespace để tách giới hạn giữa các nhóm route
- * @param ip       client IP
- * @param limit    số request tối đa trong cửa sổ
- * @param windowMs độ dài cửa sổ (mặc định 60s)
- */
-export interface RateLimitResult {
-  allowed: boolean;
-  remaining: number;
-  resetIn: number;
-}
-
-/**
- * In-memory limiter (per instance). On multi-instance/serverless, set
- * UPSTASH_REDIS_REST_URL + UPSTASH_REDIS_REST_TOKEN and use checkRateLimitAsync.
- */
-export function checkRateLimit(
-  key: string,
-  limit: number,
-  windowMs = 60_000
-): RateLimitResult {
-  const now = Date.now();
-
-  // Dọn dẹp định kỳ các bucket đã hết hạn để tránh rò rỉ bộ nhớ
-  if (now - lastCleanup > windowMs) {
-    for (const [k, b] of buckets) {
-      if (b.resetAt <= now) buckets.delete(k);
-    }
-    lastCleanup = now;
-  }
-
-  const existing = buckets.get(key);
-
-  if (!existing || existing.resetAt <= now) {
-    buckets.set(key, { count: 1, resetAt: now + windowMs });
-    return { allowed: true, remaining: limit - 1, resetIn: windowMs };
-  }
-
-  if (existing.count >= limit) {
-    return { allowed: false, remaining: 0, resetIn: Math.max(0, existing.resetAt - now) };
-  }
-
-  existing.count++;
-  return {
-    allowed: true,
-    remaining: limit - existing.count,
-    resetIn: Math.max(0, existing.resetAt - now),
-  };
-}
-
-/**
- * Global rate limit via Upstash Redis REST when configured; falls back to memory.
- * Sliding fixed-window counter with EXPIRE.
- */
-export async function checkRateLimitAsync(
-  key: string,
-  limit: number,
-  windowMs = 60_000,
-): Promise<RateLimitResult> {
-  const url = process.env.UPSTASH_REDIS_REST_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
-  if (!url || !token) {
-    // Prod: multi-instance → RL memory chỉ local; cảnh báo 1 lần
-    if (process.env.NODE_ENV === 'production') {
-      const g = globalThis as { __lingoproRlWarn?: boolean };
-      if (!g.__lingoproRlWarn) {
-        g.__lingoproRlWarn = true;
-        console.warn('[RateLimit] UPSTASH_REDIS_* missing — rate limit is per-instance only');
-      }
-    }
-    return checkRateLimit(key, limit, windowMs);
-  }
-
-  const redisKey = `rl:${key}`;
-  const windowSec = Math.max(1, Math.ceil(windowMs / 1000));
-
-  try {
-    // Pipeline: INCR + EXPIRE only when first hit (approx fixed window)
-    const incrRes = await fetch(`${url}/incr/${encodeURIComponent(redisKey)}`, {
-      headers: { Authorization: `Bearer ${token}` },
-      signal: AbortSignal.timeout(1500),
-    });
-    if (!incrRes.ok) {
-      console.warn('[RateLimit] Upstash incr failed, fallback memory', incrRes.status);
-      return checkRateLimit(key, limit, windowMs);
-    }
-    const incrJson = (await incrRes.json()) as { result?: number };
-    const count = typeof incrJson.result === 'number' ? incrJson.result : 1;
-
-    if (count === 1) {
-      await fetch(`${url}/expire/${encodeURIComponent(redisKey)}/${windowSec}`, {
-        headers: { Authorization: `Bearer ${token}` },
-        signal: AbortSignal.timeout(1500),
-      }).catch(() => undefined);
-    }
-
-    if (count > limit) {
-      return { allowed: false, remaining: 0, resetIn: windowMs };
-    }
-    return {
-      allowed: true,
-      remaining: Math.max(0, limit - count),
-      resetIn: windowMs,
-    };
-  } catch (err) {
-    console.warn('[RateLimit] Upstash error, fallback memory:', err instanceof Error ? err.message : err);
-    return checkRateLimit(key, limit, windowMs);
-  }
+// Lỗi hạ tầng khác quota hết: không trả paywall hoặc cho chạy side effect.
+export function rateLimitUnavailableResponse(err: unknown): NextResponse | null {
+  if (!(err instanceof RateLimitUnavailableError)) return null;
+  return NextResponse.json(
+    { success: false, error: 'RATE_LIMIT_UNAVAILABLE', message: 'Dịch vụ tạm thời không khả dụng. Thử lại sau.' },
+    { status: 503, headers: { 'Retry-After': '5', 'Cache-Control': 'no-store' } },
+  );
 }
 
 /** Standard 429 response with Retry-After header. */
@@ -391,6 +282,8 @@ export function tooManyRequests(retryAfterSeconds = 60): NextResponse {
  * Prevents internal details and stack traces from leaking to client.
  */
 export function safeErrorResponse(err: unknown, customMessage?: string, status = 500): NextResponse {
+  const unavailable = rateLimitUnavailableResponse(err);
+  if (unavailable) return unavailable;
   // Supabase/Postgrest error = plain object { message, code, details } — không phải Error
   let msg: string;
   if (err instanceof Error) {

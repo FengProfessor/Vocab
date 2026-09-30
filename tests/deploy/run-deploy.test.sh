@@ -79,10 +79,11 @@ MOCK
     grep -q '^CRON_SECRET="test-secret"$' "$case_dir/build/.env.local"
     grep -q '^export BILLING_WEBHOOK_SECRET="old-billing"$' "$case_dir/build/.env.local"
     grep -q '^UPSTASH_REDIS_REST_TOKEN="old-token"$' "$case_dir/build/.env.local"
+    ! grep -Eq '^[[:space:]]*(export[[:space:]]+)?WEBHOOK_SECRET[[:space:]]*=' "$case_dir/build/.env.local"
   elif [[ "$scenario" == 'configured-success' ]]; then
     for env_file in .env .env.local; do
       grep -q '^BILLING_WEBHOOK_SECRET="synthetic-billing-key-32-characters-minimum"$' "$case_dir/build/$env_file"
-      grep -q '^WEBHOOK_SECRET="synthetic-billing-key-32-characters-minimum"$' "$case_dir/build/$env_file"
+      ! grep -Eq '^[[:space:]]*(export[[:space:]]+)?WEBHOOK_SECRET[[:space:]]*=' "$case_dir/build/$env_file"
       grep -q '^UPSTASH_REDIS_REST_URL="https://test.upstash.io"$' "$case_dir/build/$env_file"
       grep -q '^UPSTASH_REDIS_REST_TOKEN="synthetic/redis+token=_-"$' "$case_dir/build/$env_file"
       [[ "$(grep -c 'BILLING_WEBHOOK_SECRET=' "$case_dir/build/$env_file")" == 1 ]]

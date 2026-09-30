@@ -20,7 +20,7 @@ interface GeneratedLesson {
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
     const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
-    const rl = await checkRateLimitAsync(`ai:${ip}`, 5, 60_000); // 5 req/min per IP
+    const rl = await checkRateLimitAsync(`grammar-generate:${ip}`, 5, 60_000); // 5 req/min per IP
     if (!rl.allowed) {
       return NextResponse.json(
         { success: false, error: 'Too many requests. Please wait.' },

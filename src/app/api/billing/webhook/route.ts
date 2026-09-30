@@ -3,6 +3,7 @@ import { createServiceClient } from '@/lib/supabase-server';
 import { confirmOrder } from '@/lib/billing';
 import { safeErrorResponse } from '@/lib/api-security';
 import crypto from 'crypto';
+import { isBillingWebhookAuthorized } from '@/lib/billing-webhook-auth';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -34,7 +35,7 @@ export async function GET(): Promise<NextResponse> {
   <ul>
     <li>Mở bằng trình duyệt (GET) → bình thường, <b>không</b> kích hoạt Pro.</li>
     <li>SePay cấu hình Webhook URL = <code>https://lingopro.online/api/billing/webhook</code></li>
-    <li>API Key webhook trên SePay = <code>WEBHOOK_SECRET</code> trên Vercel</li>
+    <li>API Key webhook trên SePay = <code>BILLING_WEBHOOK_SECRET</code> trên server</li>
     <li>Nội dung CK học viên: <code>LINGOPRO xxxxxxxx</code> (đủ 8 ký tự)</li>
   </ul>
   <p>Trang thanh toán / nhận quà: <a href="https://lingopro.online/upgrade">/upgrade</a></p>
@@ -66,25 +67,12 @@ function verifyPayOSSignature(data: Record<string, unknown>, signature: string, 
       .update(queryString)
       .digest('hex');
 
-    return calculatedSignature === signature;
+    if (typeof signature !== 'string' || !/^[a-fA-F0-9]{64}$/.test(signature)) return false;
+    return crypto.timingSafeEqual(Buffer.from(calculatedSignature, 'hex'), Buffer.from(signature, 'hex'));
   } catch (err) {
     console.error('[Webhook] PayOS signature verification error:', err);
     return false;
   }
-}
-
-/**
- * Vercel env set bằng PowerShell `echo` từng dính literal `\r\n` (hoặc CRLF thật)
- * → secret 64 ký tự thành 68 → so khớp SePay header fail → 401.
- * Giống fix VAPID trong firebase-public-config.
- */
-function cleanSecret(value: string | null | undefined): string {
-  return (value ?? '')
-    .replace(/\r/g, '')
-    .replace(/\n/g, '')
-    .replace(/\\r/g, '')
-    .replace(/\\n/g, '')
-    .trim();
 }
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
@@ -95,7 +83,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       return NextResponse.json({ success: false, error: 'Empty body' }, { status: 400 });
     }
 
-    // 1. Authorization Check (Dual-auth: PayOS Signature or Casso Secure-Token)
+    // 1. Authorization Check: PayOS signature hoặc dedicated SePay API Key
     let isAuthorized = false;
 
     // Check PayOS signature first if signature & data are present in body
@@ -114,41 +102,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       }
     }
 
-    // If not authorized by PayOS signature, fallback to Casso / SePay / secure token
-    if (!isAuthorized) {
-      // SePay: Authorization: Apikey <key> · Casso: secure-token · khác: Bearer / x-webhook-secret
-      const rawToken =
-        req.headers.get('secure-token') ||
-        req.headers.get('x-webhook-secret') ||
-        req.headers.get('x-api-key') ||
-        req.headers.get('authorization')?.replace(/^Bearer\s+/i, '').replace(/^Apikey\s+/i, '') ||
-        '';
-      const token = cleanSecret(rawToken);
-
-      // Chấp nhận WEBHOOK_SECRET (khuyến nghị) hoặc SEPAY_API_KEY nếu gắn nhầm key webhook = API key
-      const secrets = [
-        process.env.WEBHOOK_SECRET,
-        process.env.CRON_SECRET,
-        process.env.SEPAY_WEBHOOK_KEY,
-        process.env.SEPAY_API_KEY,
-      ]
-        .map(cleanSecret)
-        .filter((s) => s.length > 0);
-
-      if (token && secrets.some((s) => s === token)) {
-        console.log('[Webhook] Secure-token/secret validation succeeded.');
-        isAuthorized = true;
-      } else {
-        console.warn(
-          '[Webhook] Unauthorized. token=',
-          token ? `present(len=${token.length})` : 'none',
-          'secretsConfigured=',
-          secrets.length,
-          'secretLens=',
-          secrets.map((s) => s.length).join(','),
-        );
-      }
-    }
+    // SePay chỉ dùng Apikey + credential billing riêng; không nhận secret cron/provider quản trị.
+    if (!isAuthorized) isAuthorized = isBillingWebhookAuthorized(req.headers);
 
     if (!isAuthorized) {
       return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });

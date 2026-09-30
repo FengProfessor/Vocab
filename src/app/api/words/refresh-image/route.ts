@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { resolveWordImage } from '@/lib/image-pipeline';
-import { getAuthUser, unauthorized, checkRateLimitAsync } from '@/lib/api-security';
+import { rateLimitUnavailableResponse, getAuthUser, unauthorized, checkRateLimitAsync } from '@/lib/api-security';
 
 /**
  * POST /api/words/refresh-image  Body: { wordId }
@@ -69,6 +69,8 @@ export async function POST(req: Request) {
       confidence: img.confidence,
     });
   } catch (err: unknown) {
+    const unavailable = rateLimitUnavailableResponse(err);
+    if (unavailable) return unavailable;
     const msg = err instanceof Error ? err.message : 'Unknown error';
     console.error('Refresh image error:', msg);
     return NextResponse.json({ success: false, error: msg }, { status: 500 });

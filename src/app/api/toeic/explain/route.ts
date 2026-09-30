@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getClientIp, checkRateLimitAsync, tooManyRequests } from '@/lib/api-security';
+import { rateLimitUnavailableResponse, getClientIp, checkRateLimitAsync, tooManyRequests } from '@/lib/api-security';
 import {
   loadAnyToeicTest,
   loadToeicQuestionsByIds,
@@ -196,6 +196,8 @@ export async function POST(req: NextRequest) {
       transcript: target.transcript,
     });
   } catch (err: unknown) {
+    const unavailable = rateLimitUnavailableResponse(err);
+    if (unavailable) return unavailable;
     const msg = err instanceof Error ? err.message : 'Failed to fetch explanation';
     return NextResponse.json({ success: false, error: msg }, { status: 500 });
   }

@@ -17,6 +17,16 @@ jobs:
   quality:
     name: Validate exact source before production changes
     runs-on: ubuntu-latest
+    services:
+      redis:
+        image: redis:7.4
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 10
     steps:
       - name: Require main branch and immutable event SHA
         env:
@@ -57,12 +67,15 @@ jobs:
           bash tests/deploy/run-deploy.test.sh
           node tests/deploy/ssh-render.test.mjs
       - name: Security regression tests
+        env:
+          P2B_REDIS_TEST_PORT: '6379'
         run: |
           node tests/security/cron-auth.test.mjs
           node tests/security/cron-auth-probe.test.mjs
           node tests/security/privilege-entitlement.test.mjs
           node tests/security/phase1c-auth-boundaries.test.mjs
           node tests/security/phase2a-medium.test.mjs
+          node tests/security/phase2b-enforcement.test.mjs
       - name: Lint changed TypeScript deployment route
         run: npx eslint src/app/api/health/route.ts
       - name: Build application

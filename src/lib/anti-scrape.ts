@@ -5,7 +5,7 @@
  */
 
 import { NextResponse } from 'next/server';
-import { checkRateLimitAsync } from '@/lib/api-security';
+import { checkRateLimitAsync, rateLimitUnavailableResponse } from '@/lib/api-security';
 
 export interface QuotaWindow {
   /** suffix key: m = minute, h = hour, d = day */
@@ -86,7 +86,12 @@ export async function assertScrapeQuota(
   windows: readonly QuotaWindow[],
 ): Promise<NextResponse | null> {
   for (const w of windows) {
-    const rl = await checkRateLimitAsync(`${keyBase}:${w.suffix}`, w.limit, w.windowMs);
+    const rl = await checkRateLimitAsync(`${keyBase}:${w.suffix}`, w.limit, w.windowMs).catch((err: unknown) => {
+      const unavailable = rateLimitUnavailableResponse(err);
+      if (unavailable) return unavailable;
+      throw err;
+    });
+    if (rl instanceof NextResponse) return rl;
     if (!rl.allowed) {
       return NextResponse.json(
         {

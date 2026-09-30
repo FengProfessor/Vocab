@@ -8,7 +8,8 @@ import {
 } from '@/lib/codemix-upgrade';
 import {
   getClientIp,
-  checkRateLimit,
+  checkRateLimitAsync,
+  rateLimitUnavailableResponse,
   isValidString,
   getAuthUser,
 } from '@/lib/api-security';
@@ -37,7 +38,7 @@ export const maxDuration = 60;
 export async function POST(req: Request): Promise<NextResponse> {
   try {
     const ip = getClientIp(req);
-    const rl = checkRateLimit(`demo-codemix-burst:${ip}`, 12, 60_000);
+    const rl = await checkRateLimitAsync(`demo-codemix-burst:${ip}`, 12, 60_000);
     if (!rl.allowed) {
       return NextResponse.json(
         { success: false, error: 'Quá nhiều request. Đợi 1 phút.' },
@@ -203,6 +204,8 @@ export async function POST(req: Request): Promise<NextResponse> {
       });
     }
   } catch (err: unknown) {
+    const unavailable = rateLimitUnavailableResponse(err);
+    if (unavailable) return unavailable;
     const msg = err instanceof Error ? err.message : String(err);
     console.error('[CodeMixUpgrade] failed:', msg);
     return NextResponse.json({ success: false, error: msg }, { status: 500 });

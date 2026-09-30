@@ -15,7 +15,8 @@ import {
 } from '@/lib/pack-levels';
 import {
   getClientIp,
-  checkRateLimit,
+  checkRateLimitAsync,
+  rateLimitUnavailableResponse,
   isValidString,
   getAuthUser,
 } from '@/lib/api-security';
@@ -116,7 +117,7 @@ export async function GET(req: Request): Promise<NextResponse> {
 export async function POST(req: Request): Promise<NextResponse> {
   try {
     const ip = getClientIp(req);
-    const rl = checkRateLimit(`practice-passage:${ip}`, 8, 60_000);
+    const rl = await checkRateLimitAsync(`practice-passage:${ip}`, 8, 60_000);
     if (!rl.allowed) {
       return NextResponse.json(
         { success: false, error: 'Quá nhiều request. Đợi 1 phút rồi Gen lại.' },
@@ -275,6 +276,8 @@ export async function POST(req: Request): Promise<NextResponse> {
       },
     });
   } catch (err: unknown) {
+    const unavailable = rateLimitUnavailableResponse(err);
+    if (unavailable) return unavailable;
     const msg = err instanceof Error ? err.message : String(err);
     console.error('[PackPassage] failed:', msg);
     return NextResponse.json(

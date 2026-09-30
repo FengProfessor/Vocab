@@ -36,7 +36,18 @@
 | B — cost/abuse | grammar generate/quiz/annotate, dictionary AI, words enrichment/refresh, OCR, mindmap, translation, TOEIC explain, codemix và pack passage | Distributed required; outage không được trở thành allow hoặc quota/payment decision |
 | C — content/internal | dictionary lookup/suggest/external, grammar topics/lessons, image/TTS proxies, vocab packs, words list, TOEIC test/submit | Không mặc định xem là low-risk; anti-scrape/egress vẫn cần distributed policy |
 
-`checkRateLimitAsync` trong `src/lib/api-security.ts` fallback memory khi thiếu config, HTTP lỗi hoặc exception. INCR và EXPIRE tách rời; EXPIRE lỗi bị bỏ qua, malformed count mặc định 1. Hai synchronous burst callers (`demo/codemix-upgrade`, `practice/pack-passage`) cũng dùng process memory, cần chuyển khi enforcement. `/api/pilot/leads` có thêm durable RPC `check_pilot_lead_rate_limit`, nhưng chỉ bảo vệ route đó; không đủ đóng finding chung. `translate` truyền `windowMs=60` khác các route dùng 60.000; sửa đơn vị và test khi thay limiter.
+Baseline trước Stage B: `checkRateLimitAsync` fallback memory khi thiếu config/HTTP lỗi/exception; INCR và EXPIRE tách rời, malformed count mặc định 1. Hai synchronous burst callers (`demo/codemix-upgrade`, `practice/pack-passage`) dùng process memory; `translate` truyền 60 ms thay vì 60.000 ms. `/api/pilot/leads` có thêm durable RPC, chỉ bảo vệ route đó.
+
+## Stage B — enforcement (2026-09-30)
+
+- Stage A và replacement billing key đã canonical rollout PASS tại `9a6cd04dc3172bdec15b1dd2c1c3f960838aa3c6`. Operator đổi API Key SePay; dashboard send-test trả HTTP 200 (1119 ms). Journal/source xác nhận mẫu không có mã đơn LINGOPRO, không gọi payment confirmation. Không replay 55 delivery HTTP 401 cũ trong dashboard.
+- SePay chỉ nhận `Authorization: Apikey <BILLING_WEBHOOK_SECRET>` dạng URL-safe 32–512 ký tự, constant-time; thiếu/malformed/coupled cron config reject. Không nhận Bearer, secure-token, x-api-key, x-webhook-secret hoặc credential quản trị. Runner bỏ alias `WEBHOOK_SECRET` trong staging; activation/rollback env giữ flow chuẩn. PayOS giữ HMAC path riêng, thêm strict signature validation/constant-time, không đổi payment semantics.
+- Shared helper mới `distributed-rate-limit.ts`: một Lua EVAL cho INCR/PTTL/PEXPIRE; fixed window không gia hạn mỗi request, counter legacy thiếu TTL được sửa. Response phải có count/TTL hợp lệ và HTTP OK. Missing config, network/timeout/provider/parse error trả sanitized `RATE_LIMIT_UNAVAILABLE` HTTP 503/Retry-After 5 trước nghiệp vụ, không fallback memory, không giả báo upgradeTo/quota exhaustion. Quota thực sự hết vẫn 429 theo caller.
+- Direct callers, anti-scrape và quota wrappers dùng cùng helper; hai sync callers chuyển async. Route keys grammar/dictionary tách theo route; translation window 60 giây. Không đổi paid quotas/schema/dependencies/order confirmation.
+- Clean CI bắt buộc Redis service cô lập: thực thi Lua, race 40 requests qua hai module instances, restart, TTL không renew, expiry và persistent legacy key repair. Billing tests dùng actual route/confirmOrder với stateful isolated RPC adapter; không phải live PostgreSQL concurrency test.
+- Preflight production EVAL/count/TTL quyền Upstash PASS trên synthetic key tự hết hạn. Không fault-inject hoặc tắt Redis production. C03/C05 chỉ CLOSED sau clean CI và canonical exact-SHA rollout/probes PASS; C02 vẫn OPEN/STOP.
+
+Nguồn: [Upstash atomic Lua over HTTP](https://upstash.com/blog/lua-scripting-on-upstash-redis-atomic-operations-over-http), [EVAL command](https://upstash.com/docs/redis/sdks/ts/commands/scripts/eval).
 
 ## C02 — redesign cần thiết để đóng
 

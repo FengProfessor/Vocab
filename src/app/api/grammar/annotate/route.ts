@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
     // Route đốt Gemini → bắt buộc JWT, rate limit theo user
     const auth = await getAuthUser(req);
     if (!auth) return unauthorized();
-    const rl = await checkRateLimitAsync(`ai:${auth.userId}`, 20, 60_000); // 20 req/min per user
+    const rl = await checkRateLimitAsync(`grammar-annotate:${auth.userId}`, 20, 60_000); // 20 req/min per user
     if (!rl.allowed) {
       return NextResponse.json(
         { success: false, error: 'Too many requests. Please wait.' },

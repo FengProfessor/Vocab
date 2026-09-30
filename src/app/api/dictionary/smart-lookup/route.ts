@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getRouter } from "@/lib/ai-router";
-import { checkRateLimitAsync, sanitizeForPrompt, getAuthUser, unauthorized } from "@/lib/api-security";
+import { rateLimitUnavailableResponse, checkRateLimitAsync, sanitizeForPrompt, getAuthUser, unauthorized } from "@/lib/api-security";
 
 /**
  * POST /api/dictionary/smart-lookup
@@ -64,6 +64,8 @@ Task:
 
     return NextResponse.json({ bestIndex: 0 });
   } catch (error: unknown) {
+    const unavailable = rateLimitUnavailableResponse(error);
+    if (unavailable) return unavailable;
     const msg = error instanceof Error ? error.message : 'Unknown error';
     console.error("[smart-lookup] Error:", msg);
     return NextResponse.json({ bestIndex: 0 });

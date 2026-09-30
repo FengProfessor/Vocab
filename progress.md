@@ -567,3 +567,40 @@
 - Thêm lệnh `video:toeic:100` và `video:toeic:status`.
 - Smoke test 2 slot Part 1 liên tiếp lấy 2 question ID khác nhau và render thành công sau khi làm selector nút đáp án ổn định hơn.
 - Tracker production vẫn ở 0/100, chưa tiêu hao slot thật.
+
+## P1 PHASE 2B — Stage A canonical rollout (2026-09-30)
+
+- Operator xác nhận đã thêm đủ ba GitHub Actions Secrets. Name-only inventory xác nhận `BILLING_WEBHOOK_SECRET`, `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`; không đọc/in giá trị GitHub Secrets.
+- Preflight: main/live/build SHA `219482bca9b05a2f48b61221376892c3097ace1e`, staging sạch, service active/MainPID `1097282`, local health 200, disk còn 78 GB. Clean Security CI `36682805264` PASS tại PR head `59e480060868fabc7badd8bb0af59102ba7b2efc`.
+- PR [#17](https://github.com/FengProfessor/Vocab/pull/17) chuyển ready và merge với expected-head guard. Merge SHA `9a6cd04dc3172bdec15b1dd2c1c3f960838aa3c6`; canonical push run [36684995039](https://github.com/FengProfessor/Vocab/actions/runs/36684995039).
+- Canonical run `36684995039` **PASS**: Quality, Migration, exact-SHA build/activation/restart và health. Clean Ubuntu runner Node `22.23.2`/npm `10.9.8`: npm ci, build, deployment/security regressions, actionlint/syntax PASS; typecheck đúng 10 Speaking errors TS2307/TS7006. Full lint/typecheck vẫn reporting-only debt. Tám migration đã ghi history được SKIP, không apply lại; Stage A không có migration mới.
+- Independent verification: build HEAD/build marker/live marker bằng `9a6cd04dc3172bdec15b1dd2c1c3f960838aa3c6`; service active/MainPID ổn định `1244944`; local/public health HTTP 200. Active env files có đủ ba variables, billing alias khớp và khác cron; không in giá trị.
+- Redis PING, synthetic SET NX EX 60, INCR, GET và TTL PASS. Một POST đăng ký local với body rỗng và synthetic identity trả 400 trước create/signUp; counter riêng xuất hiện trong Redis với TTL <=60 giây, xác nhận live app tiêu thụ distributed config. Counter probes tự hết hạn; không đọc/sửa counter người dùng.
+- Public webhook dùng dedicated `Apikey` trả 200/success/processed 0 cho payload `{"error":0,"data":[]}`; missing/wrong auth trả 401. Source xác nhận nhánh zero transactions trả trước service client/payment/order/entitlement mutations. Không gửi giao dịch thật, email hoặc notification.
+- Probe đầu bằng default Python User-Agent nhận public 403, local 401; diagnostic đổi riêng User-Agent sang curl nhận public 401, không có environment proxy. Probe dùng curl User-Agent sau đó PASS; chưa xác định policy edge cụ thể và không đổi policy. Kết quả endpoint probe không thay thế bằng chứng delivery thật từ provider.
+- Chưa đổi khóa SePay; chưa loại legacy billing auth hoặc limiter memory fallback. `P1-C-02`, `P1-C-03`, `P1-C-05` vẫn OPEN; Phase 2B PARTIAL.
+- **Stage A = PASS; provider transition = PENDING OPERATOR.** Bước kế tiếp: operator sửa webhook hiện có trên SePay, giữ URL `https://lingopro.online/api/billing/webhook`, chọn API Key bằng dedicated credential đã lưu; cần xác nhận cấu hình/delivery trước Stage B enforcement. Không dùng token quản trị SePay hoặc tạo webhook trùng.
+- Không SSH deploy, SQL ad hoc, restart thủ công hoặc bypass CI. SSH chỉ preflight/metadata và safe synthetic probes; rollout do canonical controller thực hiện.
+
+## P1 PHASE 2B — Billing key replacement (2026-09-30)
+
+- Operator không còn bản lưu khóa billing ban đầu; đã tạo/lưu khóa mới và xác nhận cập nhật GitHub Secret. Name-only inventory: `BILLING_WEBHOOK_SECRET` updated `2026-09-30T08:45:11Z` (15:45:11 VN); không in giá trị.
+- Preflight: main/build/live cùng SHA `9a6cd04dc3172bdec15b1dd2c1c3f960838aa3c6`, staging sạch, service active/MainPID `1244944`, local health 200, disk còn 78 GB. Working tree sạch tại HEAD `a43d3bb2bb13b0d2f364a77350023cd05fc2d97f`.
+- Canonical workflow dispatch trên main: [36691839537](https://github.com/FengProfessor/Vocab/actions/runs/36691839537), exact SHA giữ nguyên. Không đổi source/dependencies/schema/deploy architecture, không manual env edit/restart/SQL.
+- Canonical run `36691839537` **PASS**: Quality → Migration → exact-SHA build/activation/restart → health. CI Node `22.23.2`/npm `10.9.8`: clean npm ci/build, deployment/security regressions và actionlint/syntax PASS; typecheck đúng 10 baseline Speaking errors TS2307/TS7006, 0 unexpected errors. Tám migrations đã áp được SKIP; không có schema change mới.
+- Independent post-rollout: main/build HEAD/build marker/live marker vẫn bằng `9a6cd04dc3172bdec15b1dd2c1c3f960838aa3c6`; service active/MainPID ổn định `1249314`; local/public health và public root HTTP 200.
+- So sánh active env với canonical rollback snapshot trong bộ nhớ xác nhận billing key đã đổi, alias `WEBHOOK_SECRET` khớp dedicated key, billing khác cron; `CRON_SECRET` và Redis URL/token giữ nguyên. Không in credential hoặc fingerprint.
+- Public webhook: new dedicated `Apikey` PASS HTTP 200/success/processed 0; previous billing key, missing auth, wrong auth đều HTTP 401. Payload rỗng `{"error":0,"data":[]}` trả trước database/payment/entitlement mutation; không dùng sự kiện thanh toán thật hoặc gửi email/notification.
+- Redis PING, synthetic SET NX EX 60/INCR/GET/TTL PASS. Empty local registration bị reject 400 trước signUp và tạo riêng counter Redis có TTL <=60 giây, xác nhận live app dùng config. Probes chỉ chạm keys synthetic tự hết hạn, không counters người dùng.
+- **Billing key replacement on app = PASS; SePay provider transition = PENDING OPERATOR.** Operator cần sửa API Key trên webhook hiện có bằng đúng khóa mới vừa lưu/cập nhật GitHub; giữ URL `https://lingopro.online/api/billing/webhook`. Chưa có delivery evidence từ SePay, chưa bật Stage B enforcement. `P1-C-02`, `P1-C-03`, `P1-C-05` vẫn OPEN; Phase 2B PARTIAL.
+
+## P1 PHASE 2B — Provider transition / Stage B prepared (2026-09-30)
+
+- Operator xác nhận đổi khóa SePay. Dashboard webhook hiện có active/API Key; send-test HTTP 200 (1119 ms). Read-only journal/source: auth accepted, mẫu không có mã đơn LINGOPRO, payment confirmation attempts/success 0. Không tạo giao dịch/entitlement; không replay 55 old HTTP 401 deliveries (latest 20/09/2026).
+- C03: shared/unrelated auth removed; strict dedicated Apikey + constant-time; legacy headers/Bearer/cron/provider management keys reject, missing/coupled config fail closed. PayOS HMAC path giữ riêng. Alias WEBHOOK_SECRET bỏ chỉ trong staging bằng runner chuẩn.
+- C05: xóa process buckets và sync helper; atomic Redis Lua counter+TTL, validate status/result, sanitized 503 cho outage/missing config trước side effect. Quota exhaustion vẫn phân biệt với infrastructure failure; anti-scrape, direct callers và entitlement wrappers cùng dùng helper. Fix translation 60 ms → 60 s và tách route keys grammar/dictionary.
+- Không migration/dependency/schema/paid entitlement/order semantics changes. Browser session C02 giữ OPEN/STOP.
+- Clean checkout `D:/Vibe/.codex-tmp/p2b-enforcement-clean-20260930`, cache mới riêng, không .env hoặc node_modules tái dùng: npm ci PASS 1.871; build PASS; sáu security suites và bốn deploy suites PASS. Node 24.14.0/npm 11.9.0. Typecheck đúng 10 Speaking TS2307/TS7006 baseline; targeted ESLint 22 files: 8 baseline/current messages, 0 new. Actionlint/Node/Bash syntax/diff PASS. Windows bash mặc định trỏ WSL chưa cài; đã chạy deploy suites thành công bằng Git Bash.
+- Real Redis race/restart/TTL tests chưa chạy local (không Redis); bắt buộc ở clean Node 22 CI trước merge. Payment replay/concurrency test dùng actual route/service + stateful RPC adapter, không tuyên bố test live PostgreSQL.
+- Production preflight: main/build/live 9a6cd04, staging sạch/service active, disk free 77 GiB. Upstash EVAL/count/TTL permission PASS trên isolated 60-second key. Không ngắt Redis/production service để thử outage.
+- Stage B chuẩn bị PR; chưa CLOSED C03/C05 tới khi clean CI + canonical rollout + independent probes PASS. High 0; Medium 3 OPEN; Low 3.

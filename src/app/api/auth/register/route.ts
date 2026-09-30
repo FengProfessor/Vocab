@@ -5,7 +5,7 @@
 import { NextResponse } from 'next/server';
 import { createPublicAuthClient } from '@/lib/supabase';
 import { createServiceClient } from '@/lib/supabase-server';
-import { checkRateLimitAsync, getClientIp } from '@/lib/api-security';
+import { checkRateLimitAsync, getClientIp, rateLimitUnavailableResponse } from '@/lib/api-security';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -110,6 +110,8 @@ export async function POST(req: Request) {
       verificationRequired: true,
     });
   } catch (err) {
+    const unavailable = rateLimitUnavailableResponse(err);
+    if (unavailable) return unavailable;
     console.error('[Register] unexpected:', err);
     return NextResponse.json(
       { error: 'Lỗi máy chủ khi đăng ký. Thử Google hoặc lại sau.', code: 'server_error' },
