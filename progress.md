@@ -548,6 +548,16 @@
 - Production verification: build HEAD/build marker/live marker đều bằng merge SHA; `lingopro.service` active với MainPID ổn định `1093951`; local/public health và root HTTP 200. Disabled `POST /api/test/notify` trả 404, GET trả 405; probe không lookup target, gửi Telegram hoặc tạo mutation.
 - Status: `P1-C-01`, `P1-C-04`, `P1-C-06` **CLOSED**; `P1-C-02`, `P1-C-03`, `P1-C-05` **OPEN — DEFERRED TO PHASE 2B**. Medium before 6, closed 3, remaining 3; High remaining 0; Low remaining 3. **P1 Phase 2A = PARTIAL**.
 
+## P1 PHASE 2B — Stage A prepared, config pending (2026-09-30)
+
+- Branch `codex/p2b-medium-security` từ safe main `219482bca9b05a2f48b61221376892c3097ace1e` (descendant của closeout `baef25b...`). Commit main mới chỉ TOEIC/TikTok; source của ba remaining Medium khớp audit. Working tree sạch trước task.
+- Read-only production: canonical run `36314116565` PASS; build HEAD/build marker/live marker bằng main; service active/MainPID `1097282`. `CRON_SECRET` present; billing/provider dedicated keys, Upstash URL/token absent; chỉ ghi tên/trạng thái, không giá trị.
+- `P1-C-02` OPEN/STOP: HttpOnly thực cần backend session + browser auth/direct data-access migration. 47 file gọi getSession; SSR JS-readable cookie không bảo vệ refresh token khỏi XSS. Đã ghi design/test requirements, không sửa login architecture mù.
+- `P1-C-03`/`P1-C-05` OPEN: operator có dashboard và xác nhận SePay. Cần GitHub Secrets `BILLING_WEBHOOK_SECRET`, `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`; chưa thêm tại latest name-only inventory. Chưa chuyển khóa SePay trước compatibility deploy.
+- Stage A implementation: canonical workflow forward ba variables; runner validate format/pair và billing khác cron; cập nhật staging env, billing alias `WEBHOOK_SECRET`; không log values, không ghi env live ngoài activation chuẩn. Env/release rollback hiện hữu vẫn giữ nguyên; absent optional config giữ giá trị copied từ live. Chưa bỏ legacy auth hoặc fallback memory.
+- Local Node `24.14.0`/npm `11.9.0`: fresh-cache clean npm ci PASS (1.871 packages), build PASS, năm security suites PASS, bốn deployment suites PASS, actionlint/syntax/targeted lint/diff checks PASS. Typecheck before/after: đúng 10 lỗi baseline TS2307/TS7006. npm audit: 45 (22 moderate/18 high/5 critical), deferred, không đổi dependencies.
+- Runbook: `docs/security/p1-phase2b-rollout.md`; chứa endpoint classes, config ordering/rollback, exact closure conditions. Status **P1 Phase 2B PARTIAL — PREPARATION**; 0 closed, 3 Medium OPEN (`P1-C-02`, `P1-C-03`, `P1-C-05`), High 0, Low 3. Không merge/deploy tới khi config readiness được xác nhận.
+
 ## 2026-09-23 · TOEIC TikTok 100-video campaign
 
 - Tạo campaign 100 video TOEIC Listening: 25 video cho mỗi Part 1–4, mỗi video 3 câu.

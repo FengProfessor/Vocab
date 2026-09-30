@@ -348,6 +348,16 @@ Code tại base `c4f81f3a5c76415c58592b3036d26ccbb683dabd` khớp cả sáu assu
 - Read-only production verification: build HEAD, build marker và live `.next/.release-commit` đều bằng merge SHA; `lingopro.service` active, MainPID ổn định `1093951`; local/public `/api/health` và root đều HTTP 200. Safe probe xác nhận disabled `POST /api/test/notify` trả 404 trước auth/lookup/send và GET trả 405; không gửi Telegram hoặc tạo mutation.
 - `P1-C-01`, `P1-C-04`, `P1-C-06` **CLOSED**. `P1-C-02`, `P1-C-03`, `P1-C-05` **OPEN — DEFERRED TO PHASE 2B**. Medium trước 2A: 6; đóng trong 2A: 3; còn lại: 3. **P1 Phase 2A = PARTIAL; High remaining: 0; Low remaining: 3.**
 
+## Phase 2B — Configuration preparation (2026-09-30)
+
+- Base hiện tại `219482bca9b05a2f48b61221376892c3097ace1e` chứa Phase 2A; thay đổi main kế tiếp chỉ TOEIC/TikTok. Canonical run `36314116565` PASS, read-only host build HEAD/build marker/live marker cùng SHA; service active/MainPID `1097282`.
+- Authoritative OPEN IDs: `P1-C-02`, `P1-C-03`, `P1-C-05`. Không đóng/reopen finding vì endpoint/file count.
+- `P1-C-02` **OPEN — STOP ON AUTH ARCHITECTURE REDESIGN**: 47 file lấy browser session, authFetch dùng access token/refresh, OAuth callback exchange ở browser, component còn direct Supabase query/RPC, proxy chỉ CORS/rewrite. Official SSR cookie vẫn cần browser đọc refresh token; cookie JS-readable không đạt invariant. Cần backend session/HttpOnly + CSRF/refresh/logout/data-access redesign và dedicated-account integration verification.
+- `P1-C-03` **OPEN — CONFIG/PROVIDER TRANSITION PENDING**: operator xác nhận SePay/dashboard. Production chưa có dedicated billing/provider secret. Chuẩn bị Stage A transport `BILLING_WEBHOOK_SECRET` qua canonical workflow, alias `WEBHOOK_SECRET` cho compatibility; legacy `CRON_SECRET` vẫn còn nên chưa CLOSED. Stage B phải bỏ tất cả unrelated credentials và dùng constant-time dedicated/provider verification trước lookup/confirmation.
+- `P1-C-05` **OPEN — DISTRIBUTED CONFIG/ENFORCEMENT PENDING**: production chưa có Upstash URL/token. Scope bao gồm direct async callers, anti-scrape wrapper, entitlement quota wrapper và hai synchronous burst callers. Existing helper còn separate INCR/EXPIRE, bỏ EXPIRE failure, default malformed count=1; cần atomic counter/TTL và fail closed, không quota/paywall false-positive khi provider outage. Durable pilot-lead RPC chỉ bảo vệ một route.
+- Local Stage A evidence: Node `24.14.0`/npm `11.9.0`, fresh-cache `npm ci` PASS (1.871 packages), build PASS, Phase 1A/1B/1C/2A regressions PASS, deployment tests PASS, actionlint/syntax/targeted lint/diff checks PASS. Typecheck trước/sau đúng 10 baseline TS2307/TS7006, không regression. npm audit vẫn 45 advisories (22 moderate/18 high/5 critical), không dependency churn.
+- **P1 Phase 2B = PARTIAL (preparation)**; closed trong 2B: 0; Medium còn 3; High 0; Low 3. Chưa merge/deploy/enforce khi chưa có config readiness. [Staged rollout/runbook](p1-phase2b-rollout.md) ghi env names, ordering, rollback, endpoint classes và điểm dừng.
+
 ## Thứ tự xử lý đề xuất
 
 1. Critical cron bypass + rotate secret + regression tests.
