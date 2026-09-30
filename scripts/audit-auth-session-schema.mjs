@@ -1,11 +1,20 @@
 /** Read-only metadata preflight. Never selects credential or user rows. */
 import pg from 'pg';
+import { readFileSync } from 'node:fs';
 
 const connectionString = process.env.SUPABASE_DB_URL;
 if (!connectionString) throw new Error('Auth schema preflight: missing database configuration');
+const databaseUrl = new URL(connectionString);
+// pg connection-string SSL options có thể ghi đè ssl.ca; ép verify-full bằng explicit config.
+for (const parameter of ['sslmode', 'sslcert', 'sslkey', 'sslrootcert', 'uselibpqcompat']) {
+  databaseUrl.searchParams.delete(parameter);
+}
 const client = new pg.Client({
-  connectionString,
-  ssl: { rejectUnauthorized: true },
+  connectionString: databaseUrl.toString(),
+  ssl: {
+    rejectUnauthorized: true,
+    ca: readFileSync(new URL('../docs/security/supabase-prod-ca-2021.crt', import.meta.url), 'utf8'),
+  },
   connectionTimeoutMillis: 15000,
   statement_timeout: 10000,
 });

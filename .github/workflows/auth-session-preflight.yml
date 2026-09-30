@@ -7,6 +7,7 @@ on:
       - '.github/workflows/auth-session-preflight.yml'
       - 'scripts/audit-auth-session-schema.mjs'
       - 'docs/security/p1-phase2c-*'
+      - 'docs/security/supabase-prod-ca-2021.crt'
 
 permissions:
   contents: read
