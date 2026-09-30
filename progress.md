@@ -615,3 +615,11 @@
 - **Tư liệu Ảnh chụp Đời thực**: 100% sử dụng hình ảnh thực tế, không dùng tranh vector clipart minh họa hời hợt; đi kèm phân tích ngữ cảnh và lưu ý lỗi sai thực tế.
 - **Cơ sở Dữ liệu & Migration**: `supabase/migrations/20260930_unify_grammar_roadmap.sql` nâng cấp check constraint cho các cấp độ CEFR A0–B2, khử trùng lặp order_index 1..62, liên kết 25 buổi cũ vào chủ điểm cha và tạo view `v_canonical_grammar_topics`.
 - **Verification**: `npm run type-check` PASS (0 errors), `npm run build` PASS (174/174 routes), `test-unified-grammar-roadmap.ts --strict` PASS 42/42 tests, security regression suites PASS.
+- **Production Rollout Verified**:
+  - GitHub Actions canonical run [`36700081871`](https://github.com/FengProfessor/Vocab/actions/runs/36700081871) hoàn tất `success` trên nhánh `main` (commit `1915ec9`).
+  - Migration Supabase `20260930_unify_grammar_roadmap.sql` đã áp dụng thành công trên production database (view `v_canonical_grammar_topics` & constraints A0-B2 hoạt động).
+  - Ubuntu server standalone service `lingopro.service` đã được build staging độc lập, swap `.next` an toàn qua `activate-release.sh`, restart và vượt qua health checks.
+  - Live probe `https://lingopro.online/api/health` trả về `{ "status": "ok" }` (HTTP 200).
+  - Live probe `https://lingopro.online/grammar` trả về HTTP 200 với độ trễ phản hồi 187ms.
+  - Live probe `https://lingopro.online/api/grammar/theory?topic=personal-pronouns` trả về HTTP 200 với dữ liệu chuẩn hóa sạch.
+  - Live probe `https://lingopro.online/grammar/practice?topic=personal-pronouns` trả về HTTP 200.
