@@ -380,7 +380,7 @@ export default function StudentDashboard() {
   /** Levels L1–L6 + grammar due + packs — idle, không chặn first paint. */
   const loadSecondaryDashboard = (userId: string, token?: string | null, targetScope?: string) => {
     const scope = targetScope !== undefined ? targetScope : currentClassScope;
-    const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '';
+    const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '&classroomId=__personal__';
 
     loadActivityStats(token);
 
@@ -410,7 +410,7 @@ export default function StudentDashboard() {
   const loadData = async (userId: string, accessToken?: string, targetScope?: string) => {
     const token = accessToken ?? accessTokenRef.current;
     const scope = targetScope !== undefined ? targetScope : currentClassScopeRef.current;
-    const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '';
+    const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '&classroomId=__personal__';
     try {
       if (STAMPEDE_MODE) {
         /**
@@ -529,7 +529,7 @@ export default function StudentDashboard() {
     if (!profile?.id || isLoadingMore) return;
     setIsLoadingMore(true);
     const scope = currentClassScopeRef.current;
-    const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '';
+    const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '&classroomId=__personal__';
     try {
       const res = await authFetch(
         `/api/words?limit=${WORDS_PAGE_SIZE}&offset=${wordsOffset}${scopeParam}`,
@@ -554,7 +554,7 @@ export default function StudentDashboard() {
   const refreshSummary = async (userId: string) => {
     try {
       const scope = currentClassScopeRef.current;
-      const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '';
+      const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '&classroomId=__personal__';
       const res = await authFetch(`/api/words?summary=1${scopeParam}`, {}, accessTokenRef.current);
       const data = await res.json();
       if (data.success) {

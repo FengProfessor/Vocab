@@ -18,6 +18,11 @@ import {
   Lightbulb,
   AlertTriangle,
   ArrowLeftRight,
+  TableProperties,
+  FileText,
+  Image as ImageIcon,
+  ArrowLeft,
+  Compass,
 } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import type { CefrLevel } from '@/lib/grammar-types';
@@ -233,12 +238,49 @@ function GrammarRoadmapContent() {
 
   return (
     <main className="min-h-dvh bg-background text-foreground flex flex-col">
+      {/* Sticky Top Navigation Bar */}
+      <header className="sticky top-0 z-30 border-b border-border bg-card/95 backdrop-blur-md px-4 sm:px-6 h-12 sm:h-14 flex items-center shrink-0">
+        <div className="max-w-5xl w-full mx-auto flex items-center justify-between gap-3">
+          <Link
+            href="/student"
+            className="inline-flex items-center gap-1.5 sm:gap-2 font-mono text-xs uppercase tracking-wider font-semibold border border-border px-2.5 sm:px-3 py-1.5 hover:bg-muted text-muted-foreground hover:text-foreground transition-colors rounded-none shrink-0"
+          >
+            <ArrowLeft className="h-4 w-4 shrink-0 text-primary" />
+            <span className="hidden sm:inline">Về Dashboard</span>
+            <span className="sm:hidden">Dashboard</span>
+          </Link>
+
+          <div className="flex items-center gap-2 shrink-0">
+            <Link
+              href="/journey"
+              className="hidden md:inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider font-semibold border border-border px-3 py-1.5 hover:bg-muted text-muted-foreground hover:text-foreground transition-colors rounded-none"
+            >
+              <Compass className="h-3.5 w-3.5 text-primary" />
+              <span>Lộ trình học</span>
+            </Link>
+            <Link
+              href="/grammar/practice?mode=review"
+              className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider font-semibold border border-border bg-card hover:bg-muted text-foreground px-2.5 sm:px-3 py-1.5 rounded-none transition-colors"
+            >
+              <RotateCcw className="h-3.5 w-3.5 text-primary" />
+              <span className="hidden sm:inline">Ôn câu sai (14 ngày)</span>
+              <span className="sm:hidden">Ôn câu sai</span>
+            </Link>
+          </div>
+        </div>
+      </header>
+
       {/* Top Banner / Hero */}
       <section className="border-b border-border bg-card px-4 py-8 sm:py-12">
         <div className="max-w-5xl mx-auto flex flex-col gap-6">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
-              <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-muted-foreground mb-2">
+              <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-muted-foreground mb-2 flex-wrap">
+                <Link href="/student" className="hover:text-foreground hover:underline flex items-center gap-1 text-primary">
+                  <ArrowLeft className="h-3 w-3" />
+                  <span>Dashboard</span>
+                </Link>
+                <span>/</span>
                 <span className="px-1.5 py-0.5 border border-border bg-muted/30">Lộ trình chuẩn hóa</span>
                 <span>•</span>
                 <span>62 Chủ điểm CEFR A0 – B2</span>
@@ -250,16 +292,6 @@ function GrammarRoadmapContent() {
                 Hệ thống 62 chủ điểm ngữ pháp từ căn bản (A0) tới nâng cao học thuật (B2), xây dựng
                 theo khung năng lực Châu Âu và tiêu chuẩn giảng dạy ngữ pháp ứng dụng.
               </p>
-            </div>
-
-            {/* Quick Actions */}
-            <div className="flex items-center gap-2 shrink-0">
-              <Link href="/grammar/practice?mode=review">
-                <button className="border border-border bg-card hover:bg-muted text-foreground px-4 py-2.5 font-mono text-xs uppercase tracking-wider font-semibold rounded-none flex items-center gap-2 transition-colors">
-                  <RotateCcw className="h-3.5 w-3.5 text-primary" />
-                  Ôn câu sai (14 ngày)
-                </button>
-              </Link>
             </div>
           </div>
 
@@ -433,7 +465,7 @@ function GrammarRoadmapContent() {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-background/80 backdrop-blur-sm">
           <div className="border border-border bg-card w-full max-w-4xl max-h-[92vh] sm:max-h-[85vh] rounded-none flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
             {/* Drawer Header */}
-            <div className="border-b border-border p-4 sm:p-6 flex items-start justify-between gap-4 bg-muted/10">
+            <div className="border-b border-border p-4 sm:p-6 flex items-start justify-between gap-4 bg-muted/10 shrink-0">
               <div>
                 <div className="flex items-center gap-2 font-mono text-xs uppercase text-muted-foreground mb-1">
                   <span>#{activeTopic.order < 10 ? '0' : ''}{activeTopic.order}</span>
@@ -460,62 +492,71 @@ function GrammarRoadmapContent() {
             </div>
 
             {/* Theory Tabs */}
-            <div className="border-b border-border flex bg-muted/20 px-4 sm:px-6 overflow-x-auto scrollbar-none">
+            <div className="shrink-0 border-b border-border bg-muted/20 flex overflow-x-auto scrollbar-none">
               <button
+                type="button"
                 onClick={() => setTheoryTab('theory')}
-                className={`py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-b-2 transition-colors shrink-0 ${
+                className={`py-3 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-r border-border inline-flex items-center gap-2 whitespace-nowrap shrink-0 transition-colors ${
                   theoryTab === 'theory'
-                    ? 'border-foreground text-foreground font-bold'
-                    : 'border-transparent text-muted-foreground hover:text-foreground'
+                    ? 'bg-card text-foreground font-bold border-b-2 border-b-foreground -mb-px'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/40 border-b-2 border-b-transparent'
                 }`}
               >
-                Lý thuyết cốt lõi
+                <BookOpen className="h-3.5 w-3.5" />
+                <span>Lý thuyết cốt lõi</span>
               </button>
               <button
+                type="button"
                 onClick={() => setTheoryTab('table')}
-                className={`py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-b-2 transition-colors shrink-0 ${
+                className={`py-3 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-r border-border inline-flex items-center gap-2 whitespace-nowrap shrink-0 transition-colors ${
                   theoryTab === 'table'
-                    ? 'border-foreground text-foreground font-bold'
-                    : 'border-transparent text-muted-foreground hover:text-foreground'
+                    ? 'bg-card text-foreground font-bold border-b-2 border-b-foreground -mb-px'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/40 border-b-2 border-b-transparent'
                 }`}
               >
-                Bảng tra cứu
+                <TableProperties className="h-3.5 w-3.5" />
+                <span>Bảng tra cứu</span>
               </button>
               <button
+                type="button"
+                onClick={() => setTheoryTab('examples')}
+                className={`py-3 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-r border-border inline-flex items-center gap-2 whitespace-nowrap shrink-0 transition-colors ${
+                  theoryTab === 'examples'
+                    ? 'bg-card text-foreground font-bold border-b-2 border-b-foreground -mb-px'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/40 border-b-2 border-b-transparent'
+                }`}
+              >
+                <FileText className="h-3.5 w-3.5" />
+                <span>Ví dụ song ngữ</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setTheoryTab('media')}
+                className={`py-3 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-r border-border inline-flex items-center gap-2 whitespace-nowrap shrink-0 transition-colors ${
+                  theoryTab === 'media'
+                    ? 'bg-card text-foreground font-bold border-b-2 border-b-foreground -mb-px'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/40 border-b-2 border-b-transparent'
+                }`}
+              >
+                <ImageIcon className="h-3.5 w-3.5" />
+                <span>Hình ảnh thực tế ({((topicAssetsData as Record<string, TopicAssetItem[]>)[activeTopic.slug] || []).length})</span>
+              </button>
+              <button
+                type="button"
                 onClick={() => setTheoryTab('video')}
-                className={`py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-b-2 transition-colors shrink-0 flex items-center gap-1.5 ${
+                className={`py-3 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-r border-border inline-flex items-center gap-2 whitespace-nowrap shrink-0 transition-colors ${
                   theoryTab === 'video'
-                    ? 'border-foreground text-foreground font-bold'
-                    : 'border-transparent text-muted-foreground hover:text-foreground'
+                    ? 'bg-card text-foreground font-bold border-b-2 border-b-foreground -mb-px'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/40 border-b-2 border-b-transparent'
                 }`}
               >
                 <PlayCircle className="h-3.5 w-3.5 text-rose-600" />
                 <span>Video bài giảng</span>
               </button>
-              <button
-                onClick={() => setTheoryTab('examples')}
-                className={`py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-b-2 transition-colors shrink-0 ${
-                  theoryTab === 'examples'
-                    ? 'border-foreground text-foreground font-bold'
-                    : 'border-transparent text-muted-foreground hover:text-foreground'
-                }`}
-              >
-                Ví dụ song ngữ
-              </button>
-              <button
-                onClick={() => setTheoryTab('media')}
-                className={`py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-b-2 transition-colors shrink-0 ${
-                  theoryTab === 'media'
-                    ? 'border-foreground text-foreground font-bold'
-                    : 'border-transparent text-muted-foreground hover:text-foreground'
-                }`}
-              >
-                Hình ảnh thực tế ({((topicAssetsData as Record<string, TopicAssetItem[]>)[activeTopic.slug] || []).length})
-              </button>
             </div>
 
             {/* Drawer Content */}
-            <div className="p-4 sm:p-6 overflow-y-auto flex-1 text-sm space-y-6">
+            <div className="p-4 sm:p-6 overflow-y-auto flex-1 min-h-0 text-sm space-y-6">
               {theoryLoading ? (
                 <div className="py-12 flex flex-col items-center justify-center gap-2">
                   <Loader2 className="h-6 w-6 animate-spin text-primary" />
@@ -720,7 +761,7 @@ function GrammarRoadmapContent() {
             </div>
 
             {/* Drawer Footer CTA */}
-            <div className="border-t border-border p-4 bg-card flex flex-wrap sm:flex-nowrap items-center justify-between gap-3">
+            <div className="border-t border-border p-4 bg-card flex flex-wrap sm:flex-nowrap items-center justify-between gap-3 shrink-0">
               <button
                 onClick={() => setSelectedTopicSlug(null)}
                 className="border border-border px-4 py-2.5 font-mono text-xs uppercase tracking-wider font-semibold rounded-none hover:bg-muted text-muted-foreground hover:text-foreground shrink-0"

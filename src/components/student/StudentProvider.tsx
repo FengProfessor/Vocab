@@ -179,7 +179,7 @@ export function fetchWordSummaryOnce(userId: string, token?: string | null): Pro
 
   const promise = (async () => {
     try {
-      const res = await authFetch('/api/words?summary=1', {}, token);
+      const res = await authFetch('/api/words?summary=1&classroomId=__personal__', {}, token);
       const json = await res.json();
       if (json?.success) {
         const summary: WordSummaryData = {

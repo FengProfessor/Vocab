@@ -624,6 +624,47 @@
   - Live probe `https://lingopro.online/api/grammar/theory?topic=personal-pronouns` trả về HTTP 200 với dữ liệu chuẩn hóa sạch.
   - Live probe `https://lingopro.online/grammar/practice?topic=personal-pronouns` trả về HTTP 200.
 
+## 2026-09-30 · PRODUCTION RELEASE: GRAMMAR THEORY TABS UI & STABILITY FIX
+
+- **Khắc phục lỗi vạch đôi / gạch chân lơ lửng (Floating Underline Glitch)**:
+  - Đưa thuộc tính `-mb-px` và chuyển nền active thành `bg-card text-foreground font-bold`, loại bỏ hoàn toàn khoảng hở 8px giữa thanh chỉ báo tab và đường viền container.
+  - Bổ sung vách ngăn kỹ thuật sắc sảo (`border-r border-border`) đồng bộ phong cách Technical Minimalist với các bảng ma trận ngữ pháp và feedback panel.
+- **Khắc phục lỗi co rút khung modal (Flexbox Shrink Glitch)**:
+  - Bổ sung `shrink-0` cho Header, Theory Tabs container và Footer CTA trong modal drawer (`src/app/grammar/page.tsx`).
+  - Bổ sung `min-h-0` cho vùng nội dung cuộn để ngăn Flexbox bóp nghẹt thanh tab xuống 7.75px khi tải bảng tra cứu nhiều dòng.
+- **Đồng bộ hệ thống Icon kỹ thuật 14px cho toàn bộ 5 tab**:
+  - `Lý thuyết cốt lõi` (`<BookOpen>`), `Bảng tra cứu` (`<TableProperties>`), `Ví dụ song ngữ` (`<FileText>`), `Hình ảnh thực tế` (`<ImageIcon>`), `Video bài giảng` (`<PlayCircle>`).
+- **Verification**:
+  - `npm run build`: PASS (174/174 routes Turbopack).
+  - `npx tsx tests/grammar/test-unified-grammar-roadmap.ts --strict`: PASS 42/42 tests (100%).
+  - `npx tsc --noEmit`: PASS (0 errors).
+  - `npx eslint src/app/grammar/page.tsx`: PASS (0 errors).
+- **Canonical Production Deployment Verified**:
+  - Push `main` (commit `b298a5f`) kích hoạt canonical GitHub Actions workflow `deploy-server.yml` (run [`36738850886`](https://github.com/FengProfessor/Vocab/actions/runs/36738850886)).
+  - Quality gate: PASS (actionlint, safety tests, security suites, route lint, exact-SHA verification).
+  - Migration runner: PASS (8 existing migrations verified and skipped safely).
+  - Deploy job: PASS (standalone staging build in `$HOME/Vocab-build`, atomic `.next` swap qua `activate-release.sh`, `lingopro.service` restart và dual HTTP 200 health check verification).
+  - Live production verification: `curl.exe https://lingopro.online/api/health` trả về HTTP 200 `{"status":"ok"}`.
+  - Live UI verification: Puppeteer truy cập `https://lingopro.online/grammar?topic=personal-pronouns` xác nhận 5 tab chuyển đổi mượt mà, vạch tab dính liền khít với viền, không còn bất kỳ lỗi vạch đôi nào.
+
+## 2026-09-30 · PRODUCTION RELEASE: GRAMMAR BACK TO DASHBOARD NAVIGATION
+
+- **Thanh điều hướng dính hàng đầu (Sticky Top Navigation Bar) trên `/grammar`**:
+  - Bổ sung header dính trên cùng (`sticky top-0 z-30 border-b border-border bg-card/95 backdrop-blur-md px-4 sm:px-6 h-12 sm:h-14`) hiển thị nhất quán trên cả Laptop và Điện thoại.
+  - Nút quay lại Dashboard (`/student`): Hiển thị `[← VỀ DASHBOARD]` trên màn hình máy tính (`sm:inline`) và thu gọn tinh gọn thành `[← DASHBOARD]` trên điện thoại di động (`sm:hidden`).
+  - Bổ sung phím tắt nhanh sang Lộ trình học chính (`/journey`) trên desktop và Ôn câu sai (`/grammar/practice?mode=review`) trên cả mobile/desktop.
+  - Bổ sung breadcrumb phụ trợ trong Hero header (`← Dashboard / Lộ trình chuẩn hóa • 62 Chủ điểm CEFR A0 – B2`) trỏ về `/student`.
+- **Verification**:
+  - `npx eslint src/app/grammar/page.tsx`: PASS (0 errors).
+  - `npx tsx tests/grammar/test-unified-grammar-roadmap.ts --strict`: PASS 42/42 tests (100%).
+- **Canonical Production Deployment Verified**:
+  - Push `main` (commit `b0a7b52`) kích hoạt canonical GitHub Actions workflow `deploy-server.yml` (run [`36743882011`](https://github.com/FengProfessor/Vocab/actions/runs/36743882011)).
+  - Quality gate: PASS (actionlint, safety tests, security suites, route lint, exact-SHA verification, application build).
+  - Migration runner: PASS (8 existing migrations verified and skipped safely).
+  - Deploy job: PASS (standalone staging build in `$HOME/Vocab-build`, atomic `.next` swap qua `activate-release.sh`, `lingopro.service` restart và dual HTTP 200 health check verification).
+  - Live production verification: `curl.exe https://lingopro.online/api/health` trả về HTTP 200 `{"status":"ok"}`.
+  - Live UI verification: Puppeteer truy cập `https://lingopro.online/grammar` xác nhận nút `[← VỀ DASHBOARD]` và `[← DASHBOARD]` hiển thị đúng ở đầu trang, liên kết trỏ chính xác về `/student`.
+
 ## P1 PHASE 2C — Inventory / architecture preflight (2026-10-01)
 
 - Branch codex/p2c-auth-session từ origin/main a68304895a7a1e4fa6b44c452324271f72e359ca; không redo Phase 1/2A/2B. Baseline production dca534dc266f1dc5fc80a2e26cf165dc7872bd86; independent CRM canonical 36733665363 sau đó PASS, cần đối chiếu marker trước P2C rollout.
@@ -643,3 +684,6 @@
 - Stage A giữ nguyên browser login và guards hiện hữu. Cutover edits đang làm trong working tree, chưa nằm trong foundation commit/production.
 - Local store encryption/basic lifecycle/one-time flow/outage tests PASS; real Redis races/expiry và PostgreSQL provider/grant tests bắt buộc trong clean CI. Actionlint, Bash/Node syntax, SSH render và run-deploy suite PASS. Không gọi real Redis/SQL test local là PASS khi chưa có services.
 - Stage A canonical infrastructure forward key qua staging/activation rollback hiện hữu; chưa chuyển browser token architecture. P1-C-02 OPEN, Phase 2C IN PROGRESS.
+
+
+- Stage A baseline synchronized with main 80ed596e83e3dc59d9600bc2644cf1b515ee6fe5 (personal classroom isolation and grammar navigation preserved). Clean CI36746328374 passed earlier foundation head61c19a4; rerun required on merged source before release. Browser cutover WIP is preserved in stash5965297af7278a2cade37bd14907eda36500d0e1, not included in Stage A.
