@@ -25,6 +25,6 @@ NEVER:
 
 ## Còn tồn đọng
 
-Authenticated journey/persisted lesson progress và microphone permission denial trên Speaking UI cần tài khoản/fixture backend riêng; deferred theo operator. C02/PR #20 đã merge tại `44ad7c92`; canonical cutover `36784213532` và dedicated production login/storage/logout smoke còn pending. Anonymous smoke CI không chứng minh cookie cutover.
+Authenticated journey/persisted lesson progress và microphone permission denial trên Speaking UI cần tài khoản/fixture backend riêng; deferred theo operator. C02/PR #20 `44ad7c92` đã phát hành qua canonical `36784213532` PASS; dedicated production login/storage/logout smoke pending operator login. Anonymous smoke CI không chứng minh cookie cutover.
 
 Full typecheck clean baseline: **10 Speaking TS2307/TS7006**, không phải zero errors. Full lint là debt riêng; kết quả lịch sử trong TEST_INFRA/TEST_READY không phải gate hiện tại. Không xóa hoặc giảm assertions của suite cũ.

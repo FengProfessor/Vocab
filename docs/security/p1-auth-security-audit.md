@@ -387,6 +387,6 @@ Current High0 / Medium1 OPEN / Low3. Existing accepted Windows/Ubuntu host-compr
 
 ## Independent followup phases 7–12 (2026-10-01)
 
-Stage A foundation đã phát hành canonical `36749311479` tại main `905d9bbb`; C02 cutover PR #20 clean proxy-fix CI `36783452187` PASS, đã merge tại `44ad7c92`. Canonical cutover `36784213532` đang chạy; live login/storage/logout smoke còn pending. P1-C-02 vẫn OPEN; C03/C05 giữ CLOSED. Phần inventory ở trên là historical checkpoint, không trạng thái implementation mới nhất.
+Stage A foundation đã phát hành canonical `36749311479` tại main `905d9bbb`; C02 cutover PR #20 clean proxy-fix CI `36783452187` PASS, đã merge/phát hành tại `44ad7c92`. Canonical cutover `36784213532` PASS, exact build/live markers, activePID1286622, local/public health200; live login/storage/logout smoke pending operator login. P1-C-02 vẫn OPEN; C03/C05 giữ CLOSED. Phần inventory ở trên là historical checkpoint, không trạng thái implementation mới nhất.
 
 PR #21 xử lý độc lập test classification/browser foundation, production CSP dev separation, backup safety/optional age, bốn unused auth dependencies, actual Ubuntu docs và generated-file hygiene. Không auth runtime cutover, production mutation hoặc live closure. Xem docs/testing/test-classification.md, content-security-policy.md, authentication-stack.md và ../operations/database-backup.md. Public referral service-role/data-minimization/rate-limit review, inline CSP, backup recipient/restore và authenticated browser journey còn pending; không tự gán CLOSED hoặc giảm severity.
