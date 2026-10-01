@@ -238,7 +238,9 @@ export async function DELETE(req: NextRequest): Promise<NextResponse> {
     await supabase.from('room_presence').delete().eq('user_id', auth.userId);
 
     return NextResponse.json({ success: true });
-  } catch {
+  } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     return NextResponse.json({ success: false, error: 'Server error' }, { status: 500 });
   }
 }

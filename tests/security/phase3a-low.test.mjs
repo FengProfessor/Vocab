@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';
 import { mkdtempSync, readFileSync, writeFileSync, rmSync, readdirSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { join, relative, sep } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import ts from 'typescript';
 
@@ -44,8 +45,9 @@ let serviceClients = 0;
 let extensionState = 'active';
 const reads = [], writes = [];
 const coupons = new Map();
+const presence = new Map([[caller, { id: caller }], [target, { id: target }]]);
 const resetEffects = () => { serviceClients = 0; reads.length = 0; writes.length = 0; };
-const snapshot = () => JSON.stringify([...coupons.entries()]);
+const snapshot = () => JSON.stringify({ coupons: [...coupons.entries()], presence: [...presence.entries()] });
 const store = {
   SessionStoreUnavailableError: StoreError, SESSION_LIFETIME_MS: 604800000, FLOW_LIFETIME_MS: 600000,
   readSessionVault: async () => {
@@ -87,6 +89,7 @@ stubs['@/lib/supabase-server'] = { createServiceClient: () => {
             if (operation === 'insert') coupons.set(target, payload);
             if (operation === 'delete') coupons.delete(filters.id);
           }
+          if (table === 'room_presence' && operation === 'delete') presence.delete(filters.user_id);
           return { data: { id: target, ...payload }, error: null };
         }
         reads.push({ table, filters: { ...filters } });
@@ -110,7 +113,13 @@ stubs['@/lib/distributed-rate-limit'] = { RateLimitUnavailableError: class exten
 stubs['@/lib/challenge'] = { slugify: value => String(value).toLowerCase() };
 stubs['@/lib/pilot-sales'] = { isPilotLeadStatus: value => ['contacted', 'qualified', 'won'].includes(value) };
 stubs['@/lib/billing'] = { normalizePeriodMonths: value => value, normalizeSeats: value => value, isKhaiGiangCampaignCode: () => false, isTrialCouponCode: () => false, assertCouponAllowedForOrder: () => {}, computeBasePrice: () => 100, applyDiscount: () => 90, trialCouponDays: () => null };
-stubs['@/lib/pack-passage'] = { DEMO_PACKS: [] };
+stubs['@/lib/pack-passage'] = { DEMO_PACKS: [], PACK_PASSAGE_MIN_WORDS: 5, PACK_PASSAGE_MAX_WORDS: 15 };
+stubs['@/lib/pack-themes'] = { PACK_THEMES: [] };
+stubs['@/lib/pack-levels'] = { PACK_READING_LEVELS: [], DEFAULT_PACK_READING_LEVEL_ID: 'fixture' };
+stubs['@/lib/entitlement'] = { FREE_PACK_READING_DAILY_LIMIT: 2 };
+stubs['@/lib/entitlement-server'] = { resolvePlanByUserId: async (_client, id) => { assert.equal(id,caller); return 'free'; } };
+stubs['@/lib/room-presence'] = { PRESENCE_ONLINE_MS: 30000 };
+stubs['@/lib/display-name'] = {};
 stubs['@/lib/daily-reading-generator'] = { todayVN: () => '2026-01-01', findUserUncompletedExercise: async (_client, id) => { assert.equal(id,caller); return { exercise: { id: target } }; }, formatExerciseForClient: (exercise, id) => { assert.equal(id,caller); return exercise; } };
 const request = (method, options = {}) => new Request(origin+'/api/fixture'+(options.query ?? ''), {
   method, headers: { 'X-LingoPro-Request': '1', ...(method === 'GET' ? {} : { Origin: origin }), ...(authenticated ? { Cookie: '__Host-lingopro-session='+ 'N'.repeat(43) } : {}), 'Content-Type': 'application/json', ...options.headers },
@@ -135,13 +144,15 @@ try {
   const retiredBilling = await load('src/app/api/billing/claim-upgrade-gift/route.ts');
   const retiredCampaign = await load('src/app/api/campaign/claim-upgrade-gift/route.ts');
   const dailyReading = await load('src/app/api/practice/daily-reading/generate/route.ts');
-  const handlers = [[couponsRoute.GET,'GET'], [couponsRoute.POST,'POST'], [couponsRoute.DELETE,'DELETE'], [pilot.GET,'GET'], [pilot.PATCH,'PATCH'], [challenges.POST,'POST'], [challenge.PATCH,'PATCH'], [joinChallenge.POST,'POST'], [validate.POST,'POST'], [retiredBilling.POST,'POST'], [retiredCampaign.POST,'POST'], [dailyReading.POST,'POST']];
-  for (const [handler, method] of handlers) {
+  const hub = await load('src/app/api/hub/presence/route.ts');
+  const pack = await load('src/app/api/practice/pack-passage/route.ts');
+  const handlers = [[couponsRoute.GET,'GET'], [couponsRoute.POST,'POST'], [couponsRoute.DELETE,'DELETE'], [pilot.GET,'GET'], [pilot.PATCH,'PATCH'], [challenges.POST,'POST'], [challenge.PATCH,'PATCH'], [joinChallenge.POST,'POST'], [validate.POST,'POST'], [retiredBilling.POST,'POST'], [retiredCampaign.POST,'POST'], [dailyReading.POST,'POST'], [hub.DELETE,'DELETE'], [pack.GET,'GET',200]];
+  for (const [handler, method, anonymousStatus = 401] of handlers) {
     const before = snapshot(); authenticated = false; resetEffects();
-    assert.equal((await handler(request(method),context)).status,401);
+    assert.equal((await handler(request(method),context)).status,anonymousStatus);
     assert.equal(writes.length,0); assert.equal(serviceClients,0); assert.equal(snapshot(),before);
     for (const credential of ['Bearer legacy-jwt', 'Bearer malformed']) {
-      assert.equal((await handler(request(method,{headers:{Authorization:credential}}),context)).status,401);
+      assert.equal((await handler(request(method,{headers:{Authorization:credential}}),context)).status,anonymousStatus);
       assert.equal(writes.length,0);
     }
     authenticated = true;
@@ -151,7 +162,7 @@ try {
       assert.equal(serviceClients,0); assert.equal(writes.length,0); assert.equal(snapshot(),before);
     }
     resetEffects(); const malformed = await handler(request(method,{headers:{Cookie:'__Host-lingopro-session=bad'}}),context);
-    assert.equal(malformed.status,401); assert.equal(serviceClients,0); assert.equal(writes.length,0);
+    assert.equal(malformed.status,anonymousStatus); assert.equal(serviceClients,0); assert.equal(writes.length,0);
     for (const failure of ['outage','provider']) {
       outage = failure === 'outage'; providerError = failure === 'provider'; resetEffects();
       const unavailable = await handler(request(method),context);
@@ -198,6 +209,9 @@ try {
   role = 'student'; resetEffects(); assert.equal((await joinChallenge.POST(request('POST'),context)).status,200);
   assert.equal(writes.length,2); assert(writes.every(write => write.payload.user_id === caller));
   resetEffects(); assert.equal((await dailyReading.POST(request('POST'))).status,200); assert.equal(writes.length,0);
+  resetEffects(); assert.equal((await hub.DELETE(request('DELETE',{body:{user_id:target}}))).status,200);
+  assert.equal(writes.length,1); assert.equal(writes[0].filters.user_id,caller); assert(presence.has(target)); assert(!presence.has(caller));
+  resetEffects(); assert.equal((await pack.GET(request('GET'))).status,200); assert.equal(writes.length,0);
   resetEffects(); assert.equal((await retiredBilling.POST(request('POST'))).status,410); assert.equal((await retiredCampaign.POST(request('POST'))).status,410); assert.equal(writes.length,0);
   authenticated = false; role = 'teacher';
   for (const state of ['expired','revoked']) {
@@ -232,6 +246,18 @@ try {
         assert(!/\.auth\.getUser\(/.test(ast.text),`${path}: provider identity must use shared server boundary`);
       }
       function visit(node) {
+        if (path.startsWith('src/app/api/') && path.endsWith('/route.ts') && ts.isCallExpression(node) && ['getAuthUser','getWebUser'].includes(node.expression.getText(ast))) {
+          let ancestor = node, guarded = false;
+          while (ancestor.parent) {
+            ancestor = ancestor.parent;
+            if (ts.isTryStatement(ancestor) && ancestor.catchClause && /sessionErrorResponse|safeErrorResponse/.test(ancestor.catchClause.getText(ast))) guarded = true;
+            if (ts.isFunctionDeclaration(ancestor)) {
+              const exported = ancestor.modifiers?.some(modifier => modifier.kind === ts.SyntaxKind.ExportKeyword);
+              if (exported) assert(guarded,`${path}: ${ancestor.name?.text} must preserve auth failure semantics`);
+              break;
+            }
+          }
+        }
         if (ts.isStringLiteralLike(node) && (ts.isImportDeclaration(node.parent) || ts.isExportDeclaration(node.parent) || ts.isCallExpression(node.parent) || ts.isLiteralTypeNode(node.parent))) {
           assert(!retired.some(pkg => node.text === pkg || node.text.startsWith(pkg+'/')),`${path}: retired auth dependency reference`);
         }
@@ -244,7 +270,17 @@ try {
   for (const dir of ['src','scripts','deploy']) scan(dir);
   assert(manifest.dependencies['@supabase/supabase-js']);
   const facade = read('src/lib/supabase.ts'); assert(facade.includes('appAuth')); assert(!facade.includes('SUPABASE_SERVICE_ROLE_KEY'));
-  console.log('[P3A] D02: 12 handler denial/outage/CSRF boundaries + state/role/legitimate paths PASS; D03: manifest/lock/runtime references PASS');
+  // Hai annotation prebuilt cũ ngoài GET scope; không tắt rule hoặc chấp nhận diagnostic mới.
+  const lintBaseline = JSON.parse(read('tests/security/phase3a-lint-baseline.json'));
+  const lint = spawnSync(process.execPath,[join(root,'node_modules/eslint/bin/eslint.js'),...Object.keys(lintBaseline),'--format','json'],{cwd:root,encoding:'utf8',timeout:120000});
+  assert([0,1].includes(lint.status),'ESLint execution failed');
+  for (const report of JSON.parse(lint.stdout)) {
+    const path = relative(root,report.filePath).split(sep).join('/');
+    const actual = report.messages.map(message => [message.severity,message.ruleId,message.message,message.line,message.column]);
+    assert.deepEqual(actual.map(entry => JSON.stringify(entry)).sort(),lintBaseline[path].map(entry => JSON.stringify(entry)).sort(),`${path}: lint regression`);
+  }
+  console.log('[P3A] Followup lint: hub0; pack exact2 pre-existing prebuilt annotations; zero new errors/warnings');
+  console.log('[P3A] D02: 14 handler denial/outage/CSRF boundaries + state/role/legitimate paths + exported-handler AST guards PASS; D03: manifest/lock/runtime references PASS');
 } finally {
   for (const key of Object.keys(process.env)) if (!(key in savedEnv)) delete process.env[key];
   Object.assign(process.env,savedEnv); delete globalThis.__p3aStubs;

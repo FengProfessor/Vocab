@@ -71,7 +71,14 @@ export const dynamic = 'force-dynamic';
  * Pro:  ∞ · Gemini multi-key (nhanh), fallback Zhipu
  */
 export async function GET(req: Request): Promise<NextResponse> {
-  const auth = await getAuthUser(req);
+  let auth: Awaited<ReturnType<typeof getAuthUser>>;
+  try {
+    auth = await getAuthUser(req);
+  } catch (error: unknown) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
+    throw error;
+  }
   let plan: Plan = 'free';
   let quota: {
     plan: Plan;
