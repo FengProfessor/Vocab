@@ -6,7 +6,6 @@ import { beginPasswordReset, createRecoveryRecord, endPasswordReset, FLOW_LIFETI
 import { checkRateLimitAsync, RateLimitUnavailableError } from '@/lib/distributed-rate-limit';
 import { getClientIp } from '@/lib/api-security';
 import { PRIVATE_SESSION_HEADERS } from '@/lib/session-response';
-import { createServiceClient } from '@/lib/supabase-server';
 
 export const RECOVERY_HEADERS = { ...PRIVATE_SESSION_HEADERS, 'Referrer-Policy': 'no-referrer' };
 export const RECOVERY_ACCEPTED = { accepted: true,
@@ -159,9 +158,12 @@ export async function updateRecoveredPassword(req: Request): Promise<Response> {
     }
     const user: unknown = await result.json();
     if (!user || typeof user !== 'object' || !('id' in user) || user.id !== vault.userId) throw new SessionStoreUnavailableError();
-    // SDK signOut dùng provider JWT đã verify; revoke provider sessions cả các browser khác.
-    const { error } = await createServiceClient().auth.admin.signOut(vault.accessToken, 'global');
-    if (error) throw new SessionStoreUnavailableError();
+    // Cùng endpoint/scope với SDK signOut; timeout rõ ràng, không cần admin credential.
+    const signedOut = await fetch(new URL('/auth/v1/logout?scope=global', provider), {
+      method: 'POST', headers: { apikey: publicKey, Authorization: `Bearer ${vault.accessToken}` },
+      signal: AbortSignal.timeout(10_000), cache: 'no-store',
+    });
+    if (!signedOut.ok) throw new SessionStoreUnavailableError();
     const previous = requestCookie(req, sessionCookieName());
     if (previous) await revokeSessionVault(previous);
   } finally {

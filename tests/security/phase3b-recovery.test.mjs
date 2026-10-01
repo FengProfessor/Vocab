@@ -33,6 +33,7 @@ const jwt = `header.${Buffer.from(JSON.stringify({ session_id: sid })).toString(
 const user = { id: b, email: 'recovery@example.test', email_confirmed_at: '2026-01-01', user_metadata: {} };
 let providerError = false, updateFailure = false, storeFailure = false, active = true, ipAllowed = true, emailAllowed = true;
 let signouts = 0, mutations = 0, requests = 0, wrongKind = false, pending = false, forceExpiry = false;
+let signoutFailure = false;
 let passwordA = 'fixture-old-a', passwordB = 'fixture-old-b';
 const records = new Map(), codes = new Map(), rates = [], vaults = new Map();
 class StoreError extends Error {}
@@ -119,6 +120,12 @@ try {
   const login = await load('src/app/api/auth/login/route.ts');
   const flowName = recovery.recoveryCookieName(true), resetName = recovery.recoveryCookieName();
   globalThis.fetch = async (url, init) => {
+    if (String(url) === 'https://fixture.supabase.co/auth/v1/logout?scope=global') {
+      assert.equal(init.method, 'POST'); assert.equal(init.headers.Authorization, 'Bearer ' + jwt);
+      assert.equal(init.headers.apikey, 'fixture-public'); assert(init.signal); assert.equal(init.cache, 'no-store');
+      if (signoutFailure) return new Response(null, { status: 503 });
+      signouts++; active = false; return new Response(null, { status: 204 });
+    }
     assert.equal(String(url), 'https://fixture.supabase.co/auth/v1/user'); assert.equal(init.method, 'PUT');
     assert.equal(init.headers.Authorization, 'Bearer ' + jwt); assert.equal(init.cache, 'no-store');
     if (updateFailure) return Response.json({ error: 'synthetic-provider-secret' }, { status: 500 });
@@ -194,6 +201,13 @@ try {
   const providerFail = await context(); updateFailure = true;
   const failure = await noMutation(request('/api/auth/recovery', 'POST', validBody, { Cookie: providerFail }));
   assert.equal(failure.status, 503); assert(!(await failure.text()).includes('synthetic-provider-secret')); updateFailure = false;
+  const failedSignout = await context(); signoutFailure = true;
+  const priorMutations = mutations;
+  const partial = await reset.POST(request('/api/auth/recovery', 'POST', validBody, { Cookie: failedSignout }));
+  assert.equal(partial.status, 503); assert.equal(mutations, priorMutations + 1);
+  assert.equal(await auth.verifiedAppSession(request('/api/auth/session', 'GET', {}, { Cookie: '__Host-lingopro-session=' + 'O'.repeat(43) })), null);
+  assert.equal((await reset.POST(request('/api/auth/recovery', 'POST', validBody, { Cookie: failedSignout }))).status, 401);
+  signoutFailure = false;
   wrongKind = true;
   const wrongStart = await start.POST(request('/api/auth/recovery/request', 'POST', { email: user.email }));
   assert.equal((await callback.GET(request('/auth/recovery/callback?code=fixture-recovery-code', 'GET', {}, { Cookie: cookie(wrongStart, flowName) }))).headers.get('Location'), origin + '/auth/recovery?invalid=1'); wrongKind = false;
