@@ -1,0 +1,19 @@
+{
+  "src/app/api/hub/presence/route.ts": [],
+  "src/app/api/practice/pack-passage/route.ts": [
+    [
+      2,
+      "@typescript-eslint/no-explicit-any",
+      "Unexpected any. Specify a different type.",
+      28,
+      35
+    ],
+    [
+      2,
+      "@typescript-eslint/no-explicit-any",
+      "Unexpected any. Specify a different type.",
+      29,
+      48
+    ]
+  ]
+}
