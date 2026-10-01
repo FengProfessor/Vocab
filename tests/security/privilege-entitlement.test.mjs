@@ -31,6 +31,7 @@ const responseJson = (body, init = {}) => new Response(JSON.stringify(body), {
 
 async function loadCampaignRoute(key) {
   const source = sources[key]
+    .replace("import { withSessionErrors } from '@/lib/session-response';", 'const withSessionErrors = handler => handler;')
     .replace(/import \{ NextRequest, NextResponse \} from 'next\/server';/, 'const NextResponse = globalThis.__nextResponse;')
     .replace(/import \{ NextResponse \} from 'next\/server';/, 'const NextResponse = globalThis.__nextResponse;')
     .replace(

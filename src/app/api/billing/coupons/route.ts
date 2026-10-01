@@ -1,4 +1,5 @@
-import { getWebUser } from '@/lib/server-auth-session';
+import { authorizeWebAdmin } from '@/lib/admin-auth';
+import { PRIVATE_SESSION_HEADERS, withSessionErrors } from '@/lib/session-response';
 /**
  * GET    /api/billing/coupons — List coupons (admin only)
  * POST   /api/billing/coupons — Create coupon (admin only)
@@ -6,58 +7,45 @@ import { getWebUser } from '@/lib/server-auth-session';
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/supabase-server';
-import { getAdminEmails } from '@/lib/api-security';
 
 export const dynamic = 'force-dynamic';
 
-async function requireAdmin(req: NextRequest) {
-  const supabase = createServiceClient();
-
-
-
-  const { data: { user } } = await getWebUser(req);
-  if (!user) return { error: 'Unauthorized', status: 401, supabase, user: null };
-
-  const { data: callerProfile } = await supabase.from('profiles').select('email, role').eq('id', user.id).maybeSingle();
-  const callerEmail = (callerProfile?.email || user.email || '').toLowerCase().trim();
-  const adminEmails = getAdminEmails();
-  const isAdminRole = callerProfile?.role === 'admin';
-  const isWhitelisted = Boolean(callerEmail && adminEmails.includes(callerEmail));
-
-  if (!isAdminRole && !isWhitelisted) {
-    return { error: 'Admin access required', status: 403, supabase, user: null };
-  }
-  return { error: null, status: 200, supabase, user };
+function couponFailure() {
+  console.error('[Coupons] operation_failed');
+  return NextResponse.json({ success: false, error: 'Coupon operation failed' }, {
+    status: 500, headers: PRIVATE_SESSION_HEADERS,
+  });
 }
 
-export async function GET(req: NextRequest) {
-  const { error, status, supabase } = await requireAdmin(req);
-  if (error) return NextResponse.json({ error }, { status });
+async function listCoupons(req: NextRequest) {
+  const admin = await authorizeWebAdmin(req);
+  if (admin.response) return admin.response;
+  const { supabase } = admin;
 
   const { data, error: dbErr } = await supabase
     .from('coupons')
     .select('*')
     .order('created_at', { ascending: false });
 
-  if (dbErr) return NextResponse.json({ error: dbErr.message }, { status: 500 });
+  if (dbErr) return couponFailure();
   return NextResponse.json({ success: true, coupons: data ?? [] });
 }
 
-export async function POST(req: NextRequest) {
-  const { error, status, supabase } = await requireAdmin(req);
-  if (error) return NextResponse.json({ error }, { status });
+async function createCoupon(req: NextRequest) {
+  const admin = await authorizeWebAdmin(req);
+  if (admin.response) return admin.response;
+  const { supabase } = admin;
 
-  const body = await req.json() as {
+  const body = await req.json().catch(() => null) as {
     code: string;
     discountPct?: number;
     discountAmount?: number;
     maxUses?: number;
     validUntil?: string;
     applicablePlans?: string[];
-  };
+  } | null;
 
-  if (!body.code?.trim()) {
+  if (!body || typeof body.code !== 'string' || !body.code.trim()) {
     return NextResponse.json({ error: 'Coupon code is required' }, { status: 400 });
   }
 
@@ -74,19 +62,24 @@ export async function POST(req: NextRequest) {
     .select()
     .single();
 
-  if (dbErr) return NextResponse.json({ error: dbErr.message }, { status: 500 });
+  if (dbErr) return couponFailure();
   return NextResponse.json({ success: true, coupon: data });
 }
 
-export async function DELETE(req: NextRequest) {
-  const { error, status, supabase } = await requireAdmin(req);
-  if (error) return NextResponse.json({ error }, { status });
+async function deleteCoupon(req: NextRequest) {
+  const admin = await authorizeWebAdmin(req);
+  if (admin.response) return admin.response;
+  const { supabase } = admin;
 
   const { searchParams } = new URL(req.url);
   const id = searchParams.get('id');
   if (!id) return NextResponse.json({ error: 'Coupon id required' }, { status: 400 });
 
   const { error: dbErr } = await supabase.from('coupons').delete().eq('id', id);
-  if (dbErr) return NextResponse.json({ error: dbErr.message }, { status: 500 });
+  if (dbErr) return couponFailure();
   return NextResponse.json({ success: true });
 }
+
+export const GET = withSessionErrors(listCoupons);
+export const POST = withSessionErrors(createCoupon);
+export const DELETE = withSessionErrors(deleteCoupon);

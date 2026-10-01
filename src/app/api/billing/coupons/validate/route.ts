@@ -1,4 +1,4 @@
-import { sessionErrorResponse } from '@/lib/session-response';
+import { sessionErrorResponse, withSessionErrors } from '@/lib/session-response';
 import { getWebUser } from '@/lib/server-auth-session';
 /**
  * POST /api/billing/coupons/validate
@@ -7,7 +7,7 @@ import { getWebUser } from '@/lib/server-auth-session';
 
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
-import { safeErrorResponse } from '@/lib/api-security';
+import { safeErrorResponse, unauthorized } from '@/lib/api-security';
 import type { Plan } from '@/lib/supabase';
 import {
   applyDiscount,
@@ -22,15 +22,14 @@ import {
   type Coupon,
 } from '@/lib/billing';
 
-export async function POST(req: NextRequest) {
-  const supabase = createServiceClient();
-
+async function validateCoupon(req: NextRequest) {
   const {
     data: { user },
   } = await getWebUser(req);
   if (!user) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    return unauthorized();
   }
+  const supabase = createServiceClient();
 
   const body = (await req.json()) as {
     code?: string;
@@ -189,3 +188,5 @@ export async function POST(req: NextRequest) {
         : undefined,
   });
 }
+
+export const POST = withSessionErrors(validateCoupon);

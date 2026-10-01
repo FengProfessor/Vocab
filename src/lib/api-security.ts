@@ -5,7 +5,7 @@ import { cacheGet, cacheSet } from '@/lib/ttl-cache';
 import { isCronAuthorizationValid } from '@/lib/cron-auth';
 import { RateLimitUnavailableError } from '@/lib/distributed-rate-limit';
 import { getWebUser, sessionCookieName } from '@/lib/server-auth-session';
-import { sessionErrorResponse } from '@/lib/session-response';
+import { PRIVATE_SESSION_HEADERS, sessionErrorResponse } from '@/lib/session-response';
 export { checkRateLimitAsync, RateLimitUnavailableError } from '@/lib/distributed-rate-limit';
 export type { RateLimitResult } from '@/lib/distributed-rate-limit';
 
@@ -101,12 +101,12 @@ export async function getAuthUser(req: Request): Promise<AuthResult | null> {
 
 /** Standard 401 response. */
 export function unauthorized(): NextResponse {
-  return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+  return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401, headers: PRIVATE_SESSION_HEADERS });
 }
 
 /** Standard 403. */
 export function forbidden(message = 'Forbidden'): NextResponse {
-  return NextResponse.json({ success: false, error: message }, { status: 403 });
+  return NextResponse.json({ success: false, error: message }, { status: 403, headers: PRIVATE_SESSION_HEADERS });
 }
 
 /**

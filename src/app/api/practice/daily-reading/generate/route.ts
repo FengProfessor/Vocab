@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
-import { getAuthUser } from '@/lib/api-security';
+import { sessionErrorResponse } from '@/lib/session-response';
+import { getAuthUser, unauthorized } from '@/lib/api-security';
 import { createServiceClient } from '@/lib/supabase-server';
 import {
   todayVN,
@@ -19,7 +20,7 @@ export async function POST(req: Request): Promise<NextResponse> {
   try {
     const auth = await getAuthUser(req);
     if (!auth?.userId) {
-      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+      return unauthorized();
     }
 
     const supabase = createServiceClient();
@@ -256,6 +257,8 @@ export async function POST(req: Request): Promise<NextResponse> {
       exercise: formatted,
     });
   } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
     const msg = err instanceof Error ? err.message : String(err);
     console.error('[DailyReading/Generate] Error:', msg);
     return NextResponse.json({ success: false, error: msg }, { status: 500 });

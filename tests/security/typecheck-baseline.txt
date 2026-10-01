@@ -1,0 +1,10 @@
+tests/speaking/challenger-m2-resilience.test.ts(24,28): error TS2307: Cannot find module '../../scripts/speaking/crawlers/crawl-elllo' or its corresponding type declarations.
+tests/speaking/challenger-m2-resilience.test.ts(25,34): error TS2307: Cannot find module '../../scripts/speaking/crawlers/crawl-talkenglish' or its corresponding type declarations.
+tests/speaking/challenger-m2-resilience.test.ts(26,30): error TS2307: Cannot find module '../../scripts/speaking/crawlers/crawl-youtube' or its corresponding type declarations.
+tests/speaking/challenger-m2-resilience.test.ts(137,23): error TS7006: Parameter 'l' implicitly has an 'any' type.
+tests/speaking/challenger-m2-resilience.test.ts(141,29): error TS7006: Parameter 'l' implicitly has an 'any' type.
+tests/speaking/challenger-m2-resilience.test.ts(145,25): error TS7006: Parameter 'l' implicitly has an 'any' type.
+tests/speaking/crawling-pipeline.test.ts(28,8): error TS2307: Cannot find module '../../scripts/speaking/crawlers/crawl-elllo' or its corresponding type declarations.
+tests/speaking/crawling-pipeline.test.ts(32,8): error TS2307: Cannot find module '../../scripts/speaking/crawlers/crawl-talkenglish' or its corresponding type declarations.
+tests/speaking/crawling-pipeline.test.ts(37,8): error TS2307: Cannot find module '../../scripts/speaking/crawlers/crawl-youtube' or its corresponding type declarations.
+tests/speaking/crawling-pipeline.test.ts(425,45): error TS7006: Parameter 'l' implicitly has an 'any' type.

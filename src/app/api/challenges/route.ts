@@ -1,7 +1,7 @@
 import { sessionErrorResponse } from '@/lib/session-response';
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
-import { getAuthUser, safeErrorResponse } from '@/lib/api-security';
+import { getAuthUser, unauthorized, forbidden, safeErrorResponse } from '@/lib/api-security';
 import { slugify } from '@/lib/challenge';
 
 export const runtime = 'nodejs';
@@ -25,7 +25,7 @@ export async function GET(req: NextRequest) {
     if (error) throw error;
 
     // Transform participant count for frontend
-    const challenges = (data || []).map((c: any) => ({
+    const challenges = (data || []).map((c: Record<string, unknown> & { challenge_participants?: { count?: number }[] }) => ({
       ...c,
       participant_count: c.challenge_participants?.[0]?.count ?? 0,
     }));
@@ -41,7 +41,7 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
   try {
     const authUser = await getAuthUser(req);
-    if (!authUser) throw new Error('Unauthorized');
+    if (!authUser) return unauthorized();
     const user = { id: authUser.userId };
 
     const supabase = createServiceClient();
@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
       .single();
 
     if (profile?.role !== 'teacher') {
-      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 403 });
+      return forbidden('Teacher access required');
     }
 
     const body = await req.json();
@@ -67,7 +67,7 @@ export async function POST(req: NextRequest) {
     if (error) throw error;
 
     return NextResponse.json({ success: true, data });
-  } catch (error: any) {
+  } catch (error: unknown) {
     const sessionFailure = sessionErrorResponse(error);
     if (sessionFailure) return sessionFailure;
     return safeErrorResponse(error, 'Lỗi khi tạo challenge');

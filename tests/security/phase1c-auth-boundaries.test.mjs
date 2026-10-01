@@ -34,7 +34,7 @@ const responseJson = (body, init = {}) => new Response(JSON.stringify(body), {
 
 async function loadModule(name, source) {
   const modulePath = join(tempRoot, `${name}-${Date.now()}-${Math.random()}.mjs`);
-  source = source.replace(/import \{ sessionErrorResponse \} from '@\/lib\/session-response';/, 'const sessionErrorResponse = () => null;');
+  source = source.replace(/import \{ (?:PRIVATE_SESSION_HEADERS, )?sessionErrorResponse \} from '@\/lib\/session-response';/, 'const PRIVATE_SESSION_HEADERS = {}; const sessionErrorResponse = () => null;');
   writeFileSync(modulePath, compile(source, paths[name]));
   return import(pathToFileURL(modulePath).href);
 }

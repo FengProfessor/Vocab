@@ -1,7 +1,7 @@
 import { sessionErrorResponse } from '@/lib/session-response';
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
-import { getAuthUser, safeErrorResponse } from '@/lib/api-security';
+import { getAuthUser, unauthorized, safeErrorResponse } from '@/lib/api-security';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -10,7 +10,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
   try {
     const { id } = await params;
     const authUser = await getAuthUser(req);
-    if (!authUser) throw new Error('Unauthorized');
+    if (!authUser) return unauthorized();
     const user = { id: authUser.userId };
 
     const supabase = createServiceClient();
@@ -85,7 +85,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     const qrUrl = `https://img.vietqr.io/image/${bankId}-${accountNo}-${template}.png?amount=${amount}&addInfo=${encodeURIComponent(description)}`;
 
     return NextResponse.json({ success: true, order, participant, qrUrl });
-  } catch (error: any) {
+  } catch (error: unknown) {
     const sessionFailure = sessionErrorResponse(error);
     if (sessionFailure) return sessionFailure;
     return safeErrorResponse(error, 'Lỗi khi đăng ký tham gia challenge');
