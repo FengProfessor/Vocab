@@ -102,11 +102,51 @@ try {
   const flow = await store.createAuthFlow({ verifier: 'synthetic-pkce-verifier', next: '/student', kind: 'oauth' });
   assert.equal((await store.consumeAuthFlow(flow)).verifier, 'synthetic-pkce-verifier');
   assert.equal(await store.consumeAuthFlow(flow), null);
+  const recoveryFlow = await store.createRecoveryRecord({ phase: 'pkce', verifier: JSON.stringify('synthetic-pkce-verifier/recovery') });
+  assert.equal(await store.recoveryRecord(recoveryFlow, 'password'), null);
+  assert.equal((await store.recoveryRecord(recoveryFlow, 'pkce', true)).phase, 'pkce');
+  assert.equal(await store.recoveryRecord(recoveryFlow, 'pkce', true), null);
+  const now = Date.now();
+  const context = await store.createRecoveryRecord({ phase: 'password', vault: { ...input, createdAt: now, expiresAt: now + 600000 } });
+  const contextKey = `auth:recovery:${createHash('sha256').update(context).digest('hex')}`;
+  const contextRaw = await command(['GET', contextKey]);
+  assert(!contextRaw.includes(input.accessToken) && !contextRaw.includes(input.refreshToken));
+  assert((await command(['PTTL', contextKey])) <= 600000);
+  const claims = await Promise.all(Array.from({ length: 20 }, () => store.recoveryRecord(context, 'password', true)));
+  assert.equal(claims.filter(Boolean).length, 1);
+  assert.equal(await store.recoveryRecord(context, 'password'), null);
+  const expiredContext = await store.createRecoveryRecord({ phase: 'password', vault: { ...input, createdAt: now, expiresAt: now + 600000 } });
+  const savedNow = Date.now;
+  try {
+    Date.now = () => now + 600001;
+    assert.equal(await store.recoveryRecord(expiredContext, 'password', true), null);
+  } finally { Date.now = savedNow; }
   await store.revokeSessionVault(first);
   assert.equal(await store.readSessionVault(first), null);
   assert.equal(await store.readSessionVault(second).catch(() => null), null);
 
   if (port) {
+    // Lua thật: reset fence giữ legacy compatibility và không resurrect qua refresh CAS.
+    const userGenerationKey = `auth:user:${createHash('sha256').update(input.userId).digest('hex')}:generation`;
+    const resetLockKey = userGenerationKey.replace(':generation', ':reset-lock');
+    const old = await store.createSessionVault(input); ids.push(old);
+    const oldRead = await store.readSessionVault(old);
+    const oldLease = await store.acquireSessionLease(old);
+    const owners = await Promise.all(Array.from({ length: 20 }, () => store.beginPasswordReset(input.userId)));
+    assert.equal(owners.filter(Boolean).length, 1);
+    assert.equal(await store.replaceSessionVault(old, oldRead, oldLease, input), false,
+      'reset fence must reject refresh before any lazy deletion/read');
+    assert.equal(await store.readSessionVault(old), null);
+    assert.equal(await store.replaceSessionVault(old, oldRead, oldLease, input), false);
+    await assert.rejects(store.createSessionVault(input), store.SessionStoreUnavailableError);
+    await store.endPasswordReset(input.userId, randomBytes(32).toString('base64url'));
+    assert.equal(await store.beginPasswordReset(input.userId), null);
+    await store.endPasswordReset(input.userId, owners.find(Boolean));
+    const fresh = await store.createSessionVault(input); ids.push(fresh);
+    assert.equal((await store.readSessionVault(fresh)).vault.generation, owners.find(Boolean));
+    assert.equal(await command(['PTTL', userGenerationKey]), -1);
+    await command(['DEL', userGenerationKey, resetLockKey]);
+    console.log('[P3B] Real Redis global generation/replay/creation gate/refresh CAS/concurrent reset PASS');
     const id = await store.createSessionVault(input); ids.push(id);
     const before = await store.readSessionVault(id);
     const leases = await Promise.all(Array.from({ length: 30 }, () => store.acquireSessionLease(id)));

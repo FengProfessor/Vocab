@@ -98,7 +98,7 @@ export function serverAuthClient(verifier?: string) {
 }
 
 /** Read provider session_id only after Auth has verified the JWT/user. */
-function providerSessionId(accessToken: string): string {
+export function providerSessionId(accessToken: string): string {
   try {
     const claims: unknown = JSON.parse(Buffer.from(accessToken.split('.')[1], 'base64url').toString('utf8'));
     if (claims && typeof claims === 'object' && 'session_id' in claims &&
@@ -107,7 +107,7 @@ function providerSessionId(accessToken: string): string {
   throw new SessionRequestError(401);
 }
 
-async function verifiedProviderUser(vault: Pick<SessionVault, 'accessToken' | 'userId' | 'providerSessionId'>): Promise<User> {
+export async function verifiedProviderUser(vault: Pick<SessionVault, 'accessToken' | 'userId' | 'providerSessionId'>): Promise<User> {
   const { data, error } = await serverAuthClient().client.auth.getUser(vault.accessToken);
   if (error) {
     if (error.status === 401 || error.status === 403 || error.status === 400) throw new SessionRequestError(401);

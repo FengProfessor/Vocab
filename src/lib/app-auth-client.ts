@@ -135,6 +135,10 @@ export const appAuth = {
       return { error: null };
     } catch { return { error: new Error('Không đăng xuất được. Thử lại khi kết nối ổn định.') }; }
   },
+  /** Reset endpoint already revoked sessions/cleared cookies; discard pending reads and cached identity. */
+  passwordRecoveryCompleted() {
+    initialize(); clearLegacyAuthStorage(); invalidate(); notify('SIGNED_OUT', null, true);
+  },
   async updateUser(attributes: { data: Record<string, unknown> }) {
     try {
       const { response, payload } = await call('/api/auth/user', 'PATCH', attributes);

@@ -171,6 +171,12 @@ try {
   const pending=browser.appAuth.getSession(); await browser.appAuth.signOut();
   finishRead(TestResponse.json({session:first.publicSession})); assert.equal((await pending).data.session,null);
   assert(!fakeStorage.has('sb-fixture-auth-token'));assert(!fakeStorage.has('lp:profile:old'));assert.equal(fakeStorage.get('study-preference'),'keep');
+  const pendingRecovery = browser.appAuth.getSession();
+  browser.appAuth.passwordRecoveryCompleted();
+  finishRead(TestResponse.json({ session: first.publicSession }));
+  assert.equal((await pendingRecovery).data.session, null, 'reset must discard pre-reset pending browser identity');
+  assert.equal(fakeStorage.get('study-preference'), 'keep');
+  console.log('[P3B] Browser reset completion invalidates pending reads, broadcasts logout and preserves preferences PASS');
   Object.defineProperty(window,'localStorage',{get(){throw new Error('disabled storage');}});browser.clearLegacyAuthStorage();
   globalThis.BroadcastChannel=oldChannel; delete globalThis.window;
   console.log('[P2C] Browser storage cleanup + stale-response/logout race PASS');

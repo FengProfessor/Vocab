@@ -10,6 +10,8 @@ Phần audit ban đầu và checkpoint bên dưới là lịch sử. **P1-C-02 C
 
 C03/C05 giữ CLOSED; dependency advisories, accepted Windows/Ubuntu host-compromise residual risk, in-session XSS access, mobile/lesson persistence và deferred hardening không được gán CLOSED. Refresh/races/OAuth/outage/fixation/CSRF/provider expiry/grants kiểm chứng trong isolated Redis/PostgreSQL/route CI; live smoke không chứng minh mọi provider/mobile journey. Không tuyên bố ứng dụng không còn vấn đề bảo mật.
 
+**Phase3B in progress / CONFIG-PROVIDER PENDING:** operator authorized bounded password recovery. Implementation/tests prepared on `codex/p3b-password-recovery`; design/current validation/provider/rollback gates in [password-recovery.md](password-recovery.md). D01 remains OPEN; no production reset or new rollout evidence yet. Phase3A deferred notes below are historical, not a permanent refusal to implement Phase3B.
+
 ## Kết luận
 
 **Kết luận audit ban đầu: STOP — NEED REVIEW.** Audit trên base `main` phát hiện một `P1-A CRITICAL`: source chứa một bearer token cố định và `assertCronAuthorized()` luôn chấp nhận token này. Token mở các cron chạy bằng Supabase service role, gồm đọc dữ liệu người dùng, gửi email/push và sửa trạng thái gói.
