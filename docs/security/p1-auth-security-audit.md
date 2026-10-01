@@ -6,7 +6,9 @@
 
 Phần audit ban đầu và checkpoint bên dưới là lịch sử. **P1-C-02 CLOSED**, PR #20 merge/release `44ad7c92e51287ee1aa22f5955f2186c0f92da12`, clean CI `36783452187`, canonical `36784213532` PASS; exact build/live markers, service active/health200 và dedicated production browser smoke PASS. Browser chỉ giữ opaque HttpOnly cookie; reusable provider credentials nằm trong encrypted server vault. Login/navigation/reload/user-context profile, DTO/storage cleanup/preferences, cookie flags/JS isolation, UI logout/revocation/cookie removal/old-cookie replay401 đều PASS. Không mật khẩu/token/cookie value trong evidence/logs.
 
-**P1 Phase 2C DONE. High0 / Medium0 / Low3.** C03/C05 giữ CLOSED; dependency advisories, accepted Windows/Ubuntu host-compromise residual risk, in-session XSS access, mobile/lesson persistence và deferred hardening không được gán CLOSED. Refresh/races/OAuth/outage/fixation/CSRF/provider expiry/grants kiểm chứng trong isolated Redis/PostgreSQL/route CI; live smoke không chứng minh mọi provider/mobile journey.
+**P1 Phase 2C DONE; Phase 3A PARTIAL. High0 / Medium0 / Low1.** Low-before3, closed2: **P1-D-02 CLOSED, P1-D-03 CLOSED; P1-D-01 OPEN / deferred**. PR22/23 merged; final canonical `36810782924` PASS at `52551271445322c3b07bcbb6b296d66cd97ec4ef`; independent staging HEAD/build/live markers match, service active/PID1300582 stable, local/public health and root200. Current closure evidence appears in the Phase3A closeout below; earlier pending/status counts are historical checkpoints.
+
+C03/C05 giữ CLOSED; dependency advisories, accepted Windows/Ubuntu host-compromise residual risk, in-session XSS access, mobile/lesson persistence và deferred hardening không được gán CLOSED. Refresh/races/OAuth/outage/fixation/CSRF/provider expiry/grants kiểm chứng trong isolated Redis/PostgreSQL/route CI; live smoke không chứng minh mọi provider/mobile journey. Không tuyên bố ứng dụng không còn vấn đề bảo mật.
 
 ## Kết luận
 
@@ -202,19 +204,19 @@ Safe recovery cần public request với exact-origin/proof/distributed limiter 
 
 Provider references: [Supabase resetPasswordForEmail](https://supabase.com/docs/reference/javascript/auth-resetpasswordforemail), [password-based auth](https://supabase.com/docs/guides/auth/passwords). Các API provider hỗ trợ reset nhưng không chứng minh app đã triển khai hoặc SMTP production đã sẵn sàng. Closure cần isolated recovery/race/replay/CSRF/rate-limit tests, real browser recovery, provider email test trên test account được phép và canonical rollout.
 
-### P1-D-02 — Implementation / verification pending
+### P1-D-02 — CLOSED / implementation và evidence
 
 Consumer classification: cookie web identity dùng `getWebUser` (admin/coupons); `getAuthUser` vẫn hỗ trợ cookie + hashed/revocable extension credential riêng trên legacy integration routes, không nhận browser JWT. Cron/bot/SePay dùng auth secret riêng theo contract đã CLOSED; **không** gom credential class thành bearer chung. API source không còn direct `auth.getUser`; provider verification chỉ trong server-auth module. CSRF/ambiguous cookie+bearer giữ nguyên.
 
 Fix: shared `authorizeWebAdmin` xác minh caller trước service client, role/email allowlist từ server; anonymous401, non-admin403, profile lookup error503. Pilot-leads và coupon CRUD dùng shared gate. Ba challenge mutation trả401/403 rõ. `withSessionErrors` chỉ chuyển SessionRequestError/SessionStoreUnavailableError sang private no-store401/403/503, rethrow lỗi khác; áp coupon CRUD/preview và hai campaign đã retired (410 giữ nguyên). Daily-reading catch bảo toàn session failure. Shared denial có private no-store. Coupon DB failures trả/log generic event, không raw provider message. Không đổi giá/order/payment/entitlement, challenge public GET hoặc existing teacher policy.
 
-Regression `phase3a-low.test.mjs`: actual auth/request/session/error/helper code với isolated provider/store/DB fixtures; 14 handler boundaries, forged body identity/roles, anonymous/no privileged client, non-admin/no business read, cookie+external credential ambiguity, malformed cookie, hostile Origin/missing proof/cross-site, Redis/provider/profile failure, coupon snapshot/mutation0, explicit whitelist/missing whitelist, valid admin coupon CRUD/pilot update/teacher challenge/student own enrollment/retired410. Database and logging disclosure fixture checked. Duplicates searched across API sources. Existing Phase1/2 suites remain required; production safe probes and exact-SHA rollout pending.
+Regression `phase3a-low.test.mjs`: actual auth/request/session/error/helper code với isolated provider/store/DB fixtures; 14 handler boundaries, forged body identity/roles, anonymous/no privileged client, non-admin/no business read, cookie+external credential ambiguity, malformed cookie, hostile Origin/missing proof/cross-site, Redis/provider/profile failure, coupon snapshot/mutation0, explicit whitelist/missing whitelist, valid admin coupon CRUD/pilot update/teacher challenge/student own enrollment/retired410. Database and logging disclosure fixture checked. Duplicates searched across API sources, including pack-passage GET and hub/presence DELETE corrected in PR23. Existing Phase1/2 suites, clean CI and canonical/runtime verification PASS; full evidence and limitations below.
 
-### P1-D-03 — Existing fix / verification pending
+### P1-D-03 — CLOSED / existing fix và evidence
 
 PR21 removed direct `@auth/supabase-adapter`, `@supabase/auth-helpers-nextjs`, `@supabase/ssr`, `next-auth` and21 lock nodes; no added packages/unrelated upgrades. Phase3A does not regenerate manifest/lock. `@supabase/supabase-js` retained for supported server Auth/public data transport. Phase2C server-only encrypted Redis vault and opaque HttpOnly cookie replaced historical client-only architecture; `docs/architecture/production.md` and current status above describe it.
 
-New regression rejects retired direct/dev/root-lock/nested-lock packages, npm script references, imports/reexports/require/dynamic imports/type references in `src/scripts/deploy`; browser facade must use `appAuth`, no service-role export. Existing complete browser dependency graph/token/storage/logout/race suites remain blocking. Historical audit architecture is not current design. Await clean CI + rollout evidence before CLOSED.
+New regression rejects retired direct/dev/root-lock/nested-lock packages, npm script references, imports/reexports/require/dynamic imports/type references in `src/scripts/deploy`; browser facade must use `appAuth`, no service-role export. Existing complete browser dependency graph/token/storage/logout/race suites remain blocking. Historical audit architecture is not current design. Clean CI/canonical and independent runtime verification PASS; closure below does not claim unrelated dependency advisories are resolved.
 
 ## Authorization sampling
 
@@ -444,3 +446,41 @@ Separate review debt observed while tracing: legacy non-session `safeErrorRespon
 
 
 Followup runtime proof: real production Next HTTP with proxy headers confirms public pack200; cookie/hostile Origin403 and isolated missing vault configuration503 for both changed branches. Existing proxy/logout security checks preserved; provider credentials intentionally absent. This supplements fixture state/ownership assertions and remains blocking in clean CI/canonical quality. Build PASS locally; final CI/rollout still pending.
+
+## Phase 3A — Closeout VERIFIED / PARTIAL (2026-10-01)
+
+### Scope và accounting
+
+Baseline main/production `c0abdb760f94255071379a5d658a085714a49cde`; High0/Medium0/Low-before3. IDs giữ thứ tự audit gốc, không đếm theo số endpoint. Grammar/TOEIC và previous auth invariants giữ nguyên. Đã chọn D02/D03; D01 defer theo STOP major auth redesign, không có recovery/credential mutation production.
+
+| Finding | Previous | Current | Closure / residual |
+|---|---|---|---|
+| P1-D-01 | OPEN / Low | OPEN / deferred | Thiếu recovery UX/API, purpose-limited PKCE flow và password-update contract; SMTP/template/redirect readiness chưa verify. Cần phase recovery riêng, không browser bearer/admin reset-by-email shortcut. |
+| P1-D-02 | OPEN / Low | CLOSED | PR22 + two same-root duplicates PR23; 14-handler actual-module tests, zero forbidden fixture mutations, exact exported-handler AST inventory, real Next proxy HTTP, clean CI and exact-SHA production probes PASS. Live verified only nonmutating GET denial/public behavior; legitimate writes/ownership tested in isolated fixtures. Unknown business errors remain rethrown; non-session logging/disclosure debt separate. |
+| P1-D-03 | OPEN / Low | CLOSED | PR21 removed four unused direct auth libraries and21 lock nodes; Phase3A manifest/lock/source/script/type-reference regression and 297-root/509-file browser graph PASS. Current architecture server-only encrypted Redis vault/opaque HttpOnly cookie; historical audit explicitly labeled. Supported supabase-js retained; unrelated advisories remain. |
+
+**High remaining0 / Medium remaining0 / Low closed2 / Low remaining1 / exact remaining P1 OPEN: P1-D-01. Phase3A PARTIAL.** C02 remains CLOSED from previous actual operator login/navigation/reload/storage/logout/replay; current anonymous smoke does not replace that evidence or claim every provider/mobile journey.
+
+### Git / validation
+
+- PR [#22](https://github.com/FengProfessor/Vocab/pull/22): code `f17ea574c0d29d728e57dd09bc47a6a06055bc4b`, checkpoint `ae13a862d5579a89e843825ec13fe929670a641f`, clean CI [36808982921](https://github.com/FengProfessor/Vocab/actions/runs/36808982921) PASS; normal merge `b66f3d7a092a51d3e8d05434dbcb39a600841de6`, canonical [36809399457](https://github.com/FengProfessor/Vocab/actions/runs/36809399457) PASS.
+- Additional AST review found two duplicates after PR22 merge. Required small PR23 rather than false closure; one-PR plan deviation preserved. PR [#23](https://github.com/FengProfessor/Vocab/pull/23): fixes `128ec5cf76947b89c3c4a96ed7fdafe6ef1d9457`, actual HTTP/baseline tests `524366667f82124f1d66ee2fe7162d182fa2ac3d`, exact-head clean CI [36810376877](https://github.com/FengProfessor/Vocab/actions/runs/36810376877) PASS; normal merge `52551271445322c3b07bcbb6b296d66cd97ec4ef`.
+- Clean CI runtime Node22.23.2/npm10.9.8. Latest canonical quality resolved Node22.23.3/npm10.9.9; reusable migration job Node22.23.2/npm10.9.8. Local fresh tracked export/cache Node22.23.3/npm10.9.9, npm ci1850 Windows packages; fresh Linux CI/canonical npm ci1860 packages. No reused pre-phase node_modules/cache/env; followup source uses same phase install because manifest/lock unchanged. No dependency version upgrade or migration change.
+- Phase1/2A/2B/2C and Phase3A regression suites PASS. Real Redis Lua/race/restart/TTL/expiry/legacy repair, encrypted vault lease/CAS/logout-resurrection, isolated PostgreSQL provider expiry/revoke/banned/unverified/identity/grants/rerun and age roundtrip PASS. These use fixtures, not production credentials/data.
+- Build, Chromium hydration/auth controls/grammar filter+reload/CSP, actual Next proxy HTTP, four deployment safety suites, actionlint/Bash/Node syntax, diff and added-source secret/debug scans PASS. Production browser provider/login/mobile/microphone/lesson persistence are not newly claimed.
+- Exact typecheck before/after10 Speaking diagnostics, same code/file/line/message; blocking baseline guard PASS. Full typecheck reporting exits1 as known debt. Original targeted lint0 errors/1 existing warning; followup hub0 and pack exact2 pre-existing annotations, zero new diagnostics with blocking exact fixture guard. Full canonical lint116 errors/464 warnings versus pre-phase121/464, reporting only; not repo-clean claim or disabled rules.
+- npm audit observation47 (22 moderate/23 high/2 critical) in actual canonical install; separate dependency review, no audit fix/force or unrelated upgrade. Phase3A count is original audit findings, not npm advisory count.
+
+### Independent production verification
+
+- Canonical [36810782924](https://github.com/FengProfessor/Vocab/actions/runs/36810782924) SUCCESS: quality → migration → exact-SHA build/activation/restart → process/HTTP health. Latest main equals expected SHA `52551271445322c3b07bcbb6b296d66cd97ec4ef`.
+- Migration job110206212382 shows all10 `SKIP already applied`, applied0; checksum/history preserved. No production ad-hoc SQL or schema changes.
+- Authorized read-only SSH: staging porcelain empty; staging HEAD, `/home/ubuntu/Vocab-build/.next/.release-commit` and `/home/ubuntu/Vocab/.next/.release-commit` all exact expected SHA. `lingopro.service` active, MainPID1300582 twice2s apart; local/public health200, public root200. No manual activation/restart/config/delete; no rollback required or fault-injection test.
+- Safe public HTTPS GET probes: anonymous session/coupon admin/pilot admin401; malformed-cookie admin401; synthetic-cookie hostile Origin admin/pack403; missing proof admin403. All denials private/no-store with bounded DTO; public pack hint200. No payment, credential, presence DELETE or other production mutation. No secret/body values printed.
+- First probe using Python default User-Agent returned edge403; ordinary browser User-Agent root200 and all expected API contracts PASS, corroborated by server-side public curl200. No Cloudflare configuration change or auth bypass; not a production application regression.
+
+### Deferred non-P1 security debt / next phase
+
+Retain separately:47 dependency advisories; full lint/typecheck debt; non-session raw exception/stack logs and raw business-error responses requiring scoped provider/input review (severity unassigned); CSP inline nonce design; backup recipient/encrypted restore/live Drive rerun; full TLS CA transport; mobile/lesson persistence/microphone; transitive action binaries; public referral review; historical cleanup; accepted Windows/Ubuntu compromise/reimage/credential audit risk. None marked CLOSED by this rollout.
+
+Next recommended application phase: bounded P1-D-01 password recovery design/provider readiness and its own tests/PR/canonical rollout. Do not auto-start major auth redesign from closeout. This documentation checkpoint is saved on `codex/p3a-auth-response-followup`; deployed source remains merge5255127, no doc-only main rollout needed.
