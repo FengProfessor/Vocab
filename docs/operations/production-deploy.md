@@ -2,7 +2,7 @@
 
 # Production deploy
 
-**Trạng thái:** Luồng dưới đây **VERIFIED IN REPOSITORY** bằng source review và local tests. Canonical Actions/host deployment **VERIFIED**: Phase 2C Stage A run `36749311479`, exact SHA `905d9bb`, quality/migration/activation/health PASS. Historical baseline notes below do not replace current progress evidence. Không trigger workflow/SSH production nếu operator chưa ủy quyền rõ ràng.
+**Trạng thái:** Canonical auth cutover `36784213532` tại `44ad7c92` và hardening `36786992699` tại `c0abdb760f94255071379a5d658a085714a49cde` **VERIFIED**: quality/migration/activation/health PASS, independent staging/live markers match. Dedicated auth login/storage/logout/replay smoke PASS trên cutover; hardening không đổi auth src. Historical baseline notes below do not replace current progress evidence. Không trigger workflow/SSH production nếu operator chưa ủy quyền rõ ràng.
 
 ## Trigger và commit
 

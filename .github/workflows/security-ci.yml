@@ -119,6 +119,7 @@ jobs:
           node tests/security/phase2c-auth-boundaries.test.mjs
           node tests/security/phase2c-browser-boundaries.test.mjs
           node tests/security/csp.test.mjs
+          node tests/security/phase3a-low.test.mjs
       - name: Backup safety tests with isolated fixture and age round trip
         run: |
           sudo apt-get update -qq
@@ -137,6 +138,14 @@ jobs:
           bash tests/deploy/activate-release.test.sh
           bash tests/deploy/run-deploy.test.sh
           node tests/deploy/ssh-render.test.mjs
+      - name: Phase 3A targeted route and auth lint
+        run: >-
+          npx eslint src/lib/admin-auth.ts src/lib/api-security.ts src/lib/session-response.ts
+          src/app/api/admin/pilot-leads/route.ts src/app/api/billing/coupons/route.ts
+          src/app/api/billing/coupons/validate/route.ts src/app/api/billing/claim-upgrade-gift/route.ts
+          src/app/api/campaign/claim-upgrade-gift/route.ts src/app/api/challenges/route.ts
+          'src/app/api/challenges/[id]/route.ts' 'src/app/api/challenges/[id]/join/route.ts'
+          src/app/api/practice/daily-reading/generate/route.ts
       - name: Build application
         run: npm run build
       - name: Session boundary behind production reverse proxy
@@ -157,6 +166,8 @@ jobs:
             echo '::error::Typecheck differs from the documented 10-error TS2307/TS7006 baseline'
             exit 1
           fi
+          printf '%s\n' "$output" | grep 'error TS' > /tmp/p3a-typecheck-observed.txt
+          diff -u tests/security/typecheck-baseline.txt /tmp/p3a-typecheck-observed.txt
       - name: Check patch whitespace
         if: ${{ github.event_name == 'pull_request' }}
         env:

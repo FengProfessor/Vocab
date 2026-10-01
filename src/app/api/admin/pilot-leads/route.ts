@@ -1,32 +1,14 @@
 import { sessionErrorResponse } from '@/lib/session-response';
-import { getWebUser } from '@/lib/server-auth-session';
+import { authorizeWebAdmin } from '@/lib/admin-auth';
 import { NextRequest, NextResponse } from 'next/server';
 import { safeErrorResponse } from '@/lib/api-security';
 import { isPilotLeadStatus } from '@/lib/pilot-sales';
-import { createServiceClient } from '@/lib/supabase-server';
-
-const ADMIN_EMAILS = (process.env.ADMIN_EMAILS ?? '')
-  .split(',')
-  .map((email) => email.trim().toLowerCase())
-  .filter(Boolean);
-
-async function authorize(req: NextRequest) {
-
-  const supabase = createServiceClient();
-  const { data: { user } } = await getWebUser(req);
-  if (!user) return null;
-  const { data: callerProfile } = await supabase.from('profiles').select('email, role').eq('id', user.id).maybeSingle();
-  const callerEmail = (callerProfile?.email || user.email || '').toLowerCase().trim();
-  const isAdminRole = callerProfile?.role === 'admin';
-  const isWhitelisted = ADMIN_EMAILS.length > 0 && Boolean(callerEmail && ADMIN_EMAILS.includes(callerEmail));
-  if (!isAdminRole && !isWhitelisted) return null;
-  return supabase;
-}
 
 export async function GET(req: NextRequest): Promise<NextResponse> {
   try {
-    const supabase = await authorize(req);
-    if (!supabase) return NextResponse.json({ success: false, error: 'Admin access required' }, { status: 403 });
+    const admin = await authorizeWebAdmin(req);
+    if (admin.response) return admin.response;
+    const { supabase } = admin;
 
     const { data, error } = await supabase
       .from('pilot_leads')
@@ -45,8 +27,9 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
 
 export async function PATCH(req: NextRequest): Promise<NextResponse> {
   try {
-    const supabase = await authorize(req);
-    if (!supabase) return NextResponse.json({ success: false, error: 'Admin access required' }, { status: 403 });
+    const admin = await authorizeWebAdmin(req);
+    if (admin.response) return admin.response;
+    const { supabase } = admin;
 
     const body = await req.json() as { id?: unknown; status?: unknown; adminNote?: unknown };
     if (typeof body.id !== 'string' || !isPilotLeadStatus(body.status)) {

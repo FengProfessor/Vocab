@@ -109,6 +109,7 @@ jobs:
           node tests/security/phase2c-auth-boundaries.test.mjs
           node tests/security/phase2c-browser-boundaries.test.mjs
           node tests/security/csp.test.mjs
+          node tests/security/phase3a-low.test.mjs
       - name: Validate backup safety without production access
         run: |
           sudo apt-get update -qq
@@ -118,12 +119,33 @@ jobs:
           bash tests/backup/create.test.sh
       - name: Lint changed TypeScript deployment route
         run: npx eslint src/app/api/health/route.ts
+      - name: Phase 3A targeted route and auth lint
+        run: >-
+          npx eslint src/lib/admin-auth.ts src/lib/api-security.ts src/lib/session-response.ts
+          src/app/api/admin/pilot-leads/route.ts src/app/api/billing/coupons/route.ts
+          src/app/api/billing/coupons/validate/route.ts src/app/api/billing/claim-upgrade-gift/route.ts
+          src/app/api/campaign/claim-upgrade-gift/route.ts src/app/api/challenges/route.ts
+          'src/app/api/challenges/[id]/route.ts' 'src/app/api/challenges/[id]/join/route.ts'
+          src/app/api/practice/daily-reading/generate/route.ts
       - name: Build application
         run: npm run build
       - name: Session boundary behind production reverse proxy
         run: node tests/security/phase2c-proxy-runtime.test.mjs
       - name: Browser smoke before migration and production changes
         run: npm run test:e2e:smoke
+      - name: Verify exact documented TypeScript baseline
+        shell: bash
+        run: |
+          set +e
+          npm run typecheck > /tmp/p3a-typecheck-output.txt 2>&1
+          status=$?
+          set -e
+          if [ "$status" -eq 0 ]; then
+            echo '::error::Typecheck baseline changed; reconcile before rollout'
+            exit 1
+          fi
+          grep 'error TS' /tmp/p3a-typecheck-output.txt > /tmp/p3a-typecheck-observed.txt
+          diff -u tests/security/typecheck-baseline.txt /tmp/p3a-typecheck-observed.txt
       - name: Full typecheck (known baseline debt; reporting only)
         if: ${{ !cancelled() }}
         continue-on-error: true

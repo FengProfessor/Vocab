@@ -1,7 +1,7 @@
 import { sessionErrorResponse } from '@/lib/session-response';
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
-import { getAuthUser, safeErrorResponse } from '@/lib/api-security';
+import { getAuthUser, unauthorized, forbidden, safeErrorResponse } from '@/lib/api-security';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -38,7 +38,7 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
     }
 
     return NextResponse.json({ success: true, data: { challenge, participation } });
-  } catch (error: any) {
+  } catch (error: unknown) {
     const sessionFailure = sessionErrorResponse(error);
     if (sessionFailure) return sessionFailure;
     return safeErrorResponse(error, 'Lỗi khi tải chi tiết challenge');
@@ -49,7 +49,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
   try {
     const { id } = await params;
     const authUser = await getAuthUser(req);
-    if (!authUser) throw new Error('Unauthorized');
+    if (!authUser) return unauthorized();
     const user = { id: authUser.userId };
 
     const adminClient = createServiceClient();
@@ -60,7 +60,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
       .single();
 
     if (profile?.role !== 'teacher') {
-      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 403 });
+      return forbidden('Teacher access required');
     }
 
     const { data: existing } = await adminClient
@@ -84,7 +84,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
     if (error) throw error;
 
     return NextResponse.json({ success: true, data });
-  } catch (error: any) {
+  } catch (error: unknown) {
     const sessionFailure = sessionErrorResponse(error);
     if (sessionFailure) return sessionFailure;
     return safeErrorResponse(error, 'Lỗi khi cập nhật challenge');

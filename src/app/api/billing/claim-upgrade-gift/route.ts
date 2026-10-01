@@ -1,7 +1,8 @@
+import { withSessionErrors } from '@/lib/session-response';
 import { NextRequest, NextResponse } from 'next/server';
 import { getAuthUser, unauthorized } from '@/lib/api-security';
 
-export async function POST(req: NextRequest) {
+async function retiredCampaign(req: NextRequest) {
   const auth = await getAuthUser(req);
   if (!auth) return unauthorized();
 
@@ -10,3 +11,5 @@ export async function POST(req: NextRequest) {
     { status: 410 },
   );
 }
+
+export const POST = withSessionErrors(retiredCampaign);

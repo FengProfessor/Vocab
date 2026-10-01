@@ -32,7 +32,7 @@ Branch `codex/p1a-remove-cron-bypass` đã chuẩn hóa bốn cron endpoint về
 
 Có 158 exported HTTP handlers. Con số handler không dùng làm security count vì một file nhiều method có thể áp dụng gate khác nhau.
 
-## Kiến trúc auth hiện tại
+## Kiến trúc auth tại thời điểm audit ban đầu (historical)
 
 ### Authentication
 
@@ -60,7 +60,7 @@ Có 158 exported HTTP handlers. Con số handler không dùng làm security coun
 - `createServiceClient()` fallback sang anon key khi thiếu `SUPABASE_SERVICE_ROLE_KEY`; cấu hình sai không fail closed.
 - Publishable/anon Supabase key và Firebase web config là public client configuration; không phân loại là secret.
 
-## Auth flow thực tế
+## Auth flow tại thời điểm audit ban đầu (historical)
 
 ```text
 User
@@ -178,9 +178,43 @@ Không còn custom `CRON_SECRET` request header, query-string secret, default se
 
 ### P1-D LOW
 
-- Không có password-reset UX/API trong app.
-- Auth helper và response code chưa thống nhất giữa routes (`getAuthUser`, direct `auth.getUser`, custom cron header).
-- Dependencies SSR/auth helper có mặt nhưng không được dùng; session architecture thực tế hoàn toàn client-side.
+Các mô tả dưới đây giữ nguyên thứ tự ba finding ban đầu; ID được chuẩn hóa ở Phase 3A vì trước đó chưa có ID riêng. Trạng thái current nằm trong bảng reconciliation, không suy ra từ mô tả lịch sử.
+
+- **P1-D-01**: Không có password-reset UX/API trong app.
+- **P1-D-02**: Auth helper và response code chưa thống nhất giữa routes (`getAuthUser`, direct `auth.getUser`, custom cron header).
+- **P1-D-03**: Dependencies SSR/auth helper có mặt nhưng không được dùng; session architecture thực tế hoàn toàn client-side.
+
+### Phase 3A — Reconciliation trước code
+
+Baseline fetch `origin/main=c0abdb760f94255071379a5d658a085714a49cde`; local HEAD `e760fd12f014b89eca9f3269bffaafa0aab9dfa4` chỉ thêm checkpoint rollout đã verify. Working tree sạch trước code. Phase 2C merge44ad7c92 và hardeningc0abdb76 nằm trong ancestry. Branch `codex/p3a-low-security` giữ toàn bộ Grammar/TOEIC và checkpoint hiện tại. High0/Medium0/Low3; không reopen finding cũ.
+
+| Finding ID | Severity | Status before | Component | Root cause | Impact | Proposed fix |
+|---|---|---|---|---|---|---|
+| P1-D-01 | Low | OPEN | Auth UI/API/callback/vault | Chưa có recovery-purpose flow hoặc endpoint đổi mật khẩu | User quên mật khẩu không tự khôi phục trong app | DEFER: thiết kế recovery riêng tương thích HttpOnly vault, xác minh provider email/redirect trước triển khai |
+| P1-D-02 | Low | OPEN | API auth/error boundary | Anonymous challenge throw thành500; pilot-leads gộp401/403; coupon/campaign/daily-reading không bảo toàn session403/503 | Contract sai, retry/UI lỗi, lỗi infrastructure bị che hoặc xuất sai response | Chuẩn hóa denial và boundary session, server-derived admin gate, targeted zero-side-effect tests |
+| P1-D-03 | Low | OPEN | Dependencies/auth architecture docs | Audit lịch sử không khớp code Phase2C/PR21 | Dependency/runtime không dùng, mô tả session gây hiểu nhầm vận hành | Evidence PR21 + regression manifest/lock/source graph + tài liệu current; chưa tự động CLOSED |
+
+### P1-D-01 — OPEN / deferred có giới hạn
+
+Trace: `/auth` chỉ có login/signup → `app-auth-client` chỉ gọi server auth facade → login/register/OAuth APIs → callback chỉ nhận flow `oauth|signup` → encrypted vault cấp session web thông thường. Không có reset-password UI/API, recovery flow discriminator, limited recovery credential hoặc password-update contract. Caller email hiện không có quyền đổi password bằng service role; không thêm admin reset-by-email bypass.
+
+Safe recovery cần public request với exact-origin/proof/distributed limiter và anti-enumeration; PKCE verifier server-side; callback cố định với flow riêng/single-use/TTL; quyền recovery giới hạn tách khỏi normal session; provider-authoritative update password và revoke/replay tests. Không dùng browser Supabase session để làm shortcut. Cấu hình SMTP/recovery template/redirect allowlist chưa được verify trong scope hiện tại, không suy đoán provider unavailable. Đây là thay đổi contract auth/callback/vault cần thiết kế và provider readiness riêng; dừng **finding này** theo STOP condition major auth redesign, tiếp tục D02/D03. Không gửi recovery email/mutate credential production.
+
+Provider references: [Supabase resetPasswordForEmail](https://supabase.com/docs/reference/javascript/auth-resetpasswordforemail), [password-based auth](https://supabase.com/docs/guides/auth/passwords). Các API provider hỗ trợ reset nhưng không chứng minh app đã triển khai hoặc SMTP production đã sẵn sàng. Closure cần isolated recovery/race/replay/CSRF/rate-limit tests, real browser recovery, provider email test trên test account được phép và canonical rollout.
+
+### P1-D-02 — Implementation / verification pending
+
+Consumer classification: cookie web identity dùng `getWebUser` (admin/coupons); `getAuthUser` vẫn hỗ trợ cookie + hashed/revocable extension credential riêng trên legacy integration routes, không nhận browser JWT. Cron/bot/SePay dùng auth secret riêng theo contract đã CLOSED; **không** gom credential class thành bearer chung. API source không còn direct `auth.getUser`; provider verification chỉ trong server-auth module. CSRF/ambiguous cookie+bearer giữ nguyên.
+
+Fix: shared `authorizeWebAdmin` xác minh caller trước service client, role/email allowlist từ server; anonymous401, non-admin403, profile lookup error503. Pilot-leads và coupon CRUD dùng shared gate. Ba challenge mutation trả401/403 rõ. `withSessionErrors` chỉ chuyển SessionRequestError/SessionStoreUnavailableError sang private no-store401/403/503, rethrow lỗi khác; áp coupon CRUD/preview và hai campaign đã retired (410 giữ nguyên). Daily-reading catch bảo toàn session failure. Shared denial có private no-store. Coupon DB failures trả/log generic event, không raw provider message. Không đổi giá/order/payment/entitlement, challenge public GET hoặc existing teacher policy.
+
+Regression `phase3a-low.test.mjs`: actual auth/request/session/error/helper code với isolated provider/store/DB fixtures; 12 handler boundaries, forged body identity/roles, anonymous/no privileged client, non-admin/no business read, cookie+external credential ambiguity, malformed cookie, hostile Origin/missing proof/cross-site, Redis/provider/profile failure, coupon snapshot/mutation0, explicit whitelist/missing whitelist, valid admin coupon CRUD/pilot update/teacher challenge/student own enrollment/retired410. Database and logging disclosure fixture checked. Duplicates searched across API sources. Existing Phase1/2 suites remain required; production safe probes and exact-SHA rollout pending.
+
+### P1-D-03 — Existing fix / verification pending
+
+PR21 removed direct `@auth/supabase-adapter`, `@supabase/auth-helpers-nextjs`, `@supabase/ssr`, `next-auth` and21 lock nodes; no added packages/unrelated upgrades. Phase3A does not regenerate manifest/lock. `@supabase/supabase-js` retained for supported server Auth/public data transport. Phase2C server-only encrypted Redis vault and opaque HttpOnly cookie replaced historical client-only architecture; `docs/architecture/production.md` and current status above describe it.
+
+New regression rejects retired direct/dev/root-lock/nested-lock packages, npm script references, imports/reexports/require/dynamic imports/type references in `src/scripts/deploy`; browser facade must use `appAuth`, no service-role export. Existing complete browser dependency graph/token/storage/logout/race suites remain blocking. Historical audit architecture is not current design. Await clean CI + rollout evidence before CLOSED.
 
 ## Authorization sampling
 
