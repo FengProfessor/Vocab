@@ -12,7 +12,8 @@ const port = socket.address().port;
 await new Promise(resolve => socket.close(resolve));
 const base = `http://127.0.0.1:${port}`;
 const server = spawn(process.execPath, ['node_modules/next/dist/bin/next', 'start', '--hostname', '127.0.0.1', '--port', String(port)], {
-  env: { ...process.env, NODE_ENV: 'production', NEXT_TELEMETRY_DISABLED: '1' }, stdio: 'ignore',
+  env: { ...process.env, NODE_ENV: 'production', NEXT_TELEMETRY_DISABLED: '1',
+    UPSTASH_REDIS_REST_URL: '', UPSTASH_REDIS_REST_TOKEN: '', AUTH_SESSION_ENCRYPTION_KEY: '' }, stdio: 'ignore',
 });
 const headers = { Host: 'lingopro.online', Origin: 'https://lingopro.online', 'X-Forwarded-Host': 'lingopro.online',
   'X-Forwarded-Proto': 'https', 'X-LingoPro-Request': '1', 'Sec-Fetch-Site': 'same-origin' };
@@ -41,6 +42,13 @@ try {
   const withoutOrigin = { ...headers }; delete withoutOrigin.Origin;
   assert.equal(await status('/api/auth/logout', withoutOrigin, 'POST'), 403);
   assert.equal(await status('/api/auth/logout', headers, 'POST'), 200);
+  assert.equal(await status('/api/practice/pack-passage', headers),200,'public pack catalog remains public');
+  const cookieHeaders = { ...headers, Cookie: '__Host-lingopro-session='+ 'N'.repeat(43) };
+  for (const [path, method] of [['/api/practice/pack-passage','GET'],['/api/hub/presence','DELETE']]) {
+    assert.equal(await status(path,{...cookieHeaders,Origin:'https://evil.example'},method),403,'real Next must preserve CSRF denial');
+    assert.equal(await status(path,cookieHeaders,method),503,'missing vault config must fail closed before DB/side effects');
+  }
+  console.log('[P3A] Real Next HTTP: public pack200, pack/presence CSRF403 and vault-missing503 PASS');
   console.log('[P2C] Real Next proxy HTTP: valid public Host/anonymous401, wrong Host/Origin/proof/site/HTTP403, logout CSRF PASS');
 } finally {
   if (server.exitCode === null) { const exited = once(server, 'exit'); server.kill(); await exited; }
