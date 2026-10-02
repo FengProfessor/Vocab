@@ -11,7 +11,6 @@ import { ChevronLeft, Loader2, RotateCcw, Pencil, ArrowRight } from 'lucide-reac
 import Link from 'next/link';
 import { toast } from 'sonner';
 import { levenshtein, verdictToQuality, parseIpa, canAutoFocus, speak, type Verdict } from '@/lib/study';
-import { playWordWithBuffer } from '@/lib/audio-sync';
 import { stopWordAudio } from '@/lib/audio';
 import { StudentShell } from '@/components/student/StudentShell';
 
@@ -54,6 +53,7 @@ function WritingContent() {
   const inputRef = useRef<HTMLInputElement>(null);
   const advanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const advanceFn = useRef<(() => void) | null>(null);
+  const lastSubmitAtRef = useRef<number>(0);
 
   useEffect(() => {
     const init = async () => {
@@ -143,6 +143,8 @@ function WritingContent() {
   // Bỏ qua thời gian đợi và chuyển đến từ tiếp theo (phải khai báo SAU goNext — tránh TDZ)
   const skipWait = useCallback(() => {
     if (verdict === null) return; // Chỉ skip khi đã chấm xong
+    // Khóa 350ms sau khi bấm kiểm tra để chống ăn phím Enter gửi bài làm next luôn
+    if (Date.now() - lastSubmitAtRef.current < 350) return;
     if (advanceTimer.current) {
       clearTimeout(advanceTimer.current);
       advanceTimer.current = null;
@@ -157,6 +159,7 @@ function WritingContent() {
     if (!guess) return;
     const answer = current.word.trim().toLowerCase();
 
+    lastSubmitAtRef.current = Date.now();
     let v: Verdict;
     if (guess === answer) v = 'correct';
     else if (levenshtein(guess, answer) <= 2) v = 'close';
@@ -189,15 +192,11 @@ function WritingContent() {
         clearTimeout(advanceTimer.current);
         advanceTimer.current = null;
       }
-      // CORRECT: Await pronunciation completion + 400ms buffer before advancing
-      void playWordWithBuffer(current.word, 400).then(() => {
-        if (advanceFn.current === advance) {
-          advance();
-        }
-      });
+      speak(current.word, 1.0);
     } else {
-      // WRONG / CLOSE: Play pronunciation for reinforcement, but pause indefinitely.
-      // Requires user to press Enter, Space, or click Tiếp theo button.
+      // WRONG / CLOSE:
+      // Phát âm củng cố từ (cả đúng lẫn sai/gần đúng).
+      // Bỏ hoàn toàn auto-next: dừng lại để người dùng xem lại kết quả và chủ động next bằng Enter/Space hoặc bấm nút "Tiếp theo".
       speak(current.word, 1.0);
       if (advanceTimer.current) {
         clearTimeout(advanceTimer.current);
@@ -231,7 +230,7 @@ function WritingContent() {
   const onKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       e.preventDefault();
-      if (verdict !== null) e.stopPropagation();
+      e.stopPropagation();
       if (verdict === null) handleSubmit();
       else skipWait(); // Nhấn Enter khi đã chấm → bỏ qua đợi, tiếp theo ngay
     } else if (e.key === ' ' && verdict !== null) {

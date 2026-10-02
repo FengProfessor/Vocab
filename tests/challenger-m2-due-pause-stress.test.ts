@@ -331,24 +331,14 @@ async function runAllChallengerTests() {
   console.log('\n--- Section 3: Error State Indefinite Pause & Manual Advance ---');
 
   const reviewSessionPath = path.resolve('src/app/review/session/page.tsx');
-  const reviewSessionCode = fs.readFileSync(reviewSessionPath, 'utf8');
+  const reviewSessionCode = fs.readFileSync(reviewSessionPath, 'utf8').replace(/\r\n/g, '\n');
 
-  it('S3.1: ReviewSession does not schedule auto-advance timer on incorrect or close answers', () => {
-    // Audit lines in finalize():
-    assert(reviewSessionCode.includes('if (isCorrect) {'), 'Must branch on isCorrect');
-    assert(
-      reviewSessionCode.includes('playWordWithBuffer(current.word, 400)'),
-      'Correct answers must await playWordWithBuffer',
-    );
-    // Incorrect branch must clear timer and NOT call setTimeout(advance, ...)
-    const incorrectBranch = reviewSessionCode.substring(
-      reviewSessionCode.indexOf('} else {'),
-      reviewSessionCode.indexOf('[current, userId, goNext]'),
-    );
-    assert(!incorrectBranch.includes('setTimeout(advance'), 'Must NOT call setTimeout(advance) in incorrect branch');
-    assert(incorrectBranch.includes('clearTimeout(advanceTimer.current)'), 'Must clear advanceTimer on error');
-    assert(incorrectBranch.includes('advanceTimer.current = null'), 'Must set advanceTimer to null on error');
-    assert(incorrectBranch.includes('speak(current.word, 1.0)'), 'Must pronounce word for reinforcement on error');
+  it('S3.1: ReviewSession does not schedule auto-advance; pauses indefinitely for manual advance', () => {
+    // Auto-advance via playWordWithBuffer has been removed for user-controlled manual advance
+    assert(!reviewSessionCode.includes('playWordWithBuffer'), 'Auto-advance via playWordWithBuffer must be removed');
+    assert(reviewSessionCode.includes('clearTimeout(advanceTimer.current)'), 'Must clear advanceTimer');
+    assert(reviewSessionCode.includes('advanceTimer.current = null'), 'Must set advanceTimer to null');
+    assert(reviewSessionCode.includes('speak(current.word, 1.0)'), 'Must pronounce word for reinforcement');
   });
 
   it('S3.2: ReviewSession keyboard handler binds Enter and Space to skipWait after answer submission', () => {
@@ -580,14 +570,14 @@ async function runAllChallengerTests() {
     assert(studyCode.includes('speechEpoch'), 'speak must track speechEpoch');
   });
 
-  it('S5.3: ReviewSession correctly awaits playWordWithBuffer before advance', () => {
+  it('S5.3: ReviewSession supports manual advance via skipWait without auto-advance', () => {
     assert(
-      reviewSessionCode.includes('void playWordWithBuffer(current.word, 400).then(() => {'),
-      'ReviewSession must await playWordWithBuffer(400)',
+      !reviewSessionCode.includes('playWordWithBuffer'),
+      'Auto-advance playWordWithBuffer must be removed in favor of manual advance',
     );
     assert(
-      reviewSessionCode.includes('if (advanceFn.current === advance) {\n            advance();\n          }'),
-      'Must verify advanceFn reference before calling advance',
+      reviewSessionCode.includes('skipWait();'),
+      'ReviewSession must support manual advance via skipWait',
     );
   });
 

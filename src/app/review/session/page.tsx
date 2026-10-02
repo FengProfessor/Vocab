@@ -165,6 +165,7 @@ function SessionContent() {
   const feedbackLockTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   /** Guard cứng (tránh stale verdict / double-tap) — không phụ thuộc render. */
   const answeredRef = useRef(false);
+  const lastSubmitAtRef = useRef<number>(0);
   /** Buffer phím Enter/Space bấm trong lúc feedback lock (180ms) để không bị trôi/bỏ qua */
   const pendingSkipRef = useRef(false);
 
@@ -528,6 +529,7 @@ function SessionContent() {
       // Guard ref — không dùng verdict state (stale closure / double-tap)
       if (!current || !userId || answeredRef.current) return;
       answeredRef.current = true;
+      lastSubmitAtRef.current = Date.now();
 
       // Phản hồi đúng/sai phải hiện ngay; lưu SRS chạy nền để độ trễ mạng
       // không làm chậm nhịp học hoặc giữ giao diện ở trạng thái chưa chấm.
@@ -565,6 +567,7 @@ function SessionContent() {
         }
       }, FEEDBACK_LOCK_MS);
 
+      // INCORRECT / ALMOST CORRECT:
       // Phát âm củng cố từ (cả đúng, gần đúng lẫn sai).
       // Bỏ hoàn toàn auto-next: dừng lại để người dùng xem lại kết quả và chủ động next bằng Enter/Space hoặc bấm nút "Tiếp theo".
       speak(current.word, 1.0);
@@ -626,6 +629,8 @@ function SessionContent() {
 
   const skipWait = () => {
     if (!answeredRef.current) return;
+    // Khóa 350ms sau khi bấm kiểm tra để chống ăn phím Enter gửi bài làm next luôn
+    if (Date.now() - lastSubmitAtRef.current < 350) return;
     if (!canSkip) {
       pendingSkipRef.current = true;
       return;
@@ -1056,6 +1061,7 @@ function SessionContent() {
                   onKeyDown={(e) => {
                     if (e.key === 'Enter') {
                       e.preventDefault();
+                      e.stopPropagation();
                       if (answeredRef.current) {
                         skipWait();
                       } else {

@@ -67,6 +67,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   const pendingSkipRef = useRef(false);
   const canSkipRef = useRef(false);
   const submittedWordIdRef = useRef<string | null>(null);
+  const lastSubmitAtRef = useRef<number>(0);
 
   // Hướng dẫn cơ chế — tự hiện lần đầu (dùng chung key với /flashcard ôn), mở lại qua nút "?"
   const [showGuide, setShowGuide] = useState(false);
@@ -245,10 +246,8 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   const goNextRecall = useCallback(() => {
     if (verdict !== null) {
       if (!advanceFn.current) return;
-      if (!canSkipRef.current) {
-        pendingSkipRef.current = true;
-        return;
-      }
+      // Khóa 350ms sau khi bấm kiểm tra để chống ăn phím Enter gửi bài làm next luôn, người dùng kịp xem lại câu
+      if (Date.now() - lastSubmitAtRef.current < 350) return;
       advanceFn.current();
       return;
     }
@@ -260,6 +259,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   const finalizeRecall = useCallback((v: Verdict) => {
     if (!recallWord || verdict !== null || submittedWordIdRef.current === recallWord.id) return;
     submittedWordIdRef.current = recallWord.id;
+    lastSubmitAtRef.current = Date.now();
 
     // 1. Phản hồi UI tức thì (0ms) — giải quyết triệt để lag/đơ nút bấm
     setVerdict(v);
@@ -281,10 +281,6 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
     feedbackLockTimer.current = setTimeout(() => {
       canSkipRef.current = true;
       feedbackLockTimer.current = null;
-      if (pendingSkipRef.current) {
-        pendingSkipRef.current = false;
-        advanceFn.current?.();
-      }
     }, FEEDBACK_LOCK_MS);
 
     if (v === 'correct') {
@@ -298,7 +294,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
       }
     }
 
-    // Phát âm củng cố từ (cả đúng, gần đúng lẫn sai).
+    // wrong / close: không auto-next — phát âm củng cố, user bấm «Tiếp theo» hoặc Enter/Space
     // Bỏ hoàn toàn auto-next: dừng lại để người dùng chủ động đọc kết quả và next bằng tay qua phím Enter hoặc nút "Tiếp theo".
     speak(recallWord.word, 1.0);
     if (advanceTimer.current) {
@@ -337,12 +333,15 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   const onKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       e.preventDefault();
+      e.stopPropagation();
       if (verdict === null) submitRecall(); else goNextRecall();
     } else if (e.key === ' ' && verdict !== null) {
       e.preventDefault();
+      e.stopPropagation();
       goNextRecall();
     } else if (e.key === 'Escape' && verdict === null) {
       e.preventDefault();
+      e.stopPropagation();
       giveUpRecall();
     }
   };
