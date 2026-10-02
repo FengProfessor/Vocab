@@ -7,8 +7,8 @@ export const dynamic = 'force-dynamic';
 
 const DAY = 24 * 60 * 60 * 1000;
 const PAGE = 1000;
-const CACHE_TTL_MS = 60 * 1000; // 60s fresh cache
-const CACHE_STALE_MS = 5 * 60 * 1000; // 5 phút stale-while-revalidate
+const CACHE_TTL_MS = 2 * 60 * 1000; // 2 phút fresh cache
+const CACHE_STALE_MS = 30 * 60 * 1000; // 30 phút stale-while-revalidate
 
 type ProfileRow = {
   id: string; email: string; full_name: string | null; role: string;
@@ -103,6 +103,8 @@ export interface CrmResponseData {
 }
 
 type ServiceClient = ReturnType<typeof createServiceClient>;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type QueryBuilder = any;
 
 // ── In-Memory Server SWR Cache ──
 let globalCrmCache: {
@@ -112,53 +114,40 @@ let globalCrmCache: {
 let isRevalidating = false;
 
 /**
- * Fetch toàn bộ rows bằng concurrency pool song song thay vì tuần tự từng trang.
+ * Tải trực tiếp dữ liệu bảng không cần HEAD count request dư thừa:
+ * Query ngay 0..PAGE - 1. Nếu bảng < PAGE rows (profiles, orders, groups...),
+ * xong ngay trong 1 roundtrip duy nhất (<300ms) thay vì 2 lượt gọi mạng.
  */
-async function fetchAllParallel<T>(
+async function fetchDirectOrPages<T>(
   supabase: ServiceClient,
   table: string,
   select: string,
   orderCol?: { col: string; asc: boolean },
-  filterFn?: (q: any) => any,
+  filterFn?: (q: QueryBuilder) => QueryBuilder,
 ): Promise<T[]> {
-  // Lấy tổng số dòng trước qua HEAD request (siêu nhanh)
-  let countQuery: any = supabase.from(table).select('*', { count: 'exact', head: true });
-  if (filterFn) countQuery = filterFn(countQuery);
-  const { count, error } = await countQuery;
+  let q: QueryBuilder = supabase.from(table).select(select).range(0, PAGE - 1);
+  if (orderCol) q = q.order(orderCol.col, { ascending: orderCol.asc });
+  if (filterFn) q = filterFn(q);
+  const { data, error } = await q;
   if (error) throw error;
-  if (!count) return [];
-
-  const totalPages = Math.ceil(count / PAGE);
-  if (totalPages === 1) {
-    let q: any = supabase.from(table).select(select).range(0, PAGE - 1);
-    if (orderCol) q = q.order(orderCol.col, { ascending: orderCol.asc });
-    if (filterFn) q = filterFn(q);
-    const { data, error: err } = await q;
-    if (err) throw err;
-    return (data || []) as T[];
+  const rows = (data || []) as T[];
+  if (rows.length < PAGE) {
+    return rows;
   }
 
-  // Chạy đồng thời tối đa 4 trang cùng lúc để giữ kết nối PostgREST luôn ổn định
-  const CONCURRENCY = 4;
-  const pages = Array.from({ length: totalPages }, (_, i) => i);
-  const out: T[] = [];
-
-  for (let i = 0; i < pages.length; i += CONCURRENCY) {
-    const chunk = pages.slice(i, i + CONCURRENCY);
-    const chunkResults = await Promise.all(
-      chunk.map(p => {
-        let q: any = supabase.from(table).select(select).range(p * PAGE, (p + 1) * PAGE - 1);
-        if (orderCol) q = q.order(orderCol.col, { ascending: orderCol.asc });
-        if (filterFn) q = filterFn(q);
-        return q;
-      }),
-    );
-    for (const res of chunkResults) {
-      if (res.error) throw res.error;
-      if (res.data) out.push(...(res.data as T[]));
-    }
+  let from = PAGE;
+  for (;;) {
+    let nextQ: QueryBuilder = supabase.from(table).select(select).range(from, from + PAGE - 1);
+    if (orderCol) nextQ = nextQ.order(orderCol.col, { ascending: orderCol.asc });
+    if (filterFn) nextQ = filterFn(nextQ);
+    const { data: nextData, error: nextErr } = await nextQ;
+    if (nextErr) throw nextErr;
+    const batch = (nextData || []) as T[];
+    rows.push(...batch);
+    if (batch.length < PAGE) break;
+    from += PAGE;
   }
-  return out;
+  return rows;
 }
 
 /** Fetch tuần tự nhẹ cho các mảng chunks (tránh tạo thêm HEAD count request dư thừa) */
@@ -391,29 +380,30 @@ async function fetchFreshCrmData(supabase: ServiceClient): Promise<CrmResponseDa
   const t0 = Date.now();
   const nowIso = new Date().toISOString();
 
-  // 1. Thử gọi RPC get_crm_customer_stats (Engine A - siêu tốc ~200ms)
-  let rpcRows: RpcCustomerStats[] | null = null;
-  try {
-    const { data, error } = await supabase.rpc('get_crm_customer_stats', { p_now: nowIso });
-    if (!error && Array.isArray(data)) {
-      rpcRows = data as RpcCustomerStats[];
-    }
-  } catch {
-    rpcRows = null;
-  }
+  // 1. Chạy song song Engine A (RPC) và các bảng siêu nhẹ (profiles, orders, groups...)
+  const [
+    rpcResult,
+    profileRows,
+    orderRows,
+    groupRows,
+    memberRows,
+    enrollRows,
+  ] = await Promise.all([
+    Promise.resolve(supabase.rpc('get_crm_customer_stats', { p_now: nowIso })).catch((err: unknown) => ({ data: null, error: err })),
+    fetchDirectOrPages<ProfileRow>(supabase, 'profiles', 'id, email, full_name, role, created_at, plan, plan_expires_at', { col: 'created_at', asc: false }),
+    fetchDirectOrPages<OrderRow>(supabase, 'orders', 'user_id, amount, status, paid_at', { col: 'paid_at', asc: false }),
+    fetchDirectOrPages<GroupRow>(supabase, 'groups', 'id, owner_id, status', { col: 'id', asc: true }),
+    fetchDirectOrPages<MemberRow>(supabase, 'group_members', 'group_id, user_id', { col: 'group_id', asc: true }),
+    fetchDirectOrPages<EnrollRow>(supabase, 'enrollments', 'student_id', { col: 'student_id', asc: true }),
+  ]);
 
-  if (rpcRows) {
-    // Engine A: RPC thành công! Chỉ cần tải nhẹ profiles, orders, groups, memberRows, enrollRows
-    const [profileRows, orderRows, groupRows, memberRows, enrollRows] = await Promise.all([
-      fetchAllParallel<ProfileRow>(supabase, 'profiles', 'id, email, full_name, role, created_at, plan, plan_expires_at', { col: 'created_at', asc: false }),
-      fetchAllParallel<OrderRow>(supabase, 'orders', 'user_id, amount, status, paid_at', { col: 'paid_at', asc: false }),
-      fetchAllParallel<GroupRow>(supabase, 'groups', 'id, owner_id, status', { col: 'id', asc: true }),
-      fetchAllParallel<MemberRow>(supabase, 'group_members', 'group_id, user_id', { col: 'group_id', asc: true }),
-      fetchAllParallel<EnrollRow>(supabase, 'enrollments', 'student_id', { col: 'student_id', asc: true }),
-    ]);
+  const rpcData = rpcResult && !rpcResult.error && Array.isArray(rpcResult.data)
+    ? (rpcResult.data as RpcCustomerStats[])
+    : null;
 
+  if (rpcData) {
     const statsMap = new Map<string, RpcCustomerStats>();
-    for (const r of rpcRows) {
+    for (const r of rpcData) {
       statsMap.set(r.user_id, r);
     }
 
@@ -429,25 +419,15 @@ async function fetchFreshCrmData(supabase: ServiceClient): Promise<CrmResponseDa
     });
   }
 
-  // 2. Engine B: Fallback Parallel REST (tối ưu chạy đồng thời song song)
+  // 2. Engine B: Fallback REST (chỉ chạy khi RPC không khả dụng)
   const [
-    profileRows,
-    orderRows,
-    groupRows,
-    memberRows,
     classroomRows,
-    enrollRows,
     quizRows,
     srsRows,
   ] = await Promise.all([
-    fetchAllParallel<ProfileRow>(supabase, 'profiles', 'id, email, full_name, role, created_at, plan, plan_expires_at', { col: 'created_at', asc: false }),
-    fetchAllParallel<OrderRow>(supabase, 'orders', 'user_id, amount, status, paid_at', { col: 'paid_at', asc: false }),
-    fetchAllParallel<GroupRow>(supabase, 'groups', 'id, owner_id, status', { col: 'id', asc: true }),
-    fetchAllParallel<MemberRow>(supabase, 'group_members', 'group_id, user_id', { col: 'group_id', asc: true }),
-    fetchAllParallel<ClassroomRow>(supabase, 'classrooms', 'id, teacher_id', { col: 'id', asc: true }, (q: any) => q.eq('name', '__personal__')),
-    fetchAllParallel<EnrollRow>(supabase, 'enrollments', 'student_id', { col: 'student_id', asc: true }),
-    fetchAllParallel<QuizRow>(supabase, 'quiz_results', 'user_id, completed_at', { col: 'user_id', asc: true }),
-    fetchAllParallel<SrsRow>(supabase, 'srs_progress', 'user_id, review_count, lapses, last_reviewed_at, next_review_date', { col: 'user_id', asc: true }),
+    fetchDirectOrPages<ClassroomRow>(supabase, 'classrooms', 'id, teacher_id', { col: 'id', asc: true }, (q) => q.eq('name', '__personal__')),
+    fetchDirectOrPages<QuizRow>(supabase, 'quiz_results', 'user_id, completed_at', { col: 'user_id', asc: true }),
+    fetchDirectOrPages<SrsRow>(supabase, 'srs_progress', 'user_id, review_count, lapses, last_reviewed_at, next_review_date', { col: 'user_id', asc: true }),
   ]);
 
   const classroomOwner = new Map<string, string>();
