@@ -16,6 +16,8 @@ Phase3B code head `0bcacbddcf4bba6d68da17c8ebabc14be0b8eb10` clean Linux CI [368
 
 Provider checkpoint2026-10-02: reset template content verified by screenshot, required public DNS matches, Resend per-record verification reported; operator confirms Supabase custom SMTP configured. Final domain status, Site URL/exact recovery allowlist, tracking/policies/logging and live delivery/reset still need evidence. D01 OPEN / CONFIG-PROVIDER PENDING; no application merge/rollout or password change claimed.
 
+Latest operator evidence confirms domain verified and Site URL https://lingopro.online; exact recovery callback present. Tracking creation form was not saved; actual direct email-link verification, provider policies/expiry/limits/logging and explicitly approved live reset remain pending. Current main advanced externally to7f06900 (CRM/review performance); integrate/retest recovery against current source, preserve unrelated functionality. Canonical36989970168 is external main rollout, not D01 rollout. D01 OPEN/High0/Medium0/Low1 unchanged.
+
 ## Kết luận
 
 **Kết luận audit ban đầu: STOP — NEED REVIEW.** Audit trên base `main` phát hiện một `P1-A CRITICAL`: source chứa một bearer token cố định và `assertCronAuthorized()` luôn chấp nhận token này. Token mở các cron chạy bằng Supabase service role, gồm đọc dữ liệu người dùng, gửi email/push và sửa trạng thái gói.
