@@ -29,11 +29,26 @@ try {
   assert(ready, 'local production server must become healthy');
   browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
   const page = await browser.newPage();
+  let recoveryFixture = false;
+  let resetSubmits = 0;
   await page.setRequestInterception(true);
   page.on('request', (request) => {
     const url = request.url();
+    if (url === `${origin}/api/auth/recovery/request` && request.method() === 'POST') {
+      const payload = JSON.parse(request.postData());
+      assert.deepEqual(Object.keys(payload), ['email']);
+      void request.respond({ status: 200, contentType: 'application/json', body: JSON.stringify({ accepted: true }) });
+    } else if (recoveryFixture && url === `${origin}/api/auth/recovery`) {
+      if (request.method() === 'POST') {
+        const payload = JSON.parse(request.postData());
+        assert.equal(payload.password, payload.confirmation); assert.equal(payload.password, 'fixture-new-password');
+        resetSubmits++;
+      }
+      void request.respond({ status: 200, contentType: 'application/json', body: JSON.stringify(
+        request.method() === 'GET' ? { ready: true } : { success: true, reloginRequired: true }) });
+    }
     // Không gửi login/data/analytics tới provider thật từ smoke suite.
-    if (url.startsWith(`${origin}/`) || url.startsWith('data:') || url.startsWith('blob:')) void request.continue();
+    else if (url.startsWith(`${origin}/`) || url.startsWith('data:') || url.startsWith('blob:')) void request.continue();
     else void request.abort();
   });
   const errors = [];
@@ -68,6 +83,38 @@ try {
     }
     assert.deepEqual(await page.evaluate(() => window.__cspViolations), [], `${route}: unexpected CSP violation`);
   }
+  await page.goto(`${origin}/auth`, { waitUntil: 'networkidle0' });
+  await page.click('a[href="/auth/forgot-password"]');
+  await page.waitForSelector('#recovery-email');
+  await page.type('#recovery-email', 'fixture@example.invalid');
+  await page.click('button[type="submit"]');
+  await page.waitForFunction(() => document.body.innerText.includes('Nếu tài khoản tồn tại'));
+  const invalidPage = await page.goto(`${origin}/auth/recovery`, { waitUntil: 'networkidle0' });
+  assert.equal(invalidPage.status(), 200);
+  assert(invalidPage.headers()['cache-control'].includes('no-store'));
+  assert.equal(invalidPage.headers()['referrer-policy'], 'no-referrer');
+  assert.equal(await page.$('#recovery-password'), null, 'no actionable reset form without trusted context');
+  // Isolated browser UI fixtures only; actual auth/provider/store semantics run in security suites.
+  recoveryFixture = true;
+  await page.reload({ waitUntil: 'networkidle0' });
+  await page.waitForSelector('#recovery-password');
+  assert.equal(await page.$eval('#recovery-password', element => element.type), 'password');
+  await page.type('#recovery-password', 'fixture-new-password');
+  await page.type('#recovery-confirmation', 'fixture-wrong-password');
+  await page.click('button[type="submit"]');
+  await page.waitForFunction(() => document.body.innerText.includes('Hai mật khẩu chưa khớp'));
+  assert.equal(resetSubmits, 0);
+  await page.$eval('#recovery-confirmation', element => { element.value = ''; });
+  await page.type('#recovery-confirmation', 'fixture-new-password');
+  await page.click('button[type="submit"]');
+  await page.waitForFunction(() => document.body.innerText.includes('Đã đổi mật khẩu'));
+  assert.equal(resetSubmits, 1);
+  const storage = await page.evaluate(() => [localStorage, sessionStorage].flatMap(store =>
+    Array.from({ length: store.length }, (_, index) => [store.key(index), store.getItem(store.key(index))])));
+  assert(!JSON.stringify(storage).includes('fixture-new-password'));
+  assert(!JSON.stringify(storage).match(/access_token|refresh_token|code-verifier/));
+  assert.deepEqual(await page.evaluate(() => window.__cspViolations), []);
+  console.log('[P3B E2E] Real Chromium forgot/reset UI + fail-closed context + confirmation + bounded UI fixtures/storage PASS; not live provider evidence');
   assert.deepEqual(errors, [], 'no uncaught browser errors');
   console.log('[E2E] real Chromium/Next/HTTP: health, page hydration, auth controls, grammar filter/reload, CSP PASS');
 } finally {

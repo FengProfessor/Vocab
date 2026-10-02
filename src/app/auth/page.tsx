@@ -707,6 +707,8 @@ export default function AuthPage() {
                     </button>
                   </div>
 
+                  {mode === 'login' && <Link href="/auth/forgot-password" className="text-sm underline">Quên mật khẩu?</Link>}
+
                   <div className="pt-0.5">
                     <button
                       type="submit"

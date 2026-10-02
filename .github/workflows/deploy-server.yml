@@ -110,6 +110,7 @@ jobs:
           node tests/security/phase2c-browser-boundaries.test.mjs
           node tests/security/csp.test.mjs
           node tests/security/phase3a-low.test.mjs
+          node tests/security/phase3b-recovery.test.mjs
       - name: Validate backup safety without production access
         run: |
           sudo apt-get update -qq
@@ -127,6 +128,13 @@ jobs:
           src/app/api/campaign/claim-upgrade-gift/route.ts src/app/api/challenges/route.ts
           'src/app/api/challenges/[id]/route.ts' 'src/app/api/challenges/[id]/join/route.ts'
           src/app/api/practice/daily-reading/generate/route.ts
+      - name: Phase 3B recovery lint
+        run: >-
+          npx eslint src/lib/password-recovery.ts src/lib/server-session-store.ts src/lib/server-auth-session.ts
+          src/components/auth/PasswordRecoveryForm.tsx src/app/auth/forgot-password/page.tsx
+          src/app/auth/recovery/page.tsx src/app/auth/recovery/callback/route.ts
+          src/app/api/auth/recovery/route.ts src/app/api/auth/recovery/request/route.ts
+          src/lib/app-auth-client.ts src/app/auth/page.tsx next.config.ts
       - name: Build application
         run: npm run build
       - name: Session boundary behind production reverse proxy
