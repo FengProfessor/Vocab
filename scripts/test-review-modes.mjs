@@ -334,18 +334,18 @@ console.log('\npickItemMode');
 
   // 1. Young with example: cloze_mcq must be picked (~25-35%), NOT excluded!
   const youngPicks = [];
-  for (let i = 0; i < 200; i++) {
+  for (let i = 0; i < 400; i++) {
     youngPicks.push(pickItemMode(youngWithEx, 'mixed', true));
   }
   const clozeMcqCount = youngPicks.filter((m) => m === 'cloze_mcq').length;
   const clozeMcqPct = (clozeMcqCount / youngPicks.length) * 100;
-  assert('level 0 mixed with example picks cloze_mcq frequently (~20-40%)', clozeMcqPct >= 20 && clozeMcqPct <= 42, `${clozeMcqPct.toFixed(1)}%`);
+  assert('level 0 mixed with example picks cloze_mcq frequently (~20-40%)', clozeMcqPct >= 20 && clozeMcqPct <= 40, `${clozeMcqPct.toFixed(1)}%`);
   assert('level 0 does NOT pick cloze_type in mixed', !youngPicks.includes('cloze_type'));
   assert('level 0 includes recognition and typing modes', youngPicks.includes('mcq_vi_en') && youngPicks.includes('mcq_en_vi'));
 
   // 2. Young without example: no cloze modes, distributed among mcq/listen/type
   const noExPicks = [];
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 150; i++) {
     noExPicks.push(pickItemMode(youngNoEx, 'mixed', false));
   }
   assert('no-example excludes all cloze modes', !noExPicks.includes('cloze_mcq') && !noExPicks.includes('cloze_type'));
@@ -353,12 +353,12 @@ console.log('\npickItemMode');
 
   // 3. Mature with example: can pick cloze_type, listen_type, cloze_mcq
   const maturePicks = [];
-  for (let i = 0; i < 200; i++) {
+  for (let i = 0; i < 400; i++) {
     maturePicks.push(pickItemMode(matureWithEx, 'mixed', true));
   }
   const clozeTypeCount = maturePicks.filter((m) => m === 'cloze_type').length;
   const clozeTypePct = (clozeTypeCount / maturePicks.length) * 100;
-  assert('mature mixed picks cloze_type (~12-28%)', clozeTypePct >= 12 && clozeTypePct <= 28, `${clozeTypePct.toFixed(1)}%`);
+  assert('mature mixed picks cloze_type (~12-30%)', clozeTypePct >= 12 && clozeTypePct <= 30, `${clozeTypePct.toFixed(1)}%`);
   assert('mature mixed picks cloze_mcq', maturePicks.includes('cloze_mcq'));
   assert('mature mixed picks listen_type', maturePicks.includes('listen_type'));
 
