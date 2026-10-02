@@ -12,6 +12,10 @@ C03/C05 giữ CLOSED; dependency advisories, accepted Windows/Ubuntu host-compro
 
 **Phase3B in progress / CONFIG-PROVIDER PENDING:** operator authorized bounded password recovery. Implementation/tests prepared on `codex/p3b-password-recovery`; design/current validation/provider/rollback gates in [password-recovery.md](password-recovery.md). D01 remains OPEN; no production reset or new rollout evidence yet. Phase3A deferred notes below are historical, not a permanent refusal to implement Phase3B.
 
+Phase3B code head `0bcacbddcf4bba6d68da17c8ebabc14be0b8eb10` clean Linux CI [36834885361](https://github.com/FengProfessor/Vocab/actions/runs/36834885361) PASS, including real Redis generation/refresh CAS/concurrent reset, isolated PostgreSQL, build/Chromium and exact typecheck baseline. Draft PR24 is not merged. Operator screenshot shows recovery callback absent before requested addition; actual Site URL/template/SMTP/policy/deliverability and live recovery remain pending. High0/Medium0/Low1 unchanged.
+
+Provider checkpoint2026-10-02: reset template content verified by screenshot, required public DNS matches, Resend per-record verification reported; operator confirms Supabase custom SMTP configured. Final domain status, Site URL/exact recovery allowlist, tracking/policies/logging and live delivery/reset still need evidence. D01 OPEN / CONFIG-PROVIDER PENDING; no application merge/rollout or password change claimed.
+
 ## Kết luận
 
 **Kết luận audit ban đầu: STOP — NEED REVIEW.** Audit trên base `main` phát hiện một `P1-A CRITICAL`: source chứa một bearer token cố định và `assertCronAuthorized()` luôn chấp nhận token này. Token mở các cron chạy bằng Supabase service role, gồm đọc dữ liệu người dùng, gửi email/push và sửa trạng thái gói.
