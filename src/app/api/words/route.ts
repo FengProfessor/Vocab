@@ -14,8 +14,8 @@ import { rateLimitUnavailableResponse,
   userCanWriteClassroom,
 } from '@/lib/api-security';
 import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
-import { checkWordSaveQuota, resolvePlanByUserId, resolveUserPlanInfo, recordWordSaved } from '@/lib/entitlement-server';
-import { cacheGet, cacheSet, cacheDelete, invalidateServerWordSummaryCache } from '@/lib/ttl-cache';
+import { checkWordSaveQuota, resolveUserPlanInfo, recordWordSaved } from '@/lib/entitlement-server';
+import { cacheGet, cacheSet, invalidateServerWordSummaryCache } from '@/lib/ttl-cache';
 import { parseIpa } from '@/lib/study';
 
 /**
@@ -95,6 +95,68 @@ async function getUserClassroomIds(
   if (personalClass?.id) cids.add(personalClass.id as string);
   (enrolledClasses || []).forEach((e) => { if (e.classroom_id) cids.add(e.classroom_id as string); });
   return Array.from(cids);
+}
+
+/**
+ * Lọc thẻ từ hợp lệ cho phiên ôn tập (bỏ các từ dịch lỗi / đang phân tích / rỗng)
+ */
+function isWordValidForReview(w: { word?: string | null; translation?: string | null }): boolean {
+  if (!w.word || !w.word.trim()) return false;
+  if (!w.translation || !w.translation.trim()) return false;
+  const transLower = w.translation.toLowerCase();
+  if (transLower.includes('failed') || transLower.includes('analyzing') || w.translation.includes('⏳')) {
+    return false;
+  }
+  return true;
+}
+
+/**
+ * Deduplicate danh sách từ vựng cross-classroom cho phiên ôn tập.
+ * Khóa: w.word.trim().toLowerCase()
+ * Tiêu chí ưu tiên:
+ * 1. reviewCount cao hơn (kinh nghiệm ôn tập sâu hơn)
+ * 2. next_review_date sớm hơn (ưu tiên từ cần ôn cấp bách hơn)
+ * 3. Nếu hòa: ưu tiên từ có câu ví dụ (hỗ trợ tạo bài tập cloze_mcq, cloze_type)
+ */
+function deduplicateReviewWords<T extends {
+  word: string;
+  reviewCount: number;
+  next_review_date?: string | null;
+  example?: string | null;
+}>(words: T[]): T[] {
+  const parseTime = (d: string | null | undefined): number => {
+    if (!d) return Infinity;
+    const t = new Date(d).getTime();
+    return Number.isNaN(t) ? Infinity : t;
+  };
+
+  const dedupMap = new Map<string, T>();
+  for (const item of words) {
+    const key = item.word.trim().toLowerCase();
+    if (!key) continue;
+
+    const existing = dedupMap.get(key);
+    if (!existing) {
+      dedupMap.set(key, item);
+      continue;
+    }
+
+    if (item.reviewCount > existing.reviewCount) {
+      dedupMap.set(key, item);
+    } else if (item.reviewCount === existing.reviewCount) {
+      const itemDate = parseTime(item.next_review_date);
+      const existingDate = parseTime(existing.next_review_date);
+      if (itemDate < existingDate) {
+        dedupMap.set(key, item);
+      } else if (itemDate === existingDate) {
+        if (item.example?.trim() && !existing.example?.trim()) {
+          dedupMap.set(key, item);
+        }
+      }
+    }
+  }
+
+  return Array.from(dedupMap.values());
 }
 
 type WordSummaryCounts = {
@@ -877,10 +939,13 @@ export async function GET(req: Request): Promise<NextResponse> {
 
       // Fast-path: RPC get_due_words_list (1 query duy nhất ~200ms thay vì 3-4 roundtrips mạng)
       if (!requestedIds) {
+        // Nạp dư một lượng vừa phải (tối đa 100 theo constraint DB) để sau khi deduplicate
+        // giữa các classroom, hàng đợi không bị thiếu từ so với reviewCap mong muốn.
+        const rpcFetchLimit = Math.min(100, reviewCap + 25);
         const { data: rpcWords, error: rpcErr } = await supabase.rpc('get_due_words_list', {
           p_user_id: userId,
           p_classroom_id: classroomId || null,
-          p_limit: reviewCap,
+          p_limit: rpcFetchLimit,
         });
 
         if (!rpcErr && Array.isArray(rpcWords)) {
@@ -903,13 +968,7 @@ export async function GET(req: Request): Promise<NextResponse> {
             image_url?: string | null;
             review_count?: number | null;
             classroom_id?: string | null;
-          }>).filter((w) =>
-            w.word && w.translation &&
-            w.translation.trim() !== '' &&
-            !w.translation.includes('failed') &&
-            !w.translation.includes('Analyzing') &&
-            !w.translation.includes('⏳')
-          );
+          }>).filter(isWordValidForReview);
 
           if (rawWords.length === 0) {
             return new NextResponse(JSON.stringify({ success: true, data: [], classroomId, total: 0 }), {
@@ -973,28 +1032,9 @@ export async function GET(req: Request): Promise<NextResponse> {
 
           // Deduplicate cross-classroom words by normalized word:
           // w.word.trim().toLowerCase()
-          // Keeping the record with the higher review count or earlier review date.
-          const dedupMap = new Map<string, typeof mappedCandidates[0]>();
-          for (const item of mappedCandidates) {
-            const key = item.word.trim().toLowerCase();
-            const existing = dedupMap.get(key);
-            if (!existing) {
-              dedupMap.set(key, item);
-              continue;
-            }
-
-            if (item.reviewCount > existing.reviewCount) {
-              dedupMap.set(key, item);
-            } else if (item.reviewCount === existing.reviewCount) {
-              const itemDate = item.next_review_date ? new Date(item.next_review_date).getTime() : Infinity;
-              const existingDate = existing.next_review_date ? new Date(existing.next_review_date).getTime() : Infinity;
-              if (itemDate < existingDate) {
-                dedupMap.set(key, item);
-              }
-            }
-          }
-
-          const enriched = Array.from(dedupMap.values());
+          // Keeping the record with higher review count, earlier review date, or richer content (example).
+          const deduped = deduplicateReviewWords(mappedCandidates);
+          const enriched = deduped.slice(0, reviewCap);
 
           return new NextResponse(JSON.stringify({ success: true, data: enriched, classroomId, total: enriched.length }), {
             headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
@@ -1024,8 +1064,11 @@ export async function GET(req: Request): Promise<NextResponse> {
         .gt('review_count', 0)
         .lte('next_review_date', nowIso)
         .order('next_review_date', { ascending: true })
-        .limit(reviewCap);
+        .limit(requestedIds ? requestedIds.length : Math.min(100, reviewCap + 25));
 
+      if (requestedIds) {
+        dueSrsQuery = dueSrsQuery.in('word_id', requestedIds);
+      }
       if (classroomId) {
         dueSrsQuery = dueSrsQuery.eq('words.classroom_id', classroomId);
       } else {
@@ -1068,12 +1111,7 @@ export async function GET(req: Request): Promise<NextResponse> {
 
       const order = new Map(allIds.map((id, i) => [id, i]));
       const enrichedCandidates = ((wordsData || []) as Word[])
-        .filter((w) =>
-          w.word && w.translation &&
-          w.translation.trim() !== '' &&
-          !w.translation.includes('failed') &&
-          !w.translation.includes('Analyzing') &&
-          !w.translation.includes('⏳'))
+        .filter(isWordValidForReview)
         .map((w) => {
           const srs = srsByWord.get(w.id) || null;
           const reviewCount = Number(srs?.review_count ?? 0);
@@ -1098,26 +1136,8 @@ export async function GET(req: Request): Promise<NextResponse> {
         })
         .sort((a, b) => (order.get(a.id) ?? 0) - (order.get(b.id) ?? 0));
 
-      const dedupFallbackMap = new Map<string, typeof enrichedCandidates[0]>();
-      for (const item of enrichedCandidates) {
-        const key = item.word.trim().toLowerCase();
-        const existing = dedupFallbackMap.get(key);
-        if (!existing) {
-          dedupFallbackMap.set(key, item);
-          continue;
-        }
-
-        if (item.reviewCount > existing.reviewCount) {
-          dedupFallbackMap.set(key, item);
-        } else if (item.reviewCount === existing.reviewCount) {
-          const itemDate = item.next_review_date ? new Date(item.next_review_date).getTime() : Infinity;
-          const existingDate = existing.next_review_date ? new Date(existing.next_review_date).getTime() : Infinity;
-          if (itemDate < existingDate) {
-            dedupFallbackMap.set(key, item);
-          }
-        }
-      }
-      const enriched = Array.from(dedupFallbackMap.values());
+      const deduped = deduplicateReviewWords(enrichedCandidates);
+      const enriched = deduped.slice(0, reviewCap);
 
       return new NextResponse(JSON.stringify({ success: true, data: enriched, classroomId, total: enriched.length }), {
         headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
@@ -1299,19 +1319,25 @@ export async function GET(req: Request): Promise<NextResponse> {
       const srs = (w.srs_progress || []).find((s) => s.user_id === userId) || null;
       const nextReviewDate = srs?.next_review_date ? new Date(srs.next_review_date).getTime() : now;
 
-      // FSRS calculation: Map stability to a virtual Level 1-6
+      // FSRS calculation: Map stability to a virtual Level 1-6 (Level 0 for new/unstudied words)
+      const reviewCount = srs?.review_count || 0;
+      const isNew = !srs || reviewCount === 0;
       const stability = srs?.stability || 0;
-      const srsLevel = stabilityToLevel(stability);
-      const isDue = !srs || nextReviewDate <= now;
+      const srsLevel = isNew
+        ? 0
+        : stability > 0
+          ? stabilityToLevel(stability)
+          : reviewCountToLevel(reviewCount);
+      const isDue = isNew || nextReviewDate <= now;
 
       return {
         ...w,
         srs,
         isDue,
-        reviewCount: srs?.review_count || 0,
+        reviewCount,
         srsLevel,
-        mastery: Math.min(100, srsLevel * 20),
-        status: srsLevel >= 5 ? 'mastered' : 'learning',
+        mastery: isNew ? 0 : Math.min(100, srsLevel * 20),
+        status: isNew ? 'new' : srsLevel >= 5 ? 'mastered' : 'learning',
       };
     });
 

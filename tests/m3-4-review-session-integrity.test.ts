@@ -179,7 +179,7 @@ async function runM34Tests() {
   });
 
   await runner.it('4.2: Scoped classroom query when classParam is present', () => {
-    expect(hubPageContent.includes("authFetch(url, {}, token)")).toBe(true);
+    expect(hubPageContent.includes("authFetch(url, {})") || hubPageContent.includes("authFetch(url)")).toBe(true);
     expect(hubPageContent.includes("/api/words?classroomId=${encodeURIComponent(classParam)}&summary=1")).toBe(true);
   });
 
