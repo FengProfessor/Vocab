@@ -28,13 +28,11 @@ import {
   type ReviewSessionMode,
   type ReviewWordLike,
   buildWordChoices,
-  extractVietnameseSentenceTranslation,
   itemModeLabel,
   makeCloze,
   pickItemMode,
   resultToQuality,
   shuffle,
-  stripEmbeddedVietnamese,
   verdictAndQuality,
 } from '@/lib/review-modes';
 import { stabilityToLevel } from '@/lib/srs';
@@ -58,19 +56,27 @@ const NEXT_BAD_MS = 2500;
 const FEEDBACK_LOCK_MS = 100;
 const SESSION_CAP = 25;
 
-/** Deduplicate words by normalized word text (trimmed, lowercased) */
+/** Deduplicate words by normalized word text (trimmed, lowercased), preferring entries with higher reviewCount / srsLevel */
 export function deduplicateWords<T extends { word: string }>(words: T[]): T[] {
-  const seen = new Set<string>();
-  const unique: T[] = [];
+  if (!Array.isArray(words) || words.length === 0) return [];
+  const map = new Map<string, T>();
   for (const w of words) {
-    const key = w?.word?.trim().toLowerCase();
+    const key = typeof w?.word === 'string' ? w.word.trim().toLowerCase() : '';
     if (!key) continue;
-    if (!seen.has(key)) {
-      seen.add(key);
-      unique.push(w);
+    const existing = map.get(key);
+    if (!existing) {
+      map.set(key, w);
+      continue;
+    }
+    const existingCount = Number((existing as { reviewCount?: number }).reviewCount ?? 0);
+    const wCount = Number((w as { reviewCount?: number }).reviewCount ?? 0);
+    const existingLevel = Number((existing as { srsLevel?: number }).srsLevel ?? 0);
+    const wLevel = Number((w as { srsLevel?: number }).srsLevel ?? 0);
+    if (wCount > existingCount || (wCount === existingCount && wLevel > existingLevel)) {
+      map.set(key, w);
     }
   }
-  return unique;
+  return Array.from(map.values());
 }
 
 /** Lọc an toàn các từ có trạng thái dịch chưa hoàn tất, đang phân tích hoặc lỗi */
@@ -120,11 +126,12 @@ function SessionContent() {
   const searchParams = useSearchParams();
   const sessionMode = parseSessionMode(searchParams.get('mode'));
   const classParam = searchParams.get('class');
+  const freeParam = searchParams.get('free');
 
   const [userId, setUserId] = useState<string | null>(null);
   const [classroomId, setClassroomId] = useState<string | null>(classParam);
   const classroomIdRef = useRef<string | null>(classParam);
-  const [isFreeReview, setIsFreeReview] = useState(searchParams.get('free') === '1');
+  const [isFreeReview, setIsFreeReview] = useState(freeParam === '1');
   const [nextDueTime, setNextDueTime] = useState<string | null>(null);
   const [isLoadingFree, setIsLoadingFree] = useState(false);
   const [pool, setPool] = useState<WordItem[]>([]);
@@ -198,20 +205,27 @@ function SessionContent() {
       const clozeAns = (cloze?.answer ?? word.word).trim();
       setAnswer(clozeAns);
       if (im === 'cloze_mcq') {
-        const rawChoices = buildWordChoices(word, all, 'word');
+        const clozeAnsLower = clozeAns.toLowerCase();
         const wordLower = word.word.trim().toLowerCase();
-        let replaced = false;
-        const normalizedChoices = rawChoices.map((c) => {
-          if (!replaced && c.trim().toLowerCase() === wordLower) {
-            replaced = true;
-            return clozeAns;
+        // Collect distinct distractors from all candidates that match neither clozeAns nor word.word
+        const candidateWords = all
+          .map((w) => w.word?.trim())
+          .filter((w): w is string => Boolean(w));
+        const distinctDistractors: string[] = [];
+        const seen = new Set<string>([clozeAnsLower, wordLower]);
+        for (const cand of shuffle(candidateWords)) {
+          const candLower = cand.toLowerCase();
+          if (!seen.has(candLower)) {
+            seen.add(candLower);
+            distinctDistractors.push(cand);
+            if (distinctDistractors.length >= 3) break;
           }
-          return c;
-        });
-        if (!replaced && !normalizedChoices.some((c) => c.trim().toLowerCase() === clozeAns.toLowerCase())) {
-          normalizedChoices[0] = clozeAns;
         }
-        setChoices(normalizedChoices);
+        let padIdx = 1;
+        while (distinctDistractors.length < 3) {
+          distinctDistractors.push(`(option ${padIdx++})`);
+        }
+        setChoices(shuffle([clozeAns, ...distinctDistractors]));
       } else {
         setChoices([]);
       }
@@ -289,7 +303,8 @@ function SessionContent() {
           if (srsRows && srsRows.length > 0) {
             const mapped: WordItem[] = [];
             for (const row of srsRows) {
-              const w = row.words as unknown as (WordItem & { id: string }) | null;
+              const rawW = row.words;
+              const w = (Array.isArray(rawW) ? rawW[0] : rawW) as unknown as (WordItem & { id: string }) | null;
               if (w && isCardReady(w)) {
                 const stability = Number((row as { stability?: number }).stability) || 0;
                 const srsLevel = stabilityToLevel(stability);
@@ -338,7 +353,8 @@ function SessionContent() {
   }, [classroomId, router, sessionMode, setupCard]);
 
   useEffect(() => {
-    const currentKey = `${classParam ?? ''}:${sessionMode}:${searchParams.get('free') === '1' ? '1' : '0'}`;
+    const isFree = freeParam === '1';
+    const currentKey = `${classParam ?? ''}:${sessionMode}:${isFree ? '1' : '0'}`;
     if (initializedRef.current && initKeyRef.current === currentKey) {
       return;
     }
@@ -359,7 +375,7 @@ function SessionContent() {
 
         setUserId(user.id);
 
-        if (searchParams.get('free') === '1') {
+        if (isFree) {
           await startFreeReview();
           return;
         }
@@ -460,7 +476,7 @@ function SessionContent() {
     };
     void init();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [classParam, sessionMode]);
+  }, [classParam, sessionMode, freeParam]);
 
   useEffect(() => () => {
     if (advanceTimer.current) clearTimeout(advanceTimer.current);
@@ -605,15 +621,18 @@ function SessionContent() {
       itemMode,
       Date.now() - startedAt.current,
     );
-    if (v === 'wrong' && itemMode === 'cloze_type' && current.word) {
+    if (v !== 'correct' && itemMode === 'cloze_type' && current.word) {
       const alt = verdictAndQuality(
         guess,
         current.word,
         itemMode,
         Date.now() - startedAt.current,
       );
-      if (alt.verdict === 'correct' || alt.verdict === 'close') {
-        v = alt.verdict;
+      if (alt.verdict === 'correct') {
+        v = 'correct';
+        quality = alt.quality;
+      } else if (v === 'wrong' && alt.verdict === 'close') {
+        v = 'close';
         quality = alt.quality;
       }
     }
