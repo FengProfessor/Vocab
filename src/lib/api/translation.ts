@@ -163,7 +163,7 @@ export async function translateWithDetails(
 
   const client = getClient();
 
-  // 1️⃣ Check cache in Supabase
+  // 1️⃣ Check cache in Supabase translations table
   if (useCache) {
     try {
       const { data: cached, error: cacheErr } = await client
@@ -183,28 +183,64 @@ export async function translateWithDetails(
           provider: 'cache',
         };
       }
+
+      // Check words table if translation is EN -> VI
+      if (sourceLang === 'en' && targetLang === 'vi') {
+        const { data: wordMatch } = await client
+          .from('words')
+          .select('example_vi')
+          .eq('example', trimmed)
+          .not('example_vi', 'is', null)
+          .limit(1)
+          .maybeSingle();
+
+        if (wordMatch?.example_vi) {
+          // Ghi ngược vào translations cache để lần sau đọc từ translations
+          void asyncSaveCache(client, [{
+            source_text: trimmed,
+            source_lang: sourceLang,
+            target_lang: targetLang,
+            translated_text: wordMatch.example_vi,
+            provider: 'words-db',
+            updated_at: new Date().toISOString(),
+          }]);
+
+          return {
+            translatedText: wordMatch.example_vi,
+            sourceLang,
+            targetLang,
+            fromCache: true,
+            provider: 'cache',
+          };
+        }
+      }
     } catch {
       // Ignore cache lookup errors and proceed
     }
   }
 
-  // 2️⃣ Call LibreTranslate
+  // 2️⃣ Call LibreTranslate ONLY if configured explicitly
   let translated = '';
-  let provider: 'libretranslate' | 'google-fallback' = 'libretranslate';
+  let provider: 'libretranslate' | 'google-fallback' = 'google-fallback';
 
-  try {
-    const raw = await callLibreTranslate(trimmed, sourceLang, targetLang, timeoutMs);
-    translated = Array.isArray(raw) ? raw[0] || '' : raw;
-  } catch (ltError) {
-    console.warn(`[Translate] LibreTranslate error, triggering fallback:`, (ltError as Error)?.message);
+  if (process.env.LIBRETRANSLATE_URL) {
+    try {
+      const raw = await callLibreTranslate(trimmed, sourceLang, targetLang, timeoutMs);
+      translated = Array.isArray(raw) ? raw[0] || '' : raw;
+      if (translated) provider = 'libretranslate';
+    } catch (ltError) {
+      console.warn(`[Translate] LibreTranslate error, triggering fallback:`, (ltError as Error)?.message);
+    }
+  }
 
-    // 3️⃣ Graceful fallback to Google Translate
+  // 3️⃣ Fast fallback to Google Translate
+  if (!translated) {
     try {
       translated = await callGoogleFallback(trimmed, sourceLang, targetLang);
       provider = 'google-fallback';
     } catch (fbError) {
-      console.error(`[Translate] Both LibreTranslate and fallback failed:`, fbError);
-      throw new Error(`Translation failed: ${(ltError as Error)?.message || 'Service unavailable'}`);
+      console.error(`[Translate] Translation fallback failed:`, fbError);
+      throw new Error('Dịch không thành công, vui lòng thử lại');
     }
   }
 

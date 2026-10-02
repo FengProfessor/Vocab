@@ -82,6 +82,14 @@ export function ExampleWithSub({
     };
   }, []);
 
+  // Đồng bộ lại state khi cleanEn hoặc exampleVi thay đổi
+  useEffect(() => {
+    const key = cleanEn.toLowerCase();
+    const cached = key ? translationCache.get(key) || null : null;
+    setTranslatedVi(cached);
+    setIsTranslating(false);
+  }, [cleanEn, exampleVi]);
+
   // Cập nhật lại trạng thái showVi khi example hoặc initialVi thay đổi
   useEffect(() => {
     if (effectiveVi) {
@@ -132,10 +140,10 @@ export function ExampleWithSub({
   }, [cleanEn, isTranslating]);
 
   useEffect(() => {
-    if (autoTranslateIfMissing && defaultShowVi && !effectiveVi && cleanEn) {
+    if (autoTranslateIfMissing && defaultShowVi && !effectiveVi && cleanEn && !isTranslating) {
       void handleTranslate();
     }
-  }, [autoTranslateIfMissing, defaultShowVi, effectiveVi, cleanEn, handleTranslate]);
+  }, [autoTranslateIfMissing, defaultShowVi, effectiveVi, cleanEn, isTranslating, handleTranslate]);
 
   if (!cleanEn) return null;
 
@@ -223,11 +231,16 @@ export function ExampleWithSub({
           </p>
 
           {/* Phụ đề Tiếng Việt */}
-          {effectiveVi && showVi && (
+          {effectiveVi && showVi ? (
             <p className={viClassName}>
               {effectiveVi}
             </p>
-          )}
+          ) : isTranslating && defaultShowVi ? (
+            <div className="mt-1 flex items-center gap-1.5 opacity-60">
+              <span className="inline-block h-2 w-2 animate-ping rounded-full bg-indigo-500" />
+              <span className="text-[11px] font-medium text-slate-400 dark:text-slate-500 italic">Đang tải bản dịch...</span>
+            </div>
+          ) : null}
 
           {/* Điều khiển Sub: Dịch, Ẩn dịch, Dịch AI */}
           <div className="mt-0.5 flex items-center gap-2">
@@ -244,7 +257,7 @@ export function ExampleWithSub({
                   {showVi ? 'Ẩn dịch' : 'Dịch'}
                 </button>
               )
-            ) : (
+            ) : !autoTranslateIfMissing ? (
               <button
                 type="button"
                 disabled={isTranslating}
@@ -266,7 +279,7 @@ export function ExampleWithSub({
                   </>
                 )}
               </button>
-            )}
+            ) : null}
           </div>
         </div>
       </div>

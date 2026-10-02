@@ -14,7 +14,6 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { toast } from 'sonner';
 import { StudyGuideModal, STUDY_GUIDE_KEY } from '@/components/StudyGuideModal';
 import { speak, judgeAnswer, verdictToQuality, parseIpa, canAutoFocus, type Verdict } from '@/lib/study';
-import { playWordWithBuffer } from '@/lib/audio-sync';
 import { stopWordAudio } from '@/lib/audio';
 import { completeRoadmapStep, getLastRoadmapStepError } from '@/lib/roadmap-client';
 import { invalidateWordSummaryCache } from '@/lib/word-summary-cache';
@@ -61,14 +60,13 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   const [input, setInput] = useState('');
   const [verdict, setVerdict] = useState<Verdict | null>(null);
   const [results, setResults] = useState({ correct: 0, close: 0, wrong: 0 });
-  const [canSkip, setCanSkip] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const advanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const feedbackLockTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const advanceFn = useRef<(() => void) | null>(null);
   const pendingSkipRef = useRef(false);
   const canSkipRef = useRef(false);
-  const savingRecallRef = useRef(false);
+  const submittedWordIdRef = useRef<string | null>(null);
 
   // Hướng dẫn cơ chế — tự hiện lần đầu (dùng chung key với /flashcard ôn), mở lại qua nút "?"
   const [showGuide, setShowGuide] = useState(false);
@@ -190,7 +188,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
     setIntroIndex(0);
   };
 
-  const nextIntro = () => {
+  const nextIntro = useCallback(() => {
     if (introIndex + 1 >= batch.length) {
       // Sang bước Nhớ lại — stop ngay (trước re-render) kẻo tiếng từ cuối
       // còn vang khi UI đã hiện từ đầu của recall.
@@ -199,25 +197,27 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
       setRecallIndex(0);
       setInput('');
       setVerdict(null);
-      setCanSkip(false);
       canSkipRef.current = false;
       pendingSkipRef.current = false;
+      submittedWordIdRef.current = null;
       advanceFn.current = null;
+      requestAnimationFrame(() => inputRef.current?.focus());
       setTimeout(() => inputRef.current?.focus(), 80);
     } else {
       setIntroIndex((i) => i + 1);
     }
-  };
+  }, [introIndex, batch.length]);
 
   // Chỉ phase Làm quen: xem lại từ trước (chưa chấm SRS)
-  const prevIntro = () => {
+  const prevIntro = useCallback(() => {
     if (introIndex <= 0) return;
     setIntroIndex((i) => i - 1);
-  };
+  }, [introIndex]);
 
   const recallWord = batch[recallIndex];
 
   const advanceRecall = useCallback(() => {
+    submittedWordIdRef.current = null;
     advanceFn.current = null;
     if (advanceTimer.current) {
       clearTimeout(advanceTimer.current);
@@ -227,7 +227,6 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
       clearTimeout(feedbackLockTimer.current);
       feedbackLockTimer.current = null;
     }
-    setCanSkip(false);
     canSkipRef.current = false;
     pendingSkipRef.current = false;
     // Chặn tiếng từ vừa chấm phát trễ khi UI đã sang từ mới
@@ -238,7 +237,8 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
       setRecallIndex((i) => i + 1);
       setInput('');
       setVerdict(null);
-      setTimeout(() => inputRef.current?.focus(), 60);
+      requestAnimationFrame(() => inputRef.current?.focus());
+      setTimeout(() => inputRef.current?.focus(), 50);
     }
   }, [recallIndex, batch.length]);
 
@@ -255,24 +255,14 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
     advanceRecall();
   }, [verdict, advanceRecall]);
 
-  // Chốt kết quả 1 từ: ghi điểm + phát âm + sync SRS.
+  // Chốt kết quả 1 từ: phản hồi UI tức thì (0ms), ghi điểm + phát âm + sync SRS ngầm không chặn luồng học.
   // Đúng → auto-next với playWordWithBuffer; sai/gần đúng → hiện đáp án, chờ bấm Tiếp (để đọc kỹ chỗ sai).
-  const finalizeRecall = useCallback(async (v: Verdict) => {
-    if (!recallWord || savingRecallRef.current) return;
-    savingRecallRef.current = true;
-    try {
-      await saveSrsReview(recallWord.id, verdictToQuality(v));
-      const { data: { session } } = await supabase.auth.getSession();
-      invalidateWordSummaryCache(session?.user?.id);
-    } catch (error) {
-      savingRecallRef.current = false;
-      const message = error instanceof Error ? error.message : 'Không lưu được lịch học';
-      toast.error(message);
-      return;
-    }
-    savingRecallRef.current = false;
+  const finalizeRecall = useCallback((v: Verdict) => {
+    if (!recallWord || verdict !== null || submittedWordIdRef.current === recallWord.id) return;
+    submittedWordIdRef.current = recallWord.id;
+
+    // 1. Phản hồi UI tức thì (0ms) — giải quyết triệt để lag/đơ nút bấm
     setVerdict(v);
-    setCanSkip(false);
     canSkipRef.current = false;
     pendingSkipRef.current = false;
     setResults((p) => ({
@@ -289,7 +279,6 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
 
     if (feedbackLockTimer.current) clearTimeout(feedbackLockTimer.current);
     feedbackLockTimer.current = setTimeout(() => {
-      setCanSkip(true);
       canSkipRef.current = true;
       feedbackLockTimer.current = null;
       if (pendingSkipRef.current) {
@@ -307,37 +296,42 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
       } catch {
         /* ignore */
       }
-      if (advanceTimer.current) {
-        clearTimeout(advanceTimer.current);
-        advanceTimer.current = null;
-      }
-      // CORRECT: Await pronunciation completion + 400ms buffer before advance
-      void playWordWithBuffer(recallWord.word, 400).then(() => {
-        if (advanceFn.current === advance) {
-          advance();
-        }
-      });
-    } else {
-      // wrong / close: không auto-next — phát âm củng cố, user bấm «Tiếp theo» hoặc Enter/Space
-      speak(recallWord.word, 1.0);
-      if (advanceTimer.current) {
-        clearTimeout(advanceTimer.current);
-        advanceTimer.current = null;
-      }
     }
-  }, [recallWord, advanceRecall]);
+
+    // Phát âm củng cố từ (cả đúng, gần đúng lẫn sai).
+    // Bỏ hoàn toàn auto-next: dừng lại để người dùng chủ động đọc kết quả và next bằng tay qua phím Enter hoặc nút "Tiếp theo".
+    speak(recallWord.word, 1.0);
+    if (advanceTimer.current) {
+      clearTimeout(advanceTimer.current);
+      advanceTimer.current = null;
+    }
+
+    // 2. Lưu SRS ngầm ở background (Non-blocking: hoàn toàn không chặn việc học liên tiếp)
+    const wordIdToSave = recallWord.id;
+    const quality = verdictToQuality(v);
+    saveSrsReview(wordIdToSave, quality)
+      .then(async () => {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session?.user?.id) invalidateWordSummaryCache(session.user.id);
+      })
+      .catch((error) => {
+        console.error('[LearnMode] saveSrsReview error:', error);
+        const message = error instanceof Error ? error.message : 'Không lưu được lịch học';
+        toast.error(message);
+      });
+  }, [recallWord, verdict, advanceRecall]);
 
   const submitRecall = useCallback(() => {
-    if (!recallWord || verdict !== null) return;
+    if (!recallWord || verdict !== null || submittedWordIdRef.current === recallWord.id) return;
     const guess = input.trim();
     if (!guess) return;
-    void finalizeRecall(judgeAnswer(guess, recallWord.word));
+    finalizeRecall(judgeAnswer(guess, recallWord.word));
   }, [recallWord, verdict, input, finalizeRecall]);
 
   // "Không nhớ" — không bắt user gõ bừa; tính là sai (Again) và hiện đáp án
   const giveUpRecall = useCallback(() => {
-    if (!recallWord || verdict !== null) return;
-    void finalizeRecall('wrong');
+    if (!recallWord || verdict !== null || submittedWordIdRef.current === recallWord.id) return;
+    finalizeRecall('wrong');
   }, [recallWord, verdict, finalizeRecall]);
 
   const onKeyDown = (e: React.KeyboardEvent) => {
@@ -352,6 +346,41 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
       giveUpRecall();
     }
   };
+
+  // Hỗ trợ phím tắt toàn cục (Enter / Space / Mũi tên)
+  // Giúp thao tác kiểm tra và chuyển từ liên tiếp mượt mà ngay cả khi focus ngoài input
+  useEffect(() => {
+    const handleGlobalKeyDown = (e: KeyboardEvent) => {
+      if (showGuide) return;
+
+      if (phase === 'introduce') {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowRight') {
+          e.preventDefault();
+          nextIntro();
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          prevIntro();
+        }
+      } else if (phase === 'recall') {
+        if (verdict !== null) {
+          if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowRight') {
+            e.preventDefault();
+            goNextRecall();
+          }
+        } else {
+          if (e.key === 'Escape') {
+            e.preventDefault();
+            giveUpRecall();
+          } else if (e.key === 'Enter' && document.activeElement !== inputRef.current) {
+            e.preventDefault();
+            submitRecall();
+          }
+        }
+      }
+    };
+    window.addEventListener('keydown', handleGlobalKeyDown);
+    return () => window.removeEventListener('keydown', handleGlobalKeyDown);
+  }, [phase, verdict, showGuide, nextIntro, prevIntro, goNextRecall, giveUpRecall, submitRecall]);
 
   // Lưu accuracy phiên khi xong + báo hoàn thành step lộ trình (nếu mở từ /journey)
   // Chỉ ghi step khi đã học hết batch còn lại (remainingNew === 0) — tránh pass sớm giữa chừng gói.
@@ -739,11 +768,12 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
                 onClick={goNextRecall}
                 className={`flex h-10 w-full items-center justify-center gap-2 rounded-xl border-b-[3px] text-sm font-black shadow-sm transition-all active:translate-y-0.5 active:border-b-0 sm:h-11 ${
                   verdict === 'correct'
-                    ? 'border-slate-200 bg-white text-slate-800 hover:bg-slate-50'
-                    : 'border-indigo-800 bg-indigo-600 text-white hover:bg-indigo-700'
+                    ? 'border-emerald-800 bg-emerald-600 text-white hover:bg-emerald-700 shadow-emerald-100'
+                    : 'border-indigo-800 bg-indigo-600 text-white hover:bg-indigo-700 shadow-indigo-100'
                 }`}
               >
-                {recallIndex + 1 >= batch.length ? 'Xem kết quả' : 'Tiếp theo'}{' '}
+                <span>{recallIndex + 1 >= batch.length ? 'Xem kết quả' : 'Tiếp theo'}</span>
+                <span className="text-[11px] font-semibold opacity-80">(Enter ↵)</span>
                 <ArrowRight className="h-4 w-4" />
               </button>
             )}

@@ -20,7 +20,6 @@ import { StudentShell } from '@/components/student/StudentShell';
 import {
   speak, canAutoFocus, parseIpa, type Verdict,
 } from '@/lib/study';
-import { playWordWithBuffer } from '@/lib/audio-sync';
 import { stopWordAudio } from '@/lib/audio';
 import { ExampleWithSub } from '@/components/study/ExampleWithSub';
 import {
@@ -566,26 +565,12 @@ function SessionContent() {
         }
       }, FEEDBACK_LOCK_MS);
 
-      if (isCorrect) {
-        if (advanceTimer.current) {
-          clearTimeout(advanceTimer.current);
-          advanceTimer.current = null;
-        }
-        // CORRECT: Await pronunciation completion + 400ms buffer before advancing
-        void playWordWithBuffer(current.word, 400).then(() => {
-          if (advanceFn.current === advance) {
-            advance();
-          }
-        });
-      } else {
-        // INCORRECT / ALMOST CORRECT:
-        // Play pronunciation for reinforcement, but DO NOT set auto-advance timer.
-        // Card pauses indefinitely until manual action (Enter, Space, or "Tiếp theo").
-        speak(current.word, 1.0);
-        if (advanceTimer.current) {
-          clearTimeout(advanceTimer.current);
-          advanceTimer.current = null;
-        }
+      // Phát âm củng cố từ (cả đúng, gần đúng lẫn sai).
+      // Bỏ hoàn toàn auto-next: dừng lại để người dùng xem lại kết quả và chủ động next bằng Enter/Space hoặc bấm nút "Tiếp theo".
+      speak(current.word, 1.0);
+      if (advanceTimer.current) {
+        clearTimeout(advanceTimer.current);
+        advanceTimer.current = null;
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -1103,9 +1088,11 @@ function SessionContent() {
                   <Button
                     onClick={skipWait}
                     variant="outline"
-                    className="h-11 w-full rounded-xl text-sm font-bold"
+                    className="h-11 w-full rounded-xl text-sm font-bold flex items-center justify-center gap-2"
                   >
-                    Tiếp theo →
+                    <span>Tiếp theo</span>
+                    <span className="text-xs font-normal text-muted-foreground">(Enter ↵)</span>
+                    <span>→</span>
                   </Button>
                 )}
               </div>
@@ -1115,9 +1102,11 @@ function SessionContent() {
               <Button
                 onClick={skipWait}
                 variant="outline"
-                className="h-11 w-full shrink-0 rounded-xl text-sm font-bold"
+                className="h-11 w-full shrink-0 rounded-xl text-sm font-bold flex items-center justify-center gap-2"
               >
-                Tiếp theo →
+                <span>Tiếp theo</span>
+                <span className="text-xs font-normal text-muted-foreground">(Enter ↵)</span>
+                <span>→</span>
               </Button>
             )}
           </CardContent>

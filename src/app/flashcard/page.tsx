@@ -275,21 +275,16 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     const currentWordId = current.id;
     const currentWord = current;
 
-    const { data: { session } } = await supabase.auth.getSession();
-    if (!session) {
-      ratingSavingRef.current = false;
-      toast.error('Phiên đăng nhập đã hết hạn.');
-      return;
-    }
-    try {
-      await saveSrsReview(currentWordId, quality);
-      invalidateWordSummaryCache(session.user.id);
-    } catch (error) {
-      ratingSavingRef.current = false;
-      const message = error instanceof Error ? error.message : 'Không lưu được lịch ôn';
-      toast.error(message);
-      return;
-    }
+    // Background sync: Lưu kết quả SRS ngầm không chặn animation chuyển thẻ
+    saveSrsReview(currentWordId, quality)
+      .then(async () => {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session?.user?.id) invalidateWordSummaryCache(session.user.id);
+      })
+      .catch((error) => {
+        const message = error instanceof Error ? error.message : 'Không lưu được lịch ôn';
+        toast.error(message);
+      });
 
     setIsSwapping(true);
     setSessionResults(prev => ({

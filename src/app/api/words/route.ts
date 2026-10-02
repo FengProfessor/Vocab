@@ -17,6 +17,7 @@ import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
 import { checkWordSaveQuota, resolveUserPlanInfo, recordWordSaved } from '@/lib/entitlement-server';
 import { cacheGet, cacheSet, invalidateServerWordSummaryCache } from '@/lib/ttl-cache';
 import { parseIpa } from '@/lib/study';
+import { extractVietnameseSentenceTranslation } from '@/lib/review-modes';
 
 /**
  * Kiểm tra user có quyền trên word (qua classroom): user là owner classroom,

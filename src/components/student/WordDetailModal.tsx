@@ -349,7 +349,7 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
                         {m.example && (
                           <ExampleWithSub
                             example={m.example}
-                            exampleVi={m.example_vi}
+                            exampleVi={m.example_vi || (m.example?.trim() === word.example?.trim() ? word.example_vi : undefined)}
                             defaultShowVi
                             className="mt-1"
                             enClassName="text-xs italic text-slate-500"
