@@ -4,7 +4,7 @@ import { type DictionaryData, type SRSProgress, type Word } from '@/lib/supabase
 import { createServiceClient } from '@/lib/supabase-server';
 import { enrichWord as performAIEnrichment } from '@/lib/ai-enrich';
 import { resolveWordImage } from '@/lib/image-pipeline';
-import { stabilityToLevel } from '@/lib/srs';
+import { stabilityToLevel, reviewCountToLevel } from '@/lib/srs';
 import { rateLimitUnavailableResponse,
   getAuthUser,
   unauthorized,
@@ -890,7 +890,7 @@ export async function GET(req: Request): Promise<NextResponse> {
             });
           }
 
-          const enriched = (rpcWords as Array<{
+          const rawWords = (rpcWords as Array<{
             id: string;
             word: string;
             translation: string;
@@ -903,36 +903,98 @@ export async function GET(req: Request): Promise<NextResponse> {
             image_url?: string | null;
             review_count?: number | null;
             classroom_id?: string | null;
-          }>)
-            .filter((w) =>
-              w.word && w.translation &&
-              w.translation.trim() !== '' &&
-              !w.translation.includes('failed') &&
-              !w.translation.includes('Analyzing') &&
-              !w.translation.includes('⏳'))
-            .map((w) => {
-              const reviewCount = Number(w.review_count ?? 0);
-              const isNew = reviewCount === 0;
-              return {
-                id: w.id,
-                word: w.word,
-                translation: w.translation,
-                ipa: w.ipa || '',
-                pos: w.pos || '',
-                example: w.example || '',
-                example_vi: w.example_vi || null,
-                image_url: w.image_url || null,
-                synonyms: w.synonyms || [],
-                antonyms: w.antonyms || [],
-                classroom_id: w.classroom_id || classroomId || '',
-                srs: null,
-                isDue: true,
-                reviewCount,
-                srsLevel: isNew ? 0 : 1,
-                mastery: isNew ? 0 : 20,
-                status: isNew ? 'new' : 'learning',
-              };
+          }>).filter((w) =>
+            w.word && w.translation &&
+            w.translation.trim() !== '' &&
+            !w.translation.includes('failed') &&
+            !w.translation.includes('Analyzing') &&
+            !w.translation.includes('⏳')
+          );
+
+          if (rawWords.length === 0) {
+            return new NextResponse(JSON.stringify({ success: true, data: [], classroomId, total: 0 }), {
+              headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
             });
+          }
+
+          // Lấy thông tin stability & next_review_date từ srs_progress để tính srsLevel và phục vụ deduplication
+          const wordIds = rawWords.map((w) => w.id);
+          const { data: srsRows, error: srsErr } = await supabase
+            .from('srs_progress')
+            .select('word_id, stability, review_count, next_review_date, difficulty, ease_factor, interval_days, last_reviewed_at')
+            .in('word_id', wordIds)
+            .eq('user_id', userId);
+
+          if (srsErr) {
+            console.warn('[api/words] failed to fetch srs_progress for due words:', srsErr);
+          }
+
+          const srsByWord = new Map<string, SRSProgressWithStability & { next_review_date?: string }>();
+          if (Array.isArray(srsRows)) {
+            for (const row of srsRows) {
+              srsByWord.set(row.word_id, row as unknown as SRSProgressWithStability & { next_review_date?: string });
+            }
+          }
+
+          const mappedCandidates = rawWords.map((w) => {
+            const srs = srsByWord.get(w.id) || null;
+            const reviewCount = Number(srs?.review_count ?? w.review_count ?? 0);
+            const isNew = reviewCount === 0;
+            const stability = Number(srs?.stability ?? 0);
+            const srsLevel = isNew
+              ? 0
+              : stability > 0
+                ? stabilityToLevel(stability)
+                : reviewCountToLevel(reviewCount);
+            const mastery = isNew ? 0 : Math.min(100, srsLevel * 20);
+            const status = isNew ? 'new' : srsLevel >= 5 ? 'mastered' : 'learning';
+
+            return {
+              id: w.id,
+              word: w.word,
+              translation: w.translation,
+              ipa: w.ipa || '',
+              pos: w.pos || '',
+              example: w.example || '',
+              example_vi: w.example_vi || null,
+              image_url: w.image_url || null,
+              synonyms: w.synonyms || [],
+              antonyms: w.antonyms || [],
+              classroom_id: w.classroom_id || classroomId || '',
+              srs,
+              isDue: true,
+              reviewCount,
+              srsLevel,
+              mastery,
+              status,
+              next_review_date: srs?.next_review_date || null,
+            };
+          });
+
+          // Deduplicate cross-classroom words by normalized word:
+          // w.word.trim().toLowerCase()
+          // Keeping the record with the higher review count or earlier review date.
+          const dedupMap = new Map<string, typeof mappedCandidates[0]>();
+          for (const item of mappedCandidates) {
+            const key = item.word.trim().toLowerCase();
+            const existing = dedupMap.get(key);
+            if (!existing) {
+              dedupMap.set(key, item);
+              continue;
+            }
+
+            if (item.reviewCount > existing.reviewCount) {
+              dedupMap.set(key, item);
+            } else if (item.reviewCount === existing.reviewCount) {
+              const itemDate = item.next_review_date ? new Date(item.next_review_date).getTime() : Infinity;
+              const existingDate = existing.next_review_date ? new Date(existing.next_review_date).getTime() : Infinity;
+              if (itemDate < existingDate) {
+                dedupMap.set(key, item);
+              }
+            }
+          }
+
+          const enriched = Array.from(dedupMap.values());
 
           return new NextResponse(JSON.stringify({ success: true, data: enriched, classroomId, total: enriched.length }), {
             headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
@@ -1005,7 +1067,7 @@ export async function GET(req: Request): Promise<NextResponse> {
       if (wErr) throw wErr;
 
       const order = new Map(allIds.map((id, i) => [id, i]));
-      const enriched = ((wordsData || []) as Word[])
+      const enrichedCandidates = ((wordsData || []) as Word[])
         .filter((w) =>
           w.word && w.translation &&
           w.translation.trim() !== '' &&
@@ -1014,19 +1076,48 @@ export async function GET(req: Request): Promise<NextResponse> {
           !w.translation.includes('⏳'))
         .map((w) => {
           const srs = srsByWord.get(w.id) || null;
-          const srsLevel = stabilityToLevel(srs?.stability || 0);
+          const reviewCount = Number(srs?.review_count ?? 0);
+          const isNew = reviewCount === 0;
+          const stability = Number(srs?.stability ?? 0);
+          const srsLevel = isNew
+            ? 0
+            : stability > 0
+              ? stabilityToLevel(stability)
+              : reviewCountToLevel(reviewCount);
           return {
             ...w,
             classroom_id: w.classroom_id || classroomId || '',
             srs,
             isDue: true,
-            reviewCount: srs?.review_count || 0,
+            reviewCount,
             srsLevel,
-            mastery: Math.min(100, srsLevel * 20),
-            status: srsLevel >= 5 ? 'mastered' : 'learning',
+            mastery: isNew ? 0 : Math.min(100, srsLevel * 20),
+            status: isNew ? 'new' : srsLevel >= 5 ? 'mastered' : 'learning',
+            next_review_date: srs?.next_review_date || null,
           };
         })
         .sort((a, b) => (order.get(a.id) ?? 0) - (order.get(b.id) ?? 0));
+
+      const dedupFallbackMap = new Map<string, typeof enrichedCandidates[0]>();
+      for (const item of enrichedCandidates) {
+        const key = item.word.trim().toLowerCase();
+        const existing = dedupFallbackMap.get(key);
+        if (!existing) {
+          dedupFallbackMap.set(key, item);
+          continue;
+        }
+
+        if (item.reviewCount > existing.reviewCount) {
+          dedupFallbackMap.set(key, item);
+        } else if (item.reviewCount === existing.reviewCount) {
+          const itemDate = item.next_review_date ? new Date(item.next_review_date).getTime() : Infinity;
+          const existingDate = existing.next_review_date ? new Date(existing.next_review_date).getTime() : Infinity;
+          if (itemDate < existingDate) {
+            dedupFallbackMap.set(key, item);
+          }
+        }
+      }
+      const enriched = Array.from(dedupFallbackMap.values());
 
       return new NextResponse(JSON.stringify({ success: true, data: enriched, classroomId, total: enriched.length }), {
         headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },

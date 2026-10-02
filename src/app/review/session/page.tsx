@@ -37,6 +37,7 @@ import {
   stripEmbeddedVietnamese,
   verdictAndQuality,
 } from '@/lib/review-modes';
+import { stabilityToLevel } from '@/lib/srs';
 import { invalidateWordSummaryCache } from '@/lib/word-summary-cache';
 import { saveSrsReview } from '@/lib/save-srs-review';
 
@@ -56,6 +57,21 @@ const NEXT_BAD_MS = 2500;
 /** Chặn ghost-click / double-tap vào «Tiếp theo» ngay sau khi chạm đáp án (100ms mượt mà, tức thì nhưng chống nảy phím). */
 const FEEDBACK_LOCK_MS = 100;
 const SESSION_CAP = 25;
+
+/** Deduplicate words by normalized word text (trimmed, lowercased) */
+export function deduplicateWords<T extends { word: string }>(words: T[]): T[] {
+  const seen = new Set<string>();
+  const unique: T[] = [];
+  for (const w of words) {
+    const key = w?.word?.trim().toLowerCase();
+    if (!key) continue;
+    if (!seen.has(key)) {
+      seen.add(key);
+      unique.push(w);
+    }
+  }
+  return unique;
+}
 
 /** Lọc an toàn các từ có trạng thái dịch chưa hoàn tất, đang phân tích hoặc lỗi */
 export function isCardReady(w: ReviewWordLike | WordItem | null | undefined): boolean {
@@ -107,11 +123,15 @@ function SessionContent() {
 
   const [userId, setUserId] = useState<string | null>(null);
   const [classroomId, setClassroomId] = useState<string | null>(classParam);
+  const classroomIdRef = useRef<string | null>(classParam);
   const [isFreeReview, setIsFreeReview] = useState(searchParams.get('free') === '1');
   const [nextDueTime, setNextDueTime] = useState<string | null>(null);
   const [isLoadingFree, setIsLoadingFree] = useState(false);
   const [pool, setPool] = useState<WordItem[]>([]);
   const queueRef = useRef<WordItem[]>([]);
+  const lastModeRef = useRef<ItemMode | null>(null);
+  const initializedRef = useRef(false);
+  const initKeyRef = useRef<string>('');
   const [current, setCurrent] = useState<WordItem | null>(null);
   const [itemMode, setItemMode] = useState<ItemMode>('type_vi_en');
   const [choices, setChoices] = useState<string[]>([]);
@@ -160,7 +180,8 @@ function SessionContent() {
       const c = makeCloze(w.example, w.word);
       return Boolean(c && c.stem.includes('___') && c.stem !== '___' && c.full !== c.answer);
     });
-    const im = pickItemMode(word, mode, hasEx);
+    const im = pickItemMode(word, mode, hasEx, lastModeRef.current ?? undefined);
+    lastModeRef.current = im;
     setItemMode(im);
     setInput('');
     setSelected(null);
@@ -174,9 +195,23 @@ function SessionContent() {
     if (im === 'cloze_mcq' || im === 'cloze_type') {
       const cloze = makeCloze(word.example, word.word);
       setClozeStem(cloze?.stem ?? '___');
-      setAnswer(cloze?.answer ?? word.word);
+      const clozeAns = (cloze?.answer ?? word.word).trim();
+      setAnswer(clozeAns);
       if (im === 'cloze_mcq') {
-        setChoices(buildWordChoices(word, all, 'word'));
+        const rawChoices = buildWordChoices(word, all, 'word');
+        const wordLower = word.word.trim().toLowerCase();
+        let replaced = false;
+        const normalizedChoices = rawChoices.map((c) => {
+          if (!replaced && c.trim().toLowerCase() === wordLower) {
+            replaced = true;
+            return clozeAns;
+          }
+          return c;
+        });
+        if (!replaced && !normalizedChoices.some((c) => c.trim().toLowerCase() === clozeAns.toLowerCase())) {
+          normalizedChoices[0] = clozeAns;
+        }
+        setChoices(normalizedChoices);
       } else {
         setChoices([]);
       }
@@ -214,6 +249,7 @@ function SessionContent() {
 
   const startFreeReview = useCallback(async () => {
     setIsLoadingFree(true);
+    lastModeRef.current = null;
     try {
       const { data: { session } } = await supabase.auth.getSession();
       if (!session?.user) {
@@ -226,8 +262,9 @@ function SessionContent() {
       setUserId(user.id);
 
       let freeWords: WordItem[] = [];
-      const base = classroomId
-        ? `/api/words?classroomId=${encodeURIComponent(classroomId)}`
+      const cid = classroomIdRef.current ?? classroomId;
+      const base = cid
+        ? `/api/words?classroomId=${encodeURIComponent(cid)}`
         : `/api/words`;
 
       try {
@@ -245,19 +282,22 @@ function SessionContent() {
         try {
           const { data: srsRows } = await supabase
             .from('srs_progress')
-            .select('word_id, words(id, word, translation, ipa, pos, example, example_vi, image_url, classroom_id)')
+            .select('word_id, stability, review_count, words(id, word, translation, ipa, pos, example, example_vi, image_url, classroom_id)')
             .eq('user_id', user.id)
             .gt('review_count', 0)
-            .limit(40);
+            .limit(60);
           if (srsRows && srsRows.length > 0) {
             const mapped: WordItem[] = [];
             for (const row of srsRows) {
               const w = row.words as unknown as (WordItem & { id: string }) | null;
               if (w && isCardReady(w)) {
+                const stability = Number((row as { stability?: number }).stability) || 0;
+                const srsLevel = stabilityToLevel(stability);
+                const reviewCount = Number((row as { review_count?: number }).review_count) || 1;
                 mapped.push({
                   ...w,
-                  srsLevel: 1,
-                  reviewCount: 1,
+                  srsLevel: typeof w.srsLevel === 'number' && w.srsLevel > 0 ? w.srsLevel : (srsLevel || 1),
+                  reviewCount: typeof w.reviewCount === 'number' && w.reviewCount > 0 ? w.reviewCount : reviewCount,
                   isDue: false,
                 });
               }
@@ -268,6 +308,9 @@ function SessionContent() {
           // ignore
         }
       }
+
+      // Deduplicate words so a word is not reviewed twice in the same session
+      freeWords = deduplicateWords(freeWords);
 
       if (freeWords.length === 0) {
         toast.info('Chưa có từ nào trong kho từ để ôn tập tự do.');
@@ -295,8 +338,16 @@ function SessionContent() {
   }, [classroomId, router, sessionMode, setupCard]);
 
   useEffect(() => {
+    const currentKey = `${classParam ?? ''}:${sessionMode}:${searchParams.get('free') === '1' ? '1' : '0'}`;
+    if (initializedRef.current && initKeyRef.current === currentKey) {
+      return;
+    }
+    initializedRef.current = true;
+    initKeyRef.current = currentKey;
+
     const init = async () => {
       try {
+        lastModeRef.current = null;
         // getSession() trả cả user + token → tránh gọi getUser() riêng + 2× getSession() trong authFetch
         const { data: { session } } = await supabase.auth.getSession();
         if (!session?.user) {
@@ -313,8 +364,9 @@ function SessionContent() {
           return;
         }
 
-        const base = classroomId
-          ? `/api/words?classroomId=${encodeURIComponent(classroomId)}`
+        const cid = classroomIdRef.current ?? classroomId;
+        const base = cid
+          ? `/api/words?classroomId=${encodeURIComponent(cid)}`
           : `/api/words`;
         // Ưu tiên nạp danh sách đến hạn ôn (RPC get_due_words_list, siêu nhẹ ~120ms)
         const dueRes = await authFetch(`${base}${base.includes('?') ? '&' : '?'}filter=review&limit=${SESSION_CAP}`, {});
@@ -326,9 +378,13 @@ function SessionContent() {
           return;
         }
         const classroomIdFromRes = dueJson.classroomId;
-        if (classParam && !classroomId && classroomIdFromRes) setClassroomId(classroomIdFromRes);
+        if (classParam && !classroomId && classroomIdFromRes) {
+          classroomIdRef.current = classroomIdFromRes;
+          setClassroomId(classroomIdFromRes);
+        }
 
-        const dueWords = (dueJson.success && Array.isArray(dueJson.data)) ? (dueJson.data as WordItem[]) : [];
+        const rawDueWords = (dueJson.success && Array.isArray(dueJson.data)) ? (dueJson.data as WordItem[]) : [];
+        const dueWords = deduplicateWords(rawDueWords);
 
         // Nếu queue ôn ít hơn 4 từ (không đủ 4 đáp án MCQ), nạp thêm pool distractor phụ (30 từ)
         let allWords: WordItem[] = [];
@@ -345,12 +401,7 @@ function SessionContent() {
         }
 
         // Pool cho distractor MCQ: kết hợp allWords + dueWords để không bị thiếu phương án
-        const combinedPool = [...dueWords];
-        for (const aw of allWords) {
-          if (!combinedPool.some((w) => w.id === aw.id)) {
-            combinedPool.push(aw);
-          }
-        }
+        const combinedPool = deduplicateWords([...dueWords, ...allWords]);
 
         // Lọc sạch các từ có trạng thái dịch lỗi / đang phân tích / rỗng
         const ready = combinedPool.filter(isCardReady);
@@ -371,8 +422,8 @@ function SessionContent() {
         }
 
         // Không fallback random — ôn khi chưa due sẽ phá lịch FSRS
+        due = deduplicateWords(due).slice(0, SESSION_CAP);
 
-        due = due.slice(0, SESSION_CAP);
         if (due.length === 0) {
           // Khi không có từ đến hạn, tìm mốc thời gian từ kế tiếp sẽ đến hạn
           try {
@@ -409,7 +460,7 @@ function SessionContent() {
     };
     void init();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [classParam, sessionMode, startFreeReview]);
+  }, [classParam, sessionMode]);
 
   useEffect(() => () => {
     if (advanceTimer.current) clearTimeout(advanceTimer.current);
@@ -528,7 +579,10 @@ function SessionContent() {
   const handleMcq = (choice: string, idx: number) => {
     if (answeredRef.current || !current) return;
     setSelected(choice);
-    const ok = choice.trim().toLowerCase() === answer.trim().toLowerCase();
+    const cLower = choice.trim().toLowerCase();
+    const ansLower = answer.trim().toLowerCase();
+    const wordLower = current.word.trim().toLowerCase();
+    const ok = cLower === ansLower || (itemMode === 'cloze_mcq' && cLower === wordLower);
     if (!ok) {
       setShakingIdx(idx);
       setTimeout(() => setShakingIdx(null), 500);
@@ -545,12 +599,24 @@ function SessionContent() {
     if (answeredRef.current || !current) return;
     const guess = input.trim();
     if (!guess) return;
-    const { verdict: v, quality } = verdictAndQuality(
+    let { verdict: v, quality } = verdictAndQuality(
       guess,
       answer,
       itemMode,
       Date.now() - startedAt.current,
     );
+    if (v === 'wrong' && itemMode === 'cloze_type' && current.word) {
+      const alt = verdictAndQuality(
+        guess,
+        current.word,
+        itemMode,
+        Date.now() - startedAt.current,
+      );
+      if (alt.verdict === 'correct' || alt.verdict === 'close') {
+        v = alt.verdict;
+        quality = alt.quality;
+      }
+    }
     finalize(v === 'correct', v === 'close', quality);
   };
 
@@ -940,7 +1006,10 @@ function SessionContent() {
               <div className="grid shrink-0 gap-2">
                 {choices.map((c, idx) => {
                   const isSel = selected === c;
-                  const isAns = c.trim().toLowerCase() === answer.trim().toLowerCase();
+                  const cLower = c.trim().toLowerCase();
+                  const ansLower = answer.trim().toLowerCase();
+                  const wordLower = current?.word.trim().toLowerCase();
+                  const isAns = cLower === ansLower || (itemMode === 'cloze_mcq' && wordLower ? cLower === wordLower : false);
                   let cls =
                     'border-slate-200 bg-white hover:border-indigo-300 hover:bg-indigo-50 text-slate-800';
                   if (verdict !== null) {

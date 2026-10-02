@@ -137,6 +137,20 @@ export function stabilityToLevel(stability: number): number {
   return 6;
 }
 
+/**
+ * Maps review count to virtual SRS levels (0-6) as a fallback
+ * when stability has not yet been computed or is legacy.
+ */
+export function reviewCountToLevel(reviewCount: number): number {
+  if (reviewCount <= 0) return 0;
+  if (reviewCount === 1) return 1;
+  if (reviewCount === 2) return 2;
+  if (reviewCount <= 4) return 3;
+  if (reviewCount <= 7) return 4;
+  if (reviewCount <= 12) return 5;
+  return 6;
+}
+
 /** Nhãn khoảng interval ước lượng (không phải mốc cứng Anki) */
 export const SRS_LEVEL_LABELS = ['~1d', '~3d', '~1w', '~3w', '~2mo', '3mo+'] as const;
 

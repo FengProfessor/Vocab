@@ -36,3 +36,14 @@
      ```
   4. Xác thực lại bằng cách đo thời gian phản hồi (warm latency) trên các route trọng yếu (`/`, `/landing`, `/auth`, `/sat-thu-toeic-listening`), đảm bảo độ trễ duy trì dưới 500ms.
 
+## 3. High-Performance Dashboard & Database Retrieval Protocol
+- **No Premature HEAD Count Queries**:
+  When fetching dataset tables whose expected row count is typically within a single batch page (< 1,000 rows, such as `profiles`, `orders`, `groups`), query `.range(0, PAGE - 1)` directly. Never issue a prior `count: 'exact', head: true` request unless multi-page pagination has already been confirmed by receiving a full page.
+- **Concurrent DB & RPC Pipeline**:
+  Always execute independent database queries and RPC calls concurrently via `Promise.all` ($T = \max$) rather than in serial sequence ($T = T_1 + T_2$).
+- **Instant Client-Side Hydration (0ms Perceived Latency)**:
+  All administrative and analytics dashboards must hydrate their initial state synchronously from client storage (`sessionStorage` or local state) if available. The UI must render immediately without blocking behind a skeleton, with fresh network data seamlessly updating in the background.
+- **Hook Purity & No Side-Effects in useMemo**:
+  Never call `setState()` inside `useMemo()` callbacks (e.g. resetting visible rows or pagination). Reset state through explicit dependency-tracked `useEffect()` hooks.
+- **Generous SWR Stale Windows for Admin Data**:
+  Server-side SWR caches for operational/CRM data should use an extended stale window (e.g., 30+ minutes, TTL 2 minutes) to ensure near 100% instant responses (< 5ms) for active sessions while refreshing asynchronously.

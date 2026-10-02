@@ -8,7 +8,7 @@ import {
   ChevronLeft, Users, UserPlus, Crown, Activity, AlertTriangle,
   Search, Download, X, Mail, Calendar, BookOpen, Target,
   CreditCard, TrendingUp, Building2, Brain, RotateCcw,
-  RefreshCw, Zap, Clock,
+  RefreshCw, Zap,
 } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { formatVND } from '@/lib/billing';
@@ -124,12 +124,21 @@ const shiftDateKey = (key: string, days: number): string => {
   return dt.toISOString().slice(0, 10);
 };
 
+const CRM_CACHE_KEY = 'crm_dashboard_client_cache_v2';
 const TABLE_PAGE = 50; // Progressive rendering — tránh paint 500+ rows cùng lúc
 
 export default function CrmDashboard() {
   const router = useRouter();
-  const [data, setData] = useState<CrmData | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  // Hydrate tức thì từ sessionStorage nếu có: trang hiện ngay trong 0ms không đợi skeleton
+  const [data, setData] = useState<CrmData | null>(() => {
+    if (typeof window === 'undefined') return null;
+    try {
+      const saved = sessionStorage.getItem(CRM_CACHE_KEY);
+      if (saved) return JSON.parse(saved);
+    } catch {}
+    return null;
+  });
+  const [isLoading, setIsLoading] = useState(!data);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [error, setError] = useState('');
   const [query, setQuery] = useState('');
@@ -157,8 +166,6 @@ export default function CrmDashboard() {
   const loadData = useCallback(async (forceRefresh = false) => {
     if (forceRefresh) {
       setIsRefreshing(true);
-    } else {
-      setIsLoading(true);
     }
     setError('');
     try {
@@ -181,6 +188,9 @@ export default function CrmDashboard() {
       }
       if (json?.success) {
         setData(json);
+        try {
+          sessionStorage.setItem(CRM_CACHE_KEY, JSON.stringify(json));
+        } catch {}
       } else {
         setError(json?.error || 'Không thể lấy dữ liệu CRM.');
       }
@@ -193,8 +203,13 @@ export default function CrmDashboard() {
   }, [router]);
 
   useEffect(() => {
-    loadData();
+    void loadData();
   }, [loadData]);
+
+  // Reset visible rows khi filter thay đổi
+  useEffect(() => {
+    setVisibleCount(TABLE_PAGE);
+  }, [debouncedQuery, planFilter, lifeFilter, sourceFilter, upsellHot, reviewFilter, reviewDate]);
 
   const filtered = useMemo(() => {
     if (!data) return [];
@@ -245,8 +260,6 @@ export default function CrmDashboard() {
         return tb - ta;
       });
     }
-    // Reset visible rows khi filter thay đổi
-    setVisibleCount(TABLE_PAGE);
     return list;
   }, [data, debouncedQuery, planFilter, lifeFilter, sourceFilter, upsellHot, reviewFilter, reviewDate]);
 
@@ -296,7 +309,7 @@ export default function CrmDashboard() {
           <p className="text-sm text-muted-foreground">{error}</p>
           {is403 && (
             <p className="text-xs text-muted-foreground/80 bg-background border rounded-xl p-3 text-left font-mono mt-2">
-              💡 <strong>Hướng dẫn:</strong> Thêm email của bạn vào biến môi trường <code className="text-primary font-bold">ADMIN_EMAILS</code> trong file <code className="text-primary font-bold">.env.local</code> trên server (ví dụ: <code className="text-primary font-bold">ADMIN_EMAILS="email_cua_ban@gmail.com"</code>) sau đó khởi động lại app.
+              💡 <strong>Hướng dẫn:</strong> Thêm email của bạn vào biến môi trường <code className="text-primary font-bold">ADMIN_EMAILS</code> trong file <code className="text-primary font-bold">.env.local</code> trên server (ví dụ: <code className="text-primary font-bold">ADMIN_EMAILS=&quot;email_cua_ban@gmail.com&quot;</code>) sau đó khởi động lại app.
             </p>
           )}
         </div>
@@ -386,9 +399,11 @@ export default function CrmDashboard() {
         </div>
         {data?.meta && (
           <div className="hidden md:flex items-center gap-1.5 text-xs text-muted-foreground bg-muted/60 border border-border/60 px-2.5 py-1 rounded-xl">
-            <Zap className="h-3.5 w-3.5 text-amber-500 shrink-0" />
+            <Zap className={`h-3.5 w-3.5 ${isRefreshing ? 'text-blue-500 animate-spin' : 'text-amber-500'} shrink-0`} />
             <span className="font-mono text-[11px]">
-              {data.meta.cached
+              {isRefreshing
+                ? 'Đang đồng bộ ngầm...'
+                : data.meta.cached
                 ? `Cache SWR (<5ms)`
                 : `${data.meta.engine === 'rpc' ? 'RPC' : 'Song song'} (${data.meta.tookMs}ms)`}
             </span>
