@@ -24,27 +24,43 @@ export function ReferoLandingMaster() {
         {/* 2. Trụ Cột 01: Giới Thiệu Tổng Quan & Bản Đồ Hệ Sinh Thái */}
         <ReferoHero />
 
+        {/*
+          Các section dưới fold bọc .cv-auto (content-visibility:auto): đo trên mobile 4x CPU, long task
+          lúc load chủ yếu là Layout/Style của cả trang chứ không phải JS. Không đặt fixed/modal bên trong.
+        */}
         {/* 3. Trụ Cột 02: Tra Từ & Lưu Từ 1-Chạm (Báo chí, YouTube, Desktop) */}
-        <ReferoCaptureSection />
+        <div className="cv-auto">
+          <ReferoCaptureSection />
+        </div>
 
         {/* 4. Trụ Cột 03: Kho Ứng Dụng Thực Chiến (Nghe Song Ngữ, Ngữ Pháp AI, Nói Shadowing, FSRS) */}
-        <ReferoBentoGrid />
+        <div className="cv-auto">
+          <ReferoBentoGrid />
+        </div>
 
         {/* 5. Trụ Cột 04: Module Khảo Thí Chứng Chỉ (20 Đề ETS 2026, VSTEP 6 Bậc, 15 Bẫy Sát Thủ) */}
-        <ReferoExamModuleSection />
+        <div className="cv-auto">
+          <ReferoExamModuleSection />
+        </div>
 
         {/* 6. Dẫn Chứng Thực Tế & Điểm Số Thí Sinh (FTU, HUST, VNU) */}
-        <ReferoProofWall />
+        <div className="cv-auto">
+          <ReferoProofWall />
+        </div>
 
         {/* 7. Bảng Giá Minh Bạch & Cam Kết Hoàn Tiền 14 Ngày */}
-        <ReferoPricingSection />
+        <div className="cv-auto">
+          <ReferoPricingSection />
+        </div>
 
         {/* 8. Giải Đáp Thắc Mắc (FAQ) */}
-        <ReferoFaqSection />
+        <div className="cv-auto">
+          <ReferoFaqSection />
+        </div>
       </main>
 
       {/* 7. Clean Light Footer */}
-      <footer className="border-t border-slate-200 bg-white py-10 sm:py-14 px-4 sm:px-6 lg:px-8 text-xs text-slate-600">
+      <footer className="cv-auto border-t border-slate-200 bg-white py-10 sm:py-14 px-4 sm:px-6 lg:px-8 text-xs text-slate-600">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
           {/* Brand Info */}
           <div className="md:col-span-5 space-y-3">

@@ -1,8 +1,7 @@
 'use client';
 
-import React, { useState, useMemo, useEffect, useCallback, useRef, Suspense } from 'react';
+import React, { useState, useMemo, useEffect, useCallback, useRef, use } from 'react';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
 import {
   Play,
   RotateCcw,
@@ -252,14 +251,43 @@ interface UserExamStatus {
   answeredCount?: number;
 }
 
-function ToeicCatalogContent() {
-  const searchParams = useSearchParams();
+type PageSearchParams = Record<string, string | string[] | undefined>;
 
+/** Giống URLSearchParams.get(): lấy giá trị đầu tiên nếu param lặp lại. */
+function firstParam(value: string | string[] | undefined): string | null {
+  if (Array.isArray(value)) return value[0] ?? null;
+  return value ?? null;
+}
+
+/**
+ * Stats rỗng, giống hệt kết quả getPartProgressStats() khi chạy trên server (không có localStorage).
+ * Dùng làm state ban đầu để HTML SSR và lần render hydrate đầu tiên khớp nhau;
+ * số liệu thật từ localStorage được nạp trong useEffect sau khi mount.
+ */
+function emptyPartProgress(part: number): PartProgressStats {
+  const totalQuestions = TOEIC_PART_BANK_TOTALS[part] || 0;
+  return {
+    part,
+    completedCount: 0,
+    totalQuestions,
+    percentage: 0,
+    mistakeCount: 0,
+    unseenCount: totalQuestions,
+    totalAnswered: 0,
+    totalMistakes: 0,
+    totalCorrect: 0,
+    totalInBank: totalQuestions,
+    completionPercentage: 0,
+    accuracyPercentage: 0,
+  };
+}
+
+function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null; partParam: string | null }) {
   // Tab State: 'full_test' | 'practice_parts'
-  const initialTab = searchParams.get('tab') === 'practice_parts' || searchParams.get('tab') === 'practice'
+  const initialTab = tabParam === 'practice_parts' || tabParam === 'practice'
     ? 'practice_parts'
     : 'full_test';
-  const initialPart = parseInt(searchParams.get('part') || '1', 10);
+  const initialPart = parseInt(partParam || '1', 10);
   const validPart = initialPart >= 1 && initialPart <= 7 ? initialPart : 1;
 
   const [activeTab, setActiveTab] = useState<'full_test' | 'practice_parts'>(initialTab);
@@ -337,7 +365,7 @@ function ToeicCatalogContent() {
   });
   const [customCountInput, setCustomCountInput] = useState<string>('');
   const [selectedMode, setSelectedMode] = useState<'practice' | 'real'>('practice');
-  const [partProgress, setPartProgress] = useState<PartProgressStats>(() => getPartProgressStats(validPart));
+  const [partProgress, setPartProgress] = useState<PartProgressStats>(() => emptyPartProgress(validPart));
   const [isResetConfirmOpen, setIsResetConfirmOpen] = useState<boolean>(false);
 
   useEffect(() => {
@@ -1833,16 +1861,15 @@ function ToeicCatalogContent() {
   );
 }
 
-export default function ToeicHubPage() {
+// searchParams đọc qua prop của page (thay vì useSearchParams + Suspense):
+// useSearchParams trong route tĩnh khiến Next bail-out sang client-side rendering → HTML SSR chỉ có
+// fallback "Đang nạp…", tiêu đề/LCP chỉ hiện sau khi tải + hydrate JS (~4s trên mobile 4G).
+export default function ToeicHubPage({ searchParams }: { searchParams: Promise<PageSearchParams> }) {
+  const params = use(searchParams);
   return (
-    <Suspense
-      fallback={
-        <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex items-center justify-center p-8 font-mono text-xs text-slate-500">
-          Đang nạp hệ thống khảo thí TOEIC...
-        </div>
-      }
-    >
-      <ToeicCatalogContent />
-    </Suspense>
+    <ToeicCatalogContent
+      tabParam={firstParam(params.tab)}
+      partParam={firstParam(params.part)}
+    />
   );
 }

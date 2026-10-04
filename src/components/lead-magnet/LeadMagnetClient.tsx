@@ -221,7 +221,8 @@ export default function LeadMagnetClient() {
       </section>
 
       {/* Section: What's Inside The Bundle (Offer Value Stack 699k -> 0đ) */}
-      <div id="offer-stack">
+      {/* Từ đây trở xuống (dưới fold) dùng .cv-auto để bỏ qua layout/paint lúc load — không đặt fixed/modal bên trong. */}
+      <div id="offer-stack" className="cv-auto">
         <OfferStackSection
           onScrollToOptin={() => scrollToSection('optin-hero')}
           onReadOnline={() => setIsReaderOpen(true)}
@@ -229,7 +230,7 @@ export default function LeadMagnetClient() {
       </div>
 
       {/* Section: The Great Plateau & The Death of Mechanical Hacks */}
-      <section className="py-16 px-4 sm:px-6 bg-slate-100/70 border-y border-slate-200/80">
+      <section className="cv-auto py-16 px-4 sm:px-6 bg-slate-100/70 border-y border-slate-200/80">
         <div className="max-w-6xl mx-auto space-y-10">
           <div className="text-center space-y-3 max-w-3xl mx-auto">
             <span className="px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold uppercase tracking-wider shadow-xs">
@@ -285,29 +286,31 @@ export default function LeadMagnetClient() {
       </section>
 
       {/* Visual Exam Showcase: Minh Họa Bẫy Đề Thi Thực Tế Kèm Hình Ảnh */}
-      <VisualExamShowcase />
+      <div className="cv-auto">
+        <VisualExamShowcase />
+      </div>
 
       {/* Section: Social Proof Testimonials */}
-      <div id="reviews">
+      <div id="reviews" className="cv-auto">
         <SocialProofSection />
       </div>
 
       {/* Section: Data Comparison Report */}
-      <section id="stats" className="py-16 sm:py-24 px-4 sm:px-6 bg-slate-50/80 border-t border-slate-200/80">
+      <section id="stats" className="cv-auto py-16 sm:py-24 px-4 sm:px-6 bg-slate-50/80 border-t border-slate-200/80">
         <div className="max-w-6xl mx-auto">
           <StatsComparisonTable />
         </div>
       </section>
 
       {/* Section: 15-Dimension Killer Matrix */}
-      <section id="matrix" className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
+      <section id="matrix" className="cv-auto py-16 sm:py-24 px-4 sm:px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <KillerMatrixSection />
         </div>
       </section>
 
       {/* Section: Diagnostic Audit Scorecard */}
-      <section id="audit" className="py-16 sm:py-24 px-4 sm:px-6 bg-slate-50/80 border-y border-slate-200/80">
+      <section id="audit" className="cv-auto py-16 sm:py-24 px-4 sm:px-6 bg-slate-50/80 border-y border-slate-200/80">
         <div className="max-w-5xl mx-auto space-y-6">
           <DiagnosticScorecard
             onScoreCalculated={(score, scores) => {
@@ -324,14 +327,14 @@ export default function LeadMagnetClient() {
       </section>
 
       {/* Section: 150-Word Dictionary */}
-      <section id="dictionary" className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
+      <section id="dictionary" className="cv-auto py-16 sm:py-24 px-4 sm:px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <DictionarySection />
         </div>
       </section>
 
       {/* Section: FSRS & Native Shadowing on LingoPro */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-slate-50/80 border-t border-slate-200/80">
+      <section className="cv-auto py-16 sm:py-24 px-4 sm:px-6 bg-slate-50/80 border-t border-slate-200/80">
         <div className="max-w-5xl mx-auto space-y-10">
           <div className="text-center space-y-3 max-w-3xl mx-auto">
             <span className="px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-semibold uppercase tracking-wider shadow-xs">
@@ -397,7 +400,7 @@ export default function LeadMagnetClient() {
       </section>
 
       {/* Section: 30-Day Roadmap & Degrading-Reward Challenge */}
-      <section id="roadmap" className="py-16 sm:py-24 px-4 sm:px-6 bg-white border-t border-slate-200/80">
+      <section id="roadmap" className="cv-auto py-16 sm:py-24 px-4 sm:px-6 bg-white border-t border-slate-200/80">
         <div className="max-w-5xl mx-auto space-y-10">
           <div className="text-center space-y-3 max-w-3xl mx-auto">
             <span className="px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold uppercase tracking-wider shadow-xs">
@@ -472,12 +475,12 @@ export default function LeadMagnetClient() {
       </section>
 
       {/* Section: FAQ Accordion */}
-      <div id="faq">
+      <div id="faq" className="cv-auto">
         <FaqSection />
       </div>
 
       {/* Footer */}
-      <footer className="py-12 px-4 sm:px-6 bg-white border-t border-slate-200 text-xs text-slate-500">
+      <footer className="cv-auto py-12 px-4 sm:px-6 bg-white border-t border-slate-200 text-xs text-slate-500">
         <div className="max-w-6xl mx-auto space-y-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-slate-200 pb-6">
             <div className="flex items-center gap-2 font-bold text-slate-900 text-base">

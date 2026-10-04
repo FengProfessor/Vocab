@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { LazyVideo } from '@/components/perf/LazyVideo';
 import {
   BookmarkPlus,
   Chrome,
@@ -286,12 +287,14 @@ export function ReferoCaptureSection() {
             {/* Video Preview Card: Chrome Extension Lookup on Real News Articles */}
             <div className="rounded-lg border border-slate-300 bg-white p-3.5 shadow-xs flex flex-col sm:flex-row items-center gap-4">
               <div className="w-full sm:w-48 aspect-video rounded overflow-hidden border border-slate-300 bg-black shrink-0 relative">
-                <video
-                  src="/extension-lookup.mp4"
+                <LazyVideo
+                  src="/extension-lookup.mp4?v=2"
+                  poster="/images/extension-lookup-poster.webp"
                   autoPlay
                   loop
                   muted
                   playsInline
+                  preload="metadata"
                   className="w-full h-full object-cover"
                 />
                 <span className="absolute top-1 left-1 bg-black/80 text-amber-300 text-[9px] font-mono font-bold px-1.5 py-0.5 rounded">

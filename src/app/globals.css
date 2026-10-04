@@ -175,6 +175,15 @@
 
 /* ── Mobile shell utilities (iOS + Android) ── */
 @layer utilities {
+  /*
+    Section dưới fold của landing dài: trình duyệt bỏ qua style/layout/paint cho tới khi gần viewport
+    (giảm long task Layout lúc load trên mobile). Nội dung vẫn có trong HTML (SEO, Ctrl+F, anchor).
+    LƯU Ý: content-visibility tạo containment — không đặt phần tử position:fixed/modal bên trong.
+  */
+  .cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 900px;
+  }
   .pt-safe {
     padding-top: var(--safe-top);
   }

@@ -2,8 +2,8 @@
 import { authFetch } from '@/lib/auth-fetch';
 
 
-import { useState, useEffect, useMemo, Suspense } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useState, useEffect, useMemo, use } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
   Search,
@@ -79,9 +79,21 @@ interface TheoryData extends GrammarTheoryData {
   [key: string]: unknown;
 }
 
-function GrammarRoadmapContent() {
+type PageSearchParams = Record<string, string | string[] | undefined>;
+
+/** Chuyển searchParams (prop của page) sang URLSearchParams, giữ nguyên param lặp lại. */
+function toUrlSearchParams(params: PageSearchParams): URLSearchParams {
+  const sp = new URLSearchParams();
+  for (const [key, value] of Object.entries(params)) {
+    if (Array.isArray(value)) value.forEach((v) => sp.append(key, v));
+    else if (value !== undefined) sp.append(key, value);
+  }
+  return sp;
+}
+
+function GrammarRoadmapContent({ queryString }: { queryString: string }) {
   const router = useRouter();
-  const searchParams = useSearchParams();
+  const searchParams = useMemo(() => new URLSearchParams(queryString), [queryString]);
 
   // Search parameters
   const initialLevel = (searchParams.get('level') as CefrLevel) || 'ALL';
@@ -784,21 +796,10 @@ function GrammarRoadmapContent() {
   );
 }
 
-export default function GrammarPage() {
-  return (
-    <Suspense
-      fallback={
-        <main className="min-h-dvh flex flex-col items-center justify-center p-6 bg-background">
-          <div className="flex flex-col items-center gap-3">
-            <Loader2 className="h-6 w-6 animate-spin text-primary" />
-            <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
-              Đang tải lộ trình ngữ pháp...
-            </span>
-          </div>
-        </main>
-      }
-    >
-      <GrammarRoadmapContent />
-    </Suspense>
-  );
+// searchParams đọc qua prop của page (thay vì useSearchParams + Suspense):
+// useSearchParams trong route tĩnh khiến Next bail-out sang client-side rendering → HTML SSR chỉ có
+// spinner, tiêu đề/đoạn mô tả (LCP) chỉ hiện sau khi tải + hydrate JS (~4s trên mobile 4G).
+export default function GrammarPage({ searchParams }: { searchParams: Promise<PageSearchParams> }) {
+  const queryString = toUrlSearchParams(use(searchParams)).toString();
+  return <GrammarRoadmapContent queryString={queryString} />;
 }

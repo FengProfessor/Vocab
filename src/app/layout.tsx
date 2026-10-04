@@ -54,7 +54,9 @@ export const metadata: Metadata = {
     // Ưu tiên public/favicon.ico + PNG (không phụ thuộc hash Next cũ)
     icon: [
       { url: '/favicon.ico?v=parrot1', sizes: 'any' },
-      { url: '/icon-512.png?v=parrot1', type: 'image/png', sizes: '512x512' },
+      // 192px palette PNG (~14KB) — trước đây trỏ icon-512.png (~200KB) nên trình duyệt tải trên mọi trang.
+      // Icon 512 vẫn có trong manifest.json cho cài đặt PWA.
+      { url: '/icon-192.png?v=parrot1', type: 'image/png', sizes: '192x192' },
     ],
     shortcut: '/favicon.ico?v=parrot1',
     apple: [
@@ -103,11 +105,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body className="font-sans antialiased">
         <PostHogProvider>
+        {/*
+          KHÔNG bật disableTransitionOnChange: next-themes chạy nó ngay lúc mount (không chỉ khi đổi theme) —
+          chèn style `*{transition:none}` + getComputedStyle + gỡ style → 2 lần recalc style toàn trang
+          (~200–600ms mỗi lần trên mobile, đo được là long task sau load). App không gọi setTheme ở đâu cả.
+        */}
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
           enableSystem
-          disableTransitionOnChange
         >
           <ClientBoot />
           <ErrorBoundary>

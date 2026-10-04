@@ -206,8 +206,8 @@ const jsonLd = {
       name: 'Demo LingoPro — tra từ và lưu vào kho',
       description:
         'Xem cách bôi đen từ trên web, lưu vào kho riêng và ôn theo FSRS với LingoPro.',
-      thumbnailUrl: `${SITE_URL}/intro-save-word.mp4`,
-      contentUrl: `${SITE_URL}/intro-save-word.mp4`,
+      thumbnailUrl: `${SITE_URL}/images/intro-save-word-poster.webp`,
+      contentUrl: `${SITE_URL}/intro-save-word.mp4?v=2`,
       embedUrl: `${SITE_URL}/#video-demo`,
       uploadDate: '2026-06-01',
       inLanguage: 'vi',
@@ -216,7 +216,8 @@ const jsonLd = {
       '@type': 'VideoObject',
       name: 'Demo tra từ 1 chạm trên web — LingoPro Extension',
       description: 'Tra từ ngay trên trang đang đọc bằng Chrome Extension LingoPro.',
-      contentUrl: `${SITE_URL}/extension-lookup.mp4`,
+      thumbnailUrl: `${SITE_URL}/images/extension-lookup-poster.webp`,
+      contentUrl: `${SITE_URL}/extension-lookup.mp4?v=2`,
       embedUrl: `${SITE_URL}/#video-demo`,
       uploadDate: '2026-06-01',
       inLanguage: 'vi',
@@ -253,7 +254,7 @@ export default function LandingPage() {
           <Link href="/" className="flex shrink-0 items-center gap-2.5 text-[#241710]">
             {/* eslint-disable-next-line @next/next/no-img-element -- brand logo static public */}
             <img
-              src="/icon-512.png?v=parrot1"
+              src="/icons/icon-96.webp?v=parrot1"
               alt="LingoPro"
               width={36}
               height={36}
@@ -438,7 +439,8 @@ export default function LandingPage() {
               <figure className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
                 <LazyVideo
                   className="aspect-video w-full object-cover"
-                  src="/intro-save-word.mp4"
+                  src="/intro-save-word.mp4?v=2"
+                  poster="/images/intro-save-word-poster.webp"
                   controls
                   playsInline
                   muted
@@ -457,7 +459,8 @@ export default function LandingPage() {
               <figure className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
                 <LazyVideo
                   className="aspect-video w-full object-cover"
-                  src="/extension-lookup.mp4"
+                  src="/extension-lookup.mp4?v=2"
+                  poster="/images/extension-lookup-poster.webp"
                   controls
                   playsInline
                   muted
@@ -819,7 +822,7 @@ export default function LandingPage() {
           <div className="flex items-center gap-2.5">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/icon-512.png?v=parrot1"
+              src="/icons/icon-96.webp?v=parrot1"
               alt="LingoPro"
               width={32}
               height={32}

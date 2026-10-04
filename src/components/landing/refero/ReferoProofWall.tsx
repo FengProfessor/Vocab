@@ -256,6 +256,7 @@ export function ReferoProofWall() {
             poster="/lingopro-demo-5min-poster.jpg"
             controls
             playsInline
+            preload="none"
             className="w-full h-full object-cover"
           />
         </div>
