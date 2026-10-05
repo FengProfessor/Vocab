@@ -80,8 +80,8 @@ export const appAuth = {
         return { data: { session }, error: null };
       } catch {
         if (requestedGeneration !== generation) return { data: { session: current }, error: null };
-        notify('SIGNED_OUT', null);
-        return { data: { session: null }, error: new Error('Authentication temporarily unavailable') };
+        // Do NOT notify SIGNED_OUT, preserve the cached session during temporary network failures
+        return { data: { session: current }, error: new Error('Authentication temporarily unavailable') };
       } finally { if (requestedGeneration === generation) inFlight = null; }
     })();
     }
