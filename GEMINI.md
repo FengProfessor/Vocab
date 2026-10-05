@@ -47,3 +47,8 @@
   Never call `setState()` inside `useMemo()` callbacks (e.g. resetting visible rows or pagination). Reset state through explicit dependency-tracked `useEffect()` hooks.
 - **Generous SWR Stale Windows for Admin Data**:
   Server-side SWR caches for operational/CRM data should use an extended stale window (e.g., 30+ minutes, TTL 2 minutes) to ensure near 100% instant responses (< 5ms) for active sessions while refreshing asynchronously.
+
+
+## 4. Offline-First Authentication & Network Resiliency
+- **Preserve Session on Network Failure**: When checking or refreshing authentication sessions (e.g. on window focus), never clear the account cache or emit a `SIGNED_OUT` event if the failure is due to a temporary network issue or a 5xx server error.
+- **Graceful Degradation**: Always catch network errors and return the previously cached session state, allowing the offline-first application to continue functioning seamlessly without kicking the user back to the login screen.
