@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 /**
  * TOEIC Question History Tracker & Cloud Synchronization Protocol
@@ -54,6 +54,14 @@ export interface ToeicQuestionHistoryRecord {
   attemptCount: number;
   /** Selected option letter on latest attempt ('A' | 'B' | 'C' | 'D' | '') */
   selectedOption: string;
+  /** Whether question is flagged for targeted spaced repetition review */
+  isFlagged?: boolean;
+  /** ISO 8601 string when question was flagged */
+  flaggedAt?: string;
+  /** Student's personal study note / mnemonic */
+  notes?: string;
+  /** ISO 8601 string when note was last updated */
+  notesUpdatedAt?: string;
 }
 
 export interface ToeicQuestionHistoryStorage {
@@ -100,6 +108,10 @@ export interface QuestionAnswerInput {
   selectedOption: string;
   isCorrect: boolean;
   answeredAt?: string;
+  isFlagged?: boolean;
+  flaggedAt?: string;
+  notes?: string;
+  notesUpdatedAt?: string;
 }
 
 export type QuestionAnswerRecord = QuestionAnswerInput;
@@ -240,6 +252,13 @@ export function recordQuestionAnswers(results: QuestionAnswerInput[]): void {
     const answeredAt =
       item.answeredAt && !isNaN(Date.parse(item.answeredAt)) ? item.answeredAt : now;
 
+    const isFlagged = item.isFlagged !== undefined ? Boolean(item.isFlagged) : existing?.isFlagged;
+    const flaggedAt =
+      item.flaggedAt || (item.isFlagged && !existing?.flaggedAt ? answeredAt : existing?.flaggedAt);
+    const notes = item.notes !== undefined ? item.notes : existing?.notes;
+    const notesUpdatedAt =
+      item.notesUpdatedAt || (item.notes !== undefined ? answeredAt : existing?.notesUpdatedAt);
+
     storage.records[cleanId] = {
       questionId: cleanId,
       part: partNum,
@@ -247,6 +266,10 @@ export function recordQuestionAnswers(results: QuestionAnswerInput[]): void {
       isCorrect: Boolean(item.isCorrect),
       attemptCount,
       selectedOption: (item.selectedOption || '').trim().toUpperCase(),
+      ...(isFlagged !== undefined ? { isFlagged } : {}),
+      ...(flaggedAt ? { flaggedAt } : {}),
+      ...(notes !== undefined ? { notes } : {}),
+      ...(notesUpdatedAt ? { notesUpdatedAt } : {}),
     };
 
     affectedParts.add(partNum);
@@ -351,6 +374,167 @@ export function getCorrectQuestionIds(part?: number): string[] {
   }
 
   return correctIds;
+}
+
+/**
+ * Retrieve question IDs flagged for review by the student.
+ * @param part Optional part filter (1..7). If omitted, returns all flagged IDs.
+ */
+export function getFlaggedQuestionIds(part?: number): string[] {
+  const storage = loadToeicQuestionHistory();
+  const flaggedIds: string[] = [];
+
+  for (const id in storage.records) {
+    const record = storage.records[id];
+    if (record && record.isFlagged) {
+      if (part === undefined || record.part === part) {
+        flaggedIds.push(record.questionId);
+      }
+    }
+  }
+
+  return flaggedIds;
+}
+
+/**
+ * Toggle flagged status for a specific question.
+ * Returns the new flagged boolean state.
+ */
+export function toggleQuestionFlag(questionId: string, part: number): boolean {
+  if (!questionId) return false;
+  const cleanId = questionId.trim();
+  if (!cleanId) return false;
+
+  const storage = loadToeicQuestionHistory();
+  const now = new Date().toISOString();
+  const safePart = Math.min(7, Math.max(1, Math.floor(Number(part) || 1)));
+  const existing = storage.records[cleanId];
+
+  const newFlagged = existing ? !existing.isFlagged : true;
+
+  if (existing) {
+    existing.isFlagged = newFlagged;
+    if (newFlagged) {
+      existing.flaggedAt = now;
+    }
+  } else {
+    storage.records[cleanId] = {
+      questionId: cleanId,
+      part: safePart,
+      lastAnsweredAt: now,
+      isCorrect: false,
+      attemptCount: 0,
+      selectedOption: '',
+      isFlagged: newFlagged,
+      flaggedAt: now,
+    };
+  }
+
+  saveToeicQuestionHistory(storage);
+
+  notifyHistoryUpdated({
+    part: safePart,
+    questionIds: [cleanId],
+    source: 'local_record',
+  });
+
+  const updatedRecord = storage.records[cleanId];
+  if (typeof window !== 'undefined' && updatedRecord) {
+    void syncQuestionHistoryToSupabase([updatedRecord]);
+  }
+
+  return newFlagged;
+}
+
+/**
+ * Save or update a personal student note / reminder for a specific question.
+ */
+export function saveQuestionNote(questionId: string, part: number, notes: string): void {
+  if (!questionId) return;
+  const cleanId = questionId.trim();
+  if (!cleanId) return;
+
+  const storage = loadToeicQuestionHistory();
+  const now = new Date().toISOString();
+  const safePart = Math.min(7, Math.max(1, Math.floor(Number(part) || 1)));
+  const existing = storage.records[cleanId];
+
+  if (existing) {
+    existing.notes = notes;
+    existing.notesUpdatedAt = now;
+  } else {
+    storage.records[cleanId] = {
+      questionId: cleanId,
+      part: safePart,
+      lastAnsweredAt: now,
+      isCorrect: false,
+      attemptCount: 0,
+      selectedOption: '',
+      notes,
+      notesUpdatedAt: now,
+    };
+  }
+
+  saveToeicQuestionHistory(storage);
+
+  notifyHistoryUpdated({
+    part: safePart,
+    questionIds: [cleanId],
+    source: 'local_record',
+  });
+
+  const updatedRecord = storage.records[cleanId];
+  if (typeof window !== 'undefined' && updatedRecord) {
+    void syncQuestionHistoryToSupabase([updatedRecord]);
+  }
+}
+
+/**
+ * Retrieve question history records for Flagged & Mistake Review mode.
+ * Supports filtering by status ('all' | 'mistakes' | 'flagged' | 'notes') and Part.
+ * Deterministically sorted by most recently modified / updated first.
+ */
+export function getQuestionsForReview(options?: {
+  filter?: 'all' | 'mistakes' | 'flagged' | 'notes';
+  part?: number;
+}): ToeicQuestionHistoryRecord[] {
+  const storage = loadToeicQuestionHistory();
+  const filter = options?.filter || 'all';
+  const part = options?.part;
+
+  const matched: ToeicQuestionHistoryRecord[] = [];
+
+  for (const id in storage.records) {
+    const record = storage.records[id];
+    if (!record) continue;
+
+    if (part !== undefined && record.part !== part) {
+      continue;
+    }
+
+    if (filter === 'flagged') {
+      if (record.isFlagged === true) matched.push(record);
+    } else if (filter === 'mistakes') {
+      if (record.isCorrect === false) matched.push(record);
+    } else if (filter === 'notes') {
+      if (typeof record.notes === 'string' && record.notes.trim().length > 0) matched.push(record);
+    } else {
+      // 'all': questions needing review (flagged, mistakes, or has personal notes)
+      if (
+        record.isFlagged === true ||
+        record.isCorrect === false ||
+        (typeof record.notes === 'string' && record.notes.trim().length > 0)
+      ) {
+        matched.push(record);
+      }
+    }
+  }
+
+  return matched.sort((a, b) => {
+    const timeA = new Date(a.notesUpdatedAt || a.flaggedAt || a.lastAnsweredAt).getTime();
+    const timeB = new Date(b.notesUpdatedAt || b.flaggedAt || b.lastAnsweredAt).getTime();
+    return timeB - timeA;
+  });
 }
 
 /**
@@ -488,6 +672,10 @@ export async function syncQuestionHistoryToSupabase(
         const lastAnswered =
           ('lastAnsweredAt' in r ? r.lastAnsweredAt : r.answeredAt) || new Date().toISOString();
         const attemptCount = ('attemptCount' in r ? r.attemptCount : 1) || 1;
+        const isFlagged = Boolean('isFlagged' in r ? r.isFlagged : false);
+        const flaggedAt = ('flaggedAt' in r ? r.flaggedAt : undefined) || null;
+        const notes = ('notes' in r ? r.notes : undefined) || null;
+        const notesUpdatedAt = ('notesUpdatedAt' in r ? r.notesUpdatedAt : undefined) || null;
 
         return {
           user_id: userId,
@@ -497,12 +685,24 @@ export async function syncQuestionHistoryToSupabase(
           is_correct: Boolean(r.isCorrect),
           attempt_count: attemptCount,
           selected_option: (r.selectedOption || '').trim().toUpperCase(),
+          is_flagged: isFlagged,
+          flagged_at: flaggedAt,
+          notes: notes,
+          notes_updated_at: notesUpdatedAt,
         };
       });
 
-      const { error } = await supabase
+      let { error } = await supabase
         .from('user_toeic_question_history')
         .upsert(rows, { onConflict: 'user_id,question_id' });
+
+      if (error && (error.message.includes('column') || error.message.includes('does not exist'))) {
+        const baseRows = rows.map(({ is_flagged, flagged_at, notes, notes_updated_at, ...base }: any) => base);
+        const retryRes = await supabase
+          .from('user_toeic_question_history')
+          .upsert(baseRows, { onConflict: 'user_id,question_id' });
+        error = retryRes.error;
+      }
 
       if (error) {
         console.warn('[ToeicHistory] Supabase upsert error:', error.message);
@@ -534,11 +734,20 @@ export async function reconcileQuestionHistoryOnLogin(): Promise<void> {
 
     const userId = session.user.id;
 
-    // Fetch remote records for user
-    const { data: remoteRows, error } = await supabase
+    // Fetch remote records for user (with fallback if schema does not have is_flagged yet)
+    let { data: remoteRows, error } = await supabase
       .from('user_toeic_question_history')
-      .select('question_id, part, last_answered_at, is_correct, attempt_count, selected_option')
+      .select('question_id, part, last_answered_at, is_correct, attempt_count, selected_option, is_flagged, flagged_at, notes, notes_updated_at')
       .eq('user_id', userId);
+
+    if (error && (error.message.includes('column') || error.message.includes('does not exist'))) {
+      const fallback = await supabase
+        .from('user_toeic_question_history')
+        .select('question_id, part, last_answered_at, is_correct, attempt_count, selected_option')
+        .eq('user_id', userId);
+      remoteRows = (fallback.data as typeof remoteRows);
+      error = fallback.error;
+    }
 
     if (error || !remoteRows) {
       console.warn('[ToeicHistory] Failed to fetch remote history:', error?.message);
@@ -552,6 +761,11 @@ export async function reconcileQuestionHistoryOnLogin(): Promise<void> {
 
     // 1. Process remote records into local
     for (const r of remoteRows) {
+      const rFlagged = (r as any).is_flagged !== undefined ? Boolean((r as any).is_flagged) : undefined;
+      const rFlaggedAt = (r as any).flagged_at || undefined;
+      const rNotes = (r as any).notes || undefined;
+      const rNotesUpdatedAt = (r as any).notes_updated_at || undefined;
+
       const local = storage.records[r.question_id];
       if (!local) {
         storage.records[r.question_id] = {
@@ -561,12 +775,28 @@ export async function reconcileQuestionHistoryOnLogin(): Promise<void> {
           isCorrect: Boolean(r.is_correct),
           attemptCount: r.attempt_count || 1,
           selectedOption: r.selected_option || '',
+          ...(rFlagged !== undefined ? { isFlagged: rFlagged } : {}),
+          ...(rFlaggedAt ? { flaggedAt: rFlaggedAt } : {}),
+          ...(rNotes !== undefined ? { notes: rNotes } : {}),
+          ...(rNotesUpdatedAt ? { notesUpdatedAt: rNotesUpdatedAt } : {}),
         };
         hasLocalUpdates = true;
       } else {
         const localTime = new Date(local.lastAnsweredAt).getTime();
         const remoteTime = new Date(r.last_answered_at).getTime();
         const mergedAttemptCount = Math.max(local.attemptCount || 1, r.attempt_count || 1);
+
+        // Merge flag (LWW)
+        const localFlagTime = local.flaggedAt ? new Date(local.flaggedAt).getTime() : 0;
+        const remoteFlagTime = rFlaggedAt ? new Date(rFlaggedAt).getTime() : 0;
+        const mergedFlag = remoteFlagTime > localFlagTime ? rFlagged : (local.isFlagged ?? rFlagged);
+        const mergedFlagAt = remoteFlagTime > localFlagTime ? rFlaggedAt : (local.flaggedAt ?? rFlaggedAt);
+
+        // Merge notes (LWW)
+        const localNoteTime = local.notesUpdatedAt ? new Date(local.notesUpdatedAt).getTime() : 0;
+        const remoteNoteTime = rNotesUpdatedAt ? new Date(rNotesUpdatedAt).getTime() : 0;
+        const mergedNotes = remoteNoteTime > localNoteTime ? rNotes : (local.notes ?? rNotes);
+        const mergedNoteAt = remoteNoteTime > localNoteTime ? rNotesUpdatedAt : (local.notesUpdatedAt ?? rNotesUpdatedAt);
 
         if (remoteTime > localTime) {
           storage.records[r.question_id] = {
@@ -576,6 +806,10 @@ export async function reconcileQuestionHistoryOnLogin(): Promise<void> {
             isCorrect: Boolean(r.is_correct),
             attemptCount: mergedAttemptCount,
             selectedOption: r.selected_option || '',
+            ...(mergedFlag !== undefined ? { isFlagged: mergedFlag } : {}),
+            ...(mergedFlagAt ? { flaggedAt: mergedFlagAt } : {}),
+            ...(mergedNotes !== undefined ? { notes: mergedNotes } : {}),
+            ...(mergedNoteAt ? { notesUpdatedAt: mergedNoteAt } : {}),
           };
           hasLocalUpdates = true;
 
@@ -583,8 +817,12 @@ export async function reconcileQuestionHistoryOnLogin(): Promise<void> {
             recordsToPushToRemote.push(storage.records[r.question_id]);
           }
         } else {
-          if (local.attemptCount !== mergedAttemptCount) {
+          if (local.attemptCount !== mergedAttemptCount || local.isFlagged !== mergedFlag || local.notes !== mergedNotes) {
             local.attemptCount = mergedAttemptCount;
+            if (mergedFlag !== undefined) local.isFlagged = mergedFlag;
+            if (mergedFlagAt) local.flaggedAt = mergedFlagAt;
+            if (mergedNotes !== undefined) local.notes = mergedNotes;
+            if (mergedNoteAt) local.notesUpdatedAt = mergedNoteAt;
             hasLocalUpdates = true;
           }
 

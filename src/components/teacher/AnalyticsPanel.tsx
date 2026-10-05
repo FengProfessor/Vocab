@@ -130,9 +130,18 @@ export default function AnalyticsPanel({
                     : mins < 60 ? `${mins} phút trước`
                     : hrs < 24 ? `${hrs} giờ trước`
                     : `${days} ngày trước`;
+                  const dotColor =
+                    item.type === 'quiz' ? 'bg-violet-500' :
+                    item.type === 'review' ? 'bg-sky-400' :
+                    item.type === 'grammar' ? 'bg-amber-500' :
+                    item.type === 'reading' ? 'bg-emerald-500' :
+                    item.type === 'toeic' ? 'bg-indigo-500' :
+                    item.type === 'assessment' ? 'bg-rose-500' :
+                    'bg-sky-400';
+
                   return (
                     <li key={idx} className="px-5 py-3 flex items-start gap-3">
-                      <span className={`mt-0.5 shrink-0 w-2 h-2 rounded-full ${item.type === 'quiz' ? 'bg-violet-500' : 'bg-sky-400'}`} />
+                      <span className={`mt-0.5 shrink-0 w-2 h-2 rounded-full ${dotColor}`} />
                       <div className="flex-1 min-w-0">
                         <p className="text-xs font-semibold truncate">{item.student_name}</p>
                         <p className="text-[11px] text-muted-foreground">{item.detail}</p>

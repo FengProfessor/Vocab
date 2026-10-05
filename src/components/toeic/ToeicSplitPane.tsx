@@ -419,6 +419,258 @@ function ClusterQuestionCard({
   );
 }
 
+export interface ToeicBilingualPassageProps {
+  passage: string;
+  passageTranslationVi?: string;
+  dichNghia?: string;
+  part: number;
+  isAnswerRevealed?: boolean;
+  canRevealTranslation?: boolean;
+  mode?: 'en' | 'bilingual';
+  initialMode?: 'en' | 'bilingual';
+  onModeChange?: (mode: 'en' | 'bilingual') => void;
+  className?: string;
+}
+
+export function ToeicBilingualPassage({
+  passage,
+  passageTranslationVi,
+  dichNghia,
+  part,
+  isAnswerRevealed = true,
+  canRevealTranslation = true,
+  mode: controlledMode,
+  initialMode = 'en',
+  onModeChange,
+  className = '',
+}: ToeicBilingualPassageProps) {
+  const [internalMode, setInternalMode] = useState<'en' | 'bilingual'>(initialMode);
+  const [mobileTab, setMobileTab] = useState<'en' | 'vi'>('en');
+
+  const langMode = controlledMode !== undefined ? controlledMode : internalMode;
+
+  const handleModeChange = (newMode: 'en' | 'bilingual') => {
+    if (controlledMode === undefined) {
+      setInternalMode(newMode);
+    }
+    onModeChange?.(newMode);
+  };
+
+  const rawTranslation = canRevealTranslation
+    ? (passageTranslationVi || dichNghia || '')
+    : '';
+  const hasTranslation = Boolean(rawTranslation && rawTranslation.trim().length > 0);
+
+  // Parse English passage segments (handles multi-passages separated by '---')
+  const passageSegments = useMemo(() => {
+    if (!passage) return [];
+    const normalized = passage
+      .replace(/<(?:p|div|br)[^>]*>\s*---\s*<\/(?:p|div)>/gi, '\n\n---\n\n')
+      .replace(/<br\s*\/?>\s*---\s*<br\s*\/?>/gi, '\n\n---\n\n');
+    return normalized
+      .split(/\n\s*---\s*\n/)
+      .map((p) => stripHtmlTags(p).trim())
+      .filter(Boolean);
+  }, [passage]);
+
+  // Parse Vietnamese translation segments if separated by '---'
+  const translationSegments = useMemo(() => {
+    if (!rawTranslation) return [];
+    const normalized = rawTranslation
+      .replace(/<(?:p|div|br)[^>]*>\s*---\s*<\/(?:p|div)>/gi, '\n\n---\n\n')
+      .replace(/<br\s*\/?>\s*---\s*<br\s*\/?>/gi, '\n\n---\n\n');
+    return normalized
+      .split(/\n\s*---\s*\n/)
+      .map((p) => stripHtmlTags(p).trim())
+      .filter(Boolean);
+  }, [rawTranslation]);
+
+  if (passageSegments.length === 0) {
+    return null;
+  }
+
+  return (
+    <div className={`space-y-3 sm:space-y-4 ${className}`}>
+      {/* Top Bar with Bilingual Segmented Switcher when translation is available */}
+      {hasTranslation && (
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-2.5">
+          <span className="font-mono text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+            <FileText className="h-3.5 w-3.5 text-indigo-600 dark:text-indigo-400" />
+            <span>
+              {passageSegments.length > 1
+                ? `Văn bản đọc hiểu Part ${part} (${passageSegments.length} đoạn)`
+                : `Văn bản đọc hiểu Part ${part}`}
+            </span>
+          </span>
+
+          {/* Bilingual Segmented Switcher */}
+          <div className="inline-flex items-center rounded-sm border border-slate-200 dark:border-slate-700 p-0.5 bg-slate-100 dark:bg-slate-800 text-[11px] font-mono select-none">
+            <button
+              type="button"
+              onClick={() => handleModeChange('en')}
+              className={`px-2.5 py-1 rounded-xs font-semibold transition cursor-pointer ${
+                langMode === 'en'
+                  ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-2xs font-bold'
+                  : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
+              }`}
+            >
+              🇬🇧 Chỉ xem tiếng Anh
+            </button>
+            <button
+              type="button"
+              onClick={() => handleModeChange('bilingual')}
+              className={`px-2.5 py-1 rounded-xs font-semibold transition cursor-pointer ${
+                langMode === 'bilingual'
+                  ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-2xs font-bold'
+                  : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
+              }`}
+            >
+              🇻🇳 Xem song ngữ / Bản dịch
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Mode A: English Only */}
+      {(!hasTranslation || langMode === 'en') && (
+        <div className="space-y-4">
+          {passageSegments.map((segment, idx) => (
+            <article
+              key={idx}
+              className="flex-1 flex flex-col justify-between rounded-sm border border-slate-200 bg-slate-50/50 p-4 sm:p-6 shadow-2xs dark:border-slate-800 dark:bg-slate-900/40 min-h-[300px]"
+            >
+              <div>
+                <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-2 mb-3">
+                  <span className="font-mono text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
+                    {passageSegments.length > 1
+                      ? `Đoạn văn ${idx + 1}/${passageSegments.length}`
+                      : 'Văn bản đọc hiểu'}
+                  </span>
+                  <span className="font-mono text-[11px] text-slate-400">
+                    ETS Reading Stimulus
+                  </span>
+                </div>
+                <div className="prose dark:prose-invert max-w-none text-sm sm:text-base leading-relaxed whitespace-pre-wrap font-serif text-slate-800 dark:text-slate-200">
+                  <ExamInteractiveText text={segment} enabled={isAnswerRevealed} />
+                </div>
+              </div>
+
+              <div className="mt-6 pt-3 border-t border-dashed border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400 select-none">
+                <span>📄 Đọc kỹ thông tin đoạn văn trên để trả lời câu hỏi</span>
+                <span>Part {part}</span>
+              </div>
+            </article>
+          ))}
+        </div>
+      )}
+
+      {/* Mode B: Bilingual (Desktop Side-by-Side >= 1024px, Mobile Tabbed < 1024px) */}
+      {hasTranslation && langMode === 'bilingual' && (
+        <div className="space-y-4">
+          {/* Mobile switcher between English stimulus and Vietnamese translation (< 1024px) */}
+          <div className="lg:hidden flex items-center justify-between rounded-sm border border-slate-200 dark:border-slate-800 bg-slate-100/90 dark:bg-slate-800/90 p-1 text-xs font-mono select-none">
+            <button
+              type="button"
+              onClick={() => setMobileTab('en')}
+              className={`flex-1 py-1.5 px-3 text-center rounded-xs font-semibold transition cursor-pointer ${
+                mobileTab === 'en'
+                  ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-2xs font-bold'
+                  : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
+              }`}
+            >
+              🇬🇧 Tiếng Anh
+            </button>
+            <button
+              type="button"
+              onClick={() => setMobileTab('vi')}
+              className={`flex-1 py-1.5 px-3 text-center rounded-xs font-semibold transition cursor-pointer ${
+                mobileTab === 'vi'
+                  ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-2xs font-bold'
+                  : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
+              }`}
+            >
+              🇻🇳 Bản dịch tiếng Việt
+            </button>
+          </div>
+
+          {/* Responsive Dual-Column Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 items-start">
+            {/* Left Column: English Stimulus with ExamInteractiveText */}
+            <div className={`${mobileTab === 'en' ? 'block' : 'hidden lg:block'} space-y-3`}>
+              <div className="hidden lg:flex items-center justify-between pb-1.5 border-b border-slate-200 dark:border-slate-800 font-mono text-xs">
+                <span className="font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+                  <span>🇬🇧</span>
+                  <span>Văn bản gốc tiếng Anh</span>
+                </span>
+                <span className="text-[10px] text-slate-400">ETS Original</span>
+              </div>
+
+              {passageSegments.map((segment, idx) => (
+                <article
+                  key={idx}
+                  className="rounded-sm border border-slate-200 bg-white p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-900 shadow-2xs space-y-3"
+                >
+                  {passageSegments.length > 1 && (
+                    <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-1.5 text-slate-500 font-mono text-xs">
+                      <span className="font-bold text-slate-700 dark:text-slate-300">
+                        Đoạn {idx + 1}/{passageSegments.length}
+                      </span>
+                      <span className="text-[10px] text-slate-400">Stimulus</span>
+                    </div>
+                  )}
+                  <div className="prose dark:prose-invert max-w-none text-xs sm:text-sm font-serif leading-relaxed text-slate-800 dark:text-slate-200 whitespace-pre-wrap">
+                    <ExamInteractiveText text={segment} enabled={isAnswerRevealed} />
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            {/* Right Column: Vietnamese Translation */}
+            <div className={`${mobileTab === 'vi' ? 'block' : 'hidden lg:block'} space-y-3`}>
+              <div className="hidden lg:flex items-center justify-between pb-1.5 border-b border-slate-200 dark:border-slate-800 font-mono text-xs">
+                <span className="font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+                  <span>🇻🇳</span>
+                  <span>Bản dịch tiếng Việt</span>
+                </span>
+                <span className="text-[10px] text-emerald-600 dark:text-emerald-500 font-semibold">
+                  Song ngữ đối soát
+                </span>
+              </div>
+
+              <div className="rounded-sm border border-slate-200 bg-slate-50/80 p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-950/50 shadow-2xs border-l-2 border-l-emerald-500 dark:border-l-emerald-500 space-y-3">
+                {translationSegments.length > 1 ? (
+                  translationSegments.map((transSeg, idx) => (
+                    <div
+                      key={idx}
+                      className="space-y-1.5 pb-3 last:pb-0 border-b last:border-b-0 border-slate-200/60 dark:border-slate-800/60"
+                    >
+                      <span className="font-mono text-[10px] font-bold text-emerald-700 dark:text-emerald-400 uppercase">
+                        Bản dịch đoạn {idx + 1}/{translationSegments.length}
+                      </span>
+                      <p className="text-xs sm:text-sm font-sans leading-relaxed text-slate-700 dark:text-slate-300 whitespace-pre-line">
+                        {transSeg}
+                      </p>
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-xs sm:text-sm font-sans leading-relaxed text-slate-700 dark:text-slate-300 whitespace-pre-line">
+                    {stripHtmlTags(rawTranslation)}
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+
+          <div className="pt-2 border-t border-dashed border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400 select-none">
+            <span>📄 Đối soát song ngữ Anh - Việt để làm rõ ngữ cảnh câu hỏi</span>
+            <span>Part {part}</span>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function ToeicSplitPane({
   question,
   cluster,
@@ -506,6 +758,7 @@ export function ToeicSplitPane({
   const isReadingWithPassage = hasReadingPassageText || hasReadingPassageImage;
   const isPart5 = question.part === 5;
   const [mobileTab, setMobileTab] = useState<'passage' | 'question'>('question');
+  const [passageLangMode, setPassageLangMode] = useState<'en' | 'bilingual'>('en');
 
   // Track previous passage to avoid resetting mobile tab to 'question' when navigating questions within the same reading passage in Part 6 & 7
   const stimulusKey = question.passage || (isReadingPart ? question.imageUrl : undefined);
@@ -1188,36 +1441,19 @@ export function ToeicSplitPane({
                 </div>
               )}
 
-              {/* Part 6 & Part 7 Text Reading Passages */}
+              {/* Part 6 & Part 7 Text Reading Passages with Bilingual Support */}
               {(question.part === 6 || question.part === 7) && question.passage && (
                 <div className="flex flex-col min-h-full space-y-4">
-                  {passageSegments.map((segment, idx) => (
-                    <article
-                      key={idx}
-                      className="flex-1 flex flex-col justify-between rounded-sm border border-slate-200 bg-slate-50/50 p-4 sm:p-6 shadow-2xs dark:border-slate-800 dark:bg-slate-900/40 min-h-[380px]"
-                    >
-                      <div>
-                        <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-2 mb-3">
-                          <span className="font-mono text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
-                            {passageSegments.length > 1
-                              ? `Đoạn văn ${idx + 1}/${passageSegments.length}`
-                              : 'Văn bản đọc hiểu'}
-                          </span>
-                          <span className="font-mono text-[11px] text-slate-400">
-                            ETS Reading Stimulus
-                          </span>
-                        </div>
-                        <div className="prose dark:prose-invert max-w-none text-sm sm:text-base leading-relaxed whitespace-pre-wrap font-serif text-slate-800 dark:text-slate-200">
-                          <ExamInteractiveText text={segment} enabled={isAnswerRevealed} />
-                        </div>
-                      </div>
-
-                      <div className="mt-6 pt-3 border-t border-dashed border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400 select-none">
-                        <span>📄 Đọc kỹ thông tin đoạn văn trên để trả lời câu hỏi bên phải</span>
-                        <span>Part {question.part}</span>
-                      </div>
-                    </article>
-                  ))}
+                  <ToeicBilingualPassage
+                    passage={question.passage}
+                    passageTranslationVi={question.passageTranslationVi}
+                    dichNghia={question.dichNghia}
+                    part={question.part}
+                    isAnswerRevealed={isAnswerRevealed}
+                    canRevealTranslation={!isExamMode}
+                    mode={passageLangMode}
+                    onModeChange={setPassageLangMode}
+                  />
                 </div>
               )}
 
@@ -1316,7 +1552,7 @@ export function ToeicSplitPane({
           type="button"
           onClick={onPrev}
           disabled={!hasPrev}
-          className={`inline-flex items-center gap-1 rounded-sm border border-slate-300 bg-white px-2.5 sm:px-3 py-1.5 font-mono text-xs font-medium text-slate-700 shadow-2xs transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 cursor-pointer ${
+          className={`inline-flex min-h-[44px] min-w-[44px] items-center justify-center gap-1 rounded-sm border border-slate-300 bg-white px-2.5 sm:px-3 py-1.5 font-mono text-xs font-medium text-slate-700 shadow-2xs transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 cursor-pointer ${
             !hasPrev ? 'opacity-40 cursor-not-allowed' : ''
           }`}
           title={isClusterView ? 'Cụm trước (Phím tắt: ←)' : 'Câu trước (Phím tắt: ←)'}
@@ -1340,7 +1576,7 @@ export function ToeicSplitPane({
             <button
               type="button"
               onClick={onOpenPalette}
-              className="inline-flex items-center gap-1 rounded-sm border border-slate-300 bg-white px-2 sm:px-2.5 py-1 sm:py-1.5 font-mono text-xs font-semibold text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 cursor-pointer shadow-2xs"
+              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center gap-1 rounded-sm border border-slate-300 bg-white px-2 sm:px-2.5 py-1 sm:py-1.5 font-mono text-xs font-semibold text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 cursor-pointer shadow-2xs"
               title="Mở bảng điều hướng câu hỏi"
             >
               <Grid className="h-3.5 w-3.5 text-slate-500" />
@@ -1358,7 +1594,7 @@ export function ToeicSplitPane({
           type="button"
           onClick={onNext}
           disabled={!hasNext}
-          className={`inline-flex items-center gap-1 rounded-sm bg-slate-900 px-3 sm:px-3.5 py-1.5 font-mono text-xs font-bold text-white shadow-2xs transition hover:bg-slate-800 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white cursor-pointer ${
+          className={`inline-flex min-h-[44px] min-w-[44px] items-center justify-center gap-1 rounded-sm bg-slate-900 px-3 sm:px-3.5 py-1.5 font-mono text-xs font-bold text-white shadow-2xs transition hover:bg-slate-800 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white cursor-pointer ${
             !hasNext ? 'opacity-40 cursor-not-allowed' : ''
           }`}
           title={isClusterView ? 'Cụm tiếp theo (Phím tắt: →)' : 'Câu tiếp theo (Phím tắt: →)'}

@@ -7,7 +7,8 @@ import Link from 'next/link';
 import {
   X, ChevronUp, ChevronDown, ExternalLink, Sparkles,
   Copy, CheckCircle2, Plus, Loader2,
-  ShieldCheck, BarChart3, Clock, Trophy, BookOpen, Bookmark, Target
+  ShieldCheck, BarChart3, Clock, Trophy, BookOpen, Bookmark, Target,
+  Zap, Headphones, FileText
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { authFetch } from '@/lib/auth-fetch';
@@ -691,7 +692,11 @@ export default function StudentDetailSheet({
                       let iconBg = 'bg-muted text-muted-foreground ring-2 ring-background';
                       let badgeClass = 'bg-muted text-muted-foreground border-border';
 
-                      if (item.type === 'quiz') {
+                      if (item.type === 'srs_review') {
+                        icon = <Zap className="h-3 w-3" />;
+                        iconBg = 'bg-emerald-600 text-white ring-4 ring-emerald-100';
+                        badgeClass = 'bg-emerald-50 text-emerald-700 border-emerald-200';
+                      } else if (item.type === 'quiz') {
                         const isGood = (item.accuracy ?? 0) >= 0.8;
                         icon = <Trophy className="h-3 w-3" />;
                         iconBg = isGood
@@ -704,6 +709,23 @@ export default function StudentDetailSheet({
                         icon = <Bookmark className="h-3 w-3" />;
                         iconBg = 'bg-sky-500 text-white ring-4 ring-sky-100';
                         badgeClass = 'bg-sky-50 text-sky-700 border-sky-200';
+                      } else if (item.type === 'grammar') {
+                        icon = <Sparkles className="h-3 w-3" />;
+                        iconBg = 'bg-amber-500 text-white ring-4 ring-amber-100';
+                        badgeClass = 'bg-amber-50 text-amber-700 border-amber-200';
+                      } else if (item.type === 'daily_reading') {
+                        icon = <FileText className="h-3 w-3" />;
+                        iconBg = 'bg-sky-500 text-white ring-4 ring-sky-100';
+                        badgeClass = 'bg-sky-50 text-sky-700 border-sky-200';
+                      } else if (item.type === 'toeic') {
+                        icon = <Headphones className="h-3 w-3" />;
+                        const isCorrect = item.badgeVariant !== 'rose';
+                        iconBg = isCorrect
+                          ? 'bg-indigo-600 text-white ring-4 ring-indigo-100'
+                          : 'bg-rose-500 text-white ring-4 ring-rose-100';
+                        badgeClass = isCorrect
+                          ? 'bg-indigo-50 text-indigo-700 border-indigo-200'
+                          : 'bg-rose-50 text-rose-700 border-rose-200';
                       } else if (item.type === 'vocab_pack') {
                         icon = <BookOpen className="h-3 w-3" />;
                         iconBg = 'bg-violet-600 text-white ring-4 ring-violet-100';
@@ -711,6 +733,21 @@ export default function StudentDetailSheet({
                       } else if (item.type === 'assessment') {
                         icon = <Target className="h-3 w-3" />;
                         iconBg = 'bg-indigo-600 text-white ring-4 ring-indigo-100';
+                        badgeClass = 'bg-indigo-50 text-indigo-700 border-indigo-200';
+                      }
+
+                      // Dynamic override if badgeVariant is present
+                      if (item.badgeVariant === 'emerald') {
+                        badgeClass = 'bg-emerald-50 text-emerald-700 border-emerald-200';
+                      } else if (item.badgeVariant === 'amber') {
+                        badgeClass = 'bg-amber-50 text-amber-700 border-amber-200';
+                      } else if (item.badgeVariant === 'rose') {
+                        badgeClass = 'bg-rose-50 text-rose-700 border-rose-200';
+                      } else if (item.badgeVariant === 'sky') {
+                        badgeClass = 'bg-sky-50 text-sky-700 border-sky-200';
+                      } else if (item.badgeVariant === 'violet') {
+                        badgeClass = 'bg-violet-50 text-violet-700 border-violet-200';
+                      } else if (item.badgeVariant === 'indigo') {
                         badgeClass = 'bg-indigo-50 text-indigo-700 border-indigo-200';
                       }
 

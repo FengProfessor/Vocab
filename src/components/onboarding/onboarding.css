@@ -129,6 +129,5 @@
   position: relative;
   z-index: 91;
   border-radius: 16px;
-  onboarding-pulse-glow: ;
   animation: onboarding-pulse-glow 2s ease-in-out infinite;
 }

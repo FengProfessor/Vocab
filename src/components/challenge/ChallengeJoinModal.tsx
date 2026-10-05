@@ -7,7 +7,7 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { Challenge } from '@/lib/challenge'
 import { authFetch } from '@/lib/auth-fetch'
 import { toast } from 'sonner'
-import { AlertCircle, QrCode } from 'lucide-react'
+import { AlertCircle, QrCode, Sparkles } from 'lucide-react'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 
 interface ChallengeJoinModalProps {
@@ -53,13 +53,16 @@ export function ChallengeJoinModal({ challenge, open, onOpenChange, onJoined }: 
 
   // Generate VietQR url (Mocked or real using vietqr.io)
   // Assuming a static bank info for LingoPro. In production, this might come from env vars or backend.
-  const bankId = '970415' // Vietinbank as example
-  const accountNo = '1111111111'
-  const accountName = 'LINGOPRO'
-  const amount = challenge.deposit_amount
-  const description = `LINGOPRO ${challenge.slug}`.substring(0, 50).replace(/[^a-zA-Z0-9 ]/g, '')
+  const bankId = process.env.NEXT_PUBLIC_VIETQR_BANK_ID || '970415';
+  const accountNo = process.env.NEXT_PUBLIC_VIETQR_ACCOUNT_NO || '';
+  const accountName = process.env.NEXT_PUBLIC_VIETQR_ACCOUNT_NAME || 'LINGOPRO';
+  const amount = challenge.deposit_amount;
+  const description = `LINGOPRO ${challenge.slug}`.substring(0, 50).replace(/[^a-zA-Z0-9 ]/g, '');
   
-  const qrUrl = `https://img.vietqr.io/image/${bankId}-${accountNo}-compact2.jpg?amount=${amount}&addInfo=${encodeURIComponent(description)}&accountName=${encodeURIComponent(accountName)}`
+  const hasRealAccount = Boolean(accountNo && accountNo !== '1111111111');
+  const qrUrl = hasRealAccount
+    ? `https://img.vietqr.io/image/${bankId}-${accountNo}-compact2.jpg?amount=${amount}&addInfo=${encodeURIComponent(description)}&accountName=${encodeURIComponent(accountName)}`
+    : null;
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -76,45 +79,57 @@ export function ChallengeJoinModal({ challenge, open, onOpenChange, onJoined }: 
             <h3 className="font-semibold text-base">Quy định thử thách</h3>
             <ul className="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300">
               <li>Hoàn thành nhiệm vụ học tập mỗi ngày trong thời gian diễn ra thử thách.</li>
-              <li>Bạn phải nộp một khoản phí cam kết là <strong className="text-slate-900 dark:text-white">{formatVND(challenge.deposit_amount)}</strong>.</li>
+              <li>Bạn nộp một khoản phí cam kết là <strong className="text-slate-900 dark:text-white">{formatVND(challenge.deposit_amount)}</strong>.</li>
               <li>Nếu hoàn thành 100% số ngày, bạn sẽ được <strong>hoàn lại toàn bộ</strong> số tiền cam kết.</li>
               <li>Nếu thất bại (bỏ lỡ bất kỳ ngày nào), số tiền này sẽ không được hoàn lại và được dùng để thưởng cho những người chiến thắng khác.</li>
             </ul>
           </div>
 
-          <div className="flex flex-col items-center space-y-4 border rounded-lg p-6 bg-white dark:bg-slate-950">
-            <div className="flex items-center gap-2 font-semibold text-lg">
-              <QrCode className="w-5 h-5" />
-              Quét mã để nộp phí cam kết
+          {hasRealAccount ? (
+            <div className="flex flex-col items-center space-y-4 border rounded-lg p-6 bg-white dark:bg-slate-950">
+              <div className="flex items-center gap-2 font-semibold text-lg">
+                <QrCode className="w-5 h-5" />
+                Quét mã để nộp phí cam kết
+              </div>
+              
+              <div className="bg-white p-2 rounded-xl border-2 border-slate-100">
+                <img 
+                  src={qrUrl!} 
+                  alt="VietQR Payment" 
+                  className="w-48 h-48 object-contain"
+                  loading="lazy"
+                />
+              </div>
+              
+              <div className="text-center space-y-1 w-full">
+                <p className="text-sm text-slate-500">Số tiền</p>
+                <p className="text-2xl font-bold text-blue-600 dark:text-blue-500">{formatVND(challenge.deposit_amount)}</p>
+              </div>
+              
+              <div className="w-full bg-slate-50 dark:bg-slate-900 p-3 rounded-md text-center">
+                <p className="text-xs text-slate-500 mb-1">Nội dung chuyển khoản (Bắt buộc)</p>
+                <p className="font-mono font-bold tracking-wider text-slate-900 dark:text-white">{description}</p>
+              </div>
+              
+              <Alert className="bg-blue-50 text-blue-800 border-blue-200 dark:bg-blue-950 dark:text-blue-300 dark:border-blue-900">
+                <AlertCircle className="h-4 w-4" />
+                <AlertTitle>Lưu ý</AlertTitle>
+                <AlertDescription className="text-xs mt-1">
+                  Vui lòng nhập chính xác nội dung chuyển khoản. Hệ thống sẽ tự động đối soát sau khi nhận được tiền.
+                </AlertDescription>
+              </Alert>
             </div>
-            
-            <div className="bg-white p-2 rounded-xl border-2 border-slate-100">
-              <img 
-                src={qrUrl} 
-                alt="VietQR Payment" 
-                className="w-48 h-48 object-contain"
-                loading="lazy"
-              />
+          ) : (
+            <div className="rounded-lg border border-emerald-200 bg-emerald-50 dark:border-emerald-900 dark:bg-emerald-950/40 p-5 space-y-3">
+              <div className="flex items-center gap-2 text-emerald-800 dark:text-emerald-300 font-bold text-base">
+                <Sparkles className="w-5 h-5 text-emerald-600" />
+                Đợt trải nghiệm thử thách đặc quyền
+              </div>
+              <p className="text-xs text-emerald-700 dark:text-emerald-300 leading-relaxed">
+                Cổng thanh toán tự động đang được bảo trì nâng cấp. Trong đợt này, bạn được đặc quyền tham gia thử thách ngay để thiết lập thói quen học tập mà không cần nộp khoản phí cam kết.
+              </p>
             </div>
-            
-            <div className="text-center space-y-1 w-full">
-              <p className="text-sm text-slate-500">Số tiền</p>
-              <p className="text-2xl font-bold text-blue-600 dark:text-blue-500">{formatVND(challenge.deposit_amount)}</p>
-            </div>
-            
-            <div className="w-full bg-slate-50 dark:bg-slate-900 p-3 rounded-md text-center">
-              <p className="text-xs text-slate-500 mb-1">Nội dung chuyển khoản (Bắt buộc)</p>
-              <p className="font-mono font-bold tracking-wider text-slate-900 dark:text-white">{description}</p>
-            </div>
-            
-            <Alert className="bg-blue-50 text-blue-800 border-blue-200 dark:bg-blue-950 dark:text-blue-300 dark:border-blue-900">
-              <AlertCircle className="h-4 w-4" />
-              <AlertTitle>Lưu ý</AlertTitle>
-              <AlertDescription className="text-xs mt-1">
-                Vui lòng nhập chính xác nội dung chuyển khoản. Hệ thống sẽ tự động xác nhận trong vòng 1-3 phút.
-              </AlertDescription>
-            </Alert>
-          </div>
+          )}
 
           <div className="flex items-start space-x-3 pt-2">
             <Checkbox 

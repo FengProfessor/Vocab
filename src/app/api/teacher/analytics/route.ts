@@ -3,6 +3,8 @@ import { fetchAllRows } from '@/lib/supabase';
 import { createServiceClient } from '@/lib/supabase-server';
 import { NextResponse } from 'next/server';
 import { getAuthUser, unauthorized, safeErrorResponse } from '@/lib/api-security';
+import { getBatchStudentActivity } from '@/lib/activity/universal-activity';
+import type { ActivityItem } from '@/components/teacher/types';
 
 /**
  * GET /api/teacher/analytics?classroomId=yyy
@@ -56,9 +58,12 @@ export async function GET(req: Request) {
     const studentIds = studentList.map(s => s.student_id);
 
     // 2. Class stats
-    const activeStudents = studentList.filter(
-      s => s.last_active && new Date(s.last_active) >= sevenDaysAgo
-    ).length;
+    const activityMap = studentIds.length > 0 ? await getBatchStudentActivity(studentIds, supabase) : new Map();
+    const activeStudents = studentList.filter(s => {
+      const summary = activityMap.get(s.student_id);
+      const trueActive = summary?.trueLastActive || s.last_active;
+      return trueActive && new Date(trueActive) >= sevenDaysAgo;
+    }).length;
 
     const totalClassWords = studentList.length > 0
       ? studentList.reduce((sum, s) => sum + (s.words_reviewed || 0), 0)
@@ -69,17 +74,24 @@ export async function GET(req: Request) {
       : 0;
 
     // ── BATCH A: các truy vấn chỉ cần studentIds + classroomId → chạy song song ──
-    // (trước đây tuần tự: due → words → quizzes → reviews = 4x round-trip).
-    // `words` (giới hạn 50) dùng chung cho cả coverage lẫn difficulty → bỏ lần quét words thứ 2.
     type QuizRow = { id: string; user_id: string; score: number; total_questions: number; accuracy: number; completed_at: string };
     type ReviewRow = { user_id: string; last_reviewed_at: string };
+    type GrammarRow = { id: string; user_id: string; lesson_id: string; mastery_score: number; last_reviewed_at: string };
+    type ReadingRow = { id: string; user_id: string; exercise_id: string; completed_at: string; mcq_score: number; mcq_total: number };
+    type ToeicRow = { id: string; user_id: string; part: number; is_correct: boolean; last_answered_at: string };
+    type AssessmentRow = { id: string; user_id: string; track?: string; score: number; passed?: boolean; created_at: string };
+
     let wordsDueToday = 0;
     let words: { id: string; word: string }[] = [];
     let recentQuizzes: QuizRow[] = [];
     let recentReviews: ReviewRow[] = [];
+    let recentGrammar: GrammarRow[] = [];
+    let recentReading: ReadingRow[] = [];
+    let recentToeic: ToeicRow[] = [];
+    let recentAssessments: AssessmentRow[] = [];
 
     if (studentIds.length > 0) {
-      const [dueRes, wordsRes, quizRes, reviewRes] = await Promise.all([
+      const [dueRes, wordsRes, quizRes, reviewRes, grammarRes, readingRes, toeicRes, assessmentRes] = await Promise.all([
         supabase
           .from('srs_progress')
           .select('id', { count: 'exact', head: true })
@@ -94,24 +106,54 @@ export async function GET(req: Request) {
         supabase
           .from('quiz_results')
           .select('id, user_id, score, total_questions, accuracy, completed_at')
-          .eq('classroom_id', classroomId)
           .in('user_id', studentIds)
           .gte('completed_at', sevenDaysAgoISO)
           .order('completed_at', { ascending: false })
           .limit(20),
         supabase
           .from('srs_progress')
-          .select('user_id, last_reviewed_at, words!inner(classroom_id)')
+          .select('user_id, last_reviewed_at')
           .in('user_id', studentIds)
-          .eq('words.classroom_id', classroomId)
           .gte('last_reviewed_at', sevenDaysAgoISO)
           .order('last_reviewed_at', { ascending: false })
           .limit(30),
+        supabase
+          .from('grammar_progress')
+          .select('id, user_id, lesson_id, mastery_score, last_reviewed_at')
+          .in('user_id', studentIds)
+          .gte('last_reviewed_at', sevenDaysAgoISO)
+          .order('last_reviewed_at', { ascending: false })
+          .limit(20),
+        supabase
+          .from('daily_reading_completions')
+          .select('id, user_id, exercise_id, completed_at, mcq_score, mcq_total')
+          .in('user_id', studentIds)
+          .gte('completed_at', sevenDaysAgoISO)
+          .order('completed_at', { ascending: false })
+          .limit(20),
+        supabase
+          .from('user_toeic_question_history')
+          .select('id, user_id, part, is_correct, last_answered_at')
+          .in('user_id', studentIds)
+          .gte('last_answered_at', sevenDaysAgoISO)
+          .order('last_answered_at', { ascending: false })
+          .limit(20),
+        supabase
+          .from('user_roadmap_assessments')
+          .select('id, user_id, track, score, passed, created_at')
+          .in('user_id', studentIds)
+          .gte('created_at', sevenDaysAgoISO)
+          .order('created_at', { ascending: false })
+          .limit(20),
       ]);
       wordsDueToday = dueRes.count || 0;
       words = (wordsRes.data as { id: string; word: string }[] | null) || [];
       recentQuizzes = (quizRes.data as QuizRow[] | null) || [];
       recentReviews = (reviewRes.data as unknown as ReviewRow[] | null) || [];
+      recentGrammar = (grammarRes.data as unknown as GrammarRow[] | null) || [];
+      recentReading = (readingRes.data as unknown as ReadingRow[] | null) || [];
+      recentToeic = (toeicRes.data as unknown as ToeicRow[] | null) || [];
+      recentAssessments = (assessmentRes.data as unknown as AssessmentRow[] | null) || [];
     }
 
     // 3. Top students by VMS (mastery score), top 5
@@ -221,21 +263,12 @@ export async function GET(req: Request) {
       }
     }
 
-    // 7. Recent activity feed: last 10 activities (quiz + srs) across enrolled students
-    type ActivityItem = {
-      type: 'quiz' | 'review';
-      student_id: string;
-      student_name: string;
-      detail: string;
-      timestamp: string;
-    };
-
+    // 7. Recent activity feed: activities across enrolled students
     const nameMap = new Map(studentList.map(s => [s.student_id, s.student_name || s.email]));
 
     let activityFeed: ActivityItem[] = [];
 
     if (studentIds.length > 0) {
-      // recentQuizzes / recentReviews đã fetch song song ở BATCH A
       const quizActivities: ActivityItem[] = recentQuizzes.map(q => ({
         type: 'quiz',
         student_id: q.user_id,
@@ -247,6 +280,7 @@ export async function GET(req: Request) {
       // Group SRS reviews by user + day to avoid per-word spam
       const reviewGroups = new Map<string, { user_id: string; timestamp: string; count: number }>();
       for (const r of recentReviews) {
+        if (!r.last_reviewed_at) continue;
         const day = (r.last_reviewed_at as string).split('T')[0];
         const key = `${r.user_id}_${day}`;
         if (!reviewGroups.has(key)) {
@@ -263,9 +297,48 @@ export async function GET(req: Request) {
         timestamp: g.timestamp,
       }));
 
-      activityFeed = [...quizActivities, ...reviewActivities]
+      const grammarActivities: ActivityItem[] = recentGrammar.map(g => ({
+        type: 'grammar',
+        student_id: g.user_id,
+        student_name: nameMap.get(g.user_id) || 'Unknown',
+        detail: `Studied grammar — ${g.lesson_id} (${g.mastery_score || 0}%)`,
+        timestamp: g.last_reviewed_at,
+      }));
+
+      const readingActivities: ActivityItem[] = recentReading.map(r => ({
+        type: 'reading',
+        student_id: r.user_id,
+        student_name: nameMap.get(r.user_id) || 'Unknown',
+        detail: `Completed daily reading — ${r.mcq_score || 0}/${r.mcq_total || 0} correct`,
+        timestamp: r.completed_at,
+      }));
+
+      const toeicActivities: ActivityItem[] = recentToeic.map(t => ({
+        type: 'toeic',
+        student_id: t.user_id,
+        student_name: nameMap.get(t.user_id) || 'Unknown',
+        detail: `Practiced TOEIC Part ${t.part} — ${t.is_correct ? 'Correct' : 'Incorrect'}`,
+        timestamp: t.last_answered_at,
+      }));
+
+      const assessmentActivities: ActivityItem[] = recentAssessments.map(a => ({
+        type: 'assessment',
+        student_id: a.user_id,
+        student_name: nameMap.get(a.user_id) || 'Unknown',
+        detail: `Took assessment: ${a.track ? a.track.toUpperCase() : 'TOEIC'} (${a.score}%)`,
+        timestamp: a.created_at,
+      }));
+
+      activityFeed = [
+        ...quizActivities,
+        ...reviewActivities,
+        ...grammarActivities,
+        ...readingActivities,
+        ...toeicActivities,
+        ...assessmentActivities,
+      ]
         .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
-        .slice(0, 10);
+        .slice(0, 15);
     }
 
     return NextResponse.json(

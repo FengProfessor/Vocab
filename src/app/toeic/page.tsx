@@ -24,6 +24,9 @@ import {
   CheckCircle2,
   Sparkles,
   Info,
+  Bookmark,
+  Headphones,
+  Flag,
 } from 'lucide-react';
 import catalogIndexRaw from '@/data/toeic/toeic-catalog-index.json';
 import { toast } from 'sonner';
@@ -31,10 +34,12 @@ import { ExamLegalDisclaimer } from '@/components/exam/ExamLegalDisclaimer';
 import {
   getPartProgressStats,
   resetPartProgress,
+  getQuestionsForReview,
   TOEIC_HISTORY_UPDATED_EVENT,
   type PartProgressStats,
   TOEIC_PART_BANK_TOTALS,
 } from '@/lib/toeic-question-history';
+import { ToeicFlaggedReviewView } from '@/components/toeic/ToeicFlaggedReviewView';
 import type {
   ToeicCatalogIndex,
   ToeicCatalogTestItem,
@@ -196,52 +201,31 @@ interface TestSocialMeta {
     color: string;
   };
 }
-
-function hashStringFnv1a(str: string): number {
-  let h = 2166136261 >>> 0;
-  for (let i = 0; i < str.length; i++) {
-    h = Math.imul(h ^ str.charCodeAt(i), 16777619);
-  }
-  return h >>> 0;
+interface TestCatalogMeta {
+  badge?: {
+    label: string;
+    icon: 'flame' | 'star' | 'sparkles';
+    color: string;
+  };
 }
 
-function getTestSocialMeta(test: ToeicCatalogTestItem, index: number): TestSocialMeta {
-  // Deterministic calculation based on index and test id to prevent hydration mismatch
-  // Generates organic-looking attempt numbers in the realistic 21.000 - 34.000 range
-  const h1 = hashStringFnv1a(test.id);
-  const h2 = hashStringFnv1a(test.title);
-
-  // Top tests (e.g. ETS 01, 02, 03) naturally attract higher attempts (~32k - 34k)
-  // Others distribute organically between ~22k - 29k
-  const tierBonus = index < 3 ? 6800 : index < 8 ? 4200 : index < 16 ? 2400 : 800;
-  const baseAttempts = 21250 + tierBonus;
-  const spread = Math.abs((h1 ^ (h2 * 31))) % 6780;
-  const attemptCount = baseAttempts + spread;
-
-  const avgScore = 638 + (h1 % 43); // 638 - 680
-
-  let badge: TestSocialMeta['badge'] | undefined;
-  if (index === 0 || index === 1 || test.id === 'study4-test-1') {
+function getTestMeta(test: ToeicCatalogTestItem, index: number): TestCatalogMeta {
+  let badge: TestCatalogMeta['badge'] | undefined;
+  if (test.source === 'ets2026') {
     badge = {
-      label: 'Phổ biến nhất',
-      icon: 'flame',
-      color: 'text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/50 border-amber-200 dark:border-amber-800/80',
-    };
-  } else if (index === 2 || index === 4 || test.id === 'estudyme-test-5') {
-    badge = {
-      label: 'Khuyên dùng',
-      icon: 'star',
-      color: 'text-sky-700 dark:text-sky-400 bg-sky-50 dark:bg-sky-950/50 border-sky-200 dark:border-sky-800/80',
-    };
-  } else if (index >= 18 && index <= 22) {
-    badge = {
-      label: 'Mới cập nhật',
+      label: 'Format 2026',
       icon: 'sparkles',
       color: 'text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 border-emerald-200 dark:border-emerald-800/80',
     };
+  } else if (index < 3) {
+    badge = {
+      label: 'Bộ đề trọng tâm',
+      icon: 'star',
+      color: 'text-sky-700 dark:text-sky-400 bg-sky-50 dark:bg-sky-950/50 border-sky-200 dark:border-sky-800/80',
+    };
   }
 
-  return { attemptCount, avgScore, badge };
+  return { badge };
 }
 
 interface UserExamStatus {
@@ -283,19 +267,72 @@ function emptyPartProgress(part: number): PartProgressStats {
 }
 
 function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null; partParam: string | null }) {
-  // Tab State: 'full_test' | 'practice_parts'
-  const initialTab = tabParam === 'practice_parts' || tabParam === 'practice'
-    ? 'practice_parts'
-    : 'full_test';
+  // Tab State: 'full_test' | 'practice_parts' | 'review_flagged'
+  const initialTab =
+    tabParam === 'practice_parts' || tabParam === 'practice'
+      ? 'practice_parts'
+      : tabParam === 'review_flagged' || tabParam === 'flagged' || tabParam === 'review'
+      ? 'review_flagged'
+      : 'full_test';
   const initialPart = parseInt(partParam || '1', 10);
   const validPart = initialPart >= 1 && initialPart <= 7 ? initialPart : 1;
 
-  const [activeTab, setActiveTab] = useState<'full_test' | 'practice_parts'>(initialTab);
+  const [activeTab, setActiveTab] = useState<'full_test' | 'practice_parts' | 'review_flagged'>(initialTab);
   const [selectedPart, setSelectedPart] = useState<number>(validPart);
+  const [selectedListeningYear, setSelectedListeningYear] = useState<
+    'all' | '2026' | '2024' | '2023' | '2022' | '2021' | '2020' | '2019'
+  >('all');
+  const [reviewCount, setReviewCount] = useState<number>(0);
   const [testFilter, setTestFilter] = useState<'all' | '200q' | 'ets2026' | 'ets2024' | 'estudyme' | 'study4'>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [displayLayout, setDisplayLayout] = useState<'list' | 'grid'>('list');
   const [userExamStatus, setUserExamStatus] = useState<Record<string, UserExamStatus>>({});
+
+  // Helper mapping 260 listening sets to tests across ETS 2019-2026
+  const getTestsForYear = useCallback((yr: string) => {
+    if (yr === '2026') {
+      return catalog.fullTests.filter((t) => t.source === 'ets2026');
+    }
+    if (yr === '2024') {
+      return catalog.fullTests.filter((t) => t.source === 'ets2024');
+    }
+    if (yr === '2023') {
+      const etsPro = catalog.fullTests.filter((t) => (t.source as string) === 'ets_pro');
+      return etsPro.slice(10, 20); // Test 11 to 20
+    }
+    if (yr === '2022') {
+      const etsPro = catalog.fullTests.filter((t) => (t.source as string) === 'ets_pro');
+      return etsPro.slice(0, 10); // Test 01 to 10
+    }
+    if (yr === '2021') {
+      const estudyme = catalog.fullTests.filter((t) => t.source === 'estudyme');
+      return estudyme.slice(0, 5); // Test 01 to 05
+    }
+    if (yr === '2020') {
+      const study4 = catalog.fullTests.filter((t) => t.source === 'study4');
+      return study4.slice(0, 10); // Test 01 to 10
+    }
+    if (yr === '2019') {
+      const study4 = catalog.fullTests.filter((t) => t.source === 'study4');
+      return study4.slice(10, 20); // Test 11 to 20
+    }
+    return catalog.fullTests;
+  }, []);
+
+  // Update reviewCount reactively
+  useEffect(() => {
+    const updateReviewCount = () => {
+      try {
+        const list = getQuestionsForReview();
+        setReviewCount(list.length);
+      } catch {}
+    };
+    updateReviewCount();
+    if (typeof window !== 'undefined') {
+      window.addEventListener(TOEIC_HISTORY_UPDATED_EVENT, updateReviewCount);
+      return () => window.removeEventListener(TOEIC_HISTORY_UPDATED_EVENT, updateReviewCount);
+    }
+  }, []);
 
   // Restore layout preference and user exam history from localStorage
   useEffect(() => {
@@ -684,6 +721,35 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                   [7 Parts]
                 </span>
               </button>
+
+              {/* Tab 3: CÂU CẦN LUYỆN LẠI [🔖] CTA */}
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activeTab === 'review_flagged'}
+                onClick={() => {
+                  setActiveTab('review_flagged');
+                  setSearchQuery('');
+                }}
+                className={`flex-1 py-2 sm:py-2.5 px-3 rounded-xs font-mono text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition cursor-pointer select-none ${
+                  activeTab === 'review_flagged'
+                    ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-xs font-bold'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-slate-700/50'
+                }`}
+              >
+                <Bookmark className="h-4 w-4 shrink-0 text-amber-500 fill-amber-500/30" />
+                <span className="font-bold">Câu Cần Luyện Lại</span>
+                <span className="hidden sm:inline font-normal text-[11px] opacity-80">[🔖]</span>
+                <span
+                  className={`text-[11px] font-mono px-1.5 py-0.5 rounded-xs shrink-0 tabular-nums ${
+                    activeTab === 'review_flagged'
+                      ? 'bg-white/20 text-white dark:bg-slate-900/20 dark:text-slate-900'
+                      : 'bg-slate-300/80 dark:bg-slate-700 text-slate-700 dark:text-slate-300'
+                  }`}
+                >
+                  [{reviewCount} Câu]
+                </span>
+              </button>
             </div>
           </div>
         </div>
@@ -849,7 +915,7 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
             {displayedFullTests.length > 0 && displayLayout === 'list' && (
               <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 divide-y divide-slate-100 dark:divide-slate-800/80 shadow-xs min-w-0 max-w-full">
                 {displayedFullTests.map((test, index) => {
-                  const meta = getTestSocialMeta(test, index);
+                  const meta = getTestMeta(test, index);
                   const status = userExamStatus[test.id];
 
                   return (
@@ -908,13 +974,12 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                             {test.questionCount === 200 ? '200 câu (100 LC + 100 RC)' : `${test.questionCount} câu`}
                           </span>
                           <span>•</span>
-                          <span className="flex items-center gap-1 text-slate-700 dark:text-slate-300 font-medium">
-                            <Flame className="h-3 w-3 text-amber-500" />
-                            {meta.attemptCount.toLocaleString('vi-VN')} lượt thi
+                          <span className="text-slate-600 dark:text-slate-400">
+                            Chuẩn cấu trúc ETS
                           </span>
                           <span>•</span>
-                          <span className="text-slate-600 dark:text-slate-400">
-                            Điểm TB: <strong className="text-slate-900 dark:text-white">{meta.avgScore}</strong>/990
+                          <span className="text-emerald-700 dark:text-emerald-400 font-medium">
+                            Có lời giải chi tiết
                           </span>
                         </div>
                       </div>
@@ -949,7 +1014,7 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
             {displayedFullTests.length > 0 && displayLayout === 'grid' && (
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {displayedFullTests.map((test, index) => {
-                  const meta = getTestSocialMeta(test, index);
+                  const meta = getTestMeta(test, index);
                   const status = userExamStatus[test.id];
 
                   return (
@@ -1003,21 +1068,21 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                         {/* Specifications List */}
                         <div className="space-y-1.5 rounded-sm border border-slate-100 dark:border-slate-800/80 bg-slate-50/50 dark:bg-slate-950/40 p-2.5 font-mono text-xs text-slate-600 dark:text-slate-400 tabular-nums">
                           <div className="flex items-center justify-between">
-                            <span>Quy mô đề thi:</span>
+                            <span>Quy mô bài thi:</span>
                             <span className="font-semibold text-slate-900 dark:text-white">
-                              {test.questionCount === 200 ? `${test.questionCount} câu (100 LC + 100 RC)` : `${test.questionCount} câu`}
+                              {test.questionCount === 200 ? '200 câu (100 LC + 100 RC)' : `${test.questionCount} câu`}
                             </span>
                           </div>
                           <div className="flex items-center justify-between">
-                            <span>Lượt thí sinh thi:</span>
+                            <span>Thời lượng chuẩn:</span>
                             <span className="font-semibold text-slate-800 dark:text-slate-200">
-                              {meta.attemptCount.toLocaleString('vi-VN')} lượt thi
+                              {test.durationMinutes} phút tính giờ
                             </span>
                           </div>
                           <div className="flex items-center justify-between">
-                            <span>Điểm trung bình:</span>
-                            <span className="font-semibold text-slate-800 dark:text-slate-200">
-                              {meta.avgScore}/990
+                            <span>Định dạng:</span>
+                            <span className="font-semibold text-emerald-700 dark:text-emerald-400">
+                              Chuẩn ETS Khảo Thí
                             </span>
                           </div>
                         </div>
@@ -1317,6 +1382,105 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                 </div>
               )}
 
+              {/* ── BỘ SƯU TẬP LUYỆN NGHE ETS (2019–2026 — 260 BỘ ĐỀ) ── */}
+              {currentPartMeta.section === 'listening' && (
+                <div className="space-y-3 rounded-sm border border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-950/60 p-3 sm:p-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 border-b border-slate-200/60 dark:border-slate-800/80 pb-2.5">
+                    <div className="flex items-center gap-2">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-xs bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-200 dark:border-sky-800/80">
+                        <Headphones className="h-3.5 w-3.5" />
+                      </span>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
+                          Bộ Sưu Tập Luyện Nghe ETS (2019–2026 — 260 Bộ Đề):
+                        </h3>
+                        <span className="font-mono text-[11px] text-slate-500 tabular-nums">
+                          {selectedListeningYear === 'all'
+                            ? `260 bộ đề (65 bộ Part ${selectedPart})`
+                            : selectedListeningYear === '2021'
+                            ? `20 bộ đề (5 bộ Part ${selectedPart})`
+                            : `40 bộ đề (10 bộ Part ${selectedPart})`}
+                        </span>
+                      </div>
+                    </div>
+                    <span className="text-[10px] font-mono text-slate-500">
+                      Thanh chọn năm luyện nghe ETS
+                    </span>
+                  </div>
+
+                  {/* Year Switcher Strip */}
+                  <div className="flex flex-wrap items-center gap-1">
+                    {(['all', '2026', '2024', '2023', '2022', '2021', '2020', '2019'] as const).map((yr) => (
+                      <button
+                        key={yr}
+                        type="button"
+                        onClick={() => {
+                          setSelectedListeningYear(yr);
+                          if (yr !== 'all') {
+                            const yearTests = getTestsForYear(yr);
+                            if (yearTests.length > 0) {
+                              setSelectedSource(yearTests[0].id);
+                            }
+                          } else {
+                            setSelectedSource('all');
+                          }
+                        }}
+                        className={`px-2.5 py-1 rounded-xs font-mono text-xs font-semibold transition cursor-pointer select-none ${
+                          selectedListeningYear === yr
+                            ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold shadow-2xs'
+                            : 'border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+                        }`}
+                      >
+                        {yr === 'all' ? 'Tất cả năm' : `ETS ${yr}`}
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Test Sets Matrix for Selected Year */}
+                  {selectedListeningYear !== 'all' && (
+                    <div className="space-y-1.5 pt-1">
+                      <div className="text-[11px] font-mono text-slate-500 flex items-center justify-between">
+                        <span>Danh sách đề Part {selectedPart} năm ETS {selectedListeningYear}:</span>
+                        <span className="tabular-nums">
+                          {getTestsForYear(selectedListeningYear).length} đề sẵn sàng
+                        </span>
+                      </div>
+                      <div className="grid grid-cols-2 sm:grid-cols-5 gap-1.5">
+                        {getTestsForYear(selectedListeningYear).map((t, idx) => {
+                          const isSelected = selectedSource === t.id;
+                          return (
+                            <button
+                              key={t.id}
+                              type="button"
+                              onClick={() => setSelectedSource(t.id)}
+                              className={`p-2 rounded-xs border text-left transition cursor-pointer select-none flex flex-col justify-between ${
+                                isSelected
+                                  ? 'border-slate-900 dark:border-white bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-2xs font-bold'
+                                  : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
+                              }`}
+                            >
+                              <div className="flex items-center justify-between">
+                                <span className="font-mono text-xs font-bold">
+                                  Test {String(idx + 1).padStart(2, '0')}
+                                </span>
+                                <span className={`text-[10px] font-mono px-1 py-0.2 rounded-2xs ${
+                                  isSelected ? 'bg-white/20 text-white dark:bg-slate-900/20 dark:text-slate-900' : 'bg-slate-100 dark:bg-slate-800 text-slate-500'
+                                }`}>
+                                  {selectedPart === 1 ? '6 câu' : selectedPart === 2 ? '25 câu' : selectedPart === 3 ? '39 câu' : '30 câu'}
+                                </span>
+                              </div>
+                              <div className="text-[10px] truncate opacity-80 mt-1 font-mono">
+                                {t.displayId}
+                              </div>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
               {/* ── BƯỚC 1: NGUỒN ĐỀ THI LẤY CÂU HỎI ── */}
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2">
@@ -1414,42 +1578,63 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                       className="w-full rounded-sm border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-2 py-1 text-xs text-slate-900 dark:text-white focus:outline-hidden font-mono truncate"
                     >
                       <option value="" disabled>-- Chọn đề thi cụ thể --</option>
-                      <optgroup label="Bộ Đề 2026 (10 đề)">
-                        {catalog.fullTests
-                          .filter((t) => t.source === 'ets2026')
-                          .map((t) => (
+                      {selectedListeningYear !== 'all' && currentPartMeta.section === 'listening' ? (
+                        <optgroup label={`Bộ Đề ETS ${selectedListeningYear} (${getTestsForYear(selectedListeningYear).length} đề)`}>
+                          {getTestsForYear(selectedListeningYear).map((t) => (
                             <option key={t.id} value={t.id}>
                               [{t.displayId}] {t.title}
                             </option>
                           ))}
-                      </optgroup>
-                      <optgroup label="Bộ Đề 2024 (10 đề)">
-                        {catalog.fullTests
-                          .filter((t) => t.source === 'ets2024')
-                          .map((t) => (
-                            <option key={t.id} value={t.id}>
-                              [{t.displayId}] {t.title}
-                            </option>
-                          ))}
-                      </optgroup>
-                      <optgroup label="Bộ Đề Mô Phỏng (21 đề)">
-                        {catalog.fullTests
-                          .filter((t) => t.source === 'estudyme')
-                          .map((t) => (
-                            <option key={t.id} value={t.id}>
-                              [{t.displayId}] {t.title}
-                            </option>
-                          ))}
-                      </optgroup>
-                      <optgroup label="Bộ Đề Tổng Hợp (20 đề)">
-                        {catalog.fullTests
-                          .filter((t) => t.source === 'study4')
-                          .map((t) => (
-                            <option key={t.id} value={t.id}>
-                              [{t.displayId}] {t.title}
-                            </option>
-                          ))}
-                      </optgroup>
+                        </optgroup>
+                      ) : (
+                        <>
+                          <optgroup label="Bộ Đề 2026 (10 đề)">
+                            {catalog.fullTests
+                              .filter((t) => t.source === 'ets2026')
+                              .map((t) => (
+                                <option key={t.id} value={t.id}>
+                                  [{t.displayId}] {t.title}
+                                </option>
+                              ))}
+                          </optgroup>
+                          <optgroup label="Bộ Đề 2024 (10 đề)">
+                            {catalog.fullTests
+                              .filter((t) => t.source === 'ets2024')
+                              .map((t) => (
+                                <option key={t.id} value={t.id}>
+                                  [{t.displayId}] {t.title}
+                                </option>
+                              ))}
+                          </optgroup>
+                          <optgroup label="Bộ Đề Thực Chiến ETS Pro (20 đề)">
+                            {catalog.fullTests
+                              .filter((t) => (t.source as string) === 'ets_pro')
+                              .map((t) => (
+                                <option key={t.id} value={t.id}>
+                                  [{t.displayId}] {t.title}
+                                </option>
+                              ))}
+                          </optgroup>
+                          <optgroup label="Bộ Đề Mô Phỏng (21 đề)">
+                            {catalog.fullTests
+                              .filter((t) => t.source === 'estudyme')
+                              .map((t) => (
+                                <option key={t.id} value={t.id}>
+                                  [{t.displayId}] {t.title}
+                                </option>
+                              ))}
+                          </optgroup>
+                          <optgroup label="Bộ Đề Tổng Hợp (20 đề)">
+                            {catalog.fullTests
+                              .filter((t) => t.source === 'study4')
+                              .map((t) => (
+                                <option key={t.id} value={t.id}>
+                                  [{t.displayId}] {t.title}
+                                </option>
+                              ))}
+                          </optgroup>
+                        </>
+                      )}
                     </select>
                   </div>
                 </div>
@@ -1852,6 +2037,16 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
               </Link>
             </div>
           </div>
+        )}
+
+        {/* ── TAB 3: FLAGGED & MISTAKE REVIEW MODE ── */}
+        {activeTab === 'review_flagged' && (
+          <ToeicFlaggedReviewView
+            onSwitchToPractice={(p) => {
+              setSelectedPart(p || 1);
+              setActiveTab('practice_parts');
+            }}
+          />
         )}
       </main>
 

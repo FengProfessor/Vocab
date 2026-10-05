@@ -46,6 +46,7 @@ next-env.d.ts
 # scraper artifacts (không commit checkpoint, deck, file PDF nguồn)
 scripts/scrapers/.checkpoints/
 scripts/scrapers/decks/
+scripts/dautoeic/
 *.checkpoint.json
 *.apkg
 
@@ -61,6 +62,11 @@ scraper-*.txt
 /extract-pdf-content.ts
 /extract-pdf-text.ts
 /verify_env.js
+/survey_dautoeic_data.js
+/test_api.js
+/test_router.ts
+/find_ui_context.js
+/ocr_audit_results.json
 
 # One-off local artifacts
 /public/icons/icon-email.png
@@ -94,3 +100,4 @@ __pycache__/
 /scripts/logs/*.out
 /scripts/logs/*.err
 /scripts/lists/_staging/*.err
+tests/qa/.mutation-runner.lock

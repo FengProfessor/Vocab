@@ -567,21 +567,8 @@ export default function ImportPage() {
   );
 
   return (
-    <StudentShell title="Nhập danh sách riêng" contentClassName="p-0">
+    <StudentShell title="Nhập từ thủ công" contentClassName="p-0">
       <div className="min-h-[calc(100dvh-var(--header-h)-var(--safe-top))] bg-gradient-to-br from-slate-50 via-indigo-50/30 to-purple-50/20 font-sans">
-      {/* Header */}
-      <header className="sticky top-header-safe z-10 flex h-16 items-center gap-4 border-b bg-white/80 px-4 backdrop-blur sm:px-6">
-        <Link href="/student">
-          <button className="flex items-center gap-2 text-muted-foreground hover:text-indigo-600 font-bold text-sm transition-colors">
-            <ChevronLeft className="h-5 w-5" /> Trang học
-          </button>
-        </Link>
-        <div className="flex items-center gap-2 font-black text-slate-800">
-          <Brain className="h-6 w-6 text-indigo-600" />
-          <span>Nhập từ thủ công</span>
-        </div>
-      </header>
-
       <div className="max-w-2xl mx-auto p-4 sm:p-8 space-y-6 pb-mobile-nav">
         {/* Tab switcher — nhãn ngắn hiện cả mobile, tránh chỉ còn icon */}
         <div className="bg-white border rounded-2xl p-1.5 flex gap-1 shadow-sm">

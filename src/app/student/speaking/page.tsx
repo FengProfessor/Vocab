@@ -154,18 +154,11 @@ export default function StudentSpeakingPage() {
   return (
     <StudentShell title="AI Speaking Tutor" contentClassName="p-0" hideMobileNav>
       <main className="min-h-[calc(100dvh-var(--header-h)-var(--safe-top))] bg-slate-900 text-slate-100 font-sans flex flex-col">
-        <header className="sticky top-header-safe z-30 flex h-14 items-center justify-between border-b border-slate-800 bg-slate-900/90 px-4 backdrop-blur sm:px-6">
-          <div className="flex items-center gap-3">
-            <Link
-              href="/student"
-              className="flex items-center gap-1 text-sm text-slate-400 hover:text-white transition-colors"
-            >
-              <ChevronLeft className="h-4 w-4" /> Dashboard
-            </Link>
-            <span className="text-slate-700">/</span>
-            <span className="font-bold flex items-center gap-2 text-indigo-400 text-sm sm:text-base">
-              <MessageSquare className="h-4 w-4" />
-              AI Speaking Tutor (24+ Topics)
+        <div className="flex items-center justify-between border-b border-slate-800 bg-slate-900/90 px-4 py-2.5 backdrop-blur sm:px-6">
+          <div className="flex items-center gap-2">
+            <MessageSquare className="h-4 w-4 text-indigo-400" />
+            <span className="font-bold text-slate-200 text-sm sm:text-base">
+              Luyện phát âm AI theo chủ đề
             </span>
           </div>
           <div className="flex items-center gap-2">
@@ -188,7 +181,7 @@ export default function StudentSpeakingPage() {
               <RefreshCw className="size-4" />
             </Button>
           </div>
-        </header>
+        </div>
 
         {/* Master Speaking 4-Step Progressive Roadmap */}
         <div className="border-b border-slate-800/80 bg-slate-950/80 px-4 py-4 sm:px-6 backdrop-blur">

@@ -1,0 +1,692 @@
+[
+  {
+    "card_id": "present-simple-04",
+    "topic": "present-simple",
+    "card_index": 4,
+    "file_path": "public/grammar/topics/present-simple/04.webp",
+    "example_sentence": "She loves reading books. I have a pet cat.",
+    "queue_reason": "AUDIT_FAIL_PSEUDO_TEXT_OR_SEMANTIC_DEFECT",
+    "defect_details": "Garbled pseudo-text title \"Parkers\" on book cover held by woman.",
+    "remediation_prompt": "Clean, authentic photograph depicting \"She loves reading books. I have a pet cat.\" (Cô ấy yêu đọc sách. Tôi có một con mèo cưng.), natural daylight, sharp focus, completely clean background, zero text, no words, no letters, no signs, no typography, no posters, no labels"
+  },
+  {
+    "card_id": "imperatives-02",
+    "topic": "imperatives",
+    "card_index": 2,
+    "file_path": "public/grammar/topics/imperatives/02.webp",
+    "example_sentence": "Turn left at the bank.",
+    "queue_reason": "AUDIT_FAIL_PSEUDO_TEXT_OR_SEMANTIC_DEFECT",
+    "defect_details": "Prominent hanging storefront sign with pseudo-Asian characters and window posters with simulated text.",
+    "remediation_prompt": "Clean, authentic photograph depicting \"Turn left at the bank.\" (Rẽ trái tại ngân hàng.), natural daylight, sharp focus, completely clean background, zero text, no words, no letters, no signs, no typography, no posters, no labels"
+  },
+  {
+    "card_id": "countable-uncountable-03",
+    "topic": "countable-uncountable",
+    "card_index": 3,
+    "file_path": "public/grammar/topics/countable-uncountable/03.webp",
+    "example_sentence": "I have an apple.",
+    "queue_reason": "AUDIT_FAIL_PSEUDO_TEXT_OR_SEMANTIC_DEFECT",
+    "defect_details": "Supermarket aisle hanging banners and price boards displaying garbled pseudo-text \"FAIN CIAAY\", \"LANT CRAY\", \"BALKCHRO\".",
+    "remediation_prompt": "Clean, authentic photograph depicting \"I have an apple.\" (Tôi có một quả táo.), natural daylight, sharp focus, completely clean background, zero text, no words, no letters, no signs, no typography, no posters, no labels"
+  },
+  {
+    "card_id": "future-will-03",
+    "topic": "future-will",
+    "card_index": 3,
+    "file_path": "public/grammar/topics/future-will/03.webp",
+    "example_sentence": "I’ll help you with your bags.",
+    "queue_reason": "AUDIT_FAIL_PSEUDO_TEXT_OR_SEMANTIC_DEFECT",
+    "defect_details": "Large overhead airport directional sign in top-left corner with garbled text \"Nelcone Dation\".",
+    "remediation_prompt": "Clean, authentic photograph depicting \"I’ll help you with your bags.\" (Tôi sẽ giúp bạn mang túi.), natural daylight, sharp focus, completely clean background, zero text, no words, no letters, no signs, no typography, no posters, no labels"
+  },
+  {
+    "card_id": "modals-advice-04",
+    "topic": "modals-advice",
+    "card_index": 4,
+    "file_path": "public/grammar/topics/modals-advice/04.webp",
+    "example_sentence": "You shouldn't skip breakfast.",
+    "queue_reason": "AUDIT_FAIL_PSEUDO_TEXT_OR_SEMANTIC_DEFECT",
+    "defect_details": "Bizarre surreal floating disembodied head and question mark glyph at dining table fails pedagogical clarity.",
+    "remediation_prompt": "Clean, authentic photograph depicting \"You shouldn't skip breakfast.\" (Bạn không nên bỏ bữa sáng.), natural daylight, sharp focus, completely clean background, zero text, no words, no letters, no signs, no typography, no posters, no labels"
+  },
+  {
+    "card_id": "present-perfect-03",
+    "topic": "present-perfect",
+    "card_index": 3,
+    "file_path": "public/grammar/topics/present-perfect/03.webp",
+    "example_sentence": "They have visited Paris three times.",
+    "queue_reason": "AUDIT_FAIL_PSEUDO_TEXT_OR_SEMANTIC_DEFECT",
+    "defect_details": "Large world map display board covered with garbled pseudo-text labels \"Cnfewardral in a ccattion\" and \"Cnltrol\".",
+    "remediation_prompt": "Clean, authentic photograph depicting \"They have visited Paris three times.\" (Họ đã đến thăm Paris ba lần.), natural daylight, sharp focus, completely clean background, zero text, no words, no letters, no signs, no typography, no posters, no labels"
+  },
+  {
+    "card_id": "future-continuous-02",
+    "topic": "future-continuous",
+    "card_index": 2,
+    "file_path": "public/grammar/topics/future-continuous/02.webp",
+    "example_sentence": "She will be working at nine as usual.",
+    "queue_reason": "AUDIT_FAIL_PSEUDO_TEXT_OR_SEMANTIC_DEFECT",
+    "defect_details": "Glaring hallucinated English subtitle baked onto glass window (\"She willl be working at nine as usuall.\") and wall plaque \"MADE HI PLINE\".",
+    "remediation_prompt": "Clean, authentic photograph depicting \"She will be working at nine as usual.\" (Chín giờ cô ấy sẽ đang làm việc như thường lệ.), natural daylight, sharp focus, completely clean background, zero text, no words, no letters, no signs, no typography, no posters, no labels"
+  },
+  {
+    "card_id": "conjunctions-linking-04",
+    "topic": "conjunctions-linking",
+    "card_index": 4,
+    "file_path": "public/grammar/topics/conjunctions-linking/04.webp",
+    "example_sentence": "You can call or send a message.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'You cam cal pooy, chno cu: cue'.",
+    "remediation_prompt": "Clean close-up photograph of a modern smartphone resting on a wooden desk, screen showing two clean minimalist graphic icons: a green telephone handset and a blue envelope, clean studio lighting, zero text, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "gerunds-infinitives-01",
+    "topic": "gerunds-infinitives",
+    "card_index": 1,
+    "file_path": "public/grammar/topics/gerunds-infinitives/01.webp",
+    "example_sentence": "I enjoy reading before bed.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'enjoy reading, be-fore, before Iced'.",
+    "remediation_prompt": "Peaceful photograph of a young woman resting against pillows in bed reading an open hardcover book with completely blank pages and cover, warm bedside reading lamp, serene nighttime atmosphere, zero text, no book text, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "gerunds-infinitives-02",
+    "topic": "gerunds-infinitives",
+    "card_index": 2,
+    "file_path": "public/grammar/topics/gerunds-infinitives/02.webp",
+    "example_sentence": "She decided to leave early.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'Shre deccided, to, leave erily, 77'.",
+    "remediation_prompt": "Photographic scene of an office worker quietly putting on a coat and walking towards the glass exit door while colleagues work at desks, afternoon sunlight streaming in, zero text, no door signs, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "gerunds-infinitives-03",
+    "topic": "gerunds-infinitives",
+    "card_index": 3,
+    "file_path": "public/grammar/topics/gerunds-infinitives/03.webp",
+    "example_sentence": "Thank you for helping me.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'Thang y, fur hebbiing, me_'.",
+    "remediation_prompt": "Heartwarming photograph of two neighbors lifting a heavy moving carton together, the owner smiling with deep gratitude toward the helper, sunlit apartment hallway, zero text, no box labels, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "gerunds-infinitives-04",
+    "topic": "gerunds-infinitives",
+    "card_index": 4,
+    "file_path": "public/grammar/topics/gerunds-infinitives/04.webp",
+    "example_sentence": "He stopped smoking. / He stopped to smoke.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled text signs 'STIeP, 16 @}'.",
+    "remediation_prompt": "Dramatic close-up photograph of a hand decisively stubbing out a cigarette in a clean glass ashtray, signifying quitting for good, strong cinematic side lighting, plain dark background, zero text, no warning labels, no words, no letters, no signs, no typography"
+  },
+  {
+    "card_id": "gerunds-infinitives-05",
+    "topic": "gerunds-infinitives",
+    "card_index": 5,
+    "file_path": "public/grammar/topics/gerunds-infinitives/05.webp",
+    "example_sentence": "Swimming is good for your health.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'Swimming mect shai kiug your health:'.",
+    "remediation_prompt": "Vibrant action photograph of an athletic swimmer cutting through crystal-clear turquoise water in an indoor lap pool, water splashing in sunlight, vigorous healthy motion, zero text, no lane numbers, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "passive-voice-02",
+    "topic": "passive-voice",
+    "card_index": 2,
+    "file_path": "public/grammar/topics/passive-voice/02.webp",
+    "example_sentence": "English is spoken worldwide.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Large garbled caption 'ni, Engliish, is, sppeken, worlwlide., CALIS'.",
+    "remediation_prompt": "Inspiring photograph of a polished wooden globe on a clean conference table with four diverse international professionals conversing cordially in the background, bright modern conference room, plain glass wall, daylight, zero text, no map country labels, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "passive-voice-03",
+    "topic": "passive-voice",
+    "card_index": 3,
+    "file_path": "public/grammar/topics/passive-voice/03.webp",
+    "example_sentence": "The package will be delivered tomorrow.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled courier package text 'pece, will be Ile be, deliveg, tomortw., He'.",
+    "remediation_prompt": "Clean photograph of a neat brown cardboard parcel tied with twine resting on a polished wooden reception counter, morning sunlight streaming in, zero text, no postal barcodes, no address labels, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "passive-voice-04",
+    "topic": "passive-voice",
+    "card_index": 4,
+    "file_path": "public/grammar/topics/passive-voice/04.webp",
+    "example_sentence": "The road is being repaired.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled road sign and caption 'LIDINg4, tferoad, Js, perring'.",
+    "remediation_prompt": "Industrial street photograph of a modern road paving machine laying smooth fresh black asphalt on a city street, orange safety cones lining the perimeter, bright daylight, zero text, no street signs, no vehicle logos, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "passive-voice-05",
+    "topic": "passive-voice",
+    "card_index": 5,
+    "file_path": "public/grammar/topics/passive-voice/05.webp",
+    "example_sentence": "This novel was written by a Vietnamese author.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled book cover caption 'mh neveha kua nieacult, vehipay,, Thid ehtulabhohislifautmet-'.",
+    "remediation_prompt": "Artistic photograph of a hardcover book resting on a dark wood table beside a porcelain teacup, book cover features an elegant painted watercolor of a misty Vietnamese river with a lone boat, completely zero text, no title, no author name, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "reported-speech-01",
+    "topic": "reported-speech",
+    "card_index": 1,
+    "file_path": "public/grammar/topics/reported-speech/01.webp",
+    "example_sentence": "→ She said that she was tired.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled speech bubble 'Iam tired:, @tagnil'.",
+    "remediation_prompt": "Candid photograph of two friends having tea at a cafe, one speaking expressively while recounting a story to her attentive companion, natural cafe ambiance, soft daylight, zero text, no speech bubbles, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "reported-speech-02",
+    "topic": "reported-speech",
+    "card_index": 2,
+    "file_path": "public/grammar/topics/reported-speech/02.webp",
+    "example_sentence": "He told me to wait outside.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'Hael, elld, me, to, wait, outdio_'.",
+    "remediation_prompt": "Photographic scene of a professional sitting patiently on a clean wooden bench in an office hallway outside a frosted glass office door, quiet calm posture, daylight, zero text, no door signs, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "reported-speech-03",
+    "topic": "reported-speech",
+    "card_index": 3,
+    "file_path": "public/grammar/topics/reported-speech/03.webp",
+    "example_sentence": "Lan asked whether I was free.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled speech text 'Lan went led anvies, | free, 2015.1et:, Canedell, liry'.",
+    "remediation_prompt": "Candid photograph of two friendly female colleagues chatting by an office window, one gesturing warmly while asking a question, pleasant natural expressions, bright sunlit corridor, zero text, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "reported-speech-04",
+    "topic": "reported-speech",
+    "card_index": 4,
+    "file_path": "public/grammar/topics/reported-speech/04.webp",
+    "example_sentence": "→ They said they had finished.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'we'sen, bong saig, sea,, Igrkeltim_, fees'.",
+    "remediation_prompt": "Professional photograph of an office meeting where a team lead smiles and nods with satisfaction while receiving a project update from a colleague, clean corporate environment, daylight, zero text, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "relative-clauses-02",
+    "topic": "relative-clauses",
+    "card_index": 2,
+    "file_path": "public/grammar/topics/relative-clauses/02.webp",
+    "example_sentence": "This is the book that I mentioned.",
+    "queue_reason": "AUDIT_FAIL_PSEUDO_TEXT_OR_SEMANTIC_DEFECT",
+    "defect_details": "Open book pages displayed with dense blocks of simulated AI pseudo-text lines.",
+    "remediation_prompt": "Clean, authentic photograph depicting \"This is the book that I mentioned.\" (Đây là cuốn sách mà tôi đã nhắc đến.), natural daylight, sharp focus, completely clean background, zero text, no words, no letters, no signs, no typography, no posters, no labels"
+  },
+  {
+    "card_id": "relative-clauses-03",
+    "topic": "relative-clauses",
+    "card_index": 3,
+    "file_path": "public/grammar/topics/relative-clauses/03.webp",
+    "example_sentence": "The café where we met has closed.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled storefront lettering 'NTAPA'.",
+    "remediation_prompt": "Atmospheric street photograph of a charming cobblestone alley cafe with wooden shutters closed and a clean brass padlock on the double glass doors, quiet afternoon light, zero text, no cafe name, no signs, no words, no letters, no typography"
+  },
+  {
+    "card_id": "relative-clauses-04",
+    "topic": "relative-clauses",
+    "card_index": 4,
+    "file_path": "public/grammar/topics/relative-clauses/04.webp",
+    "example_sentence": "Students whose work is late must email me.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled student roster names 'Laule=, Pareca ,, Name, Laune, Eassel,, Name, Laune, Eppore,, Lorne, Fersorne, Canke, Laune, Garcies,, fidcess,, Jorne, dreek:, Ton2-'.",
+    "remediation_prompt": "Photographic scene in a university classroom of a professor in spectacles standing at the podium gesturing toward an empty submission tray, looking attentively at students, clean lecture hall, daylight, zero text, no board writing, no roster names, no words, no letters, no typography"
+  },
+  {
+    "card_id": "second-conditional-01",
+    "topic": "second-conditional",
+    "card_index": 1,
+    "file_path": "public/grammar/topics/second-conditional/01.webp",
+    "example_sentence": "If I had more time, I would learn Korean.",
+    "queue_reason": "AUDIT_FAIL_PSEUDO_TEXT_OR_SEMANTIC_DEFECT",
+    "defect_details": "Wall poster displaying garbled pseudo-Asian characters and calendar heading noise.",
+    "remediation_prompt": "Clean, authentic photograph depicting \"If I had more time, I would learn Korean.\" (Nếu tôi có nhiều thời gian hơn, tôi sẽ học tiếng Hàn.), natural daylight, sharp focus, completely clean background, zero text, no words, no letters, no signs, no typography, no posters, no labels"
+  },
+  {
+    "card_id": "second-conditional-03",
+    "topic": "second-conditional",
+    "card_index": 3,
+    "file_path": "public/grammar/topics/second-conditional/03.webp",
+    "example_sentence": "What would you do if you lost your phone?",
+    "queue_reason": "AUDIT_FAIL_PSEUDO_TEXT_OR_SEMANTIC_DEFECT",
+    "defect_details": "Multiple garbled wall signs inside coffee shop: \"STIEP'S FIRCAI\", \"Cofee Loyfd\", \"VET DO% CLIN T18\".",
+    "remediation_prompt": "Clean, authentic photograph depicting \"What would you do if you lost your phone?\" (Bạn sẽ làm gì nếu bạn làm mất điện thoại?), natural daylight, sharp focus, completely clean background, zero text, no words, no letters, no signs, no typography, no posters, no labels"
+  },
+  {
+    "card_id": "third-conditional-01",
+    "topic": "third-conditional",
+    "card_index": 1,
+    "file_path": "public/grammar/topics/third-conditional/01.webp",
+    "example_sentence": "If I had left earlier, I would have caught the train.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled train board '14, TALINE'.",
+    "remediation_prompt": "Cinematic photograph of a man in an overcoat standing alone on a quiet train platform looking down the vacant tracks with a rueful, regretful expression, evening station illumination, zero text, no train schedules, no platform numbers, no words, no letters, no typography"
+  },
+  {
+    "card_id": "third-conditional-02",
+    "topic": "third-conditional",
+    "card_index": 2,
+    "file_path": "public/grammar/topics/third-conditional/02.webp",
+    "example_sentence": "She would have passed if she had studied.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled poster text 'dobn' and study scene instead of regret.",
+    "remediation_prompt": "Expressive photograph of a young female student sitting at a plain wooden desk looking down with quiet regret at an unmarked white paper sheet with a simple red mark, plain white wall background without any posters or wall art, soft natural lighting, zero text, no posters, no wall writing, no words, no letters, no typography"
+  },
+  {
+    "card_id": "third-conditional-03",
+    "topic": "third-conditional",
+    "card_index": 3,
+    "file_path": "public/grammar/topics/third-conditional/03.webp",
+    "example_sentence": "Had we known, we would have helped.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'No, Regrets, cloro, lete, Cinkrins, You, 7or4s, Appe, Cono, Hol, cornisily:, 19'.",
+    "remediation_prompt": "Compassionate photograph of two supportive friends consoling an upset friend on an outdoor bench, offering reassuring hands on shoulder, empathetic sincere expressions, soft park lighting, zero text, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "modals-deduction-03",
+    "topic": "modals-deduction",
+    "card_index": 3,
+    "file_path": "public/grammar/topics/modals-deduction/03.webp",
+    "example_sentence": "That can't be true. He was with me all day.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled dialogue caption 'E3, ANT, That, can\"t, lnee, he, true, He, wasd, lith, m6:, is day-, Tomoctling, Tadhoudr, Suy cocri'e crisc ly kriog is 'tirig.'.",
+    "remediation_prompt": "Dramatic photograph of two colleagues sitting across a coffee table, one vigorously shaking their head with an emphatic hand gesture of disbelief, confident expression, cozy modern lounge, warm lighting, zero text, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "modals-deduction-04",
+    "topic": "modals-deduction",
+    "card_index": 4,
+    "file_path": "public/grammar/topics/modals-deduction/04.webp",
+    "example_sentence": "The keys could be in the drawer.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'The keys could, be the, in.'.",
+    "remediation_prompt": "Close-up photograph of hands opening a smooth wooden desk drawer containing stationery items, glancing in search of brass keys, soft desk lamp light, clean minimalist desk, zero text, no words, no letters, no labels, no captions, no typography"
+  },
+  {
+    "card_id": "question-tags-01",
+    "topic": "question-tags",
+    "card_index": 1,
+    "file_path": "public/grammar/topics/question-tags/01.webp",
+    "example_sentence": "You're coming to the party, aren't you?",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled speech caption 'Youjre onning t0 in arre pft yo.'.",
+    "remediation_prompt": "Vibrant party photograph of smiling young people gathered around a festive dining table with party lights, one person looking toward an arriving friend with an inviting smile and nodding confirmation, warm party atmosphere, zero text, no party banners, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "question-tags-02",
+    "topic": "question-tags",
+    "card_index": 2,
+    "file_path": "public/grammar/topics/question-tags/02.webp",
+    "example_sentence": "She doesn't drive, does she?",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'She jnhi, rrive does she?'.",
+    "remediation_prompt": "Photographic scene of a young woman sitting comfortably on a city tram looking out the window while holding a tote bag, bright morning light, urban commute setting, zero text, no route numbers, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "question-tags-03",
+    "topic": "question-tags",
+    "card_index": 3,
+    "file_path": "public/grammar/topics/question-tags/03.webp",
+    "example_sentence": "They left early, didn't they?",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'They leat early, didnt, Iley'.",
+    "remediation_prompt": "Atmospheric photograph of a couple waving a subtle goodbye at the front doorway of an evening dinner party, stepping into the cool night, warm glow from the house, zero text, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "question-tags-04",
+    "topic": "question-tags",
+    "card_index": 4,
+    "file_path": "public/grammar/topics/question-tags/04.webp",
+    "example_sentence": "Let's start, shall we?",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'Let's start, Shall we, @0 Shet Faur'.",
+    "remediation_prompt": "Energetic photograph of a business meeting leader standing at the head of a conference table clapping hands once with an enthusiastic smiling look to gather attention, colleagues smiling attentively, modern bright office, zero text, no whiteboard text, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "question-tags-05",
+    "topic": "question-tags",
+    "card_index": 5,
+    "file_path": "public/grammar/topics/question-tags/05.webp",
+    "example_sentence": "It's cold today, isn't it?",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'Js cold today, Js\"t tlet?'.",
+    "remediation_prompt": "Crisp winter photograph of two friends in woolen coats and thick knitted scarves walking together down a frosty path, smiling and exhaling visible gentle mist in the chilly air, winter morning light, zero text, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "phrasal-verbs-01",
+    "topic": "phrasal-verbs",
+    "card_index": 1,
+    "file_path": "public/grammar/topics/phrasal-verbs/01.webp",
+    "example_sentence": "Please turn off the lights. / Turn them off.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Large garbled caption 'Plese, turn off the light!, Pliase turn, the_light:, baong, then, di, th, tg aft, Ti6a, ti_, Taan'.",
+    "remediation_prompt": "Crisp close-up photograph of a finger clicking down a modern white wall toggle light switch, the room immediately transitioning into soft moody evening ambient light, plain painted wall, zero text, no switch labels, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "phrasal-verbs-02",
+    "topic": "phrasal-verbs",
+    "card_index": 2,
+    "file_path": "public/grammar/topics/phrasal-verbs/02.webp",
+    "example_sentence": "I ran into an old friend yesterday.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'Fan fit a0 @kd] irfend, yeterdlay'.",
+    "remediation_prompt": "Spontaneous, joyful street photograph of two old friends crossing paths on a sunny city sidewalk, pausing in delighted surprise with outstretched arms and laughing faces, daytime urban background, zero text, no storefront signs, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "phrasal-verbs-03",
+    "topic": "phrasal-verbs",
+    "card_index": 3,
+    "file_path": "public/grammar/topics/phrasal-verbs/03.webp",
+    "example_sentence": "She looked after the children all day.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'She locked after the cchildren all, day:'.",
+    "remediation_prompt": "Tender, lively photograph of a smiling young woman sitting on a nursery floor helping two happy toddler children build wooden block castles, bright colorful nursery, natural window light, zero text, no words, no letters, no book text, no captions, no typography"
+  },
+  {
+    "card_id": "phrasal-verbs-04",
+    "topic": "phrasal-verbs",
+    "card_index": 4,
+    "file_path": "public/grammar/topics/phrasal-verbs/04.webp",
+    "example_sentence": "Don't give up! Keep going.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'Don't give up!, Keep going:'.",
+    "remediation_prompt": "Inspiring sports photograph of a runner pushing forward with determination on a paved park track during the final stretch of a race, sweat on brow, energetic athletic focus, sunlit greenery background, zero text, no bib numbers, no banner words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "past-perfect-continuous-01",
+    "topic": "past-perfect-continuous",
+    "card_index": 1,
+    "file_path": "public/grammar/topics/past-perfect-continuous/01.webp",
+    "example_sentence": "I had been waiting for an hour when the bus came.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled bus stop caption 'The daad ha tra, bed 6fnac goodhum_'.",
+    "remediation_prompt": "Photographic scene of a patient commuter at a suburban bus shelter looking relieved as the rounded front of a city bus pulls into the stop, late afternoon golden sunlight, zero text, no bus route numbers, no stop signs, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "past-perfect-continuous-02",
+    "topic": "past-perfect-continuous",
+    "card_index": 2,
+    "file_path": "public/grammar/topics/past-perfect-continuous/02.webp",
+    "example_sentence": "She was tired because she had been working all night.",
+    "queue_reason": "AUDIT_FAIL_PSEUDO_TEXT_OR_SEMANTIC_DEFECT",
+    "defect_details": "Wall signs featuring question mark placeholder boxes [?][?] and simulated text checklists.",
+    "remediation_prompt": "Clean, authentic photograph depicting \"She was tired because she had been working all night.\" (Cô ấy mệt vì đã làm việc suốt đêm.), natural daylight, sharp focus, completely clean background, zero text, no words, no letters, no signs, no typography, no posters, no labels"
+  },
+  {
+    "card_id": "past-perfect-continuous-03",
+    "topic": "past-perfect-continuous",
+    "card_index": 3,
+    "file_path": "public/grammar/topics/past-perfect-continuous/03.webp",
+    "example_sentence": "They hadn't been living there long when the flood hit.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'Th, haldn't con'tt lirag lie leng, tihee, the tee, hamh, tu, the, yum, hit, ha_'.",
+    "remediation_prompt": "Dramatic documentary-style photograph of a rural family house surrounded by rising murky rainwater on a grassy bank, rain clouds overhead, authentic weather drama, zero text, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "past-perfect-continuous-04",
+    "topic": "past-perfect-continuous",
+    "card_index": 4,
+    "file_path": "public/grammar/topics/past-perfect-continuous/04.webp",
+    "example_sentence": "Had it been raining before you arrived?",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'Had, ivo, been, mane arrifane, guic bofer, you, airrimed?'.",
+    "remediation_prompt": "Atmospheric photograph of a wet city pavement with glistening puddles reflecting the sky and raindrops dripping from tree leaves, clouds parting to reveal blue sky, fresh aftermath of rain, zero text, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "future-perfect-01",
+    "topic": "future-perfect",
+    "card_index": 1,
+    "file_path": "public/grammar/topics/future-perfect/01.webp",
+    "example_sentence": "By Friday, I will have finished the report.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'Frilday, Epor'.",
+    "remediation_prompt": "Professional still life photograph of a neatly bound clean dark dossier resting on a polished mahogany desk next to an elegant fountain pen, soft morning light, executive office setting, zero text, no report title, no cover words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "future-perfect-04",
+    "topic": "future-perfect",
+    "card_index": 4,
+    "file_path": "public/grammar/topics/future-perfect/04.webp",
+    "example_sentence": "We won't have saved enough by June.",
+    "queue_reason": "AUDIT_FAIL_PSEUDO_TEXT_OR_SEMANTIC_DEFECT",
+    "defect_details": "Tabletop calendar covered in garbled day/month header text \"SATAL SAVE THING THYT 3DAY THAT\", \"June\".",
+    "remediation_prompt": "Clean, authentic photograph depicting \"We won't have saved enough by June.\" (Đến tháng Sáu chúng tôi vẫn chưa tiết kiệm đủ đâu.), natural daylight, sharp focus, completely clean background, zero text, no words, no letters, no signs, no typography, no posters, no labels"
+  },
+  {
+    "card_id": "future-in-the-past-04",
+    "topic": "future-in-the-past",
+    "card_index": 4,
+    "file_path": "public/grammar/topics/future-in-the-past/04.webp",
+    "example_sentence": "She promised she would call me back.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled text 'Prowise, Icoe:s'.",
+    "remediation_prompt": "Candid photograph of a young woman leaving a coffee shop doorway, turning back to wave warmly with a mobile phone in hand, sunny afternoon street, zero text, no words, no letters, no signs, no captions, no typography"
+  },
+  {
+    "card_id": "mixed-conditionals-04",
+    "topic": "mixed-conditionals",
+    "card_index": 4,
+    "file_path": "public/grammar/topics/mixed-conditionals/04.webp",
+    "example_sentence": "If he weren't afraid of flying, he would have joined us.",
+    "queue_reason": "AUDIT_FAIL_PSEUDO_TEXT_OR_SEMANTIC_DEFECT",
+    "defect_details": "Airport gate display board with pseudo-text \"ALIRING\" and flight schedule garble.",
+    "remediation_prompt": "Clean, authentic photograph depicting \"If he weren't afraid of flying, he would have joined us.\" (Nếu anh ấy không sợ đi máy bay thì anh ấy đã đi cùng chúng tôi rồi.), natural daylight, sharp focus, completely clean background, zero text, no words, no letters, no signs, no typography, no posters, no labels"
+  },
+  {
+    "card_id": "wish-if-only-03",
+    "topic": "wish-if-only",
+    "card_index": 3,
+    "file_path": "public/grammar/topics/wish-if-only/03.webp",
+    "example_sentence": "She wishes she had studied harder.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'stuaded, harder.'.",
+    "remediation_prompt": "Moody, contemplative photograph of a young woman sitting by a window on a rainy day, resting chin in hand and looking wistfully outward with deep regret, plain closed notebook on the table, soft natural daylight, zero text, no words, no letters, no notebook titles, no captions, no typography"
+  },
+  {
+    "card_id": "modals-perfect-01",
+    "topic": "modals-perfect",
+    "card_index": 1,
+    "file_path": "public/grammar/topics/modals-perfect/01.webp",
+    "example_sentence": "You should have called me.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Old prompt lacked telephone object; depicted late arrival instead of missed call.",
+    "remediation_prompt": "Authentic photograph of an annoyed young woman sitting at a cafe table holding up a smartphone with an empty screen toward her arriving male friend, who raises both hands in a sheepish apologetic gesture, natural daylight, zero text, no screen text, no words, no letters, no signs, no typography"
+  },
+  {
+    "card_id": "causative-02",
+    "topic": "causative",
+    "card_index": 2,
+    "file_path": "public/grammar/topics/causative/02.webp",
+    "example_sentence": "We are getting the roof repaired.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled symbol artifact 'X ''.",
+    "remediation_prompt": "Clear architectural photograph of two professional roofers wearing safety gear and helmets replacing clay tiles on a steep pitched residential roof, sunny sky, suburban setting, zero text, no company logos, no words, no letters, no typography"
+  },
+  {
+    "card_id": "advanced-passive-03",
+    "topic": "advanced-passive",
+    "card_index": 3,
+    "file_path": "public/grammar/topics/advanced-passive/03.webp",
+    "example_sentence": "He is said to have left the country.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled text 'CAP:'.",
+    "remediation_prompt": "Cinematic photograph looking through a large airport terminal window at an airplane taxiing toward the runway into the distance, empty boarding gate lounge in foreground, dramatic dusk lighting, zero text, no gate numbers, no words, no letters, no signs, no typography"
+  },
+  {
+    "card_id": "advanced-passive-04",
+    "topic": "advanced-passive",
+    "card_index": 4,
+    "file_path": "public/grammar/topics/advanced-passive/04.webp",
+    "example_sentence": "She was given a second chance.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'Second, chance.'.",
+    "remediation_prompt": "Heartfelt professional photograph of a senior executive smiling warmly and shaking hands with a relieved employee, handing them a clean plain red project folder, bright supportive office environment, daylight, zero text, no folder writing, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "advanced-relative-clauses-01",
+    "topic": "advanced-relative-clauses",
+    "card_index": 1,
+    "file_path": "public/grammar/topics/advanced-relative-clauses/01.webp",
+    "example_sentence": "The person to whom I spoke was very helpful.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'The, ersen, whoim, (eanp yd -)'.",
+    "remediation_prompt": "Warm professional photograph of an attentive customer service advisor in a sleek modern service desk speaking cordially and gesturing helpfully to a customer, bright welcoming interior, daylight, zero text, no nametags, no words, no letters, no signs, no captions, no typography"
+  },
+  {
+    "card_id": "advanced-relative-clauses-02",
+    "topic": "advanced-relative-clauses",
+    "card_index": 2,
+    "file_path": "public/grammar/topics/advanced-relative-clauses/02.webp",
+    "example_sentence": "She has three sons, all of whom are doctors.",
+    "queue_reason": "AUDIT_FAIL_PSEUDO_TEXT_OR_SEMANTIC_DEFECT",
+    "defect_details": "Clinic consultation room wall posters with garbled text \"Cong ting...\", \"Lens fresh\".",
+    "remediation_prompt": "Clean, authentic photograph depicting \"She has three sons, all of whom are doctors.\" (Bà ấy có ba người con trai, tất cả đều là bác sĩ.), natural daylight, sharp focus, completely clean background, zero text, no words, no letters, no signs, no typography, no posters, no labels"
+  },
+  {
+    "card_id": "advanced-relative-clauses-03",
+    "topic": "advanced-relative-clauses",
+    "card_index": 3,
+    "file_path": "public/grammar/topics/advanced-relative-clauses/03.webp",
+    "example_sentence": "The meeting was cancelled, which surprised us.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'The, meeeting, was, cancelled,, which, supp, risted, us.'.",
+    "remediation_prompt": "Candid photograph of four colleagues in an office boardroom standing near an empty glass conference table with surprised, bewildered expressions, daylight, modern corporate setting, zero text, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "advanced-relative-clauses-04",
+    "topic": "advanced-relative-clauses",
+    "card_index": 4,
+    "file_path": "public/grammar/topics/advanced-relative-clauses/04.webp",
+    "example_sentence": "The man standing by the door is my uncle.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'That gin, Ialan hia'.",
+    "remediation_prompt": "Handsome photograph of a friendly middle-aged man in a casual navy blazer standing casually beside an open wooden house doorway, smiling warmly at camera, sunlit garden visible behind, zero text, no words, no letters, no door numbers, no captions, no typography"
+  },
+  {
+    "card_id": "participle-clauses-01",
+    "topic": "participle-clauses",
+    "card_index": 1,
+    "file_path": "public/grammar/topics/participle-clauses/01.webp",
+    "example_sentence": "Walking home, I saw an accident.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'Wallking home, | | saw accadint:'.",
+    "remediation_prompt": "Atmospheric photograph of a young man walking down a tree-lined residential sidewalk in late afternoon, turning his head with an expression of mild shock toward a distant minor car fender-bender on the road, golden hour, zero text, no license plates, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "participle-clauses-03",
+    "topic": "participle-clauses",
+    "card_index": 3,
+    "file_path": "public/grammar/topics/participle-clauses/03.webp",
+    "example_sentence": "Having finished the report, she went home.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'Headting filasc, thee Ilay, went home, V3'.",
+    "remediation_prompt": "Satisfying photograph of a female office worker snapping shut her sleek laptop on a tidy desk, smiling with relief and picking up her handbag to leave, evening office with warm interior lights, zero text, no laptop logos, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "participle-clauses-04",
+    "topic": "participle-clauses",
+    "card_index": 4,
+    "file_path": "public/grammar/topics/participle-clauses/04.webp",
+    "example_sentence": "Not knowing the answer, I stayed silent.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'Not k-kiow wing thee asctyere,, hng hm phoi le-h:'.",
+    "remediation_prompt": "Thoughtful photograph of an Asian student sitting at an exam desk with lips quietly closed, pencil resting on a blank white sheet, looking thoughtfully upward in contemplation, clean classroom setting, daylight, zero text, no exam text, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "ellipsis-substitution-01",
+    "topic": "ellipsis-substitution",
+    "card_index": 1,
+    "file_path": "public/grammar/topics/ellipsis-substitution/01.webp",
+    "example_sentence": "I can play chess, and Lan can too.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'can play, cets, and Ilaan too.'.",
+    "remediation_prompt": "Engaging photograph of two friends seated across a polished wooden chessboard, both poised and smiling knowingly over the intricately carved wooden chess pieces, warm cozy living room lighting, zero text, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "ellipsis-substitution-02",
+    "topic": "ellipsis-substitution",
+    "card_index": 2,
+    "file_path": "public/grammar/topics/ellipsis-substitution/02.webp",
+    "example_sentence": "I need a pen. Do you have one?",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled dialogue caption 'need a pen:, da you have .n, Yoie, thi danh duh tang have one?., thay'.",
+    "remediation_prompt": "Friendly photograph of two students at a study table, one student smiling and holding out a spare ballpoint pen to their classmate who reaches for it with appreciation, bright sunlit study space, zero text, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "ellipsis-substitution-03",
+    "topic": "ellipsis-substitution",
+    "card_index": 3,
+    "file_path": "public/grammar/topics/ellipsis-substitution/03.webp",
+    "example_sentence": "Will it rain? — I think so.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'wili, it, rain?, Will, it, rain?, think_, 5o'.",
+    "remediation_prompt": "Natural photograph of two companions outdoors looking up at gathering gray clouds with thoughtful nodding expressions, one person holding a folded umbrella, outdoor park setting, overcast daylight, zero text, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "ellipsis-substitution-04",
+    "topic": "ellipsis-substitution",
+    "card_index": 4,
+    "file_path": "public/grammar/topics/ellipsis-substitution/04.webp",
+    "example_sentence": "Some chose tea; others, coffee.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'Some, choose t6a,, taialerelting,, cotfe_'.",
+    "remediation_prompt": "Aesthetic culinary photograph of a wooden cafe table with two beverages: a steaming glass cup of fragrant green tea and a white ceramic mug of rich black coffee with crema, soft morning sunlight, zero text, no cafe menus, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "subjunctive-01",
+    "topic": "subjunctive",
+    "card_index": 1,
+    "file_path": "public/grammar/topics/subjunctive/01.webp",
+    "example_sentence": "The doctor suggested that he rest for a week.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'Theu thing 'ang gus' he tine thsep, Ia, weekl, Vmddelcon'.",
+    "remediation_prompt": "Compassionate photograph of a doctor in a consultation room holding up a gentle reassuring hand, advising a seated patient to take medical rest, warm professional clinic, daylight, zero text, no prescription text, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "subjunctive-02",
+    "topic": "subjunctive",
+    "card_index": 2,
+    "file_path": "public/grammar/topics/subjunctive/02.webp",
+    "example_sentence": "It is essential that every member be present.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'CK, eesentintal that one, y Ilervciers impes thatht.'.",
+    "remediation_prompt": "Impressive photograph of a full conference room where every single seat around a sleek boardroom table is filled with engaged professionals listening to a presentation, bright executive lighting, zero text, no projection screen text, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "emphasis-structures-01",
+    "topic": "emphasis-structures",
+    "card_index": 1,
+    "file_path": "public/grammar/topics/emphasis-structures/01.webp",
+    "example_sentence": "I do understand your concern.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled caption 'do, understant your sesiren, {Erlcntrvice'.",
+    "remediation_prompt": "Heartfelt photograph of a professional counselor leaning forward with deep sincere empathy, placing a comforting hand near an anxious client’s hand on a wooden table, warm soothing room light, zero text, no words, no letters, no captions, no typography"
+  },
+  {
+    "card_id": "cleft-sentences-02",
+    "topic": "cleft-sentences",
+    "card_index": 2,
+    "file_path": "public/grammar/topics/cleft-sentences/02.webp",
+    "example_sentence": "It is patience that you need most.",
+    "queue_reason": "PENDING_GENERATION",
+    "defect_details": "Garbled glyph artifact 'Hu'.",
+    "remediation_prompt": "Close-up artistic photograph of an artisan’s skilled hands using a fine chisel to carve intricate details on a wooden block, calm serene focused atmosphere, wood shavings on workbench, warm studio lighting, zero text, no words, no letters, no tools with logos, no typography"
+  },
+  {
+    "card_id": "inversion-02",
+    "topic": "inversion",
+    "card_index": 2,
+    "file_path": "public/grammar/topics/inversion/02.webp",
+    "example_sentence": "Rarely does he complain about anything.",
+    "queue_reason": "AUDIT_FAIL_PSEUDO_TEXT_OR_SEMANTIC_DEFECT",
+    "defect_details": "Semantic contradiction: depicts a man happily cooking a gourmet homemade meal, contradicting negative frequency \"Seldom does he cook at home\".",
+    "remediation_prompt": "Clean, authentic photograph depicting \"Rarely does he complain about anything.\" (Hiếm khi nào anh ấy phàn nàn về điều gì.), natural daylight, sharp focus, completely clean background, zero text, no words, no letters, no signs, no typography, no posters, no labels"
+  }
+]

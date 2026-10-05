@@ -57,7 +57,7 @@ export default function AdminPage() {
 
   return (
     <div className="min-h-dvh bg-muted/40 font-sans">
-      <header className="sticky top-0 z-30 h-14 border-b bg-background/80 backdrop-blur px-4 sm:px-6 flex items-center gap-4">
+      <header className="border-b bg-background/80 backdrop-blur px-4 sm:px-6 flex h-14 items-center gap-4">
         <Link href="/" className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
           <ChevronLeft className="h-4 w-4" /> Back
         </Link>

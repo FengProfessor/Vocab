@@ -101,18 +101,11 @@ function ReviewHubContent() {
       <div className="space-y-5 px-1 pb-8 pt-2">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <h1 className="text-2xl font-black tracking-tight text-slate-900">Ôn tập đa dạng</h1>
+            <h1 className="text-2xl font-black tracking-tight text-slate-900">Ôn tập thông minh</h1>
             <p className="mt-1 text-sm font-medium text-slate-500">
-              Mix recognition · cloze · nghe · gõ — FSRS chung 1 pipeline
+              Kết hợp nhận diện, điền từ, luyện nghe và gõ phím ngắt quãng khoa học
             </p>
           </div>
-          <Link
-            href="/student"
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-500 shadow-sm active:scale-95"
-            aria-label="Về dashboard"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </Link>
         </div>
 
         {dueCount !== null && (

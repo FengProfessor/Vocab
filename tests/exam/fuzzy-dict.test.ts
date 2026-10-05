@@ -17,10 +17,17 @@ import {
 } from '../../src/lib/dict-trie-engine';
 
 export async function runFuzzyDictTests(runner: TestRunner): Promise<void> {
-  runner.describe('RAM Fuzzy Search & Spell Correction Test Suite', () => {});
+  // Defensive test isolation: temporarily unset window if contaminated by prior browser suites
+  const win = typeof global !== 'undefined' ? (global as any).window : undefined;
+  if (win !== undefined) {
+    delete (global as any).window;
+  }
 
-  // Pre-load words into RAM before tests run
-  await getInMemWordList();
+  try {
+    runner.describe('RAM Fuzzy Search & Spell Correction Test Suite', () => {});
+
+    // Pre-load words into RAM before tests run
+    await getInMemWordList();
 
   await runner.it('FT-1.1: damerauLevenshtein accurately calculates edit distances for all 4 basic operations', () => {
     // Exact match
@@ -122,6 +129,11 @@ export async function runFuzzyDictTests(runner: TestRunner): Promise<void> {
     // 10 queries across 40,860 words must take < 500ms total (average < 50ms per query)
     expect(elapsed < 500).toBe(true);
   });
+  } finally {
+    if (win !== undefined && typeof global !== 'undefined') {
+      (global as any).window = win;
+    }
+  }
 }
 
 // Direct execution when invoked via `npx tsx tests/exam/fuzzy-dict.test.ts`

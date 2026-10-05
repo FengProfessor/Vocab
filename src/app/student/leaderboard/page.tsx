@@ -105,10 +105,7 @@ function LeaderboardContent() {
     <div className="min-h-dvh bg-gradient-to-br from-indigo-950 via-slate-900 to-purple-950 p-4">
       <div className="max-w-lg mx-auto space-y-4">
         {/* Header */}
-        <div className="flex items-center gap-3 pt-2">
-          <Link href="/student" className="text-slate-400 hover:text-white transition-colors">
-            <ArrowLeft className="h-5 w-5" />
-          </Link>
+        <div className="flex items-center justify-between pt-2">
           <div>
             <h1 className="text-white font-bold text-xl flex items-center gap-2">
               <Trophy className="h-5 w-5 text-amber-400" /> Bảng Xếp Hạng

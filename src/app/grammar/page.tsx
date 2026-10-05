@@ -257,7 +257,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
         <div className="max-w-5xl w-full mx-auto flex items-center justify-between gap-3">
           <Link
             href="/student"
-            className="inline-flex items-center gap-1.5 sm:gap-2 font-mono text-xs uppercase tracking-wider font-semibold border border-border px-2.5 sm:px-3 py-1.5 hover:bg-muted text-muted-foreground hover:text-foreground transition-colors rounded-none shrink-0"
+            className="inline-flex min-h-[44px] items-center gap-1.5 sm:gap-2 font-mono text-xs uppercase tracking-wider font-semibold border border-border px-2.5 sm:px-3 py-1.5 hover:bg-muted text-muted-foreground hover:text-foreground transition-colors rounded-none shrink-0"
           >
             <ArrowLeft className="h-4 w-4 shrink-0 text-primary" />
             <span className="hidden sm:inline">Về Dashboard</span>
@@ -333,7 +333,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 border-b border-border/40 scrollbar-none">
             <button
               onClick={() => setActiveLevel('ALL')}
-              className={`px-3.5 py-2 font-mono text-xs uppercase tracking-wider font-medium rounded-none border transition-colors whitespace-nowrap ${
+              className={`min-h-[44px] inline-flex items-center justify-center px-3.5 py-2 font-mono text-xs uppercase tracking-wider font-medium rounded-none border transition-colors whitespace-nowrap ${
                 activeLevel === 'ALL'
                   ? 'border-foreground bg-foreground text-background font-bold'
                   : 'border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground'
@@ -347,7 +347,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                 <button
                   key={stg.id}
                   onClick={() => setActiveLevel(stg.id)}
-                  className={`px-3.5 py-2 font-mono text-xs uppercase tracking-wider font-medium rounded-none border transition-colors whitespace-nowrap flex items-center gap-1.5 ${
+                  className={`min-h-[44px] inline-flex items-center justify-center px-3.5 py-2 font-mono text-xs uppercase tracking-wider font-medium rounded-none border transition-colors whitespace-nowrap gap-1.5 ${
                     isActive
                       ? 'border-foreground bg-foreground text-background font-bold'
                       : 'border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground'

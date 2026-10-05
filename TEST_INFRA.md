@@ -1,160 +1,154 @@
-> Phân loại hiện tại: contract/fixture/scaffolding; không chạy browser, Next HTTP server hoặc live database/auth. Xem [test classification](docs/testing/test-classification.md).
+# Test Infrastructure & Strategy: DauTOEIC vs LingoPro Integration & Anti-Leak Rebranding
 
-# Contract Test Infrastructure: LingoPro Speaking Module Scaffolding
-
-## 1. Test Philosophy
-
-- **Opaque-Box & Requirement-Driven**: Tests are designed strictly from the user requirements (`ORIGINAL_REQUEST.md` § `2026-09-23T05:44:21Z`), architectural specifications in `PROJECT.md`, and technical surveys (`explorer_survey_1`, `explorer_survey_2`, `explorer_survey_3`).
-- **Progressive Testability**: Tests validate formal interface contracts (`ISTTService`, `SpeakingPrompt`, `AudioUploadPayload`, `SplitPaneLayoutProps`). If production modules are present on disk, tests dynamically exercise them; if being authored concurrently, tests validate authoritative reference oracles to maintain 100% CI reproducibility and deterministic contract checks; full typecheck has a separately documented baseline.
-- **Zero-External-Dependency Runner**: Tests execute via `npx tsx tests/speaking/run-scaffolding-tests.ts` in <3 seconds using in-memory mock browser primitives without requiring heavyweight Puppeteer or browser binaries.
-- **Adversarial & Fault Injection**: Rigorous coverage of boundary limits (10MB audio ceiling, 0-byte blobs, invalid MIME types, Web Speech permission denials, network failures, state machine race conditions).
-
----
-
-## 2. Feature Inventory Matrix
-
-| # | Feature Domain | Key Contracts / Components | Tier 1 (Feature) | Tier 2 (Boundary) | Tier 3 (Cross-Feature) | Tier 4 (Scenario) |
-|---|----------------|----------------------------|:----------------:|:-----------------:|:---------------------:|:-----------------:|
-| **F1** | **Speaking Domain Types & Progression** | `SpeakingStageId`, `VisualStimulus`, `AudioStimulus`, `SpeakingPrompt`, `SpeakingEvaluationCriteria`, `topic-library` integration | 6 tests | 6 tests | ✓ | ✓ |
-| **F2** | **Hybrid STT Interface Contracts** | `ISTTService`, `STTProviderType`, `STTStatus`, `STTRecognitionResult`, `STTError`, Unsubscribe hooks | 6 tests | 6 tests | ✓ | ✓ |
-| **F3** | **STT Providers & Factory Lifecycle** | `WebSpeechProvider`, `WhisperProvider`, `createSTTService`, browser feature detection, audio chunking | 6 tests | 6 tests | ✓ | ✓ |
-| **F4** | **Audio Recording & Storage Backend** | `useAudioRecorder`, `POST /api/speaking/upload-audio`, 10MB bounds, MIME filters (`audio/webm`, `audio/mp4`, `audio/wav`) | 6 tests | 6 tests | ✓ | ✓ |
-| **F5** | **Minimalist Split-Pane UI Scaffolding** | `SplitPaneLayout`, `RecordingButton`, 6-state machine, touch targets ($\ge 44\text{px}$), ARIA accessibility | 6 tests | 6 tests | ✓ | ✓ |
-| **TOTAL** | **Scaffolding Core Features** | **Full 4-Tier Suite** | **30 tests** | **30 tests** | **12 tests** | **6 tests** |
+**Target Workspace**: `d:\Vibe\Vocab\web-app`  
+**Master Test Suite**: `tests/toeic/run-all-toeic-tests.ts`  
+**Dedicated Integration Suites**:
+- `tests/toeic/anti-leak-whitelabel.test.ts`
+- `tests/toeic/media-proxy-relay.test.ts`
+- `tests/toeic/ets-pro-integration.test.ts`
+**Runner Command**: `npx tsx tests/toeic/run-all-toeic-tests.ts`  
+**Methodology**: 4-Tier Opaque-Box & Requirement-Driven Architecture  
 
 ---
 
-## 3. Test Architecture & Runner Execution
+## 1. Opaque-Box & Requirement-Driven Test Philosophy
 
-### 3.1 Test Suite Directory Structure
-```
-tests/speaking/
-├── test-harness.ts                      # Shared TestRunner, expect() matchers & mock browser env
-├── speaking-scaffolding-tier1.test.ts   # Tier 1: Feature Coverage (30 tests)
-├── speaking-scaffolding-tier2.test.ts   # Tier 2: Boundary & Corner Cases (30 tests)
-├── speaking-scaffolding-tier3.test.ts   # Tier 3: Cross-Feature Combinations (12 tests)
-├── speaking-scaffolding-tier4.test.ts   # Tier 4: Real-World Scenarios (6 tests)
-└── run-scaffolding-tests.ts             # Master CLI Test Runner with formatted ASCII table
-```
+The LingoPro test infrastructure strictly enforces an **opaque-box (black-box), requirement-driven testing paradigm**. The test suites treat internal implementation modules as units under test governed exclusively by:
+1. Requirements specified in `ORIGINAL_REQUEST.md` (specifically `## 2026-10-05T01:50:23Z` R1 through R6 and Acceptance Criteria).
+2. Interface contracts specified in `PROJECT.md` (§ Interface Contracts & § Code Layout).
+3. The Standardized Exam Engine design principles (`standardized-exam-engine` skill): zero bulk leaks, on-demand explain, plausible data poisoning, invisible watermarking, split-pane Technical Minimalist UI, and standardized barem scoring.
 
-### 3.2 Execution Commands
-To run the speaking scaffolding test suite:
-```bash
-npx tsx tests/speaking/run-scaffolding-tests.ts
-```
-
-To verify type safety without emitting output:
-```bash
-npx tsc --noEmit
-```
-
-To run non-regression suites:
-```bash
-# Existing speaking foundation tests
-npx tsx tests/speaking/speaking-master-e2e-runner.ts
-
-# TOEIC exam simulation tests
-npx tsx tests/toeic/run-all-toeic-tests.ts
-```
+### Core Guiding Principles:
+- **Zero Dependence on Implementation Gimmicks**: Tests evaluate observable outputs, data contracts, and public API interfaces rather than private internal implementation details.
+- **Strict Anti-Facade Rule**: No test passes vacuously without asserting real logic, actual binary responses, cryptographic transformations, or authoritative dataset integrity.
+- **Progressive Testability**: During milestone execution, tests verify contracts progressively against both authoritative raw source datasets (`scripts/dautoeic/data/`) and target production catalogs/datasets, reporting precise actionable diagnostic feedback if pending worker deliverables are incomplete.
+- **Hermetic Isolation**: Every test case initializes its own state, executes independently, does not rely on execution order, and operates without external network dependencies.
+- **Adversarial Hardening**: Rigorous validation against SSRF vectors, token tampering, range manipulation, unicode steganography corruption, and competitor brand leaks.
 
 ---
 
-## 4. Tier Specifications & Acceptance Criteria
+## 2. Four-Tier Test Methodology
 
-### Tier 1: Feature Coverage ($\ge 5$ tests per feature, 30 total)
-- **F1: Speaking Domain Types**:
-  - `SpeakingStageId` 3-stage validation (`stage-1-survival`, `stage-2-conversational`, `stage-3-debate`).
-  - `VisualStimulus` schema integrity (required `imageUrl`, `imageAlt`, optional `caption`, `sourceAttribution`).
-  - `AudioStimulus` schema integrity (required `audioUrl`, optional `durationSeconds`, `slowAudioUrl`, `transcript`).
-  - `SpeakingPrompt` schema integrity (all required fields, prompt-to-stage binding).
-  - Bilingual context validation (Vietnamese context + English instruction clarity).
-  - Topic library alignment: validation against the 229 verified items in `src/data/speaking/topic-library/index.ts`.
-- **F2: STT Interface Contracts**:
-  - `ISTTService` method signatures (`start`, `stop`, `abort`, `onResult`, `onError`, `onStatusChange`).
-  - `STTRecognitionResult` schema (`transcript`: string, `isFinal`: boolean, `confidence`: 0..1).
-  - `STTStatus` finite state machine states (`idle`, `starting`, `listening`, `recognizing`, `stopped`, `error`).
-  - `STTError` schema (`code`: string, `message`: string).
-  - Unsubscribe listener functions ensure garbage collection and zero callback memory leaks.
-  - Multi-listener fan-out support (multiple subscribers receive same event).
-- **F3: WebSpeechProvider & WhisperProvider Lifecycle**:
-  - `WebSpeechProvider` transitions: `idle` -> `starting` -> `listening` -> `stopped`.
-  - Interim transcript streaming (`isFinal: false`) and final transcript resolution (`isFinal: true`).
-  - `stop()` accumulates and returns final transcript promise.
-  - `abort()` immediately halts recognition and resets state to `idle`.
-  - `WhisperProvider` adapter: lifecycle transitions with audio buffer/blob ingestion.
-  - STT Factory (`createSTTService`): auto-detects browser speech support and provides fallback.
-- **F4: Audio Upload Payload Validation**:
-  - `AudioUploadPayload` structure validation (blob, optional metadata).
-  - Allowed MIME validation (`audio/webm`, `audio/mp4`, `audio/wav`, `audio/aac`, `audio/ogg`).
-  - Size validation: valid payloads <= 10MB accepted.
-  - `AudioUploadApiResponse` contract validation (`success: boolean`, `data: { audioUrl, storagePath, fileSize, mimeType }`).
-  - Storage path generator format: `recordings/{stageId}/{promptId}/{timestamp}.{ext}`.
-  - Content-Type header parsing and FormData deserialization.
-- **F5: Split-Pane Props Validation**:
-  - `SplitPaneLayoutProps` validation (leftPane, rightPane, ratio options).
-  - Responsive column ratios: default 50/50, 60/40, 40/60.
-  - Mobile active tab navigation (`stimulus` vs `interaction`).
-  - `RecordingButtonProps` validation (state flags, callbacks, audioLevel).
-  - 6 discrete recording button states (`idle`, `preparing`, `recording`, `processing`, `disabled`, `error`).
-  - Accessibility & touch targets: ARIA labels, role, min 44x44px clickable area.
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│             Tier 4: Real-World Student Workload Scenarios              │
+│       (Full 200Q ETS-PRO-01, Error Remediation, Bilingual Reading,     │
+│        Year Selector Listening, Active Cyber Defense E2E)              │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+┌───────────────────────────────────▼────────────────────────────────────┐
+│                  Tier 3: Cross-Feature Integration                     │
+│    (Pairwise Interaction: Flagged ETS-PRO -> Note Persistence ->       │
+│     Bilingual Passage Collocation Lookup -> Proxy Audio Streaming)     │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+┌───────────────────────────────────▼────────────────────────────────────┐
+│                  Tier 2: Boundary & Corner Cases                       │
+│    (Tampered Tokens, Empty Audio Range, Part 1 Prompt Standardization, │
+│     Multi-Word Collocation Fallback, Edge Question Numbers Q1/100/200) │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+┌───────────────────────────────────▼────────────────────────────────────┐
+│                    Tier 1: Feature Coverage                            │
+│    (>=5 Tests Per Feature: Anti-Leak Clean State, Media Proxy Relay,   │
+│     260 Listening Sets, Flagged History, 840 Bilingual Translations,   │
+│     20 ETS-PRO Exams / 4,000 Questions, 8,504 Collocation Vocab)       │
+└────────────────────────────────────────────────────────────────────────┘
+```
 
-### Tier 2: Boundary & Corner Cases ($\ge 5$ tests per feature, 30 total)
-- **Category 1: Empty Strings & Zero Values**:
-  - Empty transcript result handled without UI exception.
-  - Zero-byte audio blob rejected with 400 Bad Request.
-  - Blank/whitespace-only prompt ID and title rejected.
-  - Zero/negative durationSeconds clamped or rejected.
-  - Audio level boundary clamping: clamped within [0.0, 1.0].
-  - Empty target keywords array handled gracefully.
-- **Category 2: Missing Optional Fields & Null Safety**:
-  - `SpeakingPrompt` without visual stimulus handled safely.
-  - `SpeakingPrompt` without audio stimulus handled safely.
-  - `VisualStimulus` with omitted caption and source attribution.
-  - `AudioStimulus` with omitted slow audio URL and transcript.
-  - `AudioUploadPayload` with omitted promptId and stageId defaults to `'unassigned'`.
-  - `SplitPaneLayout` defaulting to `'50/50'` ratio when omitted.
-- **Category 3: Unsupported Browser Speech & Fallbacks**:
-  - Factory handles environment where `SpeechRecognition` is undefined.
-  - WebSpeechProvider throws/notifies `code: 'not-allowed'` when microphone permission denied.
-  - WebSpeechProvider handles `'no-speech'` timeout gracefully without crash.
-  - WebSpeechProvider handles `'audio-capture'` hardware fault.
-  - Double `start()` call throws error or is idempotently ignored.
-  - Calling `stop()` when already stopped returns cleanly without throw.
-- **Category 4: Audio Size & MIME Boundaries**:
-  - Exactly 10MB payload (10,485,760 bytes) is accepted at the boundary limit.
-  - 10MB + 1 byte (10,485,761 bytes) is rejected with 413 Payload Too Large.
-  - Extreme oversized payload (50MB) rejected immediately before processing.
-  - Non-audio MIME type (`image/png`, `application/pdf`) rejected with 415 Unsupported Media Type.
-  - Malicious / disguised MIME type (`text/html` disguised as audio) rejected.
-  - Audio file with missing extension parsed from MIME type correctly.
-- **Category 5: STT Error Codes & Idempotency**:
-  - Network disconnection emits `code: 'network'` error event.
-  - `abort()` does not emit unhandled error callback to client.
-  - Multiple rapid calls to `abort()` are idempotent.
-  - WhisperProvider handles upstream API 500 error cleanly.
-  - Provider status remains in `'error'` or resets to `'idle'` after failure.
-  - Listener unsubscription during active callback does not throw.
+### Tier 1: Feature Coverage (Core Functional Contracts)
+Validates that every feature meets its baseline functional specification with $\ge 5$ test assertions per feature:
+- **Feature 1 & 2: Media Proxy Relay & Encryption Helper**:
+  - Deterministic AES-256 token generation and bi-directional resolution.
+  - Whitelist validation permitting only authorized storage domains.
+  - Streaming audio and image binaries with accurate MIME types (`audio/mpeg`, `image/jpeg`).
+  - Cache header compliance: `Cache-Control: public, max-age=31536000, immutable`.
+  - Zero 302 redirect compliance: direct byte streaming to eliminate server access log leaks.
+- **Feature 4 & 5: Anti-Leak Clean State & Steganographic Watermarking**:
+  - 0 occurrences of competitor identifiers (`dautoeic`, `dauenglish`, `odlnhfaygiotcyehuysw`, `crackv1t3q5`, `"Part 1 Đậu TOEIC"`).
+  - Complete white-labeling of 20 exams under `Series Khảo Thí Chuẩn ETS Format` (`ETS-PRO-01` to `ETS-PRO-20`).
+  - Embedding of invisible zero-width Unicode watermarks (`\u200B`, `\u200C`, `\u200D`, `\uFEFF`) encoding `LINGOPRO_ETSPRO_XX_QYY`.
+  - Clean reversibility of watermarks without corrupting human-readable text.
+- **Feature 6: 20 Full Exams & 4,000 Questions**:
+  - Verification of exactly 20 tests with 200 questions each across Parts 1-7.
+  - Verification of exactly 4,000 questions in total.
+  - Zero-Bulk-Leak server-side grading contract (`ToeicClientQuestion` strips answers before submit).
+- **Feature 7 & 8: 8,504 Collocation Vocabulary**:
+  - Exactly 8,504 vocabulary items with 10,075 unique collocation phrases.
+  - Verification of rich fields: `phrases`, `image_url`, `toeic_tip`, `meanings`.
+- **Feature 9: ETS Year-Based Listening Hub**:
+  - Verification of 260 listening sets spanning years 2019 to 2026.
+  - Valid question counts, audio URLs, and part classification (Parts 1-4).
+- **Feature 10 & 11: Flagged Question Review & Question History**:
+  - `ToeicQuestionHistoryRecord` schema with `isFlagged` and `notes`.
+  - Filter logic for `[🔖 Câu cần luyện lại]` separating flagged questions and mistakes.
+- **Feature 12 & 13: Bilingual Whole-Passage Translation**:
+  - Verification of `dich_nghia` passage translations across 840 passages in Part 6 and Part 7.
+  - Alignment of bilingual translation with English passage stimuli.
 
-### Tier 3: Cross-Feature Combinations (12 tests)
-- **Pairwise Interactions & State Cascades**:
-  - Provider Hot-Swap: Switch from WebSpeechProvider to WhisperProvider during session with clean resource disposal.
-  - Button & STT State Synchronization: RecordingButton clicks propagate to STT start/stop with matching visual states.
-  - Error Recovery Pipeline: Microphone permission denied -> button transitions to `error` -> user grants permission and retries -> restores `recording`.
-  - Audio Metadata Correlation: Audio recording paired with active `promptId` and `stageId` produces exact correlated storage path.
-  - Mobile Tab Switching during Active Recording: Tab switch from interaction to stimulus preserves recording audio stream.
-  - Dual-Speed Reference Audio Interruption: Starting mic recording automatically pauses reference audio playback to eliminate acoustic feedback.
-  - Fast Interim Transcript Stream: Rapid interim results smoothly update without flickering or dropping final result.
-  - Abort Mid-Recording Chunks Purge: Canceling recording cleans up partial audio chunks and suppresses upload dispatch.
-  - Audio Upload Network Retry: Temporary 503 network error triggers retry with cached local blob.
-  - Progressive Stage Monologue: Stage 1 single-shot vs Stage 3 continuous multi-sentence monologue mode.
-  - Audio Level Meter Reactivity: Mic volume fluctuations (0.1..0.9) drive ripple pulse UI without dropping STT frames.
-  - Unmount Cleanup Cascade: Unmounting SplitPaneLayout stops both reference audio player and active STT stream.
+### Tier 2: Boundary & Corner Cases (Resilience & Edge Conditions)
+Stresses the system at input boundaries, malformed inputs, and unusual user actions ($\ge 5$ tests per feature):
+- **Proxy Token Boundaries**: Corrupted hex strings, malformed IVs, altered payloads, and empty token handling.
+- **Audio Range Requests**: Handling empty `Range: bytes=`, negative ranges, ranges exceeding file bounds, and standard byte chunks (`bytes=0-1023`).
+- **Part 1 Prompt Standardization**: Validating that all Part 1 questions use standard ETS directions ("Mark your answer on your answer sheet") without proprietary prefixes.
+- **Dictionary Lookup Edge Cases**: Single-word headwords vs multi-word collocations, punctuation stripping, case insensitivity, and nonexistent words.
+- **Question Number Boundaries**: Boundary handling for Question 1 (LC start), Question 100 (LC end), Question 101 (RC start), Question 200 (RC end), and out-of-bounds numbers.
 
-### Tier 4: Real-World Scenarios (6 tests)
-- **Realistic Student Workflows**:
-  - Scenario 1: Complete Stage 1 Survival Photo Description Drill (image inspection, 0.8x reference audio, single-sentence response, STT interim-to-final, upload to Supabase bucket).
-  - Scenario 2: Complete Stage 2 Conversational Turn at the Bank (bilingual context, PREP model, 30s response, live keyword detection, audio storage).
-  - Scenario 3: Complete Stage 3 Debate & Monologue (cue card review, 2-minute continuous recording, multi-sentence live transcript stream, final score criteria).
-  - Scenario 4: Mobile Responsive Speaking Drill with Temporary Connectivity Drop (tab toggles, interim transcript pause, local blob preservation, successful post-recovery upload).
-  - Scenario 5: Browser Speech Unsupported Auto-Fallback Workflow (webview without Web Speech API automatically routes to WhisperProvider and completes recording drill).
-  - Scenario 6: High-Frequency Consecutive Drill Loop (student completes 3 successive prompts in a single session with clean memory teardown between drills).
+### Tier 3: Cross-Feature Combinations (Pairwise Interaction)
+Verifies multi-module interactions across feature boundaries:
+- **Pair 1: ETS-PRO Full Test + Flagged Review**: An imported `ETS-PRO` question answered incorrectly is flagged with a user note and retrieved in the review tab.
+- **Pair 2: Bilingual Reading Passage + 1-Click Collocation Lookup**: Highlighting a collocation within a Part 7 bilingual passage triggers rich dictionary card with photo and TOEIC tip.
+- **Pair 3: Flagged Question Review + Media Proxy Streaming**: Loading flagged Part 1/Part 3 questions streams audio and images exclusively through the proxy relay.
+- **Pair 4: Bilingual Translation Toggle + Navigation State**: Navigating between questions in a multi-question reading cluster preserves the user's bilingual toggle setting.
+
+### Tier 4: Real-World Student Workload Scenarios
+Simulates authentic end-to-end user journeys from start to completion:
+- **Scenario 1: Full 200-Question Exam Simulation on ETS-PRO-01**: Complete initialization, client-side zero-bulk-leak assertion, answer recording, server submission, and official ETS 10-990 barem score calculation.
+- **Scenario 2: Remediation Workflow in `[🔖 Câu cần luyện lại]`**: Filtering flagged items and past mistakes, playing per-question audio, updating personal notes, and reviewing pedagogical explanations.
+- **Scenario 3: Reading Comprehension Deep-Dive**: Reading a Part 7 multi-passage document, toggling bilingual translation, clicking interactive collocation phrases, and reviewing vocabulary.
+- **Scenario 4: Intensive Listening Practice by Year**: Selecting ETS 2024 via the year selector, loading Part 3 sets, and playing dialogues via the backend media proxy relay.
+- **Scenario 5: Active Cyber Defense in Real Exam Session**: Verifying complete omission of answers in pre-submission payloads, trap parameter rejection, and verified steganographic watermarks in post-submission review.
+
+---
+
+## 3. Feature Inventory Coverage Mapping
+
+| Feature # | Feature Name | Test Suite | Tiers Covered | Pass/Fail Semantics |
+|:---------:|:-------------|:-----------|:-------------:|:-------------------|
+| F1 | Media Proxy Relay Endpoint | `media-proxy-relay.test.ts` | T1, T2, T3 | Passes if binary streams with HTTP 200/206, proper MIME, 1y Cache-Control, zero 302s, and SSRF rejected |
+| F2 | Media Encryption & Helper | `media-proxy-relay.test.ts` | T1, T2 | Passes if AES-256 tokens are deterministic, bi-directionally reversible, and handle tampering gracefully |
+| F3 | Core Type & Schema Extensions | `ets-pro-integration.test.ts` | T1 | Passes if `ToeicUnifiedQuestion`, `ToeicClientQuestion`, and `ExamDictResult` support all new fields |
+| F4 | Anti-Leak & Rebranding | `anti-leak-whitelabel.test.ts` | T1, T2 | Passes if exactly 0 competitor tokens exist across all datasets, catalogs, and loader files |
+| F5 | Steganographic Watermarking | `anti-leak-whitelabel.test.ts` | T1, T2, T4 | Passes if zero-width Unicode encodes `LINGOPRO_ETSPRO_XX_QYY` and preserves visible text integrity |
+| F6 | Catalog & Loader Ingestion | `ets-pro-integration.test.ts` | T1, T2, T4 | Passes if 20 full exams (4,000 Qs) load with zero bulk leaks and calculate official ETS barem scores |
+| F7 | Collocation Vocabulary Ingestion | `ets-pro-integration.test.ts` | T1, T2 | Passes if 8,504 vocabulary items and 10,075 collocations are verified with rich photos and tips |
+| F8 | Rich Word Lookup Card | `ets-pro-integration.test.ts` | T1, T3, T4 | Passes if dictionary lookup delivers thumbnail image, collocation pills, and TOEIC exam tips |
+| F9 | ETS Year-Based Listening Hub | `ets-pro-integration.test.ts` | T1, T4 | Passes if 260 listening sets span 2019-2026 with valid questions, audio, and part classification |
+| F10 | Flagged Question & Note History | `ets-pro-integration.test.ts` | T1, T3 | Passes if `isFlagged` and `notes` persist and query cleanly in `ToeicQuestionHistoryRecord` |
+| F11 | `[🔖 Câu cần luyện lại]` Review Mode | `ets-pro-integration.test.ts` | T1, T3, T4 | Passes if review tab filters flagged/mistakes and renders per-question audio and notes |
+| F12 | Bilingual Reading Translation Toggle | `ets-pro-integration.test.ts` | T1, T3, T4 | Passes if 840 passages provide `dich_nghia` and toggle between English-only and bilingual views |
+| F13 | Dual-Column Responsive Layout | `ets-pro-integration.test.ts` | T1, T3 | Passes if Split-Pane provides independent passage and question rendering with responsive layout |
+| F14 | E2E Testing Suite (Tiers 1-4) | `run-all-toeic-tests.ts` | T1-T4 | Passes if all new integration suites register and execute cleanly with detailed metrics |
+
+---
+
+## 4. Pass / Fail Semantics
+
+1. **Passing Criteria (`PASS`)**:
+   - Every individual assertion (`expect(...).toBe(...)`, etc.) succeeds without throwing an exception.
+   - All required quotas (e.g. 20 exams, 4,000 questions, 260 listening sets, 8,504 vocabulary items) are strictly satisfied.
+   - Zero occurrences of forbidden tokens (`dautoeic`, `dauenglish`, `odlnhfaygiotcyehuysw`, `crackv1t3q5`, `"Part 1 Đậu TOEIC"`).
+   - SSRF protection reliably blocks unauthorized IP ranges, schemes, and domains.
+   - Process exits with code `0`.
+
+2. **Failure Criteria (`FAIL`)**:
+   - Any assertion throws an error or fails a schema contract.
+   - Any competitor leak is detected.
+   - An SSRF vulnerability or insecure redirect is identified.
+   - Zero bulk leaks contract is violated (e.g. answer key exposed before submission).
+   - Process exits with code `1`.
+
+3. **Execution Command**:
+   ```bash
+   npx tsx tests/toeic/run-all-toeic-tests.ts
+   ```

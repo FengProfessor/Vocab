@@ -350,6 +350,10 @@ export interface GrammarSections {
   videoUrl?: string;
   contrastPairs?: { good?: string; bad?: string }[];
   traps?: string[];
+  // Active learning extensions (Grammar + Speaking)
+  legoSlots?: { pattern: string; slots: Record<string, string[]> }[];
+  dialogues?: { speaker: string; en: string; vi?: string }[][];
+  safeHarbor?: { vi: string; en: string; hint?: string }[];
 }
 
 export interface GrammarExerciseItem {
@@ -416,18 +420,19 @@ export interface StudentProgress {
   student_name: string;
   email: string;
   classroom_id: string;
-  words_reviewed: number;
-  total_words: number;
-  mastered_words: number;
-  vms: number; // General Vocabulary Mastery Score
-  active_vms: number; // Active (Productive) Mastery Score - TESOL Standard
-  lcs: number;
-  avg_review_count: number;
-  quizzes_taken: number;
-  avg_quiz_accuracy: number;
-  last_active?: string;
-  communicative_depth: number; // 0-100 score on contextual usage
-  cefr_level: 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2';
+  words_reviewed?: number;
+  total_words?: number;
+  mastered_words?: number;
+  vms?: number; // General Vocabulary Mastery Score
+  active_vms?: number; // Active (Productive) Mastery Score - TESOL Standard
+  lcs?: number;
+  avg_review_count?: number;
+  quizzes_taken?: number;
+  avg_quiz_accuracy?: number;
+  last_active?: string | null;
+  true_last_active?: string | null;
+  communicative_depth?: number; // 0-100 score on contextual usage
+  cefr_level?: 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2';
   plan?: string;
   plan_expires_at?: string | null;
   joined_at?: string | null;

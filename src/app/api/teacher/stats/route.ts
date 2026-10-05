@@ -2,6 +2,7 @@ import { sessionErrorResponse } from '@/lib/session-response';
 import { createServiceClient } from '@/lib/supabase-server';
 import { NextResponse } from 'next/server';
 import { getAuthUser, unauthorized } from '@/lib/api-security';
+import { getBatchStudentActivity, computeTrueLastActive } from '@/lib/activity/universal-activity';
 
 /**
  * GET /api/teacher/stats?classroomId=yyy
@@ -52,7 +53,7 @@ export async function GET(req: Request) {
       if (studentErr) throw studentErr;
 
       const studentIds = (studentData || []).map(s => s.student_id);
-      const [profilesRes, enrollmentsRes, quizzesRes, wordsRes] = studentIds.length > 0 ? await Promise.all([
+      const [profilesRes, enrollmentsRes, quizzesRes, wordsRes, activitySummaryMap] = studentIds.length > 0 ? await Promise.all([
         supabase.from('profiles').select('id, plan, plan_expires_at').in('id', studentIds),
         supabase.from('enrollments').select('student_id, joined_at').eq('classroom_id', classroomId).in('student_id', studentIds),
         supabase
@@ -65,7 +66,8 @@ export async function GET(req: Request) {
           .select('added_by, created_at')
           .in('added_by', studentIds)
           .order('created_at', { ascending: false, nullsFirst: false }),
-      ]) : [{ data: [] }, { data: [] }, { data: [] }, { data: [] }];
+        getBatchStudentActivity(studentIds, supabase),
+      ]) : [{ data: [] }, { data: [] }, { data: [] }, { data: [] }, new Map()];
 
       const profMap = new Map((profilesRes.data || []).map(p => [p.id, p]));
       const enrMap = new Map((enrollmentsRes.data || []).map(e => [e.student_id, e.joined_at]));
@@ -121,24 +123,21 @@ export async function GET(req: Request) {
         const joinedAt = enrMap.get(s.student_id);
         const latestQuiz = latestQuizMap.get(s.student_id) || null;
         const savedWordsCount = savedWordsCountMap.get(s.student_id) || 0;
-
-        // Determine true last active timestamp (newest of SRS review, Quiz completion, or Word creation)
-        let trueLastActive = s.last_active;
-        if (latestQuiz?.completed_at) {
-          if (!trueLastActive || new Date(latestQuiz.completed_at) > new Date(trueLastActive)) {
-            trueLastActive = latestQuiz.completed_at;
-          }
-        }
         const latestWordAt = latestWordMap.get(s.student_id);
-        if (latestWordAt) {
-          if (!trueLastActive || new Date(latestWordAt) > new Date(trueLastActive)) {
-            trueLastActive = latestWordAt;
-          }
-        }
+
+        // Determine true last active timestamp across all 9 learning modules
+        const actSummary = activitySummaryMap.get(s.student_id);
+        const trueLastActive = computeTrueLastActive([
+          s.last_active,
+          latestQuiz?.completed_at,
+          latestWordAt,
+          actSummary?.trueLastActive,
+        ]);
 
         return {
           ...s,
           last_active: trueLastActive,
+          true_last_active: trueLastActive,
           active_vms: activeVms,
           communicative_depth: depth,
           cefr_level: cefr,
@@ -146,7 +145,7 @@ export async function GET(req: Request) {
           plan_expires_at: p?.plan_expires_at || null,
           joined_at: joinedAt || null,
           latest_quiz: latestQuiz,
-          saved_words_count: savedWordsCount,
+          saved_words_count: Math.max(savedWordsCount, actSummary?.wordCount || 0),
         };
       });
     }

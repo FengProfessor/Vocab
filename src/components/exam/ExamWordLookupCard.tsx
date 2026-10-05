@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Volume2, BookmarkPlus, Check, X, Loader2, Sparkles } from 'lucide-react';
+import { Volume2, BookmarkPlus, Check, X, Loader2, Sparkles, Lightbulb } from 'lucide-react';
 import { playWordAudio } from '@/lib/audio';
 import { authFetch } from '@/lib/auth-fetch';
 import { supabase } from '@/lib/supabase';
@@ -60,12 +60,12 @@ export function ExamWordLookupCard({
     }
   }, [dictResult?.cleanWord]);
 
-  // Audio pronunciation handler
+  // Audio pronunciation handler (prefers native audio recording when available)
   const handlePlayAudio = async () => {
     if (!dictResult?.cleanWord || isPlayingAudio) return;
     setIsPlayingAudio(true);
     try {
-      await playWordAudio(dictResult.cleanWord);
+      await playWordAudio(dictResult.cleanWord, dictResult.audioUs || dictResult.audioUk);
     } catch {
       // Ignore playback errors
     } finally {
@@ -185,9 +185,77 @@ export function ExamWordLookupCard({
                 {dictResult.ipa}
               </div>
             )}
+
+            {/* Photo Thumbnail */}
+            {dictResult?.imageUrl && (
+              <div className="relative my-2 overflow-hidden rounded-xs border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
+                <img
+                  src={dictResult.imageUrl}
+                  alt={dictResult.word}
+                  className="h-28 w-full object-cover sm:h-32 transition-opacity duration-200"
+                  loading="lazy"
+                  onError={(e) => {
+                    (e.currentTarget.parentElement as HTMLElement)?.classList.add('hidden');
+                  }}
+                />
+              </div>
+            )}
+
             <p className="text-xs sm:text-sm leading-relaxed text-slate-800 dark:text-slate-200">
               {dictResult?.definition}
             </p>
+
+            {/* Bilingual Example Sentence */}
+            {dictResult?.example && (
+              <div className="rounded-xs border-l-2 border-indigo-500 bg-slate-50 dark:bg-slate-800/50 py-1.5 px-2 text-xs">
+                <p className="font-medium text-slate-800 dark:text-slate-200 italic">
+                  &ldquo;{dictResult.example}&rdquo;
+                </p>
+                {dictResult.exampleVi && (
+                  <p className="mt-0.5 text-[11px] text-slate-600 dark:text-slate-400">
+                    {dictResult.exampleVi}
+                  </p>
+                )}
+              </div>
+            )}
+
+            {/* TOEIC Exam Tip Callout Box */}
+            {dictResult?.toeicTip && (
+              <div className="rounded-xs border border-amber-200 dark:border-amber-800/80 bg-amber-50/70 dark:bg-amber-950/30 p-2 text-xs">
+                <div className="flex items-center gap-1 font-semibold text-[10px] uppercase tracking-wider text-amber-800 dark:text-amber-400">
+                  <Lightbulb className="h-3 w-3" />
+                  <span>Mẹo TOEIC</span>
+                </div>
+                <p className="mt-1 text-[11px] text-amber-950 dark:text-amber-200/90 leading-snug">
+                  {dictResult.toeicTip}
+                </p>
+              </div>
+            )}
+
+            {/* Interactive Collocation Pills */}
+            {dictResult?.phrases && dictResult.phrases.length > 0 && (
+              <div className="pt-1.5 space-y-1">
+                <span className="font-semibold block text-[10px] uppercase tracking-wider text-slate-400">
+                  Cụm từ đi kèm (Collocations):
+                </span>
+                <div className="flex flex-wrap gap-1.5 max-h-24 overflow-y-auto pr-1">
+                  {dictResult.phrases.map((phraseItem, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => onLookupPhrase?.(phraseItem.phrase)}
+                      className="group inline-flex items-center gap-1 rounded-sm border border-slate-200 dark:border-slate-700 bg-slate-50 hover:bg-indigo-50 dark:bg-slate-800 dark:hover:bg-indigo-950/60 px-2 py-0.5 text-[11px] text-slate-700 hover:text-indigo-700 dark:text-slate-300 dark:hover:text-indigo-300 transition-colors cursor-pointer"
+                      title={`Tra cụm: ${phraseItem.phrase} - ${phraseItem.meaning}`}
+                    >
+                      <span className="font-medium">{phraseItem.phrase}</span>
+                      <span className="text-[10px] text-slate-400 dark:text-slate-500">
+                        • {phraseItem.meaning}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Synonyms if present */}
             {dictResult && dictResult.synonyms.length > 0 && (

@@ -1,0 +1,290 @@
+[
+  {
+    "topic": "personal-pronouns",
+    "cardIndex": 1,
+    "sentence": "I lead the architectural research team here.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "Authentic professional photograph representing Real Photo: Professional female e...",
+    "newPrompt": "Authentic professional photograph representing Real Photo: Professional female e..."
+  },
+  {
+    "topic": "personal-pronouns",
+    "cardIndex": 2,
+    "sentence": "The director gave me the research report.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "Authentic professional photograph representing Real Photo: Mentor handing report...",
+    "newPrompt": "Authentic professional photograph representing Real Photo: Mentor handing report..."
+  },
+  {
+    "topic": "personal-pronouns",
+    "cardIndex": 3,
+    "sentence": "You have outstanding qualifications for this position.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "Authentic professional photograph representing Real Photo: Professional intervie...",
+    "newPrompt": "Authentic professional photograph representing Real Photo: Professional intervie..."
+  },
+  {
+    "topic": "personal-pronouns",
+    "cardIndex": 4,
+    "sentence": "He analyzes the data, and the director frequently consults him.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "Authentic professional photograph representing Real Photo: Professional software...",
+    "newPrompt": "Authentic professional photograph representing Real Photo: Professional software..."
+  },
+  {
+    "topic": "personal-pronouns",
+    "cardIndex": 5,
+    "sentence": "She examines the medical scan carefully. The hospital trusts her.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "Authentic professional photograph representing Real Photo: Female medical doctor...",
+    "newPrompt": "Authentic professional photograph representing Real Photo: Female medical doctor..."
+  },
+  {
+    "topic": "personal-pronouns",
+    "cardIndex": 6,
+    "sentence": "The laboratory installed a modern microscope. It magnifies cells clearly.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "Authentic professional photograph representing Real Photo: Precision research mi...",
+    "newPrompt": "Authentic professional photograph representing Real Photo: Precision research mi..."
+  },
+  {
+    "topic": "personal-pronouns",
+    "cardIndex": 7,
+    "sentence": "We collaborate on urban design projects. The professor supports us.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "Authentic professional photograph representing Real Photo: Collaborative team wo...",
+    "newPrompt": "Authentic professional photograph representing Real Photo: Collaborative team wo..."
+  },
+  {
+    "topic": "personal-pronouns",
+    "cardIndex": 8,
+    "sentence": "They celebrate the project milestone together. The management rewarded them.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "Authentic professional photograph representing Real Photo: Group of diverse coll...",
+    "newPrompt": "Authentic professional photograph representing Real Photo: Group of diverse coll..."
+  },
+  {
+    "topic": "verb-to-be",
+    "cardIndex": 1,
+    "sentence": "I am a student.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "A young girl with a big smile is standing in front of a blackboard, holding a ma...",
+    "newPrompt": "A cheerful young student wearing a neat backpack and holding study notebooks, st..."
+  },
+  {
+    "topic": "verb-to-be",
+    "cardIndex": 2,
+    "sentence": "She is happy.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "A happy woman with a bright smile is sitting on a couch, surrounded by balloons ...",
+    "newPrompt": "A radiant young woman smiling broadly with genuine joy, sitting in a cozy sunlit..."
+  },
+  {
+    "topic": "verb-to-be",
+    "cardIndex": 3,
+    "sentence": "The keys are on the table.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "A hand is reaching out to point at a key that is lying on a wooden table, with a...",
+    "newPrompt": "A set of shiny brass keys resting on top of a clean wooden table in a brightly l..."
+  },
+  {
+    "topic": "verb-to-be",
+    "cardIndex": 4,
+    "sentence": "He is ten years old.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "A boy with a big smile is standing in front of a birthday cake, wearing a party ...",
+    "newPrompt": "A happy young ten-year-old boy celebrating his birthday, smiling in front of a c..."
+  },
+  {
+    "topic": "demonstratives",
+    "cardIndex": 1,
+    "sentence": "This key is mine.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "A person is holding up a key and pointing at it, with another key lying on the g...",
+    "newPrompt": "A person holding up a single shiny golden house key close to the camera, with th..."
+  },
+  {
+    "topic": "demonstratives",
+    "cardIndex": 2,
+    "sentence": "That building is a museum.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "A person is pointing at a building in the distance, with a few other buildings v...",
+    "newPrompt": "A person in the foreground pointing towards a magnificent classical museum build..."
+  },
+  {
+    "topic": "demonstratives",
+    "cardIndex": 3,
+    "sentence": "These books are useful.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "A person is holding up a book and pointing at it, with several other books scatt...",
+    "newPrompt": "A neat stack of three open colorful textbooks lying close on a wooden study tabl..."
+  },
+  {
+    "topic": "demonstratives",
+    "cardIndex": 4,
+    "sentence": "Those mountains are beautiful.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "A person is pointing at a mountain range in the distance, with a few other mount...",
+    "newPrompt": "A scenic view of a majestic snow-capped mountain range rising into a clear blue ..."
+  },
+  {
+    "topic": "possessives",
+    "cardIndex": 1,
+    "sentence": "This is my notebook. It is mine.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "A person is holding up a notebook and, with another person in the background hol...",
+    "newPrompt": "A smiling student sitting at a desk with their hand placed affectionately on the..."
+  },
+  {
+    "topic": "possessives",
+    "cardIndex": 2,
+    "sentence": "Is this your seat or hers?",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "Two people are standing in front of a row of seats, with one person pointing at ...",
+    "newPrompt": "Two polite theater attendees standing in an aisle, with one person gesturing tow..."
+  },
+  {
+    "topic": "possessives",
+    "cardIndex": 3,
+    "sentence": "Their house is next to ours.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "Two houses are side by side, with one person standing in front of one house and,...",
+    "newPrompt": "Two charming suburban houses standing side by side along a peaceful tree-lined n..."
+  },
+  {
+    "topic": "possessives",
+    "cardIndex": 4,
+    "sentence": "My bag is blue; yours is black.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "Two people are standing in front of a row of bags, with one person, educational ...",
+    "newPrompt": "Two stylish backpacks resting side by side on a park bench, one vibrant royal bl..."
+  },
+  {
+    "topic": "plural-nouns",
+    "cardIndex": 1,
+    "sentence": "I have two sisters.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "A family is sitting in a living room, with two sisters playing with a toy in the...",
+    "newPrompt": "Two smiling young sisters with arms around each other's shoulders standing in a ..."
+  },
+  {
+    "topic": "plural-nouns",
+    "cardIndex": 2,
+    "sentence": "There are many boxes.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "A room is filled with boxes of different sizes, with a few people in the backgro...",
+    "newPrompt": "A neat storage room with a large stack of brown cardboard packing boxes arranged..."
+  },
+  {
+    "topic": "plural-nouns",
+    "cardIndex": 3,
+    "sentence": "The children are playing.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "A park is filled with children playing together, with a few adults supervising i...",
+    "newPrompt": "Three energetic happy children playing a game of catch together on a grassy park..."
+  },
+  {
+    "topic": "plural-nouns",
+    "cardIndex": 4,
+    "sentence": "Dogs are loyal animals.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "A group of people are playing with happy dogs in a park, surrounded by trees and...",
+    "newPrompt": "A faithful golden retriever dog sitting calmly beside its seated owner in an aut..."
+  },
+  {
+    "topic": "prepositions-place",
+    "cardIndex": 1,
+    "sentence": "The keys are in my bag.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "A person rummaging through their bag, looking for something, with a cluttered an...",
+    "newPrompt": "Close-up view looking down into an open stylish leather tote bag resting on a ta..."
+  },
+  {
+    "topic": "prepositions-place",
+    "cardIndex": 2,
+    "sentence": "Your phone is on the desk.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "A person sitting at a desk, with their phone placed on top of a stack of papers,...",
+    "newPrompt": "A clean wooden dining table in a cozy home, with a ceramic bowl of fresh fruit r..."
+  },
+  {
+    "topic": "prepositions-place",
+    "cardIndex": 3,
+    "sentence": "Meet me at the entrance.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "A person standing at an entrance, looking at a map, with a few people walking by...",
+    "newPrompt": "A clean home living room, with a fluffy sleeping cat curled up under a wooden ar..."
+  },
+  {
+    "topic": "prepositions-place",
+    "cardIndex": 4,
+    "sentence": "The bank is opposite the post office.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "A person standing in front of a bank, looking at a large sign above the door, wi...",
+    "newPrompt": "Two comfortable armchairs standing side by side next to a sunny window in a mode..."
+  },
+  {
+    "topic": "past-simple",
+    "cardIndex": 5,
+    "sentence": "The company opened its first office in 2010.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "A company is opening its first office in a new building in 2010. There are peopl...",
+    "newPrompt": "A company is opening its first office in a new building in 2010. There are peopl..."
+  },
+  {
+    "topic": "past-continuous",
+    "cardIndex": 3,
+    "sentence": "She was cooking dinner while I was watching TV.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "A woman is cooking dinner in a kitchen while a man is watching TV in the living ...",
+    "newPrompt": "A woman is cooking dinner in a kitchen while a young woman is watching TV in the..."
+  },
+  {
+    "topic": "present-perfect",
+    "cardIndex": 3,
+    "sentence": "They have visited Paris three times.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "A person is standing in front of a map, looking at it with a satisfied expressio...",
+    "newPrompt": "a group of two people is standing in front of a map, looking at it with a satisf..."
+  },
+  {
+    "topic": "third-conditional",
+    "cardIndex": 1,
+    "sentence": "If I had left earlier, I would have caught the train.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "A person is standing at a train station, looking at a train as it pulls away. In...",
+    "newPrompt": "A young man arriving at an empty train station platform looking at a departing t..."
+  },
+  {
+    "topic": "third-conditional",
+    "cardIndex": 2,
+    "sentence": "She would have passed if she had studied.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "A person is sitting at a desk, looking at a report card. In the background, a fe...",
+    "newPrompt": "A young woman sitting thoughtfully at a study desk with closed textbooks, lookin..."
+  },
+  {
+    "topic": "third-conditional",
+    "cardIndex": 3,
+    "sentence": "Had we known, we would have helped.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "A person is standing in front of a whiteboard, looking at a list of regrets. In ...",
+    "newPrompt": "A smiling young woman looking happily at a sunny outdoor garden in a bright morn..."
+  },
+  {
+    "topic": "third-conditional",
+    "cardIndex": 4,
+    "sentence": "If they hadn't called, I might have forgotten.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "A person is sitting at a table, looking at a phone. In the background, a few peo...",
+    "newPrompt": "A young man wearing a warm winter coat walking comfortably down a snowy street, ..."
+  },
+  {
+    "topic": "modals-perfect",
+    "cardIndex": 3,
+    "sentence": "They might have taken the wrong bus.",
+    "reason": "Pedagogical alignment & zero text enforcement",
+    "oldPrompt": "A person is standing in front of a bus stop, looking at a bus that has just driv...",
+    "newPrompt": "a group of two people is standing in front of a bus stop, looking at a bus that ..."
+  }
+]

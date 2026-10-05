@@ -141,7 +141,7 @@ export function ToeicExamHeader({
           <button
             type="button"
             onClick={onToggleMode}
-            className={`flex items-center gap-1 rounded-sm p-1.5 sm:px-2.5 sm:py-1 text-xs font-mono font-bold transition-colors cursor-pointer border ${
+            className={`flex min-h-[44px] min-w-[44px] items-center justify-center gap-1 rounded-sm p-1.5 sm:px-2.5 sm:py-1 text-xs font-mono font-bold transition-colors cursor-pointer border ${
               mode === 'practice'
                 ? 'border-emerald-500 bg-emerald-50 text-emerald-700 dark:border-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-300'
                 : 'border-slate-300 bg-white text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200'
@@ -181,7 +181,7 @@ export function ToeicExamHeader({
           <button
             type="button"
             onClick={onPause}
-            className="flex items-center gap-1 rounded-sm border border-slate-300 bg-white p-1.5 sm:px-2.5 sm:py-1 text-xs font-medium text-slate-700 shadow-none transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 cursor-pointer"
+            className="flex min-h-[44px] min-w-[44px] items-center justify-center gap-1 rounded-sm border border-slate-300 bg-white p-1.5 sm:px-2.5 sm:py-1 text-xs font-medium text-slate-700 shadow-none transition hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 cursor-pointer"
             title="Tạm dừng làm bài"
           >
             <Pause className="h-3.5 w-3.5" />
@@ -192,7 +192,7 @@ export function ToeicExamHeader({
         <button
           type="button"
           onClick={onSubmit}
-          className="flex items-center gap-1 sm:gap-1.5 rounded-sm bg-slate-900 px-2.5 sm:px-3.5 py-1 text-xs font-bold text-white shadow-none transition hover:bg-slate-800 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white cursor-pointer"
+          className="flex min-h-[44px] min-w-[44px] items-center justify-center gap-1 sm:gap-1.5 rounded-sm bg-slate-900 px-2.5 sm:px-3.5 py-1 text-xs font-bold text-white shadow-none transition hover:bg-slate-800 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white cursor-pointer"
         >
           <Send className="h-3 w-3" />
           <span>Nộp bài</span>

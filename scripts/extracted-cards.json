@@ -1,0 +1,2042 @@
+[
+  {
+    "topic": "verb-to-be",
+    "cardIndex": 1,
+    "sentence": "I am a student.",
+    "vi": "Tôi là học sinh.",
+    "situation": "giới thiệu tên, nghề nghiệp hoặc vai trò.",
+    "alt": "Verb to be (am / is / are) - Giới thiệu tên, nghề nghiệp hoặc vai trò: I am a student."
+  },
+  {
+    "topic": "verb-to-be",
+    "cardIndex": 2,
+    "sentence": "She is happy.",
+    "vi": "Cô ấy vui.",
+    "situation": "miêu tả đặc điểm hoặc cảm xúc.",
+    "alt": "Verb to be (am / is / are) - Miêu tả đặc điểm hoặc cảm xúc: She is happy."
+  },
+  {
+    "topic": "verb-to-be",
+    "cardIndex": 3,
+    "sentence": "The keys are on the table.",
+    "vi": "Chìa khóa ở trên bàn.",
+    "situation": "nói vị trí.",
+    "alt": "Verb to be (am / is / are) - Nói vị trí: The keys are on the table."
+  },
+  {
+    "topic": "verb-to-be",
+    "cardIndex": 4,
+    "sentence": "He is ten years old.",
+    "vi": "Cậu ấy mười tuổi.",
+    "situation": "nói tuổi, quốc tịch hoặc nguồn gốc.",
+    "alt": "Verb to be (am / is / are) - Nói tuổi, quốc tịch hoặc nguồn gốc: He is ten years old."
+  },
+  {
+    "topic": "demonstratives",
+    "cardIndex": 1,
+    "sentence": "This key is mine.",
+    "vi": "Chìa khóa này là của tôi.",
+    "situation": "một vật ở gần.",
+    "alt": "Demonstratives (this/that/these/those) - Một vật ở gần: This key is mine."
+  },
+  {
+    "topic": "demonstratives",
+    "cardIndex": 2,
+    "sentence": "That building is a museum.",
+    "vi": "Tòa nhà kia là bảo tàng.",
+    "situation": "một vật ở xa.",
+    "alt": "Demonstratives (this/that/these/those) - Một vật ở xa: That building is a museum."
+  },
+  {
+    "topic": "demonstratives",
+    "cardIndex": 3,
+    "sentence": "These books are useful.",
+    "vi": "Những cuốn sách này hữu ích.",
+    "situation": "nhiều vật ở gần.",
+    "alt": "Demonstratives (this/that/these/those) - Nhiều vật ở gần: These books are useful."
+  },
+  {
+    "topic": "demonstratives",
+    "cardIndex": 4,
+    "sentence": "Those mountains are beautiful.",
+    "vi": "Những ngọn núi kia rất đẹp.",
+    "situation": "nhiều vật ở xa.",
+    "alt": "Demonstratives (this/that/these/those) - Nhiều vật ở xa: Those mountains are beautiful."
+  },
+  {
+    "topic": "possessives",
+    "cardIndex": 1,
+    "sentence": "This is my notebook. It is mine.",
+    "vi": "Đây là vở của tôi. Nó là của tôi.",
+    "situation": "nói người nói sở hữu.",
+    "alt": "Possessive Adjectives & Pronouns - Nói người nói sở hữu: This is my notebook. It is mine."
+  },
+  {
+    "topic": "possessives",
+    "cardIndex": 2,
+    "sentence": "Is this your seat or hers?",
+    "vi": "Đây là chỗ của bạn hay của cô ấy?",
+    "situation": "nói người nghe sở hữu.",
+    "alt": "Possessive Adjectives & Pronouns - Nói người nghe sở hữu: Is this your seat or hers?"
+  },
+  {
+    "topic": "possessives",
+    "cardIndex": 3,
+    "sentence": "Their house is next to ours.",
+    "vi": "Nhà của họ ở cạnh nhà của chúng tôi.",
+    "situation": "nói người hoặc vật khác sở hữu.",
+    "alt": "Possessive Adjectives & Pronouns - Nói người hoặc vật khác sở hữu: Their house is next to ours."
+  },
+  {
+    "topic": "possessives",
+    "cardIndex": 4,
+    "sentence": "My bag is blue; yours is black.",
+    "vi": "Túi của tôi màu xanh; túi của bạn màu đen.",
+    "situation": "tránh lặp lại danh từ.",
+    "alt": "Possessive Adjectives & Pronouns - Tránh lặp lại danh từ: My bag is blue; yours is black."
+  },
+  {
+    "topic": "plural-nouns",
+    "cardIndex": 1,
+    "sentence": "I have two sisters.",
+    "vi": "Tôi có hai chị/em gái.",
+    "situation": "nói số lượng từ hai trở lên.",
+    "alt": "Plural Nouns - Nói số lượng từ hai trở lên: I have two sisters."
+  },
+  {
+    "topic": "plural-nouns",
+    "cardIndex": 2,
+    "sentence": "There are many boxes.",
+    "vi": "Có nhiều chiếc hộp.",
+    "situation": "sau many, several, a few.",
+    "alt": "Plural Nouns - Sau many, several, a few: There are many boxes."
+  },
+  {
+    "topic": "plural-nouns",
+    "cardIndex": 3,
+    "sentence": "The children are playing.",
+    "vi": "Những đứa trẻ đang chơi.",
+    "situation": "chủ ngữ số nhiều đi với are/v nguyên thể.",
+    "alt": "Plural Nouns - Chủ ngữ số nhiều đi với are/V nguyên thể: The children are playing."
+  },
+  {
+    "topic": "plural-nouns",
+    "cardIndex": 4,
+    "sentence": "Dogs are loyal animals.",
+    "vi": "Chó là loài vật trung thành.",
+    "situation": "nói chung về một loại.",
+    "alt": "Plural Nouns - Nói chung về một loại: Dogs are loyal animals."
+  },
+  {
+    "topic": "adjectives-basic",
+    "cardIndex": 1,
+    "sentence": "She bought a beautiful dress.",
+    "vi": "Cô ấy đã mua một chiếc váy đẹp.",
+    "situation": "đứng trước danh từ để miêu tả.",
+    "alt": "Adjectives (basic) - Đứng trước danh từ để miêu tả: She bought a beautiful dress."
+  },
+  {
+    "topic": "adjectives-basic",
+    "cardIndex": 2,
+    "sentence": "The soup smells delicious.",
+    "vi": "Món súp có mùi thơm ngon quá.",
+    "situation": "đứng sau động từ nối (be, look, smell...).",
+    "alt": "Adjectives (basic) - Đứng sau động từ nối (be, look, smell...): The soup smells delicious."
+  },
+  {
+    "topic": "adjectives-basic",
+    "cardIndex": 3,
+    "sentence": "I am tired after the long trip.",
+    "vi": "Tôi mệt sau chuyến đi dài.",
+    "situation": "miêu tả cảm xúc, trạng thái của người.",
+    "alt": "Adjectives (basic) - Miêu tả cảm xúc, trạng thái của người: I am tired after the long trip."
+  },
+  {
+    "topic": "adjectives-basic",
+    "cardIndex": 4,
+    "sentence": "We need something cheaper.",
+    "vi": "Chúng ta cần thứ gì đó rẻ hơn.",
+    "situation": "đứng sau đại từ bất định (something, anything...).",
+    "alt": "Adjectives (basic) - Đứng sau đại từ bất định (something, anything...): We need something cheaper."
+  },
+  {
+    "topic": "there-is-there-are",
+    "cardIndex": 1,
+    "sentence": "There is a pharmacy near my house.",
+    "vi": "Có một hiệu thuốc gần nhà tôi.",
+    "situation": "giới thiệu sự tồn tại của một vật (số ít).",
+    "alt": "There is / There are - Giới thiệu sự tồn tại của một vật (số ít): There is a pharmacy near my house."
+  },
+  {
+    "topic": "there-is-there-are",
+    "cardIndex": 2,
+    "sentence": "There are two messages for you.",
+    "vi": "Có hai tin nhắn cho bạn.",
+    "situation": "giới thiệu nhiều vật, nhiều người (số nhiều).",
+    "alt": "There is / There are - Giới thiệu nhiều vật, nhiều người (số nhiều): There are two messages for you."
+  },
+  {
+    "topic": "there-is-there-are",
+    "cardIndex": 3,
+    "sentence": "There isn't any milk left.",
+    "vi": "Không còn chút sữa nào cả.",
+    "situation": "phủ định sự tồn tại với not any / no.",
+    "alt": "There is / There are - Phủ định sự tồn tại với not any / no: There isn't any milk left."
+  },
+  {
+    "topic": "there-is-there-are",
+    "cardIndex": 4,
+    "sentence": "Are there enough chairs for everyone?",
+    "vi": "Có đủ ghế cho mọi người không?",
+    "situation": "hỏi xem có tồn tại hay không (đảo is/are lên trước).",
+    "alt": "There is / There are - Hỏi xem có tồn tại hay không (đảo Is/Are lên trước): Are there enough chairs for everyone?"
+  },
+  {
+    "topic": "articles",
+    "cardIndex": 1,
+    "sentence": "I have a book.",
+    "vi": "Tôi có một cuốn sách.",
+    "situation": "dùng **a** trước danh từ bắt đầu bằng phụ âm.",
+    "alt": "Articles (a / an / the) - Dùng **a** trước danh từ bắt đầu bằng phụ âm: I have a book."
+  },
+  {
+    "topic": "articles",
+    "cardIndex": 2,
+    "sentence": "I have an apple.",
+    "vi": "Tôi có một quả táo.",
+    "situation": "dùng **an** trước danh từ bắt đầu bằng nguyên âm.",
+    "alt": "Articles (a / an / the) - Dùng **an** trước danh từ bắt đầu bằng nguyên âm: I have an apple."
+  },
+  {
+    "topic": "articles",
+    "cardIndex": 3,
+    "sentence": "I am reading the book.",
+    "vi": "Tôi đang đọc cuốn sách.",
+    "situation": "dùng **the** cho danh từ cụ thể.",
+    "alt": "Articles (a / an / the) - Dùng **the** cho danh từ cụ thể: I am reading the book."
+  },
+  {
+    "topic": "articles",
+    "cardIndex": 4,
+    "sentence": "I saw a dog. The dog was very big.",
+    "vi": "Tôi thấy một con chó. Con chó đó rất lớn.",
+    "situation": "dùng **the** cho danh từ đã được nhắc đến trước đó.",
+    "alt": "Articles (a / an / the) - Dùng **the** cho danh từ đã được nhắc đến trước đó: I saw a dog. The dog was very big."
+  },
+  {
+    "topic": "present-simple",
+    "cardIndex": 1,
+    "sentence": "I drink coffee every morning.",
+    "vi": "Tôi uống cà phê mỗi sáng.",
+    "situation": "thói quen, hành động lặp lại.",
+    "alt": "Present Simple - Thói quen, hành động lặp lại: I drink coffee every morning."
+  },
+  {
+    "topic": "present-simple",
+    "cardIndex": 2,
+    "sentence": "The Earth revolves around the Sun.",
+    "vi": "Trái đất quay quanh Mặt trời.",
+    "situation": "sự thật hiển nhiên, chân lý.",
+    "alt": "Present Simple - Sự thật hiển nhiên, chân lý: The Earth revolves around the Sun."
+  },
+  {
+    "topic": "present-simple",
+    "cardIndex": 3,
+    "sentence": "The bus leaves at 7 a.m.",
+    "vi": "Xe buýt khởi hành lúc 7 giờ sáng.",
+    "situation": "lịch trình, thời gian biểu cố định.",
+    "alt": "Present Simple - Lịch trình, thời gian biểu cố định: The bus leaves at 7 a.m."
+  },
+  {
+    "topic": "present-simple",
+    "cardIndex": 4,
+    "sentence": "She loves reading books. I have a pet cat.",
+    "vi": "Cô ấy yêu đọc sách. Tôi có một con mèo cưng.",
+    "situation": "cảm xúc, sở hữu, trạng thái.",
+    "alt": "Present Simple - Cảm xúc, sở hữu, trạng thái: She loves reading books. I have a pet cat."
+  },
+  {
+    "topic": "have-got",
+    "cardIndex": 1,
+    "sentence": "I have got a new bag.",
+    "vi": "Tôi có một chiếc túi mới.",
+    "situation": "nói về đồ vật mình sở hữu.",
+    "alt": "Have got / Has got - Nói về đồ vật mình sở hữu: I have got a new bag."
+  },
+  {
+    "topic": "have-got",
+    "cardIndex": 2,
+    "sentence": "She has got two brothers.",
+    "vi": "Cô ấy có hai anh/em trai.",
+    "situation": "nói về gia đình và các mối quan hệ.",
+    "alt": "Have got / Has got - Nói về gia đình và các mối quan hệ: She has got two brothers."
+  },
+  {
+    "topic": "have-got",
+    "cardIndex": 3,
+    "sentence": "He has got brown eyes.",
+    "vi": "Cậu ấy có đôi mắt nâu.",
+    "situation": "miêu tả đặc điểm cơ thể.",
+    "alt": "Have got / Has got - Miêu tả đặc điểm cơ thể: He has got brown eyes."
+  },
+  {
+    "topic": "have-got",
+    "cardIndex": 4,
+    "sentence": "I have got a headache.",
+    "vi": "Tôi bị đau đầu.",
+    "situation": "nói tình trạng hoặc vấn đề hiện tại.",
+    "alt": "Have got / Has got - Nói tình trạng hoặc vấn đề hiện tại: I have got a headache."
+  },
+  {
+    "topic": "wh-questions",
+    "cardIndex": 1,
+    "sentence": "Where do you live?",
+    "vi": "Bạn sống ở đâu?",
+    "situation": "hỏi nơi chốn với where.",
+    "alt": "Wh- Questions - Hỏi nơi chốn với Where: Where do you live?"
+  },
+  {
+    "topic": "wh-questions",
+    "cardIndex": 2,
+    "sentence": "Why was she upset?",
+    "vi": "Tại sao cô ấy buồn?",
+    "situation": "hỏi lý do với why.",
+    "alt": "Wh- Questions - Hỏi lý do với Why: Why was she upset?"
+  },
+  {
+    "topic": "wh-questions",
+    "cardIndex": 3,
+    "sentence": "Who called you last night?",
+    "vi": "Ai đã gọi cho bạn tối qua?",
+    "situation": "hỏi chủ ngữ với who (không cần trợ động từ).",
+    "alt": "Wh- Questions - Hỏi chủ ngữ với Who (không cần trợ động từ): Who called you last night?"
+  },
+  {
+    "topic": "wh-questions",
+    "cardIndex": 4,
+    "sentence": "How much does it cost?",
+    "vi": "Cái này giá bao nhiêu?",
+    "situation": "hỏi số lượng, giá cả với how much / how many.",
+    "alt": "Wh- Questions - Hỏi số lượng, giá cả với How much / How many: How much does it cost?"
+  },
+  {
+    "topic": "wh-questions",
+    "cardIndex": 5,
+    "sentence": "When does the class start?",
+    "vi": "Khi nào lớp học bắt đầu?",
+    "situation": "hỏi thời gian với when.",
+    "alt": "Wh- Questions - Hỏi thời gian với When: When does the class start?"
+  },
+  {
+    "topic": "adverbs-frequency",
+    "cardIndex": 1,
+    "sentence": "I usually walk to work.",
+    "vi": "Tôi thường đi bộ đến chỗ làm.",
+    "situation": "đứng trước động từ thường.",
+    "alt": "Adverbs of Frequency - Đứng trước động từ thường: I usually walk to work."
+  },
+  {
+    "topic": "adverbs-frequency",
+    "cardIndex": 2,
+    "sentence": "She is always helpful.",
+    "vi": "Cô ấy lúc nào cũng nhiệt tình giúp đỡ.",
+    "situation": "đứng sau động từ to be.",
+    "alt": "Adverbs of Frequency - Đứng sau động từ to be: She is always helpful."
+  },
+  {
+    "topic": "adverbs-frequency",
+    "cardIndex": 3,
+    "sentence": "We rarely eat out.",
+    "vi": "Chúng tôi hiếm khi ăn ngoài.",
+    "situation": "diễn tả tần suất thấp (rarely, seldom, never).",
+    "alt": "Adverbs of Frequency - Diễn tả tần suất thấp (rarely, seldom, never): We rarely eat out."
+  },
+  {
+    "topic": "adverbs-frequency",
+    "cardIndex": 4,
+    "sentence": "Do you often call your parents?",
+    "vi": "Bạn có hay gọi điện cho bố mẹ không?",
+    "situation": "dùng often/usually trong câu hỏi về thói quen.",
+    "alt": "Adverbs of Frequency - Dùng often/usually trong câu hỏi về thói quen: Do you often call your parents?"
+  },
+  {
+    "topic": "present-continuous",
+    "cardIndex": 1,
+    "sentence": "I am studying English now.",
+    "vi": "Tôi đang học tiếng Anh bây giờ.",
+    "situation": "hành động đang diễn ra ngay lúc nói.",
+    "alt": "Present Continuous - Hành động đang diễn ra ngay lúc nói: I am studying English now."
+  },
+  {
+    "topic": "present-continuous",
+    "cardIndex": 2,
+    "sentence": "She is living with her aunt this month.",
+    "vi": "Cô ấy đang sống với dì của mình tháng này.",
+    "situation": "hành động tạm thời xung quanh hiện tại.",
+    "alt": "Present Continuous - Hành động tạm thời xung quanh hiện tại: She is living with her aunt this month."
+  },
+  {
+    "topic": "present-continuous",
+    "cardIndex": 3,
+    "sentence": "We are flying to Japan next week.",
+    "vi": "Chúng tôi sẽ bay đến Nhật Bản vào tuần tới.",
+    "situation": "kế hoạch, sắp xếp trong tương lai gần (đã định trước).",
+    "alt": "Present Continuous - Kế hoạch, sắp xếp trong tương lai gần (đã định trước): We are flying to Japan next week."
+  },
+  {
+    "topic": "present-continuous",
+    "cardIndex": 4,
+    "sentence": "He is always complaining about something.",
+    "vi": "Anh ấy lúc nào cũng than phiền về điều gì đó.",
+    "situation": "hành động lặp đi lặp lại gây khó chịu (thường với 'always').",
+    "alt": "Present Continuous - Hành động lặp đi lặp lại gây khó chịu (thường với 'always'): He is always complaining about something."
+  },
+  {
+    "topic": "prepositions-place",
+    "cardIndex": 1,
+    "sentence": "The keys are in my bag.",
+    "vi": "Chìa khóa ở trong túi của tôi.",
+    "situation": "in — bên trong một không gian kín.",
+    "alt": "Prepositions of Place - IN — bên trong một không gian kín: The keys are in my bag."
+  },
+  {
+    "topic": "prepositions-place",
+    "cardIndex": 2,
+    "sentence": "Your phone is on the desk.",
+    "vi": "Điện thoại của bạn ở trên bàn.",
+    "situation": "on — trên bề mặt.",
+    "alt": "Prepositions of Place - ON — trên bề mặt: Your phone is on the desk."
+  },
+  {
+    "topic": "prepositions-place",
+    "cardIndex": 3,
+    "sentence": "Meet me at the entrance.",
+    "vi": "Gặp tôi ở lối vào nhé.",
+    "situation": "at — tại một điểm cụ thể.",
+    "alt": "Prepositions of Place - AT — tại một điểm cụ thể: Meet me at the entrance."
+  },
+  {
+    "topic": "prepositions-place",
+    "cardIndex": 4,
+    "sentence": "The bank is opposite the post office.",
+    "vi": "Ngân hàng nằm đối diện bưu điện.",
+    "situation": "chỉ vị trí tương đối (opposite, next to, between).",
+    "alt": "Prepositions of Place - Chỉ vị trí tương đối (opposite, next to, between): The bank is opposite the post office."
+  },
+  {
+    "topic": "imperatives",
+    "cardIndex": 1,
+    "sentence": "Close the door, please.",
+    "vi": "Vui lòng đóng cửa.",
+    "situation": "ra lệnh hoặc yêu cầu.",
+    "alt": "Imperatives - Ra lệnh hoặc yêu cầu: Close the door, please."
+  },
+  {
+    "topic": "imperatives",
+    "cardIndex": 2,
+    "sentence": "Turn left at the bank.",
+    "vi": "Rẽ trái tại ngân hàng.",
+    "situation": "hướng dẫn, chỉ đường.",
+    "alt": "Imperatives - Hướng dẫn, chỉ đường: Turn left at the bank."
+  },
+  {
+    "topic": "imperatives",
+    "cardIndex": 3,
+    "sentence": "Don’t touch that wire.",
+    "vi": "Đừng chạm vào dây điện đó.",
+    "situation": "cảnh báo hoặc cấm đoán.",
+    "alt": "Imperatives - Cảnh báo hoặc cấm đoán: Don’t touch that wire."
+  },
+  {
+    "topic": "imperatives",
+    "cardIndex": 4,
+    "sentence": "Let’s take a short break.",
+    "vi": "Chúng ta nghỉ giải lao ngắn nhé.",
+    "situation": "rủ cùng làm với let’s.",
+    "alt": "Imperatives - Rủ cùng làm với Let’s: Let’s take a short break."
+  },
+  {
+    "topic": "modals-ability",
+    "cardIndex": 1,
+    "sentence": "Mai can speak Japanese.",
+    "vi": "Mai có thể nói tiếng Nhật.",
+    "situation": "can — khả năng ở hiện tại.",
+    "alt": "Modals: Ability (can/could) - CAN — khả năng ở hiện tại: Mai can speak Japanese."
+  },
+  {
+    "topic": "modals-ability",
+    "cardIndex": 2,
+    "sentence": "I couldn't swim when I was five.",
+    "vi": "Hồi năm tuổi tôi chưa biết bơi.",
+    "situation": "could — khả năng chung trong quá khứ.",
+    "alt": "Modals: Ability (can/could) - COULD — khả năng chung trong quá khứ: I couldn't swim when I was five."
+  },
+  {
+    "topic": "modals-ability",
+    "cardIndex": 3,
+    "sentence": "Can you hear me?",
+    "vi": "Bạn có nghe thấy tôi nói không?",
+    "situation": "can với động từ tri giác (see, hear, smell).",
+    "alt": "Modals: Ability (can/could) - CAN với động từ tri giác (see, hear, smell): Can you hear me?"
+  },
+  {
+    "topic": "modals-ability",
+    "cardIndex": 4,
+    "sentence": "She was able to solve the problem.",
+    "vi": "Cô ấy đã giải được bài toán đó.",
+    "situation": "was/were able to — làm được việc cụ thể một lần trong quá khứ.",
+    "alt": "Modals: Ability (can/could) - WAS/WERE ABLE TO — làm được việc cụ thể một lần trong quá khứ: She was able to solve the problem."
+  },
+  {
+    "topic": "countable-uncountable",
+    "cardIndex": 1,
+    "sentence": "I have two books.",
+    "vi": "Tôi có hai cuốn sách.",
+    "situation": "danh từ đếm được.",
+    "alt": "Countable & Uncountable Nouns - Danh từ đếm được: I have two books."
+  },
+  {
+    "topic": "countable-uncountable",
+    "cardIndex": 2,
+    "sentence": "I need water to drink.",
+    "vi": "Tôi cần nước để uống.",
+    "situation": "danh từ không đếm được.",
+    "alt": "Countable & Uncountable Nouns - Danh từ không đếm được: I need water to drink."
+  },
+  {
+    "topic": "countable-uncountable",
+    "cardIndex": 3,
+    "sentence": "I have an apple.",
+    "vi": "Tôi có một quả táo.",
+    "situation": "sử dụng 'a' hoặc 'an' với danh từ đếm được.",
+    "alt": "Countable & Uncountable Nouns - Sử dụng 'a' hoặc 'an' với danh từ đếm được: I have an apple."
+  },
+  {
+    "topic": "countable-uncountable",
+    "cardIndex": 4,
+    "sentence": "I need some water.",
+    "vi": "Tôi cần một chút nước.",
+    "situation": "sử dụng 'some' hoặc 'any' với danh từ không đếm được.",
+    "alt": "Countable & Uncountable Nouns - Sử dụng 'some' hoặc 'any' với danh từ không đếm được: I need some water."
+  },
+  {
+    "topic": "quantifiers",
+    "cardIndex": 1,
+    "sentence": "She bought some apples. Would you like some tea?",
+    "vi": "Cô ấy mua vài quả táo. Bạn dùng chút trà nhé?",
+    "situation": "some — câu khẳng định và lời mời.",
+    "alt": "Quantifiers (some/any/much/many) - SOME — câu khẳng định và lời mời: She bought some apples. Would you like some tea?"
+  },
+  {
+    "topic": "quantifiers",
+    "cardIndex": 2,
+    "sentence": "Do you need any help?",
+    "vi": "Bạn có cần giúp gì không?",
+    "situation": "any — câu phủ định và câu hỏi.",
+    "alt": "Quantifiers (some/any/much/many) - ANY — câu phủ định và câu hỏi: Do you need any help?"
+  },
+  {
+    "topic": "quantifiers",
+    "cardIndex": 3,
+    "sentence": "There isn't much time.",
+    "vi": "Không còn nhiều thời gian đâu.",
+    "situation": "much — đi với danh từ không đếm được.",
+    "alt": "Quantifiers (some/any/much/many) - MUCH — đi với danh từ không đếm được: There isn't much time."
+  },
+  {
+    "topic": "quantifiers",
+    "cardIndex": 4,
+    "sentence": "How many students are there?",
+    "vi": "Có bao nhiêu học sinh?",
+    "situation": "many — đi với danh từ đếm được số nhiều.",
+    "alt": "Quantifiers (some/any/much/many) - MANY — đi với danh từ đếm được số nhiều: How many students are there?"
+  },
+  {
+    "topic": "quantifiers",
+    "cardIndex": 5,
+    "sentence": "We have a few questions.",
+    "vi": "Chúng tôi có một vài câu hỏi.",
+    "situation": "a few / a little — số lượng nhỏ nhưng đủ dùng.",
+    "alt": "Quantifiers (some/any/much/many) - A FEW / A LITTLE — số lượng nhỏ nhưng đủ dùng: We have a few questions."
+  },
+  {
+    "topic": "prepositions-time",
+    "cardIndex": 1,
+    "sentence": "I was born in June.",
+    "vi": "Tôi sinh ra vào tháng sáu.",
+    "situation": "tháng, năm, thế kỷ.",
+    "alt": "Prepositions of Time (in/on/at) - Tháng, năm, thế kỷ: I was born in June."
+  },
+  {
+    "topic": "prepositions-time",
+    "cardIndex": 2,
+    "sentence": "The meeting starts at 5 o'clock.",
+    "vi": "Cuộc họp bắt đầu vào lúc 5 giờ.",
+    "situation": "giờ, thời điểm cụ thể.",
+    "alt": "Prepositions of Time (in/on/at) - Giờ, thời điểm cụ thể: The meeting starts at 5 o'clock."
+  },
+  {
+    "topic": "prepositions-time",
+    "cardIndex": 3,
+    "sentence": "I have a meeting on Monday.",
+    "vi": "Tôi có một cuộc họp vào thứ hai.",
+    "situation": "ngày trong tuần, ngày lễ.",
+    "alt": "Prepositions of Time (in/on/at) - Ngày trong tuần, ngày lễ: I have a meeting on Monday."
+  },
+  {
+    "topic": "prepositions-time",
+    "cardIndex": 4,
+    "sentence": "I love swimming in summer.",
+    "vi": "Tôi yêu thích bơi lội vào mùa hè.",
+    "situation": "mùa.",
+    "alt": "Prepositions of Time (in/on/at) - Mùa: I love swimming in summer."
+  },
+  {
+    "topic": "past-simple",
+    "cardIndex": 1,
+    "sentence": "I went to the store yesterday.",
+    "vi": "Hôm qua tôi đã đi đến cửa hàng.",
+    "situation": "hành động đã xảy ra và kết thúc tại thời điểm xác định trong quá khứ.",
+    "alt": "Past Simple - Hành động đã xảy ra và kết thúc tại thời điểm xác định trong quá khứ: I went to the store yesterday."
+  },
+  {
+    "topic": "past-simple",
+    "cardIndex": 2,
+    "sentence": "She woke up, brushed her teeth, and left for work.",
+    "vi": "Cô ấy thức dậy, đánh răng rồi đi làm.",
+    "situation": "chuỗi hành động nối tiếp nhau trong quá khứ (kể chuyện).",
+    "alt": "Past Simple - Chuỗi hành động nối tiếp nhau trong quá khứ (kể chuyện): She woke up, brushed her teeth, and left for work."
+  },
+  {
+    "topic": "past-simple",
+    "cardIndex": 3,
+    "sentence": "We played football every weekend when we were kids.",
+    "vi": "Hồi nhỏ, cuối tuần nào chúng tôi cũng chơi bóng đá.",
+    "situation": "thói quen hoặc trạng thái trong quá khứ (nay không còn).",
+    "alt": "Past Simple - Thói quen hoặc trạng thái trong quá khứ (nay không còn): We played football every weekend when we were kids."
+  },
+  {
+    "topic": "past-simple",
+    "cardIndex": 4,
+    "sentence": "He lived in Da Nang for five years before moving to Hanoi.",
+    "vi": "Anh ấy đã sống ở Đà Nẵng năm năm trước khi chuyển ra Hà Nội.",
+    "situation": "sự việc kéo dài một khoảng thời gian trong quá khứ, nay đã chấm dứt.",
+    "alt": "Past Simple - Sự việc kéo dài một khoảng thời gian trong quá khứ, nay đã chấm dứt: He lived in Da Nang for five years before moving to Hanoi."
+  },
+  {
+    "topic": "past-simple",
+    "cardIndex": 5,
+    "sentence": "The company opened its first office in 2010.",
+    "vi": "Công ty mở văn phòng đầu tiên vào năm 2010.",
+    "situation": "sự kiện lịch sử, mốc thời gian cụ thể trong quá khứ.",
+    "alt": "Past Simple - Sự kiện lịch sử, mốc thời gian cụ thể trong quá khứ: The company opened its first office in 2010."
+  },
+  {
+    "topic": "past-continuous",
+    "cardIndex": 1,
+    "sentence": "I was studying English at 8 p.m. last night.",
+    "vi": "Tối qua lúc 8 giờ tôi đang học tiếng Anh.",
+    "situation": "hành động đang diễn ra tại một thời điểm xác định trong quá khứ.",
+    "alt": "Past Continuous - Hành động đang diễn ra tại một thời điểm xác định trong quá khứ: I was studying English at 8 p.m. last night."
+  },
+  {
+    "topic": "past-continuous",
+    "cardIndex": 2,
+    "sentence": "They were talking on the phone when I arrived.",
+    "vi": "Họ đang nói chuyện điện thoại thì tôi đến.",
+    "situation": "hành động đang diễn ra thì bị một hành động khác xen vào (quá khứ đơn).",
+    "alt": "Past Continuous - Hành động đang diễn ra thì bị một hành động khác xen vào (quá khứ đơn): They were talking on the phone when I arrived."
+  },
+  {
+    "topic": "past-continuous",
+    "cardIndex": 3,
+    "sentence": "She was cooking dinner while I was watching TV.",
+    "vi": "Cô ấy đang nấu bữa tối trong khi tôi đang xem TV.",
+    "situation": "hai hành động diễn ra song song trong quá khứ (thường với while).",
+    "alt": "Past Continuous - Hai hành động diễn ra song song trong quá khứ (thường với while): She was cooking dinner while I was watching TV."
+  },
+  {
+    "topic": "past-continuous",
+    "cardIndex": 4,
+    "sentence": "The sun was shining and birds were singing when we set off.",
+    "vi": "Mặt trời đang chiếu sáng và chim đang hót khi chúng tôi khởi hành.",
+    "situation": "miêu tả bối cảnh, khung cảnh trong câu chuyện quá khứ.",
+    "alt": "Past Continuous - Miêu tả bối cảnh, khung cảnh trong câu chuyện quá khứ: The sun was shining and birds were singing when we set off."
+  },
+  {
+    "topic": "be-going-to",
+    "cardIndex": 1,
+    "sentence": "I'm going to visit my friend next week.",
+    "vi": "Tôi sẽ đến thăm bạn tôi vào tuần sau.",
+    "situation": "kế hoạch, dự định.",
+    "alt": "Future: be going to - Kế hoạch, dự định: I'm going to visit my friend next week."
+  },
+  {
+    "topic": "be-going-to",
+    "cardIndex": 2,
+    "sentence": "It's going to rain, so take an umbrella.",
+    "vi": "Sắp có mưa, vậy hãy mang theo ô.",
+    "situation": "dấu hiệu cho thấy sự kiện sẽ xảy ra.",
+    "alt": "Future: be going to - Dấu hiệu cho thấy sự kiện sẽ xảy ra: It's going to rain, so take an umbrella."
+  },
+  {
+    "topic": "be-going-to",
+    "cardIndex": 3,
+    "sentence": "She's going to apply for a job.",
+    "vi": "Cô ấy sẽ nộp đơn xin việc.",
+    "situation": "dự định làm việc gì đó.",
+    "alt": "Future: be going to - Dự định làm việc gì đó: She's going to apply for a job."
+  },
+  {
+    "topic": "be-going-to",
+    "cardIndex": 4,
+    "sentence": "Be careful, the road is going to be closed.",
+    "vi": "Cẩn thận, con đường sẽ bị đóng.",
+    "situation": "cảnh báo về một sự kiện không mong muốn.",
+    "alt": "Future: be going to - Cảnh báo về một sự kiện không mong muốn: Be careful, the road is going to be closed."
+  },
+  {
+    "topic": "future-will",
+    "cardIndex": 1,
+    "sentence": "The phone is ringing. I’ll answer it.",
+    "vi": "Điện thoại đang reo. Tôi sẽ nghe.",
+    "situation": "quyết định ngay lúc nói.",
+    "alt": "Future Simple (will) - Quyết định ngay lúc nói: The phone is ringing. I’ll answer it."
+  },
+  {
+    "topic": "future-will",
+    "cardIndex": 2,
+    "sentence": "I think it will rain tomorrow.",
+    "vi": "Tôi nghĩ ngày mai trời sẽ mưa.",
+    "situation": "dự đoán hoặc ý kiến.",
+    "alt": "Future Simple (will) - Dự đoán hoặc ý kiến: I think it will rain tomorrow."
+  },
+  {
+    "topic": "future-will",
+    "cardIndex": 3,
+    "sentence": "I’ll help you with your bags.",
+    "vi": "Tôi sẽ giúp bạn mang túi.",
+    "situation": "lời hứa hoặc đề nghị giúp.",
+    "alt": "Future Simple (will) - Lời hứa hoặc đề nghị giúp: I’ll help you with your bags."
+  },
+  {
+    "topic": "future-will",
+    "cardIndex": 4,
+    "sentence": "She will be twenty next month.",
+    "vi": "Tháng sau cô ấy sẽ tròn hai mươi tuổi.",
+    "situation": "sự việc tương lai.",
+    "alt": "Future Simple (will) - Sự việc tương lai: She will be twenty next month."
+  },
+  {
+    "topic": "comparatives-superlatives",
+    "cardIndex": 1,
+    "sentence": "This room is brighter than mine.",
+    "vi": "Phòng này sáng hơn phòng của tôi.",
+    "situation": "so sánh hơn giữa hai đối tượng (-er + than).",
+    "alt": "Comparatives & Superlatives - So sánh hơn giữa hai đối tượng (-er + than): This room is brighter than mine."
+  },
+  {
+    "topic": "comparatives-superlatives",
+    "cardIndex": 2,
+    "sentence": "Lan is the tallest student in the class.",
+    "vi": "Lan là học sinh cao nhất lớp.",
+    "situation": "so sánh nhất trong một nhóm (the + -est).",
+    "alt": "Comparatives & Superlatives - So sánh nhất trong một nhóm (the + -est): Lan is the tallest student in the class."
+  },
+  {
+    "topic": "comparatives-superlatives",
+    "cardIndex": 3,
+    "sentence": "The train is more comfortable than the bus.",
+    "vi": "Đi tàu thoải mái hơn đi xe buýt.",
+    "situation": "tính từ dài: more + tính từ + than.",
+    "alt": "Comparatives & Superlatives - Tính từ dài: more + tính từ + than: The train is more comfortable than the bus."
+  },
+  {
+    "topic": "comparatives-superlatives",
+    "cardIndex": 4,
+    "sentence": "That was the most useful lesson.",
+    "vi": "Đó là bài học hữu ích nhất.",
+    "situation": "tính từ dài: the most + tính từ.",
+    "alt": "Comparatives & Superlatives - Tính từ dài: the most + tính từ: That was the most useful lesson."
+  },
+  {
+    "topic": "comparatives-superlatives",
+    "cardIndex": 5,
+    "sentence": "This bag is as expensive as that one.",
+    "vi": "Chiếc túi này đắt ngang chiếc kia.",
+    "situation": "so sánh bằng với as ... as.",
+    "alt": "Comparatives & Superlatives - So sánh bằng với as ... as: This bag is as expensive as that one."
+  },
+  {
+    "topic": "modals-permission",
+    "cardIndex": 1,
+    "sentence": "May I come in?",
+    "vi": "Tôi vào được không ạ?",
+    "situation": "may — xin phép trang trọng, lịch sự.",
+    "alt": "Modals: Permission & Requests - MAY — xin phép trang trọng, lịch sự: May I come in?"
+  },
+  {
+    "topic": "modals-permission",
+    "cardIndex": 2,
+    "sentence": "Could you open the window, please?",
+    "vi": "Bạn mở giúp cửa sổ được không?",
+    "situation": "could you — nhờ vả lịch sự.",
+    "alt": "Modals: Permission & Requests - COULD YOU — nhờ vả lịch sự: Could you open the window, please?"
+  },
+  {
+    "topic": "modals-permission",
+    "cardIndex": 3,
+    "sentence": "Can I borrow your pen?",
+    "vi": "Cho mình mượn bút nhé?",
+    "situation": "can — xin phép thân mật, suồng sã.",
+    "alt": "Modals: Permission & Requests - CAN — xin phép thân mật, suồng sã: Can I borrow your pen?"
+  },
+  {
+    "topic": "modals-permission",
+    "cardIndex": 4,
+    "sentence": "Would you wait here for a moment?",
+    "vi": "Phiền anh/chị đợi ở đây một lát được không?",
+    "situation": "would you — yêu cầu rất lịch sự, trang trọng.",
+    "alt": "Modals: Permission & Requests - WOULD YOU — yêu cầu rất lịch sự, trang trọng: Would you wait here for a moment?"
+  },
+  {
+    "topic": "modals-obligation",
+    "cardIndex": 1,
+    "sentence": "You must wear a helmet.",
+    "vi": "Bạn phải đội mũ bảo hiểm.",
+    "situation": "must — bắt buộc do người nói tự đặt ra.",
+    "alt": "Modals: Obligation (must/have to) - MUST — bắt buộc do người nói tự đặt ra: You must wear a helmet."
+  },
+  {
+    "topic": "modals-obligation",
+    "cardIndex": 2,
+    "sentence": "I have to submit this report today.",
+    "vi": "Hôm nay tôi phải nộp báo cáo này.",
+    "situation": "have to — bắt buộc do quy định, hoàn cảnh bên ngoài.",
+    "alt": "Modals: Obligation (must/have to) - HAVE TO — bắt buộc do quy định, hoàn cảnh bên ngoài: I have to submit this report today."
+  },
+  {
+    "topic": "modals-obligation",
+    "cardIndex": 3,
+    "sentence": "Visitors mustn't touch the paintings.",
+    "vi": "Khách tham quan không được chạm vào tranh.",
+    "situation": "mustn't — cấm, không được phép làm.",
+    "alt": "Modals: Obligation (must/have to) - MUSTN'T — cấm, không được phép làm: Visitors mustn't touch the paintings."
+  },
+  {
+    "topic": "modals-obligation",
+    "cardIndex": 4,
+    "sentence": "You don't have to come early.",
+    "vi": "Bạn không cần phải đến sớm đâu.",
+    "situation": "don't have to — không cần thiết phải làm.",
+    "alt": "Modals: Obligation (must/have to) - DON'T HAVE TO — không cần thiết phải làm: You don't have to come early."
+  },
+  {
+    "topic": "modals-advice",
+    "cardIndex": 1,
+    "sentence": "You should get more sleep.",
+    "vi": "Bạn nên ngủ nhiều hơn.",
+    "situation": "should — khuyên nên làm điều gì.",
+    "alt": "Modals: Advice (should/ought to) - SHOULD — khuyên nên làm điều gì: You should get more sleep."
+  },
+  {
+    "topic": "modals-advice",
+    "cardIndex": 2,
+    "sentence": "We ought to apologize to her.",
+    "vi": "Chúng ta nên xin lỗi cô ấy mới phải.",
+    "situation": "ought to — lời khuyên mang tính đạo lý, đúng đắn.",
+    "alt": "Modals: Advice (should/ought to) - OUGHT TO — lời khuyên mang tính đạo lý, đúng đắn: We ought to apologize to her."
+  },
+  {
+    "topic": "modals-advice",
+    "cardIndex": 3,
+    "sentence": "Should I call her now?",
+    "vi": "Tôi có nên gọi cho cô ấy bây giờ không?",
+    "situation": "should i...? — hỏi xin lời khuyên.",
+    "alt": "Modals: Advice (should/ought to) - SHOULD I...? — hỏi xin lời khuyên: Should I call her now?"
+  },
+  {
+    "topic": "modals-advice",
+    "cardIndex": 4,
+    "sentence": "You shouldn't skip breakfast.",
+    "vi": "Bạn không nên bỏ bữa sáng.",
+    "situation": "shouldn't — khuyên không nên làm.",
+    "alt": "Modals: Advice (should/ought to) - SHOULDN'T — khuyên không nên làm: You shouldn't skip breakfast."
+  },
+  {
+    "topic": "conditionals-0-1",
+    "cardIndex": 1,
+    "sentence": "If you heat ice, it melts.",
+    "vi": "Nếu bạn đun nóng đá, nó sẽ tan chảy.",
+    "situation": "loại 0 — chân lý, quy luật tự nhiên luôn đúng.",
+    "alt": "Zero & First Conditional - Loại 0 — chân lý, quy luật tự nhiên luôn đúng: If you heat ice, it melts."
+  },
+  {
+    "topic": "conditionals-0-1",
+    "cardIndex": 2,
+    "sentence": "Plants die if they don't get water.",
+    "vi": "Cây sẽ chết nếu không được tưới nước.",
+    "situation": "loại 0 — kết quả tất yếu lặp đi lặp lại.",
+    "alt": "Zero & First Conditional - Loại 0 — kết quả tất yếu lặp đi lặp lại: Plants die if they don't get water."
+  },
+  {
+    "topic": "conditionals-0-1",
+    "cardIndex": 3,
+    "sentence": "If it rains, we'll stay home.",
+    "vi": "Nếu trời mưa, chúng tôi sẽ ở nhà.",
+    "situation": "loại 1 — điều kiện có thật ở tương lai.",
+    "alt": "Zero & First Conditional - Loại 1 — điều kiện có thật ở tương lai: If it rains, we'll stay home."
+  },
+  {
+    "topic": "conditionals-0-1",
+    "cardIndex": 4,
+    "sentence": "I'll call you if I arrive early.",
+    "vi": "Tôi sẽ gọi cho bạn nếu tôi đến sớm.",
+    "situation": "loại 1 — lời hứa, đề nghị kèm điều kiện.",
+    "alt": "Zero & First Conditional - Loại 1 — lời hứa, đề nghị kèm điều kiện: I'll call you if I arrive early."
+  },
+  {
+    "topic": "present-perfect",
+    "cardIndex": 1,
+    "sentence": "I have been studying English for three years.",
+    "vi": "Tôi đã học tiếng Anh được ba năm rồi.",
+    "situation": "hành động bắt đầu từ quá khứ và kéo dài đến hiện tại.",
+    "alt": "Present Perfect - Hành động bắt đầu từ quá khứ và kéo dài đến hiện tại: I have been studying English for three years."
+  },
+  {
+    "topic": "present-perfect",
+    "cardIndex": 2,
+    "sentence": "She has just finished her homework.",
+    "vi": "Cô ấy vừa hoàn thành bài tập về nhà.",
+    "situation": "hành động đã hoàn thành gần đây.",
+    "alt": "Present Perfect - Hành động đã hoàn thành gần đây: She has just finished her homework."
+  },
+  {
+    "topic": "present-perfect",
+    "cardIndex": 3,
+    "sentence": "They have visited Paris three times.",
+    "vi": "Họ đã đến thăm Paris ba lần.",
+    "situation": "hành động lặp lại nhiều lần từ quá khứ đến hiện tại.",
+    "alt": "Present Perfect - Hành động lặp lại nhiều lần từ quá khứ đến hiện tại: They have visited Paris three times."
+  },
+  {
+    "topic": "present-perfect",
+    "cardIndex": 4,
+    "sentence": "I have never been to the USA.",
+    "vi": "Tôi chưa bao giờ đến Mỹ.",
+    "situation": "hành động xảy ra tại một thời điểm không xác định trong quá khứ.",
+    "alt": "Present Perfect - Hành động xảy ra tại một thời điểm không xác định trong quá khứ: I have never been to the USA."
+  },
+  {
+    "topic": "present-perfect-continuous",
+    "cardIndex": 1,
+    "sentence": "I have been studying for three hours.",
+    "vi": "Tôi đã học suốt ba tiếng đồng hồ rồi.",
+    "situation": "hành động kéo dài từ quá khứ đến nay, nhấn mạnh quá trình.",
+    "alt": "Present Perfect Continuous - Hành động kéo dài từ quá khứ đến nay, nhấn mạnh quá trình: I have been studying for three hours."
+  },
+  {
+    "topic": "present-perfect-continuous",
+    "cardIndex": 2,
+    "sentence": "She has been crying; her eyes are red.",
+    "vi": "Cô ấy vừa khóc xong; mắt cô ấy đỏ hoe.",
+    "situation": "giải thích dấu vết, kết quả nhìn thấy ở hiện tại.",
+    "alt": "Present Perfect Continuous - Giải thích dấu vết, kết quả nhìn thấy ở hiện tại: She has been crying; her eyes are red."
+  },
+  {
+    "topic": "present-perfect-continuous",
+    "cardIndex": 3,
+    "sentence": "We haven't been sleeping well lately.",
+    "vi": "Dạo này chúng tôi ngủ không ngon.",
+    "situation": "tình trạng tạm thời gần đây (với lately, recently).",
+    "alt": "Present Perfect Continuous - Tình trạng tạm thời gần đây (với lately, recently): We haven't been sleeping well lately."
+  },
+  {
+    "topic": "present-perfect-continuous",
+    "cardIndex": 4,
+    "sentence": "How long have you been waiting?",
+    "vi": "Bạn đã đợi bao lâu rồi?",
+    "situation": "hỏi khoảng thời gian với how long.",
+    "alt": "Present Perfect Continuous - Hỏi khoảng thời gian với How long: How long have you been waiting?"
+  },
+  {
+    "topic": "past-perfect",
+    "cardIndex": 1,
+    "sentence": "The train had left before we arrived.",
+    "vi": "Tàu đã rời ga trước khi chúng tôi đến.",
+    "situation": "hành động xảy ra trước một hành động khác trong quá khứ.",
+    "alt": "Past Perfect - Hành động xảy ra TRƯỚC một hành động khác trong quá khứ: The train had left before we arrived."
+  },
+  {
+    "topic": "past-perfect",
+    "cardIndex": 2,
+    "sentence": "She had never flown before that trip.",
+    "vi": "Trước chuyến đi đó, cô ấy chưa từng đi máy bay.",
+    "situation": "trải nghiệm tính đến một mốc trong quá khứ (never... before).",
+    "alt": "Past Perfect - Trải nghiệm tính đến một mốc trong quá khứ (never... before): She had never flown before that trip."
+  },
+  {
+    "topic": "past-perfect",
+    "cardIndex": 3,
+    "sentence": "Had you finished when he called?",
+    "vi": "Lúc anh ấy gọi thì bạn đã làm xong chưa?",
+    "situation": "hỏi xem việc đã xong chưa tại mốc quá khứ.",
+    "alt": "Past Perfect - Hỏi xem việc đã xong chưa tại mốc quá khứ: Had you finished when he called?"
+  },
+  {
+    "topic": "past-perfect",
+    "cardIndex": 4,
+    "sentence": "I was hungry because I hadn't eaten anything.",
+    "vi": "Tôi đói vì trước đó tôi chưa ăn gì cả.",
+    "situation": "giải thích nguyên nhân của sự việc quá khứ.",
+    "alt": "Past Perfect - Giải thích nguyên nhân của sự việc quá khứ: I was hungry because I hadn't eaten anything."
+  },
+  {
+    "topic": "used-to",
+    "cardIndex": 1,
+    "sentence": "I used to live in Hue.",
+    "vi": "Tôi từng sống ở Huế",
+    "situation": "thói quen, tình trạng quá khứ nay không còn.",
+    "alt": "Used to / Be used to / Get used to - USED TO + V — thói quen, tình trạng quá khứ nay không còn: I used to live in Hue."
+  },
+  {
+    "topic": "used-to",
+    "cardIndex": 2,
+    "sentence": "She didn't use to drink coffee.",
+    "vi": "Hồi trước cô ấy không uống cà phê.",
+    "situation": "didn't use to — phủ định thói quen quá khứ.",
+    "alt": "Used to / Be used to / Get used to - DIDN'T USE TO — phủ định thói quen quá khứ: She didn't use to drink coffee."
+  },
+  {
+    "topic": "used-to",
+    "cardIndex": 3,
+    "sentence": "Are you used to the heat in Saigon?",
+    "vi": "Bạn đã quen với cái nóng ở Sài Gòn chưa?",
+    "situation": "be used to + v-ing — đã quen với điều gì.",
+    "alt": "Used to / Be used to / Get used to - BE USED TO + V-ing — đã quen với điều gì: Are you used to the heat in Saigon?"
+  },
+  {
+    "topic": "used-to",
+    "cardIndex": 4,
+    "sentence": "I'm getting used to working late.",
+    "vi": "Tôi đang dần quen với việc làm việc muộn.",
+    "situation": "get used to + v-ing — dần dần quen với điều gì.",
+    "alt": "Used to / Be used to / Get used to - GET USED TO + V-ing — dần dần quen với điều gì: I'm getting used to working late."
+  },
+  {
+    "topic": "future-continuous",
+    "cardIndex": 1,
+    "sentence": "This time tomorrow, I will be flying to Seoul.",
+    "vi": "Giờ này ngày mai, tôi sẽ đang bay đến Seoul.",
+    "situation": "hành động đang diễn ra tại một thời điểm xác định ở tương lai.",
+    "alt": "Future Continuous - Hành động đang diễn ra tại một thời điểm xác định ở tương lai: This time tomorrow, I will be flying to Seoul."
+  },
+  {
+    "topic": "future-continuous",
+    "cardIndex": 2,
+    "sentence": "She will be working at nine as usual.",
+    "vi": "Chín giờ cô ấy sẽ đang làm việc như thường lệ.",
+    "situation": "việc sẽ diễn ra như một phần của lịch trình bình thường.",
+    "alt": "Future Continuous - Việc sẽ diễn ra như một phần của lịch trình bình thường: She will be working at nine as usual."
+  },
+  {
+    "topic": "future-continuous",
+    "cardIndex": 3,
+    "sentence": "Will you be using the car tonight?",
+    "vi": "Tối nay bạn có dùng xe không?",
+    "situation": "hỏi lịch sự về kế hoạch của người khác.",
+    "alt": "Future Continuous - Hỏi lịch sự về kế hoạch của người khác: Will you be using the car tonight?"
+  },
+  {
+    "topic": "future-continuous",
+    "cardIndex": 4,
+    "sentence": "They won't be staying long.",
+    "vi": "Họ sẽ không ở lại lâu đâu.",
+    "situation": "phủ định — việc sẽ không đang diễn ra.",
+    "alt": "Future Continuous - Phủ định — việc sẽ không đang diễn ra: They won't be staying long."
+  },
+  {
+    "topic": "conjunctions-linking",
+    "cardIndex": 1,
+    "sentence": "I stayed home because I was ill.",
+    "vi": "Tôi ở nhà vì tôi bị ốm.",
+    "situation": "chỉ nguyên nhân với because / since.",
+    "alt": "Conjunctions & Linking Words - Chỉ nguyên nhân với because / since: I stayed home because I was ill."
+  },
+  {
+    "topic": "conjunctions-linking",
+    "cardIndex": 2,
+    "sentence": "Although it was late, we continued.",
+    "vi": "Mặc dù đã muộn, chúng tôi vẫn tiếp tục.",
+    "situation": "chỉ sự tương phản với although / but.",
+    "alt": "Conjunctions & Linking Words - Chỉ sự tương phản với although / but: Although it was late, we continued."
+  },
+  {
+    "topic": "conjunctions-linking",
+    "cardIndex": 3,
+    "sentence": "She studied hard; therefore, she passed.",
+    "vi": "Cô ấy học chăm chỉ; vì vậy cô ấy đã đỗ.",
+    "situation": "chỉ kết quả với so / therefore.",
+    "alt": "Conjunctions & Linking Words - Chỉ kết quả với so / therefore: She studied hard; therefore, she passed."
+  },
+  {
+    "topic": "conjunctions-linking",
+    "cardIndex": 4,
+    "sentence": "You can call or send a message.",
+    "vi": "Bạn có thể gọi điện hoặc nhắn tin.",
+    "situation": "nêu lựa chọn với or, bổ sung với and.",
+    "alt": "Conjunctions & Linking Words - Nêu lựa chọn với or, bổ sung với and: You can call or send a message."
+  },
+  {
+    "topic": "gerunds-infinitives",
+    "cardIndex": 1,
+    "sentence": "I enjoy reading before bed.",
+    "vi": "Tôi thích đọc sách trước khi ngủ.",
+    "situation": "v-ing sau động từ chỉ sở thích (enjoy, love, hate).",
+    "alt": "Gerunds & Infinitives - V-ing sau động từ chỉ sở thích (enjoy, love, hate): I enjoy reading before bed."
+  },
+  {
+    "topic": "gerunds-infinitives",
+    "cardIndex": 2,
+    "sentence": "She decided to leave early.",
+    "vi": "Cô ấy quyết định về sớm.",
+    "situation": "to + v sau động từ chỉ quyết định, mong muốn (decide, want, hope).",
+    "alt": "Gerunds & Infinitives - To + V sau động từ chỉ quyết định, mong muốn (decide, want, hope): She decided to leave early."
+  },
+  {
+    "topic": "gerunds-infinitives",
+    "cardIndex": 3,
+    "sentence": "Thank you for helping me.",
+    "vi": "Cảm ơn bạn đã giúp tôi.",
+    "situation": "v-ing sau giới từ.",
+    "alt": "Gerunds & Infinitives - V-ing sau giới từ: Thank you for helping me."
+  },
+  {
+    "topic": "gerunds-infinitives",
+    "cardIndex": 4,
+    "sentence": "He stopped smoking. / He stopped to smoke.",
+    "vi": "Anh ấy bỏ thuốc lá. / Anh ấy dừng lại để hút thuốc.",
+    "situation": "động từ đổi nghĩa tùy theo v-ing hay to v (stop, remember, try).",
+    "alt": "Gerunds & Infinitives - Động từ đổi nghĩa tùy theo V-ing hay to V (stop, remember, try): He stopped smoking. / He stopped to smoke."
+  },
+  {
+    "topic": "gerunds-infinitives",
+    "cardIndex": 5,
+    "sentence": "Swimming is good for your health.",
+    "vi": "Bơi lội tốt cho sức khỏe của bạn.",
+    "situation": "v-ing làm chủ ngữ của câu.",
+    "alt": "Gerunds & Infinitives - V-ing làm chủ ngữ của câu: Swimming is good for your health."
+  },
+  {
+    "topic": "passive-voice",
+    "cardIndex": 1,
+    "sentence": "The bridge was built in 2010.",
+    "vi": "Cây cầu được xây vào năm 2010.",
+    "situation": "nhấn mạnh đối tượng chịu tác động, không phải người làm.",
+    "alt": "Passive Voice - Nhấn mạnh đối tượng chịu tác động, không phải người làm: The bridge was built in 2010."
+  },
+  {
+    "topic": "passive-voice",
+    "cardIndex": 2,
+    "sentence": "English is spoken worldwide.",
+    "vi": "Tiếng Anh được sử dụng trên toàn thế giới.",
+    "situation": "khi người thực hiện không quan trọng hoặc ai cũng biết.",
+    "alt": "Passive Voice - Khi người thực hiện không quan trọng hoặc ai cũng biết: English is spoken worldwide."
+  },
+  {
+    "topic": "passive-voice",
+    "cardIndex": 3,
+    "sentence": "The package will be delivered tomorrow.",
+    "vi": "Gói hàng sẽ được giao vào ngày mai.",
+    "situation": "bị động với thì tương lai (will be + v3).",
+    "alt": "Passive Voice - Bị động với thì tương lai (will be + V3): The package will be delivered tomorrow."
+  },
+  {
+    "topic": "passive-voice",
+    "cardIndex": 4,
+    "sentence": "The road is being repaired.",
+    "vi": "Con đường đang được sửa chữa.",
+    "situation": "bị động tiếp diễn (is being + v3) — việc đang được thực hiện.",
+    "alt": "Passive Voice - Bị động tiếp diễn (is being + V3) — việc đang được thực hiện: The road is being repaired."
+  },
+  {
+    "topic": "passive-voice",
+    "cardIndex": 5,
+    "sentence": "This novel was written by a Vietnamese author.",
+    "vi": "Cuốn tiểu thuyết này do một tác giả người Việt viết.",
+    "situation": "thêm by khi cần nêu rõ người thực hiện.",
+    "alt": "Passive Voice - Thêm BY khi cần nêu rõ người thực hiện: This novel was written by a Vietnamese author."
+  },
+  {
+    "topic": "reported-speech",
+    "cardIndex": 1,
+    "sentence": "I am tired. → She said that she was tired.",
+    "vi": "\"Tôi mệt.\" → Cô ấy nói rằng cô ấy mệt.",
+    "situation": "lùi thì, đổi ngôi.",
+    "alt": "Reported Speech - Tường thuật câu kể — lùi thì, đổi ngôi: \"I am tired.\" → She said that she was tired."
+  },
+  {
+    "topic": "reported-speech",
+    "cardIndex": 2,
+    "sentence": "He told me to wait outside.",
+    "vi": "Anh ấy bảo tôi đợi ở ngoài.",
+    "situation": "tường thuật mệnh lệnh với told + o + to v.",
+    "alt": "Reported Speech - Tường thuật mệnh lệnh với told + O + to V: He told me to wait outside."
+  },
+  {
+    "topic": "reported-speech",
+    "cardIndex": 3,
+    "sentence": "Lan asked whether I was free.",
+    "vi": "Lan hỏi liệu tôi có rảnh không.",
+    "situation": "tường thuật câu hỏi yes/no với whether / if.",
+    "alt": "Reported Speech - Tường thuật câu hỏi Yes/No với whether / if: Lan asked whether I was free."
+  },
+  {
+    "topic": "reported-speech",
+    "cardIndex": 4,
+    "sentence": "We finished. → They said they had finished.",
+    "vi": "\"Bọn tôi xong rồi.\" → Họ nói họ đã hoàn thành rồi.",
+    "situation": "lùi quá khứ đơn thành quá khứ hoàn thành.",
+    "alt": "Reported Speech - Lùi quá khứ đơn thành quá khứ hoàn thành: \"We finished.\" → They said they had finished."
+  },
+  {
+    "topic": "relative-clauses",
+    "cardIndex": 1,
+    "sentence": "The woman who called is my aunt.",
+    "vi": "Người phụ nữ đã gọi điện là dì của tôi.",
+    "situation": "who — bổ nghĩa cho danh từ chỉ người.",
+    "alt": "Relative Clauses - WHO — bổ nghĩa cho danh từ chỉ người: The woman who called is my aunt."
+  },
+  {
+    "topic": "relative-clauses",
+    "cardIndex": 2,
+    "sentence": "This is the book that I mentioned.",
+    "vi": "Đây là cuốn sách mà tôi đã nhắc đến.",
+    "situation": "that / which — bổ nghĩa cho danh từ chỉ vật.",
+    "alt": "Relative Clauses - THAT / WHICH — bổ nghĩa cho danh từ chỉ vật: This is the book that I mentioned."
+  },
+  {
+    "topic": "relative-clauses",
+    "cardIndex": 3,
+    "sentence": "The café where we met has closed.",
+    "vi": "Quán cà phê nơi chúng ta gặp nhau đã đóng cửa.",
+    "situation": "where — bổ nghĩa cho danh từ chỉ nơi chốn.",
+    "alt": "Relative Clauses - WHERE — bổ nghĩa cho danh từ chỉ nơi chốn: The café where we met has closed."
+  },
+  {
+    "topic": "relative-clauses",
+    "cardIndex": 4,
+    "sentence": "Students whose work is late must email me.",
+    "vi": "Những học sinh nộp bài muộn phải email cho tôi.",
+    "situation": "whose — chỉ sự sở hữu.",
+    "alt": "Relative Clauses - WHOSE — chỉ sự sở hữu: Students whose work is late must email me."
+  },
+  {
+    "topic": "relative-clauses",
+    "cardIndex": 5,
+    "sentence": "The film",
+    "vi": "that",
+    "situation": "lược bỏ đại từ quan hệ khi nó làm tân ngữ.",
+    "alt": "Relative Clauses - Lược bỏ đại từ quan hệ khi nó làm tân ngữ: The film (that) we watched was great."
+  },
+  {
+    "topic": "second-conditional",
+    "cardIndex": 1,
+    "sentence": "If I had more time, I would learn Korean.",
+    "vi": "Nếu tôi có nhiều thời gian hơn, tôi sẽ học tiếng Hàn.",
+    "situation": "giả định trái với hiện tại — điều không có thật bây giờ.",
+    "alt": "Second Conditional - Giả định trái với hiện tại — điều không có thật bây giờ: If I had more time, I would learn Korean."
+  },
+  {
+    "topic": "second-conditional",
+    "cardIndex": 2,
+    "sentence": "She would travel more if she were rich.",
+    "vi": "Cô ấy sẽ đi du lịch nhiều hơn nếu cô ấy giàu.",
+    "situation": "mơ ước, tưởng tượng điều khó xảy ra.",
+    "alt": "Second Conditional - Mơ ước, tưởng tượng điều khó xảy ra: She would travel more if she were rich."
+  },
+  {
+    "topic": "second-conditional",
+    "cardIndex": 3,
+    "sentence": "What would you do if you lost your phone?",
+    "vi": "Bạn sẽ làm gì nếu bạn làm mất điện thoại?",
+    "situation": "hỏi giả định 'nếu... thì bạn sẽ làm gì?'.",
+    "alt": "Second Conditional - Hỏi giả định 'nếu... thì bạn sẽ làm gì?': What would you do if you lost your phone?"
+  },
+  {
+    "topic": "second-conditional",
+    "cardIndex": 4,
+    "sentence": "If I were you, I would accept the offer.",
+    "vi": "Nếu tôi là bạn, tôi sẽ nhận lời đề nghị đó.",
+    "situation": "khuyên nhủ với if i were you.",
+    "alt": "Second Conditional - Khuyên nhủ với If I were you: If I were you, I would accept the offer."
+  },
+  {
+    "topic": "third-conditional",
+    "cardIndex": 1,
+    "sentence": "If I had left earlier, I would have caught the train.",
+    "vi": "Nếu tôi rời đi sớm hơn, tôi đã bắt kịp chuyến tàu.",
+    "situation": "giả định trái với quá khứ — việc đã không xảy ra.",
+    "alt": "Third Conditional - Giả định trái với quá khứ — việc đã không xảy ra: If I had left earlier, I would have caught the train."
+  },
+  {
+    "topic": "third-conditional",
+    "cardIndex": 2,
+    "sentence": "She would have passed if she had studied.",
+    "vi": "Cô ấy đã đỗ rồi nếu cô ấy chịu học.",
+    "situation": "bày tỏ tiếc nuối, trách móc về quá khứ.",
+    "alt": "Third Conditional - Bày tỏ tiếc nuối, trách móc về quá khứ: She would have passed if she had studied."
+  },
+  {
+    "topic": "third-conditional",
+    "cardIndex": 3,
+    "sentence": "Had we known, we would have helped.",
+    "vi": "Nếu chúng tôi biết thì chúng tôi đã giúp rồi.",
+    "situation": "đảo ngữ trang trọng: had + s + v3 (bỏ if).",
+    "alt": "Third Conditional - Đảo ngữ trang trọng: Had + S + V3 (bỏ if): Had we known, we would have helped."
+  },
+  {
+    "topic": "third-conditional",
+    "cardIndex": 4,
+    "sentence": "If they hadn't called, I might have forgotten.",
+    "vi": "Nếu họ không gọi, có lẽ tôi đã quên mất.",
+    "situation": "kết quả không chắc chắn với might/could have.",
+    "alt": "Third Conditional - Kết quả không chắc chắn với might/could have: If they hadn't called, I might have forgotten."
+  },
+  {
+    "topic": "modals-deduction",
+    "cardIndex": 1,
+    "sentence": "She must be at work; her car is gone.",
+    "vi": "Chắc chắn cô ấy đang ở chỗ làm; xe cô ấy không còn ở đây.",
+    "situation": "must — suy đoán gần như chắc chắn đúng.",
+    "alt": "Modals: Deduction (must/might/can't) - MUST — suy đoán gần như chắc chắn đúng: She must be at work; her car is gone."
+  },
+  {
+    "topic": "modals-deduction",
+    "cardIndex": 2,
+    "sentence": "He might know the answer.",
+    "vi": "Có thể anh ấy biết câu trả lời.",
+    "situation": "might / may — suy đoán có thể đúng, chưa chắc.",
+    "alt": "Modals: Deduction (must/might/can't) - MIGHT / MAY — suy đoán có thể đúng, chưa chắc: He might know the answer."
+  },
+  {
+    "topic": "modals-deduction",
+    "cardIndex": 3,
+    "sentence": "That can't be true. He was with me all day.",
+    "vi": "Điều đó không thể đúng được. Anh ấy ở với tôi cả ngày mà.",
+    "situation": "can't — suy đoán chắc chắn không thể đúng.",
+    "alt": "Modals: Deduction (must/might/can't) - CAN'T — suy đoán chắc chắn KHÔNG thể đúng: That can't be true. He was with me all day."
+  },
+  {
+    "topic": "modals-deduction",
+    "cardIndex": 4,
+    "sentence": "The keys could be in the drawer.",
+    "vi": "Chìa khóa có thể nằm trong ngăn kéo.",
+    "situation": "could — nêu một khả năng trong nhiều khả năng.",
+    "alt": "Modals: Deduction (must/might/can't) - COULD — nêu một khả năng trong nhiều khả năng: The keys could be in the drawer."
+  },
+  {
+    "topic": "question-tags",
+    "cardIndex": 1,
+    "sentence": "You're coming to the party, aren't you?",
+    "vi": "Bạn sẽ đến bữa tiệc, đúng không?",
+    "situation": "câu khẳng định + đuôi phủ định.",
+    "alt": "Question Tags - Câu khẳng định + đuôi phủ định: You're coming to the party, aren't you?"
+  },
+  {
+    "topic": "question-tags",
+    "cardIndex": 2,
+    "sentence": "She doesn't drive, does she?",
+    "vi": "Cô ấy không lái xe, phải không?",
+    "situation": "câu phủ định + đuôi khẳng định.",
+    "alt": "Question Tags - Câu phủ định + đuôi khẳng định: She doesn't drive, does she?"
+  },
+  {
+    "topic": "question-tags",
+    "cardIndex": 3,
+    "sentence": "They left early, didn't they?",
+    "vi": "Họ về sớm, đúng không nhỉ?",
+    "situation": "đuôi lặp lại đúng trợ động từ và thì của mệnh đề chính.",
+    "alt": "Question Tags - Đuôi lặp lại đúng trợ động từ và thì của mệnh đề chính: They left early, didn't they?"
+  },
+  {
+    "topic": "question-tags",
+    "cardIndex": 4,
+    "sentence": "Let's start, shall we?",
+    "vi": "Chúng ta bắt đầu nhé?",
+    "situation": "trường hợp đặc biệt: let's... đuôi là shall we?.",
+    "alt": "Question Tags - Trường hợp đặc biệt: Let's... đuôi là shall we?: Let's start, shall we?"
+  },
+  {
+    "topic": "question-tags",
+    "cardIndex": 5,
+    "sentence": "It's cold today, isn't it?",
+    "vi": "Hôm nay trời lạnh nhỉ?",
+    "situation": "xuống giọng = xác nhận; lên giọng = hỏi thật.",
+    "alt": "Question Tags - Xuống giọng = xác nhận; lên giọng = hỏi thật: It's cold today, isn't it?"
+  },
+  {
+    "topic": "phrasal-verbs",
+    "cardIndex": 1,
+    "sentence": "Please turn off the lights. / Turn them off.",
+    "vi": "Làm ơn tắt đèn. / Tắt chúng đi.",
+    "situation": "cụm tách được — tân ngữ chen giữa động từ và tiểu từ.",
+    "alt": "Phrasal Verbs (intro) - Cụm tách được — tân ngữ chen giữa động từ và tiểu từ: Please turn off the lights. / Turn them off."
+  },
+  {
+    "topic": "phrasal-verbs",
+    "cardIndex": 2,
+    "sentence": "I ran into an old friend yesterday.",
+    "vi": "Hôm qua tôi tình cờ gặp một người bạn cũ.",
+    "situation": "cụm không tách được — tân ngữ luôn đứng sau.",
+    "alt": "Phrasal Verbs (intro) - Cụm không tách được — tân ngữ luôn đứng sau: I ran into an old friend yesterday."
+  },
+  {
+    "topic": "phrasal-verbs",
+    "cardIndex": 3,
+    "sentence": "She looked after the children all day.",
+    "vi": "Cô ấy chăm sóc bọn trẻ cả ngày.",
+    "situation": "nghĩa của cụm khác hẳn nghĩa động từ gốc.",
+    "alt": "Phrasal Verbs (intro) - Nghĩa của cụm khác hẳn nghĩa động từ gốc: She looked after the children all day."
+  },
+  {
+    "topic": "phrasal-verbs",
+    "cardIndex": 4,
+    "sentence": "Don't give up! Keep going.",
+    "vi": "Đừng bỏ cuộc! Cứ tiếp tục đi.",
+    "situation": "cụm động từ không cần tân ngữ.",
+    "alt": "Phrasal Verbs (intro) - Cụm động từ không cần tân ngữ: Don't give up! Keep going."
+  },
+  {
+    "topic": "past-perfect-continuous",
+    "cardIndex": 1,
+    "sentence": "I had been waiting for an hour when the bus came.",
+    "vi": "Tôi đã đợi suốt một tiếng thì xe buýt mới đến.",
+    "situation": "hành động kéo dài liên tục trước một mốc quá khứ.",
+    "alt": "Past Perfect Continuous - Hành động kéo dài liên tục TRƯỚC một mốc quá khứ: I had been waiting for an hour when the bus came."
+  },
+  {
+    "topic": "past-perfect-continuous",
+    "cardIndex": 2,
+    "sentence": "She was tired because she had been working all night.",
+    "vi": "Cô ấy mệt vì đã làm việc suốt đêm.",
+    "situation": "giải thích nguyên nhân của trạng thái trong quá khứ.",
+    "alt": "Past Perfect Continuous - Giải thích nguyên nhân của trạng thái trong quá khứ: She was tired because she had been working all night."
+  },
+  {
+    "topic": "past-perfect-continuous",
+    "cardIndex": 3,
+    "sentence": "They hadn't been living there long when the flood hit.",
+    "vi": "Họ chưa sống ở đó được bao lâu thì lũ ập đến.",
+    "situation": "phủ định — quá trình chưa kéo dài lâu tính đến mốc quá khứ.",
+    "alt": "Past Perfect Continuous - Phủ định — quá trình chưa kéo dài lâu tính đến mốc quá khứ: They hadn't been living there long when the flood hit."
+  },
+  {
+    "topic": "past-perfect-continuous",
+    "cardIndex": 4,
+    "sentence": "Had it been raining before you arrived?",
+    "vi": "Trước khi bạn đến trời có mưa không?",
+    "situation": "hỏi về quá trình diễn ra trước mốc quá khứ.",
+    "alt": "Past Perfect Continuous - Hỏi về quá trình diễn ra trước mốc quá khứ: Had it been raining before you arrived?"
+  },
+  {
+    "topic": "future-perfect",
+    "cardIndex": 1,
+    "sentence": "By Friday, I will have finished the report.",
+    "vi": "Trước thứ Sáu, tôi sẽ hoàn thành xong báo cáo.",
+    "situation": "việc sẽ hoàn tất trước một mốc tương lai (thường với by).",
+    "alt": "Future Perfect - Việc sẽ hoàn tất TRƯỚC một mốc tương lai (thường với by): By Friday, I will have finished the report."
+  },
+  {
+    "topic": "future-perfect",
+    "cardIndex": 2,
+    "sentence": "She will have left before you arrive.",
+    "vi": "Cô ấy sẽ đi khỏi trước khi bạn đến.",
+    "situation": "việc kết thúc trước một sự kiện tương lai khác.",
+    "alt": "Future Perfect - Việc kết thúc trước một sự kiện tương lai khác: She will have left before you arrive."
+  },
+  {
+    "topic": "future-perfect",
+    "cardIndex": 3,
+    "sentence": "Will they have arrived by then?",
+    "vi": "Đến lúc đó liệu họ đã tới nơi chưa?",
+    "situation": "hỏi xem việc đã xong chưa tính đến mốc tương lai.",
+    "alt": "Future Perfect - Hỏi xem việc đã xong chưa tính đến mốc tương lai: Will they have arrived by then?"
+  },
+  {
+    "topic": "future-perfect",
+    "cardIndex": 4,
+    "sentence": "We won't have saved enough by June.",
+    "vi": "Đến tháng Sáu chúng tôi vẫn chưa tiết kiệm đủ đâu.",
+    "situation": "phủ định — việc chưa kịp hoàn thành trước mốc.",
+    "alt": "Future Perfect - Phủ định — việc chưa kịp hoàn thành trước mốc: We won't have saved enough by June."
+  },
+  {
+    "topic": "future-in-the-past",
+    "cardIndex": 1,
+    "sentence": "I knew she would succeed.",
+    "vi": "Tôi đã biết cô ấy rồi sẽ thành công.",
+    "situation": "would — điều tương lai nhìn từ một thời điểm quá khứ.",
+    "alt": "Future in the Past - WOULD — điều tương lai nhìn từ một thời điểm quá khứ: I knew she would succeed."
+  },
+  {
+    "topic": "future-in-the-past",
+    "cardIndex": 2,
+    "sentence": "They were going to leave, but it started raining.",
+    "vi": "Họ đã định rời đi, nhưng trời bắt đầu mưa.",
+    "situation": "was/were going to — dự định quá khứ (thường không thành).",
+    "alt": "Future in the Past - WAS/WERE GOING TO — dự định quá khứ (thường không thành): They were going to leave, but it started raining."
+  },
+  {
+    "topic": "future-in-the-past",
+    "cardIndex": 3,
+    "sentence": "He was about to speak when the phone rang.",
+    "vi": "Anh ấy vừa định nói thì điện thoại reo.",
+    "situation": "was about to — sắp sửa làm gì thì bị gián đoạn.",
+    "alt": "Future in the Past - WAS ABOUT TO — sắp sửa làm gì thì bị gián đoạn: He was about to speak when the phone rang."
+  },
+  {
+    "topic": "future-in-the-past",
+    "cardIndex": 4,
+    "sentence": "She promised she would call me back.",
+    "vi": "Cô ấy hứa sẽ gọi lại cho tôi.",
+    "situation": "would trong lời hứa, lời nói được thuật lại.",
+    "alt": "Future in the Past - WOULD trong lời hứa, lời nói được thuật lại: She promised she would call me back."
+  },
+  {
+    "topic": "mixed-conditionals",
+    "cardIndex": 1,
+    "sentence": "If I had slept earlier, I wouldn't be tired now.",
+    "vi": "Nếu tối qua tôi ngủ sớm thì bây giờ tôi đã không mệt.",
+    "situation": "điều kiện quá khứ → kết quả hiện tại (had v3 → would v).",
+    "alt": "Mixed Conditionals - Điều kiện quá khứ → kết quả hiện tại (had V3 → would V): If I had slept earlier, I wouldn't be tired now."
+  },
+  {
+    "topic": "mixed-conditionals",
+    "cardIndex": 2,
+    "sentence": "If she were more organized, she wouldn't have missed the deadline.",
+    "vi": "Nếu cô ấy ngăn nắp hơn thì đã không lỡ hạn chót.",
+    "situation": "điều kiện hiện tại → kết quả quá khứ (were → would have v3).",
+    "alt": "Mixed Conditionals - Điều kiện hiện tại → kết quả quá khứ (were → would have V3): If she were more organized, she wouldn't have missed the deadline."
+  },
+  {
+    "topic": "mixed-conditionals",
+    "cardIndex": 3,
+    "sentence": "Had we taken the map, we would know where we are.",
+    "vi": "Nếu chúng ta mang bản đồ thì giờ đã biết mình đang ở đâu.",
+    "situation": "đảo ngữ trang trọng với had + s + v3.",
+    "alt": "Mixed Conditionals - Đảo ngữ trang trọng với Had + S + V3: Had we taken the map, we would know where we are."
+  },
+  {
+    "topic": "mixed-conditionals",
+    "cardIndex": 4,
+    "sentence": "If he weren't afraid of flying, he would have joined us.",
+    "vi": "Nếu anh ấy không sợ đi máy bay thì anh ấy đã đi cùng chúng tôi rồi.",
+    "situation": "tính cách/trạng thái hiện tại giải thích quyết định quá khứ.",
+    "alt": "Mixed Conditionals - Tính cách/trạng thái hiện tại giải thích quyết định quá khứ: If he weren't afraid of flying, he would have joined us."
+  },
+  {
+    "topic": "wish-if-only",
+    "cardIndex": 1,
+    "sentence": "I wish I knew the answer.",
+    "vi": "Ước gì tôi biết câu trả lời.",
+    "situation": "wish + quá khứ đơn — ước trái với hiện tại.",
+    "alt": "Wish / If only - WISH + quá khứ đơn — ước trái với hiện tại: I wish I knew the answer."
+  },
+  {
+    "topic": "wish-if-only",
+    "cardIndex": 2,
+    "sentence": "If only it weren't raining.",
+    "vi": "Giá mà trời đừng mưa.",
+    "situation": "if only — như wish nhưng cảm xúc mạnh hơn.",
+    "alt": "Wish / If only - IF ONLY — như wish nhưng cảm xúc mạnh hơn: If only it weren't raining."
+  },
+  {
+    "topic": "wish-if-only",
+    "cardIndex": 3,
+    "sentence": "She wishes she had studied harder.",
+    "vi": "Cô ấy ước gì hồi đó mình học chăm hơn.",
+    "situation": "wish + quá khứ hoàn thành — tiếc nuối chuyện đã qua.",
+    "alt": "Wish / If only - WISH + quá khứ hoàn thành — tiếc nuối chuyện đã qua: She wishes she had studied harder."
+  },
+  {
+    "topic": "wish-if-only",
+    "cardIndex": 4,
+    "sentence": "I wish you would stop shouting.",
+    "vi": "Tôi mong bạn thôi la hét đi.",
+    "situation": "wish + would — phàn nàn, muốn người khác thay đổi.",
+    "alt": "Wish / If only - WISH + would — phàn nàn, muốn người khác thay đổi: I wish you would stop shouting."
+  },
+  {
+    "topic": "modals-perfect",
+    "cardIndex": 1,
+    "sentence": "You should have called me.",
+    "vi": "Lẽ ra bạn nên gọi cho tôi chứ.",
+    "situation": "should have v3 — trách móc việc lẽ ra nên làm.",
+    "alt": "Perfect Modals (should have, etc.) - SHOULD HAVE V3 — trách móc việc lẽ ra nên làm: You should have called me."
+  },
+  {
+    "topic": "modals-perfect",
+    "cardIndex": 2,
+    "sentence": "She must have forgotten our meeting.",
+    "vi": "Chắc chắn cô ấy đã quên cuộc hẹn của chúng ta.",
+    "situation": "must have v3 — suy đoán chắc chắn về quá khứ.",
+    "alt": "Perfect Modals (should have, etc.) - MUST HAVE V3 — suy đoán chắc chắn về quá khứ: She must have forgotten our meeting."
+  },
+  {
+    "topic": "modals-perfect",
+    "cardIndex": 3,
+    "sentence": "They might have taken the wrong bus.",
+    "vi": "Có lẽ họ đã lên nhầm xe buýt.",
+    "situation": "might have v3 — suy đoán không chắc về quá khứ.",
+    "alt": "Perfect Modals (should have, etc.) - MIGHT HAVE V3 — suy đoán không chắc về quá khứ: They might have taken the wrong bus."
+  },
+  {
+    "topic": "modals-perfect",
+    "cardIndex": 4,
+    "sentence": "He can't have finished already.",
+    "vi": "Không thể nào anh ấy đã làm xong rồi được.",
+    "situation": "can't have v3 — chắc chắn việc đó không xảy ra.",
+    "alt": "Perfect Modals (should have, etc.) - CAN'T HAVE V3 — chắc chắn việc đó KHÔNG xảy ra: He can't have finished already."
+  },
+  {
+    "topic": "modals-perfect",
+    "cardIndex": 5,
+    "sentence": "You could have been hurt!",
+    "vi": "Bạn đã có thể bị thương đấy!",
+    "situation": "could have v3 — việc đã có thể xảy ra nhưng không.",
+    "alt": "Perfect Modals (should have, etc.) - COULD HAVE V3 — việc đã có thể xảy ra nhưng không: You could have been hurt!"
+  },
+  {
+    "topic": "causative",
+    "cardIndex": 1,
+    "sentence": "I had my hair cut yesterday.",
+    "vi": "Hôm qua tôi đi cắt tóc.",
+    "situation": "have + vật + v3 — nhờ dịch vụ làm cho mình.",
+    "alt": "Causative (have/get something done) - HAVE + vật + V3 — nhờ dịch vụ làm cho mình: I had my hair cut yesterday."
+  },
+  {
+    "topic": "causative",
+    "cardIndex": 2,
+    "sentence": "We are getting the roof repaired.",
+    "vi": "Chúng tôi đang cho sửa lại mái nhà.",
+    "situation": "get + vật + v3 — thuê/nhờ làm (thân mật hơn have).",
+    "alt": "Causative (have/get something done) - GET + vật + V3 — thuê/nhờ làm (thân mật hơn have): We are getting the roof repaired."
+  },
+  {
+    "topic": "causative",
+    "cardIndex": 3,
+    "sentence": "She had the assistant print the report.",
+    "vi": "Cô ấy bảo trợ lý in báo cáo.",
+    "situation": "have + người + v nguyên thể — sai bảo ai làm gì.",
+    "alt": "Causative (have/get something done) - HAVE + người + V nguyên thể — sai bảo ai làm gì: She had the assistant print the report."
+  },
+  {
+    "topic": "causative",
+    "cardIndex": 4,
+    "sentence": "He got his brother to help with the move.",
+    "vi": "Anh ấy nhờ được em trai giúp chuyển nhà.",
+    "situation": "get + người + to v — thuyết phục, nhờ ai làm gì.",
+    "alt": "Causative (have/get something done) - GET + người + TO V — thuyết phục, nhờ ai làm gì: He got his brother to help with the move."
+  },
+  {
+    "topic": "causative",
+    "cardIndex": 5,
+    "sentence": "She had her phone stolen on the bus.",
+    "vi": "Cô ấy bị móc mất điện thoại trên xe buýt.",
+    "situation": "have/get + vật + v3 chỉ sự cố ngoài ý muốn.",
+    "alt": "Causative (have/get something done) - HAVE/GET + vật + V3 chỉ sự cố ngoài ý muốn: She had her phone stolen on the bus."
+  },
+  {
+    "topic": "advanced-passive",
+    "cardIndex": 1,
+    "sentence": "It is believed that the painting is genuine.",
+    "vi": "Người ta tin rằng bức tranh này là thật.",
+    "situation": "bị động vô nhân xưng: it is believed/said that....",
+    "alt": "Advanced Passive - Bị động vô nhân xưng: It is believed/said that...: It is believed that the painting is genuine."
+  },
+  {
+    "topic": "advanced-passive",
+    "cardIndex": 2,
+    "sentence": "The company is expected to announce job cuts.",
+    "vi": "Công ty được dự đoán sẽ công bố cắt giảm nhân sự.",
+    "situation": "s + be said/expected + to v — bị động với động từ tường thuật.",
+    "alt": "Advanced Passive - S + be said/expected + to V — bị động với động từ tường thuật: The company is expected to announce job cuts."
+  },
+  {
+    "topic": "advanced-passive",
+    "cardIndex": 3,
+    "sentence": "He is said to have left the country.",
+    "vi": "Nghe nói anh ta đã rời khỏi đất nước.",
+    "situation": "bị động với to have v3 — thuật lại việc đã xảy ra.",
+    "alt": "Advanced Passive - Bị động với to have V3 — thuật lại việc đã xảy ra: He is said to have left the country."
+  },
+  {
+    "topic": "advanced-passive",
+    "cardIndex": 4,
+    "sentence": "She was given a second chance.",
+    "vi": "Cô ấy được trao cho cơ hội thứ hai.",
+    "situation": "bị động với động từ hai tân ngữ (give, offer, send).",
+    "alt": "Advanced Passive - Bị động với động từ hai tân ngữ (give, offer, send): She was given a second chance."
+  },
+  {
+    "topic": "advanced-relative-clauses",
+    "cardIndex": 1,
+    "sentence": "The person to whom I spoke was very helpful.",
+    "vi": "Người mà tôi đã trao đổi rất nhiệt tình.",
+    "situation": "giới từ + whom/which trong văn phong trang trọng.",
+    "alt": "Advanced Relative Clauses - Giới từ + whom/which trong văn phong trang trọng: The person to whom I spoke was very helpful."
+  },
+  {
+    "topic": "advanced-relative-clauses",
+    "cardIndex": 2,
+    "sentence": "She has three sons, all of whom are doctors.",
+    "vi": "Bà ấy có ba người con trai, tất cả đều là bác sĩ.",
+    "situation": "lượng từ + of whom/which (all, some, most...).",
+    "alt": "Advanced Relative Clauses - Lượng từ + of whom/which (all, some, most...): She has three sons, all of whom are doctors."
+  },
+  {
+    "topic": "advanced-relative-clauses",
+    "cardIndex": 3,
+    "sentence": "The meeting was cancelled, which surprised us.",
+    "vi": "Cuộc họp bị hủy, điều đó khiến chúng tôi ngạc nhiên.",
+    "situation": "which bổ nghĩa cho cả mệnh đề đứng trước.",
+    "alt": "Advanced Relative Clauses - WHICH bổ nghĩa cho cả mệnh đề đứng trước: The meeting was cancelled, which surprised us."
+  },
+  {
+    "topic": "advanced-relative-clauses",
+    "cardIndex": 4,
+    "sentence": "The man standing by the door is my uncle.",
+    "vi": "Người đàn ông đứng cạnh cửa là chú tôi.",
+    "situation": "rút gọn mệnh đề quan hệ bằng phân từ.",
+    "alt": "Advanced Relative Clauses - Rút gọn mệnh đề quan hệ bằng phân từ: The man standing by the door is my uncle."
+  },
+  {
+    "topic": "participle-clauses",
+    "cardIndex": 1,
+    "sentence": "Walking home, I saw an accident.",
+    "vi": "Trên đường đi bộ về nhà, tôi thấy một vụ tai nạn.",
+    "situation": "v-ing thay mệnh đề chủ động cùng chủ ngữ.",
+    "alt": "Participle Clauses - V-ing thay mệnh đề chủ động cùng chủ ngữ: Walking home, I saw an accident."
+  },
+  {
+    "topic": "participle-clauses",
+    "cardIndex": 2,
+    "sentence": "Built in 1890, the house needs major repairs.",
+    "vi": "Được xây từ năm 1890, ngôi nhà cần sửa chữa lớn.",
+    "situation": "v3 thay mệnh đề bị động.",
+    "alt": "Participle Clauses - V3 thay mệnh đề bị động: Built in 1890, the house needs major repairs."
+  },
+  {
+    "topic": "participle-clauses",
+    "cardIndex": 3,
+    "sentence": "Having finished the report, she went home.",
+    "vi": "Sau khi hoàn thành báo cáo, cô ấy về nhà.",
+    "situation": "having + v3 — hành động xảy ra trước hành động chính.",
+    "alt": "Participle Clauses - HAVING + V3 — hành động xảy ra trước hành động chính: Having finished the report, she went home."
+  },
+  {
+    "topic": "participle-clauses",
+    "cardIndex": 4,
+    "sentence": "Not knowing the answer, I stayed silent.",
+    "vi": "Vì không biết câu trả lời, tôi im lặng.",
+    "situation": "not + phân từ — dạng phủ định.",
+    "alt": "Participle Clauses - NOT + phân từ — dạng phủ định: Not knowing the answer, I stayed silent."
+  },
+  {
+    "topic": "ellipsis-substitution",
+    "cardIndex": 1,
+    "sentence": "I can play chess, and Lan can too.",
+    "vi": "Tôi biết chơi cờ, và Lan cũng biết.",
+    "situation": "lược động từ sau trợ động từ (too, so, neither).",
+    "alt": "Ellipsis & Substitution - Lược động từ sau trợ động từ (too, so, neither): I can play chess, and Lan can too."
+  },
+  {
+    "topic": "ellipsis-substitution",
+    "cardIndex": 2,
+    "sentence": "I need a pen. Do you have one?",
+    "vi": "Tôi cần một cây bút. Bạn có cây nào không?",
+    "situation": "one / ones thay thế danh từ đã nhắc.",
+    "alt": "Ellipsis & Substitution - ONE / ONES thay thế danh từ đã nhắc: I need a pen. Do you have one?"
+  },
+  {
+    "topic": "ellipsis-substitution",
+    "cardIndex": 3,
+    "sentence": "Will it rain? — I think so.",
+    "vi": "Trời sẽ mưa à? — Tôi nghĩ vậy.",
+    "situation": "so / not thay cả mệnh đề sau think, hope, believe.",
+    "alt": "Ellipsis & Substitution - SO / NOT thay cả mệnh đề sau think, hope, believe: Will it rain? — I think so."
+  },
+  {
+    "topic": "ellipsis-substitution",
+    "cardIndex": 4,
+    "sentence": "Some chose tea; others, coffee.",
+    "vi": "Một số người chọn trà; số khác chọn cà phê.",
+    "situation": "lược động từ lặp trong cấu trúc song song.",
+    "alt": "Ellipsis & Substitution - Lược động từ lặp trong cấu trúc song song: Some chose tea; others, coffee."
+  },
+  {
+    "topic": "subjunctive",
+    "cardIndex": 1,
+    "sentence": "The doctor suggested that he rest for a week.",
+    "vi": "Bác sĩ đề nghị anh ấy nghỉ ngơi một tuần.",
+    "situation": "sau động từ yêu cầu/đề nghị (suggest, insist, demand) + that + v nguyên thể.",
+    "alt": "Subjunctive - Sau động từ yêu cầu/đề nghị (suggest, insist, demand) + that + V nguyên thể: The doctor suggested that he rest for a week."
+  },
+  {
+    "topic": "subjunctive",
+    "cardIndex": 2,
+    "sentence": "It is essential that every member be present.",
+    "vi": "Điều thiết yếu là mọi thành viên đều phải có mặt.",
+    "situation": "sau tính từ quan trọng/cần thiết (essential, important) + that.",
+    "alt": "Subjunctive - Sau tính từ quan trọng/cần thiết (essential, important) + that: It is essential that every member be present."
+  },
+  {
+    "topic": "subjunctive",
+    "cardIndex": 3,
+    "sentence": "They insisted that she apologize immediately.",
+    "vi": "Họ nhất quyết yêu cầu cô ấy xin lỗi ngay lập tức.",
+    "situation": "v nguyên thể giữ nguyên với mọi chủ ngữ, kể cả ngôi ba số ít.",
+    "alt": "Subjunctive - V nguyên thể giữ nguyên với mọi chủ ngữ, kể cả ngôi ba số ít: They insisted that she apologize immediately."
+  },
+  {
+    "topic": "subjunctive",
+    "cardIndex": 4,
+    "sentence": "If I were you, I would wait.",
+    "vi": "Nếu tôi là bạn, tôi sẽ đợi.",
+    "situation": "were cho mọi ngôi trong giả định trái hiện thực.",
+    "alt": "Subjunctive - WERE cho mọi ngôi trong giả định trái hiện thực: If I were you, I would wait."
+  },
+  {
+    "topic": "emphasis-structures",
+    "cardIndex": 1,
+    "sentence": "I do understand your concern.",
+    "vi": "Tôi thật sự hiểu mối lo của bạn.",
+    "situation": "trợ động từ do/does nhấn mạnh động từ ở hiện tại.",
+    "alt": "Emphasis Structures - Trợ động từ DO/DOES nhấn mạnh động từ ở hiện tại: I do understand your concern."
+  },
+  {
+    "topic": "emphasis-structures",
+    "cardIndex": 2,
+    "sentence": "She did call you yesterday.",
+    "vi": "Cô ấy thật sự đã gọi cho bạn hôm qua mà.",
+    "situation": "did nhấn mạnh động từ ở quá khứ.",
+    "alt": "Emphasis Structures - DID nhấn mạnh động từ ở quá khứ: She did call you yesterday."
+  },
+  {
+    "topic": "emphasis-structures",
+    "cardIndex": 3,
+    "sentence": "The film was so moving that I cried.",
+    "vi": "Bộ phim cảm động đến mức tôi đã khóc.",
+    "situation": "so + tính từ/trạng từ + that — nhấn mạnh mức độ dẫn đến kết quả.",
+    "alt": "Emphasis Structures - SO + tính từ/trạng từ + that — nhấn mạnh mức độ dẫn đến kết quả: The film was so moving that I cried."
+  },
+  {
+    "topic": "emphasis-structures",
+    "cardIndex": 4,
+    "sentence": "It was such a difficult test that many students failed.",
+    "vi": "Bài kiểm tra khó đến nỗi nhiều học sinh trượt.",
+    "situation": "such + (a/an) + danh từ + that — nhấn mạnh cụm danh từ.",
+    "alt": "Emphasis Structures - SUCH + (a/an) + danh từ + that — nhấn mạnh cụm danh từ: It was such a difficult test that many students failed."
+  },
+  {
+    "topic": "cleft-sentences",
+    "cardIndex": 1,
+    "sentence": "It was Lan who solved the problem.",
+    "vi": "Chính Lan là người đã giải quyết vấn đề.",
+    "situation": "it was + chủ ngữ + who — nhấn mạnh người thực hiện.",
+    "alt": "Cleft Sentences - IT WAS + chủ ngữ + WHO — nhấn mạnh người thực hiện: It was Lan who solved the problem."
+  },
+  {
+    "topic": "cleft-sentences",
+    "cardIndex": 2,
+    "sentence": "It is patience that you need most.",
+    "vi": "Chính sự kiên nhẫn mới là thứ bạn cần nhất.",
+    "situation": "it is + tân ngữ + that — nhấn mạnh đối tượng.",
+    "alt": "Cleft Sentences - IT IS + tân ngữ + THAT — nhấn mạnh đối tượng: It is patience that you need most."
+  },
+  {
+    "topic": "cleft-sentences",
+    "cardIndex": 3,
+    "sentence": "What I want is a quiet weekend.",
+    "vi": "Điều tôi muốn là một cuối tuần yên tĩnh.",
+    "situation": "what + mệnh đề + is — nhấn mạnh bằng mệnh đề danh ngữ.",
+    "alt": "Cleft Sentences - WHAT + mệnh đề + IS — nhấn mạnh bằng mệnh đề danh ngữ: What I want is a quiet weekend."
+  },
+  {
+    "topic": "cleft-sentences",
+    "cardIndex": 4,
+    "sentence": "What surprised me was his honesty.",
+    "vi": "Điều làm tôi ngạc nhiên chính là sự trung thực của anh ấy.",
+    "situation": "what... was nhấn mạnh điều gây ấn tượng, cảm xúc.",
+    "alt": "Cleft Sentences - WHAT... WAS nhấn mạnh điều gây ấn tượng, cảm xúc: What surprised me was his honesty."
+  },
+  {
+    "topic": "inversion",
+    "cardIndex": 1,
+    "sentence": "Never have I seen such a beautiful view.",
+    "vi": "Chưa bao giờ tôi thấy cảnh đẹp đến vậy.",
+    "situation": "nhấn mạnh trang trọng khi mở đầu bằng trạng ngữ phủ định (never, rarely).",
+    "alt": "Inversion - Nhấn mạnh trang trọng khi mở đầu bằng trạng ngữ phủ định (Never, Rarely): Never have I seen such a beautiful view."
+  },
+  {
+    "topic": "inversion",
+    "cardIndex": 2,
+    "sentence": "Rarely does he complain about anything.",
+    "vi": "Hiếm khi nào anh ấy phàn nàn về điều gì.",
+    "situation": "đảo trợ động từ lên trước chủ ngữ như câu hỏi.",
+    "alt": "Inversion - Đảo trợ động từ lên trước chủ ngữ như câu hỏi: Rarely does he complain about anything."
+  },
+  {
+    "topic": "inversion",
+    "cardIndex": 3,
+    "sentence": "Only then did I understand the truth.",
+    "vi": "Chỉ đến lúc đó tôi mới hiểu ra sự thật.",
+    "situation": "đảo ngữ sau only then / only when / only after.",
+    "alt": "Inversion - Đảo ngữ sau Only then / Only when / Only after: Only then did I understand the truth."
+  },
+  {
+    "topic": "inversion",
+    "cardIndex": 4,
+    "sentence": "Not only did she apologize, but she also paid for the damage.",
+    "vi": "Cô ấy không những xin lỗi mà còn bồi thường thiệt hại.",
+    "situation": "not only... but also với đảo ngữ ở vế đầu.",
+    "alt": "Inversion - NOT ONLY... BUT ALSO với đảo ngữ ở vế đầu: Not only did she apologize, but she also paid for the damage."
+  },
+  {
+    "topic": "inversion",
+    "cardIndex": 5,
+    "sentence": "Hardly had I sat down when the phone rang.",
+    "vi": "Tôi vừa mới ngồi xuống thì điện thoại reo.",
+    "situation": "đảo ngữ với hardly... when / no sooner... than.",
+    "alt": "Inversion - Đảo ngữ với Hardly... when / No sooner... than: Hardly had I sat down when the phone rang."
+  },
+  {
+    "topic": "discourse-markers",
+    "cardIndex": 1,
+    "sentence": "First of all, we need a clear goal.",
+    "vi": "Trước hết, chúng ta cần một mục tiêu rõ ràng.",
+    "situation": "mở đầu, sắp xếp trình tự ý (first of all, next, finally).",
+    "alt": "Discourse Markers - Mở đầu, sắp xếp trình tự ý (first of all, next, finally): First of all, we need a clear goal."
+  },
+  {
+    "topic": "discourse-markers",
+    "cardIndex": 2,
+    "sentence": "However, the plan is too expensive.",
+    "vi": "Tuy nhiên, kế hoạch này quá tốn kém.",
+    "situation": "chuyển ý tương phản (however, on the other hand).",
+    "alt": "Discourse Markers - Chuyển ý tương phản (however, on the other hand): However, the plan is too expensive."
+  },
+  {
+    "topic": "discourse-markers",
+    "cardIndex": 3,
+    "sentence": "In other words, we need more time.",
+    "vi": "Nói cách khác, chúng ta cần thêm thời gian.",
+    "situation": "diễn đạt lại cho rõ (in other words, that is to say).",
+    "alt": "Discourse Markers - Diễn đạt lại cho rõ (in other words, that is to say): In other words, we need more time."
+  },
+  {
+    "topic": "discourse-markers",
+    "cardIndex": 4,
+    "sentence": "By the way, have you called Mai?",
+    "vi": "Nhân tiện, bạn đã gọi cho Mai chưa?",
+    "situation": "đổi chủ đề trong hội thoại (by the way, anyway).",
+    "alt": "Discourse Markers - Đổi chủ đề trong hội thoại (by the way, anyway): By the way, have you called Mai?"
+  },
+  {
+    "topic": "nominalisation",
+    "cardIndex": 1,
+    "sentence": "They decided to postpone. → Their decision to postpone...",
+    "vi": "Họ quyết định hoãn. → Quyết định hoãn của họ...",
+    "situation": "biến động từ thành danh từ để văn phong trang trọng hơn.",
+    "alt": "Nominalisation - Biến động từ thành danh từ để văn phong trang trọng hơn: They decided to postpone. → Their decision to postpone..."
+  },
+  {
+    "topic": "nominalisation",
+    "cardIndex": 2,
+    "sentence": "The committee's decision led to a long delay.",
+    "vi": "Quyết định của ủy ban dẫn đến sự trì hoãn kéo dài.",
+    "situation": "danh từ hóa để nối ý giữa hai câu mạch lạc.",
+    "alt": "Nominalisation - Danh từ hóa để nối ý giữa hai câu mạch lạc: The committee's decision led to a long delay."
+  },
+  {
+    "topic": "nominalisation",
+    "cardIndex": 3,
+    "sentence": "The rapid expansion of the city caused concern.",
+    "vi": "Sự mở rộng nhanh chóng của thành phố gây lo ngại.",
+    "situation": "biến tính từ, động từ thành danh từ trừu tượng (expand → expansion).",
+    "alt": "Nominalisation - Biến tính từ, động từ thành danh từ trừu tượng (expand → expansion): The rapid expansion of the city caused concern."
+  },
+  {
+    "topic": "nominalisation",
+    "cardIndex": 4,
+    "sentence": "There was a significant improvement in sales.",
+    "vi": "Đã có sự cải thiện đáng kể về doanh số.",
+    "situation": "cấu trúc there + be + danh từ hóa trong văn học thuật.",
+    "alt": "Nominalisation - Cấu trúc There + be + danh từ hóa trong văn học thuật: There was a significant improvement in sales."
+  },
+  {
+    "topic": "hedging-language",
+    "cardIndex": 1,
+    "sentence": "This may indicate a broader problem.",
+    "vi": "Điều này có thể cho thấy một vấn đề rộng hơn.",
+    "situation": "động từ khuyết thiếu giảm mức khẳng định (may, might, could).",
+    "alt": "Hedging Language - Động từ khuyết thiếu giảm mức khẳng định (may, might, could): This may indicate a broader problem."
+  },
+  {
+    "topic": "hedging-language",
+    "cardIndex": 2,
+    "sentence": "The results appear to support the theory.",
+    "vi": "Các kết quả dường như ủng hộ lý thuyết này.",
+    "situation": "động từ rào đón (appear, seem, suggest) thay khẳng định trực tiếp.",
+    "alt": "Hedging Language - Động từ rào đón (appear, seem, suggest) thay khẳng định trực tiếp: The results appear to support the theory."
+  },
+  {
+    "topic": "hedging-language",
+    "cardIndex": 3,
+    "sentence": "It is likely that prices will rise.",
+    "vi": "Nhiều khả năng giá cả sẽ tăng.",
+    "situation": "cấu trúc vô nhân xưng it is likely/possible that....",
+    "alt": "Hedging Language - Cấu trúc vô nhân xưng It is likely/possible that...: It is likely that prices will rise."
+  },
+  {
+    "topic": "hedging-language",
+    "cardIndex": 4,
+    "sentence": "Some participants tended to respond slowly.",
+    "vi": "Một số người tham gia có xu hướng phản hồi chậm.",
+    "situation": "trạng từ và động từ giảm nhẹ (tend to, generally, relatively).",
+    "alt": "Hedging Language - Trạng từ và động từ giảm nhẹ (tend to, generally, relatively): Some participants tended to respond slowly."
+  },
+  {
+    "topic": "grammatical-collocations",
+    "cardIndex": 1,
+    "sentence": "She is interested in graphic design.",
+    "vi": "Cô ấy quan tâm đến thiết kế đồ họa.",
+    "situation": "tính từ + giới từ cố định (interested in, good at).",
+    "alt": "Grammatical Collocations - Tính từ + giới từ cố định (interested in, good at): She is interested in graphic design."
+  },
+  {
+    "topic": "grammatical-collocations",
+    "cardIndex": 2,
+    "sentence": "We depend on public transport.",
+    "vi": "Chúng tôi phụ thuộc vào phương tiện công cộng.",
+    "situation": "động từ + giới từ cố định (depend on, belong to).",
+    "alt": "Grammatical Collocations - Động từ + giới từ cố định (depend on, belong to): We depend on public transport."
+  },
+  {
+    "topic": "grammatical-collocations",
+    "cardIndex": 3,
+    "sentence": "He apologized for being late.",
+    "vi": "Anh ấy xin lỗi vì đã đến muộn.",
+    "situation": "động từ + giới từ + v-ing (apologize for, insist on).",
+    "alt": "Grammatical Collocations - Động từ + giới từ + V-ing (apologize for, insist on): He apologized for being late."
+  },
+  {
+    "topic": "grammatical-collocations",
+    "cardIndex": 4,
+    "sentence": "There has been an increase in demand.",
+    "vi": "Nhu cầu đã có sự gia tăng.",
+    "situation": "danh từ + giới từ cố định (increase in, reason for).",
+    "alt": "Grammatical Collocations - Danh từ + giới từ cố định (increase in, reason for): There has been an increase in demand."
+  }
+]

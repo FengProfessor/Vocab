@@ -2,6 +2,7 @@ import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { getAuthUser, unauthorized, safeErrorResponse, getAdminEmails } from '@/lib/api-security';
+import type { MultiSkillStats } from '@/lib/activity/universal-activity';
 
 export const dynamic = 'force-dynamic';
 
@@ -40,6 +41,21 @@ type RpcCustomerStats = {
   due_count: number;
   quiz_count: number;
   last_quiz_at: string | null;
+  grammar_count?: number;
+  last_grammar_at?: string | null;
+  reading_count?: number;
+  last_reading_at?: string | null;
+  toeic_count?: number;
+  toeic_correct_count?: number;
+  last_toeic_at?: string | null;
+  assessment_count?: number;
+  last_assessment_at?: string | null;
+  vocab_pack_count?: number;
+  last_vocab_pack_at?: string | null;
+  current_streak?: number;
+  last_streak_at?: string | null;
+  true_last_active?: string | null;
+  true_last_active_at?: string | null;
 };
 
 export type CrmSource = 'group_owner' | 'group_member' | 'classroom' | 'teacher' | 'direct';
@@ -58,7 +74,8 @@ export interface CrmCustomer {
   source: CrmSource;
   lifecycle: CrmLifecycle;
   lastActive: string | null;
-  wordCount: number;       // từ đã lưu (__personal__)
+  trueLastActive?: string | null;
+  wordCount: number;       // từ đã lưu (added_by hoặc cá nhân)
   learnedCount: number;    // từ đã ôn (srs review_count >= 1)
   reviewTotal: number;     // tổng lượt ôn
   lapsesTotal: number;     // tổng lần quên (Again)
@@ -67,6 +84,23 @@ export interface CrmCustomer {
   quizCount: number;
   totalPaid: number;
   groupId: string | null;
+  // Multi-skill telemetry
+  grammarCount?: number;
+  lastGrammarAt?: string | null;
+  readingCount?: number;
+  lastReadingAt?: string | null;
+  toeicCount?: number;
+  toeicCorrectCount?: number;
+  lastToeicAt?: string | null;
+  toeicAccuracy?: number;
+  assessmentCount?: number;
+  lastAssessmentAt?: string | null;
+  vocabPackCount?: number;
+  lastVocabPackAt?: string | null;
+  currentStreak?: number;
+  lastStreakAt?: string | null;
+  lastStreakDate?: string | null;
+  multiSkill?: MultiSkillStats;
 }
 
 export interface CrmResponseData {
@@ -178,6 +212,7 @@ function buildCrmPayload(params: {
   enrollRows: EnrollRow[];
   statsMap?: Map<string, RpcCustomerStats>;
   wordCountByUser?: Map<string, number>;
+  lastWordByUser?: Map<string, string>;
   lastActiveByUser?: Map<string, number>;
   learnedByUser?: Map<string, number>;
   reviewTotalByUser?: Map<string, number>;
@@ -185,14 +220,31 @@ function buildCrmPayload(params: {
   lastReviewedByUser?: Map<string, number>;
   dueCountByUser?: Map<string, number>;
   quizCountByUser?: Map<string, number>;
+  grammarCountByUser?: Map<string, number>;
+  lastGrammarByUser?: Map<string, string>;
+  readingCountByUser?: Map<string, number>;
+  lastReadingByUser?: Map<string, string>;
+  toeicCountByUser?: Map<string, number>;
+  toeicCorrectByUser?: Map<string, number>;
+  lastToeicByUser?: Map<string, string>;
+  assessmentCountByUser?: Map<string, number>;
+  lastAssessmentByUser?: Map<string, string>;
+  vocabPackCountByUser?: Map<string, number>;
+  lastVocabPackByUser?: Map<string, string>;
+  streakByUser?: Map<string, number>;
+  lastStreakByUser?: Map<string, string>;
   engine: 'rpc' | 'rest_parallel';
   tookMs: number;
 }): CrmResponseData {
   const {
     profileRows, orderRows, groupRows, memberRows, enrollRows,
-    statsMap, wordCountByUser, lastActiveByUser, learnedByUser,
+    statsMap, wordCountByUser, lastWordByUser, lastActiveByUser, learnedByUser,
     reviewTotalByUser, lapsesByUser, lastReviewedByUser, dueCountByUser,
-    quizCountByUser, engine, tookMs,
+    quizCountByUser, grammarCountByUser, lastGrammarByUser,
+    readingCountByUser, lastReadingByUser, toeicCountByUser, toeicCorrectByUser,
+    lastToeicByUser, assessmentCountByUser, lastAssessmentByUser,
+    vocabPackCountByUser, lastVocabPackByUser, streakByUser, lastStreakByUser,
+    engine, tookMs,
   } = params;
 
   // Group role + revenue
@@ -236,24 +288,78 @@ function buildCrmPayload(params: {
     let quizCount = 0;
     let lastActiveTs = 0;
 
+    let grammarCount = 0;
+    let lastGrammarAt: string | null = null;
+    let readingCount = 0;
+    let lastReadingAt: string | null = null;
+    let toeicCount = 0;
+    let toeicCorrectCount = 0;
+    let lastToeicAt: string | null = null;
+    let toeicAccuracy = 0;
+    let assessmentCount = 0;
+    let lastAssessmentAt: string | null = null;
+    let vocabPackCount = 0;
+    let lastVocabPackAt: string | null = null;
+    let currentStreak = 0;
+    let lastStreakAt: string | null = null;
+    let lastStreakDate: string | null = null;
+    let lastWordAt: string | null = null;
+
     if (statsMap) {
       const s = statsMap.get(p.id);
       if (s) {
         wordCount = Number(s.word_count || 0);
+        lastWordAt = s.last_word_at ?? null;
         learnedCount = Number(s.learned_count || 0);
         reviewTotal = Number(s.review_total || 0);
         lapsesTotal = Number(s.lapses_total || 0);
-        lastReviewedAt = s.last_reviewed_at;
+        lastReviewedAt = s.last_reviewed_at ?? null;
         dueCount = Number(s.due_count || 0);
         quizCount = Number(s.quiz_count || 0);
+
+        grammarCount = Number(s.grammar_count || 0);
+        lastGrammarAt = s.last_grammar_at ?? null;
+
+        readingCount = Number(s.reading_count || 0);
+        lastReadingAt = s.last_reading_at ?? null;
+
+        toeicCount = Number(s.toeic_count || 0);
+        toeicCorrectCount = Number(s.toeic_correct_count || 0);
+        lastToeicAt = s.last_toeic_at ?? null;
+        toeicAccuracy = toeicCount > 0 ? Math.round((toeicCorrectCount / toeicCount) * 100) : 0;
+
+        assessmentCount = Number(s.assessment_count || 0);
+        lastAssessmentAt = s.last_assessment_at ?? null;
+
+        vocabPackCount = Number(s.vocab_pack_count || 0);
+        lastVocabPackAt = s.last_vocab_pack_at ?? null;
+
+        currentStreak = Number(s.current_streak || 0);
+        lastStreakAt = s.last_streak_at ?? null;
+        lastStreakDate = s.last_streak_at ? s.last_streak_at.slice(0, 10) : null;
 
         const tsWord = s.last_word_at ? new Date(s.last_word_at).getTime() : 0;
         const tsQuiz = s.last_quiz_at ? new Date(s.last_quiz_at).getTime() : 0;
         const tsReview = s.last_reviewed_at ? new Date(s.last_reviewed_at).getTime() : 0;
-        lastActiveTs = Math.max(tsWord, tsQuiz, tsReview);
+        const tsGrammar = s.last_grammar_at ? new Date(s.last_grammar_at).getTime() : 0;
+        const tsReading = s.last_reading_at ? new Date(s.last_reading_at).getTime() : 0;
+        const tsToeic = s.last_toeic_at ? new Date(s.last_toeic_at).getTime() : 0;
+        const tsAssessment = s.last_assessment_at ? new Date(s.last_assessment_at).getTime() : 0;
+        const tsVocabPack = s.last_vocab_pack_at ? new Date(s.last_vocab_pack_at).getTime() : 0;
+        const tsStreak = s.last_streak_at ? new Date(s.last_streak_at).getTime() : 0;
+
+        const trueActiveIso = s.true_last_active_at || s.true_last_active;
+        const tsTrue = trueActiveIso ? new Date(trueActiveIso).getTime() : 0;
+
+        lastActiveTs = Math.max(
+          tsTrue, tsWord, tsQuiz, tsReview, tsGrammar,
+          tsReading, tsToeic, tsAssessment, tsVocabPack, tsStreak
+        );
+        if (!Number.isFinite(lastActiveTs)) lastActiveTs = 0;
       }
     } else {
       wordCount = wordCountByUser?.get(p.id) ?? 0;
+      lastWordAt = lastWordByUser?.get(p.id) ?? null;
       learnedCount = learnedByUser?.get(p.id) ?? 0;
       reviewTotal = reviewTotalByUser?.get(p.id) ?? 0;
       lapsesTotal = lapsesByUser?.get(p.id) ?? 0;
@@ -262,16 +368,72 @@ function buildCrmPayload(params: {
         : null;
       dueCount = dueCountByUser?.get(p.id) ?? 0;
       quizCount = quizCountByUser?.get(p.id) ?? 0;
+
+      grammarCount = grammarCountByUser?.get(p.id) ?? 0;
+      lastGrammarAt = lastGrammarByUser?.get(p.id) ?? null;
+
+      readingCount = readingCountByUser?.get(p.id) ?? 0;
+      lastReadingAt = lastReadingByUser?.get(p.id) ?? null;
+
+      toeicCount = toeicCountByUser?.get(p.id) ?? 0;
+      toeicCorrectCount = toeicCorrectByUser?.get(p.id) ?? 0;
+      lastToeicAt = lastToeicByUser?.get(p.id) ?? null;
+      toeicAccuracy = toeicCount > 0 ? Math.round((toeicCorrectCount / toeicCount) * 100) : 0;
+
+      assessmentCount = assessmentCountByUser?.get(p.id) ?? 0;
+      lastAssessmentAt = lastAssessmentByUser?.get(p.id) ?? null;
+
+      vocabPackCount = vocabPackCountByUser?.get(p.id) ?? 0;
+      lastVocabPackAt = lastVocabPackByUser?.get(p.id) ?? null;
+
+      currentStreak = streakByUser?.get(p.id) ?? 0;
+      lastStreakDate = lastStreakByUser?.get(p.id) ?? null;
+      lastStreakAt = lastStreakDate ? `${lastStreakDate}T00:00:00.000Z` : null;
+
       lastActiveTs = lastActiveByUser?.get(p.id) ?? 0;
+      if (!Number.isFinite(lastActiveTs)) lastActiveTs = 0;
     }
 
     const created = new Date(p.created_at).getTime();
-    const daysSinceActive = lastActiveTs ? (now - lastActiveTs) / DAY : Infinity;
+    const daysSinceActive = lastActiveTs > 0 ? (now - lastActiveTs) / DAY : Infinity;
     let lifecycle: CrmLifecycle;
     if (now - created <= 7 * DAY) lifecycle = 'new';
     else if (daysSinceActive <= 7) lifecycle = 'active';
     else if (daysSinceActive <= 30) lifecycle = 'at_risk';
     else lifecycle = 'churned';
+
+    const trueLastActive = lastActiveTs > 0 ? new Date(lastActiveTs).toISOString() : null;
+
+    const multiSkill: MultiSkillStats = {
+      vocab: {
+        wordsSaved: wordCount,
+        cardsLearned: learnedCount,
+        reviewsTotal: reviewTotal,
+        lapsesTotal: lapsesTotal,
+        dueCount,
+        lastActive: lastReviewedAt || lastWordAt || null,
+      },
+      grammar: {
+        lessonsCompleted: grammarCount,
+        microLessonsPassed: grammarCount,
+        lastActive: lastGrammarAt,
+      },
+      reading: {
+        articlesRead: readingCount,
+        lastActive: lastReadingAt,
+      },
+      toeic: {
+        questionsAnswered: toeicCount,
+        accuracyPercent: toeicAccuracy,
+        lastActive: lastToeicAt,
+      },
+      gamification: {
+        streakDays: currentStreak,
+        lastActiveDate: lastStreakDate,
+      },
+      trueLastActive,
+      lifecycle,
+    };
 
     return {
       id: p.id,
@@ -285,7 +447,8 @@ function buildCrmPayload(params: {
       paying: effectivePlan !== 'free',
       source,
       lifecycle,
-      lastActive: lastActiveTs ? new Date(lastActiveTs).toISOString() : null,
+      lastActive: trueLastActive,
+      trueLastActive,
       wordCount,
       learnedCount,
       reviewTotal,
@@ -295,6 +458,22 @@ function buildCrmPayload(params: {
       quizCount,
       totalPaid: paidByUser.get(p.id) ?? 0,
       groupId: groupOwners.get(p.id) ?? groupMember.get(p.id) ?? null,
+      grammarCount,
+      lastGrammarAt,
+      readingCount,
+      lastReadingAt,
+      toeicCount,
+      toeicCorrectCount,
+      lastToeicAt,
+      toeicAccuracy,
+      assessmentCount,
+      lastAssessmentAt,
+      vocabPackCount,
+      lastVocabPackAt,
+      currentStreak,
+      lastStreakAt,
+      lastStreakDate,
+      multiSkill,
     };
   });
 
@@ -324,7 +503,9 @@ function buildCrmPayload(params: {
   }
 
   const weekAgo = now - 7 * DAY;
-  const learners = customers.filter(c => c.learnedCount > 0).length;
+  const learners = customers.filter(
+    c => c.learnedCount > 0 || (c.grammarCount ?? 0) > 0 || (c.readingCount ?? 0) > 0 || (c.toeicCount ?? 0) > 0 || c.quizCount > 0
+  ).length;
   const freeHot150 = customers.filter(c => c.plan === 'free' && c.wordCount >= 150).length;
   const freeHot200 = customers.filter(c => c.plan === 'free' && c.wordCount >= 200).length;
 
@@ -420,14 +601,31 @@ async function fetchFreshCrmData(supabase: ServiceClient): Promise<CrmResponseDa
   }
 
   // 2. Engine B: Fallback REST (chỉ chạy khi RPC không khả dụng)
+  // Truy vấn song song tất cả các bảng hoạt động qua Promise.all (GEMINI.md)
   const [
     classroomRows,
     quizRows,
     srsRows,
+    grammarRows,
+    grammarMicroRows,
+    readingRows,
+    toeicRows,
+    assessmentRows,
+    vocabPackRows,
+    gamificationRows,
+    wordRows,
   ] = await Promise.all([
-    fetchDirectOrPages<ClassroomRow>(supabase, 'classrooms', 'id, teacher_id', { col: 'id', asc: true }, (q) => q.eq('name', '__personal__')),
-    fetchDirectOrPages<QuizRow>(supabase, 'quiz_results', 'user_id, completed_at', { col: 'user_id', asc: true }),
-    fetchDirectOrPages<SrsRow>(supabase, 'srs_progress', 'user_id, review_count, lapses, last_reviewed_at, next_review_date', { col: 'user_id', asc: true }),
+    fetchDirectOrPages<ClassroomRow>(supabase, 'classrooms', 'id, teacher_id', { col: 'id', asc: true }, (q) => q.eq('name', '__personal__')).catch(() => []),
+    fetchDirectOrPages<QuizRow>(supabase, 'quiz_results', 'user_id, completed_at', { col: 'user_id', asc: true }).catch(() => []),
+    fetchDirectOrPages<SrsRow>(supabase, 'srs_progress', 'user_id, review_count, lapses, last_reviewed_at, next_review_date', { col: 'user_id', asc: true }).catch(() => []),
+    fetchDirectOrPages<{ user_id: string; last_reviewed_at: string | null }>(supabase, 'grammar_progress', 'user_id, last_reviewed_at', { col: 'user_id', asc: true }, (q) => q.not('last_reviewed_at', 'is', null)).catch(() => []),
+    fetchDirectOrPages<{ user_id: string; updated_at: string | null }>(supabase, 'grammar_micro_progress', 'user_id, updated_at', { col: 'user_id', asc: true }, (q) => q.not('updated_at', 'is', null)).catch(() => []),
+    fetchDirectOrPages<{ user_id: string; completed_at: string | null }>(supabase, 'daily_reading_completions', 'user_id, completed_at', { col: 'user_id', asc: true }, (q) => q.not('completed_at', 'is', null)).catch(() => []),
+    fetchDirectOrPages<{ user_id: string; last_answered_at: string | null; is_correct?: boolean }>(supabase, 'user_toeic_question_history', 'user_id, last_answered_at, is_correct', { col: 'user_id', asc: true }).catch(() => []),
+    fetchDirectOrPages<{ user_id: string; created_at: string | null }>(supabase, 'user_roadmap_assessments', 'user_id, created_at', { col: 'user_id', asc: true }).catch(() => []),
+    fetchDirectOrPages<{ user_id: string; last_studied_at: string | null }>(supabase, 'user_vocab_packs', 'user_id, last_studied_at', { col: 'user_id', asc: true }, (q) => q.not('last_studied_at', 'is', null)).catch(() => []),
+    fetchDirectOrPages<{ user_id: string; current_streak?: number; last_active_date: string | null }>(supabase, 'user_gamification', 'user_id, current_streak, last_active_date', { col: 'user_id', asc: true }, (q) => q.not('last_active_date', 'is', null)).catch(() => []),
+    fetchDirectOrPages<{ id: string; added_by: string | null; classroom_id: string | null; created_at: string }>(supabase, 'words', 'id, added_by, classroom_id, created_at', { col: 'id', asc: true }).catch(() => []),
   ]);
 
   const classroomOwner = new Map<string, string>();
@@ -435,27 +633,8 @@ async function fetchFreshCrmData(supabase: ServiceClient): Promise<CrmResponseDa
     classroomOwner.set(c.id, c.teacher_id);
   }
 
-  // Query words theo chunk 80 lớp với fetchAllPages nhẹ (không gọi HEAD count thừa)
-  const classroomIds = classroomRows.map(c => c.id);
-  const CHUNK_SIZE = 80;
-  const wordChunkPromises: Promise<WordRow[]>[] = [];
-  for (let i = 0; i < classroomIds.length; i += CHUNK_SIZE) {
-    const chunk = classroomIds.slice(i, i + CHUNK_SIZE);
-    wordChunkPromises.push(
-      fetchAllPages<WordRow>((from, to) =>
-        supabase
-          .from('words')
-          .select('classroom_id, created_at')
-          .in('classroom_id', chunk)
-          .order('classroom_id')
-          .range(from, to) as PromiseLike<{ data: WordRow[] | null; error: { message: string } | null }>,
-      ),
-    );
-  }
-  const wordChunkResults = await Promise.all(wordChunkPromises);
-  const wordRows = wordChunkResults.flat();
-
   const wordCountByUser = new Map<string, number>();
+  const lastWordByUser = new Map<string, string>();
   const lastActiveByUser = new Map<string, number>();
   const bumpActive = (uid: string, ts: string | null | undefined) => {
     if (!ts) return;
@@ -465,10 +644,16 @@ async function fetchFreshCrmData(supabase: ServiceClient): Promise<CrmResponseDa
   };
 
   for (const w of wordRows) {
-    const uid = classroomOwner.get(w.classroom_id);
+    const uid = w.added_by || (w.classroom_id ? classroomOwner.get(w.classroom_id) : null);
     if (!uid) continue;
     wordCountByUser.set(uid, (wordCountByUser.get(uid) ?? 0) + 1);
     bumpActive(uid, w.created_at);
+    if (w.created_at) {
+      const cur = lastWordByUser.get(uid);
+      if (!cur || new Date(w.created_at).getTime() > new Date(cur).getTime()) {
+        lastWordByUser.set(uid, w.created_at);
+      }
+    }
   }
 
   const quizCountByUser = new Map<string, number>();
@@ -506,6 +691,103 @@ async function fetchFreshCrmData(supabase: ServiceClient): Promise<CrmResponseDa
     bumpActive(uid, s.last_reviewed_at);
   }
 
+  // Grammar (Master + Micro)
+  const grammarCountByUser = new Map<string, number>();
+  const lastGrammarByUser = new Map<string, string>();
+  for (const g of grammarRows) {
+    grammarCountByUser.set(g.user_id, (grammarCountByUser.get(g.user_id) ?? 0) + 1);
+    if (g.last_reviewed_at) {
+      bumpActive(g.user_id, g.last_reviewed_at);
+      const cur = lastGrammarByUser.get(g.user_id);
+      if (!cur || new Date(g.last_reviewed_at).getTime() > new Date(cur).getTime()) {
+        lastGrammarByUser.set(g.user_id, g.last_reviewed_at);
+      }
+    }
+  }
+  for (const gm of grammarMicroRows) {
+    grammarCountByUser.set(gm.user_id, (grammarCountByUser.get(gm.user_id) ?? 0) + 1);
+    if (gm.updated_at) {
+      bumpActive(gm.user_id, gm.updated_at);
+      const cur = lastGrammarByUser.get(gm.user_id);
+      if (!cur || new Date(gm.updated_at).getTime() > new Date(cur).getTime()) {
+        lastGrammarByUser.set(gm.user_id, gm.updated_at);
+      }
+    }
+  }
+
+  // Daily Reading
+  const readingCountByUser = new Map<string, number>();
+  const lastReadingByUser = new Map<string, string>();
+  for (const r of readingRows) {
+    readingCountByUser.set(r.user_id, (readingCountByUser.get(r.user_id) ?? 0) + 1);
+    if (r.completed_at) {
+      bumpActive(r.user_id, r.completed_at);
+      const cur = lastReadingByUser.get(r.user_id);
+      if (!cur || new Date(r.completed_at).getTime() > new Date(cur).getTime()) {
+        lastReadingByUser.set(r.user_id, r.completed_at);
+      }
+    }
+  }
+
+  // TOEIC
+  const toeicCountByUser = new Map<string, number>();
+  const toeicCorrectByUser = new Map<string, number>();
+  const lastToeicByUser = new Map<string, string>();
+  for (const t of toeicRows) {
+    toeicCountByUser.set(t.user_id, (toeicCountByUser.get(t.user_id) ?? 0) + 1);
+    if (t.is_correct) {
+      toeicCorrectByUser.set(t.user_id, (toeicCorrectByUser.get(t.user_id) ?? 0) + 1);
+    }
+    if (t.last_answered_at) {
+      bumpActive(t.user_id, t.last_answered_at);
+      const cur = lastToeicByUser.get(t.user_id);
+      if (!cur || new Date(t.last_answered_at).getTime() > new Date(cur).getTime()) {
+        lastToeicByUser.set(t.user_id, t.last_answered_at);
+      }
+    }
+  }
+
+  // Assessments
+  const assessmentCountByUser = new Map<string, number>();
+  const lastAssessmentByUser = new Map<string, string>();
+  for (const a of assessmentRows) {
+    assessmentCountByUser.set(a.user_id, (assessmentCountByUser.get(a.user_id) ?? 0) + 1);
+    if (a.created_at) {
+      bumpActive(a.user_id, a.created_at);
+      const cur = lastAssessmentByUser.get(a.user_id);
+      if (!cur || new Date(a.created_at).getTime() > new Date(cur).getTime()) {
+        lastAssessmentByUser.set(a.user_id, a.created_at);
+      }
+    }
+  }
+
+  // Vocab Packs
+  const vocabPackCountByUser = new Map<string, number>();
+  const lastVocabPackByUser = new Map<string, string>();
+  for (const vp of vocabPackRows) {
+    vocabPackCountByUser.set(vp.user_id, (vocabPackCountByUser.get(vp.user_id) ?? 0) + 1);
+    if (vp.last_studied_at) {
+      bumpActive(vp.user_id, vp.last_studied_at);
+      const cur = lastVocabPackByUser.get(vp.user_id);
+      if (!cur || new Date(vp.last_studied_at).getTime() > new Date(cur).getTime()) {
+        lastVocabPackByUser.set(vp.user_id, vp.last_studied_at);
+      }
+    }
+  }
+
+  // Gamification
+  const streakByUser = new Map<string, number>();
+  const lastStreakByUser = new Map<string, string>();
+  for (const gm of gamificationRows) {
+    if (typeof gm.current_streak === 'number') {
+      streakByUser.set(gm.user_id, gm.current_streak);
+    }
+    if (gm.last_active_date) {
+      lastStreakByUser.set(gm.user_id, gm.last_active_date);
+      bumpActive(gm.user_id, `${gm.last_active_date}T00:00:00.000Z`);
+    }
+  }
+
   return buildCrmPayload({
     profileRows,
     orderRows,
@@ -513,6 +795,7 @@ async function fetchFreshCrmData(supabase: ServiceClient): Promise<CrmResponseDa
     memberRows,
     enrollRows,
     wordCountByUser,
+    lastWordByUser,
     lastActiveByUser,
     learnedByUser,
     reviewTotalByUser,
@@ -520,6 +803,19 @@ async function fetchFreshCrmData(supabase: ServiceClient): Promise<CrmResponseDa
     lastReviewedByUser,
     dueCountByUser,
     quizCountByUser,
+    grammarCountByUser,
+    lastGrammarByUser,
+    readingCountByUser,
+    lastReadingByUser,
+    toeicCountByUser,
+    toeicCorrectByUser,
+    lastToeicByUser,
+    assessmentCountByUser,
+    lastAssessmentByUser,
+    vocabPackCountByUser,
+    lastVocabPackByUser,
+    streakByUser,
+    lastStreakByUser,
     engine: 'rest_parallel',
     tookMs: Date.now() - t0,
   });

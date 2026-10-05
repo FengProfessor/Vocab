@@ -3,7 +3,12 @@ import { createServiceClient } from '@/lib/supabase-server';
 import { confirmOrder } from '@/lib/billing';
 import { safeErrorResponse } from '@/lib/api-security';
 import crypto from 'crypto';
-import { isBillingWebhookAuthorized } from '@/lib/billing-webhook-auth';
+import {
+  isBillingWebhookAuthorized,
+  verifyPayOSSignature,
+  computeWebhookEventKey,
+  verifyTransactionAmountMatch,
+} from '@/lib/billing-webhook-auth';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -49,30 +54,6 @@ export async function GET(): Promise<NextResponse> {
       'Cache-Control': 'no-store',
     },
   });
-}
-
-function verifyPayOSSignature(data: Record<string, unknown>, signature: string, checksumKey: string): boolean {
-  try {
-    const sortedKeys = Object.keys(data).sort();
-    const queryString = sortedKeys
-      .map((key) => {
-        let val = data[key];
-        if (val === null || val === undefined) val = '';
-        return `${key}=${val}`;
-      })
-      .join('&');
-
-    const calculatedSignature = crypto
-      .createHmac('sha256', checksumKey)
-      .update(queryString)
-      .digest('hex');
-
-    if (typeof signature !== 'string' || !/^[a-fA-F0-9]{64}$/.test(signature)) return false;
-    return crypto.timingSafeEqual(Buffer.from(calculatedSignature, 'hex'), Buffer.from(signature, 'hex'));
-  } catch (err) {
-    console.error('[Webhook] PayOS signature verification error:', err);
-    return false;
-  }
 }
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
@@ -188,9 +169,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       const prefix = match[1].toLowerCase();
       const paymentRef = tx.reference?.trim() || null;
       // Idempotency key: payment ref khi có; fallback hash description+amount+prefix.
-      const eventKey = paymentRef
-        ? `payref:${paymentRef}`
-        : `tx:${crypto.createHash('sha256').update(`${prefix}|${tx.amount}|${desc}`).digest('hex').slice(0, 32)}`;
+      const eventKey = computeWebhookEventKey(prefix, tx.amount, desc, paymentRef);
       const payloadHash = crypto
         .createHash('sha256')
         .update(JSON.stringify({ prefix, amount: tx.amount, reference: paymentRef, desc }))
@@ -269,7 +248,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       // Validate amount (coerce number — SePay đôi khi gửi string)
       const txAmount = Math.round(Number(tx.amount));
       const orderAmount = Math.round(Number(order.amount));
-      if (!Number.isFinite(txAmount) || orderAmount !== txAmount) {
+      if (!verifyTransactionAmountMatch(tx.amount, order.amount)) {
         console.warn(
           `[Webhook] Order amount mismatch for order ${order.id}. Expected: ${orderAmount}, Transferred: ${txAmount}`,
         );

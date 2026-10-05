@@ -15,6 +15,11 @@ interface GeneratedLesson {
   title: string;
   theory_vi: string;
   examples: GrammarExample[];
+  sections?: {
+    legoSlots?: { pattern: string; slots: Record<string, string[]> }[];
+    dialogues?: { speaker: string; en: string; vi?: string }[][];
+    safeHarbor?: { vi: string; en: string; hint?: string }[];
+  };
 }
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
@@ -60,11 +65,33 @@ Trả về JSON với cấu trúc sau (KHÔNG có markdown, chỉ JSON thuần):
       "vi": "Dịch tiếng Việt chính xác",
       "note": "Ghi chú ngữ pháp nếu cần (có thể để rỗng)"
     }
-  ]
+  ],
+  "sections": {
+    "legoSlots": [
+      {
+        "pattern": "Câu mẫu tiếng Anh chứa [SLOT]",
+        "slots": {
+          "[SLOT]": ["từ thay thế 1", "từ thay thế 2", "từ thay thế 3"]
+        }
+      }
+    ],
+    "dialogues": [
+      [
+        { "speaker": "A", "en": "Câu tiếng Anh", "vi": "Dịch tiếng Việt" },
+        { "speaker": "B", "en": "Câu tiếng Anh", "vi": "Dịch tiếng Việt" }
+      ]
+    ],
+    "safeHarbor": [
+      { "vi": "Câu tiếng Việt để luyện dịch", "en": "Câu tiếng Anh tương ứng", "hint": "Gợi ý ngữ pháp (tùy chọn)" }
+    ]
+  }
 }
 
 Yêu cầu:
-- Tạo đúng 5 examples, đa dạng cấu trúc câu (affirmative, negative, question, v.v.)
+- Tạo đúng 5 examples cho phần theory.
+- Tạo 2-3 legoSlots (phản xạ ngẫu nhiên).
+- Tạo 1-2 đoạn hội thoại (dialogues) ngắn (2-4 câu/đoạn) ứng dụng ngữ pháp này.
+- Tạo 3-5 câu safeHarbor (dịch Việt-Anh) để kiểm tra bằng giọng nói.
 - theory_vi dùng markdown: **bold** cho thuật ngữ, - list cho điểm quan trọng
 - Phù hợp cấp độ ${levelLabel}
 - ONLY valid JSON, no explanation outside JSON`;
@@ -101,6 +128,7 @@ Yêu cầu:
       title: p.title as string,
       theory_vi: p.theory_vi as string,
       examples,
+      sections: typeof p.sections === 'object' && p.sections !== null ? p.sections as GeneratedLesson['sections'] : undefined,
     };
 
     return NextResponse.json({ success: true, data });

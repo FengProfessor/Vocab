@@ -38,7 +38,12 @@ import type {
 } from '@/types/toeic';
 import { getCefrDescriptor, getPartAccuracyRating } from '@/lib/toeic-scoring';
 import { ToeicAudioPlayer } from './ToeicAudioPlayer';
-import { stripHtmlTags, cleanQuestionPrompt, cleanOptionText } from './ToeicSplitPane';
+import {
+  stripHtmlTags,
+  cleanQuestionPrompt,
+  cleanOptionText,
+  ToeicBilingualPassage,
+} from './ToeicSplitPane';
 import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 
 export interface ToeicScoreReportViewProps {
@@ -1133,29 +1138,16 @@ export function ToeicScoreReportView({
                     </div>
                   )}
 
-                  {/* Stimulus 3: Reading Passage (Part 6 & Part 7) */}
+                  {/* Stimulus 3: Reading Passage (Part 6 & Part 7) with Bilingual Support */}
                   {q.passage && (
-                    <div className="rounded-sm border border-slate-200 bg-slate-50 p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-950/50 space-y-2.5">
-                      <span className="inline-flex items-center gap-1 text-[11px] font-bold text-slate-500 uppercase tracking-wider">
-                        <FileText className="h-3.5 w-3.5" /> Đoạn văn đọc hiểu
-                      </span>
-                      <div className="space-y-3 text-xs sm:text-sm font-serif leading-relaxed text-slate-800 dark:text-slate-200">
-                        {q.passage
-                          .replace(/<(?:p|div|br)[^>]*>\s*---\s*<\/(?:p|div)>/gi, '\n\n---\n\n')
-                          .replace(/<br\s*\/?>\s*---\s*<br\s*\/?>/gi, '\n\n---\n\n')
-                          .split(/\n\s*---\s*\n/)
-                          .map((seg) => stripHtmlTags(seg).trim())
-                          .filter(Boolean)
-                          .map((seg, idx) => (
-                            <div
-                              key={idx}
-                              className="whitespace-pre-line rounded-sm bg-white p-3.5 border border-slate-200 dark:bg-slate-900 dark:border-slate-800"
-                            >
-                              <ExamInteractiveText text={seg} enabled={true} />
-                            </div>
-                          ))}
-                      </div>
-                    </div>
+                    <ToeicBilingualPassage
+                      passage={q.passage}
+                      passageTranslationVi={q.passageTranslationVi}
+                      dichNghia={q.dichNghia}
+                      part={q.part}
+                      isAnswerRevealed={true}
+                      canRevealTranslation={true}
+                    />
                   )}
 
                   {/* Question Prompt */}

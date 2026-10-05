@@ -10,6 +10,7 @@ import { toast } from 'sonner';
 import { authFetch } from '@/lib/auth-fetch';
 import StudentDetailSheet from './StudentDetailSheet';
 import { prefetchStudent } from './teacher-cache';
+import { calculatePedagogicalStatus } from '@/lib/activity/universal-activity';
 
 export type StudentFilter = 'all' | 'at_risk' | 'cramming' | 'dormant' | 'rising_star';
 export type StudentStatusKey = 'at_risk' | 'cramming' | 'dormant' | 'rising_star' | 'normal';
@@ -100,72 +101,15 @@ interface StudentsPanelProps {
 }
 
 export function getStudentStatus(s: StudentProgress): StudentStatusInfo {
-  const isDormant = Boolean(s.last_active && Date.now() - new Date(s.last_active).getTime() > 3 * 86_400_000);
-  if (isDormant) {
-    return {
-      key: 'dormant',
-      dot: '💤',
-      label: 'Vắng mặt',
-      badgeClass: 'bg-rose-50 text-rose-700 border-rose-200',
-      color: 'bg-rose-100 text-rose-700 border-rose-200',
-      tag: 'DORMANT',
-      title: 'Học sinh ngừng hoạt động > 3 ngày',
-      advice: 'Cần gửi tin nhắn nhắc nhở ngay để học sinh không bị rơi rụng từ vựng theo đường cong lãng quên Ebbinghaus.',
-    };
-  }
-
-  const isAtRisk = Boolean((s.vms || 0) < 30 && (s.words_reviewed || 0) > 10);
-  if (isAtRisk) {
-    return {
-      key: 'at_risk',
-      dot: '🔴',
-      label: 'Cần củng cố',
-      badgeClass: 'bg-rose-50 text-rose-700 border-rose-200',
-      color: 'bg-rose-100 text-rose-700 border-rose-200',
-      tag: 'AT RISK',
-      title: 'Gặp khó khăn trong việc ghi nhớ',
-      advice: 'Độ bền ghi nhớ (VMS) dưới 30% dù đã học nhiều từ. Hãy giao bài tập củng cố (Drill) các từ hay quên.',
-    };
-  }
-
-  const isCramming = Boolean((s.lcs || 0) < 30 && (s.avg_quiz_accuracy || 0) > 0.8 && (s.quizzes_taken || 0) > 2);
-  if (isCramming) {
-    return {
-      key: 'cramming',
-      dot: '🟡',
-      label: 'Học dồn',
-      badgeClass: 'bg-amber-50 text-amber-700 border-amber-200',
-      color: 'bg-amber-100 text-amber-700 border-amber-200',
-      tag: 'CRAMMING',
-      title: 'Học sinh có dấu hiệu học dồn',
-      advice: 'Điểm quiz cao nhưng tính đều đặn thấp. Học dồn chỉ nhớ ngắn hạn; cần hướng dẫn học sinh phân bổ 5-10 phút mỗi ngày.',
-    };
-  }
-
-  const isRisingStar = Boolean((s.lcs || 0) > 80 && (s.avg_quiz_accuracy || 0) > 0.8);
-  if (isRisingStar) {
-    return {
-      key: 'rising_star',
-      dot: '🟢',
-      label: 'Tích cực',
-      badgeClass: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-      color: 'bg-emerald-100 text-emerald-700 border-emerald-200',
-      tag: 'RISING STAR',
-      title: 'Tiến độ học xuất sắc & đều đặn',
-      advice: 'Học sinh duy trì tính kỷ luật rất tốt (LCS > 80% & điểm quiz cao). Nên khen ngợi kịp thời và mở rộng danh mục từ vựng.',
-    };
-  }
-
-  return {
-    key: 'normal',
-    dot: '⚪',
-    label: 'Bình thường',
-    badgeClass: 'bg-slate-50 text-slate-600 border-slate-200',
-    color: 'bg-slate-100 text-slate-700 border-slate-200',
-    tag: 'NORMAL',
-    title: 'Tiến độ học tập ổn định',
-    advice: 'Học sinh duy trì học tập bình thường. Khuyến khích tiếp tục giữ vững nhịp độ ôn tập hàng ngày.',
-  };
+  const activeTimestamp = s.true_last_active ?? s.last_active ?? null;
+  return calculatePedagogicalStatus({
+    trueLastActive: activeTimestamp,
+    vms: s.vms,
+    wordsReviewed: s.words_reviewed,
+    lcs: s.lcs,
+    avgQuizAccuracy: s.avg_quiz_accuracy,
+    quizzesTaken: s.quizzes_taken,
+  });
 }
 
 export default function StudentsPanel({
@@ -529,7 +473,7 @@ export default function StudentsPanel({
           <div className="md:hidden divide-y divide-border/60">
             {filteredStudents.map((s) => {
               const st = getStudentStatus(s);
-              const lastActiveInfo = formatLastActive(s.last_active);
+              const lastActiveInfo = formatLastActive(s.true_last_active ?? s.last_active);
               const quizInfo = formatQuizSummary(s);
               const wordsInfo = formatWordsSummary(s);
               const isSelected = selectedStudentId === s.student_id && isSheetOpen;
@@ -687,7 +631,7 @@ export default function StudentsPanel({
               <tbody className="divide-y text-sm">
                 {filteredStudents.map((s, i) => {
                   const st = getStudentStatus(s);
-                  const lastActiveInfo = formatLastActive(s.last_active);
+                  const lastActiveInfo = formatLastActive(s.true_last_active ?? s.last_active);
                   const quizInfo = formatQuizSummary(s);
                   const wordsInfo = formatWordsSummary(s);
                   const isSelected = selectedStudentId === s.student_id && isSheetOpen;

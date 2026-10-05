@@ -145,12 +145,17 @@ export async function runUserFeedbackV4Tests(runner: TestRunner) {
       expect(examPageCode.includes("localStorage.removeItem('lingo_pending_toeic_save')")).toBe(true);
     });
 
-    runner.it('V4-15: authFetch proactively refreshes nearing-expiry tokens and handles 401 retry', () => {
+    runner.it('V4-15: authFetch enforces same-origin cookie auth, disallows browser bearer tokens, and sets X-LingoPro-Request header', () => {
       const authFetchPath = path.resolve(__dirname, '../../src/lib/auth-fetch.ts');
       const authFetchCode = fs.readFileSync(authFetchPath, 'utf8');
-      expect(authFetchCode.includes('refreshSession()')).toBe(true);
-      expect(authFetchCode.includes('res.status === 401')).toBe(true);
-      expect(authFetchCode.includes('expiresAt - Date.now() < 60_000')).toBe(true);
+      expect(authFetchCode.includes("credentials: 'same-origin'")).toBe(true);
+      expect(authFetchCode.includes("headers.set('X-LingoPro-Request', '1')")).toBe(true);
+      expect(authFetchCode.includes('Browser bearer authentication is disabled')).toBe(true);
+      expect(authFetchCode.includes('Authenticated requests must be same-origin')).toBe(true);
+      expect(authFetchCode.includes("cache: 'no-store'")).toBe(true);
+      expect(authFetchCode.includes('refreshSession()')).toBe(false);
+      expect(authFetchCode.includes('expiresAt')).toBe(false);
+      expect(authFetchCode.includes('res.status === 401')).toBe(false);
     });
 
   });

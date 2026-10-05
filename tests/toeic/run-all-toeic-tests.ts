@@ -32,6 +32,9 @@ import { runFuzzyDictTests } from '../exam/fuzzy-dict.test';
 import { runPart7ReadingStimulusTests } from './part7-reading-stimulus.test';
 import { runTheoryCurriculumTests } from './theory-curriculum.test';
 import { runToeicSpeakingTests } from './speaking.test';
+import { runAntiLeakWhitelabelTests } from './anti-leak-whitelabel.test';
+import { runMediaProxyRelayTests } from './media-proxy-relay.test';
+import { runEtsProIntegrationTests } from './ets-pro-integration.test';
 
 (process.env as any).NODE_ENV = 'test';
 process.env.TSX_TEST = '1';
@@ -196,6 +199,30 @@ async function main() {
   const statsSP = runnerSP.getStats();
   tierStats.push({ tierName: 'TOEIC Speaking & AI Scenarios', stats: statsSP, minRequired: 10 });
   console.log(`✓ TOEIC Speaking Finished: ${statsSP.passed}/${statsSP.total} passed (${statsSP.durationMs}ms)\n`);
+
+  // Suite 20: Anti-Leak & White-Labeling Compliance (Tier 1 & 2)
+  console.log('▶ Running Suite 20: Anti-Leak & White-Labeling Compliance (Zero competitor traces, invisible watermarks)...');
+  const runnerAL = new TestRunner();
+  await runAntiLeakWhitelabelTests(runnerAL);
+  const statsAL = runnerAL.getStats();
+  tierStats.push({ tierName: 'Anti-Leak & White-Labeling', stats: statsAL, minRequired: 15 });
+  console.log(`✓ Anti-Leak & White-Labeling Finished: ${statsAL.passed}/${statsAL.total} passed (${statsAL.durationMs}ms)\n`);
+
+  // Suite 21: Media Proxy Relay & SSRF Protection (Tier 1 & 2)
+  console.log('▶ Running Suite 21: Media Proxy Relay & SSRF Protection (AES-256 tokens, streaming, SSRF defenses)...');
+  const runnerMP = new TestRunner();
+  await runMediaProxyRelayTests(runnerMP);
+  const statsMP = runnerMP.getStats();
+  tierStats.push({ tierName: 'Media Proxy Relay & SSRF', stats: statsMP, minRequired: 15 });
+  console.log(`✓ Media Proxy Relay Finished: ${statsMP.passed}/${statsMP.total} passed (${statsMP.durationMs}ms)\n`);
+
+  // Suite 22: ETS-PRO Integration Tiers 1-4
+  console.log('▶ Running Suite 22: ETS-PRO Integration Tiers 1-4 (20 full exams, 4000 Qs, 260 listening sets, 8504 vocab, bilingual reading)...');
+  const runnerINT = new TestRunner();
+  await runEtsProIntegrationTests(runnerINT);
+  const statsINT = runnerINT.getStats();
+  tierStats.push({ tierName: 'ETS-PRO Integration (Tiers 1-4)', stats: statsINT, minRequired: 35 });
+  console.log(`✓ ETS-PRO Integration Finished: ${statsINT.passed}/${statsINT.total} passed (${statsINT.durationMs}ms)\n`);
 
   const totalDuration = Date.now() - startTime;
   const grandTotal = tierStats.reduce((acc, t) => acc + t.stats.total, 0);

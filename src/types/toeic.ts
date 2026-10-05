@@ -133,17 +133,20 @@ export interface ToeicUnifiedQuestion {
   audioUrl?: string;
   imageUrl?: string;
   passage?: string;
+  passageTranslationVi?: string;
+  dichNghia?: string;
   explanationVi?: string;
   transcript?: string;
+  clusterId?: string;
 }
 
 /**
  * Sanitized question delivered to client before submission.
- * Completely stripped of sensitive keys (correctAnswer, explanationVi, transcript).
+ * Completely stripped of sensitive keys (correctAnswer, explanationVi, transcript, passageTranslationVi, dichNghia).
  */
 export type ToeicSanitizedQuestion = Omit<
   ToeicUnifiedQuestion,
-  'correctAnswer' | 'explanationVi' | 'transcript'
+  'correctAnswer' | 'explanationVi' | 'transcript' | 'passageTranslationVi' | 'dichNghia'
 >;
 
 /**
@@ -153,6 +156,8 @@ export type ToeicClientQuestion = ToeicSanitizedQuestion & {
   correctAnswer?: 'A' | 'B' | 'C' | 'D';
   explanationVi?: string;
   transcript?: string;
+  passageTranslationVi?: string;
+  dichNghia?: string;
 };
 
 // ── Cluster & Listening Group Architecture Types ──

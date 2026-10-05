@@ -257,7 +257,7 @@ export default function BillingDashboard() {
   return (
     <div className="min-h-dvh bg-muted/40 font-sans">
       {/* Header */}
-      <header className="sticky top-0 z-30 h-14 border-b bg-background/80 backdrop-blur px-4 sm:px-6 flex items-center gap-4">
+      <header className="border-b bg-background/80 backdrop-blur px-4 sm:px-6 flex h-14 items-center gap-4">
         <Link href="/admin" className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
           <ChevronLeft className="h-4 w-4" /> Admin
         </Link>
@@ -401,20 +401,20 @@ export default function BillingDashboard() {
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b bg-muted/30">
-                    <th className="text-left px-5 py-3 font-semibold text-muted-foreground">User</th>
-                    <th className="text-center px-4 py-3 font-semibold text-muted-foreground">Plan</th>
-                    <th className="text-right px-4 py-3 font-semibold text-muted-foreground">Amount</th>
-                    <th className="text-center px-4 py-3 font-semibold text-muted-foreground">Status</th>
-                    <th className="text-center px-4 py-3 font-semibold text-muted-foreground">Payment</th>
-                    <th className="text-right px-4 py-3 font-semibold text-muted-foreground">Date</th>
-                    <th className="text-center px-5 py-3 font-semibold text-muted-foreground">Action</th>
+                    <th className="text-left px-5 py-3 font-semibold text-muted-foreground">Khách hàng</th>
+                    <th className="text-center px-4 py-3 font-semibold text-muted-foreground">Gói dịch vụ</th>
+                    <th className="text-right px-4 py-3 font-semibold text-muted-foreground">Số tiền</th>
+                    <th className="text-center px-4 py-3 font-semibold text-muted-foreground">Trạng thái</th>
+                    <th className="text-center px-4 py-3 font-semibold text-muted-foreground">Thanh toán</th>
+                    <th className="text-right px-4 py-3 font-semibold text-muted-foreground">Thời gian</th>
+                    <th className="text-center px-5 py-3 font-semibold text-muted-foreground">Thao tác</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y">
                   {filteredOrders.length === 0 ? (
                     <tr>
                       <td colSpan={7} className="px-5 py-10 text-center text-muted-foreground">
-                        No orders found
+                        Không tìm thấy đơn hàng nào phù hợp
                       </td>
                     </tr>
                   ) : filteredOrders.map(order => (

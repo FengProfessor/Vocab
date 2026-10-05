@@ -336,8 +336,16 @@ export function setupMockBrowserEnvironment(): MockLocalStorage {
 
 export function teardownMockBrowserEnvironment(): void {
   if (typeof global !== 'undefined') {
-    (global as any).localStorage = originalLocalStorage;
-    (global as any).window = originalWindow;
+    if (originalLocalStorage !== undefined) {
+      (global as any).localStorage = originalLocalStorage;
+    } else {
+      delete (global as any).localStorage;
+    }
+    if (originalWindow !== undefined) {
+      (global as any).window = originalWindow;
+    } else {
+      delete (global as any).window;
+    }
   }
 }
 

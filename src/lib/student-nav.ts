@@ -16,6 +16,7 @@ import {
   Sparkles,
   Gift,
   Gamepad2,
+  Zap,
 } from 'lucide-react';
 
 export type StudentNavItem = {
@@ -111,9 +112,9 @@ export function buildStudentNavSections(opts?: {
       items: [
         {
           href: '/practice/games',
-          label: 'Sân chơi tiếng Anh',
-          icon: Gamepad2,
-          badge: '6 game',
+          label: 'Phản xạ học thuật',
+          icon: Zap,
+          badge: 'Speed',
           match: (pathname) => pathname.startsWith('/practice/games'),
         },
         {

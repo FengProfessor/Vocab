@@ -335,6 +335,7 @@ export function loadToeicQuestionsByIds(questionIds: string[]): ToeicUnifiedQues
 // ─────────────────────────────────────────────────────────────────────────────
 
 export async function runAntiDuplicationTests(runner: TestRunner): Promise<void> {
+  try {
 
   // ─────────────────────────────────────────────────────────────────────────
   // TIER 1: FEATURE COVERAGE (Core Tracker & Selector APIs - 12 tests)
@@ -1165,7 +1166,9 @@ export async function runAntiDuplicationTests(runner: TestRunner): Promise<void>
       expect(servedQuestionIds.includes(q.id)).toBe(false);
     }
   });
-
+  } finally {
+    teardownMockBrowserEnvironment();
+  }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

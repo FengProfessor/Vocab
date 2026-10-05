@@ -12,7 +12,7 @@ export interface AiSpeakingRoleplayPersona {
 
 export interface AiSpeakingTopic {
   id: string;
-  category: 'workplace' | 'academic' | 'daily_travel' | 'debates' | 'exam_prep';
+  category: 'workplace' | 'academic' | 'daily_travel' | 'debates' | 'exam_prep' | 'grammar_in_action';
   categoryLabelVi: string;
   level: 'A2' | 'B1' | 'B2' | 'C1';
   label: string;
@@ -497,4 +497,102 @@ export const AI_SPEAKING_TOPICS: AiSpeakingTopic[] = [
     ],
     keyVocabulary: ['OREO framework', 'collective synergy', 'interdisciplinary problem-solving', 'mitigate individual blind spots'],
   },
+
+  // --- 6. GRAMMAR-IN-ACTION SPARRING (NGỮ PHÁP THỰC CHIẾN) ---
+  {
+    id: 'grammar_conditional_3',
+    category: 'grammar_in_action',
+    categoryLabelVi: 'Ngữ pháp Thực chiến',
+    level: 'B1',
+    label: 'Conditionals 3: Regrets & Alternate Realities',
+    desc: 'Luyện phản xạ câu điều kiện loại 3 và câu ước (Wish) trong tình huống tiếc nuối.',
+    roleplayPersona: {
+      name: "Dr. Empathy",
+      role: "Life Coach",
+      organization: "Mindful Living",
+      tone: "Lắng nghe, thấu hiểu, và liên tục hỏi 'Nếu lúc đó bạn làm khác đi thì sao?'"
+    },
+    contextSettingVi: "Kể về một sai lầm lớn trong quá khứ và phân tích điều gì sẽ xảy ra nếu bạn hành động khác đi.",
+    conversationGoalsVi: [
+      "Kể lại ngắn gọn sự việc đã xảy ra trong quá khứ",
+      "Sử dụng ít nhất 2 câu điều kiện loại 3 (If I had..., I would have...) để diễn tả sự tiếc nuối",
+      "Sử dụng cấu trúc 'I wish I had...' để đúc kết bài học"
+    ],
+    situationalTipsVi: [
+      "Chú ý phát âm nối âm /d/ trong 'If I had' và /v/ trong 'would have'",
+      "Công thức cốt lõi: Had I known..., I would not have..."
+    ],
+    icon: '⏳',
+    initialGreeting: "We all make mistakes that we look back on. Tell me about a time you failed at something. If you could go back in time, what would you have done differently?",
+    suggestedStarters: [
+      "If I had prepared more thoroughly for the university entrance exam, I would have passed...",
+      "Had I listened to my parents' advice, I wouldn't have lost that opportunity...",
+      "Looking back, I truly wish I had taken that English course sooner..."
+    ],
+    keyVocabulary: ['regret deeply', 'missed opportunity', 'turn back time', 'hindsight']
+  },
+  {
+    id: 'grammar_passive_voice',
+    category: 'grammar_in_action',
+    categoryLabelVi: 'Ngữ pháp Thực chiến',
+    level: 'B1',
+    label: 'Passive Voice: Project Update Briefing',
+    desc: 'Luyện phản xạ câu bị động (Passive Voice) khi báo cáo tiến độ công việc.',
+    roleplayPersona: {
+      name: "Mr. Sterling",
+      role: "Strict Project Manager",
+      organization: "Global Logistics",
+      tone: "Thực dụng, tập trung vào kết quả công việc thay vì ai là người làm"
+    },
+    contextSettingVi: "Báo cáo tiến độ hoàn thành các hạng mục dự án cho Giám đốc, nhấn mạnh vào kết quả đã đạt được thay vì người thực hiện.",
+    conversationGoalsVi: [
+      "Trình bày ít nhất 2 hạng mục đã được hoàn thành (Hiện tại hoàn thành bị động)",
+      "Báo cáo 1 hạng mục đang bị trì hoãn hoặc đang được xử lý (Tiếp diễn bị động)",
+      "Cam kết thời hạn mọi việc sẽ được giải quyết xong (Tương lai bị động)"
+    ],
+    situationalTipsVi: [
+      "Quy tắc vàng: Nhấn mạnh vào vật bị tác động, lược bỏ 'by us' hoặc 'by someone'",
+      "Công thức: has been completed, is being processed, will be delivered"
+    ],
+    icon: '📊',
+    initialGreeting: "Good morning. I need a status update on the new logistics software rollout. What has been completed so far, and what is currently being worked on?",
+    suggestedStarters: [
+      "The main database migration has already been successfully completed...",
+      "Currently, the user interface is being redesigned to improve accessibility...",
+      "All remaining critical bugs will be fixed by the end of this week..."
+    ],
+    keyVocabulary: ['status update', 'database migration', 'accessibility improvement', 'critical bug']
+  },
+  {
+    id: 'grammar_relative_clauses',
+    category: 'grammar_in_action',
+    categoryLabelVi: 'Ngữ pháp Thực chiến',
+    level: 'B2',
+    label: 'Relative Clauses: The Eyewitness Account',
+    desc: 'Luyện phản xạ Mệnh đề quan hệ (Relative Clauses) khi miêu tả chi tiết sự vật, con người.',
+    roleplayPersona: {
+      name: "Detective Miller",
+      role: "Police Investigator",
+      organization: "City Police Department",
+      tone: "Tập trung cao độ, liên tục yêu cầu cung cấp thông tin chi tiết về đặc điểm nhận dạng"
+    },
+    contextSettingVi: "Đóng vai nhân chứng tại đồn cảnh sát, miêu tả một kẻ tình nghi và chiếc xe bỏ trốn bằng cách dùng mệnh đề quan hệ để nối câu.",
+    conversationGoalsVi: [
+      "Dùng 'who/that' để miêu tả ngoại hình và hành động của kẻ tình nghi",
+      "Dùng 'which/that' để miêu tả biển số hoặc đặc điểm của phương tiện bỏ trốn",
+      "Sử dụng rút gọn mệnh đề quan hệ (V-ing / V3) để câu nói tự nhiên hơn"
+    ],
+    situationalTipsVi: [
+      "Thay vì nói 2 câu rời: 'The man was tall. He wore a black jacket', hãy gộp: 'The man who wore a black jacket was tall.'",
+      "Rút gọn: 'The car stolen from the lot...'"
+    ],
+    icon: '🕵️',
+    initialGreeting: "Thank you for coming in. We need a precise description of the suspect. Can you describe the person you saw running away and the vehicle they escaped in?",
+    suggestedStarters: [
+      "The man who ran out of the bank was wearing a black hoodie...",
+      "He jumped into a silver sedan which had a dent on the rear bumper...",
+      "The bag stolen from the counter contained all the cash..."
+    ],
+    keyVocabulary: ['precise description', 'suspect', 'rear bumper', 'eyewitness']
+  }
 ];

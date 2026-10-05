@@ -887,9 +887,47 @@ export function loadEtsTest(year: '2024' | '2026' | string, testNumber: number):
 }
 
 /**
+ * Loads an ETS-PRO authentic 200-question test (1 to 20).
+ * Supports test IDs: 'ets-pro-01' .. 'ets-pro-20', 'ETS-PRO-01' .. 'ETS-PRO-20',
+ * 'ets_pro_test_01' .. '20', etc.
+ */
+export function loadEtsProTest(testNumber: number): ToeicUnifiedQuestion[] {
+  const pad = String(testNumber).padStart(2, '0');
+  const cacheKey = `ets-pro-${pad}`;
+  if (testCache.has(cacheKey)) {
+    return cloneUnifiedQuestions(testCache.get(cacheKey)!);
+  }
+
+  const folder = 'ets_pro';
+  const fname = `ets_pro_test_${pad}.json`;
+  const fullPath = getCrawlerDataPath(folder, fname);
+  if (!fullPath) {
+    return loadFullToeicTest('6852');
+  }
+
+  const fsModule = getNodeFs();
+  if (!fsModule) return loadFullToeicTest('6852');
+
+  try {
+    const content = fsModule.readFileSync(fullPath, 'utf8');
+    const data = JSON.parse(content);
+    const questions: ToeicUnifiedQuestion[] = Array.isArray(data.questions) ? data.questions : [];
+    if (questions.length > 0) {
+      testCache.set(cacheKey, questions);
+      return cloneUnifiedQuestions(questions);
+    }
+  } catch (err) {
+    console.error(`Error loading ETS-PRO test ${cacheKey}:`, err);
+  }
+
+  return loadFullToeicTest('6852');
+}
+
+/**
  * Universal dynamic loader for any TOEIC test or practice set.
  * Supports:
  * - Authentic ETS 2024 & ETS 2026 full tests: 'ets-2024-01' to '10', 'ets-2026-01' to '10', 'ETS-2024-01', etc.
+ * - ETS-PRO 20 full exams: 'ETS-PRO-01' to '20', 'ets-pro-01' to '20', 'ets_pro_test_01' to '20'
  * - Estudyme full tests: 'estudyme-test-1' to 'estudyme-test-21', 'test-1' to 'test-21', 'ets-01' to 'ets-21'
  * - Estudyme practice sets: 'estudyme-part_5_incomplete_sentences-test-1', 'estudyme-p5-set1', 'estudyme-p5-set-1', etc.
  * - Study4 tests: '6852' to '7009', 'study4-6852', 'study4_test_7000'
@@ -910,6 +948,15 @@ export function loadAnyToeicTest(testId?: unknown): ToeicUnifiedQuestion[] {
   const legacy = convertLegacyMiniTest(rawStr);
   if (legacy.length > 0) {
     return legacy;
+  }
+
+  // 1.4. ETS-PRO Full Tests (ETS-PRO-01 to 20, ets-pro-01 to 20, ets_pro_test_01 to 20)
+  const etsProMatch = rawStr.match(/^(?:ets[-_]?pro[-_]?(?:test[-_]?)?|ets[-_]pro[-_])(\d{1,2})$/i);
+  if (etsProMatch) {
+    const num = parseInt(etsProMatch[1], 10);
+    if (num >= 1 && num <= 20) {
+      return loadEtsProTest(num);
+    }
   }
 
   // 1.5. Authentic ETS 2024 & ETS 2026 Full Tests
@@ -1668,8 +1715,21 @@ export function loadToeicQuestionsByIds(questionIds: string[]): ToeicUnifiedQues
     let found = globalMasterQuestionIndex.get(id);
 
     if (!found) {
-      // Check ID pattern: q-{testId}-{qnum}
-      if (id.startsWith('q-') && id.lastIndexOf('-') > 2) {
+      // Check ID pattern: ets-pro-XX-qYYY
+      if (id.startsWith('ets-pro-')) {
+        const parts = id.split('-');
+        if (parts.length >= 4) {
+          const candidateTestId = `ets-pro-${parts[2]}`;
+          try {
+            const loaded = loadAnyToeicTest(candidateTestId);
+            for (const q of loaded) {
+              globalMasterQuestionIndex.set(q.id, q);
+            }
+            found = globalMasterQuestionIndex.get(id);
+          } catch {}
+        }
+      } else if (id.startsWith('q-') && id.lastIndexOf('-') > 2) {
+        // Check ID pattern: q-{testId}-{qnum}
         const candidateTestId = id.substring(2, id.lastIndexOf('-'));
         try {
           const loaded = loadAnyToeicTest(candidateTestId);
@@ -1745,7 +1805,14 @@ export function stripSensitiveToeicData(
 ): ToeicSanitizedQuestion[] {
   return questions.map((q) => {
     // Explicitly create clean object without sensitive fields
-    const { correctAnswer, explanationVi, transcript, ...sanitized } = q;
+    const {
+      correctAnswer,
+      explanationVi,
+      transcript,
+      passageTranslationVi,
+      dichNghia,
+      ...sanitized
+    } = q;
     return sanitized;
   });
 }
@@ -2004,6 +2071,8 @@ export function stripSensitiveClusterData(
       delete (sanitized as any).correctAnswer;
       delete (sanitized as any).explanationVi;
       delete (sanitized as any).transcript;
+      delete (sanitized as any).passageTranslationVi;
+      delete (sanitized as any).dichNghia;
       return sanitized as ToeicSanitizedQuestion;
     }),
   };

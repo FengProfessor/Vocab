@@ -402,17 +402,21 @@ function ToeicExamRoomInner() {
     setIsGuestState(isActuallyGuest);
 
     // Record question answers into question history (R1 & R3)
+    const nowIso = new Date().toISOString();
     const historyResults = questions
-      .filter((q) => answers[q.questionNumber] !== undefined && answers[q.questionNumber] !== null)
+      .filter((q) => (answers[q.questionNumber] !== undefined && answers[q.questionNumber] !== null) || session.flagged.has(q.questionNumber))
       .map((q) => {
         const userChoice = answers[q.questionNumber];
         const matching = reviewQuestions?.find((rq) => rq.id === q.id);
         const correctAnswer = matching?.correctAnswer || q.correctAnswer;
+        const isFlagged = session.flagged.has(q.questionNumber);
         return {
           questionId: q.id,
           part: q.part,
-          isCorrect: Boolean(correctAnswer && userChoice === correctAnswer),
+          isCorrect: Boolean(correctAnswer && userChoice && userChoice === correctAnswer),
           selectedOption: userChoice || '',
+          isFlagged,
+          flaggedAt: isFlagged ? nowIso : undefined,
         };
       });
 

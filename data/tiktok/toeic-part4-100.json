@@ -1,0 +1,1816 @@
+{
+  "campaign": "LingoPro TOEIC Part 4 · 100 videos",
+  "version": 1,
+  "createdAt": "2026-09-27T13:31:37.970Z",
+  "updatedAt": "2026-09-27T14:20:52.572Z",
+  "totalVideos": 100,
+  "questionsPerVideo": 3,
+  "distribution": {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 100
+  },
+  "videos": [
+    {
+      "id": "LP-TK-001",
+      "number": 1,
+      "part": 4,
+      "episode": 1,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-19",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-20",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-21"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/001,p4.mp4",
+      "renderedAt": "2026-09-27T13:41:05.006Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-002",
+      "number": 2,
+      "part": 4,
+      "episode": 2,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-1",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-2",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-3"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/002,p4.mp4",
+      "renderedAt": "2026-09-27T13:43:13.448Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-003",
+      "number": 3,
+      "part": 4,
+      "episode": 3,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-49",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-50",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-51"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/003,p4.mp4",
+      "renderedAt": "2026-09-27T13:44:47.145Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-004",
+      "number": 4,
+      "part": 4,
+      "episode": 4,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-16",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-17",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-18"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/004,p4.mp4",
+      "renderedAt": "2026-09-27T13:46:05.664Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-005",
+      "number": 5,
+      "part": 4,
+      "episode": 5,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-test-1-28",
+        "q-estudyme-part_4_short_talks-test-1-29",
+        "q-estudyme-part_4_short_talks-test-1-30"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/005,p4.mp4",
+      "renderedAt": "2026-09-27T13:47:15.329Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-006",
+      "number": 6,
+      "part": 4,
+      "episode": 6,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-43",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-44",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-45"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/006,p4.mp4",
+      "renderedAt": "2026-09-27T13:48:43.089Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-007",
+      "number": 7,
+      "part": 4,
+      "episode": 7,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-31",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-32",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-33"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/007,p4.mp4",
+      "renderedAt": "2026-09-27T13:50:14.463Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-008",
+      "number": 8,
+      "part": 4,
+      "episode": 8,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-52",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-53",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-54"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/008,p4.mp4",
+      "renderedAt": "2026-09-27T13:51:50.243Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-009",
+      "number": 9,
+      "part": 4,
+      "episode": 9,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-test-1-22",
+        "q-estudyme-part_4_short_talks-test-1-23",
+        "q-estudyme-part_4_short_talks-test-1-24"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/009,p4.mp4",
+      "renderedAt": "2026-09-27T13:53:15.575Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-010",
+      "number": 10,
+      "part": 4,
+      "episode": 10,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-10",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-11",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-12"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/010,p4.mp4",
+      "renderedAt": "2026-09-27T13:54:46.976Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-011",
+      "number": 11,
+      "part": 4,
+      "episode": 11,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-40",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-41",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-42"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/011,p4.mp4",
+      "renderedAt": "2026-09-27T13:56:14.023Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-012",
+      "number": 12,
+      "part": 4,
+      "episode": 12,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-4",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-5",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-6"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/012,p4.mp4",
+      "renderedAt": "2026-09-27T13:57:33.852Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-013",
+      "number": 13,
+      "part": 4,
+      "episode": 13,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-7",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-8",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-9"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/013,p4.mp4",
+      "renderedAt": "2026-09-27T13:58:44.405Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-014",
+      "number": 14,
+      "part": 4,
+      "episode": 14,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-55",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-56",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-57"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/014,p4.mp4",
+      "renderedAt": "2026-09-27T14:00:10.319Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-015",
+      "number": 15,
+      "part": 4,
+      "episode": 15,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-28",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-29",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-30"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/015,p4.mp4",
+      "renderedAt": "2026-09-27T14:01:44.771Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-016",
+      "number": 16,
+      "part": 4,
+      "episode": 16,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-46",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-47",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-48"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/016,p4.mp4",
+      "renderedAt": "2026-09-27T14:03:24.514Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-017",
+      "number": 17,
+      "part": 4,
+      "episode": 17,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-test-3-25",
+        "q-estudyme-part_4_short_talks-test-3-26",
+        "q-estudyme-part_4_short_talks-test-3-27"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/017,p4.mp4",
+      "renderedAt": "2026-09-27T14:05:14.439Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-018",
+      "number": 18,
+      "part": 4,
+      "episode": 18,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-test-6-22",
+        "q-estudyme-part_4_short_talks-test-6-23",
+        "q-estudyme-part_4_short_talks-test-6-24"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/018,p4.mp4",
+      "renderedAt": "2026-09-27T14:07:13.502Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-019",
+      "number": 19,
+      "part": 4,
+      "episode": 19,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-13",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-14",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-15"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/019,p4.mp4",
+      "renderedAt": "2026-09-27T14:08:54.098Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-020",
+      "number": 20,
+      "part": 4,
+      "episode": 20,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-22",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-23",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-24"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/020,p4.mp4",
+      "renderedAt": "2026-09-27T14:10:30.803Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-021",
+      "number": 21,
+      "part": 4,
+      "episode": 21,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-test-6-25",
+        "q-estudyme-part_4_short_talks-test-6-26",
+        "q-estudyme-part_4_short_talks-test-6-27"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/021,p4.mp4",
+      "renderedAt": "2026-09-27T14:12:33.758Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-022",
+      "number": 22,
+      "part": 4,
+      "episode": 22,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-25",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-26",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-27"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/022,p4.mp4",
+      "renderedAt": "2026-09-27T14:14:12.724Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-023",
+      "number": 23,
+      "part": 4,
+      "episode": 23,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-34",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-35",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-36"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/023,p4.mp4",
+      "renderedAt": "2026-09-27T14:15:49.667Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-024",
+      "number": 24,
+      "part": 4,
+      "episode": 24,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-test-1-25",
+        "q-estudyme-part_4_short_talks-test-1-26",
+        "q-estudyme-part_4_short_talks-test-1-27"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/024,p4.mp4",
+      "renderedAt": "2026-09-27T14:17:13.478Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-025",
+      "number": 25,
+      "part": 4,
+      "episode": 25,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-37",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-38",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-39"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/025,p4.mp4",
+      "renderedAt": "2026-09-27T14:18:46.291Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-026",
+      "number": 26,
+      "part": 4,
+      "episode": 26,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-76",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-77",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-78"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/026,p4.mp4",
+      "renderedAt": "2026-09-27T13:43:21.261Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-027",
+      "number": 27,
+      "part": 4,
+      "episode": 27,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-85",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-86",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-87"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/027,p4.mp4",
+      "renderedAt": "2026-09-27T13:45:03.156Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-028",
+      "number": 28,
+      "part": 4,
+      "episode": 28,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-109",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-110",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-111"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/028,p4.mp4",
+      "renderedAt": "2026-09-27T13:46:41.887Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-029",
+      "number": 29,
+      "part": 4,
+      "episode": 29,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-70",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-71",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-72"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/029,p4.mp4",
+      "renderedAt": "2026-09-27T13:48:10.296Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-030",
+      "number": 30,
+      "part": 4,
+      "episode": 30,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-64",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-65",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-66"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/030,p4.mp4",
+      "renderedAt": "2026-09-27T13:49:27.103Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-031",
+      "number": 31,
+      "part": 4,
+      "episode": 31,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-61",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-62",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-63"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/031,p4.mp4",
+      "renderedAt": "2026-09-27T13:50:39.415Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-032",
+      "number": 32,
+      "part": 4,
+      "episode": 32,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-88",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-89",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-90"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/032,p4.mp4",
+      "renderedAt": "2026-09-27T13:52:02.000Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-033",
+      "number": 33,
+      "part": 4,
+      "episode": 33,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-58",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-59",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-60"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/033,p4.mp4",
+      "renderedAt": "2026-09-27T13:53:33.075Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-034",
+      "number": 34,
+      "part": 4,
+      "episode": 34,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-73",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-74",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-75"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/034,p4.mp4",
+      "renderedAt": "2026-09-27T13:55:08.843Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-035",
+      "number": 35,
+      "part": 4,
+      "episode": 35,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-100",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-101",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-102"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/035,p4.mp4",
+      "renderedAt": "2026-09-27T13:56:42.674Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-036",
+      "number": 36,
+      "part": 4,
+      "episode": 36,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-test-10-25",
+        "q-estudyme-part_4_short_talks-test-10-26",
+        "q-estudyme-part_4_short_talks-test-10-27"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/036,p4.mp4",
+      "renderedAt": "2026-09-27T13:58:12.357Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-037",
+      "number": 37,
+      "part": 4,
+      "episode": 37,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-67",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-68",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-69"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/037,p4.mp4",
+      "renderedAt": "2026-09-27T13:59:47.579Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-038",
+      "number": 38,
+      "part": 4,
+      "episode": 38,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-test-11-25",
+        "q-estudyme-part_4_short_talks-test-11-26",
+        "q-estudyme-part_4_short_talks-test-11-27"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/038,p4.mp4",
+      "renderedAt": "2026-09-27T14:01:31.310Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-039",
+      "number": 39,
+      "part": 4,
+      "episode": 39,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-test-6-28",
+        "q-estudyme-part_4_short_talks-test-6-29",
+        "q-estudyme-part_4_short_talks-test-6-30"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/039,p4.mp4",
+      "renderedAt": "2026-09-27T14:03:31.902Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-040",
+      "number": 40,
+      "part": 4,
+      "episode": 40,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-test-10-22",
+        "q-estudyme-part_4_short_talks-test-10-23",
+        "q-estudyme-part_4_short_talks-test-10-24"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/040,p4.mp4",
+      "renderedAt": "2026-09-27T14:05:32.026Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-041",
+      "number": 41,
+      "part": 4,
+      "episode": 41,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-112",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-113",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-114"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/041,p4.mp4",
+      "renderedAt": "2026-09-27T14:07:13.521Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-042",
+      "number": 42,
+      "part": 4,
+      "episode": 42,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-82",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-83",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-84"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/042,p4.mp4",
+      "renderedAt": "2026-09-27T14:08:52.165Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-043",
+      "number": 43,
+      "part": 4,
+      "episode": 43,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-test-10-28",
+        "q-estudyme-part_4_short_talks-test-10-29",
+        "q-estudyme-part_4_short_talks-test-10-30"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/043,p4.mp4",
+      "renderedAt": "2026-09-27T14:10:46.485Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-044",
+      "number": 44,
+      "part": 4,
+      "episode": 44,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-106",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-107",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-108"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/044,p4.mp4",
+      "renderedAt": "2026-09-27T14:12:29.474Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-045",
+      "number": 45,
+      "part": 4,
+      "episode": 45,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-97",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-98",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-99"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/045,p4.mp4",
+      "renderedAt": "2026-09-27T14:14:08.647Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-046",
+      "number": 46,
+      "part": 4,
+      "episode": 46,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-79",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-80",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-81"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/046,p4.mp4",
+      "renderedAt": "2026-09-27T14:15:39.055Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-047",
+      "number": 47,
+      "part": 4,
+      "episode": 47,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-103",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-104",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-105"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/047,p4.mp4",
+      "renderedAt": "2026-09-27T14:17:08.035Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-048",
+      "number": 48,
+      "part": 4,
+      "episode": 48,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-94",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-95",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-96"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/048,p4.mp4",
+      "renderedAt": "2026-09-27T14:18:36.479Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-049",
+      "number": 49,
+      "part": 4,
+      "episode": 49,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-91",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-92",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-93"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/049,p4.mp4",
+      "renderedAt": "2026-09-27T14:19:40.051Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-050",
+      "number": 50,
+      "part": 4,
+      "episode": 50,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-test-11-22",
+        "q-estudyme-part_4_short_talks-test-11-23",
+        "q-estudyme-part_4_short_talks-test-11-24"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/050,p4.mp4",
+      "renderedAt": "2026-09-27T14:20:44.149Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-051",
+      "number": 51,
+      "part": 4,
+      "episode": 51,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-154",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-155",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-156"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/051,p4.mp4",
+      "renderedAt": "2026-09-27T13:43:25.385Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-052",
+      "number": 52,
+      "part": 4,
+      "episode": 52,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-127",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-128",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-129"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/052,p4.mp4",
+      "renderedAt": "2026-09-27T13:45:08.376Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-053",
+      "number": 53,
+      "part": 4,
+      "episode": 53,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-130",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-131",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-132"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/053,p4.mp4",
+      "renderedAt": "2026-09-27T13:46:46.932Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-054",
+      "number": 54,
+      "part": 4,
+      "episode": 54,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-test-12-22",
+        "q-estudyme-part_4_short_talks-test-12-23",
+        "q-estudyme-part_4_short_talks-test-12-24"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/054,p4.mp4",
+      "renderedAt": "2026-09-27T13:48:24.324Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-055",
+      "number": 55,
+      "part": 4,
+      "episode": 55,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-169",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-170",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-171"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/055,p4.mp4",
+      "renderedAt": "2026-09-27T13:49:57.656Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-056",
+      "number": 56,
+      "part": 4,
+      "episode": 56,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-136",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-137",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-138"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/056,p4.mp4",
+      "renderedAt": "2026-09-27T13:51:20.228Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-057",
+      "number": 57,
+      "part": 4,
+      "episode": 57,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-160",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-161",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-162"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/057,p4.mp4",
+      "renderedAt": "2026-09-27T13:52:32.652Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-058",
+      "number": 58,
+      "part": 4,
+      "episode": 58,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-157",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-158",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-159"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/058,p4.mp4",
+      "renderedAt": "2026-09-27T13:53:49.776Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-059",
+      "number": 59,
+      "part": 4,
+      "episode": 59,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-124",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-125",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-126"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/059,p4.mp4",
+      "renderedAt": "2026-09-27T13:55:16.920Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-060",
+      "number": 60,
+      "part": 4,
+      "episode": 60,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-test-12-28",
+        "q-estudyme-part_4_short_talks-test-12-29",
+        "q-estudyme-part_4_short_talks-test-12-30"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/060,p4.mp4",
+      "renderedAt": "2026-09-27T13:56:51.344Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-061",
+      "number": 61,
+      "part": 4,
+      "episode": 61,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-test-13-25",
+        "q-estudyme-part_4_short_talks-test-13-26",
+        "q-estudyme-part_4_short_talks-test-13-27"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/061,p4.mp4",
+      "renderedAt": "2026-09-27T13:58:21.204Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-062",
+      "number": 62,
+      "part": 4,
+      "episode": 62,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-118",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-119",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-120"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/062,p4.mp4",
+      "renderedAt": "2026-09-27T13:59:57.839Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-063",
+      "number": 63,
+      "part": 4,
+      "episode": 63,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-148",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-149",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-150"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/063,p4.mp4",
+      "renderedAt": "2026-09-27T14:01:37.903Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-064",
+      "number": 64,
+      "part": 4,
+      "episode": 64,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-115",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-116",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-117"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/064,p4.mp4",
+      "renderedAt": "2026-09-27T14:03:12.562Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-065",
+      "number": 65,
+      "part": 4,
+      "episode": 65,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-151",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-152",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-153"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/065,p4.mp4",
+      "renderedAt": "2026-09-27T14:04:27.169Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-066",
+      "number": 66,
+      "part": 4,
+      "episode": 66,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-166",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-167",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-168"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/066,p4.mp4",
+      "renderedAt": "2026-09-27T14:05:47.542Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-067",
+      "number": 67,
+      "part": 4,
+      "episode": 67,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-142",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-143",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-144"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/067,p4.mp4",
+      "renderedAt": "2026-09-27T14:07:21.595Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-068",
+      "number": 68,
+      "part": 4,
+      "episode": 68,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-test-13-22",
+        "q-estudyme-part_4_short_talks-test-13-23",
+        "q-estudyme-part_4_short_talks-test-13-24"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/068,p4.mp4",
+      "renderedAt": "2026-09-27T14:08:58.481Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-069",
+      "number": 69,
+      "part": 4,
+      "episode": 69,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-121",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-122",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-123"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/069,p4.mp4",
+      "renderedAt": "2026-09-27T14:10:37.152Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-070",
+      "number": 70,
+      "part": 4,
+      "episode": 70,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-133",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-134",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-135"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/070,p4.mp4",
+      "renderedAt": "2026-09-27T14:12:13.995Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-071",
+      "number": 71,
+      "part": 4,
+      "episode": 71,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-145",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-146",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-147"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/071,p4.mp4",
+      "renderedAt": "2026-09-27T14:13:34.209Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-072",
+      "number": 72,
+      "part": 4,
+      "episode": 72,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-test-12-25",
+        "q-estudyme-part_4_short_talks-test-12-26",
+        "q-estudyme-part_4_short_talks-test-12-27"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/072,p4.mp4",
+      "renderedAt": "2026-09-27T14:14:46.366Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-073",
+      "number": 73,
+      "part": 4,
+      "episode": 73,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-test-11-28",
+        "q-estudyme-part_4_short_talks-test-11-29",
+        "q-estudyme-part_4_short_talks-test-11-30"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/073,p4.mp4",
+      "renderedAt": "2026-09-27T14:16:13.718Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-074",
+      "number": 74,
+      "part": 4,
+      "episode": 74,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-139",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-140",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-141"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/074,p4.mp4",
+      "renderedAt": "2026-09-27T14:17:39.107Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-075",
+      "number": 75,
+      "part": 4,
+      "episode": 75,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-163",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-164",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-165"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/075,p4.mp4",
+      "renderedAt": "2026-09-27T14:19:07.956Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-076",
+      "number": 76,
+      "part": 4,
+      "episode": 76,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-214",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-215",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-216"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/076,p4.mp4",
+      "renderedAt": "2026-09-27T13:43:30.783Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-077",
+      "number": 77,
+      "part": 4,
+      "episode": 77,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-187",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-188",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-189"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/077,p4.mp4",
+      "renderedAt": "2026-09-27T13:45:11.625Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-078",
+      "number": 78,
+      "part": 4,
+      "episode": 78,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-175",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-176",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-177"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/078,p4.mp4",
+      "renderedAt": "2026-09-27T13:46:50.070Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-079",
+      "number": 79,
+      "part": 4,
+      "episode": 79,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-test-14-22",
+        "q-estudyme-part_4_short_talks-test-14-23",
+        "q-estudyme-part_4_short_talks-test-14-24"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/079,p4.mp4",
+      "renderedAt": "2026-09-27T13:48:33.667Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-080",
+      "number": 80,
+      "part": 4,
+      "episode": 80,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-217",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-218",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-219"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/080,p4.mp4",
+      "renderedAt": "2026-09-27T13:50:08.067Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-081",
+      "number": 81,
+      "part": 4,
+      "episode": 81,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-199",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-200",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-201"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/081,p4.mp4",
+      "renderedAt": "2026-09-27T13:51:42.844Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-082",
+      "number": 82,
+      "part": 4,
+      "episode": 82,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-test-14-25",
+        "q-estudyme-part_4_short_talks-test-14-26",
+        "q-estudyme-part_4_short_talks-test-14-27"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/082,p4.mp4",
+      "renderedAt": "2026-09-27T13:53:18.769Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-083",
+      "number": 83,
+      "part": 4,
+      "episode": 83,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-181",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-182",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-183"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/083,p4.mp4",
+      "renderedAt": "2026-09-27T13:54:53.489Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-084",
+      "number": 84,
+      "part": 4,
+      "episode": 84,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-226",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-227",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-228"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/084,p4.mp4",
+      "renderedAt": "2026-09-27T13:56:29.093Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-085",
+      "number": 85,
+      "part": 4,
+      "episode": 85,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-184",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-185",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-186"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/085,p4.mp4",
+      "renderedAt": "2026-09-27T13:58:02.976Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-086",
+      "number": 86,
+      "part": 4,
+      "episode": 86,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-205",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-206",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-207"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/086,p4.mp4",
+      "renderedAt": "2026-09-27T13:59:29.104Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-087",
+      "number": 87,
+      "part": 4,
+      "episode": 87,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-test-21-28",
+        "q-estudyme-part_4_short_talks-test-21-29",
+        "q-estudyme-part_4_short_talks-test-21-30"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/087,p4.mp4",
+      "renderedAt": "2026-09-27T14:01:05.746Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-088",
+      "number": 88,
+      "part": 4,
+      "episode": 88,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-172",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-173",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-174"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/088,p4.mp4",
+      "renderedAt": "2026-09-27T14:02:14.964Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-089",
+      "number": 89,
+      "part": 4,
+      "episode": 89,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-196",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-197",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-198"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/089,p4.mp4",
+      "renderedAt": "2026-09-27T14:03:41.816Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-090",
+      "number": 90,
+      "part": 4,
+      "episode": 90,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-211",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-212",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-213"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/090,p4.mp4",
+      "renderedAt": "2026-09-27T14:05:19.909Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-091",
+      "number": 91,
+      "part": 4,
+      "episode": 91,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-202",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-203",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-204"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/091,p4.mp4",
+      "renderedAt": "2026-09-27T14:06:49.098Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-092",
+      "number": 92,
+      "part": 4,
+      "episode": 92,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-test-21-25",
+        "q-estudyme-part_4_short_talks-test-21-26",
+        "q-estudyme-part_4_short_talks-test-21-27"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/092,p4.mp4",
+      "renderedAt": "2026-09-27T14:08:21.164Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-093",
+      "number": 93,
+      "part": 4,
+      "episode": 93,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-178",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-179",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-180"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/093,p4.mp4",
+      "renderedAt": "2026-09-27T14:09:30.782Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-094",
+      "number": 94,
+      "part": 4,
+      "episode": 94,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-190",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-191",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-192"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/094,p4.mp4",
+      "renderedAt": "2026-09-27T14:10:56.964Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-095",
+      "number": 95,
+      "part": 4,
+      "episode": 95,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-223",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-224",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-225"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/095,p4.mp4",
+      "renderedAt": "2026-09-27T14:12:36.080Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-096",
+      "number": 96,
+      "part": 4,
+      "episode": 96,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-193",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-194",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-195"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/096,p4.mp4",
+      "renderedAt": "2026-09-27T14:14:13.936Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-097",
+      "number": 97,
+      "part": 4,
+      "episode": 97,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-test-14-28",
+        "q-estudyme-part_4_short_talks-test-14-29",
+        "q-estudyme-part_4_short_talks-test-14-30"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/097,p4.mp4",
+      "renderedAt": "2026-09-27T14:15:57.743Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-098",
+      "number": 98,
+      "part": 4,
+      "episode": 98,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-208",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-209",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-210"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/098,p4.mp4",
+      "renderedAt": "2026-09-27T14:17:31.434Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-099",
+      "number": 99,
+      "part": 4,
+      "episode": 99,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-part-4-basic-02-220",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-221",
+        "q-estudyme-part_4_short_talks-part-4-basic-02-222"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/099,p4.mp4",
+      "renderedAt": "2026-09-27T14:19:04.326Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    },
+    {
+      "id": "LP-TK-100",
+      "number": 100,
+      "part": 4,
+      "episode": 100,
+      "questionCount": 3,
+      "status": "rendered",
+      "questionIds": [
+        "q-estudyme-part_4_short_talks-test-13-28",
+        "q-estudyme-part_4_short_talks-test-13-29",
+        "q-estudyme-part_4_short_talks-test-13-30"
+      ],
+      "outputFile": "out/tiktok-toeic-part4-100/P4/100,p4.mp4",
+      "renderedAt": "2026-09-27T14:20:09.507Z",
+      "postedAt": null,
+      "platformUrl": null,
+      "note": ""
+    }
+  ]
+}

@@ -838,7 +838,7 @@ function PracticeHubContent() {
         <div className="max-w-3xl mx-auto flex items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <Link href="/grammar">
-              <button className="p-1.5 border border-border rounded-none hover:bg-muted text-muted-foreground hover:text-foreground">
+              <button className="flex min-h-[44px] min-w-[44px] items-center justify-center p-1.5 border border-border rounded-none hover:bg-muted text-muted-foreground hover:text-foreground">
                 <ChevronLeft className="h-4 w-4" />
               </button>
             </Link>
@@ -855,7 +855,7 @@ function PracticeHubContent() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => speakEnglish(current.question)}
-              className="p-1.5 border border-border rounded-none hover:bg-muted text-muted-foreground hover:text-foreground"
+              className="flex min-h-[44px] min-w-[44px] items-center justify-center p-1.5 border border-border rounded-none hover:bg-muted text-muted-foreground hover:text-foreground"
               title="Nghe câu tiếng Anh"
             >
               <Volume2 className="h-4 w-4" />

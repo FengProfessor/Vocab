@@ -53,7 +53,7 @@ export function countOptionsInSentence(question: string, options: string[]): num
 export function canUseErrorClickMode(question: string, options: string[]): boolean {
   if (!Array.isArray(options) || options.length < 2) return false;
   const hits = countOptionsInSentence(question, options);
-  return hits >= 2 && hits >= Math.ceil(options.length / 2);
+  return false;
 }
 
 export function resolveDrillType(

@@ -1,3 +1,11 @@
+import { resolveProxyMediaUrl } from './toeic-media-proxy';
+
+export interface ExamDictPhrase {
+  phrase: string;
+  meaning: string;
+  imageUrl?: string;
+}
+
 export interface ExamDictResult {
   word: string;
   cleanWord: string;
@@ -7,6 +15,14 @@ export interface ExamDictResult {
   synonyms: string[];
   antonyms: string[];
   didYouMean?: string[];
+  imageUrl?: string;
+  phrases?: ExamDictPhrase[];
+  example?: string;
+  exampleVi?: string;
+  toeicTip?: string;
+  wordFamily?: string[];
+  audioUs?: string;
+  audioUk?: string;
 }
 
 const memoryCache = new Map<string, ExamDictResult>();
@@ -104,14 +120,15 @@ export function getCandidateLemmas(clean: string): string[] {
   return getSingleWordCandidateLemmas(clean);
 }
 
-function parseDictPayload(data: any, cleanWord: string, rawWord: string): ExamDictResult | null {
+export function parseDictPayload(data: any, cleanWord: string, rawWord: string): ExamDictResult | null {
   if (!data) return null;
-  const meanings = data?.results?.[0]?.meanings || [];
+  const meanings = data?.results?.[0]?.meanings || data?.meanings || [];
   const primaryMeaning = meanings[0];
 
   const definition =
     primaryMeaning?.definition ||
     primaryMeaning?.meaning_vi ||
+    primaryMeaning?.meaning ||
     data?.translation ||
     data?.results?.[0]?.definition ||
     data?.definition ||
@@ -125,14 +142,86 @@ function parseDictPayload(data: any, cleanWord: string, rawWord: string): ExamDi
     data?.pronunciations?.[0]?.ipa ||
     data?.ipa ||
     data?.results?.[0]?.pronunciations?.[0]?.ipa ||
+    primaryMeaning?.ipa ||
     '';
   const ipa = rawIpa ? `/${rawIpa.replace(/^\/|\/$/g, '')}/` : '';
 
-  const rawPos = (primaryMeaning?.pos || data?.pos || '').toLowerCase();
+  const rawPos = (
+    primaryMeaning?.part_of_speech ||
+    primaryMeaning?.pos ||
+    data?.pos ||
+    ''
+  ).toLowerCase();
   const pos = POS_MAP[rawPos] || rawPos;
 
-  const synonyms = Array.isArray(data?.synonyms) ? data.synonyms.slice(0, 4) : [];
-  const antonyms = Array.isArray(data?.antonyms) ? data.antonyms.slice(0, 4) : [];
+  const synonyms = Array.isArray(data?.synonyms)
+    ? data.synonyms.slice(0, 4)
+    : Array.isArray(primaryMeaning?.synonyms)
+    ? primaryMeaning.synonyms.slice(0, 4)
+    : [];
+
+  const antonyms = Array.isArray(data?.antonyms)
+    ? data.antonyms.slice(0, 4)
+    : Array.isArray(primaryMeaning?.antonyms)
+    ? primaryMeaning.antonyms.slice(0, 4)
+    : [];
+
+  const example =
+    primaryMeaning?.example ||
+    data?.example ||
+    undefined;
+
+  const exampleVi =
+    primaryMeaning?.example_vi ||
+    primaryMeaning?.exampleVi ||
+    data?.example_vi ||
+    data?.exampleVi ||
+    undefined;
+
+  const toeicTip =
+    primaryMeaning?.toeic_tip ||
+    primaryMeaning?.toeicTip ||
+    data?.toeic_tip ||
+    data?.toeicTip ||
+    undefined;
+
+  const rawWordFamily =
+    primaryMeaning?.word_family ||
+    primaryMeaning?.wordFamily ||
+    data?.word_family ||
+    data?.wordFamily;
+  const wordFamily =
+    Array.isArray(rawWordFamily) && rawWordFamily.length > 0
+      ? rawWordFamily
+      : undefined;
+
+  const rawImageUrl =
+    data?.image_url ||
+    data?.imageUrl ||
+    primaryMeaning?.image_url ||
+    primaryMeaning?.imageUrl;
+  const imageUrl = rawImageUrl ? resolveProxyMediaUrl(rawImageUrl) : undefined;
+
+  const rawAudioUs =
+    data?.audio_us ||
+    data?.audioUs ||
+    data?.audio_url ||
+    data?.audioUrl;
+  const audioUs = rawAudioUs ? resolveProxyMediaUrl(rawAudioUs) : undefined;
+
+  const rawAudioUk = data?.audio_uk || data?.audioUk;
+  const audioUk = rawAudioUk ? resolveProxyMediaUrl(rawAudioUk) : undefined;
+
+  const rawPhrases = Array.isArray(data?.phrases) ? data.phrases : [];
+  const phrases: ExamDictPhrase[] = rawPhrases
+    .map((p: any) => ({
+      phrase: p?.phrase || p?.text || '',
+      meaning: p?.meaning || p?.meaning_vi || '',
+      imageUrl: p?.image_url || p?.imageUrl
+        ? resolveProxyMediaUrl(p.image_url || p.imageUrl)
+        : undefined,
+    }))
+    .filter((p: ExamDictPhrase) => Boolean(p.phrase && p.meaning));
 
   return {
     word: rawWord,
@@ -142,6 +231,14 @@ function parseDictPayload(data: any, cleanWord: string, rawWord: string): ExamDi
     definition,
     synonyms,
     antonyms,
+    ...(imageUrl ? { imageUrl } : {}),
+    ...(phrases.length > 0 ? { phrases } : {}),
+    ...(example ? { example } : {}),
+    ...(exampleVi ? { exampleVi } : {}),
+    ...(toeicTip ? { toeicTip } : {}),
+    ...(wordFamily ? { wordFamily } : {}),
+    ...(audioUs ? { audioUs } : {}),
+    ...(audioUk ? { audioUk } : {}),
   };
 }
 

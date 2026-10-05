@@ -1,10 +1,14 @@
 import { NextResponse } from 'next/server';
-import { verifiedAppSession, sessionCookieName } from '@/lib/server-auth-session';
+import {
+  verifiedAppSession,
+  sessionCookieName,
+  ALLOWED_DATA_TABLES,
+  ALLOWED_DATA_RPCS,
+} from '@/lib/server-auth-session';
 import { PRIVATE_SESSION_HEADERS, sessionErrorResponse } from '@/lib/session-response';
 
-const TABLES = new Set(['profiles', 'user_gamification', 'orders', 'words', 'grammar_exercises',
-  'user_toeic_question_history', 'srs_progress', 'classrooms', 'grammar_micro_progress', 'enrollments']);
-const RPCS = new Set(['claim_teacher_role', 'claim_onboarding_xp']);
+const TABLES = ALLOWED_DATA_TABLES;
+const RPCS = ALLOWED_DATA_RPCS;
 type Context = { params: Promise<{ path: string[] }> };
 
 async function handle(req: Request, context: Context) {

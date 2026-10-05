@@ -4,6 +4,7 @@ import { getClientIp } from '@/lib/api-security';
 import { cacheGet, cacheSet } from '@/lib/ttl-cache';
 import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
 import { getInMemWordList, fuzzySuggestFromRAM } from '@/lib/dict-trie-engine';
+import { getCollocationVocabEntry } from '@/lib/toeic-collocation-index';
 
 /**
  * GET /api/dictionary/lookup?word=X
@@ -115,6 +116,51 @@ export async function GET(req: Request) {
     return NextResponse.json(cached.body, {
       status: cached.status,
       headers: { ...CACHE_HEADERS, 'X-Lookup-Cache': 'HIT' },
+    });
+  }
+
+  // ── 0. High-Performance TOEIC Collocation & Vocabulary Static Index (0ms RAM lookup) ──
+  const toeicEntry = getCollocationVocabEntry(word);
+  if (toeicEntry) {
+    const body: Record<string, unknown> = {
+      success: true,
+      source: 'toeic_collocation_index',
+      word: toeicEntry.word,
+      cleanWord: toeicEntry.cleanWord || word,
+      ipa: toeicEntry.ipa || '',
+      pos: toeicEntry.pos || '',
+      definition: toeicEntry.definition || '',
+      example: toeicEntry.example || undefined,
+      example_vi: toeicEntry.exampleVi || undefined,
+      exampleVi: toeicEntry.exampleVi || undefined,
+      toeic_tip: toeicEntry.toeicTip || undefined,
+      toeicTip: toeicEntry.toeicTip || undefined,
+      word_family: toeicEntry.wordFamily || [],
+      wordFamily: toeicEntry.wordFamily || [],
+      synonyms: toeicEntry.synonyms || [],
+      antonyms: toeicEntry.antonyms || [],
+      image_url: toeicEntry.imageUrl || null,
+      imageUrl: toeicEntry.imageUrl || null,
+      audio_us: toeicEntry.audioUs || null,
+      audioUs: toeicEntry.audioUs || null,
+      audio_uk: toeicEntry.audioUk || null,
+      audioUk: toeicEntry.audioUk || null,
+      phrases: toeicEntry.phrases || [],
+      meanings: [
+        {
+          meaning: toeicEntry.definition || '',
+          part_of_speech: toeicEntry.pos || '',
+          example: toeicEntry.example || '',
+          example_vi: toeicEntry.exampleVi || '',
+          toeic_tip: toeicEntry.toeicTip || '',
+          word_family: toeicEntry.wordFamily || [],
+          antonyms: toeicEntry.antonyms || [],
+        },
+      ],
+    };
+    cacheSet(cacheKey, { status: 200, body }, CACHE_TTL_MS);
+    return NextResponse.json(body, {
+      headers: { ...CACHE_HEADERS, 'X-Lookup-Cache': 'HIT-TOEIC-COLLOCATION' },
     });
   }
 

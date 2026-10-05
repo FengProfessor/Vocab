@@ -243,3 +243,19 @@ export async function logoutAppSession(req: Request): Promise<string> {
   }
   return cookieHeader(sessionCookieName(), '', 0);
 }
+
+export const ALLOWED_DATA_TABLES = new Set([
+  'profiles',
+  'user_gamification',
+  'orders',
+  'words',
+  'grammar_exercises',
+  'user_toeic_question_history',
+  'srs_progress',
+  'classrooms',
+  'grammar_micro_progress',
+  'enrollments',
+]);
+
+export const ALLOWED_DATA_RPCS = new Set(['claim_teacher_role', 'claim_onboarding_xp']);
+

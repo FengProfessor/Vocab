@@ -49,13 +49,7 @@ export function UrgencyCountdown({ onOpenLeadModal }: UrgencyCountdownProps) {
           </span>
           <span className="inline-flex items-center gap-1.5 flex-wrap">
             <Flame className="w-4 h-4 text-yellow-300 fill-yellow-300 shrink-0" />
-            <span className="hidden sm:inline">ĐỢT THỬ THÁCH THÁNG NÀY:</span> Bắt đầu học 00:00 ngày mai • Đã có <strong className="text-yellow-200 underline decoration-yellow-400">43/50 bạn</strong> giữ chỗ
-            <span className="hidden md:inline-flex items-center gap-1.5 ml-2 bg-black/25 px-2 py-0.5 rounded-full text-[11px] font-semibold border border-white/10">
-              <span>86% đã đặt chỗ</span>
-              <span className="w-14 h-1.5 bg-white/20 rounded-full overflow-hidden inline-block">
-                <span className="block h-full bg-yellow-300 rounded-full w-[86%]"></span>
-              </span>
-            </span>
+            <span className="hidden sm:inline">ĐỢT THỬ THÁCH MỚI:</span> Khởi động lúc 00:00 ngày mai • Luyện tập kỷ luật mỗi ngày
           </span>
         </div>
 

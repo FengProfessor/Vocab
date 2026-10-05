@@ -541,25 +541,21 @@ export default function LibraryPage() {
   return (
     <StudentShell title="Thư viện từ vựng" contentClassName="p-0">
       <div className="min-h-[calc(100dvh-var(--header-h)-var(--safe-top))] bg-slate-50 font-sans text-slate-900">
-        <header className="sticky top-0 z-30 flex h-header-safe items-center gap-2 border-b bg-white/90 px-3 backdrop-blur sm:px-6">
-          <Link href="/student" className="flex items-center gap-1 text-sm font-bold text-slate-500 hover:text-indigo-700">
-            <ChevronLeft className="h-5 w-5" aria-hidden /><span className="hidden sm:inline">Dashboard</span>
-          </Link>
-          <div className="flex items-center gap-1.5 text-sm font-black">
-            <span className="text-base">📦</span>
-            <span>Thư viện</span>
-          </div>
-          <Link
-            href="/import"
-            data-onboarding="lib-import"
-            className="ml-auto inline-flex items-center gap-1 rounded-full border border-indigo-200 bg-indigo-50 px-2.5 py-1.5 text-xs font-extrabold text-indigo-700 hover:bg-indigo-100 active:brightness-110"
-          >
-            <Upload className="h-3.5 w-3.5" aria-hidden />
-            List riêng
-          </Link>
-        </header>
-
         <main className="mx-auto max-w-2xl space-y-5 p-3 pb-mobile-nav sm:p-6">
+          {/* Action bar gọn */}
+          <div className="flex items-center justify-between gap-2 pt-1">
+            <span className="text-xs font-semibold text-slate-500">
+              Kho tài liệu học tập
+            </span>
+            <Link
+              href="/import"
+              data-onboarding="lib-import"
+              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center gap-1.5 rounded-full border border-indigo-200 bg-indigo-50 px-3.5 py-2 text-xs font-bold text-indigo-700 hover:bg-indigo-100 transition-colors"
+            >
+              <Upload className="h-3.5 w-3.5" aria-hidden />
+              Nhập danh sách riêng
+            </Link>
+          </div>
           {/* Hero gọn */}
           <section className="rounded-2xl bg-gradient-to-br from-indigo-700 to-violet-600 px-4 py-4 text-white shadow-lg shadow-indigo-200/40">
             <p className="text-[11px] font-bold text-indigo-100">Học ít, nhớ lâu · ~{microPackSize} từ / chặng</p>
@@ -573,7 +569,7 @@ export default function LibraryPage() {
             </div>
             <Link
               href="/import"
-              className="mt-3 inline-flex items-center gap-1.5 rounded-xl bg-white/15 px-3 py-2 text-xs font-extrabold text-white ring-1 ring-white/25 hover:bg-white/25"
+              className="mt-3 inline-flex min-h-[44px] items-center justify-center gap-1.5 rounded-xl bg-white/15 px-3 py-2 text-xs font-extrabold text-white ring-1 ring-white/25 hover:bg-white/25"
             >
               <Upload className="h-3.5 w-3.5" aria-hidden />
               Có list riêng? Nhập tại đây
@@ -708,7 +704,7 @@ export default function LibraryPage() {
                                   type="button"
                                   disabled={pdfLoading}
                                   onClick={() => handleDownloadTopicPdf(topicTitle, units)}
-                                  className="flex shrink-0 items-center gap-1 rounded-xl border border-indigo-100 bg-indigo-50 px-2.5 py-1.5 text-[11px] font-black text-indigo-700 transition active:scale-[0.98] hover:bg-indigo-100 disabled:opacity-50"
+                                  className="flex min-h-[44px] min-w-[44px] shrink-0 items-center justify-center gap-1 rounded-xl border border-indigo-100 bg-indigo-50 px-3 py-2 text-[11px] font-black text-indigo-700 transition active:scale-[0.98] hover:bg-indigo-100 disabled:opacity-50"
                                   aria-label={`Tải PDF chủ đề ${topicTitle}`}
                                 >
                                   {pdfLoading ? <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden /> : <Download className="h-3.5 w-3.5" aria-hidden />}
@@ -752,7 +748,7 @@ export default function LibraryPage() {
                                         type="button"
                                         disabled={pdfLoading}
                                         onClick={() => handleDownloadUnitPdf(sub, topicTitle)}
-                                        className="flex w-10 shrink-0 items-center justify-center rounded-xl border border-slate-100 bg-white text-slate-500 transition hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-700 disabled:opacity-50"
+                                        className="flex min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-xl border border-slate-100 bg-white text-slate-500 transition hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-700 disabled:opacity-50"
                                         aria-label={`Tải PDF unit ${sub.title}`}
                                         title="Tải PDF unit"
                                       >
@@ -794,7 +790,7 @@ export default function LibraryPage() {
                             ?? selectedSubtopic.title;
                           handleDownloadUnitPdf(selectedSubtopic, topicTitle);
                         }}
-                        className="flex shrink-0 items-center gap-1.5 rounded-xl bg-indigo-600 px-3 py-2 text-xs font-black text-white shadow-sm shadow-indigo-200 transition active:scale-[0.98] hover:bg-indigo-700 disabled:opacity-50"
+                        className="flex min-h-[44px] min-w-[44px] shrink-0 items-center justify-center gap-1.5 rounded-xl bg-indigo-600 px-3.5 py-2 text-xs font-black text-white shadow-sm shadow-indigo-200 transition active:scale-[0.98] hover:bg-indigo-700 disabled:opacity-50"
                       >
                         {pdfLoading ? <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden /> : <Download className="h-3.5 w-3.5" aria-hidden />}
                         {pdfLoading ? 'Đang lấy nghĩa…' : 'Tải PDF'}

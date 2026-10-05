@@ -25,7 +25,8 @@
     "force-onboarding": "node scripts/force-onboarding.js",
     "docker:build": "docker build -t lingopro:latest .",
     "docker:up": "docker compose up -d --build",
-    "test:e2e:smoke": "node tests/e2e/application-smoke.test.mjs"
+    "test:e2e:smoke": "node tests/e2e/application-smoke.test.mjs",
+    "test:qa": "npx tsx tests/qa/run-all-qa-suites.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.2.0",

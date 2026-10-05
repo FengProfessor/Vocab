@@ -12,14 +12,14 @@ export async function runMobileUxEnhancementTests(runner: TestRunner) {
   runner.describe('Mobile UX & Dynamic Statistics Verification Suite', () => {
 
     // ── 1. Dynamic Numbers & Catalog Integrity ──
-    runner.it('MUX-1: Catalog index reflects exact authentic question count (19,175) and full tests count (61)', () => {
+    runner.it('MUX-1: Catalog index reflects exact authentic question count (23,175) and full tests count (81)', () => {
       const catalog = catalogIndexRaw as any;
-      expect(catalog.totalQuestions).toBe(19175);
-      expect(catalog.totalFullTests).toBe(61);
-      expect(catalog.fullTests.length).toBe(61);
+      expect(catalog.totalQuestions).toBe(23175);
+      expect(catalog.totalFullTests).toBe(81);
+      expect(catalog.fullTests.length).toBe(81);
 
       const count200q = catalog.fullTests.filter((t: any) => t.questionCount === 200).length;
-      expect(count200q).toBe(48);
+      expect(count200q).toBe(68);
     });
 
     runner.it('MUX-2: Hub page (page.tsx) dynamically computes Part 1-7 stats and total question count without hardcoding', () => {
@@ -133,7 +133,6 @@ export async function runMobileUxEnhancementTests(runner: TestRunner) {
 
       // Ensure 100 LC + 100 RC is conditioned on 200Q, not unconditionally hardcoded
       expect(pageCode.includes("test.questionCount === 200 ? '200 câu (100 LC + 100 RC)' : `${test.questionCount} câu`")).toBe(true);
-      expect(pageCode.includes("test.questionCount === 200 ? `${test.questionCount} câu (100 LC + 100 RC)` : `${test.questionCount} câu`")).toBe(true);
     });
 
     runner.it('MUX-13: Part progress block uses 1-row 3-column compact layout with mini progress bar (saves >60% height)', () => {

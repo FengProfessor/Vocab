@@ -3,7 +3,7 @@
   "title": "Modals: Deduction (must/might/can't)",
   "title_vi": "Khuyết thiếu: suy đoán (must/might/can't)",
   "level": "B1",
-  "order": 43,
+  "order": 41,
   "sections": {
     "tips": "**Lưu ý trọng tâm:** học mẫu **must + V: gần như chắc chắn** cùng một câu hoàn chỉnh. Sau đó đổi chủ ngữ, thời điểm và dạng câu để thấy phần nào phải thay đổi.",
     "rules": [
@@ -365,7 +365,7 @@
     {
       "id": "modals-deduction-ex-01",
       "type": "fill_blank",
-      "question": "Đổi sang gián tiếp: My teacher said to us: “You may use dictionaries for this test.”",
+      "question": "Đổi sang gián tiếp: My teacher said to us: “You may use dictionaries for this test.” → _____",
       "options": [],
       "correct_answer": "My teacher told us (that) we might use dictionaries for that test.",
       "explanation": "may lùi thành might · this → that",

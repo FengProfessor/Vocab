@@ -8,10 +8,11 @@ import {
   ChevronLeft, Users, UserPlus, Crown, Activity, AlertTriangle,
   Search, Download, X, Mail, Calendar, BookOpen, Target,
   CreditCard, TrendingUp, Building2, Brain, RotateCcw,
-  RefreshCw, Zap,
+  RefreshCw, Zap, Flame, FileText,
 } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { formatVND } from '@/lib/billing';
+import type { MultiSkillStats } from '@/lib/activity/universal-activity';
 
 const CrmSignupChart = dynamic(
   () => import('@/components/charts/CrmSignupChart').then((m) => m.CrmSignupChart),
@@ -29,6 +30,7 @@ interface Customer {
   created_at: string; plan: string; rawPlan: string; planExpiresAt: string | null;
   paying: boolean; source: Source; lifecycle: Lifecycle;
   lastActive: string | null;
+  trueLastActive?: string | null;
   wordCount: number;       // từ đã lưu
   learnedCount: number;    // từ đã ôn SRS
   reviewTotal: number;     // tổng lượt ôn
@@ -37,6 +39,23 @@ interface Customer {
   dueCount: number;        // từ đang due
   quizCount: number;
   totalPaid: number; groupId: string | null;
+  // Multi-skill telemetry
+  grammarCount?: number;
+  lastGrammarAt?: string | null;
+  readingCount?: number;
+  lastReadingAt?: string | null;
+  toeicCount?: number;
+  toeicCorrectCount?: number;
+  lastToeicAt?: string | null;
+  toeicAccuracy?: number;
+  assessmentCount?: number;
+  lastAssessmentAt?: string | null;
+  vocabPackCount?: number;
+  lastVocabPackAt?: string | null;
+  currentStreak?: number;
+  lastStreakAt?: string | null;
+  lastStreakDate?: string | null;
+  multiSkill?: MultiSkillStats;
 }
 interface CrmData {
   customers: Customer[];
@@ -87,8 +106,8 @@ const PLAN_STYLE: Record<string, string> = {
   premium: 'bg-amber-500/10 text-amber-600 border-amber-500/20',
 };
 
-const fmtDate = (s: string | null) => s ? new Date(s).toLocaleDateString('vi-VN') : '—';
-const daysAgo = (s: string | null) => {
+const fmtDate = (s: string | null | undefined) => s ? new Date(s).toLocaleDateString('vi-VN') : '—';
+const daysAgo = (s: string | null | undefined) => {
   if (!s) return '—';
   const d = Math.floor((Date.now() - new Date(s).getTime()) / 86400000);
   if (d <= 0) return 'hôm nay';
@@ -275,13 +294,16 @@ export default function CrmDashboard() {
   const exportCsv = useCallback(() => {
     const head = [
       'Tên', 'Email', 'Vai trò', 'Gói', 'Nguồn', 'Vòng đời', 'Ngày ký', 'Hoạt động cuối',
-      'Ôn cuối', 'Từ due', 'Từ đã lưu', 'Từ đã ôn', 'Lượt ôn', 'Lần quên', 'Quiz', 'Đã trả (VNĐ)',
+      'Ôn cuối', 'Từ due', 'Từ đã lưu', 'Từ đã ôn', 'Lượt ôn', 'Lần quên', 'Quiz',
+      'TOEIC đã làm', 'Độ chính xác TOEIC', 'Ngữ pháp', 'Bài đọc', 'Streak', 'Đã trả (VNĐ)',
     ];
     const rows = filtered.map(c => [
       c.full_name ?? '', c.email, c.role, c.plan, SOURCE_LABEL[c.source],
       LIFECYCLE_LABEL[c.lifecycle], fmtDate(c.created_at), fmtDate(c.lastActive),
       fmtDate(c.lastReviewedAt), c.dueCount ?? 0,
-      c.wordCount, c.learnedCount, c.reviewTotal, c.lapsesTotal, c.quizCount, c.totalPaid,
+      c.wordCount, c.learnedCount, c.reviewTotal, c.lapsesTotal, c.quizCount,
+      c.toeicCount ?? 0, `${c.toeicAccuracy ?? 0}%`, c.grammarCount ?? 0, c.readingCount ?? 0,
+      c.currentStreak ?? 0, c.totalPaid,
     ]);
     const esc = (v: string | number) => `"${String(v).replace(/"/g, '""')}"`;
     const csv = [head, ...rows].map(r => r.map(esc).join(',')).join('\n');
@@ -337,13 +359,23 @@ export default function CrmDashboard() {
   const kpiCards = [
     { label: 'Tổng người dùng', value: kpis.totalUsers, icon: Users, color: 'text-blue-600', bg: 'bg-blue-500/10', sub: 'đã đăng ký', onClick: undefined as (() => void) | undefined, active: false },
     { label: 'Mới tuần này', value: kpis.newThisWeek, icon: UserPlus, color: 'text-sky-600', bg: 'bg-sky-500/10', sub: '7 ngày qua', onClick: undefined as (() => void) | undefined, active: false },
+    {
+      label: 'Học viên active',
+      value: kpis.activeUsers,
+      icon: Activity,
+      color: 'text-emerald-600',
+      bg: 'bg-emerald-500/10',
+      sub: `${kpis.learners} người học · lọc`,
+      onClick: () => setLifeFilter((cur) => (cur === 'active' ? '' : 'active')),
+      active: lifeFilter === 'active',
+    },
     { label: 'Đang trả tiền', value: kpis.payingUsers, icon: Crown, color: 'text-violet-600', bg: 'bg-violet-500/10', sub: `${kpis.activeGroups} nhóm active`, onClick: undefined as (() => void) | undefined, active: false },
     {
       label: 'Ôn hôm nay',
       value: kpis.reviewedToday ?? 0,
       icon: RotateCcw,
-      color: 'text-emerald-600',
-      bg: 'bg-emerald-500/10',
+      color: 'text-teal-600',
+      bg: 'bg-teal-500/10',
       sub: 'bấm lọc chăm sóc',
       onClick: () => applyReview('today'),
       active: reviewFilter === 'today' && !reviewDate,
@@ -390,7 +422,7 @@ export default function CrmDashboard() {
 
   return (
     <div className="min-h-dvh bg-muted/40 font-sans">
-      <header className="sticky top-0 z-30 h-14 border-b bg-background/80 backdrop-blur px-4 sm:px-6 flex items-center gap-3 sm:gap-4">
+      <header className="border-b bg-background/80 backdrop-blur px-4 sm:px-6 flex h-14 items-center gap-3 sm:gap-4">
         <Link href="/admin" className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
           <ChevronLeft className="h-4 w-4" /> Admin
         </Link>
@@ -431,7 +463,7 @@ export default function CrmDashboard() {
 
       <main className="max-w-7xl mx-auto p-4 sm:p-6 space-y-6">
         {/* KPI */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 xl:grid-cols-9 gap-3">
           {kpiCards.map(k => (
             <div
               key={k.label}
@@ -573,13 +605,13 @@ export default function CrmDashboard() {
                   <th className="text-center px-3 py-3 font-semibold">Nguồn</th>
                   <th className="text-center px-3 py-3 font-semibold">Vòng đời</th>
                   <th className="text-right px-3 py-3 font-semibold" title="Lần ôn SRS cuối (giờ VN)">Ôn cuối</th>
-                  <th className="text-right px-3 py-3 font-semibold" title="Số từ đang đến hạn ôn">Due</th>
+                  <th className="text-right px-3 py-3 font-semibold" title="Số từ đang đến hạn ôn">Đến hạn</th>
                   <th className="text-right px-3 py-3 font-semibold">Hoạt động</th>
-                  <th className="text-right px-3 py-3 font-semibold" title="Từ đã lưu (added_by)">Lưu</th>
-                  <th className="text-right px-3 py-3 font-semibold" title="Từ đã ôn (SRS review ≥ 1)">Học</th>
-                  <th className="text-right px-3 py-3 font-semibold" title="Tổng lượt ôn SRS">Ôn</th>
-                  <th className="text-right px-3 py-3 font-semibold" title="Lần quên (Again)">Quên</th>
-                  <th className="text-right px-5 py-3 font-semibold">Đã trả</th>
+                  <th className="text-right px-3 py-3 font-semibold" title="Từ đã lưu (added_by)">Đã lưu</th>
+                  <th className="text-right px-3 py-3 font-semibold" title="Từ đã ôn (SRS review ≥ 1)">Đã học</th>
+                  <th className="text-right px-3 py-3 font-semibold" title="Tổng lượt ôn SRS">Lượt ôn</th>
+                  <th className="text-right px-3 py-3 font-semibold" title="Lần quên (Again)">Hay quên</th>
+                  <th className="text-right px-5 py-3 font-semibold">Đã thanh toán</th>
                 </tr>
               </thead>
               <tbody className="divide-y">
@@ -591,14 +623,38 @@ export default function CrmDashboard() {
                       c.plan === 'free' && c.wordCount >= 150 ? 'bg-orange-500/[0.04]' : ''
                     }`}>
                     <td className="px-5 py-3">
-                      <div className="font-semibold">{c.full_name || 'Chưa đặt tên'}</div>
+                      <div className="font-semibold flex items-center gap-1.5">
+                        <span>{c.full_name || 'Chưa đặt tên'}</span>
+                        {(c.currentStreak ?? 0) > 0 && (
+                          <span className="inline-flex items-center text-[10px] font-bold text-orange-600 bg-orange-500/10 border border-orange-500/20 px-1 py-0.5 rounded" title={`Chuỗi học ${c.currentStreak} ngày`}>
+                            🔥{c.currentStreak}d
+                          </span>
+                        )}
+                      </div>
                       <div className="text-xs text-muted-foreground">{c.email}</div>
-                      {c.plan === 'free' && c.wordCount >= 200 && (
-                        <div className="mt-0.5 text-[10px] font-bold text-orange-600">Upsell · ≥200 từ</div>
-                      )}
-                      {c.plan === 'free' && c.wordCount >= 150 && c.wordCount < 200 && (
-                        <div className="mt-0.5 text-[10px] font-bold text-amber-600">Upsell · ≥150 từ</div>
-                      )}
+                      <div className="flex flex-wrap gap-1 mt-1">
+                        {c.plan === 'free' && c.wordCount >= 200 && (
+                          <span className="text-[10px] font-bold text-orange-600 bg-orange-50 border border-orange-200 px-1 rounded">Upsell · ≥200 từ</span>
+                        )}
+                        {c.plan === 'free' && c.wordCount >= 150 && c.wordCount < 200 && (
+                          <span className="text-[10px] font-bold text-amber-600 bg-amber-50 border border-amber-200 px-1 rounded">Upsell · ≥150 từ</span>
+                        )}
+                        {(c.toeicCount ?? 0) > 0 && (
+                          <span className="text-[10px] font-medium text-indigo-600 bg-indigo-50 border border-indigo-200 px-1 rounded" title={`${c.toeicCount} câu TOEIC (${c.toeicAccuracy ?? 0}% đúng)`}>
+                            TOEIC {c.toeicCount}
+                          </span>
+                        )}
+                        {(c.readingCount ?? 0) > 0 && (
+                          <span className="text-[10px] font-medium text-emerald-600 bg-emerald-50 border border-emerald-200 px-1 rounded" title={`${c.readingCount} bài đọc hoàn thành`}>
+                            Đọc {c.readingCount}
+                          </span>
+                        )}
+                        {(c.grammarCount ?? 0) > 0 && (
+                          <span className="text-[10px] font-medium text-violet-600 bg-violet-50 border border-violet-200 px-1 rounded" title={`${c.grammarCount} bài ngữ pháp`}>
+                            Ngữ pháp {c.grammarCount}
+                          </span>
+                        )}
+                      </div>
                     </td>
                     <td className="px-3 py-3 text-center">
                       <span className={`px-2 py-0.5 rounded-md text-[10px] font-black uppercase border ${PLAN_STYLE[c.plan] ?? PLAN_STYLE.free}`}>{c.plan}</span>
@@ -623,7 +679,9 @@ export default function CrmDashboard() {
                         <span className="text-muted-foreground">—</span>
                       )}
                     </td>
-                    <td className="px-3 py-3 text-right text-xs text-muted-foreground">{daysAgo(c.lastActive)}</td>
+                    <td className="px-3 py-3 text-right text-xs text-muted-foreground" title={c.lastActive ? fmtDate(c.lastActive) : undefined}>
+                      {daysAgo(c.lastActive)}
+                    </td>
                     <td className={`px-3 py-3 text-right font-semibold tabular-nums ${
                       c.plan === 'free' && c.wordCount >= 150 ? 'text-orange-600' : 'text-muted-foreground'
                     }`}>{c.wordCount || '—'}</td>
@@ -681,42 +739,180 @@ function SegmentBlock({ title, entries }: {
 
 // ─── Detail drawer ───
 function CustomerDrawer({ c, onClose }: { c: Customer; onClose: () => void }) {
+  const currentStreak = c.currentStreak || c.multiSkill?.gamification.streakDays || 0;
+  const toeicQuestions = c.toeicCount || c.multiSkill?.toeic.questionsAnswered || 0;
+  const toeicAccuracy = c.toeicAccuracy ?? c.multiSkill?.toeic.accuracyPercent ?? 0;
+  const grammarLessons = c.grammarCount || c.multiSkill?.grammar.lessonsCompleted || 0;
+  const grammarMicro = c.multiSkill?.grammar.microLessonsPassed ?? grammarLessons;
+  const readingArticles = c.readingCount || c.multiSkill?.reading.articlesRead || 0;
+  const assessments = c.assessmentCount || 0;
+  const vocabPacks = c.vocabPackCount || 0;
+  const lastActiveIso = c.trueLastActive || c.lastActive;
+
   return (
     <div className="fixed inset-0 z-50 flex justify-end" onClick={onClose}>
       <div className="absolute inset-0 bg-black/40" />
       <div onClick={e => e.stopPropagation()}
-        className="relative w-full max-w-md bg-background h-full shadow-2xl overflow-y-auto">
-        <div className="sticky top-0 bg-background/90 backdrop-blur border-b px-5 py-4 flex items-center gap-3">
+        className="relative w-full max-w-lg bg-background h-full shadow-2xl overflow-y-auto">
+        <div className="sticky top-0 bg-background/90 backdrop-blur border-b px-5 py-4 flex items-center gap-3 z-10">
           <div className="flex-1">
             <h3 className="font-bold text-lg">{c.full_name || 'Chưa đặt tên'}</h3>
             <p className="text-xs text-muted-foreground flex items-center gap-1"><Mail className="h-3 w-3" /> {c.email}</p>
           </div>
-          <button onClick={onClose} className="p-2 hover:bg-muted rounded-lg"><X className="h-4 w-4" /></button>
+          <button onClick={onClose} className="p-2 hover:bg-muted rounded-lg transition-colors"><X className="h-4 w-4" /></button>
         </div>
-        <div className="p-5 space-y-5">
-          <div className="flex flex-wrap gap-2">
+        <div className="p-5 space-y-4">
+          {/* Header Badges */}
+          <div className="flex flex-wrap items-center gap-2">
             <span className={`px-2.5 py-1 rounded-md text-[11px] font-black uppercase border ${PLAN_STYLE[c.plan] ?? PLAN_STYLE.free}`}>{c.plan}</span>
             <span className={`px-2.5 py-1 rounded-full text-[11px] font-bold border ${LIFECYCLE_STYLE[c.lifecycle]}`}>{LIFECYCLE_LABEL[c.lifecycle]}</span>
             <span className="px-2.5 py-1 rounded-md text-[11px] font-semibold border bg-muted/50 text-muted-foreground capitalize">{c.role}</span>
             <span className="px-2.5 py-1 rounded-md text-[11px] font-semibold border bg-muted/50 text-muted-foreground">{SOURCE_LABEL[c.source]}</span>
+            {currentStreak > 0 && (
+              <span className="px-2.5 py-1 rounded-md text-[11px] font-bold border bg-orange-500/10 text-orange-600 border-orange-500/20 flex items-center gap-1">
+                <Flame className="h-3.5 w-3.5 fill-orange-500 text-orange-500" />
+                {currentStreak} ngày streak
+              </span>
+            )}
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
-            <Stat icon={Brain} label="Từ đã ôn (SRS)" value={String(c.learnedCount ?? 0)} />
-            <Stat icon={RotateCcw} label="Tổng lượt ôn" value={String(c.reviewTotal ?? 0)} />
-            <Stat icon={AlertTriangle} label="Lần quên" value={String(c.lapsesTotal ?? 0)} />
-            <Stat icon={Activity} label="Từ đang due" value={String(c.dueCount ?? 0)} />
-            <Stat icon={BookOpen} label="Từ đã lưu" value={String(c.wordCount)} />
-            <Stat icon={Target} label="Lượt quiz" value={String(c.quizCount)} />
-            <Stat icon={CreditCard} label="Tổng đã trả" value={c.totalPaid ? formatVND(c.totalPaid) : '0₫'} />
-            <Stat icon={Building2} label="Thuộc nhóm" value={c.groupId ? 'Có' : 'Không'} />
+          {/* 1. Từ vựng & Flashcards */}
+          <div className="bg-background border rounded-2xl p-4 shadow-sm space-y-3">
+            <div className="flex items-center justify-between text-primary font-bold text-sm">
+              <span className="flex items-center gap-2">
+                <BookOpen className="h-4 w-4" />
+                Từ vựng & Flashcards (SRS)
+              </span>
+              <span className="text-xs font-normal text-muted-foreground">
+                {c.learnedCount ? `${c.learnedCount} từ thành thạo` : 'Chưa học SRS'}
+              </span>
+            </div>
+            <div className="grid grid-cols-3 gap-2">
+              <StatCompact label="Đã lưu" value={String(c.wordCount)} />
+              <StatCompact label="Đã học" value={String(c.learnedCount ?? 0)} />
+              <StatCompact label="Lượt ôn" value={String(c.reviewTotal ?? 0)} />
+              <StatCompact label="Đang due" value={String(c.dueCount ?? 0)} highlight={Boolean((c.dueCount ?? 0) > 0)} />
+              <StatCompact label="Lần quên" value={String(c.lapsesTotal ?? 0)} />
+              <StatCompact label="Lượt quiz" value={String(c.quizCount ?? 0)} />
+            </div>
+            <div className="pt-2 border-t text-xs space-y-1">
+              <RowCompact label="Ôn SRS cuối" value={c.lastReviewedAt ? `${fmtDate(c.lastReviewedAt)} (${daysAgo(c.lastReviewedAt)})` : 'Chưa ôn'} />
+            </div>
           </div>
 
-          <div className="space-y-2 text-sm">
-            <Row icon={Calendar} label="Ngày đăng ký" value={`${fmtDate(c.created_at)} (${daysAgo(c.created_at)})`} />
-            <Row icon={RotateCcw} label="Ôn SRS cuối" value={c.lastReviewedAt ? `${fmtDate(c.lastReviewedAt)} (${daysAgo(c.lastReviewedAt)})` : 'Chưa ôn'} />
-            <Row icon={Activity} label="Hoạt động cuối" value={c.lastActive ? `${fmtDate(c.lastActive)} (${daysAgo(c.lastActive)})` : 'Chưa hoạt động'} />
-            <Row icon={Crown} label="Gói ghi nhận" value={c.rawPlan + (c.planExpiresAt ? ` · hết hạn ${fmtDate(c.planExpiresAt)}` : '')} />
+          {/* 2. Luyện đề TOEIC */}
+          <div className="bg-background border rounded-2xl p-4 shadow-sm space-y-3">
+            <div className="flex items-center justify-between text-indigo-600 font-bold text-sm">
+              <span className="flex items-center gap-2">
+                <Target className="h-4 w-4" />
+                Luyện đề Sát thủ TOEIC
+              </span>
+              <span className="text-xs font-normal text-muted-foreground">
+                {toeicQuestions > 0 ? `${toeicQuestions} câu đã làm` : 'Chưa làm đề'}
+              </span>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <StatCompact label="Số câu đã luyện" value={String(toeicQuestions)} highlight={toeicQuestions > 0} />
+              <StatCompact label="Độ chính xác" value={`${toeicAccuracy}%`} />
+            </div>
+            <div className="pt-2 border-t text-xs space-y-1">
+              <RowCompact
+                label="Luyện TOEIC cuối"
+                value={c.lastToeicAt || c.multiSkill?.toeic.lastActive ? `${fmtDate(c.lastToeicAt || c.multiSkill?.toeic.lastActive)} (${daysAgo(c.lastToeicAt || c.multiSkill?.toeic.lastActive)})` : 'Chưa luyện đề'}
+              />
+            </div>
+          </div>
+
+          {/* 3. Ngữ pháp & Micro-lessons */}
+          <div className="bg-background border rounded-2xl p-4 shadow-sm space-y-3">
+            <div className="flex items-center justify-between text-violet-600 font-bold text-sm">
+              <span className="flex items-center gap-2">
+                <Brain className="h-4 w-4" />
+                Ngữ pháp & Micro-lessons
+              </span>
+              <span className="text-xs font-normal text-muted-foreground">
+                {grammarLessons > 0 ? `${grammarLessons} bài học` : 'Chưa học'}
+              </span>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <StatCompact label="Bài học hoàn thành" value={String(grammarLessons)} highlight={grammarLessons > 0} />
+              <StatCompact label="Micro-lessons" value={String(grammarMicro)} />
+            </div>
+            <div className="pt-2 border-t text-xs space-y-1">
+              <RowCompact
+                label="Học ngữ pháp cuối"
+                value={c.lastGrammarAt || c.multiSkill?.grammar.lastActive ? `${fmtDate(c.lastGrammarAt || c.multiSkill?.grammar.lastActive)} (${daysAgo(c.lastGrammarAt || c.multiSkill?.grammar.lastActive)})` : 'Chưa học'}
+              />
+            </div>
+          </div>
+
+          {/* 4. Bài đọc hàng ngày */}
+          <div className="bg-background border rounded-2xl p-4 shadow-sm space-y-3">
+            <div className="flex items-center justify-between text-emerald-600 font-bold text-sm">
+              <span className="flex items-center gap-2">
+                <FileText className="h-4 w-4" />
+                Bài đọc hàng ngày (Daily Reading)
+              </span>
+              <span className="text-xs font-normal text-muted-foreground">
+                {readingArticles > 0 ? `${readingArticles} bài đã đọc` : 'Chưa đọc bài'}
+              </span>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <StatCompact label="Bài đọc hoàn thành" value={String(readingArticles)} highlight={readingArticles > 0} />
+              <StatCompact label="Trạng thái" value={readingArticles > 0 ? 'Đang đọc đều' : 'Chưa đọc'} />
+            </div>
+            <div className="pt-2 border-t text-xs space-y-1">
+              <RowCompact
+                label="Đọc bài cuối"
+                value={c.lastReadingAt || c.multiSkill?.reading.lastActive ? `${fmtDate(c.lastReadingAt || c.multiSkill?.reading.lastActive)} (${daysAgo(c.lastReadingAt || c.multiSkill?.reading.lastActive)})` : 'Chưa đọc'}
+              />
+            </div>
+          </div>
+
+          {/* 5. Chuỗi học tập & Đánh giá */}
+          <div className="bg-background border rounded-2xl p-4 shadow-sm space-y-3">
+            <div className="flex items-center justify-between text-amber-600 font-bold text-sm">
+              <span className="flex items-center gap-2">
+                <Flame className="h-4 w-4" />
+                Chuỗi học & Đánh giá năng lực
+              </span>
+              <span className="text-xs font-normal text-muted-foreground">
+                {currentStreak > 0 ? `${currentStreak} ngày liên tục` : 'Chưa duy trì chuỗi'}
+              </span>
+            </div>
+            <div className="grid grid-cols-3 gap-2">
+              <StatCompact label="Chuỗi streak" value={`${currentStreak} ngày`} highlight={currentStreak > 0} />
+              <StatCompact label="Thi đánh giá" value={String(assessments)} />
+              <StatCompact label="Bộ từ chủ đề" value={String(vocabPacks)} />
+            </div>
+            <div className="pt-2 border-t text-xs space-y-1">
+              <RowCompact
+                label="Ngày streak cuối"
+                value={c.lastStreakDate || c.multiSkill?.gamification.lastActiveDate ? `${c.lastStreakDate || c.multiSkill?.gamification.lastActiveDate}` : 'Chưa ghi nhận'}
+              />
+            </div>
+          </div>
+
+          {/* 6. Tài chính & Tài khoản */}
+          <div className="bg-background border rounded-2xl p-4 shadow-sm space-y-3">
+            <div className="flex items-center justify-between text-slate-700 font-bold text-sm">
+              <span className="flex items-center gap-2">
+                <CreditCard className="h-4 w-4" />
+                Tài chính & Tài khoản
+              </span>
+              <span className="text-xs font-normal text-muted-foreground">
+                {c.groupId ? 'Nhóm active' : 'Cá nhân'}
+              </span>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <StatCompact label="Tổng đã trả" value={c.totalPaid ? formatVND(c.totalPaid) : '0₫'} highlight={Boolean(c.totalPaid > 0)} />
+              <StatCompact label="Thuộc nhóm" value={c.groupId ? 'Có' : 'Không'} />
+            </div>
+            <div className="pt-2 border-t text-xs space-y-2">
+              <RowCompact label="Ngày đăng ký" value={`${fmtDate(c.created_at)} (${daysAgo(c.created_at)})`} />
+              <RowCompact label="Hoạt động cuối tổng hợp" value={lastActiveIso ? `${fmtDate(lastActiveIso)} (${daysAgo(lastActiveIso)})` : 'Chưa hoạt động'} />
+              <RowCompact label="Gói ghi nhận" value={c.rawPlan + (c.planExpiresAt ? ` · hết hạn ${fmtDate(c.planExpiresAt)}` : '')} />
+            </div>
           </div>
         </div>
       </div>
@@ -724,21 +920,20 @@ function CustomerDrawer({ c, onClose }: { c: Customer; onClose: () => void }) {
   );
 }
 
-function Stat({ icon: Icon, label, value }: { icon: React.ElementType; label: string; value: string }) {
+function StatCompact({ label, value, highlight }: { label: string; value: string; highlight?: boolean }) {
   return (
-    <div className="bg-muted/40 rounded-xl p-3">
-      <Icon className="h-4 w-4 text-muted-foreground mb-2" />
-      <div className="text-lg font-bold">{value}</div>
-      <div className="text-[11px] text-muted-foreground">{label}</div>
+    <div className={`p-2.5 rounded-xl border text-center ${highlight ? 'bg-primary/5 border-primary/20' : 'bg-muted/30 border-transparent'}`}>
+      <div className={`text-base font-bold tabular-nums ${highlight ? 'text-primary' : 'text-foreground'}`}>{value}</div>
+      <div className="text-[11px] text-muted-foreground mt-0.5 truncate">{label}</div>
     </div>
   );
 }
-function Row({ icon: Icon, label, value }: { icon: React.ElementType; label: string; value: string }) {
+
+function RowCompact({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-start gap-2">
-      <Icon className="h-4 w-4 text-muted-foreground mt-0.5 shrink-0" />
+    <div className="flex items-center justify-between py-0.5 text-xs">
       <span className="text-muted-foreground">{label}:</span>
-      <span className="font-medium ml-auto text-right">{value}</span>
+      <span className="font-medium text-foreground">{value}</span>
     </div>
   );
 }
@@ -746,7 +941,7 @@ function Row({ icon: Icon, label, value }: { icon: React.ElementType; label: str
 function CrmSkeleton() {
   return (
     <div className="min-h-dvh bg-muted/40 font-sans animate-pulse">
-      <header className="sticky top-0 z-30 h-14 border-b bg-background/80 backdrop-blur px-4 sm:px-6 flex items-center gap-4">
+      <header className="border-b bg-background/80 backdrop-blur px-4 sm:px-6 flex h-14 items-center gap-4">
         <div className="h-4 w-16 bg-muted rounded-md" />
         <div className="h-5 w-36 bg-muted rounded-md" />
         <div className="ml-auto flex items-center gap-2">
@@ -757,8 +952,8 @@ function CrmSkeleton() {
 
       <main className="max-w-7xl mx-auto p-4 sm:p-6 space-y-6">
         {/* KPI Skeleton */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
-          {Array.from({ length: 8 }).map((_, i) => (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 xl:grid-cols-9 gap-3">
+          {Array.from({ length: 9 }).map((_, i) => (
             <div key={i} className="bg-background border rounded-2xl p-4 shadow-sm space-y-2">
               <div className="w-9 h-9 rounded-xl bg-muted" />
               <div className="h-6 w-16 bg-muted rounded" />

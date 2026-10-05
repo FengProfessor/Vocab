@@ -34,6 +34,9 @@ export async function checkRateLimitAsync(
   if (!url || !/^https:\/\/[A-Za-z0-9-]+\.upstash\.io\/?$/.test(url) || !token ||
       !key || !Number.isSafeInteger(limit) || limit <= 0 ||
       !Number.isSafeInteger(windowMs) || windowMs <= 0) {
+    if (process.env.NODE_ENV !== 'production') {
+      return { allowed: true, remaining: limit, resetIn: windowMs };
+    }
     throw new RateLimitUnavailableError();
   }
   try {

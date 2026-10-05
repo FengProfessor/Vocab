@@ -2,6 +2,8 @@ import { sessionErrorResponse } from '@/lib/session-response';
 import { getAuthUser, unauthorized } from '@/lib/api-security';
 import { createServiceClient } from '@/lib/supabase-server';
 import { NextResponse } from 'next/server';
+import { computeTrueLastActive } from '@/lib/activity/universal-activity';
+import type { TimelineItem } from '@/components/teacher/types';
 
 export async function GET(req: Request): Promise<NextResponse> {
   try {
@@ -43,7 +45,7 @@ export async function GET(req: Request): Promise<NextResponse> {
       return NextResponse.json({ success: false, error: 'Học sinh không tồn tại trong lớp này' }, { status: 404 });
     }
 
-    // 2. Parallel fetch history, quizzes, saved words, vocab packs, assessments, profile, enrollment
+    // 2. Parallel fetch history, quizzes, saved words, vocab packs, assessments, profile, enrollment, srs, grammar, reading, toeic
     const [
       historyRes,
       quizzesRes,
@@ -52,6 +54,11 @@ export async function GET(req: Request): Promise<NextResponse> {
       assessmentsRes,
       profileRes,
       enrollmentRes,
+      srsRes,
+      grammarRes,
+      grammarMicroRes,
+      readingRes,
+      toeicRes,
     ] = await Promise.all([
       supabase
         .from('student_daily_stats')
@@ -95,31 +102,70 @@ export async function GET(req: Request): Promise<NextResponse> {
         .eq('student_id', studentId)
         .eq('classroom_id', classroomId)
         .maybeSingle(),
+      supabase
+        .from('srs_progress')
+        .select('id, word_id, last_reviewed_at, review_count, stability, words(id, word, translation, pos)')
+        .eq('user_id', studentId)
+        .not('last_reviewed_at', 'is', null)
+        .order('last_reviewed_at', { ascending: false })
+        .limit(30),
+      supabase
+        .from('grammar_progress')
+        .select('id, lesson_id, last_reviewed_at, mastery_score')
+        .eq('user_id', studentId)
+        .not('last_reviewed_at', 'is', null)
+        .order('last_reviewed_at', { ascending: false })
+        .limit(20),
+      supabase
+        .from('grammar_micro_progress')
+        .select('id, stage, completed_steps, updated_at')
+        .eq('user_id', studentId)
+        .order('updated_at', { ascending: false })
+        .limit(20),
+      supabase
+        .from('daily_reading_completions')
+        .select('id, exercise_id, completed_at, mcq_score, mcq_total, cloze_score, cloze_total, daily_reading_exercises(title)')
+        .eq('user_id', studentId)
+        .order('completed_at', { ascending: false })
+        .limit(20),
+      supabase
+        .from('user_toeic_question_history')
+        .select('id, question_id, part, is_correct, last_answered_at')
+        .eq('user_id', studentId)
+        .order('last_answered_at', { ascending: false })
+        .limit(30),
     ]);
 
     const quizzes = quizzesRes.data || [];
     const savedWords = savedWordsRes.data || [];
     const vocabPacks = vocabPacksRes?.data || [];
     const assessments = assessmentsRes?.data || [];
-
-    // Construct merged chronological activity feed (sorted newest first)
-    interface TimelineItem {
-      id: string;
-      type: 'quiz' | 'word_saved' | 'vocab_pack' | 'assessment';
-      timestamp: string;
-      title: string;
-      subtitle?: string;
-      score?: number;
-      totalQuestions?: number;
-      accuracy?: number;
-      badge?: string;
-      badgeVariant?: 'emerald' | 'amber' | 'violet' | 'sky' | 'indigo';
-      details?: Record<string, unknown>;
-    }
+    const srsReviews = srsRes?.data || [];
+    const grammarList = grammarRes?.data || [];
+    const grammarMicroList = grammarMicroRes?.data || [];
+    const readingList = readingRes?.data || [];
+    const toeicList = toeicRes?.data || [];
 
     const timeline: TimelineItem[] = [];
 
-    // 1. Quizzes
+    // 1. Flashcards SRS reviews
+    for (const s of srsReviews) {
+      if (!s.last_reviewed_at) continue;
+      const wordObj = (Array.isArray(s.words) ? s.words[0] : s.words) as { word?: string; translation?: string } | null;
+      const wordText = wordObj?.word || 'từ vựng';
+      timeline.push({
+        id: `srs-${s.id}`,
+        type: 'srs_review',
+        timestamp: s.last_reviewed_at,
+        title: `Ôn Flashcard SRS: "${wordText}"`,
+        subtitle: wordObj?.translation ? `Nghĩa: ${wordObj.translation}` : undefined,
+        badge: s.review_count && s.review_count > 1 ? `Đã ôn ${s.review_count} lần` : 'GOOD',
+        badgeVariant: 'emerald',
+        details: { wordId: s.word_id, word: wordText, reviewCount: s.review_count, stability: s.stability },
+      });
+    }
+
+    // 2. Quizzes
     for (const q of quizzes) {
       if (!q.completed_at) continue;
       const acc = q.accuracy ?? (q.total_questions > 0 ? q.score / q.total_questions : 0);
@@ -133,13 +179,13 @@ export async function GET(req: Request): Promise<NextResponse> {
         score: q.score,
         totalQuestions: q.total_questions,
         accuracy: acc,
-        badge: `${q.score}/${q.total_questions} - ${accPct}%`,
+        badge: `${q.score}/${q.total_questions} (${accPct}%)`,
         badgeVariant: acc >= 0.8 ? 'emerald' : 'amber',
-        details: { quiz_type: q.quiz_type, score: q.score, total_questions: q.total_questions, accuracy: acc },
+        details: { quizType: q.quiz_type, score: q.score, totalQuestions: q.total_questions, accuracy: acc },
       });
     }
 
-    // 2. Words saved by student
+    // 3. Words saved by student
     for (const w of savedWords) {
       if (w.added_by === studentId && w.created_at) {
         timeline.push({
@@ -148,32 +194,84 @@ export async function GET(req: Request): Promise<NextResponse> {
           timestamp: w.created_at,
           title: `Lưu từ mới: "${w.word}"`,
           subtitle: `${w.pos ? `(${w.pos}) ` : ''}${w.translation || ''}`,
-          badge: 'Đã lưu từ',
+          badge: 'Đã lưu',
           badgeVariant: 'sky',
           details: { word: w.word, pos: w.pos, translation: w.translation, ipa: w.ipa },
         });
       }
     }
 
-    // 3. Vocab packs studied
-    for (const p of vocabPacks) {
-      const time = p.last_studied_at || p.completed_at || p.started_at;
-      if (!time) continue;
-      const isDone = p.status === 'completed';
-      const packDisplayName = p.topic_title?.trim() || p.pack_id;
+    // 4. Grammar (Lessons & Micro-lessons)
+    for (const gp of grammarList) {
+      if (!gp.last_reviewed_at) continue;
+      const score = gp.mastery_score ?? 0;
+      const passed = score >= 80;
       timeline.push({
-        id: `pack-${p.pack_id}-${time}`,
-        type: 'vocab_pack',
-        timestamp: time,
-        title: `Học bộ từ: ${packDisplayName}`,
-        subtitle: `Tiến độ: ${p.reviewed_count || 0}/${p.word_count || 0} từ (${isDone ? 'Hoàn thành' : 'Đang học'})`,
-        badge: isDone ? 'Hoàn thành' : `${p.reviewed_count || 0} từ`,
-        badgeVariant: 'violet',
-        details: { packId: p.pack_id, topicTitle: p.topic_title, status: p.status, reviewedCount: p.reviewed_count, wordCount: p.word_count },
+        id: `grammar-${gp.id}`,
+        type: 'grammar',
+        timestamp: gp.last_reviewed_at,
+        title: `Ngữ pháp: ${gp.lesson_id}`,
+        subtitle: `Độ thành thạo: ${score}%`,
+        score,
+        badge: passed ? 'Hoàn thành' : `${score}%`,
+        badgeVariant: passed ? 'emerald' : 'amber',
+        details: { lessonId: gp.lesson_id, masteryScore: score, passed },
+      });
+    }
+    for (const gmp of grammarMicroList) {
+      if (!gmp.updated_at) continue;
+      const steps = Array.isArray(gmp.completed_steps) ? gmp.completed_steps.length : 0;
+      timeline.push({
+        id: `grammar-micro-${gmp.id}`,
+        type: 'grammar',
+        timestamp: gmp.updated_at,
+        title: `Micro-lesson: Giai đoạn ${gmp.stage ? gmp.stage.toUpperCase() : 'Foundation'}`,
+        subtitle: `Đã hoàn thành ${steps} bước học`,
+        badge: steps > 0 ? 'Hoàn thành' : 'Đang học',
+        badgeVariant: 'emerald',
+        details: { stage: gmp.stage, completedSteps: steps, isMicro: true, passed: true },
       });
     }
 
-    // 4. Assessments (TOEIC, Roadmap)
+    // 5. Daily Reading
+    for (const dr of readingList) {
+      if (!dr.completed_at) continue;
+      const exObj = (Array.isArray(dr.daily_reading_exercises) ? dr.daily_reading_exercises[0] : dr.daily_reading_exercises) as { title?: string } | null;
+      const articleTitle = exObj?.title || `Bài đọc #${dr.exercise_id}`;
+      const totalQ = (dr.mcq_total || 0) + (dr.cloze_total || 0);
+      const scoreQ = (dr.mcq_score || 0) + (dr.cloze_score || 0);
+      const acc = totalQ > 0 ? scoreQ / totalQ : 1;
+      timeline.push({
+        id: `reading-${dr.id}`,
+        type: 'daily_reading',
+        timestamp: dr.completed_at,
+        title: `Đọc bài báo: ${articleTitle}`,
+        subtitle: totalQ > 0 ? `Kết quả: ${scoreQ}/${totalQ} câu đúng` : 'Đã hoàn thành bài đọc',
+        score: scoreQ,
+        totalQuestions: totalQ,
+        accuracy: acc,
+        badge: totalQ > 0 ? `${scoreQ}/${totalQ} đúng` : 'Hoàn thành',
+        badgeVariant: acc >= 0.8 ? 'emerald' : 'sky',
+        details: { articleTitle, score: scoreQ, totalQuestions: totalQ },
+      });
+    }
+
+    // 6. TOEIC Practice Drills
+    for (const t of toeicList) {
+      if (!t.last_answered_at) continue;
+      timeline.push({
+        id: `toeic-${t.id}`,
+        type: 'toeic',
+        timestamp: t.last_answered_at,
+        title: `Luyện đề Sát thủ TOEIC Part ${t.part || 5}`,
+        subtitle: `Câu hỏi: ${t.question_id || t.id}`,
+        badge: t.is_correct ? 'Chính xác' : 'Sai',
+        badgeVariant: t.is_correct ? 'emerald' : 'rose',
+        details: { part: t.part, isCorrect: t.is_correct, questionId: t.question_id },
+      });
+    }
+
+    // 7. Assessments (TOEIC, Roadmap)
     for (const a of assessments) {
       if (!a.created_at) continue;
       timeline.push({
@@ -186,6 +284,24 @@ export async function GET(req: Request): Promise<NextResponse> {
         badge: `${a.score}%`,
         badgeVariant: a.passed ? 'emerald' : 'indigo',
         details: { track: a.track, tier: a.tier, targetId: a.target_id, passed: a.passed },
+      });
+    }
+
+    // 8. Vocab packs studied
+    for (const p of vocabPacks) {
+      const time = p.last_studied_at || p.completed_at || p.started_at;
+      if (!time) continue;
+      const isDone = p.status === 'completed';
+      const packDisplayName = p.topic_title?.trim() || p.pack_id;
+      timeline.push({
+        id: `pack-${p.pack_id}-${time}`,
+        type: 'vocab_pack',
+        timestamp: time,
+        title: `Học bộ từ: ${packDisplayName}`,
+        subtitle: `Tiến độ: ${p.reviewed_count || 0}/${p.word_count || 0} từ (${isDone ? 'Hoàn thành' : 'Đang học'})`,
+        badge: isDone ? 'Hoàn thành' : `${p.reviewed_count || 0}/${p.word_count || 0}`,
+        badgeVariant: 'violet',
+        details: { packId: p.pack_id, topicTitle: p.topic_title, status: p.status, reviewedCount: p.reviewed_count, wordCount: p.word_count },
       });
     }
 
@@ -207,24 +323,19 @@ export async function GET(req: Request): Promise<NextResponse> {
     else if (words >= 50) cefr = 'A2';
 
     const latestQuiz = quizzes[0] || null;
-    let trueLastActive = current.last_active;
-    if (latestQuiz?.completed_at) {
-      if (!trueLastActive || new Date(latestQuiz.completed_at) > new Date(trueLastActive)) {
-        trueLastActive = latestQuiz.completed_at;
-      }
-    }
-    if (timeline.length > 0) {
-      const newestActivity = timeline[0].timestamp;
-      if (!trueLastActive || new Date(newestActivity) > new Date(trueLastActive)) {
-        trueLastActive = newestActivity;
-      }
-    }
+    const timelineTimestamps = timeline.map(t => t.timestamp);
+    const trueLastActive = computeTrueLastActive([
+      current.last_active,
+      latestQuiz?.completed_at,
+      ...timelineTimestamps,
+    ]);
 
     const savedCount = savedWords.filter(w => w.added_by === studentId).length;
 
     const enrichedCurrent = {
       ...current,
       last_active: trueLastActive,
+      true_last_active: trueLastActive,
       words_reviewed: words,
       active_vms: activeVms,
       communicative_depth: depth,

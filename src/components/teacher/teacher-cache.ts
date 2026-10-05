@@ -39,9 +39,19 @@ export interface ToeicAssessmentItem {
   details?: Record<string, unknown>;
 }
 
+export type TimelineActivityType =
+  | 'quiz'
+  | 'word_saved'
+  | 'vocab_pack'
+  | 'assessment'
+  | 'srs_review'
+  | 'grammar'
+  | 'daily_reading'
+  | 'toeic';
+
 export interface TimelineItem {
   id: string;
-  type: 'quiz' | 'word_saved' | 'vocab_pack' | 'assessment';
+  type: TimelineActivityType;
   timestamp: string;
   title: string;
   subtitle?: string;
@@ -49,7 +59,7 @@ export interface TimelineItem {
   totalQuestions?: number;
   accuracy?: number;
   badge?: string;
-  badgeVariant?: 'emerald' | 'amber' | 'violet' | 'sky' | 'indigo';
+  badgeVariant?: 'emerald' | 'amber' | 'violet' | 'sky' | 'indigo' | 'rose';
   details?: Record<string, unknown>;
 }
 

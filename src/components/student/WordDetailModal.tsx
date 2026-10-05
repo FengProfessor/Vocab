@@ -267,7 +267,7 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
           <>
             {/* Image */}
             {word.image_url && !imageFailed ? (
-              <div className="relative w-full h-40 overflow-hidden rounded-t-2xl bg-slate-800/50">
+              <div className="relative w-full h-44 overflow-hidden rounded-t-2xl bg-slate-100 dark:bg-slate-800">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={resolveImageSrc(word.image_url)}
@@ -279,11 +279,7 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
                   onError={() => setImageFailed(true)}
                 />
               </div>
-            ) : (
-              <div className="relative w-full h-40 overflow-hidden rounded-t-2xl bg-slate-800/50 flex items-center justify-center text-slate-500">
-                <ImageOff className="h-10 w-10" />
-              </div>
-            )}
+            ) : null}
 
             {/* Header */}
             <div className="p-6 pb-4">

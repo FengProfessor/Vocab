@@ -6,54 +6,93 @@ export interface GameWord {
 }
 
 export type GameMode = 'memory' | 'sprint' | 'scramble' | 'sentence' | 'grammar' | 'detective';
-export type GameTopic = 'daily' | 'travel' | 'work';
+export type GameTopic = 'daily' | 'travel' | 'work' | 'academic';
 
 export const GAME_MODES = [
-  { id: 'memory', title: 'Lật thẻ tìm đôi', emoji: '🧩', category: 'vocab', label: 'Trí nhớ', description: 'Lật hai thẻ để tìm từ và nghĩa. Nhớ vị trí, nối thật khéo!', color: 'from-violet-500 to-indigo-600' },
-  { id: 'sprint', title: 'Đường đua từ vựng', emoji: '🏎️', category: 'vocab', label: '60 giây', description: 'Chọn từ đúng, nối combo. Đồng hồ nghỉ khi bạn đọc lời giải.', color: 'from-orange-400 to-rose-500' },
-  { id: 'scramble', title: 'Giải mã chữ cái', emoji: '🔤', category: 'vocab', label: 'Chính tả', description: 'Chạm các chữ cái để giải mã từ bí mật theo nghĩa gợi ý.', color: 'from-cyan-500 to-blue-600' },
-  { id: 'sentence', title: 'Xưởng lắp ráp câu', emoji: '🛠️', category: 'grammar', label: 'Trật tự từ', description: 'Ghép những mảnh từ thành câu hoàn chỉnh theo gợi ý.', color: 'from-emerald-400 to-teal-600' },
-  { id: 'grammar', title: 'Cầu ngữ pháp', emoji: '🌉', category: 'grammar', label: 'Điền chỗ trống', description: 'Tìm mảnh ghép còn thiếu để bước qua từng nhịp cầu.', color: 'from-blue-500 to-indigo-600' },
-  { id: 'detective', title: 'Thám tử săn lỗi', emoji: '🔎', category: 'grammar', label: 'Tìm & sửa lỗi', description: 'Phát hiện từ sai trong câu, rồi khám phá cách sửa.', color: 'from-fuchsia-500 to-purple-600' },
+  { id: 'memory', title: 'Ghép Cặp Collocation', emoji: '🔗', category: 'vocab', label: 'Cụm Từ ETS/IELTS', description: 'Lật và ghép các cặp Collocation, cụm động từ & giới từ học thuật thường gặp trong đề thi.', color: 'from-slate-700 to-indigo-700' },
+  { id: 'sprint', title: 'Đường Đua Phản Xạ 60s', emoji: '⚡', category: 'vocab', label: 'Tốc Độ & Combo', description: 'Rèn phản xạ dưới 2 giây cho từ vựng thương mại & học thuật. Tối ưu thời gian làm bài Part 5 & 7.', color: 'from-blue-600 to-indigo-800' },
+  { id: 'scramble', title: 'Giải Mã Thuật Ngữ AWL', emoji: '🧩', category: 'vocab', label: 'Chính Tả Học Thuật', description: 'Giải mã các thuật ngữ học thuật cốt lõi (Academic Word List) theo ngữ cảnh học thuật và định nghĩa.', color: 'from-teal-600 to-cyan-800' },
+  { id: 'detective', title: 'Săn Bẫy Đề Thi Part 5', emoji: '🎯', category: 'grammar', label: 'Bắt Lỗi Sai & Sửa', description: 'Phát hiện bẫy kinh điển: Thể giả định, Đảo ngữ, Từ loại trước phân từ, Giới từ cố định.', color: 'from-rose-600 to-red-800' },
+  { id: 'grammar', title: 'Điền Khuyết Cấu Trúc Khó', emoji: '📐', category: 'grammar', label: 'Mục Tiêu 750–900+', description: 'Chinh phục các cấu trúc ăn điểm: Mệnh đề phân từ, Liên từ tương quan, Câu điều kiện hỗn hợp.', color: 'from-indigo-600 to-violet-800' },
+  { id: 'sentence', title: 'Lắp Ráp Cấu Trúc Nâng Cao', emoji: '🏛️', category: 'grammar', label: 'Trật Tự Câu Phức', description: 'Ghép các mảnh mệnh đề thành câu đảo ngữ, câu điều kiện lược bỏ và mệnh đề phân từ hoàn chỉnh.', color: 'from-emerald-600 to-teal-800' },
 ] as const satisfies ReadonlyArray<{ id: GameMode; title: string; emoji: string; category: string; label: string; description: string; color: string }>;
 
 export const GAME_TOPICS: Record<GameTopic, { title: string; emoji: string; words: GameWord[] }> = {
-  daily: { title: 'Đời sống', emoji: '☀️', words: [
-    { id: 'd1', word: 'breakfast', translation: 'bữa sáng', example: 'I have breakfast at seven.' },
-    { id: 'd2', word: 'kitchen', translation: 'nhà bếp', example: 'She is cooking in the kitchen.' },
-    { id: 'd3', word: 'neighbor', translation: 'hàng xóm', example: 'Our neighbor is very friendly.' },
-    { id: 'd4', word: 'thirsty', translation: 'khát nước', example: 'I am thirsty. Can I have some water?' },
-    { id: 'd5', word: 'borrow', translation: 'mượn', example: 'Can I borrow your pen?' },
-    { id: 'd6', word: 'usually', translation: 'thường xuyên', example: 'I usually walk to school.' },
-    { id: 'd7', word: 'laundry', translation: 'quần áo cần giặt', example: 'I do the laundry on Sundays.' },
-    { id: 'd8', word: 'healthy', translation: 'khỏe mạnh', example: 'Exercise keeps you healthy.' },
-    { id: 'd9', word: 'quiet', translation: 'yên tĩnh', example: 'The library is quiet.' },
-    { id: 'd10', word: 'wallet', translation: 'ví tiền', example: 'My wallet is in my bag.' },
-  ] },
-  travel: { title: 'Du lịch', emoji: '✈️', words: [
-    { id: 't1', word: 'airport', translation: 'sân bay', example: 'We arrived at the airport early.' },
-    { id: 't2', word: 'ticket', translation: 'vé', example: 'I bought a train ticket.' },
-    { id: 't3', word: 'luggage', translation: 'hành lý', example: 'My luggage is heavy.' },
-    { id: 't4', word: 'journey', translation: 'chuyến hành trình', example: 'The journey took three hours.' },
-    { id: 't5', word: 'passport', translation: 'hộ chiếu', example: 'Please show your passport.' },
-    { id: 't6', word: 'arrive', translation: 'đến nơi', example: 'We will arrive tomorrow.' },
-    { id: 't7', word: 'bridge', translation: 'cây cầu', example: 'Walk across the bridge.' },
-    { id: 't8', word: 'explore', translation: 'khám phá', example: 'We want to explore the city.' },
-    { id: 't9', word: 'crowded', translation: 'đông đúc', example: 'The bus is crowded.' },
-    { id: 't10', word: 'suitcase', translation: 'va li', example: 'She packed her suitcase.' },
-  ] },
-  work: { title: 'Học tập & công việc', emoji: '💼', words: [
-    { id: 'w1', word: 'meeting', translation: 'cuộc họp', example: 'The meeting starts at nine.' },
-    { id: 'w2', word: 'deadline', translation: 'hạn chót', example: 'The deadline is Friday.' },
-    { id: 'w3', word: 'improve', translation: 'cải thiện', example: 'I want to improve my English.' },
-    { id: 'w4', word: 'prepare', translation: 'chuẩn bị', example: 'Let us prepare for the test.' },
-    { id: 'w5', word: 'explain', translation: 'giải thích', example: 'Can you explain this rule?' },
-    { id: 'w6', word: 'achieve', translation: 'đạt được', example: 'You can achieve your goals.' },
-    { id: 'w7', word: 'project', translation: 'dự án', example: 'We are working on a new project.' },
-    { id: 'w8', word: 'colleague', translation: 'đồng nghiệp', example: 'My colleague helped me today.' },
-    { id: 'w9', word: 'schedule', translation: 'lịch trình', example: 'Please check the schedule.' },
-    { id: 'w10', word: 'confident', translation: 'tự tin', example: 'I feel confident about the exam.' },
-  ] },
+  work: {
+    title: 'Quản trị & Đàm phán Doanh nghiệp',
+    emoji: '💼',
+    words: [
+      { id: 'w1', word: 'accommodate', translation: 'đáp ứng (yêu cầu/nhu cầu)', example: 'The facility can accommodate special requests from corporate clients.' },
+      { id: 'w2', word: 'adhere', translation: 'tuân thủ (chính sách/quy định)', example: 'All personnel must strictly adhere to the safety guidelines.' },
+      { id: 'w3', word: 'implement', translation: 'triển khai, thực thi', example: 'Management decided to implement aggressive cost-cutting measures.' },
+      { id: 'w4', word: 'streamline', translation: 'tinh gọn, tối ưu hóa quy trình', example: 'The new software will streamline invoice processing workflows.' },
+      { id: 'w5', word: 'negotiate', translation: 'đàm phán, thương lượng', example: 'The legal team is prepared to negotiate contractual terms.' },
+      { id: 'w6', word: 'unanimous', translation: 'nhất trí, đồng thuận 100%', example: 'The board reached a unanimous decision regarding the merger.' },
+      { id: 'w7', word: 'feasible', translation: 'khả thi, có thể thực hiện', example: 'The engineering team confirmed that the project timeline is feasible.' },
+      { id: 'w8', word: 'discrepancy', translation: 'sự sai lệch, bất nhất số liệu', example: 'The external auditor discovered a discrepancy in the quarterly balance sheet.' },
+      { id: 'w9', word: 'incentive', translation: 'chính sách khích lệ, ưu đãi', example: 'Performance bonuses serve as a strong incentive for the sales division.' },
+      { id: 'w10', word: 'substantially', translation: 'đáng kể, phần lớn', example: 'Operating revenues have substantially increased over the past fiscal year.' },
+      { id: 'w11', word: 'preliminary', translation: 'sơ bộ, bước đầu', example: 'The preliminary survey results indicate high employee satisfaction.' },
+      { id: 'w12', word: 'expedite', translation: 'xúc tiến, đẩy nhanh tiến độ', example: 'Please expedite the shipping process to meet the client deadline.' },
+      { id: 'w13', word: 'mandatory', translation: 'bắt buộc theo quy định', example: 'Attendance at the compliance orientation seminar is mandatory.' },
+      { id: 'w14', word: 'subsequent', translation: 'xảy ra sau đó, tiếp theo', example: 'The initial trial succeeded, and subsequent tests confirmed the findings.' },
+      { id: 'w15', word: 'lucrative', translation: 'sinh lời cao, béo bở', example: 'Securing the municipal supply contract proved to be highly lucrative.' },
+    ]
+  },
+  travel: {
+    title: 'Hậu cần & Vận tải Toàn cầu',
+    emoji: '🌐',
+    words: [
+      { id: 't1', word: 'itinerary', translation: 'lịch trình chi tiết chuyến đi', example: 'The conference organizers distributed the complete travel itinerary.' },
+      { id: 't2', word: 'consecutive', translation: 'liên tiếp, liên tục', example: 'The airline won the safety excellence award for five consecutive years.' },
+      { id: 't3', word: 'congestion', translation: 'sự tắc nghẽn giao thông/hàng hải', example: 'Port congestion caused severe delays in container freight shipments.' },
+      { id: 't4', word: 'dispatch', translation: 'gửi đi, điều động vận chuyển', example: 'Replacement components will be dispatched via express courier.' },
+      { id: 't5', word: 'quarantine', translation: 'kiểm dịch, cách ly y tế', example: 'Imported agricultural produce must undergo border quarantine inspections.' },
+      { id: 't6', word: 'reimburse', translation: 'hoàn trả chi phí, bồi hoàn', example: 'The corporation will reimburse all authorized business travel expenses.' },
+      { id: 't7', word: 'customs', translation: 'thủ tục hải quan, thuế nhập khẩu', example: 'Goods were held at customs pending tariff documentation verification.' },
+      { id: 't8', word: 'terminal', translation: 'nhà ga trung chuyển hàng/khách', example: 'Passengers for international transfers should report to Terminal 3.' },
+      { id: 't9', word: 'transit', translation: 'quá cảnh, vận chuyển trên đường', example: 'Valuable cargo was securely monitored throughout maritime transit.' },
+      { id: 't10', word: 'punctual', translation: 'đúng giờ, chuẩn xác thời gian', example: 'The rail operator is renowned for maintaining a punctual timetable.' },
+      { id: 't11', word: 'destination', translation: 'điểm đến theo hành trình', example: 'The shipment reached its overseas destination without damage.' },
+      { id: 't12', word: 'procurement', translation: 'thu mua vật tư và cung ứng', example: 'The procurement department secured discounted rates on bulk fuel.' },
+    ]
+  },
+  daily: {
+    title: 'Đời sống Học thuật & Công sở',
+    emoji: '🏛️',
+    words: [
+      { id: 'd1', word: 'prerequisite', translation: 'điều kiện tiên quyết', example: 'Advanced Macroeconomics is a prerequisite for the finance seminar.' },
+      { id: 'd2', word: 'curriculum', translation: 'khung chương trình đào tạo', example: 'The updated curriculum emphasizes practical data analytics competencies.' },
+      { id: 'd3', word: 'collaborate', translation: 'hợp tác, phối hợp làm việc', example: 'Faculty researchers collaborate closely with industry specialists.' },
+      { id: 'd4', word: 'eligible', translation: 'đủ tư cách, đủ điều kiện', example: 'Candidates with relevant certificates are eligible for the scholarship.' },
+      { id: 'd5', word: 'proficiency', translation: 'sự thành thạo, năng lực giỏi', example: 'Professional proficiency in English is required for international postings.' },
+      { id: 'd6', word: 'comprehensive', translation: 'toàn diện, bao quát sâu rộng', example: 'The training academy provides a comprehensive syllabus for learners.' },
+      { id: 'd7', word: 'evaluate', translation: 'đánh giá, thẩm định chất lượng', example: 'Instructors regularly evaluate student progression via milestone tests.' },
+      { id: 'd8', word: 'retention', translation: 'khả năng ghi nhớ, duy trì kiến thức', example: 'Spaced repetition algorithms significantly optimize long-term memory retention.' },
+      { id: 'd9', word: 'benchmark', translation: 'chuẩn đối sánh, mốc tham chiếu', example: 'Achieving an 850 TOEIC score represents an international corporate benchmark.' },
+      { id: 'd10', word: 'symposium', translation: 'hội nghị chuyên đề học thuật', example: 'Distinguished scholars presented keynote speeches at the annual symposium.' },
+      { id: 'd11', word: 'credential', translation: 'chứng chỉ, văn bằng uy tín', example: 'Accredited credentials enhance candidate competitiveness in job placements.' },
+      { id: 'd12', word: 'rigorous', translation: 'nghiêm ngặt, chuẩn mực khắt khe', example: 'Candidates must pass a rigorous assessment before graduation.' },
+    ]
+  },
+  academic: {
+    title: 'Nghiên cứu & Phân tích Học thuật (AWL)',
+    emoji: '📊',
+    words: [
+      { id: 'a1', word: 'methodology', translation: 'phương pháp luận nghiên cứu', example: 'The qualitative research methodology yielded robust analytical insights.' },
+      { id: 'a2', word: 'hypothesis', translation: 'giả thuyết khoa học', example: 'Empirical data collected during the study validated the initial hypothesis.' },
+      { id: 'a3', word: 'correlation', translation: 'sự tương quan giữa các biến số', example: 'Statisticians observed a positive correlation between study time and scores.' },
+      { id: 'a4', word: 'paradigm', translation: 'mô thức, hệ hình tư duy', example: 'Deep learning represents a paradigm shift in modern natural language processing.' },
+      { id: 'a5', word: 'phenomenon', translation: 'hiện tượng khoa học thực nghiệm', example: 'Researchers observed the acoustic phenomenon under laboratory conditions.' },
+      { id: 'a6', word: 'empirical', translation: 'thực nghiệm, dựa trên số liệu thực', example: 'Our recommendations are grounded in empirical evidence and peer-reviewed studies.' },
+      { id: 'a7', word: 'synthesize', translation: 'tổng hợp kiến thức đa nguồn', example: 'The literature review synthesizes findings from over sixty academic journals.' },
+      { id: 'a8', word: 'qualitative', translation: 'định tính, phân tích bản chất', example: 'The committee conducted qualitative interviews with senior executives.' },
+      { id: 'a9', word: 'quantitative', translation: 'định lượng, đo lường bằng số', example: 'The quantitative survey gathered responses from five thousand participants.' },
+      { id: 'a10', word: 'precedent', translation: 'tiền lệ pháp lý / học thuật', example: 'The appellate court ruling established a binding legal precedent.' },
+      { id: 'a11', word: 'substantial', translation: 'có giá trị lớn, đáng kể', example: 'The philanthropic foundation provided substantial funding for the research.' },
+      { id: 'a12', word: 'divergence', translation: 'sự phân kỳ, khác biệt xu hướng', example: 'Statistical divergence between the two demographic cohorts was notable.' },
+    ]
+  }
 };
 
 export interface GrammarPuzzle {
@@ -65,42 +104,212 @@ export interface GrammarPuzzle {
 }
 
 export const GRAMMAR_PUZZLES: GrammarPuzzle[] = [
-  { id: 'g1', prompt: 'She ___ to school every day.', options: ['go', 'goes', 'going', 'gone'], answer: 'goes', explanation: 'Every day diễn tả thói quen. Hiện tại đơn với she: go → goes.' },
-  { id: 'g2', prompt: 'Look! The children ___ in the garden.', options: ['play', 'plays', 'are playing', 'played'], answer: 'are playing', explanation: 'Look! hướng đến hành động đang xảy ra. Children là số nhiều: are + V-ing.' },
-  { id: 'g3', prompt: 'We ___ a movie last night.', options: ['watch', 'watched', 'watching', 'watches'], answer: 'watched', explanation: 'Last night là thời điểm quá khứ đã kết thúc. Watch là động từ có quy tắc: thêm -ed.' },
-  { id: 'g4', prompt: 'There is ___ apple on the table.', options: ['a', 'an', 'many', 'any'], answer: 'an', explanation: 'Apple bắt đầu bằng âm nguyên âm, là danh từ đếm được số ít: dùng an.' },
-  { id: 'g5', prompt: 'How ___ water do you drink every day?', options: ['many', 'much', 'few', 'a'], answer: 'much', explanation: 'Water không đếm được: hỏi lượng bằng how much. How many đi với danh từ đếm được số nhiều.' },
-  { id: 'g6', prompt: 'My sister is taller ___ me.', options: ['as', 'that', 'than', 'to'], answer: 'than', explanation: 'So sánh hơn: tính từ ngắn + -er + than. Tall → taller than.' },
-  { id: 'g7', prompt: 'I have lived here ___ 2020.', options: ['for', 'since', 'during', 'at'], answer: 'since', explanation: 'Since đi với mốc bắt đầu (2020). For đi với khoảng thời gian (six years).' },
-  { id: 'g8', prompt: 'You ___ wear a seat belt. It is required.', options: ['must', 'might', 'would', 'can'], answer: 'must', explanation: 'Must diễn tả điều bắt buộc. Sau must dùng động từ nguyên mẫu: must wear.' },
-  { id: 'g9', prompt: 'I enjoy ___ books in my free time.', options: ['read', 'reads', 'reading', 'to read'], answer: 'reading', explanation: 'Sau enjoy dùng V-ing: enjoy reading. Ghi nhớ theo cụm enjoy doing something.' },
-  { id: 'g10', prompt: 'If it rains tomorrow, we ___ at home.', options: ['will stay', 'stayed', 'staying', 'have stayed'], answer: 'will stay', explanation: 'Điều kiện loại 1: If + hiện tại đơn, will + động từ nguyên mẫu; diễn tả khả năng trong tương lai.' },
-  { id: 'g11', prompt: 'The keys are ___ the table, next to the vase.', options: ['on', 'into', 'between', 'through'], answer: 'on', explanation: 'On diễn tả vật ở trên bề mặt và tiếp xúc với bề mặt đó: on the table.' },
-  { id: 'g12', prompt: 'This book ___ by a famous author in 1995.', options: ['wrote', 'was written', 'is writing', 'has written'], answer: 'was written', explanation: 'Sách được viết → bị động. In 1995 → quá khứ: was + written (V3 của write).' },
+  {
+    id: 'g1',
+    prompt: 'The executive committee requested that all branch directors ___ their financial audits before Friday.',
+    options: ['submit', 'submits', 'submitted', 'are submitting'],
+    answer: 'submit',
+    explanation: 'Bẫy Thể Giả Định (Subjunctive Mood): Sau các động từ yêu cầu/đề xuất (request, recommend, demand, insist) + that, động từ trong mệnh đề phụ luôn ở dạng nguyên mẫu không to (bare infinitive).'
+  },
+  {
+    id: 'g2',
+    prompt: 'Hardly ___ the presentation when the senior investor asked a challenging question regarding profitability.',
+    options: ['had the speaker concluded', 'the speaker concluded', 'has the speaker concluded', 'did the speaker conclude'],
+    answer: 'had the speaker concluded',
+    explanation: 'Bẫy Đảo Ngữ (Negative Inversion): Cấu trúc "Hardly + had + S + V3/ed... when + S + V2/ed" diễn tả một hành động vừa mới xảy ra thì hành động khác xen vào.'
+  },
+  {
+    id: 'g3',
+    prompt: 'The manufacturing equipment must be inspected ___ carefully prior to dispatch to the overseas assembly plant.',
+    options: ['extremely', 'extreme', 'extremeness', 'extremest'],
+    answer: 'extremely',
+    explanation: 'Bẫy Từ Loại (Adverb modifying Adverb/Adjective): Để bổ nghĩa cho trạng từ "carefully" hoặc tính từ/phân từ, ta phải dùng trạng từ chỉ mức độ "extremely" (cực kỳ cẩn thận).'
+  },
+  {
+    id: 'g4',
+    prompt: 'All corporate procurement procedures must be conducted in strict compliance ___ municipal regulations.',
+    options: ['with', 'to', 'for', 'at'],
+    answer: 'with',
+    explanation: 'Bẫy Cụm Giới Từ Cố Định: Cụm chuẩn ETS là "in compliance with" (tuân thủ theo quy định). Tuyệt đối không dùng "in compliance to".'
+  },
+  {
+    id: 'g5',
+    prompt: 'The total expenditure on raw materials and overseas shipping ___ dramatically over the past two quarters.',
+    options: ['has risen', 'have risen', 'are rising', 'were risen'],
+    answer: 'has risen',
+    explanation: 'Bẫy Hòa Hợp Chủ - Vị: Chủ ngữ thực sự là danh từ số ít "The total expenditure" (tổng chi phí). Cụm giới từ xen giữa "on raw materials..." không làm thay đổi số của động từ -> dùng "has risen".'
+  },
+  {
+    id: 'g6',
+    prompt: '___ completed the preliminary financial audit, the senior consultant presented the findings to the board.',
+    options: ['Having', 'Have', 'Had', 'To have'],
+    answer: 'Having',
+    explanation: 'Bẫy Rút Gọn Mệnh Đề Phân Từ Hoàn Thành (Perfect Participle): Dùng "Having + V3/ed" khi hành động kiểm toán xảy ra và hoàn tất trước hành động trình bày ("presented").'
+  },
+  {
+    id: 'g7',
+    prompt: 'Should you ___ any additional documentation regarding the acquisition, please inform the legal team immediately.',
+    options: ['require', 'requires', 'required', 'requiring'],
+    answer: 'require',
+    explanation: 'Bẫy Đảo Ngữ Câu Điều Kiện Loại 1: "Should + S + V(nguyên mẫu)..." thay thế cho "If you require...". Sau Should luôn là động từ nguyên thể.'
+  },
+  {
+    id: 'g8',
+    prompt: 'The conference was rescheduled ___ adverse weather conditions disrupting transatlantic air transit.',
+    options: ['due to', 'because', 'although', 'in spite'],
+    answer: 'due to',
+    explanation: 'Bẫy Giới Từ vs Liên Từ: Phía sau là cụm danh từ "adverse weather conditions...", do đó phải dùng giới từ chỉ nguyên nhân "due to" hoặc "because of", không dùng liên từ "because".'
+  },
+  {
+    id: 'g9',
+    prompt: 'The marketing vice president completed the international market penetration report entirely by ___.',
+    options: ['himself', 'him', 'his', 'he'],
+    answer: 'himself',
+    explanation: 'Bẫy Đại Từ Phản Thân: Cụm thành ngữ "by oneself" = "on one\'s own" mang ý nghĩa tự mình thực hiện mà không cần ai giúp đỡ -> "by himself".'
+  },
+  {
+    id: 'g10',
+    prompt: 'The executive board was impressed by neither the initial proposal ___ the revised timeline submitted yesterday.',
+    options: ['nor', 'or', 'and', 'but'],
+    answer: 'nor',
+    explanation: 'Bẫy Liên Từ Tương Quan: Cặp liên từ cố định là "neither... nor..." (không cái này mà cũng không cái kia). Đối lập với "either... or...".'
+  },
+  {
+    id: 'g11',
+    prompt: 'The human resources division is firmly committed to ___ workplace diversity across all regional branches.',
+    options: ['promoting', 'promote', 'promotion', 'promoted'],
+    answer: 'promoting',
+    explanation: 'Bẫy Giới Từ Sau Cụm Cố Định: Trong cấu trúc "be committed to + V-ing / Noun", từ "to" là giới từ (preposition) chứ không phải to-infinitive -> bắt buộc chọn "promoting".'
+  },
+  {
+    id: 'g12',
+    prompt: 'The technical specifications submitted by the engineering team proved to be highly ___ with existing hardware.',
+    options: ['compatible', 'compatibility', 'compatibly', 'compatibleness'],
+    answer: 'compatible',
+    explanation: 'Bẫy Vị Trí Tính Từ: Sau động từ nối "proved to be" và trạng từ chỉ mức độ "highly", ta cần tính từ bổ nghĩa cho chủ ngữ -> chọn "compatible" (tương thích).'
+  }
 ];
 
 export const SENTENCE_PUZZLES = [
-  { id: 's1', answer: 'She drinks coffee every morning', prompt: 'Cô ấy uống cà phê mỗi sáng.', explanation: 'Chủ ngữ + động từ + tân ngữ + thời gian. She → drinks.' },
-  { id: 's2', answer: 'They are playing football now', prompt: 'Họ đang chơi bóng đá bây giờ.', explanation: 'Hiện tại tiếp diễn: They + are + playing; now thường ở cuối câu.' },
-  { id: 's3', answer: 'I bought a new phone yesterday', prompt: 'Tôi đã mua một chiếc điện thoại mới hôm qua. Đặt thời gian ở cuối câu.', explanation: 'Quá khứ của buy là bought. Tính từ new đứng trước danh từ phone.' },
-  { id: 's4', answer: 'Can you help me please', prompt: 'Bạn có thể giúp tôi không? Bắt đầu với Can, kết thúc với please.', explanation: 'Câu hỏi với can: Can + chủ ngữ + động từ nguyên mẫu + tân ngữ?' },
-  { id: 's5', answer: 'There are two books on the desk', prompt: 'Có hai quyển sách trên bàn.', explanation: 'There are + danh từ số nhiều. Two books → are, không dùng is.' },
-  { id: 's6', answer: 'My brother is taller than me', prompt: 'Anh trai tôi cao hơn tôi.', explanation: 'So sánh hơn: S + be + taller + than + người được so sánh.' },
-  { id: 's7', answer: 'We have lived here for ten years', prompt: 'Chúng tôi đã sống ở đây được mười năm.', explanation: 'Have + V3 diễn tả việc bắt đầu trước đây và còn tiếp diễn. For + khoảng thời gian.' },
-  { id: 's8', answer: 'I would like a cup of tea', prompt: 'Tôi muốn một tách trà. Dùng cách nói lịch sự với would.', explanation: 'Would like + danh từ là cách bày tỏ mong muốn lịch sự.' },
-  { id: 's9', answer: 'She does not like cold weather', prompt: 'Cô ấy không thích thời tiết lạnh.', explanation: 'Phủ định hiện tại đơn: She + does not + like (động từ không thêm -s).' },
-  { id: 's10', answer: 'How often do you exercise', prompt: 'Bạn tập thể dục bao lâu một lần?', explanation: 'How often hỏi tần suất. Sau do, dùng chủ ngữ + động từ nguyên mẫu.' },
+  {
+    id: 's1',
+    answer: 'Hardly had the meeting started when the projector malfunctioned',
+    prompt: 'Vừa mới bắt đầu cuộc họp thì máy chiếu đã bị hỏng hóc kỹ thuật (Đảo ngữ với Hardly).',
+    explanation: 'Cấu trúc đảo ngữ nhấn mạnh: Hardly + had + S + V3/ed + when + Clause (quá khứ đơn).'
+  },
+  {
+    id: 's2',
+    answer: 'Should you require further assistance please contact our customer service department',
+    prompt: 'Nếu quý khách cần thêm hỗ trợ xin vui lòng liên hệ bộ phận chăm sóc khách hàng (Đảo ngữ Should).',
+    explanation: 'Đảo ngữ câu điều kiện loại 1: Should + S + V(bare) thay cho If + S + V.'
+  },
+  {
+    id: 's3',
+    answer: 'The executive committee unanimously approved the proposed budget for the upcoming quarter',
+    prompt: 'Ban điều hành đã nhất trí thông qua ngân sách đề xuất cho quý sắp tới.',
+    explanation: 'Trật tự câu: S (The executive committee) + Adv (unanimously) + V (approved) + O (the proposed budget...).'
+  },
+  {
+    id: 's4',
+    answer: 'Only by conducting regular audits can the organization ensure financial transparency',
+    prompt: 'Chỉ bằng cách tiến hành kiểm toán thường xuyên tổ chức mới có thể bảo đảm tính minh bạch tài chính.',
+    explanation: 'Đảo ngữ với Only by + V-ing: Trợ động từ "can" đảo lên trước chủ ngữ "the organization".'
+  },
+  {
+    id: 's5',
+    answer: 'Having completed the rigorous training program all candidates received professional accreditation',
+    prompt: 'Sau khi hoàn thành chương trình đào tạo khắt khe tất cả ứng viên đều nhận được chứng chỉ chuyên môn.',
+    explanation: 'Rút gọn phân từ hoàn thành: Having + V3/ed diễn tả hành động đào tạo hoàn thành trước khi nhận chứng chỉ.'
+  },
+  {
+    id: 's6',
+    answer: 'All employees are strictly required to adhere to workplace safety regulations',
+    prompt: 'Tất cả nhân viên được yêu cầu nghiêm ngặt phải tuân thủ các quy định an toàn tại nơi làm việc.',
+    explanation: 'Cấu trúc: S + be + Adv + required to + V(bare) + to + O (adhere to regulations).'
+  },
+  {
+    id: 's7',
+    answer: 'In accordance with corporate policy all travel expenses must be properly documented',
+    prompt: 'Theo đúng chính sách tập đoàn tất cả chi phí đi lại phải được ghi chép chứng từ đầy đủ.',
+    explanation: 'Cụm giới từ trang trọng đứng đầu câu: In accordance with... + S + modal V + be V3/ed.'
+  },
+  {
+    id: 's8',
+    answer: 'The preliminary survey revealed a significant increase in client satisfaction rates',
+    prompt: 'Khảo sát sơ bộ đã chỉ ra mức tăng trưởng đáng kể trong tỷ lệ hài lòng của khách hàng.',
+    explanation: 'Collocation học thuật: reveal a significant increase in (chỉ ra mức tăng đáng kể trong).'
+  }
 ];
 
 export const DETECTIVE_PUZZLES = [
-  { id: 'e1', sentence: 'She go to school every day', wrongIndex: 1, replacement: 'goes', explanation: 'She là ngôi thứ ba số ít. Hiện tại đơn: go → goes.' },
-  { id: 'e2', sentence: 'I am interested on music', wrongIndex: 3, replacement: 'in', explanation: 'Cụm cố định: be interested in something (quan tâm, hứng thú với điều gì).' },
-  { id: 'e3', sentence: 'He can speaks English well', wrongIndex: 2, replacement: 'speak', explanation: 'Sau động từ khuyết thiếu can luôn dùng động từ nguyên mẫu không to.' },
-  { id: 'e4', sentence: 'We was at home yesterday', wrongIndex: 1, replacement: 'were', explanation: 'Quá khứ của be: I/he/she/it → was; you/we/they → were.' },
-  { id: 'e5', sentence: 'There are three childs outside', wrongIndex: 3, replacement: 'children', explanation: 'Child có số nhiều bất quy tắc là children, không phải childs.' },
-  { id: 'e6', sentence: 'She is tall than me', wrongIndex: 2, replacement: 'taller', explanation: 'Tall là tính từ ngắn. So sánh hơn dùng taller than, không dùng tall than.' },
-  { id: 'e7', sentence: 'I have lived here since five years', wrongIndex: 4, replacement: 'for', explanation: 'Five years là khoảng thời gian: dùng for. Since đi với mốc bắt đầu.' },
-  { id: 'e8', sentence: 'He did not went to work', wrongIndex: 3, replacement: 'go', explanation: 'Did đã thể hiện quá khứ. Động từ chính trở về nguyên mẫu: did not go.' },
-  { id: 'e9', sentence: 'I want to buying a book', wrongIndex: 3, replacement: 'buy', explanation: 'Want + to + động từ nguyên mẫu: want to buy.' },
-  { id: 'e10', sentence: 'These books belongs to me', wrongIndex: 2, replacement: 'belong', explanation: 'These books là số nhiều. Hiện tại đơn dùng belong, không thêm -s.' },
+  {
+    id: 'e1',
+    sentence: 'The managing director requested that every department head submits their quarterly audit report on time',
+    wrongIndex: 8,
+    replacement: 'submit',
+    explanation: 'Bẫy Thể Giả Định (Subjunctive): Sau động từ "requested that", động từ chính phải ở dạng nguyên mẫu không "s/es" -> sửa "submits" thành "submit".'
+  },
+  {
+    id: 'e2',
+    sentence: 'All laboratory technicians must handle the chemical reagents extreme carefully during experimentation',
+    wrongIndex: 8,
+    replacement: 'extremely',
+    explanation: 'Bẫy Từ Loại: Để bổ nghĩa cho trạng từ "carefully", bắt buộc phải dùng phó từ chỉ mức độ "extremely", không dùng tính từ "extreme".'
+  },
+  {
+    id: 'e3',
+    sentence: 'Every corporate financial transaction must be conducted in compliance to municipal banking regulations',
+    wrongIndex: 9,
+    replacement: 'with',
+    explanation: 'Bẫy Cụm Giới Từ Cố Định: Cụm thành ngữ pháp lý chuẩn ETS là "in compliance with" (tuân thủ theo), không dùng giới từ "to".'
+  },
+  {
+    id: 'e4',
+    sentence: 'The total cost of repairing the imported manufacturing devices have exceeded our initial forecasts',
+    wrongIndex: 9,
+    replacement: 'has',
+    explanation: 'Bẫy Hòa Hợp Chủ - Vị: Chủ ngữ là danh từ số ít "The total cost". Cụm giới từ xen giữa không làm đổi ngôi động từ -> sửa "have" thành "has".'
+  },
+  {
+    id: 'e5',
+    sentence: 'Hardly the senior executive had arrived at the conference when the keynote address commenced',
+    wrongIndex: 1,
+    replacement: 'had the senior executive',
+    explanation: 'Bẫy Đảo Ngữ Phủ Định: Với "Hardly" đứng đầu câu, trợ động từ "had" phải đảo lên trước chủ ngữ -> "Hardly had the senior executive arrived...".'
+  },
+  {
+    id: 'e6',
+    sentence: 'The overseas shipment was delayed because the severe maritime storm disrupting shipping routes',
+    wrongIndex: 5,
+    replacement: 'because of',
+    explanation: 'Bẫy Liên Từ vs Giới Từ: Đằng sau là cụm danh từ "the severe maritime storm...", do đó phải dùng giới từ "because of", không dùng liên từ "because".'
+  },
+  {
+    id: 'e7',
+    sentence: 'While reviewed the quarterly earnings report the chief auditor detected several unexplained discrepancies',
+    wrongIndex: 1,
+    replacement: 'reviewing',
+    explanation: 'Bẫy Mệnh Đề Rút Gọn: Chủ ngữ thực hiện hành động là "the chief auditor" (chủ động rà soát) -> rút gọn thành V-ing: "While reviewing...".'
+  },
+  {
+    id: 'e8',
+    sentence: 'Dr Martinez prepared the entire pharmaceutical research proposal for the committee by him',
+    wrongIndex: 12,
+    replacement: 'himself',
+    explanation: 'Bẫy Đại Từ Phản Thân: Thành ngữ diễn tả tự mình làm mà không cần trợ giúp là "by oneself" -> phải dùng "by himself", không dùng tân ngữ "him".'
+  },
+  {
+    id: 'e9',
+    sentence: 'The human resources department provided comprehensive and valuable career advices to new recruits',
+    wrongIndex: 9,
+    replacement: 'advice',
+    explanation: 'Bẫy Danh Từ Không Đếm Được: "Advice" trong tiếng Anh là danh từ không đếm được, không bao giờ thêm "s". Sửa "advices" thành "advice".'
+  },
+  {
+    id: 'e10',
+    sentence: 'The executive committee is firmly committed to promote ethical corporate governance standards',
+    wrongIndex: 6,
+    replacement: 'promoting',
+    explanation: 'Bẫy Cấu Trúc To-Infinitive vs Giới Từ: Cụm "be committed to" có "to" là giới từ, sau đó phải là V-ing -> sửa "promote" thành "promoting".'
+  }
 ];

@@ -809,9 +809,21 @@ export async function runInteractiveTextTests(runner: TestRunner): Promise<void>
       expect(source.includes('Có phải bạn muốn tìm:')).toBe(true);
     });
   } finally {
-    (global as any).window = originalWindow;
-    (global as any).localStorage = originalLocalStorage;
-    (global as any).fetch = originalFetch;
+    if (originalWindow !== undefined) {
+      (global as any).window = originalWindow;
+    } else {
+      delete (global as any).window;
+    }
+    if (originalLocalStorage !== undefined) {
+      (global as any).localStorage = originalLocalStorage;
+    } else {
+      delete (global as any).localStorage;
+    }
+    if (originalFetch !== undefined) {
+      (global as any).fetch = originalFetch;
+    } else {
+      delete (global as any).fetch;
+    }
   }
 }
 

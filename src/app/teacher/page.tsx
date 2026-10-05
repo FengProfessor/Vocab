@@ -345,9 +345,10 @@ export default function TeacherDashboard() {
     const now = Date.now();
 
     // 1. Sĩ số hoạt động (7 ngày qua)
-    const activeCount = students.filter(
-      (s) => s.last_active && now - new Date(s.last_active).getTime() <= 7 * 86_400_000
-    ).length;
+    const activeCount = students.filter((s) => {
+      const activeTimestamp = s.true_last_active || s.last_active;
+      return activeTimestamp && now - new Date(activeTimestamp).getTime() <= 7 * 86_400_000;
+    }).length;
     const activePct = Math.round((activeCount / total) * 100);
 
     // 2. Độ bền trí nhớ TB lớp (VMS)
