@@ -13,6 +13,147 @@
 -- =============================================================================
 
 -- =============================================================================
+-- SECTION 0: Prerequisite Learning Module Tables (Idempotent Creation)
+-- =============================================================================
+
+-- 1. TOEIC Practice Question History
+CREATE TABLE IF NOT EXISTS public.user_toeic_question_history (
+  user_id uuid NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+  question_id text NOT NULL,
+  part integer NOT NULL CHECK (part BETWEEN 1 AND 7),
+  last_answered_at timestamptz NOT NULL DEFAULT now(),
+  is_correct boolean NOT NULL,
+  attempt_count integer NOT NULL DEFAULT 1 CHECK (attempt_count >= 1),
+  selected_option text NOT NULL DEFAULT '',
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now(),
+  CONSTRAINT user_toeic_question_history_pkey PRIMARY KEY (user_id, question_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_user_toeic_question_history_user_part
+  ON public.user_toeic_question_history (user_id, part);
+
+CREATE INDEX IF NOT EXISTS idx_user_toeic_question_history_user_part_correct
+  ON public.user_toeic_question_history (user_id, part, is_correct);
+
+ALTER TABLE public.user_toeic_question_history ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS user_toeic_question_history_select_own ON public.user_toeic_question_history;
+CREATE POLICY user_toeic_question_history_select_own
+  ON public.user_toeic_question_history FOR SELECT USING (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS user_toeic_question_history_insert_own ON public.user_toeic_question_history;
+CREATE POLICY user_toeic_question_history_insert_own
+  ON public.user_toeic_question_history FOR INSERT WITH CHECK (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS user_toeic_question_history_update_own ON public.user_toeic_question_history;
+CREATE POLICY user_toeic_question_history_update_own
+  ON public.user_toeic_question_history FOR UPDATE USING (auth.uid() = user_id) WITH CHECK (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS user_toeic_question_history_delete_own ON public.user_toeic_question_history;
+CREATE POLICY user_toeic_question_history_delete_own
+  ON public.user_toeic_question_history FOR DELETE USING (auth.uid() = user_id);
+
+-- 2. Learning Roadmap & Mock Assessments
+CREATE TABLE IF NOT EXISTS public.user_roadmap_assessments (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+  track text NOT NULL DEFAULT 'cefr' CHECK (track IN ('cefr', 'thpt')),
+  tier text NOT NULL CHECK (tier IN ('mini_quiz', 'checkpoint', 'exit_exam')),
+  target_id text NOT NULL,
+  score integer NOT NULL CHECK (score >= 0 AND score <= 100),
+  passed boolean NOT NULL DEFAULT false,
+  details jsonb NOT NULL DEFAULT '{}'::jsonb,
+  created_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_user_roadmap_assessments_lookup
+  ON public.user_roadmap_assessments (user_id, target_id, created_at DESC);
+
+ALTER TABLE public.user_roadmap_assessments ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "user_roadmap_assessments_select_own" ON public.user_roadmap_assessments;
+CREATE POLICY "user_roadmap_assessments_select_own"
+  ON public.user_roadmap_assessments FOR SELECT USING (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "user_roadmap_assessments_insert_own" ON public.user_roadmap_assessments;
+CREATE POLICY "user_roadmap_assessments_insert_own"
+  ON public.user_roadmap_assessments FOR INSERT WITH CHECK (auth.uid() = user_id);
+
+-- 3. Grammar Micro-progress
+CREATE TABLE IF NOT EXISTS public.grammar_micro_progress (
+  user_id uuid NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
+  stage text NOT NULL CHECK (stage IN ('a0', 'a1')),
+  completed_steps integer[] NOT NULL DEFAULT '{}',
+  updated_at timestamptz NOT NULL DEFAULT now(),
+  PRIMARY KEY (user_id, stage)
+);
+
+ALTER TABLE public.grammar_micro_progress ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "Users read own grammar foundation progress" ON public.grammar_micro_progress;
+CREATE POLICY "Users read own grammar foundation progress"
+  ON public.grammar_micro_progress FOR SELECT USING (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "Users insert own grammar foundation progress" ON public.grammar_micro_progress;
+CREATE POLICY "Users insert own grammar foundation progress"
+  ON public.grammar_micro_progress FOR INSERT WITH CHECK (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "Users update own grammar foundation progress" ON public.grammar_micro_progress;
+CREATE POLICY "Users update own grammar foundation progress"
+  ON public.grammar_micro_progress FOR UPDATE USING (auth.uid() = user_id) WITH CHECK (auth.uid() = user_id);
+
+-- 4. Vocab Packs Progress
+CREATE TABLE IF NOT EXISTS public.user_vocab_packs (
+  user_id uuid NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
+  pack_id text NOT NULL,
+  catalog_version text NOT NULL DEFAULT 'v1',
+  topic_id text NOT NULL DEFAULT '',
+  topic_title text NOT NULL DEFAULT '',
+  pack_index integer NOT NULL DEFAULT 0,
+  status text NOT NULL DEFAULT 'not_started',
+  word_count integer NOT NULL DEFAULT 0,
+  reviewed_count integer NOT NULL DEFAULT 0,
+  started_at timestamptz,
+  last_studied_at timestamptz,
+  completed_at timestamptz,
+  CONSTRAINT user_vocab_packs_pkey PRIMARY KEY (user_id, pack_id)
+);
+
+ALTER TABLE public.user_vocab_packs ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "Users read own vocab pack progress" ON public.user_vocab_packs;
+CREATE POLICY "Users read own vocab pack progress"
+  ON public.user_vocab_packs FOR SELECT USING (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "Users insert own vocab pack progress" ON public.user_vocab_packs;
+CREATE POLICY "Users insert own vocab pack progress"
+  ON public.user_vocab_packs FOR INSERT WITH CHECK (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "Users update own vocab pack progress" ON public.user_vocab_packs;
+CREATE POLICY "Users update own vocab pack progress"
+  ON public.user_vocab_packs FOR UPDATE USING (auth.uid() = user_id) WITH CHECK (auth.uid() = user_id);
+
+-- 5. User Gamification
+CREATE TABLE IF NOT EXISTS public.user_gamification (
+  user_id uuid PRIMARY KEY REFERENCES public.profiles(id) ON DELETE CASCADE,
+  total_xp int NOT NULL DEFAULT 0,
+  current_streak int NOT NULL DEFAULT 0,
+  longest_streak int NOT NULL DEFAULT 0,
+  last_active_date date,
+  daily_goal int NOT NULL DEFAULT 30,
+  today_xp int NOT NULL DEFAULT 0,
+  today_date date
+);
+
+ALTER TABLE public.user_gamification ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "Users manage own gamification" ON public.user_gamification;
+CREATE POLICY "Users manage own gamification"
+  ON public.user_gamification FOR ALL USING (auth.uid() = user_id);
+
+
+-- =============================================================================
 -- SECTION 1: Performance Composite Indexes on Timestamp Columns
 -- =============================================================================
 
