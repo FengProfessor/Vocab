@@ -71,6 +71,17 @@ export default function VettedMediaCard({
   const resolvedVideoEmbedUrl = media?.videoEmbedUrl || videoEmbedUrl || '';
   const resolvedVideoTitle = media?.videoTitle || videoTitle || 'Video bài giảng ngữ pháp';
 
+  // Auto-extract English & Vietnamese sentence if not explicitly passed
+  let derivedEn = exampleEn || '';
+  let derivedVi = exampleVi || '';
+  if (!derivedEn && resolvedCaption) {
+    const m = resolvedCaption.match(/^"([^"]+)"\s*(?:\(([^)]+)\))?/);
+    if (m) {
+      derivedEn = m[1].trim();
+      derivedVi = m[2] ? m[2].trim() : '';
+    }
+  }
+
   const handlePlayAudio = () => {
     if (audioUrl) {
       setIsPlayingAudio(true);
@@ -78,30 +89,30 @@ export default function VettedMediaCard({
       audio.onended = () => setIsPlayingAudio(false);
       audio.onerror = () => {
         setIsPlayingAudio(false);
-        if (exampleEn) speak(exampleEn, 0.9);
+        if (derivedEn) speak(derivedEn, 0.9);
       };
       audio.play().catch(() => {
         setIsPlayingAudio(false);
-        if (exampleEn) speak(exampleEn, 0.9);
+        if (derivedEn) speak(derivedEn, 0.9);
       });
       return;
     }
 
-    if (exampleEn) {
+    if (derivedEn) {
       setIsPlayingAudio(true);
-      speak(exampleEn, 0.9);
+      speak(derivedEn, 0.9);
       setTimeout(() => setIsPlayingAudio(false), 2000);
     }
   };
 
   return (
-    <div className="border border-border bg-card rounded-none my-6 overflow-hidden">
+    <div className="border border-border bg-card rounded-none my-6 overflow-hidden shadow-xs">
       {/* Main Visual & Situational Section */}
       <div className="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-border">
         {/* Visual Asset Container (Left Pane - 5 cols) */}
-        <div className="md:col-span-5 bg-muted/20 flex flex-col items-center justify-center p-4 relative min-h-[220px]">
+        <div className="md:col-span-5 bg-slate-50 dark:bg-muted/20 flex flex-col items-center justify-center p-4 relative min-h-[220px]">
           {resolvedImageUrl ? (
-            <div className="relative w-full h-44 sm:h-52 flex items-center justify-center">
+            <div className="relative w-full h-48 sm:h-56 flex items-center justify-center">
               <Image
                 src={resolvedImageUrl}
                 alt={resolvedImageAlt}
@@ -135,17 +146,17 @@ export default function VettedMediaCard({
             )}
 
             {/* Example sentence with native audio */}
-            {(exampleEn || exampleVi) && (
-              <div className="border border-border bg-muted/20 p-3 rounded-none flex items-start justify-between gap-3">
+            {(derivedEn || derivedVi) && (
+              <div className="border border-border bg-slate-50 dark:bg-muted/20 p-3 rounded-none flex items-start justify-between gap-3">
                 <div className="space-y-0.5">
-                  {exampleEn && (
+                  {derivedEn && (
                     <p className="text-sm font-semibold text-foreground font-sans">
-                      <FormattedText text={exampleEn} />
+                      <FormattedText text={derivedEn} />
                     </p>
                   )}
-                  {exampleVi && (
+                  {derivedVi && (
                     <p className="text-xs text-muted-foreground">
-                      <FormattedText text={exampleVi} />
+                      <FormattedText text={derivedVi} />
                     </p>
                   )}
                 </div>

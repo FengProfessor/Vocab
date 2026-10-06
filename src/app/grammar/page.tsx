@@ -35,6 +35,7 @@ import {
 } from '@/lib/grammar-roadmap-data';
 import VettedMediaCard from '@/components/grammar/VettedMediaCard';
 import GrammarReferenceTable, { type GrammarTheoryData, type FormulaRow } from '@/components/grammar/GrammarReferenceTable';
+import GrammarVisualTopicDeck from '@/components/grammar/GrammarVisualTopicDeck';
 import GrammarVideoPlayer from '@/components/grammar/GrammarVideoPlayer';
 import FormattedText from '@/components/grammar/FormattedText';
 import topicAssetsData from '@/data/grammar-topic-assets.json';
@@ -406,7 +407,18 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                         : 'border-border hover:border-foreground/40'
                     }`}
                   >
-                    <div>
+                    <div
+                      onClick={() => setSelectedTopicSlug(topic.slug)}
+                      className="cursor-pointer group/card"
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          setSelectedTopicSlug(topic.slug);
+                        }
+                      }}
+                    >
                       {/* Card Header */}
                       <div className="flex items-center justify-between gap-2 mb-2">
                         <div className="flex items-center gap-2">
@@ -425,7 +437,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                       </div>
 
                       {/* Titles */}
-                      <h2 className="text-base font-serif font-bold text-foreground leading-snug">
+                      <h2 className="text-base font-serif font-bold text-foreground leading-snug group-hover/card:text-primary transition-colors">
                         {topic.title}
                       </h2>
                       <div className="text-xs text-muted-foreground mt-0.5 font-medium">
@@ -517,7 +529,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                 }`}
               >
                 <BookOpen className="h-3.5 w-3.5" />
-                <span>Lý thuyết cốt lõi</span>
+                <span>{activeTopic.slug === 'personal-pronouns' ? 'Lý thuyết & Thẻ trực quan' : 'Lý thuyết & Trực quan'}</span>
               </button>
               <button
                 type="button"
@@ -603,6 +615,17 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                     <p className="text-foreground leading-relaxed mt-1 font-serif text-base">
                       <FormattedText text={theoryData?.definition || activeTopic.summary} />
                     </p>
+                  </div>
+
+                  {/* UNIVERSAL VISUAL TOPIC DECK: Bright, high-contrast, simple everyday examples for ALL topics */}
+                  <div className="border border-border p-4 bg-background rounded-none">
+                    <GrammarVisualTopicDeck
+                      key={activeTopic.slug}
+                      topicSlug={activeTopic.slug}
+                      topicTitle={activeTopic.title}
+                      topicTitleVi={activeTopic.title_vi}
+                      theoryData={theoryData}
+                    />
                   </div>
 
                   {/* Usage Points */}
@@ -721,27 +744,26 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                 </>
               ) : theoryTab === 'media' ? (
                 <div className="space-y-4">
-                  <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground pb-2 border-b border-border/40">
-                    <span>Hình ảnh & Tình huống thực tế</span>
-                  </div>
                   {((topicAssetsData as Record<string, TopicAssetItem[]>)[activeTopic.slug] || []).length > 0 ? (
-                    ((topicAssetsData as Record<string, TopicAssetItem[]>)[activeTopic.slug] || []).map((asset, i) => (
-                      <VettedMediaCard
-                        key={i}
-                        imageUrl={asset.image}
-                        imageAlt={asset.imageAlt}
-                        caption={asset.caption}
-                        rule={asset.usageAnalysisVi?.rule}
-                        contextReason={asset.usageAnalysisVi?.contextReason}
-                        commonMistake={asset.usageAnalysisVi?.commonMistake}
-                        audioUrl={asset.audio}
-                        initialExpanded={true}
-                      />
-                    ))
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {((topicAssetsData as Record<string, TopicAssetItem[]>)[activeTopic.slug] || []).map((asset, i) => (
+                        <VettedMediaCard
+                          key={i}
+                          imageUrl={asset.image}
+                          imageAlt={asset.imageAlt || asset.caption}
+                          caption={asset.caption}
+                          rule={asset.usageAnalysisVi?.rule}
+                          contextReason={asset.usageAnalysisVi?.contextReason}
+                          commonMistake={asset.usageAnalysisVi?.commonMistake}
+                          sceneTitle={`Minh họa thực tế #${i + 1}`}
+                          initialExpanded={true}
+                        />
+                      ))}
+                    </div>
                   ) : (
-                    <p className="text-xs text-muted-foreground py-4">
-                      Tư liệu trực quan cho chủ điểm này đang được chuẩn hóa bổ sung.
-                    </p>
+                    <div className="border border-border p-8 text-center text-muted-foreground bg-muted/10 font-mono text-xs">
+                      Chưa có hình ảnh minh họa cho chủ điểm này.
+                    </div>
                   )}
                 </div>
               ) : (

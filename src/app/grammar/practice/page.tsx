@@ -19,6 +19,7 @@ import {
   Volume2,
   ArrowRight,
   BookOpen,
+  X,
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { track } from '@/lib/analytics';
@@ -32,6 +33,8 @@ import { getTopicBySlug } from '@/lib/grammar-roadmap-data';
 import CategorizationPractice from '@/components/grammar/CategorizationPractice';
 import PedagogicalFeedbackPanel from '@/components/grammar/PedagogicalFeedbackPanel';
 import FormattedText from '@/components/grammar/FormattedText';
+import GrammarReferenceTable from '@/components/grammar/GrammarReferenceTable';
+import PronounMatrixTable from '@/components/grammar/PronounMatrixTable';
 
 const GRAMMAR_PRACTICE_STATE_VER = 'v3';
 
@@ -399,6 +402,7 @@ function PracticeHubContent() {
   const [startTime, setStartTime] = useState(Date.now());
   const [userId, setUserId] = useState<string | null>(null);
   const [emptyMessage, setEmptyMessage] = useState<string | null>(null);
+  const [showCheatSheet, setShowCheatSheet] = useState(false);
 
   const rawExercises = useRef<GrammarExercise[]>([]);
   const answering = useRef(false);
@@ -852,7 +856,16 @@ function PracticeHubContent() {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <button
+              type="button"
+              onClick={() => setShowCheatSheet(true)}
+              className="flex min-h-[44px] items-center gap-1.5 px-2.5 py-1.5 border border-border rounded-none hover:bg-muted text-muted-foreground hover:text-foreground font-mono text-xs uppercase"
+              title="Tra cứu nhanh lý thuyết & hình ảnh trực quan"
+            >
+              <BookOpen className="h-3.5 w-3.5 text-primary" />
+              <span className="hidden sm:inline">Tra cứu</span>
+            </button>
             <button
               onClick={() => speakEnglish(current.question)}
               className="flex min-h-[44px] min-w-[44px] items-center justify-center p-1.5 border border-border rounded-none hover:bg-muted text-muted-foreground hover:text-foreground"
@@ -1035,6 +1048,53 @@ function PracticeHubContent() {
           </div>
         )}
       </div>
+
+      {/* Quick Visual Cheat Sheet Modal */}
+      {showCheatSheet && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-background/80 backdrop-blur-sm">
+          <div className="border border-border bg-card w-full max-w-4xl max-h-[90vh] rounded-none flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+            <div className="border-b border-border p-4 flex items-center justify-between gap-4 bg-muted/10 shrink-0">
+              <div className="flex items-center gap-2">
+                <BookOpen className="h-4 w-4 text-primary" />
+                <h2 className="text-base font-serif font-bold text-foreground">
+                  Tra cứu nhanh: {topicMeta?.title || 'Ngữ pháp'}
+                </h2>
+                {topicMeta?.title_vi && (
+                  <span className="text-xs text-muted-foreground hidden sm:inline">({topicMeta.title_vi})</span>
+                )}
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowCheatSheet(false)}
+                className="p-1.5 border border-border hover:bg-muted text-muted-foreground hover:text-foreground rounded-none"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+            <div className="p-4 sm:p-6 overflow-y-auto flex-1 min-h-0 text-sm">
+              {topicSlug === 'personal-pronouns' ? (
+                <PronounMatrixTable />
+              ) : (
+                <GrammarReferenceTable
+                  topicSlug={topicSlug || ''}
+                  topicTitle={topicMeta?.title}
+                  topicTitleVi={topicMeta?.title_vi}
+                  topicSummary={topicMeta?.summary}
+                />
+              )}
+            </div>
+            <div className="border-t border-border p-3 bg-muted/10 flex justify-end shrink-0">
+              <button
+                type="button"
+                onClick={() => setShowCheatSheet(false)}
+                className="px-4 py-2 border border-border font-mono text-xs uppercase tracking-wider font-semibold rounded-none hover:bg-muted"
+              >
+                Đóng tra cứu
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

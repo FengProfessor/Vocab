@@ -1,17 +1,23 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { Table, Search, CheckCircle2, AlertCircle, Info, BookOpen } from 'lucide-react';
+import Image from 'next/image';
+import { Table, Search, CheckCircle2, AlertCircle, Info, BookOpen, Volume2, Sparkles, LayoutGrid } from 'lucide-react';
+import { speak } from '@/lib/study';
+import PronounVisualDeck from './PronounVisualDeck';
 
 interface PronounRow {
   person: string;
   meaning: string;
+  avatar: string;
+  audio?: string;
   subject: string;
   object: string;
   possessiveAdj: string;
   possessivePronoun: string;
   reflexive: string;
   exampleEn: React.ReactNode;
+  exampleSentenceRaw: string;
   exampleVi: string;
   type: 'singular' | 'plural';
   isConfusingPair?: boolean;
@@ -20,7 +26,9 @@ interface PronounRow {
 const PRONOUN_DATA: PronounRow[] = [
   {
     person: 'Ngôi 1 số ít',
-    meaning: 'Tôi',
+    meaning: 'Tôi / Mình / Em',
+    avatar: '/grammar/topics/personal-pronouns/v2_i.jpg',
+    audio: '/grammar/topics/personal-pronouns/01.mp3',
     type: 'singular',
     isConfusingPair: true,
     subject: 'I',
@@ -30,15 +38,18 @@ const PRONOUN_DATA: PronounRow[] = [
     reflexive: 'myself',
     exampleEn: (
       <span>
-        <strong className="text-primary font-bold">I</strong> prepared the report, and the director praised{' '}
+        <strong className="text-primary font-bold">I</strong> am a student. The teacher helps{' '}
         <strong className="text-emerald-700 dark:text-emerald-400 font-bold">me</strong>.
       </span>
     ),
-    exampleVi: 'Tôi đã chuẩn bị bản báo cáo, và giám đốc khen ngợi tôi.',
+    exampleSentenceRaw: 'I am a student. The teacher helps me.',
+    exampleVi: 'Tôi là học sinh. Giáo viên giúp đỡ tôi.',
   },
   {
     person: 'Ngôi 2 số ít',
-    meaning: 'Bạn',
+    meaning: 'Bạn / Cậu',
+    avatar: '/grammar/topics/personal-pronouns/v2_you.jpg',
+    audio: '/grammar/topics/personal-pronouns/03.mp3',
     type: 'singular',
     isConfusingPair: false,
     subject: 'you',
@@ -48,15 +59,18 @@ const PRONOUN_DATA: PronounRow[] = [
     reflexive: 'yourself',
     exampleEn: (
       <span>
-        <strong className="text-primary font-bold">You</strong> should trust your experience and believe in{' '}
-        <strong className="text-foreground font-bold">yourself</strong>.
+        <strong className="text-primary font-bold">You</strong> are my friend. I like{' '}
+        <strong className="text-emerald-700 dark:text-emerald-400 font-bold">you</strong>.
       </span>
     ),
-    exampleVi: 'Bạn nên tin vào kinh nghiệm của mình và tin vào chính bạn.',
+    exampleSentenceRaw: 'You are my friend. I like you.',
+    exampleVi: 'Bạn là bạn của tôi. Tôi quý bạn.',
   },
   {
     person: 'Ngôi 3 số ít (Nam)',
-    meaning: 'Anh ấy / Ông ấy',
+    meaning: 'Anh ấy / Cậu ấy / Ông ấy',
+    avatar: '/grammar/topics/personal-pronouns/v2_he.jpg',
+    audio: '/grammar/topics/personal-pronouns/04.mp3',
     type: 'singular',
     isConfusingPair: true,
     subject: 'he',
@@ -66,15 +80,18 @@ const PRONOUN_DATA: PronounRow[] = [
     reflexive: 'himself',
     exampleEn: (
       <span>
-        <strong className="text-primary font-bold">He</strong> analyzes the data, and the team consults{' '}
+        <strong className="text-primary font-bold">He</strong> is my brother. Everyone likes{' '}
         <strong className="text-emerald-700 dark:text-emerald-400 font-bold">him</strong>.
       </span>
     ),
-    exampleVi: 'Anh ấy phân tích dữ liệu, và đội ngũ tham khảo ý kiến của anh ấy.',
+    exampleSentenceRaw: 'He is my brother. Everyone likes him.',
+    exampleVi: 'Anh ấy là anh trai tôi. Mọi người đều quý anh ấy.',
   },
   {
     person: 'Ngôi 3 số ít (Nữ)',
-    meaning: 'Cô ấy / Bà ấy',
+    meaning: 'Cô ấy / Chị ấy / Bà ấy',
+    avatar: '/grammar/topics/personal-pronouns/v2_she.jpg',
+    audio: '/grammar/topics/personal-pronouns/05.mp3',
     type: 'singular',
     isConfusingPair: true,
     subject: 'she',
@@ -84,15 +101,18 @@ const PRONOUN_DATA: PronounRow[] = [
     reflexive: 'herself',
     exampleEn: (
       <span>
-        <strong className="text-primary font-bold">She</strong> leads the project, so the client trusts{' '}
+        <strong className="text-primary font-bold">She</strong> is a teacher. We love{' '}
         <strong className="text-emerald-700 dark:text-emerald-400 font-bold">her</strong>.
       </span>
     ),
-    exampleVi: 'Cô ấy phụ trách dự án, vì vậy khách hàng tin tưởng cô ấy.',
+    exampleSentenceRaw: 'She is a teacher. We love her.',
+    exampleVi: 'Cô ấy là giáo viên. Chúng tôi yêu quý cô ấy.',
   },
   {
-    person: 'Ngôi 3 số ít (Vật)',
-    meaning: 'Nó (vật, con vật)',
+    person: 'Ngôi 3 số ít (Vật/Con vật)',
+    meaning: 'Nó',
+    avatar: '/grammar/topics/personal-pronouns/v2_it.jpg',
+    audio: '/grammar/topics/personal-pronouns/06.mp3',
     type: 'singular',
     isConfusingPair: false,
     subject: 'it',
@@ -102,15 +122,18 @@ const PRONOUN_DATA: PronounRow[] = [
     reflexive: 'itself',
     exampleEn: (
       <span>
-        The machine is precise. <strong className="text-primary font-bold">It</strong> calibrates{' '}
-        <strong className="text-foreground font-bold">itself</strong> automatically.
+        <strong className="text-primary font-bold">It</strong> is a cute puppy. I feed{' '}
+        <strong className="text-emerald-700 dark:text-emerald-400 font-bold">it</strong> every day.
       </span>
     ),
-    exampleVi: 'Cỗ máy rất chính xác. Nó tự động hiệu chuẩn chính nó.',
+    exampleSentenceRaw: 'It is a cute puppy. I feed it every day.',
+    exampleVi: 'Nó là một chú cún dễ thương. Tôi cho nó ăn mỗi ngày.',
   },
   {
     person: 'Ngôi 1 số nhiều',
     meaning: 'Chúng tôi / Chúng ta',
+    avatar: '/grammar/topics/personal-pronouns/v2_we.jpg',
+    audio: '/grammar/topics/personal-pronouns/07.mp3',
     type: 'plural',
     isConfusingPair: true,
     subject: 'we',
@@ -120,15 +143,18 @@ const PRONOUN_DATA: PronounRow[] = [
     reflexive: 'ourselves',
     exampleEn: (
       <span>
-        <strong className="text-primary font-bold">We</strong> submitted our proposal, and the board invited{' '}
+        <strong className="text-primary font-bold">We</strong> study English together. The teacher teaches{' '}
         <strong className="text-emerald-700 dark:text-emerald-400 font-bold">us</strong>.
       </span>
     ),
-    exampleVi: 'Chúng tôi đã nộp đề xuất, và hội đồng đã mời chúng tôi.',
+    exampleSentenceRaw: 'We study English together. The teacher teaches us.',
+    exampleVi: 'Chúng tôi cùng học tiếng Anh. Thầy giáo dạy chúng tôi.',
   },
   {
     person: 'Ngôi 2 số nhiều',
     meaning: 'Các bạn',
+    avatar: '/grammar/topics/personal-pronouns/v2_you.jpg',
+    audio: '/grammar/topics/personal-pronouns/03.mp3',
     type: 'plural',
     isConfusingPair: false,
     subject: 'you',
@@ -138,15 +164,18 @@ const PRONOUN_DATA: PronounRow[] = [
     reflexive: 'yourselves',
     exampleEn: (
       <span>
-        <strong className="text-primary font-bold">You</strong> must review your code{' '}
-        <strong className="text-foreground font-bold">yourselves</strong> before testing.
+        <strong className="text-primary font-bold">You</strong> are great students. I will guide{' '}
+        <strong className="text-emerald-700 dark:text-emerald-400 font-bold">you</strong>.
       </span>
     ),
-    exampleVi: 'Các bạn phải tự mình kiểm tra mã nguồn trước khi thử nghiệm.',
+    exampleSentenceRaw: 'You are great students. I will guide you.',
+    exampleVi: 'Các bạn là những học sinh tuyệt vời. Tôi sẽ hướng dẫn các bạn.',
   },
   {
     person: 'Ngôi 3 số nhiều',
     meaning: 'Họ / Chúng nó',
+    avatar: '/grammar/topics/personal-pronouns/v2_they.jpg',
+    audio: '/grammar/topics/personal-pronouns/08.mp3',
     type: 'plural',
     isConfusingPair: true,
     subject: 'they',
@@ -156,17 +185,23 @@ const PRONOUN_DATA: PronounRow[] = [
     reflexive: 'themselves',
     exampleEn: (
       <span>
-        <strong className="text-primary font-bold">They</strong> presented results, and colleagues supported{' '}
+        <strong className="text-primary font-bold">They</strong> play football outside. Look at{' '}
         <strong className="text-emerald-700 dark:text-emerald-400 font-bold">them</strong>.
       </span>
     ),
-    exampleVi: 'Họ đã trình bày kết quả, và các đồng nghiệp đã ủng hộ họ.',
+    exampleSentenceRaw: 'They play football outside. Look at them.',
+    exampleVi: 'Họ đang chơi bóng đá ngoài trời. Hãy nhìn họ kìa.',
   },
 ];
 
 export default function PronounMatrixTable() {
+  const [viewMode, setViewMode] = useState<'cards' | 'table'>('table');
   const [filterMode, setFilterMode] = useState<'all' | 'singular' | 'plural' | 'confusing'>('all');
   const [searchQuery, setSearchQuery] = useState('');
+
+  const playPronunciation = (text: string) => {
+    speak(text, 0.9);
+  };
 
   const filteredData = useMemo(() => {
     return PRONOUN_DATA.filter((row) => {
@@ -193,154 +228,253 @@ export default function PronounMatrixTable() {
 
   return (
     <div className="space-y-6">
-      {/* Table Header & Controls */}
+      {/* View Mode Switcher Header */}
       <div className="border border-border p-4 bg-muted/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-none">
         <div>
           <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground flex items-center gap-1.5 mb-0.5">
             <Table className="h-3.5 w-3.5 text-primary" />
-            Bảng tra cứu đại từ tiếng Anh
+            Bảng tra cứu & Thẻ trực quan Đại từ nhân xưng
           </div>
           <div className="text-sm font-semibold text-foreground">
-            Đối chiếu 8 ngôi đại từ: chủ ngữ, tân ngữ, sở hữu và phản thân
+            Đối chiếu 8 ngôi đại từ: có ảnh minh họa thực tế, âm thanh phát âm và ví dụ song ngữ
           </div>
         </div>
 
-        {/* Quick Search */}
-        <div className="relative min-w-[200px]">
-          <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Tìm từ (vd: him, us)..."
-            className="w-full pl-8 pr-3 py-1.5 border border-border bg-background rounded-none font-mono text-xs focus:outline-none focus:border-foreground"
-          />
+        {/* View Toggle Buttons */}
+        <div className="flex items-center gap-1.5 shrink-0 bg-background border border-border p-1">
+          <button
+            type="button"
+            onClick={() => setViewMode('cards')}
+            className={`px-3 py-1.5 font-mono text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors ${
+              viewMode === 'cards'
+                ? 'bg-primary text-primary-foreground font-bold shadow-sm'
+                : 'text-muted-foreground hover:text-foreground hover:bg-muted/40'
+            }`}
+          >
+            <Sparkles className="h-3.5 w-3.5" />
+            <span>Thẻ trực quan</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setViewMode('table')}
+            className={`px-3 py-1.5 font-mono text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors ${
+              viewMode === 'table'
+                ? 'bg-primary text-primary-foreground font-bold shadow-sm'
+                : 'text-muted-foreground hover:text-foreground hover:bg-muted/40'
+            }`}
+          >
+            <LayoutGrid className="h-3.5 w-3.5" />
+            <span>Bảng ma trận</span>
+          </button>
         </div>
       </div>
 
-      {/* Filter Tabs */}
-      <div className="flex flex-wrap items-center gap-1.5 border-b border-border pb-2 text-xs font-mono">
-        <span className="text-muted-foreground mr-1 text-[11px] uppercase tracking-wider">Lọc nhanh:</span>
-        <button
-          onClick={() => setFilterMode('all')}
-          className={`px-3 py-1 border transition-colors rounded-none ${
-            filterMode === 'all'
-              ? 'border-foreground bg-foreground text-background font-bold'
-              : 'border-border bg-background text-muted-foreground hover:text-foreground'
-          }`}
-        >
-          Tất cả (8 ngôi)
-        </button>
-        <button
-          onClick={() => setFilterMode('singular')}
-          className={`px-3 py-1 border transition-colors rounded-none ${
-            filterMode === 'singular'
-              ? 'border-foreground bg-foreground text-background font-bold'
-              : 'border-border bg-background text-muted-foreground hover:text-foreground'
-          }`}
-        >
-          Số ít (I, you, he, she, it)
-        </button>
-        <button
-          onClick={() => setFilterMode('plural')}
-          className={`px-3 py-1 border transition-colors rounded-none ${
-            filterMode === 'plural'
-              ? 'border-foreground bg-foreground text-background font-bold'
-              : 'border-border bg-background text-muted-foreground hover:text-foreground'
-          }`}
-        >
-          Số nhiều (we, you, they)
-        </button>
-        <button
-          onClick={() => setFilterMode('confusing')}
-          className={`px-3 py-1 border transition-colors rounded-none ${
-            filterMode === 'confusing'
-              ? 'border-foreground bg-foreground text-background font-bold'
-              : 'border-border bg-background text-muted-foreground hover:text-foreground'
-          }`}
-        >
-          Cặp hay nhầm (I/me, he/him...)
-        </button>
-      </div>
+      {/* Visual Cards View Mode */}
+      {viewMode === 'cards' ? (
+        <PronounVisualDeck />
+      ) : (
+        /* Detailed Matrix Table View Mode */
+        <div className="space-y-4">
+          {/* Controls: Search & Filters */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            {/* Filter Tabs */}
+            <div className="flex flex-wrap items-center gap-1.5 text-xs font-mono">
+              <span className="text-muted-foreground mr-1 text-[11px] uppercase tracking-wider">Lọc:</span>
+              <button
+                type="button"
+                onClick={() => setFilterMode('all')}
+                className={`px-3 py-1 border transition-colors rounded-none ${
+                  filterMode === 'all'
+                    ? 'border-foreground bg-foreground text-background font-bold'
+                    : 'border-border bg-background text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                Tất cả (8 ngôi)
+              </button>
+              <button
+                type="button"
+                onClick={() => setFilterMode('singular')}
+                className={`px-3 py-1 border transition-colors rounded-none ${
+                  filterMode === 'singular'
+                    ? 'border-foreground bg-foreground text-background font-bold'
+                    : 'border-border bg-background text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                Số ít (I, you, he, she, it)
+              </button>
+              <button
+                type="button"
+                onClick={() => setFilterMode('plural')}
+                className={`px-3 py-1 border transition-colors rounded-none ${
+                  filterMode === 'plural'
+                    ? 'border-foreground bg-foreground text-background font-bold'
+                    : 'border-border bg-background text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                Số nhiều (we, you, they)
+              </button>
+              <button
+                type="button"
+                onClick={() => setFilterMode('confusing')}
+                className={`px-3 py-1 border transition-colors rounded-none ${
+                  filterMode === 'confusing'
+                    ? 'border-foreground bg-foreground text-background font-bold'
+                    : 'border-border bg-background text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                Cặp hay nhầm (I/me, he/him...)
+              </button>
+            </div>
 
-      {/* Main Table */}
-      <div className="border border-border overflow-x-auto rounded-none bg-card">
-        <table className="w-full text-left font-mono text-xs divide-y divide-border">
-          <thead className="bg-muted/40 uppercase text-muted-foreground sticky top-0 z-10">
-            <tr>
-              <th className="p-3 border-r border-border min-w-[130px]">
-                <div>Ngôi</div>
-                <div className="text-[10px] text-muted-foreground/70 font-normal lowercase tracking-normal">nghĩa tiếng Việt</div>
-              </th>
-              <th className="p-3 border-r border-border min-w-[110px] text-primary font-bold">
-                <div>Chủ ngữ (S)</div>
-                <div className="text-[10px] text-primary/70 font-normal lowercase tracking-normal">đứng trước động từ</div>
-              </th>
-              <th className="p-3 border-r border-border min-w-[110px] text-emerald-700 dark:text-emerald-400 font-bold">
-                <div>Tân ngữ (O)</div>
-                <div className="text-[10px] text-emerald-600/70 dark:text-emerald-400/70 font-normal lowercase tracking-normal">đứng sau V / giới từ</div>
-              </th>
-              <th className="p-3 border-r border-border min-w-[110px]">
-                <div>Tính từ sở hữu</div>
-                <div className="text-[10px] text-muted-foreground/70 font-normal lowercase tracking-normal">+ danh từ phía sau</div>
-              </th>
-              <th className="p-3 border-r border-border min-w-[100px]">
-                <div>Đại từ sở hữu</div>
-                <div className="text-[10px] text-muted-foreground/70 font-normal lowercase tracking-normal">đứng độc lập</div>
-              </th>
-              <th className="p-3 border-r border-border min-w-[100px]">
-                <div>Phản thân</div>
-                <div className="text-[10px] text-muted-foreground/70 font-normal lowercase tracking-normal">chính mình</div>
-              </th>
-              <th className="p-3 min-w-[280px]">
-                <div>Ví dụ thực tế</div>
-                <div className="text-[10px] text-muted-foreground/70 font-normal lowercase tracking-normal">đối chiếu chủ ngữ và tân ngữ</div>
-              </th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-border/60">
-            {filteredData.length > 0 ? (
-              filteredData.map((row, idx) => (
-                <tr key={idx} className="hover:bg-muted/10 transition-colors">
-                  <td className="p-3 font-semibold text-foreground border-r border-border/60 bg-muted/5">
-                    <div>{row.person}</div>
-                    <div className="text-[11px] text-muted-foreground font-normal font-sans">{row.meaning}</div>
-                  </td>
-                  <td className="p-3 font-bold text-primary border-r border-border/60 bg-primary/5 text-sm">
-                    {row.subject}
-                  </td>
-                  <td className="p-3 font-bold text-emerald-700 dark:text-emerald-400 border-r border-border/60 bg-emerald-500/5 text-sm">
-                    {row.object}
-                  </td>
-                  <td className="p-3 font-medium text-foreground border-r border-border/60">
-                    {row.possessiveAdj}
-                  </td>
-                  <td className="p-3 font-medium text-muted-foreground border-r border-border/60">
-                    {row.possessivePronoun}
-                  </td>
-                  <td className="p-3 font-medium text-muted-foreground border-r border-border/60">
-                    {row.reflexive}
-                  </td>
-                  <td className="p-3 space-y-0.5 font-sans">
-                    <div className="text-xs text-foreground font-serif leading-relaxed">
-                      {row.exampleEn}
-                    </div>
-                    <div className="text-[11px] text-muted-foreground leading-normal">
-                      {row.exampleVi}
-                    </div>
-                  </td>
+            {/* Quick Search */}
+            <div className="relative min-w-[200px]">
+              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Tìm từ (vd: him, we)..."
+                className="w-full pl-8 pr-3 py-1.5 border border-border bg-background rounded-none font-mono text-xs focus:outline-none focus:border-foreground"
+              />
+            </div>
+          </div>
+
+          {/* Main Table with Avatars & Audio */}
+          <div className="border border-border overflow-x-auto rounded-none bg-card">
+            <table className="w-full text-left font-mono text-xs divide-y divide-border">
+              <thead className="bg-muted/40 uppercase text-muted-foreground sticky top-0 z-10">
+                <tr>
+                  <th className="p-3 border-r border-border min-w-[170px]">
+                    <div>Ngôi & Hình ảnh</div>
+                    <div className="text-[10px] text-muted-foreground/70 font-normal lowercase tracking-normal">nghĩa tiếng Việt</div>
+                  </th>
+                  <th className="p-3 border-r border-border min-w-[120px] text-primary font-bold">
+                    <div>Chủ ngữ (S)</div>
+                    <div className="text-[10px] text-primary/70 font-normal lowercase tracking-normal">đứng trước động từ</div>
+                  </th>
+                  <th className="p-3 border-r border-border min-w-[120px] text-emerald-700 dark:text-emerald-400 font-bold">
+                    <div>Tân ngữ (O)</div>
+                    <div className="text-[10px] text-emerald-600/70 dark:text-emerald-400/70 font-normal lowercase tracking-normal">đứng sau V / giới từ</div>
+                  </th>
+                  <th className="p-3 border-r border-border min-w-[110px]">
+                    <div>Tính từ sở hữu</div>
+                    <div className="text-[10px] text-muted-foreground/70 font-normal lowercase tracking-normal">+ danh từ phía sau</div>
+                  </th>
+                  <th className="p-3 border-r border-border min-w-[100px]">
+                    <div>Đại từ sở hữu</div>
+                    <div className="text-[10px] text-muted-foreground/70 font-normal lowercase tracking-normal">đứng độc lập</div>
+                  </th>
+                  <th className="p-3 border-r border-border min-w-[110px]">
+                    <div>Phản thân</div>
+                    <div className="text-[10px] text-muted-foreground/70 font-normal lowercase tracking-normal">chính mình</div>
+                  </th>
+                  <th className="p-3 min-w-[300px]">
+                    <div>Ví dụ thực tế</div>
+                    <div className="text-[10px] text-muted-foreground/70 font-normal lowercase tracking-normal">đối chiếu chủ ngữ và tân ngữ</div>
+                  </th>
                 </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan={7} className="p-6 text-center text-muted-foreground font-sans">
-                  Không tìm thấy từ phù hợp với từ khóa &quot;{searchQuery}&quot;.
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
+              </thead>
+              <tbody className="divide-y divide-border/60">
+                {filteredData.length > 0 ? (
+                  filteredData.map((row, idx) => (
+                    <tr key={idx} className="hover:bg-muted/10 transition-colors">
+                      {/* Avatar + Person + Vietnamese Meaning */}
+                      <td className="p-3 font-semibold text-foreground border-r border-border/60 bg-muted/5">
+                        <div className="flex items-center gap-3">
+                          <div className="relative w-10 h-10 shrink-0 border border-border bg-muted/40 overflow-hidden shadow-xs">
+                            <Image
+                              src={row.avatar}
+                              alt={row.meaning}
+                              fill
+                              className="object-cover"
+                              unoptimized
+                            />
+                          </div>
+                          <div>
+                            <div className="text-xs font-bold text-foreground">{row.person}</div>
+                            <div className="text-[11px] text-primary font-medium font-sans">{row.meaning}</div>
+                          </div>
+                        </div>
+                      </td>
+
+                      {/* Subject Pronoun with Audio */}
+                      <td className="p-3 font-bold text-primary border-r border-border/60 bg-primary/5 text-sm">
+                        <div className="flex items-center justify-between gap-1">
+                          <span>{row.subject}</span>
+                          <button
+                            type="button"
+                            onClick={() => playPronunciation(row.subject)}
+                            className="p-1 text-primary/70 hover:text-primary transition-colors"
+                            title={`Nghe "${row.subject}"`}
+                          >
+                            <Volume2 className="h-3.5 w-3.5" />
+                          </button>
+                        </div>
+                      </td>
+
+                      {/* Object Pronoun with Audio */}
+                      <td className="p-3 font-bold text-emerald-700 dark:text-emerald-400 border-r border-border/60 bg-emerald-500/5 text-sm">
+                        <div className="flex items-center justify-between gap-1">
+                          <span>{row.object}</span>
+                          <button
+                            type="button"
+                            onClick={() => playPronunciation(row.object)}
+                            className="p-1 text-emerald-600/70 dark:text-emerald-400/70 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                            title={`Nghe "${row.object}"`}
+                          >
+                            <Volume2 className="h-3.5 w-3.5" />
+                          </button>
+                        </div>
+                      </td>
+
+                      {/* Possessive Adjective */}
+                      <td className="p-3 font-medium text-foreground border-r border-border/60">
+                        {row.possessiveAdj}
+                      </td>
+
+                      {/* Possessive Pronoun */}
+                      <td className="p-3 font-medium text-muted-foreground border-r border-border/60">
+                        {row.possessivePronoun}
+                      </td>
+
+                      {/* Reflexive Pronoun */}
+                      <td className="p-3 font-medium text-muted-foreground border-r border-border/60">
+                        {row.reflexive}
+                      </td>
+
+                      {/* Example with Audio Button */}
+                      <td className="p-3 space-y-1 font-sans">
+                        <div className="flex items-start justify-between gap-2">
+                          <div className="text-xs text-foreground font-serif leading-relaxed">
+                            {row.exampleEn}
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => playPronunciation(row.exampleSentenceRaw)}
+                            className="p-1 text-muted-foreground hover:text-foreground shrink-0 transition-colors"
+                            title="Nghe câu ví dụ"
+                          >
+                            <Volume2 className="h-3.5 w-3.5" />
+                          </button>
+                        </div>
+                        <div className="text-[11px] text-muted-foreground leading-normal">
+                          {row.exampleVi}
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan={7} className="p-6 text-center text-muted-foreground font-sans">
+                      Không tìm thấy từ phù hợp với từ khóa &quot;{searchQuery}&quot;.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
 
       {/* 4 Lưu ý quan trọng khi dùng */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">

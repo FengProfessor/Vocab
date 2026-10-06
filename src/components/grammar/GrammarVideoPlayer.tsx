@@ -102,21 +102,24 @@ export function extractYouTubeId(url: string): string | null {
   return match ? match[1] : null;
 }
 
-export default function GrammarVideoPlayer({
+export default function GrammarVideoPlayer(props: GrammarVideoPlayerProps) {
+  const initialUrl = (props.videoUrl || props.defaultVideoUrl || '').trim();
+
+  // If neither a valid initialUrl nor topicSlug is provided, return null before hooks
+  if (!props.topicSlug && !initialUrl) {
+    return null;
+  }
+
+  return <GrammarVideoPlayerInner {...props} initialUrl={initialUrl} />;
+}
+
+function GrammarVideoPlayerInner({
   topicSlug,
   topicTitle = '',
   topicTitleVi = '',
   title = '',
-  videoUrl,
-  defaultVideoUrl,
-}: GrammarVideoPlayerProps) {
-  const initialUrl = (videoUrl || defaultVideoUrl || '').trim();
-
-  // If neither a valid initialUrl nor topicSlug is provided, return null (null safety & test compatibility)
-  if (!topicSlug && !initialUrl) {
-    return null;
-  }
-
+  initialUrl,
+}: GrammarVideoPlayerProps & { initialUrl: string }) {
   const curated = topicSlug ? CURATED_GRAMMAR_VIDEOS[topicSlug] : undefined;
   const displayTitle = topicTitle || title || 'Bài học ngữ pháp';
 

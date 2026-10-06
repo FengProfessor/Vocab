@@ -1,9 +1,11 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import PronounMatrixTable from './PronounMatrixTable';
 import FormattedText from './FormattedText';
-import { Table, CheckCircle2, AlertCircle, Info, BookOpen, AlertTriangle, Sparkles } from 'lucide-react';
+import { Table, CheckCircle2, AlertCircle, Info, BookOpen, AlertTriangle, Sparkles, Volume2 } from 'lucide-react';
+import { speak } from '@/lib/study';
 
 export interface FormulaRow {
   form?: string;
@@ -37,6 +39,9 @@ interface GrammarMistakeItem {
 }
 
 export interface GrammarTheoryData {
+  definition?: string;
+  tips?: string;
+  comparison?: string;
   formula?: {
     rows?: FormulaRow[];
     note?: string;
@@ -96,36 +101,118 @@ export default function GrammarReferenceTable({
             </thead>
             <tbody className="divide-y divide-border/60">
               <tr className="hover:bg-muted/10">
-                <td className="p-3 font-semibold border-r border-border/60 bg-muted/5">I</td>
-                <td className="p-3 font-bold text-primary border-r border-border/60">am (I&apos;m)</td>
+                <td className="p-3 font-semibold border-r border-border/60 bg-muted/5">
+                  <div className="flex items-center gap-2.5">
+                    <div className="relative w-9 h-9 shrink-0 border border-border overflow-hidden bg-muted/30">
+                      <Image
+                        src="/grammar/topics/personal-pronouns/v2_i.jpg"
+                        alt="Tôi (I)"
+                        fill
+                        className="object-cover"
+                        unoptimized
+                      />
+                    </div>
+                    <div>
+                      <div className="font-bold text-foreground text-sm">I</div>
+                      <div className="text-[11px] font-sans font-medium text-primary">Tôi</div>
+                    </div>
+                  </div>
+                </td>
+                <td className="p-3 font-bold text-primary border-r border-border/60 text-sm">am (I&apos;m)</td>
                 <td className="p-3 font-medium text-rose-700 dark:text-rose-400 border-r border-border/60">am not (I&apos;m not)</td>
                 <td className="p-3 border-r border-border/60">Am I...?</td>
                 <td className="p-3 font-bold border-r border-border/60">was</td>
                 <td className="p-3 font-sans text-xs">
-                  <div className="font-medium text-foreground">I am ready for the interview.</div>
-                  <div className="text-muted-foreground text-[11px]">Tôi đã sẵn sàng cho buổi phỏng vấn.</div>
+                  <div className="flex items-start justify-between gap-1">
+                    <div className="font-medium text-foreground">I am a student.</div>
+                    <button
+                      type="button"
+                      onClick={() => speak('I am a student.', 0.9)}
+                      className="p-1 text-muted-foreground hover:text-foreground shrink-0 transition-colors"
+                      title="Nghe câu ví dụ"
+                    >
+                      <Volume2 className="h-3.5 w-3.5" />
+                    </button>
+                  </div>
+                  <div className="text-muted-foreground text-[11px]">Tôi là học sinh.</div>
                 </td>
               </tr>
               <tr className="hover:bg-muted/10">
-                <td className="p-3 font-semibold border-r border-border/60 bg-muted/5">He / She / It / Danh từ số ít</td>
-                <td className="p-3 font-bold text-primary border-r border-border/60">is (he&apos;s / she&apos;s)</td>
+                <td className="p-3 font-semibold border-r border-border/60 bg-muted/5">
+                  <div className="flex items-start gap-2.5">
+                    <div className="flex -space-x-2 shrink-0">
+                      <div className="relative w-8 h-8 border border-border overflow-hidden bg-muted/30 z-30" title="He (Anh ấy)">
+                        <Image src="/grammar/topics/personal-pronouns/v2_he.jpg" alt="He" fill className="object-cover" unoptimized />
+                      </div>
+                      <div className="relative w-8 h-8 border border-border overflow-hidden bg-muted/30 z-20" title="She (Cô ấy)">
+                        <Image src="/grammar/topics/personal-pronouns/v2_she.jpg" alt="She" fill className="object-cover" unoptimized />
+                      </div>
+                      <div className="relative w-8 h-8 border border-border overflow-hidden bg-muted/30 z-10" title="It (Nó)">
+                        <Image src="/grammar/topics/personal-pronouns/v2_it.jpg" alt="It" fill className="object-cover" unoptimized />
+                      </div>
+                    </div>
+                    <div>
+                      <div className="font-bold text-foreground text-xs">He / She / It</div>
+                      <div className="text-[10px] text-muted-foreground font-sans">Anh ấy / Cô ấy / Nó (Số ít)</div>
+                    </div>
+                  </div>
+                </td>
+                <td className="p-3 font-bold text-primary border-r border-border/60 text-sm">is (he&apos;s / she&apos;s)</td>
                 <td className="p-3 font-medium text-rose-700 dark:text-rose-400 border-r border-border/60">is not (isn&apos;t)</td>
                 <td className="p-3 border-r border-border/60">Is he / she...?</td>
                 <td className="p-3 font-bold border-r border-border/60">was</td>
                 <td className="p-3 font-sans text-xs">
-                  <div className="font-medium text-foreground">She is an experienced architect.</div>
-                  <div className="text-muted-foreground text-[11px]">Cô ấy là một kiến trúc sư giàu kinh nghiệm.</div>
+                  <div className="flex items-start justify-between gap-1">
+                    <div className="font-medium text-foreground">She is very happy.</div>
+                    <button
+                      type="button"
+                      onClick={() => speak('She is very happy.', 0.9)}
+                      className="p-1 text-muted-foreground hover:text-foreground shrink-0 transition-colors"
+                      title="Nghe câu ví dụ"
+                    >
+                      <Volume2 className="h-3.5 w-3.5" />
+                    </button>
+                  </div>
+                  <div className="text-muted-foreground text-[11px]">Cô ấy rất vui vẻ.</div>
                 </td>
               </tr>
               <tr className="hover:bg-muted/10">
-                <td className="p-3 font-semibold border-r border-border/60 bg-muted/5">You / We / They / Danh từ số nhiều</td>
-                <td className="p-3 font-bold text-primary border-r border-border/60">are (you&apos;re / they&apos;re)</td>
+                <td className="p-3 font-semibold border-r border-border/60 bg-muted/5">
+                  <div className="flex items-start gap-2.5">
+                    <div className="flex -space-x-2 shrink-0">
+                      <div className="relative w-8 h-8 border border-border overflow-hidden bg-muted/30 z-30" title="We (Chúng tôi)">
+                        <Image src="/grammar/topics/personal-pronouns/v2_we.jpg" alt="We" fill className="object-cover" unoptimized />
+                      </div>
+                      <div className="relative w-8 h-8 border border-border overflow-hidden bg-muted/30 z-20" title="They (Họ)">
+                        <Image src="/grammar/topics/personal-pronouns/v2_they.jpg" alt="They" fill className="object-cover" unoptimized />
+                      </div>
+                      <div className="relative w-8 h-8 border border-border overflow-hidden bg-muted/30 z-10" title="You (Bạn)">
+                        <Image src="/grammar/topics/personal-pronouns/v2_you.jpg" alt="You" fill className="object-cover" unoptimized />
+                      </div>
+                    </div>
+                    <div>
+                      <div className="font-bold text-foreground text-xs">You / We / They</div>
+                      <div className="text-[10px] text-muted-foreground font-sans">Bạn / Chúng tôi / Họ (Số nhiều)</div>
+                    </div>
+                  </div>
+                </td>
+                <td className="p-3 font-bold text-primary border-r border-border/60 text-sm">are (you&apos;re / they&apos;re)</td>
                 <td className="p-3 font-medium text-rose-700 dark:text-rose-400 border-r border-border/60">are not (aren&apos;t)</td>
                 <td className="p-3 border-r border-border/60">Are you / they...?</td>
                 <td className="p-3 font-bold border-r border-border/60">were</td>
                 <td className="p-3 font-sans text-xs">
-                  <div className="font-medium text-foreground">They are in the meeting room.</div>
-                  <div className="text-muted-foreground text-[11px]">Họ đang ở trong phòng họp.</div>
+                  <div className="flex items-start justify-between gap-1">
+                    <div className="font-medium text-foreground">They are in the garden.</div>
+                    <button
+                      type="button"
+                      onClick={() => speak('They are in the garden.', 0.9)}
+                      className="p-1 text-muted-foreground hover:text-foreground shrink-0 transition-colors"
+                      title="Nghe câu ví dụ"
+                    >
+                      <Volume2 className="h-3.5 w-3.5" />
+                    </button>
+                  </div>
+                  <div className="text-muted-foreground text-[11px]">Họ đang ở trong vườn.</div>
                 </td>
               </tr>
             </tbody>
