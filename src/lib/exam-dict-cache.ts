@@ -122,8 +122,19 @@ export function getCandidateLemmas(clean: string): string[] {
 
 export function parseDictPayload(data: any, cleanWord: string, rawWord: string): ExamDictResult | null {
   if (!data) return null;
+  const coreSenses = Array.isArray(data?.core_senses) ? data.core_senses : [];
   const meanings = data?.results?.[0]?.meanings || data?.meanings || [];
-  const primaryMeaning = meanings[0];
+  const primaryMeaning =
+    meanings.find((m: any) => m?.isPrimary) ||
+    (coreSenses[0]
+      ? {
+          definition: coreSenses[0].definition_vi || coreSenses[0].label_vi || coreSenses[0].definition_en,
+          pos: coreSenses[0].pos,
+          example: coreSenses[0].example,
+          example_vi: coreSenses[0].example_vi,
+        }
+      : null) ||
+    meanings[0];
 
   const definition =
     primaryMeaning?.definition ||
@@ -186,6 +197,8 @@ export function parseDictPayload(data: any, cleanWord: string, rawWord: string):
     undefined;
 
   const rawWordFamily =
+    data?.familyWords ||
+    primaryMeaning?.familyWords ||
     primaryMeaning?.word_family ||
     primaryMeaning?.wordFamily ||
     data?.word_family ||

@@ -3,6 +3,7 @@ import { createServiceClient } from '@/lib/supabase-server';
 import { getClientIp } from '@/lib/api-security';
 import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
 import { cacheGet, cacheSet } from '@/lib/ttl-cache';
+import { getWordFamilyCluster } from '@/lib/toeic-collocation-index';
 
 const CACHE_TTL_MS = 24 * 3600 * 1000; // 24h
 const CACHE_HEADERS = {
@@ -89,10 +90,26 @@ export async function GET(req: Request) {
       }
     })();
 
+    // Enrich with family words if known in our cluster index
+    const familyWords = getWordFamilyCluster(raw);
+    const enrichedResults = Array.isArray(results)
+      ? results.map((r, rIdx) => ({
+          ...r,
+          meanings: Array.isArray(r.meanings)
+            ? r.meanings.map((m: any, mIdx: number) => ({
+                ...m,
+                isPrimary: rIdx === 0 && mIdx === 0,
+              }))
+            : r.meanings,
+        }))
+      : results;
+
     const payload = {
       success: true,
       source: 'external',
       ...extData,
+      results: enrichedResults,
+      ...(familyWords && familyWords.length > 0 ? { familyWords, wordFamily: familyWords, word_family: familyWords } : {}),
     };
     cacheSet(cacheKey, payload, CACHE_TTL_MS);
 

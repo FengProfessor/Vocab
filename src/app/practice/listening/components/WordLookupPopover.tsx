@@ -183,15 +183,25 @@ export const WordLookupPopover: React.FC<WordLookupPopoverProps> = ({
       const res = await fetch(`/api/dictionary/lookup?word=${encodeURIComponent(cleanWord)}`);
       if (res.ok) {
         const data = await res.json();
+        const coreSenses = Array.isArray(data?.core_senses) ? data.core_senses : [];
         const meanings = data?.results?.[0]?.meanings || [];
-        const primaryMeaning = meanings[0];
+        const primaryMeaning =
+          meanings.find((m: any) => m?.isPrimary) ||
+          (coreSenses[0]
+            ? {
+                definition: coreSenses[0].definition_vi || coreSenses[0].label_vi || coreSenses[0].definition_en,
+                pos: coreSenses[0].pos,
+              }
+            : null) ||
+          meanings[0];
         const viDef =
           primaryMeaning?.definition ||
           primaryMeaning?.meaning_vi ||
+          data?.definition ||
           data?.translation ||
           'Tra nghĩa thành công';
-        const ipa = data?.pronunciations?.[0]?.ipa || '';
-        const pos = primaryMeaning?.pos || '';
+        const ipa = data?.pronunciations?.[0]?.ipa || data?.ipa || '';
+        const pos = primaryMeaning?.pos || data?.pos || '';
 
         setSelectedWord({
           word: token.raw,

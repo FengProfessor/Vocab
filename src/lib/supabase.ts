@@ -181,12 +181,32 @@ export interface MorphologyData {
   suffixes?: MorphologyAffix[];
 }
 
+export interface CoreSenseEntry {
+  pos: string;
+  label_vi?: string;
+  definition_vi?: string;
+  definition_en?: string;
+  cefr?: string;
+  region?: string;
+  register?: string;
+  example?: string;
+  example_vi?: string;
+  collocations?: string[];
+  popularity?: number;
+}
+
 export interface DictionaryMeaning {
   pos?: string;
   definition?: string;
+  definition_en?: string;
+  label_vi?: string;
   example?: string;
   /** Sub VI của example (nếu có) */
   example_vi?: string;
+  cefr?: string;
+  popularity?: number;
+  isPrimary?: boolean;
+  toeic_tip?: string;
   collocations?: (string | RichCollocationEntry)[];
 }
 
@@ -203,13 +223,21 @@ export interface DictionaryData {
   word?: string;
   pronunciations?: { ipa?: string; region?: 'UK' | 'US' | null }[];
   results?: { meanings?: DictionaryMeaning[] }[];
+  core_senses?: CoreSenseEntry[];
   /** Dạng cũ: string[] ("word (pos)"). Dạng mới: WordFamilyEntry[] (có nghĩa Việt). Reader phải chấp nhận cả hai. */
   familyWords?: (string | WordFamilyEntry)[];
+  wordFamily?: (string | WordFamilyEntry)[];
+  word_family?: (string | WordFamilyEntry)[];
   collocations?: (string | RichCollocationEntry)[];
   morphology?: MorphologyData;
   synonyms?: string[];
   antonyms?: string[];
   image_search_query?: string;
+  definition?: string;
+  pos?: string;
+  example?: string;
+  example_vi?: string;
+  toeic_tip?: string;
 }
 
 export interface GlobalDictionaryEntry {

@@ -85,6 +85,11 @@ export async function assertScrapeQuota(
   keyBase: string,
   windows: readonly QuotaWindow[],
 ): Promise<NextResponse | null> {
+  // If Redis is not configured in non-production environments (e.g. dev/test), allow request
+  if (!process.env.UPSTASH_REDIS_REST_URL && process.env.NODE_ENV !== 'production') {
+    return null;
+  }
+
   for (const w of windows) {
     const rl = await checkRateLimitAsync(`${keyBase}:${w.suffix}`, w.limit, w.windowMs).catch((err: unknown) => {
       const unavailable = rateLimitUnavailableResponse(err);

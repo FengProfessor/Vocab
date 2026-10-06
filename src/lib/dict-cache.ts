@@ -44,6 +44,83 @@ export function getCandidateLemmas(word: string): string[] {
 }
 
 /**
+ * Expand words with standard English derivational affixes to candidate base root stems
+ * (e.g. "helpless" -> "help", "happiness" -> "happy", "creative" -> "create", "contractor" -> "contract")
+ */
+export function getDerivationalStems(word: string): string[] {
+  const w = word.toLowerCase().trim();
+  if (w.length < 4) return [w];
+  const stems = new Set<string>();
+
+  // Prefixes
+  for (const pre of ['un', 'dis', 'in', 'im', 'ir', 'il', 're', 'mis', 'non']) {
+    if (w.startsWith(pre) && w.length > pre.length + 3) {
+      stems.add(w.slice(pre.length));
+    }
+  }
+
+  // Suffixes
+  const suffixRules: Array<{ suf: string; replace: string[] }> = [
+    { suf: 'lessly', replace: [''] },
+    { suf: 'lessly', replace: ['e'] },
+    { suf: 'lessness', replace: [''] },
+    { suf: 'ful', replace: ['', 'e'] },
+    { suf: 'fully', replace: ['', 'e'] },
+    { suf: 'fulness', replace: ['', 'e'] },
+    { suf: 'less', replace: ['', 'e'] },
+    { suf: 'ness', replace: ['', 'e'] },
+    { suf: 'ment', replace: ['', 'e'] },
+    { suf: 'able', replace: ['', 'e'] },
+    { suf: 'ably', replace: ['', 'e'] },
+    { suf: 'ibility', replace: ['e', ''] },
+    { suf: 'ability', replace: ['e', ''] },
+    { suf: 'ible', replace: ['e', ''] },
+    { suf: 'ity', replace: ['e', '', 'ous'] },
+    { suf: 'ty', replace: [''] },
+    { suf: 'tion', replace: ['te', 't', 'e', ''] },
+    { suf: 'ation', replace: ['e', 'ate', ''] },
+    { suf: 'sion', replace: ['de', 'd', 'se', ''] },
+    { suf: 'er', replace: ['', 'e'] },
+    { suf: 'or', replace: ['', 'e'] },
+    { suf: 'ist', replace: ['', 'e', 'y'] },
+    { suf: 'ism', replace: ['', 'e'] },
+    { suf: 'ive', replace: ['', 'e', 'ate'] },
+    { suf: 'ous', replace: ['', 'e'] },
+    { suf: 'ly', replace: ['', 'e', 'ic'] },
+    { suf: 'al', replace: ['', 'e'] },
+    { suf: 'ic', replace: ['y', 'e', ''] },
+    { suf: 'ical', replace: ['y', 'e', ''] },
+    { suf: 'ize', replace: ['', 'e', 'y'] },
+    { suf: 'ise', replace: ['', 'e', 'y'] },
+    { suf: 'en', replace: [''] },
+  ];
+
+  for (const { suf, replace } of suffixRules) {
+    if (w.endsWith(suf) && w.length > suf.length + 2) {
+      const base = w.slice(0, -suf.length);
+      for (const r of replace) {
+        const candidate = base + r;
+        if (candidate.length >= 3 && candidate !== w) {
+          stems.add(candidate);
+        }
+      }
+      if (base.endsWith('i') && base.length >= 3) {
+        stems.add(base.slice(0, -1) + 'y');
+      }
+      if (/(.)\1$/.test(base)) {
+        stems.add(base.slice(0, -1));
+      }
+    }
+  }
+
+  for (const l of getCandidateLemmas(w)) {
+    if (l !== w && l.length >= 3) stems.add(l);
+  }
+
+  return Array.from(stems);
+}
+
+/**
  * Retrieve cached dictionary lookup result via memory or sessionStorage with lemma expansion.
  */
 export function getCachedDictionaryEntry(word: string): CachedDictEntry | null {

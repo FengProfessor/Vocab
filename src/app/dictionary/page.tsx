@@ -153,17 +153,79 @@ function speakWord(word: string, lang: 'en-GB' | 'en-US') {
   speak(word, 1.0, lang);
 }
 
-/** Chuẩn hóa familyWords (string cũ hoặc object mới) → WordFamilyEntry[]. Lọc bỏ chính headword để tránh lặp và lệch nghĩa. */
-function normalizeFamilyWords(raw: DictionaryData['familyWords'], headword?: string): WordFamilyEntry[] {
-  if (!raw?.length) return [];
+/** Chuẩn hóa familyWords (string cũ hoặc object mới) → WordFamilyEntry[]. Lọc thông minh: giữ lại từ gốc hoặc biến thể từ loại nếu chỉ có headword. */
+function normalizeFamilyWords(
+  raw: unknown,
+  headword?: string,
+  morphology?: MorphologyData,
+): WordFamilyEntry[] {
   const headLower = headword?.trim().toLowerCase();
-  return raw.map((item): WordFamilyEntry => {
-    if (typeof item === 'string') {
-      const m = item.match(/^(.+?)\s*\(([^)]+)\)\s*$/);
-      return m ? { word: m[1].trim(), pos: m[2].trim() } : { word: item.trim() };
+  const seen = new Set<string>();
+  const parsed: WordFamilyEntry[] = [];
+
+  if (Array.isArray(raw)) {
+    for (const item of raw) {
+      let entry: WordFamilyEntry | null = null;
+      if (typeof item === 'string') {
+        const trimmed = item.trim();
+        if (!trimmed) continue;
+        const m = trimmed.match(/^(.+?)\s*\(([^)]+)\)\s*(.*)$/);
+        if (m) {
+          entry = { word: m[1].trim(), pos: m[2].trim(), meaning: m[3]?.trim() || undefined };
+        } else {
+          const simple = trimmed.match(/^(.+?)\s*\(([^)]+)\)$/);
+          entry = simple ? { word: simple[1].trim(), pos: simple[2].trim() } : { word: trimmed };
+        }
+      } else if (item && typeof item === 'object' && (item as WordFamilyEntry).word) {
+        entry = { ...(item as WordFamilyEntry) };
+      }
+
+      if (!entry || !entry.word) continue;
+      const wLower = entry.word.trim().toLowerCase();
+      const key = `${wLower}:${entry.pos || ''}`;
+      if (!seen.has(key)) {
+        seen.add(key);
+        parsed.push(entry);
+      }
     }
-    return item;
-  }).filter(e => e.word && (!headLower || e.word.trim().toLowerCase() !== headLower));
+  }
+
+  // Nếu có các từ phái sinh khác ngoài headword, hiển thị các từ đó
+  const otherWords = parsed.filter((e) => e.word.trim().toLowerCase() !== headLower);
+  if (morphology?.rootWord && morphology.rootWord.trim().toLowerCase() !== headLower) {
+    const rootLower = morphology.rootWord.trim().toLowerCase();
+    const hasRoot = otherWords.some((e) => e.word.trim().toLowerCase() === rootLower);
+    if (!hasRoot) {
+      otherWords.unshift({
+        word: morphology.rootWord.trim(),
+        pos: 'từ gốc',
+        meaning: morphology.rootMeaning || undefined,
+      });
+    }
+  }
+  if (otherWords.length > 0) {
+    return otherWords;
+  }
+
+  // Nếu chỉ có chính từ đó, nhưng có từ gốc trong morphology khác với headword
+  if (morphology?.rootWord && morphology.rootWord.trim().toLowerCase() !== headLower) {
+    const rootLower = morphology.rootWord.trim().toLowerCase();
+    return [
+      {
+        word: morphology.rootWord.trim(),
+        pos: 'từ gốc',
+        meaning: morphology.rootMeaning || undefined,
+      },
+      ...parsed.filter((e) => e.word.trim().toLowerCase() !== rootLower),
+    ];
+  }
+
+  // Nếu từ có nhiều từ loại chuyển thể (conversion) như tariff (danh từ) vs tariff (động từ)
+  if (parsed.length > 1) {
+    return parsed;
+  }
+
+  return [];
 }
 
 /** Chuẩn hóa collocations (chuỗi hoặc object RichCollocationEntry) → RichCollocationEntry[]. */
@@ -214,7 +276,11 @@ function isGarbageResult(data: DictionaryData): boolean {
   if (/word not found|not found|unknown|placeholder|gibberish|n\/a/i.test(firstIpa)) return true;
 
   // Kiểm tra mọi definition xem có text rác không
-  const allDefs = data.results?.flatMap(r => r.meanings?.map(m => m.definition ?? '') ?? []) ?? [];
+  const allDefs: string[] = [
+    ...(data.results?.flatMap(r => r.meanings?.map(m => m.definition ?? '') ?? []) ?? []),
+    ...(data.core_senses?.map(cs => cs.definition_vi || cs.definition_en || '') ?? []),
+  ];
+  if (data.definition) allDefs.push(data.definition);
   if (allDefs.some(d => GARBAGE_PATTERNS.test(d))) return true;
 
   return false;
@@ -350,7 +416,7 @@ export default function DictionaryPage() {
         );
         const json = await res.json().catch(() => ({}));
         if (res.ok) {
-          if (json.results && json.results.length > 0) {
+          if ((json.results && json.results.length > 0) || (json.core_senses && json.core_senses.length > 0) || json.definition) {
             const data: DictionaryData = json;
             if (!isGarbageResult(data)) {
               const resObj: LookupResult = {
@@ -817,23 +883,106 @@ export default function DictionaryPage() {
   const allMeanings: Array<{ pos: string; meaning: DictionaryMeaning; globalIndex: number }> = [];
   let globalIdx = 0;
   const grouped: Record<string, Array<{ meaning: DictionaryMeaning; globalIndex: number }>> = {};
-  if (result?.data.results) {
+  // 1. Oxford/Cambridge curated core senses take top priority (popularity 1, 2, 3...)
+  if (result?.data.core_senses && result.data.core_senses.length > 0) {
+    const sortedCoreSenses = [...result.data.core_senses].sort(
+      (a, b) => (a.popularity || 99) - (b.popularity || 99),
+    );
+    for (const cs of sortedCoreSenses) {
+      const m: DictionaryMeaning = {
+        definition: cs.definition_vi || cs.label_vi || cs.definition_en || '',
+        label_vi: cs.label_vi,
+        definition_en: cs.definition_en,
+        pos: cs.pos,
+        cefr: cs.cefr,
+        popularity: cs.popularity,
+        isPrimary: cs.popularity === 1 || allMeanings.length === 0,
+        example: cs.example,
+        example_vi: cs.example_vi,
+        collocations: cs.collocations,
+      };
+      const pos = m.pos || 'other';
+      if (!grouped[pos]) grouped[pos] = [];
+      grouped[pos].push({ meaning: m, globalIndex: globalIdx });
+      allMeanings.push({ pos, meaning: m, globalIndex: globalIdx });
+      globalIdx++;
+    }
+  }
+
+  // 2. Include results meanings (deduplicating with core senses)
+  if (result?.data.results && result.data.results.length > 0) {
     for (const resEntry of result.data.results) {
       for (const meaning of resEntry.meanings ?? []) {
-        const pos = meaning.pos ?? 'other';
-        if (!grouped[pos]) grouped[pos] = [];
-        grouped[pos].push({ meaning, globalIndex: globalIdx });
-        allMeanings.push({ pos, meaning, globalIndex: globalIdx });
-        globalIdx++;
+        if (!meaning.definition) continue;
+        const isDuplicate = allMeanings.some(
+          (existing) =>
+            existing.meaning.definition?.toLowerCase().trim() === meaning.definition?.toLowerCase().trim() ||
+            (existing.meaning.label_vi && meaning.definition?.toLowerCase().includes(existing.meaning.label_vi.toLowerCase())),
+        );
+        if (!isDuplicate) {
+          const pos = meaning.pos ?? 'other';
+          if (!grouped[pos]) grouped[pos] = [];
+          grouped[pos].push({ meaning, globalIndex: globalIdx });
+          allMeanings.push({ pos, meaning, globalIndex: globalIdx });
+          globalIdx++;
+        }
       }
     }
+  }
+
+  // 3. Fallback definition if empty
+  if (allMeanings.length === 0 && result?.data.definition) {
+    const m: DictionaryMeaning = {
+      definition: result.data.definition,
+      pos: result.data.pos || 'other',
+      example: result.data.example,
+      example_vi: result.data.example_vi,
+      isPrimary: true,
+    };
+    const pos = m.pos || 'other';
+    grouped[pos] = [{ meaning: m, globalIndex: globalIdx }];
+    allMeanings.push({ pos, meaning: m, globalIndex: globalIdx });
+    globalIdx++;
+  }
+
+  // 4. Elevate primary / most common meaning to the top
+  let primaryItem = allMeanings.find(m => m.meaning.isPrimary) || null;
+  if (!primaryItem && allMeanings.length > 0) {
+    const cefrRank: Record<string, number> = { a1: 1, a2: 2, b1: 3, b2: 4, c1: 5, c2: 6 };
+    let bestIdx = 0;
+    let bestScore = 999;
+    for (let i = 0; i < allMeanings.length; i++) {
+      const m = allMeanings[i].meaning;
+      let score = 100;
+      if (typeof m.popularity === 'number') score = m.popularity;
+      else if (m.cefr && cefrRank[m.cefr.toLowerCase()]) score = 10 + cefrRank[m.cefr.toLowerCase()];
+      const def = (m.definition || '').toLowerCase();
+      if (def.startsWith('xem ') || def.startsWith('dạng ') || def.includes('(cũ)')) score += 500;
+      if (score < bestScore) {
+        bestScore = score;
+        bestIdx = i;
+      }
+    }
+    allMeanings[bestIdx].meaning.isPrimary = true;
+    primaryItem = allMeanings[bestIdx];
+  }
+  const secondaryItems = primaryItem
+    ? allMeanings.filter(m => m.globalIndex !== primaryItem.globalIndex)
+    : [];
+
+  const secondaryGrouped: Record<string, Array<{ meaning: DictionaryMeaning; globalIndex: number }>> = {};
+  for (const item of secondaryItems) {
+    const pos = item.pos || item.meaning.pos || 'other';
+    if (!secondaryGrouped[pos]) secondaryGrouped[pos] = [];
+    secondaryGrouped[pos].push(item);
   }
 
   const meaningsColls = allMeanings.flatMap(m => m.meaning.collocations || []);
   const collocations = normalizeCollocations(result?.data.collocations, meaningsColls);
   const morphology: MorphologyData | undefined = result?.data.morphology;
 
-  const familyWords = normalizeFamilyWords(result?.data.familyWords, result?.data.word);
+  const rawFamily = result?.data.familyWords || result?.data.wordFamily || result?.data.word_family;
+  const familyWords = normalizeFamilyWords(rawFamily, result?.data.word || result?.queriedWord, morphology);
   const hasPronunciations = (result?.data.pronunciations?.length ?? 0) > 0;
   const ukPron = result?.data.pronunciations?.find(p => p.region === 'UK');
   const usPron = result?.data.pronunciations?.find(p => p.region === 'US');
@@ -1153,60 +1302,149 @@ export default function DictionaryPage() {
               )}
             </div>
 
-            {/* Meanings grouped by POS */}
-            {Object.keys(grouped).length > 0 && (
-              <div className="space-y-4">
-                {Object.entries(grouped).map(([pos, items]) => (
-                  <div key={pos}>
-                    <h2 className="text-xs uppercase tracking-widest text-muted-foreground italic mb-2 font-semibold">
-                      {pos}
-                    </h2>
-                    <div className="space-y-2">
-                      {items.map(({ meaning, globalIndex }, i) => (
-                        <div
-                          key={globalIndex}
-                          className="bg-muted/40 rounded-xl p-3 flex gap-3 items-start border border-border/50"
-                        >
-                          <span className="text-xs font-bold text-muted-foreground mt-0.5 min-w-[1.2rem]">
-                            {i + 1}.
-                          </span>
-                          <div className="flex-1 min-w-0">
-                            <p className="font-semibold text-sm leading-snug break-words [overflow-wrap:anywhere]">{meaning.definition}</p>
-                            {meaning.example && (
-                              <div className="mt-1.5">
-                                <ExampleWithSub
-                                  example={meaning.example}
-                                  exampleVi={meaning.example_vi}
-                                  defaultShowVi
-                                  autoTranslateIfMissing
-                                  showSlowAudio
-                                  enClassName="text-xs font-medium italic text-slate-700 dark:text-slate-300 leading-snug break-words [overflow-wrap:anywhere]"
-                                  viClassName="mt-1 text-xs font-medium text-slate-500 dark:text-slate-400 not-italic leading-snug break-words [overflow-wrap:anywhere]"
-                                />
-                              </div>
-                            )}
-                          </div>
-                          {/* Nút lưu: disabled nếu từ đã có trong sổ (toàn bộ) hoặc meaning cụ thể đã lưu */}
-                          <Button
-                            variant={(savedIndexes.has(globalIndex) || wordAlreadySaved) ? 'outline' : 'chunky'}
-                            size="sm"
-                            disabled={savedIndexes.has(globalIndex) || savingIndexes.has(globalIndex) || wordAlreadySaved}
-                            onClick={() => handleSaveMeaning(meaning, globalIndex)}
-                            className="shrink-0 text-xs"
-                          >
-                            {savingIndexes.has(globalIndex) ? (
-                              <Loader2 className="h-3 w-3 animate-spin" />
-                            ) : (savedIndexes.has(globalIndex) || wordAlreadySaved) ? (
-                              <><CheckCircle2 className="h-3 w-3" /> Đã lưu</>
-                            ) : (
-                              <>＋ Lưu</>
-                            )}
-                          </Button>
-                        </div>
-                      ))}
-                    </div>
+            {/* Primary / Most Common Meaning (Nghĩa phổ biến nhất) */}
+            {primaryItem && (
+              <div className="rounded-2xl p-4 bg-amber-500/10 dark:bg-amber-500/15 border border-amber-500/30 shadow-sm space-y-3">
+                <div className="flex items-center justify-between gap-2 flex-wrap">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-800 dark:text-amber-200 border border-amber-500/30">
+                      <Sparkles className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400" />
+                      Nghĩa phổ biến nhất
+                    </span>
+                    {primaryItem.pos && primaryItem.pos !== 'other' && (
+                      <span className="text-xs uppercase font-semibold text-muted-foreground tracking-wider px-2 py-0.5 rounded-md bg-muted/80">
+                        {primaryItem.pos}
+                      </span>
+                    )}
+                    {primaryItem.meaning.cefr && (
+                      <span className="text-[10px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded bg-blue-500/15 text-blue-700 dark:text-blue-300 border border-blue-500/20">
+                        {primaryItem.meaning.cefr}
+                      </span>
+                    )}
                   </div>
-                ))}
+
+                  <Button
+                    variant={(savedIndexes.has(primaryItem.globalIndex) || wordAlreadySaved) ? 'outline' : 'chunky'}
+                    size="sm"
+                    disabled={savedIndexes.has(primaryItem.globalIndex) || savingIndexes.has(primaryItem.globalIndex) || wordAlreadySaved}
+                    onClick={() => handleSaveMeaning(primaryItem.meaning, primaryItem.globalIndex)}
+                    className="shrink-0 text-xs"
+                  >
+                    {savingIndexes.has(primaryItem.globalIndex) ? (
+                      <Loader2 className="h-3 w-3 animate-spin" />
+                    ) : (savedIndexes.has(primaryItem.globalIndex) || wordAlreadySaved) ? (
+                      <><CheckCircle2 className="h-3 w-3" /> Đã lưu</>
+                    ) : (
+                      <>＋ Lưu từ này</>
+                    )}
+                  </Button>
+                </div>
+
+                <div className="space-y-1">
+                  <p className="text-base font-bold text-foreground leading-snug break-words [overflow-wrap:anywhere]">
+                    {primaryItem.meaning.definition}
+                  </p>
+                  {primaryItem.meaning.definition_en && primaryItem.meaning.definition_en !== primaryItem.meaning.definition && (
+                    <p className="text-xs text-muted-foreground italic break-words [overflow-wrap:anywhere]">
+                      {primaryItem.meaning.definition_en}
+                    </p>
+                  )}
+                </div>
+
+                {primaryItem.meaning.example && (
+                  <div className="pt-2 border-t border-amber-500/20">
+                    <ExampleWithSub
+                      example={primaryItem.meaning.example}
+                      exampleVi={primaryItem.meaning.example_vi}
+                      defaultShowVi
+                      autoTranslateIfMissing
+                      showSlowAudio
+                      enClassName="text-xs font-medium italic text-slate-700 dark:text-slate-300 leading-snug break-words [overflow-wrap:anywhere]"
+                      viClassName="mt-1 text-xs font-medium text-slate-500 dark:text-slate-400 not-italic leading-snug break-words [overflow-wrap:anywhere]"
+                    />
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Secondary / Subsequent Meanings (Các nghĩa khác) */}
+            {secondaryItems.length > 0 && (
+              <div className="space-y-3 pt-1">
+                <div className="flex items-center gap-2">
+                  <h2 className="text-xs uppercase tracking-widest text-muted-foreground italic font-semibold">
+                    Các nghĩa khác ({secondaryItems.length})
+                  </h2>
+                  <div className="h-px flex-1 bg-border/60" />
+                </div>
+
+                <div className="space-y-4">
+                  {Object.entries(secondaryGrouped).map(([pos, items]) => (
+                    <div key={pos}>
+                      {pos !== 'other' && (
+                        <h3 className="text-xs uppercase tracking-widest text-muted-foreground/80 font-semibold mb-2">
+                          {pos}
+                        </h3>
+                      )}
+                      <div className="space-y-2">
+                        {items.map(({ meaning, globalIndex }, i) => (
+                          <div
+                            key={globalIndex}
+                            className="bg-muted/40 rounded-xl p-3 flex gap-3 items-start border border-border/50"
+                          >
+                            <span className="text-xs font-bold text-muted-foreground mt-0.5 min-w-[1.2rem]">
+                              {i + 1}.
+                            </span>
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-1.5 flex-wrap">
+                                <p className="font-semibold text-sm leading-snug break-words [overflow-wrap:anywhere]">
+                                  {meaning.definition}
+                                </p>
+                                {meaning.cefr && (
+                                  <span className="text-[9px] font-bold uppercase px-1 py-0.2 rounded bg-muted text-muted-foreground border">
+                                    {meaning.cefr}
+                                  </span>
+                                )}
+                              </div>
+                              {meaning.definition_en && meaning.definition_en !== meaning.definition && (
+                                <p className="text-xs text-muted-foreground mt-0.5 italic break-words [overflow-wrap:anywhere]">
+                                  {meaning.definition_en}
+                                </p>
+                              )}
+                              {meaning.example && (
+                                <div className="mt-1.5">
+                                  <ExampleWithSub
+                                    example={meaning.example}
+                                    exampleVi={meaning.example_vi}
+                                    defaultShowVi
+                                    autoTranslateIfMissing
+                                    showSlowAudio
+                                    enClassName="text-xs font-medium italic text-slate-700 dark:text-slate-300 leading-snug break-words [overflow-wrap:anywhere]"
+                                    viClassName="mt-1 text-xs font-medium text-slate-500 dark:text-slate-400 not-italic leading-snug break-words [overflow-wrap:anywhere]"
+                                  />
+                                </div>
+                              )}
+                            </div>
+                            <Button
+                              variant={(savedIndexes.has(globalIndex) || wordAlreadySaved) ? 'outline' : 'chunky'}
+                              size="sm"
+                              disabled={savedIndexes.has(globalIndex) || savingIndexes.has(globalIndex) || wordAlreadySaved}
+                              onClick={() => handleSaveMeaning(meaning, globalIndex)}
+                              className="shrink-0 text-xs"
+                            >
+                              {savingIndexes.has(globalIndex) ? (
+                                <Loader2 className="h-3 w-3 animate-spin" />
+                              ) : (savedIndexes.has(globalIndex) || wordAlreadySaved) ? (
+                                <><CheckCircle2 className="h-3 w-3" /> Đã lưu</>
+                              ) : (
+                                <>＋ Lưu</>
+                              )}
+                            </Button>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
 
@@ -1346,27 +1584,38 @@ export default function DictionaryPage() {
             {/* Word family — các từ phái sinh kèm nghĩa */}
             {familyWords.length > 0 && (
               <div>
-                <h2 className="text-xs uppercase tracking-widest text-muted-foreground italic mb-2 font-semibold">
-                  Họ từ vựng
-                </h2>
+                <div className="flex items-center gap-2 mb-2">
+                  <h2 className="text-xs uppercase tracking-widest text-muted-foreground italic font-semibold">
+                    Họ từ vựng ({familyWords.length})
+                  </h2>
+                  <div className="h-px flex-1 bg-border/60" />
+                </div>
                 <div className="space-y-2">
                   {familyWords.map((fw, i) => (
                     <button
                       key={`${fw.word}-${i}`}
                       type="button"
                       onClick={() => { setQuery(fw.word); lookup(fw.word); }}
-                      className="w-full bg-muted/40 rounded-xl p-3 flex gap-3 items-center border border-border/50 text-left hover:bg-muted transition-colors"
+                      className="w-full bg-muted/40 rounded-xl p-3 flex gap-3 items-center border border-border/50 text-left hover:bg-muted transition-colors group"
                     >
                       <div className="flex-1 min-w-0">
-                        <span className="font-semibold text-sm break-words [overflow-wrap:anywhere]">{fw.word}</span>
-                        {fw.pos && (
-                          <span className="text-xs text-muted-foreground italic ml-2">{fw.pos}</span>
-                        )}
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="font-semibold text-sm break-words [overflow-wrap:anywhere] group-hover:text-primary transition-colors">
+                            {fw.word}
+                          </span>
+                          {fw.pos && (
+                            <span className="text-[10px] font-medium uppercase px-1.5 py-0.5 rounded bg-muted text-muted-foreground border border-border/40">
+                              {fw.pos}
+                            </span>
+                          )}
+                        </div>
                         {fw.meaning && (
-                          <p className="text-sm text-muted-foreground leading-snug mt-0.5 break-words [overflow-wrap:anywhere]">{fw.meaning}</p>
+                          <p className="text-xs text-muted-foreground leading-snug mt-1 break-words [overflow-wrap:anywhere]">
+                            {fw.meaning}
+                          </p>
                         )}
                       </div>
-                      <Search className="h-4 w-4 text-muted-foreground shrink-0" />
+                      <Search className="h-4 w-4 text-muted-foreground group-hover:text-foreground shrink-0 transition-colors" />
                     </button>
                   ))}
                 </div>
@@ -1374,7 +1623,7 @@ export default function DictionaryPage() {
             )}
 
             {/* No meanings fallback */}
-            {Object.keys(grouped).length === 0 && hasPronunciations && (
+            {!primaryItem && allMeanings.length === 0 && hasPronunciations && (
               <p className="text-muted-foreground text-sm">Chỉ tìm được phát âm, không có nghĩa.</p>
             )}
 

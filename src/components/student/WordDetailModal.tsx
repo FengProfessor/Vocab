@@ -4,7 +4,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { authFetch } from '@/lib/auth-fetch';
-import type { Word, SRSProgress, RichCollocationEntry, WordFamilyEntry } from '@/lib/supabase';
+import type { Word, SRSProgress, RichCollocationEntry, WordFamilyEntry, DictionaryMeaning } from '@/lib/supabase';
 import { stabilityToLevel } from '@/lib/srs';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -21,6 +21,7 @@ import {
   GitFork,
   Link2,
   Users,
+  Sparkles,
 } from 'lucide-react';
 import { ExampleWithSub } from '@/components/study/ExampleWithSub';
 import { parseIpa } from '@/lib/study';
@@ -114,7 +115,31 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
           return;
         }
 
-        setWord(wordRes.data as WordDetail);
+        const loadedWord = wordRes.data as WordDetail;
+        setWord(loadedWord);
+
+        // Auto-hydrate word family / meanings if missing in user's saved word
+        if (!loadedWord.dictionary_data?.familyWords?.length && !loadedWord.dictionary_data?.wordFamily?.length && loadedWord.word) {
+          fetch(`/api/dictionary/lookup?word=${encodeURIComponent(loadedWord.word)}`)
+            .then((res) => (res.ok ? res.json() : null))
+            .then((extra) => {
+              if (extra && !cancelled) {
+                setWord((prev) => {
+                  if (!prev) return prev;
+                  return {
+                    ...prev,
+                    dictionary_data: {
+                      ...(prev.dictionary_data || {}),
+                      familyWords: extra.familyWords || extra.wordFamily || prev.dictionary_data?.familyWords,
+                      results: prev.dictionary_data?.results?.length ? prev.dictionary_data.results : extra.results,
+                      core_senses: prev.dictionary_data?.core_senses || extra.core_senses,
+                    },
+                  };
+                });
+              }
+            })
+            .catch(() => {});
+        }
 
         const uid = sessionRes.data.session?.user.id;
         if (uid) {
@@ -209,8 +234,62 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
 
   // Lấy dữ liệu nâng cao từ dictionary_data nếu có
   const dictData = word?.dictionary_data;
-  const meanings = dictData?.results?.[0]?.meanings || [];
   const morphology = dictData?.morphology;
+
+  const allDictMeanings: DictionaryMeaning[] = [];
+  if (dictData?.core_senses && dictData.core_senses.length > 0) {
+    const sortedCore = [...dictData.core_senses].sort(
+      (a, b) => (a.popularity || 99) - (b.popularity || 99),
+    );
+    for (const cs of sortedCore) {
+      allDictMeanings.push({
+        definition: cs.definition_vi || cs.label_vi || cs.definition_en || '',
+        label_vi: cs.label_vi,
+        definition_en: cs.definition_en,
+        pos: cs.pos,
+        cefr: cs.cefr,
+        popularity: cs.popularity,
+        isPrimary: cs.popularity === 1 || allDictMeanings.length === 0,
+        example: cs.example,
+        example_vi: cs.example_vi,
+      });
+    }
+  }
+
+  if (dictData?.results) {
+    for (const r of dictData.results) {
+      if (r.meanings) {
+        for (const m of r.meanings) {
+          if (!allDictMeanings.some((x) => x.definition?.toLowerCase().trim() === m.definition?.toLowerCase().trim())) {
+            allDictMeanings.push({ ...m });
+          }
+        }
+      }
+    }
+  }
+
+  if (allDictMeanings.length === 0 && dictData?.definition) {
+    allDictMeanings.push({
+      definition: dictData.definition,
+      pos: dictData.pos,
+      example: dictData.example,
+      example_vi: dictData.example_vi,
+      isPrimary: true,
+    });
+  }
+
+  // Ensure primary meaning is sorted to index 0
+  allDictMeanings.sort((a, b) => {
+    if (a.isPrimary && !b.isPrimary) return -1;
+    if (b.isPrimary && !a.isPrimary) return 1;
+    const popA = a.popularity ?? 99;
+    const popB = b.popularity ?? 99;
+    return popA - popB;
+  });
+  if (allDictMeanings.length > 0 && !allDictMeanings.some((m) => m.isPrimary)) {
+    allDictMeanings[0].isPrimary = true;
+  }
+  const meanings = allDictMeanings;
 
   const rawColls = dictData?.collocations || [];
   const meaningsColls = (dictData?.results?.flatMap(r => r.meanings?.flatMap(m => m.collocations || []) || []) || []);
@@ -225,15 +304,33 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
   }
   const collocations = Array.from(collocationsMap.values());
 
-  const rawFamily = dictData?.familyWords || [];
+  const rawFamily = dictData?.familyWords || dictData?.wordFamily || dictData?.word_family || [];
   const headwordLower = (word?.word || '').trim().toLowerCase();
-  const familyWords: WordFamilyEntry[] = rawFamily.map(item => {
+  const parsedFamily: WordFamilyEntry[] = rawFamily.map(item => {
     if (typeof item === 'string') {
-      const m = item.match(/^(.+?)\s*\(([^)]+)\)\s*$/);
-      return m ? { word: m[1].trim(), pos: m[2].trim() } : { word: item.trim() };
+      const m = item.match(/^(.+?)\s*\(([^)]+)\)\s*(.*)$/);
+      if (m) {
+        return { word: m[1].trim(), pos: m[2].trim(), meaning: m[3]?.trim() || undefined };
+      }
+      const simple = item.match(/^(.+?)\s*\(([^)]+)\)$/);
+      return simple ? { word: simple[1].trim(), pos: simple[2].trim() } : { word: item.trim() };
     }
     return item;
-  }).filter(f => f.word && f.word.trim().toLowerCase() !== headwordLower);
+  });
+  const filteredFamily = parsedFamily.filter(f => f.word && f.word.trim().toLowerCase() !== headwordLower);
+  if (morphology?.rootWord && morphology.rootWord.trim().toLowerCase() !== headwordLower) {
+    const rootLower = morphology.rootWord.trim().toLowerCase();
+    if (!filteredFamily.some(f => f.word.trim().toLowerCase() === rootLower)) {
+      filteredFamily.unshift({
+        word: morphology.rootWord.trim(),
+        pos: 'từ gốc',
+        meaning: morphology.rootMeaning || undefined,
+      });
+    }
+  }
+  const familyWords: WordFamilyEntry[] = filteredFamily.length > 0
+    ? filteredFamily
+    : parsedFamily.filter(f => f.word && (f.pos || f.meaning));
 
   return (
     <div
@@ -329,32 +426,90 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
               )}
 
               {meanings.length > 0 && (
-                <div>
-                  <h3 className="text-xs font-black uppercase text-muted-foreground tracking-wider mb-2">
-                    Định nghĩa chi tiết
-                  </h3>
-                  <div className="space-y-2">
-                    {meanings.slice(0, 3).map((m, idx) => (
-                      <div key={idx} className="bg-white/3 rounded-lg p-3 space-y-1 text-sm">
-                        {m.pos && (
-                          <span className="text-[10px] font-black uppercase text-primary mr-2">
-                            [{m.pos}]
+                <div className="space-y-3">
+                  {/* Primary / Most Common Meaning */}
+                  {meanings[0] && (
+                    <div className="rounded-xl p-3.5 bg-amber-500/10 dark:bg-amber-500/15 border border-amber-500/30 space-y-2">
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <span className="inline-flex items-center gap-1 text-[10px] font-black uppercase text-amber-800 dark:text-amber-200 bg-amber-500/20 px-2 py-0.5 rounded-full border border-amber-500/30">
+                          <Sparkles className="h-3 w-3 text-amber-600 dark:text-amber-400" />
+                          Nghĩa phổ biến nhất
+                        </span>
+                        {meanings[0].pos && (
+                          <span className="text-[10px] font-black uppercase text-primary px-1.5 py-0.5 rounded bg-muted/80">
+                            [{meanings[0].pos}]
                           </span>
                         )}
-                        <span className="text-slate-700">{m.definition}</span>
-                        {m.example && (
-                          <ExampleWithSub
-                            example={m.example}
-                            exampleVi={m.example_vi || (m.example?.trim() === word.example?.trim() ? word.example_vi : undefined)}
-                            defaultShowVi
-                            className="mt-1"
-                            enClassName="text-xs italic text-slate-500"
-                            viClassName="mt-0.5 text-xs font-medium text-slate-400 not-italic"
-                          />
+                        {meanings[0].cefr && (
+                          <span className="text-[9px] font-bold uppercase text-blue-600 dark:text-blue-400 bg-blue-500/10 px-1.5 py-0.5 rounded border border-blue-500/20">
+                            {meanings[0].cefr}
+                          </span>
                         )}
                       </div>
-                    ))}
-                  </div>
+                      <p className="text-foreground font-bold text-base leading-snug">{meanings[0].definition}</p>
+                      {meanings[0].definition_en && meanings[0].definition_en !== meanings[0].definition && (
+                        <p className="text-xs text-muted-foreground italic leading-snug">{meanings[0].definition_en}</p>
+                      )}
+                      {meanings[0].example && (
+                        <div className="pt-1.5 border-t border-amber-500/20">
+                          <ExampleWithSub
+                            example={meanings[0].example}
+                            exampleVi={meanings[0].example_vi || (meanings[0].example?.trim() === word.example?.trim() ? word.example_vi : undefined)}
+                            defaultShowVi
+                            showSlowAudio
+                            className="mt-1"
+                            enClassName="text-xs italic text-slate-700 dark:text-slate-300"
+                            viClassName="mt-0.5 text-xs font-medium text-slate-500 dark:text-slate-400 not-italic"
+                          />
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Secondary Meanings */}
+                  {meanings.length > 1 && (
+                    <div className="space-y-2 pt-1">
+                      <div className="flex items-center gap-2">
+                        <h4 className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold">
+                          Các nghĩa khác ({meanings.length - 1})
+                        </h4>
+                        <div className="h-px flex-1 bg-border/60" />
+                      </div>
+                      <div className="space-y-2">
+                        {meanings.slice(1, 4).map((m, idx) => (
+                          <div key={idx} className="bg-muted/40 rounded-lg p-3 space-y-1 text-sm border border-border/40">
+                            <div className="flex items-center gap-1.5 flex-wrap">
+                              <span className="text-xs font-bold text-muted-foreground min-w-[1rem]">{idx + 1}.</span>
+                              {m.pos && (
+                                <span className="text-[10px] font-black uppercase text-primary">
+                                  [{m.pos}]
+                                </span>
+                              )}
+                              {m.cefr && (
+                                <span className="text-[9px] font-bold uppercase text-blue-600 dark:text-blue-400 bg-blue-500/10 px-1 py-0.2 rounded">
+                                  {m.cefr}
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-slate-800 dark:text-slate-200 font-medium leading-snug">{m.definition}</p>
+                            {m.definition_en && m.definition_en !== m.definition && (
+                              <p className="text-xs text-muted-foreground italic">{m.definition_en}</p>
+                            )}
+                            {m.example && (
+                              <ExampleWithSub
+                                example={m.example}
+                                exampleVi={m.example_vi}
+                                defaultShowVi
+                                className="mt-1"
+                                enClassName="text-xs italic text-slate-500 dark:text-slate-400"
+                                viClassName="mt-0.5 text-xs font-medium text-slate-400 not-italic"
+                              />
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
@@ -529,15 +684,24 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
             {familyWords.length > 0 && (
               <div className="px-6 pb-4 space-y-1.5">
                 <h4 className="text-[10px] font-black uppercase text-sky-600 dark:text-sky-400 flex items-center gap-1">
-                  <Users className="h-3 w-3" /> Họ từ vựng (Word Family)
+                  <Users className="h-3 w-3" /> Họ từ vựng ({familyWords.length})
                 </h4>
                 <div className="flex flex-wrap gap-1.5">
                   {familyWords.map((fw, i) => (
-                    <span key={i} className="text-xs bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800 px-2 py-1 rounded-md flex items-center gap-1">
-                      <strong className="font-semibold">{fw.word}</strong>
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => {
+                        onClose();
+                        router.push(`/dictionary?q=${encodeURIComponent(fw.word)}`);
+                      }}
+                      className="text-xs bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800 px-2.5 py-1 rounded-md flex items-center gap-1 hover:bg-sky-100 dark:hover:bg-sky-900/50 transition-colors text-left group"
+                      title={`Tra từ ${fw.word}`}
+                    >
+                      <strong className="font-semibold group-hover:underline">{fw.word}</strong>
                       {fw.pos && <span className="text-[10px] italic opacity-80">({fw.pos})</span>}
                       {fw.meaning && <span className="text-[11px] opacity-90">: {fw.meaning}</span>}
-                    </span>
+                    </button>
                   ))}
                 </div>
               </div>
