@@ -4,13 +4,14 @@ import React, { useState, useMemo } from 'react';
 import Image from 'next/image';
 import { Volume2, Sparkles, Lightbulb, CheckCircle2 } from 'lucide-react';
 import { speak } from '@/lib/study';
-import PronounVisualDeck from './PronounVisualDeck';
+import PronounVisualDeck, { HighlightedSentence } from './PronounVisualDeck';
 import type { GrammarTheoryData } from './GrammarReferenceTable';
 import topicAssetsData from '@/data/grammar-topic-assets.json';
 
 export interface VisualDeckExample {
   en: string;
   vi: string;
+  highlightWord?: string;
 }
 
 export interface VisualDeckCard {
@@ -54,10 +55,10 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/verb-to-be/01.mp3',
         accentColor: '#3b82f6',
         examples: [
-          { en: 'I am a student.', vi: 'Tôi là học sinh.' },
-          { en: 'I am happy today.', vi: 'Hôm nay tôi rất vui vẻ.' },
-          { en: 'I am twenty years old.', vi: 'Tôi 20 tuổi.' },
-          { en: 'I am not tired at all.', vi: 'Tôi không hề mệt chút nào.' },
+          { en: 'I am a student.', vi: 'Tôi là học sinh.', highlightWord: 'am' },
+          { en: 'I am happy today.', vi: 'Hôm nay tôi rất vui vẻ.', highlightWord: 'am' },
+          { en: 'I am twenty years old.', vi: 'Tôi 20 tuổi.', highlightWord: 'am' },
+          { en: 'I am not tired at all.', vi: 'Tôi không hề mệt chút nào.', highlightWord: 'am' },
         ],
         tip: 'Chủ ngữ "I" luôn luôn đi với "am". Dạng viết tắt là "I\'m". Dạng phủ định là "I am not" (hoặc "I\'m not").',
         ruleSummary: 'Khẳng định: I am ... · Phủ định: I am not ... · Câu hỏi: Am I ...?',
@@ -70,10 +71,10 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/verb-to-be/02.mp3',
         accentColor: '#f43f5e',
         examples: [
-          { en: 'She is very happy.', vi: 'Cô ấy rất vui vẻ.' },
-          { en: 'He is my best friend.', vi: 'Cậu ấy là bạn thân của tôi.' },
-          { en: 'It is a sunny day.', vi: 'Hôm nay trời nắng đẹp.' },
-          { en: 'My cat is very cute.', vi: 'Chú mèo của tôi rất dễ thương.' },
+          { en: 'She is very happy.', vi: 'Cô ấy rất vui vẻ.', highlightWord: 'is' },
+          { en: 'He is my best friend.', vi: 'Cậu ấy là bạn thân của tôi.', highlightWord: 'is' },
+          { en: 'It is a sunny day.', vi: 'Hôm nay trời nắng đẹp.', highlightWord: 'is' },
+          { en: 'My cat is very cute.', vi: 'Chú mèo của tôi rất dễ thương.', highlightWord: 'is' },
         ],
         tip: 'He, She, It hoặc 1 người / 1 vật luôn đi với "is". Viết tắt: He\'s, She\'s, It\'s. Phủ định là "isn\'t".',
         ruleSummary: 'Khẳng định: He/She/It is ... · Phủ định: is not (isn\'t) · Câu hỏi: Is he/she/it ...?',
@@ -86,10 +87,10 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/verb-to-be/03.mp3',
         accentColor: '#10b981',
         examples: [
-          { en: 'You are very kind.', vi: 'Bạn rất tốt bụng.' },
-          { en: 'We are ready to learn.', vi: 'Chúng tôi đã sẵn sàng học tập.' },
-          { en: 'They are in the garden.', vi: 'Họ đang ở trong vườn.' },
-          { en: 'The books are on the desk.', vi: 'Những cuốn sách ở trên bàn học.' },
+          { en: 'You are very kind.', vi: 'Bạn rất tốt bụng.', highlightWord: 'are' },
+          { en: 'We are ready to learn.', vi: 'Chúng tôi đã sẵn sàng học tập.', highlightWord: 'are' },
+          { en: 'They are in the garden.', vi: 'Họ đang ở trong vườn.', highlightWord: 'are' },
+          { en: 'The books are on the desk.', vi: 'Những cuốn sách ở trên bàn học.', highlightWord: 'are' },
         ],
         tip: 'You, We, They hoặc từ 2 người / 2 vật trở lên luôn đi với "are". Viết tắt: You\'re, We\'re, They\'re. Phủ định là "aren\'t".',
         ruleSummary: 'Khẳng định: You/We/They are ... · Phủ định: are not (aren\'t) · Câu hỏi: Are you/we/they ...?',
@@ -102,10 +103,10 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/verb-to-be/04.mp3',
         accentColor: '#8b5cf6',
         examples: [
-          { en: 'Are you ready?', vi: 'Bạn đã sẵn sàng chưa?' },
-          { en: 'Is he your teacher?', vi: 'Thầy ấy có phải giáo viên của bạn không?' },
-          { en: 'Are they your classmates?', vi: 'Họ có phải bạn cùng lớp của bạn không?' },
-          { en: 'Is it cold outside?', vi: 'Ngoài trời có lạnh không?' },
+          { en: 'Are you ready?', vi: 'Bạn đã sẵn sàng chưa?', highlightWord: 'Are' },
+          { en: 'Is he your teacher?', vi: 'Thầy ấy có phải giáo viên của bạn không?', highlightWord: 'Is' },
+          { en: 'Are they your classmates?', vi: 'Họ có phải bạn cùng lớp của bạn không?', highlightWord: 'Are' },
+          { en: 'Is it cold outside?', vi: 'Ngoài trời có lạnh không?', highlightWord: 'Is' },
         ],
         tip: 'Khi đặt câu hỏi, chỉ cần đảo "Am / Is / Are" lên đầu câu đứng trước chủ ngữ. Trả lời: Yes, I am. / No, I\'m not.',
         ruleSummary: 'Am/Is/Are + S + Tính từ / Danh từ / Nơi chốn?',
@@ -1209,7 +1210,9 @@ function GrammarVisualTopicDeckInner({
                         }`}
                       >
                         <div className="flex items-start justify-between gap-2">
-                          <p className="text-sm font-semibold text-foreground font-sans leading-snug">{ex.en}</p>
+                          <p className="text-sm font-semibold text-foreground font-sans leading-snug">
+                            <HighlightedSentence text={ex.en} highlight={ex.highlightWord} />
+                          </p>
                           <button
                             type="button"
                             onClick={() => playSpeech(ex.en, exIdx === 0 ? card.audio : undefined)}
