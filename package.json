@@ -26,6 +26,7 @@
     "flow:prompts": "npx tsx scripts/flow/generate-roadmap-flow.ts",
     "flow:gen": "python -u scripts/flow/run-flow-headless.py",
     "flow:ingest": "npx tsx scripts/flow/ingest-flow-batch.ts",
+    "flow:auth:export": "python scripts/flow/export-auth-secret.py",
     "docker:build": "docker build -t lingopro:latest .",
     "docker:up": "docker compose up -d --build",
     "test:e2e:smoke": "node tests/e2e/application-smoke.test.mjs",

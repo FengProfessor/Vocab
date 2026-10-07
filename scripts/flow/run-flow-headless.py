@@ -60,7 +60,9 @@ async def get_all_asb_images(page):
                 box = await img.bounding_box()
                 w = box['width'] if box else 0
                 h = box['height'] if box else 0
-                results.append({'src': src, 'width': w, 'height': h})
+                x = box['x'] if box else 0
+                y = box['y'] if box else 0
+                results.append({'src': src, 'width': w, 'height': h, 'x': x, 'y': y})
         except Exception:
             continue
     return results
@@ -80,8 +82,13 @@ async def run_batch(args):
     if args.limit and args.limit > 0:
         items = items[:args.limit]
 
+    storage_state_path = args.storage_state
+    if storage_state_path and not os.path.exists(storage_state_path):
+        print(f"[ERROR] Storage state file not found: {storage_state_path}")
+        return
+
     profile_dir = args.profile or DEFAULT_PROFILE
-    if not os.path.exists(profile_dir):
+    if not storage_state_path and not os.path.exists(profile_dir):
         print(f"[ERROR] Profile directory not found: {profile_dir}")
         print("Please run 'gflow auth login --browser chrome' first to create a session.")
         return
@@ -90,22 +97,44 @@ async def run_batch(args):
     print("GOOGLE FLOW HEADLESS VOCABULARY GENERATOR")
     print(f"Manifest: {manifest_path} ({len(items)} items)")
     print(f"Output:   {out_dir}")
-    print(f"Profile:  {profile_dir}")
+    if storage_state_path:
+        print(f"Auth:     Storage state ({storage_state_path})")
+    else:
+        print(f"Profile:  {profile_dir}")
     print(f"Headless: {args.headless}")
     print("=" * 60)
 
     async with async_playwright() as p:
-        browser = await p.chromium.launch_persistent_context(
-            profile_dir,
-            headless=args.headless,
-            channel='chrome',
-            args=[
-                '--disable-blink-features=AutomationControlled',
-                '--no-sandbox',
-                '--disable-dev-shm-usage',
-            ]
-        )
-        page = await browser.new_page()
+        if storage_state_path:
+            print(f"[Flow] Launching Chromium with portable storage state...")
+            browser_instance = await p.chromium.launch(
+                headless=args.headless,
+                args=[
+                    '--disable-blink-features=AutomationControlled',
+                    '--no-sandbox',
+                    '--disable-dev-shm-usage',
+                ]
+            )
+            context = await browser_instance.new_context(
+                storage_state=storage_state_path,
+                user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36',
+                viewport={'width': 1600, 'height': 900}
+            )
+            page = await context.new_page()
+            close_target = browser_instance
+        else:
+            browser = await p.chromium.launch_persistent_context(
+                profile_dir,
+                headless=args.headless,
+                channel='chrome',
+                args=[
+                    '--disable-blink-features=AutomationControlled',
+                    '--no-sandbox',
+                    '--disable-dev-shm-usage',
+                ]
+            )
+            page = await browser.new_page()
+            close_target = browser
         page.set_default_timeout(60000)
 
         project_url = args.project_url
@@ -281,13 +310,14 @@ async def run_batch(args):
         print(f"Project:   {project_url}")
         print("=" * 60)
 
-        await browser.close()
+        await close_target.close()
 
 def main():
     parser = argparse.ArgumentParser(description="Headless Google Flow Vocabulary Image Generator")
     parser.add_argument("--manifest", required=True, help="Path to topic manifest.json")
     parser.add_argument("--out-dir", required=True, help="Directory to save downloaded images")
-    parser.add_argument("--profile", default=DEFAULT_PROFILE, help="Path to Chrome profile directory")
+    parser.add_argument("--storage-state", default=None, help="Path to exported Playwright storage_state JSON file")
+    parser.add_argument("--profile", default=None, help="Path to Chrome profile directory")
     parser.add_argument("--project-url", default=None, help="Reuse an existing Flow project URL")
     parser.add_argument("--limit", type=int, default=0, help="Limit number of words to generate (0 for all)")
     parser.add_argument("--batch-size", type=int, default=5, help="Number of images/words to generate per prompt (default 5)")

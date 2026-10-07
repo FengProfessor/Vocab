@@ -17,6 +17,8 @@
 /.next/
 /out/
 /tmp/
+*_auth_state.json
+*_secret_base64.txt
 
 # production
 /build
