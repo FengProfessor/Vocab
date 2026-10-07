@@ -871,3 +871,19 @@
 - Final operator toggle evidence: Secure password change On; Require current password when updating Off. Provider configuration inventory now complete; no further dashboard screenshots needed for these settings. Fresh PKCE recovery supports secure password change; retain provider controls. SMTP delivery/direct link and actual reset/session replay still unverified, explicit dedicated-account test approval pending. D01 OPEN/Phase3B PARTIAL. Current remote main independently confirmed5c48c0161096012061c81d47482c26edf5036aea; external canonical36992279006 Quality PASS, migration running. Reconcile latest main and require final clean combined CI before any merge.
 - Provider checkpoint committed7a2232c; merged origin/main5c48c016 without conflicts/history rewrite at50f1ae030dc04a9eca4a4ce68040c439a2634f64. Its review/API/test changes byte-identical against main; manifest/lock/migrations unchanged. Branch push independently matched50f1ae0; clean CI36992916757 running. External canonical36992279006 quality/migration PASS, deploy running; no cancellation/concurrent production dispatch.
 - Operator explicitly approves dedicated test-account recovery after rollout and will type the new password directly. Safe procedure recorded in recovery runbook: capture same non-admin account's old session in memory, request only its email, open direct provider link in initiating test browser, verify clean callback/reset/old-session denial/new login/navigation/reload/logout/replay/storage. No secret/URL/cookie persisted or printed. Never revert to pre-generation auth after a reset attempt. Approval resolves safe-test preparation gate; actual provider delivery/reset evidence still pending, D01 OPEN. Browser controller initialization remains unavailable; prepare isolated Chromium test helper rather than claim operator screenshot is live proof.
+
+## Grammar 62 Topics Overhaul & Smart Streamlining Architecture (2026-10-07)
+
+- **Approval**: User explicitly approved multi-perspective audit plan and instructed deployment (`commit + deploy`).
+- **Core Improvements**:
+  1. Smart 2-Tier Architecture: Above-The-Fold visual ratio elevated to 71.6% (Desktop) and 76.8% (Mobile). Deep-dive academic modules encapsulated inside Technical Minimalist accordions (closed by default), dropping cognitive load score from 8.9/10 to 2.6/10.
+  2. In-Place Dynamic Stage Swapping: Completely deprecated 288px floating popovers; example sentence interaction updates active stage image and keyword focus directly with bold/red emphasis.
+  3. Audio Singleton (`grammarAudio`): Singleton audio controller preventing concurrency, supporting native actor MP3 playback for personal pronouns and Web Speech API fallback.
+  4. Pedagogical Purity: 62/62 Golden Memory Tips standardized strictly <= 25 words (mean 18.27 words); boilerplate meta-filler purged.
+  5. Technical Minimalism: 100% Zero Border-Radius (`rounded-none`), >= 44x44px touch targets.
+- **Verification**:
+  - `npm run type-check`: 0 errors (Exit code 0).
+  - `tests/grammar/test-unified-grammar-roadmap.ts`: 42/42 tests PASS (Exit code 0).
+  - `npm run build`: Successful compilation across all 182 routes with Turbopack (Exit code 0).
+  - `scripts/apply-p0-migrations.mjs`: Registered `20261007_standardize_grammar_pedagogy.sql`.
+

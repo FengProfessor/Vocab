@@ -10,7 +10,7 @@ import {
   AlertCircle,
   Video,
 } from 'lucide-react';
-import { speak } from '@/lib/study';
+import { grammarAudio } from '@/lib/grammar/grammarAudioManager';
 import type { VettedMediaAsset } from '@/lib/grammar-types';
 import FormattedText from './FormattedText';
 
@@ -59,7 +59,10 @@ export default function VettedMediaCard({
   initialExpanded = true,
 }: VettedMediaCardProps) {
   const [isExpanded, setIsExpanded] = useState(initialExpanded);
-  const [isPlayingAudio, setIsPlayingAudio] = useState(false);
+  const [audioState, setAudioState] = useState<{ isPlaying: boolean; activeId: string | null }>({
+    isPlaying: false,
+    activeId: null,
+  });
 
   // Unify props from media asset or direct props
   const resolvedImageUrl = media?.imageUrl || imageUrl || '';
@@ -70,6 +73,14 @@ export default function VettedMediaCard({
   const resolvedCommonMistake = media?.usageAnalysisVi?.commonMistake || commonMistake || '';
   const resolvedVideoEmbedUrl = media?.videoEmbedUrl || videoEmbedUrl || '';
   const resolvedVideoTitle = media?.videoTitle || videoTitle || 'Video bài giảng ngữ pháp';
+
+  const cardAudioId = `media-${sceneTitle || resolvedImageUrl}`;
+
+  React.useEffect(() => {
+    return grammarAudio.subscribe(setAudioState);
+  }, []);
+
+  const isPlayingAudio = audioState.activeId === cardAudioId;
 
   // Auto-extract English & Vietnamese sentence if not explicitly passed
   let derivedEn = exampleEn || '';
@@ -83,25 +94,8 @@ export default function VettedMediaCard({
   }
 
   const handlePlayAudio = () => {
-    if (audioUrl) {
-      setIsPlayingAudio(true);
-      const audio = new Audio(audioUrl);
-      audio.onended = () => setIsPlayingAudio(false);
-      audio.onerror = () => {
-        setIsPlayingAudio(false);
-        if (derivedEn) speak(derivedEn, 0.9);
-      };
-      audio.play().catch(() => {
-        setIsPlayingAudio(false);
-        if (derivedEn) speak(derivedEn, 0.9);
-      });
-      return;
-    }
-
-    if (derivedEn) {
-      setIsPlayingAudio(true);
-      speak(derivedEn, 0.9);
-      setTimeout(() => setIsPlayingAudio(false), 2000);
+    if (derivedEn || audioUrl) {
+      grammarAudio.play(cardAudioId, derivedEn, audioUrl);
     }
   };
 

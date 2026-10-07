@@ -67,6 +67,7 @@ const MIGRATIONS = [
   'supabase/migrations/20261001_app_auth_session_active.sql',
   'supabase/migrations/20261005_fix_grammar_62_content.sql',
   'supabase/migrations/20261005_universal_student_activity_aggregation.sql',
+  'supabase/migrations/20261007_standardize_grammar_pedagogy.sql',
 ];
 
 async function main() {

@@ -14,6 +14,8 @@ import {
   RotateCcw,
   X,
   ChevronRight,
+  ChevronDown,
+  ChevronUp,
   Info,
   Loader2,
   PlayCircle,
@@ -25,6 +27,8 @@ import {
   Image as ImageIcon,
   ArrowLeft,
   Compass,
+  Sparkles,
+  Volume2,
 } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import type { CefrLevel } from '@/lib/grammar-types';
@@ -38,6 +42,7 @@ import GrammarReferenceTable, { type GrammarTheoryData, type FormulaRow } from '
 import GrammarVisualTopicDeck from '@/components/grammar/GrammarVisualTopicDeck';
 import GrammarVideoPlayer from '@/components/grammar/GrammarVideoPlayer';
 import FormattedText from '@/components/grammar/FormattedText';
+import { grammarAudio } from '@/lib/grammar/grammarAudioManager';
 import topicAssetsData from '@/data/grammar-topic-assets.json';
 
 interface TopicProgress {
@@ -78,6 +83,52 @@ interface TheoryData extends GrammarTheoryData {
   comparison?: string;
   timeline?: Record<string, unknown> | null;
   [key: string]: unknown;
+}
+
+function GrammarAccordionItem({
+  title,
+  icon,
+  badge,
+  defaultOpen = false,
+  children,
+}: {
+  title: string;
+  icon?: React.ReactNode;
+  badge?: string;
+  defaultOpen?: boolean;
+  children: React.ReactNode;
+}) {
+  const [isOpen, setIsOpen] = useState(defaultOpen);
+
+  return (
+    <div className="border border-border rounded-none bg-card transition-colors">
+      <button
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full min-h-[44px] p-3.5 flex items-center justify-between text-left hover:bg-muted/20 transition-colors rounded-none"
+      >
+        <div className="flex items-center gap-2 font-mono text-xs font-semibold text-foreground">
+          {icon}
+          <span>{title}</span>
+          {badge && (
+            <span className="font-mono text-[10px] uppercase px-1.5 py-0.5 border border-border bg-muted/40 text-muted-foreground rounded-none ml-1">
+              {badge}
+            </span>
+          )}
+        </div>
+        <div className="flex items-center gap-1 text-muted-foreground text-xs font-mono">
+          <span className="text-[11px] hidden sm:inline">{isOpen ? 'Thu gọn' : 'Xem chi tiết'}</span>
+          {isOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+        </div>
+      </button>
+
+      {isOpen && (
+        <div className="p-4 pt-1 border-t border-border/60 animate-in fade-in-50 duration-150">
+          {children}
+        </div>
+      )}
+    </div>
+  );
 }
 
 type PageSearchParams = Record<string, string | string[] | undefined>;
@@ -173,6 +224,9 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
       setTheoryData(null);
       return;
     }
+
+    // Reset tab to primary theory view on every topic switch
+    setTheoryTab('theory');
 
     let isMounted = true;
     const loadTheory = async () => {
@@ -296,7 +350,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                   <span>Dashboard</span>
                 </Link>
                 <span>/</span>
-                <span className="px-1.5 py-0.5 border border-border bg-muted/30">Lộ trình chuẩn hóa</span>
+                <span className="px-1.5 py-0.5 border border-border bg-muted/30 rounded-none">Lộ trình chuẩn hóa</span>
                 <span>•</span>
                 <span>62 Chủ điểm CEFR A0 – B2</span>
               </div>
@@ -426,7 +480,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                             #{topic.order < 10 ? '0' : ''}
                             {topic.order}
                           </span>
-                          <span className="font-mono text-[10px] font-bold uppercase px-1.5 py-0.5 border border-border bg-muted/30">
+                          <span className="font-mono text-[10px] font-bold uppercase px-1.5 py-0.5 border border-border bg-muted/30 rounded-none">
                             {topic.level}
                           </span>
                         </div>
@@ -491,27 +545,31 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-background/80 backdrop-blur-sm">
           <div className="border border-border bg-card w-full max-w-4xl max-h-[92vh] sm:max-h-[85vh] rounded-none flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
             {/* Drawer Header */}
-            <div className="border-b border-border p-4 sm:p-6 flex items-start justify-between gap-4 bg-muted/10 shrink-0">
-              <div>
-                <div className="flex items-center gap-2 font-mono text-xs uppercase text-muted-foreground mb-1">
+            <div className="border-b border-border p-4 sm:p-5 flex items-start justify-between gap-4 bg-muted/10 shrink-0">
+              <div className="min-w-0 flex-1">
+                <div className="flex items-center gap-2 font-mono text-xs uppercase text-muted-foreground mb-1 flex-wrap">
                   <span>#{activeTopic.order < 10 ? '0' : ''}{activeTopic.order}</span>
                   <span>•</span>
-                  <span className="px-1.5 py-0.5 border border-border bg-muted/40 font-bold">
+                  <span className="px-1.5 py-0.5 border border-border bg-muted/40 font-bold rounded-none">
                     {activeTopic.level}
                   </span>
                   <span>•</span>
                   <span>{activeTopic.stageLabel}</span>
                 </div>
-                <h2 className="text-xl sm:text-2xl font-serif font-bold text-foreground">
+                <h2 className="text-xl sm:text-2xl font-serif font-bold text-foreground truncate">
                   {activeTopic.title}
                 </h2>
-                <div className="text-sm text-muted-foreground mt-0.5">
-                  {activeTopic.title_vi}
+                <div className="text-xs sm:text-sm text-muted-foreground mt-1 flex flex-wrap items-center gap-1.5 font-medium leading-relaxed">
+                  <span className="text-foreground font-semibold">{activeTopic.title_vi}</span>
+                  <span className="opacity-40">•</span>
+                  <span className="line-clamp-2 sm:line-clamp-1">{theoryData?.definition || activeTopic.summary}</span>
                 </div>
               </div>
               <button
+                type="button"
                 onClick={() => setSelectedTopicSlug(null)}
-                className="p-1.5 border border-border rounded-none hover:bg-muted text-muted-foreground hover:text-foreground"
+                aria-label="Đóng bảng lý thuyết"
+                className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 border border-border rounded-none hover:bg-muted text-muted-foreground hover:text-foreground shrink-0 transition-colors"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -605,20 +663,9 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                   theoryData={theoryData}
                 />
               ) : theoryTab === 'theory' ? (
-                <>
-                  {/* Definition */}
-                  <div className="border border-border p-4 bg-background">
-                    <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-1 flex items-center gap-1.5">
-                      <Info className="h-3.5 w-3.5 text-primary" />
-                      Định nghĩa & Bản chất
-                    </div>
-                    <p className="text-foreground leading-relaxed mt-1 font-serif text-base">
-                      <FormattedText text={theoryData?.definition || activeTopic.summary} />
-                    </p>
-                  </div>
-
-                  {/* UNIVERSAL VISUAL TOPIC DECK: Bright, high-contrast, simple everyday examples for ALL topics */}
-                  <div className="border border-border p-4 bg-background rounded-none">
+                <div className="space-y-4">
+                  {/* TIER 1: Hero Visual Deck (In-Place Dynamic Stage Swapping & Native Audio) */}
+                  <div className="border border-border p-3 sm:p-4 bg-background rounded-none">
                     <GrammarVisualTopicDeck
                       key={activeTopic.slug}
                       topicSlug={activeTopic.slug}
@@ -628,120 +675,128 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                     />
                   </div>
 
-                  {/* Usage Points */}
-                  {theoryData?.usage && theoryData.usage.length > 0 && (
-                    <div className="space-y-2">
-                      <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
-                        Quy tắc & Ngữ cảnh áp dụng
-                      </div>
-                      <div className="grid grid-cols-1 gap-2">
-                        {theoryData.usage.map((u, i) => (
-                          <div key={i} className="border border-border p-3 bg-muted/10 flex flex-col gap-1">
-                            <span className="font-mono text-xs font-semibold text-primary">
-                              <FormattedText text={u.label} />
-                            </span>
-                            <span className="font-medium text-foreground">
-                              <FormattedText text={u.en} />
-                            </span>
-                            <span className="text-xs text-muted-foreground">
-                              <FormattedText text={u.vi} />
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Formulas */}
-                  {theoryData?.formula?.rows && theoryData.formula.rows.length > 0 && (
-                    <div className="space-y-2">
-                      <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
-                        Bảng công thức chuẩn
-                      </div>
-                      <div className="border border-border overflow-x-auto">
-                        <table className="w-full text-left font-mono text-xs">
-                          <thead className="bg-muted/30 border-b border-border text-muted-foreground uppercase">
-                            <tr>
-                              <th className="p-2.5">Dạng</th>
-                              <th className="p-2.5">Cấu trúc</th>
-                              <th className="p-2.5">Ví dụ</th>
-                            </tr>
-                          </thead>
-                          <tbody className="divide-y divide-border/60">
-                            {theoryData.formula.rows.map((r, i) => (
-                              <tr key={i} className="hover:bg-muted/10">
-                                <td className="p-2.5 font-semibold text-primary">
-                                  <FormattedText text={r.form} />
-                                </td>
-                                <td className="p-2.5 font-bold text-foreground">
-                                  <FormattedText text={r.structure || r.base || (r['mạo_từ'] as string | undefined) || r.time || r.singular || r.rule || '—'} />
-                                </td>
-                                <td className="p-2.5 text-muted-foreground font-sans">
-                                  <FormattedText text={r.example || theoryData.bilingual_examples?.[i]?.en || theoryData.bilingual_examples?.[0]?.en || '—'} />
-                                </td>
+                  {/* TIER 2: Secondary & Deep-Dive Modules in Technical Minimalist Accordions */}
+                  <div className="space-y-3 pt-1">
+                    {/* 1. Bảng công thức chuẩn */}
+                    {theoryData?.formula?.rows && theoryData.formula.rows.length > 0 && (
+                      <GrammarAccordionItem
+                        title="Bảng công thức ngữ pháp"
+                        badge={`${theoryData.formula.rows.length} cấu trúc`}
+                        icon={<TableProperties className="h-3.5 w-3.5 text-primary" />}
+                        defaultOpen={false}
+                      >
+                        <div className="border border-border overflow-x-auto rounded-none">
+                          <table className="w-full text-left font-mono text-xs">
+                            <thead className="bg-muted/30 border-b border-border text-muted-foreground uppercase">
+                              <tr>
+                                <th className="p-2.5">Dạng</th>
+                                <th className="p-2.5">Cấu trúc</th>
+                                <th className="p-2.5">Ví dụ</th>
                               </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  )}
+                            </thead>
+                            <tbody className="divide-y divide-border/60">
+                              {theoryData.formula.rows.map((r, i) => (
+                                <tr key={i} className="hover:bg-muted/10">
+                                  <td className="p-2.5 font-semibold text-primary">
+                                    <FormattedText text={r.form} />
+                                  </td>
+                                  <td className="p-2.5 font-bold text-foreground">
+                                    <FormattedText text={r.structure || r.base || (r['mạo_từ'] as string | undefined) || r.time || r.singular || r.rule || '—'} />
+                                  </td>
+                                  <td className="p-2.5 text-muted-foreground font-sans">
+                                    <FormattedText text={r.example || theoryData.bilingual_examples?.[i]?.en || theoryData.bilingual_examples?.[0]?.en || '—'} />
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </GrammarAccordionItem>
+                    )}
 
-                  {/* Comparison / Distinction */}
-                  {theoryData?.comparison && (
-                    <div className="border border-border p-4 bg-muted/10 space-y-1.5">
-                      <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
-                        <ArrowLeftRight className="h-3.5 w-3.5 text-primary" />
-                        Đối chiếu & Phân biệt cấu trúc
-                      </div>
-                      <div className="text-foreground/90 leading-relaxed text-sm">
-                        <FormattedText text={theoryData.comparison} />
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Core Tips & Focus Notes */}
-                  {theoryData?.tips && (
-                    <div className="border border-border p-4 bg-muted/10 space-y-1.5">
-                      <div className="font-mono text-xs uppercase tracking-wider text-primary flex items-center gap-1.5">
-                        <Lightbulb className="h-3.5 w-3.5 text-amber-500" />
-                        Lưu ý trọng tâm
-                      </div>
-                      <div className="text-foreground/90 leading-relaxed text-sm">
-                        <FormattedText text={theoryData.tips} />
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Common Mistakes */}
-                  {theoryData?.mistakes && theoryData.mistakes.length > 0 && (
-                    <div className="space-y-2">
-                      <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
-                        <AlertTriangle className="h-3.5 w-3.5 text-amber-500" />
-                        Lỗi sai thường gặp & Cách khắc phục
-                      </div>
-                      <div className="space-y-2">
-                        {theoryData.mistakes.map((m, i) => (
-                          <div key={i} className="border border-border p-3 bg-muted/10 space-y-1">
-                            <div className="flex items-center gap-2 font-mono text-xs text-red-600 dark:text-red-400">
-                              <span className="font-bold shrink-0">✕ SAI:</span>
-                              <span><FormattedText text={m.wrong} /></span>
+                    {/* 2. Quy tắc & Ngữ cảnh áp dụng */}
+                    {theoryData?.usage && theoryData.usage.length > 0 && (
+                      <GrammarAccordionItem
+                        title="Quy tắc & Ngữ cảnh áp dụng"
+                        badge={`${theoryData.usage.length} ngữ cảnh`}
+                        icon={<Sparkles className="h-3.5 w-3.5 text-primary" />}
+                        defaultOpen={false}
+                      >
+                        <div className="grid grid-cols-1 gap-2">
+                          {theoryData.usage.map((u, i) => (
+                            <div key={i} className="border border-border p-3 bg-muted/10 flex flex-col gap-1 rounded-none">
+                              <span className="font-mono text-xs font-semibold text-primary">
+                                <FormattedText text={u.label} />
+                              </span>
+                              <span className="font-medium text-foreground">
+                                <FormattedText text={u.en} />
+                              </span>
+                              <span className="text-xs text-muted-foreground">
+                                <FormattedText text={u.vi} />
+                              </span>
                             </div>
-                            <div className="flex items-center gap-2 font-mono text-xs text-emerald-600 dark:text-emerald-400">
-                              <span className="font-bold shrink-0">✓ ĐÚNG:</span>
-                              <span><FormattedText text={m.right} /></span>
-                            </div>
-                            {m.why && (
-                              <div className="text-xs text-muted-foreground pt-1 border-t border-border/40 font-sans">
-                                <FormattedText text={m.why} />
+                          ))}
+                        </div>
+                      </GrammarAccordionItem>
+                    )}
+
+                    {/* 3. Đối chiếu & Phân biệt cấu trúc */}
+                    {theoryData?.comparison && (
+                      <GrammarAccordionItem
+                        title="Đối chiếu & Phân biệt cấu trúc"
+                        icon={<ArrowLeftRight className="h-3.5 w-3.5 text-primary" />}
+                        defaultOpen={false}
+                      >
+                        <div className="border border-border p-4 bg-muted/10 text-foreground/90 leading-relaxed text-sm rounded-none">
+                          <FormattedText text={theoryData.comparison} />
+                        </div>
+                      </GrammarAccordionItem>
+                    )}
+
+                    {/* 4. Lưu ý trọng tâm & Mẹo ghi nhớ */}
+                    {theoryData?.tips && (
+                      <GrammarAccordionItem
+                        title="Lưu ý trọng tâm & Mẹo ghi nhớ"
+                        icon={<Lightbulb className="h-3.5 w-3.5 text-amber-500" />}
+                        defaultOpen={false}
+                      >
+                        <div className="border border-border p-4 bg-muted/10 text-foreground/90 leading-relaxed text-sm rounded-none">
+                          <FormattedText text={theoryData.tips} />
+                        </div>
+                      </GrammarAccordionItem>
+                    )}
+
+                    {/* 5. Lỗi sai thường gặp & Cách khắc phục */}
+                    {theoryData?.mistakes && theoryData.mistakes.length > 0 && (
+                      <GrammarAccordionItem
+                        title="Lỗi sai thường gặp & Cách khắc phục"
+                        badge={`${theoryData.mistakes.length} lỗi`}
+                        icon={<AlertTriangle className="h-3.5 w-3.5 text-amber-500" />}
+                        defaultOpen={false}
+                      >
+                        <div className="space-y-2">
+                          {theoryData.mistakes.map((m, i) => (
+                            <div key={i} className="border border-border p-3 bg-muted/10 space-y-1 rounded-none">
+                              <div className="flex items-center gap-2 font-mono text-xs text-red-600 dark:text-red-400">
+                                <span className="font-bold shrink-0">✕ SAI:</span>
+                                <span><FormattedText text={m.wrong} /></span>
                               </div>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </>
+                              <div className="flex items-center gap-2 font-mono text-xs text-emerald-600 dark:text-emerald-400">
+                                <span className="font-bold shrink-0">✓ ĐÚNG:</span>
+                                <span><FormattedText text={m.right} /></span>
+                              </div>
+                              {m.why && (
+                                <div className="text-xs text-muted-foreground pt-1 border-t border-border/40 font-sans">
+                                  <FormattedText text={m.why} />
+                                </div>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      </GrammarAccordionItem>
+                    )}
+                  </div>
+                </div>
               ) : theoryTab === 'media' ? (
                 <div className="space-y-4">
                   {((topicAssetsData as Record<string, TopicAssetItem[]>)[activeTopic.slug] || []).length > 0 ? (
@@ -756,12 +811,13 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                           contextReason={asset.usageAnalysisVi?.contextReason}
                           commonMistake={asset.usageAnalysisVi?.commonMistake}
                           sceneTitle={`Minh họa thực tế #${i + 1}`}
+                          audioUrl={asset.audio}
                           initialExpanded={true}
                         />
                       ))}
                     </div>
                   ) : (
-                    <div className="border border-border p-8 text-center text-muted-foreground bg-muted/10 font-mono text-xs">
+                    <div className="border border-border p-8 text-center text-muted-foreground bg-muted/10 font-mono text-xs rounded-none">
                       Chưa có hình ảnh minh họa cho chủ điểm này.
                     </div>
                   )}
@@ -773,17 +829,31 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                   </div>
                   {theoryData?.bilingual_examples && theoryData.bilingual_examples.length > 0 ? (
                     theoryData.bilingual_examples.map((ex, i) => (
-                      <div key={i} className="border border-border p-3.5 bg-background space-y-1">
-                        <div className="font-semibold text-foreground text-sm font-serif">
-                          <FormattedText text={ex.en} />
-                        </div>
-                        <div className="text-xs text-muted-foreground">
-                          <FormattedText text={ex.vi} />
-                        </div>
-                        {ex.note && (
-                          <div className="text-[11px] font-mono text-primary/80 pt-1 border-t border-border/40 mt-1">
-                            Ghi chú: <FormattedText text={ex.note} />
+                      <div key={i} className="border border-border p-3.5 bg-background space-y-1.5 rounded-none flex items-start justify-between gap-3">
+                        <div className="space-y-1 flex-1">
+                          <div className="font-semibold text-foreground text-sm font-serif">
+                            <FormattedText text={ex.en} />
                           </div>
+                          <div className="text-xs text-muted-foreground">
+                            <FormattedText text={ex.vi} />
+                          </div>
+                          {ex.note && (
+                            <div className="text-[11px] font-mono text-primary/80 pt-1 border-t border-border/40 mt-1">
+                              Ghi chú: <FormattedText text={ex.note} />
+                            </div>
+                          )}
+                        </div>
+                        {ex.en && (
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (ex.en) grammarAudio.play(`bilingual-${i}`, ex.en);
+                            }}
+                            aria-label={`Nghe phát âm: ${ex.en}`}
+                            className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground shrink-0 rounded-none transition-colors"
+                          >
+                            <Volume2 className="h-4 w-4" />
+                          </button>
                         )}
                       </div>
                     ))

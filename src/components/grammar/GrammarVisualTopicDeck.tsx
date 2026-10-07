@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Image from 'next/image';
 import { Volume2, Sparkles, Lightbulb, CheckCircle2 } from 'lucide-react';
-import { speak } from '@/lib/study';
+import { grammarAudio } from '@/lib/grammar/grammarAudioManager';
 import PronounVisualDeck, { HighlightedSentence } from './PronounVisualDeck';
 import type { GrammarTheoryData } from './GrammarReferenceTable';
 import topicAssetsData from '@/data/grammar-topic-assets.json';
@@ -1057,19 +1057,27 @@ function GrammarVisualTopicDeckInner({
 
       return {
         title: ruleShort || `Tình huống thực tế ${idx + 1}`,
-        badge: asset.usageAnalysisVi?.rule ? 'Quy tắc chuẩn' : `Ngữ cảnh ${idx + 1}`,
+        badge: asset.usageAnalysisVi?.rule ? 'Tình huống đời thường' : `Ngữ cảnh ${idx + 1}`,
         category: `cat-${idx}`,
         image: asset.image || '',
         audio: asset.audio,
         examples: examples.slice(0, 4),
         tip: asset.usageAnalysisVi?.commonMistake || asset.usageAnalysisVi?.contextReason || (typeof theoryData?.tips === 'string' ? theoryData.tips : undefined),
         ruleSummary: asset.usageAnalysisVi?.rule || '',
-        accentColor: accentPalette[idx % accentPalette.length],
       };
     });
   }, [curated, topicSlug, theoryData]);
 
   const cardsToRender = curated ? curated.cards : syntheticCards;
+
+  const [audioState, setAudioState] = useState<{ isPlaying: boolean; activeId: string | null }>({
+    isPlaying: false,
+    activeId: null,
+  });
+
+  useEffect(() => {
+    return grammarAudio.subscribe(setAudioState);
+  }, []);
 
   // Filter cards
   const filteredCards = useMemo(() => {
@@ -1077,24 +1085,8 @@ function GrammarVisualTopicDeckInner({
     return cardsToRender.filter((c) => c.category === activeFilter);
   }, [activeFilter, cardsToRender]);
 
-  const playSpeech = (text: string, audioUrl?: string) => {
-    setPlayingAudio(text);
-    if (audioUrl) {
-      const a = new Audio(audioUrl);
-      a.onended = () => setPlayingAudio(null);
-      a.onerror = () => {
-        speak(text, 0.9);
-        setTimeout(() => setPlayingAudio(null), 1500);
-      };
-      a.play().catch(() => {
-        speak(text, 0.9);
-        setTimeout(() => setPlayingAudio(null), 1500);
-      });
-      return;
-    }
-
-    speak(text, 0.9);
-    setTimeout(() => setPlayingAudio(null), 1500);
+  const playSpeech = (id: string, text: string, audioUrl?: string) => {
+    grammarAudio.play(id, text, audioUrl);
   };
 
   if (cardsToRender.length === 0) {
@@ -1116,10 +1108,10 @@ function GrammarVisualTopicDeckInner({
         </div>
 
         <div className="flex items-center gap-2 shrink-0">
-          <span className="font-mono text-xs px-2.5 py-1 bg-background border border-border text-foreground font-semibold">
+          <span className="font-mono text-xs px-2.5 py-1 bg-background border border-border text-foreground font-semibold rounded-none">
             {cardsToRender.length} Tình huống
           </span>
-          <span className="font-mono text-xs px-2.5 py-1 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20 font-semibold">
+          <span className="font-mono text-xs px-2.5 py-1 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20 font-semibold rounded-none">
             Ví dụ cơ bản A0-A1
           </span>
         </div>
@@ -1132,7 +1124,7 @@ function GrammarVisualTopicDeckInner({
           <button
             type="button"
             onClick={() => setActiveFilter('all')}
-            className={`px-3 py-1 border transition-colors rounded-none ${
+            className={`min-h-[36px] sm:min-h-[44px] px-3 py-1.5 border transition-colors rounded-none flex items-center justify-center ${
               activeFilter === 'all'
                 ? 'border-foreground bg-foreground text-background font-bold'
                 : 'border-border bg-background text-muted-foreground hover:text-foreground'
@@ -1145,7 +1137,7 @@ function GrammarVisualTopicDeckInner({
               key={i}
               type="button"
               onClick={() => setActiveFilter(c.category || `cat-${i}`)}
-              className={`px-3 py-1 border transition-colors rounded-none ${
+              className={`min-h-[36px] sm:min-h-[44px] px-3 py-1.5 border transition-colors rounded-none flex items-center justify-center ${
                 activeFilter === (c.category || `cat-${i}`)
                   ? 'border-foreground bg-foreground text-background font-bold'
                   : 'border-border bg-background text-muted-foreground hover:text-foreground'
@@ -1157,15 +1149,21 @@ function GrammarVisualTopicDeckInner({
         </div>
       )}
 
-      {/* Cards Grid with Pop-ngang Side Preview for ALL 62 Topics */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-5">
+      {/* Cards Grid: Centered if 1 item, clean 2-col otherwise */}
+      <div
+        className={`grid gap-5 ${
+          filteredCards.length === 1
+            ? 'max-w-xl mx-auto'
+            : 'grid-cols-1 md:grid-cols-2'
+        }`}
+      >
         {filteredCards.map((card, idx) => (
           <VisualTopicCardItem
             key={idx}
             card={card}
             cardIndex={idx}
             topicSlug={topicSlug}
-            playingAudio={playingAudio}
+            activeAudioId={audioState.activeId}
             onPlaySpeech={playSpeech}
           />
         ))}
@@ -1336,15 +1334,15 @@ interface VisualTopicCardItemProps {
   card: VisualDeckCard;
   cardIndex: number;
   topicSlug: string;
-  playingAudio: string | null;
-  onPlaySpeech: (text: string, audioUrl?: string) => void;
+  activeAudioId: string | null;
+  onPlaySpeech: (id: string, text: string, audioUrl?: string) => void;
 }
 
 function VisualTopicCardItem({
   card,
   cardIndex,
   topicSlug,
-  playingAudio,
+  activeAudioId,
   onPlaySpeech,
 }: VisualTopicCardItemProps) {
   const [activeIdx, setActiveIdx] = useState<number>(0);
@@ -1354,35 +1352,33 @@ function VisualTopicCardItem({
   const currentExample = card.examples[currentIdx] || card.examples[0];
   const currentImage = (hoveredIdx !== null ? currentExample?.image : null) || currentExample?.image || card.image;
 
-  // On 2-column layout (default), cardIndex % 2 === 1 is right column, so pop left
-  const isRightCol = cardIndex % 2 === 1;
-
   const currentHighlight = currentExample
     ? currentExample.highlightWord || detectGrammarKeyword(currentExample.en, topicSlug, card.title)
     : undefined;
 
+  const isStageAudioPlaying = activeAudioId === `${card.title}-${currentIdx}`;
+
   return (
     <div
-      className={`relative overflow-visible border border-border bg-card rounded-none shadow-xs hover:shadow-md transition-all duration-200 flex flex-col justify-between ${
-        hoveredIdx !== null ? 'z-30' : 'z-10'
+      className={`relative overflow-hidden border border-border bg-card rounded-none shadow-xs hover:shadow-md transition-all duration-200 flex flex-col justify-between ${
+        hoveredIdx !== null ? 'z-20' : 'z-10'
       }`}
-      style={{ borderTop: `4px solid ${card.accentColor || '#3b82f6'}` }}
     >
       <div>
         {/* Card Header */}
-        <div className="p-4 border-b border-border bg-muted/15 flex items-start justify-between gap-3">
+        <div className="p-3.5 border-b border-border bg-muted/15 flex items-center justify-between gap-3">
           <div>
             <h3 className="text-base font-bold text-foreground tracking-tight">{card.title}</h3>
             <div className="text-xs text-muted-foreground mt-0.5">{card.badge}</div>
           </div>
-          <span className="font-mono text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 border border-border bg-background text-muted-foreground">
+          <span className="font-mono text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 border border-border bg-background text-muted-foreground rounded-none">
             Card {cardIndex + 1}
           </span>
         </div>
 
-        {/* Dynamic Image Container */}
+        {/* Dynamic Image Container (Hero Stage with In-Place Swapping) */}
         {currentImage && (
-          <div className="relative w-full h-52 bg-slate-100 overflow-hidden border-b border-border">
+          <div className="relative w-full h-52 sm:h-56 bg-muted/20 overflow-hidden border-b border-border">
             <Image
               key={currentImage}
               src={currentImage}
@@ -1394,125 +1390,105 @@ function VisualTopicCardItem({
               sizes="(max-width: 768px) 100vw, 50vw"
               unoptimized
             />
+            {/* Direct 44x44px Audio Button on Hero Stage */}
+            {currentExample && (
+              <button
+                type="button"
+                onClick={() => onPlaySpeech(`${card.title}-${currentIdx}`, currentExample.en, currentIdx === 0 ? card.audio : undefined)}
+                className="absolute bottom-2.5 right-2.5 min-h-[44px] min-w-[44px] flex items-center justify-center p-2.5 bg-background/95 hover:bg-background border border-border rounded-none shadow-sm transition-colors z-10"
+                aria-label={`Nghe câu: ${currentExample.en}`}
+                title="Nghe câu ví dụ đang chọn"
+              >
+                <Volume2
+                  className={`h-5 w-5 ${
+                    isStageAudioPlaying ? 'text-red-600 animate-pulse' : 'text-foreground'
+                  }`}
+                />
+              </button>
+            )}
           </div>
         )}
 
         {/* Dynamic Active Sentence Banner with red highlight */}
         {currentExample && (
-          <div className="px-3.5 py-2 bg-red-500/[0.04] border-b border-border flex items-center justify-between gap-2">
+          <div className="p-3.5 bg-red-500/[0.04] border-b border-border space-y-1">
             <div className="flex items-center gap-2 min-w-0">
               <span className="inline-block w-2 h-2 bg-red-500 shrink-0" />
-              <span className="font-serif text-xs font-semibold text-foreground truncate">
+              <span className="font-serif text-sm sm:text-base font-bold text-foreground">
                 <HighlightedSentence
                   text={currentExample.en}
                   highlight={currentHighlight}
                 />
               </span>
             </div>
-            <button
-              type="button"
-              onClick={() => onPlaySpeech(currentExample.en, currentIdx === 0 ? card.audio : undefined)}
-              className="p-1 text-red-600 hover:text-red-700 shrink-0 transition-colors"
-              title="Nghe câu ví dụ này"
-              aria-label={`Nghe câu: ${currentExample.en}`}
-            >
-              <Volume2 className="h-3.5 w-3.5" />
-            </button>
+            {currentExample.vi && (
+              <p className="text-xs text-muted-foreground font-sans pl-4">
+                {currentExample.vi}
+              </p>
+            )}
           </div>
         )}
 
-        {/* Examples List with Pop-ngang Flyout */}
-        <div className="p-4 space-y-3">
+        {/* Examples List: Touch & Hover In-Place Stage Swap */}
+        <div className="p-3.5 space-y-2">
           <div className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground flex items-center justify-between">
-            <span className="font-semibold text-foreground">Trỏ chuột / Chạm để xem ảnh:</span>
-            <span className="text-red-600 font-bold text-[10px]">Pop-ngang ảnh thật</span>
+            <span className="font-semibold text-foreground">Chạm hoặc rê chuột để đổi ảnh & câu:</span>
+            <span className="text-primary font-mono text-[10px] font-bold">
+              {currentIdx + 1}/{card.examples.length}
+            </span>
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-1.5">
             {card.examples.map((ex, exIdx) => {
-              const isSpeaking = playingAudio === ex.en;
+              const isSpeaking = activeAudioId === `${card.title}-${exIdx}`;
               const isHovered = hoveredIdx === exIdx;
               const isSelected = activeIdx === exIdx;
               const effectiveHighlight = ex.highlightWord || detectGrammarKeyword(ex.en, topicSlug, card.title);
-              const flyoutImage = ex.image || card.image;
 
               return (
                 <div
                   key={exIdx}
-                  onMouseEnter={() => setHoveredIdx(exIdx)}
+                  onMouseEnter={() => {
+                    if (typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches) {
+                      setHoveredIdx(exIdx);
+                    }
+                  }}
                   onMouseLeave={() => setHoveredIdx(null)}
-                  onClick={() => setActiveIdx(exIdx)}
-                  className={`relative p-2.5 border transition-all duration-150 rounded-none cursor-pointer flex items-start justify-between gap-2 ${
+                  onClick={() => {
+                    setActiveIdx(exIdx);
+                  }}
+                  className={`min-h-[44px] p-2.5 border transition-all duration-150 rounded-none cursor-pointer flex items-center justify-between gap-2 ${
                     isHovered || isSelected
                       ? 'border-red-500 bg-red-500/[0.06] shadow-xs'
                       : isSpeaking
-                      ? 'border-primary bg-primary/5'
+                      ? 'border-primary bg-primary/10'
                       : 'border-border/60 bg-muted/10 hover:border-border hover:bg-muted/20'
                   }`}
                 >
-                  <div className="space-y-0.5 min-w-0">
-                    <p className="text-sm font-semibold text-foreground font-sans leading-snug">
+                  <div className="space-y-0.5 min-w-0 flex-1">
+                    <p className="text-xs sm:text-sm font-semibold text-foreground font-sans leading-snug">
                       <HighlightedSentence text={ex.en} highlight={effectiveHighlight} />
                     </p>
-                    {ex.vi && <p className="text-xs text-muted-foreground leading-snug">{ex.vi}</p>}
+                    {ex.vi && <p className="text-[11px] text-muted-foreground leading-snug">{ex.vi}</p>}
                   </div>
 
                   <button
                     type="button"
                     onClick={(e) => {
                       e.stopPropagation();
-                      onPlaySpeech(ex.en, exIdx === 0 ? card.audio : undefined);
+                      setActiveIdx(exIdx);
+                      onPlaySpeech(`${card.title}-${exIdx}`, ex.en, exIdx === 0 ? card.audio : undefined);
                     }}
                     aria-label={`Nghe phát âm: ${ex.en}`}
-                    className={`p-1.5 transition-colors shrink-0 ${
+                    className={`min-h-[44px] min-w-[44px] flex items-center justify-center p-2 transition-colors shrink-0 rounded-none ${
                       isSpeaking || isHovered
                         ? 'text-red-600'
                         : 'text-muted-foreground hover:text-foreground'
                     }`}
                     title="Nghe phát âm"
                   >
-                    <Volume2 className="h-3.5 w-3.5" />
+                    <Volume2 className="h-4 w-4" />
                   </button>
-
-                  {/* Desktop Side Pop-ngang Flyout Preview (Clean: Image, Red Bold Sentence, Translation - No extra explanation note) */}
-                  {isHovered && flyoutImage && (
-                    <div
-                      className={`hidden xl:block absolute top-[-10px] z-50 w-72 pointer-events-none transition-all duration-200 animate-in fade-in zoom-in-95 ${
-                        isRightCol
-                          ? 'right-[103%]'
-                          : 'left-[103%]'
-                      }`}
-                    >
-                      <div className="border-2 border-red-500 bg-card shadow-2xl p-2.5 rounded-none space-y-2">
-                        {/* Image */}
-                        <div className="relative w-full h-44 bg-muted/30 overflow-hidden border border-border">
-                          <Image
-                            src={flyoutImage}
-                            alt={ex.en}
-                            fill
-                            className="object-cover"
-                            sizes="288px"
-                            unoptimized
-                          />
-                          <div className="absolute top-1.5 left-1.5 bg-red-600 text-white font-mono text-[10px] font-bold uppercase px-1.5 py-0.5 tracking-wider">
-                            Ảnh minh họa ngữ cảnh
-                          </div>
-                        </div>
-
-                        {/* Sentence with red bold focus word & translation (No extra explanation note) */}
-                        <div className="space-y-1">
-                          <p className="font-serif text-sm font-bold text-foreground leading-snug">
-                            <HighlightedSentence text={ex.en} highlight={effectiveHighlight} />
-                          </p>
-                          {ex.vi && (
-                            <p className="text-xs text-muted-foreground font-sans">
-                              {ex.vi}
-                            </p>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  )}
                 </div>
               );
             })}
@@ -1521,7 +1497,7 @@ function VisualTopicCardItem({
       </div>
 
       {/* Bottom Tip & Rule Summary */}
-      <div className="p-4 pt-0 space-y-2.5">
+      <div className="p-3.5 pt-0 space-y-2.5">
         {card.tip && (
           <div className="p-2.5 bg-amber-500/10 border border-amber-500/30 text-xs text-amber-900 dark:text-amber-200 flex items-start gap-2 rounded-none">
             <Lightbulb className="h-4 w-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
@@ -1532,7 +1508,7 @@ function VisualTopicCardItem({
         )}
 
         {card.ruleSummary && (
-          <div className="font-mono text-[11px] p-2 bg-muted/20 border border-border/70 text-foreground/80 flex items-center gap-1.5">
+          <div className="font-mono text-[11px] p-2 bg-muted/20 border border-border/70 text-foreground/80 flex items-center gap-1.5 rounded-none">
             <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0" />
             <span className="truncate">{card.ruleSummary}</span>
           </div>

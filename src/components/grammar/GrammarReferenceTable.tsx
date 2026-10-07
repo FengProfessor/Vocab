@@ -5,7 +5,7 @@ import Image from 'next/image';
 import PronounMatrixTable from './PronounMatrixTable';
 import FormattedText from './FormattedText';
 import { Table, CheckCircle2, AlertCircle, Info, BookOpen, AlertTriangle, Sparkles, Volume2 } from 'lucide-react';
-import { speak } from '@/lib/study';
+import { grammarAudio } from '@/lib/grammar/grammarAudioManager';
 
 export interface FormulaRow {
   form?: string;
@@ -91,7 +91,7 @@ export default function GrammarReferenceTable({
           <table className="w-full text-left font-mono text-xs divide-y divide-border">
             <thead className="bg-muted/40 uppercase text-muted-foreground">
               <tr>
-                <th className="p-3 border-r border-border min-w-[120px]">Chủ ngữ (Ngôi)</th>
+                <th className="p-3 border-r border-border min-w-[120px] sticky left-0 bg-muted/95 z-10 backdrop-blur-xs">Chủ ngữ (Ngôi)</th>
                 <th className="p-3 border-r border-border text-primary font-bold min-w-[120px]">Khẳng định (+)</th>
                 <th className="p-3 border-r border-border text-rose-700 dark:text-rose-400 font-bold min-w-[140px]">Phủ định (-)</th>
                 <th className="p-3 border-r border-border min-w-[130px]">Nghi vấn (?)</th>
@@ -101,7 +101,7 @@ export default function GrammarReferenceTable({
             </thead>
             <tbody className="divide-y divide-border/60">
               <tr className="hover:bg-muted/10">
-                <td className="p-3 font-semibold border-r border-border/60 bg-muted/5">
+                <td className="p-3 font-semibold border-r border-border/60 bg-background sticky left-0 z-10">
                   <div className="flex items-center gap-2.5">
                     <div className="relative w-9 h-9 shrink-0 border border-border overflow-hidden bg-muted/30">
                       <Image
@@ -127,9 +127,10 @@ export default function GrammarReferenceTable({
                     <div className="font-medium text-foreground">I am a student.</div>
                     <button
                       type="button"
-                      onClick={() => speak('I am a student.', 0.9)}
+                      onClick={() => grammarAudio.play('table-tobe-i', 'I am a student.')}
                       className="p-1 text-muted-foreground hover:text-foreground shrink-0 transition-colors"
                       title="Nghe câu ví dụ"
+                      aria-label="Nghe câu ví dụ"
                     >
                       <Volume2 className="h-3.5 w-3.5" />
                     </button>
@@ -138,7 +139,7 @@ export default function GrammarReferenceTable({
                 </td>
               </tr>
               <tr className="hover:bg-muted/10">
-                <td className="p-3 font-semibold border-r border-border/60 bg-muted/5">
+                <td className="p-3 font-semibold border-r border-border/60 bg-background sticky left-0 z-10">
                   <div className="flex items-start gap-2.5">
                     <div className="flex -space-x-2 shrink-0">
                       <div className="relative w-8 h-8 border border-border overflow-hidden bg-muted/30 z-30" title="He (Anh ấy)">
@@ -166,9 +167,10 @@ export default function GrammarReferenceTable({
                     <div className="font-medium text-foreground">She is very happy.</div>
                     <button
                       type="button"
-                      onClick={() => speak('She is very happy.', 0.9)}
+                      onClick={() => grammarAudio.play('table-tobe-she', 'She is very happy.')}
                       className="p-1 text-muted-foreground hover:text-foreground shrink-0 transition-colors"
                       title="Nghe câu ví dụ"
+                      aria-label="Nghe câu ví dụ"
                     >
                       <Volume2 className="h-3.5 w-3.5" />
                     </button>
@@ -177,7 +179,7 @@ export default function GrammarReferenceTable({
                 </td>
               </tr>
               <tr className="hover:bg-muted/10">
-                <td className="p-3 font-semibold border-r border-border/60 bg-muted/5">
+                <td className="p-3 font-semibold border-r border-border/60 bg-background sticky left-0 z-10">
                   <div className="flex items-start gap-2.5">
                     <div className="flex -space-x-2 shrink-0">
                       <div className="relative w-8 h-8 border border-border overflow-hidden bg-muted/30 z-30" title="We (Chúng tôi)">
@@ -205,9 +207,10 @@ export default function GrammarReferenceTable({
                     <div className="font-medium text-foreground">They are in the garden.</div>
                     <button
                       type="button"
-                      onClick={() => speak('They are in the garden.', 0.9)}
+                      onClick={() => grammarAudio.play('table-tobe-they', 'They are in the garden.')}
                       className="p-1 text-muted-foreground hover:text-foreground shrink-0 transition-colors"
                       title="Nghe câu ví dụ"
+                      aria-label="Nghe câu ví dụ"
                     >
                       <Volume2 className="h-3.5 w-3.5" />
                     </button>
@@ -261,7 +264,7 @@ export default function GrammarReferenceTable({
           <table className="w-full text-left font-mono text-xs divide-y divide-border">
             <thead className="bg-muted/40 uppercase text-muted-foreground">
               <tr>
-                <th className="p-3 border-r border-border min-w-[120px]">Khoảng cách</th>
+                <th className="p-3 border-r border-border min-w-[120px] sticky left-0 bg-muted/95 z-10 backdrop-blur-xs">Khoảng cách</th>
                 <th className="p-3 border-r border-border text-primary font-bold min-w-[160px]">Số ít (Singular)</th>
                 <th className="p-3 border-r border-border text-emerald-700 dark:text-emerald-400 font-bold min-w-[160px]">Số nhiều (Plural)</th>
                 <th className="p-3 min-w-[260px]">Ví dụ thực tế đối chiếu</th>
@@ -269,7 +272,7 @@ export default function GrammarReferenceTable({
             </thead>
             <tbody className="divide-y divide-border/60">
               <tr className="hover:bg-muted/10">
-                <td className="p-3 font-semibold border-r border-border/60 bg-muted/5">
+                <td className="p-3 font-semibold border-r border-border/60 bg-background sticky left-0 z-10">
                   <div>Ở gần (Near)</div>
                   <div className="text-[11px] text-muted-foreground font-normal font-sans">Trong tầm tay hoặc thời điểm hiện tại</div>
                 </td>
@@ -287,7 +290,7 @@ export default function GrammarReferenceTable({
                 </td>
               </tr>
               <tr className="hover:bg-muted/10">
-                <td className="p-3 font-semibold border-r border-border/60 bg-muted/5">
+                <td className="p-3 font-semibold border-r border-border/60 bg-background sticky left-0 z-10">
                   <div>Ở xa (Far)</div>
                   <div className="text-[11px] text-muted-foreground font-normal font-sans">Ngoài tầm với hoặc mốc thời gian đã qua</div>
                 </td>
@@ -381,7 +384,7 @@ export default function GrammarReferenceTable({
             <table className="w-full text-left font-mono text-xs divide-y divide-border">
               <thead className="bg-muted/40 uppercase text-muted-foreground">
                 <tr>
-                  <th className="p-3 border-r border-border min-w-[130px]">Dạng thể</th>
+                  <th className="p-3 border-r border-border min-w-[130px] sticky left-0 bg-muted/95 z-10 backdrop-blur-xs">Dạng thể</th>
                   {hasThirdCol ? (
                     <>
                       <th className="p-3 border-r border-border text-primary font-bold min-w-[180px]">
@@ -405,7 +408,7 @@ export default function GrammarReferenceTable({
               <tbody className="divide-y divide-border/60">
                 {formulaRows.map((r, i) => (
                   <tr key={i} className="hover:bg-muted/10">
-                    <td className="p-3 font-semibold border-r border-border/60 bg-muted/5 text-primary">
+                    <td className="p-3 font-semibold border-r border-border/60 bg-background text-primary sticky left-0 z-10">
                       <FormattedText text={r.form} />
                     </td>
                     {hasThirdCol ? (
@@ -463,7 +466,7 @@ export default function GrammarReferenceTable({
           </div>
 
           {formulaNote && (
-            <div className="p-3 border border-border bg-muted/10 text-xs text-muted-foreground flex items-start gap-2">
+            <div className="p-3 border border-border bg-muted/10 text-xs text-muted-foreground flex items-start gap-2 rounded-none">
               <Info className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" />
               <span><FormattedText text={formulaNote} /></span>
             </div>
@@ -474,14 +477,14 @@ export default function GrammarReferenceTable({
           <table className="w-full text-left font-mono text-xs divide-y divide-border">
             <thead className="bg-muted/40 uppercase text-muted-foreground">
               <tr>
-                <th className="p-3 border-r border-border min-w-[130px]">Cấu trúc (Form)</th>
+                <th className="p-3 border-r border-border min-w-[130px] sticky left-0 bg-muted/95 z-10 backdrop-blur-xs">Cấu trúc (Form)</th>
                 <th className="p-3 border-r border-border text-primary font-bold min-w-[200px]">Công thức chuẩn</th>
                 <th className="p-3 min-w-[260px]">Ví dụ thực tế minh họa</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border/60">
               <tr className="hover:bg-muted/10">
-                <td className="p-3 font-semibold border-r border-border/60 bg-muted/5">Khẳng định (+)</td>
+                <td className="p-3 font-semibold border-r border-border/60 bg-background sticky left-0 z-10">Khẳng định (+)</td>
                 <td className="p-3 font-bold text-primary border-r border-border/60">
                   Subject + Verb (chia) + Object / Complement
                 </td>
@@ -491,7 +494,7 @@ export default function GrammarReferenceTable({
                 </td>
               </tr>
               <tr className="hover:bg-muted/10">
-                <td className="p-3 font-semibold border-r border-border/60 bg-muted/5">Phủ định (-)</td>
+                <td className="p-3 font-semibold border-r border-border/60 bg-background sticky left-0 z-10">Phủ định (-)</td>
                 <td className="p-3 font-bold text-rose-700 dark:text-rose-400 border-r border-border/60">
                   Subject + Auxiliary + not + Verb (nguyên thể)
                 </td>
@@ -501,7 +504,7 @@ export default function GrammarReferenceTable({
                 </td>
               </tr>
               <tr className="hover:bg-muted/10">
-                <td className="p-3 font-semibold border-r border-border/60 bg-muted/5">Nghi vấn (?)</td>
+                <td className="p-3 font-semibold border-r border-border/60 bg-background sticky left-0 z-10">Nghi vấn (?)</td>
                 <td className="p-3 font-bold text-emerald-700 dark:text-emerald-400 border-r border-border/60">
                   (Wh-) + Auxiliary + Subject + Verb...?
                 </td>
@@ -595,7 +598,7 @@ export default function GrammarReferenceTable({
 
       {/* 4. Signals & Context Clues */}
       {signals.length > 0 && (
-        <div className="p-3.5 border border-border bg-muted/10 space-y-2">
+        <div className="p-3.5 border border-border bg-muted/10 space-y-2 rounded-none">
           <div className="font-mono text-xs uppercase tracking-wider font-semibold text-foreground flex items-center gap-1.5">
             <Info className="h-3.5 w-3.5 text-primary" />
             <span>Dấu hiệu nhận biết & Từ nhận diện</span>
@@ -604,7 +607,7 @@ export default function GrammarReferenceTable({
             {signals.map((sig, i) => (
               <span
                 key={i}
-                className="px-2 py-0.5 font-mono text-xs border border-border bg-background text-foreground"
+                className="px-2 py-0.5 font-mono text-xs border border-border bg-background text-foreground rounded-none"
               >
                 <FormattedText text={sig} />
               </span>
