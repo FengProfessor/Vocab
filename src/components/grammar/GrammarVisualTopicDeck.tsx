@@ -12,6 +12,7 @@ export interface VisualDeckExample {
   en: string;
   vi: string;
   highlightWord?: string;
+  image?: string;
 }
 
 export interface VisualDeckCard {
@@ -1156,105 +1157,386 @@ function GrammarVisualTopicDeckInner({
         </div>
       )}
 
-      {/* Cards Grid */}
+      {/* Cards Grid with Pop-ngang Side Preview for ALL 62 Topics */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-5">
         {filteredCards.map((card, idx) => (
-          <div
+          <VisualTopicCardItem
             key={idx}
-            className="border border-border bg-card rounded-none overflow-hidden shadow-xs flex flex-col justify-between"
-            style={{ borderTop: `4px solid ${card.accentColor || '#3b82f6'}` }}
-          >
-            <div>
-              {/* Card Header */}
-              <div className="p-4 border-b border-border bg-muted/15 flex items-start justify-between gap-3">
-                <div>
-                  <h3 className="text-base font-bold text-foreground tracking-tight">{card.title}</h3>
-                  <div className="text-xs text-muted-foreground mt-0.5">{card.badge}</div>
-                </div>
-                <span className="font-mono text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 border border-border bg-background text-muted-foreground">
-                  Card {idx + 1}
-                </span>
-              </div>
+            card={card}
+            cardIndex={idx}
+            topicSlug={topicSlug}
+            playingAudio={playingAudio}
+            onPlaySpeech={playSpeech}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
-              {/* Bright, Crystal-Clear Image Container (No dark overlays) */}
-              {card.image && (
-                <div className="relative w-full h-52 bg-slate-100 overflow-hidden border-b border-border">
-                  <Image
-                    src={card.image}
-                    alt={card.title}
-                    fill
-                    className={`${card.image.endsWith('.svg') ? 'object-contain p-4' : 'object-cover object-center'}`}
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    unoptimized
-                  />
-                </div>
-              )}
+export function detectGrammarKeyword(sentence: string, topicSlug: string = '', cardTitle: string = ''): string | undefined {
+  if (!sentence) return undefined;
 
-              {/* 4 Simple Practical Everyday Examples */}
-              <div className="p-4 space-y-3">
-                <div className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground flex items-center justify-between">
-                  <span>Câu ví dụ cơ bản (dễ nhớ):</span>
-                  <span className="text-primary font-semibold">🔊 Nhấn để nghe</span>
-                </div>
+  // 1. Check if card title has an explicit capital keyword like "THIS", "ARE", "COULD", "HAVE GOT", "USED TO", "ALWAYS", etc.
+  const titleMatch = cardTitle.match(/^([A-Z\s'/]+)(?:\s*\(|$)/);
+  if (titleMatch) {
+    const candidate = titleMatch[1].trim();
+    if (
+      candidate.length >= 2 &&
+      !['CÂU', 'PHỦ', 'KHẲNG', 'TÌNH', 'QUY', 'BẢNG', 'BẤT', 'THÊM', 'TRƯỚC', 'SAU'].includes(candidate)
+    ) {
+      const escaped = candidate.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const reg = new RegExp(`\\b${escaped}\\b`, 'i');
+      const match = sentence.match(reg);
+      if (match) return match[0];
+    }
+  }
 
-                <div className="space-y-2">
-                  {card.examples.map((ex, exIdx) => {
-                    const isSpeaking = playingAudio === ex.en;
-                    return (
-                      <div
-                        key={exIdx}
-                        className={`p-2.5 border transition-colors rounded-none ${
-                          isSpeaking
-                            ? 'border-primary bg-primary/5'
-                            : 'border-border/60 bg-muted/10 hover:border-border hover:bg-muted/20'
-                        }`}
-                      >
-                        <div className="flex items-start justify-between gap-2">
-                          <p className="text-sm font-semibold text-foreground font-sans leading-snug">
-                            <HighlightedSentence text={ex.en} highlight={ex.highlightWord} />
-                          </p>
-                          <button
-                            type="button"
-                            onClick={() => playSpeech(ex.en, exIdx === 0 ? card.audio : undefined)}
-                            aria-label={`Nghe phát âm: ${ex.en}`}
-                            className={`p-1 transition-colors shrink-0 ${
-                              isSpeaking
-                                ? 'text-primary'
-                                : 'text-muted-foreground hover:text-foreground'
-                            }`}
-                            title="Nghe phát âm"
-                          >
-                            <Volume2 className="h-3.5 w-3.5" />
-                          </button>
-                        </div>
-                        {ex.vi && <p className="text-xs text-muted-foreground mt-0.5 leading-snug">{ex.vi}</p>}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
+  // 2. Specific Topic RegEx Patterns
+  const slug = topicSlug.toLowerCase();
+
+  // Verb to be
+  if (slug.includes('to-be') || slug.includes('verb-to-be')) {
+    const m = sentence.match(/\b(am not|isn't|aren't|wasn't|weren't|am|is|are|was|were)\b/i);
+    if (m) return m[0];
+  }
+
+  // Demonstratives (this, that, these, those)
+  if (slug.includes('demonstrative')) {
+    const m = sentence.match(/\b(this|that|these|those)\b/i);
+    if (m) return m[0];
+  }
+
+  // There is / There are
+  if (slug.includes('there-is') || slug.includes('there-are')) {
+    const m = sentence.match(/\b(there isn't|there aren't|there is|there are|is there|are there|there's)\b/i);
+    if (m) return m[0];
+  }
+
+  // Articles (a, an, the)
+  if (slug.includes('article')) {
+    if (cardTitle.toUpperCase().startsWith('A ') || cardTitle.toUpperCase().includes('(A')) {
+      const m = sentence.match(/\b(a)\b/i);
+      if (m) return m[0];
+    }
+    if (cardTitle.toUpperCase().startsWith('AN ') || cardTitle.toUpperCase().includes('(AN')) {
+      const m = sentence.match(/\b(an)\b/i);
+      if (m) return m[0];
+    }
+    if (cardTitle.toUpperCase().startsWith('THE ') || cardTitle.toUpperCase().includes('(THE')) {
+      const m = sentence.match(/\b(the)\b/i);
+      if (m) return m[0];
+    }
+    const m = sentence.match(/\b(a|an|the)\b/i);
+    if (m) return m[0];
+  }
+
+  // Possessives
+  if (slug.includes('possessive')) {
+    const m = sentence.match(/('s\b|\b(my|your|his|her|its|our|their|mine|yours|hers|ours|theirs)\b)/i);
+    if (m) return m[0];
+  }
+
+  // Have got
+  if (slug.includes('have-got')) {
+    const m = sentence.match(/\b(have got|has got|haven't got|hasn't got|have you got|has he got|has she got|'ve got|'s got)\b/i);
+    if (m) return m[0];
+  }
+
+  // Modals (can, could, should, must, might, etc.)
+  if (slug.includes('modal') || slug.includes('can') || slug.includes('could') || slug.includes('should') || slug.includes('must')) {
+    const m = sentence.match(/\b(can't|cannot|couldn't|shouldn't|mustn't|won't|can|could|should|must|might|may|have to|has to|had to|will)\b/i);
+    if (m) return m[0];
+  }
+
+  // Continuous / Progressive (am/is/are/was/were + V-ing)
+  if (slug.includes('continuous') || slug.includes('progressive')) {
+    const m = sentence.match(/\b(am|is|are|was|were)\s+\w+ing\b/i) || sentence.match(/\b\w+ing\b/i);
+    if (m) return m[0];
+  }
+
+  // Perfect tenses (have/has/had + V3/ed)
+  if (slug.includes('perfect')) {
+    const m = sentence.match(/\b(have|has|had|haven't|hasn't|hadn't)\s+\w+(ed|en|ne|t|d)?\b/i) || sentence.match(/\b(have|has|had)\b/i);
+    if (m) return m[0];
+  }
+
+  // Past Simple
+  if (slug.includes('past-simple') || slug.includes('past')) {
+    const m = sentence.match(/\b(was|were|wasn't|weren't|didn't|did|went|saw|bought|had|played|studied|worked|watched|visited|started)\b/i);
+    if (m) return m[0];
+  }
+
+  // Present Simple
+  if (slug.includes('present-simple') || slug.includes('present')) {
+    const m = sentence.match(/\b(don't|doesn't|do|does)\b/i);
+    if (m) return m[0];
+  }
+
+  // Conditionals
+  if (slug.includes('conditional') || slug.includes('if')) {
+    const m = sentence.match(/\b(if|unless|would|will)\b/i);
+    if (m) return m[0];
+  }
+
+  // Prepositions
+  if (slug.includes('preposition')) {
+    const m = sentence.match(/\b(in front of|next to|between|behind|under|above|below|near|in|on|at)\b/i);
+    if (m) return m[0];
+  }
+
+  // Questions / Wh-
+  if (slug.includes('question') || slug.includes('wh-')) {
+    const m = sentence.match(/\b(what|where|when|who|why|which|how|whose|whom)\b/i);
+    if (m) return m[0];
+  }
+
+  // Adverbs of frequency
+  if (slug.includes('adverb') || slug.includes('frequency')) {
+    const m = sentence.match(/\b(always|usually|often|sometimes|rarely|seldom|never)\b/i);
+    if (m) return m[0];
+  }
+
+  // Comparisons
+  if (slug.includes('compar') || slug.includes('superlat')) {
+    const m = sentence.match(/\b(more|most|better|best|worse|worst|than|as\s+\w+\s+as)\b/i);
+    if (m) return m[0];
+  }
+
+  // Passive
+  if (slug.includes('passive')) {
+    const m = sentence.match(/\b(is|are|was|were|been|being)\s+\w+(ed|en|t|d)\b/i);
+    if (m) return m[0];
+  }
+
+  // Relative clauses
+  if (slug.includes('relative')) {
+    const m = sentence.match(/\b(who|which|that|whose|where|whom)\b/i);
+    if (m) return m[0];
+  }
+
+  // Conjunctions
+  if (slug.includes('conjunction') || slug.includes('clause')) {
+    const m = sentence.match(/\b(although|though|even though|because|since|so|however|despite|in spite of)\b/i);
+    if (m) return m[0];
+  }
+
+  // 3. Fallback: Check if there's any capitalized or distinctive word in card title
+  const words = cardTitle.replace(/[()/:,]/g, ' ').split(/\s+/).filter(w => w.length > 2);
+  for (const w of words) {
+    const reg = new RegExp(`\\b${w}\\b`, 'i');
+    const m = sentence.match(reg);
+    if (m) return m[0];
+  }
+
+  return undefined;
+}
+
+interface VisualTopicCardItemProps {
+  card: VisualDeckCard;
+  cardIndex: number;
+  topicSlug: string;
+  playingAudio: string | null;
+  onPlaySpeech: (text: string, audioUrl?: string) => void;
+}
+
+function VisualTopicCardItem({
+  card,
+  cardIndex,
+  topicSlug,
+  playingAudio,
+  onPlaySpeech,
+}: VisualTopicCardItemProps) {
+  const [activeIdx, setActiveIdx] = useState<number>(0);
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+
+  const currentIdx = hoveredIdx !== null ? hoveredIdx : activeIdx;
+  const currentExample = card.examples[currentIdx] || card.examples[0];
+  const currentImage = (hoveredIdx !== null ? currentExample?.image : null) || currentExample?.image || card.image;
+
+  // On 2-column layout (default), cardIndex % 2 === 1 is right column, so pop left
+  const isRightCol = cardIndex % 2 === 1;
+
+  const currentHighlight = currentExample
+    ? currentExample.highlightWord || detectGrammarKeyword(currentExample.en, topicSlug, card.title)
+    : undefined;
+
+  return (
+    <div
+      className={`relative overflow-visible border border-border bg-card rounded-none shadow-xs hover:shadow-md transition-all duration-200 flex flex-col justify-between ${
+        hoveredIdx !== null ? 'z-30' : 'z-10'
+      }`}
+      style={{ borderTop: `4px solid ${card.accentColor || '#3b82f6'}` }}
+    >
+      <div>
+        {/* Card Header */}
+        <div className="p-4 border-b border-border bg-muted/15 flex items-start justify-between gap-3">
+          <div>
+            <h3 className="text-base font-bold text-foreground tracking-tight">{card.title}</h3>
+            <div className="text-xs text-muted-foreground mt-0.5">{card.badge}</div>
+          </div>
+          <span className="font-mono text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 border border-border bg-background text-muted-foreground">
+            Card {cardIndex + 1}
+          </span>
+        </div>
+
+        {/* Dynamic Image Container */}
+        {currentImage && (
+          <div className="relative w-full h-52 bg-slate-100 overflow-hidden border-b border-border">
+            <Image
+              key={currentImage}
+              src={currentImage}
+              alt={card.title}
+              fill
+              className={`transition-all duration-300 ${
+                currentImage.endsWith('.svg') ? 'object-contain p-4' : 'object-cover object-center'
+              }`}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              unoptimized
+            />
+          </div>
+        )}
+
+        {/* Dynamic Active Sentence Banner with red highlight */}
+        {currentExample && (
+          <div className="px-3.5 py-2 bg-red-500/[0.04] border-b border-border flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2 min-w-0">
+              <span className="inline-block w-2 h-2 bg-red-500 shrink-0" />
+              <span className="font-serif text-xs font-semibold text-foreground truncate">
+                <HighlightedSentence
+                  text={currentExample.en}
+                  highlight={currentHighlight}
+                />
+              </span>
             </div>
+            <button
+              type="button"
+              onClick={() => onPlaySpeech(currentExample.en, currentIdx === 0 ? card.audio : undefined)}
+              className="p-1 text-red-600 hover:text-red-700 shrink-0 transition-colors"
+              title="Nghe câu ví dụ này"
+              aria-label={`Nghe câu: ${currentExample.en}`}
+            >
+              <Volume2 className="h-3.5 w-3.5" />
+            </button>
+          </div>
+        )}
 
-            {/* Bottom Tip & Rule Summary */}
-            <div className="p-4 pt-0 space-y-2.5">
-              {card.tip && (
-                <div className="p-2.5 bg-amber-500/10 border border-amber-500/30 text-xs text-amber-900 dark:text-amber-200 flex items-start gap-2 rounded-none">
-                  <Lightbulb className="h-4 w-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
-                  <div className="leading-relaxed">
-                    <strong className="font-semibold text-amber-800 dark:text-amber-300">Mẹo nhớ:</strong> {card.tip}
+        {/* Examples List with Pop-ngang Flyout */}
+        <div className="p-4 space-y-3">
+          <div className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground flex items-center justify-between">
+            <span className="font-semibold text-foreground">Trỏ chuột / Chạm để xem ảnh:</span>
+            <span className="text-red-600 font-bold text-[10px]">Pop-ngang ảnh thật</span>
+          </div>
+
+          <div className="space-y-2">
+            {card.examples.map((ex, exIdx) => {
+              const isSpeaking = playingAudio === ex.en;
+              const isHovered = hoveredIdx === exIdx;
+              const isSelected = activeIdx === exIdx;
+              const effectiveHighlight = ex.highlightWord || detectGrammarKeyword(ex.en, topicSlug, card.title);
+              const flyoutImage = ex.image || card.image;
+
+              return (
+                <div
+                  key={exIdx}
+                  onMouseEnter={() => setHoveredIdx(exIdx)}
+                  onMouseLeave={() => setHoveredIdx(null)}
+                  onClick={() => setActiveIdx(exIdx)}
+                  className={`relative p-2.5 border transition-all duration-150 rounded-none cursor-pointer flex items-start justify-between gap-2 ${
+                    isHovered || isSelected
+                      ? 'border-red-500 bg-red-500/[0.06] shadow-xs'
+                      : isSpeaking
+                      ? 'border-primary bg-primary/5'
+                      : 'border-border/60 bg-muted/10 hover:border-border hover:bg-muted/20'
+                  }`}
+                >
+                  <div className="space-y-0.5 min-w-0">
+                    <p className="text-sm font-semibold text-foreground font-sans leading-snug">
+                      <HighlightedSentence text={ex.en} highlight={effectiveHighlight} />
+                    </p>
+                    {ex.vi && <p className="text-xs text-muted-foreground leading-snug">{ex.vi}</p>}
                   </div>
-                </div>
-              )}
 
-              {card.ruleSummary && (
-                <div className="font-mono text-[11px] p-2 bg-muted/20 border border-border/70 text-foreground/80 flex items-center gap-1.5">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0" />
-                  <span className="truncate">{card.ruleSummary}</span>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onPlaySpeech(ex.en, exIdx === 0 ? card.audio : undefined);
+                    }}
+                    aria-label={`Nghe phát âm: ${ex.en}`}
+                    className={`p-1.5 transition-colors shrink-0 ${
+                      isSpeaking || isHovered
+                        ? 'text-red-600'
+                        : 'text-muted-foreground hover:text-foreground'
+                    }`}
+                    title="Nghe phát âm"
+                  >
+                    <Volume2 className="h-3.5 w-3.5" />
+                  </button>
+
+                  {/* Desktop Side Pop-ngang Flyout Preview (Clean: Image, Red Bold Sentence, Translation - No extra explanation note) */}
+                  {isHovered && flyoutImage && (
+                    <div
+                      className={`hidden xl:block absolute top-[-10px] z-50 w-72 pointer-events-none transition-all duration-200 animate-in fade-in zoom-in-95 ${
+                        isRightCol
+                          ? 'right-[103%]'
+                          : 'left-[103%]'
+                      }`}
+                    >
+                      <div className="border-2 border-red-500 bg-card shadow-2xl p-2.5 rounded-none space-y-2">
+                        {/* Image */}
+                        <div className="relative w-full h-44 bg-muted/30 overflow-hidden border border-border">
+                          <Image
+                            src={flyoutImage}
+                            alt={ex.en}
+                            fill
+                            className="object-cover"
+                            sizes="288px"
+                            unoptimized
+                          />
+                          <div className="absolute top-1.5 left-1.5 bg-red-600 text-white font-mono text-[10px] font-bold uppercase px-1.5 py-0.5 tracking-wider">
+                            Ảnh minh họa ngữ cảnh
+                          </div>
+                        </div>
+
+                        {/* Sentence with red bold focus word & translation (No extra explanation note) */}
+                        <div className="space-y-1">
+                          <p className="font-serif text-sm font-bold text-foreground leading-snug">
+                            <HighlightedSentence text={ex.en} highlight={effectiveHighlight} />
+                          </p>
+                          {ex.vi && (
+                            <p className="text-xs text-muted-foreground font-sans">
+                              {ex.vi}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
-              )}
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Tip & Rule Summary */}
+      <div className="p-4 pt-0 space-y-2.5">
+        {card.tip && (
+          <div className="p-2.5 bg-amber-500/10 border border-amber-500/30 text-xs text-amber-900 dark:text-amber-200 flex items-start gap-2 rounded-none">
+            <Lightbulb className="h-4 w-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+            <div className="leading-relaxed">
+              <strong className="font-semibold text-amber-800 dark:text-amber-300">Mẹo nhớ:</strong> {card.tip}
             </div>
           </div>
-        ))}
+        )}
+
+        {card.ruleSummary && (
+          <div className="font-mono text-[11px] p-2 bg-muted/20 border border-border/70 text-foreground/80 flex items-center gap-1.5">
+            <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0" />
+            <span className="truncate">{card.ruleSummary}</span>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -599,7 +599,7 @@ function PronounCardItem({
                             </div>
                           </div>
 
-                          {/* Highlighted Sentence & Translation */}
+                          {/* Highlighted Sentence & Translation (Clean, no extra explanation note) */}
                           <div className="space-y-1">
                             <p className="font-serif text-sm font-bold text-foreground leading-snug">
                               <HighlightedSentence
@@ -610,12 +610,6 @@ function PronounCardItem({
                             <p className="text-xs text-muted-foreground font-sans">
                               {ex.vi}
                             </p>
-                            {ex.highlightNote && (
-                              <div className="text-[11px] font-mono text-red-600 dark:text-red-400 bg-red-500/10 p-1.5 border border-red-500/20 leading-tight">
-                                <strong className="font-bold">Nhấn mạnh: </strong>
-                                {ex.highlightNote}
-                              </div>
-                            )}
                           </div>
                         </div>
                       </div>
