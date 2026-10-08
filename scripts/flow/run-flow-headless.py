@@ -198,9 +198,12 @@ async def run_batch(args):
         pending_items = []
         for item in items:
             slug = item.get('slug', item.get('word', '').lower().replace(' ', '-'))
-            out_file = out_dir / f"{slug}.png"
-            if args.skip_existing and out_file.exists() and out_file.stat().st_size > 10240:
-                print(f"[SKIP] '{item.get('word')}' already exists: {out_file.name} ({out_file.stat().st_size // 1024} KB)")
+            stt = item.get('stt')
+            stt_file = out_dir / f"{stt:03d}_{slug}.png" if stt else None
+            plain_file = out_dir / f"{slug}.png"
+            if args.skip_existing and ((stt_file and stt_file.exists() and stt_file.stat().st_size > 10240) or (plain_file.exists() and plain_file.stat().st_size > 10240)):
+                existing_name = stt_file.name if (stt_file and stt_file.exists()) else plain_file.name
+                print(f"[SKIP] '{item.get('word')}' already exists: {existing_name}")
                 skip_count += 1
             else:
                 pending_items.append(item)
@@ -223,10 +226,10 @@ async def run_batch(args):
                 prompt_text = chunk[0].get('prompt', '')
             else:
                 prompt_lines = [
-                    f"Generate {len(chunk)} distinct 3D Pixar stylized illustrations for these {len(chunk)} vocabulary words (1 image per word, 16:9 aspect ratio, warm soft lighting, vibrant colors, clean 3D render, expressive emotions, no text, no typography, no letters):"
+                    f"Generate {len(chunk)} distinct realistic authentic photographs for these {len(chunk)} vocabulary words (1 image per word, 16:9 aspect ratio, natural daylight, cinematic 35mm lens, authentic human expressions, warm relatable everyday moment, true-to-life textures, no text, no typography, no letters):"
                 ]
                 for c_i, c_item in enumerate(chunk, 1):
-                    scene = c_item.get('pedagogical_scene', c_item.get('prompt', ''))
+                    scene = c_item.get('scene', c_item.get('pedagogical_scene', c_item.get('prompt', '')))
                     prompt_lines.append(f"{c_i}. '{c_item['word']}': {scene}")
                 prompt_text = "\n".join(prompt_lines)
 
@@ -283,7 +286,8 @@ async def run_batch(args):
                     target_src = new_cards[c_i]['src']
                     c_word = c_item.get('word', 'unknown')
                     c_slug = c_item.get('slug', c_word.lower().replace(' ', '-'))
-                    c_out = out_dir / f"{c_slug}.png"
+                    c_stt = c_item.get('stt')
+                    c_out = out_dir / (f"{c_stt:03d}_{c_slug}.png" if c_stt else f"{c_slug}.png")
                     try:
                         img_bytes = await fetch_image_base64(page, target_src)
                         with open(c_out, 'wb') as f_out:
