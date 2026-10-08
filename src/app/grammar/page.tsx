@@ -2,7 +2,8 @@
 import { authFetch } from '@/lib/auth-fetch';
 
 
-import { useState, useEffect, useMemo, use } from 'react';
+import { useState, useEffect, useMemo, useRef, use } from 'react';
+import { Dialog as DialogPrimitive } from '@base-ui/react/dialog';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
@@ -16,15 +17,11 @@ import {
   ChevronRight,
   ChevronDown,
   ChevronUp,
-  Info,
   Loader2,
-  PlayCircle,
   Lightbulb,
   AlertTriangle,
   ArrowLeftRight,
   TableProperties,
-  FileText,
-  Image as ImageIcon,
   ArrowLeft,
   Compass,
   Sparkles,
@@ -105,6 +102,7 @@ function GrammarAccordionItem({
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
         className="w-full min-h-[44px] p-3.5 flex items-center justify-between text-left hover:bg-muted/20 transition-colors rounded-none"
       >
         <div className="flex items-center gap-2 font-mono text-xs font-semibold text-foreground">
@@ -176,10 +174,19 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
   const [selectedTopicSlug, setSelectedTopicSlug] = useState<string | null>(initialTopic);
   const [theoryLoading, setTheoryLoading] = useState(false);
   const [theoryData, setTheoryData] = useState<TheoryData | null>(null);
-  const [theoryTab, setTheoryTab] = useState<'theory' | 'table' | 'video' | 'examples' | 'media'>('theory');
+  const [theoryTab, setTheoryTab] = useState<'theory' | 'details' | 'table' | 'video' | 'examples' | 'media'>('theory');
+  const theoryTriggerRef = useRef<HTMLElement | null>(null);
+  const theoryCloseRef = useRef<HTMLButtonElement | null>(null);
+  const theoryContentRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => () => grammarAudio.stopAll(), [selectedTopicSlug]);
+
+  useEffect(() => {
+    theoryContentRef.current?.scrollTo({ top: 0 });
+    grammarAudio.stopAll();
+  }, [theoryTab]);
 
   // User progress
-  const [_userId, setUserId] = useState<string | null>(null);
   const [progressMap, setProgressMap] = useState<Record<string, TopicProgress>>({});
 
   useEffect(() => {
@@ -188,7 +195,6 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
         data: { user },
       } = await supabase.auth.getUser();
       if (!user) return;
-      setUserId(user.id);
 
       const {
         data: { session },
@@ -242,34 +248,17 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
           }
         }
 
-        // 2. Fallback if API fails or offline
+        // Khi mất kết nối, chỉ dùng tóm tắt đúng chủ điểm; không gán công thức chung cho mọi bài.
         const topicObj = getTopicBySlug(selectedTopicSlug);
         if (topicObj && isMounted) {
           setTheoryData({
             definition: topicObj.summary,
-            usage: [
-              { label: 'Quy tắc trọng tâm', en: topicObj.title, vi: topicObj.title_vi },
-              { label: 'Cấp độ tiêu chuẩn', en: `CEFR Level: ${topicObj.level}`, vi: topicObj.stageLabel },
-              { label: 'Thời lượng khuyến nghị', en: `${topicObj.estimatedMinutes} minutes`, vi: `Khoảng ${topicObj.estimatedMinutes} phút học tập tập trung` },
-            ],
-            formula: {
-              rows: [
-                { form: 'Khẳng định (+)', structure: 'Subject + Verb + Object / Complement', example: 'She learns English every day.' },
-                { form: 'Phủ định (-)', structure: 'Subject + Auxiliary + not + Verb', example: 'She does not skip lessons.' },
-                { form: 'Nghi vấn (?)', structure: 'Auxiliary + Subject + Verb...?', example: 'Does she understand the concept?' },
-              ],
-            },
-            bilingual_examples: [
-              {
-                en: `Mastering ${topicObj.title} provides a solid linguistic foundation.`,
-                vi: `Nắm vững ${topicObj.title_vi} tạo nền tảng ngôn ngữ vững chắc cho giao tiếp học thuật và đời sống.`,
-                note: `Cấp độ CEFR: ${topicObj.level} • Khung bài học chuẩn hóa`,
-              },
-            ],
           });
         }
       } catch (err) {
-        console.error('Failed to load topic theory:', err);
+        console.error('[Grammar] Failed to load topic theory:', err);
+        const topicObj = getTopicBySlug(selectedTopicSlug);
+        if (topicObj && isMounted) setTheoryData({ definition: topicObj.summary });
       } finally {
         if (isMounted) setTheoryLoading(false);
       }
@@ -462,13 +451,14 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                     }`}
                   >
                     <div
-                      onClick={() => setSelectedTopicSlug(topic.slug)}
+                      onClick={(event) => { theoryTriggerRef.current = event.currentTarget; setSelectedTopicSlug(topic.slug); }}
                       className="cursor-pointer group/card"
                       role="button"
                       tabIndex={0}
                       onKeyDown={(e) => {
                         if (e.key === 'Enter' || e.key === ' ') {
                           e.preventDefault();
+                          theoryTriggerRef.current = e.currentTarget;
                           setSelectedTopicSlug(topic.slug);
                         }
                       }}
@@ -508,8 +498,8 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                     <div className="pt-3 border-t border-border/40 flex flex-wrap items-center justify-between gap-2">
                       <div className="flex flex-wrap items-center gap-2">
                         <button
-                          onClick={() => setSelectedTopicSlug(topic.slug)}
-                          className="border border-border hover:border-foreground bg-background hover:bg-muted text-foreground px-3 py-1.5 font-mono text-xs uppercase tracking-wider font-semibold rounded-none flex items-center gap-1.5 transition-colors"
+                          onClick={(event) => { theoryTriggerRef.current = event.currentTarget; setSelectedTopicSlug(topic.slug); }}
+                          className="min-h-[44px] border border-border hover:border-foreground bg-background hover:bg-muted text-foreground px-3 py-1.5 font-mono text-xs uppercase tracking-wider font-semibold rounded-none flex items-center gap-1.5 transition-colors"
                         >
                           <BookOpen className="h-3.5 w-3.5 text-primary" />
                           <span>Học lý thuyết</span>
@@ -541,9 +531,12 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
       </section>
 
       {/* Slide-over Theory Drawer / Modal */}
-      {selectedTopicSlug && activeTopic && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-background/80 backdrop-blur-sm">
-          <div className="border border-border bg-card w-full max-w-4xl max-h-[92vh] sm:max-h-[85vh] rounded-none flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+      <DialogPrimitive.Root open={Boolean(selectedTopicSlug && activeTopic)} onOpenChange={(open) => { if (!open) setSelectedTopicSlug(null); }}>
+        {activeTopic && (
+        <DialogPrimitive.Portal>
+          <DialogPrimitive.Backdrop className="fixed inset-0 z-[100] bg-background/80 backdrop-blur-sm" />
+          <DialogPrimitive.Popup aria-modal="true" initialFocus={theoryCloseRef} finalFocus={() => theoryTriggerRef.current?.isConnected ? theoryTriggerRef.current : true}
+            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[110] border border-border bg-card w-[calc(100%-1rem)] sm:w-[calc(100%-2rem)] max-w-4xl max-h-[92dvh] sm:max-h-[85dvh] rounded-none flex flex-col shadow-2xl overflow-hidden outline-none">
             {/* Drawer Header */}
             <div className="border-b border-border p-4 sm:p-5 flex items-start justify-between gap-4 bg-muted/10 shrink-0">
               <div className="min-w-0 flex-1">
@@ -553,99 +546,57 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                   <span className="px-1.5 py-0.5 border border-border bg-muted/40 font-bold rounded-none">
                     {activeTopic.level}
                   </span>
-                  <span>•</span>
-                  <span>{activeTopic.stageLabel}</span>
                 </div>
-                <h2 className="text-xl sm:text-2xl font-serif font-bold text-foreground truncate">
+                <DialogPrimitive.Title className="text-xl sm:text-2xl font-serif font-bold text-foreground break-words">
+                  {activeTopic.title_vi}
+                </DialogPrimitive.Title>
+                <DialogPrimitive.Description className="text-xs sm:text-sm text-muted-foreground mt-1 leading-relaxed">
                   {activeTopic.title}
-                </h2>
-                <div className="text-xs sm:text-sm text-muted-foreground mt-1 flex flex-wrap items-center gap-1.5 font-medium leading-relaxed">
-                  <span className="text-foreground font-semibold">{activeTopic.title_vi}</span>
-                  <span className="opacity-40">•</span>
-                  <span className="line-clamp-2 sm:line-clamp-1">{theoryData?.definition || activeTopic.summary}</span>
-                </div>
+                </DialogPrimitive.Description>
               </div>
-              <button
+              <DialogPrimitive.Close
                 type="button"
-                onClick={() => setSelectedTopicSlug(null)}
+                ref={theoryCloseRef}
                 aria-label="Đóng bảng lý thuyết"
                 className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 border border-border rounded-none hover:bg-muted text-muted-foreground hover:text-foreground shrink-0 transition-colors"
               >
                 <X className="h-5 w-5" />
-              </button>
+              </DialogPrimitive.Close>
             </div>
 
-            {/* Theory Tabs */}
-            <div className="shrink-0 border-b border-border bg-muted/20 flex overflow-x-auto scrollbar-none">
-              <button
-                type="button"
-                onClick={() => setTheoryTab('theory')}
-                className={`py-3 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-r border-border inline-flex items-center gap-2 whitespace-nowrap shrink-0 transition-colors ${
-                  theoryTab === 'theory'
-                    ? 'bg-card text-foreground font-bold border-b-2 border-b-foreground -mb-px'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/40 border-b-2 border-b-transparent'
-                }`}
-              >
-                <BookOpen className="h-3.5 w-3.5" />
-                <span>{activeTopic.slug === 'personal-pronouns' ? 'Lý thuyết & Thẻ trực quan' : 'Lý thuyết & Trực quan'}</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setTheoryTab('table')}
-                className={`py-3 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-r border-border inline-flex items-center gap-2 whitespace-nowrap shrink-0 transition-colors ${
-                  theoryTab === 'table'
-                    ? 'bg-card text-foreground font-bold border-b-2 border-b-foreground -mb-px'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/40 border-b-2 border-b-transparent'
-                }`}
-              >
-                <TableProperties className="h-3.5 w-3.5" />
-                <span>Bảng tra cứu</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setTheoryTab('examples')}
-                className={`py-3 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-r border-border inline-flex items-center gap-2 whitespace-nowrap shrink-0 transition-colors ${
-                  theoryTab === 'examples'
-                    ? 'bg-card text-foreground font-bold border-b-2 border-b-foreground -mb-px'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/40 border-b-2 border-b-transparent'
-                }`}
-              >
-                <FileText className="h-3.5 w-3.5" />
-                <span>Ví dụ song ngữ</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setTheoryTab('media')}
-                className={`py-3 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-r border-border inline-flex items-center gap-2 whitespace-nowrap shrink-0 transition-colors ${
-                  theoryTab === 'media'
-                    ? 'bg-card text-foreground font-bold border-b-2 border-b-foreground -mb-px'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/40 border-b-2 border-b-transparent'
-                }`}
-              >
-                <ImageIcon className="h-3.5 w-3.5" />
-                <span>Hình ảnh thực tế ({((topicAssetsData as Record<string, TopicAssetItem[]>)[activeTopic.slug] || []).length})</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setTheoryTab('video')}
-                className={`py-3 px-4 font-mono text-xs uppercase tracking-wider font-semibold border-r border-border inline-flex items-center gap-2 whitespace-nowrap shrink-0 transition-colors ${
-                  theoryTab === 'video'
-                    ? 'bg-card text-foreground font-bold border-b-2 border-b-foreground -mb-px'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/40 border-b-2 border-b-transparent'
-                }`}
-              >
-                <PlayCircle className="h-3.5 w-3.5 text-rose-600" />
-                <span>Video bài giảng</span>
-              </button>
+            <div className="shrink-0 border-b border-border bg-muted/20 p-2 space-y-2">
+              <div className="grid grid-cols-2 gap-2" aria-label="Nội dung bài học">
+                <button type="button" aria-pressed={theoryTab === 'theory'} onClick={() => setTheoryTab('theory')}
+                  className={`min-h-[44px] px-3 text-sm font-semibold border border-border ${theoryTab === 'theory' ? 'bg-primary text-primary-foreground' : 'bg-card text-foreground hover:bg-muted'}`}>
+                  Bài học
+                </button>
+                <button type="button" aria-pressed={theoryTab !== 'theory'} onClick={() => setTheoryTab('details')}
+                  className={`min-h-[44px] px-3 text-sm font-semibold border border-border ${theoryTab !== 'theory' ? 'bg-primary text-primary-foreground' : 'bg-card text-foreground hover:bg-muted'}`}>
+                  Tra cứu thêm
+                </button>
+              </div>
+              {theoryTab !== 'theory' && (
+                <label className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <span className="shrink-0">Tài liệu</span>
+                  <select aria-label="Chọn tài liệu" value={theoryTab}
+                    onChange={(event) => setTheoryTab(event.target.value as Exclude<typeof theoryTab, 'theory'>)}
+                    className="min-h-[44px] min-w-0 flex-1 border border-border bg-card text-foreground px-2 text-sm">
+                    <option value="details">Quy tắc và mẹo nhớ</option>
+                    <option value="table">Bảng tra cứu</option>
+                    <option value="examples">Ví dụ song ngữ</option>
+                    <option value="media">Ảnh minh họa</option>
+                    <option value="video">Video bài giảng</option>
+                  </select>
+                </label>
+              )}
             </div>
-
             {/* Drawer Content */}
-            <div className="p-4 sm:p-6 overflow-y-auto flex-1 min-h-0 text-sm space-y-6">
+            <div ref={theoryContentRef} className="p-3 sm:p-5 overflow-y-auto overflow-x-hidden flex-1 min-h-0 text-sm space-y-4">
               {theoryLoading ? (
                 <div className="py-12 flex flex-col items-center justify-center gap-2">
                   <Loader2 className="h-6 w-6 animate-spin text-primary" />
                   <span className="font-mono text-xs text-muted-foreground uppercase">
-                    Đang nạp dữ liệu bài học...
+                    Đang tải bài học…
                   </span>
                 </div>
               ) : theoryTab === 'video' ? (
@@ -663,24 +614,33 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                   theoryData={theoryData}
                 />
               ) : theoryTab === 'theory' ? (
-                <div className="space-y-4">
+                <div className="space-y-3.5">
+                  <div className="border-l-2 border-primary bg-muted/15 p-2.5 sm:p-3 text-xs sm:text-sm leading-relaxed text-foreground rounded-none">
+                    <FormattedText text={activeTopic.summary} />
+                  </div>
                   {/* TIER 1: Hero Visual Deck (In-Place Dynamic Stage Swapping & Native Audio) */}
-                  <div className="border border-border p-3 sm:p-4 bg-background rounded-none">
+                  <div className="min-w-0">
                     <GrammarVisualTopicDeck
                       key={activeTopic.slug}
                       topicSlug={activeTopic.slug}
                       topicTitle={activeTopic.title}
                       topicTitleVi={activeTopic.title_vi}
                       theoryData={theoryData}
+                      guided
                     />
                   </div>
-
-                  {/* TIER 2: Secondary & Deep-Dive Modules in Technical Minimalist Accordions */}
+                </div>
+              ) : theoryTab === 'details' ? (
                   <div className="space-y-3 pt-1">
+                    {theoryData?.definition && (
+                      <GrammarAccordionItem title="Khái niệm" icon={<BookOpen className="h-3.5 w-3.5 text-primary" />}>
+                        <FormattedText text={theoryData.definition} />
+                      </GrammarAccordionItem>
+                    )}
                     {/* 1. Bảng công thức chuẩn */}
                     {theoryData?.formula?.rows && theoryData.formula.rows.length > 0 && (
                       <GrammarAccordionItem
-                        title="Bảng công thức ngữ pháp"
+                        title="Công thức"
                         badge={`${theoryData.formula.rows.length} cấu trúc`}
                         icon={<TableProperties className="h-3.5 w-3.5 text-primary" />}
                         defaultOpen={false}
@@ -714,10 +674,73 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                       </GrammarAccordionItem>
                     )}
 
+                    {/* Dấu hiệu nhận biết */}
+                    {theoryData?.signals && theoryData.signals.length > 0 && (
+                      <GrammarAccordionItem
+                        title="Dấu hiệu nhận biết"
+                        badge={`${theoryData.signals.length} từ / cụm từ`}
+                        icon={<Clock className="h-3.5 w-3.5 text-primary" />}
+                        defaultOpen={false}
+                      >
+                        <div className="space-y-2">
+                          <p className="text-xs text-muted-foreground">
+                            Các trạng từ, liên từ và dấu hiệu thời gian nhận diện nhanh khi làm bài:
+                          </p>
+                          <div className="flex flex-wrap gap-1.5 pt-1">
+                            {theoryData.signals.map((sig, idx) => (
+                              <span
+                                key={idx}
+                                className="font-mono text-xs font-semibold px-2.5 py-1 border border-border bg-muted/20 text-foreground rounded-none"
+                              >
+                                <FormattedText text={typeof sig === 'string' ? sig : JSON.stringify(sig)} />
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </GrammarAccordionItem>
+                    )}
+
+                    {/* Quy tắc ngữ pháp chi tiết */}
+                    {theoryData?.rules && theoryData.rules.length > 0 && (
+                      <GrammarAccordionItem
+                        title="Quy tắc chi tiết"
+                        badge={`${theoryData.rules.length} quy tắc`}
+                        icon={<BookOpen className="h-3.5 w-3.5 text-primary" />}
+                        defaultOpen={false}
+                      >
+                        <div className="border border-border overflow-x-auto rounded-none">
+                          <table className="w-full text-left font-mono text-xs">
+                            <thead className="bg-muted/30 border-b border-border text-muted-foreground uppercase">
+                              <tr>
+                                <th className="p-2.5">Trường hợp</th>
+                                <th className="p-2.5">Quy tắc biến đổi</th>
+                                <th className="p-2.5">Ví dụ minh họa</th>
+                              </tr>
+                            </thead>
+                            <tbody className="divide-y divide-border/60">
+                              {theoryData.rules.map((r, i) => (
+                                <tr key={i} className="hover:bg-muted/10">
+                                  <td className="p-2.5 font-semibold text-primary">
+                                    <FormattedText text={r.case || 'Quy tắc'} />
+                                  </td>
+                                  <td className="p-2.5 font-bold text-foreground">
+                                    <FormattedText text={r.rule || '—'} />
+                                  </td>
+                                  <td className="p-2.5 text-muted-foreground font-sans">
+                                    <FormattedText text={r.example || '—'} />
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </GrammarAccordionItem>
+                    )}
+
                     {/* 2. Quy tắc & Ngữ cảnh áp dụng */}
                     {theoryData?.usage && theoryData.usage.length > 0 && (
                       <GrammarAccordionItem
-                        title="Quy tắc & Ngữ cảnh áp dụng"
+                        title="Cách dùng"
                         badge={`${theoryData.usage.length} ngữ cảnh`}
                         icon={<Sparkles className="h-3.5 w-3.5 text-primary" />}
                         defaultOpen={false}
@@ -743,7 +766,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                     {/* 3. Đối chiếu & Phân biệt cấu trúc */}
                     {theoryData?.comparison && (
                       <GrammarAccordionItem
-                        title="Đối chiếu & Phân biệt cấu trúc"
+                        title="Phân biệt"
                         icon={<ArrowLeftRight className="h-3.5 w-3.5 text-primary" />}
                         defaultOpen={false}
                       >
@@ -756,7 +779,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                     {/* 4. Lưu ý trọng tâm & Mẹo ghi nhớ */}
                     {theoryData?.tips && (
                       <GrammarAccordionItem
-                        title="Lưu ý trọng tâm & Mẹo ghi nhớ"
+                        title="Mẹo nhớ"
                         icon={<Lightbulb className="h-3.5 w-3.5 text-amber-500" />}
                         defaultOpen={false}
                       >
@@ -769,7 +792,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                     {/* 5. Lỗi sai thường gặp & Cách khắc phục */}
                     {theoryData?.mistakes && theoryData.mistakes.length > 0 && (
                       <GrammarAccordionItem
-                        title="Lỗi sai thường gặp & Cách khắc phục"
+                        title="Lỗi thường gặp"
                         badge={`${theoryData.mistakes.length} lỗi`}
                         icon={<AlertTriangle className="h-3.5 w-3.5 text-amber-500" />}
                         defaultOpen={false}
@@ -796,11 +819,10 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                       </GrammarAccordionItem>
                     )}
                   </div>
-                </div>
               ) : theoryTab === 'media' ? (
                 <div className="space-y-4">
                   {((topicAssetsData as Record<string, TopicAssetItem[]>)[activeTopic.slug] || []).length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 gap-4">
                       {((topicAssetsData as Record<string, TopicAssetItem[]>)[activeTopic.slug] || []).map((asset, i) => (
                         <VettedMediaCard
                           key={i}
@@ -867,23 +889,22 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
             </div>
 
             {/* Drawer Footer CTA */}
-            <div className="border-t border-border p-4 bg-card flex flex-wrap sm:flex-nowrap items-center justify-between gap-3 shrink-0">
-              <button
-                onClick={() => setSelectedTopicSlug(null)}
-                className="border border-border px-4 py-2.5 font-mono text-xs uppercase tracking-wider font-semibold rounded-none hover:bg-muted text-muted-foreground hover:text-foreground shrink-0"
+            <div className="border-t border-border p-3 bg-card flex items-center justify-between gap-2 shrink-0">
+              <DialogPrimitive.Close
+                className="min-h-[44px] border border-border px-3 text-sm font-semibold rounded-none hover:bg-muted text-muted-foreground hover:text-foreground shrink-0"
               >
                 Đóng
-              </button>
-              <Link href={`/grammar/practice?topic=${encodeURIComponent(activeTopic.slug)}`} className="w-full sm:w-auto">
-                <button className="w-full sm:w-auto bg-primary text-primary-foreground border border-primary hover:bg-primary/90 px-5 sm:px-6 py-2.5 font-mono text-xs uppercase tracking-wider font-semibold rounded-none flex items-center justify-center gap-2">
-                  <span>Bắt đầu luyện tập</span>
-                  <ChevronRight className="h-4 w-4" />
-                </button>
+              </DialogPrimitive.Close>
+              <Link href={`/grammar/practice?topic=${encodeURIComponent(activeTopic.slug)}`} onClick={() => grammarAudio.stopAll()}
+                className="min-h-[44px] min-w-0 bg-primary text-primary-foreground border border-primary hover:bg-primary/90 px-4 text-sm font-semibold rounded-none flex items-center justify-center gap-2">
+                <span>Luyện tập</span>
+                <ChevronRight className="h-4 w-4" />
               </Link>
             </div>
-          </div>
-        </div>
-      )}
+          </DialogPrimitive.Popup>
+        </DialogPrimitive.Portal>
+        )}
+      </DialogPrimitive.Root>
     </main>
   );
 }

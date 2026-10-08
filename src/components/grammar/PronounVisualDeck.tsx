@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Volume2, Sparkles, User, Users, ChevronDown, ChevronUp, Lightbulb } from 'lucide-react';
 import { grammarAudio } from '@/lib/grammar/grammarAudioManager';
+import GrammarCardNavigator from './GrammarCardNavigator';
 
 export interface PronounExample {
   en: string;
@@ -433,17 +434,21 @@ interface PronounCardItemProps {
   showDetailForms: boolean;
   activeAudioId: string | null;
   onPlaySpeech: (id: string, text: string, audioUrl?: string) => void;
+  exampleLimit?: number;
 }
 
 function PronounCardItem({
   item,
-  cardIndex,
+  cardIndex: _cardIndex,
   showDetailForms,
   activeAudioId,
   onPlaySpeech,
+  exampleLimit,
 }: PronounCardItemProps) {
   const [activeIdx, setActiveIdx] = useState<number>(0);
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+  const [showAllExamples, setShowAllExamples] = useState(false);
+  const visibleExamples = exampleLimit && !showAllExamples ? item.examples.slice(0, exampleLimit) : item.examples;
 
   const currentIdx = hoveredIdx !== null ? hoveredIdx : activeIdx;
   const currentExample = item.examples[currentIdx] || item.examples[0];
@@ -457,9 +462,9 @@ function PronounCardItem({
         hoveredIdx !== null ? 'z-20' : 'z-10'
       }`}
     >
-      <div>
+      <div className={exampleLimit ? 'sm:grid sm:grid-cols-[0.85fr_1.15fr] sm:items-stretch min-w-0' : undefined}>
         {/* Dynamic Image Stage - Seamlessly switches to hovered/selected example photo */}
-        <div className="relative w-full h-52 sm:h-56 bg-muted/20 overflow-hidden border-b border-border rounded-none">
+        <div className={`relative w-full bg-muted/20 overflow-hidden border-b sm:border-b-0 sm:border-r border-border rounded-none ${exampleLimit ? 'h-52 sm:h-auto sm:min-h-[250px]' : 'h-52 sm:h-56'}`}>
           <Image
             key={currentImage}
             src={currentImage}
@@ -504,14 +509,14 @@ function PronounCardItem({
                 </span>
               </div>
               <span className="text-[11px] font-mono text-muted-foreground uppercase font-semibold">
-                {item.type === 'singular' ? 'Số ít' : 'Số nhiều'}
+                {item.subject === 'You' ? 'Số ít / nhiều' : item.type === 'singular' ? 'Số ít' : 'Số nhiều'}
               </span>
             </div>
           </div>
         </div>
 
         {/* Dynamic Sentence Banner (Direct focus for active sentence with red highlighted keyword) */}
-        <div className="p-3.5 bg-red-500/[0.04] border-b border-border space-y-1 rounded-none">
+        {!exampleLimit && <div className="p-3.5 bg-red-500/[0.04] border-b border-border space-y-1 rounded-none">
           <div className="flex items-center justify-between gap-2 min-w-0">
             <div className="flex items-center gap-2 min-w-0">
               <span className="inline-block w-2 h-2 bg-red-500 shrink-0" />
@@ -539,20 +544,20 @@ function PronounCardItem({
               {currentExample.vi}
             </p>
           )}
-        </div>
+        </div>}
 
         {/* Card Body: 4 Interactive Examples with In-Place Stage Swapping */}
         <div className="p-3.5 space-y-3">
           <div className="space-y-1.5">
             <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
-              <span className="font-semibold text-foreground">Chạm hoặc rê chuột để đổi ảnh & câu:</span>
+              <span className="font-semibold text-foreground">Chọn câu để xem và nghe</span>
               <span className="text-primary font-mono text-[10px] font-bold">
-                {currentIdx + 1}/{item.examples.length}
+                {currentIdx + 1}/{visibleExamples.length}{exampleLimit && !showAllExamples && item.examples.length > exampleLimit ? ` (+${item.examples.length - exampleLimit})` : ''}
               </span>
             </div>
 
             <div className="space-y-1.5">
-              {item.examples.map((ex, exIdx) => {
+              {visibleExamples.map((ex, exIdx) => {
                 const isHovered = hoveredIdx === exIdx;
                 const isSelected = activeIdx === exIdx;
                 const isPlayingThis = activeAudioId === `${item.subject}-${exIdx}`;
@@ -566,7 +571,6 @@ function PronounCardItem({
                       }
                     }}
                     onMouseLeave={() => setHoveredIdx(null)}
-                    onClick={() => setActiveIdx(exIdx)}
                     className={`min-h-[44px] p-2.5 border transition-all duration-150 rounded-none cursor-pointer flex items-center justify-between gap-2 ${
                       isHovered || isSelected
                         ? 'border-red-500 bg-red-500/[0.06] shadow-xs'
@@ -575,7 +579,8 @@ function PronounCardItem({
                         : 'border-border bg-muted/20 hover:bg-muted/40'
                     }`}
                   >
-                    <div className="space-y-0.5 min-w-0 flex-1">
+                    <button type="button" aria-pressed={isSelected} onClick={() => setActiveIdx(exIdx)}
+                      className="space-y-0.5 min-w-0 flex-1 text-left min-h-[44px]">
                       <p className="font-serif text-xs sm:text-sm font-semibold text-foreground leading-snug">
                         <HighlightedSentence
                           text={ex.en}
@@ -587,7 +592,7 @@ function PronounCardItem({
                           {ex.vi}
                         </p>
                       )}
-                    </div>
+                    </button>
 
                     <button
                       type="button"
@@ -611,6 +616,14 @@ function PronounCardItem({
               })}
             </div>
           </div>
+
+          {exampleLimit && item.examples.length > exampleLimit && (
+            <button type="button" aria-expanded={showAllExamples}
+              onClick={() => { setShowAllExamples(!showAllExamples); setActiveIdx(0); setHoveredIdx(null); grammarAudio.stopAll(); }}
+              className="min-h-[44px] w-full text-sm text-primary hover:bg-muted border border-border">
+              {showAllExamples ? 'Thu gọn ví dụ' : `Xem thêm ${item.examples.length - exampleLimit} ví dụ`}
+            </button>
+          )}
 
           {/* Expanded Forms: S, O, Possessive, Reflexive */}
           {showDetailForms && (
@@ -654,7 +667,7 @@ function PronounCardItem({
       {/* Card Footer: Quick Transformation Pill */}
       <div className="px-4 py-2.5 bg-muted/15 border-t border-border flex items-center justify-between text-xs font-mono text-muted-foreground rounded-none">
         <span className="font-medium text-foreground">
-          {item.type === 'singular' ? '● Số ít' : '● Số nhiều'}
+          {item.subject === 'You' ? '● Số ít / nhiều' : item.type === 'singular' ? '● Số ít' : '● Số nhiều'}
         </span>
         <span className="font-bold text-primary">
           {item.forms.subject} ➔ {item.forms.object.split(' ')[0]}
@@ -664,8 +677,9 @@ function PronounCardItem({
   );
 }
 
-export default function PronounVisualDeck({ compact = false }: { compact?: boolean }) {
+export default function PronounVisualDeck({ compact = false, guided = false }: { compact?: boolean; guided?: boolean }) {
   const [filter, setFilter] = useState<'all' | 'singular' | 'plural'>('all');
+  const [cardIndex, setCardIndex] = useState(0);
   const [showDetailForms, setShowDetailForms] = useState(false);
   const [audioState, setAudioState] = useState<{ isPlaying: boolean; activeId: string | null }>({
     isPlaying: false,
@@ -685,6 +699,17 @@ export default function PronounVisualDeck({ compact = false }: { compact?: boole
   const playSpeech = (id: string, text: string, audioUrl?: string) => {
     grammarAudio.play(id, text, audioUrl);
   };
+
+  if (guided) {
+    return (
+      <div className="space-y-3 min-w-0 max-w-3xl mx-auto">
+        <GrammarCardNavigator titles={PRONOUN_VISUAL_ITEMS.map((item) => `${item.subject} — ${item.meaning}`)} index={cardIndex}
+          onChange={(nextIndex) => { grammarAudio.stopAll(); setCardIndex(nextIndex); }} />
+        <PronounCardItem key={PRONOUN_VISUAL_ITEMS[cardIndex].subject} item={PRONOUN_VISUAL_ITEMS[cardIndex]} cardIndex={cardIndex}
+          showDetailForms={false} activeAudioId={audioState.activeId} onPlaySpeech={playSpeech} exampleLimit={2} />
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-5">

@@ -887,3 +887,23 @@
   - `npm run build`: Successful compilation across all 182 routes with Turbopack (Exit code 0).
   - `scripts/apply-p0-migrations.mjs`: Registered `20261007_standardize_grammar_pedagogy.sql`.
 
+## Grammar Theory Guided Card Navigation & Streamlined Reference (2026-10-08)
+
+- **Approval & User Instruction**: User instructed "tiếp tục cho tôi... tập trung vào sửa lý thuyết", "Đề xuất xóa gì cho tôi", "ok", followed by canonical release instruction "deploy đi".
+- **Core Improvements**:
+  1. Guided Card Navigation: Converted guided theory lessons to 1 card/2 examples at a time with `GrammarCardNavigator` (compact 1-row layout, keyboard arrows `←`/`→`, touch targets $\ge 44\text{px}$).
+  2. Fixed Card Header Visibility: In guided mode (`GrammarVisualTopicDeck.tsx`), card titles and badges remain always visible.
+  3. Resolved Generic Synthetic Titles: Synthesizing card titles from formula rows / usage labels.
+  4. Enhanced "Tra cứu thêm": Equipped with "Dấu hiệu nhận biết" (`signals`) and "Quy tắc chi tiết" (`rules`) accordions. Single-column media presentation prevents image squishing.
+  5. Purged Dead Components: Safely removed `GoldenLesson.tsx`, `GrammarMicroCourse.tsx`, `GrammarTopicMicroDeck.tsx`.
+  6. Exercise Drill Bugfix: Restored `canUseErrorClickMode` in `src/lib/grammar-exercises.ts`.
+- **Verification**:
+  - `tsc --noEmit`: Exit code 0 (Pass).
+  - `npx tsx tests/qa/run-all-qa-suites.ts`: 61/61 tests PASS (100%).
+  - `npx tsx tests/grammar/test-unified-grammar-roadmap.ts`: 42/42 tests PASS (100%).
+  - `npm run build`: Successful compilation across all 182 routes with Turbopack (Exit code 0).
+  - `actionlint`: All workflows validated (Exit code 0).
+  - `tests/deploy/ssh-render.test.mjs`: PASS.
+  - `scripts/apply-p0-migrations.mjs`: Syntax check PASS.
+
+

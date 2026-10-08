@@ -7,6 +7,8 @@ import { grammarAudio } from '@/lib/grammar/grammarAudioManager';
 import PronounVisualDeck, { HighlightedSentence } from './PronounVisualDeck';
 import type { GrammarTheoryData } from './GrammarReferenceTable';
 import topicAssetsData from '@/data/grammar-topic-assets.json';
+import GrammarCardNavigator from './GrammarCardNavigator';
+import FormattedText from './FormattedText';
 
 export interface VisualDeckExample {
   en: string;
@@ -977,12 +979,13 @@ export interface GrammarVisualTopicDeckProps {
   topicTitle?: string;
   topicTitleVi?: string;
   theoryData?: GrammarTheoryData | null;
+  guided?: boolean;
 }
 
 export default function GrammarVisualTopicDeck(props: GrammarVisualTopicDeckProps) {
   // 1. Delegate Personal Pronouns before any hooks are invoked
   if (props.topicSlug === 'personal-pronouns') {
-    return <PronounVisualDeck />;
+    return <PronounVisualDeck guided={props.guided} />;
   }
 
   return <GrammarVisualTopicDeckInner {...props} />;
@@ -993,9 +996,10 @@ function GrammarVisualTopicDeckInner({
   topicTitle = '',
   topicTitleVi = '',
   theoryData,
+  guided = false,
 }: GrammarVisualTopicDeckProps) {
   const [activeFilter, setActiveFilter] = useState<string>('all');
-  const [playingAudio, setPlayingAudio] = useState<string | null>(null);
+  const [cardIndex, setCardIndex] = useState(0);
 
   // 2. Check if a curated deck exists for foundational topics
   const curated = CURATED_TOPIC_DECKS[topicSlug];
@@ -1009,8 +1013,6 @@ function GrammarVisualTopicDeckInner({
     const bilingualExamples: Array<{ en?: string; vi?: string }> = theoryData?.bilingual_examples || [];
 
     if (assetsList.length === 0) return [];
-
-    const accentPalette = ['#3b82f6', '#0ea5e9', '#10b981', '#f59e0b', '#f43f5e', '#8b5cf6'];
 
     return assetsList.map((asset, idx) => {
       // Determine caption sentence
@@ -1052,18 +1054,44 @@ function GrammarVisualTopicDeckInner({
       }
 
       // Title & badge
-      const rule = asset.usageAnalysisVi?.rule || '';
-      const ruleShort = rule.split(':')[0].replace(/.*\(|\).*/g, '').trim() || `Tình huống ${idx + 1}`;
+      const rawRule = asset.usageAnalysisVi?.rule || '';
+      let ruleShort = rawRule.split(':')[0].replace(/.*\(|\).*/g, '').trim();
+
+      // Tránh các tiêu đề generic/lặp lại không cung cấp thông tin ngữ pháp
+      const isGeneric = !ruleShort ||
+        ruleShort.includes('Chọn cấu trúc') ||
+        ruleShort.includes('Kiểm tra thành phần') ||
+        ruleShort.includes('Nguyên âm và phụ âm') ||
+        ruleShort.includes('Giữ sự hòa hợp');
+
+      const formulaRow = theoryData?.formula?.rows?.[idx];
+      const usageItem = theoryData?.usage?.[idx];
+
+      if (isGeneric) {
+        if (formulaRow?.form) {
+          ruleShort = String(formulaRow.form);
+        } else if (usageItem?.label) {
+          ruleShort = String(usageItem.label);
+        } else if (captionEn) {
+          ruleShort = captionEn;
+        } else {
+          ruleShort = `Tình huống ${idx + 1}`;
+        }
+      }
+
+      const badgeText = asset.usageAnalysisVi?.rule
+        ? (rawRule.includes(':') ? rawRule.split(':')[0].trim() : 'Tình huống đời thường')
+        : (theoryData?.level ? `Cấp độ ${theoryData.level}` : `Ngữ cảnh ${idx + 1}`);
 
       return {
-        title: ruleShort || `Tình huống thực tế ${idx + 1}`,
-        badge: asset.usageAnalysisVi?.rule ? 'Tình huống đời thường' : `Ngữ cảnh ${idx + 1}`,
+        title: ruleShort || `Tình huống ${idx + 1}`,
+        badge: badgeText,
         category: `cat-${idx}`,
         image: asset.image || '',
         audio: asset.audio,
         examples: examples.slice(0, 4),
         tip: asset.usageAnalysisVi?.commonMistake || asset.usageAnalysisVi?.contextReason || (typeof theoryData?.tips === 'string' ? theoryData.tips : undefined),
-        ruleSummary: asset.usageAnalysisVi?.rule || '',
+        ruleSummary: rawRule || (theoryData?.formula?.rows?.[idx]?.structure ? `Cấu trúc: ${theoryData.formula.rows[idx].structure}` : ''),
       };
     });
   }, [curated, topicSlug, theoryData]);
@@ -1091,6 +1119,19 @@ function GrammarVisualTopicDeckInner({
 
   if (cardsToRender.length === 0) {
     return null;
+  }
+
+  if (guided) {
+    const index = Math.min(cardIndex, cardsToRender.length - 1);
+    const card = cardsToRender[index];
+    return (
+      <div className="space-y-3 min-w-0 max-w-3xl mx-auto">
+        <GrammarCardNavigator titles={cardsToRender.map((item) => item.title)} index={index}
+          onChange={(nextIndex) => { grammarAudio.stopAll(); setCardIndex(nextIndex); }} />
+        <VisualTopicCardItem key={`${topicSlug}-${index}`} card={card} cardIndex={index} topicSlug={topicSlug}
+          activeAudioId={audioState.activeId} onPlaySpeech={playSpeech} exampleLimit={2} />
+      </div>
+    );
   }
 
   return (
@@ -1336,6 +1377,7 @@ interface VisualTopicCardItemProps {
   topicSlug: string;
   activeAudioId: string | null;
   onPlaySpeech: (id: string, text: string, audioUrl?: string) => void;
+  exampleLimit?: number;
 }
 
 function VisualTopicCardItem({
@@ -1344,9 +1386,12 @@ function VisualTopicCardItem({
   topicSlug,
   activeAudioId,
   onPlaySpeech,
+  exampleLimit,
 }: VisualTopicCardItemProps) {
   const [activeIdx, setActiveIdx] = useState<number>(0);
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+  const [showAllExamples, setShowAllExamples] = useState(false);
+  const visibleExamples = exampleLimit && !showAllExamples ? card.examples.slice(0, exampleLimit) : card.examples;
 
   const currentIdx = hoveredIdx !== null ? hoveredIdx : activeIdx;
   const currentExample = card.examples[currentIdx] || card.examples[0];
@@ -1364,21 +1409,25 @@ function VisualTopicCardItem({
         hoveredIdx !== null ? 'z-20' : 'z-10'
       }`}
     >
-      <div>
-        {/* Card Header */}
-        <div className="p-3.5 border-b border-border bg-muted/15 flex items-center justify-between gap-3">
-          <div>
-            <h3 className="text-base font-bold text-foreground tracking-tight">{card.title}</h3>
-            <div className="text-xs text-muted-foreground mt-0.5">{card.badge}</div>
-          </div>
-          <span className="font-mono text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 border border-border bg-background text-muted-foreground rounded-none">
-            Card {cardIndex + 1}
-          </span>
+      {/* Card Header: Luôn hiển thị tên ý và badge để người học định vị bài học */}
+      <div className="p-3 sm:p-3.5 border-b border-border bg-muted/15 flex items-center justify-between gap-3 shrink-0">
+        <div className="min-w-0 flex-1">
+          <h3 className="text-sm sm:text-base font-bold text-foreground tracking-tight truncate">
+            {card.title}
+          </h3>
+          {card.badge && (
+            <div className="text-xs text-muted-foreground mt-0.5 truncate">{card.badge}</div>
+          )}
         </div>
+        <span className="font-mono text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 border border-border bg-background text-muted-foreground rounded-none shrink-0">
+          Ý {cardIndex + 1}
+        </span>
+      </div>
 
+      <div className={exampleLimit ? 'sm:grid sm:grid-cols-[0.85fr_1.15fr] sm:items-stretch min-w-0' : undefined}>
         {/* Dynamic Image Container (Hero Stage with In-Place Swapping) */}
         {currentImage && (
-          <div className="relative w-full h-52 sm:h-56 bg-muted/20 overflow-hidden border-b border-border">
+          <div className={`relative w-full bg-muted/20 overflow-hidden border-b sm:border-b-0 sm:border-r border-border ${exampleLimit ? 'h-48 sm:h-auto sm:min-h-[240px]' : 'h-52 sm:h-56'}`}>
             <Image
               key={currentImage}
               src={currentImage}
@@ -1410,7 +1459,7 @@ function VisualTopicCardItem({
         )}
 
         {/* Dynamic Active Sentence Banner with red highlight */}
-        {currentExample && (
+        {currentExample && !exampleLimit && (
           <div className="p-3.5 bg-red-500/[0.04] border-b border-border space-y-1">
             <div className="flex items-center gap-2 min-w-0">
               <span className="inline-block w-2 h-2 bg-red-500 shrink-0" />
@@ -1432,14 +1481,14 @@ function VisualTopicCardItem({
         {/* Examples List: Touch & Hover In-Place Stage Swap */}
         <div className="p-3.5 space-y-2">
           <div className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground flex items-center justify-between">
-            <span className="font-semibold text-foreground">Chạm hoặc rê chuột để đổi ảnh & câu:</span>
+            <span className="font-semibold text-foreground">Chọn câu để xem và nghe</span>
             <span className="text-primary font-mono text-[10px] font-bold">
-              {currentIdx + 1}/{card.examples.length}
+              {currentIdx + 1}/{visibleExamples.length}{exampleLimit && !showAllExamples && card.examples.length > exampleLimit ? ` (+${card.examples.length - exampleLimit})` : ''}
             </span>
           </div>
 
           <div className="space-y-1.5">
-            {card.examples.map((ex, exIdx) => {
+            {visibleExamples.map((ex, exIdx) => {
               const isSpeaking = activeAudioId === `${card.title}-${exIdx}`;
               const isHovered = hoveredIdx === exIdx;
               const isSelected = activeIdx === exIdx;
@@ -1454,9 +1503,6 @@ function VisualTopicCardItem({
                     }
                   }}
                   onMouseLeave={() => setHoveredIdx(null)}
-                  onClick={() => {
-                    setActiveIdx(exIdx);
-                  }}
                   className={`min-h-[44px] p-2.5 border transition-all duration-150 rounded-none cursor-pointer flex items-center justify-between gap-2 ${
                     isHovered || isSelected
                       ? 'border-red-500 bg-red-500/[0.06] shadow-xs'
@@ -1465,12 +1511,13 @@ function VisualTopicCardItem({
                       : 'border-border/60 bg-muted/10 hover:border-border hover:bg-muted/20'
                   }`}
                 >
-                  <div className="space-y-0.5 min-w-0 flex-1">
+                  <button type="button" aria-pressed={isSelected} onClick={() => setActiveIdx(exIdx)}
+                    className="space-y-0.5 min-w-0 flex-1 text-left min-h-[44px]">
                     <p className="text-xs sm:text-sm font-semibold text-foreground font-sans leading-snug">
                       <HighlightedSentence text={ex.en} highlight={effectiveHighlight} />
                     </p>
                     {ex.vi && <p className="text-[11px] text-muted-foreground leading-snug">{ex.vi}</p>}
-                  </div>
+                  </button>
 
                   <button
                     type="button"
@@ -1493,27 +1540,37 @@ function VisualTopicCardItem({
               );
             })}
           </div>
+          {exampleLimit && card.examples.length > exampleLimit && (
+            <button type="button" aria-expanded={showAllExamples}
+              onClick={() => { setShowAllExamples(!showAllExamples); setActiveIdx(0); setHoveredIdx(null); grammarAudio.stopAll(); }}
+              className="min-h-[44px] w-full text-sm text-primary hover:bg-muted border border-border">
+              {showAllExamples ? 'Thu gọn ví dụ' : `Xem thêm ${card.examples.length - exampleLimit} ví dụ`}
+            </button>
+          )}
         </div>
       </div>
 
       {/* Bottom Tip & Rule Summary */}
-      <div className="p-3.5 pt-0 space-y-2.5">
-        {card.tip && (
-          <div className="p-2.5 bg-amber-500/10 border border-amber-500/30 text-xs text-amber-900 dark:text-amber-200 flex items-start gap-2 rounded-none">
-            <Lightbulb className="h-4 w-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
-            <div className="leading-relaxed">
-              <strong className="font-semibold text-amber-800 dark:text-amber-300">Mẹo nhớ:</strong> {card.tip}
+      {(card.tip || card.ruleSummary) && (
+        <div className="p-3 sm:p-3.5 pt-0 space-y-2">
+          {card.tip && (
+            <div className="p-2.5 bg-amber-500/10 border border-amber-500/30 text-xs text-amber-900 dark:text-amber-200 flex items-start gap-2 rounded-none">
+              <Lightbulb className="h-4 w-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+              <div className="leading-relaxed">
+                <strong className="font-semibold text-amber-800 dark:text-amber-300">Mẹo nhớ: </strong>
+                <FormattedText text={card.tip} />
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
-        {card.ruleSummary && (
-          <div className="font-mono text-[11px] p-2 bg-muted/20 border border-border/70 text-foreground/80 flex items-center gap-1.5 rounded-none">
-            <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0" />
-            <span className="truncate">{card.ruleSummary}</span>
-          </div>
-        )}
-      </div>
+          {card.ruleSummary && (
+            <div className="font-mono text-[11px] p-2 bg-muted/20 border border-border/70 text-foreground/80 flex items-center gap-1.5 rounded-none">
+              <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0" />
+              <span className="break-words leading-tight"><FormattedText text={card.ruleSummary} /></span>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

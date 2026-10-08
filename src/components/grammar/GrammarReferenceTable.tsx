@@ -49,6 +49,8 @@ export interface GrammarTheoryData {
   rules?: GrammarRuleItem[];
   mistakes?: GrammarMistakeItem[];
   signals?: string[];
+  usage?: Array<{ label?: string; en?: string; vi?: string }>;
+  level?: string;
   bilingual_examples?: Array<{ en?: string; vi?: string }>;
   [key: string]: unknown;
 }
