@@ -32,7 +32,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       title: raw.title || topicSlug,
       title_vi: raw.title_vi || '',
       level: raw.level || 'A1',
-      order: raw.order || 1,
+      order: raw.order ?? 1,
       definition: s.definition || '',
       usage: Array.isArray(s.usage) ? s.usage : [],
       formula: s.formula || { rows: [], note: '' },

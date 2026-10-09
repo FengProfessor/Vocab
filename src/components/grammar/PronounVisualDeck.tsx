@@ -41,7 +41,7 @@ export function HighlightedSentence({
   text,
   highlight,
   className = '',
-  highlightClassName = 'text-red-600 dark:text-red-400 font-extrabold uppercase bg-red-500/10 px-1 py-0.5 border border-red-500/30 font-mono tracking-wide',
+  highlightClassName = 'text-primary dark:text-primary font-extrabold uppercase bg-primary/10 px-1 py-0.5 border border-primary/30 font-mono tracking-wide',
 }: {
   text: string;
   highlight?: string;
@@ -53,7 +53,7 @@ export function HighlightedSentence({
   }
 
   const escaped = highlight.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const regex = new RegExp(`(${escaped})`, 'gi');
+  const regex = new RegExp(`\\b(${escaped})\\b`, 'gi');
   const parts = text.split(regex);
 
   return (
@@ -62,7 +62,7 @@ export function HighlightedSentence({
         if (part.toLowerCase() === highlight.toLowerCase()) {
           return (
             <span key={i} className={`inline-block ${highlightClassName}`}>
-              {part.toUpperCase()}
+              {part}
             </span>
           );
         }
@@ -80,36 +80,34 @@ export const PRONOUN_VISUAL_ITEMS: PronounItem[] = [
     type: 'singular',
     person: '1st',
     image: '/grammar/topics/personal-pronouns/v2_i.jpg',
-    audio: '/grammar/topics/personal-pronouns/01.mp3',
     examples: [
       {
         en: 'I am a student.',
         vi: 'Tôi là học sinh.',
         image: '/grammar/topics/personal-pronouns/ex_i_student.jpg',
-        audio: '/grammar/topics/personal-pronouns/01.mp3',
-        highlightWord: 'am',
-        highlightNote: 'Chủ ngữ "I" luôn đi với động từ to be "AM"',
+        highlightWord: 'I',
+        highlightNote: 'I là đại từ nhân xưng đóng vai trò chủ ngữ (S) đứng trước động từ to be',
+      },
+      {
+        en: 'Can you help me?',
+        vi: 'Bạn có thể giúp tôi không?',
+        image: '/grammar/topics/personal-pronouns/real_02_me.jpg',
+        highlightWord: 'me',
+        highlightNote: 'me là đại từ tân ngữ (O) tương ứng của I, đứng sau động từ (help)',
       },
       {
         en: 'I like music.',
         vi: 'Tôi thích âm nhạc.',
         image: '/grammar/topics/personal-pronouns/ex_i_music.jpg',
-        highlightWord: 'like',
-        highlightNote: 'Động từ thường đi với "I" ở hiện tại giữ nguyên mẫu (LIKE)',
+        highlightWord: 'I',
+        highlightNote: 'I là đại từ chủ ngữ ngôi thứ nhất số ít thực hiện hành động (like)',
       },
       {
         en: 'I live in Vietnam.',
         vi: 'Tôi sống ở Việt Nam.',
         image: '/grammar/topics/personal-pronouns/ex_i_vietnam.jpg',
-        highlightWord: 'live',
-        highlightNote: 'Chủ ngữ "I" + động từ nguyên mẫu: I LIVE in...',
-      },
-      {
-        en: 'I can speak English.',
-        vi: 'Tôi có thể nói tiếng Anh.',
-        image: '/grammar/topics/personal-pronouns/ex_i_speak.jpg',
-        highlightWord: 'can speak',
-        highlightNote: 'Từ đặc biệt CAN + động từ giữ nguyên: I CAN SPEAK',
+        highlightWord: 'I',
+        highlightNote: 'I là chủ ngữ đứng đầu câu trước động từ nguyên mẫu (live)',
       },
     ],
     forms: {
@@ -130,36 +128,34 @@ export const PRONOUN_VISUAL_ITEMS: PronounItem[] = [
     type: 'singular',
     person: '2nd',
     image: '/grammar/topics/personal-pronouns/v2_you.jpg',
-    audio: '/grammar/topics/personal-pronouns/03.mp3',
     examples: [
       {
         en: 'You are very kind.',
         vi: 'Bạn rất tốt bụng.',
         image: '/grammar/topics/personal-pronouns/ex_you_kind.jpg',
-        audio: '/grammar/topics/personal-pronouns/03.mp3',
-        highlightWord: 'are',
-        highlightNote: 'Dù là 1 người hay nhiều người, "You" luôn đi với "ARE"',
-      },
-      {
-        en: 'You look happy today!',
-        vi: 'Hôm nay trông bạn thật vui!',
-        image: '/grammar/topics/personal-pronouns/ex_you_happy.jpg',
-        highlightWord: 'look',
-        highlightNote: 'You + từ chỉ cảm giác (LOOK) + tính từ (happy)',
-      },
-      {
-        en: 'Do you speak English?',
-        vi: 'Bạn có nói tiếng Anh không?',
-        image: '/grammar/topics/personal-pronouns/ex_you_speak.jpg',
-        highlightWord: 'speak',
-        highlightNote: 'Câu hỏi thì hiện tại đơn với You: Trợ động từ DO + You + SPEAK',
+        highlightWord: 'You',
+        highlightNote: 'You là đại từ nhân xưng làm chủ ngữ (S) chỉ người nghe',
       },
       {
         en: 'I will call you later.',
         vi: 'Tôi sẽ gọi cho bạn sau nhé.',
         image: '/grammar/topics/personal-pronouns/ex_you_call.jpg',
         highlightWord: 'you',
-        highlightNote: '"You" đứng sau hành động (call) làm người nhận, chữ viết không đổi',
+        highlightNote: 'you là đại từ tân ngữ (O) đứng sau động từ hành động (call)',
+      },
+      {
+        en: 'You look happy today!',
+        vi: 'Hôm nay trông bạn thật vui!',
+        image: '/grammar/topics/personal-pronouns/ex_you_happy.jpg',
+        highlightWord: 'You',
+        highlightNote: 'You là chủ ngữ đứng đầu câu trước động từ chỉ cảm giác (look)',
+      },
+      {
+        en: 'Do you speak English?',
+        vi: 'Bạn có nói tiếng Anh không?',
+        image: '/grammar/topics/personal-pronouns/ex_you_speak.jpg',
+        highlightWord: 'you',
+        highlightNote: 'you là chủ ngữ trong câu hỏi, đứng sau trợ động từ Do',
       },
     ],
     forms: {
@@ -181,36 +177,34 @@ export const PRONOUN_VISUAL_ITEMS: PronounItem[] = [
     person: '3rd',
     gender: 'male',
     image: '/grammar/topics/personal-pronouns/v2_he.jpg',
-    audio: '/grammar/topics/personal-pronouns/04.mp3',
     examples: [
       {
         en: 'He is a good doctor.',
         vi: 'Anh ấy là một bác sĩ giỏi.',
         image: '/grammar/topics/personal-pronouns/ex_he_doctor.jpg',
-        audio: '/grammar/topics/personal-pronouns/04.mp3',
-        highlightWord: 'is',
-        highlightNote: 'Ngôi 3 số ít "He" luôn đi với động từ to be "IS"',
-      },
-      {
-        en: 'He plays football every weekend.',
-        vi: 'Cậu ấy chơi bóng đá mỗi cuối tuần.',
-        image: '/grammar/topics/personal-pronouns/ex_he_football.jpg',
-        highlightWord: 'plays',
-        highlightNote: 'Động từ theo sau "He" ở hiện tại đơn phải thêm -s/es: PLAYS',
-      },
-      {
-        en: 'He is my best friend.',
-        vi: 'Anh ấy là bạn thân của tôi.',
-        image: '/grammar/topics/personal-pronouns/ex_he_friend.jpg',
-        highlightWord: 'is',
-        highlightNote: 'He + IS + cụm danh từ chỉ quan hệ/nghề nghiệp',
+        highlightWord: 'He',
+        highlightNote: 'He là đại từ nhân xưng làm chủ ngữ (S) chỉ một người nam',
       },
       {
         en: 'I saw him at the library.',
         vi: 'Tôi đã gặp anh ấy ở thư viện.',
         image: '/grammar/topics/personal-pronouns/ex_he_library.jpg',
         highlightWord: 'him',
-        highlightNote: 'Tân ngữ của He chuyển thành HIM khi đứng sau động từ',
+        highlightNote: 'him là đại từ tân ngữ (O) tương ứng của He, đứng sau động từ (saw)',
+      },
+      {
+        en: 'He plays football every weekend.',
+        vi: 'Cậu ấy chơi bóng đá mỗi cuối tuần.',
+        image: '/grammar/topics/personal-pronouns/ex_he_football.jpg',
+        highlightWord: 'He',
+        highlightNote: 'He là chủ ngữ ngôi thứ 3 số ít, động từ theo sau thêm -s (plays)',
+      },
+      {
+        en: 'He is my best friend.',
+        vi: 'Anh ấy là bạn thân của tôi.',
+        image: '/grammar/topics/personal-pronouns/ex_he_friend.jpg',
+        highlightWord: 'He',
+        highlightNote: 'He là chủ ngữ ngôi thứ 3 số ít chỉ bạn nam thân thiết',
       },
     ],
     forms: {
@@ -232,36 +226,34 @@ export const PRONOUN_VISUAL_ITEMS: PronounItem[] = [
     person: '3rd',
     gender: 'female',
     image: '/grammar/topics/personal-pronouns/v2_she.jpg',
-    audio: '/grammar/topics/personal-pronouns/05.mp3',
     examples: [
       {
         en: 'She is a friendly teacher.',
         vi: 'Cô ấy là một giáo viên thân thiện.',
         image: '/grammar/topics/personal-pronouns/ex_she_teacher.jpg',
-        audio: '/grammar/topics/personal-pronouns/05.mp3',
-        highlightWord: 'is',
-        highlightNote: 'Ngôi 3 số ít "She" luôn đi với động từ to be "IS"',
-      },
-      {
-        en: 'She loves reading books.',
-        vi: 'Cô ấy rất thích đọc sách.',
-        image: '/grammar/topics/personal-pronouns/ex_she_reading.jpg',
-        highlightWord: 'loves',
-        highlightNote: 'Động từ theo sau "She" phải thêm -s/es: LOVES + V-ing',
-      },
-      {
-        en: 'She speaks English very well.',
-        vi: 'Chị ấy nói tiếng Anh rất giỏi.',
-        image: '/grammar/topics/personal-pronouns/ex_she_speak.jpg',
-        highlightWord: 'speaks',
-        highlightNote: 'Chủ ngữ "She" + động từ thêm -s: SPEAKS',
+        highlightWord: 'She',
+        highlightNote: 'She là đại từ nhân xưng làm chủ ngữ (S) chỉ một người nữ',
       },
       {
         en: 'We invited her to the party.',
         vi: 'Chúng tôi đã mời cô ấy đến bữa tiệc.',
         image: '/grammar/topics/personal-pronouns/ex_she_party.jpg',
         highlightWord: 'her',
-        highlightNote: 'Tân ngữ của She chuyển thành HER khi đứng sau động từ',
+        highlightNote: 'her là đại từ tân ngữ (O) tương ứng của She, đứng sau động từ (invited)',
+      },
+      {
+        en: 'She loves reading books.',
+        vi: 'Cô ấy rất thích đọc sách.',
+        image: '/grammar/topics/personal-pronouns/ex_she_reading.jpg',
+        highlightWord: 'She',
+        highlightNote: 'She là chủ ngữ ngôi thứ 3 số ít đứng đầu câu',
+      },
+      {
+        en: 'She speaks English very well.',
+        vi: 'Chị ấy nói tiếng Anh rất giỏi.',
+        image: '/grammar/topics/personal-pronouns/ex_she_speak.jpg',
+        highlightWord: 'She',
+        highlightNote: 'She là chủ ngữ ngôi thứ 3 số ít, động từ theo sau thêm -s (speaks)',
       },
     ],
     forms: {
@@ -283,36 +275,34 @@ export const PRONOUN_VISUAL_ITEMS: PronounItem[] = [
     person: '3rd',
     gender: 'neutral',
     image: '/grammar/topics/personal-pronouns/v2_it.jpg',
-    audio: '/grammar/topics/personal-pronouns/06.mp3',
     examples: [
       {
         en: 'It is a cute puppy.',
         vi: 'Nó là một chú cún con đáng yêu.',
         image: '/grammar/topics/personal-pronouns/ex_it_puppy.jpg',
-        audio: '/grammar/topics/personal-pronouns/06.mp3',
-        highlightWord: 'is',
-        highlightNote: 'Đại từ chỉ con vật/đồ vật số ít "It" luôn đi với "IS"',
-      },
-      {
-        en: 'It is sunny today.',
-        vi: 'Hôm nay trời nắng đẹp.',
-        image: '/grammar/topics/personal-pronouns/ex_it_sunny.jpg',
-        highlightWord: 'is',
-        highlightNote: 'Chủ ngữ giả "It" dùng để nói về thời tiết: IT IS sunny',
-      },
-      {
-        en: 'It is on the table.',
-        vi: 'Nó ở trên bàn.',
-        image: '/grammar/topics/personal-pronouns/ex_it_table.jpg',
-        highlightWord: 'is',
-        highlightNote: 'It + IS + cụm giới từ chỉ vị trí (on the table)',
+        highlightWord: 'It',
+        highlightNote: 'It là đại từ nhân xưng làm chủ ngữ (S) chỉ một con vật/đồ vật',
       },
       {
         en: 'I really like it.',
         vi: 'Tôi thực sự rất thích nó.',
         image: '/grammar/topics/personal-pronouns/ex_it_gift.jpg',
         highlightWord: 'it',
-        highlightNote: '"It" làm người/vật nhận giữ nguyên dạng viết: like IT',
+        highlightNote: 'it là đại từ tân ngữ (O) chỉ đồ vật, đứng sau động từ (like)',
+      },
+      {
+        en: 'It is sunny today.',
+        vi: 'Hôm nay trời nắng đẹp.',
+        image: '/grammar/topics/personal-pronouns/ex_it_sunny.jpg',
+        highlightWord: 'It',
+        highlightNote: 'It là chủ ngữ giả chỉ thời tiết hoặc hiện tượng tự nhiên',
+      },
+      {
+        en: 'It is on the table.',
+        vi: 'Nó ở trên bàn.',
+        image: '/grammar/topics/personal-pronouns/ex_it_table.jpg',
+        highlightWord: 'It',
+        highlightNote: 'It là chủ ngữ chỉ đồ vật ở vị trí xác định',
       },
     ],
     forms: {
@@ -333,36 +323,34 @@ export const PRONOUN_VISUAL_ITEMS: PronounItem[] = [
     type: 'plural',
     person: '1st',
     image: '/grammar/topics/personal-pronouns/v2_we.jpg',
-    audio: '/grammar/topics/personal-pronouns/07.mp3',
     examples: [
       {
         en: 'We are ready to learn.',
         vi: 'Chúng tôi đã sẵn sàng học.',
         image: '/grammar/topics/personal-pronouns/ex_we_learn.jpg',
-        audio: '/grammar/topics/personal-pronouns/07.mp3',
-        highlightWord: 'are',
-        highlightNote: 'Ngôi 1 số nhiều "We" luôn đi với động từ to be "ARE"',
-      },
-      {
-        en: 'We are a happy family.',
-        vi: 'Chúng tôi là một gia đình hạnh phúc.',
-        image: '/grammar/topics/personal-pronouns/ex_we_family.jpg',
-        highlightWord: 'are',
-        highlightNote: 'We ARE + cụm danh từ số nhiều hoặc danh từ tập hợp',
-      },
-      {
-        en: 'We study English together.',
-        vi: 'Chúng tôi cùng nhau học tiếng Anh.',
-        image: '/grammar/topics/personal-pronouns/ex_we_study.jpg',
-        highlightWord: 'study',
-        highlightNote: 'Chủ ngữ số nhiều "We" đi với động từ nguyên mẫu: STUDY',
+        highlightWord: 'We',
+        highlightNote: 'We là đại từ nhân xưng làm chủ ngữ (S) chỉ nhóm có người nói',
       },
       {
         en: 'The teacher helped us a lot.',
         vi: 'Thầy cô đã giúp đỡ chúng tôi rất nhiều.',
         image: '/grammar/topics/personal-pronouns/ex_we_teacher.jpg',
         highlightWord: 'us',
-        highlightNote: 'Tân ngữ của We chuyển thành US khi đứng sau động từ',
+        highlightNote: 'us là đại từ tân ngữ (O) tương ứng của We, đứng sau động từ (helped)',
+      },
+      {
+        en: 'We are a happy family.',
+        vi: 'Chúng tôi là một gia đình hạnh phúc.',
+        image: '/grammar/topics/personal-pronouns/ex_we_family.jpg',
+        highlightWord: 'We',
+        highlightNote: 'We là chủ ngữ số nhiều ngôi thứ nhất chỉ nhóm người',
+      },
+      {
+        en: 'We study English together.',
+        vi: 'Chúng tôi cùng nhau học tiếng Anh.',
+        image: '/grammar/topics/personal-pronouns/ex_we_study.jpg',
+        highlightWord: 'We',
+        highlightNote: 'We là chủ ngữ số nhiều đứng trước động từ nguyên mẫu (study)',
       },
     ],
     forms: {
@@ -383,36 +371,34 @@ export const PRONOUN_VISUAL_ITEMS: PronounItem[] = [
     type: 'plural',
     person: '3rd',
     image: '/grammar/topics/personal-pronouns/v2_they.jpg',
-    audio: '/grammar/topics/personal-pronouns/08.mp3',
     examples: [
       {
         en: 'They are my classmates.',
         vi: 'Họ là bạn cùng lớp của tôi.',
         image: '/grammar/topics/personal-pronouns/ex_they_class.jpg',
-        audio: '/grammar/topics/personal-pronouns/08.mp3',
-        highlightWord: 'are',
-        highlightNote: 'Ngôi 3 số nhiều "They" luôn đi với động từ to be "ARE"',
-      },
-      {
-        en: 'They are very friendly.',
-        vi: 'Họ rất thân thiện.',
-        image: '/grammar/topics/personal-pronouns/ex_they_friendly.jpg',
-        highlightWord: 'are',
-        highlightNote: 'They + ARE + tính từ mô tả đặc điểm (friendly)',
-      },
-      {
-        en: 'They live near my house.',
-        vi: 'Họ sống ở gần nhà tôi.',
-        image: '/grammar/topics/personal-pronouns/ex_they_house.jpg',
-        highlightWord: 'live',
-        highlightNote: 'Chủ ngữ số nhiều "They" đi với động từ nguyên mẫu: LIVE',
+        highlightWord: 'They',
+        highlightNote: 'They là đại từ nhân xưng làm chủ ngữ (S) chỉ nhiều người/vật khác',
       },
       {
         en: 'I often play games with them.',
         vi: 'Tôi thường chơi trò chơi cùng họ.',
         image: '/grammar/topics/personal-pronouns/ex_they_games.jpg',
         highlightWord: 'them',
-        highlightNote: 'Tân ngữ của They chuyển thành THEM sau giới từ (with)',
+        highlightNote: 'them là đại từ tân ngữ (O) tương ứng của They, đứng sau giới từ (with)',
+      },
+      {
+        en: 'They are very friendly.',
+        vi: 'Họ rất thân thiện.',
+        image: '/grammar/topics/personal-pronouns/ex_they_friendly.jpg',
+        highlightWord: 'They',
+        highlightNote: 'They là chủ ngữ số nhiều ngôi thứ 3',
+      },
+      {
+        en: 'They live near my house.',
+        vi: 'Họ sống ở gần nhà tôi.',
+        image: '/grammar/topics/personal-pronouns/ex_they_house.jpg',
+        highlightWord: 'They',
+        highlightNote: 'They là chủ ngữ số nhiều đứng trước động từ nguyên mẫu (live)',
       },
     ],
     forms: {
@@ -458,105 +444,136 @@ function PronounCardItem({
 
   return (
     <div
-      className={`relative overflow-hidden border border-border bg-card hover:border-foreground/40 transition-all duration-200 flex flex-col justify-between shadow-xs hover:shadow-md rounded-none group ${
+      role="tabpanel"
+      id={`pronoun-panel-${item.subject}`}
+      aria-labelledby={`card-nav-tab-${item.subject}`}
+      className={`relative overflow-hidden border border-border bg-card hover:border-foreground/40 transition-all duration-200 flex flex-col justify-between shadow-xs rounded-none group ${
         hoveredIdx !== null ? 'z-20' : 'z-10'
       }`}
     >
-      <div className={exampleLimit ? 'sm:grid sm:grid-cols-[0.85fr_1.15fr] sm:items-stretch min-w-0' : undefined}>
-        {/* Dynamic Image Stage - Seamlessly switches to hovered/selected example photo */}
-        <div className={`relative w-full bg-muted/20 overflow-hidden border-b sm:border-b-0 sm:border-r border-border rounded-none ${exampleLimit ? 'h-52 sm:h-auto sm:min-h-[250px]' : 'h-52 sm:h-56'}`}>
-          <Image
-            key={currentImage}
-            src={currentImage}
-            alt={`${item.subject} - ${currentExample.en}`}
-            fill
-            className="object-cover transition-all duration-300 group-hover:scale-103 rounded-none"
-            sizes="(max-width: 768px) 100vw, 33vw"
-            unoptimized
-          />
-
-          {/* Top Badge: Person role & Speaker button (Min 44x44px) */}
-          <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between z-10">
-            <span
-              className={`font-mono text-[11px] font-bold uppercase px-2.5 py-1 border backdrop-blur-md shadow-xs rounded-none ${item.badgeBg}`}
-            >
-              {item.role}
+      {/* 1. Core Grammar Transformation Bar: Subject (S) ➔ Object (O) */}
+      <div className="bg-muted/30 border-b border-border px-2.5 sm:px-4 py-1.5 sm:py-2.5 flex items-center justify-between gap-1.5 sm:gap-2 text-xs font-mono shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-2.5 min-w-0">
+          <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground font-semibold">
+            Biến đổi:
+          </span>
+          <div className="flex items-center gap-1 text-[11px] sm:text-xs">
+            <span className="text-muted-foreground uppercase text-[10px] tracking-wider">
+              <span className="hidden sm:inline">Chủ ngữ </span>(S):
             </span>
-            <button
-              type="button"
-              onClick={() => onPlaySpeech(`subject-${item.subject}`, item.subject, item.audio)}
-              className={`min-h-[44px] min-w-[44px] flex items-center justify-center p-2.5 border transition-all shadow-sm rounded-none ${
-                isPlayingSubject
-                  ? 'bg-primary text-primary-foreground scale-105'
-                  : 'bg-background/90 text-foreground hover:bg-primary hover:text-primary-foreground'
-              }`}
-              title={`Nghe phát âm "${item.subject}"`}
-              aria-label={`Nghe phát âm ${item.subject}`}
-            >
-              <Volume2 className="h-4 w-4" />
-            </button>
+            <span className="font-bold text-primary bg-primary/10 border border-primary/30 px-1.5 sm:px-2 py-0.5 text-xs sm:text-sm">
+              {item.subject}
+            </span>
+          </div>
+          <span className="text-muted-foreground font-bold text-xs">➔</span>
+          <div className="flex items-center gap-1 text-[11px] sm:text-xs">
+            <span className="text-muted-foreground uppercase text-[10px] tracking-wider">
+              <span className="hidden sm:inline">Tân ngữ </span>(O):
+            </span>
+            <span className="font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-1.5 sm:px-2 py-0.5 text-xs sm:text-sm">
+              {item.forms.object.split(' ')[0]}
+            </span>
+          </div>
+          <span className="text-xs text-muted-foreground font-sans hidden md:inline truncate">
+            ({item.meaning})
+          </span>
+        </div>
+
+        <div className="flex items-center gap-1 sm:gap-1.5 text-xs font-mono text-muted-foreground shrink-0">
+          <span className="px-1 sm:px-1.5 py-0.5 bg-muted/70 border border-border text-foreground font-medium text-[10px] sm:text-[11px]">
+            {item.subject === 'You' ? 'Số ít/nhiều' : item.type === 'singular' ? 'Số ít' : 'Số nhiều'}
+          </span>
+          <span className="px-1.5 py-0.5 bg-muted/70 border border-border text-[11px] hidden sm:inline">
+            Ngôi {item.person}
+          </span>
+        </div>
+      </div>
+
+      <div className={exampleLimit ? 'sm:grid sm:grid-cols-12 sm:items-stretch min-w-0' : undefined}>
+        {/* Dynamic Image Stage & Memory Tip - Left Column */}
+        <div
+          className={`relative bg-muted/20 overflow-hidden border-b sm:border-b-0 sm:border-r border-border rounded-none flex flex-col justify-between ${
+            exampleLimit ? 'sm:col-span-5' : 'h-48 sm:h-52'
+          }`}
+        >
+          <div className="relative w-full h-40 sm:h-48 md:h-52 overflow-hidden flex-1 min-h-[160px]">
+            <Image
+              key={currentImage}
+              src={currentImage}
+              alt={`${item.subject} - ${currentExample.en}`}
+              fill
+              className="object-cover transition-all duration-300 group-hover:scale-102 rounded-none"
+              sizes="(max-width: 768px) 100vw, 33vw"
+              unoptimized
+            />
+
+            {/* Top Badge: Person role & Speaker button (Min 44x44px touch target) */}
+            <div className="absolute top-2 left-2 right-2 flex items-center justify-between z-10">
+              <span
+                className={`font-mono text-[11px] font-bold uppercase px-2 py-0.5 border backdrop-blur-md shadow-xs rounded-none ${item.badgeBg}`}
+              >
+                {item.role}
+              </span>
+              <button
+                type="button"
+                onClick={() => {
+                  if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+                    try { navigator.vibrate(8); } catch {}
+                  }
+                  onPlaySpeech(`subject-${item.subject}`, item.subject, item.audio);
+                }}
+                className={`min-h-[44px] min-w-[44px] flex items-center justify-center p-2 border transition-all shadow-sm rounded-none touch-manipulation ${
+                  isPlayingSubject
+                    ? 'bg-primary text-primary-foreground scale-105'
+                    : 'bg-background/90 text-foreground hover:bg-primary hover:text-primary-foreground'
+                }`}
+                title={`Nghe phát âm "${item.subject}"`}
+                aria-label={`Nghe phát âm ${item.subject}`}
+              >
+                <Volume2 className="h-4 w-4" />
+              </button>
+            </div>
+
+            {/* Bottom Image Overlay Tag */}
+            <div className="absolute bottom-2 left-2 right-2 z-10">
+              <div className="bg-background/95 backdrop-blur-md border border-border px-2.5 py-1.5 flex items-baseline justify-between shadow-xs rounded-none">
+                <div className="flex items-baseline gap-2">
+                  <span className="font-serif text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+                    {item.subject}
+                  </span>
+                  <span className="font-sans text-xs sm:text-sm font-bold text-primary">
+                    = {item.meaning}
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Bottom Image Overlay Tag: High visibility */}
-          <div className="absolute bottom-2 left-2.5 right-2.5 z-10">
-            <div className="bg-background/95 backdrop-blur-md border border-border p-2.5 flex items-baseline justify-between shadow-sm rounded-none">
-              <div className="flex items-baseline gap-2">
-                <span className="font-serif text-3xl font-extrabold tracking-tight text-foreground">
-                  {item.subject}
-                </span>
-                <span className="font-sans text-sm font-bold text-primary">
-                  = {item.meaning}
-                </span>
-              </div>
-              <span className="text-[11px] font-mono text-muted-foreground uppercase font-semibold">
-                {item.subject === 'You' ? 'Số ít / nhiều' : item.type === 'singular' ? 'Số ít' : 'Số nhiều'}
-              </span>
-            </div>
+          {/* Golden Memory Tip - Anchored in left column */}
+          <div className="p-2 sm:p-2.5 bg-amber-500/[0.08] border-t border-amber-500/30 flex items-start gap-2 text-xs shrink-0">
+            <Lightbulb className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+            <span className="text-[11px] text-foreground/90 font-sans leading-relaxed">
+              <strong className="text-amber-800 dark:text-amber-300 font-semibold">Ghi nhớ: </strong>
+              {item.tip}
+            </span>
           </div>
         </div>
 
-        {/* Dynamic Sentence Banner (Direct focus for active sentence with red highlighted keyword) */}
-        {!exampleLimit && <div className="p-3.5 bg-red-500/[0.04] border-b border-border space-y-1 rounded-none">
-          <div className="flex items-center justify-between gap-2 min-w-0">
-            <div className="flex items-center gap-2 min-w-0">
-              <span className="inline-block w-2 h-2 bg-red-500 shrink-0" />
-              <span className="font-serif text-sm sm:text-base font-bold text-foreground">
-                <HighlightedSentence
-                  text={currentExample.en}
-                  highlight={currentExample.highlightWord}
-                />
-              </span>
-            </div>
-            <button
-              type="button"
-              onClick={() => onPlaySpeech(`${item.subject}-${currentIdx}`, currentExample.en, currentExample.audio || (currentIdx === 0 ? item.audio : undefined))}
-              className={`min-h-[44px] min-w-[44px] flex items-center justify-center p-2 rounded-none transition-colors shrink-0 ${
-                isPlayingCurrent ? 'text-red-600 animate-pulse' : 'text-foreground hover:text-red-600'
-              }`}
-              title="Nghe câu ví dụ này"
-              aria-label={`Nghe câu: ${currentExample.en}`}
-            >
-              <Volume2 className="h-4 w-4" />
-            </button>
-          </div>
-          {currentExample.vi && (
-            <p className="text-xs text-muted-foreground font-sans pl-4">
-              {currentExample.vi}
-            </p>
-          )}
-        </div>}
-
-        {/* Card Body: 4 Interactive Examples with In-Place Stage Swapping */}
-        <div className="p-3.5 space-y-3">
+        {/* Card Body: All 4 Interactive Examples */}
+        <div
+          className={`p-2.5 sm:p-3 flex flex-col justify-between gap-1.5 ${
+            exampleLimit ? 'sm:col-span-7' : 'space-y-3'
+          }`}
+        >
           <div className="space-y-1.5">
-            <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
-              <span className="font-semibold text-foreground">Chọn câu để xem và nghe</span>
+            <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-wider text-muted-foreground pb-0.5">
+              <span className="font-semibold text-foreground">4 ví dụ song ngữ</span>
               <span className="text-primary font-mono text-[10px] font-bold">
-                {currentIdx + 1}/{visibleExamples.length}{exampleLimit && !showAllExamples && item.examples.length > exampleLimit ? ` (+${item.examples.length - exampleLimit})` : ''}
+                {currentIdx + 1}/4 câu
               </span>
             </div>
 
-            <div className="space-y-1.5">
+            <div className="space-y-1">
               {visibleExamples.map((ex, exIdx) => {
                 const isHovered = hoveredIdx === exIdx;
                 const isSelected = activeIdx === exIdx;
@@ -571,107 +588,66 @@ function PronounCardItem({
                       }
                     }}
                     onMouseLeave={() => setHoveredIdx(null)}
-                    className={`min-h-[44px] p-2.5 border transition-all duration-150 rounded-none cursor-pointer flex items-center justify-between gap-2 ${
+                    onClick={() => {
+                      if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+                        try { navigator.vibrate(8); } catch {}
+                      }
+                      setActiveIdx(exIdx);
+                      onPlaySpeech(
+                        `${item.subject}-${exIdx}`,
+                        ex.en,
+                        ex.audio || (exIdx === 0 ? item.audio : undefined)
+                      );
+                    }}
+                    className={`min-h-[40px] px-2.5 py-1.5 border transition-all duration-150 rounded-none cursor-pointer flex items-center justify-between gap-2 touch-manipulation ${
                       isHovered || isSelected
-                        ? 'border-red-500 bg-red-500/[0.06] shadow-xs'
+                        ? 'border-primary bg-primary/[0.08] shadow-xs ring-1 ring-primary/25'
                         : isPlayingThis
-                        ? 'border-primary bg-primary/10'
+                        ? 'border-emerald-500 bg-emerald-500/10'
                         : 'border-border bg-muted/20 hover:bg-muted/40'
                     }`}
                   >
-                    <button type="button" aria-pressed={isSelected} onClick={() => setActiveIdx(exIdx)}
-                      className="space-y-0.5 min-w-0 flex-1 text-left min-h-[44px]">
+                    <div className="space-y-0.5 min-w-0 flex-1 text-left">
                       <p className="font-serif text-xs sm:text-sm font-semibold text-foreground leading-snug">
-                        <HighlightedSentence
-                          text={ex.en}
-                          highlight={ex.highlightWord}
-                        />
+                        <HighlightedSentence text={ex.en} highlight={ex.highlightWord} />
                       </p>
                       {ex.vi && (
-                        <p className="text-[11px] text-muted-foreground font-sans leading-snug">
+                        <p className="text-[11px] text-muted-foreground font-sans leading-tight">
                           {ex.vi}
                         </p>
                       )}
-                    </button>
+                    </div>
 
                     <button
                       type="button"
                       onClick={(e) => {
                         e.stopPropagation();
+                        if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+                          try { navigator.vibrate(8); } catch {}
+                        }
                         setActiveIdx(exIdx);
-                        onPlaySpeech(`${item.subject}-${exIdx}`, ex.en, ex.audio || (exIdx === 0 ? item.audio : undefined));
+                        onPlaySpeech(
+                          `${item.subject}-${exIdx}`,
+                          ex.en,
+                          ex.audio || (exIdx === 0 ? item.audio : undefined)
+                        );
                       }}
-                      className={`min-h-[44px] min-w-[44px] flex items-center justify-center p-2 rounded-none shrink-0 transition-colors ${
-                        isPlayingThis || isHovered
-                          ? 'text-red-600'
-                          : 'text-muted-foreground hover:text-foreground'
+                      className={`min-h-[36px] min-w-[36px] flex items-center justify-center p-1.5 rounded-none shrink-0 transition-colors touch-manipulation ${
+                        isPlayingThis || isSelected
+                          ? 'bg-primary text-primary-foreground border border-primary'
+                          : 'text-muted-foreground hover:text-foreground border border-transparent hover:border-border hover:bg-muted'
                       }`}
                       title="Nghe phát âm câu này"
                       aria-label={`Nghe câu: ${ex.en}`}
                     >
-                      <Volume2 className="h-4 w-4" />
+                      <Volume2 className="h-3.5 w-3.5" />
                     </button>
                   </div>
                 );
               })}
             </div>
           </div>
-
-          {exampleLimit && item.examples.length > exampleLimit && (
-            <button type="button" aria-expanded={showAllExamples}
-              onClick={() => { setShowAllExamples(!showAllExamples); setActiveIdx(0); setHoveredIdx(null); grammarAudio.stopAll(); }}
-              className="min-h-[44px] w-full text-sm text-primary hover:bg-muted border border-border">
-              {showAllExamples ? 'Thu gọn ví dụ' : `Xem thêm ${item.examples.length - exampleLimit} ví dụ`}
-            </button>
-          )}
-
-          {/* Expanded Forms: S, O, Possessive, Reflexive */}
-          {showDetailForms && (
-            <div className="space-y-1.5 pt-2 text-xs font-mono border-t border-border rounded-none">
-              <div className="flex items-center justify-between py-1 border-b border-border/50">
-                <span className="text-muted-foreground">Chủ ngữ (S):</span>
-                <strong className="text-primary font-bold text-sm">{item.forms.subject}</strong>
-              </div>
-              <div className="flex items-center justify-between py-1 border-b border-border/50">
-                <span className="text-muted-foreground">Tân ngữ (O):</span>
-                <strong className="text-emerald-700 dark:text-emerald-400 font-bold text-sm">
-                  {item.forms.object}
-                </strong>
-              </div>
-              <div className="flex items-center justify-between py-1 border-b border-border/50">
-                <span className="text-muted-foreground">Tính từ sở hữu:</span>
-                <span className="font-medium text-foreground">{item.forms.possessiveAdj}</span>
-              </div>
-              <div className="flex items-center justify-between py-1 border-b border-border/50">
-                <span className="text-muted-foreground">Đại từ sở hữu:</span>
-                <span className="font-medium text-foreground">{item.forms.possessivePronoun}</span>
-              </div>
-              <div className="flex items-center justify-between py-1">
-                <span className="text-muted-foreground">Phản thân:</span>
-                <span className="text-foreground">{item.forms.reflexive}</span>
-              </div>
-            </div>
-          )}
-
-          {/* Golden Memory Tip */}
-          <div className="p-2.5 bg-amber-500/[0.06] border border-amber-500/30 flex items-start gap-2 text-xs rounded-none">
-            <Lightbulb className="h-4 w-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
-            <span className="text-[11px] text-foreground/90 font-sans leading-relaxed">
-              <strong className="text-amber-800 dark:text-amber-300">Ghi nhớ: </strong>
-              {item.tip}
-            </span>
-          </div>
         </div>
-      </div>
-
-      {/* Card Footer: Quick Transformation Pill */}
-      <div className="px-4 py-2.5 bg-muted/15 border-t border-border flex items-center justify-between text-xs font-mono text-muted-foreground rounded-none">
-        <span className="font-medium text-foreground">
-          {item.subject === 'You' ? '● Số ít / nhiều' : item.type === 'singular' ? '● Số ít' : '● Số nhiều'}
-        </span>
-        <span className="font-bold text-primary">
-          {item.forms.subject} ➔ {item.forms.object.split(' ')[0]}
-        </span>
       </div>
     </div>
   );
@@ -702,11 +678,25 @@ export default function PronounVisualDeck({ compact = false, guided = false }: {
 
   if (guided) {
     return (
-      <div className="space-y-3 min-w-0 max-w-3xl mx-auto">
-        <GrammarCardNavigator titles={PRONOUN_VISUAL_ITEMS.map((item) => `${item.subject} — ${item.meaning}`)} index={cardIndex}
-          onChange={(nextIndex) => { grammarAudio.stopAll(); setCardIndex(nextIndex); }} />
-        <PronounCardItem key={PRONOUN_VISUAL_ITEMS[cardIndex].subject} item={PRONOUN_VISUAL_ITEMS[cardIndex]} cardIndex={cardIndex}
-          showDetailForms={false} activeAudioId={audioState.activeId} onPlaySpeech={playSpeech} exampleLimit={2} />
+      <div className="space-y-2.5 min-w-0 max-w-4xl mx-auto">
+        <GrammarCardNavigator
+          titles={PRONOUN_VISUAL_ITEMS.map((item) => `${item.subject} — ${item.meaning}`)}
+          pills={PRONOUN_VISUAL_ITEMS.map((item) => item.subject)}
+          index={cardIndex}
+          onChange={(nextIndex) => {
+            grammarAudio.stopAll();
+            setCardIndex(nextIndex);
+          }}
+        />
+        <PronounCardItem
+          key={PRONOUN_VISUAL_ITEMS[cardIndex].subject}
+          item={PRONOUN_VISUAL_ITEMS[cardIndex]}
+          cardIndex={cardIndex}
+          showDetailForms={false}
+          activeAudioId={audioState.activeId}
+          onPlaySpeech={playSpeech}
+          exampleLimit={4}
+        />
       </div>
     );
   }
@@ -721,7 +711,7 @@ export default function PronounVisualDeck({ compact = false, guided = false }: {
             <span>Khám phá 7 Đại từ nhân xưng qua Ảnh sắc nét & Ví dụ đơn giản</span>
           </div>
           <p className="text-xs text-muted-foreground mt-1">
-            Chạm hoặc rê chuột vào từng câu để đổi ảnh minh họa và từ khóa ngữ pháp được nhấn mạnh màu đỏ
+            Chạm hoặc rê chuột vào từng câu để đổi ảnh minh họa và từ khóa ngữ pháp được nhấn mạnh trực quan
           </p>
         </div>
 
@@ -731,7 +721,7 @@ export default function PronounVisualDeck({ compact = false, guided = false }: {
             <button
               type="button"
               onClick={() => setFilter('all')}
-              className={`min-h-[36px] sm:min-h-[44px] px-3 py-1.5 transition-colors rounded-none flex items-center justify-center ${
+              className={`min-h-[36px] sm:min-h-[44px] px-3 py-1.5 transition-colors rounded-none flex items-center justify-center touch-manipulation ${
                 filter === 'all'
                   ? 'bg-foreground text-background font-bold'
                   : 'text-muted-foreground hover:text-foreground'
@@ -742,7 +732,7 @@ export default function PronounVisualDeck({ compact = false, guided = false }: {
             <button
               type="button"
               onClick={() => setFilter('singular')}
-              className={`min-h-[36px] sm:min-h-[44px] px-3 py-1.5 transition-colors flex items-center justify-center gap-1 rounded-none ${
+              className={`min-h-[36px] sm:min-h-[44px] px-3 py-1.5 transition-colors flex items-center justify-center gap-1 rounded-none touch-manipulation ${
                 filter === 'singular'
                   ? 'bg-foreground text-background font-bold'
                   : 'text-muted-foreground hover:text-foreground'
@@ -754,7 +744,7 @@ export default function PronounVisualDeck({ compact = false, guided = false }: {
             <button
               type="button"
               onClick={() => setFilter('plural')}
-              className={`min-h-[36px] sm:min-h-[44px] px-3 py-1.5 transition-colors flex items-center justify-center gap-1 rounded-none ${
+              className={`min-h-[36px] sm:min-h-[44px] px-3 py-1.5 transition-colors flex items-center justify-center gap-1 rounded-none touch-manipulation ${
                 filter === 'plural'
                   ? 'bg-foreground text-background font-bold'
                   : 'text-muted-foreground hover:text-foreground'
@@ -769,7 +759,7 @@ export default function PronounVisualDeck({ compact = false, guided = false }: {
           <button
             type="button"
             onClick={() => setShowDetailForms(!showDetailForms)}
-            className={`min-h-[36px] sm:min-h-[44px] border px-3 py-1.5 font-mono text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-1 shadow-xs rounded-none ${
+            className={`min-h-[36px] sm:min-h-[44px] border px-3 py-1.5 font-mono text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-1 shadow-xs rounded-none touch-manipulation ${
               showDetailForms
                 ? 'border-primary bg-primary text-primary-foreground font-semibold'
                 : 'border-border bg-background text-muted-foreground hover:text-foreground'

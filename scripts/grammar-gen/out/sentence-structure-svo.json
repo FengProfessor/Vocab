@@ -1,0 +1,695 @@
+{
+  "slug": "sentence-structure-svo",
+  "title": "Sentence Structure (S + V + O)",
+  "title_vi": "Cấu trúc câu căn bản (S + V + O)",
+  "level": "A0",
+  "order": 0,
+  "sections": {
+    "definition": "Cấu trúc **S + V + O (Chủ ngữ + Động từ + Tân ngữ)** là khung xương sống cơ bản nhất của mọi câu đơn trong tiếng Anh. Một câu tiếng Anh hoàn chỉnh giống như một đoàn tàu gồm 3 toa gắn liền nhau: **S (Chủ ngữ)** trả lời câu hỏi *'Ai làm?'*, **V (Động từ)** trả lời *'Làm gì?'*, và **O (Tân ngữ)** trả lời *'Tác động vào cái gì hoặc ai?'*. Trật tự này tương đồng trực giác 1:1 với tiếng Việt qua câu kinh điển: **TÔI [S] + ĂN [V] + CƠM [O]** tương đương **I [S] + eat [V] + rice [O]**.",
+    "usage": [
+      {
+        "icon": "🍚",
+        "label": "Ăn uống & Nhu cầu thiết yếu",
+        "en": "I eat rice.",
+        "vi": "Tôi ăn cơm."
+      },
+      {
+        "icon": "📚",
+        "label": "Sinh hoạt & Sở thích hàng ngày",
+        "en": "I read books.",
+        "vi": "Tôi đọc sách."
+      },
+      {
+        "icon": "💼",
+        "label": "Học tập & Công việc",
+        "en": "We learn English.",
+        "vi": "Chúng tôi học tiếng Anh."
+      },
+      {
+        "icon": "🤝",
+        "label": "Tương tác người với người (Cầu nối đại từ)",
+        "en": "I love you.",
+        "vi": "Tôi yêu bạn."
+      }
+    ],
+    "formula": {
+      "rows": [
+        {
+          "form": "Câu có tân ngữ (Ngoại động từ)",
+          "structure": "S (Chủ ngữ) + V (Động từ) + O (Tân ngữ)",
+          "example": "I eat rice."
+        },
+        {
+          "form": "Câu không có tân ngữ (Nội động từ)",
+          "structure": "S (Chủ ngữ) + V (Động từ)",
+          "example": "They sleep."
+        },
+        {
+          "form": "Cầu nối chuyển đổi Đại từ",
+          "structure": "S (Đại từ chủ ngữ) + V + O (Đại từ tân ngữ)",
+          "example": "He helps me."
+        }
+      ],
+      "note": "Nguyên tắc cốt lõi: Câu tiếng Anh bắt buộc phải có đủ Chủ ngữ (S) và Động từ (V). Khác với tiếng Việt thường nói trống không trong giao tiếp hàng ngày, tiếng Anh luôn phải có chủ ngữ đứng trước động từ."
+    },
+    "rules": [
+      {
+        "case": "Trật tự 3 khối cố định",
+        "rule": "Luôn xếp theo đúng thứ tự: [Ai làm] ➔ [Làm gì] ➔ [Cái gì/Ai nhận hành động]. Tuyệt đối không đảo tân ngữ lên trước động từ.",
+        "example": "I drink water (Không nói: Water I drink hay Drink I water)."
+      },
+      {
+        "case": "Chuyển đổi hình thái đại từ giữa S và O",
+        "rule": "Đại từ làm Chủ ngữ đứng trước động từ dùng: I, You, He, She, It, We, They. Khi bị đẩy xuống làm Tân ngữ sau động từ phải đổi thành: me, you, him, her, it, us, them.",
+        "example": "Tôi giúp anh ấy (I help him) ➔ Anh ấy giúp tôi (He helps me)."
+      },
+      {
+        "case": "Nguyên tắc không bỏ rơi Chủ ngữ (S)",
+        "rule": "Trong tiếng Anh không có câu nói trống không. Mọi hành động đều phải có một chủ thể thực hiện đứng đầu câu.",
+        "example": "It is raining (Trời đang mưa — bắt buộc có chủ ngữ giả 'It')."
+      },
+      {
+        "case": "Tân ngữ có thể là danh từ hoặc đại từ",
+        "rule": "Tân ngữ [O] đứng ngay sau động từ hành động để trả lời câu hỏi 'Làm gì?', 'Ăn gì?', 'Giúp ai?'. Tân ngữ có thể là một danh từ hoặc một đại từ tân ngữ.",
+        "example": "We watch TV (TV là danh từ); She helps us (us là đại từ)."
+      }
+    ],
+    "signals": [
+      "Chủ ngữ (S): Đứng trước động từ, trả lời 'Ai / Con gì / Cái gì?'",
+      "Động từ (V): Đứng sau S, diễn tả hành động hoặc trạng thái",
+      "Tân ngữ (O): Đứng sau V, chịu tác động của hành động",
+      "Trật tự câu kể khẳng định: S + V + O",
+      "Cặp đại từ đối ứng S-O: I-me, he-him, she-her, we-us, they-them"
+    ],
+    "examples": [
+      {
+        "en": "I eat rice.",
+        "vi": "Tôi ăn cơm.",
+        "note": "Nhóm 1: Ăn uống. [S]=I (Chủ ngữ) | [V]=eat (Động từ) | [O]=rice (Tân ngữ). Trật tự từ giống hệt tiếng Việt.",
+        "category": "Ăn uống & Nhu cầu thiết yếu",
+        "annotations": [
+          { "word": "I", "start": 0, "end": 1, "role": "pronoun" },
+          { "word": "eat", "start": 2, "end": 5, "role": "verb" },
+          { "word": "rice", "start": 6, "end": 10, "role": "noun" }
+        ]
+      },
+      {
+        "en": "I drink water.",
+        "vi": "Tôi uống nước.",
+        "note": "Nhóm 1: Ăn uống. [S]=I (Chủ ngữ) | [V]=drink (Động từ) | [O]=water (Tân ngữ).",
+        "category": "Ăn uống & Nhu cầu thiết yếu",
+        "annotations": [
+          { "word": "I", "start": 0, "end": 1, "role": "pronoun" },
+          { "word": "drink", "start": 2, "end": 7, "role": "verb" },
+          { "word": "water", "start": 8, "end": 13, "role": "noun" }
+        ]
+      },
+      {
+        "en": "We eat bread.",
+        "vi": "Chúng tôi ăn bánh mì.",
+        "note": "Nhóm 1: Ăn uống. [S]=We (Chủ ngữ số nhiều) | [V]=eat (Động từ) | [O]=bread (Tân ngữ).",
+        "category": "Ăn uống & Nhu cầu thiết yếu",
+        "annotations": [
+          { "word": "We", "start": 0, "end": 2, "role": "pronoun" },
+          { "word": "eat", "start": 3, "end": 6, "role": "verb" },
+          { "word": "bread", "start": 7, "end": 12, "role": "noun" }
+        ]
+      },
+      {
+        "en": "They drink coffee.",
+        "vi": "Họ uống cà phê.",
+        "note": "Nhóm 1: Ăn uống. [S]=They (Chủ ngữ) | [V]=drink (Động từ) | [O]=coffee (Tân ngữ).",
+        "category": "Ăn uống & Nhu cầu thiết yếu",
+        "annotations": [
+          { "word": "They", "start": 0, "end": 4, "role": "pronoun" },
+          { "word": "drink", "start": 5, "end": 10, "role": "verb" },
+          { "word": "coffee", "start": 11, "end": 17, "role": "noun" }
+        ]
+      },
+      {
+        "en": "I read books.",
+        "vi": "Tôi đọc sách.",
+        "note": "Nhóm 2: Sinh hoạt. [S]=I (Chủ ngữ) | [V]=read (Động từ) | [O]=books (Tân ngữ danh từ số nhiều).",
+        "category": "Sinh hoạt & Sở thích hàng ngày",
+        "annotations": [
+          { "word": "I", "start": 0, "end": 1, "role": "pronoun" },
+          { "word": "read", "start": 2, "end": 6, "role": "verb" },
+          { "word": "books", "start": 7, "end": 12, "role": "noun" }
+        ]
+      },
+      {
+        "en": "You listen to music.",
+        "vi": "Bạn nghe nhạc.",
+        "note": "Nhóm 2: Sinh hoạt. [S]=You (Chủ ngữ) | [V]=listen to (Cụm động từ) | [O]=music (Tân ngữ).",
+        "category": "Sinh hoạt & Sở thích hàng ngày",
+        "annotations": [
+          { "word": "You", "start": 0, "end": 3, "role": "pronoun" },
+          { "word": "listen", "start": 4, "end": 10, "role": "verb" },
+          { "word": "to", "start": 11, "end": 13, "role": "preposition" },
+          { "word": "music", "start": 14, "end": 19, "role": "noun" }
+        ]
+      },
+      {
+        "en": "We watch TV.",
+        "vi": "Chúng tôi xem tivi.",
+        "note": "Nhóm 2: Sinh hoạt. [S]=We (Chủ ngữ) | [V]=watch (Động từ) | [O]=TV (Tân ngữ).",
+        "category": "Sinh hoạt & Sở thích hàng ngày",
+        "annotations": [
+          { "word": "We", "start": 0, "end": 2, "role": "pronoun" },
+          { "word": "watch", "start": 3, "end": 8, "role": "verb" },
+          { "word": "TV", "start": 9, "end": 11, "role": "noun" }
+        ]
+      },
+      {
+        "en": "They play football.",
+        "vi": "Họ chơi bóng đá.",
+        "note": "Nhóm 2: Sinh hoạt. [S]=They (Chủ ngữ) | [V]=play (Động từ) | [O]=football (Tân ngữ môn thể thao).",
+        "category": "Sinh hoạt & Sở thích hàng ngày",
+        "annotations": [
+          { "word": "They", "start": 0, "end": 4, "role": "pronoun" },
+          { "word": "play", "start": 5, "end": 9, "role": "verb" },
+          { "word": "football", "start": 10, "end": 18, "role": "noun" }
+        ]
+      },
+      {
+        "en": "We learn English.",
+        "vi": "Chúng tôi học tiếng Anh.",
+        "note": "Nhóm 3: Học tập & Công việc. [S]=We (Chủ ngữ) | [V]=learn (Động từ) | [O]=English (Tân ngữ danh từ chỉ ngôn ngữ).",
+        "category": "Học tập & Công việc",
+        "annotations": [
+          { "word": "We", "start": 0, "end": 2, "role": "pronoun" },
+          { "word": "learn", "start": 3, "end": 8, "role": "verb" },
+          { "word": "English", "start": 9, "end": 16, "role": "noun" }
+        ]
+      },
+      {
+        "en": "She teaches math.",
+        "vi": "Cô ấy dạy toán.",
+        "note": "Nhóm 3: Học tập & Công việc. [S]=She (Chủ ngữ ngôi thứ 3 số ít) | [V]=teaches (Động từ thêm -es) | [O]=math (Tân ngữ).",
+        "category": "Học tập & Công việc",
+        "annotations": [
+          { "word": "She", "start": 0, "end": 3, "role": "pronoun" },
+          { "word": "teaches", "start": 4, "end": 11, "role": "verb" },
+          { "word": "math", "start": 12, "end": 16, "role": "noun" }
+        ]
+      },
+      {
+        "en": "My father drives a car.",
+        "vi": "Bố tôi lái xe hơi.",
+        "note": "Nhóm 3: Học tập & Công việc. [S]=My father (Cụm chủ ngữ) | [V]=drives (Động từ) | [O]=a car (Cụm tân ngữ).",
+        "category": "Học tập & Công việc",
+        "annotations": [
+          { "word": "My", "start": 0, "end": 2, "role": "determiner" },
+          { "word": "father", "start": 3, "end": 9, "role": "noun" },
+          { "word": "drives", "start": 10, "end": 16, "role": "verb" },
+          { "word": "a", "start": 17, "end": 18, "role": "article" },
+          { "word": "car", "start": 19, "end": 22, "role": "noun" }
+        ]
+      },
+      {
+        "en": "My mother cooks dinner.",
+        "vi": "Mẹ tôi nấu bữa tối.",
+        "note": "Nhóm 3: Học tập & Công việc. [S]=My mother (Cụm chủ ngữ) | [V]=cooks (Động từ) | [O]=dinner (Tân ngữ).",
+        "category": "Học tập & Công việc",
+        "annotations": [
+          { "word": "My", "start": 0, "end": 2, "role": "determiner" },
+          { "word": "mother", "start": 3, "end": 9, "role": "noun" },
+          { "word": "cooks", "start": 10, "end": 15, "role": "verb" },
+          { "word": "dinner", "start": 16, "end": 22, "role": "noun" }
+        ]
+      },
+      {
+        "en": "I love you.",
+        "vi": "Tôi yêu bạn.",
+        "note": "Nhóm 4: Tương tác người. [S]=I (Chủ ngữ là đại từ 'Tôi') | [V]=love (Động từ) | [O]=you (Tân ngữ).",
+        "category": "Tương tác giữa người với người (Cầu nối đại từ)",
+        "annotations": [
+          { "word": "I", "start": 0, "end": 1, "role": "pronoun" },
+          { "word": "love", "start": 2, "end": 6, "role": "verb" },
+          { "word": "you", "start": 7, "end": 10, "role": "pronoun" }
+        ]
+      },
+      {
+        "en": "You love me.",
+        "vi": "Bạn yêu tôi.",
+        "note": "Nhóm 4: Cầu nối đổi dạng. Khi 'Tôi' bị đẩy xuống vị trí nhận hành động [O], tiếng Anh đổi từ 'I' thành 'me'.",
+        "category": "Tương tác giữa người với người (Cầu nối đại từ)",
+        "annotations": [
+          { "word": "You", "start": 0, "end": 3, "role": "pronoun" },
+          { "word": "love", "start": 4, "end": 8, "role": "verb" },
+          { "word": "me", "start": 9, "end": 11, "role": "pronoun" }
+        ]
+      },
+      {
+        "en": "I help him.",
+        "vi": "Tôi giúp anh ấy.",
+        "note": "Nhóm 4: Tương tác người. [S]=I (Chủ ngữ) | [V]=help (Động từ) | [O]=him (Tân ngữ dạng của 'he').",
+        "category": "Tương tác giữa người với người (Cầu nối đại từ)",
+        "annotations": [
+          { "word": "I", "start": 0, "end": 1, "role": "pronoun" },
+          { "word": "help", "start": 2, "end": 6, "role": "verb" },
+          { "word": "him", "start": 7, "end": 10, "role": "pronoun" }
+        ]
+      },
+      {
+        "en": "He helps me.",
+        "vi": "Anh ấy giúp tôi.",
+        "note": "Nhóm 4: Cầu nối đổi dạng. 'Anh ấy' làm chủ ngữ dùng 'He'; 'tôi' làm tân ngữ nhận sự giúp đỡ dùng 'me'.",
+        "category": "Tương tác giữa người với người (Cầu nối đại từ)",
+        "annotations": [
+          { "word": "He", "start": 0, "end": 2, "role": "pronoun" },
+          { "word": "helps", "start": 3, "end": 8, "role": "verb" },
+          { "word": "me", "start": 9, "end": 11, "role": "pronoun" }
+        ]
+      }
+    ],
+    "mistakes": [
+      {
+        "wrong": "Eat rice.",
+        "right": "I eat rice.",
+        "why": "Thói quen tiếng Việt hay nói cộc lốc 'Ăn cơm'. Trong tiếng Anh, bắt buộc phải có Chủ ngữ (S) đứng trước động từ để xác định ai làm hành động."
+      },
+      {
+        "wrong": "I rice eat.",
+        "right": "I eat rice.",
+        "why": "Đặt tân ngữ lên trước động từ là sai cấu trúc cú pháp tiếng Anh. Trật tự bắt buộc phải là S + V + O (Động từ 'eat' đứng trước tân ngữ 'rice')."
+      },
+      {
+        "wrong": "He helps I.",
+        "right": "He helps me.",
+        "why": "'I' chỉ đứng ở vị trí Chủ ngữ [S]. Khi đứng sau động từ ở vị trí Tân ngữ [O] nhận hành động, bắt buộc phải đổi sang dạng tân ngữ 'me'."
+      },
+      {
+        "wrong": "Him loves she.",
+        "right": "He loves her.",
+        "why": "Vị trí chủ ngữ phải dùng đại từ chủ ngữ (He), vị trí tân ngữ phải dùng đại từ tân ngữ (her). Tuyệt đối không dùng 'him' làm chủ ngữ hay 'she' làm tân ngữ."
+      },
+      {
+        "wrong": "Very tired.",
+        "right": "I am very tired.",
+        "why": "Tiếng Việt có thể nói 'Rất mệt' không cần chủ ngữ, nhưng tiếng Anh bắt buộc phải có Chủ ngữ (I) và động từ liên kết (am)."
+      }
+    ],
+    "tips": "**Quy tắc vàng ghi nhớ cấu trúc câu:**\n1. **Quy tắc 3 khối S-V-O:** Luôn xác định lần lượt: **Ai?** (S - Chủ ngữ) ➔ **Làm gì?** (V - Động từ) ➔ **Cái gì / Ai bị tác động?** (O - Tân ngữ).\n2. **Không bao giờ bỏ rơi S và V:** Khác với tiếng Việt cho phép nói tỉnh lược, một câu tiếng Anh hoàn chỉnh bắt buộc phải có tối thiểu Chủ ngữ và Động từ.\n3. **Cầu nối sang bài Đại từ:** Trong tiếng Việt, 'tôi' ở đầu câu hay cuối câu vẫn là 'tôi' (*Tôi yêu bạn* và *Bạn yêu tôi*). Nhưng trong tiếng Anh, làm chủ thể hành động thì là **I**, còn nhận hành động thì phải đổi thành **me** (*I love you* và *You love me*).",
+    "comparison": "**So sánh Đối chiếu Tư duy Ngôn ngữ Việt ➔ Anh:**\n- **Điểm tương đồng (Cầu nối trực giác):** Cả tiếng Việt và tiếng Anh đều tuân thủ trật tự câu kể cơ bản là **Chủ ngữ + Động từ + Tân ngữ (S-V-O)**. Ví dụ: *Tôi (S) ăn (V) cơm (O)* tương đương chuẩn xác với *I (S) eat (V) rice (O)*. Người học chỉ cần ghép từ theo đúng thứ tự suy nghĩ hàng ngày.\n- **Điểm khác biệt cốt lõi:**\n  1. *Lược bỏ chủ ngữ:* Tiếng Việt thường bỏ chủ ngữ trong giao tiếp thân mật (*Mưa rồi*, *Đi không?*). Tiếng Anh bắt buộc luôn có chủ ngữ (*It is raining*, *Do you want to go?*).\n  2. *Biến đổi hình thái đại từ:* Tiếng Việt không biến đổi từ (*Tôi thấy Nam / Nam thấy tôi* — 'tôi' giữ nguyên). Tiếng Anh thay đổi hình thái giữa Chủ ngữ và Tân ngữ (*I see him / He sees me*). Đây chính là lý do vì sao bài học tiếp theo sẽ đi sâu vào **Bài 1: Đại từ nhân xưng (Personal Pronouns)**.",
+    "timeline": null
+  },
+  "exercises": [
+    {
+      "id": "sentence-structure-svo-ex-01",
+      "type": "multiple_choice",
+      "question": "Trong câu \"I eat rice.\", từ **\"eat\"** đóng vai trò ngữ pháp gì?",
+      "options": [
+        "Chủ ngữ (Subject - S)",
+        "Động từ (Verb - V)",
+        "Tân ngữ (Object - O)",
+        "Tính từ (Adjective)"
+      ],
+      "correct_answer": "Động từ (Verb - V)",
+      "explanation": "\"eat\" là động từ (Verb - V) chỉ hành động ăn, đứng ngay sau chủ ngữ \"I\" và đứng trước tân ngữ \"rice\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Chủ ngữ (Subject - S)",
+          "isCorrect": false,
+          "pedagogicalReason": "Chủ ngữ trong câu là \"I\" (người thực hiện hành động), không phải \"eat\"."
+        },
+        {
+          "option": "Động từ (Verb - V)",
+          "isCorrect": true,
+          "pedagogicalReason": "\"eat\" là động từ diễn tả hành động trong câu SVO."
+        },
+        {
+          "option": "Tân ngữ (Object - O)",
+          "isCorrect": false,
+          "pedagogicalReason": "Tân ngữ trong câu là \"rice\" (đối tượng nhận hành động), không phải \"eat\"."
+        },
+        {
+          "option": "Tính từ (Adjective)",
+          "isCorrect": false,
+          "pedagogicalReason": "\"eat\" là động từ chỉ hành động, không phải tính từ miêu tả tính chất."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "sentence-structure-svo-ex-02",
+      "type": "multiple_choice",
+      "question": "Trong câu \"She teaches math.\", từ **\"math\"** đóng vai trò gì?",
+      "options": [
+        "Chủ ngữ (Subject - S)",
+        "Động từ (Verb - V)",
+        "Tân ngữ (Object - O)",
+        "Trạng từ (Adverb)"
+      ],
+      "correct_answer": "Tân ngữ (Object - O)",
+      "explanation": "\"math\" là tân ngữ (Object - O), đứng sau động từ \"teaches\" để chỉ môn học nhận hành động dạy.",
+      "distractor_breakdowns": [
+        {
+          "option": "Chủ ngữ (Subject - S)",
+          "isCorrect": false,
+          "pedagogicalReason": "Chủ ngữ là \"She\" (người thực hiện hành động dạy)."
+        },
+        {
+          "option": "Động từ (Verb - V)",
+          "isCorrect": false,
+          "pedagogicalReason": "Động từ là \"teaches\" (hành động dạy)."
+        },
+        {
+          "option": "Tân ngữ (Object - O)",
+          "isCorrect": true,
+          "pedagogicalReason": "\"math\" là tân ngữ nhận hành động của động từ teaches."
+        },
+        {
+          "option": "Trạng từ (Adverb)",
+          "isCorrect": false,
+          "pedagogicalReason": "\"math\" là danh từ làm tân ngữ, không phải trạng từ."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "sentence-structure-svo-ex-03",
+      "type": "multiple_choice",
+      "question": "Chọn câu có trật tự từ đúng theo cấu trúc **S + V + O**:",
+      "options": [
+        "Water I drink.",
+        "I drink water.",
+        "Drink I water.",
+        "Drink water I."
+      ],
+      "correct_answer": "I drink water.",
+      "explanation": "Trật tự câu chuẩn tiếng Anh là S + V + O: Chủ ngữ (I) + Động từ (drink) + Tân ngữ (water).",
+      "distractor_breakdowns": [
+        {
+          "option": "Water I drink.",
+          "isCorrect": false,
+          "pedagogicalReason": "Sai trật tự. Đưa tân ngữ \"Water\" lên đầu câu là vi phạm cấu trúc câu khẳng định."
+        },
+        {
+          "option": "I drink water.",
+          "isCorrect": true,
+          "pedagogicalReason": "Đúng chuẩn cấu trúc S (I) + V (drink) + O (water)."
+        },
+        {
+          "option": "Drink I water.",
+          "isCorrect": false,
+          "pedagogicalReason": "Sai trật tự. Đưa động từ \"Drink\" lên đầu câu trước chủ ngữ."
+        },
+        {
+          "option": "Drink water I.",
+          "isCorrect": false,
+          "pedagogicalReason": "Sai trật tự. Đặt chủ ngữ ở cuối câu là sai ngữ pháp."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "sentence-structure-svo-ex-04",
+      "type": "fill_blank",
+      "question": "Điền đại từ tân ngữ thích hợp: \"He helps ___.\" (Anh ấy giúp tôi)",
+      "options": [
+        "me",
+        "I",
+        "my",
+        "mine"
+      ],
+      "correct_answer": "me",
+      "explanation": "Sau động từ \"helps\", vị trí tân ngữ [O] của 'tôi' bắt buộc phải dùng đại từ tân ngữ \"me\", không dùng \"I\".",
+      "distractor_breakdowns": [
+        {
+          "option": "me",
+          "isCorrect": true,
+          "pedagogicalReason": "\"me\" là đại từ tân ngữ đứng sau động từ helps."
+        },
+        {
+          "option": "I",
+          "isCorrect": false,
+          "pedagogicalReason": "\"I\" chỉ dùng làm chủ ngữ đứng trước động từ, không đứng sau động từ làm tân ngữ."
+        },
+        {
+          "option": "my",
+          "isCorrect": false,
+          "pedagogicalReason": "\"my\" là tính từ sở hữu, phải có danh từ đi kèm phía sau."
+        },
+        {
+          "option": "mine",
+          "isCorrect": false,
+          "pedagogicalReason": "\"mine\" là đại từ sở hữu, không dùng làm tân ngữ chỉ người bị tác động ở đây."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "sentence-structure-svo-ex-05",
+      "type": "fill_blank",
+      "question": "Điền đại từ chủ ngữ thích hợp: \"___ read books every day.\" (Tôi đọc sách mỗi ngày)",
+      "options": [
+        "I",
+        "Me",
+        "My",
+        "Mine"
+      ],
+      "correct_answer": "I",
+      "explanation": "Đứng đầu câu làm chủ ngữ [S] trước động từ \"read\" bắt buộc phải dùng đại từ chủ ngữ \"I\".",
+      "distractor_breakdowns": [
+        {
+          "option": "I",
+          "isCorrect": true,
+          "pedagogicalReason": "\"I\" là đại từ chủ ngữ đứng đầu câu trước động từ read."
+        },
+        {
+          "option": "Me",
+          "isCorrect": false,
+          "pedagogicalReason": "\"Me\" là đại từ tân ngữ, không thể đứng làm chủ ngữ của câu."
+        },
+        {
+          "option": "My",
+          "isCorrect": false,
+          "pedagogicalReason": "\"My\" là tính từ sở hữu, cần danh từ theo sau."
+        },
+        {
+          "option": "Mine",
+          "isCorrect": false,
+          "pedagogicalReason": "\"Mine\" là đại từ sở hữu, không dùng làm chủ ngữ chỉ người ở ngữ cảnh này."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "sentence-structure-svo-ex-06",
+      "type": "fill_blank",
+      "question": "Hoàn thành câu: \"They ___ football on Sunday.\" (Họ chơi bóng đá vào Chủ nhật)",
+      "options": [
+        "play",
+        "plays",
+        "playing",
+        "played"
+      ],
+      "correct_answer": "play",
+      "explanation": "Chủ ngữ \"They\" (số nhiều) đi với động từ nguyên thể \"play\" để tạo thành cấu trúc S (They) + V (play) + O (football).",
+      "distractor_breakdowns": [
+        {
+          "option": "play",
+          "isCorrect": true,
+          "pedagogicalReason": "Động từ nguyên thể phù hợp với chủ ngữ số nhiều They."
+        },
+        {
+          "option": "plays",
+          "isCorrect": false,
+          "pedagogicalReason": "\"plays\" chỉ đi với chủ ngữ ngôi thứ ba số ít (He/She/It)."
+        },
+        {
+          "option": "playing",
+          "isCorrect": false,
+          "pedagogicalReason": "\"playing\" là dạng V-ing, cần có trợ động từ to be đi kèm."
+        },
+        {
+          "option": "played",
+          "isCorrect": false,
+          "pedagogicalReason": "\"played\" là dạng quá khứ, câu diễn tả thói quen hiện tại nên dùng thì hiện tại đơn."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "sentence-structure-svo-ex-07",
+      "type": "multiple_choice",
+      "question": "Câu sau đúng hay sai ngữ pháp? → \"Him loves her.\"",
+      "options": [
+        "Đúng",
+        "Sai"
+      ],
+      "correct_answer": "Sai",
+      "explanation": "SAI. Vị trí chủ ngữ đứng trước động từ \"loves\" phải là đại từ chủ ngữ \"He\", không được dùng tân ngữ \"Him\". Câu đúng: \"He loves her.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "Đúng",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. 'Him' là tân ngữ, không thể làm chủ ngữ."
+        },
+        {
+          "option": "Sai",
+          "isCorrect": true,
+          "pedagogicalReason": "SAI. Vị trí chủ ngữ phải dùng 'He'."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "sentence-structure-svo-ex-08",
+      "type": "multiple_choice",
+      "question": "Câu sau đúng hay sai ngữ pháp? → \"We watch TV.\"",
+      "options": [
+        "Đúng",
+        "Sai"
+      ],
+      "correct_answer": "Đúng",
+      "explanation": "ĐÚNG. Câu có đầy đủ 3 thành phần chuẩn: Chủ ngữ (We) + Động từ (watch) + Tân ngữ (TV).",
+      "distractor_breakdowns": [
+        {
+          "option": "Đúng",
+          "isCorrect": true,
+          "pedagogicalReason": "ĐÚNG. Cấu trúc câu chuẩn xác S + V + O."
+        },
+        {
+          "option": "Sai",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Câu này hoàn toàn đúng ngữ pháp."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "sentence-structure-svo-ex-09",
+      "type": "multiple_choice",
+      "question": "Câu sau đúng hay sai ngữ pháp? → \"Eat rice.\"",
+      "options": [
+        "Đúng",
+        "Sai"
+      ],
+      "correct_answer": "Sai",
+      "explanation": "SAI. Câu thiếu chủ ngữ (S). Tiếng Anh bắt buộc phải có chủ ngữ đứng trước động từ trong câu kể. Câu đúng: \"I eat rice.\" hoặc \"We eat rice.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "Đúng",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Câu kể thiếu chủ ngữ là sai ngữ pháp trong tiếng Anh."
+        },
+        {
+          "option": "Sai",
+          "isCorrect": true,
+          "pedagogicalReason": "SAI. Câu thiếu chủ ngữ (S) bắt buộc."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "sentence-structure-svo-ex-10",
+      "type": "error_correction",
+      "question": "Câu nào SAI cấu trúc ngữ pháp?",
+      "options": [
+        "I drink water.",
+        "They coffee drink.",
+        "We eat bread.",
+        "She teaches math."
+      ],
+      "correct_answer": "They coffee drink.",
+      "explanation": "\"They coffee drink.\" bị đảo tân ngữ \"coffee\" lên trước động từ \"drink\". Câu đúng phải là: \"They drink coffee.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "I drink water.",
+          "isCorrect": false,
+          "pedagogicalReason": "Câu này hoàn toàn đúng cấu trúc S + V + O."
+        },
+        {
+          "option": "They coffee drink.",
+          "isCorrect": true,
+          "pedagogicalReason": "Sai vì tân ngữ coffee đứng trước động từ drink."
+        },
+        {
+          "option": "We eat bread.",
+          "isCorrect": false,
+          "pedagogicalReason": "Câu này hoàn toàn đúng cấu trúc S + V + O."
+        },
+        {
+          "option": "She teaches math.",
+          "isCorrect": false,
+          "pedagogicalReason": "Câu này hoàn toàn đúng cấu trúc S + V + O."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "sentence-structure-svo-ex-11",
+      "type": "error_correction",
+      "question": "Câu nào SAI dạng đại từ trong cấu trúc SVO?",
+      "options": [
+        "I love you.",
+        "You love me.",
+        "He helps I.",
+        "I help him."
+      ],
+      "correct_answer": "He helps I.",
+      "explanation": "Sau động từ \"helps\", vị trí tân ngữ phải dùng đại từ tân ngữ \"me\", không dùng \"I\". Câu đúng: \"He helps me.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "I love you.",
+          "isCorrect": false,
+          "pedagogicalReason": "Đúng ngữ pháp: I (S) + love (V) + you (O)."
+        },
+        {
+          "option": "You love me.",
+          "isCorrect": false,
+          "pedagogicalReason": "Đúng ngữ pháp: You (S) + love (V) + me (O)."
+        },
+        {
+          "option": "He helps I.",
+          "isCorrect": true,
+          "pedagogicalReason": "Sai vì 'I' chỉ làm chủ ngữ, đứng ở vị trí tân ngữ phải là 'me'."
+        },
+        {
+          "option": "I help him.",
+          "isCorrect": false,
+          "pedagogicalReason": "Đúng ngữ pháp: I (S) + help (V) + him (O)."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "sentence-structure-svo-ex-12",
+      "type": "error_correction",
+      "question": "Câu nào SAI vì thiếu thành phần cốt lõi của câu?",
+      "options": [
+        "My father drives a car.",
+        "My mother cooks dinner.",
+        "Very tired.",
+        "We learn English."
+      ],
+      "correct_answer": "Very tired.",
+      "explanation": "\"Very tired.\" thiếu cả Chủ ngữ (S) và Động từ (V). Câu đúng phải là: \"I am very tired.\" hoặc \"He is very tired.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "My father drives a car.",
+          "isCorrect": false,
+          "pedagogicalReason": "Đầy đủ thành phần S + V + O."
+        },
+        {
+          "option": "My mother cooks dinner.",
+          "isCorrect": false,
+          "pedagogicalReason": "Đầy đủ thành phần S + V + O."
+        },
+        {
+          "option": "Very tired.",
+          "isCorrect": true,
+          "pedagogicalReason": "Sai vì thiếu cả chủ ngữ và động từ cốt lõi."
+        },
+        {
+          "option": "We learn English.",
+          "isCorrect": false,
+          "pedagogicalReason": "Đầy đủ thành phần S + V + O."
+        }
+      ],
+      "difficulty": 3
+    }
+  ]
+}

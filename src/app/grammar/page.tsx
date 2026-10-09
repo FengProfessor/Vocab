@@ -341,13 +341,13 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                 <span>/</span>
                 <span className="px-1.5 py-0.5 border border-border bg-muted/30 rounded-none">Lộ trình chuẩn hóa</span>
                 <span>•</span>
-                <span>62 Chủ điểm CEFR A0 – B2</span>
+                <span>{UNIFIED_GRAMMAR_TOPICS.length} Chủ điểm CEFR A0 – B2</span>
               </div>
               <h1 className="text-3xl sm:text-4xl font-bold text-foreground">
                 Lộ trình Ngữ pháp Tiếng Anh Toàn diện
               </h1>
               <p className="text-sm sm:text-base text-muted-foreground mt-2 max-w-2xl leading-relaxed">
-                Hệ thống 62 chủ điểm ngữ pháp từ căn bản (A0) tới nâng cao học thuật (B2), xây dựng
+                Hệ thống {UNIFIED_GRAMMAR_TOPICS.length} chủ điểm ngữ pháp từ căn bản (A0) tới nâng cao học thuật (B2), xây dựng
                 theo khung năng lực Châu Âu và tiêu chuẩn giảng dạy ngữ pháp ứng dụng.
               </p>
             </div>
@@ -383,7 +383,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                   : 'border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground'
               }`}
             >
-              Tất cả (62)
+              Tất cả ({UNIFIED_GRAMMAR_TOPICS.length})
             </button>
             {GRAMMAR_STAGES.map((stg) => {
               const isActive = activeLevel === stg.id;
@@ -429,7 +429,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
         ) : (
           <div className="flex flex-col gap-4">
             <div className="flex items-center justify-between text-xs font-mono text-muted-foreground">
-              <span>HIỂN THỊ {filteredTopics.length} / 62 CHỦ ĐIỂM</span>
+              <span>HIỂN THỊ {filteredTopics.length} / {UNIFIED_GRAMMAR_TOPICS.length} CHỦ ĐIỂM</span>
               {activeLevel !== 'ALL' && (
                 <span className="uppercase">CẤP ĐỘ {activeLevel}</span>
               )}
@@ -536,62 +536,92 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
         <DialogPrimitive.Portal>
           <DialogPrimitive.Backdrop className="fixed inset-0 z-[100] bg-background/80 backdrop-blur-sm" />
           <DialogPrimitive.Popup aria-modal="true" initialFocus={theoryCloseRef} finalFocus={() => theoryTriggerRef.current?.isConnected ? theoryTriggerRef.current : true}
-            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[110] border border-border bg-card w-[calc(100%-1rem)] sm:w-[calc(100%-2rem)] max-w-4xl max-h-[92dvh] sm:max-h-[85dvh] rounded-none flex flex-col shadow-2xl overflow-hidden outline-none">
-            {/* Drawer Header */}
-            <div className="border-b border-border p-4 sm:p-5 flex items-start justify-between gap-4 bg-muted/10 shrink-0">
-              <div className="min-w-0 flex-1">
-                <div className="flex items-center gap-2 font-mono text-xs uppercase text-muted-foreground mb-1 flex-wrap">
-                  <span>#{activeTopic.order < 10 ? '0' : ''}{activeTopic.order}</span>
+            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[110] border border-border bg-card w-[calc(100%-1rem)] sm:w-[calc(100%-2rem)] max-w-4xl lg:max-w-5xl max-h-[94dvh] sm:max-h-[90dvh] lg:max-h-[90dvh] rounded-none flex flex-col shadow-2xl overflow-hidden outline-none">
+            {/* Unified Modal Header: Combines Topic Identity, Tab Switcher & Close Button */}
+            <div className="border-b border-border px-3 sm:px-4 py-2 sm:py-2.5 flex items-center justify-between gap-2 sm:gap-2.5 bg-muted/10 shrink-0">
+              <div className="flex items-center gap-2 sm:gap-2.5 min-w-0 flex-1">
+                <div className="flex items-center gap-1.5 font-mono text-xs uppercase text-muted-foreground shrink-0">
+                  <span className="font-semibold text-foreground">
+                    #{activeTopic.order < 10 ? '0' : ''}{activeTopic.order}
+                  </span>
                   <span>•</span>
-                  <span className="px-1.5 py-0.5 border border-border bg-muted/40 font-bold rounded-none">
+                  <span className="px-1.5 py-0.5 border border-border bg-muted/50 font-bold text-primary rounded-none">
                     {activeTopic.level}
                   </span>
                 </div>
-                <DialogPrimitive.Title className="text-xl sm:text-2xl font-serif font-bold text-foreground break-words">
-                  {activeTopic.title_vi}
-                </DialogPrimitive.Title>
-                <DialogPrimitive.Description className="text-xs sm:text-sm text-muted-foreground mt-1 leading-relaxed">
-                  {activeTopic.title}
-                </DialogPrimitive.Description>
+                <div className="min-w-0 flex-1">
+                  <DialogPrimitive.Title className="text-sm sm:text-base lg:text-lg font-serif font-bold text-foreground truncate leading-tight">
+                    {activeTopic.title_vi}
+                    <span className="text-xs font-normal text-muted-foreground ml-2 font-sans hidden sm:inline">
+                      ({activeTopic.title})
+                    </span>
+                  </DialogPrimitive.Title>
+                  <DialogPrimitive.Description className="sr-only">
+                    {activeTopic.title}
+                  </DialogPrimitive.Description>
+                </div>
               </div>
-              <DialogPrimitive.Close
-                type="button"
-                ref={theoryCloseRef}
-                aria-label="Đóng bảng lý thuyết"
-                className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 border border-border rounded-none hover:bg-muted text-muted-foreground hover:text-foreground shrink-0 transition-colors"
-              >
-                <X className="h-5 w-5" />
-              </DialogPrimitive.Close>
+
+              <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                {/* Segmented Tab Switcher */}
+                <div className="inline-flex border border-border bg-background p-0.5 font-mono text-xs rounded-none">
+                  <button
+                    type="button"
+                    aria-pressed={theoryTab === 'theory'}
+                    onClick={() => setTheoryTab('theory')}
+                    className={`min-h-[32px] sm:min-h-[34px] px-2 sm:px-3 transition-colors rounded-none font-semibold cursor-pointer text-xs ${
+                      theoryTab === 'theory'
+                        ? 'bg-primary text-primary-foreground'
+                        : 'text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    Bài học
+                  </button>
+                  <button
+                    type="button"
+                    aria-pressed={theoryTab !== 'theory'}
+                    onClick={() => setTheoryTab('details')}
+                    className={`min-h-[32px] sm:min-h-[34px] px-2 sm:px-3 transition-colors rounded-none font-semibold cursor-pointer text-xs ${
+                      theoryTab !== 'theory'
+                        ? 'bg-primary text-primary-foreground'
+                        : 'text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    Tra cứu<span className="hidden sm:inline"> thêm</span>
+                  </button>
+                </div>
+
+                <DialogPrimitive.Close
+                  type="button"
+                  ref={theoryCloseRef}
+                  aria-label="Đóng bảng lý thuyết"
+                  className="min-h-[36px] min-w-[36px] sm:min-h-[40px] sm:min-w-[40px] flex items-center justify-center p-1.5 border border-border rounded-none hover:bg-muted text-muted-foreground hover:text-foreground shrink-0 transition-colors"
+                >
+                  <X className="h-4 w-4" />
+                </DialogPrimitive.Close>
+              </div>
             </div>
 
-            <div className="shrink-0 border-b border-border bg-muted/20 p-2 space-y-2">
-              <div className="grid grid-cols-2 gap-2" aria-label="Nội dung bài học">
-                <button type="button" aria-pressed={theoryTab === 'theory'} onClick={() => setTheoryTab('theory')}
-                  className={`min-h-[44px] px-3 text-sm font-semibold border border-border ${theoryTab === 'theory' ? 'bg-primary text-primary-foreground' : 'bg-card text-foreground hover:bg-muted'}`}>
-                  Bài học
-                </button>
-                <button type="button" aria-pressed={theoryTab !== 'theory'} onClick={() => setTheoryTab('details')}
-                  className={`min-h-[44px] px-3 text-sm font-semibold border border-border ${theoryTab !== 'theory' ? 'bg-primary text-primary-foreground' : 'bg-card text-foreground hover:bg-muted'}`}>
-                  Tra cứu thêm
-                </button>
+            {/* Sub-bar for Extended Lookup when active */}
+            {theoryTab !== 'theory' && (
+              <div className="shrink-0 border-b border-border bg-muted/20 px-3 py-1.5 flex items-center gap-2 text-xs text-muted-foreground">
+                <span className="shrink-0 font-medium">Tài liệu:</span>
+                <select
+                  aria-label="Chọn tài liệu"
+                  value={theoryTab}
+                  onChange={(event) => setTheoryTab(event.target.value as Exclude<typeof theoryTab, 'theory'>)}
+                  className="min-h-[34px] min-w-0 flex-1 border border-border bg-card text-foreground px-2 text-xs rounded-none"
+                >
+                  <option value="details">Quy tắc và mẹo nhớ</option>
+                  <option value="table">Bảng tra cứu</option>
+                  <option value="examples">Ví dụ song ngữ</option>
+                  <option value="media">Ảnh minh họa</option>
+                  <option value="video">Video bài giảng</option>
+                </select>
               </div>
-              {theoryTab !== 'theory' && (
-                <label className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <span className="shrink-0">Tài liệu</span>
-                  <select aria-label="Chọn tài liệu" value={theoryTab}
-                    onChange={(event) => setTheoryTab(event.target.value as Exclude<typeof theoryTab, 'theory'>)}
-                    className="min-h-[44px] min-w-0 flex-1 border border-border bg-card text-foreground px-2 text-sm">
-                    <option value="details">Quy tắc và mẹo nhớ</option>
-                    <option value="table">Bảng tra cứu</option>
-                    <option value="examples">Ví dụ song ngữ</option>
-                    <option value="media">Ảnh minh họa</option>
-                    <option value="video">Video bài giảng</option>
-                  </select>
-                </label>
-              )}
-            </div>
+            )}
             {/* Drawer Content */}
-            <div ref={theoryContentRef} className="p-3 sm:p-5 overflow-y-auto overflow-x-hidden flex-1 min-h-0 text-sm space-y-4">
+            <div ref={theoryContentRef} className="p-2.5 sm:p-4 overflow-y-auto overflow-x-hidden flex-1 min-h-0 text-sm">
               {theoryLoading ? (
                 <div className="py-12 flex flex-col items-center justify-center gap-2">
                   <Loader2 className="h-6 w-6 animate-spin text-primary" />
@@ -614,21 +644,16 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                   theoryData={theoryData}
                 />
               ) : theoryTab === 'theory' ? (
-                <div className="space-y-3.5">
-                  <div className="border-l-2 border-primary bg-muted/15 p-2.5 sm:p-3 text-xs sm:text-sm leading-relaxed text-foreground rounded-none">
-                    <FormattedText text={activeTopic.summary} />
-                  </div>
+                <div className="min-w-0">
                   {/* TIER 1: Hero Visual Deck (In-Place Dynamic Stage Swapping & Native Audio) */}
-                  <div className="min-w-0">
-                    <GrammarVisualTopicDeck
-                      key={activeTopic.slug}
-                      topicSlug={activeTopic.slug}
-                      topicTitle={activeTopic.title}
-                      topicTitleVi={activeTopic.title_vi}
-                      theoryData={theoryData}
-                      guided
-                    />
-                  </div>
+                  <GrammarVisualTopicDeck
+                    key={activeTopic.slug}
+                    topicSlug={activeTopic.slug}
+                    topicTitle={activeTopic.title}
+                    topicTitleVi={activeTopic.title_vi}
+                    theoryData={theoryData}
+                    guided
+                  />
                 </div>
               ) : theoryTab === 'details' ? (
                   <div className="space-y-3 pt-1">
@@ -888,17 +913,20 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
               )}
             </div>
 
-            {/* Drawer Footer CTA */}
-            <div className="border-t border-border p-3 bg-card flex items-center justify-between gap-2 shrink-0">
+            {/* Drawer Footer CTA - Compact & Slim */}
+            <div className="border-t border-border px-3 sm:px-4 py-1.5 sm:py-2 bg-card flex items-center justify-between gap-2 shrink-0">
               <DialogPrimitive.Close
-                className="min-h-[44px] border border-border px-3 text-sm font-semibold rounded-none hover:bg-muted text-muted-foreground hover:text-foreground shrink-0"
+                className="min-h-[32px] sm:min-h-[34px] border border-border px-3 text-xs font-medium rounded-none hover:bg-muted text-muted-foreground hover:text-foreground shrink-0 transition-colors"
               >
                 Đóng
               </DialogPrimitive.Close>
-              <Link href={`/grammar/practice?topic=${encodeURIComponent(activeTopic.slug)}`} onClick={() => grammarAudio.stopAll()}
-                className="min-h-[44px] min-w-0 bg-primary text-primary-foreground border border-primary hover:bg-primary/90 px-4 text-sm font-semibold rounded-none flex items-center justify-center gap-2">
+              <Link
+                href={`/grammar/practice?topic=${encodeURIComponent(activeTopic.slug)}`}
+                onClick={() => grammarAudio.stopAll()}
+                className="min-h-[32px] sm:min-h-[34px] min-w-0 bg-primary text-primary-foreground border border-primary hover:bg-primary/90 px-3.5 text-xs font-semibold rounded-none flex items-center justify-center gap-1.5 transition-colors shadow-xs"
+              >
                 <span>Luyện tập</span>
-                <ChevronRight className="h-4 w-4" />
+                <ChevronRight className="h-3.5 w-3.5" />
               </Link>
             </div>
           </DialogPrimitive.Popup>

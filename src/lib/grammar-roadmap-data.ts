@@ -28,7 +28,7 @@ export const GRAMMAR_STAGES: GrammarStageInfo[] = [
     name: 'Foundation',
     nameVi: 'Khởi đầu & Nền tảng',
     description: 'Xây dựng viên gạch đầu tiên: đại từ, động từ to be, cấu trúc câu căn bản và quy tắc danh - tính từ.',
-    topicCount: 6,
+    topicCount: 7,
   },
   {
     id: 'A1',
@@ -65,7 +65,18 @@ export const GRAMMAR_STAGES: GrammarStageInfo[] = [
 ];
 
 export const UNIFIED_GRAMMAR_TOPICS: GrammarRoadmapTopic[] = [
-  // ── Stage 1: A0 Foundation (Topics 1 - 6) ──
+  // ── Stage 1: A0 Foundation (Topics 0 - 6) ──
+  {
+    slug: 'sentence-structure-svo',
+    title: 'Sentence Structure (S + V + O)',
+    title_vi: 'Cấu trúc câu cơ bản (S + V + O)',
+    level: 'A0',
+    order: 0,
+    stageNumber: 1,
+    stageLabel: 'Stage 1: A0 Khởi đầu',
+    estimatedMinutes: 15,
+    summary: 'Bài số 0: Cấu trúc câu S + V + O — Nền tảng sống còn cho người mất gốc: Mô hình ba khối Ai làm (S) + Làm gì (V) + Cái gì (O) bắc cầu trực giác Việt ➔ Anh trước khi học đại từ.',
+  },
   {
     slug: 'personal-pronouns',
     title: 'Personal Pronouns',

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Volume2, Sparkles, Lightbulb, CheckCircle2 } from 'lucide-react';
 import { grammarAudio } from '@/lib/grammar/grammarAudioManager';
 import PronounVisualDeck, { HighlightedSentence } from './PronounVisualDeck';
+import SvoSentenceVisualDeck from './SvoSentenceVisualDeck';
 import type { GrammarTheoryData } from './GrammarReferenceTable';
 import topicAssetsData from '@/data/grammar-topic-assets.json';
 import GrammarCardNavigator from './GrammarCardNavigator';
@@ -983,7 +984,11 @@ export interface GrammarVisualTopicDeckProps {
 }
 
 export default function GrammarVisualTopicDeck(props: GrammarVisualTopicDeckProps) {
-  // 1. Delegate Personal Pronouns before any hooks are invoked
+  // 1. Delegate SVO Lesson Zero and Personal Pronouns before any hooks are invoked
+  if (props.topicSlug === 'sentence-structure-svo') {
+    return <SvoSentenceVisualDeck guided={props.guided} />;
+  }
+
   if (props.topicSlug === 'personal-pronouns') {
     return <PronounVisualDeck guided={props.guided} />;
   }
@@ -1450,7 +1455,7 @@ function VisualTopicCardItem({
               >
                 <Volume2
                   className={`h-5 w-5 ${
-                    isStageAudioPlaying ? 'text-red-600 animate-pulse' : 'text-foreground'
+                    isStageAudioPlaying ? 'text-primary animate-pulse' : 'text-foreground'
                   }`}
                 />
               </button>
@@ -1458,11 +1463,11 @@ function VisualTopicCardItem({
           </div>
         )}
 
-        {/* Dynamic Active Sentence Banner with red highlight */}
+        {/* Dynamic Active Sentence Banner */}
         {currentExample && !exampleLimit && (
-          <div className="p-3.5 bg-red-500/[0.04] border-b border-border space-y-1">
+          <div className="p-3.5 bg-primary/[0.04] border-b border-border space-y-1">
             <div className="flex items-center gap-2 min-w-0">
-              <span className="inline-block w-2 h-2 bg-red-500 shrink-0" />
+              <span className="inline-block w-2 h-2 bg-primary shrink-0" />
               <span className="font-serif text-sm sm:text-base font-bold text-foreground">
                 <HighlightedSentence
                   text={currentExample.en}
@@ -1505,9 +1510,9 @@ function VisualTopicCardItem({
                   onMouseLeave={() => setHoveredIdx(null)}
                   className={`min-h-[44px] p-2.5 border transition-all duration-150 rounded-none cursor-pointer flex items-center justify-between gap-2 ${
                     isHovered || isSelected
-                      ? 'border-red-500 bg-red-500/[0.06] shadow-xs'
+                      ? 'border-primary bg-primary/[0.08] shadow-xs ring-1 ring-primary/25'
                       : isSpeaking
-                      ? 'border-primary bg-primary/10'
+                      ? 'border-emerald-500 bg-emerald-500/10'
                       : 'border-border/60 bg-muted/10 hover:border-border hover:bg-muted/20'
                   }`}
                 >
@@ -1529,7 +1534,7 @@ function VisualTopicCardItem({
                     aria-label={`Nghe phát âm: ${ex.en}`}
                     className={`min-h-[44px] min-w-[44px] flex items-center justify-center p-2 transition-colors shrink-0 rounded-none ${
                       isSpeaking || isHovered
-                        ? 'text-red-600'
+                        ? 'text-primary'
                         : 'text-muted-foreground hover:text-foreground'
                     }`}
                     title="Nghe phát âm"

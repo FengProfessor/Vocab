@@ -63,21 +63,33 @@ class GrammarAudioManager {
     if (audioUrl) {
       const audio = new Audio(audioUrl);
       this.currentAudio = audio;
+      let fellBack = false;
+
+      const triggerFallback = () => {
+        if (fellBack) return;
+        fellBack = true;
+        if (this.currentAudio === audio) {
+          this.currentAudio = null;
+        }
+        if (this.activeId === id) {
+          this.fallbackSpeak(text);
+        }
+      };
 
       audio.onended = () => {
-        this.currentAudio = null;
-        this.activeId = null;
-        this.notify();
+        if (this.currentAudio === audio) {
+          this.currentAudio = null;
+          this.activeId = null;
+          this.notify();
+        }
       };
 
       audio.onerror = () => {
-        // Fallback gracefully to Web Speech
-        this.currentAudio = null;
-        this.fallbackSpeak(text);
+        triggerFallback();
       };
 
       audio.play().catch(() => {
-        this.fallbackSpeak(text);
+        triggerFallback();
       });
       return;
     }
@@ -98,19 +110,48 @@ class GrammarAudioManager {
     utterance.rate = 0.9;
     this.currentUtterance = utterance;
 
+    // Ưu tiên chọn giọng tiếng Anh chuẩn (tránh phát âm lỗi trên thiết bị dùng ngôn ngữ mặc định khác như vi-VN)
+    try {
+      const voices = window.speechSynthesis.getVoices();
+      if (voices && voices.length > 0) {
+        const enVoice =
+          voices.find((v) => v.lang === 'en-US') ||
+          voices.find((v) => v.lang.startsWith('en-US')) ||
+          voices.find((v) => v.lang.startsWith('en'));
+        if (enVoice) {
+          utterance.voice = enVoice;
+        }
+      }
+    } catch {
+      // Bỏ qua nếu môi trường không hỗ trợ getVoices
+    }
+
     utterance.onend = () => {
-      this.currentUtterance = null;
-      this.activeId = null;
-      this.notify();
+      if (this.currentUtterance === utterance) {
+        this.currentUtterance = null;
+        this.activeId = null;
+        this.notify();
+      }
     };
 
     utterance.onerror = () => {
+      if (this.currentUtterance === utterance) {
+        this.currentUtterance = null;
+        this.activeId = null;
+        this.notify();
+      }
+    };
+
+    try {
+      if (window.speechSynthesis.paused) {
+        window.speechSynthesis.resume();
+      }
+      window.speechSynthesis.speak(utterance);
+    } catch {
       this.currentUtterance = null;
       this.activeId = null;
       this.notify();
-    };
-
-    window.speechSynthesis.speak(utterance);
+    }
   }
 }
 
