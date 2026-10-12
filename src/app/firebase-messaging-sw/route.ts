@@ -76,8 +76,12 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Bypass API routes completely to protect BFF Session Vault integrity
-  if (url.pathname.startsWith('/api/')) {
+  // Bypass API, Auth, and Admin routes completely to protect BFF Session Vault and Auth recovery integrity
+  if (
+    url.pathname.startsWith('/api/') ||
+    url.pathname.startsWith('/auth') ||
+    url.pathname.startsWith('/admin')
+  ) {
     return;
   }
 
