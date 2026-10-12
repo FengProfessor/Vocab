@@ -906,4 +906,20 @@
   - `tests/deploy/ssh-render.test.mjs`: PASS.
   - `scripts/apply-p0-migrations.mjs`: Syntax check PASS.
 
+## Session / Pro display recovery (2026-10-12, local only)
+
+- User authorized only local changes/tests; no production access, DB reads/writes, rollout or account-plan restoration. Actual affected account entitlement remains unverified.
+- Fixed focus invalidating pending profile reads and spawning redundant session requests. Initial auth outages no longer emit anonymous INITIAL_SESSION; dashboard/shell avoid auth redirects on temporary session errors. Confirmed identity changes still invalidate stale account reads.
+- Refresh CAS/lease contention now returns unavailable (503) while an active vault exists; concurrently revoked vaults remain denied. Does not extend session lifetime or relax provider verification.
+- usePlan shares profile single-flight/cache, preserves known same-account plans on read failures, refreshes on focus/online/plan-change/auth events, rejects stale results after logout/account switch. Profile single-flight keys include auth generation. Unknown shell profiles display loading instead of Free; genuine expiry remains Free.
+- Local regressions PASS: phase2c-auth-boundaries, student-plan-recovery (actual hook/provider with isolated dependencies), phase2c-browser-boundaries, phase3b-recovery. Session-store mocked crypto/lifecycle/outage PASS; real Redis race/expiry integration deferred because dedicated local Redis not configured.
+- TypeScript PASS (0 errors). Targeted ESLint PASS (0 errors, 18 warnings). Scoped diff whitespace check PASS; unrelated pre-existing working-tree whitespace excluded. Added student-plan-recovery test to both canonical quality workflows; workflows not dispatched. Local production build PASS (182/182 static pages; Turbopack broad file-tracing warnings remain).
+
+### Release authorization and documentation (2026-10-12)
+
+- User subsequently requested a brief explanation, Markdown repair documentation and deployment. This authorizes commit/push/canonical release of the scoped auth/Pro patch; prior local-only restriction superseded for deployment. Individual production entitlement investigation/restoration remains unperformed.
+- Added `docs/operations/auth-session-pro-recovery.md` with causes, exact files, regression commands and rollout/verification procedure; linked from production runbook.
+- Preflight: local main and origin/main match `1d87e3095d1d2a13a108667ae127e09e15e26c6d`; latest canonical run `37872732286` SUCCESS, no deployment active at inspection. Unrelated TikTok/foundation working-tree changes excluded from this release. CI still enforces clean-checkout exact Speaking TypeScript baseline; local zero-error evidence is not a substitute.
+- Pre-push verification: repeated scoped auth/Pro/browser-source regressions PASS; actual local Chromium/Next production smoke PASS (auth UI, grammar filtering, CSP, recovery fixtures); reverse-proxy HTTP anonymous/CSRF/outage checks PASS. External providers are blocked in browser smoke; no live student login performed.
+
 

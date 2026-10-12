@@ -42,6 +42,7 @@ const user = { id: uuid, email: 'dedicated@example.test', email_confirmed_at: '2
 const providerSession = { user, access_token: jwt(), refresh_token: 'synthetic-refresh-secret', expires_at: Math.floor(Date.now()/1000)+3600 };
 let record = null, active = true, authError = null, refreshes = 0, signups = 0, effects = 0, outage = false;
 let lease = null, flow = null;
+let refreshCasMode = 'normal';
 class StoreError extends Error {}
 const store = {
   SessionStoreUnavailableError: StoreError, SESSION_LIFETIME_MS: 604800000, FLOW_LIFETIME_MS: 600000,
@@ -50,7 +51,7 @@ const store = {
   revokeSessionVault: async () => { if (outage) throw new StoreError(); record = null; },
   acquireSessionLease: async () => { if (lease) return null; lease = 'owner'; return lease; },
   releaseSessionLease: async () => { lease = null; },
-  replaceSessionVault: async (_id, previous, owner, next) => { if (!record || record.revision !== previous.revision || lease !== owner) return false; record = { vault: next, revision: 'r2' }; return true; },
+  replaceSessionVault: async (_id, previous, owner, next) => { if (refreshCasMode === 'revoked') record = null; if (refreshCasMode !== 'normal' || !record || record.revision !== previous.revision || lease !== owner) return false; record = { vault: next, revision: 'r2' }; return true; },
   createAuthFlow: async input => { flow = input; return 'F'.repeat(43); },
   consumeAuthFlow: async () => { const value = flow; flow = null; return value; },
 };
@@ -115,6 +116,14 @@ try {
   record.vault.tokenExpiresAt = Date.now()-1;
   const parallel = await Promise.all(Array.from({length:20},()=>auth.verifiedAppSession(request())));
   assert(parallel.every(session=>session.user.id === uuid)); assert.equal(refreshes,1);
+  record.vault.tokenExpiresAt = Date.now()-1;
+  refreshCasMode = 'contended';
+  await assert.rejects(auth.verifiedAppSession(request()), StoreError, 'lost refresh lease must not become a logout');
+  assert(record, 'CAS contention must preserve the session');
+  refreshCasMode = 'revoked';
+  assert.equal(await auth.verifiedAppSession(request()), null, 'revoked vault during refresh must still be denied');
+  refreshCasMode = 'normal';
+  await auth.createVerifiedAppSession(request('/api/auth/login','POST'),providerSession);
   await auth.logoutAppSession(request('/api/auth/logout','POST'));
   assert.equal(await auth.verifiedAppSession(request()),null,'old cookie replay denied');
   active = true;
@@ -162,7 +171,8 @@ try {
   // Browser facade must discard an earlier session read after logout; no storage token writes.
   const fakeStorage = new Map([['sb-fixture-auth-token','synthetic-old-token'],['lp:profile:old','cached-user'],['study-preference','keep']]);
   const storage={get length(){return fakeStorage.size;},key:i=>[...fakeStorage.keys()][i],removeItem:key=>fakeStorage.delete(key)};
-  globalThis.window={ localStorage:storage,sessionStorage:storage,location:{origin,hash:'#access_token=old',pathname:'/student',search:'',assign:()=>{}},history:{replaceState:()=>{}},addEventListener:()=>{} };
+  const windowListeners = new Map();
+  globalThis.window={ localStorage:storage,sessionStorage:storage,location:{origin,hash:'#access_token=old',pathname:'/student',search:'',assign:()=>{}},history:{replaceState:()=>{}},addEventListener:(name, callback)=>windowListeners.set(name, callback) };
   const oldChannel=globalThis.BroadcastChannel;
   globalThis.BroadcastChannel=class { postMessage(value){assert.deepEqual(value,{type:'invalidate'});} };
   let finishRead;
@@ -177,6 +187,27 @@ try {
   assert.equal((await pendingRecovery).data.session, null, 'reset must discard pre-reset pending browser identity');
   assert.equal(fakeStorage.get('study-preference'), 'keep');
   console.log('[P3B] Browser reset completion invalidates pending reads, broadcasts logout and preserves preferences PASS');
+  const beforeFocus = browser.authStateVersion();
+  const pendingFocus = browser.appAuth.getSession();
+  const originalFinish = finishRead;
+  windowListeners.get('focus')();
+  assert.equal(finishRead, originalFinish, 'focus must coalesce the in-flight session read');
+  assert.equal(browser.authStateVersion(), beforeFocus, 'focus must not invalidate pending profile reads');
+  finishRead(TestResponse.json({ session: first.publicSession }));
+  assert.equal((await pendingFocus).data.session.user.id, uuid);
+  globalThis.fetch = async () => TestResponse.json({}, { status: 503 });
+  assert.equal((await browser.appAuth.getSession()).data.session.user.id, uuid, 'provider outage must preserve cached identity');
+  const beforeDenial = browser.authStateVersion();
+  globalThis.fetch = async () => TestResponse.json({}, { status: 401 });
+  assert.equal((await browser.appAuth.getSession()).data.session, null);
+  assert(browser.authStateVersion() > beforeDenial, 'confirmed denial must invalidate pending profile reads');
+  globalThis.fetch = async () => TestResponse.json({}, { status: 503 });
+  const events = [];
+  const unavailable = browser.appAuth.onAuthStateChange(event => events.push(event));
+  await new Promise(resolve => setTimeout(resolve, 0));
+  assert.deepEqual(events, [], 'initial outage must not announce an anonymous session');
+  unavailable.data.subscription.unsubscribe();
+  console.log('[Auth] Focus dedup/profile generation/outage/confirmed denial regressions PASS');
   Object.defineProperty(window,'localStorage',{get(){throw new Error('disabled storage');}});browser.clearLegacyAuthStorage();
   globalThis.BroadcastChannel=oldChannel; delete globalThis.window;
   console.log('[P2C] Browser storage cleanup + stale-response/logout race PASS');

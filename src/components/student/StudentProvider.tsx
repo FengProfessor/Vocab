@@ -89,10 +89,11 @@ export function fetchSessionOnce(): Promise<Session | null> {
 }
 
 export function fetchProfileOnce(userId: string): Promise<ShellProfile | null> {
-  const existing = inFlightProfiles.get(userId);
+  const version = authStateVersion();
+  const requestKey = `${version}:${userId}`;
+  const existing = inFlightProfiles.get(requestKey);
   if (existing) return existing;
 
-  const version = authStateVersion();
   const promise = (async () => {
     try {
       const { data, error } = await supabase
@@ -109,11 +110,11 @@ export function fetchProfileOnce(userId: string): Promise<ShellProfile | null> {
     } catch {
       return null;
     } finally {
-      inFlightProfiles.delete(userId);
+      inFlightProfiles.delete(requestKey);
     }
   })();
 
-  inFlightProfiles.set(userId, promise);
+  inFlightProfiles.set(requestKey, promise);
   return promise;
 }
 
@@ -297,8 +298,9 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
 
   const refreshProfile = useCallback(async () => {
     if (!session?.user?.id) return;
+    const version = authStateVersion();
     const fresh = await fetchProfileOnce(session.user.id);
-    if (fresh) {
+    if (fresh && version === authStateVersion()) {
       setProfile(fresh);
       if (fresh.role === 'teacher') {
         setIsTeacherUser(true);
@@ -308,8 +310,9 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
 
   const refreshGamification = useCallback(async () => {
     if (!session?.user?.id) return;
+    const version = authStateVersion();
     const fresh = await fetchGamificationOnce(session.user.id);
-    if (fresh) {
+    if (fresh && version === authStateVersion()) {
       setGamification(fresh);
     }
   }, [session]);
@@ -439,20 +442,35 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
         setIsTeacherUser(false);
       } else if (nextSession?.user) {
         setSession(nextSession);
+        if (event === 'SIGNED_IN') {
+          setProfile(null);
+          setGamification(DEFAULT_GAMIFICATION);
+          setWordSummary(DEFAULT_WORD_SUMMARY);
+          setIsTeacherUser(false);
+        }
         if (event === 'SIGNED_IN' || event === 'USER_UPDATED') {
+          const version = authStateVersion();
           void fetchProfileOnce(nextSession.user.id).then((p) => {
-            if (!isCancelled && p) setProfile(p);
+            if (!isCancelled && version === authStateVersion() && p) setProfile(p);
           });
           void fetchGamificationOnce(nextSession.user.id).then((g) => {
-            if (!isCancelled && g) setGamification(g);
+            if (!isCancelled && version === authStateVersion() && g) setGamification(g);
           });
         }
       }
     });
 
+    const revalidate = () => { void bootstrap(); };
+    window.addEventListener('focus', revalidate);
+    window.addEventListener('online', revalidate);
+    window.addEventListener('lingopro-plan-changed', revalidate);
+
     return () => {
       isCancelled = true;
       subscription.unsubscribe();
+      window.removeEventListener('focus', revalidate);
+      window.removeEventListener('online', revalidate);
+      window.removeEventListener('lingopro-plan-changed', revalidate);
     };
   }, []);
 

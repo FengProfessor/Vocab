@@ -39,6 +39,8 @@ export function authStateVersion(): number { return generation; }
 function invalidate() { generation++; inFlight = null; }
 
 function notify(event: AppAuthEvent, session: AppSession | null, broadcast = false) {
+  // Phiên hết hạn/đổi tài khoản do server phát hiện cũng phải chặn kết quả hồ sơ cũ.
+  if (current && current.user.id !== session?.user.id) invalidate();
   if (current?.user.id !== session?.user.id || event === 'SIGNED_OUT') clearAccountCache();
   current = session;
   for (const listener of listeners) void Promise.resolve().then(() => listener(event, session)).catch(() => {});
@@ -53,7 +55,8 @@ function initialize() {
     channel = new BroadcastChannel('lingopro-app-auth');
     channel.onmessage = () => { invalidate(); clearAccountCache(); void appAuth.getSession(); };
   }
-  window.addEventListener('focus', () => { invalidate(); void appAuth.getSession(); });
+  // Đổi tab chỉ kiểm tra lại phiên; không phải thay đổi tài khoản hay hủy dữ liệu đang tải.
+  window.addEventListener('focus', () => { void appAuth.getSession(); });
 }
 type Payload = { session?: AppSession | null; user?: AppUser; url?: string; error?: string };
 async function call(path: string, method = 'GET', body?: unknown) {
@@ -93,8 +96,8 @@ export const appAuth = {
   },
   onAuthStateChange(listener: Listener) {
     initialize(); listeners.add(listener);
-    void appAuth.getSession().then(({ data }) => {
-      if (listeners.has(listener)) void listener('INITIAL_SESSION', data.session);
+    void appAuth.getSession().then(({ data, error }) => {
+      if (listeners.has(listener) && !error) void listener('INITIAL_SESSION', data.session);
     });
     return { data: { subscription: { unsubscribe: () => { listeners.delete(listener); } } } };
   },

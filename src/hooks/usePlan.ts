@@ -11,6 +11,8 @@ import {
   FEATURE_MIN_PLAN,
 } from '@/lib/entitlement';
 import { rememberPaidState } from '@/lib/upsell';
+import { authStateVersion } from '@/lib/app-auth-client';
+import { fetchProfileOnce, getStoredProfile } from '@/components/student/StudentProvider';
 
 interface UsePlanResult {
   plan: Plan;
@@ -35,48 +37,70 @@ export function usePlan(): UsePlanResult {
 
   useEffect(() => {
     let cancelled = false;
+    let request = 0;
+    let accountId: string | null = null;
+
+    const applyPlan = (raw: Plan, exp: string | null) => {
+      const effective = getEffectivePlan(raw, exp);
+      setRawPlan(raw);
+      setExpiresAt(exp);
+      setPlan(effective);
+      if (effective !== 'free' && exp) rememberPaidState(raw, exp);
+      setLoading(false);
+    };
 
     const load = async () => {
+      const currentRequest = ++request;
+      const version = authStateVersion();
       const {
         data: { session },
+        error,
       } = await supabase.auth.getSession();
+      if (cancelled || currentRequest !== request || version !== authStateVersion() || error) return;
       const user = session?.user;
       if (!user) {
-        if (!cancelled) {
-          setPlan('free');
-          setRawPlan('free');
-          setExpiresAt(null);
-          setLoading(false);
-        }
+        accountId = null;
+        applyPlan('free', null);
         return;
       }
-      const { data } = await supabase
-        .from('profiles')
-        .select('plan, plan_expires_at')
-        .eq('id', user.id)
-        .maybeSingle();
-      if (!cancelled) {
-        const raw = (data?.plan as Plan | undefined) ?? 'free';
-        const exp = data?.plan_expires_at ?? null;
-        const effective = getEffectivePlan(raw, exp);
-        setRawPlan(raw);
-        setExpiresAt(exp);
-        setPlan(effective);
-        if (effective !== 'free' && exp) {
-          rememberPaidState(raw, exp);
-        }
-        setLoading(false);
+      if (accountId !== user.id) {
+        accountId = user.id;
+        setPlan('free');
+        setRawPlan('free');
+        setExpiresAt(null);
+        setLoading(true);
+        const cached = getStoredProfile(user.id);
+        if (cached) applyPlan(cached.plan ?? 'free', cached.plan_expires_at ?? null);
       }
+      const data = await fetchProfileOnce(user.id);
+      // Lỗi mạng/RLS chưa chứng minh gói Free; giữ trạng thái cuối cùng của cùng tài khoản.
+      if (cancelled || currentRequest !== request || version !== authStateVersion() || !data) return;
+      applyPlan(data.plan ?? 'free', data.plan_expires_at ?? null);
     };
 
     void load();
     const onPlanChanged = () => {
       void load();
     };
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
+      if (cancelled) return;
+      if (event === 'SIGNED_OUT') {
+        request++;
+        accountId = null;
+        applyPlan('free', null);
+      } else if (event === 'SIGNED_IN' || event === 'USER_UPDATED') {
+        void load();
+      }
+    });
     window.addEventListener('lingopro-plan-changed', onPlanChanged);
+    window.addEventListener('focus', onPlanChanged);
+    window.addEventListener('online', onPlanChanged);
     return () => {
       cancelled = true;
+      subscription.unsubscribe();
       window.removeEventListener('lingopro-plan-changed', onPlanChanged);
+      window.removeEventListener('focus', onPlanChanged);
+      window.removeEventListener('online', onPlanChanged);
     };
   }, []);
 

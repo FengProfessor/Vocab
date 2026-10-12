@@ -175,7 +175,9 @@ export function StudentShell({
     const loadShellData = async () => {
       try {
         if (context) {
-          const session = context.session ?? (await supabase.auth.getSession()).data?.session;
+          const result = context.session ? null : await supabase.auth.getSession();
+          if (result?.error) return;
+          const session = context.session ?? result?.data.session;
           if (isCancelled) return;
           if (!session?.user) {
             if (requireAuth) {
@@ -199,7 +201,8 @@ export function StudentShell({
         }
 
         // Fallback for standalone routes outside StudentProvider (e.g. /journey, /library)
-        const { data: { session } } = await supabase.auth.getSession();
+        const { data: { session }, error } = await supabase.auth.getSession();
+        if (error) return;
         if (isCancelled) return;
         if (!session?.user) {
           if (requireAuth) {
@@ -655,11 +658,11 @@ export function StudentShell({
                 <div className="flex items-center gap-2 min-w-0">
                   <Crown className="h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400 group-hover:scale-110 transition-transform" />
                   <span className="truncate">
-                    {effectiveProfile?.plan && effectiveProfile.plan !== 'free' ? 'Gói Pro VIP' : 'Nâng cấp Pro'}
+                    {!effectiveProfile ? 'Đang tải gói' : effectiveProfile.plan && effectiveProfile.plan !== 'free' ? 'Gói Pro VIP' : 'Nâng cấp Pro'}
                   </span>
                 </div>
                 <span className="shrink-0 rounded bg-gradient-to-r from-amber-500 to-orange-500 px-1.5 py-0.5 text-[9px] font-black uppercase text-white shadow-xs">
-                  {effectiveProfile?.plan && effectiveProfile.plan !== 'free' ? effectiveProfile.plan : 'ƯU ĐÃI'}
+                  {!effectiveProfile ? '…' : effectiveProfile.plan && effectiveProfile.plan !== 'free' ? effectiveProfile.plan : 'ƯU ĐÃI'}
                 </span>
               </Link>
 
@@ -687,7 +690,7 @@ export function StudentShell({
                   </span>
                 ) : (
                   <span className="px-1.5 py-0.5 rounded bg-slate-100 text-slate-500 border border-slate-200/80 dark:bg-slate-800 dark:text-slate-400 dark:border-slate-700 text-[9px] font-bold uppercase shrink-0">
-                    Free
+                    {effectiveProfile ? 'Free' : '…'}
                   </span>
                 )}
               </Link>
@@ -794,11 +797,11 @@ export function StudentShell({
             <div className="flex items-center gap-2 min-w-0">
               <Crown className="h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400 group-hover:scale-110 transition-transform" />
               <span className="truncate">
-                {effectiveProfile?.plan && effectiveProfile.plan !== 'free' ? 'Gói Pro VIP' : 'Nâng cấp Pro'}
+                {!effectiveProfile ? 'Đang tải gói' : effectiveProfile.plan && effectiveProfile.plan !== 'free' ? 'Gói Pro VIP' : 'Nâng cấp Pro'}
               </span>
             </div>
             <span className="shrink-0 rounded bg-gradient-to-r from-amber-500 to-orange-500 px-1.5 py-0.5 text-[9px] font-black uppercase text-white shadow-xs">
-              {effectiveProfile?.plan && effectiveProfile.plan !== 'free' ? effectiveProfile.plan : 'ƯU ĐÃI'}
+              {!effectiveProfile ? '…' : effectiveProfile.plan && effectiveProfile.plan !== 'free' ? effectiveProfile.plan : 'ƯU ĐÃI'}
             </span>
           </Link>
 
@@ -826,7 +829,7 @@ export function StudentShell({
               </span>
             ) : (
               <span className="px-1.5 py-0.5 rounded bg-slate-100 text-slate-500 border border-slate-200/80 dark:bg-slate-800 dark:text-slate-400 dark:border-slate-700 text-[9px] font-bold uppercase shrink-0">
-                Free
+                {effectiveProfile ? 'Free' : '…'}
               </span>
             )}
           </Link>
@@ -989,7 +992,7 @@ export function StudentShell({
                       className="flex min-h-[40px] items-center gap-2.5 rounded-md px-2.5 py-2 text-[13.5px] font-bold text-amber-700 hover:bg-amber-50 dark:text-amber-400 dark:hover:bg-amber-950/30"
                     >
                       <Crown className="h-[17px] w-[17px] text-amber-600 dark:text-amber-400" />
-                      <span>{effectiveProfile?.plan && effectiveProfile.plan !== 'free' ? 'Gói Pro VIP' : 'Nâng cấp Pro'}</span>
+                      <span>{!effectiveProfile ? 'Đang tải gói' : effectiveProfile.plan && effectiveProfile.plan !== 'free' ? 'Gói Pro VIP' : 'Nâng cấp Pro'}</span>
                     </Link>
                     {effectiveIsTeacher && (
                       <Link

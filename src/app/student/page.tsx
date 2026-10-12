@@ -233,7 +233,11 @@ export default function StudentDashboard() {
   useEffect(() => {
     const checkAuth = async () => {
       console.log('[Student] Auth check started');
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session }, error } = await supabase.auth.getSession();
+      if (error) {
+        setIsLoading(false);
+        return;
+      }
 
       if (session?.user) {
 

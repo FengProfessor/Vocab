@@ -188,7 +188,11 @@ export async function verifiedAppSession(req: Request): Promise<VerifiedAppSessi
               refreshToken: data.session.refresh_token, tokenExpiresAt: data.session.expires_at * 1000,
             };
             await verifiedProviderUser(next);
-            if (!await replaceSessionVault(id, stored, owner, next)) return null;
+            if (!await replaceSessionVault(id, stored, owner, next)) {
+              // Mất lease/CAS không đồng nghĩa đăng xuất. Chỉ trả 401 nếu vault đã bị thu hồi.
+              if (!await readSessionVault(id)) return null;
+              throw new SessionStoreUnavailableError();
+            }
           }
         } finally {
           await releaseSessionLease(id, owner);

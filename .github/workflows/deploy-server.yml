@@ -107,6 +107,7 @@ jobs:
           node tests/security/phase2c-session-store.test.mjs
           node tests/security/phase2c-provider-session.test.mjs
           node tests/security/phase2c-auth-boundaries.test.mjs
+          node tests/security/student-plan-recovery.test.mjs
           node tests/security/phase2c-browser-boundaries.test.mjs
           node tests/security/csp.test.mjs
           node tests/security/phase3a-low.test.mjs
