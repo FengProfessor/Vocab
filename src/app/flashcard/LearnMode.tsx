@@ -20,6 +20,7 @@ import { invalidateWordSummaryCache } from '@/lib/word-summary-cache';
 import { ExampleWithSub } from '@/components/study/ExampleWithSub';
 import { resolveImageSrc } from '@/lib/media-url';
 import { saveSrsReview } from '@/lib/save-srs-review';
+import { getOfflineStudyQueue } from '@/lib/offline/study-queue';
 
 interface WordItem {
   id: string;
@@ -48,6 +49,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   const searchParams = useSearchParams();
   const idsParam = searchParams.get('ids');
   const [classroomId, setClassroomId] = useState<string | null>(initialClassroomId);
+  const [userId, setUserId] = useState<string | null>(null);
   const [phase, setPhase] = useState<Phase>('loading');
   const [batch, setBatch] = useState<WordItem[]>([]);
   const [remainingNew, setRemainingNew] = useState(0);
@@ -86,11 +88,56 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   // Từ lộ trình (?ids=...&roadmapStep=...): nếu đã học hết → ghi step (trừ replay=1).
   useEffect(() => {
     (async () => {
+      let hasCached = false;
       try {
-        const { data: { session } } = await supabase.auth.getSession();
+        const { data: { session }, error } = await supabase.auth.getSession();
+        if (error) return;
         if (!session?.user) { router.push('/auth'); return; }
+        setUserId(session.user.id);
 
         const batchLimit = idsParam === null ? NEW_BATCH : 20;
+
+        // 1. Instant hydration from IndexedDB for new words (<5ms)
+        try {
+          if (idsParam === null) {
+            const cached = await getOfflineStudyQueue(session.user.id, 'new');
+            if (cached.length > 0) {
+              const mapped: WordItem[] = cached.map((cw) => ({
+                id: cw.id,
+                word: cw.word,
+                translation: cw.translation,
+                ipa: cw.ipa,
+                pos: cw.pos,
+                example: cw.example,
+                example_vi: cw.example_vi,
+                image_url: cw.image_url ?? undefined,
+                reviewCount: cw.reviewCount,
+                srsLevel: cw.srsLevel,
+                isDue: cw.isDue,
+                srs: cw.srs
+                  ? {
+                      id: cw.id,
+                      user_id: cw.userId,
+                      word_id: cw.id,
+                      ease_factor: 2.5,
+                      stability: cw.srs.stability,
+                      difficulty: cw.srs.difficulty,
+                      interval_days: cw.srs.interval_days,
+                      review_count: cw.srs.review_count,
+                      next_review_date: cw.srs.next_review_date,
+                      last_reviewed_at: cw.srs.last_reviewed_at,
+                    }
+                  : null,
+              }));
+              setBatch(mapped.slice(0, batchLimit));
+              setRemainingNew(Math.max(0, mapped.length - batchLimit));
+              setPhase('ready');
+              hasCached = true;
+            }
+          }
+        } catch (dbErr) {
+          console.debug('[Learn] IndexedDB pre-read error:', dbErr);
+        }
 
         const loadWords = async (filter: 'new' | null): Promise<{ words: WordItem[]; classroomId?: string }> => {
           const query = new URLSearchParams({
@@ -135,7 +182,9 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
         if (!initialClassroomId && result.classroomId) setClassroomId(result.classroomId);
 
         if (result.words.length === 0) {
-          setPhase('empty');
+          if (!hasCached) {
+            setPhase('empty');
+          }
           return;
         }
 
@@ -143,9 +192,11 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
         setRemainingNew(Math.max(0, result.words.length - batchLimit));
         setPhase('ready');
       } catch (err) {
-        console.error('[Learn] Load failed:', err);
-        toast.error('Không tải được từ mới.');
-        setPhase('empty');
+        if (!hasCached) {
+          console.error('[Learn] Load failed:', err);
+          toast.error('Không tải được từ mới.');
+          setPhase('empty');
+        }
       }
     })();
   }, [initialClassroomId, idsParam, router, roadmapStepParam, forceReplay]);
@@ -305,7 +356,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
     // 2. Lưu SRS ngầm ở background (Non-blocking: hoàn toàn không chặn việc học liên tiếp)
     const wordIdToSave = recallWord.id;
     const quality = verdictToQuality(v);
-    saveSrsReview(wordIdToSave, quality)
+    saveSrsReview(wordIdToSave, quality, crypto.randomUUID(), userId ?? undefined)
       .then(async () => {
         const { data: { session } } = await supabase.auth.getSession();
         if (session?.user?.id) invalidateWordSummaryCache(session.user.id);

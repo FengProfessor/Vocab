@@ -135,7 +135,8 @@ export default function LibraryPage() {
   useEffect(() => {
     let active = true;
     const load = async (): Promise<void> => {
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session }, error } = await supabase.auth.getSession();
+      if (error) return;
       if (!session?.user) { router.push('/auth'); return; }
       try {
         const res = await authFetch('/api/import/packages');

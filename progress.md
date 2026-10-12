@@ -922,4 +922,34 @@
 - Preflight: local main and origin/main match `1d87e3095d1d2a13a108667ae127e09e15e26c6d`; latest canonical run `37872732286` SUCCESS, no deployment active at inspection. Unrelated TikTok/foundation working-tree changes excluded from this release. CI still enforces clean-checkout exact Speaking TypeScript baseline; local zero-error evidence is not a substitute.
 - Pre-push verification: repeated scoped auth/Pro/browser-source regressions PASS; actual local Chromium/Next production smoke PASS (auth UI, grammar filtering, CSP, recovery fixtures); reverse-proxy HTTP anonymous/CSRF/outage checks PASS. External providers are blocked in browser smoke; no live student login performed.
 
+### Release completed and verified (2026-10-12)
 
+- Released commit `5260bb7e6c2223eca2264ec0766edb19c2815e05` (`fix session recovery and Pro display`). Independent remote main SHA matched after push. Scoped 13-file commit includes only the auth/Pro patch, regressions, CI test registration and repair documentation. Concurrent dashboard CTA/icon edits were staged out using the original HEAD plus only the auth guard; those UI edits and unrelated TikTok/foundation work remain preserved locally.
+- Canonical [38195591919](https://github.com/FengProfessor/Vocab/actions/runs/38195591919) SUCCESS: quality, migration and deploy all PASS. Clean Linux quality includes real Redis/PostgreSQL regressions, new Pro hook/provider tests, lint gates, build, proxy/Chromium smoke and exact documented Speaking TypeScript baseline. This is not a claim of zero full-repo lint/typecheck debt on clean CI.
+- Migration runner reports SKIP13/applied0/done; this patch introduces no schema change. Server deployment logs independently match expected/checked-out SHA to the released commit; readiness records HTTP200/stable service PID421505 and candidate HEALTHY, previous bundle preserved. No manual activation or SSH restart performed by agent.
+- Independent post-rollout HTTPS probes PASS: `/api/health`200 `{status:ok}`, `/`200, `/student`200 with new “Đang tải gói” markup; anonymous `/api/auth/session` with same-origin proof returns401/session null as intended. HTTP/markup checks are public evidence, not authenticated account entitlement proof.
+- Additional actual local Chromium dashboard fixture PASS: existing Pro survives focus plus session/profile503; first-load503 keeps the dashboard/loading plan, focus after recovery restores Pro. Reproduction helper saved at `scratch/auth-pro-browser-smoke.mjs` (local fixture, external providers blocked).
+- Affected student's actual DB plan remains uninspected/unmodified; original local-only choice was superseded only for the requested canonical deployment. No real student login or plan restoration asserted. Post-rollout checkpoint/runbook updates saved locally after release; production code remains the verified commit above.
+
+## Auth Session Fixes, Instant Frame 0 Hydration & Offline-First Study Engine (2026-10-13, local verified)
+
+- **Issues Addressed**:
+  1. Production Session Drops: Safari iOS / Mobile WebView dropping session cookies on app restart (fixed by RFC-compliant `Expires` max-age attribute in `server-auth-session.ts`).
+  2. 1-Hour Session Expiry: Supabase token refresh desynchronizing `providerSessionId` causing 401 vault purge (fixed by updating `providerSessionId` on refresh).
+  3. False Auth Ejections: Transient 5xx/network errors on 12+ subpages triggering unintended redirects to `/auth` (fixed by checking `if (error) return;` across all subpages).
+  4. Instant Frame 0 Hydration (<50ms): Synchronous retrieval of user profile, streak, XP, badges, and dashboard words via `dashboard-snapshot-cache.ts` (`StudentProvider.tsx`, `StudentShell.tsx`), removing all blocking full-page spinners and skeleton chips.
+  5. Native IndexedDB Offline Study Engine: `lingopro_study_engine` v1 (`study_words`, `offline_review_queue`, `audio_cache`, `sync_metadata`), prefetching 50 review + 25 new words, instant 0ms card launch in `/flashcard` & `/review/session`.
+  6. Offline FSRS Write-Ahead Log (WAL): Optimistic card updates, background sync with Web Locks API multi-tab mutual exclusion, exponential backoff, CAS deduplication, and offline audio blob caching.
+  7. Unified Service Worker: Precaching App Shell & `/offline.html` while preserving 100% Firebase Cloud Messaging push capabilities.
+  8. Security Boundaries: Zero JWT/access tokens in client storage, 100% compliant with Phase 2c BFF Session Vault.
+- **Verification**:
+  - `wal-sync-stress.test.ts`: 17/17 tests PASS (Exit code 0).
+  - `offline-study-engine.test.ts`: 21/21 tests PASS (Exit code 0).
+  - `orch17-challenger2-frame0-sw-stress.test.ts`: 18/18 tests PASS (Exit code 0).
+  - `phase2c-auth-boundaries.test.mjs`: PASS (Exit code 0).
+  - `student-plan-recovery.test.mjs`: PASS (Exit code 0).
+  - `phase2c-browser-boundaries.test.mjs`: PASS (Exit code 0, 0 token consumers).
+  - `phase3b-recovery.test.mjs`: PASS (Exit code 0).
+  - `npx tsc --noEmit`: 0 errors (Exit code 0).
+  - `npm run build`: Successful compilation across all 182 routes with Turbopack (Exit code 0).
+  - Independent Victory Auditor Verdict: `VICTORY CONFIRMED`.

@@ -10,6 +10,7 @@
 // (freeDict, CDN) không được phát sau khi đã sang từ mới / gọi stop.
 
 import { silenceSpeech, speakLocal } from './study';
+import { getOfflineAudioUrl, revokeOfflineAudioUrl } from './offline/audio-cache';
 
 const FREE_DICT = 'https://api.dictionaryapi.dev/api/v2/entries/en/';
 
@@ -183,6 +184,24 @@ export async function playWordAudio(
     }
     if (!alive()) return 'tts';
     urlCache.delete(cacheKey);
+  }
+
+  // 0.5) Offline Audio Cache (IndexedDB audio_cache store for 0ms offline audio)
+  try {
+    const offlineUrl = await getOfflineAudioUrl(text);
+    if (offlineUrl) {
+      if (!alive()) {
+        revokeOfflineAudioUrl(offlineUrl);
+        return 'tts';
+      }
+      const played = await playUrl(offlineUrl, mp3Rate, myGen);
+      revokeOfflineAudioUrl(offlineUrl);
+      if (played) {
+        return 'real';
+      }
+    }
+  } catch {
+    // Continue fallback cascade gracefully
   }
 
   // 1) URL truyền vào (DB audio_real)

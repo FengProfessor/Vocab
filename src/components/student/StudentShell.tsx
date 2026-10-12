@@ -47,6 +47,21 @@ import {
   writeWordSummaryCache,
 } from '@/lib/word-summary-cache';
 import {
+  readLastProfileCache,
+  readLastGamificationCache,
+} from '@/lib/dashboard-snapshot-cache';
+
+const DEFAULT_GAMIFICATION: UserGamification = {
+  user_id: '',
+  total_xp: 0,
+  current_streak: 0,
+  longest_streak: 0,
+  last_active_date: null,
+  daily_goal: 30,
+  today_xp: 0,
+  today_date: null,
+};
+import {
   buildStudentNavSections,
   type StudentNavItem,
   type StudentNavSection,
@@ -60,6 +75,8 @@ interface StudentShellProps {
   contentClassName?: string;
   /** Ẩn bottom tab khi đang học tập trung (flashcard/quiz/writing/speaking) */
   hideMobileNav?: boolean;
+  /** Ẩn header trên di động (dùng cho dashboard gọn gàng) */
+  hideMobileHeader?: boolean;
   /**
    * immersive = tắt sidebar desktop + drawer + header chrome + bottom nav
    * (dùng cho Pixel Hub full-screen)
@@ -82,6 +99,7 @@ export function StudentShell({
   children,
   contentClassName,
   hideMobileNav = false,
+  hideMobileHeader = false,
   immersive = false,
   onJoinClass,
   requireAuth = true,
@@ -100,9 +118,18 @@ export function StudentShell({
   const touchStartRef = useRef<{ x: number; y: number; time: number } | null>(null);
   const desktopNavRef = useRef<HTMLElement>(null);
   const wasMenuOpen = useRef(false);
-  const [internalProfile, setInternalProfile] = useState<ShellProfile | null>(null);
-  const [profileEmail, setProfileEmail] = useState('');
-  const [isTeacherUser, setIsTeacherUser] = useState(false);
+  const [internalProfile, setInternalProfile] = useState<ShellProfile | null>(() => {
+    if (propProfile || context?.profile) return null;
+    return readLastProfileCache();
+  });
+  const [profileEmail, setProfileEmail] = useState<string>(() => {
+    const cached = propProfile ?? context?.profile ?? readLastProfileCache();
+    return cached?.email ?? '';
+  });
+  const [isTeacherUser, setIsTeacherUser] = useState<boolean>(() => {
+    const cached = propProfile ?? context?.profile ?? readLastProfileCache();
+    return cached?.role === 'teacher';
+  });
   const [classroomId, setClassroomId] = useState<string | null>(null);
   const [reviewDueCount, setReviewDueCount] = useState<number>(() => {
     if (context?.wordSummary) return context.wordSummary.reviewDueCount;
@@ -115,7 +142,10 @@ export function StudentShell({
     return cached?.newCount ?? 0;
   });
   const [grammarDue, setGrammarDue] = useState(0);
-  const [isBootstrapping, setIsBootstrapping] = useState(!context?.profile);
+  const [isBootstrapping, setIsBootstrapping] = useState<boolean>(() => {
+    const active = propProfile ?? context?.profile ?? readLastProfileCache();
+    return !active;
+  });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   /** Hub iframe: ?embed=1 | from=hub → ẩn chrome (không dùng useSearchParams — tránh Suspense toàn app) */
@@ -126,10 +156,20 @@ export function StudentShell({
     context ? null : (internalProfile?.id ?? null),
   );
 
+  const cachedGamification = useMemo(() => {
+    if (propGamification || (context?.gamification && context.gamification.total_xp > 0)) {
+      return null;
+    }
+    return readLastGamificationCache();
+  }, [propGamification, context?.gamification]);
+
   // Effective values derived from Props -> Context -> Internal State
   const effectiveProfile = propProfile ?? context?.profile ?? internalProfile;
   const effectiveGamification =
-    propGamification ?? (context ? context.gamification : fallbackGamification);
+    propGamification ??
+    (context?.gamification && (context.gamification.total_xp > 0 || !cachedGamification)
+      ? context.gamification
+      : (cachedGamification ?? fallbackGamification ?? DEFAULT_GAMIFICATION));
   const effectiveIsTeacher = context
     ? context.isTeacherUser
     : (effectiveProfile?.role === 'teacher' || isTeacherUser);
@@ -174,6 +214,9 @@ export function StudentShell({
 
     const loadShellData = async () => {
       try {
+        if (effectiveProfile) {
+          setIsBootstrapping(false);
+        }
         if (context) {
           const result = context.session ? null : await supabase.auth.getSession();
           if (result?.error) return;
@@ -883,7 +926,12 @@ export function StudentShell({
         {showChrome && !effectiveImmersive ? <FreeQuotaBanner /> : null}
 
         {showChrome && (
-        <header className="sticky top-0 z-30 flex h-header-safe items-center justify-between gap-1.5 border-b border-[#ececf1] bg-white/90 px-2.5 backdrop-blur-md sm:gap-3 sm:px-7 dark:border-slate-800 dark:bg-slate-900/90">
+        <header
+          className={cn(
+            "sticky top-0 z-30 flex h-header-safe items-center justify-between gap-1.5 border-b border-[#ececf1] bg-white/90 px-2.5 backdrop-blur-md sm:gap-3 sm:px-7 dark:border-slate-800 dark:bg-slate-900/90",
+            hideMobileHeader && "hidden md:flex",
+          )}
+        >
           <div className="flex min-w-0 flex-1 items-center gap-1.5 sm:gap-3">
             <button
               ref={menuButtonRef}
@@ -1033,6 +1081,7 @@ export function StudentShell({
             contentClassName ??
               'mx-auto w-full max-w-[1080px] px-4 py-5 pb-10 sm:px-7 sm:py-6',
             showBottomNav && 'pb-mobile-nav',
+            hideMobileHeader && 'pt-safe md:pt-0',
             effectiveImmersive && 'w-full max-w-none p-0 sm:p-0',
           )}
         >

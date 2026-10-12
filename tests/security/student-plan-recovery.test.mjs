@@ -83,6 +83,19 @@ stubs['@/lib/word-summary-cache'] = {
   writeWordSummaryCache: () => {}, WORD_SUMMARY_EVENTS: {},
 };
 stubs['@/lib/upsell'] = { rememberPaidState: () => {} };
+stubs['@/lib/dashboard-snapshot-cache'] = {
+  readProfileCache: () => null,
+  readGamificationCache: () => null,
+  readDashboardWordsCache: () => null,
+  readLastProfileCache: () => null,
+  readLastGamificationCache: () => null,
+  readLastDashboardWordsCache: () => null,
+  writeDashboardProfileCache: () => {},
+  writeDashboardGamificationCache: () => {},
+  writeDashboardWordsCache: () => {},
+  writeDashboardSnapshot: () => {},
+  clearDashboardSnapshotCache: () => {},
+};
 const authEvent = (event, nextSession) => {
   session = nextSession;
   generation++;

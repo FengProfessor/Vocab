@@ -144,7 +144,9 @@ export default function TeacherDashboard() {
   const loadData = useCallback(async (preferClassId?: string) => {
     const {
       data: { user },
+      error,
     } = await supabase.auth.getUser();
+    if (error) return;
     if (!user) {
       router.push('/auth');
       return;

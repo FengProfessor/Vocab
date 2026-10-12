@@ -49,7 +49,8 @@ function LeaderboardContent() {
 
   useEffect(() => {
     const init = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
+      const { data: { user }, error } = await supabase.auth.getUser();
+      if (error) return;
       if (!user) { router.push('/auth'); return; }
       setCurrentUserId(user.id);
 

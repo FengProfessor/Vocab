@@ -25,6 +25,7 @@ import { invalidateWordSummaryCache } from '@/lib/word-summary-cache';
 import { ExampleWithSub } from '@/components/study/ExampleWithSub';
 import { resolveImageSrc } from '@/lib/media-url';
 import { saveSrsReview } from '@/lib/save-srs-review';
+import { getOfflineStudyQueue } from '@/lib/offline/study-queue';
 
 interface WordItem {
   id: string;
@@ -87,13 +88,59 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
 
   useEffect(() => {
     const init = async () => {
+      let hasCached = false;
       try {
-        const { data: { session } } = await supabase.auth.getSession();
+        const { data: { session }, error } = await supabase.auth.getSession();
+        if (error) return;
         const user = session?.user;
         if (!user || !session) { router.push('/auth'); return; }
         setUserId(user.id);
 
-        // Due cap 40 thẻ / session — đủ 1 phiên, payload nhẹ
+        // 1. Instant hydration from IndexedDB (<5ms)
+        try {
+          const cachedWords = await getOfflineStudyQueue(user.id, 'review');
+          if (cachedWords.length > 0) {
+            const mapped: WordItem[] = cachedWords.map((cw) => ({
+              id: cw.id,
+              word: cw.word,
+              translation: cw.translation,
+              ipa: cw.ipa,
+              pos: cw.pos,
+              example: cw.example,
+              example_vi: cw.example_vi,
+              image_url: cw.image_url ?? undefined,
+              synonyms: cw.synonyms,
+              antonyms: cw.antonyms,
+              isDue: cw.isDue,
+              reviewCount: cw.reviewCount,
+              srsLevel: cw.srsLevel,
+              mastery: Math.min(100, (cw.reviewCount || 0) * 20),
+              srs: cw.srs
+                ? {
+                    id: cw.id,
+                    user_id: cw.userId,
+                    word_id: cw.id,
+                    ease_factor: 2.5,
+                    stability: cw.srs.stability,
+                    difficulty: cw.srs.difficulty,
+                    interval_days: cw.srs.interval_days,
+                    review_count: cw.srs.review_count,
+                    next_review_date: cw.srs.next_review_date,
+                    last_reviewed_at: cw.srs.last_reviewed_at,
+                  }
+                : null,
+            }));
+            setQueue(mapped);
+            setCurrent(mapped[0] || null);
+            setTotal(mapped.length);
+            setIsLoading(false);
+            hasCached = true;
+          }
+        } catch (dbErr) {
+          console.debug('[Flashcard] IndexedDB pre-read error:', dbErr);
+        }
+
+        // 2. Background revalidation from /api/words
         const url = classroomId
           ? `/api/words?classroomId=${classroomId}&filter=review&limit=40`
           : `/api/words?filter=review&limit=40`;
@@ -110,18 +157,22 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
           const studyQueue: WordItem[] = data.data;
 
           if (studyQueue.length === 0) {
-            setIsLoading(false);
+            if (!hasCached) {
+              setIsLoading(false);
+            }
             return;
           }
 
           setQueue([...studyQueue]);
-          setCurrent(studyQueue[0] || null);
+          setCurrent((prev) => prev ?? studyQueue[0] ?? null);
           setTotal(studyQueue.length);
         }
       } catch (err: unknown) {
-        const msg = err instanceof Error ? err.message : 'Unknown error';
-        console.error('[Flashcard] Load failed:', msg);
-        toast.error('Failed to load flashcards.');
+        if (!hasCached) {
+          const msg = err instanceof Error ? err.message : 'Unknown error';
+          console.error('[Flashcard] Load failed:', msg);
+          toast.error('Failed to load flashcards.');
+        }
       } finally {
         setIsLoading(false);
       }
@@ -276,7 +327,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     const currentWord = current;
 
     // Background sync: Lưu kết quả SRS ngầm không chặn animation chuyển thẻ
-    saveSrsReview(currentWordId, quality)
+    saveSrsReview(currentWordId, quality, crypto.randomUUID(), userId ?? undefined)
       .then(async () => {
         const { data: { session } } = await supabase.auth.getSession();
         if (session?.user?.id) invalidateWordSummaryCache(session.user.id);

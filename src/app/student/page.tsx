@@ -10,6 +10,9 @@ import { useRouter } from 'next/navigation';
 import {
   Loader2, Plus, ArrowRight,
   X, Clock, Search, ChevronDown, UserPlus, Sparkles,
+  ClipboardList, BookOpen, RotateCw,
+  Headphones, Mic, PenTool, FileText, Code2,
+  Users, Flame, ChevronRight,
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { toast } from 'sonner';
@@ -24,16 +27,23 @@ import {
 import { STREAK_MILESTONES } from '@/lib/encouragement';
 import { Mascot, type MascotMood } from '@/components/gamification/Mascot';
 import { StreakCounter } from '@/components/gamification/StreakCounter';
-import { XpGoalCard } from '@/components/gamification/XpGoalCard';
 import { ProTrialMilestoneCard } from '@/components/gamification/ProTrialMilestoneCard';
 import type { MilestonePopupPayload } from '@/components/gamification/MilestonePopup';
 import { StudentShell } from '@/components/student/StudentShell';
+import { NotificationBell } from '@/components/NotificationBell';
 import { EnableNotifications } from '@/components/EnableNotifications';
 import {
   readWordSummaryCache,
   readLastWordSummaryCache,
   writeWordSummaryCache,
 } from '@/lib/word-summary-cache';
+import {
+  readLastProfileCache,
+  readLastGamificationCache,
+  readLastDashboardWordsCache,
+  writeDashboardProfileCache,
+  writeDashboardWordsCache,
+} from '@/lib/dashboard-snapshot-cache';
 import { SRS_LEVEL_LABELS, SRS_LEVEL_STABILITY_HINT } from '@/lib/srs';
 import { STAMPEDE_MODE } from '@/lib/stampede';
 import { parseIpa } from '@/lib/study';
@@ -131,8 +141,9 @@ interface EnrolledClassroom {
 
 export default function StudentDashboard() {
   const studentCtx = useStudentContext();
-  const [profile, setProfile] = useState<Profile | null>(studentCtx?.profile ?? null);
-  const [words, setWords] = useState<Word[]>([]);
+  const [profile, setProfile] = useState<Profile | null>(() => studentCtx?.profile ?? readLastProfileCache());
+  const initialWords = readLastDashboardWordsCache();
+  const [words, setWords] = useState<Word[]>(() => initialWords ?? []);
   const [classroomId, setClassroomId] = useState<string | null>(studentCtx?.wordSummary.classroomId ?? null);
   const [currentClassScope, setCurrentClassScope] = useState<string>('__personal__');
   const currentClassScopeRef = useRef<string>('__personal__');
@@ -169,10 +180,10 @@ export default function StudentDashboard() {
     const cached = (studentCtx?.wordSummary?.total ?? 0) > 0 ? studentCtx!.wordSummary : readLastWordSummaryCache();
     return Boolean(cached);
   });
-  /** word list load sau shell — tránh flash empty state */
-  const [wordsLoading, setWordsLoading] = useState(true);
+  /** word list load sau shell — nếu có cached words thì render ngay không skeleton */
+  const [wordsLoading, setWordsLoading] = useState(() => !initialWords || initialWords.length === 0);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
-  const [wordsOffset, setWordsOffset] = useState(0);
+  const [wordsOffset, setWordsOffset] = useState(() => initialWords?.length ?? 0);
   const WORDS_PAGE_SIZE = 20;
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -180,14 +191,29 @@ export default function StudentDashboard() {
   const [statusFilter, setStatusFilter] = useState<'all' | 'new' | 'due' | 'learned' | 'mastered'>('all');
   const [sortBy, setSortBy] = useState<'newest' | 'oldest' | 'az' | 'hardest'>('newest');
   const router = useRouter();
+  const initialGamification = studentCtx?.gamification ?? readLastGamificationCache();
   const { data: fallbackGamification, refresh: fallbackRefreshGamification, loading: fallbackGamificationLoading } = useGamification(
     studentCtx ? null : (profile?.id ?? null),
   );
-  const gamification = studentCtx ? studentCtx.gamification : fallbackGamification;
+  const gamification = studentCtx ? studentCtx.gamification : (fallbackGamification ?? initialGamification ?? {
+    user_id: '',
+    total_xp: 0,
+    current_streak: 0,
+    longest_streak: 0,
+    last_active_date: null,
+    daily_goal: 30,
+    today_xp: 0,
+    today_date: null,
+  });
   const refreshGamification = studentCtx ? studentCtx.refreshGamification : fallbackRefreshGamification;
   const gamificationLoading = studentCtx ? studentCtx.isLoading : fallbackGamificationLoading;
   /** Streak hiển thị = ngày LIÊN TIẾP từ heatmap (không dùng raw current_streak / tổng ngày học). */
-  const [studyStreak, setStudyStreak] = useState(0);
+  const [studyStreak, setStudyStreak] = useState(() => {
+    return resolveDisplayStreak({
+      currentStreak: initialGamification?.current_streak,
+      lastActiveDate: initialGamification?.last_active_date,
+    });
+  });
 
   // Sync profile when studentCtx resolves
   useEffect(() => {
@@ -459,10 +485,18 @@ export default function StudentDashboard() {
           setWordsLoading(false);
           return;
         }
-        if (profRes.data) setProfile(profRes.data as Profile);
+        if (profRes.data) {
+          const freshProfile = profRes.data as Profile;
+          setProfile(freshProfile);
+          writeDashboardProfileCache(userId, freshProfile);
+        }
 
         if (wordsJson?.success) {
-          setWords(wordsJson.data || []);
+          const freshWords = wordsJson.data || [];
+          setWords(freshWords);
+          if (!scope || scope === '__personal__') {
+            writeDashboardWordsCache(userId, freshWords);
+          }
           setClassroomId(wordsJson.classroomId ?? null);
           setWordsOffset(WORDS_PAGE_SIZE);
           applySummaryCounts(userId, wordsJson, scope);
@@ -492,7 +526,11 @@ export default function StudentDashboard() {
         setWordsLoading(false);
         return;
       }
-      if (profRes.data) setProfile(profRes.data as Profile);
+      if (profRes.data) {
+        const freshProfile = profRes.data as Profile;
+        setProfile(freshProfile);
+        writeDashboardProfileCache(userId, freshProfile);
+      }
       setIsLoading(false);
       setWordsLoading(true);
 
@@ -505,7 +543,11 @@ export default function StudentDashboard() {
         ).then((r) => r.json()).catch(() => null);
 
         if (wordsJson?.success) {
-          setWords(wordsJson.data || []);
+          const freshWords = wordsJson.data || [];
+          setWords(freshWords);
+          if (!scope || scope === '__personal__') {
+            writeDashboardWordsCache(userId, freshWords);
+          }
           setClassroomId(wordsJson.classroomId ?? null);
           setWordsOffset(WORDS_PAGE_SIZE);
           if (typeof wordsJson.newCount === 'number' || typeof wordsJson.reviewDueCount === 'number') {
@@ -866,6 +908,7 @@ export default function StudentDashboard() {
       <StudentShell
         title="Dashboard"
         contentClassName="p-0"
+        hideMobileHeader
         profile={profile}
         gamification={gamification}
         reviewDueCount={reviewDueCount}
@@ -878,30 +921,38 @@ export default function StudentDashboard() {
         }}
       >
 
-      <div className="mx-auto flex w-full max-w-[920px] flex-col gap-3 px-4 py-3 sm:gap-3.5 sm:px-7 sm:py-5">
-          {/* Greeting — 1 dòng gọn */}
-          <div className="flex items-center gap-2.5">
-            <Mascot mood={mascotMood} size="sm" />
-            <div className="min-w-0 flex-1">
+      <div className="mx-auto flex w-full max-w-[920px] flex-col gap-2.5 px-3.5 py-2.5 sm:gap-3.5 sm:px-7 sm:py-5">
+          {/* Greeting — 1 dòng gọn cùng Thông báo bên phải */}
+          <div className="flex items-center justify-between gap-2 pt-0.5">
+            <div className="flex items-center gap-2 min-w-0">
+              <Mascot mood={mascotMood} size="sm" />
               <h2 className="truncate text-base font-black leading-tight text-foreground sm:text-xl">
-                {greeting}, {profile?.full_name?.split(' ')[0] || 'bạn'}!
+                {greeting}, {profile?.full_name?.split(' ')[0] || 'bạn'}! 👋
               </h2>
-              <p className="truncate text-xs font-semibold text-muted-foreground">
-                {reviewDueCount > 0
-                  ? `${reviewDueCount} từ cần ôn · bấm Ôn tập`
-                  : newCount > 0
-                    ? `${newCount} từ mới chờ học`
-                    : 'Xong hết hôm nay 🎉'}
-              </p>
             </div>
-            {/* Meta siêu gọn — thay 4 stat card */}
-            <div className="hidden shrink-0 items-center gap-1.5 sm:flex">
-              <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-extrabold tabular-nums text-slate-600">
-                {countsReady ? totalWords : '…'} từ
-              </span>
-              <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-extrabold tabular-nums text-emerald-700">
-                {masteredCount} master
-              </span>
+
+            <div className="flex items-center gap-2 shrink-0">
+              {/* Meta siêu gọn — desktop */}
+              <div className="hidden shrink-0 items-center gap-1.5 sm:flex">
+                <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-extrabold tabular-nums text-slate-600">
+                  {countsReady ? totalWords : '…'} từ
+                </span>
+                <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-extrabold tabular-nums text-emerald-700">
+                  {masteredCount} master
+                </span>
+              </div>
+
+              {/* Thông báo trên mobile — cùng hàng bên phải */}
+              <div className="md:hidden flex items-center">
+                <NotificationBell
+                  dueCount={reviewDueCount}
+                  grammarDueCount={0}
+                  streak={studyStreak}
+                  dailyGoalXp={gamification.today_xp}
+                  dailyGoal={gamification.daily_goal}
+                  classroomId={classroomId}
+                />
+              </div>
             </div>
           </div>
 
@@ -915,94 +966,180 @@ export default function StudentDashboard() {
           {/* Challenge campaign widget */}
           <ChallengeWidget />
 
-          {/* CTA chính: Học + Ôn + Luyện Tập Siêu To, Nổi Bật, Dễ Thấy, Dễ Bấm */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {/* Thẻ Học Từ Mới */}
-            <Link
-              href="/flashcard?mode=learn"
-              data-onboarding="learn"
-              className="group relative flex items-center justify-between rounded-2xl border-2 border-indigo-200/80 bg-gradient-to-br from-indigo-500 to-indigo-700 p-4 text-white shadow-lg shadow-indigo-500/20 transition-all hover:scale-[1.02] hover:shadow-xl hover:shadow-indigo-500/30 active:scale-[0.98]"
-            >
-              <div className="flex items-center gap-3.5">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/20 text-2xl backdrop-blur-sm shadow-inner">
-                  📖
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-black uppercase tracking-wider text-indigo-100">Học Từ Mới</span>
-                    <span className="rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-bold text-white backdrop-blur-sm">
-                      {countsReady ? (newCount > 0 ? `${newCount} từ` : 'Tất cả') : '...'}
+          {/* ═══════════════════════════════════════════════════════════ */}
+          {/* KHU VỰC CHIA ĐÔI 50/50: 3 Nút + Chuỗi (trái) vs Tiến độ ngày (phải) */}
+          {/* ═══════════════════════════════════════════════════════════ */}
+          <div className="grid grid-cols-2 gap-2 sm:gap-2.5 items-stretch pt-1">
+            {/* CỘT BÊN TRÁI: 3 Nút chuẩn 1cm ở trên + Bảng chuỗi ở dưới */}
+            <div className="flex flex-col gap-2 min-w-0">
+              {/* 2 Nút vuông chuẩn 1cm (Learn & Revise) */}
+              <div className="grid grid-cols-2 gap-1.5 pt-1.5">
+                {/* 1. New Words (Learn) */}
+                <Link
+                  href="/flashcard?mode=learn"
+                  data-onboarding="learn"
+                  className="group relative flex h-[48px] flex-col items-center justify-center rounded-lg border border-indigo-300/40 bg-gradient-to-br from-indigo-500 to-blue-600 text-white shadow-xs active:scale-95 transition-all hover:scale-105"
+                  title="Learn - Học từ mới"
+                >
+                  <span className="absolute -top-1.5 -right-0.5 rounded bg-rose-500 px-1 py-0.2 text-[8px] font-black text-white shadow ring-1 ring-white">
+                    {countsReady ? (newCount > 0 ? newCount : 0) : '…'}
+                  </span>
+                  <BookOpen className="h-4 w-4 drop-shadow-sm" strokeWidth={2.4} />
+                  <span className="mt-0.5 text-[8.5px] font-black leading-none tracking-tight text-white drop-shadow-xs">
+                    Learn
+                  </span>
+                </Link>
+
+                {/* 2. Revise */}
+                <Link
+                  href={
+                    currentClassScope && currentClassScope !== '__personal__'
+                      ? `/review?class=${encodeURIComponent(currentClassScope)}`
+                      : '/review'
+                  }
+                  data-onboarding="review"
+                  className="group relative flex h-[48px] flex-col items-center justify-center rounded-lg border border-emerald-300/40 bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-xs active:scale-95 transition-all hover:scale-105"
+                  title="Revise - Ôn tập"
+                >
+                  <span
+                    className={`absolute -top-1.5 -right-0.5 rounded px-1 py-0.2 text-[8px] font-black shadow ring-1 ring-white ${
+                      reviewDueCount > 0 ? 'bg-amber-400 text-amber-950 animate-pulse' : 'bg-emerald-800 text-white'
+                    }`}
+                  >
+                    {countsReady ? reviewDueCount : '…'}
+                  </span>
+                  <RotateCw className="h-4 w-4 drop-shadow-sm" strokeWidth={2.4} />
+                  <span className="mt-0.5 text-[8.5px] font-black leading-none tracking-tight text-white drop-shadow-xs">
+                    Revise
+                  </span>
+                </Link>
+              </div>
+
+              {/* Bảng chuỗi học ở dưới (StreakCounter) */}
+              <div className="flex-1 min-w-0">
+                <StreakCounter
+                  streak={studyStreak}
+                  lastActiveDate={
+                    lastActiveFromActivity(dailyActivity) ?? gamification.last_active_date
+                  }
+                  variant="calendar"
+                  dailyCounts={dailyActivity}
+                  className="h-full min-w-0"
+                />
+              </div>
+            </div>
+
+            {/* CỘT BÊN PHẢI: Nhiều thanh tiến độ chiếm từ trên xuống dưới */}
+            <div className="flex flex-col justify-between rounded-xl border border-slate-200/90 bg-white p-2.5 shadow-2xs min-w-0">
+              {/* Header nhỏ */}
+              <div className="flex items-center justify-between pb-1 border-b border-slate-100">
+                <span className="text-[11px] font-black text-slate-800 flex items-center gap-1">
+                  🎯 <span>Tiến độ ngày</span>
+                </span>
+              </div>
+
+              {/* 1. Ôn tập */}
+              <Link
+                href={
+                  currentClassScope && currentClassScope !== '__personal__'
+                    ? `/review?class=${encodeURIComponent(currentClassScope)}`
+                    : '/review'
+                }
+                className="group block space-y-0.5 rounded-lg p-1 -mx-1 hover:bg-emerald-50/60 active:scale-[0.98] transition-all cursor-pointer"
+                title="Bấm vào mũi tên hoặc chữ để vào phiên ôn tập"
+              >
+                <div className="flex items-center justify-between text-[9px]">
+                  <span className="font-bold text-slate-600 flex items-center gap-1.5 group-hover:text-emerald-700 transition-colors">
+                    <span className="inline-block text-[11.5px] font-black leading-none text-emerald-500 animate-arrow-nudge">
+                      →
                     </span>
-                  </div>
-                  <p className="mt-0.5 text-xs text-indigo-100/90 font-medium">
-                    {newCount > 0 ? 'Bấm vào để nạp từ mới ngay' : 'Học lại flashcard từ đã lưu'}
-                  </p>
+                    <span>Ôn tập</span>
+                  </span>
+                  <span className="font-black text-emerald-700 tabular-nums">
+                    {countsReady ? `${todayWords} lượt` : '…'}
+                  </span>
                 </div>
-              </div>
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-indigo-700 font-bold shadow-sm group-hover:translate-x-0.5 transition-transform">
-                <ArrowRight className="h-5 w-5" />
-              </div>
-            </Link>
+                <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                  <div
+                    className="bg-emerald-500 h-1.5 rounded-full transition-all duration-500"
+                    style={{
+                      width: `${Math.min(100, Math.round((todayWords / Math.max(gamification.daily_goal || 20, 1)) * 100))}%`,
+                    }}
+                  />
+                </div>
+              </Link>
 
-            {/* Thẻ Ôn Tập FSRS */}
-            <Link
-              href={
-                currentClassScope && currentClassScope !== '__personal__'
-                  ? `/review?class=${encodeURIComponent(currentClassScope)}`
-                  : '/review'
-              }
-              data-onboarding="review"
-              className="group relative flex items-center justify-between rounded-2xl border-2 border-emerald-200/80 bg-gradient-to-br from-emerald-500 to-teal-700 p-4 text-white shadow-lg shadow-emerald-500/20 transition-all hover:scale-[1.02] hover:shadow-xl hover:shadow-emerald-500/30 active:scale-[0.98]"
-            >
-              <div className="flex items-center gap-3.5">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/20 text-2xl backdrop-blur-sm shadow-inner">
-                  🔄
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-black uppercase tracking-wider text-emerald-100">Ôn Tập FSRS</span>
-                    <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold backdrop-blur-sm ${reviewDueCount > 0 ? 'bg-amber-400 text-amber-950 animate-pulse' : 'bg-white/20 text-white'}`}>
-                      {countsReady ? (reviewDueCount > 0 ? `${reviewDueCount} cần ôn` : 'Đã sẵn sàng') : '...'}
+              {/* 2. Từ mới */}
+              <Link
+                href="/flashcard?mode=learn"
+                className="group block space-y-0.5 rounded-lg p-1 -mx-1 hover:bg-indigo-50/60 active:scale-[0.98] transition-all cursor-pointer"
+                title="Bấm vào mũi tên hoặc chữ để nạp từ mới"
+              >
+                <div className="flex items-center justify-between text-[9px]">
+                  <span className="font-bold text-slate-600 flex items-center gap-1.5 group-hover:text-indigo-700 transition-colors">
+                    <span className="inline-block text-[11.5px] font-black leading-none text-indigo-500 animate-arrow-nudge">
+                      →
                     </span>
-                  </div>
-                  <p className="mt-0.5 text-xs text-emerald-100/90 font-medium">
-                    {reviewDueCount > 0 ? 'Đến hạn ôn trước khi quên' : 'Ôn luyện tự do củng cố trí nhớ'}
-                  </p>
+                    <span>Từ mới</span>
+                  </span>
+                  <span className="font-black text-indigo-700 tabular-nums">
+                    {todayWords} / {gamification.daily_goal || 10} từ
+                  </span>
                 </div>
-              </div>
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-emerald-700 font-bold shadow-sm group-hover:translate-x-0.5 transition-transform">
-                <ArrowRight className="h-5 w-5" />
-              </div>
-            </Link>
-          </div>
+                <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                  <div
+                    className="bg-indigo-500 h-1.5 rounded-full transition-all duration-500"
+                    style={{
+                      width: `${Math.min(100, Math.round((todayWords / Math.max(gamification.daily_goal || 10, 1)) * 100))}%`,
+                    }}
+                  />
+                </div>
+              </Link>
 
-          {/* Nút Phụ: Luyện Tập Đa Dạng & Sử Dụng Từ */}
-          <div className="flex items-center gap-2">
-            <Link
-              href="/practice"
-              className="flex-1 flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 shadow-sm hover:border-indigo-200 hover:bg-slate-50 transition active:scale-[0.99]"
-            >
-              <div className="flex items-center gap-2.5">
-                <span className="text-lg">⚡</span>
-                <span className="text-xs font-bold text-slate-800">Quiz nhớ nhanh & Đặt câu</span>
-              </div>
-              <span className="text-xs font-bold text-indigo-600 flex items-center gap-1">
-                Luyện tập <ArrowRight className="h-3.5 w-3.5" />
-              </span>
-            </Link>
+              {/* 3. Listening */}
+              <Link
+                href="/practice/listening"
+                className="group block space-y-0.5 rounded-lg p-1 -mx-1 hover:bg-purple-50/60 active:scale-[0.98] transition-all cursor-pointer"
+                title="Bấm vào mũi tên hoặc chữ để luyện nghe"
+              >
+                <div className="flex items-center justify-between text-[9px]">
+                  <span className="font-bold text-slate-600 flex items-center gap-1.5 group-hover:text-purple-700 transition-colors">
+                    <span className="inline-block text-[11.5px] font-black leading-none text-purple-500 animate-arrow-nudge">
+                      →
+                    </span>
+                    <span>Listening</span>
+                  </span>
+                  <span className="font-black text-purple-700 tabular-nums">
+                    Luyện nghe
+                  </span>
+                </div>
+                <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                  <div className="bg-purple-500 h-1.5 rounded-full" style={{ width: '60%' }} />
+                </div>
+              </Link>
 
-            <Link
-              href="/journey"
-              className="flex-1 flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 shadow-sm hover:border-sky-200 hover:bg-slate-50 transition active:scale-[0.99]"
-            >
-              <div className="flex items-center gap-2.5">
-                <span className="text-lg">🗺️</span>
-                <span className="text-xs font-bold text-slate-800">Lộ trình học A0–B2</span>
-              </div>
-              <span className="text-xs font-bold text-sky-600 flex items-center gap-1">
-                Vào chặng <ArrowRight className="h-3.5 w-3.5" />
-              </span>
-            </Link>
+              {/* 4. Reading */}
+              <Link
+                href="/practice/daily-reading"
+                className="group block space-y-0.5 rounded-lg p-1 -mx-1 hover:bg-amber-50/60 active:scale-[0.98] transition-all cursor-pointer"
+                title="Bấm vào mũi tên hoặc chữ để luyện đọc"
+              >
+                <div className="flex items-center justify-between text-[9px]">
+                  <span className="font-bold text-slate-600 flex items-center gap-1.5 group-hover:text-amber-700 transition-colors">
+                    <span className="inline-block text-[11.5px] font-black leading-none text-amber-500 animate-arrow-nudge">
+                      →
+                    </span>
+                    <span>Reading</span>
+                  </span>
+                  <span className="font-black text-amber-700 tabular-nums">
+                    Luyện đọc
+                  </span>
+                </div>
+                <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+                  <div className="bg-amber-500 h-1.5 rounded-full" style={{ width: '100%' }} />
+                </div>
+              </Link>
+            </div>
           </div>
 
           {/* Nhiệm vụ nhận quà Pro — luôn hiện trên dashboard free */}
@@ -1024,45 +1161,6 @@ export default function StudentDashboard() {
               }}
             />
           )}
-
-          {/* Meta mobile — 1 dòng thay 4 card */}
-          <div className="flex items-center gap-2 text-[11px] font-bold text-slate-500 sm:hidden">
-            <span className="tabular-nums">{countsReady ? totalWords : '…'} từ</span>
-            <span className="text-slate-300">·</span>
-            <span className="tabular-nums text-emerald-600">{masteredCount} master</span>
-            {countdown && reviewDueCount === 0 && (
-              <>
-                <span className="text-slate-300">·</span>
-                <span className="inline-flex items-center gap-1 text-indigo-500">
-                  <Clock className="h-3 w-3" />
-                  {countdown}
-                </span>
-              </>
-            )}
-          </div>
-
-          {/* Mobile: heatmap trái · Rookie/XP/mục tiêu phải | Desktop: 2 cột */}
-          <section
-            aria-label="Bảng hoạt động hàng tháng"
-            className="grid grid-cols-[1fr_minmax(0,0.95fr)] items-stretch gap-1.5 sm:grid-cols-2 sm:gap-2.5"
-          >
-            <StreakCounter
-              streak={studyStreak}
-              lastActiveDate={
-                lastActiveFromActivity(dailyActivity) ?? gamification.last_active_date
-              }
-              variant="calendar"
-              dailyCounts={dailyActivity}
-              className="min-w-0"
-            />
-            <XpGoalCard
-              totalXp={gamification.total_xp}
-              todayXp={gamification.today_xp}
-              dailyXpGoal={gamification.daily_goal}
-              todayWords={todayWords}
-              className="min-w-0"
-            />
-          </section>
 
           {/* ═══ KHO TỪ VỰNG ═══ */}
           <section
@@ -1094,7 +1192,7 @@ export default function StudentDashboard() {
                   title="Dán list / file / quét ảnh của bạn"
                 >
                   <Plus className="h-3.5 w-3.5" />
-                  List riêng
+                  Nạp từ mới
                 </Link>
                 <Link
                   href="/library"
@@ -1400,6 +1498,187 @@ export default function StudentDashboard() {
             </>
             )}
           </section>
+
+          {/* ═══════════════════════════════════════════════════════════ */}
+          {/* MỤC KỸ NĂNG: TIÊU ĐỀ + 5 NÚT 1CM                           */}
+          {/* ═══════════════════════════════════════════════════════════ */}
+          <div className="space-y-1.5 pt-0.5">
+            <div className="flex items-center justify-between px-0.5">
+              <span className="text-[11px] font-black text-slate-800 uppercase tracking-wide">
+                Kỹ năng
+              </span>
+            </div>
+
+            <div className="grid grid-cols-5 gap-1.5">
+              {/* 1. Grammar */}
+              <Link
+                href="/grammar"
+                className="group relative flex flex-col items-center justify-center h-[46px] rounded-xl bg-sky-50 border border-sky-200/80 text-sky-700 shadow-3xs active:scale-95 transition-all hover:border-sky-300"
+              >
+                <Code2 className="w-4 h-4" strokeWidth={2.4} />
+                <span className="mt-0.5 text-[8.5px] font-black leading-none text-sky-800">Grammar</span>
+              </Link>
+
+              {/* 2. Reading */}
+              <Link
+                href="/practice/daily-reading"
+                className="group relative flex flex-col items-center justify-center h-[46px] rounded-xl bg-amber-50 border border-amber-200/80 text-amber-700 shadow-3xs active:scale-95 transition-all hover:border-amber-300"
+              >
+                <FileText className="w-4 h-4" strokeWidth={2.4} />
+                <span className="mt-0.5 text-[8.5px] font-black leading-none text-amber-800">Reading</span>
+              </Link>
+
+              {/* 3. Listening */}
+              <Link
+                href="/practice/listening"
+                className="group relative flex flex-col items-center justify-center h-[46px] rounded-xl bg-purple-50 border border-purple-200/80 text-purple-700 shadow-3xs active:scale-95 transition-all hover:border-purple-300"
+              >
+                <Headphones className="w-4 h-4" strokeWidth={2.4} />
+                <span className="mt-0.5 text-[8.5px] font-black leading-none text-purple-800">Listening</span>
+              </Link>
+
+              {/* 4. Speaking */}
+              <div
+                className="group relative flex flex-col items-center justify-center h-[46px] rounded-xl bg-rose-50/70 border border-rose-200/80 text-rose-700 shadow-3xs cursor-pointer active:scale-95 transition-all"
+                onClick={() => toast.info('Tính năng Luyện Speaking đang được cập nhật')}
+              >
+                <span className="absolute -top-1.5 -right-0.5 rounded-full bg-amber-500 text-white px-1 py-0 text-[6.5px] font-black shadow ring-1 ring-white leading-tight">
+                  Cập nhật
+                </span>
+                <Mic className="w-4 h-4" strokeWidth={2.4} />
+                <span className="mt-0.5 text-[8.5px] font-black leading-none text-rose-800">Speaking</span>
+              </div>
+
+              {/* 5. Writing */}
+              <div
+                className="group relative flex flex-col items-center justify-center h-[46px] rounded-xl bg-slate-100/80 border border-slate-200 text-slate-500 shadow-3xs cursor-pointer active:scale-95 transition-all"
+                onClick={() => toast.info('Tính năng Luyện Writing sắp ra mắt')}
+              >
+                <span className="absolute -top-1.5 -right-0.5 rounded-full bg-slate-500 text-white px-1 py-0 text-[6.5px] font-black shadow ring-1 ring-white leading-tight">
+                  Sắp có
+                </span>
+                <PenTool className="w-4 h-4 opacity-80" strokeWidth={2.4} />
+                <span className="mt-0.5 text-[8.5px] font-black leading-none text-slate-600">Writing</span>
+              </div>
+            </div>
+          </div>
+
+          {/* ═══════════════════════════════════════════════════════════ */}
+          {/* MỤC LUYỆN THI: TIÊU ĐỀ + 4 LOGO THẬT                       */}
+          {/* ═══════════════════════════════════════════════════════════ */}
+          <div className="space-y-1.5 pt-0.5">
+            <div className="flex items-center justify-between px-0.5">
+              <span className="text-[11px] font-black text-slate-800 uppercase tracking-wide">
+                Luyện thi
+              </span>
+            </div>
+
+            <div className="grid grid-cols-4 gap-2">
+              {/* 1. TOEIC */}
+              <Link
+                href="/toeic"
+                className="group relative flex items-center justify-center h-[52px] rounded-xl border border-slate-200/80 bg-white p-2 shadow-3xs hover:border-indigo-300 active:scale-95 transition-all"
+              >
+                <img src="/images/exams/toeic.png" alt="TOEIC" className="max-h-full max-w-full object-contain" />
+              </Link>
+
+              {/* 2. VSTEP */}
+              <Link
+                href="/vstep"
+                className="group relative flex items-center justify-center h-[52px] rounded-xl border border-slate-200/80 bg-white p-2 shadow-3xs hover:border-blue-300 active:scale-95 transition-all"
+              >
+                <img src="/images/exams/vstep.png" alt="VSTEP" className="max-h-full max-w-full object-contain" />
+              </Link>
+
+              {/* 3. VNU Test */}
+              <Link
+                href="/vnu"
+                className="group relative flex items-center justify-center h-[52px] rounded-xl border border-slate-200/80 bg-white p-2 shadow-3xs hover:border-emerald-300 active:scale-95 transition-all"
+              >
+                <img src="/images/exams/vnu-test.png" alt="VNU Test" className="max-h-full max-w-full object-contain" />
+              </Link>
+
+              {/* 4. IELTS */}
+              <div
+                className="group relative flex items-center justify-center h-[52px] rounded-xl border border-slate-200/80 bg-white p-2 shadow-3xs active:scale-95 transition-all cursor-pointer"
+                onClick={() => toast.info('Chương trình Luyện thi IELTS đang được cập nhật')}
+              >
+                <span className="absolute -top-1.5 -right-1 rounded-full bg-amber-500 text-white px-1.5 py-0.2 text-[6.5px] font-black shadow ring-1 ring-white whitespace-nowrap">
+                  Đang cập nhật
+                </span>
+                <img src="/images/exams/ielts.png" alt="IELTS" className="max-h-full max-w-full object-contain" />
+              </div>
+            </div>
+          </div>
+
+          {/* ═══════════════════════════════════════════════════════════ */}
+          {/* HỘP THƯỞNG PRO VIP: HỌC CHĂM + MỜI BẠN                     */}
+          {/* ═══════════════════════════════════════════════════════════ */}
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-500/10 via-indigo-500/5 to-purple-500/10 p-2.5 border border-amber-200/70 shadow-2xs space-y-2">
+            {/* Header */}
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-1.5 font-black text-xs text-slate-800">
+                <span className="text-amber-500">🎁</span>
+                <span>Săn ngày PRO miễn phí</span>
+              </div>
+              <span className="text-[9px] font-black bg-gradient-to-r from-amber-500 to-orange-500 text-white px-2 py-0.5 rounded-full shadow-3xs">
+                +3 ngày PRO / mốc
+              </span>
+            </div>
+
+            {/* 2 Nhiệm vụ săn PRO */}
+            <div className="space-y-1.5">
+              {/* 1. Học chăm chỉ (Streak 7 ngày) */}
+              <div className="flex items-center justify-between gap-2 bg-white/95 rounded-xl p-2 border border-slate-100 shadow-3xs">
+                <div className="flex items-center gap-2 min-w-0 flex-1">
+                  <div className="w-7 h-7 rounded-lg bg-amber-50 border border-amber-200/80 flex items-center justify-center shrink-0 text-amber-500">
+                    <Flame className="w-4 h-4 fill-amber-500 stroke-none" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center justify-between text-[9.5px]">
+                      <span className="font-extrabold text-slate-700 truncate">Chuỗi học 7 ngày</span>
+                      <span className="font-black text-amber-600 tabular-nums">
+                        {Math.min(studyStreak, 7)}/7 ngày
+                      </span>
+                    </div>
+                    <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden mt-1">
+                      <div
+                        className="bg-gradient-to-r from-amber-400 to-orange-500 h-full rounded-full transition-all duration-500"
+                        style={{ width: `${Math.min(100, Math.round((studyStreak / 7) * 100))}%` }}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <span className="text-[8.5px] font-extrabold text-amber-700 bg-amber-50 border border-amber-200 px-2 py-1 rounded-lg shrink-0">
+                  +3 ngày PRO
+                </span>
+              </div>
+
+              {/* 2. Mời bạn cùng tiến */}
+              <div className="flex items-center justify-between gap-2 bg-white/95 rounded-xl p-2 border border-slate-100 shadow-3xs">
+                <div className="flex items-center gap-2 min-w-0 flex-1">
+                  <div className="w-7 h-7 rounded-lg bg-indigo-50 border border-indigo-200/80 flex items-center justify-center shrink-0 text-indigo-600">
+                    <Users className="w-4 h-4 stroke-indigo-600" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="text-[9.5px] font-extrabold text-slate-800 leading-tight">
+                      Mời bạn học cùng
+                    </div>
+                    <div className="text-[8px] font-medium text-slate-400 truncate mt-0.5">
+                      Cả hai đều nhận +3 ngày PRO miễn phí
+                    </div>
+                  </div>
+                </div>
+                <Link
+                  href="/student/referral"
+                  className="text-[8.5px] font-black text-white bg-gradient-to-r from-indigo-600 to-violet-600 px-2.5 py-1 rounded-lg shrink-0 shadow-3xs active:scale-95 transition-all hover:brightness-110 flex items-center gap-0.5"
+                >
+                  <span>Mời bạn</span>
+                  <ChevronRight className="w-2.5 h-2.5" strokeWidth={2.5} />
+                </Link>
+              </div>
+            </div>
+          </div>
 
           <div className="opacity-90">
             <BadgeGrid badges={badges} />

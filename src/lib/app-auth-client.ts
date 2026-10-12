@@ -29,7 +29,7 @@ function clearAccountCache() {
     try {
       const storage = window[name];
       const keys = Array.from({ length: storage.length }, (_, index) => storage.key(index));
-      for (const key of keys) if (key && /^(lp:(profile|gamification|teacher|word-summary):|lp:last_user_id$|lp_ref_checked$|lp:upsell:paid_)/.test(key)) storage.removeItem(key);
+      for (const key of keys) if (key && /^(lp:(profile|gamification|teacher|word-summary|dashboard-words):|lp:last_user_id$|lp_ref_checked$|lp:upsell:paid_)/.test(key)) storage.removeItem(key);
     } catch { /* Offline preferences are independent of authentication. */ }
   }
 }

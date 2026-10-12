@@ -37,6 +37,7 @@ import {
 import { stabilityToLevel } from '@/lib/srs';
 import { invalidateWordSummaryCache } from '@/lib/word-summary-cache';
 import { saveSrsReview } from '@/lib/save-srs-review';
+import { getOfflineStudyQueue } from '@/lib/offline/study-queue';
 
 interface WordItem extends ReviewWordLike {
   ipa?: string;
@@ -265,7 +266,8 @@ function SessionContent() {
     setIsLoadingFree(true);
     lastModeRef.current = null;
     try {
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session }, error } = await supabase.auth.getSession();
+      if (error) { setIsLoadingFree(false); return; }
       if (!session?.user) {
         router.push('/auth');
         return;
@@ -362,10 +364,12 @@ function SessionContent() {
     initKeyRef.current = currentKey;
 
     const init = async () => {
+      let hasCached = false;
       try {
         lastModeRef.current = null;
         // getSession() trả cả user + token → tránh gọi getUser() riêng + 2× getSession() trong authFetch
-        const { data: { session } } = await supabase.auth.getSession();
+        const { data: { session }, error } = await supabase.auth.getSession();
+        if (error) return;
         if (!session?.user) {
           router.push('/auth');
           return;
@@ -380,6 +384,41 @@ function SessionContent() {
           return;
         }
 
+        // 1. Instant hydration from IndexedDB (<5ms)
+        try {
+          const cachedWords = await getOfflineStudyQueue(user.id, 'review');
+          if (cachedWords.length > 0) {
+            const mapped: WordItem[] = cachedWords.map((cw) => ({
+              id: cw.id,
+              word: cw.word,
+              translation: cw.translation,
+              ipa: cw.ipa,
+              pos: cw.pos,
+              example: cw.example,
+              example_vi: cw.example_vi ?? undefined,
+              image_url: cw.image_url ?? undefined,
+              srsLevel: cw.srsLevel,
+              reviewCount: cw.reviewCount,
+              isDue: cw.isDue,
+            }));
+            const readyCached = mapped.filter(isCardReady);
+            const dueCached = readyCached.filter((w) => w.isDue);
+            const finalDueCached = deduplicateWords(dueCached.length > 0 ? dueCached : readyCached).slice(0, SESSION_CAP);
+
+            if (finalDueCached.length > 0) {
+              setPool(readyCached);
+              queueRef.current = [...finalDueCached];
+              setTotal(finalDueCached.length);
+              setCurrent(finalDueCached[0]);
+              setupCard(finalDueCached[0], readyCached.length >= 2 ? readyCached : finalDueCached, sessionMode);
+              setIsLoading(false);
+              hasCached = true;
+            }
+          }
+        } catch (dbErr) {
+          console.debug('[ReviewSession] IndexedDB pre-read error:', dbErr);
+        }
+
         const cid = classroomIdRef.current ?? classroomId;
         const base = cid
           ? `/api/words?classroomId=${encodeURIComponent(cid)}`
@@ -389,8 +428,10 @@ function SessionContent() {
         const dueJson = await dueRes.json().catch(() => ({ success: false }));
 
         if (!dueJson.success) {
-          toast.error('Không tải được từ vựng.');
-          setIsLoading(false);
+          if (!hasCached) {
+            toast.error('Không tải được từ vựng.');
+            setIsLoading(false);
+          }
           return;
         }
         const classroomIdFromRes = dueJson.classroomId;
@@ -441,6 +482,9 @@ function SessionContent() {
         due = deduplicateWords(due).slice(0, SESSION_CAP);
 
         if (due.length === 0) {
+          if (hasCached) {
+            return;
+          }
           // Khi không có từ đến hạn, tìm mốc thời gian từ kế tiếp sẽ đến hạn
           try {
             const { data: nextDueData } = await supabase
@@ -467,9 +511,11 @@ function SessionContent() {
         setCurrent(due[0]);
         setupCard(due[0], ready.length >= 2 ? ready : due, sessionMode);
       } catch (err: unknown) {
-        const msg = err instanceof Error ? err.message : 'Unknown';
-        console.error('[ReviewSession] load:', msg);
-        toast.error('Lỗi tải phiên ôn.');
+        if (!hasCached) {
+          const msg = err instanceof Error ? err.message : 'Unknown';
+          console.error('[ReviewSession] load:', msg);
+          toast.error('Lỗi tải phiên ôn.');
+        }
       } finally {
         setIsLoading(false);
       }
@@ -535,7 +581,7 @@ function SessionContent() {
       // không làm chậm nhịp học hoặc giữ giao diện ở trạng thái chưa chấm.
       // Chỉ lưu FSRS khi KHÔNG ở chế độ Ôn tập tự do (Free Review) để bảo toàn thuật toán FSRS.
       if (!isFreeReview) {
-        void saveSrsReview(current.id, quality).catch((error: unknown) => {
+        void saveSrsReview(current.id, quality, crypto.randomUUID(), userId ?? undefined).catch((error: unknown) => {
           const message = error instanceof Error ? error.message : 'Không lưu được lịch ôn';
           toast.error(message);
         });

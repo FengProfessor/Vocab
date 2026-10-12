@@ -109,7 +109,8 @@ export default function ImportPage() {
 
   useEffect(() => {
     (async () => {
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session }, error } = await supabase.auth.getSession();
+      if (error) return;
       if (!session?.user) { router.push('/auth'); return; }
       setUserId(session.user.id);
 

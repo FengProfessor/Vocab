@@ -60,7 +60,9 @@ function WritingContent() {
       try {
         const {
           data: { user },
+          error,
         } = await supabase.auth.getUser();
+        if (error) return;
         if (!user) {
           router.push('/auth');
           return;

@@ -53,7 +53,11 @@ export default function StudentSpeakingPage() {
 
   useEffect(() => {
     const checkAuth = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session }, error } = await supabase.auth.getSession();
+      if (error) {
+        setIsLoading(false);
+        return;
+      }
       if (session?.user) {
         setUserId(session.user.id);
         setIsLoading(false);

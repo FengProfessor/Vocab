@@ -111,7 +111,9 @@ export default function ProfilePage() {
     const checkAuth = async () => {
       const {
         data: { session },
+        error,
       } = await supabase.auth.getSession();
+      if (error) return;
       if (!session?.user) {
         router.push('/auth');
         return;

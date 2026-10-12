@@ -20,6 +20,15 @@ import {
   writeWordSummaryCache,
   WORD_SUMMARY_EVENTS,
 } from '@/lib/word-summary-cache';
+import {
+  readLastProfileCache,
+  readLastGamificationCache,
+  readProfileCache,
+  readGamificationCache,
+  writeDashboardProfileCache,
+  writeDashboardGamificationCache,
+  clearDashboardSnapshotCache,
+} from '@/lib/dashboard-snapshot-cache';
 
 export type ShellProfile = Profile & {
   telegram_id?: string | null;
@@ -219,6 +228,8 @@ export function fetchWordSummaryOnce(userId: string): Promise<WordSummaryData | 
  * ═════════════════════════════════════════════════════════════════════════ */
 export function getStoredProfile(userId: string): ShellProfile | null {
   if (typeof window === 'undefined') return null;
+  const fromCache = readProfileCache(userId);
+  if (fromCache) return fromCache;
   try {
     const raw = sessionStorage.getItem(`lp:profile:${userId}`);
     return raw ? JSON.parse(raw) : null;
@@ -229,6 +240,7 @@ export function getStoredProfile(userId: string): ShellProfile | null {
 
 export function setStoredProfile(userId: string, profile: ShellProfile): void {
   if (typeof window === 'undefined') return;
+  writeDashboardProfileCache(userId, profile);
   try {
     sessionStorage.setItem(`lp:profile:${userId}`, JSON.stringify(profile));
   } catch {}
@@ -236,6 +248,8 @@ export function setStoredProfile(userId: string, profile: ShellProfile): void {
 
 export function getStoredGamification(userId: string): UserGamification | null {
   if (typeof window === 'undefined') return null;
+  const fromCache = readGamificationCache(userId);
+  if (fromCache) return fromCache;
   try {
     const raw = sessionStorage.getItem(`lp:gamification:${userId}`);
     return raw ? JSON.parse(raw) : null;
@@ -246,6 +260,7 @@ export function getStoredGamification(userId: string): UserGamification | null {
 
 export function setStoredGamification(userId: string, gamification: UserGamification): void {
   if (typeof window === 'undefined') return;
+  writeDashboardGamificationCache(userId, gamification);
   try {
     sessionStorage.setItem(`lp:gamification:${userId}`, JSON.stringify(gamification));
   } catch {}
@@ -279,8 +294,10 @@ export function useStudentContext() {
 
 function StudentProviderInner({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
-  const [profile, setProfile] = useState<ShellProfile | null>(null);
-  const [gamification, setGamification] = useState<UserGamification>(DEFAULT_GAMIFICATION);
+  const [profile, setProfile] = useState<ShellProfile | null>(() => readLastProfileCache());
+  const [gamification, setGamification] = useState<UserGamification>(
+    () => readLastGamificationCache() ?? DEFAULT_GAMIFICATION,
+  );
   const [wordSummary, setWordSummary] = useState<WordSummaryData>(() => {
     const cached = readLastWordSummaryCache();
     return cached
@@ -293,8 +310,10 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
         }
       : DEFAULT_WORD_SUMMARY;
   });
-  const [isTeacherUser, setIsTeacherUser] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isTeacherUser, setIsTeacherUser] = useState<boolean>(() => {
+    return readLastProfileCache()?.role === 'teacher';
+  });
+  const [isLoading, setIsLoading] = useState<boolean>(() => !readLastProfileCache());
 
   const refreshProfile = useCallback(async () => {
     if (!session?.user?.id) return;
@@ -302,6 +321,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
     const fresh = await fetchProfileOnce(session.user.id);
     if (fresh && version === authStateVersion()) {
       setProfile(fresh);
+      writeDashboardProfileCache(session.user.id, fresh);
       if (fresh.role === 'teacher') {
         setIsTeacherUser(true);
       }
@@ -314,6 +334,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
     const fresh = await fetchGamificationOnce(session.user.id);
     if (fresh && version === authStateVersion()) {
       setGamification(fresh);
+      writeDashboardGamificationCache(session.user.id, fresh);
     }
   }, [session]);
 
@@ -394,6 +415,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
           setProfile(profData);
           setIsTeacherUser(profData.role === 'teacher' || teacherFlag);
           setStoredProfile(userId, profData);
+          writeDashboardProfileCache(userId, profData);
           setStoredTeacher(userId, profData.role === 'teacher' || teacherFlag);
         } else if (teacherFlag) {
           setIsTeacherUser(true);
@@ -416,10 +438,26 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
 
         if (gamData) {
           setGamification(gamData);
+          setStoredGamification(userId, gamData);
+          writeDashboardGamificationCache(userId, gamData);
         }
 
         if (wordSum) {
           setWordSummary(wordSum);
+        }
+
+        // Milestone 2: Background prefetch offline study queue (50 review + 25 new words) during idle time
+        if (typeof window !== 'undefined') {
+          const triggerPrefetch = () => {
+            void import('@/lib/offline/study-queue')
+              .then((mod) => mod.prefetchStudyQueue(userId))
+              .catch(() => {});
+          };
+          if ('requestIdleCallback' in window) {
+            (window as any).requestIdleCallback(triggerPrefetch, { timeout: 3000 });
+          } else {
+            setTimeout(triggerPrefetch, 1000);
+          }
         }
       } finally {
         if (!isCancelled) {
@@ -440,6 +478,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
         setGamification(DEFAULT_GAMIFICATION);
         setWordSummary(DEFAULT_WORD_SUMMARY);
         setIsTeacherUser(false);
+        clearDashboardSnapshotCache();
       } else if (nextSession?.user) {
         setSession(nextSession);
         if (event === 'SIGNED_IN') {
@@ -451,10 +490,16 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
         if (event === 'SIGNED_IN' || event === 'USER_UPDATED') {
           const version = authStateVersion();
           void fetchProfileOnce(nextSession.user.id).then((p) => {
-            if (!isCancelled && version === authStateVersion() && p) setProfile(p);
+            if (!isCancelled && version === authStateVersion() && p) {
+              setProfile(p);
+              writeDashboardProfileCache(nextSession.user.id, p);
+            }
           });
           void fetchGamificationOnce(nextSession.user.id).then((g) => {
-            if (!isCancelled && version === authStateVersion() && g) setGamification(g);
+            if (!isCancelled && version === authStateVersion() && g) {
+              setGamification(g);
+              writeDashboardGamificationCache(nextSession.user.id, g);
+            }
           });
         }
       }

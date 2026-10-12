@@ -88,7 +88,8 @@ function QuizContent() {
   useEffect(() => {
     const init = async () => {
       try {
-        const { data: { user } } = await supabase.auth.getUser();
+        const { data: { user }, error } = await supabase.auth.getUser();
+        if (error) return;
         if (!user) { router.push('/auth'); return; }
         setUserId(user.id);
 

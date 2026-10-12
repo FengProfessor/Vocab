@@ -35,7 +35,11 @@ export function requestCookie(req: Request, name: string): string | null {
 }
 
 export function cookieHeader(name: string, value: string, maxAge: number): string {
-  return `${name}=${value}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${Math.max(0, Math.floor(maxAge))}` +
+  const safeAge = Math.max(0, Math.floor(maxAge));
+  const expires = safeAge > 0
+    ? ` Expires=${new Date(Date.now() + safeAge * 1000).toUTCString()};`
+    : ' Expires=Thu, 01 Jan 1970 00:00:00 GMT;';
+  return `${name}=${value};${expires} Path=/; HttpOnly; SameSite=Lax; Max-Age=${safeAge}` +
     (process.env.NODE_ENV === 'production' ? '; Secure' : '');
 }
 
@@ -184,8 +188,11 @@ export async function verifiedAppSession(req: Request): Promise<VerifiedAppSessi
               throw new SessionStoreUnavailableError();
             }
             const next = {
-              ...stored.vault, accessToken: data.session.access_token,
-              refreshToken: data.session.refresh_token, tokenExpiresAt: data.session.expires_at * 1000,
+              ...stored.vault,
+              providerSessionId: providerSessionId(data.session.access_token),
+              accessToken: data.session.access_token,
+              refreshToken: data.session.refresh_token,
+              tokenExpiresAt: data.session.expires_at * 1000,
             };
             await verifiedProviderUser(next);
             if (!await replaceSessionVault(id, stored, owner, next)) {
