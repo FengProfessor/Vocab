@@ -6,6 +6,7 @@ import { supabase } from '@/lib/supabase';
 import { authFetch } from '@/lib/auth-fetch';
 import type { Profile, Word } from '@/lib/supabase';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import {
   Loader2, Plus, ArrowRight,
@@ -32,6 +33,7 @@ import type { MilestonePopupPayload } from '@/components/gamification/MilestoneP
 import { StudentShell } from '@/components/student/StudentShell';
 import { NotificationBell } from '@/components/NotificationBell';
 import { EnableNotifications } from '@/components/EnableNotifications';
+import { ActionSelectionModal, type ActionSelectionType } from '@/components/student/ActionSelectionModal';
 import {
   readWordSummaryCache,
   readLastWordSummaryCache,
@@ -160,6 +162,8 @@ export default function StudentDashboard() {
   const [joinCode, setJoinCode] = useState('');
   const [isJoining, setIsJoining] = useState(false);
   const [joinError, setJoinError] = useState<string | null>(null);
+  // Action Selection Modal State (Ô vuông 1cm giữa màn hình)
+  const [actionModalType, setActionModalType] = useState<ActionSelectionType | null>(null);
   // Pagination state cho word list - Khởi tạo tức thì Frame 0 từ Context hoặc Cache
   const [totalWords, setTotalWords] = useState(() => {
     const cached = (studentCtx?.wordSummary?.total ?? 0) > 0 ? studentCtx!.wordSummary : readLastWordSummaryCache();
@@ -975,11 +979,12 @@ export default function StudentDashboard() {
               {/* 2 Nút vuông chuẩn 1cm (Learn & Revise) */}
               <div className="grid grid-cols-2 gap-1.5 pt-1.5">
                 {/* 1. New Words (Learn) */}
-                <Link
-                  href="/flashcard?mode=learn"
+                <button
+                  type="button"
+                  onClick={() => setActionModalType('learn')}
                   data-onboarding="learn"
-                  className="group relative flex h-[48px] flex-col items-center justify-center rounded-lg border border-indigo-300/40 bg-gradient-to-br from-indigo-500 to-blue-600 text-white shadow-xs active:scale-95 transition-all hover:scale-105"
-                  title="Learn - Học từ mới"
+                  className="group relative flex h-[48px] flex-col items-center justify-center rounded-lg border border-indigo-300/40 bg-gradient-to-br from-indigo-500 to-blue-600 text-white shadow-xs active:scale-95 transition-all hover:scale-105 cursor-pointer text-left w-full"
+                  title="Learn - Chọn phương thức nạp từ"
                 >
                   <span className="absolute -top-1.5 -right-0.5 rounded bg-rose-500 px-1 py-0.2 text-[8px] font-black text-white shadow ring-1 ring-white">
                     {countsReady ? (newCount > 0 ? newCount : 0) : '…'}
@@ -988,18 +993,15 @@ export default function StudentDashboard() {
                   <span className="mt-0.5 text-[8.5px] font-black leading-none tracking-tight text-white drop-shadow-xs">
                     Learn
                   </span>
-                </Link>
+                </button>
 
                 {/* 2. Revise */}
-                <Link
-                  href={
-                    currentClassScope && currentClassScope !== '__personal__'
-                      ? `/review?class=${encodeURIComponent(currentClassScope)}`
-                      : '/review'
-                  }
+                <button
+                  type="button"
+                  onClick={() => setActionModalType('review')}
                   data-onboarding="review"
-                  className="group relative flex h-[48px] flex-col items-center justify-center rounded-lg border border-emerald-300/40 bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-xs active:scale-95 transition-all hover:scale-105"
-                  title="Revise - Ôn tập"
+                  className="group relative flex h-[48px] flex-col items-center justify-center rounded-lg border border-emerald-300/40 bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-xs active:scale-95 transition-all hover:scale-105 cursor-pointer text-left w-full"
+                  title="Revise - Chọn chế độ ôn tập"
                 >
                   <span
                     className={`absolute -top-1.5 -right-0.5 rounded px-1 py-0.2 text-[8px] font-black shadow ring-1 ring-white ${
@@ -1012,7 +1014,7 @@ export default function StudentDashboard() {
                   <span className="mt-0.5 text-[8.5px] font-black leading-none tracking-tight text-white drop-shadow-xs">
                     Revise
                   </span>
-                </Link>
+                </button>
               </div>
 
               {/* Bảng chuỗi học ở dưới (StreakCounter) */}
@@ -1039,14 +1041,10 @@ export default function StudentDashboard() {
               </div>
 
               {/* 1. Ôn tập */}
-              <Link
-                href={
-                  currentClassScope && currentClassScope !== '__personal__'
-                    ? `/review?class=${encodeURIComponent(currentClassScope)}`
-                    : '/review'
-                }
+              <div
+                onClick={() => setActionModalType('review')}
                 className="group block space-y-0.5 rounded-lg p-1 -mx-1 hover:bg-emerald-50/60 active:scale-[0.98] transition-all cursor-pointer"
-                title="Bấm vào mũi tên hoặc chữ để vào phiên ôn tập"
+                title="Bấm vào mũi tên hoặc chữ để chọn chế độ ôn tập"
               >
                 <div className="flex items-center justify-between text-[9px]">
                   <span className="font-bold text-slate-600 flex items-center gap-1.5 group-hover:text-emerald-700 transition-colors">
@@ -1067,13 +1065,13 @@ export default function StudentDashboard() {
                     }}
                   />
                 </div>
-              </Link>
+              </div>
 
               {/* 2. Từ mới */}
-              <Link
-                href="/flashcard?mode=learn"
+              <div
+                onClick={() => setActionModalType('learn')}
                 className="group block space-y-0.5 rounded-lg p-1 -mx-1 hover:bg-indigo-50/60 active:scale-[0.98] transition-all cursor-pointer"
-                title="Bấm vào mũi tên hoặc chữ để nạp từ mới"
+                title="Bấm vào mũi tên hoặc chữ để chọn phương thức nạp từ"
               >
                 <div className="flex items-center justify-between text-[9px]">
                   <span className="font-bold text-slate-600 flex items-center gap-1.5 group-hover:text-indigo-700 transition-colors">
@@ -1094,13 +1092,13 @@ export default function StudentDashboard() {
                     }}
                   />
                 </div>
-              </Link>
+              </div>
 
               {/* 3. Listening */}
-              <Link
-                href="/practice/listening"
+              <div
+                onClick={() => setActionModalType('listening')}
                 className="group block space-y-0.5 rounded-lg p-1 -mx-1 hover:bg-purple-50/60 active:scale-[0.98] transition-all cursor-pointer"
-                title="Bấm vào mũi tên hoặc chữ để luyện nghe"
+                title="Bấm vào mũi tên hoặc chữ để chọn chế độ luyện nghe"
               >
                 <div className="flex items-center justify-between text-[9px]">
                   <span className="font-bold text-slate-600 flex items-center gap-1.5 group-hover:text-purple-700 transition-colors">
@@ -1116,13 +1114,13 @@ export default function StudentDashboard() {
                 <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
                   <div className="bg-purple-500 h-1.5 rounded-full" style={{ width: '60%' }} />
                 </div>
-              </Link>
+              </div>
 
               {/* 4. Reading */}
-              <Link
-                href="/practice/daily-reading"
+              <div
+                onClick={() => setActionModalType('reading')}
                 className="group block space-y-0.5 rounded-lg p-1 -mx-1 hover:bg-amber-50/60 active:scale-[0.98] transition-all cursor-pointer"
-                title="Bấm vào mũi tên hoặc chữ để luyện đọc"
+                title="Bấm vào mũi tên hoặc chữ để chọn chế độ luyện đọc"
               >
                 <div className="flex items-center justify-between text-[9px]">
                   <span className="font-bold text-slate-600 flex items-center gap-1.5 group-hover:text-amber-700 transition-colors">
@@ -1138,7 +1136,7 @@ export default function StudentDashboard() {
                 <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
                   <div className="bg-amber-500 h-1.5 rounded-full" style={{ width: '100%' }} />
                 </div>
-              </Link>
+              </div>
             </div>
           </div>
 
@@ -1520,22 +1518,24 @@ export default function StudentDashboard() {
               </Link>
 
               {/* 2. Reading */}
-              <Link
-                href="/practice/daily-reading"
-                className="group relative flex flex-col items-center justify-center h-[46px] rounded-xl bg-amber-50 border border-amber-200/80 text-amber-700 shadow-3xs active:scale-95 transition-all hover:border-amber-300"
+              <button
+                type="button"
+                onClick={() => setActionModalType('reading')}
+                className="group relative flex flex-col items-center justify-center h-[46px] rounded-xl bg-amber-50 border border-amber-200/80 text-amber-700 shadow-3xs active:scale-95 transition-all hover:border-amber-300 cursor-pointer"
               >
                 <FileText className="w-4 h-4" strokeWidth={2.4} />
                 <span className="mt-0.5 text-[8.5px] font-black leading-none text-amber-800">Reading</span>
-              </Link>
+              </button>
 
               {/* 3. Listening */}
-              <Link
-                href="/practice/listening"
-                className="group relative flex flex-col items-center justify-center h-[46px] rounded-xl bg-purple-50 border border-purple-200/80 text-purple-700 shadow-3xs active:scale-95 transition-all hover:border-purple-300"
+              <button
+                type="button"
+                onClick={() => setActionModalType('listening')}
+                className="group relative flex flex-col items-center justify-center h-[46px] rounded-xl bg-purple-50 border border-purple-200/80 text-purple-700 shadow-3xs active:scale-95 transition-all hover:border-purple-300 cursor-pointer"
               >
                 <Headphones className="w-4 h-4" strokeWidth={2.4} />
                 <span className="mt-0.5 text-[8.5px] font-black leading-none text-purple-800">Listening</span>
-              </Link>
+              </button>
 
               {/* 4. Speaking */}
               <div
@@ -1543,7 +1543,7 @@ export default function StudentDashboard() {
                 onClick={() => toast.info('Tính năng Luyện Speaking đang được cập nhật')}
               >
                 <span className="absolute -top-1.5 -right-0.5 rounded-full bg-amber-500 text-white px-1 py-0 text-[6.5px] font-black shadow ring-1 ring-white leading-tight">
-                  Cập nhật
+                  Đang cập nhật
                 </span>
                 <Mic className="w-4 h-4" strokeWidth={2.4} />
                 <span className="mt-0.5 text-[8.5px] font-black leading-none text-rose-800">Speaking</span>
@@ -1574,40 +1574,46 @@ export default function StudentDashboard() {
             </div>
 
             <div className="grid grid-cols-4 gap-2">
-              {/* 1. TOEIC */}
-              <Link
-                href="/toeic"
-                className="group relative flex items-center justify-center h-[52px] rounded-xl border border-slate-200/80 bg-white p-2 shadow-3xs hover:border-indigo-300 active:scale-95 transition-all"
+              {/* 1. TOEIC (Popup: Vào luyện thi + Học TOEIC) */}
+              <button
+                type="button"
+                onClick={() => setActionModalType('toeic')}
+                className="group relative flex items-center justify-center h-[52px] rounded-xl border border-slate-200/80 bg-white p-2 shadow-3xs hover:border-indigo-300 active:scale-95 transition-all cursor-pointer"
               >
-                <img src="/images/exams/toeic.png" alt="TOEIC" className="max-h-full max-w-full object-contain" />
-              </Link>
+                <Image src="/images/exams/toeic.png" alt="TOEIC" width={64} height={32} className="max-h-full max-w-full object-contain" />
+              </button>
 
-              {/* 2. VSTEP */}
+              {/* 2. VSTEP (Vào trang luôn) */}
               <Link
                 href="/vstep"
-                className="group relative flex items-center justify-center h-[52px] rounded-xl border border-slate-200/80 bg-white p-2 shadow-3xs hover:border-blue-300 active:scale-95 transition-all"
+                className="group relative flex items-center justify-center h-[52px] rounded-xl border border-slate-200/80 bg-white p-2 shadow-3xs hover:border-blue-300 active:scale-95 transition-all cursor-pointer"
               >
-                <img src="/images/exams/vstep.png" alt="VSTEP" className="max-h-full max-w-full object-contain" />
+                <Image src="/images/exams/vstep.png" alt="VSTEP" width={64} height={32} className="max-h-full max-w-full object-contain" />
               </Link>
 
-              {/* 3. VNU Test */}
-              <Link
-                href="/vnu"
-                className="group relative flex items-center justify-center h-[52px] rounded-xl border border-slate-200/80 bg-white p-2 shadow-3xs hover:border-emerald-300 active:scale-95 transition-all"
-              >
-                <img src="/images/exams/vnu-test.png" alt="VNU Test" className="max-h-full max-w-full object-contain" />
-              </Link>
-
-              {/* 4. IELTS */}
-              <div
-                className="group relative flex items-center justify-center h-[52px] rounded-xl border border-slate-200/80 bg-white p-2 shadow-3xs active:scale-95 transition-all cursor-pointer"
-                onClick={() => toast.info('Chương trình Luyện thi IELTS đang được cập nhật')}
+              {/* 3. VNU Test (Đang cập nhật) */}
+              <button
+                type="button"
+                onClick={() => toast.info('Chương trình VNU Test đang được cập nhật')}
+                className="group relative flex items-center justify-center h-[52px] rounded-xl border border-slate-200/80 bg-white p-2 shadow-3xs hover:border-emerald-300 active:scale-95 transition-all cursor-pointer"
               >
                 <span className="absolute -top-1.5 -right-1 rounded-full bg-amber-500 text-white px-1.5 py-0.2 text-[6.5px] font-black shadow ring-1 ring-white whitespace-nowrap">
                   Đang cập nhật
                 </span>
-                <img src="/images/exams/ielts.png" alt="IELTS" className="max-h-full max-w-full object-contain" />
-              </div>
+                <Image src="/images/exams/vnu-test.png" alt="VNU Test" width={64} height={32} className="max-h-full max-w-full object-contain" />
+              </button>
+
+              {/* 4. IELTS (Đang cập nhật) */}
+              <button
+                type="button"
+                onClick={() => toast.info('Chương trình Luyện thi IELTS đang được cập nhật')}
+                className="group relative flex items-center justify-center h-[52px] rounded-xl border border-slate-200/80 bg-white p-2 shadow-3xs active:scale-95 transition-all cursor-pointer"
+              >
+                <span className="absolute -top-1.5 -right-1 rounded-full bg-amber-500 text-white px-1.5 py-0.2 text-[6.5px] font-black shadow ring-1 ring-white whitespace-nowrap">
+                  Đang cập nhật
+                </span>
+                <Image src="/images/exams/ielts.png" alt="IELTS" width={64} height={32} className="max-h-full max-w-full object-contain" />
+              </button>
             </div>
           </div>
 
@@ -1819,7 +1825,16 @@ export default function StudentDashboard() {
         </div>
       )}
 
-        </StudentShell>
-    </>
-  );
+      {/* Pop-up Ô vuông 1cm giữa màn hình khi chọn chế độ học/luyện thi */}
+      <ActionSelectionModal
+        type={actionModalType}
+        onClose={() => setActionModalType(null)}
+        reviewDueCount={reviewDueCount}
+        newCount={newCount}
+        currentClassScope={currentClassScope}
+      />
+
+    </StudentShell>
+  </>
+);
 }

@@ -22,46 +22,30 @@ type TabItem = {
 };
 
 /**
- * Footer: Home · Ôn · Lộ trình+ · Kho · Tra từ
+ * Footer: Home · Kho · Lộ trình+ · Tra từ · Profile
  */
 export function MobileBottomNav({
-  classroomId,
-  reviewDueCount = 0,
   className,
 }: MobileBottomNavProps) {
   const pathname = usePathname();
-  const reviewHref = classroomId ? `/review?class=${classroomId}` : '/review';
 
   const tabs: TabItem[] = [
     { key: 'home', href: '/student', label: 'Home', emoji: '🏠' },
-    {
-      key: 'review',
-      href: reviewHref,
-      label: 'Ôn',
-      emoji: '📚',
-      badge: reviewDueCount > 0 ? reviewDueCount : undefined,
-    },
-    { key: 'journey', href: '/journey', label: 'Lộ trình', emoji: '🗺️', elevated: true },
     { key: 'vault', href: '/library', label: 'Kho', emoji: '📦' },
+    { key: 'journey', href: '/journey', label: 'Lộ trình', emoji: '🗺️', elevated: true },
     { key: 'dict', href: '/dictionary', label: 'Tra từ', emoji: '🔍' },
+    { key: 'profile', href: '/student/profile', label: 'Profile', emoji: '👤' },
   ];
 
   const isActive = (key: string): boolean => {
     if (key === 'home') {
       return (
         pathname === '/student' ||
-        pathname.startsWith('/student/profile') ||
         pathname.startsWith('/student/leaderboard')
       );
     }
-    if (key === 'review') {
-      return (
-        pathname.startsWith('/review') ||
-        pathname.startsWith('/flashcard') ||
-        pathname.startsWith('/writing') ||
-        pathname.startsWith('/quiz') ||
-        pathname.startsWith('/practice')
-      );
+    if (key === 'profile') {
+      return pathname.startsWith('/student/profile');
     }
     if (key === 'journey') return pathname.startsWith('/journey');
     if (key === 'vault') {
@@ -95,10 +79,10 @@ export function MobileBottomNav({
                 ? 'mobile-journey'
                 : tab.key === 'vault'
                   ? 'mobile-library'
-                  : tab.key === 'review'
-                    ? 'mobile-review'
-                    : tab.key === 'dict'
-                      ? 'mobile-dictionary'
+                  : tab.key === 'dict'
+                    ? 'mobile-dictionary'
+                    : tab.key === 'profile'
+                      ? 'mobile-profile'
                       : undefined;
 
           if (tab.elevated) {

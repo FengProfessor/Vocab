@@ -953,3 +953,35 @@
   - `npx tsc --noEmit`: 0 errors (Exit code 0).
   - `npm run build`: Successful compilation across all 182 routes with Turbopack (Exit code 0).
   - Independent Victory Auditor Verdict: `VICTORY CONFIRMED`.
+
+### Release completed and verified on Production (2026-10-13)
+
+- Released commit `d95bfd46927bf4959db234f9a56ba7db3f4369dc` (`fix(sw): bypass auth and admin routes to protect security boundaries and browser smoke`).
+- Canonical GitHub Actions run [38287406855](https://github.com/FengProfessor/Vocab/actions/runs/38287406855) SUCCESS: Quality Gate, Migration, and Deploy all passed.
+- Server deployment logs independently match expected/checked-out SHA to `d95bfd4`; readiness records HTTP 200 and stable service PID 455098. Previous release bundle preserved in `.next-previous.*`.
+- Independent post-rollout live HTTPS probes PASS:
+  - `https://lingopro.online/api/health` -> HTTP 200 `{"status":"ok"}`
+  - `https://lingopro.online/offline.html` -> HTTP 200
+  - `https://lingopro.online/firebase-messaging-sw` -> HTTP 200
+  - `https://lingopro.online/student` -> HTTP 200
+
+### Release Student Dashboard Mobile UI & Footer Refinement (2026-10-13)
+
+- **Student Dashboard Mobile Refinement**:
+  - Centered popup selection modal (`ActionSelectionModal.tsx`) with compact 1cm touch targets:
+    - Ôn tập: 5 modes (Hỗn hợp, Gõ từ, Điền từ, Luyện nghe, Trắc nghiệm) with dynamic word due badge.
+    - Luyện đọc: 3 modes (Bài đọc ngày, Theo cấp độ, Part 5-7 TOEIC).
+    - Luyện nghe: 2 modes (Video ngắn, Part 1-4 TOEIC).
+    - TOEIC: 2 modes (Vào luyện thi, Học TOEIC).
+    - Direct navigation for Grammar & VSTEP; non-blocking update notifications for Speaking, Writing, VNU Test, IELTS.
+  - Interactive nudging arrows and whole-row tap targets on daily progress bars.
+  - Maintained translucent backdrop overlay with full dashboard visibility underneath (`bg-black/40 backdrop-blur-[2px]`).
+- **Mobile Bottom Navigation (`MobileBottomNav.tsx`)**:
+  - Replaced redundant "Ôn" tab with "Profile" 👤 (`/student/profile`) at the far right.
+  - Kept 100% of live design: 3D Color Emojis (`🏠`, `📦`, `🗺️`, `🔍`, `👤`) + elevated central "Lộ trình" FAB button.
+- **Verification**:
+  - `npx tsc --noEmit`: 0 errors.
+  - `npm run build`: 182 static & dynamic routes compiled successfully with Turbopack.
+  - Deployment safety & runner tests: 14/14 PASS.
+  - Script syntax checks: PASS.
+
