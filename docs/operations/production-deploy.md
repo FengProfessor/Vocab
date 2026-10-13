@@ -2,7 +2,7 @@
 
 # Production deploy
 
-Release giao diện Student Dashboard & Footer ngày 13/10/2026: [canonical run 38416728989](https://github.com/FengProfessor/Vocab/actions/runs/38416728989) SUCCESS, SHA `9ac510231d02c2000bedaecefa09e7bf7c48bdcb`; quality/migration/deploy PASS, SKIP13/applied0. Log deploy xác nhận checkout đúng SHA, service PID 499527 ổn định và HTTP 200. Kiểm tra HTTPS độc lập: health/root/student/exams images đều trả 200. Bằng chứng chi tiết ghi trong `progress.md`.
+Release giao diện Student Dashboard tối giản ngày 13/10/2026: [canonical run 38426725446](https://github.com/FengProfessor/Vocab/actions/runs/38426725446) SUCCESS, SHA `d62c237885b736bcaee6a7c3664d9620023f9933`; quality/migration/deploy PASS, SKIP13/applied0. Log deploy xác nhận checkout đúng SHA, service PID 502402 ổn định và HTTP 200. Đã loại bỏ danh sách từ và gói từ khỏi Dashboard, đưa Kỹ năng và Luyện thi lên liền kề mức độ nhớ. Kiểm tra HTTPS độc lập: health/root/student đều trả 200. Bằng chứng chi tiết ghi trong `progress.md`.
 
 
 **Trạng thái:** Latest Phase3A canonical `36810782924` tại `52551271445322c3b07bcbb6b296d66cd97ec4ef` **VERIFIED**: quality/migration/activation/health PASS, staging HEAD/build/live markers match; service active/MainPID1300582 stable, local/public health/root200. Migration SKIP10/applied0. Phase3A auth error/CSRF/admin denial public GET probes PASS. Dedicated auth login/storage/logout/replay smoke remains previous verified cutover `36784213532`/`44ad7c92`; current anonymous probes do not claim new full authenticated journeys. Historical hardening `36786992699`/`c0abdb76` and baseline notes below do not replace current progress evidence. Không trigger workflow/SSH production nếu operator chưa ủy quyền rõ ràng.
