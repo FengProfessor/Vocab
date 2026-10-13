@@ -979,9 +979,20 @@
 - **Mobile Bottom Navigation (`MobileBottomNav.tsx`)**:
   - Replaced redundant "Ôn" tab with "Profile" 👤 (`/student/profile`) at the far right.
   - Kept 100% of live design: 3D Color Emojis (`🏠`, `📦`, `🗺️`, `🔍`, `👤`) + elevated central "Lộ trình" FAB button.
-- **Verification**:
-  - `npx tsc --noEmit`: 0 errors.
-  - `npm run build`: 182 static & dynamic routes compiled successfully with Turbopack.
-  - Deployment safety & runner tests: 14/14 PASS.
-  - Script syntax checks: PASS.
+- **Production Release Execution & Verification**:
+  - Released commit `9ac510231d02c2000bedaecefa09e7bf7c48bdcb`.
+  - Canonical GitHub Actions run [38416728989](https://github.com/FengProfessor/Vocab/actions/runs/38416728989) SUCCESS:
+    - `Validate exact source before production changes`: PASS (4m51s)
+    - `Apply required database migrations / apply`: PASS (26s, SKIP13/applied0)
+    - `Deploy to LingoPro Ubuntu Server`: PASS (12m25s)
+  - Host execution verified: checkout exact SHA `9ac5102`, standalone bundle built out-of-place, atomic release activated with `activate-release.sh`.
+  - Service restarted with PID 499527, healthy HTTP 200 response on internal readiness check. Previous release bundle preserved in `.next-previous.*`.
+  - Independent HTTPS probes:
+    - `https://lingopro.online/api/health` -> HTTP 200 `{"status":"ok"}`
+    - `https://lingopro.online/student` -> HTTP 200
+    - `https://lingopro.online/images/exams/toeic.png` -> HTTP 200 (image/png)
+    - `https://lingopro.online/images/exams/vstep.png` -> HTTP 200 (image/png)
+    - `https://lingopro.online/images/exams/vnu-test.png` -> HTTP 200 (image/png)
+    - `https://lingopro.online/images/exams/ielts.png` -> HTTP 200 (image/png)
+
 
