@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
+import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import Link from 'next/link';
 import {
@@ -29,6 +30,7 @@ import { track } from '@/lib/analytics';
 import { detectInAppBrowser, externalBrowserUrl } from '@/lib/in-app-browser';
 import { getStoredReferralCode, clearStoredReferralCode } from '@/lib/referral-tracker';
 import { safeInternalRedirect } from '@/lib/internal-redirect';
+import { readLastProfileCache } from '@/lib/dashboard-snapshot-cache';
 
 const display = 'font-bold tracking-tight';
 
@@ -47,6 +49,7 @@ const BENEFITS = [
 ] as const;
 
 export default function AuthPage() {
+  const router = useRouter();
   const [mode, setMode] = useState<Mode>('login');
   const [role, setRole] = useState<UserRole>('student');
   const [email, setEmail] = useState('');
@@ -60,6 +63,12 @@ export default function AuthPage() {
   const [googleLoading, setGoogleLoading] = useState(false);
   const [inApp, setInApp] = useState<ReturnType<typeof detectInAppBrowser> | null>(null);
   const [hasReferralGift, setHasReferralGift] = useState(false);
+  const [checkingExistingSession, setCheckingExistingSession] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('error') || params.get('confirmed')) return false;
+    return Boolean(readLastProfileCache());
+  });
 
   const authUrl = useMemo(() => {
     if (typeof window === 'undefined') return 'https://lingopro.online/auth';
@@ -125,27 +134,39 @@ export default function AuthPage() {
   };
 
   useEffect(() => {
-    // Session localStorage — 1 tick để form render trước
     let cancelled = false;
+    const params = new URLSearchParams(window.location.search);
+    const hasAuthError = Boolean(params.get('error') || params.get('confirmed'));
+    const cachedProfile = readLastProfileCache();
+
+    // Instant 0ms redirect if cached profile exists and no explicit auth error/confirmation is being shown
+    if (cachedProfile && !hasAuthError && params.get('role') !== 'teacher') {
+      router.replace(destFromSession({ user_metadata: { role: cachedProfile.role } }));
+    }
+
     const t = window.setTimeout(() => {
       void (async () => {
         const {
           data: { session },
         } = await supabase.auth.getSession();
-        if (cancelled || !session) return;
+        if (cancelled) return;
+        if (!session) {
+          setCheckingExistingSession(false);
+          return;
+        }
         if (new URLSearchParams(window.location.search).get('role') === 'teacher') {
           void supabase.rpc('claim_teacher_role').then(({ error: roleErr }) => {
             if (roleErr) console.warn('[Auth] claim_teacher_role:', roleErr.message);
           });
         }
-        window.location.replace(destFromSession(session.user));
+        router.replace(destFromSession(session.user));
       })();
     }, 0);
     return () => {
       cancelled = true;
       window.clearTimeout(t);
     };
-  }, []);
+  }, [router]);
 
   /** Chuẩn hóa lỗi Supabase auth → tiếng Việt, gợi ý Google khi rate limit email. */
   const formatAuthError = (raw: string): string => {
@@ -340,7 +361,7 @@ export default function AuthPage() {
 
       // Một số môi trường không auto-redirect — gán URL thủ công
       if (data?.url) {
-        window.location.assign(data.url);
+        window.location.replace(data.url);
         return;
       }
 
@@ -354,6 +375,10 @@ export default function AuthPage() {
       setGoogleLoading(false);
     }
   };
+
+  if (checkingExistingSession) {
+    return <div className="min-h-dvh bg-[#f6efe6]" aria-hidden />;
+  }
 
   // text-base (16px) — tránh iOS zoom khi focus
   const inputClass =

@@ -5,6 +5,10 @@ import { createServiceClient } from '@/lib/supabase-server';
 import { FSRSRating } from '@/lib/srs';
 import { scheduleNext, stateToText, textToState } from '@/lib/fsrs';
 import { creditGrammarLessonToRoadmap } from '@/lib/roadmap-credit';
+import { cacheGet, cacheSet, cacheDelete } from '@/lib/ttl-cache';
+
+const GRAMMAR_SUMMARY_TTL_MS = 30_000;
+const GRAMMAR_LESSONS_TTL_MS = 10 * 60_000;
 
 /** Map độ chính xác bài tập (0-1) → rating FSRS. */
 function accuracyToRating(acc: number): FSRSRating {
@@ -44,8 +48,13 @@ export async function GET(req: Request): Promise<NextResponse> {
     const view = url.searchParams.get('view');
     const summaryOnly = url.searchParams.get('summary') === '1';
 
-    // ── summary=1: chỉ đếm bài due (nhẹ cho shell/dashboard) ──
+    // ── summary=1: chỉ đếm bài due (nhẹ cho shell/dashboard, cache 30s) ──
     if (summaryOnly) {
+      const summaryKey = `grammar:summary:${userId}`;
+      const cachedDue = cacheGet<number>(summaryKey);
+      if (cachedDue !== undefined) {
+        return NextResponse.json({ success: true, data: [], dueCount: cachedDue });
+      }
       const nowIso = new Date().toISOString();
       const { count: dueCount, error: dueErr } = await supabase
         .from('grammar_progress')
@@ -53,23 +62,36 @@ export async function GET(req: Request): Promise<NextResponse> {
         .eq('user_id', userId)
         .lte('next_review_date', nowIso);
       if (dueErr) throw dueErr;
-      return NextResponse.json({ success: true, data: [], dueCount: dueCount || 0 });
+      const resolvedDue = dueCount || 0;
+      cacheSet(summaryKey, resolvedDue, GRAMMAR_SUMMARY_TTL_MS);
+      return NextResponse.json({ success: true, data: [], dueCount: resolvedDue });
     }
 
     // ── view=topics: trả summary theo từng topic ──
     if (view === 'topics') {
-      // Lấy tất cả lessons kèm topic info
-      const { data: lessons, error: lessonErr } = await supabase
-        .from('grammar_lessons')
-        .select('id, topic_id, topic:grammar_topics(id, title, title_vi, level, order_index)');
-      if (lessonErr) throw lessonErr;
+      type LessonWithTopic = { id: string; topic_id: string; topic: unknown };
+      const cachedLessons = cacheGet<LessonWithTopic[]>('grammar:lessons:all');
 
-      // Lấy progress của user
-      const { data: progressRows, error: progErr } = await supabase
-        .from('grammar_progress')
-        .select('lesson_id, state, mastery_score, next_review_date')
-        .eq('user_id', userId);
-      if (progErr) throw progErr;
+      const [lessonsRes, progressRes] = await Promise.all([
+        cachedLessons
+          ? Promise.resolve({ data: cachedLessons, error: null })
+          : supabase
+              .from('grammar_lessons')
+              .select('id, topic_id, topic:grammar_topics(id, title, title_vi, level, order_index)'),
+        supabase
+          .from('grammar_progress')
+          .select('lesson_id, state, mastery_score, next_review_date')
+          .eq('user_id', userId),
+      ]);
+
+      if (lessonsRes.error) throw lessonsRes.error;
+      if (progressRes.error) throw progressRes.error;
+
+      const lessons = lessonsRes.data ?? [];
+      if (!cachedLessons && lessons.length > 0) {
+        cacheSet('grammar:lessons:all', lessons, GRAMMAR_LESSONS_TTL_MS);
+      }
+      const progressRows = progressRes.data;
 
       const progressByLesson = new Map<string, { state: string; mastery_score: number; next_review_date: string }>();
       for (const p of progressRows ?? []) {
@@ -255,6 +277,7 @@ export async function POST(req: Request): Promise<NextResponse> {
       .select()
       .single();
     if (error) throw error;
+    cacheDelete(`grammar:summary:${userId}`);
 
     // Học ngoài lộ trình (không ?roadmapStep) vẫn đánh tick step grammar cùng topic
     let roadmapCredited = 0;

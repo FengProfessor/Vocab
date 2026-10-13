@@ -44,13 +44,14 @@ export default function GroupPage() {
   const [joinCode, setJoinCode] = useState('');
 
   const hasSession = useCallback(async () => {
-    const { data: { session } } = await supabase.auth.getSession();
+    const { data: { session }, error } = await supabase.auth.getSession();
+    if (error) return true;
     return Boolean(session?.user);
   }, []);
 
   const load = useCallback(async () => {
     const t = await hasSession();
-    if (!t) { router.push('/auth'); return; }
+    if (!t) { router.replace('/auth'); return; }
     try {
       const res = await fetch('/api/groups/mine', { headers: { 'X-LingoPro-Request': '1' } });
       const json = await res.json();
@@ -159,7 +160,7 @@ export default function GroupPage() {
   return (
     <div className="min-h-dvh bg-[#070711] text-white font-sans">
       <header className="sticky top-0 z-30 h-14 border-b border-white/5 bg-[#070711]/80 backdrop-blur-xl px-4 sm:px-6 flex items-center gap-4">
-        <Link href="/" className="flex items-center gap-1.5 text-sm text-slate-400 hover:text-white transition-colors">
+        <Link href="/student" className="flex items-center gap-1.5 text-sm text-slate-400 hover:text-white transition-colors">
           <ChevronLeft className="h-4 w-4" /> Back
         </Link>
         <div className="flex items-center gap-2 font-bold">

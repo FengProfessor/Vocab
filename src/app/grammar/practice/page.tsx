@@ -35,6 +35,7 @@ import PedagogicalFeedbackPanel from '@/components/grammar/PedagogicalFeedbackPa
 import FormattedText from '@/components/grammar/FormattedText';
 import GrammarReferenceTable from '@/components/grammar/GrammarReferenceTable';
 import PronounMatrixTable from '@/components/grammar/PronounMatrixTable';
+import { readLastProfileCache } from '@/lib/dashboard-snapshot-cache';
 
 const GRAMMAR_PRACTICE_STATE_VER = 'v3';
 
@@ -400,7 +401,7 @@ function PracticeHubContent() {
   const [score, setScore] = useState({ correct: 0, wrong: 0 });
   const [done, setDone] = useState(false);
   const [startTime, setStartTime] = useState(Date.now());
-  const [userId, setUserId] = useState<string | null>(null);
+  const [userId, setUserId] = useState<string | null>(() => readLastProfileCache()?.id ?? null);
   const [emptyMessage, setEmptyMessage] = useState<string | null>(null);
   const [showCheatSheet, setShowCheatSheet] = useState(false);
 
@@ -408,14 +409,71 @@ function PracticeHubContent() {
   const answering = useRef(false);
 
   useEffect(() => {
+    const resolveSavedKey = (uid: string): string | null => {
+      if (isReviewMode) return grammarStateKey(uid, 'review');
+      if (topicSlug) return grammarStateKey(uid, 'topic', topicSlug);
+      if (lessonId) return grammarStateKey(uid, 'lesson', lessonId);
+      if (classroomId) return grammarStateKey(uid, 'class', classroomId);
+      return null;
+    };
+
+    const tryRestoreSavedSession = (uid: string, toastMsg: string): boolean => {
+      const savedKey = resolveSavedKey(uid);
+      if (!savedKey) return false;
+      try {
+        const saved = localStorage.getItem(savedKey);
+        if (!saved) return false;
+        const parsed = JSON.parse(saved);
+        if (parsed?.exercises?.length > 0) {
+          const restored = sanitizeDrillExercises(parsed.exercises as GrammarExercise[]);
+          if (restored.length === 0) return false;
+          const qi = Math.min(parsed.qIndex ?? 0, restored.length - 1);
+          rawExercises.current = restored;
+          setExercises(restored);
+          setCurrent(restored[qi]);
+          setQIndex(qi);
+          setSelected(parsed.selected);
+          setTypedAnswer(parsed.typedAnswer || '');
+          setShowExplanation(parsed.showExplanation || false);
+          setScore(parsed.score);
+          setDone(parsed.done || false);
+          setStartTime(parsed.startTime || Date.now());
+          answering.current = false;
+          toast.success(toastMsg);
+          setIsLoading(false);
+          return true;
+        }
+      } catch (e) {
+        console.error('Failed to parse saved state:', e);
+      }
+      return false;
+    };
+
     const init = async () => {
-      setIsLoading(true);
       setEmptyMessage(null);
+      const restoreMsg = isReviewMode
+        ? 'Đã khôi phục tiến trình ôn câu sai.'
+        : topicSlug
+          ? 'Đã khôi phục tiến trình làm bài.'
+          : 'Đã khôi phục tiến trình bài tập.';
+
+      // 0ms Instant synchronous restore from localStorage if cached profile ID is known
+      const cachedUid = readLastProfileCache()?.id ?? null;
+      let restoredFromStorage = cachedUid ? tryRestoreSavedSession(cachedUid, restoreMsg) : false;
+      if (!restoredFromStorage) {
+        setIsLoading(true);
+      }
 
       const {
-        data: { user },
-      } = await supabase.auth.getUser();
-      if (user) setUserId(user.id);
+        data: { session },
+      } = await supabase.auth.getSession();
+      const user = session?.user ?? null;
+      if (user) {
+        setUserId(user.id);
+        if (!restoredFromStorage && user.id !== cachedUid) {
+          restoredFromStorage = tryRestoreSavedSession(user.id, restoreMsg);
+        }
+      }
 
       // Mode 1: Spaced Review (14-day error queue)
       if (isReviewMode) {
@@ -426,48 +484,18 @@ function PracticeHubContent() {
           return;
         }
 
-        const {
-          data: { session },
-        } = await supabase.auth.getSession();
         const res = await fetch('/api/grammar/review?days=14', {
-          headers: session?.user ? { 'X-LingoPro-Request': '1' } : {},
+          headers: { 'X-LingoPro-Request': '1' },
         });
         const data = await res.json();
 
         if (data.success && data.data?.length > 0) {
           const cleaned = sanitizeDrillExercises(data.data as GrammarExercise[]);
           rawExercises.current = cleaned;
-
-          // Restore saved progress if any
-          const savedKey = grammarStateKey(user.id, 'review');
-          const saved = localStorage.getItem(savedKey);
-          if (saved) {
-            try {
-              const parsed = JSON.parse(saved);
-              if (parsed?.exercises?.length > 0) {
-                const restored = sanitizeDrillExercises(parsed.exercises as GrammarExercise[]);
-                const qi = Math.min(parsed.qIndex ?? 0, restored.length - 1);
-                setExercises(restored);
-                setCurrent(restored[qi]);
-                setQIndex(qi);
-                setSelected(parsed.selected);
-                setTypedAnswer(parsed.typedAnswer || '');
-                setShowExplanation(parsed.showExplanation || false);
-                setScore(parsed.score);
-                setDone(parsed.done || false);
-                setStartTime(parsed.startTime || Date.now());
-                answering.current = false;
-                toast.success('Đã khôi phục tiến trình ôn câu sai.');
-                setIsLoading(false);
-                return;
-              }
-            } catch (e) {
-              console.error('Failed to parse saved state:', e);
-            }
+          if (!restoredFromStorage) {
+            startSession(cleaned);
           }
-
-          startSession(cleaned);
-        } else {
+        } else if (!restoredFromStorage) {
           setEmptyMessage('Tuyệt vời! Bạn không có câu hỏi nào cần ôn lại trong 14 ngày qua.');
         }
         setIsLoading(false);
@@ -482,43 +510,17 @@ function PracticeHubContent() {
           if (data.success && data.data?.length > 0) {
             const cleaned = sanitizeDrillExercises(data.data as GrammarExercise[]);
             rawExercises.current = cleaned;
-
-            if (user) {
-              const savedKey = grammarStateKey(user.id, 'topic', topicSlug);
-              const saved = localStorage.getItem(savedKey);
-              if (saved) {
-                try {
-                  const parsed = JSON.parse(saved);
-                  if (parsed?.exercises?.length > 0) {
-                    const restored = sanitizeDrillExercises(parsed.exercises as GrammarExercise[]);
-                    const qi = Math.min(parsed.qIndex ?? 0, restored.length - 1);
-                    setExercises(restored);
-                    setCurrent(restored[qi]);
-                    setQIndex(qi);
-                    setSelected(parsed.selected);
-                    setTypedAnswer(parsed.typedAnswer || '');
-                    setShowExplanation(parsed.showExplanation || false);
-                    setScore(parsed.score);
-                    setDone(parsed.done || false);
-                    setStartTime(parsed.startTime || Date.now());
-                    answering.current = false;
-                    toast.success('Đã khôi phục tiến trình làm bài.');
-                    setIsLoading(false);
-                    return;
-                  }
-                } catch (e) {
-                  console.error('Failed to parse saved state:', e);
-                }
-              }
+            if (!restoredFromStorage) {
+              startSession(cleaned);
             }
-
-            startSession(cleaned);
-          } else {
+          } else if (!restoredFromStorage) {
             setEmptyMessage(`Chưa có câu hỏi luyện tập cho chủ điểm "${topicMeta?.title || topicSlug}".`);
           }
         } catch (err) {
           console.error('Failed to load topic exercises:', err);
-          setEmptyMessage('Lỗi khi tải dữ liệu bài tập.');
+          if (!restoredFromStorage) {
+            setEmptyMessage('Lỗi khi tải dữ liệu bài tập.');
+          }
         }
         setIsLoading(false);
         return;
@@ -537,40 +539,10 @@ function PracticeHubContent() {
         if (data.success && data.data?.length > 0) {
           const cleaned = sanitizeDrillExercises(data.data as GrammarExercise[]);
           rawExercises.current = cleaned;
-
-          if (user) {
-            const savedKey = lessonId
-              ? grammarStateKey(user.id, 'lesson', lessonId)
-              : grammarStateKey(user.id, 'class', classroomId);
-            const saved = localStorage.getItem(savedKey);
-            if (saved) {
-              try {
-                const parsed = JSON.parse(saved);
-                if (parsed?.exercises?.length > 0) {
-                  const restored = sanitizeDrillExercises(parsed.exercises as GrammarExercise[]);
-                  const qi = Math.min(parsed.qIndex ?? 0, restored.length - 1);
-                  setExercises(restored);
-                  setCurrent(restored[qi]);
-                  setQIndex(qi);
-                  setSelected(parsed.selected);
-                  setTypedAnswer(parsed.typedAnswer || '');
-                  setShowExplanation(parsed.showExplanation || false);
-                  setScore(parsed.score);
-                  setDone(parsed.done || false);
-                  setStartTime(parsed.startTime || Date.now());
-                  answering.current = false;
-                  toast.success('Đã khôi phục tiến trình bài tập.');
-                  setIsLoading(false);
-                  return;
-                }
-              } catch (e) {
-                console.error('Failed to parse saved state:', e);
-              }
-            }
+          if (!restoredFromStorage) {
+            startSession(cleaned);
           }
-
-          startSession(cleaned);
-        } else {
+        } else if (!restoredFromStorage) {
           setEmptyMessage('Chưa có bài tập cho lớp học hoặc bài học này.');
         }
         setIsLoading(false);

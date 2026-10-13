@@ -112,16 +112,18 @@ export function providerSessionId(accessToken: string): string {
 }
 
 export async function verifiedProviderUser(vault: Pick<SessionVault, 'accessToken' | 'userId' | 'providerSessionId'>): Promise<User> {
-  const { data, error } = await serverAuthClient().client.auth.getUser(vault.accessToken);
+  const [{ data, error }, { data: active, error: stateError }] = await Promise.all([
+    serverAuthClient().client.auth.getUser(vault.accessToken),
+    createServiceClient().rpc('is_app_auth_session_active', {
+      p_session_id: vault.providerSessionId, p_user_id: vault.userId,
+    }),
+  ]);
   if (error) {
     if (error.status === 401 || error.status === 403 || error.status === 400) throw new SessionRequestError(401);
     throw new SessionStoreUnavailableError();
   }
   if (!data.user || data.user.id !== vault.userId || !data.user.email_confirmed_at ||
       providerSessionId(vault.accessToken) !== vault.providerSessionId) throw new SessionRequestError(401);
-  const { data: active, error: stateError } = await createServiceClient().rpc('is_app_auth_session_active', {
-    p_session_id: vault.providerSessionId, p_user_id: vault.userId,
-  });
   if (stateError || typeof active !== 'boolean') throw new SessionStoreUnavailableError();
   if (!active) throw new SessionRequestError(401);
   return data.user;

@@ -9,14 +9,22 @@ import { getAudio, putAudio } from './db';
 const activeBlobUrls = new Set<string>();
 
 /**
- * Checks IndexedDB audio_cache for a cached Blob for the word.
+ * Checks IndexedDB audio_cache for a cached Blob for the word and accent region.
  * If found, returns an Object URL (blob:...) that can be played with HTML5 Audio.
  */
-export async function getOfflineAudioUrl(word: string): Promise<string | null> {
+export async function getOfflineAudioUrl(
+  word: string,
+  region: 'US' | 'UK' = 'US',
+): Promise<string | null> {
   if (typeof window === 'undefined' || !word?.trim()) return null;
+  const cleanWord = word.trim().toLowerCase();
+  const regionKey = `${region.toLowerCase()}:${cleanWord}`;
 
   try {
-    const blob = await getAudio(word);
+    let blob = await getAudio(regionKey);
+    if (!blob && region === 'US') {
+      blob = await getAudio(cleanWord);
+    }
     if (!blob) return null;
 
     const url = URL.createObjectURL(blob);
@@ -43,18 +51,20 @@ export function revokeOfflineAudioUrl(url: string): void {
 
 /**
  * Attempts to download and cache an audio Blob for a word.
- * Priority: 1) audioUrl (if provided) -> 2) Youdao US stream -> 3) /api/tts.
+ * Priority: 1) audioUrl (if provided) -> 2) Youdao region stream -> 3) /api/tts.
  */
 export async function cacheWordAudio(
   word: string,
   audioUrl?: string | null,
+  region: 'US' | 'UK' = 'US',
 ): Promise<boolean> {
   if (typeof window === 'undefined' || !word?.trim()) return false;
   const cleanWord = word.trim().toLowerCase();
+  const storageKey = region === 'UK' ? `uk:${cleanWord}` : cleanWord;
 
   try {
     // Check if already cached
-    const existing = await getAudio(cleanWord);
+    const existing = await getAudio(storageKey);
     if (existing) return true;
 
     // Candidates to fetch audio Blob from
@@ -62,8 +72,9 @@ export async function cacheWordAudio(
     if (audioUrl && audioUrl.startsWith('http')) {
       candidates.push(audioUrl);
     }
-    // Youdao direct MP3 stream
-    candidates.push(`https://dict.youdao.com/dictvoice?type=2&audio=${encodeURIComponent(cleanWord)}`);
+    // Youdao direct MP3 stream (type=1 UK, type=2 US)
+    const ydType = region === 'UK' ? 1 : 2;
+    candidates.push(`https://dict.youdao.com/dictvoice?type=${ydType}&audio=${encodeURIComponent(cleanWord)}`);
     // Local Neural TTS endpoint fallback
     candidates.push(`/api/tts?q=${encodeURIComponent(cleanWord)}`);
 
@@ -75,7 +86,7 @@ export async function cacheWordAudio(
         if (res.ok) {
           const blob = await res.blob();
           if (blob && blob.size > 100) {
-            await putAudio(cleanWord, blob, blob.type || 'audio/mp3');
+            await putAudio(storageKey, blob, blob.type || 'audio/mp3');
             return true;
           }
         }

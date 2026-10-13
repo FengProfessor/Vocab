@@ -64,7 +64,7 @@ function WritingContent() {
         } = await supabase.auth.getUser();
         if (error) return;
         if (!user) {
-          router.push('/auth');
+          router.replace('/auth');
           return;
         }
         setUserId(user.id);

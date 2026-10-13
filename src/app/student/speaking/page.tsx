@@ -63,7 +63,7 @@ export default function StudentSpeakingPage() {
         setIsLoading(false);
         initConversation(AI_SPEAKING_TOPICS[0]);
       } else {
-        router.push("/auth");
+        router.replace("/auth");
       }
     };
     checkAuth();

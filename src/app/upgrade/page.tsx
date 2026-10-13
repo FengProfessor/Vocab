@@ -168,13 +168,14 @@ function UpgradePageContent() {
 
       const {
         data: { user },
+        error,
       } = await supabase.auth.getUser();
 
-      if (cancelled) return;
+      if (cancelled || error) return;
 
       if (!user) {
         const returnUrl = window.location.pathname + window.location.search;
-        router.push(`/auth?redirectTo=${encodeURIComponent(returnUrl)}`);
+        router.replace(`/auth?redirectTo=${encodeURIComponent(returnUrl)}`);
         return;
       }
 
@@ -1148,14 +1149,14 @@ function ShellHeader({ currentLabel }: { currentLabel: string }) {
       <div className="mx-auto flex h-12 max-w-lg items-center justify-between px-4 sm:h-14 sm:max-w-xl sm:px-6 lg:max-w-5xl">
         <div className="flex items-center gap-2">
           <Link
-            href="/"
+            href="/student"
             className="inline-flex items-center gap-1 text-sm text-[#5e5d59] transition hover:text-[#1a1915]"
           >
             <ChevronLeft className="h-4 w-4" />
             <span className="hidden sm:inline">Quay lại</span>
           </Link>
           <div className="hidden h-4 w-px bg-[#e8e6dc] sm:block" />
-          <Link href="/" className="text-sm font-semibold tracking-tight text-[#1a1915]">
+          <Link href="/student" className="text-sm font-semibold tracking-tight text-[#1a1915]">
             LingoPro
           </Link>
         </div>

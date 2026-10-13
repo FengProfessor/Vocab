@@ -249,7 +249,7 @@ function ToeicLearnContent() {
             {/* Breadcrumb & Subsystem Title */}
             <div>
               <div className="flex items-center gap-2 font-mono text-xs text-slate-500 dark:text-slate-400">
-                <Link href="/" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+                <Link href="/student" className="hover:text-slate-900 dark:hover:text-white transition-colors">
                   LingoPro
                 </Link>
                 <span>/</span>

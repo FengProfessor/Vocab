@@ -547,7 +547,7 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
           {/* Breadcrumb & Subsystem Tag */}
           <div className="flex items-center gap-2 font-mono text-xs text-slate-500 dark:text-slate-400">
-            <Link href="/" className="hover:text-slate-900 dark:hover:white transition-colors">
+            <Link href="/student" className="hover:text-slate-900 dark:hover:white transition-colors">
               LingoPro
             </Link>
             <span>/</span>

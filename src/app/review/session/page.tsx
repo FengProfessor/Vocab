@@ -38,6 +38,7 @@ import { stabilityToLevel } from '@/lib/srs';
 import { invalidateWordSummaryCache } from '@/lib/word-summary-cache';
 import { saveSrsReview } from '@/lib/save-srs-review';
 import { getOfflineStudyQueue } from '@/lib/offline/study-queue';
+import { readLastProfileCache } from '@/lib/dashboard-snapshot-cache';
 
 interface WordItem extends ReviewWordLike {
   ipa?: string;
@@ -128,7 +129,7 @@ function SessionContent() {
   const classParam = searchParams.get('class');
   const freeParam = searchParams.get('free');
 
-  const [userId, setUserId] = useState<string | null>(null);
+  const [userId, setUserId] = useState<string | null>(() => readLastProfileCache()?.id ?? null);
   const [classroomId, setClassroomId] = useState<string | null>(classParam);
   const classroomIdRef = useRef<string | null>(classParam);
   const [isFreeReview, setIsFreeReview] = useState(freeParam === '1');
@@ -269,7 +270,7 @@ function SessionContent() {
       const { data: { session }, error } = await supabase.auth.getSession();
       if (error) { setIsLoadingFree(false); return; }
       if (!session?.user) {
-        router.push('/auth');
+        router.replace('/auth');
         return;
       }
       const user = session.user;
@@ -365,28 +366,10 @@ function SessionContent() {
 
     const init = async () => {
       let hasCached = false;
-      try {
-        lastModeRef.current = null;
-        // getSession() trả cả user + token → tránh gọi getUser() riêng + 2× getSession() trong authFetch
-        const { data: { session }, error } = await supabase.auth.getSession();
-        if (error) return;
-        if (!session?.user) {
-          router.push('/auth');
-          return;
-        }
-        const user = session.user;
-
-
-        setUserId(user.id);
-
-        if (isFree) {
-          await startFreeReview();
-          return;
-        }
-
-        // 1. Instant hydration from IndexedDB (<5ms)
+      const hydrateFromIndexedDB = async (uid: string) => {
+        if (isFree) return;
         try {
-          const cachedWords = await getOfflineStudyQueue(user.id, 'review');
+          const cachedWords = await getOfflineStudyQueue(uid, 'review');
           if (cachedWords.length > 0) {
             const mapped: WordItem[] = cachedWords.map((cw) => ({
               id: cw.id,
@@ -417,6 +400,34 @@ function SessionContent() {
           }
         } catch (dbErr) {
           console.debug('[ReviewSession] IndexedDB pre-read error:', dbErr);
+        }
+      };
+
+      try {
+        lastModeRef.current = null;
+        // 1. Instant hydration from IndexedDB (<5ms) in parallel with auth session check
+        const cachedUserId = readLastProfileCache()?.id ?? null;
+        const [sessionRes] = await Promise.all([
+          supabase.auth.getSession(),
+          cachedUserId ? hydrateFromIndexedDB(cachedUserId) : Promise.resolve(),
+        ]);
+        const { data: { session }, error } = sessionRes;
+        if (error) return;
+        if (!session?.user) {
+          router.replace('/auth');
+          return;
+        }
+        const user = session.user;
+
+        setUserId(user.id);
+
+        if (isFree) {
+          await startFreeReview();
+          return;
+        }
+
+        if (!hasCached && user.id !== cachedUserId) {
+          await hydrateFromIndexedDB(user.id);
         }
 
         const cid = classroomIdRef.current ?? classroomId;

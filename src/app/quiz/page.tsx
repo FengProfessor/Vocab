@@ -90,7 +90,7 @@ function QuizContent() {
       try {
         const { data: { user }, error } = await supabase.auth.getUser();
         if (error) return;
-        if (!user) { router.push('/auth'); return; }
+        if (!user) { router.replace('/auth'); return; }
         setUserId(user.id);
 
         const url = classroomId

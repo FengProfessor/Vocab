@@ -36,6 +36,7 @@ export interface VstepCatalogData {
  * In-memory cache to avoid repeated disk reads.
  */
 const examMemoryCache = new Map<string, VstepExam>();
+const safeExamMemoryCache = new Map<string, VstepExam>();
 
 /**
  * Global master question index for deterministic server-side grading of dynamic sets.
@@ -321,6 +322,7 @@ export function getVstepCatalogIndex(): VstepCatalogData {
  */
 export function clearVstepExamCache(): void {
   examMemoryCache.clear();
+  safeExamMemoryCache.clear();
   globalMasterVstepQuestionIndex.clear();
 }
 
@@ -448,12 +450,32 @@ export function stripSensitiveVstepData<T extends VstepExam>(exam: T): T {
 }
 
 /**
- * Nạp đề thi an toàn cho client (đã làm sạch 100% dữ liệu nhạy cảm)
+ * Nạp đề thi an toàn cho client (đã làm sạch 100% dữ liệu nhạy cảm, có cache in-memory)
  */
 export function loadVstepExamSafe(testId: string): VstepExam | null {
+  if (!testId || typeof testId !== 'string') return null;
+  const cacheKey = testId.trim().toLowerCase();
+  if (!cacheKey) return null;
+
+  if (safeExamMemoryCache.has(cacheKey)) {
+    return JSON.parse(JSON.stringify(safeExamMemoryCache.get(cacheKey)!));
+  }
+
   const raw = loadRawVstepExam(testId);
   if (!raw) return null;
-  return stripSensitiveVstepData(raw);
+  const sanitized = stripSensitiveVstepData(raw);
+
+  safeExamMemoryCache.set(cacheKey, sanitized);
+  if (sanitized.id) {
+    safeExamMemoryCache.set(sanitized.id.toLowerCase(), sanitized);
+  }
+  if (cacheKey.includes('-mock-')) {
+    safeExamMemoryCache.set(cacheKey.replace('-mock-', '-exam-'), sanitized);
+  } else if (cacheKey.includes('-exam-')) {
+    safeExamMemoryCache.set(cacheKey.replace('-exam-', '-mock-'), sanitized);
+  }
+
+  return JSON.parse(JSON.stringify(sanitized));
 }
 
 /**

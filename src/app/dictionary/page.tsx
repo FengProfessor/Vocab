@@ -320,7 +320,7 @@ export default function DictionaryPage() {
     (async () => {
       const { data: { session }, error } = await supabase.auth.getSession();
       if (error) return;
-      if (!session?.user) { router.push('/auth'); return; }
+      if (!session?.user) { router.replace('/auth'); return; }
     })();
 
     // Check if opened with ?tab=sentence or ?mode=translate

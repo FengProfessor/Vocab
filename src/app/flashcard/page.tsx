@@ -26,6 +26,7 @@ import { ExampleWithSub } from '@/components/study/ExampleWithSub';
 import { resolveImageSrc } from '@/lib/media-url';
 import { saveSrsReview } from '@/lib/save-srs-review';
 import { getOfflineStudyQueue } from '@/lib/offline/study-queue';
+import { readLastProfileCache } from '@/lib/dashboard-snapshot-cache';
 
 interface WordItem {
   id: string;
@@ -57,7 +58,7 @@ function FlashcardContent() {
 function ReviewSession({ initialClassroomId }: { initialClassroomId: string | null }) {
   const router = useRouter();
 
-  const [userId, setUserId] = useState<string | null>(null);
+  const [userId, setUserId] = useState<string | null>(() => readLastProfileCache()?.id ?? null);
   const [classroomId, setClassroomId] = useState<string | null>(initialClassroomId);
   const [queue, setQueue] = useState<WordItem[]>([]);
   const [current, setCurrent] = useState<WordItem | null>(null);
@@ -89,16 +90,9 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
   useEffect(() => {
     const init = async () => {
       let hasCached = false;
-      try {
-        const { data: { session }, error } = await supabase.auth.getSession();
-        if (error) return;
-        const user = session?.user;
-        if (!user || !session) { router.push('/auth'); return; }
-        setUserId(user.id);
-
-        // 1. Instant hydration from IndexedDB (<5ms)
+      const hydrateFromIndexedDB = async (uid: string) => {
         try {
-          const cachedWords = await getOfflineStudyQueue(user.id, 'review');
+          const cachedWords = await getOfflineStudyQueue(uid, 'review');
           if (cachedWords.length > 0) {
             const mapped: WordItem[] = cachedWords.map((cw) => ({
               id: cw.id,
@@ -138,6 +132,24 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
           }
         } catch (dbErr) {
           console.debug('[Flashcard] IndexedDB pre-read error:', dbErr);
+        }
+      };
+
+      try {
+        // 1. Instant hydration from IndexedDB (<5ms) in parallel with auth session check
+        const cachedUserId = readLastProfileCache()?.id ?? null;
+        const [sessionRes] = await Promise.all([
+          supabase.auth.getSession(),
+          cachedUserId ? hydrateFromIndexedDB(cachedUserId) : Promise.resolve(),
+        ]);
+        const { data: { session }, error } = sessionRes;
+        if (error) return;
+        const user = session?.user;
+        if (!user || !session) { router.replace('/auth'); return; }
+        setUserId(user.id);
+
+        if (!hasCached && user.id !== cachedUserId) {
+          await hydrateFromIndexedDB(user.id);
         }
 
         // 2. Background revalidation from /api/words
@@ -474,7 +486,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
           <Button
             variant="outline"
             className="flex-1 h-14 rounded-2xl font-bold border-2 hover:bg-slate-50 transition-all"
-            onClick={() => { window.location.href = '/student'; }}
+            onClick={() => { router.push('/student'); }}
           >
             <ChevronLeft className="mr-2 h-5 w-5" /> Dashboard
           </Button>

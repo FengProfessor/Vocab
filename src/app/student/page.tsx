@@ -300,7 +300,7 @@ export default function StudentDashboard() {
         const redirectPath = typeof window !== 'undefined'
           ? `${window.location.pathname}${window.location.search}`
           : '/student';
-        router.push(`/auth?redirectTo=${encodeURIComponent(redirectPath)}`);
+        router.replace(`/auth?redirectTo=${encodeURIComponent(redirectPath)}`);
       }
     };
     void checkAuth();
@@ -317,7 +317,7 @@ export default function StudentDashboard() {
       } else if (event === 'SIGNED_OUT') {
         loadStartedRef.current = false;
 
-        router.push('/auth');
+        router.replace('/auth');
       }
     });
 

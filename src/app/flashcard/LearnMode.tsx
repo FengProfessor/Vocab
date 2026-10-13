@@ -21,6 +21,7 @@ import { ExampleWithSub } from '@/components/study/ExampleWithSub';
 import { resolveImageSrc } from '@/lib/media-url';
 import { saveSrsReview } from '@/lib/save-srs-review';
 import { getOfflineStudyQueue } from '@/lib/offline/study-queue';
+import { readLastProfileCache } from '@/lib/dashboard-snapshot-cache';
 
 interface WordItem {
   id: string;
@@ -49,7 +50,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   const searchParams = useSearchParams();
   const idsParam = searchParams.get('ids');
   const [classroomId, setClassroomId] = useState<string | null>(initialClassroomId);
-  const [userId, setUserId] = useState<string | null>(null);
+  const [userId, setUserId] = useState<string | null>(() => readLastProfileCache()?.id ?? null);
   const [phase, setPhase] = useState<Phase>('loading');
   const [batch, setBatch] = useState<WordItem[]>([]);
   const [remainingNew, setRemainingNew] = useState(0);
@@ -89,54 +90,63 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   useEffect(() => {
     (async () => {
       let hasCached = false;
-      try {
-        const { data: { session }, error } = await supabase.auth.getSession();
-        if (error) return;
-        if (!session?.user) { router.push('/auth'); return; }
-        setUserId(session.user.id);
-
-        const batchLimit = idsParam === null ? NEW_BATCH : 20;
-
-        // 1. Instant hydration from IndexedDB for new words (<5ms)
+      const batchLimit = idsParam === null ? NEW_BATCH : 20;
+      const hydrateFromIndexedDB = async (uid: string) => {
+        if (idsParam !== null) return;
         try {
-          if (idsParam === null) {
-            const cached = await getOfflineStudyQueue(session.user.id, 'new');
-            if (cached.length > 0) {
-              const mapped: WordItem[] = cached.map((cw) => ({
-                id: cw.id,
-                word: cw.word,
-                translation: cw.translation,
-                ipa: cw.ipa,
-                pos: cw.pos,
-                example: cw.example,
-                example_vi: cw.example_vi,
-                image_url: cw.image_url ?? undefined,
-                reviewCount: cw.reviewCount,
-                srsLevel: cw.srsLevel,
-                isDue: cw.isDue,
-                srs: cw.srs
-                  ? {
-                      id: cw.id,
-                      user_id: cw.userId,
-                      word_id: cw.id,
-                      ease_factor: 2.5,
-                      stability: cw.srs.stability,
-                      difficulty: cw.srs.difficulty,
-                      interval_days: cw.srs.interval_days,
-                      review_count: cw.srs.review_count,
-                      next_review_date: cw.srs.next_review_date,
-                      last_reviewed_at: cw.srs.last_reviewed_at,
-                    }
-                  : null,
-              }));
-              setBatch(mapped.slice(0, batchLimit));
-              setRemainingNew(Math.max(0, mapped.length - batchLimit));
-              setPhase('ready');
-              hasCached = true;
-            }
+          const cached = await getOfflineStudyQueue(uid, 'new');
+          if (cached.length > 0) {
+            const mapped: WordItem[] = cached.map((cw) => ({
+              id: cw.id,
+              word: cw.word,
+              translation: cw.translation,
+              ipa: cw.ipa,
+              pos: cw.pos,
+              example: cw.example,
+              example_vi: cw.example_vi,
+              image_url: cw.image_url ?? undefined,
+              reviewCount: cw.reviewCount,
+              srsLevel: cw.srsLevel,
+              isDue: cw.isDue,
+              srs: cw.srs
+                ? {
+                    id: cw.id,
+                    user_id: cw.userId,
+                    word_id: cw.id,
+                    ease_factor: 2.5,
+                    stability: cw.srs.stability,
+                    difficulty: cw.srs.difficulty,
+                    interval_days: cw.srs.interval_days,
+                    review_count: cw.srs.review_count,
+                    next_review_date: cw.srs.next_review_date,
+                    last_reviewed_at: cw.srs.last_reviewed_at,
+                  }
+                : null,
+            }));
+            setBatch(mapped.slice(0, batchLimit));
+            setRemainingNew(Math.max(0, mapped.length - batchLimit));
+            setPhase('ready');
+            hasCached = true;
           }
         } catch (dbErr) {
           console.debug('[Learn] IndexedDB pre-read error:', dbErr);
+        }
+      };
+
+      try {
+        // 1. Instant hydration from IndexedDB for new words (<5ms) in parallel with auth session check
+        const cachedUserId = readLastProfileCache()?.id ?? null;
+        const [sessionRes] = await Promise.all([
+          supabase.auth.getSession(),
+          cachedUserId ? hydrateFromIndexedDB(cachedUserId) : Promise.resolve(),
+        ]);
+        const { data: { session }, error } = sessionRes;
+        if (error) return;
+        if (!session?.user) { router.replace('/auth'); return; }
+        setUserId(session.user.id);
+
+        if (!hasCached && session.user.id !== cachedUserId) {
+          await hydrateFromIndexedDB(session.user.id);
         }
 
         const loadWords = async (filter: 'new' | null): Promise<{ words: WordItem[]; classroomId?: string }> => {

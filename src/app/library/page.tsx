@@ -137,7 +137,7 @@ export default function LibraryPage() {
     const load = async (): Promise<void> => {
       const { data: { session }, error } = await supabase.auth.getSession();
       if (error) return;
-      if (!session?.user) { router.push('/auth'); return; }
+      if (!session?.user) { router.replace('/auth'); return; }
       try {
         const res = await authFetch('/api/import/packages');
         const data = await res.json() as CatalogResponse;

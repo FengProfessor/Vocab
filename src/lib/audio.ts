@@ -188,7 +188,7 @@ export async function playWordAudio(
 
   // 0.5) Offline Audio Cache (IndexedDB audio_cache store for 0ms offline audio)
   try {
-    const offlineUrl = await getOfflineAudioUrl(text);
+    const offlineUrl = await getOfflineAudioUrl(text, region);
     if (offlineUrl) {
       if (!alive()) {
         revokeOfflineAudioUrl(offlineUrl);

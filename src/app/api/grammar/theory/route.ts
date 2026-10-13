@@ -5,6 +5,10 @@ import fs from 'fs';
 // Memory cache for all 62 grammar topics theory data
 const theoryCache = new Map<string, any>();
 
+const THEORY_CACHE_HEADERS = {
+  'Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
+};
+
 export async function GET(req: NextRequest): Promise<NextResponse> {
   const { searchParams } = new URL(req.url);
   const topicSlug = searchParams.get('topic');
@@ -15,7 +19,10 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
 
   // Check cache first
   if (theoryCache.has(topicSlug)) {
-    return NextResponse.json({ success: true, data: theoryCache.get(topicSlug) });
+    return NextResponse.json(
+      { success: true, data: theoryCache.get(topicSlug) },
+      { headers: THEORY_CACHE_HEADERS }
+    );
   }
 
   try {
@@ -53,7 +60,10 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     };
 
     theoryCache.set(topicSlug, payload);
-    return NextResponse.json({ success: true, data: payload });
+    return NextResponse.json(
+      { success: true, data: payload },
+      { headers: THEORY_CACHE_HEADERS }
+    );
   } catch (err: any) {
     console.error(`[GrammarTheoryAPI] Error reading topic ${topicSlug}:`, err);
     return NextResponse.json({ success: false, error: 'Failed to load grammar theory' }, { status: 500 });

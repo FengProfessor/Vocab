@@ -115,7 +115,7 @@ export default function ProfilePage() {
       } = await supabase.auth.getSession();
       if (error) return;
       if (!session?.user) {
-        router.push('/auth');
+        router.replace('/auth');
         return;
       }
 

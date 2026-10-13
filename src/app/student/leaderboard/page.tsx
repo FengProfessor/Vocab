@@ -51,7 +51,7 @@ function LeaderboardContent() {
     const init = async () => {
       const { data: { user }, error } = await supabase.auth.getUser();
       if (error) return;
-      if (!user) { router.push('/auth'); return; }
+      if (!user) { router.replace('/auth'); return; }
       setCurrentUserId(user.id);
 
       const { data: enrollments } = await supabase

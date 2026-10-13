@@ -111,7 +111,7 @@ export default function ImportPage() {
     (async () => {
       const { data: { session }, error } = await supabase.auth.getSession();
       if (error) return;
-      if (!session?.user) { router.push('/auth'); return; }
+      if (!session?.user) { router.replace('/auth'); return; }
       setUserId(session.user.id);
 
       const res = await authFetch(`/api/words`);

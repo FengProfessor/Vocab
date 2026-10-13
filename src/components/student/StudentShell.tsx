@@ -61,6 +61,36 @@ const DEFAULT_GAMIFICATION: UserGamification = {
   today_xp: 0,
   today_date: null,
 };
+
+const GRAMMAR_DUE_CACHE_KEY = 'lingopro_grammar_due_cache_v1';
+const GRAMMAR_DUE_TTL_MS = 60_000;
+
+function readGrammarDueCache(userId?: string | null): { dueCount: number; fresh: boolean } | null {
+  if (typeof window === 'undefined') return null;
+  try {
+    const raw = sessionStorage.getItem(GRAMMAR_DUE_CACHE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as { userId?: string; dueCount?: number; ts?: number };
+    if (userId && parsed.userId && parsed.userId !== userId) return null;
+    if (typeof parsed.dueCount !== 'number') return null;
+    const fresh = typeof parsed.ts === 'number' && Date.now() - parsed.ts < GRAMMAR_DUE_TTL_MS;
+    return { dueCount: parsed.dueCount, fresh };
+  } catch {
+    return null;
+  }
+}
+
+function writeGrammarDueCache(userId: string, dueCount: number): void {
+  if (typeof window === 'undefined') return;
+  try {
+    sessionStorage.setItem(
+      GRAMMAR_DUE_CACHE_KEY,
+      JSON.stringify({ userId, dueCount, ts: Date.now() }),
+    );
+  } catch {
+    // ignore storage quota errors
+  }
+}
 import {
   buildStudentNavSections,
   type StudentNavItem,
@@ -141,7 +171,7 @@ export function StudentShell({
     const cached = readLastWordSummaryCache();
     return cached?.newCount ?? 0;
   });
-  const [grammarDue, setGrammarDue] = useState(0);
+  const [grammarDue, setGrammarDue] = useState<number>(() => readGrammarDueCache()?.dueCount ?? 0);
   const [isBootstrapping, setIsBootstrapping] = useState<boolean>(() => {
     const active = propProfile ?? context?.profile ?? readLastProfileCache();
     return !active;
@@ -224,21 +254,31 @@ export function StudentShell({
           if (isCancelled) return;
           if (!session?.user) {
             if (requireAuth) {
-              router.push('/auth');
+              router.replace('/auth');
             }
             return;
           }
 
           setProfileEmail(session.user.email ?? '');
 
-          // Grammar progress is specific to shell notification bell
+          // Grammar progress is specific to shell notification bell — reuse sessionStorage if fresh (< 60s)
+          const cachedGrammar = readGrammarDueCache(session.user.id);
+          if (cachedGrammar && !isCancelled) {
+            setGrammarDue(cachedGrammar.dueCount);
+            if (cachedGrammar.fresh) {
+              return;
+            }
+          }
+
           const authHeaders = { 'X-LingoPro-Request': '1' };
           const grammarResponse = await authFetch('/api/grammar/progress?summary=1', { headers: authHeaders })
             .then((response) => response.json())
             .catch(() => null);
 
           if (!isCancelled && grammarResponse?.success) {
-            setGrammarDue(Number(grammarResponse.dueCount ?? 0));
+            const nextGrammarDue = Number(grammarResponse.dueCount ?? 0);
+            setGrammarDue(nextGrammarDue);
+            writeGrammarDueCache(session.user.id, nextGrammarDue);
           }
           return;
         }
@@ -249,7 +289,7 @@ export function StudentShell({
         if (isCancelled) return;
         if (!session?.user) {
           if (requireAuth) {
-            router.push('/auth');
+            router.replace('/auth');
           }
           return;
         }
@@ -263,6 +303,10 @@ export function StudentShell({
           setNewCount(cached.newCount ?? 0);
           if (cached.classroomId) setClassroomId(cached.classroomId);
         }
+        const cachedGrammar = readGrammarDueCache(session.user.id);
+        if (cachedGrammar && !isCancelled) {
+          setGrammarDue(cachedGrammar.dueCount);
+        }
 
         const authHeaders = { 'X-LingoPro-Request': '1' };
         const [{ data: profileData }, wordsResponse, grammarResponse, teacherClassesRes] = await Promise.all([
@@ -274,21 +318,24 @@ export function StudentShell({
           authFetch('/api/words?summary=1', { headers: authHeaders })
             .then((response) => response.json())
             .catch(() => null),
-          authFetch('/api/grammar/progress?summary=1', { headers: authHeaders })
-            .then((response) => response.json())
-            .catch(() => null),
+          cachedGrammar?.fresh
+            ? Promise.resolve(null)
+            : authFetch('/api/grammar/progress?summary=1', { headers: authHeaders })
+                .then((response) => response.json())
+                .catch(() => null),
           supabase
             .from('classrooms')
-            .select('id', { count: 'exact', head: true })
+            .select('id')
             .eq('teacher_id', session.user.id)
-            .neq('name', '__personal__'),
+            .neq('name', '__personal__')
+            .limit(1),
         ]);
 
         if (isCancelled) return;
 
         if (profileData) {
           setInternalProfile(profileData as ShellProfile);
-          const hasTeacher = profileData.role === 'teacher' || (teacherClassesRes?.count ?? 0) > 0;
+          const hasTeacher = profileData.role === 'teacher' || (teacherClassesRes?.data?.length ?? 0) > 0;
           setIsTeacherUser(hasTeacher);
         }
 
@@ -308,7 +355,9 @@ export function StudentShell({
         }
 
         if (grammarResponse?.success) {
-          setGrammarDue(Number(grammarResponse.dueCount ?? 0));
+          const nextGrammarDue = Number(grammarResponse.dueCount ?? 0);
+          setGrammarDue(nextGrammarDue);
+          writeGrammarDueCache(session.user.id, nextGrammarDue);
         }
       } finally {
         if (!isCancelled) {
@@ -326,7 +375,7 @@ export function StudentShell({
         setInternalProfile(null);
         setProfileEmail('');
         if (requireAuth) {
-          router.push('/auth');
+          router.replace('/auth');
         }
       } else if (event === 'TOKEN_REFRESHED' && session?.user) {
         setProfileEmail(session.user.email ?? '');
@@ -470,7 +519,7 @@ export function StudentShell({
   const handleSignOut = async () => {
     const { error } = await supabase.auth.signOut();
     if (error) { alert(error.message); return; }
-    router.push('/auth');
+    router.replace('/auth');
   };
 
   const navSections = useMemo<StudentNavSection[]>(
