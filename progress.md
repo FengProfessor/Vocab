@@ -995,4 +995,16 @@
     - `https://lingopro.online/images/exams/vnu-test.png` -> HTTP 200 (image/png)
     - `https://lingopro.online/images/exams/ielts.png` -> HTTP 200 (image/png)
 
+### Release Minimalist Mobile Dashboard (2026-10-13)
+
+- **Student Dashboard Minimalist Layout Alignment**:
+  - Removed "Gói trong kho" (vocabulary pack carousels), "Kho còn trống" banner, and "Danh sách từ" (search bar, filter tabs, word cards grid, load more button) from the main Student Dashboard (`src/app/student/page.tsx`).
+  - Closed the vocabulary vault card cleanly right after the 6-column FSRS SRS level chart, bringing "Kỹ năng" (5 buttons: Grammar, Reading, Listening, Speaking, Writing) and "Luyện thi" (4 buttons: TOEIC, VSTEP, VNU-TEST, IELTS) immediately into view.
+  - Retained all background count calculations and milestone checks; cleaned up unused search/filter state hooks and imports.
+  - Fully aligns with user mockup; full vocabulary exploration remains accessible via the **Kho 📦** tab in bottom navigation.
+- **Verification**:
+  - `npx tsc --noEmit`: PASS (0 errors).
+  - `npx eslint src/app/student/page.tsx`: PASS (0 errors).
+  - `npm run build`: PASS (all 186 routes compiled & static generation verified).
+
 

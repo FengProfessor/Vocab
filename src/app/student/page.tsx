@@ -10,14 +10,13 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import {
   Loader2, Plus, ArrowRight,
-  X, Clock, Search, ChevronDown, UserPlus, Sparkles,
+  X, Clock, UserPlus, Sparkles,
   ClipboardList, BookOpen, RotateCw,
   Headphones, Mic, PenTool, FileText, Code2,
   Users, Flame, ChevronRight,
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { toast } from 'sonner';
-import { WordCardSkeleton } from '@/components/ui/WordCardSkeleton';
 import { useGamification } from '@/hooks/useGamification';
 import {
   earnedBadges,
@@ -184,16 +183,9 @@ export default function StudentDashboard() {
     const cached = (studentCtx?.wordSummary?.total ?? 0) > 0 ? studentCtx!.wordSummary : readLastWordSummaryCache();
     return Boolean(cached);
   });
-  /** word list load sau shell — nếu có cached words thì render ngay không skeleton */
-  const [wordsLoading, setWordsLoading] = useState(() => !initialWords || initialWords.length === 0);
-  const [isLoadingMore, setIsLoadingMore] = useState(false);
-  const [wordsOffset, setWordsOffset] = useState(() => initialWords?.length ?? 0);
+  const [, setWordsLoading] = useState(() => !initialWords || initialWords.length === 0);
+  const [, setWordsOffset] = useState(() => initialWords?.length ?? 0);
   const WORDS_PAGE_SIZE = 20;
-
-  const [searchQuery, setSearchQuery] = useState('');
-  const [debouncedQuery, setDebouncedQuery] = useState('');
-  const [statusFilter, setStatusFilter] = useState<'all' | 'new' | 'due' | 'learned' | 'mastered'>('all');
-  const [sortBy, setSortBy] = useState<'newest' | 'oldest' | 'az' | 'hardest'>('newest');
   const router = useRouter();
   const initialGamification = studentCtx?.gamification ?? readLastGamificationCache();
   const { data: fallbackGamification, refresh: fallbackRefreshGamification, loading: fallbackGamificationLoading } = useGamification(
@@ -572,30 +564,6 @@ export default function StudentDashboard() {
     }
   };
 
-  // Load thêm words (Load More)
-  const loadMoreWords = async () => {
-    if (!profile?.id || isLoadingMore) return;
-    setIsLoadingMore(true);
-    const scope = currentClassScopeRef.current;
-    const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '&classroomId=__personal__';
-    try {
-      const res = await authFetch(
-        `/api/words?limit=${WORDS_PAGE_SIZE}&offset=${wordsOffset}${scopeParam}`,
-        {},
-      );
-      const data = await res.json();
-      if (data.success && data.data?.length > 0) {
-        setWords(prev => [...prev, ...data.data]);
-        setWordsOffset(prev => prev + WORDS_PAGE_SIZE);
-        setTotalWords(data.total || totalWords);
-      }
-    } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : 'Unknown error';
-      console.error('[Words] Load more error:', msg);
-    } finally {
-      setIsLoadingMore(false);
-    }
-  };
 
   // Auto-refresh nhẹ: chỉ dùng summary endpoint để cập nhật dueCount
   const refreshSummary = async (userId: string) => {
@@ -857,36 +825,6 @@ export default function StudentDashboard() {
     return enrolledClassrooms.find((c) => c.id === currentClassScope) || null;
   }, [currentClassScope, enrolledClassrooms]);
 
-  // Debounce search — must be before any early return (Rules of Hooks)
-  useEffect(() => {
-    const t = setTimeout(() => setDebouncedQuery(searchQuery), 300);
-    return () => clearTimeout(t);
-  }, [searchQuery]);
-
-  const filteredWords = useMemo(() => {
-    let result = [...words];
-    const q = debouncedQuery.trim().toLowerCase();
-    if (q) {
-      result = result.filter(
-        (w) =>
-          w.word?.toLowerCase().includes(q) ||
-          w.translation?.toLowerCase().includes(q) ||
-          w.ipa?.toLowerCase().includes(q) ||
-          w.pos?.toLowerCase().includes(q)
-      );
-    }
-    if (statusFilter === 'new') result = result.filter((w) => !w.srs || w.srs.review_count === 0);
-    else if (statusFilter === 'due') result = result.filter((w) => w.isDue);
-    else if (statusFilter === 'learned') result = result.filter((w) => w.srs && w.srs.review_count > 0 && !w.isDue);
-    else if (statusFilter === 'mastered') result = result.filter((w) => (w.srsLevel ?? 0) >= 5);
-
-    if (sortBy === 'oldest') result.sort((a, b) => new Date(a.created_at ?? 0).getTime() - new Date(b.created_at ?? 0).getTime());
-    else if (sortBy === 'az') result.sort((a, b) => (a.word ?? '').localeCompare(b.word ?? ''));
-    else if (sortBy === 'hardest') result.sort((a, b) => (b.srs?.difficulty ?? 0) - (a.srs?.difficulty ?? 0));
-    else result.sort((a, b) => new Date(b.created_at ?? 0).getTime() - new Date(a.created_at ?? 0).getTime());
-
-    return result;
-  }, [words, debouncedQuery, statusFilter, sortBy]);
 
   const masteredCount = useMemo(
     () => (levelCounts.length >= 5 ? levelCounts[4] + (levelCounts[5] || 0) : words.filter((w) => (w.srsLevel ?? 0) >= 5).length),
@@ -1268,233 +1206,6 @@ export default function StudentDashboard() {
               </div>
             )}
 
-            {/* Gói trong kho — đang dở lên đầu, bấm tiếp tục */}
-            {vocabPacks.length > 0 && (
-              <div className="space-y-1.5">
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-extrabold uppercase tracking-wide text-slate-400">
-                    Gói trong kho · {vocabPacks.length}
-                  </span>
-                  <Link href="/library" className="text-[11px] font-bold text-emerald-600">
-                    Xem thư viện →
-                  </Link>
-                </div>
-                <div className="-mx-0.5 flex gap-1.5 overflow-x-auto px-0.5 pb-0.5 scrollbar-none">
-                  {[...vocabPacks]
-                    .sort((a, b) => {
-                      const rank = (s: ActiveVocabPack['status']) =>
-                        s === 'in_progress' ? 0 : s === 'not_started' ? 1 : 2;
-                      return rank(a.status) - rank(b.status);
-                    })
-                    .slice(0, 12)
-                    .map((pack) => {
-                      const pct = pack.word_count > 0
-                        ? Math.round((pack.reviewed_count / pack.word_count) * 100)
-                        : 0;
-                      const inProgress = pack.status === 'in_progress' && !!pack.words?.length;
-                      const href = inProgress
-                        ? `/flashcard?mode=learn&ids=${pack.words
-                            .slice()
-                            .sort((a, b) => a.position - b.position)
-                            .map((w) => encodeURIComponent(w.word_id))
-                            .join(',')}`
-                        : '/library';
-                      return (
-                        <Link
-                          key={pack.pack_id}
-                          href={href}
-                          className={`min-w-[148px] max-w-[168px] shrink-0 rounded-xl border px-2.5 py-2 active:scale-[0.99] ${
-                            inProgress
-                              ? 'border-indigo-200 bg-gradient-to-br from-indigo-50 to-violet-50 shadow-sm shadow-indigo-100'
-                              : pack.status === 'completed'
-                                ? 'border-emerald-100 bg-emerald-50/50'
-                                : 'border-slate-100 bg-slate-50/80'
-                          }`}
-                        >
-                          {inProgress && (
-                            <div className="mb-1 text-[9px] font-extrabold uppercase tracking-wide text-indigo-600">
-                              ▶ Tiếp tục
-                            </div>
-                          )}
-                          <div className="truncate text-[11px] font-extrabold text-slate-800">
-                            {pack.topic_title}
-                          </div>
-                          <div className="mt-0.5 text-[10px] font-bold text-slate-400">
-                            Chặng {pack.pack_index + 1}
-                            {pack.status === 'completed'
-                              ? ' · xong'
-                              : pack.status === 'in_progress'
-                                ? ' · đang học'
-                                : ''}
-                          </div>
-                          <div className="mt-1.5 h-1 overflow-hidden rounded-full bg-slate-200/80">
-                            <div
-                              className={`h-full rounded-full ${
-                                pack.status === 'completed' ? 'bg-emerald-500' : 'bg-indigo-500'
-                              }`}
-                              style={{ width: `${Math.min(100, pct)}%` }}
-                            />
-                          </div>
-                          <div className="mt-0.5 flex items-center justify-between text-[10px] font-bold tabular-nums text-slate-500">
-                            <span>{pack.reviewed_count}/{pack.word_count}</span>
-                            {inProgress && <span className="text-indigo-600">Học tiếp →</span>}
-                          </div>
-                        </Link>
-                      );
-                    })}
-                </div>
-              </div>
-            )}
-
-            {vocabPacks.length === 0 && countsReady && totalWords === 0 && (
-              <Link
-                href="/library"
-                className="flex items-center gap-2.5 rounded-xl border border-dashed border-emerald-200 bg-emerald-50/40 px-3 py-2.5"
-              >
-                <Sparkles className="h-4 w-4 shrink-0 text-emerald-600" />
-                <div className="min-w-0 flex-1">
-                  <div className="text-xs font-extrabold text-emerald-800">Kho còn trống</div>
-                  <div className="text-[11px] font-semibold text-emerald-600/80">
-                    Chọn gói từ thư viện để bắt đầu
-                  </div>
-                </div>
-                <ArrowRight className="h-4 w-4 text-emerald-600" />
-              </Link>
-            )}
-
-            {/* Search + filter danh sách từ */}
-            <div className="space-y-2 border-t border-slate-100 pt-2.5">
-              <div className="text-[11px] font-extrabold uppercase tracking-wide text-slate-400">
-                Danh sách từ
-              </div>
-              <div className="flex gap-2">
-                <div className="relative min-w-0 flex-1">
-                  <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                  <input
-                    type="search"
-                    enterKeyHint="search"
-                    autoComplete="off"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Tìm trong kho..."
-                    className="min-h-[40px] w-full rounded-xl border bg-background py-2 pl-9 pr-3 text-base focus:outline-none focus:ring-2 focus:ring-primary/30 sm:text-sm"
-                  />
-                </div>
-                <div className="relative shrink-0">
-                  <select
-                    value={sortBy}
-                    onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
-                    className="min-h-[40px] cursor-pointer appearance-none rounded-xl border bg-background py-2 pl-3 pr-8 text-base focus:outline-none focus:ring-2 focus:ring-primary/30 sm:text-sm"
-                  >
-                    <option value="newest">Mới nhất</option>
-                    <option value="oldest">Cũ nhất</option>
-                    <option value="az">A → Z</option>
-                    <option value="hardest">Khó nhất</option>
-                  </select>
-                  <ChevronDown className="pointer-events-none absolute right-2 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground" />
-                </div>
-              </div>
-              <div className="-mx-0.5 flex gap-1.5 overflow-x-auto px-0.5 pb-0.5 scrollbar-none">
-                {(['all', 'new', 'due', 'learned', 'mastered'] as const).map((f) => (
-                  <button
-                    key={f}
-                    type="button"
-                    onClick={() => setStatusFilter(f)}
-                    className={`min-h-[32px] shrink-0 touch-manipulation rounded-full px-3 py-1 text-xs font-semibold transition-colors ${
-                      statusFilter === f
-                        ? 'bg-primary text-primary-foreground'
-                        : 'bg-muted text-muted-foreground hover:bg-muted/80'
-                    }`}
-                  >
-                    {{ all: 'Tất cả', new: 'Mới', due: 'Đến hạn', learned: 'Đã học', mastered: 'Thành thạo' }[f]}
-                  </button>
-                ))}
-                {(debouncedQuery || statusFilter !== 'all') && (
-                  <span className="ml-auto shrink-0 self-center whitespace-nowrap text-xs text-muted-foreground">
-                    {filteredWords.length}/{totalWords}
-                  </span>
-                )}
-              </div>
-            </div>
-
-            {wordsLoading ? (
-              <WordCardSkeleton count={4} />
-            ) : words.length === 0 ? (
-              <div className="flex flex-col items-center justify-center gap-2 py-6 text-center">
-                <p className="text-xs font-semibold text-muted-foreground">
-                  Chưa có từ — chọn gói trong thư viện
-                </p>
-                <Link
-                  href="/library"
-                  className="inline-flex items-center gap-1.5 rounded-xl bg-primary px-4 py-2 text-xs font-bold text-primary-foreground"
-                >
-                  <Sparkles className="h-3.5 w-3.5" /> Mở thư viện
-                </Link>
-              </div>
-            ) : (
-            <>
-            <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-2">
-              {filteredWords.length === 0 && (debouncedQuery || statusFilter !== 'all') && (
-                <div className="col-span-full py-6 text-center text-muted-foreground">
-                  <Search className="mx-auto mb-1 h-5 w-5 opacity-30" />
-                  <p className="text-xs">Không tìm thấy từ</p>
-                </div>
-              )}
-              {filteredWords.map((word) => (
-                <div
-                  key={word.id}
-                  role="button"
-                  tabIndex={0}
-                  onClick={() => setSelectedWordId(word.id)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault();
-                      setSelectedWordId(word.id);
-                    }
-                  }}
-                  className="group relative cursor-pointer overflow-hidden rounded-xl border border-slate-100 bg-slate-50/70 px-3 py-2 transition-all hover:border-primary/40 hover:bg-white focus:outline-none focus:ring-2 focus:ring-primary/40"
-                >
-                  <div className="flex items-start justify-between gap-2">
-                    <div className="min-w-0">
-                      <div className="flex items-baseline gap-2">
-                        <h4 className="truncate text-base font-black text-primary">{word.word}</h4>
-                        <span className="shrink-0 text-[10px] font-bold uppercase text-muted-foreground">
-                          {word.pos || ''}
-                        </span>
-                      </div>
-                      {word.ipa && (
-                        <div className="truncate text-[11px] font-semibold text-muted-foreground font-mono">{parseIpa(word.ipa)}</div>
-                      )}
-                    </div>
-                    <Badge className={`shrink-0 text-[10px] ${(word.srsLevel ?? 0) >= 5 ? 'bg-emerald-500' : 'bg-primary/15 text-primary'}`}>
-                      L{word.srsLevel || 1}
-                    </Badge>
-                  </div>
-                  <p className="mt-1 line-clamp-1 text-xs font-semibold text-slate-600">
-                    {word.translation}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {words.length < totalWords && !debouncedQuery && statusFilter === 'all' && (
-              <div className="pt-1 text-center">
-                <button
-                  type="button"
-                  onClick={loadMoreWords}
-                  disabled={isLoadingMore}
-                  className="inline-flex items-center gap-1.5 rounded-xl border border-primary/20 px-4 py-2 text-xs font-bold text-primary hover:bg-primary/5 disabled:opacity-50"
-                >
-                  {isLoadingMore ? (
-                    <><Loader2 className="h-3.5 w-3.5 animate-spin" /> Đang tải…</>
-                  ) : (
-                    <>Tải thêm ({totalWords - words.length})</>
-                  )}
-                </button>
-              </div>
-            )}
-            </>
-            )}
           </section>
 
           {/* ═══════════════════════════════════════════════════════════ */}
