@@ -15,6 +15,7 @@ import {
   Loader2,
   LogOut,
   Menu,
+  Search,
   Sparkles,
   User,
   UserPlus,
@@ -1010,8 +1011,8 @@ export function StudentShell({
           effectiveImmersive && 'min-h-[100dvh]',
         )}
       >
-        {/* Flash sale Pro (kết thúc khóa) — trên banner quota */}
-        {showChrome && !effectiveImmersive ? (
+        {/* Flash sale Pro (kết thúc khóa) — chỉ hiện cho user free, trên banner quota */}
+        {showChrome && !effectiveImmersive && (!effectiveProfile?.plan || effectiveProfile.plan === 'free') ? (
           <CohortProPromoBanner variant="dashboard" />
         ) : null}
         {/* Free ≥150: banner dính + ép modal — lead upsell chắc thấy */}
@@ -1065,6 +1066,16 @@ export function StudentShell({
               >
                 <ArrowDownToLine className="h-4 w-4" />
                 Tải app
+              </Link>
+              {/* Quick Dictionary Search button — visible on both mobile and desktop */}
+              <Link
+                href="/dictionary"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600 transition-colors hover:bg-slate-100 hover:text-indigo-600 sm:h-auto sm:w-auto sm:gap-1.5 sm:px-3 sm:py-1.5 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
+                title="Tra từ điển nhanh"
+                aria-label="Tra từ điển nhanh"
+              >
+                <Search className="h-4 w-4 shrink-0" />
+                <span className="hidden text-[12px] font-bold sm:inline">Từ điển</span>
               </Link>
               {/* Streak/XP: compact trên mobile, full từ md+ */}
               <div className="flex items-center gap-1 rounded-full border border-[#fde2c0] bg-[#fff5e9] py-1 pl-1.5 pr-2 sm:gap-1.5 sm:pl-2 sm:pr-[11px]">
