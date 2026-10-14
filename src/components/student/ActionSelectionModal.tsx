@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import {
   X,
   Zap,
@@ -15,6 +16,7 @@ import {
   Video,
 } from 'lucide-react';
 import { toast } from 'sonner';
+import { getNetworkPolicy } from '@/lib/offline/network-policy';
 
 export type ActionSelectionType =
   | 'review'
@@ -50,8 +52,10 @@ export function ActionSelectionModal({
   currentClassScope,
 }: ActionSelectionModalProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+  const canPrefetch = getNetworkPolicy().canPrefetchRoutes;
 
-  // Đóng khi ấn Escape
+  // Đóng khi ấn Escape & prefetch modal routes khi mở (nếu mạng cho phép)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -59,12 +63,28 @@ export function ActionSelectionModal({
     if (type) {
       document.body.style.overflow = 'hidden';
       window.addEventListener('keydown', handleKeyDown);
+      if (getNetworkPolicy().canPrefetchRoutes) {
+        const routesByType: Record<ActionSelectionType, string[]> = {
+          review: ['/review/session'],
+          listening: ['/practice/listening', '/sat-thu-toeic-listening'],
+          reading: ['/practice/daily-reading', '/practice/pack-reading', '/toeic'],
+          learn: ['/flashcard', '/import', '/library'],
+          toeic: ['/toeic', '/toeic/learn'],
+        };
+        for (const r of routesByType[type] ?? []) {
+          try {
+            router.prefetch(r);
+          } catch {
+            // ignore
+          }
+        }
+      }
     }
     return () => {
       document.body.style.overflow = '';
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [type, onClose]);
+  }, [type, onClose, router]);
 
   if (!type) return null;
 
@@ -351,6 +371,7 @@ export function ActionSelectionModal({
                 <Link
                   key={opt.id}
                   href={opt.href}
+                  prefetch={canPrefetch ? undefined : false}
                   onClick={() => onClose()}
                   className="block"
                 >

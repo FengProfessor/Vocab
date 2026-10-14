@@ -170,6 +170,7 @@ function SessionContent() {
   const lastSubmitAtRef = useRef<number>(0);
   /** Buffer phím Enter/Space bấm trong lúc feedback lock (180ms) để không bị trôi/bỏ qua */
   const pendingSkipRef = useRef(false);
+  const ratedWordIdsRef = useRef<Set<string>>(new Set());
 
   const modeMeta = useMemo(() => itemModeLabel(itemMode), [itemMode]);
 
@@ -366,8 +367,9 @@ function SessionContent() {
 
     const init = async () => {
       let hasCached = false;
+      const isPersonalScope = !classParam || classParam === '__personal__';
       const hydrateFromIndexedDB = async (uid: string) => {
-        if (isFree) return;
+        if (isFree || !isPersonalScope) return;
         try {
           const cachedWords = await getOfflineStudyQueue(uid, 'review');
           if (cachedWords.length > 0) {
@@ -385,8 +387,15 @@ function SessionContent() {
               isDue: cw.isDue,
             }));
             const readyCached = mapped.filter(isCardReady);
-            const dueCached = readyCached.filter((w) => w.isDue);
-            const finalDueCached = deduplicateWords(dueCached.length > 0 ? dueCached : readyCached).slice(0, SESSION_CAP);
+            let dueCached = readyCached.filter((w) => w.isDue !== false);
+            if (sessionMode === 'cloze') {
+              const withEx = dueCached.filter((w) => {
+                const c = makeCloze(w.example, w.word);
+                return Boolean(w.example?.trim() && c && c.stem.includes('___') && c.stem !== '___');
+              });
+              if (withEx.length >= 2) dueCached = withEx;
+            }
+            const finalDueCached = deduplicateWords(dueCached).slice(0, SESSION_CAP);
 
             if (finalDueCached.length > 0) {
               setPool(readyCached);
@@ -396,6 +405,9 @@ function SessionContent() {
               setupCard(finalDueCached[0], readyCached.length >= 2 ? readyCached : finalDueCached, sessionMode);
               setIsLoading(false);
               hasCached = true;
+              void import('@/lib/offline/audio-cache')
+                .then((m) => m.prefetchAudioWindow(finalDueCached, 0, 4))
+                .catch(() => {});
             }
           }
         } catch (dbErr) {
@@ -452,7 +464,40 @@ function SessionContent() {
         }
 
         const rawDueWords = (dueJson.success && Array.isArray(dueJson.data)) ? (dueJson.data as WordItem[]) : [];
-        const dueWords = deduplicateWords(rawDueWords);
+        const dueWords = deduplicateWords(rawDueWords).filter((w) => !ratedWordIdsRef.current.has(w.id));
+
+        // Đồng bộ lại IndexedDB cho personal scope (kể cả khi server trả [] để xoá sạch từ cũ đã ôn trên thiết bị khác)
+        if (isPersonalScope) {
+          void import('@/lib/offline/db')
+            .then((dbMod) => {
+              const now = Date.now();
+              return dbMod.replaceStudyWordsByQueue(
+                user.id,
+                'review',
+                dueWords.map((w) => ({
+                  id: w.id,
+                  userId: user.id,
+                  word: w.word,
+                  translation: w.translation || '',
+                  ipa: w.ipa || '',
+                  pos: w.pos || '',
+                  example: w.example || '',
+                  example_vi: w.example_vi ?? null,
+                  image_url: w.image_url ?? null,
+                  synonyms: [],
+                  antonyms: [],
+                  srsLevel: w.srsLevel ?? 1,
+                  reviewCount: w.reviewCount ?? 1,
+                  isDue: true,
+                  srs: null,
+                  queueType: 'review' as const,
+                  audioCached: false,
+                  cachedAt: now,
+                })),
+              );
+            })
+            .catch(() => {});
+        }
 
         // Nếu queue ôn ít hơn 4 từ (không đủ 4 đáp án MCQ), nạp thêm pool distractor phụ (30 từ)
         let allWords: WordItem[] = [];
@@ -477,7 +522,7 @@ function SessionContent() {
 
         let due = dueWords.filter(isCardReady);
         if (due.length === 0) {
-          due = ready.filter((w) => w.isDue);
+          due = ready.filter((w) => w.isDue && !ratedWordIdsRef.current.has(w.id));
         }
 
         // Cloze session: ưu tiên từ có example chứa target word
@@ -493,9 +538,12 @@ function SessionContent() {
         due = deduplicateWords(due).slice(0, SESSION_CAP);
 
         if (due.length === 0) {
-          if (hasCached) {
+          if (hasCached && (answeredRef.current || ratedWordIdsRef.current.size > 0)) {
             return;
           }
+          queueRef.current = [];
+          setCurrent(null);
+          setTotal(0);
           // Khi không có từ đến hạn, tìm mốc thời gian từ kế tiếp sẽ đến hạn
           try {
             const { data: nextDueData } = await supabase
@@ -517,10 +565,26 @@ function SessionContent() {
           return;
         }
 
+        // Nếu đã hiển thị thẻ từ IndexedDB ở Frame 0, giữ nguyên thẻ đang học ở vị trí 0 để tránh giật màn hình
+        const activeCard = queueRef.current[0];
+        if (hasCached && activeCard && !ratedWordIdsRef.current.has(activeCard.id)) {
+          const rest = due.filter((w) => w.id !== activeCard.id);
+          const mergedDue = [activeCard, ...rest].slice(0, SESSION_CAP);
+          queueRef.current = mergedDue;
+          setTotal(ratedWordIdsRef.current.size + mergedDue.length);
+          void import('@/lib/offline/audio-cache')
+            .then((m) => m.prefetchAudioWindow(mergedDue, 0, 4))
+            .catch(() => {});
+          return;
+        }
+
         queueRef.current = [...due];
-        setTotal(due.length);
+        setTotal(ratedWordIdsRef.current.size + due.length);
         setCurrent(due[0]);
         setupCard(due[0], ready.length >= 2 ? ready : due, sessionMode);
+        void import('@/lib/offline/audio-cache')
+          .then((m) => m.prefetchAudioWindow(due, 0, 4))
+          .catch(() => {});
       } catch (err: unknown) {
         if (!hasCached) {
           const msg = err instanceof Error ? err.message : 'Unknown';
@@ -579,6 +643,9 @@ function SessionContent() {
     const next = rest[0];
     setCurrent(next);
     setupCard(next, pool.length >= 2 ? pool : rest, sessionMode);
+    void import('@/lib/offline/audio-cache')
+      .then((m) => m.prefetchAudioWindow(rest, 0, 4))
+      .catch(() => {});
   }, [isFreeReview, pool, sessionMode, setupCard, total]);
 
   const finalize = useCallback(
@@ -587,6 +654,9 @@ function SessionContent() {
       if (!current || !userId || answeredRef.current) return;
       answeredRef.current = true;
       lastSubmitAtRef.current = Date.now();
+      if (isCorrect || isClose) {
+        ratedWordIdsRef.current.add(current.id);
+      }
 
       // Phản hồi đúng/sai phải hiện ngay; lưu SRS chạy nền để độ trễ mạng
       // không làm chậm nhịp học hoặc giữ giao diện ở trạng thái chưa chấm.
@@ -687,7 +757,7 @@ function SessionContent() {
   const skipWait = () => {
     if (!answeredRef.current) return;
     // Khóa 350ms sau khi bấm kiểm tra để chống ăn phím Enter gửi bài làm next luôn
-    if (Date.now() - lastSubmitAtRef.current < 350) return;
+    if (Date.now() - lastSubmitAtRef.current < 220) return;
     if (!canSkip) {
       pendingSkipRef.current = true;
       return;
@@ -735,8 +805,13 @@ function SessionContent() {
 
   if (!current && !done) {
     return (
-      <StudentShell title={sessionTitle} hideMobileNav contentClassName="max-w-md mx-auto">
-        <div className="flex flex-col items-center gap-6 px-4 py-12 text-center">
+      <StudentShell
+        title={sessionTitle}
+        immersive
+        hideMobileNav
+        contentClassName="flex min-h-dvh items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-violet-50 p-4"
+      >
+        <div className="flex w-full max-w-md flex-col items-center gap-6 rounded-3xl border border-slate-100 bg-white px-6 py-10 text-center shadow-xl">
           <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-emerald-50 text-4xl shadow-sm border border-emerald-100">
             🎯
           </div>

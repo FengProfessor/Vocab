@@ -52,6 +52,8 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   const [classroomId, setClassroomId] = useState<string | null>(initialClassroomId);
   const [userId, setUserId] = useState<string | null>(() => readLastProfileCache()?.id ?? null);
   const [phase, setPhase] = useState<Phase>('loading');
+  const phaseRef = useRef<Phase>('loading');
+  phaseRef.current = phase;
   const [batch, setBatch] = useState<WordItem[]>([]);
   const [remainingNew, setRemainingNew] = useState(0);
 
@@ -90,13 +92,15 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   useEffect(() => {
     (async () => {
       let hasCached = false;
+      const isPersonalScope = !initialClassroomId || initialClassroomId === '__personal__';
       const batchLimit = idsParam === null ? NEW_BATCH : 20;
       const hydrateFromIndexedDB = async (uid: string) => {
-        if (idsParam !== null) return;
+        if (idsParam !== null || !isPersonalScope) return;
         try {
           const cached = await getOfflineStudyQueue(uid, 'new');
-          if (cached.length > 0) {
-            const mapped: WordItem[] = cached.map((cw) => ({
+          const unlearned = cached.filter((cw) => (cw.reviewCount || 0) === 0 && cw.isDue !== true);
+          if (unlearned.length > 0) {
+            const mapped: WordItem[] = unlearned.map((cw) => ({
               id: cw.id,
               word: cw.word,
               translation: cw.translation,
@@ -164,6 +168,40 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
 
         let result = await loadWords('new');
 
+        // Đồng bộ lại IndexedDB cho personal scope (kể cả khi server trả [] để xoá sạch từ đã học trên thiết bị khác)
+        if (idsParam === null && isPersonalScope) {
+          const freshNewWords = result.words;
+          void import('@/lib/offline/db')
+            .then((dbMod) => {
+              const now = Date.now();
+              return dbMod.replaceStudyWordsByQueue(
+                session.user.id,
+                'new',
+                freshNewWords.map((w) => ({
+                  id: w.id,
+                  userId: session.user.id,
+                  word: w.word,
+                  translation: w.translation || '',
+                  ipa: w.ipa || '',
+                  pos: w.pos || '',
+                  example: w.example || '',
+                  example_vi: w.example_vi ?? null,
+                  image_url: w.image_url ?? null,
+                  synonyms: [],
+                  antonyms: [],
+                  srsLevel: w.srsLevel ?? 1,
+                  reviewCount: w.reviewCount ?? 0,
+                  isDue: false,
+                  srs: null,
+                  queueType: 'new' as const,
+                  audioCached: false,
+                  cachedAt: now,
+                })),
+              );
+            })
+            .catch(() => {});
+        }
+
         // Lộ trình + đã học hết từ mới + không replay → ghi step, không ép học lại.
         if (result.words.length === 0 && roadmapStepParam && !forceReplay) {
           const done = await completeRoadmapStep(roadmapStepParam);
@@ -192,15 +230,20 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
         if (!initialClassroomId && result.classroomId) setClassroomId(result.classroomId);
 
         if (result.words.length === 0) {
-          if (!hasCached) {
+          if (phaseRef.current === 'loading' || phaseRef.current === 'ready') {
+            setBatch([]);
+            setRemainingNew(0);
             setPhase('empty');
           }
           return;
         }
 
-        setBatch(result.words.slice(0, batchLimit));
-        setRemainingNew(Math.max(0, result.words.length - batchLimit));
-        setPhase('ready');
+        // Chỉ cập nhật batch nếu học viên chưa bắt đầu bước introduce/recall
+        if (phaseRef.current === 'loading' || phaseRef.current === 'ready') {
+          setBatch(result.words.slice(0, batchLimit));
+          setRemainingNew(Math.max(0, result.words.length - batchLimit));
+          setPhase('ready');
+        }
       } catch (err) {
         if (!hasCached) {
           console.error('[Learn] Load failed:', err);
@@ -235,15 +278,27 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
     stopWordAudio();
   }, []);
 
-  // Preload toàn bộ ảnh trong batch (≤20 từ) — ảnh sẵn trong cache khi lật tới
+  // Preload ảnh & rolling audio window (4 từ kế tiếp) — sẵn sàng 0ms khi lật tới mà không nghẽn mạng di động
+  const activeMediaIndex = phase === 'recall' ? recallIndex : introIndex;
   useEffect(() => {
-    batch.forEach((w) => {
-      if (w.image_url) {
-        const img = new window.Image();
-        img.src = resolveImageSrc(w.image_url);
-      }
-    });
-  }, [batch]);
+    if (batch.length === 0) return;
+    void import('@/lib/offline/network-policy')
+      .then(({ getNetworkPolicy }) => {
+        const policy = getNetworkPolicy();
+        if (!policy.isSaveData && !policy.isSlowConnection) {
+          batch.slice(activeMediaIndex, activeMediaIndex + 4).forEach((w) => {
+            if (w.image_url) {
+              const img = new window.Image();
+              img.src = resolveImageSrc(w.image_url);
+            }
+          });
+        }
+      })
+      .catch(() => {});
+    void import('@/lib/offline/audio-cache')
+      .then((m) => m.prefetchAudioWindow(batch, activeMediaIndex, 4))
+      .catch(() => {});
+  }, [batch, activeMediaIndex]);
 
   const startSession = () => {
     setPhase('introduce');
@@ -307,8 +362,12 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   const goNextRecall = useCallback(() => {
     if (verdict !== null) {
       if (!advanceFn.current) return;
-      // Khóa 350ms sau khi bấm kiểm tra để chống ăn phím Enter gửi bài làm next luôn, người dùng kịp xem lại câu
-      if (Date.now() - lastSubmitAtRef.current < 350) return;
+      // Khóa 220ms đầu để chống ăn đúp phím Enter/Space khi vừa nộp bài; từ 220ms..FEEDBACK_LOCK_MS thì ghi nhận pendingSkip
+      if (Date.now() - lastSubmitAtRef.current < 220) return;
+      if (!canSkipRef.current) {
+        pendingSkipRef.current = true;
+        return;
+      }
       advanceFn.current();
       return;
     }
@@ -342,6 +401,10 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
     feedbackLockTimer.current = setTimeout(() => {
       canSkipRef.current = true;
       feedbackLockTimer.current = null;
+      if (pendingSkipRef.current) {
+        pendingSkipRef.current = false;
+        advanceFn.current?.();
+      }
     }, FEEDBACK_LOCK_MS);
 
     if (v === 'correct') {

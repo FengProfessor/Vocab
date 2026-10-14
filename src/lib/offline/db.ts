@@ -251,6 +251,41 @@ export async function clearStudyWords(userId?: string): Promise<void> {
   });
 }
 
+export async function replaceStudyWordsByQueue(
+  userId: string,
+  queueType: 'review' | 'new',
+  words: OfflineStudyWord[],
+): Promise<void> {
+  if (!userId) return;
+  const db = await openStudyDatabase();
+  if (!db) return;
+
+  const existing = await getStudyWordsByUser(userId, queueType);
+  if (existing.length === 0 && words.length === 0) return;
+
+  return new Promise((resolve, reject) => {
+    try {
+      const tx = db.transaction(STORES.STUDY_WORDS, 'readwrite');
+      const store = tx.objectStore(STORES.STUDY_WORDS);
+      const nextIds = new Set(words.map((w) => w.id));
+      for (const oldWord of existing) {
+        if (!nextIds.has(oldWord.id)) {
+          store.delete(oldWord.id);
+        }
+      }
+      for (const word of words) {
+        store.put(word);
+      }
+      tx.oncomplete = () => resolve();
+      tx.onerror = () => reject(tx.error);
+      tx.onabort = () => reject(tx.error);
+    } catch (err) {
+      reject(err);
+    }
+  });
+}
+
+
 // ── offline_review_queue Operations (WAL) ───────────────────────────
 
 export async function appendReviewEvent(event: OfflineReviewEvent): Promise<void> {

@@ -186,21 +186,27 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
     grammarAudio.stopAll();
   }, [theoryTab]);
 
-  // User progress
-  const [progressMap, setProgressMap] = useState<Record<string, TopicProgress>>({});
+  // User progress — hydrate synchronously at Frame 0 from localStorage
+  const [progressMap, setProgressMap] = useState<Record<string, TopicProgress>>(() => {
+    if (typeof window === 'undefined') return {};
+    try {
+      const raw = localStorage.getItem('lingo_grammar_topic_progress');
+      if (!raw) return {};
+      const parsed = JSON.parse(raw);
+      return parsed && typeof parsed === 'object' ? parsed : {};
+    } catch {
+      return {};
+    }
+  });
 
   useEffect(() => {
     const fetchProgress = async () => {
       const {
-        data: { user },
-      } = await supabase.auth.getUser();
-      if (!user) return;
-
-      const {
         data: { session },
       } = await supabase.auth.getSession();
-      const res = await fetch('/api/grammar/progress?view=topics', {
-        headers: session?.user ? { 'X-LingoPro-Request': '1' } : {},
+      if (!session?.user) return;
+      const res = await authFetch('/api/grammar/progress?view=topics', {
+        headers: { 'X-LingoPro-Request': '1' },
       }).catch(() => null);
 
       if (res?.ok) {
@@ -208,13 +214,20 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
         if (json?.success && Array.isArray(json.data)) {
           const map: Record<string, TopicProgress> = {};
           for (const item of json.data) {
-            if (item.topic_slug) map[item.topic_slug] = item;
+            const slug = item.topic_slug || item.topicSlug;
+            if (slug) map[slug] = item;
           }
-          setProgressMap(map);
+          setProgressMap((prev) => {
+            const merged = { ...prev, ...map };
+            try {
+              localStorage.setItem('lingo_grammar_topic_progress', JSON.stringify(merged));
+            } catch {}
+            return merged;
+          });
         }
       }
     };
-    fetchProgress();
+    void fetchProgress();
   }, []);
 
   // Update selected topic when searchParams change

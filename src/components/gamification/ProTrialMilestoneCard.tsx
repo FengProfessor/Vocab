@@ -14,6 +14,11 @@ import {
   PRO_MILESTONE_LABEL,
   shouldShowProMilestoneCard,
 } from '@/lib/pro-trial-milestone';
+import {
+  readLastProMilestoneCache,
+  readLastProfileCache,
+  writeProMilestoneCache,
+} from '@/lib/dashboard-snapshot-cache';
 import type { MilestonePopupPayload } from '@/components/gamification/MilestonePopup';
 
 const MilestonePopup = dynamic(
@@ -59,7 +64,7 @@ function clearFunnelActive(): void {
 
 /**
  * Dashboard nhiệm vụ Pro.
- * Anti-flash: không render gì cho đến API ready + đủ điều kiện hiện.
+ * Frame-0 snapshot hydration + Anti-flash: hiện ngay nếu có cache hợp lệ, revalidate ngầm.
  */
 export function ProTrialMilestoneCard({
   enabled = true,
@@ -68,10 +73,13 @@ export function ProTrialMilestoneCard({
   hintStreak,
   hintWords,
 }: Props) {
-  const [state, setState] = useState<LoadState>('idle');
-  const [snap, setSnap] = useState<ProMilestoneSnapshot | null>(null);
+  const initialCached = readLastProMilestoneCache<ProMilestoneSnapshot>(readLastProfileCache()?.id);
+  const [state, setState] = useState<LoadState>(() => (initialCached ? 'ready' : 'idle'));
+  const [snap, setSnap] = useState<ProMilestoneSnapshot | null>(() => initialCached);
   const [claiming, setClaiming] = useState(false);
-  const [funnelActive, setFunnelActive] = useState(false);
+  const [funnelActive, setFunnelActive] = useState<boolean>(() =>
+    Boolean(readFunnelActive() || initialCached?.enrolled),
+  );
   const [claimPopup, setClaimPopup] = useState<MilestonePopupPayload | null>(null);
 
   const load = useCallback(async () => {
@@ -91,14 +99,16 @@ export function ProTrialMilestoneCard({
       return;
     }
 
-    setState('loading');
+    setState((prev) => (prev === 'ready' ? 'ready' : 'loading'));
     try {
       const {
         data: { session },
       } = await supabase.auth.getSession();
       if (!session) {
-        setSnap(null);
-        setState('error');
+        if (!snap) {
+          setSnap(null);
+          setState('error');
+        }
         return;
       }
 
@@ -115,6 +125,7 @@ export function ProTrialMilestoneCard({
 
       const m = data.milestone;
       setSnap(m);
+      writeProMilestoneCache(session.user.id, m);
 
       if (m.alreadyClaimed || m.effectivePlan !== 'free') {
         clearFunnelActive();
@@ -134,10 +145,12 @@ export function ProTrialMilestoneCard({
       setState('ready');
     } catch (err) {
       console.warn('[ProMilestone] load failed:', err);
-      setSnap(null);
-      setState('error');
+      if (!snap) {
+        setSnap(null);
+        setState('error');
+      }
     }
-  }, [enabled, hintWords, hintStreak]);
+  }, [enabled, hintWords, hintStreak, snap]);
 
   useEffect(() => {
     void load();

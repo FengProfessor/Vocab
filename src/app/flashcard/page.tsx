@@ -85,16 +85,20 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
   const [showGuide, setShowGuide] = useState(false);
   const autoAdvanceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const ratingSavingRef = useRef(false);
+  const ratedWordIdsRef = useRef<Set<string>>(new Set());
   const { data: gamification, refresh: refreshGamification } = useGamification(userId);
 
   useEffect(() => {
     const init = async () => {
       let hasCached = false;
+      const isPersonalScope = !initialClassroomId || initialClassroomId === '__personal__';
       const hydrateFromIndexedDB = async (uid: string) => {
+        if (!isPersonalScope) return;
         try {
           const cachedWords = await getOfflineStudyQueue(uid, 'review');
-          if (cachedWords.length > 0) {
-            const mapped: WordItem[] = cachedWords.map((cw) => ({
+          const dueCached = cachedWords.filter((cw) => cw.isDue !== false);
+          if (dueCached.length > 0) {
+            const mapped: WordItem[] = dueCached.map((cw) => ({
               id: cw.id,
               word: cw.word,
               translation: cw.translation,
@@ -167,17 +171,78 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
 
           // Server đã trả đúng từ đã học & đến hạn (filter=review)
           const studyQueue: WordItem[] = data.data;
+          const unratedServer = studyQueue.filter((w) => !ratedWordIdsRef.current.has(w.id));
 
-          if (studyQueue.length === 0) {
-            if (!hasCached) {
-              setIsLoading(false);
+          // Đồng bộ lại IndexedDB cho personal scope (kể cả khi server trả [] để xoá sạch từ cũ đã ôn trên thiết bị khác)
+          if (isPersonalScope) {
+            void import('@/lib/offline/db')
+              .then((dbMod) => {
+                const now = Date.now();
+                return dbMod.replaceStudyWordsByQueue(
+                  user.id,
+                  'review',
+                  unratedServer.map((w) => ({
+                    id: w.id,
+                    userId: user.id,
+                    word: w.word,
+                    translation: w.translation || '',
+                    ipa: w.ipa || '',
+                    pos: w.pos || '',
+                    example: w.example || '',
+                    example_vi: w.example_vi ?? null,
+                    image_url: w.image_url ?? null,
+                    synonyms: w.synonyms ?? [],
+                    antonyms: w.antonyms ?? [],
+                    srsLevel: w.srsLevel ?? 1,
+                    reviewCount: w.reviewCount ?? 1,
+                    isDue: true,
+                    srs: w.srs
+                      ? {
+                          stability: w.srs.stability ?? 1,
+                          difficulty: w.srs.difficulty ?? 5,
+                          interval_days: w.srs.interval_days ?? 0,
+                          review_count: w.srs.review_count ?? 1,
+                          next_review_date: w.srs.next_review_date ?? new Date(now).toISOString(),
+                          last_reviewed_at: w.srs.last_reviewed_at ?? new Date(now).toISOString(),
+                          state: (w.srs as any).state ?? 2,
+                          lapses: (w.srs as any).lapses ?? 0,
+                        }
+                      : null,
+                    queueType: 'review' as const,
+                    audioCached: false,
+                    cachedAt: now,
+                  })),
+                );
+              })
+              .catch(() => {});
+          }
+
+          if (unratedServer.length === 0) {
+            if (!ratingSavingRef.current && ratedWordIdsRef.current.size === 0) {
+              setQueue([]);
+              setCurrent(null);
+              setTotal(0);
             }
+            setIsLoading(false);
             return;
           }
 
-          setQueue([...studyQueue]);
-          setCurrent((prev) => prev ?? studyQueue[0] ?? null);
-          setTotal(studyQueue.length);
+          setQueue((prevQueue) => {
+            const activeCard = prevQueue[0];
+            // Giữ nguyên thẻ đang hiển thị ở vị trí 0 để không bao giờ giật thẻ giữa chừng
+            if (activeCard && !ratedWordIdsRef.current.has(activeCard.id)) {
+              const rest = unratedServer.filter((w) => w.id !== activeCard.id);
+              const merged = [activeCard, ...rest];
+              setTotal(ratedWordIdsRef.current.size + merged.length);
+              return merged;
+            }
+            setTotal(ratedWordIdsRef.current.size + unratedServer.length);
+            return [...unratedServer];
+          });
+          setCurrent((prev) => {
+            if (prev && !ratedWordIdsRef.current.has(prev.id)) return prev;
+            return unratedServer[0] ?? null;
+          });
         }
       } catch (err: unknown) {
         if (!hasCached) {
@@ -227,14 +292,25 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     };
   }, []);
 
-  // Preload ảnh 3 thẻ kế tiếp — ảnh sẵn trong cache trình duyệt khi chuyển thẻ
+  // Preload ảnh & rolling audio window (4 từ kế tiếp) — sẵn sàng 0ms khi lật thẻ mà không gây nghẽn mạng di động
   useEffect(() => {
-    queue.slice(1, 4).forEach((w) => {
-      if (w.image_url) {
-        const img = new window.Image();
-        img.src = resolveImageSrc(w.image_url);
-      }
-    });
+    if (queue.length === 0) return;
+    void import('@/lib/offline/network-policy')
+      .then(({ getNetworkPolicy }) => {
+        const policy = getNetworkPolicy();
+        if (!policy.isSaveData && !policy.isSlowConnection) {
+          queue.slice(1, 4).forEach((w) => {
+            if (w.image_url) {
+              const img = new window.Image();
+              img.src = resolveImageSrc(w.image_url);
+            }
+          });
+        }
+      })
+      .catch(() => {});
+    void import('@/lib/offline/audio-cache')
+      .then((m) => m.prefetchAudioWindow(queue, 0, 4))
+      .catch(() => {});
   }, [queue]);
 
   // Khôi phục lựa chọn chế độ gõ
@@ -337,6 +413,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     // 1. Snapshot for the background sync
     const currentWordId = current.id;
     const currentWord = current;
+    ratedWordIdsRef.current.add(currentWordId);
 
     // Background sync: Lưu kết quả SRS ngầm không chặn animation chuyển thẻ
     saveSrsReview(currentWordId, quality, crypto.randomUUID(), userId ?? undefined)

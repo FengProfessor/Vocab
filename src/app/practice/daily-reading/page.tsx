@@ -28,6 +28,10 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import { authFetch } from '@/lib/auth-fetch';
+import {
+  readLastDailyReadingCache,
+  writeDailyReadingCache,
+} from '@/lib/dashboard-snapshot-cache';
 import { StudentShell } from '@/components/student/StudentShell';
 import {
   findMatchingSourceWord,
@@ -345,19 +349,35 @@ function formatDate(dateStr: string): string {
 
 // ── Component ──
 export default function DailyReadingPage() {
-  const [exercises, setExercises] = useState<DailyExercise[]>([]);
-  const [loading, setLoading] = useState(true);
+  const initialSnapshot = useMemo(() => readLastDailyReadingCache(), []);
+  const initialDaily = useMemo(() => {
+    if (initialSnapshot && Array.isArray(initialSnapshot.exercises) && initialSnapshot.exercises.length > 0) {
+      return initialSnapshot.exercises as DailyExercise[];
+    }
+    return null;
+  }, [initialSnapshot]);
+
+  const [exercises, setExercises] = useState<DailyExercise[]>(() => initialDaily ?? []);
+  const [loading, setLoading] = useState<boolean>(() => !initialDaily || initialDaily.length === 0);
   const [error, setError] = useState<string | null>(null);
-  const [selectedIdx, setSelectedIdx] = useState(0);
+  const [selectedIdx, setSelectedIdx] = useState(() => {
+    if (initialDaily && initialSnapshot?.uncompletedExerciseId) {
+      const idx = initialDaily.findIndex((e) => e.id === initialSnapshot.uncompletedExerciseId);
+      if (idx !== -1) return idx;
+    }
+    return 0;
+  });
 
   const [tab, setTab] = useState<Tab>('passage');
   const [showTranslation, setShowTranslation] = useState(false);
   const [activeWordIndex, setActiveWordIndex] = useState<number | null>(null);
 
   // Metadata from GET
-  const [canGenerateToday, setCanGenerateToday] = useState(false);
-  const [hasUncompleted, setHasUncompleted] = useState(false);
-  const [uncompletedExerciseId, setUncompletedExerciseId] = useState<string | null>(null);
+  const [canGenerateToday, setCanGenerateToday] = useState(() => Boolean(initialSnapshot?.canGenerateToday));
+  const [hasUncompleted, setHasUncompleted] = useState(() => Boolean(initialSnapshot?.hasUncompleted));
+  const [uncompletedExerciseId, setUncompletedExerciseId] = useState<string | null>(
+    () => initialSnapshot?.uncompletedExerciseId ?? null,
+  );
 
   // On-demand generation states
   const [isGenerating, setIsGenerating] = useState(false);
@@ -381,7 +401,7 @@ export default function DailyReadingPage() {
 
   // Fetch exercises function
   const reloadExercises = useCallback(async () => {
-    setLoading(true);
+    setLoading((prev) => (exercises.length > 0 ? false : prev));
     setError(null);
     try {
       const res = await authFetch('/api/practice/daily-reading?recent=7');
@@ -395,21 +415,37 @@ export default function DailyReadingPage() {
           const idx = json.exercises.findIndex((e: DailyExercise) => e.id === json.uncompletedExerciseId);
           if (idx !== -1) setSelectedIdx(idx);
         }
-      } else {
+        try {
+          const lastUid = localStorage.getItem('lp:last_user_id') || sessionStorage.getItem('lp:last_user_id');
+          if (lastUid && json.exercises.length > 0) {
+            writeDailyReadingCache(lastUid, {
+              exercises: json.exercises,
+              canGenerateToday: Boolean(json.canGenerateToday),
+              hasNew: Boolean(json.hasNew),
+              hasUncompleted: Boolean(json.hasUncompleted),
+              uncompletedExerciseId: json.uncompletedExerciseId || null,
+            });
+          }
+        } catch {}
+      } else if (exercises.length === 0) {
         setError(json.error || 'Không tải được bài tập');
       }
     } catch (e) {
-      setError(e instanceof Error ? e.message : 'Lỗi kết nối');
+      if (exercises.length === 0) {
+        setError(e instanceof Error ? e.message : 'Lỗi kết nối');
+      }
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [exercises.length]);
 
   // Initial load
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      setLoading(true);
+      if (!initialDaily || initialDaily.length === 0) {
+        setLoading(true);
+      }
       setError(null);
       try {
         const res = await authFetch('/api/practice/daily-reading?recent=7');
@@ -424,12 +460,26 @@ export default function DailyReadingPage() {
               const idx = json.exercises.findIndex((e: DailyExercise) => e.id === json.uncompletedExerciseId);
               if (idx !== -1) setSelectedIdx(idx);
             }
-          } else {
+            try {
+              const lastUid = localStorage.getItem('lp:last_user_id') || sessionStorage.getItem('lp:last_user_id');
+              if (lastUid && json.exercises.length > 0) {
+                writeDailyReadingCache(lastUid, {
+                  exercises: json.exercises,
+                  canGenerateToday: Boolean(json.canGenerateToday),
+                  hasNew: Boolean(json.hasNew),
+                  hasUncompleted: Boolean(json.hasUncompleted),
+                  uncompletedExerciseId: json.uncompletedExerciseId || null,
+                });
+              }
+            } catch {}
+          } else if (!initialDaily || initialDaily.length === 0) {
             setError(json.error || 'Không tải được bài tập');
           }
         }
       } catch (e) {
-        if (!cancelled) setError(e instanceof Error ? e.message : 'Lỗi kết nối');
+        if (!cancelled && (!initialDaily || initialDaily.length === 0)) {
+          setError(e instanceof Error ? e.message : 'Lỗi kết nối');
+        }
       } finally {
         if (!cancelled) setLoading(false);
       }
@@ -437,7 +487,7 @@ export default function DailyReadingPage() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [initialDaily]);
 
   const exercise = exercises[selectedIdx] ?? null;
 
@@ -544,6 +594,18 @@ export default function DailyReadingPage() {
           const remainingUncompleted = updated.find((e) => !e.completion?.completedAt);
           setHasUncompleted(Boolean(remainingUncompleted));
           setUncompletedExerciseId(remainingUncompleted?.id || null);
+          try {
+            const lastUid = localStorage.getItem('lp:last_user_id') || sessionStorage.getItem('lp:last_user_id');
+            if (lastUid) {
+              writeDailyReadingCache(lastUid, {
+                exercises: updated,
+                canGenerateToday,
+                hasNew: Boolean(remainingUncompleted),
+                hasUncompleted: Boolean(remainingUncompleted),
+                uncompletedExerciseId: remainingUncompleted?.id || null,
+              });
+            }
+          } catch {}
           return updated;
         });
       } catch {

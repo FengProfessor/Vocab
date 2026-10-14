@@ -156,11 +156,34 @@ export interface RoadmapTreeResponse {
   tree?: RoadmapLevelView[];
 }
 
+import {
+  readLastRoadmapCache,
+  writeRoadmapCache,
+  readLastProfileCache,
+} from '@/lib/dashboard-snapshot-cache';
+
+export function readCachedRoadmapResponse(track?: RoadmapTrackId): RoadmapTreeResponse | null {
+  const targetTrack = track && track !== 'vocab' ? track : 'cefr';
+  const uid = readLastProfileCache()?.id;
+  const cached = readLastRoadmapCache<RoadmapTreeResponse>(targetTrack, uid);
+  if (!cached || cached.length === 0) return null;
+  const first = cached[0];
+  if (first && typeof first === 'object' && 'enrolled' in first) {
+    return first;
+  }
+  return null;
+}
+
 export async function fetchRoadmap(track?: RoadmapTrackId): Promise<RoadmapTreeResponse> {
   const qs = track ? `?track=${track}` : '';
   const res = await authFetch(`/api/roadmap${qs}`);
   const json = await res.json() as { success: boolean; data?: RoadmapTreeResponse; error?: string };
   if (!res.ok || !json.success || !json.data) throw new Error(json.error || 'Không tải được lộ trình');
+  const resolvedTrack = json.data.track || track || 'cefr';
+  const uid = readLastProfileCache()?.id;
+  if (json.data.tree && json.data.tree.length > 0) {
+    writeRoadmapCache(resolvedTrack, [json.data], uid);
+  }
   return json.data;
 }
 

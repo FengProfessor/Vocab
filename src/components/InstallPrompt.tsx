@@ -79,6 +79,7 @@ export default function InstallPrompt() {
   }, []);
 
   useEffect(() => {
+    void ensureInstallableServiceWorker();
     if (isStandalone()) return;
     if (isDismissedRecently()) return;
 
@@ -122,8 +123,7 @@ export default function InstallPrompt() {
     };
     window.addEventListener('lingopro_prompt_change', onPromptChange);
 
-    // SW + delay: hiện banner dù BIP chưa/không bắn (iOS, Safari, Firefox…)
-    void ensureInstallableServiceWorker();
+    // Hiện banner sau delay dù BIP chưa/không bắn (iOS, Safari, Firefox…)
     const timer = window.setTimeout(() => {
       if (!isNotifySlotActive()) {
         setVisible(true);

@@ -6,7 +6,7 @@
 
 import { authFetch } from '@/lib/auth-fetch';
 import {
-  putStudyWords,
+  replaceStudyWordsByQueue,
   getStudyWordsByUser,
   getStudyWord,
   putStudyWord,
@@ -15,23 +15,39 @@ import {
 } from './db';
 import type { OfflineStudyWord, SyncMetadata } from './types';
 import { cacheWordAudio } from './audio-cache';
+import { getNetworkPolicy } from './network-policy';
 
 let isPrefetching = false;
+const PREFETCH_COOLDOWN_MS = 3 * 60 * 1000; // 3 minutes cooldown
 
 /**
  * Prefetches up to 50 review words and 25 new words into IndexedDB.
- * Non-blocking, fails gracefully when offline without affecting UI.
+ * Respects network policy (Wi-Fi vs 4G/5G cellular) and enforces a 3-minute cooldown.
+ * Atomically replaces each queue so reviewed/stale words never linger.
  */
 export async function prefetchStudyQueue(
   userId: string,
   classroomId?: string | null,
+  force = false,
 ): Promise<void> {
   if (typeof window === 'undefined' || !userId || isPrefetching) return;
-  // If browser is offline, don't attempt network prefetch
-  if (typeof navigator !== 'undefined' && !navigator.onLine) return;
+
+  const policy = getNetworkPolicy();
+  if (!policy.canPrefetchJson) return;
 
   isPrefetching = true;
   try {
+    const now = Date.now();
+    const existingMeta = await getSyncMetadata(`meta:${userId}`);
+    if (
+      !force &&
+      existingMeta &&
+      typeof existingMeta.lastPrefetchAt === 'number' &&
+      now - existingMeta.lastPrefetchAt < PREFETCH_COOLDOWN_MS
+    ) {
+      return;
+    }
+
     const cidParam = classroomId ? `&classroomId=${encodeURIComponent(classroomId)}` : '';
 
     // Parallel fetch for review words (due) and new words
@@ -45,65 +61,63 @@ export async function prefetchStudyQueue(
     ]);
 
     const wordsToPersist: OfflineStudyWord[] = [];
-    const now = Date.now();
+    let anyQueueUpdated = false;
 
     if (reviewRes.status === 'fulfilled' && reviewRes.value?.success && Array.isArray(reviewRes.value.data)) {
-      for (const item of reviewRes.value.data) {
-        wordsToPersist.push({
-          id: item.id,
-          userId,
-          classroom_id: item.classroom_id || classroomId || undefined,
-          word: item.word,
-          translation: item.translation || '',
-          ipa: item.ipa || '',
-          pos: item.pos || '',
-          example: item.example || '',
-          example_vi: item.example_vi ?? null,
-          synonyms: Array.isArray(item.synonyms) ? item.synonyms : [],
-          antonyms: Array.isArray(item.antonyms) ? item.antonyms : [],
-          image_url: item.image_url ?? null,
-          srs: item.srs ?? null,
-          reviewCount: Number(item.reviewCount ?? item.srs?.review_count ?? 0),
-          srsLevel: Number(item.srsLevel ?? item.srs?.state ?? 0),
-          isDue: true,
-          queueType: 'review',
-          cachedAt: now,
-          audioCached: false,
-        });
-      }
+      const reviewWords: OfflineStudyWord[] = reviewRes.value.data.map((item: Record<string, any>) => ({
+        id: item.id,
+        userId,
+        classroom_id: item.classroom_id || classroomId || undefined,
+        word: item.word,
+        translation: item.translation || '',
+        ipa: item.ipa || '',
+        pos: item.pos || '',
+        example: item.example || '',
+        example_vi: item.example_vi ?? null,
+        synonyms: Array.isArray(item.synonyms) ? item.synonyms : [],
+        antonyms: Array.isArray(item.antonyms) ? item.antonyms : [],
+        image_url: item.image_url ?? null,
+        srs: item.srs ?? null,
+        reviewCount: Number(item.reviewCount ?? item.srs?.review_count ?? 0),
+        srsLevel: Number(item.srsLevel ?? item.srs?.state ?? 0),
+        isDue: true,
+        queueType: 'review' as const,
+        cachedAt: now,
+        audioCached: false,
+      }));
+      await replaceStudyWordsByQueue(userId, 'review', reviewWords);
+      wordsToPersist.push(...reviewWords);
+      anyQueueUpdated = true;
     }
 
     if (newRes.status === 'fulfilled' && newRes.value?.success && Array.isArray(newRes.value.data)) {
-      for (const item of newRes.value.data) {
-        wordsToPersist.push({
-          id: item.id,
-          userId,
-          classroom_id: item.classroom_id || classroomId || undefined,
-          word: item.word,
-          translation: item.translation || '',
-          ipa: item.ipa || '',
-          pos: item.pos || '',
-          example: item.example || '',
-          example_vi: item.example_vi ?? null,
-          synonyms: Array.isArray(item.synonyms) ? item.synonyms : [],
-          antonyms: Array.isArray(item.antonyms) ? item.antonyms : [],
-          image_url: item.image_url ?? null,
-          srs: item.srs ?? null,
-          reviewCount: Number(item.reviewCount ?? 0),
-          srsLevel: 0,
-          isDue: false,
-          queueType: 'new',
-          cachedAt: now,
-          audioCached: false,
-        });
-      }
+      const newWords: OfflineStudyWord[] = newRes.value.data.map((item: Record<string, any>) => ({
+        id: item.id,
+        userId,
+        classroom_id: item.classroom_id || classroomId || undefined,
+        word: item.word,
+        translation: item.translation || '',
+        ipa: item.ipa || '',
+        pos: item.pos || '',
+        example: item.example || '',
+        example_vi: item.example_vi ?? null,
+        synonyms: Array.isArray(item.synonyms) ? item.synonyms : [],
+        antonyms: Array.isArray(item.antonyms) ? item.antonyms : [],
+        image_url: item.image_url ?? null,
+        srs: item.srs ?? null,
+        reviewCount: Number(item.reviewCount ?? 0),
+        srsLevel: 0,
+        isDue: false,
+        queueType: 'new' as const,
+        cachedAt: now,
+        audioCached: false,
+      }));
+      await replaceStudyWordsByQueue(userId, 'new', newWords);
+      wordsToPersist.push(...newWords);
+      anyQueueUpdated = true;
     }
 
-    if (wordsToPersist.length > 0) {
-      await putStudyWords(wordsToPersist);
-
-      // Record prefetch metadata
-      const existingMeta = await getSyncMetadata(`meta:${userId}`);
+    if (anyQueueUpdated) {
       const meta: SyncMetadata = {
         key: `meta:${userId}`,
         userId,
@@ -111,14 +125,19 @@ export async function prefetchStudyQueue(
         lastSyncAt: existingMeta?.lastSyncAt ?? 0,
       };
       await setSyncMetadata(meta);
+    }
 
-      // Background audio caching (first 25 words to conserve bandwidth)
-      const wordsForAudio = wordsToPersist.slice(0, 25);
+    // Background bulk audio caching ONLY on unmetered Wi-Fi / Ethernet.
+    // On cellular (4G/5G) or mobile devices, audio is prefetched in small 3-5 word rolling windows during study.
+    if (wordsToPersist.length > 0 && policy.canBulkPrefetchMedia) {
+      const wordsForAudio = wordsToPersist.slice(0, 15);
       setTimeout(() => {
-        void Promise.allSettled(
-          wordsForAudio.map((w) => cacheWordAudio(w.word)),
-        );
-      }, 500);
+        void (async () => {
+          for (const w of wordsForAudio) {
+            await cacheWordAudio(w.word);
+          }
+        })();
+      }, 800);
     }
   } catch (err) {
     // Silent degradation
@@ -160,7 +179,7 @@ export async function getOfflineDueCount(
     ]);
     return {
       dueCount: reviewWords.filter((w) => w.isDue !== false).length,
-      newCount: newWords.length,
+      newCount: newWords.filter((w) => (w.reviewCount || 0) === 0 && w.isDue !== true).length,
     };
   } catch {
     return { dueCount: 0, newCount: 0 };
@@ -186,6 +205,8 @@ export async function updateOfflineWordSrs(
 
     word.reviewCount = (word.reviewCount || 0) + 1;
     word.isDue = false;
+    word.queueType = 'review';
+    word.srsLevel = isPassing ? Math.min(5, Math.max(1, (word.srsLevel || 0) + 1)) : 1;
     word.srs = {
       stability: word.srs ? word.srs.stability * (isPassing ? 1.2 : 0.8) : 1,
       difficulty: word.srs ? word.srs.difficulty : 5,
@@ -204,3 +225,4 @@ export async function updateOfflineWordSrs(
     return null;
   }
 }
+

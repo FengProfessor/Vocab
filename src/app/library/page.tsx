@@ -13,6 +13,10 @@ import { StudentShell } from '@/components/student/StudentShell';
 import { isWordSavedLocally, saveWordLocally } from '@/lib/exam-dict-cache';
 import { playWordAudio } from '@/lib/audio';
 import {
+  readLibraryCatalogCache,
+  writeLibraryCatalogCache,
+} from '@/lib/dashboard-snapshot-cache';
+import {
   applyGlossesToPacks,
   downloadTopicPdfHtml,
   openBlankPdfWindow,
@@ -55,10 +59,11 @@ function subtopicStatus(sub: Subtopic): 'new' | 'in_progress' | 'completed' {
 
 export default function LibraryPage() {
   const router = useRouter();
-  const [routes, setRoutes] = useState<Route[]>([]);
-  const [microPackSize, setMicroPackSize] = useState(15);
-  const [catalogVersion, setCatalogVersion] = useState('');
-  const [loading, setLoading] = useState(true);
+  const initialCatalog = useMemo(() => readLibraryCatalogCache(), []);
+  const [routes, setRoutes] = useState<Route[]>(() => (initialCatalog?.routes as Route[]) ?? []);
+  const [microPackSize, setMicroPackSize] = useState(() => initialCatalog?.microPackSize ?? 15);
+  const [catalogVersion, setCatalogVersion] = useState(() => initialCatalog?.catalogVersion ?? '');
+  const [loading, setLoading] = useState<boolean>(() => !(initialCatalog?.routes && initialCatalog.routes.length > 0));
 
   /** Modal cấp 1: chọn bộ (Lớp 10, TOEIC…) → list unit */
   const [activeRouteId, setActiveRouteId] = useState<string | null>(null);
@@ -136,8 +141,15 @@ export default function LibraryPage() {
     let active = true;
     const load = async (): Promise<void> => {
       const { data: { session }, error } = await supabase.auth.getSession();
-      if (error) return;
-      if (!session?.user) { router.replace('/auth'); return; }
+      if (error) {
+        if (active) setLoading(false);
+        return;
+      }
+      if (!session?.user) {
+        if (active) setLoading(false);
+        router.replace('/auth');
+        return;
+      }
       try {
         const res = await authFetch('/api/import/packages');
         const data = await res.json() as CatalogResponse;
@@ -146,16 +158,23 @@ export default function LibraryPage() {
           setRoutes(data.routes);
           setMicroPackSize(data.microPackSize ?? 15);
           setCatalogVersion(data.catalogVersion ?? '');
+          writeLibraryCatalogCache({
+            routes: data.routes,
+            microPackSize: data.microPackSize ?? 15,
+            catalogVersion: data.catalogVersion ?? '',
+          });
         }
       } catch (error: unknown) {
-        toast.error(error instanceof Error ? error.message : 'Không thể tải thư viện');
+        if (!initialCatalog?.routes?.length) {
+          toast.error(error instanceof Error ? error.message : 'Không thể tải thư viện');
+        }
       } finally {
         if (active) setLoading(false);
       }
     };
     void load();
     return () => { active = false; };
-  }, [router]);
+  }, [router, initialCatalog]);
 
   // ESC đóng modal (pack → unit → route)
   useEffect(() => {

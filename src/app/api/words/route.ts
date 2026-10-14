@@ -265,7 +265,7 @@ async function fetchWordSummaryCounts(
             newCount: Number(row.new_count ?? 0),
             reviewDueCount: Number(row.review_due_count ?? 0),
             dueCount: Number(row.due_count ?? 0),
-            levelCounts: includeLevels ? parsedLevels : [0, 0, 0, 0, 0, 0],
+            levelCounts: parsedLevels,
           };
           cacheSet(cacheKey, result, includeLevels ? 60_000 : 30_000);
           return result;

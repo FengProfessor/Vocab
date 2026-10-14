@@ -351,6 +351,9 @@ export function StudentShell({
             reviewDueCount: nextReview,
             dueCount: Number(wordsResponse.dueCount ?? 0),
             classroomId: wordsResponse.classroomId ?? null,
+            levelCounts: Array.isArray(wordsResponse.levelCounts)
+              ? wordsResponse.levelCounts.map((n: unknown) => Number(n) || 0)
+              : undefined,
           });
         }
 
@@ -387,6 +390,46 @@ export function StudentShell({
       subscription.unsubscribe();
     };
   }, [router, requireAuth, context]);
+
+  // Warmup các route chính trong idle time khi mạng cho phép (Wi-Fi / 4G không bật Save-Data)
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    try {
+      if (sessionStorage.getItem('lp:routes_prefetched') === '1') return;
+    } catch {}
+
+    const runRouteWarmup = async () => {
+      try {
+        const { getNetworkPolicy } = await import('@/lib/offline/network-policy');
+        if (!getNetworkPolicy().canPrefetchRoutes) return;
+        sessionStorage.setItem('lp:routes_prefetched', '1');
+        const primaryRoutes = [
+          '/student',
+          '/library',
+          '/journey',
+          '/grammar',
+          '/dictionary',
+          '/student/profile',
+          '/flashcard?mode=learn',
+          '/review/session?mode=mixed',
+          '/practice/daily-reading',
+        ];
+        for (const r of primaryRoutes) {
+          try {
+            router.prefetch(r);
+          } catch {}
+        }
+      } catch {}
+    };
+
+    if ('requestIdleCallback' in window) {
+      const id = (window as any).requestIdleCallback(runRouteWarmup, { timeout: 3500 });
+      return () => (window as any).cancelIdleCallback?.(id);
+    } else {
+      const timer = setTimeout(runRouteWarmup, 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [router]);
 
   // Khoá scroll body khi drawer mở
   useEffect(() => {

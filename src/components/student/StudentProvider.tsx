@@ -201,12 +201,16 @@ export function fetchWordSummaryOnce(userId: string): Promise<WordSummaryData | 
       const json = await res.json();
       if (version !== authStateVersion()) return null;
       if (json?.success) {
+        const parsedLevels = Array.isArray(json.levelCounts)
+          ? json.levelCounts.map((n: unknown) => Number(n) || 0)
+          : undefined;
         const summary: WordSummaryData = {
           total: Number(json.total ?? 0),
           newCount: Number(json.newCount ?? 0),
           reviewDueCount: Number(json.reviewDueCount ?? 0),
           dueCount: Number(json.dueCount ?? 0),
           classroomId: json.classroomId ?? null,
+          ...(parsedLevels ? { levelCounts: parsedLevels } : {}),
         };
         writeWordSummaryCache(userId, summary);
         return summary;
@@ -307,6 +311,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
           reviewDueCount: cached.reviewDueCount,
           dueCount: cached.dueCount ?? 0,
           classroomId: cached.classroomId ?? null,
+          levelCounts: cached.levelCounts,
         }
       : DEFAULT_WORD_SUMMARY;
   });
@@ -356,6 +361,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
             reviewDueCount: next.reviewDueCount,
             dueCount: next.dueCount,
             classroomId: next.classroomId,
+            levelCounts: next.levelCounts,
           });
         }
         return next;
@@ -398,6 +404,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
             reviewDueCount: cachedSummary.reviewDueCount,
             dueCount: cachedSummary.dueCount ?? 0,
             classroomId: cachedSummary.classroomId ?? null,
+            levelCounts: cachedSummary.levelCounts,
           });
         }
 
@@ -446,12 +453,94 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
           setWordSummary(wordSum);
         }
 
-        // Milestone 2: Background prefetch offline study queue (50 review + 25 new words) during idle time
+        // Milestone 2: Background prefetch offline study queue & primary tab JSON snapshots during idle time
         if (typeof window !== 'undefined') {
           const triggerPrefetch = () => {
             void import('@/lib/offline/study-queue')
               .then((mod) => mod.prefetchStudyQueue(userId))
               .catch(() => {});
+
+            void (async () => {
+              try {
+                const { getNetworkPolicy } = await import('@/lib/offline/network-policy');
+                if (!getNetworkPolicy().canPrefetchJson) return;
+
+                const warmupKey = `lp:tabs_warmup_ts:${userId}`;
+                const lastWarmup = Number(sessionStorage.getItem(warmupKey) || 0);
+                if (Date.now() - lastWarmup < 5 * 60 * 1000) return;
+                sessionStorage.setItem(warmupKey, String(Date.now()));
+
+                const snapMod = await import('@/lib/dashboard-snapshot-cache');
+                if (!snapMod.readLibraryCatalogCache()) {
+                  void authFetch('/api/import/packages')
+                    .then((r) => r.json())
+                    .then((d) => {
+                      if (d?.success && Array.isArray(d.routes)) {
+                        snapMod.writeLibraryCatalogCache({
+                          routes: d.routes,
+                          microPackSize: d.microPackSize || 7,
+                          catalogVersion: d.catalogVersion || '',
+                        });
+                      }
+                    })
+                    .catch(() => {});
+                }
+                if (!snapMod.readLastRoadmapCache('cefr', userId)) {
+                  void authFetch('/api/roadmap?track=cefr')
+                    .then((r) => r.json())
+                    .then((d) => {
+                      if (d?.success && d.data && typeof d.data === 'object') {
+                        const resolvedTrack = d.data.track || 'cefr';
+                        snapMod.writeRoadmapCache(resolvedTrack, [d.data], userId);
+                      }
+                    })
+                    .catch(() => {});
+                }
+                if (!snapMod.readLastProfileStatsCache(userId)) {
+                  void authFetch('/api/student/stats')
+                    .then((r) => r.json())
+                    .then((d) => {
+                      if (d?.success && d.data) {
+                        snapMod.writeProfileStatsCache(userId, d.data);
+                      }
+                    })
+                    .catch(() => {});
+                }
+                if (!snapMod.readLastDailyReadingCache(userId)) {
+                  void authFetch('/api/practice/daily-reading')
+                    .then((r) => r.json())
+                    .then((d) => {
+                      if (d?.success && Array.isArray(d.exercises)) {
+                        snapMod.writeDailyReadingCache(userId, {
+                          exercises: d.exercises,
+                          canGenerateToday: d.canGenerateToday,
+                          hasNew: d.hasNew,
+                          hasUncompleted: d.hasUncompleted,
+                          uncompletedExerciseId: d.uncompletedExerciseId,
+                        });
+                      }
+                    })
+                    .catch(() => {});
+                }
+                if (!localStorage.getItem('lingo_grammar_topic_progress')) {
+                  void authFetch('/api/grammar/progress?view=topics')
+                    .then((r) => r.json())
+                    .then((d) => {
+                      if (d?.success && Array.isArray(d.data)) {
+                        const map: Record<string, unknown> = {};
+                        for (const row of d.data) {
+                          const slug = row.topic_slug || row.topicSlug || row.topic_id;
+                          if (slug) map[slug] = row;
+                        }
+                        localStorage.setItem('lingo_grammar_topic_progress', JSON.stringify(map));
+                      }
+                    })
+                    .catch(() => {});
+                }
+              } catch {
+                // silent
+              }
+            })();
           };
           if ('requestIdleCallback' in window) {
             (window as any).requestIdleCallback(triggerPrefetch, { timeout: 3000 });
@@ -523,11 +612,15 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
   useEffect(() => {
     const onWordSaved = () => {
       setWordSummary((prev) => {
+        const nextLevels = Array.isArray(prev.levelCounts) && prev.levelCounts.length === 6
+          ? [prev.levelCounts[0] + 1, ...prev.levelCounts.slice(1)]
+          : prev.levelCounts;
         const next = {
           ...prev,
           total: prev.total + 1,
           newCount: prev.newCount + 1,
           dueCount: prev.dueCount + 1,
+          levelCounts: nextLevels,
         };
         if (session?.user?.id) writeWordSummaryCache(session.user.id, next);
         return next;
@@ -536,11 +629,15 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
 
     const onWordSaveRollback = () => {
       setWordSummary((prev) => {
+        const nextLevels = Array.isArray(prev.levelCounts) && prev.levelCounts.length === 6
+          ? [Math.max(0, prev.levelCounts[0] - 1), ...prev.levelCounts.slice(1)]
+          : prev.levelCounts;
         const next = {
           ...prev,
           total: Math.max(0, prev.total - 1),
           newCount: Math.max(0, prev.newCount - 1),
           dueCount: Math.max(0, prev.dueCount - 1),
+          levelCounts: nextLevels,
         };
         if (session?.user?.id) writeWordSummaryCache(session.user.id, next);
         return next;

@@ -7,10 +7,19 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'
 import { Button } from '@/components/ui/button'
 import { authFetch } from '@/lib/auth-fetch'
+import {
+  readLastChallengeWidgetCache,
+  readLastProfileCache,
+  writeChallengeWidgetCache,
+} from '@/lib/dashboard-snapshot-cache'
 
 export function ChallengeWidget() {
-  const [data, setData] = useState<any>(null)
-  const [loading, setLoading] = useState(true)
+  const [data, setData] = useState<any>(() =>
+    readLastChallengeWidgetCache(readLastProfileCache()?.id),
+  )
+  const [loading, setLoading] = useState<boolean>(
+    () => !readLastChallengeWidgetCache(readLastProfileCache()?.id),
+  )
 
   useEffect(() => {
     async function fetchChallengeStatus() {
@@ -19,6 +28,10 @@ export function ChallengeWidget() {
         if (res.ok) {
           const result = await res.json()
           setData(result)
+          const uid = readLastProfileCache()?.id
+          if (uid) {
+            writeChallengeWidgetCache(uid, result)
+          }
         }
       } catch (error) {
         console.error('Failed to fetch challenge widget data:', error)
@@ -30,7 +43,7 @@ export function ChallengeWidget() {
     fetchChallengeStatus()
   }, [])
 
-  if (loading) {
+  if (loading && !data) {
     return null
   }
 

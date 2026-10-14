@@ -717,6 +717,109 @@ async function runOfflineStudyEngineTestSuite() {
     expect(prodModule.readLastProfileCache() === null, 'Production clear wipes cache');
   })();
 
+  await test('Tier 1', 'T1.7: Smart Tiered Network Policy (Wi-Fi vs Cellular vs Save-Data vs 2G)', async () => {
+    const { getNetworkPolicy } = await import('../../src/lib/offline/network-policy');
+    const prevDescriptor = Object.getOwnPropertyDescriptor(globalThis, 'navigator');
+    const setNav = (val: any) => {
+      Object.defineProperty(globalThis, 'navigator', { value: val, configurable: true, writable: true });
+    };
+    try {
+      setNav({ onLine: true, connection: { type: 'wifi', effectiveType: '4g', saveData: false } });
+      const wifi = getNetworkPolicy();
+      expect(wifi.canPrefetchJson === true, 'Wi-Fi allows JSON prefetch');
+      expect(wifi.canPrefetchRoutes === true, 'Wi-Fi allows route prefetch');
+      expect(wifi.canBatchPrefetchMedia === true, 'Wi-Fi allows batch media prefetch');
+      expect(wifi.canPrefetchStudyWindow === true, 'Wi-Fi allows study window prefetch');
+
+      setNav({ onLine: true, connection: { type: 'cellular', effectiveType: '4g', saveData: false } });
+      const cellular = getNetworkPolicy();
+      expect(cellular.canPrefetchJson === true, 'Cellular 4G allows lightweight JSON prefetch');
+      expect(cellular.canPrefetchRoutes === false, 'Cellular 4G blocks secondary route bundle prefetch');
+      expect(cellular.canBatchPrefetchMedia === false, 'Cellular 4G blocks batch media prefetch');
+      expect(cellular.canPrefetchStudyWindow === true, 'Cellular 4G allows 4-word rolling study window');
+
+      setNav({ onLine: true, connection: { type: 'wifi', effectiveType: '4g', saveData: true } });
+      const saveData = getNetworkPolicy();
+      expect(saveData.canPrefetchJson === false, 'Save-Data blocks background JSON prefetch');
+      expect(saveData.canPrefetchRoutes === false, 'Save-Data blocks route prefetch');
+      expect(saveData.canBatchPrefetchMedia === false, 'Save-Data blocks batch media prefetch');
+
+      setNav({ onLine: true, connection: { effectiveType: '2g', saveData: false } });
+      const slow2g = getNetworkPolicy();
+      expect(slow2g.canPrefetchJson === false, '2G blocks background JSON prefetch');
+      expect(slow2g.canPrefetchStudyWindow === false, '2G blocks study window prefetch');
+    } finally {
+      if (prevDescriptor) {
+        Object.defineProperty(globalThis, 'navigator', prevDescriptor);
+      }
+    }
+  })();
+
+  await test('Tier 1', 'T1.8: Secondary dashboard, daily reading (VN timezone), roadmap, profile stats & levelCounts snapshot caches', async () => {
+    if (typeof (globalThis as any).window === 'object' && !(globalThis as any).window.dispatchEvent) {
+      (globalThis as any).window.dispatchEvent = () => true;
+    }
+    if (typeof (globalThis as any).CustomEvent === 'undefined') {
+      (globalThis as any).CustomEvent = class { constructor(public type: string) {} };
+    }
+    const snap = await import('../../src/lib/dashboard-snapshot-cache');
+    const ws = await import('../../src/lib/word-summary-cache');
+    const uid = 'user-prod-m2';
+
+    snap.clearDashboardSnapshotCache();
+    snap.writeDashboardSecondaryCache(uid, {
+      dailyActivity: [{ date: '2026-10-14', count: 15 }],
+      todayWords: 15,
+      todayNewWords: 6,
+      todayReviewWords: 9,
+      studyStreak: 5,
+      vocabPacks: [{ pack_id: 'pk-1', topic_title: 'Business', pack_index: 0, status: 'in_progress', word_count: 10, reviewed_count: 4, words: [] }],
+      dailyReadingStatus: { hasNew: true, title: 'AI Revolution', wordCount: 8, completedCount: 0, totalCount: 1 },
+    });
+    const sec = snap.readLastDashboardSecondaryCache(uid);
+    expect(sec !== null && sec.todayWords === 15 && sec.studyStreak === 5, 'Secondary dashboard cache roundtrips');
+    expect(sec?.dailyReadingStatus?.title === 'AI Revolution', 'Secondary dailyReadingStatus roundtrips');
+
+    snap.writeDailyReadingCache(uid, {
+      exercises: [{ id: 'ex-101', title: 'AI Revolution' }],
+      canGenerateToday: false,
+      hasNew: true,
+      hasUncompleted: true,
+      uncompletedExerciseId: 'ex-101',
+    });
+    const dr = snap.readLastDailyReadingCache(uid);
+    expect(dr !== null && dr.exercises.length === 1 && dr.uncompletedExerciseId === 'ex-101', 'Daily reading cache roundtrips with VN date key');
+
+    snap.writeRoadmapCache('cefr', [{ enrolled: true, track: 'cefr', tree: [{ id: 'a1' }] }], uid);
+    const rm = snap.readLastRoadmapCache('cefr', uid);
+    expect(Array.isArray(rm) && rm.length === 1 && rm[0].enrolled === true, 'Roadmap cache roundtrips');
+
+    snap.writeProfileStatsCache(uid, { wordStats: { total: 100 }, studyStreak: 5 });
+    const ps = snap.readLastProfileStatsCache(uid);
+    expect(ps !== null && ps.wordStats?.total === 100, 'Profile stats cache roundtrips');
+
+    ws.writeWordSummaryCache(uid, {
+      total: 40,
+      newCount: 10,
+      reviewDueCount: 12,
+      dueCount: 22,
+      classroomId: null,
+      levelCounts: [10, 8, 7, 6, 5, 4],
+    });
+    const w0 = ws.readWordSummaryCache(uid);
+    expect(Array.isArray(w0?.levelCounts) && w0!.levelCounts![0] === 10, 'levelCounts persisted in word summary cache');
+
+    ws.notifyWordSavedOptimistic(uid);
+    const wSaved = ws.readWordSummaryCache(uid);
+    expect(wSaved?.total === 41 && wSaved?.newCount === 11 && wSaved?.levelCounts?.[0] === 11, 'Optimistic save increments levelCounts[0]');
+
+    ws.notifyWordSaveRollback(uid);
+    const wRoll = ws.readWordSummaryCache(uid);
+    expect(wRoll?.total === 40 && wRoll?.newCount === 10 && wRoll?.levelCounts?.[0] === 10, 'Rollback decrements levelCounts[0]');
+
+    snap.clearDashboardSnapshotCache(uid);
+  })();
+
   // --------------------------------------------------------------------------
   // TIER 2: BOUNDARY & CORNER CASES (IndexedDB study_words & Data Integrity)
   // --------------------------------------------------------------------------

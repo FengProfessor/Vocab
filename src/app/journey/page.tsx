@@ -14,6 +14,7 @@ import { supabase } from '@/lib/supabase';
 import { authFetch } from '@/lib/auth-fetch';
 import {
   fetchRoadmap,
+  readCachedRoadmapResponse,
   getExitDisclaimer,
   getExitStandard,
   type RoadmapEnrollmentView,
@@ -89,27 +90,39 @@ const TRACK_STORAGE_KEY = 'roadmap_active_track';
 
 type PlacementMode = 'pick-intro' | 'pick' | 'test' | 'thpt-grade' | 'toeic-level' | null;
 
+function resolveInitialTrack(): RoadmapTrackId {
+  if (typeof window === 'undefined') return 'cefr';
+  try {
+    const sp = new URLSearchParams(window.location.search);
+    const t = sp.get('track');
+    if (t === 'vocab' || t === 'cefr' || t === 'thpt' || t === 'toeic') return t as RoadmapTrackId;
+    const stored = localStorage.getItem(TRACK_STORAGE_KEY);
+    if (stored === 'vocab' || stored === 'cefr' || stored === 'thpt' || stored === 'toeic') return stored as RoadmapTrackId;
+  } catch {
+    /* ignore */
+  }
+  return 'cefr';
+}
+
 export default function JourneyPage() {
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
-  const [enrolledAny, setEnrolledAny] = useState(false);
-  const [enrollments, setEnrollments] = useState<RoadmapEnrollmentView[]>([]);
+  const initialTrack = useMemo(() => resolveInitialTrack(), []);
+  const initialSnap = useMemo(() => readCachedRoadmapResponse(initialTrack), [initialTrack]);
+  const [track, setTrack] = useState<RoadmapTrackId>(() => initialTrack);
+  const [loading, setLoading] = useState<boolean>(
+    () => initialTrack !== 'vocab' && !(initialSnap?.tree && initialSnap.tree.length > 0),
+  );
+  const [enrolledAny, setEnrolledAny] = useState<boolean>(
+    () =>
+      initialTrack === 'vocab' ||
+      Boolean(initialSnap?.enrolled || (initialSnap?.enrollments?.length ?? 0) > 0),
+  );
+  const [enrollments, setEnrollments] = useState<RoadmapEnrollmentView[]>(
+    () => initialSnap?.enrollments ?? [],
+  );
   const [needsPlacement, setNeedsPlacement] = useState(false);
-  const [tree, setTree] = useState<RoadmapLevelView[]>([]);
-  const [levelId, setLevelId] = useState<string>('A0');
-  const [track, setTrack] = useState<RoadmapTrackId>(() => {
-    if (typeof window === 'undefined') return 'cefr';
-    try {
-      const sp = new URLSearchParams(window.location.search);
-      const t = sp.get('track');
-      if (t === 'vocab' || t === 'cefr' || t === 'thpt' || t === 'toeic') return t as RoadmapTrackId;
-      const stored = localStorage.getItem(TRACK_STORAGE_KEY);
-      if (stored === 'vocab' || stored === 'cefr' || stored === 'thpt' || stored === 'toeic') return stored as RoadmapTrackId;
-    } catch {
-      /* ignore */
-    }
-    return 'cefr';
-  });
+  const [tree, setTree] = useState<RoadmapLevelView[]>(() => initialSnap?.tree ?? []);
+  const [levelId, setLevelId] = useState<string>(() => initialSnap?.levelId ?? 'A0');
   const [busyStep, setBusyStep] = useState<string | null>(null);
   const [milestonePopup, setMilestonePopup] = useState<MilestonePopupPayload | null>(null);
 

@@ -8,6 +8,7 @@ export type WordSummaryCache = {
   newCount: number;
   reviewDueCount: number;
   dueCount?: number;
+  levelCounts?: number[];
   classroomId?: string | null;
   ts: number;
 };
@@ -69,7 +70,19 @@ export function writeWordSummaryCache(
 ): void {
   if (typeof window === 'undefined') return;
   try {
-    const payload: WordSummaryCache = { ...data, ts: Date.now() };
+    const existing = readWordSummaryCache(userId);
+    const hasNonZeroLevels =
+      Array.isArray(data.levelCounts) && data.levelCounts.some((n) => Number(n) > 0);
+    const resolvedLevels = hasNonZeroLevels
+      ? data.levelCounts
+      : data.total === 0
+        ? [0, 0, 0, 0, 0, 0]
+        : existing?.levelCounts ?? data.levelCounts;
+    const payload: WordSummaryCache = {
+      ...data,
+      ...(resolvedLevels ? { levelCounts: resolvedLevels } : {}),
+      ts: Date.now(),
+    };
     const serialized = JSON.stringify(payload);
     sessionStorage.setItem(keyFor(userId), serialized);
     localStorage.setItem(keyFor(userId), serialized);
@@ -94,6 +107,10 @@ export function invalidateWordSummaryCache(userId?: string | null): void {
       const k = sessionStorage.key(i);
       if (k?.startsWith('lp:word-summary:')) keys.push(k);
     }
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k?.startsWith('lp:word-summary:') && !keys.includes(k)) keys.push(k);
+    }
     keys.forEach((k) => {
       sessionStorage.removeItem(k);
       localStorage.removeItem(k);
@@ -114,11 +131,15 @@ export const WORD_SUMMARY_EVENTS = {
 export function notifyWordSavedOptimistic(userId?: string | null): void {
   const cached = userId ? readWordSummaryCache(userId) : readLastWordSummaryCache();
   if (cached) {
+    const nextLevels = Array.isArray(cached.levelCounts) && cached.levelCounts.length >= 6
+      ? [cached.levelCounts[0] + 1, ...cached.levelCounts.slice(1)]
+      : cached.levelCounts;
     const updated: WordSummaryCache = {
       ...cached,
       total: cached.total + 1,
       newCount: cached.newCount + 1,
       dueCount: (cached.dueCount ?? cached.reviewDueCount + cached.newCount) + 1,
+      ...(nextLevels ? { levelCounts: nextLevels } : {}),
       ts: Date.now(),
     };
     if (userId) writeWordSummaryCache(userId, updated);
@@ -131,11 +152,15 @@ export function notifyWordSavedOptimistic(userId?: string | null): void {
 export function notifyWordSaveRollback(userId?: string | null): void {
   const cached = userId ? readWordSummaryCache(userId) : readLastWordSummaryCache();
   if (cached) {
+    const nextLevels = Array.isArray(cached.levelCounts) && cached.levelCounts.length >= 6
+      ? [Math.max(0, cached.levelCounts[0] - 1), ...cached.levelCounts.slice(1)]
+      : cached.levelCounts;
     const updated: WordSummaryCache = {
       ...cached,
       total: Math.max(0, cached.total - 1),
       newCount: Math.max(0, cached.newCount - 1),
       dueCount: Math.max(0, (cached.dueCount ?? 1) - 1),
+      ...(nextLevels ? { levelCounts: nextLevels } : {}),
       ts: Date.now(),
     };
     if (userId) writeWordSummaryCache(userId, updated);

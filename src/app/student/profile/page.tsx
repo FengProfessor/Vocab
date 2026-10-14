@@ -34,6 +34,16 @@ import {
 } from '@/lib/gamification';
 import { supabase, type Profile } from '@/lib/supabase';
 import { PROVINCES } from '@/lib/provinces';
+import { useStudentContext } from '@/components/student/StudentProvider';
+import {
+  readLastProfileCache,
+  writeDashboardProfileCache,
+  readLastProfileStatsCache,
+  writeProfileStatsCache,
+  readLastDashboardSecondaryCache,
+  readLastGamificationCache,
+} from '@/lib/dashboard-snapshot-cache';
+import { readLastWordSummaryCache } from '@/lib/word-summary-cache';
 
 type StudentProfile = Profile & {
   telegram_id?: string | null;
@@ -77,19 +87,54 @@ function fmtDay(isoDate: string): string {
   return isoDate.slice(8) + '/' + isoDate.slice(5, 7);
 }
 
+function resolveInitialStats(userId?: string | null): StatsData | null {
+  const cached = readLastProfileStatsCache<StatsData>(userId);
+  if (cached && cached.wordStats) return cached;
+  const wordSum = readLastWordSummaryCache();
+  const sec = readLastDashboardSecondaryCache(userId);
+  const gam = readLastGamificationCache();
+  if (!wordSum && !sec && !gam) return null;
+  return {
+    wordStats: {
+      total: wordSum?.total ?? 0,
+      levelCounts:
+        Array.isArray(wordSum?.levelCounts) && wordSum!.levelCounts!.length === 6
+          ? wordSum!.levelCounts!
+          : [0, 0, 0, 0, 0, 0],
+      avgStability: 0,
+      wordsDue: wordSum?.reviewDueCount ?? 0,
+    },
+    dailyActivity: (sec?.dailyActivity as unknown as DayActivity[]) ?? [],
+    quizHistory: [],
+    studyStreak: sec?.studyStreak ?? gam?.current_streak ?? 0,
+    avgAccuracy: 0,
+    bestScore: 0,
+    weakWords: [],
+    gamification: gam
+      ? {
+          totalXp: gam.total_xp ?? 0,
+          streak: gam.current_streak ?? 0,
+          todayXp: gam.today_xp ?? 0,
+        }
+      : null,
+  };
+}
+
 export default function ProfilePage() {
-  const [profile, setProfile] = useState<StudentProfile | null>(null);
-  const [stats, setStats] = useState<StatsData | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const studentCtx = useStudentContext();
+  const initialProfile = (studentCtx?.profile ?? readLastProfileCache()) as StudentProfile | null;
+  const [profile, setProfile] = useState<StudentProfile | null>(() => initialProfile);
+  const [stats, setStats] = useState<StatsData | null>(() => resolveInitialStats(initialProfile?.id));
+  const [isLoading, setIsLoading] = useState<boolean>(() => !initialProfile);
   const [isSaving, setIsSaving] = useState(false);
   const [isEnablingPush, setIsEnablingPush] = useState(false);
   const [isCopyingToken, setIsCopyingToken] = useState(false);
   const [tokenCopied, setTokenCopied] = useState(false);
 
-  const [fullName, setFullName] = useState('');
-  const [dailyGoal, setDailyGoal] = useState(30);
-  const [notificationHour, setNotificationHour] = useState(8);
-  const [province, setProvince] = useState('');
+  const [fullName, setFullName] = useState(() => initialProfile?.full_name ?? '');
+  const [dailyGoal, setDailyGoal] = useState(() => initialProfile?.daily_goal ?? 30);
+  const [notificationHour, setNotificationHour] = useState(() => initialProfile?.notification_hour ?? 8);
+  const [province, setProvince] = useState(() => initialProfile?.province ?? '');
 
   const router = useRouter();
   const { data: gamification } = useGamification(profile?.id ?? null);
@@ -109,44 +154,54 @@ export default function ProfilePage() {
 
   useEffect(() => {
     const checkAuth = async () => {
-      const {
-        data: { session },
-        error,
-      } = await supabase.auth.getSession();
-      if (error) return;
-      if (!session?.user) {
-        router.replace('/auth');
-        return;
+      try {
+        const {
+          data: { session },
+          error,
+        } = await supabase.auth.getSession();
+        if (error) {
+          setIsLoading(false);
+          return;
+        }
+        if (!session?.user) {
+          setIsLoading(false);
+          router.replace('/auth');
+          return;
+        }
+
+        const statsPromise = fetch('/api/student/stats', {
+          headers: { 'X-LingoPro-Request': '1' },
+        })
+          .then((response) => response.json())
+          .catch(() => null);
+
+        const { data: prof } = await supabase
+          .from('profiles')
+          .select('*')
+          .eq('id', session.user.id)
+          .single();
+
+        const statsResponse = await statsPromise;
+
+        if (prof) {
+          const nextProfile = prof as StudentProfile;
+          setProfile(nextProfile);
+          setFullName(nextProfile.full_name ?? '');
+          setDailyGoal(nextProfile.daily_goal ?? 30);
+          setNotificationHour(nextProfile.notification_hour ?? 8);
+          setProvince(nextProfile.province ?? '');
+          writeDashboardProfileCache(session.user.id, nextProfile);
+        }
+
+        if (statsResponse?.success && statsResponse.data) {
+          setStats(statsResponse.data as StatsData);
+          writeProfileStatsCache(session.user.id, statsResponse.data);
+        }
+      } catch {
+        // preserve cached Frame-0 state if offline
+      } finally {
+        setIsLoading(false);
       }
-
-      const statsPromise = fetch('/api/student/stats', {
-        headers: { 'X-LingoPro-Request': '1' },
-      })
-        .then((response) => response.json())
-        .catch(() => null);
-
-      const { data: prof } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('id', session.user.id)
-        .single();
-
-      const statsResponse = await statsPromise;
-
-      if (prof) {
-        const nextProfile = prof as StudentProfile;
-        setProfile(nextProfile);
-        setFullName(nextProfile.full_name ?? '');
-        setDailyGoal(nextProfile.daily_goal ?? 30);
-        setNotificationHour(nextProfile.notification_hour ?? 8);
-        setProvince(nextProfile.province ?? '');
-      }
-
-      if (statsResponse?.success) {
-        setStats(statsResponse.data as StatsData);
-      }
-
-      setIsLoading(false);
     };
 
     void checkAuth();
@@ -186,7 +241,11 @@ export default function ProfilePage() {
       }
 
       if (result.data) {
-        setProfile((prev) => ({ ...(prev ?? {}), ...result.data } as StudentProfile));
+        setProfile((prev) => {
+          const merged = { ...(prev ?? {}), ...result.data } as StudentProfile;
+          writeDashboardProfileCache(session.user.id, merged);
+          return merged;
+        });
       }
 
       toast.success('Đã lưu.');

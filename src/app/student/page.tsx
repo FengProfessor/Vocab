@@ -42,8 +42,12 @@ import {
   readLastProfileCache,
   readLastGamificationCache,
   readLastDashboardWordsCache,
+  readLastDashboardSecondaryCache,
   writeDashboardProfileCache,
   writeDashboardWordsCache,
+  writeDashboardSecondaryCache,
+  readLastDailyReadingCache,
+  writeDailyReadingCache,
 } from '@/lib/dashboard-snapshot-cache';
 import { SRS_LEVEL_LABELS, SRS_LEVEL_STABILITY_HINT } from '@/lib/srs';
 import { STAMPEDE_MODE } from '@/lib/stampede';
@@ -70,9 +74,17 @@ const ChallengeWidget = dynamic(
 
 /** Compact notification card: "You have a daily reading exercise!" */
 function DailyReadingCard() {
-  const [hasNew, setHasNew] = useState(false);
-  const [title, setTitle] = useState('');
-  const [wordCount, setWordCount] = useState(0);
+  const initialDaily = readLastDailyReadingCache(readLastProfileCache()?.id);
+  const initialUnfinished = Array.isArray(initialDaily?.exercises)
+    ? (initialDaily!.exercises as Array<{
+        title?: string;
+        sourceWords?: unknown[];
+        completion?: { completedAt?: string } | null;
+      }>).find((e) => !e.completion?.completedAt)
+    : undefined;
+  const [hasNew, setHasNew] = useState<boolean>(() => Boolean(initialDaily?.hasNew && initialUnfinished));
+  const [title, setTitle] = useState<string>(() => initialUnfinished?.title || (initialDaily?.hasNew ? 'Bài đọc hàng ngày' : ''));
+  const [wordCount, setWordCount] = useState<number>(() => initialUnfinished?.sourceWords?.length || 0);
 
   useEffect(() => {
     let cancelled = false;
@@ -80,14 +92,26 @@ function DailyReadingCard() {
       .then((r) => r.json())
       .then((json) => {
         if (cancelled) return;
-        if (json?.success && json.hasNew && Array.isArray(json.exercises)) {
+        if (json?.success && Array.isArray(json.exercises)) {
+          const uid = readLastProfileCache()?.id;
+          if (uid) {
+            writeDailyReadingCache(uid, {
+              exercises: json.exercises,
+              canGenerateToday: Boolean(json.canGenerateToday),
+              hasNew: Boolean(json.hasNew),
+              hasUncompleted: Boolean(json.hasUncompleted),
+              uncompletedExerciseId: json.uncompletedExerciseId ?? null,
+            });
+          }
           const unfinished = json.exercises.find(
             (e: { completion?: { completedAt?: string } | null }) => !e.completion?.completedAt,
           );
-          if (unfinished) {
+          if (json.hasNew && unfinished) {
             setHasNew(true);
             setTitle(unfinished.title || 'Bài đọc hàng ngày');
             setWordCount(unfinished.sourceWords?.length || 0);
+          } else {
+            setHasNew(false);
           }
         }
       })
@@ -144,16 +168,21 @@ export default function StudentDashboard() {
   const studentCtx = useStudentContext();
   const [profile, setProfile] = useState<Profile | null>(() => studentCtx?.profile ?? readLastProfileCache());
   const initialWords = readLastDashboardWordsCache();
+  const initialSecondary = readLastDashboardSecondaryCache();
   const [words, setWords] = useState<Word[]>(() => initialWords ?? []);
   const [classroomId, setClassroomId] = useState<string | null>(studentCtx?.wordSummary.classroomId ?? null);
   const [currentClassScope, setCurrentClassScope] = useState<string>('__personal__');
   const currentClassScopeRef = useRef<string>('__personal__');
   const [enrolledClassrooms, setEnrolledClassrooms] = useState<EnrolledClassroom[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [dailyActivity, setDailyActivity] = useState<{ date: string; count: number }[]>([]);
-  const [todayWords, setTodayWords] = useState(0);
+  const [dailyActivity, setDailyActivity] = useState<{ date: string; count: number }[]>(
+    () => initialSecondary?.dailyActivity ?? [],
+  );
+  const [todayWords, setTodayWords] = useState(() => initialSecondary?.todayWords ?? 0);
   const [countdown, setCountdown] = useState<string>('');
-  const [vocabPacks, setVocabPacks] = useState<ActiveVocabPack[]>([]);
+  const [vocabPacks, setVocabPacks] = useState<ActiveVocabPack[]>(
+    () => (initialSecondary?.vocabPacks as ActiveVocabPack[] | undefined) ?? [],
+  );
   const [selectedWord, setSelectedWord] = useState<Word | null>(null);
   const [selectedWordId, setSelectedWordId] = useState<string | null>(null);
   // Join classroom modal
@@ -176,8 +205,16 @@ export default function StudentDashboard() {
     const cached = (studentCtx?.wordSummary?.total ?? 0) > 0 ? studentCtx!.wordSummary : readLastWordSummaryCache();
     return cached?.reviewDueCount ?? 0;
   });
-  /** Phân bố SRS L1–L6 full kho (từ API summary) */
-  const [levelCounts, setLevelCounts] = useState<number[]>([0, 0, 0, 0, 0, 0]);
+  /** Phân bố SRS L1–L6 full kho (từ API summary hoặc cache Frame 0) */
+  const [levelCounts, setLevelCounts] = useState<number[]>(() => {
+    const cached = (studentCtx?.wordSummary?.total ?? 0) > 0 ? studentCtx!.wordSummary : readLastWordSummaryCache();
+    if (Array.isArray(cached?.levelCounts) && cached.levelCounts.length === 6) {
+      return cached.levelCounts.map((n) => Number(n) || 0);
+    }
+    return [0, 0, 0, 0, 0, 0];
+  });
+  const levelCountsRef = useRef<number[]>(levelCounts);
+  levelCountsRef.current = levelCounts;
   /** Sẵn sàng hiển thị số đếm ngay từ Frame 0 nếu đã có cache */
   const [countsReady, setCountsReady] = useState(() => {
     const cached = (studentCtx?.wordSummary?.total ?? 0) > 0 ? studentCtx!.wordSummary : readLastWordSummaryCache();
@@ -205,9 +242,13 @@ export default function StudentDashboard() {
   const gamificationLoading = studentCtx ? studentCtx.isLoading : fallbackGamificationLoading;
   /** Streak hiển thị = ngày LIÊN TIẾP từ heatmap (không dùng raw current_streak / tổng ngày học). */
   const [studyStreak, setStudyStreak] = useState(() => {
+    if (typeof initialSecondary?.studyStreak === 'number' && initialSecondary.studyStreak > 0) {
+      return initialSecondary.studyStreak;
+    }
     return resolveDisplayStreak({
       currentStreak: initialGamification?.current_streak,
       lastActiveDate: initialGamification?.last_active_date,
+      dailyActivity: initialSecondary?.dailyActivity?.length ? initialSecondary.dailyActivity : null,
     });
   });
 
@@ -226,6 +267,9 @@ export default function StudentDashboard() {
         setTotalWords(ws.total);
         setNewCount(ws.newCount);
         setReviewDueCount(ws.reviewDueCount);
+        if (Array.isArray(ws.levelCounts) && ws.levelCounts.length === 6 && ws.levelCounts.some((n) => n > 0)) {
+          setLevelCounts(ws.levelCounts);
+        }
         setCountsReady(true);
       }
     }
@@ -284,6 +328,9 @@ export default function StudentDashboard() {
             setTotalWords(cached.total);
             setNewCount(cached.newCount);
             setReviewDueCount(cached.reviewDueCount);
+            if (Array.isArray(cached.levelCounts) && cached.levelCounts.length === 6 && cached.levelCounts.some((n) => n > 0)) {
+              setLevelCounts(cached.levelCounts);
+            }
             if (cached.classroomId) setClassroomId(cached.classroomId);
             setCountsReady(true);
           }
@@ -342,10 +389,14 @@ export default function StudentDashboard() {
     if (hasTotal) setTotalWords(data.total!);
     if (hasNew) setNewCount(data.newCount!);
     if (hasReview) setReviewDueCount(data.reviewDueCount!);
+    let parsedLevels: number[] | undefined;
     // Không ghi đè chart L1–L6 bằng [0,0,…] từ poll summary (không levels)
     if (Array.isArray(data.levelCounts) && data.levelCounts.length === 6) {
       const next = data.levelCounts.map((n) => Number(n) || 0);
-      if (next.some((n) => n > 0)) setLevelCounts(next);
+      if (next.some((n) => n > 0) || data.total === 0) {
+        parsedLevels = next;
+        setLevelCounts(next);
+      }
     }
     if (data.classroomId) setClassroomId(data.classroomId);
     setCountsReady(true);
@@ -361,6 +412,7 @@ export default function StudentDashboard() {
         reviewDueCount: nextReview,
         dueCount: data.dueCount,
         classroomId: data.classroomId ?? null,
+        ...(parsedLevels ? { levelCounts: parsedLevels } : {}),
       });
       studentCtx?.updateWordSummary({
         total,
@@ -368,26 +420,37 @@ export default function StudentDashboard() {
         reviewDueCount: nextReview,
         dueCount: data.dueCount,
         classroomId: data.classroomId ?? null,
+        ...(parsedLevels ? { levelCounts: parsedLevels } : {}),
       });
     }
   };
 
   /** Heatmap + streak liên tiếp (stats lite). Gọi sau shell. */
-  const loadActivityStats = () => {
+  const loadActivityStats = (userId: string) => {
     void authFetch('/api/student/stats?lite=1', {})
       .then((r) => r.json())
       .then((st) => {
         if (!st?.success) return;
         const activity: { date: string; count: number }[] = st.data?.dailyActivity ?? [];
         setDailyActivity(activity);
+        let nextStreak: number | undefined;
         if (typeof st.data?.studyStreak === 'number') {
+          nextStreak = st.data.studyStreak;
           setStudyStreak(st.data.studyStreak);
         }
+        let nextToday = 0;
         if (typeof st.data?.todayWords === 'number') {
-          setTodayWords(st.data.todayWords);
+          nextToday = st.data.todayWords;
+          setTodayWords(nextToday);
         } else if (typeof st.data?.todayKey === 'string') {
-          setTodayWords(activity.find((a) => a.date === st.data.todayKey)?.count ?? 0);
+          nextToday = activity.find((a) => a.date === st.data.todayKey)?.count ?? 0;
+          setTodayWords(nextToday);
         }
+        writeDashboardSecondaryCache(userId, {
+          dailyActivity: activity,
+          todayWords: nextToday,
+          ...(nextStreak !== undefined ? { studyStreak: nextStreak } : {}),
+        });
       })
       .catch(() => {});
   };
@@ -408,17 +471,22 @@ export default function StudentDashboard() {
     const scope = targetScope !== undefined ? targetScope : currentClassScope;
     const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '&classroomId=__personal__';
 
-    loadActivityStats();
+    loadActivityStats(userId);
 
     void authFetch('/api/vocab/packs', {})
       .then((response) => response.json())
       .then((packData: { success?: boolean; packs?: ActiveVocabPack[] }) => {
         if (!packData.success || !packData.packs) return;
         setVocabPacks(packData.packs);
+        writeDashboardSecondaryCache(userId, {
+          vocabPacks: packData.packs,
+        });
       })
       .catch(() => {});
 
-    const loadLevels = () => {
+    // Fallback: chỉ gọi lại ?summary=1&levels=1 nếu levelCounts vẫn toàn 0 khi có từ
+    const loadLevelsFallback = () => {
+      if (levelCountsRef.current.some((n) => n > 0)) return;
       void authFetch(`/api/words?summary=1&levels=1${scopeParam}`, {})
         .then((r) => r.json())
         .then((sum) => {
@@ -427,9 +495,9 @@ export default function StudentDashboard() {
         .catch(() => {});
     };
     if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-      window.requestIdleCallback(loadLevels, { timeout: 4000 });
+      window.requestIdleCallback(loadLevelsFallback, { timeout: 2000 });
     } else {
-      setTimeout(loadLevels, 1500);
+      setTimeout(loadLevelsFallback, 800);
     }
   };
 
