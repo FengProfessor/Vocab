@@ -1007,4 +1007,36 @@
   - `npx eslint src/app/student/page.tsx`: PASS (0 errors).
   - `npm run build`: PASS (all 186 routes compiled & static generation verified).
 
+### Release Speed/Cache Optimization & Back-Navigation Auth Flash Fix (2026-10-14)
 
+- **Scope & Optimizations**:
+  - Eliminated 0.5s `/auth` and `/` flash on browser Back navigation: synchronous Frame-0 session check via `readLastProfileCache()` in `src/app/auth/page.tsx` and `src/app/_components/AuthRedirectGate.tsx`, replaced `window.location.assign` with `window.location.replace` on Google OAuth redirect, replaced `router.push('/auth')` with `router.replace('/auth')` across 15+ student routes, added abort/error guards in `upgrade/page.tsx` and `group/page.tsx`, and pointed Back/Logo links to `/student`.
+  - Unlocked Frame-0 IndexedDB hydration (`<5ms`) in `/flashcard`, `LearnMode`, and `/review/session` in parallel with `supabase.auth.getSession()`, synchronous `localStorage` session restoration in `/grammar/practice`, 60s `sessionStorage` SWR cache for `grammarDue` + `.select('id').limit(1)` in `StudentShell.tsx`, `Promise.all` parallel verification in `server-auth-session.ts`, `ttl-cache` + `Promise.all` in `/api/grammar/progress`, `ttl-cache` in `/api/listening/video`, HTTP `Cache-Control` in `/api/grammar/theory`, region-aware audio cache keys (`US`/`UK`), and `safeExamMemoryCache` in `vstep-test-loader.ts`.
+- **Production Release Execution & Verification**:
+  - Released commit `49b0f33b6ddbd07ecf2dee056faae6ab680d60f8`.
+  - Canonical GitHub Actions run [38435978706](https://github.com/FengProfessor/Vocab/actions/runs/38435978706) SUCCESS:
+    - `Validate exact source before production changes`: PASS (all security, browser-boundary, proxy, and Chromium E2E smoke gates passed).
+    - `Apply required database migrations / apply`: PASS (SKIP13/applied0).
+    - `Deploy to LingoPro Ubuntu Server`: PASS (checkout exact SHA `49b0f33b6ddbd07ecf2dee056faae6ab680d60f8`, staging build, atomic swap via `activate-release.sh`, service `lingopro.service` restarted with stable MainPID `506288`, readiness HTTP 200, previous release preserved at `/home/ubuntu/Vocab/.next-previous.LsGETS/.next`).
+  - Independent live HTTPS probes:
+    - `https://lingopro.online/api/health` -> HTTP 200 `{"status":"ok"}`
+    - `https://lingopro.online/` -> HTTP 200
+    - `https://lingopro.online/student` -> HTTP 200
+    - `https://lingopro.online/auth` -> HTTP 200
+
+### Release Tách Biệt UI Máy Tính & Điện Thoại — Bản B Bento (2026-10-14)
+
+- **Phạm vi & Kiến trúc tách biệt**:
+  - Tách rõ ranh giới hai giao diện máy tính và điện thoại qua hook `useIsDesktop()` (`window.matchMedia('(min-width: 768px)')`):
+    - **Máy tính (`isDesktop = true`)**: Bố cục Bento Grid thoáng đãng, 2 thẻ Hero lớn (`min-h-[168px]`, `p-5`) có thanh chọn nhanh chế độ học (`Flashcard`, `Tự nạp`, `Thư viện`) và ôn tập FSRS (`Hỗn hợp`, `Gõ từ`, `Điền từ`, `Trắc nghiệm`), đếm ngược FSRS, bảng lịch tháng cố định `h-[22px]` cân đối hoàn hảo với thẻ Tiến độ ngày (badge XP + 4 thanh tiến độ đều đặn, không khoảng trắng thừa), 5 thẻ Kỹ năng thực hành + 4 thẻ Luyện thi chuẩn hóa rộng rãi, hộp thưởng PRO VIP 2 cột, và khôi phục toàn bộ Kho từ vựng (`Gói trong kho` tiếp tục học + Trình quản lý `Danh sách từ cá nhân` với tìm kiếm, lọc trạng thái, xem nghĩa chi tiết).
+    - **Điện thoại (`isDesktop = false`)**: Giữ nguyên 100% bố cục tối giản 1cm hiện tại, không gây ảnh hưởng hay xáo trộn giao diện mobile.
+    - **Popup ActionSelectionModal**: Phân nhánh kích thước tương ứng (PC mở khung `max-w-[460px]`/`max-w-[540px]` thẻ to có mô tả; mobile giữ khung `max-w-[330px]` ô vuông 1cm).
+- **Thực thi triển khai & Kiểm chứng Production**:
+  - Released commit `21ea46452ca70fc462725920d3f222eb61be3b6f`.
+  - Canonical GitHub Actions run [38587603469](https://github.com/FengProfessor/Vocab/actions/runs/38587603469) SUCCESS:
+    - `Validate exact source before production changes`: PASS (toàn bộ quality gates, security regression, typecheck baseline, e2e smoke, và build application).
+    - `Apply required database migrations / apply`: PASS (SKIP13/applied0).
+    - `Deploy to LingoPro Ubuntu Server`: PASS (checkout exact SHA `21ea46452ca70fc462725920d3f222eb61be3b6f`, staging build, atomic swap via `activate-release.sh`, service `lingopro.service` active và ổn định, readiness HTTP 200).
+  - Independent live HTTPS probes:
+    - `https://lingopro.online/api/health` -> HTTP 200 `{"status":"ok"}`
+    - `https://lingopro.online/student` -> HTTP 200

@@ -2,6 +2,10 @@
 
 # Production deploy
 
+Release tách biệt UI Máy tính & Điện thoại (Bản B Bento) ngày 14/10/2026: [canonical run 38587603469](https://github.com/FengProfessor/Vocab/actions/runs/38587603469) SUCCESS, SHA `21ea46452ca70fc462725920d3f222eb61be3b6f`; quality/migration/deploy PASS. Log deploy xác nhận checkout đúng SHA, service `lingopro.service` ổn định và HTTP 200. Tách rõ `if (isDesktop)` với Hero CTA chọn nhanh, lịch tháng ô cố định cân đối, Bento Kỹ năng & Luyện thi, khôi phục Kho từ vựng đầy đủ trên PC; giữ nguyên 100% bố cục mobile. Kiểm tra HTTPS độc lập: `/api/health` và `/student` đều trả 200. Bằng chứng chi tiết ghi trong `progress.md`.
+
+Release tối ưu tốc độ, cache & sửa lỗi chớp `/auth` khi bấm Back ngày 14/10/2026: [canonical run 38435978706](https://github.com/FengProfessor/Vocab/actions/runs/38435978706) SUCCESS, SHA `49b0f33b6ddbd07ecf2dee056faae6ab680d60f8`; quality/migration/deploy PASS, SKIP13/applied0. Log deploy xác nhận checkout đúng SHA, service PID 506288 ổn định và HTTP 200 (`/home/ubuntu/Vocab/.next-previous.LsGETS/.next` được bảo toàn). Kiểm tra HTTPS độc lập: `/api/health`, `/`, `/student`, `/auth` đều trả 200. Bằng chứng chi tiết ghi trong `progress.md`.
+
 Release giao diện Student Dashboard tối giản ngày 13/10/2026: [canonical run 38426725446](https://github.com/FengProfessor/Vocab/actions/runs/38426725446) SUCCESS, SHA `d62c237885b736bcaee6a7c3664d9620023f9933`; quality/migration/deploy PASS, SKIP13/applied0. Log deploy xác nhận checkout đúng SHA, service PID 502402 ổn định và HTTP 200. Đã loại bỏ danh sách từ và gói từ khỏi Dashboard, đưa Kỹ năng và Luyện thi lên liền kề mức độ nhớ. Kiểm tra HTTPS độc lập: health/root/student đều trả 200. Bằng chứng chi tiết ghi trong `progress.md`.
 
 
