@@ -135,15 +135,14 @@ export function getVideoWatchProgress(videoId: string): VideoWatchProgress | nul
 
     if (!rawWatch) {
       if (hasCompletedAttempt) {
-        const now = new Date().toISOString();
         return {
           videoId,
           percent: 100,
           currentTime: 0,
           duration: 0,
           completed: true,
-          completedAt: now,
-          updatedAt: now,
+          completedAt: undefined,
+          updatedAt: '',
         };
       }
       return null;
@@ -154,15 +153,14 @@ export function getVideoWatchProgress(videoId: string): VideoWatchProgress | nul
     if (!isNaN(num) && rawWatch.trim() !== '') {
       const pct = Math.min(100, Math.max(0, Math.round(num)));
       const isCompleted = hasCompletedAttempt || pct >= COMPLETION_THRESHOLD_PERCENT;
-      const now = new Date().toISOString();
       return {
         videoId,
         percent: pct,
         currentTime: 0,
         duration: 0,
         completed: isCompleted,
-        completedAt: isCompleted ? now : undefined,
-        updatedAt: now,
+        completedAt: undefined,
+        updatedAt: '',
       };
     }
 
@@ -170,15 +168,14 @@ export function getVideoWatchProgress(videoId: string): VideoWatchProgress | nul
     if (typeof parsed === 'number') {
       const pct = Math.min(100, Math.max(0, Math.round(parsed)));
       const isCompleted = hasCompletedAttempt || pct >= COMPLETION_THRESHOLD_PERCENT;
-      const now = new Date().toISOString();
       return {
         videoId,
         percent: pct,
         currentTime: 0,
         duration: 0,
         completed: isCompleted,
-        completedAt: isCompleted ? now : undefined,
-        updatedAt: now,
+        completedAt: undefined,
+        updatedAt: '',
       };
     }
 
@@ -206,8 +203,8 @@ export function getVideoWatchProgress(videoId: string): VideoWatchProgress | nul
         currentTime: typeof parsed.currentTime === 'number' ? Math.round(parsed.currentTime * 10) / 10 : 0,
         duration: typeof parsed.duration === 'number' ? Math.round(parsed.duration * 10) / 10 : 0,
         completed: isCompleted,
-        completedAt: isCompleted ? (parsed.completedAt || new Date().toISOString()) : undefined,
-        updatedAt: parsed.updatedAt || new Date().toISOString(),
+        completedAt: isCompleted ? (parsed.completedAt || undefined) : undefined,
+        updatedAt: typeof parsed.updatedAt === 'string' ? parsed.updatedAt : '',
       };
     }
   } catch {
