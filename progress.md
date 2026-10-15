@@ -1197,3 +1197,21 @@
   - `npx tsc --noEmit`: PASS (0 lỗi compile).
   - `npm run build`: PASS (191/191 routes biên dịch thành công).
   - HTTPS Production Live: `/api/health` 200 OK, `/api/dictionary/lookup?word=run` 200 OK.
+
+### Release Tinh Gọn Desktop UI Khảo Thí TOEIC & Căn Giữa max-w-3xl (2026-10-16)
+
+- **Canonical run & Commit**: [canonical run 38773788814](https://github.com/FengProfessor/Vocab/actions/runs/38773788814) SUCCESS, SHA `856deac428d098d7fa0b9ca0449bb0f7c2aa5b21`; quality gate PASS, migration PASS, deploy PASS (service PID 615914, HTTP 200, candidate HEALTHY).
+- **Phạm vi & Tính năng triển khai**:
+  - **Khung cấu hình luyện Part TOEIC (`/toeic?tab=practice_parts`)**:
+    - Thu gọn hộp cấu hình về `max-w-3xl mx-auto` (768px), căn giữa đối xứng hoàn hảo trên desktop màn hình máy tính.
+    - Bước 1 (Nguồn đề) chia 2 cột 50/50 cân bằng; Bước 2 (Bộ lọc chống trùng) chia 3 cột 33/33/33 trên cùng 1 dòng; Bước 3 (Số lượng câu) căn giữa hàng; Bước 4 (Hình thức làm bài) chia 2 cột 50/50.
+  - **Tinh gọn Cụm Đầu Trang (Header & 3 Tabs)**:
+    - Thu nhỏ khoảng đệm header từ `py-8` xuống `py-3.5`, thay 4 khối thẻ thống kê to cồng kềnh bằng 1 thanh chỉ số ngang tinh gọn (1-row metrics strip) đặt ngang hàng với tiêu đề, tiết kiệm ngay 160px chiều cao màn hình.
+    - Đồng bộ thanh 3 Tab từ `max-w-7xl` (1280px) về đúng `max-w-3xl` (768px), gióng thẳng hàng 2 mép biên với thanh 7 Part và hộp cấu hình bên dưới; nhãn tab rút gọn single-line chống ngắt dòng.
+    - Toàn bộ giao diện từ Tiêu đề đến Nút bấm Bắt đầu thi đạt 100% Above-the-fold trên màn hình máy tính không cần cuộn chuột.
+  - **Bổ sung ảnh minh họa Visual Grammar Topic Decks**: Cập nhật bộ ảnh cho các chủ đề Adjectives Basic, Present Simple, Present Continuous, There is/are, Verb to be.
+- **Kiểm chứng chất lượng & Production**:
+  - `npx tsc --noEmit`: PASS (0 lỗi compile).
+  - Workflow GitHub Actions `#38773788814`: 3 jobs (Quality gate, Migration, Deploy to Ubuntu Server) đều PASS.
+  - Runtime production: `lingopro.service` ổn định với PID 615914, swap atomic candidate an toàn.
+  - Live HTTPS probes: `/api/health` 200 OK, `/toeic` 200 OK, `/banana-vocab-gemini.jpg` 200 OK.
