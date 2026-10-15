@@ -1,17 +1,13 @@
+> Purpose: supplementary engineering guidance. [AGENTS.md](AGENTS.md), active workflows and [operations guides](docs/README.md) define the production rules.
+
 # Project Guidelines & Rules
 
-## 1. Zero-Downtime Atomic Swaps for Next.js Standalone Deployments
-- **Never build in-place on production**: Never run `npm run build` or delete `.next/` inside the active directory of a running Next.js standalone service (`lingopro.service`).
-- **Out-of-place / Staging Build**: Always build in a separate build directory (`~/Vocab-build`).
-- **Atomic Directory Swap**: Once the standalone bundle and static assets are prepared, swap `.next` atomically:
-  ```bash
-  rm -rf .next.new
-  cp -r /path/to/build/.next .next.new
-  mv .next .next.old && mv .next.new .next
-  sudo systemctl restart lingopro.service
-  rm -rf .next.old
-  ```
-- **Failure Isolation**: A failed build in staging must abort before touching the active service directory, ensuring production remains 100% available with the prior working build.
+## 1. Production deployment through the canonical workflow
+
+- Use [`.github/workflows/deploy-server.yml`](.github/workflows/deploy-server.yml) for approved production releases: quality checks → migrations → exact-commit build → activation → restart → health verification.
+- Production access, deployment, migrations and restarts require explicit operator approval. Follow the [deployment runbook](docs/operations/production-deploy.md) and [rollback runbook](docs/operations/rollback.md).
+- The workflow's deployment scripts manage staging, activation and previous-release preservation. Do not manually swap `.next`, delete release directories or restart the production service to bypass them.
+- Do not build inside the active production directory. Local development guidance below does not authorize production maintenance.
 
 ## 2. Local Dev Performance & Memory Management (Hot-Reload Cache Cleanup)
 - **Triage Protocol khi web cục bộ bị lag/chậm:**

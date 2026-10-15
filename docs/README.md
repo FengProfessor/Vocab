@@ -14,6 +14,7 @@ Start with the [project overview](../README.md) or its [Vietnamese version](../R
 | Work with database migrations | [Database migrations](operations/database-migrations.md) |
 | Plan recovery from a release issue | [Rollback](operations/rollback.md) |
 | Understand database backups | [Database backup](operations/database-backup.md) |
+| Review repository cleanup findings | [Presentation and hygiene rescan](audits/repository-presentation-2026-10-15.md) |
 
 ## Reading the repository
 

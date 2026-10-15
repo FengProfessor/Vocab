@@ -1,3 +1,5 @@
+> Historical offline-feature test design. The Node suite simulates browser storage and offline transitions; it does not prove real browser, authenticated or database behavior. Use [test classification](docs/testing/test-classification.md) for current coverage and the TypeScript baseline.
+
 # Test Infrastructure: Instant Hydration & Offline-First Study Engine
 
 **Target Workspace**: `d:\Vibe\Vocab\web-app`
@@ -13,7 +15,9 @@
 
 The Offline Study Engine test suite provides high-fidelity, contract-driven automated verification for the **Instant Hydration (Frame 0) & Offline-First Study Engine** milestone across the LingoPro Web/PWA application.
 
-### Authoritative Reference Sources:
+### Historical Reference Sources:
+
+The original request and explorer handoffs listed below are historical references and are not all present in the tracked repository. They are not the current deployment or release authority.
 1. **`ORIGINAL_REQUEST.md` (Header `## 2026-10-12T15:59:51Z`)**:
    - **R1. Instant Frame 0 Dashboard Hydration**: Synchronous snapshot restoration (< 50ms) from Local Snapshot Cache, zero spinner/skeleton blocking, silent background SWR revalidation.
    - **R2. Offline Study Queue in IndexedDB (0ms Flashcard/Review)**: Native IndexedDB `lingopro_study_engine` prefetching 50–100 due & new words with translations, IPA, audio blobs, and examples; 0ms card opening; local FSRS recording and background sync.

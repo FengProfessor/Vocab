@@ -7,6 +7,7 @@
 | `tests/speaking/run-scaffolding-tests.ts` | Không; mock browser primitives | Không; reference oracles có thể thay module | Contract/scaffolding |
 | `tests/speaking/speaking-master-e2e-runner.ts` | Không; Node subprocess/source checks | Không | Feature/data/source contract; tên file/API giữ để tương thích |
 | `tests/toeic/toeic-cluster-e2e.test.ts` | Không; simulated audio/session | Không | Contract/fixture; tên file giữ để tương thích |
+| `tests/offline/offline-study-engine.test.ts` | Không; in-memory browser/storage shims và mô phỏng mất mạng/kết nối lại | Không | Contract/fixture; báo cáo `TEST_READY.md` và `TEST_INFRA.md` là snapshot lịch sử |
 | `tests/security/*.test.mjs` | Thường transpile route + dependency adapter; `phase2c-proxy-runtime` chạy Next HTTP thật với public Host/HTTPS headers | Một số fixture; không production | Security unit/route contract và reverse-proxy HTTP integration |
 | `phase2b-enforcement`, `phase2c-session-store`, `phase2c-provider-session` | Không browser | Redis/PostgreSQL isolated services khi biến test được cấu hình | Integration trong Linux CI; local thiếu services không gọi PASS integration |
 | `tests/deploy/*` | Mock shell/SSH/services | Không production | Deployment safety contract |
