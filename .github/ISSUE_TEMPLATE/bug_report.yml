@@ -1,0 +1,42 @@
+name: Bug report
+description: Report a reproducible problem in LingoPro.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Search existing issues first. Remove credentials, learner details, and private recordings from all attachments and logs.
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Include the page or feature, relevant setup, and the smallest sequence that shows the problem. Use sample data.
+      placeholder: |
+        1. Open…
+        2. Select…
+        3. Observe…
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and actual behavior
+      placeholder: |
+        Expected:
+
+        Actual:
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser and version, OS/device, and hosted app or local commit SHA. For local development, include Node.js version.
+      placeholder: Chrome 140, Windows 11, hosted app
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots or sanitized logs
+      description: Optional evidence, frequency, or a workaround. Remove personal data and secrets before attaching files.

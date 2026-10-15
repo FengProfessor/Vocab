@@ -1086,3 +1086,12 @@
   - `tests/student-nav.test.ts`: PASS 100% (273/273 assertions).
   - `tests/exam/vstep-vnu-toeic-persistence.test.ts`: PASS 100% (5/5 tests).
   - `npm run build`: PASS 100% (tất cả 187 routes sinh bundle tối ưu).
+
+## 2026-10-15 — Professional repository presentation
+
+- Branch `codex/professional-repository`: rebuilt English README and added Vietnamese mirror, original SVG hero, real anonymous homepage WebP capture, verified feature/stack overview and project map.
+- Added docs index, isolated local development setup, contribution guide, bug/feature issue forms and pull request template. Application source, migrations and workflows unchanged.
+- Updated GitHub About description, eight relevant topics and homepage to `https://lingopro.online`.
+- Validation: independent factual/link review PASS; YAML issue-form structure and SVG XML PASS; desktop 1200px/mobile 390px README preview with no broken images or horizontal overflow PASS; whitespace PASS. New assets total 64,656 bytes.
+- `npm run typecheck`: exit 2, exactly matches committed 10-error Speaking baseline. `npm run lint`: exit 1, existing source has 147 errors/494 warnings (57 files with errors). No production build or authenticated browser suite run for documentation-only changes.
+- Prepared a draft PR for review; merging `main` triggers production and requires explicit operator approval. No deployment triggered by this work.
