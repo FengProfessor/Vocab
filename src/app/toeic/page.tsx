@@ -1293,10 +1293,10 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
               </div>
             </div>
 
-            {/* Part Practice Setup Box (Consolidated & Streamlined) */}
-            <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3 sm:p-5 space-y-3.5 sm:space-y-4 shadow-xs">
+            {/* Part Practice Setup Box (Consolidated & Streamlined - Centered on PC) */}
+            <div className="max-w-3xl mx-auto rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 sm:p-6 space-y-4 sm:space-y-5 shadow-xs">
               {/* Header: Unified 1-Line Part Title + Info Tooltip */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-2.5">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className="rounded-sm border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 font-mono text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tabular-nums">
                     Part {currentPartMeta.part} ({currentPartMeta.section === 'listening' ? 'LC' : 'RC'})
@@ -1323,7 +1323,7 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
               </div>
 
               {/* ── VISUAL PROGRESS BAR & STATS (COMPACT 1-ROW ROW, SAVES 60% HEIGHT) ── */}
-              <div className="w-full sm:max-w-2xl rounded-sm border border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-950/50 p-2.5 sm:p-3 space-y-2">
+              <div className="w-full rounded-sm border border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-950/50 p-2.5 sm:p-3 space-y-2">
                 {/* Top Row: Title, Percentage & Reset Action */}
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-2 min-w-0">
@@ -1346,7 +1346,7 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                 </div>
 
                 {/* Progress Bar Track Mini */}
-                <div className="h-1.5 w-full rounded-xs bg-slate-200 dark:bg-slate-800 overflow-hidden flex">
+                <div className="h-1.5 w-full rounded-xs bg-slate-200 dark:border-slate-800 overflow-hidden flex">
                   <div
                     className="bg-slate-900 dark:bg-white transition-all duration-300"
                     style={{ width: `${Math.min(100, Math.max(0, partProgress.percentage))}%` }}
@@ -1440,7 +1440,7 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                   </div>
 
                   {/* Year Switcher Strip */}
-                  <div className="flex flex-wrap items-center gap-1">
+                  <div className="flex flex-wrap items-center sm:justify-center gap-1">
                     {(['all', '2026', '2024', '2023', '2022', '2021', '2020', '2019'] as const).map((yr) => (
                       <button
                         key={yr}
@@ -1487,7 +1487,7 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                               className={`p-2 rounded-xs border text-left transition cursor-pointer select-none flex flex-col justify-between ${
                                 isSelected
                                   ? 'border-slate-900 dark:border-white bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-2xs font-bold'
-                                  : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
+                                  : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-850'
                               }`}
                             >
                               <div className="flex items-center justify-between">
@@ -1513,7 +1513,7 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
               )}
 
               {/* ── BƯỚC 1: NGUỒN ĐỀ THI LẤY CÂU HỎI ── */}
-              <div className="space-y-1.5">
+              <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-xs bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-mono text-xs font-bold">
                     1
@@ -1523,12 +1523,12 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                   </label>
                 </div>
 
-                <div className="flex flex-col sm:flex-row sm:items-center sm:flex-wrap gap-1.5 sm:gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {/* Option 1: Test Bank All */}
                   <button
                     type="button"
                     onClick={() => setSelectedSource('all')}
-                    className={`w-full sm:w-auto inline-flex items-center justify-between sm:justify-start gap-2.5 p-2 sm:px-3 sm:py-2 rounded-sm border text-left transition-colors cursor-pointer select-none ${
+                    className={`flex items-center justify-between p-2.5 sm:px-3 sm:py-2.5 rounded-sm border text-left transition-colors cursor-pointer select-none ${
                       selectedSource === 'all'
                         ? 'border-slate-900 dark:border-white bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold shadow-xs'
                         : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
@@ -1546,7 +1546,7 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                           <div className="w-1.5 h-1.5 rounded-full bg-slate-900 dark:bg-white" />
                         )}
                       </div>
-                      <span className="text-xs font-bold whitespace-nowrap">
+                      <span className="text-xs font-bold truncate">
                         Toàn bộ ngân hàng ({currentPartMeta.questionCount.toLocaleString('vi-VN')} câu)
                       </span>
                     </div>
@@ -1563,7 +1563,7 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
 
                   {/* Option 2: Select Specific Test */}
                   <div
-                    className={`w-full sm:w-auto inline-flex items-center gap-2 p-1 sm:px-2.5 sm:py-1.5 rounded-sm border transition-colors ${
+                    className={`flex items-center gap-2 p-1.5 sm:px-3 sm:py-2 rounded-sm border transition-colors ${
                       selectedSource !== 'all'
                         ? 'border-slate-900 dark:border-white bg-slate-100 dark:bg-slate-800/80 ring-1 ring-slate-900 dark:ring-white'
                         : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950'
@@ -1606,7 +1606,7 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                           setSelectedSource(catalog.fullTests[0]?.id || 'ets2026-01');
                         }
                       }}
-                      className="w-full sm:w-60 sm:max-w-xs rounded-sm border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-2 py-1 text-xs text-slate-900 dark:text-white focus:outline-hidden font-mono truncate"
+                      className="w-full rounded-sm border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-2 py-1 text-xs text-slate-900 dark:text-white focus:outline-hidden font-mono truncate"
                     >
                       <option value="" disabled>-- Chọn đề thi cụ thể --</option>
                       {selectedListeningYear !== 'all' && currentPartMeta.section === 'listening' ? (
@@ -1672,8 +1672,8 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
               </div>
 
               {/* ── BƯỚC 2: BỘ LỌC CÂU HỎI THÔNG MINH (CHỐNG TRÙNG LẶP) ── */}
-              <div className="space-y-1.5">
-                <div className="flex items-center justify-between">
+              <div className="space-y-2">
+                <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
                     <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-xs bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-mono text-xs font-bold">
                       2
@@ -1683,25 +1683,25 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                     </label>
                   </div>
                   <span className="text-[11px] text-slate-500 font-mono hidden sm:inline">
-                    Thuật toán loại trừ lịch sử học
+                    (Thuật toán loại trừ lịch sử học)
                   </span>
                 </div>
 
-                <div className="grid grid-cols-3 gap-1.5 sm:flex sm:flex-wrap sm:items-center sm:gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                   {/* Option 1: Unseen (Default) */}
                   <button
                     type="button"
                     onClick={() => setSelectedFilterMode('unseen')}
                     title="Chỉ câu mới chưa làm (Quét toàn bộ kho đề và loại bỏ 100% câu đã làm trong lịch sử)"
-                    className={`w-full sm:w-auto flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-1 sm:gap-2 p-1.5 sm:px-3 sm:py-2 rounded-sm border text-center sm:text-left transition-colors cursor-pointer select-none ${
+                    className={`flex items-center justify-between p-2.5 rounded-sm border text-left transition-colors cursor-pointer select-none ${
                       selectedFilterMode === 'unseen'
                         ? 'border-slate-900 dark:border-white bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold shadow-xs'
                         : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
                     }`}
                   >
-                    <div className="flex items-center gap-1.5 min-w-0">
+                    <div className="flex items-center gap-2 min-w-0">
                       <div
-                        className={`hidden sm:flex w-3.5 h-3.5 rounded-xs border items-center justify-center shrink-0 ${
+                        className={`w-3.5 h-3.5 rounded-xs border flex items-center justify-center shrink-0 ${
                           selectedFilterMode === 'unseen'
                             ? 'border-white dark:border-slate-900 bg-white dark:bg-slate-900'
                             : 'border-slate-400'
@@ -1712,12 +1712,11 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                         )}
                       </div>
                       <span className="text-xs font-bold truncate">
-                        <span className="hidden sm:inline">Chỉ câu mới chưa làm</span>
-                        <span className="sm:hidden">Chỉ câu mới</span>
+                        Chỉ câu mới chưa làm
                       </span>
                     </div>
                     <span
-                      className={`text-[9px] sm:text-[10px] font-mono px-1 sm:px-1.5 py-0.2 sm:py-0.5 rounded-xs shrink-0 font-bold mt-0.5 sm:mt-0 ${
+                      className={`text-[10px] font-mono px-1.5 py-0.5 rounded-xs shrink-0 font-bold ${
                         selectedFilterMode === 'unseen'
                           ? 'bg-white/20 text-white dark:bg-slate-900/20 dark:text-slate-900'
                           : 'bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300'
@@ -1732,7 +1731,7 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                     type="button"
                     onClick={() => setSelectedFilterMode('mistakes')}
                     title="Ôn câu từng làm sai (Tập trung củng cố những câu từng chọn sai để khắc phục điểm yếu)"
-                    className={`w-full sm:w-auto flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-1 sm:gap-2 p-1.5 sm:px-3 sm:py-2 rounded-sm border text-center sm:text-left transition-colors cursor-pointer select-none ${
+                    className={`flex items-center justify-between p-2.5 rounded-sm border text-left transition-colors cursor-pointer select-none ${
                       partProgress.mistakeCount === 0 ? 'opacity-70' : ''
                     } ${
                       selectedFilterMode === 'mistakes'
@@ -1740,9 +1739,9 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                         : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
                     }`}
                   >
-                    <div className="flex items-center gap-1.5 min-w-0">
+                    <div className="flex items-center gap-2 min-w-0">
                       <div
-                        className={`hidden sm:flex w-3.5 h-3.5 rounded-xs border items-center justify-center shrink-0 ${
+                        className={`w-3.5 h-3.5 rounded-xs border flex items-center justify-center shrink-0 ${
                           selectedFilterMode === 'mistakes'
                             ? 'border-white dark:border-slate-900 bg-white dark:bg-slate-900'
                             : 'border-slate-400'
@@ -1753,12 +1752,11 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                         )}
                       </div>
                       <span className="text-xs font-bold truncate">
-                        <span className="hidden sm:inline">Ôn câu từng làm sai</span>
-                        <span className="sm:hidden">Ôn câu sai</span>
+                        Ôn câu từng làm sai
                       </span>
                     </div>
                     <span
-                      className={`text-[9px] sm:text-[10px] font-mono px-1 sm:px-1.5 py-0.2 sm:py-0.5 rounded-xs shrink-0 tabular-nums font-bold mt-0.5 sm:mt-0 ${
+                      className={`text-[10px] font-mono px-1.5 py-0.5 rounded-xs shrink-0 tabular-nums font-bold ${
                         selectedFilterMode === 'mistakes'
                           ? 'bg-white/20 text-white dark:bg-slate-900/20 dark:text-slate-900'
                           : partProgress.mistakeCount > 0
@@ -1775,15 +1773,15 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                     type="button"
                     onClick={() => setSelectedFilterMode('all_random')}
                     title="Xáo trộn ngẫu nhiên (Bốc ngẫu nhiên từ toàn bộ kho câu hỏi không xét lịch sử)"
-                    className={`w-full sm:w-auto flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-1 sm:gap-2 p-1.5 sm:px-3 sm:py-2 rounded-sm border text-center sm:text-left transition-colors cursor-pointer select-none ${
+                    className={`flex items-center justify-between p-2.5 rounded-sm border text-left transition-colors cursor-pointer select-none ${
                       selectedFilterMode === 'all_random'
                         ? 'border-slate-900 dark:border-white bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold shadow-xs'
                         : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
                     }`}
                   >
-                    <div className="flex items-center gap-1.5 min-w-0">
+                    <div className="flex items-center gap-2 min-w-0">
                       <div
-                        className={`hidden sm:flex w-3.5 h-3.5 rounded-xs border items-center justify-center shrink-0 ${
+                        className={`w-3.5 h-3.5 rounded-xs border flex items-center justify-center shrink-0 ${
                           selectedFilterMode === 'all_random'
                             ? 'border-white dark:border-slate-900 bg-white dark:bg-slate-900'
                             : 'border-slate-400'
@@ -1794,12 +1792,11 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                         )}
                       </div>
                       <span className="text-xs font-bold truncate">
-                        <span className="hidden sm:inline">Xáo trộn ngẫu nhiên</span>
-                        <span className="sm:hidden">Xáo ngẫu nhiên</span>
+                        Xáo trộn ngẫu nhiên
                       </span>
                     </div>
                     <span
-                      className={`text-[9px] sm:text-[10px] font-mono px-1 sm:px-1.5 py-0.2 sm:py-0.5 rounded-xs shrink-0 tabular-nums mt-0.5 sm:mt-0 ${
+                      className={`text-[10px] font-mono px-1.5 py-0.5 rounded-xs shrink-0 tabular-nums ${
                         selectedFilterMode === 'all_random'
                           ? 'bg-white/20 text-white dark:bg-slate-900/20 dark:text-slate-900 font-bold'
                           : 'bg-slate-100 dark:bg-slate-800 text-slate-500'
@@ -1811,9 +1808,9 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                 </div>
               </div>
 
-              {/* ── BƯỚC 3: SỐ LƯỢNG CÂU HỎI MUỐN LÀM ── */}
-              <div className="space-y-1.5">
-                <div className="flex items-center justify-between">
+              {/* ── BƯỚC 3: SỐ LƯỢNG CÂU HỎI MUỐN LÀM (CENTERED PILLS) ── */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
                     <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-xs bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-mono text-xs font-bold">
                       3
@@ -1824,16 +1821,16 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                   </div>
                   {selectedMode === 'practice' ? (
                     <span className="font-mono text-xs text-emerald-700 dark:text-emerald-400 font-semibold">
-                      Không giới hạn thời gian (Tự do)
+                      (Không giới hạn thời gian · Tự do)
                     </span>
                   ) : (
                     <span className="font-mono text-xs text-slate-500 tabular-nums">
-                      ~{estimatedTimeMinutes} phút (~{currentPartMeta.secondsPerQuestion}s/câu - Tính giờ)
+                      (~{estimatedTimeMinutes} phút · Tính giờ)
                     </span>
                   )}
                 </div>
 
-                <div className="flex flex-wrap items-center gap-1 sm:gap-1.5">
+                <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 pt-0.5">
                   {presetsForCurrentPart.map((cnt) => {
                     const isSelected = selectedCount === cnt && !customCountInput;
                     return (
@@ -1844,7 +1841,7 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                           setSelectedCount(cnt);
                           setCustomCountInput('');
                         }}
-                        className={`px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-sm border text-xs font-mono font-bold transition-colors cursor-pointer select-none ${
+                        className={`px-3 py-1.5 rounded-sm border text-xs font-mono font-bold transition-colors cursor-pointer select-none ${
                           isSelected
                             ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 border-slate-900 dark:border-white shadow-xs'
                             : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -1887,13 +1884,13 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                           }
                         }
                       }}
-                      className="w-20 sm:w-24 rounded-sm border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 px-2 py-1 text-xs font-mono text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-slate-900 dark:focus:border-white focus:outline-hidden"
+                      className="w-20 sm:w-24 rounded-sm border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 px-2.5 py-1 text-xs font-mono text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-slate-900 dark:focus:border-white focus:outline-hidden"
                     />
                     <span className="text-xs text-slate-500 font-mono">câu</span>
                   </div>
 
                   {isClusterPart && (
-                    <div className="w-full text-[11px] text-slate-500 dark:text-slate-400 font-mono mt-1">
+                    <div className="w-full text-center text-[11px] text-slate-500 dark:text-slate-400 font-mono mt-1">
                       * Part {selectedPart} gồm các cụm 3 câu hỏi (chọn số chia hết cho 3: 3, 6, 9, 15...).
                     </div>
                   )}
@@ -1901,7 +1898,7 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
               </div>
 
               {/* ── BƯỚC 4: HÌNH THỨC LÀM BÀI ── */}
-              <div className="space-y-1.5">
+              <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-xs bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-mono text-xs font-bold">
                     4
@@ -1911,20 +1908,20 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                   </label>
                 </div>
 
-                <div className="grid grid-cols-2 gap-1.5 sm:flex sm:flex-wrap sm:items-center sm:gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {/* Option 1: Practice */}
                   <button
                     type="button"
                     onClick={() => setSelectedMode('practice')}
-                    className={`w-full sm:w-auto flex flex-col sm:flex-row items-center sm:items-center justify-between sm:justify-start gap-2 sm:gap-3 p-2 sm:px-3.5 sm:py-2.5 rounded-sm border text-center sm:text-left transition-colors cursor-pointer select-none ${
+                    className={`flex items-center justify-between p-2.5 sm:px-3.5 sm:py-2.5 rounded-sm border text-left transition-colors cursor-pointer select-none ${
                       selectedMode === 'practice'
                         ? 'border-slate-900 dark:border-white bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold shadow-xs'
                         : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
                     }`}
                   >
-                    <div className="flex items-center gap-2 min-w-0">
+                    <div className="flex items-center gap-2.5 min-w-0">
                       <div
-                        className={`hidden sm:flex w-3.5 h-3.5 rounded-full border items-center justify-center shrink-0 ${
+                        className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center shrink-0 ${
                           selectedMode === 'practice'
                             ? 'border-white dark:border-slate-900 bg-white dark:bg-slate-900'
                             : 'border-slate-400'
@@ -1934,7 +1931,7 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                           <div className="w-1.5 h-1.5 rounded-full bg-slate-900 dark:bg-white" />
                         )}
                       </div>
-                      <div className="min-w-0 text-left">
+                      <div className="min-w-0">
                         <span className="text-xs font-bold truncate block">Luyện tập (Có giải thích)</span>
                         <span
                           className={`text-[10px] block truncate font-mono ${
@@ -1948,7 +1945,7 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                       </div>
                     </div>
                     <span
-                      className={`hidden sm:inline-block text-[10px] font-mono px-1.5 py-0.5 rounded-xs shrink-0 font-bold ml-1 ${
+                      className={`text-[10px] font-mono px-1.5 py-0.5 rounded-xs shrink-0 font-bold ml-1 ${
                         selectedMode === 'practice'
                           ? 'bg-white/20 text-white dark:bg-slate-900/20 dark:text-slate-900'
                           : 'bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300'
@@ -1962,15 +1959,15 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                   <button
                     type="button"
                     onClick={() => setSelectedMode('real')}
-                    className={`w-full sm:w-auto flex flex-col sm:flex-row items-center sm:items-center justify-between sm:justify-start gap-2 sm:gap-3 p-2 sm:px-3.5 sm:py-2.5 rounded-sm border text-center sm:text-left transition-colors cursor-pointer select-none ${
+                    className={`flex items-center justify-between p-2.5 sm:px-3.5 sm:py-2.5 rounded-sm border text-left transition-colors cursor-pointer select-none ${
                       selectedMode === 'real'
                         ? 'border-slate-900 dark:border-white bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-bold shadow-xs'
                         : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
                     }`}
                   >
-                    <div className="flex items-center gap-2 min-w-0">
+                    <div className="flex items-center gap-2.5 min-w-0">
                       <div
-                        className={`hidden sm:flex w-3.5 h-3.5 rounded-full border items-center justify-center shrink-0 ${
+                        className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center shrink-0 ${
                           selectedMode === 'real'
                             ? 'border-white dark:border-slate-900 bg-white dark:bg-slate-900'
                             : 'border-slate-400'
@@ -1980,7 +1977,7 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                           <div className="w-1.5 h-1.5 rounded-full bg-slate-900 dark:bg-white" />
                         )}
                       </div>
-                      <div className="min-w-0 text-left">
+                      <div className="min-w-0">
                         <span className="text-xs font-bold truncate block">Mô phỏng áp lực thi thật</span>
                         <span
                           className={`text-[10px] block truncate font-mono ${
@@ -1997,8 +1994,8 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                 </div>
               </div>
 
-              {/* ── ACTION LAUNCH BAR (INLINE) ── */}
-              <div className="pt-3.5 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              {/* ── ACTION LAUNCH BAR (CENTERED CTA ON PC) ── */}
+              <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div className="flex flex-wrap items-center gap-1.5 font-mono text-xs text-slate-600 dark:text-slate-400 tabular-nums">
                   <span className="rounded-sm bg-slate-100 dark:bg-slate-800 px-2 py-0.5 font-bold text-slate-900 dark:text-white">
                     Part {currentPartMeta.part}
@@ -2023,7 +2020,7 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
 
                 <Link
                   href={`/toeic/exam/${selectedSource === 'all' ? 'bank' : selectedSource}?part=${selectedPart}&limit=${effectiveCount}&mode=${selectedMode}&filterMode=${selectedFilterMode}`}
-                  className="inline-flex items-center justify-center gap-2 rounded-sm bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 px-5 py-2.5 text-xs sm:text-sm font-bold transition-colors shadow-xs shrink-0"
+                  className="inline-flex items-center justify-center gap-2 rounded-sm bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 px-5 py-2.5 text-xs sm:text-sm font-bold transition-colors shadow-xs shrink-0 cursor-pointer"
                 >
                   <Play className="h-3.5 w-3.5 fill-current" />
                   <span>

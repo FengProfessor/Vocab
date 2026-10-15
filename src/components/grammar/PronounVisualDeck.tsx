@@ -403,16 +403,13 @@ function PronounCardItem({
   const [activeIdx, setActiveIdx] = useState<number>(0);
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [showAllExamples, _setShowAllExamples] = useState(false);
-  const [imgError, setImgError] = useState(false);
+  const [failedImageSrc, setFailedImageSrc] = useState<string | null>(null);
   const visibleExamples = exampleLimit && !showAllExamples ? item.examples.slice(0, exampleLimit) : item.examples;
 
   const currentIdx = hoveredIdx !== null ? hoveredIdx : activeIdx;
   const currentExample = item.examples[currentIdx] || item.examples[0];
   const currentImage = (hoveredIdx !== null ? currentExample.image : null) || currentExample.image || item.image;
-
-  React.useEffect(() => {
-    setImgError(false);
-  }, [currentImage]);
+  const isImageError = currentImage ? failedImageSrc === currentImage : false;
 
   const isPlayingSubject = activeAudioId === `subject-${item.subject}`;
   const _isPlayingCurrent = activeAudioId === `${item.subject}-${currentIdx}`;
@@ -489,7 +486,7 @@ function PronounCardItem({
           }`}
         >
           <div className="relative w-full h-40 sm:h-48 md:h-52 overflow-hidden flex-1 min-h-[160px]">
-            {currentImage && !imgError ? (
+            {currentImage && !isImageError ? (
               <Image
                 key={currentImage}
                 src={currentImage}
@@ -497,7 +494,7 @@ function PronounCardItem({
                 fill
                 className="object-cover transition-all duration-300 group-hover:scale-102 rounded-none"
                 sizes="(max-width: 768px) 100vw, 33vw"
-                onError={() => setImgError(true)}
+                onError={() => setFailedImageSrc(currentImage)}
                 unoptimized
               />
             ) : (

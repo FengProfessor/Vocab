@@ -1177,9 +1177,23 @@
   - `scripts/test-api-endpoint.ts`: PASS 7/7 tests (`Source: database` kết nối trực tiếp Supabase Postgres).
   - `scripts/test-nlm-reading-enricher.ts`: PASS unit tests & live cloud backend tests.
   - `tests/toeic/run-all-toeic-tests.ts`: PASS 510/510 tests.
-  - `tests/vstep/tier1-features.test.ts`: PASS 31/31 tests.
+### Release Lưu từ đa nghĩa độc lập (Polysemy Word Save) & Nâng cấp Visual Grammar Decks (2026-10-15)
+
+- **Canonical run & Commit**: [canonical run 38762763891](https://github.com/FengProfessor/Vocab/actions/runs/38762763891) SUCCESS, SHA `a77986e426a8d0e74f17725916ca11855a9094fe`; quality gate PASS, migration PASS, deploy PASS (12m31s).
+- **Phạm vi & Tính năng triển khai**:
+  - **Sửa lỗi từ đa nghĩa (Polysemy Word Save)**:
+    - Frontend `/dictionary`: Theo dõi trạng thái đã lưu theo từng nét nghĩa độc lập (`savedIndexes` và `savedTranslations`), không khóa toàn từ khi chỉ mới lưu 1 nghĩa. Các nghĩa còn lại hiển thị nút `＋ Lưu` cho phép lưu bổ sung tuần tự.
+    - Component `ExamWordLookupCard.tsx`: Tự động phân tách danh sách các nét nghĩa (`senses.length > 1`) kèm từ loại và nút lưu độc lập cho từng nghĩa.
+    - Backend `POST /api/words`: Sửa logic kiểm tra trùng lặp (`duplicateWord`), so khớp theo bản dịch nghĩa cụ thể thay vì chỉ lọc theo từ đơn, cho phép lưu nhiều nghĩa khác nhau của cùng một từ tiếng Anh.
+    - Bộ nhớ đệm `src/lib/exam-dict-cache.ts`: Bổ sung `saveMeaningLocally` và `isMeaningSavedLocally` với khóa `lingo_saved_meanings`, duy trì tương thích ngược 100% với `lingo_saved_words`.
+  - **Nâng cấp Grammar Visual Topic Decks & VettedMediaCard**:
+    - Tích hợp component `HighlightedSentence` highlight từ khóa ngữ pháp trọng tâm trong ví dụ song ngữ.
+    - Nâng cấp `grammarAudioMap.ts` tự động chỉ mục các tiểu cú và câu con (`sub-clauses`) để phát audio chính xác khi click speaker button.
+    - Bổ sung fallback hình ảnh minh họa tình huống sư phạm khi ảnh lỗi.
+- **Kiểm chứng chất lượng**:
+  - `tests/exam/polysemy-word-save.test.ts`: PASS 6/6 tests.
+  - `tests/toeic/run-all-toeic-tests.ts`: PASS 510/510 tests qua 24 test suites.
   - `tests/grammar/run-all-grammar-tests.ts`: PASS 69/69 tests.
-
-
-
-
+  - `npx tsc --noEmit`: PASS (0 lỗi compile).
+  - `npm run build`: PASS (191/191 routes biên dịch thành công).
+  - HTTPS Production Live: `/api/health` 200 OK, `/api/dictionary/lookup?word=run` 200 OK.

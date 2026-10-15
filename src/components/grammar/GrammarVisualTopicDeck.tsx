@@ -842,67 +842,68 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
     subtitle: 'Nói về mức độ thường xuyên lặp lại của một hành động (Always, Usually, Often, Never...)',
     cards: [
       {
-        title: 'ALWAYS & USUALLY (100% & 80%)',
-        badge: 'Luôn luôn và Thường lệ',
-        category: 'always-usually',
+        title: 'TRƯỚC ĐỘNG TỪ THƯỜNG (USUALLY / ALWAYS + V)',
+        badge: 'Vị trí 1: Đứng trước động từ chính',
+        category: 'before-verb',
         image: '/grammar/topics/adverbs-frequency/01.webp',
-        audio: '/grammar/topics/adverbs-frequency/02.mp3',
+        audio: '/grammar/topics/adverbs-frequency/01.mp3',
         accentColor: '#3b82f6',
         examples: [
-          { en: 'She is always helpful.', vi: 'Cô ấy luôn luôn nhiệt tình giúp đỡ.', highlightWord: 'always' },
-          { en: 'I usually walk to work.', vi: 'Tôi thường đi bộ đi làm.', highlightWord: 'usually' },
-          { en: 'I always brush my teeth before bed.', vi: 'Tôi luôn luôn đánh răng trước khi đi ngủ.', highlightWord: 'always' },
-          { en: 'We usually have dinner together at 7.', vi: 'Chúng tôi thường lệ ăn tối cùng nhau lúc 7 giờ.', highlightWord: 'usually' },
+          { en: 'I usually walk to work.', vi: 'Tôi thường đi bộ đi làm.', highlightWord: 'usually', highlightNote: 'Trạng từ usually đứng TRƯỚC động từ thường walk' },
+          { en: 'I always brush my teeth before bed.', vi: 'Tôi luôn luôn đánh răng trước khi đi ngủ.', highlightWord: 'always', highlightNote: 'always đứng trước động từ brush' },
+          { en: 'They usually have dinner at 7 p.m.', vi: 'Họ thường ăn tối vào lúc 7 giờ tối.', highlightWord: 'usually', highlightNote: 'usually đứng trước have dinner' },
+          { en: 'We often drink coffee in the morning.', vi: 'Chúng tôi thường uống cà phê vào buổi sáng.', highlightWord: 'often', highlightNote: 'often đứng trước động từ drink' },
         ],
-        tip: 'Always (100%): luôn luôn làm. Usually (80%): việc làm theo thói quen hàng ngày.',
-        ruleSummary: 'S + always / usually + V thường (hoặc be + always / usually)',
+        tip: 'Vị trí số 1: Trạng từ chỉ tần suất (always, usually, often...) luôn đứng TRƯỚC động từ thường (I usually walk, không nói I walk usually).',
+        ruleSummary: 'S + Trạng từ tần suất (always/usually/often) + V thường',
       },
       {
-        title: 'OFTEN & SOMETIMES (60% & 30%)',
-        badge: 'Thường thường và Thỉnh thoảng',
-        category: 'often-sometimes',
+        title: 'SAU ĐỘNG TỪ TO BE (BE + ALWAYS / OFTEN)',
+        badge: 'Vị trí 2: Đứng ngay sau to be',
+        category: 'after-be',
         image: '/grammar/topics/adverbs-frequency/02.webp',
-        audio: '/grammar/topics/adverbs-frequency/04.mp3',
+        audio: '/grammar/topics/adverbs-frequency/02.mp3',
         accentColor: '#10b981',
         examples: [
-          { en: 'Do you often call your parents?', vi: 'Bạn có thường gọi điện cho bố mẹ không?', highlightWord: 'often' },
-          { en: 'I often read books on weekends.', vi: 'Tôi thường hay đọc sách vào cuối tuần.', highlightWord: 'often' },
-          { en: 'He sometimes drinks green tea.', vi: 'Thỉnh thoảng anh ấy uống trà xanh.', highlightWord: 'sometimes' },
-          { en: 'Sometimes we go cinema together.', vi: 'Thỉnh thoảng chúng tôi đi xem phim cùng nhau.', highlightWord: 'Sometimes' },
+          { en: 'She is always helpful.', vi: 'Cô ấy lúc nào cũng nhiệt tình giúp đỡ.', highlightWord: 'always', highlightNote: 'Trạng từ always đứng SAU động từ to be (is)' },
+          { en: 'He is never late for work.', vi: 'Anh ấy không bao giờ đi làm muộn.', highlightWord: 'never', highlightNote: 'never đứng sau is' },
+          { en: 'They are usually friendly and polite.', vi: 'Họ thường rất thân thiện và lịch sự.', highlightWord: 'usually', highlightNote: 'usually đứng sau are' },
+          { en: 'I am often tired after gym.', vi: 'Tôi thường hay mệt sau khi tập gym.', highlightWord: 'often', highlightNote: 'often đứng sau am' },
         ],
-        tip: 'Often (60%): xảy ra khá nhiều lần. Sometimes (30%): thỉnh thoảng (có thể đứng đầu câu: Sometimes I...).',
-        ruleSummary: 'S + often / sometimes + V',
+        tip: 'Vị trí số 2: Khi trong câu có động từ to be (am/is/are), trạng từ tần suất phải đứng SAU to be (She is always, không nói She always is).',
+        ruleSummary: 'S + am / is / are + Trạng từ tần suất (always/often/rarely) + Adj',
       },
       {
-        title: 'RARELY & NEVER (10% & 0%)',
-        badge: 'Hiếm khi và Không bao giờ',
+        title: 'TẦN SUẤT THẤP (RARELY, SELDOM, NEVER)',
+        badge: 'Hiếm khi và Tuyệt đối không bao giờ',
         category: 'rarely-never',
         image: '/grammar/topics/adverbs-frequency/03.webp',
         audio: '/grammar/topics/adverbs-frequency/03.mp3',
         accentColor: '#f43f5e',
         examples: [
-          { en: 'We rarely eat out.', vi: 'Chúng tôi hiếm khi đi ăn tiệm.', highlightWord: 'rarely' },
-          { en: 'We rarely eat fast food.', vi: 'Chúng tôi hiếm khi ăn đồ ăn nhanh.', highlightWord: 'rarely' },
-          { en: 'He never smokes cigarettes.', vi: 'Anh ấy không bao giờ hút thuốc lá.', highlightWord: 'never' },
-          { en: 'I never stay up after midnight.', vi: 'Tôi không bao giờ thức khuya sau nửa đêm.', highlightWord: 'never' },
+          { en: 'We rarely eat out.', vi: 'Chúng tôi hiếm khi đi ăn ngoài hàng.', highlightWord: 'rarely', highlightNote: 'rarely (hiếm khi) mang nghĩa tần suất rất thấp (~10%)' },
+          { en: 'He never smokes cigarettes.', vi: 'Anh ấy không bao giờ hút thuốc lá.', highlightWord: 'never', highlightNote: 'never (0%) đã mang nghĩa phủ định, tuyệt đối không dùng not' },
+          { en: 'She seldom complains about her work.', vi: 'Cô ấy hiếm khi than phiền về công việc của mình.', highlightWord: 'seldom', highlightNote: 'seldom đồng nghĩa với rarely' },
+          { en: 'I never stay up after midnight.', vi: 'Tôi không bao giờ thức khuya sau nửa đêm.', highlightWord: 'never', highlightNote: 'never đứng trước động từ thường stay up' },
         ],
-        tip: 'Never (0%): mang nghĩa phủ định sẵn, tuyệt đối KHÔNG dùng kèm "not" (sai: "I don\'t never").',
-        ruleSummary: 'S + rarely / never + V khẳng định (không dùng not)',
+        tip: 'Từ "never" và "rarely" bản thân đã mang nghĩa phủ định sẵn, vì vậy câu đi cùng KHÔNG ĐƯỢC có thêm "not" (đúng: I never eat meat, sai: I don\'t never eat meat).',
+        ruleSummary: 'S + rarely / seldom / never + V (thể khẳng định, không dùng not)',
       },
       {
-        title: 'HỎI VỀ TẦN SUẤT: HOW OFTEN...?',
-        badge: 'Hỏi bao lâu một lần',
-        category: 'how-often',
+        title: 'HỎI VỀ THÓI QUEN (OFTEN TRONG CÂU HỎI & HOW OFTEN)',
+        badge: 'Hỏi mức độ thường xuyên của người khác',
+        category: 'questions',
         image: '/grammar/topics/adverbs-frequency/04.webp',
+        audio: '/grammar/topics/adverbs-frequency/04.mp3',
         accentColor: '#8b5cf6',
         examples: [
-          { en: 'How often do you exercise?', vi: 'Bạn có thường xuyên tập thể dục không?', highlightWord: 'How often' },
-          { en: 'How often do you travel abroad?', vi: 'Bao lâu thì bạn đi du lịch nước ngoài một lần?', highlightWord: 'How often' },
-          { en: 'I go swimming twice a week.', vi: 'Tôi đi bơi hai lần một tuần.', highlightWord: 'twice a week' },
-          { en: 'She visits her grandparents once a month.', vi: 'Cô ấy về thăm ông bà mỗi tháng một lần.', highlightWord: 'once a month' },
+          { en: 'Do you often call your parents?', vi: 'Bạn có hay gọi điện cho bố mẹ không?', highlightWord: 'often', highlightNote: 'Do you often + V là mẫu câu kinh điển để hỏi thói quen của ai đó' },
+          { en: 'How often do you exercise?', vi: 'Bạn tập thể dục bao lâu một lần?', highlightWord: 'How often', highlightNote: 'How often hỏi về tần suất định lượng (mỗi ngày, 2 lần/tuần...)' },
+          { en: 'Does he usually drink tea in the morning?', vi: 'Anh ấy có thường uống trà vào buổi sáng không?', highlightWord: 'usually', highlightNote: 'Trợ động từ Does + S + usually + V' },
+          { en: 'How often does the train arrive?', vi: 'Tàu hỏa cập bến bao lâu một chuyến?', highlightWord: 'How often', highlightNote: 'How often hỏi tần suất lịch trình' },
         ],
-        tip: 'Trả lời: once a week (1 lần/tuần), twice a month (2 lần/tháng), three times a year (3 lần/năm), every day (mỗi ngày).',
-        ruleSummary: 'How often + do/does + S + V...?',
+        tip: 'Dùng "Do you often + V?" để hỏi có hay làm gì không (Trả lời: Yes, often / No, not often). Dùng "How often...?" để hỏi chi tiết tần suất (Once a week, twice a month...).',
+        ruleSummary: 'Do/Does + S + often/usually + V...? · How often + do/does + S + V...?',
       },
     ],
   },
@@ -1320,17 +1321,19 @@ export function detectGrammarKeywords(
   const slug = topicSlug.toLowerCase();
   const title = cardTitle.toLowerCase();
 
-  // 1. Adjectives
-  if (slug.includes('adjective') || title.includes('tính từ')) {
+  // 1. Adjectives & Comparatives / Superlatives
+  if (slug.includes('adjective') || title.includes('tính từ') || slug.includes('compar') || slug.includes('superlat')) {
+    const mSup = sentence.match(/\b(the\s+[a-z]+est|the\s+most\s+[a-z]+|the\s+best|the\s+worst)\b/i);
+    if (mSup) return mSup[0];
     const matches = sentence.match(
-      /\b(happy|sad|tired|hungry|thirsty|angry|relaxed|clean|dirty|hot|cold|warm|cool|big|small|huge|tiny|tall|short|long|fast|slow|old|new|young|cheaper|cheap|expensive|rich|poor|good|bad|delicious|sweet|fresh|smart|clever|beautiful|kind|nice|cute|easy|hard|difficult|heavy|light|dark|bright|loud|quiet|strong|weak|safe|dangerous|busy|lazy|brave|scared|famous|funny|important|special|careful|simple)\b/gi
+      /\b(happy|sad|tired|hungry|thirsty|angry|relaxed|clean|dirty|hot|cold|warm|cool|big|small|huge|tiny|tall|tallest|short|shortest|long|longest|fast|fastest|slow|slowest|old|oldest|new|newest|young|youngest|cheaper|cheapest|cheap|expensive|rich|poor|good|better|best|bad|worse|worst|delicious|sweet|fresh|smart|clever|beautiful|kind|nice|cute|easy|hard|difficult|heavy|light|dark|bright|loud|quiet|strong|weak|safe|dangerous|busy|lazy|brave|scared|famous|funny|important|special|careful|simple|red|blue|green|black|white|yellow|ready|loyal|upset|friendly|more|most|as\s+\w+\s+as|than)\b/gi
     );
     if (matches && matches.length > 0) return Array.from(new Set(matches));
   }
 
-  // 2. Personal Pronouns / Object Pronouns
+  // 2. Personal Pronouns / Object Pronouns / Reflexive Pronouns
   if (slug.includes('pronoun') || slug.includes('personal-pronouns') || title.includes('đại từ')) {
-    const matches = sentence.match(/\b(I|you|he|she|it|we|they|me|him|her|us|them)\b/gi);
+    const matches = sentence.match(/\b(I|you|he|she|it|we|they|me|him|her|us|them|myself|yourself|himself|herself|itself|ourselves|themselves)\b/gi);
     if (matches && matches.length > 0) return Array.from(new Set(matches));
   }
 
@@ -1354,18 +1357,6 @@ export function detectGrammarKeywords(
 
   // 6. Articles (a, an, the)
   if (slug.includes('article') || title.includes('mạo từ')) {
-    if (cardTitle.toUpperCase().startsWith('A ') || cardTitle.toUpperCase().includes('(A')) {
-      const m = sentence.match(/\b(a)\b/i);
-      if (m) return m[0];
-    }
-    if (cardTitle.toUpperCase().startsWith('AN ') || cardTitle.toUpperCase().includes('(AN')) {
-      const m = sentence.match(/\b(an)\b/i);
-      if (m) return m[0];
-    }
-    if (cardTitle.toUpperCase().startsWith('THE ') || cardTitle.toUpperCase().includes('(THE')) {
-      const m = sentence.match(/\b(the)\b/i);
-      if (m) return m[0];
-    }
     const matches = sentence.match(/\b(a|an|the)\b/gi);
     if (matches && matches.length > 0) return Array.from(new Set(matches));
   }
@@ -1382,89 +1373,225 @@ export function detectGrammarKeywords(
     if (m) return m[0];
   }
 
-  // 9. Modals (can, could, should, must, might, etc.)
-  if (slug.includes('modal') || slug.includes('can') || slug.includes('could') || slug.includes('should') || slug.includes('must')) {
-    const matches = sentence.match(/\b(can't|cannot|couldn't|shouldn't|mustn't|won't|can|could|should|must|might|may|have to|has to|had to|will)\b/gi);
+  // 9. Be going to
+  if (slug.includes('be-going-to') || slug.includes('going-to')) {
+    const m = sentence.match(/\b((?:'m|'s|'re|am|is|are|was|were)?\s*going to)\b/i);
+    if (m) return m[0].trim();
+  }
+
+  // 10. Future Will
+  if (slug.includes('future-will') || slug.includes('will')) {
+    const matches = sentence.match(/([’']ll\b|\b(will|won't)\b)/gi);
     if (matches && matches.length > 0) return Array.from(new Set(matches));
   }
 
-  // 10. Plurals
+  // 11. Modals & Ability / Advice / Obligation / Deduction / Permission
+  if (slug.includes('modal') || slug.includes('can') || slug.includes('could') || slug.includes('should') || slug.includes('must') || slug.includes('ability') || slug.includes('advice') || slug.includes('permission') || slug.includes('obligation') || slug.includes('deduction')) {
+    const mMulti = sentence.match(/\b(was able to|were able to|is able to|are able to|ought to|had better|have to|has to|had to)\b/i);
+    if (mMulti) return mMulti[0];
+    const matches = sentence.match(/\b(can't|cannot|couldn't|shouldn't|mustn't|won't|can|could|should|must|might|may|will|would)\b/gi);
+    if (matches && matches.length > 0) return Array.from(new Set(matches));
+  }
+
+  // 12. Plurals
   if (slug.includes('plural') || title.includes('số nhiều')) {
-    const matches = sentence.match(/\b(cats|dogs|books|pens|boxes|buses|dishes|watches|babies|cities|leaves|knives|children|men|women|feet|teeth|people|mice)\b/gi);
-    if (matches && matches.length > 0) return Array.from(new Set(matches));
+    const irr = sentence.match(/\b(children|men|women|feet|teeth|people|mice)\b/gi);
+    if (irr) return Array.from(new Set(irr));
+    const plurals = sentence.match(/\b([A-Za-z]+(?:sses|shes|ches|xes|zes|ies|s))\b/gi);
+    if (plurals) {
+      const nonPlural = new Set(['is', 'this', 'us', 'yes', 'always', 'has', 'was', 'does', 'his', 'its', 'theirs', 'yours', 'ours', 'hers', 'sometimes']);
+      const valid = plurals.filter(w => !nonPlural.has(w.toLowerCase()));
+      if (valid.length > 0) return Array.from(new Set(valid));
+    }
   }
 
-  // 11. Prepositions
+  // 13. Prepositions of place & time
   if (slug.includes('preposition') || title.includes('giới từ')) {
-    const matches = sentence.match(/\b(in front of|next to|between|behind|under|above|below|near|in|on|at)\b/gi);
+    const multi = sentence.match(/\b(in front of|next to|opposite|between|behind|under|above|below|near|across from|around)\b/gi);
+    if (multi) return Array.from(new Set(multi));
+    const matches = sentence.match(/\b(in|on|at|before|after|during|since|for|until|from|to|into|onto|through)\b/gi);
     if (matches && matches.length > 0) return Array.from(new Set(matches));
   }
 
-  // 12. Continuous / Progressive
+  // 14. Continuous / Progressive
   if (slug.includes('continuous') || slug.includes('progressive')) {
     const m = sentence.match(/\b(am|is|are|was|were)\s+\w+ing\b/i) || sentence.match(/\b\w+ing\b/i);
     if (m) return m[0];
   }
 
-  // 13. Perfect tenses
+  // 15. Perfect tenses
   if (slug.includes('perfect')) {
     const m = sentence.match(/\b(have|has|had|haven't|hasn't|hadn't)\s+\w+(ed|en|ne|t|d)?\b/i) || sentence.match(/\b(have|has|had)\b/i);
     if (m) return m[0];
   }
 
-  // 14. Past Simple
+  // 16. Past Simple
   if (slug.includes('past-simple') || slug.includes('past')) {
     const matches = sentence.match(/\b(was|were|wasn't|weren't|didn't|did|went|saw|bought|had|played|studied|worked|watched|visited|started|cooked|walked|ate|drank|made|took|got|came|said|told|found|gave|thought|knew|felt|left|heard|ran|brought|wrote|sat|stood|lost|paid|met|sent|spoke)\b/gi);
     if (matches && matches.length > 0) return Array.from(new Set(matches));
+    const regPast = sentence.match(/\b\w+ed\b/i);
+    if (regPast) return regPast[0];
   }
 
-  // 15. Present Simple
+  // 17. Present Simple
   if (slug.includes('present-simple') || slug.includes('present')) {
     const m = sentence.match(/\b(don't|doesn't|do|does)\b/i);
     if (m) return m[0];
-    const verbMatch = sentence.match(/\b(lives|works|loves|likes|reads|plays|studies|watches|teaches|goes|has|drinks|eats|speaks|knows|wants|needs|helps|starts|leaves|travels)\b/i);
+    const verbMatch = sentence.match(/\b(drinks|drink|revolves|revolve|leaves|leave|loves|love|lives|live|works|work|likes|like|reads|read|plays|play|studies|study|watches|watch|teaches|teach|goes|go|has|have|eats|eat|speaks|speak|knows|know|wants|want|needs|need|helps|help|starts|start|travels|travel)\b/i);
     if (verbMatch) return verbMatch[0];
   }
 
-  // 16. Conditionals
-  if (slug.includes('conditional') || slug.includes('if')) {
-    const m = sentence.match(/\b(if|unless|would|will)\b/i);
-    if (m) return m[0];
+  // 18. Imperatives
+  if (slug.includes('imperative') || title.includes('mệnh lệnh')) {
+    const mNeg = sentence.match(/\b(don't|let's)\s+\w+\b/i);
+    if (mNeg) return mNeg[0];
+    const firstWord = sentence.match(/^[A-Za-z’']+/);
+    if (firstWord) return firstWord[0];
   }
 
-  // 17. Questions / Wh-
+  // 19. Countable / Uncountable & Quantifiers
+  if (slug.includes('countable') || slug.includes('uncountable') || slug.includes('quantifier')) {
+    const multi = sentence.match(/\b(a few|a little|a lot of|lots of|how much|how many)\b/gi);
+    if (multi) return Array.from(new Set(multi));
+    const matches = sentence.match(/\b(some|any|much|many|few|little|water|milk|rice|coffee|tea|bread|money|apple|apples|book|books|time)\b/gi);
+    if (matches && matches.length > 0) return Array.from(new Set(matches));
+  }
+
+  // 20. Questions / Wh-
   if (slug.includes('question') || slug.includes('wh-')) {
-    const m = sentence.match(/\b(what|where|when|who|why|which|how|whose|whom)\b/i);
+    const m = sentence.match(/\b(what|where|when|who|why|which|how much|how many|how often|how|whose|whom)\b/i);
     if (m) return m[0];
   }
 
-  // 18. Adverbs of frequency
+  // 21. Adverbs of frequency
   if (slug.includes('adverb') || slug.includes('frequency')) {
-    const m = sentence.match(/\b(always|usually|often|sometimes|rarely|seldom|never)\b/i);
+    const m = sentence.match(/\b(always|usually|often|sometimes|rarely|seldom|never|hardly ever)\b/i);
     if (m) return m[0];
   }
 
-  // 19. Comparisons
-  if (slug.includes('compar') || slug.includes('superlat')) {
-    const m = sentence.match(/\b(more|most|better|best|worse|worst|than|as\s+\w+\s+as|cheaper|faster|bigger|smaller|taller|shorter|hotter|colder)\b/i);
+  // 22. Conditionals & Wish
+  if (slug.includes('conditional') || slug.includes('if') || slug.includes('wish')) {
+    const m = sentence.match(/\b(if|unless|wish|would|will|had)\b/i);
     if (m) return m[0];
   }
 
-  // 20. Passive
+  // 23. Used to
+  if (slug.includes('used-to')) {
+    const m = sentence.match(/\b(used to|didn't use to)\b/i);
+    if (m) return m[0];
+  }
+
+  // 24. Question tags
+  if (slug.includes('question-tag')) {
+    const m = sentence.match(/,\s*(isn't|is|aren't|are|doesn't|does|don't|do|didn't|did|won't|will|can't|can|shall)\s+\w+\?/i);
+    if (m) return m[0].replace(/^,\s*/, '').replace(/\?$/, '');
+  }
+
+  // 25. Gerunds & Infinitives
+  if (slug.includes('gerund') || slug.includes('infinitive')) {
+    const mInf = sentence.match(/\bto\s+[a-z]+\b/i);
+    if (mInf) return mInf[0];
+    const mGer = sentence.match(/\b[a-z]+ing\b/i);
+    if (mGer) return mGer[0];
+  }
+
+  // 26. Passive
   if (slug.includes('passive')) {
-    const m = sentence.match(/\b(is|are|was|were|been|being)\s+\w+(ed|en|t|d)\b/i);
+    const m = sentence.match(/\b(is|are|was|were|been|being|be)\s+\w+(ed|en|t|d)\b/i) ||
+      sentence.match(/\b(is|are|was|were|been|being|be)\s+(made|built|sold|bought|told|sent|kept|held|found|done|seen|delivered)\b/i);
     if (m) return m[0];
   }
 
-  // 21. Relative clauses
+  // 27. Relative clauses
   if (slug.includes('relative')) {
     const m = sentence.match(/\b(who|which|that|whose|where|whom)\b/i);
     if (m) return m[0];
+    const mPart = sentence.match(/\b\w+ing\b/i);
+    if (mPart) return mPart[0];
   }
 
-  // 22. Conjunctions
-  if (slug.includes('conjunction') || slug.includes('clause')) {
-    const m = sentence.match(/\b(although|though|even though|because|since|so|however|despite|in spite of)\b/i);
+  // 28. Conjunctions & Linking
+  if (slug.includes('conjunction') || slug.includes('linking') || slug.includes('clause')) {
+    const m = sentence.match(/\b(although|though|even though|because|since|so|however|therefore|moreover|furthermore|despite|in spite of|and|but|or)\b/i);
+    if (m) return m[0];
+  }
+
+  // 29. Reported speech
+  if (slug.includes('reported')) {
+    const m = sentence.match(/\b(said that|said|told|asked whether|asked if|asked)\b/i);
+    if (m) return m[0];
+  }
+
+  // 30. Phrasal verbs
+  if (slug.includes('phrasal')) {
+    const m = sentence.match(/\b(turn off|turn on|give up|keep going|look for|pick up|put off|take off|wake up|give in|ran into|run into|looked after|look after)\b/i);
+    if (m) return m[0];
+  }
+
+  // 31. Causative
+  if (slug.includes('causative')) {
+    const m = sentence.match(/\b(had\s+\w+\s+(?:cut|stolen|repaired|printed|done)|getting\s+\w+\s+\w+ed|got\s+\w+\s+to\s+\w+)\b/i) ||
+      sentence.match(/\b(had|getting|got|have|get)\b/i);
+    if (m) return m[0];
+  }
+
+  // 32. Participle clauses
+  if (slug.includes('participle')) {
+    const m = sentence.match(/\b(having finished|having \w+ed|walking \w+|built in|not knowing|\w+ing|\w+ed)\b/i);
+    if (m) return m[0];
+  }
+
+  // 33. Ellipsis & Substitution
+  if (slug.includes('ellipsis') || slug.includes('substitution')) {
+    const m = sentence.match(/\b(can too|do you have one|think so|others|too|so|one|ones)\b/i);
+    if (m) return m[0];
+  }
+
+  // 34. Subjunctive
+  if (slug.includes('subjunctive')) {
+    const m = sentence.match(/\b(suggested that|insisted that|essential that|if I were you|be present|rest|apologize)\b/i);
+    if (m) return m[0];
+  }
+
+  // 35. Emphasis structures
+  if (slug.includes('emphasis')) {
+    const m = sentence.match(/\b(do understand|did call|such\s+(?:a|an\s+)?[\w\s]+?\s+that|so\s+\w+\s+that|do|did)\b/i);
+    if (m) return m[0];
+  }
+
+  // 36. Cleft sentences
+  if (slug.includes('cleft')) {
+    const m = sentence.match(/\b(it was \w+ who|it is \w+ that|what I want is|what surprised me was|it was|it is|what \w+ is|what \w+ was)\b/i);
+    if (m) return m[0];
+  }
+
+  // 37. Inversion
+  if (slug.includes('inversion')) {
+    const m = sentence.match(/\b(never have I|rarely does he|only then did I|not only did|hardly had I|never|rarely|hardly|seldom|only then)\b/i);
+    if (m) return m[0];
+  }
+
+  // 38. Nominalisation
+  if (slug.includes('nominalisation')) {
+    const m = sentence.match(/\b(decision|expansion|improvement|development|discussion|announcement|reduction)\b/i);
+    if (m) return m[0];
+  }
+
+  // 39. Hedging language
+  if (slug.includes('hedging')) {
+    const m = sentence.match(/\b(may indicate|appear to|likely that|tended to|suggests that|seems to|possibly)\b/i);
+    if (m) return m[0];
+  }
+
+  // 40. Grammatical collocations
+  if (slug.includes('collocation')) {
+    const m = sentence.match(/\b(interested in|depend on|apologized for|increase in|good at|afraid of|fond of|responsible for)\b/i);
+    if (m) return m[0];
+  }
+
+  // 41. Discourse markers
+  if (slug.includes('discourse')) {
+    const m = sentence.match(/\b(first of all|however|in other words|by the way|for example|in addition|on the other hand)\b/i);
     if (m) return m[0];
   }
 
@@ -1516,18 +1643,14 @@ function VisualTopicCardItem({
   const [activeIdx, setActiveIdx] = useState<number>(0);
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [showAllExamples, setShowAllExamples] = useState(false);
-  const [imgError, setImgError] = useState(false);
+  const [failedImageSrc, setFailedImageSrc] = useState<string | null>(null);
 
   const visibleExamples = exampleLimit && !showAllExamples ? card.examples.slice(0, exampleLimit) : card.examples;
 
   const currentIdx = hoveredIdx !== null ? hoveredIdx : activeIdx;
   const currentExample = card.examples[currentIdx] || card.examples[0];
-  const currentImage = (hoveredIdx !== null ? currentExample?.image : null) || currentExample?.image || card.image;
-
-  // Reset imgError whenever currentImage changes
-  useEffect(() => {
-    setImgError(false);
-  }, [currentImage]);
+  const currentImage = currentExample?.image || (currentIdx === 0 ? card.image : undefined);
+  const isImageError = currentImage ? failedImageSrc === currentImage : false;
 
   const currentHighlight = currentExample
     ? currentExample.highlightWord || detectGrammarKeywords(currentExample.en, topicSlug, card.title)
@@ -1560,9 +1683,9 @@ function VisualTopicCardItem({
       </div>
 
       <div className={exampleLimit ? 'sm:grid sm:grid-cols-[0.9fr_1.1fr] sm:items-stretch min-w-0' : undefined}>
-        {/* Dynamic Hero Stage: Image or Typographic Concept Card with Active Sentence Overlay */}
-        {currentImage && !imgError ? (
-          <div className={`relative w-full bg-muted/20 overflow-hidden border-b sm:border-b-0 sm:border-r border-border ${exampleLimit ? 'h-48 sm:h-auto sm:min-h-[250px]' : 'h-48 sm:h-56'}`}>
+        {/* Dynamic Hero Stage: Image for Example 0 or Interactive Syntax Focus Stage for Other Examples */}
+        {currentImage && !isImageError ? (
+          <div className={`relative w-full bg-muted/20 overflow-hidden border-b sm:border-b-0 sm:border-r border-border ${exampleLimit ? 'h-48 sm:h-auto sm:min-h-[260px]' : 'h-48 sm:h-60'}`}>
             <Image
               key={currentImage}
               src={currentImage}
@@ -1572,11 +1695,11 @@ function VisualTopicCardItem({
                 currentImage.endsWith('.svg') ? 'object-contain p-4' : 'object-cover object-center'
               }`}
               sizes="(max-width: 768px) 100vw, 50vw"
-              onError={() => setImgError(true)}
+              onError={() => setFailedImageSrc(currentImage)}
               unoptimized
             />
             {/* Top Concept Badge */}
-            <div className="absolute top-2.5 left-2.5 z-10">
+            <div className="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5">
               <span className="font-mono text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-background/90 backdrop-blur-xs border border-border text-foreground shadow-xs">
                 {card.badge || `Tình huống ${currentIdx + 1}`}
               </span>
@@ -1597,7 +1720,7 @@ function VisualTopicCardItem({
                 </div>
                 <button
                   type="button"
-                  onClick={() => onPlaySpeech(`${card.title}-${currentIdx}`, currentExample.en, currentIdx === 0 ? card.audio : undefined)}
+                  onClick={() => onPlaySpeech(`${card.title}-${currentIdx}`, currentExample.en, currentExample.audio || (currentIdx === 0 ? card.audio : undefined))}
                   className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2.5 bg-background hover:bg-muted border border-border rounded-none shadow-xs transition-colors shrink-0"
                   aria-label={`Nghe câu: ${currentExample.en}`}
                   title="Nghe câu ví dụ đang chọn"
@@ -1612,48 +1735,50 @@ function VisualTopicCardItem({
             )}
           </div>
         ) : (
-          <div className={`relative w-full bg-gradient-to-br from-muted/40 via-muted/20 to-primary/5 p-3.5 sm:p-4 flex flex-col justify-between border-b sm:border-b-0 sm:border-r border-border ${exampleLimit ? 'h-48 sm:h-auto sm:min-h-[250px]' : 'h-48 sm:h-56'}`}>
+          <div className={`relative w-full bg-gradient-to-br from-primary/[0.08] via-background to-muted/30 p-4 sm:p-5 flex flex-col justify-between border-b sm:border-b-0 sm:border-r border-border ${exampleLimit ? 'h-48 sm:h-auto sm:min-h-[260px]' : 'h-48 sm:h-60'}`}>
             <div className="flex items-center justify-between gap-2">
               <span className="font-mono text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 border border-primary/30 bg-primary/10 text-primary">
-                {card.badge || 'Trực quan ngữ pháp'}
+                {card.badge || 'Trọng tâm ngữ pháp'}
               </span>
               <span className="font-mono text-[10px] text-muted-foreground uppercase">
-                Tình huống {currentIdx + 1}/{card.examples.length}
+                Tình huống 0{currentIdx + 1}/0{card.examples.length}
               </span>
             </div>
 
-            <div className="text-center py-2 px-2 my-auto">
-              <div className="font-serif text-base sm:text-lg font-bold text-foreground tracking-tight">
-                {card.title}
+            <div className="text-center py-2.5 px-1 my-auto space-y-2">
+              <div className="font-serif text-base sm:text-lg font-bold text-foreground tracking-tight leading-snug">
+                <HighlightedSentence text={currentExample.en} highlight={currentHighlight} />
               </div>
-              {card.ruleSummary && (
-                <div className="mt-1 font-mono text-[11px] text-muted-foreground line-clamp-2">
-                  {card.ruleSummary}
+              {currentExample.vi && (
+                <div className="text-xs text-muted-foreground leading-relaxed">
+                  {currentExample.vi}
+                </div>
+              )}
+              {currentExample.highlightNote && (
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-amber-500/10 dark:bg-amber-500/15 border border-amber-500/30 text-[11px] text-amber-900 dark:text-amber-200 rounded-none text-left">
+                  <Sparkles className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400 shrink-0" />
+                  <span className="font-medium">{currentExample.highlightNote}</span>
                 </div>
               )}
             </div>
 
-            {currentExample && (
-              <div className="bg-background/95 backdrop-blur-xs border border-border p-2 sm:p-2.5 flex items-center justify-between gap-2 shadow-xs">
-                <div className="min-w-0 flex-1">
-                  <div className="font-serif text-xs sm:text-sm font-bold text-foreground truncate">
-                    <HighlightedSentence text={currentExample.en} highlight={currentHighlight} />
-                  </div>
-                  {currentExample.vi && (
-                    <div className="text-[11px] text-muted-foreground truncate">{currentExample.vi}</div>
-                  )}
+            <div className="bg-background/90 backdrop-blur-xs border border-border p-2 sm:p-2.5 flex items-center justify-between gap-2 shadow-xs">
+              <div className="min-w-0 flex-1">
+                <div className="font-mono text-[10px] uppercase text-muted-foreground font-semibold">Quy tắc trọng tâm</div>
+                <div className="font-mono text-[11px] text-foreground font-medium truncate">
+                  {card.ruleSummary || card.title}
                 </div>
-                <button
-                  type="button"
-                  onClick={() => onPlaySpeech(`${card.title}-${currentIdx}`, currentExample.en, currentIdx === 0 ? card.audio : undefined)}
-                  className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 hover:bg-muted text-foreground transition-colors shrink-0"
-                  aria-label={`Nghe câu: ${currentExample.en}`}
-                  title="Nghe câu ví dụ đang chọn"
-                >
-                  <Volume2 className={`h-4 w-4 ${isStageAudioPlaying ? 'text-primary animate-pulse' : ''}`} />
-                </button>
               </div>
-            )}
+              <button
+                type="button"
+                onClick={() => onPlaySpeech(`${card.title}-${currentIdx}`, currentExample.en, currentExample.audio || (currentIdx === 0 ? card.audio : undefined))}
+                className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2.5 bg-muted/60 hover:bg-muted text-foreground border border-border transition-colors shrink-0 shadow-xs"
+                aria-label={`Nghe câu: ${currentExample.en}`}
+                title="Nghe câu ví dụ đang chọn"
+              >
+                <Volume2 className={`h-4 w-4 ${isStageAudioPlaying ? 'text-primary animate-pulse' : ''}`} />
+              </button>
+            </div>
           </div>
         )}
 
@@ -1694,12 +1819,17 @@ function VisualTopicCardItem({
                     type="button"
                     aria-pressed={isSelected}
                     onClick={() => setActiveIdx(exIdx)}
-                    className="space-y-0.5 min-w-0 flex-1 text-left min-h-[44px]"
+                    className="flex items-start gap-2 min-w-0 flex-1 text-left min-h-[44px]"
                   >
-                    <p className="text-xs sm:text-sm font-semibold text-foreground font-sans leading-snug">
-                      <HighlightedSentence text={ex.en} highlight={effectiveHighlight} />
-                    </p>
-                    {ex.vi && <p className="text-[11px] text-muted-foreground leading-snug">{ex.vi}</p>}
+                    <span className="font-mono text-[10px] font-bold px-1.5 py-0.5 border border-border bg-background text-muted-foreground shrink-0 mt-0.5">
+                      0{exIdx + 1}
+                    </span>
+                    <div className="space-y-0.5 min-w-0 flex-1">
+                      <p className="text-xs sm:text-sm font-semibold text-foreground font-sans leading-snug">
+                        <HighlightedSentence text={ex.en} highlight={effectiveHighlight} />
+                      </p>
+                      {ex.vi && <p className="text-[11px] text-muted-foreground leading-snug">{ex.vi}</p>}
+                    </div>
                   </button>
 
                   <button
@@ -1707,7 +1837,7 @@ function VisualTopicCardItem({
                     onClick={(e) => {
                       e.stopPropagation();
                       setActiveIdx(exIdx);
-                      onPlaySpeech(`${card.title}-${exIdx}`, ex.en, exIdx === 0 ? card.audio : undefined);
+                      onPlaySpeech(`${card.title}-${exIdx}`, ex.en, ex.audio || (exIdx === 0 ? card.audio : undefined));
                     }}
                     aria-label={`Nghe phát âm: ${ex.en}`}
                     className={`min-h-[44px] min-w-[44px] flex items-center justify-center p-2 transition-colors shrink-0 rounded-none ${

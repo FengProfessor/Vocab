@@ -66,10 +66,11 @@ export default function VettedMediaCard({
     activeId: null,
   });
 
-  const [imgError, setImgError] = useState(false);
+  const [failedImageSrc, setFailedImageSrc] = useState<string | null>(null);
 
   // Unify props from media asset or direct props
   const resolvedImageUrl = media?.imageUrl || imageUrl || '';
+  const isImageError = resolvedImageUrl ? failedImageSrc === resolvedImageUrl : false;
   const resolvedImageAlt = media?.imageAlt || imageAlt || caption || 'Minh họa ngữ cảnh ngữ pháp';
   const resolvedCaption = media?.caption || caption || '';
   const resolvedRule = media?.usageAnalysisVi?.rule || rule || '';
@@ -77,10 +78,6 @@ export default function VettedMediaCard({
   const resolvedCommonMistake = media?.usageAnalysisVi?.commonMistake || commonMistake || '';
   const resolvedVideoEmbedUrl = media?.videoEmbedUrl || videoEmbedUrl || '';
   const resolvedVideoTitle = media?.videoTitle || videoTitle || 'Video bài giảng ngữ pháp';
-
-  React.useEffect(() => {
-    setImgError(false);
-  }, [resolvedImageUrl]);
 
   const cardAudioId = `media-${sceneTitle || resolvedImageUrl}`;
 
@@ -115,7 +112,7 @@ export default function VettedMediaCard({
       <div className="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-border">
         {/* Visual Asset Container (Left Pane - 5 cols) */}
         <div className="md:col-span-5 bg-slate-50 dark:bg-muted/20 flex flex-col items-center justify-center p-4 relative min-h-[220px]">
-          {resolvedImageUrl && !imgError ? (
+          {resolvedImageUrl && !isImageError ? (
             <div className="relative w-full h-48 sm:h-56 flex items-center justify-center">
               <Image
                 src={resolvedImageUrl}
@@ -123,7 +120,7 @@ export default function VettedMediaCard({
                 fill
                 className={`${resolvedImageUrl.endsWith('.svg') ? 'object-contain p-2' : 'object-cover'} rounded-none`}
                 sizes="(max-width: 768px) 100vw, 40vw"
-                onError={() => setImgError(true)}
+                onError={() => setFailedImageSrc(resolvedImageUrl)}
                 unoptimized
               />
             </div>
