@@ -1,0 +1,1825 @@
+{
+  "id": "vnu-bac3-test-03",
+  "title": "[Đề 07] Bộ Đề Thực Chiến B1 Số 03 — Chuẩn Đầu Ra ULIS (Colouring Books for Adults)",
+  "series": "VNU-BAC-3",
+  "description": "Đề luyện thi thực chiến VNU Test Bậc 3 chuẩn hóa theo khung năng lực ngoại ngữ Bậc 3 (CEFR B1). Bài đọc thực tế: Colouring Books for Adults (Part 2), The 'I Love Italy' Photography Competition (Part 3), Karina Moore – Teenage High Diver! (Part 4).",
+  "durationMinutes": 65,
+  "targetLevel": "B1",
+  "totalQuestions": 45,
+  "isSampleTest": false,
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimitMinutes": 40,
+      "totalQuestions": 25,
+      "tasks": [
+        {
+          "id": "reading-part1",
+          "partNumber": 1,
+          "title": "Part 1: Signs & Notices",
+          "instructions": "There are 7 questions in this part. Choose the best answer (A, B, or C) that matches the meaning of each sign, message, or notice.",
+          "questions": [
+            {
+              "id": "t03-r-q1",
+              "questionNumber": 1,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "John,\nYou know I said that football practice will be on Wednesday … Well, it isn’t – it’s on Thursday. Sorry! See you there.\nCheers,\nAdam\n\nWhy has Adam written this message?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "to ask if John wants to play football"
+                },
+                {
+                  "key": "B",
+                  "text": "to tell John that Adam can’t play football"
+                },
+                {
+                  "key": "C",
+                  "text": "to let John know about a change of plan"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Adam nhắn cho John rằng buổi tập bóng đá sẽ không diễn ra vào thứ Tư như đã nói trước đó mà đổi sang thứ Năm ('Well, it isn’t – it’s on Thursday'). Như vậy Adam viết tin nhắn để báo cho John biết về sự thay đổi kế hoạch ('a change of plan'). Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "change of plan",
+                  "ipa": "/tʃeɪndʒ ɒv plæn/",
+                  "meaning": "sự thay đổi kế hoạch",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "t03-r-q2",
+              "questionNumber": 2,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "SCHOOL FESTIVAL OF BOOKS\nMeet Ralph Sparks.\nHear how he got ideas for his books, including History of Exploring the New World.\nThurs 9 a.m. Room D31.\n\nPupils can",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "buy books."
+                },
+                {
+                  "key": "B",
+                  "text": "read about explorers."
+                },
+                {
+                  "key": "C",
+                  "text": "come and listen to a writer."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Thông báo Ngày hội Sách của trường mời học sinh đến gặp tác giả Ralph Sparks và lắng nghe ông chia sẻ cách lấy ý tưởng viết sách ('Meet Ralph Sparks. Hear how he got ideas for his books...'). Tức là học sinh có thể đến nghe một nhà văn trò chuyện. Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "explorer",
+                  "ipa": "/ɪkˈsplɔː.rər/",
+                  "meaning": "nhà thám hiểm",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "get ideas",
+                  "ipa": "/ɡet aɪˈdɪəz/",
+                  "meaning": "tìm kiếm ý tưởng",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            },
+            {
+              "id": "t03-r-q3",
+              "questionNumber": 3,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Science Museum trip next Friday\nTickets are available for $4 (for coach transport to the museum, and for museum entry).\nIf you’re interested, see Mr Goss.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "You can now buy tickets for the museum trip."
+                },
+                {
+                  "key": "B",
+                  "text": "Tell Mr Goss how you want to travel to the museum."
+                },
+                {
+                  "key": "C",
+                  "text": "Mr Goss will tell you if you need a ticket to the museum."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Thông báo nêu: Vé cho chuyến tham quan Bảo tàng Khoa học thứ Sáu tuần sau hiện đã mở bán với giá $4 bao gồm cả xe đưa đón và vé vào cửa ('Tickets are available for $4... If you’re interested, see Mr Goss'). Tức là học sinh hiện đã có thể mua vé cho chuyến đi. Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "available",
+                  "ipa": "/əˈveɪ.lə.bəl/",
+                  "meaning": "có sẵn (để mua/dùng)",
+                  "partOfSpeech": "adjective"
+                },
+                {
+                  "word": "entry",
+                  "ipa": "/ˈen.tri/",
+                  "meaning": "vé vào cửa, sự đi vào",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "t03-r-q4",
+              "questionNumber": 4,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "From: Lizzie\nTo: Jenny\n\nJenny,\nI think I left my scarf in your flat after the party. Have you seen it? Otherwise I’ll buy another one.\nLizzie\n\nWhy has Lizzie written this?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "to invite Jenny to a party"
+                },
+                {
+                  "key": "B",
+                  "text": "to tell Jenny about a shopping trip"
+                },
+                {
+                  "key": "C",
+                  "text": "to ask about something that she’s lost"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Lizzie nghĩ mình đã để quên chiếc khăn quàng cổ ở căn hộ của Jenny sau bữa tiệc nên viết thư hỏi xem Jenny có nhìn thấy nó không ('I think I left my scarf in your flat after the party. Have you seen it?'). Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "scarf",
+                  "ipa": "/skɑːf/",
+                  "meaning": "khăn quàng cổ",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "otherwise",
+                  "ipa": "/ˈʌð.ə.waɪz/",
+                  "meaning": "nếu không thì",
+                  "partOfSpeech": "adverb"
+                }
+              ]
+            },
+            {
+              "id": "t03-r-q5",
+              "questionNumber": 5,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Hi Dave,\nI broke my tennis racket. Can I use yours? I’ll give it back in maths tomorrow. By the way, wasn’t the homework difficult?\nMike\n\nMike wants to",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "play tennis with Dave."
+                },
+                {
+                  "key": "B",
+                  "text": "borrow something from Dave."
+                },
+                {
+                  "key": "C",
+                  "text": "get help from Dave with the homework."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Mike làm gãy vợt tennis nên hỏi mượn vợt của Dave và hứa sẽ trả lại vào giờ Toán ngày mai ('I broke my tennis racket. Can I use yours? I’ll give it back in maths tomorrow'). Tức là Mike muốn mượn đồ của Dave. Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "tennis racket",
+                  "ipa": "/ˈten.ɪs ˈræk.ɪt/",
+                  "meaning": "cây vợt quần vợt",
+                  "partOfSpeech": "noun phrase"
+                },
+                {
+                  "word": "by the way",
+                  "ipa": "/baɪ ðə weɪ/",
+                  "meaning": "nhân tiện",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            },
+            {
+              "id": "t03-r-q6",
+              "questionNumber": 6,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Mr Gregson is away today.\nClass 3, at 9 a.m., please go and join Class 4 in Room 7C for geography. Mr Gregson will be back tomorrow.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "There isn’t a geography lesson tomorrow."
+                },
+                {
+                  "key": "B",
+                  "text": "Class 4’s lesson is happening at a different time today."
+                },
+                {
+                  "key": "C",
+                  "text": "There will be more people in Room 7C than usual today."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Vì hôm nay thầy Gregson đi vắng, Lớp 3 sẽ sang học ghép môn Địa lý cùng với Lớp 4 tại Phòng 7C lúc 9 giờ sáng ('Class 3, at 9 a.m., please go and join Class 4 in Room 7C'). Vì hai lớp học chung một phòng nên Phòng 7C hôm nay sẽ đông học sinh hơn thường lệ. Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "join",
+                  "ipa": "/dʒɔɪn/",
+                  "meaning": "tham gia, nhập chung vào",
+                  "partOfSpeech": "verb"
+                },
+                {
+                  "word": "than usual",
+                  "ipa": "/ðæn ˈjuː.ʒu.əl/",
+                  "meaning": "hơn thường lệ",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            },
+            {
+              "id": "t03-r-q7",
+              "questionNumber": 7,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "DON'T LEAVE RUBBISH IN OUR WOODS\nTAKE IT HOME!",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Take away all rubbish, including that left by others."
+                },
+                {
+                  "key": "B",
+                  "text": "Do not enter the woods at any time."
+                },
+                {
+                  "key": "C",
+                  "text": "You cannot leave your rubbish here at all."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Biển báo trong rừng nhắc nhở: Không để lại rác trong rừng của chúng tôi, hãy mang rác của bạn về nhà ('Don't leave rubbish in our woods – Take it home!'). Điều này có nghĩa là bạn hoàn toàn không được vứt lại rác ở đây. Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "rubbish",
+                  "ipa": "/ˈrʌb.ɪʃ/",
+                  "meaning": "rác thải",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "woods",
+                  "ipa": "/wʊdz/",
+                  "meaning": "khu rừng nhỏ",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "reading-part2",
+          "partNumber": 2,
+          "title": "Part 2: Cloze Test",
+          "instructions": "Read the text below and choose the best answer (A, B, or C) for each blank from 8 to 15.",
+          "passage": {
+            "title": "Colouring Books for Adults",
+            "text": "Many people probably used to spend time adding colour to pictures in colouring books when they were children. However, once people get older, very (8) ________ of them continue with the hobby. Instead, they (9) ________ their crayons away in the cupboard forever.\n\nHowever, psychology researchers now think that even for adults, (10) ________ as little as ten minutes a day colouring pictures in this way can bring huge (11) ________. For example, some people say that it improves their (12) ________ for a while by making them feel more cheerful and generally calmer.\n\nOne reason for this may be that other activities (13) ________ with art, such as drawing or painting, can actually be quite stressful, especially if you don’t feel very successful (14) ________ it. But adding colour to a picture that’s already drawn for you (15) ________ only a low level of skill, so you can relax rather than becoming anxious about it!",
+            "wordCount": 160
+          },
+          "questions": [
+            {
+              "id": "t03-r-q8",
+              "questionNumber": 8,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "However, once people get older, very (8) ________ of them continue with the hobby.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "little"
+                },
+                {
+                  "key": "B",
+                  "text": "few"
+                },
+                {
+                  "key": "C",
+                  "text": "less"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Đại từ 'them' thay thế cho 'people' (danh từ đếm được số nhiều), do đó dùng 'very few of them' (rất ít người trong số họ tiếp tục sở thích này). 'Little' và 'less' dùng cho danh từ không đếm được. Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "very few",
+                  "ipa": "/ˈver.i fjuː/",
+                  "meaning": "rất ít (dùng cho danh từ đếm được)",
+                  "partOfSpeech": "quantifier"
+                }
+              ]
+            },
+            {
+              "id": "t03-r-q9",
+              "questionNumber": 9,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "Instead, they (9) ________ their crayons away in the cupboard forever.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "leave"
+                },
+                {
+                  "key": "B",
+                  "text": "set"
+                },
+                {
+                  "key": "C",
+                  "text": "put"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Cụm động từ 'put something away' mang nghĩa 'cất cái gì đi (vào tủ)'. Khi lớn lên, người ta thường cất bút màu vào tủ mãi mãi. Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "put away",
+                  "ipa": "/pʊt əˈweɪ/",
+                  "meaning": "cất đi, dọn đi",
+                  "partOfSpeech": "phrasal verb"
+                },
+                {
+                  "word": "crayon",
+                  "ipa": "/ˈkreɪ.ɒn/",
+                  "meaning": "bút sáp màu",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "t03-r-q10",
+              "questionNumber": 10,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "...even for adults, (10) ________ as little as ten minutes a day colouring pictures in this way...",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "taking"
+                },
+                {
+                  "key": "B",
+                  "text": "spending"
+                },
+                {
+                  "key": "C",
+                  "text": "filling"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Cấu trúc 'spend + time + V-ing' (dành ra chỉ 10 phút mỗi ngày để tô màu tranh: 'spending as little as ten minutes a day colouring pictures'). Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "spend time doing",
+                  "ipa": "/spend taɪm ˈduː.ɪŋ/",
+                  "meaning": "dành thời gian làm gì",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            },
+            {
+              "id": "t03-r-q11",
+              "questionNumber": 11,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "...colouring pictures in this way can bring huge (11) ________.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "benefits"
+                },
+                {
+                  "key": "B",
+                  "text": "interests"
+                },
+                {
+                  "key": "C",
+                  "text": "favours"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Cụm từ 'bring huge benefits' (mang lại những lợi ích to lớn). 'Interests' (sở thích/lợi tức) và 'favours' (ân huệ) không phù hợp ngữ cảnh. Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "benefit",
+                  "ipa": "/ˈben.ɪ.fɪt/",
+                  "meaning": "lợi ích",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "t03-r-q12",
+              "questionNumber": 12,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "For example, some people say that it improves their (12) ________ for a while by making them feel more cheerful and generally calmer.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "character"
+                },
+                {
+                  "key": "B",
+                  "text": "mood"
+                },
+                {
+                  "key": "C",
+                  "text": "condition"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Cụm 'improves their mood' (cải thiện tâm trạng của họ) vì vế sau giải thích nó giúp họ cảm thấy vui vẻ và bình tĩnh hơn ('making them feel more cheerful and generally calmer'). Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "mood",
+                  "ipa": "/muːd/",
+                  "meaning": "tâm trạng, khí sắc",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "cheerful",
+                  "ipa": "/ˈtʃɪə.fəl/",
+                  "meaning": "vui vẻ, phấn khởi",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            },
+            {
+              "id": "t03-r-q13",
+              "questionNumber": 13,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "One reason for this may be that other activities (13) ________ with art, such as drawing or painting, can actually be quite stressful...",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "connected"
+                },
+                {
+                  "key": "B",
+                  "text": "joined"
+                },
+                {
+                  "key": "C",
+                  "text": "compared"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Cấu trúc 'connected with something' (các hoạt động khác có liên quan đến nghệ thuật, chẳng hạn như vẽ tranh). Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "connected with",
+                  "ipa": "/kəˈnek.tɪd wɪð/",
+                  "meaning": "có liên quan tới",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            },
+            {
+              "id": "t03-r-q14",
+              "questionNumber": 14,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "...especially if you don’t feel very successful (14) ________ it.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "on"
+                },
+                {
+                  "key": "B",
+                  "text": "at"
+                },
+                {
+                  "key": "C",
+                  "text": "for"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Cấu trúc tính từ 'successful at (doing) something' (thành công, giỏi về việc thực hành một hoạt động nào đó). Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "successful at",
+                  "ipa": "/səkˈses.fəl æt/",
+                  "meaning": "thành công, làm tốt việc gì",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            },
+            {
+              "id": "t03-r-q15",
+              "questionNumber": 15,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "But adding colour to a picture that’s already drawn for you (15) ________ only a low level of skill, so you can relax...",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "depends"
+                },
+                {
+                  "key": "B",
+                  "text": "lacks"
+                },
+                {
+                  "key": "C",
+                  "text": "requires"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Động từ 'requires' (đòi hỏi, yêu cầu): Việc tô màu vào bức tranh đã vẽ sẵn chỉ đòi hỏi mức kỹ năng thấp ('requires only a low level of skill'). 'Depends' phải đi với 'on'. Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "require",
+                  "ipa": "/rɪˈkwaɪər/",
+                  "meaning": "đòi hỏi, yêu cầu",
+                  "partOfSpeech": "verb"
+                },
+                {
+                  "word": "anxious",
+                  "ipa": "/ˈæŋk.ʃəs/",
+                  "meaning": "lo âu, căng thẳng",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "reading-part3",
+          "partNumber": 3,
+          "title": "Part 3: True / False",
+          "instructions": "Read the text below and decide whether statements from 16 to 20 are True or False. Choose A for True and B for False.",
+          "passage": {
+            "title": "The 'I Love Italy' Photography Competition",
+            "text": "I LOVE ITALY\nFor your chance of winning a weekend in Bassano Del Grappa, Italy, tick the 'x' on your favourite photo from the images opposite! It only takes a bit of imagination to find yourself in Italy.\n\nHOW TO ENTER:\nChoose both your favourite photo and tell us what 'Imagine More' means to you and then return your completed leaflet to the address opposite or enter online.\n\nWIN:\nThe winner will receive a weekend break for two people to include complimentary tickets to Bassano Fotografia 11, a diverse photographic exhibition hosted by Manfrotto School of Xcellence. A series of exhibitions, workshops and seminars on photography, delivered by internationally renowned photographers, will contribute in transforming Bassano Del Grappa into the centre of photography and imagination. Whether you are an amateur photographer or an expert, Bassano del Grappa has something to offer everyone: A weekend immersion in art, culture, landscapes and photography.\n\nFULL DETAILS:\nThe prize includes return flights to Italy for two people, bed and breakfast accommodation for three nights in Bassano Del Grappa from a Thursday to Sunday in October 2011. Keen photographers will also have the opportunity to visit some incredible landscapes that lend themselves perfectly for photography courtesy of Manfrotto School of Xcellence.\n\nTERMS AND CONDITIONS:\nThe 'I Love Italy' competition closes on 30th September 2011. All entries must be received by this date. Manfrotto Distribution Ltd accepts no responsibility for entries received after this date or for entries lost in transit. By entering this competition you will also be opting into Manfrotto Distribution Ltd and Manfrotto School of Xcellence (MSoX) e-newsletters, but you have the option to unsubscribe at any time. One entry per person only. Open to UK residents only. There is one prize (for two people) to Italy and it is not redeemable for cash.",
+            "wordCount": 307
+          },
+          "questions": [
+            {
+              "id": "t03-r-q16",
+              "questionNumber": 16,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "To enter the competition, you can also fill in the online form.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Trong mục HOW TO ENTER nêu rõ: '...return your completed leaflet to the address opposite or enter online.' (Gửi tờ phiếu đã điền về địa chỉ đối diện hoặc đăng ký trực tuyến trên mạng). Nhận định là ĐÚNG (True - A).",
+              "vocabularyNotes": [
+                {
+                  "word": "leaflet",
+                  "ipa": "/ˈliː.flət/",
+                  "meaning": "tờ rơi, phiếu thông tin",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "t03-r-q17",
+              "questionNumber": 17,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Bassano del Grappa has nothing to offer professional photographers.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Trong mục WIN khẳng định: 'Whether you are an amateur photographer or an expert, Bassano del Grappa has something to offer everyone' (Dù bạn là người chụp ảnh nghiệp dư hay chuyên gia, Bassano del Grappa đều có những điều thú vị dành cho mọi người). Vì vậy nói nơi này không có gì cho nhiếp ảnh gia chuyên nghiệp là SAI (False - B).",
+              "vocabularyNotes": [
+                {
+                  "word": "amateur",
+                  "ipa": "/ˈæm.ə.tər/",
+                  "meaning": "nghiệp dư",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "renowned",
+                  "ipa": "/rɪˈnaʊnd/",
+                  "meaning": "nổi tiếng, lừng danh",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            },
+            {
+              "id": "t03-r-q18",
+              "questionNumber": 18,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "The prize includes a two-way journey by air.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Trong mục FULL DETAILS ghi rõ: 'The prize includes return flights to Italy for two people...' ('return flights' là vé máy bay khứ hồi hai chiều, đồng nghĩa với 'a two-way journey by air'). Nhận định là ĐÚNG (True - A).",
+              "vocabularyNotes": [
+                {
+                  "word": "return flight",
+                  "ipa": "/rɪˈtɜːn flaɪt/",
+                  "meaning": "chuyến bay khứ hồi",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "t03-r-q19",
+              "questionNumber": 19,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "All entries must be received no later than 30th September 2011.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Trong mục TERMS AND CONDITIONS nêu rõ: 'The 'I Love Italy' competition closes on 30th September 2011. All entries must be received by this date.' ('by this date' đồng nghĩa với 'no later than 30th September 2011'). Nhận định là ĐÚNG (True - A).",
+              "vocabularyNotes": [
+                {
+                  "word": "entry",
+                  "ipa": "/ˈen.tri/",
+                  "meaning": "bài dự thi, phiếu đăng ký dự thi",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "t03-r-q20",
+              "questionNumber": 20,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "You cannot unsubscribe from e-newsletters.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Trong mục TERMS AND CONDITIONS ghi rõ: '...e-newsletters, but you have the option to unsubscribe at any time.' (Bạn có quyền hủy đăng ký nhận bản tin điện tử bất cứ lúc nào). Do đó nhận định không thể hủy đăng ký là SAI (False - B).",
+              "vocabularyNotes": [
+                {
+                  "word": "unsubscribe",
+                  "ipa": "/ˌʌn.səbˈskraɪb/",
+                  "meaning": "hủy đăng ký nhận tin",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "reading-part4",
+          "partNumber": 4,
+          "title": "Part 4: Reading Comprehension",
+          "instructions": "Read the following passage and choose the best answer (A, B, or C) for each question from 21 to 25.",
+          "passage": {
+            "title": "Karina Moore – Teenage High Diver!",
+            "text": "Several times a week, teenager Karina Moore trains at her local pool to jump from the high-diving board into the water – in an attempt to become a national diving champion.\n\nKarina first learned about diving during a family break in Spain, where the resort’s pool had a high-diving board. Young people were diving off it, and it looked fun, but Karina didn’t join in, even though she was a strong swimmer. Then after returning home, she discovered a long-distance runner she’d always admired had started diving for relaxation – so she became more interested.\n\nKarina joined a beginners’ diving class at her local pool. They had several sessions jumping onto soft materials before trying the high board. ‘The water looked a long way down,’ says Karina, ‘but after our training, I felt I’d handle it – without injuring myself! They’d warned me I’d land in the water fast – at around 60 kph – but I was prepared. I couldn’t wait to get started – although the others weren’t so keen! Anyway, I wasn’t disappointed by the experience.’\n\nIn Karina’s area, there’s now lots of interest in high diving, but it’s sometimes difficult for swimmers to find suitable practice facilities. Although the pools are deep enough, they’re in use so often by diving clubs that other people don’t get opportunities to practise. Fortunately, though, Karina’s coach noticed her talent and helped her develop her techniques. After only two years, she’s winning competitions in her area.\n\nBut what’s it like to concentrate so much on diving? ‘I train 20 hours a week,’ says Karina, ‘and I won’t pretend it’s easy – you have to enjoy it to spend so much time doing it! It’s not easy for my parents either, though – they drive me to training sessions early in the morning, and that costs money. But they’ve had financial help from sports organisations, luckily. And my schoolwork and social life are good. I still meet my mates – and there’s always the phone! The only thing I hadn’t realised was that the pool water would damage my hair – I used to love my long hair, but I’ve had to cut it short because it looked awful! But I’ll definitely keep on diving!’",
+            "wordCount": 374
+          },
+          "questions": [
+            {
+              "id": "t03-r-q21",
+              "questionNumber": 21,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "What made Karina keen to take up diving?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "She wanted to repeat her holiday experience."
+                },
+                {
+                  "key": "B",
+                  "text": "She found out her athletics hero had taken it up."
+                },
+                {
+                  "key": "C",
+                  "text": "She’d visited a pool where some teenagers were doing it."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Đoạn 2 nêu: Khi ở Tây Ban Nha cô không tham gia nhảy cầu, nhưng sau khi về nhà, cô phát hiện ra một vận động viên chạy đường dài mà cô luôn ngưỡng mộ đã bắt đầu tập nhảy cầu để thư giãn nên cô trở nên hứng thú ('she discovered a long-distance runner she’d always admired had started diving for relaxation – so she became more interested'). Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "admire",
+                  "ipa": "/ədˈmaɪər/",
+                  "meaning": "ngưỡng mộ",
+                  "partOfSpeech": "verb"
+                },
+                {
+                  "word": "take up",
+                  "ipa": "/teɪk ʌp/",
+                  "meaning": "bắt đầu theo đuổi một môn thể thao/sở thích",
+                  "partOfSpeech": "phrasal verb"
+                }
+              ]
+            },
+            {
+              "id": "t03-r-q22",
+              "questionNumber": 22,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "How did Karina feel the first time she used the high board?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "worried about how far it was above the pool"
+                },
+                {
+                  "key": "B",
+                  "text": "pleased to experience it with other beginners"
+                },
+                {
+                  "key": "C",
+                  "text": "confident that she wouldn’t get hurt"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Đoạn 3 trích lời Karina: 'but after our training, I felt I’d handle it – without injuring myself!' (Sau quá trình tập luyện, cô tự tin mình sẽ xử lý tốt mà không làm bản thân bị thương). Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "handle",
+                  "ipa": "/ˈhæn.dəl/",
+                  "meaning": "xử lý, xoay sở được",
+                  "partOfSpeech": "verb"
+                },
+                {
+                  "word": "injure",
+                  "ipa": "/ˈɪn.dʒər/",
+                  "meaning": "làm bị thương",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            },
+            {
+              "id": "t03-r-q23",
+              "questionNumber": 23,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "What does the writer suggest about diving facilities in Karina’s area?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "They’re not used as much as they could be."
+                },
+                {
+                  "key": "B",
+                  "text": "There aren’t enough coaches teaching people to use them."
+                },
+                {
+                  "key": "C",
+                  "text": "They’re not available to the public for long enough each day."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Đoạn 4 viết: 'Although the pools are deep enough, they’re in use so often by diving clubs that other people don’t get opportunities to practise.' (Hồ bơi được các câu lạc bộ sử dụng thường xuyên đến mức người dân khác không có đủ thời gian/cơ hội để tập luyện). Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "facility",
+                  "ipa": "/fəˈsɪl.ə.ti/",
+                  "meaning": "cơ sở vật chất, trang thiết bị",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "t03-r-q24",
+              "questionNumber": 24,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "How does Karina feel about spending so much time diving?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "surprised by one effect it has had on her"
+                },
+                {
+                  "key": "B",
+                  "text": "sorry she no longer sees her friends so much"
+                },
+                {
+                  "key": "C",
+                  "text": "anxious about the amount of money it costs"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Ở đoạn cuối, Karina tâm sự: 'The only thing I hadn’t realised was that the pool water would damage my hair – I used to love my long hair, but I’ve had to cut it short because it looked awful!' (Điều duy nhất cô không ngờ tới là nước hồ bơi làm hỏng mái tóc dài khiến cô phải cắt ngắn). Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "pretend",
+                  "ipa": "/prɪˈtend/",
+                  "meaning": "giả vờ",
+                  "partOfSpeech": "verb"
+                },
+                {
+                  "word": "financial help",
+                  "ipa": "/faɪˈnæn.ʃəl help/",
+                  "meaning": "hỗ trợ tài chính",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "t03-r-q25",
+              "questionNumber": 25,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "What would the writer say about Karina?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "She’s a young girl who’s achieved a lot by becoming a national diving champion – and all with very little support."
+                },
+                {
+                  "key": "B",
+                  "text": "She’s made enormous progress in a very short time – after only a couple of years, she’s already showing great signs of success."
+                },
+                {
+                  "key": "C",
+                  "text": "She has a lot of natural talent, but she’s already thinking of having a break from the high board for a while."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Đoạn 4 khẳng định: 'Fortunately, though, Karina’s coach noticed her talent and helped her develop her techniques. After only two years, she’s winning competitions in her area.' (Chỉ sau 2 năm, cô đã giành chiến thắng tại các giải đấu trong khu vực — tiến bộ vượt bậc trong thời gian ngắn). Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "progress",
+                  "ipa": "/ˈprəʊ.ɡres/",
+                  "meaning": "sự tiến bộ",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimitMinutes": 25,
+      "totalQuestions": 20,
+      "tasks": [
+        {
+          "id": "listening-part1",
+          "partNumber": 1,
+          "title": "Part 1: Short Recordings",
+          "instructions": "There are 7 questions in this part. For each question, listen to the recording TWICE and choose the correct answer A, B, or C.",
+          "playCountLimit": 2,
+          "media": {
+            "audioUrl": "/audio/vnu-bac3/test-03/listening-part1.mp3"
+          },
+          "transcript": "1. Which T-shirt does the boy decide to buy?\nBoy: I’d like to buy a black T-shirt with short sleeves, please. Large size.\nWoman: I’m afraid the black ones have long sleeves, but we’ve got short sleeves in the lighter colours. Do you want a round neck or a V-neck?\nBoy: It must be round neck. Let me think … umm, OK, I’ll take one of the short-sleeved ones, the colour’s not so important really.\n\n2. Who will be on the stage next?\nMan: And that was Shark, with Jo on piano and Rich on guitar. Lots of music to come, including The Three Biscuits with songs from their new CD. But first, here are Subway – you all know the drummer and guitarist, but singing here with them for the first time is Sarah Ireland, the drummer’s sister – please give her a big welcome.\n\n3. What time will the pie be ready?\nGirl: What time is it, Mum? Do you think the apple pie will be ready yet?\nMum: It’s 4.35.\nGirl: And the pie went into the oven at a quarter past four?\nMum: That’s right. You could check it at five and turn the heat down a bit but don’t take it out until twenty past. That’s forty-five minutes to go!\nGirl: OK, I’m hungry already.\n\n4. Which photo does the girl dislike?\nGirl: I’ve got the photos back! Look, this one of us on the beach is just brilliant!\nBoy: Yes … You must get a copy for me to put in my photo album. It was a great day, but that other one’s good too!\nGirl: I don’t know why you think so, that dress I’m wearing looks awful. I only bought it because it was half-price. The one of us on the boat isn’t bad, look.\nBoy: Mm … apart from the fact that we look seasick!\n\n5. What should the students take on the school trip?\nTeacher: Now, you won’t need any money for the bus or your entrance ticket to the museum tomorrow, because that’s already paid for. But bring some change for when you get thirsty and want to buy a drink. The only food or drink allowed on the bus is fruit. Bring some with you because it’s quite a long trip, and you’ll get hungry. And you’ll need to bring all your coloured pencils for the work I’m going to ask you to do there.\n\n6. Where do the boys decide to go?\nBoy 1: So, we’ve got three hours. Shall we go skateboarding in the park? What do you think?\nBoy 2: Well, there’s the latest space film, which is meant to be good, or there’s a new computer-game shop which has just opened.\nBoy 1: Oh, well I haven’t got enough money to buy a new game anyway. Let’s go and watch the film.\nBoy 2: OK. We can go skateboarding any time.\n\n7. What has the girl lost?\nTeacher: Can I help you? You look worried. Is everything all right?\nGirl: Well, I was in the playground about ten minutes ago with my friends and I got a call on my mobile phone – I had to get a pen out of my bag to write something down and I think my purse fell out. I can’t find it now. Do you know if anyone has handed it in?\nTeacher: You know you’re not supposed to bring phones to school – anyway, let me go and check. What colour is it?",
+          "questions": [
+            {
+              "id": "t03-l-q1",
+              "questionNumber": 1,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Which T-shirt does the boy decide to buy?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "A light-coloured T-shirt with short sleeves and a round neck"
+                },
+                {
+                  "key": "B",
+                  "text": "A black T-shirt with long sleeves and a round neck"
+                },
+                {
+                  "key": "C",
+                  "text": "A light-coloured T-shirt with short sleeves and a V-neck"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Bạn nam muốn áo cổ tròn ('It must be round neck') và quyết định lấy chiếc áo ngắn tay màu sáng ('I’ll take one of the short-sleeved ones, the colour’s not so important really'). Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "short sleeves",
+                  "ipa": "/ʃɔːt sliːvz/",
+                  "meaning": "tay áo ngắn",
+                  "partOfSpeech": "noun phrase"
+                },
+                {
+                  "word": "round neck",
+                  "ipa": "/raʊnd nek/",
+                  "meaning": "cổ áo tròn",
+                  "partOfSpeech": "noun phrase"
+                }
+              ],
+              "transcript": "1. Which T-shirt does the boy decide to buy?\nBoy: I’d like to buy a black T-shirt with short sleeves, please. Large size.\nWoman: I’m afraid the black ones have long sleeves, but we’ve got short sleeves in the lighter colours. Do you want a round neck or a V-neck?\nBoy: It must be round neck. Let me think … umm, OK, I’ll take one of the short-sleeved ones, the colour’s not so important really."
+            },
+            {
+              "id": "t03-l-q2",
+              "questionNumber": 2,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Who will be on the stage next?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "A pianist and a guitarist (Shark)"
+                },
+                {
+                  "key": "B",
+                  "text": "Three male musicians with guitars (The Three Biscuits)"
+                },
+                {
+                  "key": "C",
+                  "text": "A drummer, a guitarist, and a female singer (Subway)"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Người dẫn chương trình giới thiệu ban nhạc lên sân khấu tiếp theo: 'But first, here are Subway – you all know the drummer and guitarist, but singing here with them for the first time is Sarah Ireland, the drummer’s sister'. Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "drummer",
+                  "ipa": "/ˈdrʌm.ər/",
+                  "meaning": "người chơi trống",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "stage",
+                  "ipa": "/steɪdʒ/",
+                  "meaning": "sân khấu",
+                  "partOfSpeech": "noun"
+                }
+              ],
+              "transcript": "2. Who will be on the stage next?\nMan: And that was Shark, with Jo on piano and Rich on guitar. Lots of music to come, including The Three Biscuits with songs from their new CD. But first, here are Subway – you all know the drummer and guitarist, but singing here with them for the first time is Sarah Ireland, the drummer’s sister – please give her a big welcome."
+            },
+            {
+              "id": "t03-l-q3",
+              "questionNumber": 3,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "What time will the pie be ready?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "At 4:35"
+                },
+                {
+                  "key": "B",
+                  "text": "At 5:00"
+                },
+                {
+                  "key": "C",
+                  "text": "At 5:20"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Người mẹ dặn: 'You could check it at five and turn the heat down a bit but don’t take it out until twenty past.' (Con có thể kiểm tra bánh lúc 5 giờ nhưng đừng lấy bánh ra cho đến 5 giờ 20 phút). Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "oven",
+                  "ipa": "/ˈʌv.ən/",
+                  "meaning": "lò nướng",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "turn the heat down",
+                  "ipa": "/tɜːn ðə hiːt daʊn/",
+                  "meaning": "vặn nhỏ lửa/nhiệt độ xuống",
+                  "partOfSpeech": "phrase"
+                }
+              ],
+              "transcript": "3. What time will the pie be ready?\nGirl: What time is it, Mum? Do you think the apple pie will be ready yet?\nMum: It’s 4.35.\nGirl: And the pie went into the oven at a quarter past four?\nMum: That’s right. You could check it at five and turn the heat down a bit but don’t take it out until twenty past. That’s forty-five minutes to go!\nGirl: OK, I’m hungry already."
+            },
+            {
+              "id": "t03-l-q4",
+              "questionNumber": 4,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Which photo does the girl dislike?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The photo of them on the beach"
+                },
+                {
+                  "key": "B",
+                  "text": "The photo where she is wearing a dress"
+                },
+                {
+                  "key": "C",
+                  "text": "The photo of them on the boat"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Cô gái chê bức ảnh thứ hai: 'I don’t know why you think so, that dress I’m wearing looks awful. I only bought it because it was half-price.' (Chiếc váy tớ đang mặc trong ảnh đó trông thật tệ). Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "half-price",
+                  "ipa": "/ˌhɑːfˈpraɪs/",
+                  "meaning": "giảm nửa giá (50%)",
+                  "partOfSpeech": "adjective"
+                },
+                {
+                  "word": "seasick",
+                  "ipa": "/ˈsiː.sɪk/",
+                  "meaning": "say sóng",
+                  "partOfSpeech": "adjective"
+                }
+              ],
+              "transcript": "4. Which photo does the girl dislike?\nGirl: I’ve got the photos back! Look, this one of us on the beach is just brilliant!\nBoy: Yes … You must get a copy for me to put in my photo album. It was a great day, but that other one’s good too!\nGirl: I don’t know why you think so, that dress I’m wearing looks awful. I only bought it because it was half-price. The one of us on the boat isn’t bad, look.\nBoy: Mm … apart from the fact that we look seasick!"
+            },
+            {
+              "id": "t03-l-q5",
+              "questionNumber": 5,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "What should the students take on the school trip?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Bus tickets, sandwiches, and a notebook"
+                },
+                {
+                  "key": "B",
+                  "text": "Bottled drinks, museum tickets, and a camera"
+                },
+                {
+                  "key": "C",
+                  "text": "Some change, fruit, and coloured pencils"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Giáo viên dặn học sinh mang theo: tiền lẻ để mua nước ('bring some change'), trái cây để ăn trên xe ('The only food or drink allowed on the bus is fruit. Bring some with you') và bút chì màu ('bring all your coloured pencils'). Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "change",
+                  "ipa": "/tʃeɪndʒ/",
+                  "meaning": "tiền lẻ",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "entrance ticket",
+                  "ipa": "/ˈen.trəns ˈtɪk.ɪt/",
+                  "meaning": "vé vào cổng",
+                  "partOfSpeech": "noun phrase"
+                }
+              ],
+              "transcript": "5. What should the students take on the school trip?\nTeacher: Now, you won’t need any money for the bus or your entrance ticket to the museum tomorrow, because that’s already paid for. But bring some change for when you get thirsty and want to buy a drink. The only food or drink allowed on the bus is fruit. Bring some with you because it’s quite a long trip, and you’ll get hungry. And you’ll need to bring all your coloured pencils for the work I’m going to ask you to do there."
+            },
+            {
+              "id": "t03-l-q6",
+              "questionNumber": 6,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Where do the boys decide to go?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "To the cinema to watch the latest space film"
+                },
+                {
+                  "key": "B",
+                  "text": "To the park to go skateboarding"
+                },
+                {
+                  "key": "C",
+                  "text": "To the new computer-game shop"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Bạn nam thứ nhất không đủ tiền mua game mới nên đề nghị: 'Let’s go and watch the film.' và bạn nam thứ hai đồng ý: 'OK. We can go skateboarding any time.' Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "be meant to be",
+                  "ipa": "/bi ment tuː bi/",
+                  "meaning": "được cho là, nghe nói là",
+                  "partOfSpeech": "phrase"
+                }
+              ],
+              "transcript": "6. Where do the boys decide to go?\nBoy 1: So, we’ve got three hours. Shall we go skateboarding in the park? What do you think?\nBoy 2: Well, there’s the latest space film, which is meant to be good, or there’s a new computer-game shop which has just opened.\nBoy 1: Oh, well I haven’t got enough money to buy a new game anyway. Let’s go and watch the film.\nBoy 2: OK. We can go skateboarding any time."
+            },
+            {
+              "id": "t03-l-q7",
+              "questionNumber": 7,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "What has the girl lost?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Her mobile phone"
+                },
+                {
+                  "key": "B",
+                  "text": "Her purse"
+                },
+                {
+                  "key": "C",
+                  "text": "Her pen"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Cô gái kể rằng khi lấy bút ra khỏi cặp để ghi chép cuộc gọi điện thoại thì chiếc ví tiền nhỏ bị rơi ra ngoài ('I think my purse fell out. I can’t find it now'). Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "purse",
+                  "ipa": "/pɜːs/",
+                  "meaning": "ví tiền nhỏ",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "hand in",
+                  "ipa": "/hænd ɪn/",
+                  "meaning": "nộp lại, giao nộp (đồ nhặt được)",
+                  "partOfSpeech": "phrasal verb"
+                }
+              ],
+              "transcript": "7. What has the girl lost?\nTeacher: Can I help you? You look worried. Is everything all right?\nGirl: Well, I was in the playground about ten minutes ago with my friends and I got a call on my mobile phone – I had to get a pen out of my bag to write something down and I think my purse fell out. I can’t find it now. Do you know if anyone has handed it in?\nTeacher: You know you’re not supposed to bring phones to school – anyway, let me go and check. What colour is it?"
+            }
+          ]
+        },
+        {
+          "id": "listening-part2",
+          "partNumber": 2,
+          "title": "Part 2: Short Conversations",
+          "instructions": "There are 7 questions in this part. Listen to the conversations TWICE and choose the correct answer A, B, or C.",
+          "playCountLimit": 2,
+          "media": {
+            "audioUrl": "/audio/vnu-bac3/test-03/listening-part2.mp3"
+          },
+          "transcript": "8. You will hear two friends talking about a play.\nBoy: Hey, what happened to you? You just disappeared from the theatre yesterday.\nGirl: Erm, well, I did tell the teacher I wanted to leave.\nBoy: What was wrong? I didn’t think the play was that terrible?\nGirl: It was nothing to do with that. You know what it’s like when you get toothache, though – you can’t concentrate on anything. The teacher phoned my mum who contacted the dentist, but they couldn’t see me yesterday, even though it was a bit of an emergency. So I had to go this morning.\nBoy: It seems you’ll do anything to avoid going to the theatre!\n\n9. You will hear two friends talking about the food at a school party.\nGirl: The party was fun, wasn’t it?\nBoy: It was. It was a bit of a shame that everyone was told to bring anything they wanted, rather than making a list of who should bring what.\nGirl: Yes, it certainly meant that lots of people brought the same thing.\nBoy: Not having lots of stuff to choose from doesn’t bother me as long as you like what’s there, which I did.\nGirl: Me too. I didn’t see anyone eating what I brought – apart from us of course.\nBoy: No, but that meant there was more for us.\n\n10. You will hear two friends talking about a soccer match they both watched on TV.\nGirl: Did you see the soccer match last night?\nBoy: Sure did, and although I can’t say I was unhappy at the result, it wasn’t the most interesting game I’ve ever seen.\nGirl: They’ve played better, I agree, but I didn’t think they did that badly, especially that guy you really like.\nBoy: He did well, but he was the only one who did. Imagine if he got injured and couldn’t play for a few weeks – they’d lose every game.\nGirl: Let’s hope that never happens. Anyway, I thought it was a pretty entertaining game.\nBoy: I’ve seen our school team play more interesting soccer.\n\n11. You will hear two friends talking about a new science building at their school.\nBoy: Have you been in the new science building yet?\nGirl: I had a class in there this morning. It’s a shame they’ve used all the stuff for experiments from the old building.\nBoy: Yes, it’d be nice to have new things like that as well as a new building. What do you think of it inside?\nGirl: The colours are nice and those paintings make it look really modern.\nBoy: I don’t think we share the same taste in colours and paintings, but I’m really impressed with the design of the outside.\nGirl: I can’t think of a building I like the look of more.\n\n12. You will hear a girl talking about a blog she has started writing.\nBoy: Have you started your blog yet?\nGirl: I’ve already written five entries and have had nice comments from some readers. That really makes it seem like it was worth doing, despite all the issues I had when I was getting it ready. The website used said it was easy to create a blog – and maybe it is for someone who’s a bit more familiar with IT than I am.\nBoy: Have you put pictures in, too?\nGirl: A few. I think I need more, though, to get it looking as good as some of the other blogs I’ve seen.\n\n13 & 14. You will hear a girl telling her friend about learning Chinese.\nBoy: Are you still enjoying your Chinese lessons?\nGirl: I am, but we always focus on reading and writing. I know they’re important, but I want to learn other skills, too.\nBoy: There’s loads of stuff online for improving reading and writing, but less for speaking, I guess. It’s the same problem with coursebooks – they’re good for exercises on grammar and things, but you obviously can’t talk to a book!\nGirl: No …\nBoy: But lots of people learn Chinese these days, so there must be groups that meet just to practise talking to each other. Why not search for one of those?\nGirl: Hmm, maybe.",
+          "questions": [
+            {
+              "id": "t03-l-q8",
+              "questionNumber": 8,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear two friends talking about a play.\nWhy did the girl leave the theatre early?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "She felt unwell."
+                },
+                {
+                  "key": "B",
+                  "text": "She hated the play."
+                },
+                {
+                  "key": "C",
+                  "text": "She had an appointment."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Cô gái giải thích rằng cô bị đau răng dữ dội nên không thể tập trung xem kịch ('You know what it’s like when you get toothache, though – you can’t concentrate on anything'), còn nha sĩ thì sáng hôm sau mới khám được. Do đó cô rời nhà hát sớm vì cảm thấy không khỏe. Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "toothache",
+                  "ipa": "/ˈtuːθ.eɪk/",
+                  "meaning": "cơn đau răng",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "concentrate",
+                  "ipa": "/ˈkɒn.sən.treɪt/",
+                  "meaning": "tập trung",
+                  "partOfSpeech": "verb"
+                }
+              ],
+              "transcript": "8. You will hear two friends talking about a play.\nBoy: Hey, what happened to you? You just disappeared from the theatre yesterday.\nGirl: Erm, well, I did tell the teacher I wanted to leave.\nBoy: What was wrong? I didn’t think the play was that terrible?\nGirl: It was nothing to do with that. You know what it’s like when you get toothache, though – you can’t concentrate on anything. The teacher phoned my mum who contacted the dentist, but they couldn’t see me yesterday, even though it was a bit of an emergency. So I had to go this morning.\nBoy: It seems you’ll do anything to avoid going to the theatre!"
+            },
+            {
+              "id": "t03-l-q9",
+              "questionNumber": 9,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear two friends talking about the food at a school party.\nThey agree that",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "there was lots of variety."
+                },
+                {
+                  "key": "B",
+                  "text": "everything there was tasty."
+                },
+                {
+                  "key": "C",
+                  "text": "the food they took was popular."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Bạn nam nói việc không có nhiều món đa dạng không làm cậu bận tâm miễn là đồ ăn ở đó ngon và hợp khẩu vị, điều mà cậu rất thích ('as long as you like what’s there, which I did'). Bạn nữ đồng tình ('Me too'). Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "variety",
+                  "ipa": "/vəˈraɪ.ə.ti/",
+                  "meaning": "sự đa dạng",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "bother",
+                  "ipa": "/ˈbɒð.ər/",
+                  "meaning": "làm phiền, làm bận tâm",
+                  "partOfSpeech": "verb"
+                }
+              ],
+              "transcript": "9. You will hear two friends talking about the food at a school party.\nGirl: The party was fun, wasn’t it?\nBoy: It was. It was a bit of a shame that everyone was told to bring anything they wanted, rather than making a list of who should bring what.\nGirl: Yes, it certainly meant that lots of people brought the same thing.\nBoy: Not having lots of stuff to choose from doesn’t bother me as long as you like what’s there, which I did.\nGirl: Me too. I didn’t see anyone eating what I brought – apart from us of course.\nBoy: No, but that meant there was more for us."
+            },
+            {
+              "id": "t03-l-q10",
+              "questionNumber": 10,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear two friends talking about a soccer match they both watched on TV.\nWhy was the boy disappointed?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The team he supports lost."
+                },
+                {
+                  "key": "B",
+                  "text": "His favourite player was injured."
+                },
+                {
+                  "key": "C",
+                  "text": "The quality of the match was bad."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Bạn nam nói dù hài lòng với kết quả nhưng trận đấu không hấp dẫn ('it wasn’t the most interesting game I’ve ever seen... I’ve seen our school team play more interesting soccer'). Tức là chất lượng chuyên môn của trận đấu kém. Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "entertaining",
+                  "ipa": "/ˌen.təˈteɪ.nɪŋ/",
+                  "meaning": "có tính giải trí, hấp dẫn",
+                  "partOfSpeech": "adjective"
+                }
+              ],
+              "transcript": "10. You will hear two friends talking about a soccer match they both watched on TV.\nGirl: Did you see the soccer match last night?\nBoy: Sure did, and although I can’t say I was unhappy at the result, it wasn’t the most interesting game I’ve ever seen.\nGirl: They’ve played better, I agree, but I didn’t think they did that badly, especially that guy you really like.\nBoy: He did well, but he was the only one who did. Imagine if he got injured and couldn’t play for a few weeks – they’d lose every game.\nGirl: Let’s hope that never happens. Anyway, I thought it was a pretty entertaining game.\nBoy: I’ve seen our school team play more interesting soccer."
+            },
+            {
+              "id": "t03-l-q11",
+              "questionNumber": 11,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear two friends talking about a new science building at their school.\nThey agree that",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "it looks great from the outside."
+                },
+                {
+                  "key": "B",
+                  "text": "the equipment is very good."
+                },
+                {
+                  "key": "C",
+                  "text": "it is very well decorated."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Bạn nam nói rất ấn tượng với thiết kế bên ngoài ('I’m really impressed with the design of the outside'), và bạn nữ hoàn toàn đồng ý ('I can’t think of a building I like the look of more'). Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "be impressed with",
+                  "ipa": "/bi ɪmˈprest wɪð/",
+                  "meaning": "ấn tượng với",
+                  "partOfSpeech": "phrase"
+                }
+              ],
+              "transcript": "11. You will hear two friends talking about a new science building at their school.\nBoy: Have you been in the new science building yet?\nGirl: I had a class in there this morning. It’s a shame they’ve used all the stuff for experiments from the old building.\nBoy: Yes, it’d be nice to have new things like that as well as a new building. What do you think of it inside?\nGirl: The colours are nice and those paintings make it look really modern.\nBoy: I don’t think we share the same taste in colours and paintings, but I’m really impressed with the design of the outside.\nGirl: I can’t think of a building I like the look of more."
+            },
+            {
+              "id": "t03-l-q12",
+              "questionNumber": 12,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear a girl talking about a blog she has started writing.\nHow does she feel about it?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "delighted that other people like it"
+                },
+                {
+                  "key": "B",
+                  "text": "surprised it was so easy to set up"
+                },
+                {
+                  "key": "C",
+                  "text": "satisfied with its appearance"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Cô gái nói đã viết 5 bài và nhận được những bình luận khen ngợi từ độc giả, điều đó khiến cô cảm thấy công sức bỏ ra thật xứng đáng ('have had nice comments from some readers. That really makes it seem like it was worth doing'). Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "worth doing",
+                  "ipa": "/wɜːθ ˈduː.ɪŋ/",
+                  "meaning": "đáng để làm, bõ công",
+                  "partOfSpeech": "phrase"
+                }
+              ],
+              "transcript": "12. You will hear a girl talking about a blog she has started writing.\nBoy: Have you started your blog yet?\nGirl: I’ve already written five entries and have had nice comments from some readers. That really makes it seem like it was worth doing, despite all the issues I had when I was getting it ready. The website used said it was easy to create a blog – and maybe it is for someone who’s a bit more familiar with IT than I am.\nBoy: Have you put pictures in, too?\nGirl: A few. I think I need more, though, to get it looking as good as some of the other blogs I’ve seen."
+            },
+            {
+              "id": "t03-l-q13",
+              "questionNumber": 13,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear a girl telling her friend about learning Chinese.\nThe boy suggests that the girl should",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "use websites to help her."
+                },
+                {
+                  "key": "B",
+                  "text": "find a conversation class."
+                },
+                {
+                  "key": "C",
+                  "text": "buy a good textbook."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Bạn nam gợi ý: Ngày nay có nhiều người học tiếng Trung nên chắc chắn có những nhóm gặp nhau để luyện nói chuyện, hãy thử tìm một nhóm như thế ('there must be groups that meet just to practise talking to each other. Why not search for one of those?'). Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "focus on",
+                  "ipa": "/ˈfəʊ.kəs ɒn/",
+                  "meaning": "tập trung vào",
+                  "partOfSpeech": "phrasal verb"
+                }
+              ],
+              "transcript": "13 & 14. You will hear a girl telling her friend about learning Chinese.\nBoy: Are you still enjoying your Chinese lessons?\nGirl: I am, but we always focus on reading and writing. I know they’re important, but I want to learn other skills, too.\nBoy: There’s loads of stuff online for improving reading and writing, but less for speaking, I guess. It’s the same problem with coursebooks – they’re good for exercises on grammar and things, but you obviously can’t talk to a book!\nGirl: No …\nBoy: But lots of people learn Chinese these days, so there must be groups that meet just to practise talking to each other. Why not search for one of those?\nGirl: Hmm, maybe."
+            },
+            {
+              "id": "t03-l-q14",
+              "questionNumber": 14,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "In the same conversation about learning Chinese, what does the boy say coursebooks are good for?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Practising natural speaking skills"
+                },
+                {
+                  "key": "B",
+                  "text": "Doing exercises on grammar"
+                },
+                {
+                  "key": "C",
+                  "text": "Learning traditional Chinese songs"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Trong đoạn hội thoại số 13, bạn nam nhận xét về sách giáo trình: 'It’s the same problem with coursebooks – they’re good for exercises on grammar and things, but you obviously can’t talk to a book!' (Sách giáo trình rất tốt để làm bài tập ngữ pháp). Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "coursebook",
+                  "ipa": "/ˈkɔːs.bʊk/",
+                  "meaning": "sách giáo trình",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "obviously",
+                  "ipa": "/ˈɒb.vi.əs.li/",
+                  "meaning": "rõ ràng, hiển nhiên",
+                  "partOfSpeech": "adverb"
+                }
+              ],
+              "transcript": "13 & 14. You will hear a girl telling her friend about learning Chinese.\nBoy: Are you still enjoying your Chinese lessons?\nGirl: I am, but we always focus on reading and writing. I know they’re important, but I want to learn other skills, too.\nBoy: There’s loads of stuff online for improving reading and writing, but less for speaking, I guess. It’s the same problem with coursebooks – they’re good for exercises on grammar and things, but you obviously can’t talk to a book!\nGirl: No …\nBoy: But lots of people learn Chinese these days, so there must be groups that meet just to practise talking to each other. Why not search for one of those?\nGirl: Hmm, maybe."
+            }
+          ]
+        },
+        {
+          "id": "listening-part3",
+          "partNumber": 3,
+          "title": "Part 3: Extended Conversation (True / False)",
+          "instructions": "There are 6 questions in this part. You will hear Lisa and Sam talking about a book they have both read. Decide whether statements 15 to 20 are Correct (True) or Incorrect (False). Choose A for True and B for False.",
+          "playCountLimit": 2,
+          "media": {
+            "audioUrl": "/audio/vnu-bac3/test-03/listening-part3.mp3"
+          },
+          "transcript": "You will hear a girl called Lisa and a boy called Sam talking about a book they have both read.\n\nLisa: So, Sam, have you finished that book we had to read for school, Lime Country?\nSam: Oh, hi, Lisa. Yeah, just last weekend. It took me a long time to get into it. The first chapter was difficult. But in the end I couldn’t put it down.\nLisa: I liked it from the first page. I’ve never finished a book so quickly, and normally I don’t like reading fiction.\nSam: The main character in the story, Paul, was interesting. He hurt his leg badly and couldn’t play football with the other kids. But the author didn’t make you feel pity for him.\nLisa: Yes, that was because he was such a strong character. He couldn’t do anything active, but he used his time to think about game plans for his team. They depended on him in the end.\nSam: He was almost like a coach.\nLisa: I thought the book was well written and it had a good plot. There was a bit of mystery about Paul’s brother. Did he cause Paul’s injury? Was he jealous of Paul? You don’t find out until the very end.\nSam: I didn’t care so much about that. It was the football matches I liked, seen through Paul’s eyes. I could imagine exactly what was happening.\nLisa: The author was clever because when Paul was unhappy, the whole story – the weather, the background – sort of got darker, so the reader could feel what Paul was feeling.\nSam: There was quite a lot of detail about the techniques of football. I think the author got that just right.\nLisa: Any more would make it too long, and boring for people who weren’t mad about football. That side of the book was about right. For me, the best part was that Paul realised what’s important in life and how to deal with tough situations. He really grew as a person.",
+          "questions": [
+            {
+              "id": "t03-l-q15",
+              "questionNumber": 15,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Lisa disliked the book when she first started reading it.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Lisa khẳng định: 'I liked it from the first page. I’ve never finished a book so quickly' (Tớ thích cuốn sách ngay từ trang đầu tiên). Người thấy chương đầu khó đọc là Sam chứ không phải Lisa. Đáp án B (False) đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "put it down",
+                  "ipa": "/pʊt ɪt daʊn/",
+                  "meaning": "đặt sách xuống (ngừng đọc)",
+                  "partOfSpeech": "phrase"
+                },
+                {
+                  "word": "fiction",
+                  "ipa": "/ˈfɪk.ʃən/",
+                  "meaning": "truyện hư cấu, tiểu thuyết",
+                  "partOfSpeech": "noun"
+                }
+              ],
+              "transcript": "You will hear a girl called Lisa and a boy called Sam talking about a book they have both read.\n\nLisa: So, Sam, have you finished that book we had to read for school, Lime Country?\nSam: Oh, hi, Lisa. Yeah, just last weekend. It took me a long time to get into it. The first chapter was difficult. But in the end I couldn’t put it down.\nLisa: I liked it from the first page. I’ve never finished a book so quickly, and normally I don’t like reading fiction.\nSam: The main character in the story, Paul, was interesting. He hurt his leg badly and couldn’t play football with the other kids. But the author didn’t make you feel pity for him.\nLisa: Yes, that was because he was such a strong character. He couldn’t do anything active, but he used his time to think about game plans for his team. They depended on him in the end.\nSam: He was almost like a coach.\nLisa: I thought the book was well written and it had a good plot. There was a bit of mystery about Paul’s brother. Did he cause Paul’s injury? Was he jealous of Paul? You don’t find out until the very end.\nSam: I didn’t care so much about that. It was the football matches I liked, seen through Paul’s eyes. I could imagine exactly what was happening.\nLisa: The author was clever because when Paul was unhappy, the whole story – the weather, the background – sort of got darker, so the reader could feel what Paul was feeling.\nSam: There was quite a lot of detail about the techniques of football. I think the author got that just right.\nLisa: Any more would make it too long, and boring for people who weren’t mad about football. That side of the book was about right. For me, the best part was that Paul realised what’s important in life and how to deal with tough situations. He really grew as a person."
+            },
+            {
+              "id": "t03-l-q16",
+              "questionNumber": 16,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Sam and Lisa felt sorry for Paul, the main character in the book.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Sam nói: 'But the author didn’t make you feel pity for him.' (Tác giả không làm cho người đọc cảm thấy thương hại cậu ấy) và Lisa đồng tình: 'Yes, that was because he was such a strong character.' Đáp án B (False) đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "feel pity for",
+                  "ipa": "/fiːl ˈpɪt.i fɔːr/",
+                  "meaning": "cảm thấy thương hại, tội nghiệp cho ai",
+                  "partOfSpeech": "phrase"
+                }
+              ],
+              "transcript": "You will hear a girl called Lisa and a boy called Sam talking about a book they have both read.\n\nLisa: So, Sam, have you finished that book we had to read for school, Lime Country?\nSam: Oh, hi, Lisa. Yeah, just last weekend. It took me a long time to get into it. The first chapter was difficult. But in the end I couldn’t put it down.\nLisa: I liked it from the first page. I’ve never finished a book so quickly, and normally I don’t like reading fiction.\nSam: The main character in the story, Paul, was interesting. He hurt his leg badly and couldn’t play football with the other kids. But the author didn’t make you feel pity for him.\nLisa: Yes, that was because he was such a strong character. He couldn’t do anything active, but he used his time to think about game plans for his team. They depended on him in the end.\nSam: He was almost like a coach.\nLisa: I thought the book was well written and it had a good plot. There was a bit of mystery about Paul’s brother. Did he cause Paul’s injury? Was he jealous of Paul? You don’t find out until the very end.\nSam: I didn’t care so much about that. It was the football matches I liked, seen through Paul’s eyes. I could imagine exactly what was happening.\nLisa: The author was clever because when Paul was unhappy, the whole story – the weather, the background – sort of got darker, so the reader could feel what Paul was feeling.\nSam: There was quite a lot of detail about the techniques of football. I think the author got that just right.\nLisa: Any more would make it too long, and boring for people who weren’t mad about football. That side of the book was about right. For me, the best part was that Paul realised what’s important in life and how to deal with tough situations. He really grew as a person."
+            },
+            {
+              "id": "t03-l-q17",
+              "questionNumber": 17,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Sam was interested in the mystery about Paul and his brother.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Khi Lisa nhắc đến bí ẩn về người anh trai của Paul, Sam đáp: 'I didn’t care so much about that. It was the football matches I liked...' (Tớ không quan tâm nhiều đến chi tiết đó, thứ tớ thích là các trận bóng đá). Đáp án B (False) đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "mystery",
+                  "ipa": "/ˈmɪs.tər.i/",
+                  "meaning": "điều bí ẩn",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "jealous",
+                  "ipa": "/ˈdʒel.əs/",
+                  "meaning": "ghen tị, đố kỵ",
+                  "partOfSpeech": "adjective"
+                }
+              ],
+              "transcript": "You will hear a girl called Lisa and a boy called Sam talking about a book they have both read.\n\nLisa: So, Sam, have you finished that book we had to read for school, Lime Country?\nSam: Oh, hi, Lisa. Yeah, just last weekend. It took me a long time to get into it. The first chapter was difficult. But in the end I couldn’t put it down.\nLisa: I liked it from the first page. I’ve never finished a book so quickly, and normally I don’t like reading fiction.\nSam: The main character in the story, Paul, was interesting. He hurt his leg badly and couldn’t play football with the other kids. But the author didn’t make you feel pity for him.\nLisa: Yes, that was because he was such a strong character. He couldn’t do anything active, but he used his time to think about game plans for his team. They depended on him in the end.\nSam: He was almost like a coach.\nLisa: I thought the book was well written and it had a good plot. There was a bit of mystery about Paul’s brother. Did he cause Paul’s injury? Was he jealous of Paul? You don’t find out until the very end.\nSam: I didn’t care so much about that. It was the football matches I liked, seen through Paul’s eyes. I could imagine exactly what was happening.\nLisa: The author was clever because when Paul was unhappy, the whole story – the weather, the background – sort of got darker, so the reader could feel what Paul was feeling.\nSam: There was quite a lot of detail about the techniques of football. I think the author got that just right.\nLisa: Any more would make it too long, and boring for people who weren’t mad about football. That side of the book was about right. For me, the best part was that Paul realised what’s important in life and how to deal with tough situations. He really grew as a person."
+            },
+            {
+              "id": "t03-l-q18",
+              "questionNumber": 18,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Lisa thought the author helped the reader to understand Paul.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Lisa nhận xét: 'The author was clever because when Paul was unhappy, the whole story – the weather, the background – sort of got darker, so the reader could feel what Paul was feeling.' (Tác giả rất khéo léo giúp người đọc cảm nhận được tâm trạng của Paul). Đáp án A (True) đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "background",
+                  "ipa": "/ˈbæk.ɡraʊnd/",
+                  "meaning": "bối cảnh",
+                  "partOfSpeech": "noun"
+                }
+              ],
+              "transcript": "You will hear a girl called Lisa and a boy called Sam talking about a book they have both read.\n\nLisa: So, Sam, have you finished that book we had to read for school, Lime Country?\nSam: Oh, hi, Lisa. Yeah, just last weekend. It took me a long time to get into it. The first chapter was difficult. But in the end I couldn’t put it down.\nLisa: I liked it from the first page. I’ve never finished a book so quickly, and normally I don’t like reading fiction.\nSam: The main character in the story, Paul, was interesting. He hurt his leg badly and couldn’t play football with the other kids. But the author didn’t make you feel pity for him.\nLisa: Yes, that was because he was such a strong character. He couldn’t do anything active, but he used his time to think about game plans for his team. They depended on him in the end.\nSam: He was almost like a coach.\nLisa: I thought the book was well written and it had a good plot. There was a bit of mystery about Paul’s brother. Did he cause Paul’s injury? Was he jealous of Paul? You don’t find out until the very end.\nSam: I didn’t care so much about that. It was the football matches I liked, seen through Paul’s eyes. I could imagine exactly what was happening.\nLisa: The author was clever because when Paul was unhappy, the whole story – the weather, the background – sort of got darker, so the reader could feel what Paul was feeling.\nSam: There was quite a lot of detail about the techniques of football. I think the author got that just right.\nLisa: Any more would make it too long, and boring for people who weren’t mad about football. That side of the book was about right. For me, the best part was that Paul realised what’s important in life and how to deal with tough situations. He really grew as a person."
+            },
+            {
+              "id": "t03-l-q19",
+              "questionNumber": 19,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Sam wished there was more information about football in the book.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Sam nói: 'There was quite a lot of detail about the techniques of football. I think the author got that just right.' (Đã có khá nhiều chi tiết về kỹ thuật bóng đá và tác giả viết vừa đủ). Cậu không mong có thêm thông tin nữa. Đáp án B (False) đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "just right",
+                  "ipa": "/dʒʌst raɪt/",
+                  "meaning": "vừa vặn, vừa đủ chuẩn",
+                  "partOfSpeech": "phrase"
+                }
+              ],
+              "transcript": "You will hear a girl called Lisa and a boy called Sam talking about a book they have both read.\n\nLisa: So, Sam, have you finished that book we had to read for school, Lime Country?\nSam: Oh, hi, Lisa. Yeah, just last weekend. It took me a long time to get into it. The first chapter was difficult. But in the end I couldn’t put it down.\nLisa: I liked it from the first page. I’ve never finished a book so quickly, and normally I don’t like reading fiction.\nSam: The main character in the story, Paul, was interesting. He hurt his leg badly and couldn’t play football with the other kids. But the author didn’t make you feel pity for him.\nLisa: Yes, that was because he was such a strong character. He couldn’t do anything active, but he used his time to think about game plans for his team. They depended on him in the end.\nSam: He was almost like a coach.\nLisa: I thought the book was well written and it had a good plot. There was a bit of mystery about Paul’s brother. Did he cause Paul’s injury? Was he jealous of Paul? You don’t find out until the very end.\nSam: I didn’t care so much about that. It was the football matches I liked, seen through Paul’s eyes. I could imagine exactly what was happening.\nLisa: The author was clever because when Paul was unhappy, the whole story – the weather, the background – sort of got darker, so the reader could feel what Paul was feeling.\nSam: There was quite a lot of detail about the techniques of football. I think the author got that just right.\nLisa: Any more would make it too long, and boring for people who weren’t mad about football. That side of the book was about right. For me, the best part was that Paul realised what’s important in life and how to deal with tough situations. He really grew as a person."
+            },
+            {
+              "id": "t03-l-q20",
+              "questionNumber": 20,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Lisa liked the way the author developed Paul’s character.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Ở cuối bài, Lisa nói: 'For me, the best part was that Paul realised what’s important in life and how to deal with tough situations. He really grew as a person.' (Phần hay nhất là Paul nhận ra điều quan trọng trong cuộc sống và trưởng thành hơn). Đáp án A (True) đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "deal with",
+                  "ipa": "/diːl wɪð/",
+                  "meaning": "đối mặt, giải quyết",
+                  "partOfSpeech": "phrasal verb"
+                },
+                {
+                  "word": "tough situation",
+                  "ipa": "/tʌf ˌsɪtʃ.uˈeɪ.ʃən/",
+                  "meaning": "hoàn cảnh khó khăn",
+                  "partOfSpeech": "noun phrase"
+                }
+              ],
+              "transcript": "You will hear a girl called Lisa and a boy called Sam talking about a book they have both read.\n\nLisa: So, Sam, have you finished that book we had to read for school, Lime Country?\nSam: Oh, hi, Lisa. Yeah, just last weekend. It took me a long time to get into it. The first chapter was difficult. But in the end I couldn’t put it down.\nLisa: I liked it from the first page. I’ve never finished a book so quickly, and normally I don’t like reading fiction.\nSam: The main character in the story, Paul, was interesting. He hurt his leg badly and couldn’t play football with the other kids. But the author didn’t make you feel pity for him.\nLisa: Yes, that was because he was such a strong character. He couldn’t do anything active, but he used his time to think about game plans for his team. They depended on him in the end.\nSam: He was almost like a coach.\nLisa: I thought the book was well written and it had a good plot. There was a bit of mystery about Paul’s brother. Did he cause Paul’s injury? Was he jealous of Paul? You don’t find out until the very end.\nSam: I didn’t care so much about that. It was the football matches I liked, seen through Paul’s eyes. I could imagine exactly what was happening.\nLisa: The author was clever because when Paul was unhappy, the whole story – the weather, the background – sort of got darker, so the reader could feel what Paul was feeling.\nSam: There was quite a lot of detail about the techniques of football. I think the author got that just right.\nLisa: Any more would make it too long, and boring for people who weren’t mad about football. That side of the book was about right. For me, the best part was that Paul realised what’s important in life and how to deal with tough situations. He really grew as a person."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing (Viết)",
+      "timeLimitMinutes": 40,
+      "totalQuestions": 2,
+      "tasks": [
+        {
+          "id": "writing-task1",
+          "partNumber": 1,
+          "title": "Task 1: School Library Volunteer Profile",
+          "instructions": "Write a paragraph of at least 80 words for your school newsletter introducing a dedicated School Library Volunteer. Use all the information in the box.",
+          "questions": [],
+          "writingPrompts": [
+            {
+              "id": "t03-w-t1",
+              "taskNumber": 1,
+              "title": "School Library Volunteer",
+              "instructions": "Write at least 80 words introducing the volunteer based on the given notes.",
+              "minWords": 80,
+              "dataCard": {
+                "Name": "Nguyen Mai Linh",
+                "Role": "Arrange books, help younger students",
+                "Time": "Every Saturday morning",
+                "Reason": "Loves books and wants to help"
+              },
+              "sampleAnswer": "This week, our school newsletter would like to introduce Nguyen Mai Linh, one of our most hardworking school library volunteers. Every Saturday morning, Linh spends three hours at the library helping the librarian arrange books neatly on the shelves and keeping the reading room quiet and tidy. In addition, she patiently helps younger students find suitable storybooks and reference materials for their homework. Linh shared that she joined the volunteer team because she truly loves reading books and wants to help other students develop a good reading habit."
+            }
+          ]
+        },
+        {
+          "id": "writing-task2",
+          "partNumber": 2,
+          "title": "Task 2: Opinion Paragraph (Choice)",
+          "instructions": "Choose ONE of the two topics below and write a paragraph of at least 100 words. State your opinion clearly and provide supporting ideas and examples.",
+          "questions": [],
+          "writingPrompts": [
+            {
+              "id": "t03-w-t2",
+              "taskNumber": 2,
+              "title": "Choose Topic 2.1 or Topic 2.2",
+              "instructions": "Choose ONE topic and write a well-structured paragraph of at least 100 words.",
+              "minWords": 100,
+              "topicChoices": [
+                {
+                  "code": "2.1",
+                  "topic": "Write a paragraph about how traveling helps people understand the world.",
+                  "guidelines": [
+                    "Experiencing different cultures, traditions, and local cuisines directly",
+                    "Meeting new people and learning to respect different lifestyles",
+                    "Broadening knowledge beyond what is taught in books"
+                  ]
+                },
+                {
+                  "code": "2.2",
+                  "topic": "Write a paragraph about why doing part-time jobs is good for students.",
+                  "guidelines": [
+                    "Gaining practical work experience and communication skills",
+                    "Learning how to manage time and value hard-earned money",
+                    "Becoming more independent and confident before graduation"
+                  ]
+                }
+              ],
+              "sampleAnswer": "Traveling is one of the best and most enjoyable ways to help people understand the world around them. First of all, when we visit new places, we have a wonderful chance to experience different cultures, local festivals, and traditional cuisines directly rather than just watching them on television or the internet. Secondly, traveling allows us to meet local residents and listen to their daily stories, which teaches us to respect different lifestyles, customs, and points of view. Finally, seeing historical monuments and natural wonders with our own eyes broadens our knowledge far beyond textbooks and gives us unforgettable real-life lessons. In conclusion, traveling makes us more open-minded, tolerant, and knowledgeable citizens in our modern society."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking (Nói)",
+      "timeLimitMinutes": 8,
+      "totalQuestions": 2,
+      "tasks": [
+        {
+          "id": "speaking-part1",
+          "partNumber": 1,
+          "title": "Part 1: Social Interaction (3 minutes)",
+          "instructions": "In this part, you will answer 5 questions about yourself and familiar everyday topics. Speak naturally and give full sentences.",
+          "questions": [],
+          "speakingPrompts": [
+            {
+              "id": "t03-s-p1",
+              "partNumber": 1,
+              "title": "Social Interaction — Practice Test 3",
+              "instructions": "Answer the examiner's questions clearly and naturally.",
+              "durationMinutes": 3,
+              "questions": [
+                "How do you usually get to school or work every day?",
+                "Do you enjoy learning foreign languages? Why?",
+                "What do you like doing with your friends in your free time?",
+                "Do you prefer indoor activities or outdoor activities?",
+                "What is your favorite festival or holiday in your country?"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "speaking-part2",
+          "partNumber": 2,
+          "title": "Part 2: Cue-Based Description (5 minutes)",
+          "instructions": "Choose ONE of the given cards. You will have 1 minute to prepare your ideas, 1.5 to 2 minutes to talk, and then answer two follow-up questions.",
+          "questions": [],
+          "speakingPrompts": [
+            {
+              "id": "t03-s-p2",
+              "partNumber": 2,
+              "title": "Cue Card Choice — Practice Test 3",
+              "instructions": "Select Card 1 or Card 2 and cover all the bullet points.",
+              "durationMinutes": 5,
+              "cueCards": [
+                {
+                  "code": "Card 1",
+                  "title": "Talk about a person you admire.",
+                  "prompts": [
+                    "Who the person is",
+                    "What they do in their daily life or work",
+                    "And explain why you admire them"
+                  ],
+                  "furtherQuestions": [
+                    "Who do young people in your country usually admire?",
+                    "What qualities make someone a good role model for teenagers?"
+                  ],
+                  "sampleResponse": "A person that I deeply admire is my high school English teacher, Mrs. Lan. She has been teaching English for more than fifteen years and always prepares creative, engaging lessons for her students. I admire her not only for her wide knowledge but also for her patience and kindness. Whenever any student feels shy about speaking English, she encourages us warmly and helps us build confidence step by step."
+                },
+                {
+                  "code": "Card 2",
+                  "title": "Describe a trip you remember.",
+                  "prompts": [
+                    "Where you went and who you went with",
+                    "What activities you did there",
+                    "And explain how you felt about the trip"
+                  ],
+                  "furtherQuestions": [
+                    "Do you prefer traveling with family or with friends?",
+                    "What should people prepare before going on a long trip?"
+                  ],
+                  "sampleResponse": "A memorable trip that I still remember clearly is my family vacation to Ha Long Bay last summer. During the two-day trip, we took a boat tour around the limestone islands, explored a huge cave, and ate delicious fresh seafood on board. In the afternoon, my brother and I went kayaking in the calm green water. I felt very happy and relaxed because it was a wonderful time for my family to bond together."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

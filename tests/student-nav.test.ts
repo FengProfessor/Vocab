@@ -53,21 +53,22 @@ async function runNavTests() {
   assert(learnHrefs.includes('/student'), 'Learn group contains /student (Dashboard)');
   assert(learnHrefs.includes('/journey'), 'Learn group contains /journey (Lộ trình học)');
   assert(learnHrefs.includes('/review'), 'Learn group contains /review (Ôn tập ngắt quãng)');
-  assert(learnHrefs.includes('/grammar/learn'), 'Learn group contains /grammar/learn (Ngữ pháp ứng dụng)');
+  assert(learnHrefs.includes('/grammar'), 'Learn group contains /grammar (Ngữ pháp ứng dụng)');
 
   // Group 2: Kỹ năng thực hành (5 items)
   assert(sections[1].items.length === 5, `Section 'Kỹ năng thực hành' has 5 items, got ${sections[1].items.length}`);
   const practiceHrefs = sections[1].items.map((i) => i.href);
-  assert(practiceHrefs.includes('/student/speaking/foundation'), 'Practice group contains /student/speaking/foundation (Luyện nói Nền tảng)');
-  assert(practiceHrefs.includes('/student/speaking'), 'Practice group contains /student/speaking (Luyện nói AI)');
+  assert(practiceHrefs.includes('/practice/games'), 'Practice group contains /practice/games (Phản xạ học thuật)');
+  assert(practiceHrefs.includes('/student/speaking/foundation'), 'Practice group contains /student/speaking/foundation (Luyện nói phản xạ)');
   assert(practiceHrefs.includes('/practice/listening'), 'Practice group contains /practice/listening (Luyện nghe Video)');
   assert(practiceHrefs.includes('/practice/pack-reading'), 'Practice group contains /practice/pack-reading (Luyện đọc hiểu)');
   assert(practiceHrefs.includes('/practice/codemix'), 'Practice group contains /practice/codemix (Đặt câu song ngữ)');
 
-  // Group 3: Khảo thí (2 items: TOEIC & VSTEP)
-  assert(sections[2].items.length === 2, `Section 'Khảo thí' has 2 items, got ${sections[2].items.length}`);
+  // Group 3: Khảo thí (3 items: TOEIC, VSTEP & VNU Test Bậc 3)
+  assert(sections[2].items.length === 3, `Section 'Khảo thí' has 3 items, got ${sections[2].items.length}`);
   assert(sections[2].items[0].href === '/toeic', 'Exam group contains /toeic (Thi thử TOEIC)');
   assert(sections[2].items[1].href === '/vstep', 'Exam group contains /vstep (Thi thử VSTEP)');
+  assert(sections[2].items[2].href === '/vnu-bac-3', 'Exam group contains /vnu-bac-3 (VNU Test Bậc 3)');
 
   // Group 4: Tra cứu & Kho (3 items)
   assert(sections[3].items.length === 3, `Section 'Tra cứu & Kho' has 3 items, got ${sections[3].items.length}`);
@@ -81,7 +82,7 @@ async function runNavTests() {
   assert(sections[4].items[0].href === '/student/referral', 'Referral group contains /student/referral (Mời bạn học nhận VIP)');
 
   // Total items check
-  assert(items.length === 15, `Total nav items across all sections is 15, got ${items.length}`);
+  assert(items.length === 16, `Total nav items across all sections is 16, got ${items.length}`);
 
   // ── 3. ICON INTEGRITY & NO EMOJI TILES ──
   console.log('\n--- 3. Testing Iconography & Component Types ---');
@@ -94,7 +95,7 @@ async function runNavTests() {
     assert(!seenIcons.has(item.icon), `Item '${item.label}' icon is unique across all nav items (no icon collisions)`);
     seenIcons.add(item.icon);
   }
-  assert(seenIcons.size === 15, `All 15 nav items have mutually distinct Lucide icons, got ${seenIcons.size}`);
+  assert(seenIcons.size === 16, `All 16 nav items have mutually distinct Lucide icons, got ${seenIcons.size}`);
 
   // ── 4. ROUTE MATCHING BEHAVIOR ──
   console.log('\n--- 4. Testing Exact & Subpath Route Matching ---');
@@ -121,10 +122,11 @@ async function runNavTests() {
   assert(reviewItem.match('/quiz/mini') === true, '/review matches /quiz/mini');
   assert(reviewItem.match('/practice/listening') === false, '/review does not falsely match /practice/listening');
 
-  // /grammar/learn subpaths
-  const grammarItem = findItem('/grammar/learn')!;
-  assert(grammarItem.match('/grammar/learn') === true, '/grammar/learn matches /grammar/learn');
-  assert(grammarItem.match('/grammar/unit-5') === true, '/grammar/learn matches /grammar/unit-5');
+  // /grammar subpaths
+  const grammarItem = findItem('/grammar')!;
+  assert(grammarItem.match('/grammar') === true, '/grammar matches /grammar');
+  assert(grammarItem.match('/grammar/learn') === true, '/grammar matches /grammar/learn');
+  assert(grammarItem.match('/grammar/unit-5') === true, '/grammar matches /grammar/unit-5');
 
   // Practice subpaths
   const listeningItem = findItem('/practice/listening')!;
@@ -161,15 +163,23 @@ async function runNavTests() {
   assert(vstepItem.match('/practice') === false, 'vstep item does not match /practice');
   assert(vstepItem.match('/toeic') === false, 'vstep item does not match /toeic');
 
-  // Speaking subpaths
+  // /vnu-bac-3 subpaths
+  const vnuItem = findItem('/vnu-bac-3')!;
+  assert(vnuItem.match('/vnu-bac-3') === true, 'vnu item matches /vnu-bac-3');
+  assert(vnuItem.match('/vnu-bac-3/exam/ulis-sample-test-01') === true, 'vnu item matches /vnu-bac-3/exam/ulis-sample-test-01');
+  assert(vnuItem.match('/practice') === false, 'vnu item does not match /practice');
+  assert(vnuItem.match('/toeic') === false, 'vnu item does not match /toeic');
+
+  // Speaking & Games subpaths
   const speakingFoundItem = findItem('/student/speaking/foundation')!;
   assert(speakingFoundItem.match('/student/speaking/foundation') === true, 'speaking foundation matches /student/speaking/foundation');
   assert(speakingFoundItem.match('/student/speaking/foundation/stage-0') === true, 'speaking foundation matches subpath');
-  assert(speakingFoundItem.match('/student/speaking') === false, 'speaking foundation does not match /student/speaking');
+  assert(speakingFoundItem.match('/student/speaking') === true, 'speaking foundation matches /student/speaking');
 
-  const speakingAiItem = findItem('/student/speaking')!;
-  assert(speakingAiItem.match('/student/speaking') === true, 'speaking AI matches /student/speaking');
-  assert(speakingAiItem.match('/student/speaking/foundation') === false, 'speaking AI does not match speaking foundation');
+  const gamesItem = findItem('/practice/games')!;
+  assert(gamesItem.match('/practice/games') === true, 'games item matches /practice/games');
+  assert(gamesItem.match('/practice/games/speed') === true, 'games item matches /practice/games/speed');
+  assert(gamesItem.match('/student/speaking/foundation') === false, 'games item does not match speaking foundation');
 
   // Referral subpaths
   const referralItem = findItem('/student/referral')!;
@@ -203,7 +213,7 @@ async function runNavTests() {
   // Check section 1 in drawer
   assert(drawerSections[0].id === 'learn', 'Drawer section 0 is learn');
   assert(drawerSections[0].items.length === 1, `Drawer section 0 has 1 item, got ${drawerSections[0].items.length}`);
-  assert(drawerSections[0].items[0].href === '/grammar/learn', 'Drawer section 0 item is /grammar/learn');
+  assert(drawerSections[0].items[0].href === '/grammar', 'Drawer section 0 item is /grammar');
 
   // Check section 2 in drawer
   assert(drawerSections[1].id === 'practice', 'Drawer section 1 is practice');
@@ -211,9 +221,10 @@ async function runNavTests() {
 
   // Check section 3 in drawer
   assert(drawerSections[2].id === 'exam', 'Drawer section 2 is exam');
-  assert(drawerSections[2].items.length === 2, `Drawer section 2 has 2 items (/toeic & /vstep), got ${drawerSections[2].items.length}`);
+  assert(drawerSections[2].items.length === 3, `Drawer section 2 has 3 items (/toeic, /vstep & /vnu-bac-3), got ${drawerSections[2].items.length}`);
   assert(drawerSections[2].items[0].href === '/toeic', 'Drawer section 2 item 0 is /toeic');
   assert(drawerSections[2].items[1].href === '/vstep', 'Drawer section 2 item 1 is /vstep');
+  assert(drawerSections[2].items[2].href === '/vnu-bac-3', 'Drawer section 2 item 2 is /vnu-bac-3');
 
   // Check section 4 in drawer
   assert(drawerSections[3].id === 'vault', 'Drawer section 3 is vault');
@@ -262,7 +273,7 @@ async function runNavTests() {
     grammarDueCount: 4,
   });
   const reviewBadgeItem = badgeSections[0].items.find((i) => i.href.startsWith('/review'))!;
-  const grammarBadgeItem = badgeSections[0].items.find((i) => i.href === '/grammar/learn')!;
+  const grammarBadgeItem = badgeSections[0].items.find((i) => i.href === '/grammar')!;
   assert(reviewBadgeItem.badge === 15, `Review badge is 15, got ${reviewBadgeItem.badge}`);
   assert(grammarBadgeItem.badge === 4, `Grammar badge is 4, got ${grammarBadgeItem.badge}`);
 
@@ -272,7 +283,7 @@ async function runNavTests() {
     grammarDueCount: 105,
   });
   const cappedReviewItem = cappedSections[0].items.find((i) => i.href.startsWith('/review'))!;
-  const cappedGrammarItem = cappedSections[0].items.find((i) => i.href === '/grammar/learn')!;
+  const cappedGrammarItem = cappedSections[0].items.find((i) => i.href === '/grammar')!;
   assert(cappedReviewItem.badge === '99+', `Review badge capped at '99+', got ${cappedReviewItem.badge}`);
   assert(cappedGrammarItem.badge === '99+', `Grammar badge capped at '99+', got ${cappedGrammarItem.badge}`);
 
@@ -282,7 +293,7 @@ async function runNavTests() {
     grammarDueCount: 0,
   });
   const zeroReviewItem = zeroSections[0].items.find((i) => i.href.startsWith('/review'))!;
-  const zeroGrammarItem = zeroSections[0].items.find((i) => i.href === '/grammar/learn')!;
+  const zeroGrammarItem = zeroSections[0].items.find((i) => i.href === '/grammar')!;
   assert(zeroReviewItem.badge === undefined, 'Review badge is undefined when count is 0');
   assert(zeroGrammarItem.badge === undefined, 'Grammar badge is undefined when count is 0');
 
@@ -292,7 +303,7 @@ async function runNavTests() {
     grammarDueCount: -1,
   });
   const negReviewItem = negativeSections[0].items.find((i) => i.href.startsWith('/review'))!;
-  const negGrammarItem = negativeSections[0].items.find((i) => i.href === '/grammar/learn')!;
+  const negGrammarItem = negativeSections[0].items.find((i) => i.href === '/grammar')!;
   assert(negReviewItem.badge === undefined, 'Negative reviewDueCount results in undefined badge');
   assert(negGrammarItem.badge === undefined, 'Negative grammarDueCount results in undefined badge');
 
@@ -302,7 +313,7 @@ async function runNavTests() {
   const defaultSections = buildStudentNavSections(undefined);
   assert(defaultSections.length === 5, 'buildStudentNavSections(undefined) succeeds with 5 sections');
   const defaultItems = buildStudentNavItems(undefined);
-  assert(defaultItems.length === 15, 'buildStudentNavItems(undefined) succeeds with 15 items');
+  assert(defaultItems.length === 16, 'buildStudentNavItems(undefined) succeeds with 16 items');
 
   // Null classroomId fallback
   const nullClassSections = buildStudentNavSections({ classroomId: null });
@@ -319,21 +330,21 @@ async function runNavTests() {
   // Badge boundary: exactly 99 -> 99
   const b99Sections = buildStudentNavSections({ reviewDueCount: 99, grammarDueCount: 99 });
   const b99Review = b99Sections[0].items.find((i) => i.href.startsWith('/review'))!;
-  const b99Grammar = b99Sections[0].items.find((i) => i.href === '/grammar/learn')!;
+  const b99Grammar = b99Sections[0].items.find((i) => i.href === '/grammar')!;
   assert(b99Review.badge === 99, `Count 99 produces number 99, got ${b99Review.badge}`);
   assert(b99Grammar.badge === 99, `Grammar count 99 produces number 99, got ${b99Grammar.badge}`);
 
   // Badge boundary: exactly 100 -> '99+'
   const b100Sections = buildStudentNavSections({ reviewDueCount: 100, grammarDueCount: 100 });
   const b100Review = b100Sections[0].items.find((i) => i.href.startsWith('/review'))!;
-  const b100Grammar = b100Sections[0].items.find((i) => i.href === '/grammar/learn')!;
+  const b100Grammar = b100Sections[0].items.find((i) => i.href === '/grammar')!;
   assert(b100Review.badge === '99+', `Count 100 produces '99+', got ${b100Review.badge}`);
   assert(b100Grammar.badge === '99+', `Grammar count 100 produces '99+', got ${b100Grammar.badge}`);
 
   // Badge boundary: exactly 1 -> 1
   const b1Sections = buildStudentNavSections({ reviewDueCount: 1, grammarDueCount: 1 });
   const b1Review = b1Sections[0].items.find((i) => i.href.startsWith('/review'))!;
-  const b1Grammar = b1Sections[0].items.find((i) => i.href === '/grammar/learn')!;
+  const b1Grammar = b1Sections[0].items.find((i) => i.href === '/grammar')!;
   assert(b1Review.badge === 1, `Count 1 produces number 1, got ${b1Review.badge}`);
   assert(b1Grammar.badge === 1, `Grammar count 1 produces number 1, got ${b1Grammar.badge}`);
 

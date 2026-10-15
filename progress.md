@@ -1062,3 +1062,27 @@
     - `https://lingopro.online/api/health` -> HTTP 200 `{"status":"ok"}`
     - `https://lingopro.online/student` -> HTTP 200
     - `https://lingopro.online/` -> HTTP 200
+
+### Release Phân Hệ Khảo Thí & Luyện Thi VNU Test Bậc 3 (ULIS ĐHQGHN) (2026-10-15)
+
+- **Phạm vi & Tính năng VNU Test Bậc 3**:
+  - **13 Bộ đề thi hoàn chỉnh (4 kỹ năng)**: 325 câu Reading (Part 1 Signs, Part 2 Cloze, Part 3 T/F, Part 4 Comprehension), 260 câu Listening (Part 1 Độc thoại, Part 2 Hội thoại ngắn, Part 3 Hội thoại dài), 26 đề Writing (Task 1 Data Card, Task 2 Essay) và 26 đề Speaking (Part 1 Social, Part 2 Cue Cards) chuẩn format 3 lựa chọn A/B/C và True/False.
+  - **Kho âm thanh phòng thu chuẩn 100%**: 39 tệp MP3 vật lý (>20KB–7MB) có header chuẩn ID3v2/MPEG Sync, giọng đọc tiếng Anh tự nhiên, tích hợp Audio Player giới hạn 2 lượt nghe theo chuẩn ULIS.
+  - **Ngân hàng từ vựng 240 từ cốt lõi B1**: Phân loại theo 8 chủ đề thực tế từ vựng kèm phát âm IPA, nghĩa tiếng Việt và từ khóa biển báo Reading Part 1.
+  - **Giao diện phòng thi Technical Minimalist**:
+    - Header siêu gọn (40px) thu hồi hơn 52px không gian đỉnh, gộp nút chuyển 4 kỹ năng + đồng hồ đếm ngược + nút Nộp bài.
+    - 100% câu hỏi và 3 đáp án (A, B, C) hiển thị trọn vẹn trên màn hình (above-the-fold) cả trên desktop và mobile (iPhone 14/15/16 - 390×844) mà không cần cuộn trang.
+    - Question Palette Drawer 4 trạng thái trên mobile và sidebar desktop.
+    - Lưu tiến trình tự động vào `localStorage` (Guest-first, zero login barrier).
+  - **An ninh mạng & Bảo vệ đề thi (Cyber Defense)**:
+    - Zero Bulk Leaks: API `/api/vnu-bac-3/test` tước sạch `correctAnswer`, `explanationVi`, `transcript` trước khi nộp bài.
+    - On-Demand Explanation qua API bảo mật có HMAC signature token.
+    - Thủy ấn số vô hình (Invisible Steganographic Watermark) chống sao chép trái phép.
+  - **Điều hướng & Khảo thí**: Tích hợp shortcut điều hướng nổi bật từ `/vstep` sang `/vnu-bac-3` và menu điều hướng `GraduationCap` trong Student Navigation.
+- **Kiểm chứng chất lượng**:
+  - `npx tsc --noEmit`: PASS (0 lỗi).
+  - `tests/vnu-bac-3/quality-e2e.test.mjs`: PASS 100% (4/4 Pillars: Physical Audio, 4-Skill Data Schema, Security Defense, UI/Navigation).
+  - `tests/vnu-bac-3/mobile-audit.mjs`: PASS 100% (390×844 zero horizontal overflow, element visibility).
+  - `tests/student-nav.test.ts`: PASS 100% (273/273 assertions).
+  - `tests/exam/vstep-vnu-toeic-persistence.test.ts`: PASS 100% (5/5 tests).
+  - `npm run build`: PASS 100% (tất cả 187 routes sinh bundle tối ưu).

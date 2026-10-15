@@ -26,6 +26,9 @@ import {
   Info,
   Flame,
   AlertCircle,
+  GraduationCap,
+  ArrowRight,
+  Sparkles,
 } from 'lucide-react';
 import { toast } from 'sonner';
 import catalogDataRaw from '@/data/vstep/vstep-catalog-index.json';
@@ -33,11 +36,13 @@ import { ExamLegalDisclaimer } from '@/components/exam/ExamLegalDisclaimer';
 import {
   getVstepProgressStats,
   getVstepExamSummaries,
+  getVstepDraftStatusMap,
   clearVstepExamHistory,
   clearVstepSkillHistory,
   resetAllVstepHistory,
   VSTEP_HISTORY_UPDATED_EVENT,
   VstepPracticeFilterMode,
+  VstepDraftSummary,
 } from '@/lib/vstep-history';
 import {
   VstepExamCatalogItem,
@@ -261,11 +266,13 @@ function VstepCatalogContent() {
     percentage: 0,
     mistakeCount: 0,
   });
+  const [draftSummaries, setDraftSummaries] = useState<Record<string, VstepDraftSummary>>({});
 
   const refreshHistory = useCallback(() => {
     setListeningStats(getVstepProgressStats('listening', bankTotals.totalListening));
     setReadingStats(getVstepProgressStats('reading', bankTotals.totalReading));
     setExamSummaries(getVstepExamSummaries());
+    setDraftSummaries(getVstepDraftStatusMap());
   }, [bankTotals.totalListening, bankTotals.totalReading]);
 
   useEffect(() => {
@@ -715,6 +722,77 @@ function VstepCatalogContent() {
 
       {/* ── 3. MAIN CATALOG BODY ── */}
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 space-y-6">
+        {/* ── BANNER ĐIỀU HƯỚNG VNU TEST BẬC 3 (ULIS ĐHQGHN) ── */}
+        <section
+          aria-label="Kỳ thi Chuẩn đầu ra Bậc 3 (VNU Test Bậc 3 - ULIS ĐHQGHN)"
+          className="rounded-sm border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900/90 p-5 sm:p-6 shadow-xs transition-colors hover:border-slate-400 dark:hover:border-slate-700"
+        >
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+            <div className="space-y-3 max-w-3xl">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 font-mono text-[11px] font-bold uppercase tracking-wider rounded-xs border border-blue-200 dark:border-blue-900/60 bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300">
+                  <GraduationCap className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
+                  Kỳ thi Chuẩn đầu ra Bậc 3 (VNU Test Bậc 3 - ULIS ĐHQGHN)
+                </span>
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 font-mono text-[11px] font-medium rounded-xs border border-emerald-200 dark:border-emerald-900/60 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300">
+                  <CheckCircle2 className="h-3 w-3 text-emerald-600 dark:text-emerald-400" />
+                  4 Kỹ Năng Toàn Diện
+                </span>
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 font-mono text-[11px] font-medium rounded-xs border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                  <Sparkles className="h-3 w-3 text-amber-500" />
+                  Chuẩn CEFR B1
+                </span>
+              </div>
+
+              <div>
+                <h2 className="text-base sm:text-lg lg:text-xl font-bold tracking-tight text-slate-900 dark:text-white">
+                  Phân Hệ Khảo Thí & Luyện Thi Chuẩn Đầu Ra Bậc 3 ULIS
+                </h2>
+                <p className="mt-1.5 text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Luyện tập và thi thử trực tuyến mô phỏng bài thi Chuẩn đầu ra Tiếng Anh Bậc 3 của Trường Đại học Ngoại ngữ – Đại học Quốc gia Hà Nội (ULIS ĐHQGHN). Đầy đủ <strong>4 kỹ năng</strong>: Đọc (Reading 25 câu), Nghe (Listening 20 câu với <strong>Realistic Audio Player</strong> giới hạn 2 lượt nghe chuẩn quy chế), Viết (Writing 2 tasks kèm bộ đếm từ và bài mẫu), và Nói (Speaking 2 parts có thẻ Cue Cards). Bao gồm đề minh họa chính thức ULIS và bộ đề chuẩn hóa tương đương Cambridge PET B1.
+                </p>
+              </div>
+
+              {/* Feature Chips */}
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pt-1 font-mono text-xs text-slate-600 dark:text-slate-400">
+                <span className="flex items-center gap-1.5">
+                  <BookOpen className="h-3.5 w-3.5 text-blue-500" />
+                  Reading (25 Qs / 40 phút)
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Headphones className="h-3.5 w-3.5 text-emerald-500" />
+                  Listening (20 Qs / Audio Player 2 lượt)
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <PenLine className="h-3.5 w-3.5 text-amber-500" />
+                  Writing (Task 1 & Task 2)
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Mic2 className="h-3.5 w-3.5 text-purple-500" />
+                  Speaking (Part 1 & Cue Cards)
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <ShieldCheck className="h-3.5 w-3.5 text-sky-500" />
+                  Barem Thang 10.0 ULIS
+                </span>
+              </div>
+            </div>
+
+            <div className="flex sm:flex-col items-center sm:items-end justify-between gap-3 shrink-0 pt-3 sm:pt-0 border-t sm:border-t-0 border-slate-200 dark:border-slate-800">
+              <Link
+                href="/vnu-bac-3"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-sm font-mono text-xs sm:text-sm font-bold text-white bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 transition-colors shadow-xs group"
+              >
+                <span>Vào Phòng Thi VNU Bậc 3</span>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </Link>
+              <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
+                Đề Minh Họa & Cambridge PET
+              </span>
+            </div>
+          </div>
+        </section>
+
         {/* ── TAB 1: FULL MOCK CATALOG ── */}
         {activeTab === 'full_mock' && (
           <div className="space-y-6">
@@ -875,7 +953,9 @@ function VstepCatalogContent() {
               <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 divide-y divide-slate-100 dark:divide-slate-800/80 shadow-xs">
                 {paginatedItems.map((item) => {
                   const summary = hasMounted ? examSummaries[item.id] : undefined;
+                  const draft = hasMounted ? draftSummaries[item.id] : undefined;
                   const isDone = Boolean(summary?.isCompleted);
+                  const hasDraft = Boolean(draft && (draft.answeredCount > 0 || draft.writingCount > 0));
 
                   return (
                     <div
@@ -908,6 +988,14 @@ function VstepCatalogContent() {
                                 Đề Khuyên Dùng
                               </span>
                             )
+                          )}
+
+                          {hasDraft && draft && (
+                            <span className="inline-flex items-center gap-1 rounded-sm border border-amber-300 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/60 px-2 py-0.5 text-[11px] font-mono font-bold text-amber-800 dark:text-amber-300">
+                              <RotateCcw className="h-3 w-3" />
+                              ĐANG LÀM DỞ · {draft.answeredCount} câu
+                              {draft.writingCount > 0 ? ` + ${draft.writingCount} W` : ''}
+                            </span>
                           )}
 
                           {/* Source badge */}
@@ -945,7 +1033,7 @@ function VstepCatalogContent() {
                           title="Vào phòng thi máy tính 172 phút đầy đủ 4 kỹ năng"
                         >
                           <Play className="h-3.5 w-3.5 fill-current" />
-                          <span>Vào Phòng Thi (172p)</span>
+                          <span>{hasDraft ? 'Tiếp Tục Thi' : 'Vào Phòng Thi (172p)'}</span>
                         </Link>
                       </div>
                     </div>
@@ -959,7 +1047,9 @@ function VstepCatalogContent() {
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {paginatedItems.map((item) => {
                   const summary = hasMounted ? examSummaries[item.id] : undefined;
+                  const draft = hasMounted ? draftSummaries[item.id] : undefined;
                   const isDone = Boolean(summary?.isCompleted);
+                  const hasDraft = Boolean(draft && (draft.answeredCount > 0 || draft.writingCount > 0));
 
                   return (
                     <div
@@ -977,12 +1067,20 @@ function VstepCatalogContent() {
                           </span>
                         </div>
 
-                        {isDone && (
-                          <div className="inline-flex items-center gap-1 rounded-sm border border-emerald-300 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 text-[11px] font-mono font-bold text-emerald-700 dark:text-emerald-300">
-                            <CheckCircle2 className="h-3 w-3" />
-                            ĐÃ THI · {summary?.highestScore.toFixed(1)}/10
-                          </div>
-                        )}
+                        <div className="flex flex-wrap gap-1.5">
+                          {isDone && (
+                            <div className="inline-flex items-center gap-1 rounded-sm border border-emerald-300 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 text-[11px] font-mono font-bold text-emerald-700 dark:text-emerald-300">
+                              <CheckCircle2 className="h-3 w-3" />
+                              ĐÃ THI · {summary?.highestScore.toFixed(1)}/10
+                            </div>
+                          )}
+                          {hasDraft && draft && (
+                            <div className="inline-flex items-center gap-1 rounded-sm border border-amber-300 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/60 px-2 py-0.5 text-[11px] font-mono font-bold text-amber-800 dark:text-amber-300">
+                              <RotateCcw className="h-3 w-3" />
+                              ĐANG LÀM DỞ · {draft.answeredCount} câu
+                            </div>
+                          )}
+                        </div>
 
                         <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white leading-snug">
                           {item.title}
@@ -1010,7 +1108,7 @@ function VstepCatalogContent() {
                           className="w-full inline-flex items-center justify-center gap-1.5 rounded-sm bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 py-2 px-3 text-xs font-bold transition-colors text-center"
                         >
                           <Play className="h-3.5 w-3.5 fill-current" />
-                          <span>Vào Phòng Thi (172p)</span>
+                          <span>{hasDraft ? 'Tiếp Tục Thi' : 'Vào Phòng Thi (172p)'}</span>
                         </Link>
                       </div>
                     </div>
@@ -1554,7 +1652,9 @@ function VstepCatalogContent() {
                 <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 divide-y divide-slate-100 dark:divide-slate-800/80 shadow-xs">
                   {paginatedItems.map((item) => {
                     const summary = hasMounted ? examSummaries[item.id] : undefined;
+                    const draft = hasMounted ? draftSummaries[item.id] : undefined;
                     const isDone = Boolean(summary?.isCompleted);
+                    const hasDraft = Boolean(draft && (draft.answeredCount > 0 || draft.writingCount > 0));
 
                     return (
                       <div
@@ -1575,6 +1675,14 @@ function VstepCatalogContent() {
                               <span className="inline-flex items-center gap-1 rounded-sm border border-emerald-300 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 text-[11px] font-mono font-bold text-emerald-700 dark:text-emerald-300">
                                 <CheckCircle2 className="h-3 w-3" />
                                 ĐÃ LÀM · {summary?.highestScore.toFixed(1)}/10
+                              </span>
+                            )}
+
+                            {hasDraft && draft && (
+                              <span className="inline-flex items-center gap-1 rounded-sm border border-amber-300 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/60 px-2 py-0.5 text-[11px] font-mono font-bold text-amber-800 dark:text-amber-300">
+                                <RotateCcw className="h-3 w-3" />
+                                ĐANG LÀM DỞ · {draft.answeredCount} câu
+                                {draft.writingCount > 0 ? ` + ${draft.writingCount} W` : ''}
                               </span>
                             )}
 
@@ -1607,7 +1715,7 @@ function VstepCatalogContent() {
                             className="inline-flex items-center justify-center gap-1.5 rounded-sm bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 py-1.5 px-3.5 text-xs font-bold transition-colors whitespace-nowrap"
                           >
                             <Play className="h-3.5 w-3.5 fill-current" />
-                            <span>Luyện Tập Ngay</span>
+                            <span>{hasDraft ? 'Tiếp Tục Luyện' : 'Luyện Tập Ngay'}</span>
                           </Link>
                         </div>
                       </div>
@@ -1619,45 +1727,64 @@ function VstepCatalogContent() {
               {/* Grid View for Practice */}
               {filteredItems.length > 0 && displayLayout === 'grid' && (
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {paginatedItems.map((item) => (
-                    <div
-                      key={item.id}
-                      className="flex flex-col justify-between rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 transition-colors hover:border-slate-400 dark:hover:border-slate-600 shadow-xs"
-                    >
-                      <div className="space-y-2">
-                        <div className="flex items-center justify-between gap-2 flex-wrap">
-                          <span className="rounded-sm border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 font-mono text-xs font-bold text-slate-800 dark:text-slate-200 tabular-nums">
-                            [{item.id.toUpperCase()}]
-                          </span>
-                          <span className="flex items-center gap-1 font-mono text-xs text-slate-500 tabular-nums">
-                            <Clock className="h-3 w-3 text-slate-400" />
-                            {item.duration} phút
-                          </span>
+                  {paginatedItems.map((item) => {
+                    const summary = hasMounted ? examSummaries[item.id] : undefined;
+                    const draft = hasMounted ? draftSummaries[item.id] : undefined;
+                    const isDone = Boolean(summary?.isCompleted);
+                    const hasDraft = Boolean(draft && (draft.answeredCount > 0 || draft.writingCount > 0));
+                    return (
+                      <div
+                        key={item.id}
+                        className="flex flex-col justify-between rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 transition-colors hover:border-slate-400 dark:hover:border-slate-600 shadow-xs"
+                      >
+                        <div className="space-y-2">
+                          <div className="flex items-center justify-between gap-2 flex-wrap">
+                            <span className="rounded-sm border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 font-mono text-xs font-bold text-slate-800 dark:text-slate-200 tabular-nums">
+                              [{item.id.toUpperCase()}]
+                            </span>
+                            <div className="flex items-center gap-1.5">
+                              {isDone ? (
+                                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-sm font-mono text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-800 tabular-nums">
+                                  <CheckCircle2 className="h-3 w-3" />
+                                  {summary?.highestScore !== undefined ? `${summary.highestScore.toFixed(1)}/10` : 'ĐÃ THI'}
+                                </span>
+                              ) : hasDraft ? (
+                                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-sm font-mono text-[10px] font-bold bg-amber-50 text-amber-700 border border-amber-200 dark:bg-amber-950/60 dark:text-amber-300 dark:border-amber-800 tabular-nums">
+                                  ĐANG LÀM DỞ
+                                </span>
+                              ) : (
+                                <span className="flex items-center gap-1 font-mono text-xs text-slate-500 tabular-nums">
+                                  <Clock className="h-3 w-3 text-slate-400" />
+                                  {item.duration} phút
+                                </span>
+                              )}
+                            </div>
+                          </div>
+
+                          <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white leading-snug">
+                            {item.title}
+                          </h3>
+
+                          <div className="flex items-center gap-2 pt-1">
+                            {getSourceBadge(item.source)}
+                            <span className="font-mono text-xs text-slate-500">
+                              {getPracticeWorkload(item)}
+                            </span>
+                          </div>
                         </div>
 
-                        <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white leading-snug">
-                          {item.title}
-                        </h3>
-
-                        <div className="flex items-center gap-2 pt-1">
-                          {getSourceBadge(item.source)}
-                          <span className="font-mono text-xs text-slate-500">
-                            {getPracticeWorkload(item)}
-                          </span>
+                        <div className="pt-4 mt-3 border-t border-slate-100 dark:border-slate-800">
+                          <Link
+                            href={getPracticeHref(item)}
+                            className="w-full inline-flex items-center justify-center gap-1.5 rounded-sm bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 py-2 px-3 text-xs font-bold transition-colors text-center"
+                          >
+                            <Play className="h-3.5 w-3.5 fill-current" />
+                            <span>{hasDraft ? 'Tiếp Tục Luyện' : 'Luyện Tập Ngay'}</span>
+                          </Link>
                         </div>
                       </div>
-
-                      <div className="pt-4 mt-3 border-t border-slate-100 dark:border-slate-800">
-                        <Link
-                          href={getPracticeHref(item)}
-                          className="w-full inline-flex items-center justify-center gap-1.5 rounded-sm bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 py-2 px-3 text-xs font-bold transition-colors text-center"
-                        >
-                          <Play className="h-3.5 w-3.5 fill-current" />
-                          <span>Luyện Tập Ngay</span>
-                        </Link>
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               )}
 

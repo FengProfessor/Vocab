@@ -9,13 +9,12 @@ import {
   Languages,
   Award,
   ShieldCheck,
+  GraduationCap,
   Search,
   Library,
   FileUp,
   Mic,
-  Sparkles,
   Gift,
-  Gamepad2,
   Zap,
 } from 'lucide-react';
 
@@ -116,6 +115,7 @@ export function buildStudentNavSections(opts?: {
           icon: Zap,
           badge: 'Speed',
           match: (pathname) => pathname.startsWith('/practice/games'),
+          onboardingId: 'practice-games',
         },
         {
           href: '/student/speaking/foundation',
@@ -169,6 +169,14 @@ export function buildStudentNavSections(opts?: {
           badge: 'B1–C1',
           match: (pathname) => pathname.startsWith('/vstep'),
           onboardingId: 'vstep',
+        },
+        {
+          href: '/vnu-bac-3',
+          label: 'VNU Test Bậc 3',
+          icon: GraduationCap,
+          badge: 'ULIS B1',
+          match: (pathname) => pathname.startsWith('/vnu-bac-3'),
+          onboardingId: 'vnu-bac-3',
         },
       ],
     },

@@ -470,3 +470,77 @@ export function resetAllVstepHistory(): void {
     console.error('Lỗi khi reset all VSTEP history:', err);
   }
 }
+
+export interface VstepDraftSummary {
+  examId: string;
+  answeredCount: number;
+  writingCount: number;
+  updatedAt: number;
+}
+
+/**
+ * Quét các bản nháp VSTEP đang làm dở trong localStorage (vstep_draft_*)
+ */
+export function getVstepDraftStatusMap(): Record<string, VstepDraftSummary> {
+  if (typeof window === 'undefined' || typeof localStorage === 'undefined') return {};
+  const map: Record<string, VstepDraftSummary> = {};
+  const prefix = 'vstep_draft_';
+
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (!key || !key.startsWith(prefix)) continue;
+
+      const raw = localStorage.getItem(key);
+      if (!raw) continue;
+
+      let parsed: {
+        examId?: string;
+        answers?: Record<string, unknown>;
+        writing?: Record<string, string>;
+        updatedAt?: number;
+      };
+      try {
+        parsed = JSON.parse(raw);
+      } catch {
+        continue;
+      }
+      if (!parsed || typeof parsed !== 'object') continue;
+
+      const answeredCount =
+        parsed.answers && typeof parsed.answers === 'object'
+          ? Object.keys(parsed.answers).length
+          : 0;
+      const writingCount =
+        parsed.writing && typeof parsed.writing === 'object'
+          ? Object.values(parsed.writing).filter((v) => typeof v === 'string' && v.trim().length > 0).length
+          : 0;
+
+      if (answeredCount === 0 && writingCount === 0) continue;
+
+      // Trích xuất examId từ parsed.examId hoặc từ key: vstep_draft_${examId}_${filterMode}(_${skill})
+      const rest = key.slice(prefix.length);
+      const examId =
+        typeof parsed.examId === 'string' && parsed.examId
+          ? parsed.examId
+          : rest.replace(/_(unseen|all_random|mistakes)(_(listening|reading|writing|speaking))?$/, '');
+      if (!examId) continue;
+
+      const updatedAt = typeof parsed.updatedAt === 'number' ? parsed.updatedAt : 0;
+      const existing = map[examId];
+      if (!existing || updatedAt >= existing.updatedAt) {
+        map[examId] = {
+          examId,
+          answeredCount,
+          writingCount,
+          updatedAt,
+        };
+      }
+    }
+  } catch {
+    // ignore
+  }
+
+  return map;
+}
+
