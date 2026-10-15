@@ -200,7 +200,8 @@ export default function StudentDashboard() {
   const [listeningStats, setListeningStats] = useState<{
     completedCount: number;
     inProgressPercent: number;
-  }>({ completedCount: 0, inProgressPercent: 0 });
+    totalCompleted: number;
+  }>({ completedCount: 0, inProgressPercent: 0, totalCompleted: 0 });
   // Join classroom modal
   const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
   const [joinCode, setJoinCode] = useState('');
@@ -513,14 +514,17 @@ export default function StudentDashboard() {
             totalCompleted++;
             if (itemDateKey === todayKey) todayCompleted++;
           } else if (pct > 0) {
-            if (pct > maxInProgress) maxInProgress = pct;
-            if (itemDateKey === todayKey && pct > todayInProgress) todayInProgress = pct;
+            // Chỉ tính tiến độ đang nghe nếu là bài học phát sinh trong ngày HÔM NAY
+            if (itemDateKey === todayKey && pct > todayInProgress) {
+              todayInProgress = pct;
+            }
           }
         }
 
         setListeningStats({
-          completedCount: todayCompleted > 0 ? todayCompleted : totalCompleted,
-          inProgressPercent: todayInProgress > 0 ? todayInProgress : maxInProgress,
+          completedCount: todayCompleted,
+          inProgressPercent: todayInProgress,
+          totalCompleted,
         });
       } catch {
         // ignore
@@ -1099,10 +1103,15 @@ export default function StudentDashboard() {
     100,
     Math.round((todayNewWords / Math.max(gamification.daily_goal || 10, 1)) * 100)
   );
-  const listeningProgressPct =
-    listeningStats.completedCount > 0
-      ? Math.min(100, listeningStats.completedCount * 34)
-      : listeningStats.inProgressPercent;
+  const listeningProgressPct = Math.max(
+    0,
+    Math.min(
+      100,
+      listeningStats.completedCount > 0
+        ? listeningStats.completedCount * 34
+        : listeningStats.inProgressPercent
+    )
+  );
   const readingProgressPct =
     dailyReadingStatus.totalCount > 0
       ? Math.min(
@@ -1485,7 +1494,11 @@ export default function StudentDashboard() {
                   className="group relative flex min-h-[64px] items-center gap-2 rounded-xl bg-purple-50/70 border border-purple-200/80 p-2 px-2.5 text-purple-700 shadow-2xs transition-all hover:border-purple-300 hover:bg-purple-50 hover:shadow-xs active:scale-[0.98] cursor-pointer text-left"
                 >
                   <span className="absolute -top-1.5 right-1.5 rounded-full bg-purple-600 text-white px-1.5 py-0.2 text-[8px] font-black shadow-2xs ring-1 ring-white leading-tight tabular-nums">
-                    {listeningStats.completedCount > 0 ? `${listeningStats.completedCount} bài` : 'Video & ETS'}
+                    {listeningStats.completedCount > 0
+                      ? `${listeningStats.completedCount} bài`
+                      : listeningStats.totalCompleted > 0
+                      ? `${listeningStats.totalCompleted} bài`
+                      : 'Video & ETS'}
                   </span>
                   <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-purple-600 shadow-2xs">
                     <Headphones className="w-3.5 h-3.5" strokeWidth={2.3} />

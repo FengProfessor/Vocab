@@ -328,7 +328,7 @@ export function VnuExamRoom({ examId, initialMode }: VnuExamRoomProps) {
       }
       setEvaluatingTaskId(taskId);
       try {
-        const res = await fetch('/api/vstep/writing-eval', {
+        const res = await fetch('/api/vnu-bac-3/writing-eval', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
