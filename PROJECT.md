@@ -1,3 +1,5 @@
+> Historical Speaking subsystem handoff. Milestone statuses and test results below describe that feature's earlier work, not the current repository baseline. Start with [README.md](README.md); use [test classification](docs/testing/test-classification.md) and the [committed TypeScript baseline](tests/security/typecheck-baseline.txt) for current verification.
+
 # Project: LingoPro 3-Tier English Speaking Subsystem & Ingestion Pipeline
 
 ## Architecture
@@ -65,7 +67,7 @@ The LingoPro Speaking Subsystem provides an end-to-end, scientifically grounded 
 | 2 | M2: Data Ingestion & Crawling Pipeline | Implement `scripts/speaking/` (crawlers, seeds, normalizer, CLI) & output to `src/data/speaking/ingested/` | M1 | DONE |
 | 3 | M3: 3-Tier Curriculum Digitization | Digitize 32 lessons (Phase 1, Phase 2 with Cooking, Phase 3) in `src/data/speaking/curriculum/` | M1 | DONE |
 | 4 | M4: Interactive UI Integration | Build `/student/speaking/curriculum/` pages & update `/student/speaking/` hub | M1, M3 | DONE |
-| 5 | M5: E2E Testing & Verification | Comprehensive test suite in `tests/speaking/speaking-master-e2e-runner.ts` & `tsc --noEmit` 0 errors | M1, M2, M3, M4 | DONE |
+| 5 | M5: Testing & Verification | Historical feature/source contract suite in `tests/speaking/speaking-master-e2e-runner.ts`; see current test classification and diagnostic baseline before interpreting earlier results | M1, M2, M3, M4 | Historical handoff |
 
 ## Interface Contracts
 ### `src/types/speaking-curriculum.ts`

@@ -1,0 +1,27 @@
+name: Feature request
+description: Suggest an improvement for learners, teachers, or contributors.
+title: "[Feature]: "
+body:
+  - type: markdown
+    attributes:
+      value: Check existing issues for a similar suggestion. A concrete learning or teaching use case helps make the proposal actionable.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: Who encounters this problem, and what are they trying to achieve?
+      placeholder: When I…, I need…, because…
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed improvement
+      description: Describe the behavior you would like and what a successful outcome would look like.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Alternatives or examples
+      description: Optional workarounds, sketches, related issues, or examples. Do not include private learner data.

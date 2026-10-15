@@ -1,23 +1,25 @@
+> Historical offline-feature test report. This Node-based suite uses in-memory browser/storage shims; its results do not verify a real browser, authenticated session or database. See [test classification](docs/testing/test-classification.md) for current coverage and known diagnostics.
+
 # TEST_READY — Offline Study Engine & Instant Hydration Test Suite
 
 **Author**: `orch17_test_writer` (E2E Testing Track)
 **Parent Orchestrator**: `orchestrator_17` (Conv ID: `b73b88ac-d529-4ae9-a8b9-d568c2a4efd3`)
 **Target Workspace**: `d:\Vibe\Vocab\web-app`
 **Date**: 2026-10-12T16:24:00Z
-**Status**: VERIFIED & OPERATIONAL (Ready for Milestones M1–M4 Integration)
+**Status**: Historical contract/fixture snapshot for Milestones M1–M4; not a current release gate.
 
 ---
 
 ## 1. Test Suite Summary
 
-The automated 4-tier E2E test suite for **Instant Hydration (Frame 0) & Offline-First Study Engine** (`ORIGINAL_REQUEST.md ## 2026-10-12T15:59:51Z` & `PROJECT.md`) is designed, implemented, and verified.
+The automated 4-tier contract/fixture suite for **Instant Hydration (Frame 0) & Offline-First Study Engine** was recorded during the earlier feature handoff. The original handoff referenced `ORIGINAL_REQUEST.md`, which is not part of the current tracked repository; the [current overview](README.md) and [test classification](docs/testing/test-classification.md) are the maintained entry points.
 
 - **Primary Executable**: `tests/offline/offline-study-engine.test.ts`
 - **Execution Command**: `npx tsx tests/offline/offline-study-engine.test.ts`
 - **TypeScript Static Verification**: `npx tsc --noEmit`
 - **Total Test Cases**: **21 tests** across 4 tiers
-- **Current Passing**: **21 / 21 (100% PASS)**
-- **Regressions**: **0**
+- **Recorded passing at handoff**: **21 / 21 (100% PASS)**; rerun the command to establish a current result.
+- **Recorded regressions at handoff**: **0**; this is not a repository-wide regression claim.
 - **Execution Speed**: **~22 milliseconds**
 - **Dependencies**: Native Node.js v20+ / TypeScript via `tsx` (zero external test frameworks or dependencies)
 
