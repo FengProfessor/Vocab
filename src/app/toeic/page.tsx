@@ -573,127 +573,65 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased font-sans">
-      {/* ── 1. HIGH-AUTHORITY TECHNICAL HEADER ── */}
+      {/* ── 1. HIGH-AUTHORITY TECHNICAL HEADER (COMPACT) ── */}
       <header className="border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-          {/* Breadcrumb & Subsystem Tag */}
-          <div className="flex items-center gap-2 font-mono text-xs text-slate-500 dark:text-slate-400">
-            <Link href="/student" className="hover:text-slate-900 dark:hover:white transition-colors">
-              LingoPro
-            </Link>
-            <span>/</span>
-            <span className="text-slate-700 dark:text-slate-300 font-semibold">Khảo Thí TOEIC</span>
-          </div>
-
-          {/* System Title */}
-          <h1 className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight uppercase text-slate-900 dark:text-white">
-            Hệ Thống Khảo Thí & Luyện Thi TOEIC
-          </h1>
-
-          {/* Compact Subtitle */}
-          <p className="mt-2 max-w-3xl text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Phòng thi máy tính trực tuyến: 200 câu hỏi chia 2 cột, bảng điều hướng 4 trạng thái, gắn cờ Flag và bảng điểm quy đổi 10–990.
-          </p>
-
-          {/* ── Mobile Metrics Strip (Compact 1-row summary, sm:hidden) ── */}
-          <div className="sm:hidden mt-4 flex items-center justify-between py-2 px-2.5 rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-xs font-mono divide-x divide-slate-100 dark:divide-slate-800 shadow-2xs">
-            <div className="flex flex-col items-center px-1.5 text-center min-w-0 flex-1">
-              <span className="text-[10px] text-slate-500 uppercase tracking-tight font-medium">Kho câu</span>
-              <span className="font-bold text-slate-900 dark:text-white tabular-nums">{totalQuestionsFormatted}</span>
-            </div>
-            <div className="flex flex-col items-center px-1.5 text-center min-w-0 flex-1">
-              <span className="text-[10px] text-slate-500 uppercase tracking-tight font-medium">Đề thi</span>
-              <span className="font-bold text-slate-900 dark:text-white tabular-nums">{totalFullTestsCount} đề</span>
-            </div>
-            <div className="flex flex-col items-center px-1.5 text-center min-w-0 flex-1">
-              <span className="text-[10px] text-slate-500 uppercase tracking-tight font-medium">Phần thi</span>
-              <span className="font-bold text-slate-900 dark:text-white tabular-nums">7 Parts</span>
-            </div>
-            <div className="flex flex-col items-center px-1.5 text-center min-w-0 flex-1">
-              <span className="text-[10px] text-slate-500 uppercase tracking-tight font-medium">Thang điểm</span>
-              <span className="font-bold text-slate-900 dark:text-white tabular-nums">10–990</span>
-            </div>
-          </div>
-
-          {/* ── Desktop Stat Cards Grid (hidden sm:grid) ── */}
-          <div className="mt-6 hidden sm:grid sm:grid-cols-4 gap-3">
-            {/* Card 1: Kho Câu Hỏi (Hero Metric) */}
-            <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3.5 sm:p-4 transition-colors hover:border-slate-400 dark:hover:border-slate-600">
-              <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
-                <span className="font-mono text-[11px] font-bold uppercase tracking-wider">Kho Câu Hỏi</span>
-                <span className="flex h-2 w-2 rounded-full bg-emerald-500 ring-2 ring-emerald-500/20" />
+        <div className="mx-auto max-w-5xl px-4 py-3 sm:px-6">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
+            {/* Left: Title & Subtitle */}
+            <div>
+              <div className="flex items-center gap-2 font-mono text-[11px] text-slate-500 dark:text-slate-400">
+                <Link href="/student" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+                  LingoPro
+                </Link>
+                <span>/</span>
+                <span className="text-slate-700 dark:text-slate-300 font-semibold">Khảo Thí TOEIC</span>
               </div>
-              <div className="mt-2 flex items-baseline gap-1">
-                <span className="font-mono text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tabular-nums tracking-tight">
-                  {totalQuestionsFormatted}
-                </span>
-                <span className="font-mono text-xs font-semibold text-slate-500">câu</span>
-              </div>
-              <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-                Ngân hàng đề đồ sộ
+
+              <h1 className="mt-1 text-lg sm:text-xl font-black tracking-tight uppercase text-slate-900 dark:text-white">
+                Hệ Thống Khảo Thí & Luyện Thi TOEIC
+              </h1>
+
+              <p className="mt-0.5 text-xs text-slate-500 dark:text-slate-400">
+                Phòng thi trực tuyến chuẩn ETS: 200 câu, chia 2 cột, gắn cờ Flag & bảng điểm 10–990.
               </p>
             </div>
 
-            {/* Card 2: Đề Full Test */}
-            <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3.5 sm:p-4 transition-colors hover:border-slate-400 dark:hover:border-slate-600">
-              <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
-                <span className="font-mono text-[11px] font-bold uppercase tracking-wider">Đề Full Test</span>
-                <FileText className="h-4 w-4 text-slate-400" />
+            {/* Right: Sleek 1-Row Metrics Strip (Saves ~140px vertical space) */}
+            <div className="flex items-center gap-2 sm:gap-2.5 rounded-sm border border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-950/60 px-3 py-1.5 text-xs font-mono divide-x divide-slate-200 dark:divide-slate-800 shrink-0 self-start lg:self-center shadow-2xs">
+              <div className="flex items-center gap-1.5 pr-2.5">
+                <span className="h-2 w-2 rounded-full bg-emerald-500 ring-2 ring-emerald-500/20 shrink-0" />
+                <span className="text-slate-500 text-[11px]">Kho:</span>
+                <strong className="text-slate-900 dark:text-white tabular-nums font-bold">{totalQuestionsFormatted}</strong>
+                <span className="text-[10px] text-slate-400 hidden sm:inline">câu</span>
               </div>
-              <div className="mt-2 flex items-baseline gap-1">
-                <span className="font-mono text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tabular-nums tracking-tight">
-                  {totalFullTestsCount}
-                </span>
-                <span className="font-mono text-xs font-semibold text-slate-500">đề</span>
+              <div className="flex items-center gap-1.5 px-2.5">
+                <FileText className="h-3.5 w-3.5 text-slate-400 shrink-0" />
+                <span className="text-slate-500 text-[11px]">Đề:</span>
+                <strong className="text-slate-900 dark:text-white tabular-nums font-bold">{totalFullTestsCount}</strong>
+                <span className="text-[10px] text-slate-400 hidden sm:inline">đề</span>
               </div>
-              <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-                {full200Count} đề chuẩn 200 câu
-              </p>
-            </div>
-
-            {/* Card 3: 7 Parts */}
-            <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3.5 sm:p-4 transition-colors hover:border-slate-400 dark:hover:border-slate-600">
-              <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
-                <span className="font-mono text-[11px] font-bold uppercase tracking-wider">Phần Thi</span>
-                <Layers className="h-4 w-4 text-slate-400" />
+              <div className="flex items-center gap-1.5 px-2.5">
+                <Layers className="h-3.5 w-3.5 text-slate-400 shrink-0" />
+                <span className="text-slate-500 text-[11px]">Phần thi:</span>
+                <strong className="text-slate-900 dark:text-white tabular-nums font-bold">7</strong>
+                <span className="text-[10px] text-slate-400 hidden sm:inline">Parts</span>
               </div>
-              <div className="mt-2 flex items-baseline gap-1">
-                <span className="font-mono text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tabular-nums tracking-tight">
-                  7
-                </span>
-                <span className="font-mono text-xs font-semibold text-slate-500">Parts</span>
+              <div className="flex items-center gap-1.5 pl-2.5">
+                <Trophy className="h-3.5 w-3.5 text-slate-400 shrink-0" />
+                <span className="text-slate-500 text-[11px]">Điểm:</span>
+                <strong className="text-slate-900 dark:text-white tabular-nums font-bold">10–990</strong>
               </div>
-              <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-                {totalPracticeSetsCount} bộ luyện tập ({totalPracticeQuestionsFormatted} câu)
-              </p>
-            </div>
-
-            {/* Card 4: Thang Điểm 10–990 */}
-            <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3.5 sm:p-4 transition-colors hover:border-slate-400 dark:hover:border-slate-600">
-              <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
-                <span className="font-mono text-[11px] font-bold uppercase tracking-wider">Thang Điểm</span>
-                <Trophy className="h-4 w-4 text-slate-400" />
-              </div>
-              <div className="mt-2 flex items-baseline gap-1">
-                <span className="font-mono text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tabular-nums tracking-tight">
-                  10–990
-                </span>
-                <span className="font-mono text-xs font-semibold text-slate-500">điểm</span>
-              </div>
-              <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-                Khảo thí chuẩn quốc tế
-              </p>
             </div>
           </div>
         </div>
 
-        {/* ── 2. SEGMENTED PILL CONTROL SWITCHER ── */}
-        <div className="border-t border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-950/60 p-2.5 sm:p-3">
-          <div className="mx-auto max-w-7xl">
+        {/* ── 2. SEGMENTED PILL CONTROL SWITCHER (ALIGNED WITH max-w-3xl) ── */}
+        <div className="border-t border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-950/60 p-1.5 sm:p-2">
+          <div className="mx-auto max-w-3xl px-2 sm:px-0">
             <div
               role="tablist"
               aria-label="Chế độ khảo thí"
-              className="flex p-1 rounded-sm bg-slate-200/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 gap-1"
+              className="flex p-0.5 rounded-sm bg-slate-200/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 gap-1"
             >
               {/* Tab 1: ĐỀ FULL TEST CTA */}
               <button
@@ -704,23 +642,22 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                   setActiveTab('full_test');
                   setSearchQuery('');
                 }}
-                className={`flex-1 py-2 sm:py-2.5 px-3 rounded-xs font-mono text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition cursor-pointer select-none ${
+                className={`flex-1 py-1.5 sm:py-2 px-2.5 sm:px-3 rounded-xs font-mono text-xs sm:text-sm font-semibold flex items-center justify-center gap-1.5 sm:gap-2 transition cursor-pointer select-none whitespace-nowrap ${
                   activeTab === 'full_test'
                     ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-xs font-bold'
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-slate-700/50'
                 }`}
               >
-                <FileText className="h-4 w-4 shrink-0" />
-                <span className="font-bold">Đề Thi Full Test</span>
-                <span className="hidden sm:inline font-normal text-[11px] opacity-80">(120 Phút)</span>
+                <FileText className="h-3.5 w-3.5 shrink-0" />
+                <span>Đề Thi Full Test</span>
                 <span
-                  className={`text-[11px] font-mono px-1.5 py-0.5 rounded-xs shrink-0 tabular-nums ${
+                  className={`text-[10px] font-mono px-1.5 py-0.5 rounded-xs shrink-0 tabular-nums ${
                     activeTab === 'full_test'
                       ? 'bg-white/20 text-white dark:bg-slate-900/20 dark:text-slate-900'
                       : 'bg-slate-300/80 dark:bg-slate-700 text-slate-700 dark:text-slate-300'
                   }`}
                 >
-                  [{totalFullTestsCount} Đề]
+                  {totalFullTestsCount} đề
                 </span>
               </button>
 
@@ -733,23 +670,22 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                   setActiveTab('practice_parts');
                   setSearchQuery('');
                 }}
-                className={`flex-1 py-2 sm:py-2.5 px-3 rounded-xs font-mono text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition cursor-pointer select-none ${
+                className={`flex-1 py-1.5 sm:py-2 px-2.5 sm:px-3 rounded-xs font-mono text-xs sm:text-sm font-semibold flex items-center justify-center gap-1.5 sm:gap-2 transition cursor-pointer select-none whitespace-nowrap ${
                   activeTab === 'practice_parts'
                     ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-xs font-bold'
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-slate-700/50'
                 }`}
               >
-                <Layers className="h-4 w-4 shrink-0" />
-                <span className="font-bold">Luyện Từng Part</span>
-                <span className="hidden sm:inline font-normal text-[11px] opacity-80">(Part 1–7)</span>
+                <Layers className="h-3.5 w-3.5 shrink-0" />
+                <span>Luyện Từng Part</span>
                 <span
-                  className={`text-[11px] font-mono px-1.5 py-0.5 rounded-xs shrink-0 tabular-nums ${
+                  className={`text-[10px] font-mono px-1.5 py-0.5 rounded-xs shrink-0 tabular-nums ${
                     activeTab === 'practice_parts'
                       ? 'bg-white/20 text-white dark:bg-slate-900/20 dark:text-slate-900'
                       : 'bg-slate-300/80 dark:bg-slate-700 text-slate-700 dark:text-slate-300'
                   }`}
                 >
-                  [7 Parts]
+                  7 parts
                 </span>
               </button>
 
@@ -762,23 +698,22 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                   setActiveTab('review_flagged');
                   setSearchQuery('');
                 }}
-                className={`flex-1 py-2 sm:py-2.5 px-3 rounded-xs font-mono text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 transition cursor-pointer select-none ${
+                className={`flex-1 py-1.5 sm:py-2 px-2.5 sm:px-3 rounded-xs font-mono text-xs sm:text-sm font-semibold flex items-center justify-center gap-1.5 sm:gap-2 transition cursor-pointer select-none whitespace-nowrap ${
                   activeTab === 'review_flagged'
                     ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-xs font-bold'
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-white/50 dark:hover:bg-slate-700/50'
                 }`}
               >
-                <Bookmark className="h-4 w-4 shrink-0 text-amber-500 fill-amber-500/30" />
-                <span className="font-bold">Câu Cần Luyện Lại</span>
-                <span className="hidden sm:inline font-normal text-[11px] opacity-80">[🔖]</span>
+                <Bookmark className="h-3.5 w-3.5 shrink-0 text-amber-500 fill-amber-500/30" />
+                <span>Câu Cần Luyện Lại</span>
                 <span
-                  className={`text-[11px] font-mono px-1.5 py-0.5 rounded-xs shrink-0 tabular-nums ${
+                  className={`text-[10px] font-mono px-1.5 py-0.5 rounded-xs shrink-0 tabular-nums ${
                     activeTab === 'review_flagged'
                       ? 'bg-white/20 text-white dark:bg-slate-900/20 dark:text-slate-900'
                       : 'bg-slate-300/80 dark:bg-slate-700 text-slate-700 dark:text-slate-300'
                   }`}
                 >
-                  [{reviewCount} Câu]
+                  {reviewCount} câu
                 </span>
               </button>
             </div>
@@ -1149,12 +1084,14 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
 
         {/* ── TAB 2: PART PRACTICE CONFIGURATOR (PART 1–7) ── */}
         {activeTab === 'practice_parts' && (
-          <div className="max-w-5xl mx-auto space-y-4 sm:space-y-6 pb-16 sm:pb-0">
+          <div className="max-w-3xl mx-auto space-y-3.5 sm:space-y-4 pb-16 sm:pb-0">
             {/* Part Switcher Bar (Part 1 to Part 7) */}
-            <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-2.5 sm:p-3">
-              <div className="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2.5 px-1 flex flex-wrap items-center justify-between gap-1">
+            <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-2 sm:p-2.5">
+              <div className="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 px-1 flex flex-wrap items-center justify-between gap-1">
                 <div className="flex items-center gap-1.5">
-                  <span>CHỌN PHẦN THI ĐỂ LUYỆN TẬP (PART 1 – 7):</span>
+                  <span className="font-mono text-xs uppercase tracking-wider font-bold text-slate-800 dark:text-slate-200">
+                    CHỌN PHẦN THI (PART 1 – 7):
+                  </span>
                   {/* Compact visual swipe indicator — icon only, no text */}
                   <span
                     aria-hidden="true"
@@ -1165,7 +1102,9 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                     <ChevronRight className="h-3 w-3 animate-pulse text-slate-600 dark:text-slate-300" />
                   </span>
                 </div>
-                <span className="font-mono tabular-nums text-[11px]">Tổng cộng: 7 Parts | {totalPracticeQuestionsFormatted} Câu Luyện Tập ({totalPracticeSetsCount} Bộ Đề — {totalQuestionsFormatted} Câu Hỏi Toàn Hệ Thống)</span>
+                <span className="font-mono tabular-nums text-[11px] text-slate-500">
+                  {totalPracticeQuestionsFormatted} câu luyện tập ({totalPracticeSetsCount} bộ)
+                </span>
               </div>
 
               {/* Mobile Part Rail with compact edge swipe cues (sm:hidden) */}
@@ -1255,7 +1194,7 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                       key={p.part}
                       type="button"
                       onClick={() => handleSelectPart(p.part)}
-                      className={`flex flex-col items-start p-2.5 rounded-sm border text-left transition-colors cursor-pointer select-none ${
+                      className={`flex flex-col items-start p-2 rounded-sm border text-left transition-colors cursor-pointer select-none ${
                         isSelected
                           ? 'border-slate-900 dark:border-white bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold'
                           : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -1266,7 +1205,7 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                           Part {p.part}
                         </span>
                         <span
-                          className={`font-mono text-[10px] px-1 py-0.2 rounded-xs uppercase tabular-nums ${
+                          className={`font-mono text-[9px] px-1 py-0.2 rounded-2xs uppercase tabular-nums ${
                             isSelected
                               ? 'bg-slate-800 dark:bg-slate-100 text-slate-200 dark:text-slate-800'
                               : 'bg-slate-100 dark:bg-slate-800 text-slate-500'
@@ -1275,11 +1214,11 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                           {p.section === 'listening' ? 'LC' : 'RC'}
                         </span>
                       </div>
-                      <span className="text-xs mt-1 truncate w-full">
+                      <span className="text-[11px] mt-0.5 truncate w-full">
                         {p.vietnameseTitle}
                       </span>
                       <span
-                        className={`font-mono text-[11px] mt-0.5 tabular-nums ${
+                        className={`font-mono text-[10px] mt-0.5 tabular-nums ${
                           isSelected
                             ? 'text-slate-300 dark:text-slate-600'
                             : 'text-slate-500 dark:text-slate-400'
