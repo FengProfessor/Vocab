@@ -1116,4 +1116,36 @@
     - `https://lingopro.online/api/health` -> HTTP 200 `{"status":"ok"}`
     - `https://lingopro.online/student` -> HTTP 200
 
+### Release Chế độ Xem Nhiều Câu Hỏi Đồng Thời (Multi-question View) & Writing Eval Route VNU Bậc 3 (2026-10-15)
+
+- **Phạm vi & Nâng cấp Khảo thí VNU Bậc 3**:
+  - **Tự động kích hoạt Multi-question Layout**: Nhận diện thông minh các bài thi có chung ngữ liệu stimulus (`isSharedStimulusTask`):
+    - Reading Part 2 (Cloze 8 câu điền từ `(8)`..`(15)`).
+    - Reading Part 3 (5 câu Đúng/Sai `True/False`).
+    - Reading Part 4 (5 câu Đọc hiểu tổng hợp).
+    - Listening Part 3 (6 câu hội thoại dài `Part 3`).
+  - **Cụm điều khiển linh hoạt [Tất cả (N câu)] / [Từng câu]**: Tích hợp trên thanh câu hỏi cột phải, cho phép học viên tùy ý đổi chế độ làm bài chỉ với 1 click.
+  - **Cuộn mượt & Highlight Ring**: Bấm vào bất kỳ câu nào trên Question Palette sẽ kích hoạt `scrollIntoView` mượt mà tới đúng thẻ câu hỏi kèm hiệu ứng viền xanh nổi bật (`ring-2 ring-blue-500/20`).
+  - **Sign-in-card Fallback cho Part 1**: Đảm bảo ở chế độ `all`, các câu hỏi biển báo Part 1 hiển thị biển báo trực tiếp trong từng thẻ câu hỏi.
+  - **Dedicated Writing Evaluation Route**: Tạo endpoint độc lập `src/app/api/vnu-bac-3/writing-eval/route.ts` chấm điểm tự luận theo Rubric B1 và feedback chuyên sâu, giải quyết triệt để lỗi 404.
+  - **Fix TypeScript Narrowing**: Chuẩn hóa type assertion cho `url` và `token` trong `src/lib/distributed-rate-limit.ts`.
+- **Kiểm chứng chất lượng**:
+  - `tests/vnu-bac-3/multi-question-mode.test.mjs`: PASS 100% (5/5 check suites).
+  - `tests/vnu-bac-3/challenger-resilience-audit.mjs`: PASS 100% (13/13 thư mục, 39 physical MP3s).
+  - `tests/vnu-bac-3/quality-e2e.test.mjs`: PASS 100%.
+  - `npx tsc --noEmit`: PASS (0 lỗi).
+  - Visual verification: `screenshots/desktop_multi_question_part2.png` và `screenshots/mobile_multi_question_part2.png`.
+- **Thực thi triển khai & Kiểm chứng Production**:
+  - Released commit `dd7aa263f350ecdf85d6b4ee99c72eef0fe11ae3`.
+  - Canonical GitHub Actions run [38725558328](https://github.com/FengProfessor/Vocab/actions/runs/38725558328) SUCCESS:
+    - `Validate exact source before production changes`: PASS (24/24 steps: npm ci, actionlint, security regressions, phase3a route & auth lint, Next.js build application, browser smoke, typecheck baseline).
+    - `Apply required database migrations / apply`: PASS (SKIP13/applied0).
+    - `Deploy to LingoPro Ubuntu Server`: PASS (11m57s, detached checkout exact SHA `dd7aa26`, out-of-place staging build trong `~/Vocab-build`, atomic directory swap via `activate-release.sh`, service `lingopro.service` restarted với MainPID `601342`, readiness HTTP 200, previous release preserved at `/home/ubuntu/Vocab/.next-previous.MfBNCn/.next`).
+  - Independent live HTTPS probes:
+    - `https://lingopro.online/api/health` -> HTTP 200 `{"status":"ok"}`
+    - `https://lingopro.online/vnu-bac-3` -> HTTP 200
+    - `https://lingopro.online/vnu-bac-3/exam/ulis-sample-test-01` -> HTTP 200
+    - `https://lingopro.online/api/vnu-bac-3/writing-eval` -> HTTP 200 (`success: true`, Rubric B1 scoring evaluated)
+
+
 
