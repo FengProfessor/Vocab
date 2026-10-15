@@ -126,40 +126,40 @@ export function StreakCounter({
     // ═════════════════════════════════════════════════════════════════════════
     if (isDesktop) {
       const cellDesktop =
-        'flex h-[22px] items-center justify-center rounded-[4px] text-[9.5px] font-extrabold tabular-nums';
+        'flex h-[19px] items-center justify-center rounded-[4px] text-[8.5px] font-extrabold tabular-nums';
 
       return (
         <div
-          className={`flex h-full min-w-0 flex-row items-stretch gap-3.5 rounded-2xl border border-[#e9e9f0] bg-white p-3.5 shadow-[0_1px_2px_rgba(16,24,40,.04)] ${className}`}
+          className={`flex h-full min-w-0 flex-row items-stretch gap-2.5 rounded-xl border border-[#e9e9f0] bg-white p-2.5 px-3 shadow-[0_1px_2px_rgba(16,24,40,.04)] ${className}`}
         >
           {/* Cột trái: Streak */}
-          <div className="flex w-[76px] shrink-0 flex-col justify-between border-r border-slate-100 pr-2.5">
-            <div className="flex flex-col items-start gap-1.5">
-              <div className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-[9px] bg-gradient-to-br from-orange-400 to-orange-500 text-[15px]">
+          <div className="flex w-[68px] shrink-0 flex-col justify-between border-r border-slate-100 pr-2">
+            <div className="flex flex-col items-start gap-1">
+              <div className="flex h-6.5 w-6.5 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-orange-400 to-orange-500 text-xs">
                 🔥
               </div>
               <div className="min-w-0">
                 <div className="flex items-baseline gap-0.5">
-                  <span className="text-[21px] font-black leading-none text-orange-600 tabular-nums">{streak}</span>
-                  <span className="text-[11px] font-bold text-orange-400">liên tiếp</span>
+                  <span className="text-[18px] font-black leading-none text-orange-600 tabular-nums">{streak}</span>
+                  <span className="text-[9.5px] font-bold text-orange-400">liên tiếp</span>
                 </div>
               </div>
             </div>
-            <div className="text-[10.5px] font-bold text-[#aab0bd]">{MONTH_LABELS[month]}</div>
+            <div className="text-[9.5px] font-bold text-[#aab0bd]">{MONTH_LABELS[month]}</div>
           </div>
 
           {/* Cột phải: Heatmap tháng */}
           <div className="flex min-w-0 flex-1 flex-col justify-between">
-            <div className="mb-1 flex items-center justify-between">
-              <span className="text-[11px] font-extrabold text-[#0f172a]">Bảng hoạt động hàng tháng</span>
-              <span className="text-[10px] font-bold text-[#aab0bd]" title="Số ngày có học trong tháng — khác streak liên tiếp">
+            <div className="mb-0.5 flex items-center justify-between">
+              <span className="text-[10.5px] font-extrabold text-[#0f172a]">Bảng hoạt động</span>
+              <span className="text-[9.5px] font-bold text-[#aab0bd]" title="Số ngày có học trong tháng — khác streak liên tiếp">
                 {activeDays} ngày có học · {totalReviews} lượt
               </span>
             </div>
 
             <div className="mb-0.5 grid grid-cols-7 gap-[3px]">
               {weekdays.map((wd) => (
-                <div key={wd} className="text-center text-[8px] font-extrabold uppercase text-[#b3b8c4]">
+                <div key={wd} className="text-center text-[7.5px] font-extrabold uppercase text-[#b3b8c4]">
                   {wd}
                 </div>
               ))}
@@ -167,7 +167,7 @@ export function StreakCounter({
 
             <div className="grid grid-cols-7 gap-[3px]">
               {Array.from({ length: lead }).map((_, i) => (
-                <div key={`d-lead-${i}`} className="h-[22px]" />
+                <div key={`d-lead-${i}`} className="h-[19px]" />
               ))}
               {Array.from({ length: daysInMonth }, (_, i) => i + 1).map((d) => {
                 const isToday = d === todayDate;

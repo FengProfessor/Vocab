@@ -230,7 +230,9 @@ export default function StudentDashboard() {
     return [0, 0, 0, 0, 0, 0];
   });
   const levelCountsRef = useRef<number[]>(levelCounts);
-  levelCountsRef.current = levelCounts;
+  useEffect(() => {
+    levelCountsRef.current = levelCounts;
+  }, [levelCounts]);
   /** Sẵn sàng hiển thị số đếm ngay từ Frame 0 nếu đã có cache */
   const [countsReady, setCountsReady] = useState(() => {
     const cached = (studentCtx?.wordSummary?.total ?? 0) > 0 ? studentCtx!.wordSummary : readLastWordSummaryCache();
@@ -1130,35 +1132,35 @@ export default function StudentDashboard() {
           /* ═════════════════════════════════════════════════════════════════════ */
           /* GIAO DIỆN MÁY TÍNH (if isDesktop — thiết kế rộng rãi chuẩn PC/Laptop) */
           /* ═════════════════════════════════════════════════════════════════════ */
-          <div className="mx-auto flex w-full max-w-[1040px] flex-col gap-4 px-7 py-5">
+          <div className="mx-auto flex w-full max-w-[1040px] flex-col gap-2.5 px-6 py-2.5">
             {/* Greeting & Quick Meta */}
-            <div className="flex items-center justify-between gap-3 pt-0.5">
-              <div className="flex items-center gap-3 min-w-0">
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center gap-2.5 min-w-0">
                 <Mascot mood={mascotMood} size="sm" />
-                <div className="min-w-0">
-                  <h2 className="truncate text-xl font-black leading-tight text-foreground">
+                <div className="flex items-baseline gap-2 min-w-0">
+                  <h2 className="truncate text-[15px] font-black leading-tight text-foreground">
                     {greeting}, {profile?.full_name?.split(' ')[0] || 'bạn'}! 👋
                   </h2>
-                  <p className="truncate text-xs font-semibold text-muted-foreground mt-0.5">
+                  <span className="hidden md:inline truncate text-[11.5px] font-semibold text-muted-foreground">
                     {reviewDueCount > 0
-                      ? `${reviewDueCount} từ cần ôn · bấm Ôn tập FSRS để giữ chuỗi nhớ`
+                      ? `· ${reviewDueCount} từ cần ôn tập FSRS`
                       : newCount > 0
-                        ? `${newCount} từ mới đang chờ bạn nạp hôm nay`
-                        : 'Hoàn thành xuất sắc mục tiêu ôn tập hôm nay 🎉'}
-                  </p>
+                        ? `· ${newCount} từ mới sẵn sàng hôm nay`
+                        : '· Hoàn thành mục tiêu hôm nay 🎉'}
+                  </span>
                 </div>
               </div>
 
-              <div className="flex shrink-0 items-center gap-2">
-                <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-extrabold tabular-nums text-slate-600">
+              <div className="flex shrink-0 items-center gap-1.5">
+                <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-extrabold tabular-nums text-slate-600">
                   {countsReady ? totalWords : '…'} từ tích lũy
                 </span>
-                <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-extrabold tabular-nums text-emerald-700">
+                <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-extrabold tabular-nums text-emerald-700">
                   {masteredCount} master
                 </span>
                 {countdown && reviewDueCount === 0 && (
-                  <span className="inline-flex items-center gap-1 rounded-full bg-indigo-50 px-3 py-1 text-xs font-extrabold text-indigo-600">
-                    <Clock className="h-3.5 w-3.5" />
+                  <span className="inline-flex items-center gap-1 rounded-full bg-indigo-50 px-2 py-0.5 text-[11px] font-extrabold text-indigo-600">
+                    <Clock className="h-2.5 w-2.5" />
                     {countdown}
                   </span>
                 )}
@@ -1169,30 +1171,30 @@ export default function StudentDashboard() {
             <DailyReadingCard status={dailyReadingStatus} />
             <ChallengeWidget />
 
-            {/* ── CTA CHÍNH TRÊN MÁY TÍNH: 2 THẺ HERO LỚN (Học Từ Mới & Ôn Tập FSRS) ── */}
-            <div className="grid grid-cols-2 gap-4 items-stretch">
+            {/* ── CTA CHÍNH TRÊN MÁY TÍNH: 2 THẺ COMPACT (Học Từ Mới & Ôn Tập FSRS) ── */}
+            <div className="grid grid-cols-2 gap-2.5 items-stretch">
               {/* Thẻ Học Từ Mới */}
-              <div className="group relative flex min-h-[168px] flex-col justify-between rounded-2xl border-2 border-indigo-200/80 bg-gradient-to-br from-indigo-500 via-indigo-600 to-indigo-700 p-5 text-white shadow-lg shadow-indigo-500/15 transition-all hover:shadow-xl hover:shadow-indigo-500/25">
-                <div className="flex items-start justify-between gap-3">
+              <div className="group relative flex flex-col justify-between rounded-xl border border-indigo-300/70 bg-gradient-to-br from-indigo-500 via-indigo-600 to-indigo-700 p-2.5 px-3 text-white shadow-sm shadow-indigo-500/10 transition-all hover:shadow-md hover:shadow-indigo-500/20">
+                <div className="flex items-center justify-between gap-2.5">
                   <Link
                     href={learnHref}
                     data-onboarding="learn"
-                    className="flex min-w-0 flex-1 items-center gap-3.5"
+                    className="flex min-w-0 flex-1 items-center gap-2.5"
                   >
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/20 text-2xl backdrop-blur-sm shadow-inner">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/20 text-base backdrop-blur-sm shadow-inner">
                       📖
                     </div>
                     <div className="min-w-0">
                       <div className="flex items-center gap-2">
-                        <span className="text-base font-black uppercase tracking-wider text-white">
+                        <span className="text-xs font-black uppercase tracking-wider text-white">
                           Học Từ Mới
                         </span>
-                        <span className="rounded-full bg-white/20 px-2.5 py-0.5 text-[11px] font-extrabold text-white backdrop-blur-sm tabular-nums">
+                        <span className="rounded-full bg-white/20 px-1.5 py-0.2 text-[9.5px] font-extrabold text-white backdrop-blur-sm tabular-nums">
                           {countsReady ? (newCount > 0 ? `${newCount} từ mới` : 'Tất cả') : '...'}
                         </span>
                       </div>
-                      <p className="mt-1 truncate text-xs text-indigo-100 font-medium">
-                        {newCount > 0 ? 'Bấm để nạp từ mới với thẻ lật thông minh' : 'Học lại flashcard từ đã lưu hoặc mở thư viện'}
+                      <p className="mt-0.5 truncate text-[10.5px] text-indigo-100 font-medium">
+                        {newCount > 0 ? 'Thẻ lật thông minh nạp từ nhanh' : 'Học flashcard từ vựng đã lưu'}
                       </p>
                     </div>
                   </Link>
@@ -1200,31 +1202,31 @@ export default function StudentDashboard() {
                   <Link
                     href={learnHref}
                     aria-label="Bắt đầu học từ mới"
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-indigo-700 font-bold shadow-sm group-hover:translate-x-0.5 transition-transform"
+                    className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-white text-indigo-700 font-bold shadow-xs group-hover:translate-x-0.5 transition-transform"
                   >
-                    <ArrowRight className="h-5 w-5" />
+                    <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
 
                 {/* Thanh chọn nhanh chế độ nạp từ trên máy tính */}
-                <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-white/15 pt-3">
+                <div className="mt-2 flex items-center gap-1 border-t border-white/15 pt-1.5">
                   <Link
                     href={learnHref}
-                    className="inline-flex h-8 items-center gap-1.5 rounded-lg bg-white/20 px-3 text-xs font-extrabold text-white backdrop-blur-sm transition hover:bg-white/30"
+                    className="inline-flex h-5.5 items-center gap-1 rounded bg-white/20 px-2 text-[10.5px] font-bold text-white backdrop-blur-sm transition hover:bg-white/30"
                   >
                     <span>🃏</span>
                     <span>Flashcard</span>
                   </Link>
                   <Link
                     href="/import"
-                    className="inline-flex h-8 items-center gap-1.5 rounded-lg bg-white/15 px-3 text-xs font-bold text-indigo-50 backdrop-blur-sm transition hover:bg-white/25"
+                    className="inline-flex h-5.5 items-center gap-1 rounded bg-white/15 px-2 text-[10.5px] font-medium text-indigo-50 backdrop-blur-sm transition hover:bg-white/25"
                   >
                     <span>📥</span>
-                    <span>Tự nạp từ</span>
+                    <span>Tự nạp</span>
                   </Link>
                   <Link
                     href="/library"
-                    className="inline-flex h-8 items-center gap-1.5 rounded-lg bg-white/15 px-3 text-xs font-bold text-indigo-50 backdrop-blur-sm transition hover:bg-white/25"
+                    className="inline-flex h-5.5 items-center gap-1 rounded bg-white/15 px-2 text-[10.5px] font-medium text-indigo-50 backdrop-blur-sm transition hover:bg-white/25"
                   >
                     <span>📚</span>
                     <span>Thư viện</span>
@@ -1232,18 +1234,18 @@ export default function StudentDashboard() {
                   <button
                     type="button"
                     onClick={() => setActionModalType('learn')}
-                    className="ml-auto inline-flex h-8 items-center gap-1 rounded-lg bg-white/15 px-2.5 text-[11px] font-extrabold text-white backdrop-blur-sm transition hover:bg-white/25 cursor-pointer"
+                    className="ml-auto inline-flex h-5.5 items-center gap-1 rounded bg-white/15 px-2 text-[10px] font-extrabold text-white backdrop-blur-sm transition hover:bg-white/25 cursor-pointer"
                     title="Mở bảng chọn phương thức nạp từ"
                   >
-                    <SlidersHorizontal className="h-3.5 w-3.5" />
+                    <SlidersHorizontal className="h-2.5 w-2.5" />
                     <span>Chế độ</span>
                   </button>
                 </div>
               </div>
 
               {/* Thẻ Ôn Tập FSRS */}
-              <div className="group relative flex min-h-[168px] flex-col justify-between rounded-2xl border-2 border-emerald-200/80 bg-gradient-to-br from-emerald-500 via-emerald-600 to-teal-700 p-5 text-white shadow-lg shadow-emerald-500/15 transition-all hover:shadow-xl hover:shadow-emerald-500/25">
-                <div className="flex items-start justify-between gap-3">
+              <div className="group relative flex flex-col justify-between rounded-xl border border-emerald-300/70 bg-gradient-to-br from-emerald-500 via-emerald-600 to-teal-700 p-2.5 px-3 text-white shadow-sm shadow-emerald-500/10 transition-all hover:shadow-md hover:shadow-emerald-500/20">
+                <div className="flex items-center justify-between gap-2.5">
                   <Link
                     href={
                       currentClassScope && currentClassScope !== '__personal__'
@@ -1251,18 +1253,18 @@ export default function StudentDashboard() {
                         : '/review'
                     }
                     data-onboarding="review"
-                    className="flex min-w-0 flex-1 items-center gap-3.5"
+                    className="flex min-w-0 flex-1 items-center gap-2.5"
                   >
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/20 text-2xl backdrop-blur-sm shadow-inner">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/20 text-base backdrop-blur-sm shadow-inner">
                       🔄
                     </div>
                     <div className="min-w-0">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <span className="text-base font-black uppercase tracking-wider text-white">
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <span className="text-xs font-black uppercase tracking-wider text-white">
                           Ôn Tập FSRS
                         </span>
                         <span
-                          className={`rounded-full px-2.5 py-0.5 text-[11px] font-extrabold backdrop-blur-sm tabular-nums ${
+                          className={`rounded-full px-1.5 py-0.2 text-[9.5px] font-extrabold backdrop-blur-sm tabular-nums ${
                             reviewDueCount > 0
                               ? 'bg-amber-400 text-amber-950 animate-pulse'
                               : 'bg-white/20 text-white'
@@ -1271,14 +1273,14 @@ export default function StudentDashboard() {
                           {countsReady ? (reviewDueCount > 0 ? `${reviewDueCount} cần ôn` : 'Đã sẵn sàng') : '...'}
                         </span>
                         {countdown && reviewDueCount === 0 && (
-                          <span className="inline-flex items-center gap-1 rounded-full bg-black/15 px-2 py-0.5 text-[10.5px] font-bold text-emerald-50 tabular-nums">
-                            <Clock className="h-3 w-3" />
+                          <span className="inline-flex items-center gap-0.5 rounded-full bg-black/15 px-1.5 py-0.2 text-[9px] font-bold text-emerald-50 tabular-nums">
+                            <Clock className="h-2.5 w-2.5" />
                             {countdown}
                           </span>
                         )}
                       </div>
-                      <p className="mt-1 truncate text-xs text-emerald-100 font-medium">
-                        {reviewDueCount > 0 ? 'Đến hạn ôn trước khi quên theo thuật toán FSRS' : 'Ôn luyện tự do củng cố trí nhớ dài hạn'}
+                      <p className="mt-0.5 truncate text-[10.5px] text-emerald-100 font-medium">
+                        {reviewDueCount > 0 ? 'Đến hạn ôn trước khi quên theo FSRS' : 'Ôn luyện tự do củng cố trí nhớ dài hạn'}
                       </p>
                     </div>
                   </Link>
@@ -1286,38 +1288,38 @@ export default function StudentDashboard() {
                   <Link
                     href={reviewHref}
                     aria-label="Bắt đầu ôn tập FSRS"
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-emerald-700 font-bold shadow-sm group-hover:translate-x-0.5 transition-transform"
+                    className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-white text-emerald-700 font-bold shadow-xs group-hover:translate-x-0.5 transition-transform"
                   >
-                    <ArrowRight className="h-5 w-5" />
+                    <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </div>
 
                 {/* Thanh chọn nhanh chế độ ôn tập FSRS trên máy tính */}
-                <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-white/15 pt-3">
+                <div className="mt-2 flex items-center gap-1 border-t border-white/15 pt-1.5">
                   <Link
                     href={reviewSessionHref('mixed')}
-                    className="inline-flex h-8 items-center gap-1.5 rounded-lg bg-white/20 px-3 text-xs font-extrabold text-white backdrop-blur-sm transition hover:bg-white/30"
+                    className="inline-flex h-5.5 items-center gap-1 rounded bg-white/20 px-2 text-[10.5px] font-bold text-white backdrop-blur-sm transition hover:bg-white/30"
                   >
                     <span>⚡</span>
                     <span>Hỗn hợp</span>
                   </Link>
                   <Link
                     href={reviewSessionHref('type')}
-                    className="inline-flex h-8 items-center gap-1.5 rounded-lg bg-white/15 px-3 text-xs font-bold text-emerald-50 backdrop-blur-sm transition hover:bg-white/25"
+                    className="inline-flex h-5.5 items-center gap-1 rounded bg-white/15 px-2 text-[10.5px] font-medium text-emerald-50 backdrop-blur-sm transition hover:bg-white/25"
                   >
                     <span>⌨️</span>
-                    <span>Gõ từ</span>
+                    <span>Gõ</span>
                   </Link>
                   <Link
                     href={reviewSessionHref('cloze')}
-                    className="inline-flex h-8 items-center gap-1.5 rounded-lg bg-white/15 px-3 text-xs font-bold text-emerald-50 backdrop-blur-sm transition hover:bg-white/25"
+                    className="inline-flex h-5.5 items-center gap-1 rounded bg-white/15 px-2 text-[10.5px] font-medium text-emerald-50 backdrop-blur-sm transition hover:bg-white/25"
                   >
                     <span>🧩</span>
-                    <span>Điền từ</span>
+                    <span>Điền</span>
                   </Link>
                   <Link
                     href={reviewSessionHref('mcq')}
-                    className="inline-flex h-8 items-center gap-1.5 rounded-lg bg-white/15 px-3 text-xs font-bold text-emerald-50 backdrop-blur-sm transition hover:bg-white/25"
+                    className="inline-flex h-5.5 items-center gap-1 rounded bg-white/15 px-2 text-[10.5px] font-medium text-emerald-50 backdrop-blur-sm transition hover:bg-white/25"
                   >
                     <span>🎯</span>
                     <span>Trắc nghiệm</span>
@@ -1325,18 +1327,216 @@ export default function StudentDashboard() {
                   <button
                     type="button"
                     onClick={() => setActionModalType('review')}
-                    className="ml-auto inline-flex h-8 items-center gap-1 rounded-lg bg-white/15 px-2.5 text-[11px] font-extrabold text-white backdrop-blur-sm transition hover:bg-white/25 cursor-pointer"
+                    className="ml-auto inline-flex h-5.5 items-center gap-1 rounded bg-white/15 px-2 text-[10px] font-extrabold text-white backdrop-blur-sm transition hover:bg-white/25 cursor-pointer"
                     title="Xem tất cả 5 chế độ ôn tập FSRS"
                   >
-                    <SlidersHorizontal className="h-3.5 w-3.5" />
+                    <SlidersHorizontal className="h-2.5 w-2.5" />
                     <span>Tất cả</span>
                   </button>
                 </div>
               </div>
             </div>
 
+            {/* ── LUYỆN THI CHUẨN HÓA (4 THẺ RỘNG CHUẨN DESKTOP — HIỂN THỊ NỔI BẬT ABOVE THE FOLD) ── */}
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between px-0.5">
+                <div className="flex items-center gap-2">
+                  <span className="text-[11.5px] font-black text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+                    <span>🎯</span>
+                    <span>Luyện thi chuẩn hóa</span>
+                  </span>
+                  <span className="rounded-full bg-indigo-50 px-2 py-0.2 text-[9.5px] font-extrabold text-indigo-700">
+                    4 Kỳ thi
+                  </span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-4 gap-2.5">
+                {/* 1. TOEIC */}
+                <button
+                  type="button"
+                  onClick={() => setActionModalType('toeic')}
+                  className="group relative flex min-h-[64px] items-center gap-2.5 rounded-xl border border-slate-200/90 bg-white p-2 px-3 shadow-2xs hover:border-indigo-300 hover:shadow-xs active:scale-[0.98] transition-all cursor-pointer text-left"
+                >
+                  <span className="absolute -top-1.5 right-2 rounded-full bg-indigo-600 text-white px-1.5 py-0.2 text-[8px] font-black shadow-2xs ring-1 ring-white whitespace-nowrap">
+                    7 Parts
+                  </span>
+                  <div className="flex h-9 w-11 shrink-0 items-center justify-center rounded-lg bg-slate-50 p-1 border border-slate-100">
+                    <Image src="/images/exams/toeic.png" alt="TOEIC" width={52} height={26} className="max-h-full max-w-full object-contain" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-xs font-black text-slate-800 group-hover:text-indigo-600 transition-colors">TOEIC</div>
+                    <div className="truncate text-[10px] font-medium text-slate-500">Đề thi & Từ vựng</div>
+                  </div>
+                </button>
+
+                {/* 2. VSTEP */}
+                <Link
+                  href="/vstep"
+                  className="group relative flex min-h-[64px] items-center gap-2.5 rounded-xl border border-slate-200/90 bg-white p-2 px-3 shadow-2xs hover:border-blue-300 hover:shadow-xs active:scale-[0.98] transition-all"
+                >
+                  <span className="absolute -top-1.5 right-2 rounded-full bg-blue-600 text-white px-1.5 py-0.2 text-[8px] font-black shadow-2xs ring-1 ring-white whitespace-nowrap">
+                    B1–B2–C1
+                  </span>
+                  <div className="flex h-9 w-11 shrink-0 items-center justify-center rounded-lg bg-slate-50 p-1 border border-slate-100">
+                    <Image src="/images/exams/vstep.png" alt="VSTEP" width={52} height={26} className="max-h-full max-w-full object-contain" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-xs font-black text-slate-800 group-hover:text-blue-600 transition-colors">VSTEP</div>
+                    <div className="truncate text-[10px] font-medium text-slate-500">Chuẩn Bộ GD&ĐT</div>
+                  </div>
+                </Link>
+
+                {/* 3. VNU Test */}
+                <Link
+                  href="/vnu-bac-3"
+                  aria-label="VNU Test Bậc 3"
+                  className="group relative flex min-h-[64px] items-center gap-2.5 rounded-xl border border-slate-200/90 bg-white p-2 px-3 shadow-2xs hover:border-emerald-300 hover:shadow-xs active:scale-[0.98] transition-all"
+                >
+                  <span className="absolute -top-1.5 right-2 rounded-full bg-emerald-600 text-white px-1.5 py-0.2 text-[8px] font-black shadow-2xs ring-1 ring-white whitespace-nowrap">
+                    Bậc 3 / B1
+                  </span>
+                  <div className="flex h-9 w-11 shrink-0 items-center justify-center rounded-lg bg-slate-50 p-1 border border-slate-100">
+                    <Image src="/images/exams/vnu-test.png" alt="VNU Test" width={52} height={26} className="max-h-full max-w-full object-contain" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-xs font-black text-slate-800 group-hover:text-emerald-600 transition-colors">VNU Test</div>
+                    <div className="truncate text-[10px] font-medium text-slate-500">Năng lực Ngoại ngữ</div>
+                  </div>
+                </Link>
+
+                {/* 4. IELTS */}
+                <button
+                  type="button"
+                  aria-label="IELTS (Đang cập nhật)"
+                  onClick={() => toast.info('Chương trình Luyện thi IELTS đang được cập nhật')}
+                  className="group relative flex min-h-[64px] items-center gap-2.5 rounded-xl border border-slate-200/90 bg-white p-2 px-3 shadow-2xs hover:border-amber-300 active:scale-[0.98] transition-all cursor-pointer text-left"
+                >
+                  <span className="absolute -top-1.5 right-2 rounded-full bg-amber-500 text-white px-1.5 py-0.2 text-[8px] font-black shadow-2xs ring-1 ring-white whitespace-nowrap">
+                    Sắp có
+                  </span>
+                  <div className="flex h-9 w-11 shrink-0 items-center justify-center rounded-lg bg-slate-50 p-1 border border-slate-100">
+                    <Image src="/images/exams/ielts.png" alt="IELTS" width={52} height={26} className="max-h-full max-w-full object-contain" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-xs font-black text-slate-800">IELTS</div>
+                    <div className="truncate text-[10px] font-medium text-slate-500">Academic & GT</div>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            {/* ── KỸ NĂNG THỰC HÀNH (5 THẺ RỘNG CHUẨN DESKTOP) ── */}
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between px-0.5">
+                <div className="flex items-center gap-2">
+                  <span className="text-[11.5px] font-black text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+                    <span>⚡</span>
+                    <span>Kỹ năng thực hành</span>
+                  </span>
+                  <span className="rounded-full bg-sky-50 px-2 py-0.2 text-[9.5px] font-extrabold text-sky-700">
+                    5 Kỹ năng
+                  </span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-5 gap-2.5">
+                {/* 1. Grammar */}
+                <Link
+                  href="/grammar"
+                  className="group relative flex min-h-[64px] items-center gap-2 rounded-xl bg-sky-50/70 border border-sky-200/80 p-2 px-2.5 text-sky-700 shadow-2xs transition-all hover:border-sky-300 hover:bg-sky-50 hover:shadow-xs active:scale-[0.98]"
+                >
+                  <span className="absolute -top-1.5 right-1.5 rounded-full bg-sky-600 text-white px-1.5 py-0.2 text-[8px] font-black shadow-2xs ring-1 ring-white leading-tight">
+                    A1–C1
+                  </span>
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-sky-600 shadow-2xs">
+                    <Code2 className="w-3.5 h-3.5" strokeWidth={2.3} />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-xs font-black text-sky-900">Grammar</div>
+                    <div className="truncate text-[10px] font-semibold text-sky-700/80">Ngữ pháp ứng dụng</div>
+                  </div>
+                </Link>
+
+                {/* 2. Reading */}
+                <button
+                  type="button"
+                  onClick={() => setActionModalType('reading')}
+                  className="group relative flex min-h-[64px] items-center gap-2 rounded-xl bg-amber-50/70 border border-amber-200/80 p-2 px-2.5 text-amber-700 shadow-2xs transition-all hover:border-amber-300 hover:bg-amber-50 hover:shadow-xs active:scale-[0.98] cursor-pointer text-left"
+                >
+                  <span className="absolute -top-1.5 right-1.5 rounded-full bg-amber-500 text-white px-1.5 py-0.2 text-[8px] font-black shadow-2xs ring-1 ring-white leading-tight tabular-nums">
+                    {dailyReadingStatus.totalCount > 0
+                      ? `${dailyReadingStatus.completedCount}/${dailyReadingStatus.totalCount}`
+                      : '3 Chế độ'}
+                  </span>
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-amber-600 shadow-2xs">
+                    <FileText className="w-3.5 h-3.5" strokeWidth={2.3} />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-xs font-black text-amber-900">Reading</div>
+                    <div className="truncate text-[10px] font-semibold text-amber-700/80">Đọc hiểu đa tầng</div>
+                  </div>
+                </button>
+
+                {/* 3. Listening */}
+                <button
+                  type="button"
+                  onClick={() => setActionModalType('listening')}
+                  className="group relative flex min-h-[64px] items-center gap-2 rounded-xl bg-purple-50/70 border border-purple-200/80 p-2 px-2.5 text-purple-700 shadow-2xs transition-all hover:border-purple-300 hover:bg-purple-50 hover:shadow-xs active:scale-[0.98] cursor-pointer text-left"
+                >
+                  <span className="absolute -top-1.5 right-1.5 rounded-full bg-purple-600 text-white px-1.5 py-0.2 text-[8px] font-black shadow-2xs ring-1 ring-white leading-tight tabular-nums">
+                    {listeningStats.completedCount > 0 ? `${listeningStats.completedCount} bài` : 'Video & ETS'}
+                  </span>
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-purple-600 shadow-2xs">
+                    <Headphones className="w-3.5 h-3.5" strokeWidth={2.3} />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-xs font-black text-purple-900">Listening</div>
+                    <div className="truncate text-[10px] font-semibold text-purple-700/80">Luyện nghe thực tế</div>
+                  </div>
+                </button>
+
+                {/* 4. Speaking */}
+                <Link
+                  href="/student/speaking/foundation"
+                  aria-label="Luyện nói phản xạ Speaking"
+                  className="group relative flex min-h-[64px] items-center gap-2 rounded-xl bg-rose-50/70 border border-rose-200/80 p-2 px-2.5 text-rose-700 shadow-2xs transition-all hover:border-rose-300 hover:bg-rose-50 hover:shadow-xs active:scale-[0.98]"
+                >
+                  <span className="absolute -top-1.5 right-1.5 rounded-full bg-rose-500 text-white px-1.5 py-0.2 text-[8px] font-black shadow-2xs ring-1 ring-white leading-tight">
+                    A0–C1
+                  </span>
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-rose-600 shadow-2xs">
+                    <Mic className="w-3.5 h-3.5" strokeWidth={2.3} />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-xs font-black text-rose-900">Speaking</div>
+                    <div className="truncate text-[10px] font-semibold text-rose-700/80">Phản xạ nói AI</div>
+                  </div>
+                </Link>
+
+                {/* 5. Writing */}
+                <button
+                  type="button"
+                  aria-label="Writing (Sắp có)"
+                  onClick={() => toast.info('Tính năng Luyện Writing sắp ra mắt')}
+                  className="group relative flex min-h-[64px] items-center gap-2 rounded-xl bg-slate-100/80 border border-slate-200 p-2 px-2.5 text-slate-600 shadow-2xs transition-all hover:border-slate-300 active:scale-[0.98] cursor-pointer text-left"
+                >
+                  <span className="absolute -top-1.5 right-1.5 rounded-full bg-slate-500 text-white px-1.5 py-0.2 text-[8px] font-black shadow-2xs ring-1 ring-white leading-tight">
+                    Sắp có
+                  </span>
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-slate-500 shadow-2xs">
+                    <PenTool className="w-3.5 h-3.5 opacity-80" strokeWidth={2.3} />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-xs font-black text-slate-700">Writing</div>
+                    <div className="truncate text-[10px] font-semibold text-slate-500">Luyện viết học thuật</div>
+                  </div>
+                </button>
+              </div>
+            </div>
+
             {/* ── KHU VỰC LỊCH THÁNG (col-span-5) & TIẾN ĐỘ NGÀY (col-span-7) CÂN ĐỐI CHIỀU CAO ── */}
-            <div className="grid grid-cols-12 gap-4 items-stretch">
+            <div className="grid grid-cols-12 gap-2.5 items-stretch">
               <div className="col-span-12 lg:col-span-5 min-w-0">
                 <StreakCounter
                   streak={studyStreak}
@@ -1349,12 +1549,12 @@ export default function StudentDashboard() {
                 />
               </div>
 
-              <div className="col-span-12 lg:col-span-7 flex h-full min-w-0 flex-col justify-between rounded-2xl border border-[#e9e9f0] bg-white p-4 shadow-[0_1px_2px_rgba(16,24,40,.04)]">
-                <div className="flex items-center justify-between border-b border-slate-100 pb-2">
-                  <span className="flex items-center gap-1.5 text-xs font-black text-slate-800">
+              <div className="col-span-12 lg:col-span-7 flex h-full min-w-0 flex-col justify-between rounded-xl border border-[#e9e9f0] bg-white p-2.5 px-3 shadow-[0_1px_2px_rgba(16,24,40,.04)]">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-1">
+                  <span className="flex items-center gap-1.5 text-[11.5px] font-black text-slate-800">
                     🎯 <span>Tiến độ ngày hôm nay</span>
                   </span>
-                  <span className="rounded-full bg-amber-50 px-2.5 py-0.5 text-[11px] font-extrabold text-amber-700 tabular-nums">
+                  <span className="rounded-full bg-amber-50 px-2 py-0.2 text-[10px] font-extrabold text-amber-700 tabular-nums">
                     ⭐ {gamification.today_xp} / {gamification.daily_goal || 30} XP
                   </span>
                 </div>
@@ -1362,11 +1562,11 @@ export default function StudentDashboard() {
                 {/* 1. Ôn tập */}
                 <div
                   onClick={() => setActionModalType('review')}
-                  className="group block space-y-1 rounded-xl p-1.5 -mx-1.5 hover:bg-emerald-50/60 active:scale-[0.99] transition-all cursor-pointer"
+                  className="group block space-y-0.5 rounded-lg p-0.5 -mx-0.5 hover:bg-emerald-50/60 active:scale-[0.99] transition-all cursor-pointer"
                   title="Bấm để chọn chế độ ôn tập"
                 >
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-bold text-slate-700 flex items-center gap-1.5 group-hover:text-emerald-700 transition-colors">
+                  <div className="flex items-center justify-between text-[11px]">
+                    <span className="font-bold text-slate-700 flex items-center gap-1 group-hover:text-emerald-700 transition-colors">
                       <span className="inline-block font-black leading-none text-emerald-500 animate-arrow-nudge">
                         →
                       </span>
@@ -1376,9 +1576,9 @@ export default function StudentDashboard() {
                       {countsReady ? `${todayReviewsComputed} lượt` : '…'}
                     </span>
                   </div>
-                  <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                  <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
                     <div
-                      className="bg-emerald-500 h-2 rounded-full transition-all duration-500"
+                      className="bg-emerald-500 h-1.5 rounded-full transition-all duration-500"
                       style={{ width: `${reviewProgressPct}%` }}
                     />
                   </div>
@@ -1387,11 +1587,11 @@ export default function StudentDashboard() {
                 {/* 2. Từ mới */}
                 <div
                   onClick={() => setActionModalType('learn')}
-                  className="group block space-y-1 rounded-xl p-1.5 -mx-1.5 hover:bg-indigo-50/60 active:scale-[0.99] transition-all cursor-pointer"
+                  className="group block space-y-0.5 rounded-lg p-0.5 -mx-0.5 hover:bg-indigo-50/60 active:scale-[0.99] transition-all cursor-pointer"
                   title="Bấm để chọn phương thức nạp từ"
                 >
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-bold text-slate-700 flex items-center gap-1.5 group-hover:text-indigo-700 transition-colors">
+                  <div className="flex items-center justify-between text-[11px]">
+                    <span className="font-bold text-slate-700 flex items-center gap-1 group-hover:text-indigo-700 transition-colors">
                       <span className="inline-block font-black leading-none text-indigo-500 animate-arrow-nudge">
                         →
                       </span>
@@ -1401,9 +1601,9 @@ export default function StudentDashboard() {
                       {todayNewWords} / {gamification.daily_goal || 10} từ
                     </span>
                   </div>
-                  <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                  <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
                     <div
-                      className="bg-indigo-500 h-2 rounded-full transition-all duration-500"
+                      className="bg-indigo-500 h-1.5 rounded-full transition-all duration-500"
                       style={{ width: `${newWordsProgressPct}%` }}
                     />
                   </div>
@@ -1412,11 +1612,11 @@ export default function StudentDashboard() {
                 {/* 3. Listening */}
                 <div
                   onClick={() => setActionModalType('listening')}
-                  className="group block space-y-1 rounded-xl p-1.5 -mx-1.5 hover:bg-purple-50/60 active:scale-[0.99] transition-all cursor-pointer"
+                  className="group block space-y-0.5 rounded-lg p-0.5 -mx-0.5 hover:bg-purple-50/60 active:scale-[0.99] transition-all cursor-pointer"
                   title="Bấm để chọn chế độ luyện nghe"
                 >
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-bold text-slate-700 flex items-center gap-1.5 group-hover:text-purple-700 transition-colors">
+                  <div className="flex items-center justify-between text-[11px]">
+                    <span className="font-bold text-slate-700 flex items-center gap-1 group-hover:text-purple-700 transition-colors">
                       <span className="inline-block font-black leading-none text-purple-500 animate-arrow-nudge">
                         →
                       </span>
@@ -1430,9 +1630,9 @@ export default function StudentDashboard() {
                         : 'Chưa nghe'}
                     </span>
                   </div>
-                  <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                  <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
                     <div
-                      className="bg-purple-500 h-2 rounded-full transition-all duration-500"
+                      className="bg-purple-500 h-1.5 rounded-full transition-all duration-500"
                       style={{ width: `${listeningProgressPct}%` }}
                     />
                   </div>
@@ -1441,11 +1641,11 @@ export default function StudentDashboard() {
                 {/* 4. Reading */}
                 <div
                   onClick={() => setActionModalType('reading')}
-                  className="group block space-y-1 rounded-xl p-1.5 -mx-1.5 hover:bg-amber-50/60 active:scale-[0.99] transition-all cursor-pointer"
+                  className="group block space-y-0.5 rounded-lg p-0.5 -mx-0.5 hover:bg-amber-50/60 active:scale-[0.99] transition-all cursor-pointer"
                   title="Bấm để chọn chế độ luyện đọc"
                 >
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-bold text-slate-700 flex items-center gap-1.5 group-hover:text-amber-700 transition-colors">
+                  <div className="flex items-center justify-between text-[11px]">
+                    <span className="font-bold text-slate-700 flex items-center gap-1 group-hover:text-amber-700 transition-colors">
                       <span className="inline-block font-black leading-none text-amber-500 animate-arrow-nudge">
                         →
                       </span>
@@ -1457,199 +1657,13 @@ export default function StudentDashboard() {
                         : 'Chưa đọc'}
                     </span>
                   </div>
-                  <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                  <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
                     <div
-                      className="bg-amber-500 h-2 rounded-full transition-all duration-500"
+                      className="bg-amber-500 h-1.5 rounded-full transition-all duration-500"
                       style={{ width: `${readingProgressPct}%` }}
                     />
                   </div>
                 </div>
-              </div>
-            </div>
-
-            {/* ── KỸ NĂNG THỰC HÀNH (5 THẺ RỘNG CHUẨN DESKTOP) ── */}
-            <div className="space-y-2.5">
-              <div className="flex items-center justify-between px-0.5">
-                <span className="text-xs font-black text-slate-800 uppercase tracking-wide">
-                  Kỹ năng thực hành
-                </span>
-              </div>
-
-              <div className="grid grid-cols-5 gap-3">
-                {/* 1. Grammar */}
-                <Link
-                  href="/grammar"
-                  className="group relative flex min-h-[82px] items-center gap-3 rounded-2xl bg-sky-50/70 border border-sky-200/80 p-4 text-sky-700 shadow-2xs transition-all hover:border-sky-300 hover:bg-sky-50 hover:shadow-sm active:scale-[0.98]"
-                >
-                  <span className="absolute -top-2 right-2.5 rounded-full bg-sky-600 text-white px-2 py-0.5 text-[9px] font-black shadow-2xs ring-2 ring-white leading-tight">
-                    A1–C1
-                  </span>
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-sky-600 shadow-2xs">
-                    <Code2 className="w-5 h-5" strokeWidth={2.3} />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-sm font-black text-sky-900">Grammar</div>
-                    <div className="truncate text-[11px] font-semibold text-sky-700/80">Ngữ pháp ứng dụng</div>
-                  </div>
-                </Link>
-
-                {/* 2. Reading */}
-                <button
-                  type="button"
-                  onClick={() => setActionModalType('reading')}
-                  className="group relative flex min-h-[82px] items-center gap-3 rounded-2xl bg-amber-50/70 border border-amber-200/80 p-4 text-amber-700 shadow-2xs transition-all hover:border-amber-300 hover:bg-amber-50 hover:shadow-sm active:scale-[0.98] cursor-pointer text-left"
-                >
-                  <span className="absolute -top-2 right-2.5 rounded-full bg-amber-500 text-white px-2 py-0.5 text-[9px] font-black shadow-2xs ring-2 ring-white leading-tight tabular-nums">
-                    {dailyReadingStatus.totalCount > 0
-                      ? `${dailyReadingStatus.completedCount}/${dailyReadingStatus.totalCount}`
-                      : '3 Chế độ'}
-                  </span>
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-amber-600 shadow-2xs">
-                    <FileText className="w-5 h-5" strokeWidth={2.3} />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-sm font-black text-amber-900">Reading</div>
-                    <div className="truncate text-[11px] font-semibold text-amber-700/80">Đọc hiểu đa tầng</div>
-                  </div>
-                </button>
-
-                {/* 3. Listening */}
-                <button
-                  type="button"
-                  onClick={() => setActionModalType('listening')}
-                  className="group relative flex min-h-[82px] items-center gap-3 rounded-2xl bg-purple-50/70 border border-purple-200/80 p-4 text-purple-700 shadow-2xs transition-all hover:border-purple-300 hover:bg-purple-50 hover:shadow-sm active:scale-[0.98] cursor-pointer text-left"
-                >
-                  <span className="absolute -top-2 right-2.5 rounded-full bg-purple-600 text-white px-2 py-0.5 text-[9px] font-black shadow-2xs ring-2 ring-white leading-tight tabular-nums">
-                    {listeningStats.completedCount > 0 ? `${listeningStats.completedCount} bài` : 'Video & ETS'}
-                  </span>
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-purple-600 shadow-2xs">
-                    <Headphones className="w-5 h-5" strokeWidth={2.3} />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-sm font-black text-purple-900">Listening</div>
-                    <div className="truncate text-[11px] font-semibold text-purple-700/80">Luyện nghe thực tế</div>
-                  </div>
-                </button>
-
-                {/* 4. Speaking */}
-                <Link
-                  href="/student/speaking/foundation"
-                  aria-label="Luyện nói phản xạ Speaking"
-                  className="group relative flex min-h-[82px] items-center gap-3 rounded-2xl bg-rose-50/70 border border-rose-200/80 p-4 text-rose-700 shadow-2xs transition-all hover:border-rose-300 hover:bg-rose-50 hover:shadow-sm active:scale-[0.98]"
-                >
-                  <span className="absolute -top-2 right-2.5 rounded-full bg-rose-500 text-white px-2 py-0.5 text-[9px] font-black shadow-2xs ring-2 ring-white leading-tight">
-                    A0–C1
-                  </span>
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-rose-600 shadow-2xs">
-                    <Mic className="w-5 h-5" strokeWidth={2.3} />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-sm font-black text-rose-900">Speaking</div>
-                    <div className="truncate text-[11px] font-semibold text-rose-700/80">Phản xạ nói AI</div>
-                  </div>
-                </Link>
-
-                {/* 5. Writing */}
-                <button
-                  type="button"
-                  aria-label="Writing (Sắp có)"
-                  onClick={() => toast.info('Tính năng Luyện Writing sắp ra mắt')}
-                  className="group relative flex min-h-[82px] items-center gap-3 rounded-2xl bg-slate-100/80 border border-slate-200 p-4 text-slate-600 shadow-2xs transition-all hover:border-slate-300 active:scale-[0.98] cursor-pointer text-left"
-                >
-                  <span className="absolute -top-2 right-2.5 rounded-full bg-slate-500 text-white px-2 py-0.5 text-[9px] font-black shadow-2xs ring-2 ring-white leading-tight">
-                    Sắp có
-                  </span>
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-slate-500 shadow-2xs">
-                    <PenTool className="w-5 h-5 opacity-80" strokeWidth={2.3} />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-sm font-black text-slate-700">Writing</div>
-                    <div className="truncate text-[11px] font-semibold text-slate-500">Luyện viết học thuật</div>
-                  </div>
-                </button>
-              </div>
-            </div>
-
-            {/* ── LUYỆN THI CHUẨN HÓA (4 THẺ RỘNG CHUẨN DESKTOP) ── */}
-            <div className="space-y-2.5">
-              <div className="flex items-center justify-between px-0.5">
-                <span className="text-xs font-black text-slate-800 uppercase tracking-wide">
-                  Luyện thi chuẩn hóa
-                </span>
-              </div>
-
-              <div className="grid grid-cols-4 gap-3">
-                {/* 1. TOEIC */}
-                <button
-                  type="button"
-                  onClick={() => setActionModalType('toeic')}
-                  className="group relative flex min-h-[82px] items-center gap-3.5 rounded-2xl border border-slate-200/90 bg-white p-4 shadow-2xs hover:border-indigo-300 hover:shadow-sm active:scale-[0.98] transition-all cursor-pointer text-left"
-                >
-                  <span className="absolute -top-2 right-2.5 rounded-full bg-indigo-600 text-white px-2 py-0.5 text-[9px] font-black shadow-2xs ring-2 ring-white whitespace-nowrap">
-                    7 Parts
-                  </span>
-                  <div className="flex h-11 w-14 shrink-0 items-center justify-center rounded-xl bg-slate-50 p-1.5 border border-slate-100">
-                    <Image src="/images/exams/toeic.png" alt="TOEIC" width={64} height={32} className="max-h-full max-w-full object-contain" />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-sm font-black text-slate-800 group-hover:text-indigo-600 transition-colors">TOEIC</div>
-                    <div className="truncate text-[11px] font-medium text-slate-500">Đề thi & Từ vựng</div>
-                  </div>
-                </button>
-
-                {/* 2. VSTEP */}
-                <Link
-                  href="/vstep"
-                  className="group relative flex min-h-[82px] items-center gap-3.5 rounded-2xl border border-slate-200/90 bg-white p-4 shadow-2xs hover:border-blue-300 hover:shadow-sm active:scale-[0.98] transition-all"
-                >
-                  <span className="absolute -top-2 right-2.5 rounded-full bg-blue-600 text-white px-2 py-0.5 text-[9px] font-black shadow-2xs ring-2 ring-white whitespace-nowrap">
-                    B1–B2–C1
-                  </span>
-                  <div className="flex h-11 w-14 shrink-0 items-center justify-center rounded-xl bg-slate-50 p-1.5 border border-slate-100">
-                    <Image src="/images/exams/vstep.png" alt="VSTEP" width={64} height={32} className="max-h-full max-w-full object-contain" />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-sm font-black text-slate-800 group-hover:text-blue-600 transition-colors">VSTEP</div>
-                    <div className="truncate text-[11px] font-medium text-slate-500">Chuẩn Bộ GD&ĐT</div>
-                  </div>
-                </Link>
-
-                {/* 3. VNU Test */}
-                <Link
-                  href="/vnu-bac-3"
-                  aria-label="VNU Test Bậc 3"
-                  className="group relative flex min-h-[82px] items-center gap-3.5 rounded-2xl border border-slate-200/90 bg-white p-4 shadow-2xs hover:border-emerald-300 hover:shadow-sm active:scale-[0.98] transition-all"
-                >
-                  <span className="absolute -top-2 right-2.5 rounded-full bg-emerald-600 text-white px-2 py-0.5 text-[9px] font-black shadow-2xs ring-2 ring-white whitespace-nowrap">
-                    Bậc 3 / B1
-                  </span>
-                  <div className="flex h-11 w-14 shrink-0 items-center justify-center rounded-xl bg-slate-50 p-1.5 border border-slate-100">
-                    <Image src="/images/exams/vnu-test.png" alt="VNU Test" width={64} height={32} className="max-h-full max-w-full object-contain" />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-sm font-black text-slate-800 group-hover:text-emerald-600 transition-colors">VNU Test</div>
-                    <div className="truncate text-[11px] font-medium text-slate-500">Năng lực Ngoại ngữ</div>
-                  </div>
-                </Link>
-
-                {/* 4. IELTS */}
-                <button
-                  type="button"
-                  aria-label="IELTS (Đang cập nhật)"
-                  onClick={() => toast.info('Chương trình Luyện thi IELTS đang được cập nhật')}
-                  className="group relative flex min-h-[82px] items-center gap-3.5 rounded-2xl border border-slate-200/90 bg-white p-4 shadow-2xs hover:border-amber-300 active:scale-[0.98] transition-all cursor-pointer text-left"
-                >
-                  <span className="absolute -top-2 right-2.5 rounded-full bg-amber-500 text-white px-2 py-0.5 text-[9px] font-black shadow-2xs ring-2 ring-white whitespace-nowrap">
-                    Đang cập nhật
-                  </span>
-                  <div className="flex h-11 w-14 shrink-0 items-center justify-center rounded-xl bg-slate-50 p-1.5 border border-slate-100">
-                    <Image src="/images/exams/ielts.png" alt="IELTS" width={64} height={32} className="max-h-full max-w-full object-contain" />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-sm font-black text-slate-800">IELTS</div>
-                    <div className="truncate text-[11px] font-medium text-slate-500">Academic & GT</div>
-                  </div>
-                </button>
               </div>
             </div>
 
