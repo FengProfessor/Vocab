@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batch A Visual Asset Contact Sheet - English From Zero</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --border: #334155;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --v0-badge: #10b981;
+      --v1-badge: #f59e0b;
+      --v2-badge: #ef4444;
+      --owner-pending: #8b5cf6;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 24px;
+    }
+    header {
+      max-width: 1400px;
+      margin: 0 auto 32px auto;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+    }
+    h1 {
+      margin: 0 0 8px 0;
+      font-size: 28px;
+      color: var(--accent);
+    }
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+    .controls {
+      margin-top: 16px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+    button:hover {
+      background: #1d4ed8;
+    }
+    .mode-indicator {
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    }
+    .image-container {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: #000;
+      position: relative;
+    }
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .meta {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .asset-id {
+      font-family: monospace;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--accent);
+    }
+    .badges {
+      display: flex;
+      gap: 6px;
+    }
+    .badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .badge-v0 { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid #10b981; }
+    .badge-v1 { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid #f59e0b; }
+    .badge-v2 { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #ef4444; }
+    .badge-owner { background: rgba(139, 92, 246, 0.2); color: #c084fc; border: 1px solid #8b5cf6; }
+    .revealed-content {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+      padding-top: 10px;
+      margin-top: 4px;
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+    }
+    .label {
+      color: var(--text-muted);
+    }
+    .val {
+      font-weight: 600;
+      color: #e2e8f0;
+      text-align: right;
+    }
+    .notes {
+      font-size: 12px;
+      color: #cbd5e1;
+      background: #0f172a;
+      padding: 8px;
+      border-radius: 6px;
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Batch A Visual Asset Review & Contact Sheet</h1>
+    <div class="subtitle">
+      English From Zero – Foundation Curriculum (Grade 6 Vietnam) | Phase P3.1 Physical Evidence Audit
+    </div>
+    <div class="controls">
+      <button id="toggleBtn" onclick="toggleMode()">Switch to Blind Review Mode</button>
+      <span class="mode-indicator" id="modeIndicator">Current Mode: Full Audit Details (Labels Shown)</span>
+    </div>
+  </header>
+
+  <div class="grid">
+
+    <!-- Card 1: bag_v1 -->
+    <div class="card">
+      <div class="image-container">
+        <img src="../../../../public/curriculum/beginner-grade6/images/bag_v1.jpg" alt="IMG-G6-001-v1">
+      </div>
+      <div class="meta">
+        <div class="header-row">
+          <span class="asset-id">IMG-G6-001-v1</span>
+          <div class="badges audit-elem">
+            <span class="badge badge-v0">V0 Diagnostic</span>
+            <span class="badge badge-owner">Pending Owner</span>
+          </div>
+        </div>
+        <div class="revealed-content audit-elem">
+          <div class="row"><span class="label">Target Concept:</span><span class="val">bag (noun)</span></div>
+          <div class="row"><span class="label">Blind Readings:</span><span class="val">backpack, schoolbag, rucksack</span></div>
+          <div class="row"><span class="label">Disk Reality:</span><span class="val">518 KB | 1024x1024 JPEG</span></div>
+          <div class="notes">Clean navy backpack on wooden floor. Zero text or logos. Clear canonical V0.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: pen_v1 -->
+    <div class="card">
+      <div class="image-container">
+        <img src="../../../../public/curriculum/beginner-grade6/images/pen_v1.jpg" alt="IMG-G6-002-v1">
+      </div>
+      <div class="meta">
+        <div class="header-row">
+          <span class="asset-id">IMG-G6-002-v1</span>
+          <div class="badges audit-elem">
+            <span class="badge badge-v0">V0 Diagnostic</span>
+            <span class="badge badge-owner">Pending Owner</span>
+          </div>
+        </div>
+        <div class="revealed-content audit-elem">
+          <div class="row"><span class="label">Target Concept:</span><span class="val">pen (noun)</span></div>
+          <div class="row"><span class="label">Blind Readings:</span><span class="val">blue pen, ballpoint pen</span></div>
+          <div class="row"><span class="label">Disk Reality:</span><span class="val">367 KB | 1024x1024 JPEG</span></div>
+          <div class="notes">Translucent barrel with ink tube, blue cap, angled. Zero brand text. Clear canonical V0.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: book_v1 -->
+    <div class="card">
+      <div class="image-container">
+        <img src="../../../../public/curriculum/beginner-grade6/images/book_v1.jpg" alt="IMG-G6-003-v1">
+      </div>
+      <div class="meta">
+        <div class="header-row">
+          <span class="asset-id">IMG-G6-003-v1</span>
+          <div class="badges audit-elem">
+            <span class="badge badge-v0">V0 Diagnostic</span>
+            <span class="badge badge-owner">Pending Owner</span>
+          </div>
+        </div>
+        <div class="revealed-content audit-elem">
+          <div class="row"><span class="label">Target Concept:</span><span class="val">book (noun)</span></div>
+          <div class="row"><span class="label">Blind Readings:</span><span class="val">book, textbook, notebook</span></div>
+          <div class="row"><span class="label">Disk Reality:</span><span class="val">503 KB | 1024x1024 JPEG</span></div>
+          <div class="notes">Sage-green closed hardcover book, white pages visible. Strictly zero text. Clear canonical V0.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4: drink_v1 -->
+    <div class="card">
+      <div class="image-container">
+        <img src="../../../../public/curriculum/beginner-grade6/images/drink_v1.jpg" alt="IMG-G6-012-v1">
+      </div>
+      <div class="meta">
+        <div class="header-row">
+          <span class="asset-id">IMG-G6-012-v1</span>
+          <div class="badges audit-elem">
+            <span class="badge badge-v0">V0 Diagnostic (Mode A)</span>
+            <span class="badge badge-owner">Pending Owner</span>
+          </div>
+        </div>
+        <div class="revealed-content audit-elem">
+          <div class="row"><span class="label">Target Concept:</span><span class="val">drink (verb)</span></div>
+          <div class="row"><span class="label">Blind Readings:</span><span class="val">drinking water, drink, glass of water</span></div>
+          <div class="row"><span class="label">Disk Reality:</span><span class="val">496 KB | 1024x1024 JPEG</span></div>
+          <div class="notes">Glass held to lips actively sipping water. Zero food/plates. Canonical V0 for Mode A matching.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5: run_v1 -->
+    <div class="card">
+      <div class="image-container">
+        <img src="../../../../public/curriculum/beginner-grade6/images/run_v1.jpg" alt="IMG-G6-007-v1">
+      </div>
+      <div class="meta">
+        <div class="header-row">
+          <span class="asset-id">IMG-G6-007-v1</span>
+          <div class="badges audit-elem">
+            <span class="badge badge-v1">V1 Teaching Only</span>
+            <span class="badge badge-owner">Pending Owner</span>
+          </div>
+        </div>
+        <div class="revealed-content audit-elem">
+          <div class="row"><span class="label">Target Concept:</span><span class="val">run (verb)</span></div>
+          <div class="row"><span class="label">Blind Readings:</span><span class="val">running race, PE class, sports day</span></div>
+          <div class="row"><span class="label">Disk Reality:</span><span class="val">744 KB | 1024x1024 JPEG</span></div>
+          <div class="notes">Dynamic foreground sprint, but background runners and teacher create race distractors. Teaching approved.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6: eat_v1 -->
+    <div class="card">
+      <div class="image-container">
+        <img src="../../../../public/curriculum/beginner-grade6/images/eat_v1.jpg" alt="IMG-G6-011-v1">
+      </div>
+      <div class="meta">
+        <div class="header-row">
+          <span class="asset-id">IMG-G6-011-v1</span>
+          <div class="badges audit-elem">
+            <span class="badge badge-v1">V1 Teaching Only</span>
+            <span class="badge badge-owner">Pending Owner</span>
+          </div>
+        </div>
+        <div class="revealed-content audit-elem">
+          <div class="row"><span class="label">Target Concept:</span><span class="val">eat (verb)</span></div>
+          <div class="row"><span class="label">Blind Readings:</span><span class="val">eating lunch, meal tray, food</span></div>
+          <div class="row"><span class="label">Disk Reality:</span><span class="val">767 KB | 1024x1024 JPEG</span></div>
+          <div class="notes">Bringing food to mouth, but large meal tray (rice, egg, meat) introduces competing noun salience. Teaching approved.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 7: happy_v1 -->
+    <div class="card">
+      <div class="image-container">
+        <img src="../../../../public/curriculum/beginner-grade6/images/happy_v1.jpg" alt="IMG-G6-013-v1">
+      </div>
+      <div class="meta">
+        <div class="header-row">
+          <span class="asset-id">IMG-G6-013-v1</span>
+          <div class="badges audit-elem">
+            <span class="badge badge-v1">V1 Teaching Only</span>
+            <span class="badge badge-owner">Pending Owner</span>
+          </div>
+        </div>
+        <div class="revealed-content audit-elem">
+          <div class="row"><span class="label">Target Concept:</span><span class="val">happy (adjective)</span></div>
+          <div class="row"><span class="label">Blind Readings:</span><span class="val">girl, student, smiling person</span></div>
+          <div class="row"><span class="label">Disk Reality:</span><span class="val">594 KB | 1024x1024 JPEG</span></div>
+          <div class="notes">Radiant natural smile, but isolated portrait induces noun-entity response (girl/student) in false beginners. Teaching approved.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 8: tired_v1 (Rejected) -->
+    <div class="card" style="opacity: 0.75;">
+      <div class="image-container">
+        <img src="../../../../public/curriculum/beginner-grade6/images/tired_v1.jpg" alt="IMG-G6-014-v1">
+      </div>
+      <div class="meta">
+        <div class="header-row">
+          <span class="asset-id">IMG-G6-014-v1 (SUPERSEDED)</span>
+          <div class="badges audit-elem">
+            <span class="badge badge-v2">V2 Rejected</span>
+          </div>
+        </div>
+        <div class="revealed-content audit-elem">
+          <div class="row"><span class="label">Target Concept:</span><span class="val">tired (adjective)</span></div>
+          <div class="row"><span class="label">Blind Readings:</span><span class="val">sleeping, asleep, girl on desk</span></div>
+          <div class="row"><span class="label">Disk Reality:</span><span class="val">557 KB | 1024x1024 JPEG</span></div>
+          <div class="notes">REJECTED FOR DIAGNOSTIC. Head flat on desk with closed eyes strongly signals sleeping. Superseded by v2.0.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 9: tired_v2 (Patched) -->
+    <div class="card">
+      <div class="image-container">
+        <img src="../../../../public/curriculum/beginner-grade6/images/tired_v2.jpg" alt="IMG-G6-014-v2">
+      </div>
+      <div class="meta">
+        <div class="header-row">
+          <span class="asset-id">IMG-G6-014-v2 (PATCHED)</span>
+          <div class="badges audit-elem">
+            <span class="badge badge-v1">V1 Teaching Only</span>
+            <span class="badge badge-owner">Pending Owner</span>
+          </div>
+        </div>
+        <div class="revealed-content audit-elem">
+          <div class="row"><span class="label">Target Concept:</span><span class="val">tired (adjective)</span></div>
+          <div class="row"><span class="label">Blind Readings:</span><span class="val">yawning, sleepy, tired student</span></div>
+          <div class="row"><span class="label">Disk Reality:</span><span class="val">632 KB | 1024x1024 JPEG</span></div>
+          <div class="notes">Upright sitting posture, open yawn with hand covering mouth, heavy droopy eyes. Solves sleep defect. Classified as V1 teaching due to yawn/sleepy semantic overlap.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 10: big_small_v1 (Rejected) -->
+    <div class="card" style="opacity: 0.75;">
+      <div class="image-container">
+        <img src="../../../../public/curriculum/beginner-grade6/images/big_small_v1.jpg" alt="IMG-G6-017-v1">
+      </div>
+      <div class="meta">
+        <div class="header-row">
+          <span class="asset-id">IMG-G6-017-v1 (SUPERSEDED)</span>
+          <div class="badges audit-elem">
+            <span class="badge badge-v2">V2 Rejected</span>
+          </div>
+        </div>
+        <div class="revealed-content audit-elem">
+          <div class="row"><span class="label">Target Concept:</span><span class="val">big / small (adj pair)</span></div>
+          <div class="row"><span class="label">Blind Readings:</span><span class="val">backpack and pencil pouch, bag</span></div>
+          <div class="row"><span class="label">Disk Reality:</span><span class="val">394 KB | 1024x1024 JPEG</span></div>
+          <div class="notes">REJECTED FOR DIAGNOSTIC. Different objects (backpack vs pouch) confound object identity with scale. Superseded by v2.0.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 11: big_small_v2 (Patched) -->
+    <div class="card">
+      <div class="image-container">
+        <img src="../../../../public/curriculum/beginner-grade6/images/big_small_v2.jpg" alt="IMG-G6-017-v2">
+      </div>
+      <div class="meta">
+        <div class="header-row">
+          <span class="asset-id">IMG-G6-017-v2 (PATCHED)</span>
+          <div class="badges audit-elem">
+            <span class="badge badge-v1">V1 Teaching Contrast</span>
+            <span class="badge badge-owner">Pending Owner</span>
+          </div>
+        </div>
+        <div class="revealed-content audit-elem">
+          <div class="row"><span class="label">Target Concept:</span><span class="val">big / small (adj pair)</span></div>
+          <div class="row"><span class="label">Blind Readings:</span><span class="val">two backpacks, big and small bags</span></div>
+          <div class="row"><span class="label">Disk Reality:</span><span class="val">376 KB | 1024x1024 JPEG</span></div>
+          <div class="notes">Two identical navy backpacks on same tabletop at 3:1 scale ratio. Solves object identity. Classified V1 for teaching contrast; requires comparative audio prompt (Touch the small bag).</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    let isBlindMode = false;
+    function toggleMode() {
+      isBlindMode = !isBlindMode;
+      const elems = document.querySelectorAll('.audit-elem');
+      const btn = document.getElementById('toggleBtn');
+      const indicator = document.getElementById('modeIndicator');
+      
+      elems.forEach(el => {
+        if (isBlindMode) {
+          el.classList.add('hidden');
+        } else {
+          el.classList.remove('hidden');
+        }
+      });
+      
+      if (isBlindMode) {
+        btn.textContent = 'Switch to Full Audit Mode';
+        indicator.textContent = 'Current Mode: Blind Review (Labels & Metadata Hidden for Independent Verification)';
+      } else {
+        btn.textContent = 'Switch to Blind Review Mode';
+        indicator.textContent = 'Current Mode: Full Audit Details (Labels Shown)';
+      }
+    }
+  </script>
+</body>
+</html>

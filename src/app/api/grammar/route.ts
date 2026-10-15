@@ -241,66 +241,108 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
 
     // 0. Tự học theo Topic slug (?topic=...)
     if (topicSlug && !classroomId && !lessonId) {
-      const { data: topic } = await supabase
-        .from('grammar_topics')
-        .select('id, title, level')
-        .eq('slug', topicSlug)
-        .maybeSingle();
+      let dbLessonId: string | null = null;
+      let dbTitle: string | null = null;
+      let dbLevel: string | null = null;
+      let dbExercises: unknown[] | null = null;
 
-      if (topic) {
-        const { data: lesson } = await supabase
-          .from('grammar_lessons')
-          .select('id, exercises')
-          .eq('topic_id', topic.id)
+      try {
+        const { data: topic } = await supabase
+          .from('grammar_topics')
+          .select('id, title, level')
+          .eq('slug', topicSlug)
           .maybeSingle();
 
-        if (lesson && lesson.exercises && Array.isArray(lesson.exercises) && lesson.exercises.length > 0) {
-          const fallbackData = lesson.exercises.map((raw: unknown, i: number) =>
-            normalizeLessonExercise(raw, lesson.id, i, topic.title, topic.level),
-          );
-          return NextResponse.json({ success: true, data: fallbackData });
+        if (topic) {
+          dbTitle = topic.title;
+          dbLevel = topic.level;
+          const { data: lesson } = await supabase
+            .from('grammar_lessons')
+            .select('id, exercises')
+            .eq('topic_id', topic.id)
+            .maybeSingle();
+
+          if (lesson) {
+            dbLessonId = lesson.id;
+            if (Array.isArray(lesson.exercises) && lesson.exercises.length > 0) {
+              dbExercises = lesson.exercises;
+            }
+          }
         }
+      } catch {
+        // Offline or Supabase unreachable — continue to local JSON fallback
       }
 
-      // Fallback: check scripts/grammar-gen/out/${topicSlug}.json
+      // Ưu tiên kho bài tập chuẩn đã làm sạch trong scripts/grammar-gen/out/${topicSlug}.json
+      // nhưng giữ nguyên dbLessonId (nếu có) để đồng bộ tiến độ với grammar_progress
       try {
         const fs = await import('fs');
         const path = await import('path');
         const localPath = path.join(process.cwd(), 'scripts/grammar-gen/out', `${topicSlug}.json`);
         if (fs.existsSync(localPath)) {
           const rawContent = JSON.parse(fs.readFileSync(localPath, 'utf8'));
-          if (Array.isArray(rawContent.exercises)) {
+          if (Array.isArray(rawContent.exercises) && rawContent.exercises.length > 0) {
+            const effectiveLessonId = dbLessonId || topicSlug;
+            const effectiveTitle = rawContent.title || dbTitle || topicSlug;
+            const effectiveLevel = rawContent.level || dbLevel || 'A1';
             const fallbackData = rawContent.exercises.map((raw: unknown, i: number) =>
-              normalizeLessonExercise(raw, topicSlug, i, rawContent.title || topicSlug, rawContent.level || 'A1'),
+              normalizeLessonExercise(raw, effectiveLessonId, i, effectiveTitle, effectiveLevel),
             );
             return NextResponse.json({ success: true, data: fallbackData });
           }
         }
       } catch (err) {
-    const sessionFailure = sessionErrorResponse(err);
-    if (sessionFailure) return sessionFailure;
-        console.error('Failed to load local topic exercises fallback:', err);
+        const sessionFailure = sessionErrorResponse(err);
+        if (sessionFailure) return sessionFailure;
+        console.error('Failed to load local topic exercises:', err);
+      }
+
+      if (dbExercises && dbExercises.length > 0) {
+        const fallbackData = dbExercises.map((raw: unknown, i: number) =>
+          normalizeLessonExercise(raw, dbLessonId || topicSlug, i, dbTitle || topicSlug, dbLevel || 'A1'),
+        );
+        return NextResponse.json({ success: true, data: fallbackData });
       }
 
       return NextResponse.json({ success: true, data: [] });
     }
 
     // 1. Tự học (Self-practice) - không có classroomId:
-    // Load trực tiếp từ kho câu hỏi có sẵn trong grammar_lessons.exercises
+    // Load trực tiếp từ kho câu hỏi chuẩn (ưu tiên scripts/grammar-gen/out/${slug}.json, fallback grammar_lessons.exercises)
     if (lessonId && !classroomId) {
       const { data: lesson, error: lessonErr } = await supabase
         .from('grammar_lessons')
-        .select('exercises, topic:grammar_topics(title, level)')
+        .select('exercises, topic:grammar_topics(slug, title, level)')
         .eq('id', lessonId)
         .maybeSingle();
 
       if (lessonErr) throw lessonErr;
 
-      if (lesson && lesson.exercises && Array.isArray(lesson.exercises) && lesson.exercises.length > 0) {
-        const topic = lesson.topic as unknown as { title: string; level: string } | null;
-        const topicTitle = topic?.title ?? 'English Grammar';
-        const level = topic?.level ?? 'intermediate';
+      const topic = lesson?.topic as unknown as { slug?: string; title: string; level: string } | null;
+      const topicSlugFromLesson = topic?.slug;
+      const topicTitle = topic?.title ?? 'English Grammar';
+      const level = topic?.level ?? 'intermediate';
 
+      if (topicSlugFromLesson) {
+        try {
+          const fs = await import('fs');
+          const path = await import('path');
+          const localPath = path.join(process.cwd(), 'scripts/grammar-gen/out', `${topicSlugFromLesson}.json`);
+          if (fs.existsSync(localPath)) {
+            const rawContent = JSON.parse(fs.readFileSync(localPath, 'utf8'));
+            if (Array.isArray(rawContent.exercises) && rawContent.exercises.length > 0) {
+              const fallbackData = rawContent.exercises.map((raw: unknown, i: number) =>
+                normalizeLessonExercise(raw, lessonId, i, rawContent.title || topicTitle, rawContent.level || level),
+              );
+              return NextResponse.json({ success: true, data: fallbackData });
+            }
+          }
+        } catch {
+          // Ignore local file error and fallback to DB exercises
+        }
+      }
+
+      if (lesson && lesson.exercises && Array.isArray(lesson.exercises) && lesson.exercises.length > 0) {
         const fallbackData = lesson.exercises.map((raw: unknown, i: number) =>
           normalizeLessonExercise(raw, lessonId, i, topicTitle, level),
         );

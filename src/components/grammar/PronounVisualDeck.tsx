@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Volume2, Sparkles, User, Users, ChevronDown, ChevronUp, Lightbulb } from 'lucide-react';
+import Link from 'next/link';
+import { Volume2, Sparkles, User, Users, ChevronDown, ChevronUp, Lightbulb, Dumbbell, ArrowRight, RotateCcw } from 'lucide-react';
 import { grammarAudio } from '@/lib/grammar/grammarAudioManager';
 import GrammarCardNavigator from './GrammarCardNavigator';
 
@@ -489,6 +490,23 @@ function PronounCardItem({
         </div>
       </div>
 
+      {showDetailForms && (
+        <div className="border-b border-border bg-muted/15 px-2.5 sm:px-4 py-2 grid grid-cols-3 gap-1.5 font-mono text-[11px] shrink-0">
+          <div className="border border-border/60 bg-background px-2 py-1 rounded-none">
+            <span className="text-[10px] uppercase text-muted-foreground block">TT Sở hữu</span>
+            <span className="font-bold text-foreground">{item.forms.possessiveAdj}</span>
+          </div>
+          <div className="border border-border/60 bg-background px-2 py-1 rounded-none">
+            <span className="text-[10px] uppercase text-muted-foreground block">ĐT Sở hữu</span>
+            <span className="font-bold text-foreground">{item.forms.possessivePronoun}</span>
+          </div>
+          <div className="border border-border/60 bg-background px-2 py-1 rounded-none">
+            <span className="text-[10px] uppercase text-muted-foreground block">Phản thân</span>
+            <span className="font-bold text-foreground">{item.forms.reflexive}</span>
+          </div>
+        </div>
+      )}
+
       <div className={exampleLimit ? 'sm:grid sm:grid-cols-12 sm:items-stretch min-w-0' : undefined}>
         {/* Dynamic Image Stage & Memory Tip - Left Column */}
         <div
@@ -677,16 +695,24 @@ export default function PronounVisualDeck({ compact = false, guided = false }: {
   };
 
   if (guided) {
+    const isLastPronoun = cardIndex === PRONOUN_VISUAL_ITEMS.length - 1;
     return (
       <div className="space-y-2.5 min-w-0 max-w-4xl mx-auto">
         <GrammarCardNavigator
           titles={PRONOUN_VISUAL_ITEMS.map((item) => `${item.subject} — ${item.meaning}`)}
-          pills={PRONOUN_VISUAL_ITEMS.map((item) => item.subject)}
+          pills={PRONOUN_VISUAL_ITEMS.map((item) => ({ label: item.subject, subLabel: item.forms.object }))}
           index={cardIndex}
           onChange={(nextIndex) => {
             grammarAudio.stopAll();
             setCardIndex(nextIndex);
           }}
+          onComplete={() => {
+            grammarAudio.stopAll();
+            if (typeof window !== 'undefined') {
+              window.location.href = '/grammar/practice?topic=personal-pronouns';
+            }
+          }}
+          completeLabel="Luyện tập"
         />
         <PronounCardItem
           key={PRONOUN_VISUAL_ITEMS[cardIndex].subject}
@@ -697,6 +723,61 @@ export default function PronounVisualDeck({ compact = false, guided = false }: {
           onPlaySpeech={playSpeech}
           exampleLimit={4}
         />
+        {/* Bottom progression / end-of-deck CTA bar */}
+        <div className="border border-border bg-muted/20 p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 rounded-none touch-manipulation">
+          {isLastPronoun ? (
+            <>
+              <div className="text-xs text-foreground font-medium">
+                <span className="font-mono text-[11px] font-bold uppercase text-emerald-600 dark:text-emerald-400 mr-1.5">
+                  ✓ Đã xem đủ 7/7 đại từ
+                </span>
+                Bạn đã nắm trọn bộ Chủ ngữ & Tân ngữ!
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                <button
+                  type="button"
+                  onClick={() => {
+                    grammarAudio.stopAll();
+                    setCardIndex(0);
+                  }}
+                  className="min-h-[40px] px-3 py-1.5 border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground font-mono text-xs uppercase tracking-wider rounded-none inline-flex items-center gap-1.5 transition-colors touch-manipulation"
+                >
+                  <RotateCcw className="h-3.5 w-3.5 shrink-0" />
+                  <span>Xem lại từ I</span>
+                </button>
+                <Link
+                  href="/grammar/practice?topic=personal-pronouns"
+                  onClick={() => grammarAudio.stopAll()}
+                  className="min-h-[40px] px-3.5 py-1.5 bg-primary text-primary-foreground border border-primary hover:bg-primary/90 font-mono text-xs uppercase tracking-wider font-bold rounded-none inline-flex items-center gap-1.5 transition-colors touch-manipulation"
+                >
+                  <Dumbbell className="h-3.5 w-3.5 shrink-0" />
+                  <span>Làm bài tập ngay</span>
+                  <ArrowRight className="h-3.5 w-3.5 shrink-0" />
+                </Link>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="text-xs text-muted-foreground font-mono">
+                Đang ở <strong className="text-foreground">{PRONOUN_VISUAL_ITEMS[cardIndex].subject} ({cardIndex + 1}/7)</strong> • Tiếp theo:{' '}
+                <span className="text-foreground font-semibold">
+                  {PRONOUN_VISUAL_ITEMS[cardIndex + 1].subject} ({PRONOUN_VISUAL_ITEMS[cardIndex + 1].meaning})
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  grammarAudio.stopAll();
+                  setCardIndex(cardIndex + 1);
+                }}
+                className="min-h-[40px] px-3.5 py-1.5 bg-primary text-primary-foreground border border-primary hover:bg-primary/90 font-mono text-xs uppercase tracking-wider font-semibold rounded-none inline-flex items-center justify-center gap-1.5 shrink-0 transition-colors touch-manipulation"
+              >
+                <span>Qua ngôi {PRONOUN_VISUAL_ITEMS[cardIndex + 1].subject}</span>
+                <ArrowRight className="h-3.5 w-3.5 shrink-0" />
+              </button>
+            </>
+          )}
+        </div>
       </div>
     );
   }

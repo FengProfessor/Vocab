@@ -10,6 +10,9 @@ import {
   isVstepHoneypot,
 } from '@/lib/vstep-anti-scraping';
 import { VstepExam, VstepSubmitPayload, VstepScoreResult, VstepSkillType } from '@/lib/vstep-types';
+import { getAuthUser } from '@/lib/api-security';
+import { createServiceClient } from '@/lib/supabase-server';
+import { sessionErrorResponse } from '@/lib/session-response';
 
 export async function POST(request: NextRequest) {
   try {
@@ -222,12 +225,65 @@ export async function POST(request: NextRequest) {
       partBreakdown,
     });
 
+    // 5. Lưu kết quả vào user_roadmap_assessments nếu học viên đã đăng nhập
+    let savedToDb = false;
+    try {
+      const authUser = await getAuthUser(request).catch(() => null);
+      if (authUser?.userId) {
+        const supabase = createServiceClient();
+        const scorePct = Math.round((scoreResult.overallScore || 0) * 10);
+        const basePayload = {
+          user_id: authUser.userId,
+          tier: examMode === 'practice' ? 'checkpoint' : 'exit_exam',
+          target_id: testId,
+          score: scorePct,
+          passed: scoreResult.cefrLevel !== 'A2',
+          details: {
+            examType: 'vstep',
+            examTitle: reviewExam.title,
+            mode: examMode ?? 'full_simulation',
+            practiceSkill: practiceSkill ?? null,
+            listeningScore: scoreResult.listeningScore,
+            readingScore: scoreResult.readingScore,
+            writingScore: scoreResult.writingScore,
+            speakingScore: scoreResult.speakingScore,
+            listeningCorrect: scoreResult.listeningCorrect,
+            readingCorrect: scoreResult.readingCorrect,
+            listeningTotal: scoreResult.listeningTotal,
+            readingTotal: scoreResult.readingTotal,
+            overallScore: scoreResult.overallScore,
+            cefrLevel: scoreResult.cefrLevel,
+            partBreakdown: scoreResult.partBreakdown,
+          },
+        };
+        let { error: dbErr } = await supabase
+          .from('user_roadmap_assessments')
+          .insert({ ...basePayload, track: 'vstep' });
+        if (dbErr) {
+          const retryRes = await supabase
+            .from('user_roadmap_assessments')
+            .insert({ ...basePayload, track: 'cefr' });
+          dbErr = retryRes.error;
+        }
+        if (!dbErr) {
+          savedToDb = true;
+        }
+      }
+    } catch (dbErr) {
+      const sessionFailure = sessionErrorResponse(dbErr);
+      if (sessionFailure) return sessionFailure;
+      // Non-fatal: vẫn trả về kết quả chấm bài cho client
+    }
+
     return NextResponse.json({
       success: true,
       scoreResult,
       reviewExam,
+      savedToDb,
     });
   } catch (error) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     console.error('Lỗi khi nộp bài VSTEP:', error);
     return NextResponse.json(
       { success: false, error: 'Lỗi máy chủ nội bộ khi chấm điểm.' },

@@ -405,29 +405,435 @@
   "exercises": [
     {
       "id": "past-perfect-ex-01",
-      "type": "fill_blank",
-      "question": "Hoàn thành theo mẫu: She ___ never flown before that trip.",
-      "options": [],
-      "correct_answer": "had",
-      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "type": "multiple_choice",
+      "question": "By the time we arrived at the station, the train ___.",
+      "options": [
+        "had already left",
+        "has already left",
+        "left",
+        "was leaving"
+      ],
+      "correct_answer": "had already left",
+      "explanation": "Tàu rời đi TRƯỚC thời điểm chúng tôi đến ga trong quá khứ (\"By the time we arrived\") → hành động xảy ra trước dùng quá khứ hoàn thành \"had already left\".",
       "distractor_breakdowns": [
         {
-          "option": "had",
+          "option": "had already left",
           "isCorrect": true,
-          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+          "pedagogicalReason": "Tàu rời đi TRƯỚC thời điểm chúng tôi đến ga trong quá khứ (\"By the time we arrived\") → hành động xảy ra trước dùng quá khứ hoàn thành \"had already left\"."
         },
         {
-          "option": "has",
+          "option": "has already left",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Mốc thời gian là \"before that trip\" (trước một sự kiện trong quá khứ), phải dùng quá khứ hoàn thành \"had never flown\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"has already left\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had already left\"). Tàu rời đi TRƯỚC thời điểm chúng tôi đến ga trong quá khứ (\"By the time we arrived\") → hành động xảy ra trước dùng quá khứ hoàn thành \"had already left\"."
         },
         {
-          "option": "was",
+          "option": "left",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Cấu trúc thì hoàn thành dùng trợ động từ \"had\" kết hợp với phân từ hai \"flown\", không dùng to-be \"was\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"left\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had already left\"). Tàu rời đi TRƯỚC thời điểm chúng tôi đến ga trong quá khứ (\"By the time we arrived\") → hành động xảy ra trước dùng quá khứ hoàn thành \"had already left\"."
+        },
+        {
+          "option": "was leaving",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"was leaving\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had already left\"). Tàu rời đi TRƯỚC thời điểm chúng tôi đến ga trong quá khứ (\"By the time we arrived\") → hành động xảy ra trước dùng quá khứ hoàn thành \"had already left\"."
         }
       ],
       "difficulty": 1
+    },
+    {
+      "id": "past-perfect-ex-02",
+      "type": "fill_blank",
+      "question": "After she ___ her homework, she went to bed.",
+      "options": [
+        "had finished",
+        "has finished",
+        "finishes",
+        "was finishing"
+      ],
+      "correct_answer": "had finished",
+      "explanation": "Sau \"After\", hành động hoàn tất trước khi đi ngủ trong quá khứ dùng quá khứ hoàn thành \"had finished\".",
+      "distractor_breakdowns": [
+        {
+          "option": "had finished",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau \"After\", hành động hoàn tất trước khi đi ngủ trong quá khứ dùng quá khứ hoàn thành \"had finished\"."
+        },
+        {
+          "option": "has finished",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has finished\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had finished\"). Sau \"After\", hành động hoàn tất trước khi đi ngủ trong quá khứ dùng quá khứ hoàn thành \"had finished\"."
+        },
+        {
+          "option": "finishes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"finishes\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had finished\"). Sau \"After\", hành động hoàn tất trước khi đi ngủ trong quá khứ dùng quá khứ hoàn thành \"had finished\"."
+        },
+        {
+          "option": "was finishing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"was finishing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had finished\"). Sau \"After\", hành động hoàn tất trước khi đi ngủ trong quá khứ dùng quá khứ hoàn thành \"had finished\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "past-perfect-ex-03",
+      "type": "multiple_choice",
+      "question": "When I got home last night, my family ___ dinner.",
+      "options": [
+        "had already had",
+        "have already had",
+        "already have",
+        "are having"
+      ],
+      "correct_answer": "had already had",
+      "explanation": "Trước lúc tôi về đến nhà tối qua (\"got home\"), gia đình đã ăn tối xong rồi → dùng \"had + V3\" (V3 của \"have\" là \"had\" → \"had already had\").",
+      "distractor_breakdowns": [
+        {
+          "option": "had already had",
+          "isCorrect": true,
+          "pedagogicalReason": "Trước lúc tôi về đến nhà tối qua (\"got home\"), gia đình đã ăn tối xong rồi → dùng \"had + V3\" (V3 của \"have\" là \"had\" → \"had already had\")."
+        },
+        {
+          "option": "have already had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have already had\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had already had\"). Trước lúc tôi về đến nhà tối qua (\"got home\"), gia đình đã ăn tối xong rồi → dùng \"had + V3\" (V3 của \"have\" là \"had\" → \"had already had\")."
+        },
+        {
+          "option": "already have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"already have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had already had\"). Trước lúc tôi về đến nhà tối qua (\"got home\"), gia đình đã ăn tối xong rồi → dùng \"had + V3\" (V3 của \"have\" là \"had\" → \"had already had\")."
+        },
+        {
+          "option": "are having",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"are having\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had already had\"). Trước lúc tôi về đến nhà tối qua (\"got home\"), gia đình đã ăn tối xong rồi → dùng \"had + V3\" (V3 của \"have\" là \"had\" → \"had already had\")."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "past-perfect-ex-04",
+      "type": "fill_blank",
+      "question": "He failed the test because he ___ hard enough.",
+      "options": [
+        "hadn't studied",
+        "hasn't studied",
+        "doesn't study",
+        "wasn't study"
+      ],
+      "correct_answer": "hadn't studied",
+      "explanation": "Việc không học chăm chỉ xảy ra TRƯỚC việc trượt bài kiểm tra (\"failed\") trong quá khứ → dùng \"hadn't studied\".",
+      "distractor_breakdowns": [
+        {
+          "option": "hadn't studied",
+          "isCorrect": true,
+          "pedagogicalReason": "Việc không học chăm chỉ xảy ra TRƯỚC việc trượt bài kiểm tra (\"failed\") trong quá khứ → dùng \"hadn't studied\"."
+        },
+        {
+          "option": "hasn't studied",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"hasn't studied\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"hadn't studied\"). Việc không học chăm chỉ xảy ra TRƯỚC việc trượt bài kiểm tra (\"failed\") trong quá khứ → dùng \"hadn't studied\"."
+        },
+        {
+          "option": "doesn't study",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"doesn't study\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"hadn't studied\"). Việc không học chăm chỉ xảy ra TRƯỚC việc trượt bài kiểm tra (\"failed\") trong quá khứ → dùng \"hadn't studied\"."
+        },
+        {
+          "option": "wasn't study",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"wasn't study\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"hadn't studied\"). Việc không học chăm chỉ xảy ra TRƯỚC việc trượt bài kiểm tra (\"failed\") trong quá khứ → dùng \"hadn't studied\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "past-perfect-ex-05",
+      "type": "multiple_choice",
+      "question": "Before my brother moved to Hanoi, he ___ in Hue for five years.",
+      "options": [
+        "had lived",
+        "has lived",
+        "lives",
+        "is living"
+      ],
+      "correct_answer": "had lived",
+      "explanation": "Sống ở Huế xảy ra trước mốc quá khứ chuyển ra Hà Nội (\"Before my brother moved\") → dùng \"had lived\".",
+      "distractor_breakdowns": [
+        {
+          "option": "had lived",
+          "isCorrect": true,
+          "pedagogicalReason": "Sống ở Huế xảy ra trước mốc quá khứ chuyển ra Hà Nội (\"Before my brother moved\") → dùng \"had lived\"."
+        },
+        {
+          "option": "has lived",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has lived\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had lived\"). Sống ở Huế xảy ra trước mốc quá khứ chuyển ra Hà Nội (\"Before my brother moved\") → dùng \"had lived\"."
+        },
+        {
+          "option": "lives",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"lives\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had lived\"). Sống ở Huế xảy ra trước mốc quá khứ chuyển ra Hà Nội (\"Before my brother moved\") → dùng \"had lived\"."
+        },
+        {
+          "option": "is living",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is living\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had lived\"). Sống ở Huế xảy ra trước mốc quá khứ chuyển ra Hà Nội (\"Before my brother moved\") → dùng \"had lived\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "past-perfect-ex-06",
+      "type": "fill_blank",
+      "question": "The film ___ by the time we got into the cinema.",
+      "options": [
+        "had started",
+        "has started",
+        "starts",
+        "starting"
+      ],
+      "correct_answer": "had started",
+      "explanation": "Cấu trúc \"By the time + S + V2/ed, S + had + V3/ed\" → điền \"had started\".",
+      "distractor_breakdowns": [
+        {
+          "option": "had started",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc \"By the time + S + V2/ed, S + had + V3/ed\" → điền \"had started\"."
+        },
+        {
+          "option": "has started",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has started\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had started\"). Cấu trúc \"By the time + S + V2/ed, S + had + V3/ed\" → điền \"had started\"."
+        },
+        {
+          "option": "starts",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"starts\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had started\"). Cấu trúc \"By the time + S + V2/ed, S + had + V3/ed\" → điền \"had started\"."
+        },
+        {
+          "option": "starting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"starting\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had started\"). Cấu trúc \"By the time + S + V2/ed, S + had + V3/ed\" → điền \"had started\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "past-perfect-ex-07",
+      "type": "multiple_choice",
+      "question": "I didn't recognize her because she ___ her hairstyle completely.",
+      "options": [
+        "had changed",
+        "has changed",
+        "changes",
+        "is changing"
+      ],
+      "correct_answer": "had changed",
+      "explanation": "Cô ấy đã đổi kiểu tóc trước lúc tôi gặp lại và không nhận ra cô ấy trong quá khứ → dùng \"had changed\".",
+      "distractor_breakdowns": [
+        {
+          "option": "had changed",
+          "isCorrect": true,
+          "pedagogicalReason": "Cô ấy đã đổi kiểu tóc trước lúc tôi gặp lại và không nhận ra cô ấy trong quá khứ → dùng \"had changed\"."
+        },
+        {
+          "option": "has changed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has changed\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had changed\"). Cô ấy đã đổi kiểu tóc trước lúc tôi gặp lại và không nhận ra cô ấy trong quá khứ → dùng \"had changed\"."
+        },
+        {
+          "option": "changes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"changes\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had changed\"). Cô ấy đã đổi kiểu tóc trước lúc tôi gặp lại và không nhận ra cô ấy trong quá khứ → dùng \"had changed\"."
+        },
+        {
+          "option": "is changing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is changing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had changed\"). Cô ấy đã đổi kiểu tóc trước lúc tôi gặp lại và không nhận ra cô ấy trong quá khứ → dùng \"had changed\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "past-perfect-ex-08",
+      "type": "fill_blank",
+      "question": "___ you ever visited Da Lat before your trip last summer?",
+      "options": [
+        "Had",
+        "Have",
+        "Did",
+        "Were"
+      ],
+      "correct_answer": "Had",
+      "explanation": "Trải nghiệm tính đến TRƯỚC một mốc quá khứ (\"before your trip last summer\") dùng câu hỏi quá khứ hoàn thành \"Had you ever visited...?\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Had",
+          "isCorrect": true,
+          "pedagogicalReason": "Trải nghiệm tính đến TRƯỚC một mốc quá khứ (\"before your trip last summer\") dùng câu hỏi quá khứ hoàn thành \"Had you ever visited...?\"."
+        },
+        {
+          "option": "Have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Had\"). Trải nghiệm tính đến TRƯỚC một mốc quá khứ (\"before your trip last summer\") dùng câu hỏi quá khứ hoàn thành \"Had you ever visited...?\"."
+        },
+        {
+          "option": "Did",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Trợ động từ \"Did\" không phù hợp với ngôi của chủ ngữ hoặc cấu trúc của câu (đáp án đúng là \"Had\")."
+        },
+        {
+          "option": "Were",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng động từ to be \"Were\" ở vị trí này (đáp án đúng là \"Had\"). Trải nghiệm tính đến TRƯỚC một mốc quá khứ (\"before your trip last summer\") dùng câu hỏi quá khứ hoàn thành \"Had you ever visited...?\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "past-perfect-ex-09",
+      "type": "multiple_choice",
+      "question": "As soon as they ___ the report, they sent it to the manager.",
+      "options": [
+        "had completed",
+        "have completed",
+        "complete",
+        "completing"
+      ],
+      "correct_answer": "had completed",
+      "explanation": "Hoàn thành báo cáo xong trước rồi mới gửi cho quản lý trong quá khứ → dùng \"had completed\".",
+      "distractor_breakdowns": [
+        {
+          "option": "had completed",
+          "isCorrect": true,
+          "pedagogicalReason": "Hoàn thành báo cáo xong trước rồi mới gửi cho quản lý trong quá khứ → dùng \"had completed\"."
+        },
+        {
+          "option": "have completed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have completed\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had completed\"). Hoàn thành báo cáo xong trước rồi mới gửi cho quản lý trong quá khứ → dùng \"had completed\"."
+        },
+        {
+          "option": "complete",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"complete\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had completed\"). Hoàn thành báo cáo xong trước rồi mới gửi cho quản lý trong quá khứ → dùng \"had completed\"."
+        },
+        {
+          "option": "completing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"completing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had completed\"). Hoàn thành báo cáo xong trước rồi mới gửi cho quản lý trong quá khứ → dùng \"had completed\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "past-perfect-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: By the time the police arrived, the thief has escaped.",
+      "options": [
+        "By the time",
+        "arrived",
+        "has escaped",
+        "thief"
+      ],
+      "correct_answer": "has escaped",
+      "explanation": "Mốc \"By the time the police arrived\" ở quá khứ nên mệnh đề chính phải chia quá khứ hoàn thành \"had escaped\", không dùng hiện tại hoàn thành \"has escaped\".",
+      "distractor_breakdowns": [
+        {
+          "option": "By the time",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"By the time\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "arrived",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"arrived\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "has escaped",
+          "isCorrect": true,
+          "pedagogicalReason": "Mốc \"By the time the police arrived\" ở quá khứ nên mệnh đề chính phải chia quá khứ hoàn thành \"had escaped\", không dùng hiện tại hoàn thành \"has escaped\"."
+        },
+        {
+          "option": "thief",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"thief\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "past-perfect-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: She had went to the airport before I called her.",
+      "options": [
+        "had",
+        "went",
+        "airport",
+        "before"
+      ],
+      "correct_answer": "went",
+      "explanation": "Sau \"had\" phải dùng quá khứ phân từ (V3). V3 của \"go\" là \"gone\", không phải \"went\" (V2).",
+      "distractor_breakdowns": [
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"had\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "went",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau \"had\" phải dùng quá khứ phân từ (V3). V3 của \"go\" là \"gone\", không phải \"went\" (V2)."
+        },
+        {
+          "option": "airport",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"airport\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "before",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"before\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "past-perfect-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: After he had finished lunch, he goes back to work.",
+      "options": [
+        "After",
+        "had finished",
+        "goes",
+        "to work"
+      ],
+      "correct_answer": "goes",
+      "explanation": "Chuỗi hành động trong quá khứ: sau \"After + had V3\", mệnh đề chính phải chia ở quá khứ đơn \"went\", không dùng hiện tại đơn \"goes\".",
+      "distractor_breakdowns": [
+        {
+          "option": "After",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"After\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "had finished",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"had finished\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "goes",
+          "isCorrect": true,
+          "pedagogicalReason": "Chuỗi hành động trong quá khứ: sau \"After + had V3\", mệnh đề chính phải chia ở quá khứ đơn \"went\", không dùng hiện tại đơn \"goes\"."
+        },
+        {
+          "option": "to work",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"to work\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
     }
   ]
 }

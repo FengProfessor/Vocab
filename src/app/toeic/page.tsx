@@ -345,15 +345,40 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
 
       const statuses: Record<string, UserExamStatus> = {};
 
+      // Restore completed exams from lingo_toeic_exam_history
+      try {
+        const historyRaw = localStorage.getItem('lingo_toeic_exam_history');
+        if (historyRaw) {
+          const historyList = JSON.parse(historyRaw);
+          if (Array.isArray(historyList)) {
+            for (const item of historyList) {
+              const id = item?.examId || item?.testId;
+              if (id && !item?.part && typeof item?.scaledTotal === 'number') {
+                const prevScore = statuses[id]?.score ?? -1;
+                statuses[id] = {
+                  isCompleted: true,
+                  score: Math.max(prevScore, item.scaledTotal),
+                };
+              }
+            }
+          }
+        }
+      } catch {}
+
       // Check pending exam submission
       try {
         const pendingRaw = localStorage.getItem('lingo_pending_toeic_save');
         if (pendingRaw) {
           const pending = JSON.parse(pendingRaw);
-          if (pending?.testId && pending?.scoreResult?.scaledTotal !== undefined && pending?.answeredCount > 0) {
+          const pendingAnsweredCount =
+            typeof pending?.answeredCount === 'number'
+              ? pending.answeredCount
+              : Object.keys(pending?.answers || {}).length;
+          if (pending?.testId && pending?.scoreResult?.scaledTotal !== undefined && pendingAnsweredCount > 0) {
+            const prevScore = statuses[pending.testId]?.score ?? -1;
             statuses[pending.testId] = {
               isCompleted: true,
-              score: pending.scoreResult.scaledTotal,
+              score: Math.max(prevScore, pending.scoreResult.scaledTotal),
             };
           }
         }
@@ -367,10 +392,16 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
             const raw = localStorage.getItem(key);
             if (!raw) continue;
             const session = JSON.parse(raw);
-            const testId = session?.testId;
+            const rawTestId = typeof session?.testId === 'string' ? session.testId : '';
+            if (!rawTestId || rawTestId.includes('_part')) continue;
+            const testId = rawTestId.replace(/_(real|practice|full_simulation)$/, '');
             if (testId && !statuses[testId]?.isCompleted) {
               const answeredCount = Object.keys(session?.answers || {}).length;
-              if (answeredCount > 0 && (session?.timeRemainingSeconds ?? 1) > 0) {
+              const prevAnswered = statuses[testId]?.answeredCount || 0;
+              if (
+                answeredCount > prevAnswered &&
+                (session?.examMode === 'practice' || (session?.timeRemainingSeconds ?? 1) > 0)
+              ) {
                 statuses[testId] = {
                   inProgress: true,
                   answeredCount,

@@ -419,7 +419,12 @@
       "id": "future-in-the-past-ex-01",
       "type": "fill_blank",
       "question": "Hoàn thành theo mẫu: They ___ going to leave, but it rained.",
-      "options": [],
+      "options": [
+        "were",
+        "are",
+        "was",
+        "is"
+      ],
       "correct_answer": "were",
       "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
       "distractor_breakdowns": [
@@ -437,6 +442,11 @@
           "option": "was",
           "isCorrect": false,
           "pedagogicalReason": "Không chính xác. Chủ ngữ \"They\" là số nhiều, phải dùng to-be quá khứ số nhiều \"were\"."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ số ít \"is\" không hòa hợp với chủ ngữ hoặc thì của câu."
         }
       ],
       "difficulty": 1
@@ -444,7 +454,7 @@
     {
       "id": "future-in-the-past-ex-02",
       "type": "multiple_choice",
-      "question": "Choose the correct **reported future**: Maria told me she ___ the report by Friday.",
+      "question": "Maria told me she ___ the report by Friday.",
       "options": [
         "would finish",
         "will finish",
@@ -480,7 +490,7 @@
     {
       "id": "future-in-the-past-ex-03",
       "type": "multiple_choice",
-      "question": "Choose the best **past plan** form: We ___ visit the museum, but it was closed.",
+      "question": "Choose the best past plan form: We ___ visit the museum, but it was closed.",
       "options": [
         "were going to",
         "will",
@@ -516,7 +526,7 @@
     {
       "id": "future-in-the-past-ex-04",
       "type": "multiple_choice",
-      "question": "Choose the correct **near future** in the past: The train ___ depart when the alarm sounded.",
+      "question": "The train ___ depart when the alarm sounded.",
       "options": [
         "was about to",
         "is about to",
@@ -552,7 +562,7 @@
     {
       "id": "future-in-the-past-ex-05",
       "type": "multiple_choice",
-      "question": "Choose the natural **would** sentence.",
+      "question": "Choose the natural would sentence.",
       "options": [
         "He believed the plan would work.",
         "He believed the plan will worked.",
@@ -570,17 +580,17 @@
         {
           "option": "He believed the plan will worked.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"He believed the plan will worked.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"He believed the plan will worked.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"He believed the plan would work.\"). Câu đúng dùng “believed” ở quá khứ và “would + V” để diễn tả tương lai nhìn từ quá khứ. Các lựa chọn khác sai dạng động từ sau “will/would” hoặc trộn mốc thời gian không tự nhiên."
         },
         {
           "option": "He believed the plan would worked.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"He believed the plan would worked.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"He believed the plan would worked.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"He believed the plan would work.\"). Câu đúng dùng “believed” ở quá khứ và “would + V” để diễn tả tương lai nhìn từ quá khứ. Các lựa chọn khác sai dạng động từ sau “will/would” hoặc trộn mốc thời gian không tự nhiên."
         },
         {
           "option": "He believes the plan would work yesterday.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"He believes the plan would work yesterday.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"He believes the plan would work yesterday.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"He believed the plan would work.\"). Câu đúng dùng “believed” ở quá khứ và “would + V” để diễn tả tương lai nhìn từ quá khứ. Các lựa chọn khác sai dạng động từ sau “will/would” hoặc trộn mốc thời gian không tự nhiên."
         }
       ],
       "difficulty": 1
@@ -588,7 +598,7 @@
     {
       "id": "future-in-the-past-ex-06",
       "type": "multiple_choice",
-      "question": "Choose the best **intention** from the past: I bought flour because I ___ bake a cake that evening.",
+      "question": "Choose the best intention from the past: I bought flour because I ___ bake a cake that evening.",
       "options": [
         "was going to",
         "would going to",
@@ -624,7 +634,7 @@
     {
       "id": "future-in-the-past-ex-07",
       "type": "multiple_choice",
-      "question": "Choose the correct **time viewpoint**: In 2015, nobody knew the company ___ become so successful.",
+      "question": "In 2015, nobody knew the company ___ become so successful.",
       "options": [
         "would",
         "will",
@@ -660,7 +670,7 @@
     {
       "id": "future-in-the-past-ex-08",
       "type": "multiple_choice",
-      "question": "Choose the correct **promise** form: Liam promised that he ___ send the documents before noon.",
+      "question": "Liam promised that he ___ send the documents before noon.",
       "options": [
         "would",
         "will",
@@ -696,7 +706,7 @@
     {
       "id": "future-in-the-past-ex-09",
       "type": "multiple_choice",
-      "question": "Choose the best **scheduled future** in the past: The ceremony ___ begin at nine, but the storm delayed it.",
+      "question": "Choose the best scheduled future in the past: The ceremony ___ begin at nine, but the storm delayed it.",
       "options": [
         "was to",
         "is to",
@@ -732,7 +742,7 @@
     {
       "id": "future-in-the-past-ex-10",
       "type": "multiple_choice",
-      "question": "Choose the correct **negative form**: She said she ___ attend the meeting after all.",
+      "question": "She said she ___ attend the meeting after all.",
       "options": [
         "would not",
         "will not",
@@ -768,7 +778,7 @@
     {
       "id": "future-in-the-past-ex-11",
       "type": "fill_blank",
-      "question": "Complete the **future-in-past** sentence: Tom realized he ___ miss the last bus.",
+      "question": "Complete the future-in-past sentence: Tom realized he ___ miss the last bus.",
       "options": [
         "would",
         "will",
@@ -804,7 +814,7 @@
     {
       "id": "future-in-the-past-ex-12",
       "type": "fill_blank",
-      "question": "Complete the **going to** form: They ___ going to announce the results, but the director stopped them.",
+      "question": "Complete the going to form: They ___ going to announce the results, but the director stopped them.",
       "options": [
         "were",
         "was",
@@ -840,7 +850,7 @@
     {
       "id": "future-in-the-past-ex-13",
       "type": "fill_blank",
-      "question": "Complete the **about to** structure: I was ___ to leave when my manager called.",
+      "question": "Complete the about to structure: I was ___ to leave when my manager called.",
       "options": [
         "about",
         "going",
@@ -876,7 +886,7 @@
     {
       "id": "future-in-the-past-ex-14",
       "type": "fill_blank",
-      "question": "Complete the **reported speech** sentence: Dad said the repair ___ take longer than expected.",
+      "question": "Complete the reported speech sentence: Dad said the repair ___ take longer than expected.",
       "options": [
         "would",
         "will",
@@ -912,7 +922,7 @@
     {
       "id": "future-in-the-past-ex-15",
       "type": "fill_blank",
-      "question": "Complete the **past intention** sentence: She had packed a swimsuit because she ___ going to swim after lunch.",
+      "question": "Complete the past intention sentence: She had packed a swimsuit because she ___ going to swim after lunch.",
       "options": [
         "was",
         "were",
@@ -948,7 +958,7 @@
     {
       "id": "future-in-the-past-ex-16",
       "type": "fill_blank",
-      "question": "Complete the **would** clause: We hoped the weather ___ improve before the match.",
+      "question": "Complete the would clause: We hoped the weather ___ improve before the match.",
       "options": [
         "would",
         "will",
@@ -984,7 +994,7 @@
     {
       "id": "future-in-the-past-ex-17",
       "type": "fill_blank",
-      "question": "Complete the **official plan** form: The guests were ___ arrive at 7 p.m., but traffic was terrible.",
+      "question": "Complete the official plan form: The guests were ___ arrive at 7 p.m., but traffic was terrible.",
       "options": [
         "to",
         "about",
@@ -1020,7 +1030,7 @@
     {
       "id": "future-in-the-past-ex-18",
       "type": "fill_blank",
-      "question": "Complete the **interrupted plan**: Ben ___ going to explain everything, but Anna changed the subject.",
+      "question": "Complete the interrupted plan: Ben ___ going to explain everything, but Anna changed the subject.",
       "options": [
         "was",
         "were",
@@ -1056,7 +1066,7 @@
     {
       "id": "future-in-the-past-ex-19",
       "type": "error_correction",
-      "question": "Find the error: Identify the **verb form** error: Nina said she will call us after dinner.",
+      "question": "Find the error: Identify the verb form error: Nina said she will call us after dinner.",
       "options": [
         "said",
         "will call",
@@ -1092,7 +1102,7 @@
     {
       "id": "future-in-the-past-ex-20",
       "type": "error_correction",
-      "question": "Find the error: Identify the **past plan** error: We was going to ask for help, but the office was closed.",
+      "question": "Find the error: Identify the past plan error: We was going to ask for help, but the office was closed.",
       "options": [
         "We",
         "was going to",
@@ -1128,7 +1138,7 @@
     {
       "id": "future-in-the-past-ex-21",
       "type": "error_correction",
-      "question": "Find the error: Identify the **about to** error: He was about speak when the teacher entered.",
+      "question": "Find the error: Identify the about to error: He was about speak when the teacher entered.",
       "options": [
         "He",
         "was about speak",
@@ -1164,7 +1174,7 @@
     {
       "id": "future-in-the-past-ex-22",
       "type": "error_correction",
-      "question": "Find the error: Identify the **reported future** error: They believed the new bridge will reduce traffic in the area.",
+      "question": "Find the error: Identify the reported future error: They believed the new bridge will reduce traffic in the area.",
       "options": [
         "believed",
         "will reduce",
@@ -1200,7 +1210,7 @@
     {
       "id": "future-in-the-past-ex-23",
       "type": "error_correction",
-      "question": "Find the error: Identify the **future-in-past** error: I knew that Sarah would arrives late because her train was delayed.",
+      "question": "Find the error: Identify the future-in-past error: I knew that Sarah would arrives late because her train was delayed.",
       "options": [
         "knew",
         "would arrives",
@@ -1236,7 +1246,7 @@
     {
       "id": "future-in-the-past-ex-24",
       "type": "error_correction",
-      "question": "Find the error: Identify the **intention** error: Mark was going to joined the gym, but he changed his mind.",
+      "question": "Find the error: Identify the intention error: Mark was going to joined the gym, but he changed his mind.",
       "options": [
         "Mark",
         "was going to joined",
@@ -1272,7 +1282,7 @@
     {
       "id": "future-in-the-past-ex-25",
       "type": "error_correction",
-      "question": "Find the error: Identify the **scheduled future** error: The flight was to leaving at six, but it was canceled.",
+      "question": "Find the error: Identify the scheduled future error: The flight was to leaving at six, but it was canceled.",
       "options": [
         "The flight",
         "was to leaving",
@@ -1308,7 +1318,7 @@
     {
       "id": "future-in-the-past-ex-26",
       "type": "error_correction",
-      "question": "Find the error: Identify the **time shift** error: She thought the interview is going to be difficult.",
+      "question": "Find the error: Identify the time shift error: She thought the interview is going to be difficult.",
       "options": [
         "She thought",
         "is going to be",
@@ -1344,7 +1354,7 @@
     {
       "id": "future-in-the-past-ex-27",
       "type": "multiple_choice",
-      "question": "Choose the correct **future past** form: At that moment, I was sure the plan ___ fail.",
+      "question": "At that moment, I was sure the plan ___ fail.",
       "options": [
         "would",
         "will",
@@ -1380,7 +1390,7 @@
     {
       "id": "future-in-the-past-ex-28",
       "type": "multiple_choice",
-      "question": "Choose the best **past intention** form: Chloe saved some money because she ___ buy a new laptop later that year.",
+      "question": "Choose the best past intention form: Chloe saved some money because she ___ buy a new laptop later that year.",
       "options": [
         "was going to",
         "will",
@@ -1416,7 +1426,7 @@
     {
       "id": "future-in-the-past-ex-29",
       "type": "multiple_choice",
-      "question": "Choose the correct **about to** structure: The speaker ___ start his presentation when the lights went out.",
+      "question": "The speaker ___ start his presentation when the lights went out.",
       "options": [
         "was about to",
         "would about to",
@@ -1434,12 +1444,12 @@
         {
           "option": "would about to",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"would about to\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"would about to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was about to\"). “Was about to + V” diễn tả việc sắp xảy ra trong quá khứ thì bị một sự kiện khác chen vào. Các lựa chọn còn lại sai thì hoặc thiếu “to”, hoặc kết hợp sai với “would”."
         },
         {
           "option": "is about to",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"is about to\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"is about to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was about to\"). “Was about to + V” diễn tả việc sắp xảy ra trong quá khứ thì bị một sự kiện khác chen vào. Các lựa chọn còn lại sai thì hoặc thiếu “to”, hoặc kết hợp sai với “would”."
         },
         {
           "option": "was about",
@@ -1452,7 +1462,7 @@
     {
       "id": "future-in-the-past-ex-30",
       "type": "multiple_choice",
-      "question": "Choose the correct **reported plan**: Emma said they ___ move into the apartment the following week.",
+      "question": "Emma said they ___ move into the apartment the following week.",
       "options": [
         "were going to",
         "are going to",
@@ -1488,7 +1498,7 @@
     {
       "id": "future-in-the-past-ex-31",
       "type": "multiple_choice",
-      "question": "Choose the correct **base verb** form: The coach believed the team would ___ stronger after the break.",
+      "question": "The coach believed the team would ___ stronger after the break.",
       "options": [
         "become",
         "became",
@@ -1524,7 +1534,7 @@
     {
       "id": "future-in-the-past-ex-32",
       "type": "multiple_choice",
-      "question": "Choose the best **official arrangement**: The delegates ___ meet the mayor at noon, but the visit was postponed.",
+      "question": "Choose the best official arrangement: The delegates ___ meet the mayor at noon, but the visit was postponed.",
       "options": [
         "were to",
         "were going",
@@ -1560,7 +1570,7 @@
     {
       "id": "future-in-the-past-ex-33",
       "type": "multiple_choice",
-      "question": "Choose the natural **prediction**: In 1998, few people imagined that online banking ___ become normal.",
+      "question": "Choose the natural prediction: In 1998, few people imagined that online banking ___ become normal.",
       "options": [
         "would",
         "will",
@@ -1596,7 +1606,7 @@
     {
       "id": "future-in-the-past-ex-34",
       "type": "multiple_choice",
-      "question": "Choose the correct **negative plan**: I was tired, so I told them I ___ stay for the whole concert.",
+      "question": "I was tired, so I told them I ___ stay for the whole concert.",
       "options": [
         "wasn't going to",
         "am not going to",
@@ -1619,12 +1629,12 @@
         {
           "option": "wouldn't to",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"wouldn't to\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"wouldn't to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wasn't going to\"). “Wasn’t going to + V” diễn tả dự định không làm gì trong quá khứ. “Am not going to” là hiện tại; “wouldn’t to” và “didn’t going to” sai cấu trúc."
         },
         {
           "option": "didn't going to",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"didn't going to\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"didn't going to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wasn't going to\"). “Wasn’t going to + V” diễn tả dự định không làm gì trong quá khứ. “Am not going to” là hiện tại; “wouldn’t to” và “didn’t going to” sai cấu trúc."
         }
       ],
       "difficulty": 2
@@ -1632,7 +1642,7 @@
     {
       "id": "future-in-the-past-ex-35",
       "type": "multiple_choice",
-      "question": "Choose the correct **future clause**: We suspected the road ___ be closed after the heavy snow.",
+      "question": "We suspected the road ___ be closed after the heavy snow.",
       "options": [
         "would",
         "will",
@@ -1668,7 +1678,7 @@
     {
       "id": "future-in-the-past-ex-36",
       "type": "fill_blank",
-      "question": "Complete the **would** sentence: Maya believed her brother ___ apologize before the evening ended.",
+      "question": "Complete the would sentence: Maya believed her brother ___ apologize before the evening ended.",
       "options": [
         "would",
         "will",
@@ -1704,7 +1714,7 @@
     {
       "id": "future-in-the-past-ex-37",
       "type": "fill_blank",
-      "question": "Complete the **going to** form: The workers ___ going to repair the roof, but the owner changed the schedule.",
+      "question": "Complete the going to form: The workers ___ going to repair the roof, but the owner changed the schedule.",
       "options": [
         "were",
         "was",
@@ -1740,7 +1750,7 @@
     {
       "id": "future-in-the-past-ex-38",
       "type": "fill_blank",
-      "question": "Complete the **about to** phrase: She was about ___ press send when she noticed a mistake.",
+      "question": "Complete the about to phrase: She was about ___ press send when she noticed a mistake.",
       "options": [
         "to",
         "for",
@@ -1776,7 +1786,7 @@
     {
       "id": "future-in-the-past-ex-39",
       "type": "fill_blank",
-      "question": "Complete the **past schedule**: The new policy was ___ take effect in April, but it was delayed.",
+      "question": "Complete the past schedule: The new policy was ___ take effect in April, but it was delayed.",
       "options": [
         "to",
         "about",
@@ -1812,7 +1822,7 @@
     {
       "id": "future-in-the-past-ex-40",
       "type": "fill_blank",
-      "question": "Complete the **reported future** sentence: The guide explained that the tour ___ end near the old market.",
+      "question": "Complete the reported future sentence: The guide explained that the tour ___ end near the old market.",
       "options": [
         "would",
         "will",
@@ -1848,7 +1858,7 @@
     {
       "id": "future-in-the-past-ex-41",
       "type": "fill_blank",
-      "question": "Complete the **interrupted intention**: I ___ going to ask a question, but the meeting ended suddenly.",
+      "question": "Complete the interrupted intention: I ___ going to ask a question, but the meeting ended suddenly.",
       "options": [
         "was",
         "were",
@@ -1876,7 +1886,7 @@
         {
           "option": "be",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"be\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"be\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was\"). Chủ ngữ “I” đi với “was going to + V” trong quá khứ. “Were” thường không dùng với “I” trong câu khẳng định thông thường này, “am” là hiện tại, còn “be” sai dạng."
         }
       ],
       "difficulty": 1
@@ -1884,7 +1894,7 @@
     {
       "id": "future-in-the-past-ex-42",
       "type": "fill_blank",
-      "question": "Complete the **verb form**: They thought the software would ___ the problem automatically.",
+      "question": "Complete the verb form: They thought the software would ___ the problem automatically.",
       "options": [
         "solve",
         "solved",
@@ -1920,7 +1930,7 @@
     {
       "id": "future-in-the-past-ex-43",
       "type": "fill_blank",
-      "question": "Complete the **future past** sentence: The doctor warned that the pain ___ get worse without treatment.",
+      "question": "Complete the future past sentence: The doctor warned that the pain ___ get worse without treatment.",
       "options": [
         "would",
         "will",
@@ -1956,7 +1966,7 @@
     {
       "id": "future-in-the-past-ex-44",
       "type": "error_correction",
-      "question": "Find the error: Identify the **time shift** error: I believed the package will arrive before the weekend.",
+      "question": "Find the error: Identify the time shift error: I believed the package will arrive before the weekend.",
       "options": [
         "believed",
         "will arrive",
@@ -1992,7 +2002,7 @@
     {
       "id": "future-in-the-past-ex-45",
       "type": "error_correction",
-      "question": "Find the error: Identify the **going to** error: The students was going to present their project, but the projector failed.",
+      "question": "Find the error: Identify the going to error: The students was going to present their project, but the projector failed.",
       "options": [
         "The students",
         "was going to",
@@ -2028,7 +2038,7 @@
     {
       "id": "future-in-the-past-ex-46",
       "type": "error_correction",
-      "question": "Find the error: Identify the **modal verb** error: Lena hoped the medicine would helps her sleep better.",
+      "question": "Find the error: Identify the modal verb error: Lena hoped the medicine would helps her sleep better.",
       "options": [
         "hoped",
         "would helps",
@@ -2064,7 +2074,7 @@
     {
       "id": "future-in-the-past-ex-47",
       "type": "error_correction",
-      "question": "Find the error: Identify the **about to** error: We were about leaving the cafe when Sam called.",
+      "question": "Find the error: Identify the about to error: We were about leaving the cafe when Sam called.",
       "options": [
         "were",
         "about leaving",
@@ -2100,7 +2110,7 @@
     {
       "id": "future-in-the-past-ex-48",
       "type": "error_correction",
-      "question": "Find the error: Identify the **past plan** error: I was going buy tickets online, but the website crashed.",
+      "question": "Find the error: Identify the past plan error: I was going buy tickets online, but the website crashed.",
       "options": [
         "was going",
         "buy tickets",
@@ -2136,7 +2146,7 @@
     {
       "id": "future-in-the-past-ex-49",
       "type": "error_correction",
-      "question": "Find the error: Identify the **reported promise** error: Daniel promised he will return the camera the next day.",
+      "question": "Find the error: Identify the reported promise error: Daniel promised he will return the camera the next day.",
       "options": [
         "promised",
         "will return",
@@ -2172,7 +2182,7 @@
     {
       "id": "future-in-the-past-ex-50",
       "type": "error_correction",
-      "question": "Find the error: Identify the **official plan** error: The conference was to starts after lunch, but the keynote ran late.",
+      "question": "Find the error: Identify the official plan error: The conference was to starts after lunch, but the keynote ran late.",
       "options": [
         "The conference",
         "was to starts",
@@ -2208,7 +2218,7 @@
     {
       "id": "future-in-the-past-ex-51",
       "type": "error_correction",
-      "question": "Find the error: Identify the **future past** error: She realized the decision is going to affect everyone in the team.",
+      "question": "Find the error: Identify the future past error: She realized the decision is going to affect everyone in the team.",
       "options": [
         "realized",
         "is going to affect",

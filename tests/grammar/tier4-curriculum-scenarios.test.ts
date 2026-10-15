@@ -41,21 +41,21 @@ export async function runTier4Tests(runner: TestRunner): Promise<void> {
   const lessons = await fetchCurriculumLessons();
 
   // ──────────────────────────────────────────────────────────────────────────
-  // Scenario 4.1: Complete 25-Lesson Curriculum Inventory & Metadata
+  // Scenario 4.1: Complete 87-Lesson Curriculum Inventory & Metadata
   // ──────────────────────────────────────────────────────────────────────────
-  runner.describe('Scenario 4.1: Complete 25-Lesson Curriculum Inventory & Metadata', () => {
-    runner.it('S4.1.1: Fetches all 25 active Supabase grammar lessons successfully', () => {
-      expect(lessons.length).toBe(25);
+  runner.describe('Scenario 4.1: Complete 87-Lesson Curriculum Inventory & Metadata', () => {
+    runner.it('S4.1.1: Fetches all 87 active Supabase grammar lessons successfully', () => {
+      expect(lessons.length).toBe(87);
 
-      // Verify sequence order_index 1 to 25
+      // Verify sequence order_index 1 to 62
       const indices = lessons.map((l) => l.order_index);
-      for (let i = 1; i <= 25; i++) {
+      for (let i = 1; i <= 62; i++) {
         expect(indices).toContain(i);
       }
     });
 
-    runner.it('S4.1.2: Validates lesson identity, titles, and topic foreign keys across all 25 lessons', () => {
-      expect(lessons.length).toBe(25);
+    runner.it('S4.1.2: Validates lesson identity, titles, and topic foreign keys across all 87 lessons', () => {
+      expect(lessons.length).toBe(87);
       for (const lesson of lessons) {
         expect(lesson.id).toBeDefined();
         expect(lesson.topic_id).toBeDefined();
@@ -63,17 +63,17 @@ export async function runTier4Tests(runner: TestRunner): Promise<void> {
         expect(lesson.title.trim().length).toBeGreaterThan(0);
         expect(typeof lesson.order_index).toBe('number');
         expect(lesson.order_index).toBeGreaterThanOrEqual(1);
-        expect(lesson.order_index).toBeLessThanOrEqual(25);
+        expect(lesson.order_index).toBeLessThanOrEqual(62);
       }
     });
   });
 
   // ──────────────────────────────────────────────────────────────────────────
-  // Scenario 4.2: Markdown Table Syntactic Integrity across All 25 Lessons
+  // Scenario 4.2: Markdown Table Syntactic Integrity across All 87 Lessons
   // ──────────────────────────────────────────────────────────────────────────
-  runner.describe('Scenario 4.2: Markdown Table Syntactic Integrity across All 25 Lessons', () => {
-    runner.it('S4.2.1: Preprocesses all 25 lessons through ensureMarkdownTableFormat without errors', () => {
-      expect(lessons.length).toBe(25);
+  runner.describe('Scenario 4.2: Markdown Table Syntactic Integrity across All 87 Lessons', () => {
+    runner.it('S4.2.1: Preprocesses all 87 lessons through ensureMarkdownTableFormat without errors', () => {
+      expect(lessons.length).toBe(87);
       let tablesCounted = 0;
 
       for (const lesson of lessons) {
@@ -284,7 +284,9 @@ export async function runTier4Tests(runner: TestRunner): Promise<void> {
   // ──────────────────────────────────────────────────────────────────────────
   runner.describe('Scenario 4.7: End-to-End Learner Journey Simulation (Buổi 1: S-V-O)', () => {
     runner.it('S4.7.1: Learner navigates Buổi 1, reviews theory markdown, and solves sample exercises', () => {
-      const b1 = lessons.find((l) => l.order_index === 1);
+      const b1 =
+        lessons.find((l) => l.order_index === 1 && (l.title.includes('S–V–O') || l.title.includes('S-V-O'))) ||
+        lessons.find((l) => l.order_index === 1);
       expect(b1).toBeDefined();
       expect(b1!.title).toContain('S–V–O');
 

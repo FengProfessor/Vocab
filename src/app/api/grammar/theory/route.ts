@@ -3,19 +3,27 @@ import path from 'path';
 import fs from 'fs';
 
 // Memory cache for all 62 grammar topics theory data
-const theoryCache = new Map<string, any>();
+const theoryCache = new Map<string, Record<string, unknown>>();
 
 const THEORY_CACHE_HEADERS = {
   'Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
 };
 
+interface RawExampleItem {
+  en?: string;
+  vi?: string;
+  note?: string;
+  annotations?: unknown[];
+}
+
 export async function GET(req: NextRequest): Promise<NextResponse> {
   const { searchParams } = new URL(req.url);
-  const topicSlug = searchParams.get('topic');
+  const rawSlug = (searchParams.get('topic') || searchParams.get('slug') || '').trim();
 
-  if (!topicSlug) {
+  if (!rawSlug || !/^[a-z0-9-]+$/.test(rawSlug)) {
     return NextResponse.json({ success: false, error: 'topic query param is required' }, { status: 400 });
   }
+  const topicSlug = path.basename(rawSlug);
 
   // Check cache first
   if (theoryCache.has(topicSlug)) {
@@ -47,7 +55,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       signals: Array.isArray(s.signals) ? s.signals : [],
       mistakes: Array.isArray(s.mistakes) ? s.mistakes : [],
       bilingual_examples: Array.isArray(s.examples)
-        ? s.examples.map((ex: any) => ({
+        ? s.examples.map((ex: RawExampleItem) => ({
             en: ex.en,
             vi: ex.vi,
             note: ex.note || '',
@@ -64,7 +72,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       { success: true, data: payload },
       { headers: THEORY_CACHE_HEADERS }
     );
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error(`[GrammarTheoryAPI] Error reading topic ${topicSlug}:`, err);
     return NextResponse.json({ success: false, error: 'Failed to load grammar theory' }, { status: 500 });
   }

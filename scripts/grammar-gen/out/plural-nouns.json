@@ -339,7 +339,7 @@
     {
       "id": "plural-nouns-ex-01",
       "type": "multiple_choice",
-      "question": "What is the plural of “class”?",
+      "question": "Dạng số nhiều đúng của danh từ \"class\" là gì?",
       "options": [
         "classs",
         "classes",
@@ -351,7 +351,7 @@
         {
           "option": "classs",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"classs\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"classs\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"classes\"). class tận cùng s nên thêm es."
         },
         {
           "option": "classes",
@@ -361,7 +361,7 @@
         {
           "option": "classies",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"classies\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"classies\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"classes\"). class tận cùng s nên thêm es."
         }
       ],
       "difficulty": 1
@@ -369,7 +369,7 @@
     {
       "id": "plural-nouns-ex-02",
       "type": "multiple_choice",
-      "question": "What is the plural of “woman”?",
+      "question": "Dạng số nhiều đúng của danh từ \"woman\" là gì?",
       "options": [
         "womans",
         "women",
@@ -381,7 +381,7 @@
         {
           "option": "womans",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"womans\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"womans\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"women\"). woman → women là bất quy tắc."
         },
         {
           "option": "women",
@@ -391,7 +391,7 @@
         {
           "option": "womanses",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"womanses\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"womanses\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"women\"). woman → women là bất quy tắc."
         }
       ],
       "difficulty": 1
@@ -399,7 +399,7 @@
     {
       "id": "plural-nouns-ex-03",
       "type": "multiple_choice",
-      "question": "Choose the correct phrase.",
+      "question": "Chọn cụm từ đúng ngữ pháp:",
       "options": [
         "three potatoes",
         "three potatos",
@@ -416,12 +416,12 @@
         {
           "option": "three potatos",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"three potatos\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"three potatos\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"three potatoes\"). potato thường thêm es. Các danh từ kết thúc bằng o (như potato, tomato) thường được thêm es ở dạng số nhiều."
         },
         {
           "option": "three potato",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"three potato\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"three potato\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"three potatoes\"). potato thường thêm es. Các danh từ kết thúc bằng o (như potato, tomato) thường được thêm es ở dạng số nhiều."
         }
       ],
       "difficulty": 1
@@ -430,7 +430,12 @@
       "id": "plural-nouns-ex-04",
       "type": "fill_blank",
       "question": "There are five ___ on the shelf. (box)",
-      "options": [],
+      "options": [
+        "boxes",
+        "boxs",
+        "box",
+        "boxess"
+      ],
       "correct_answer": "boxes",
       "explanation": "box tận cùng x nên thêm es.",
       "distractor_breakdowns": [
@@ -448,6 +453,11 @@
           "option": "box",
           "isCorrect": false,
           "pedagogicalReason": "Không chính xác. Sau số từ \"five\" bắt buộc phải là danh từ số nhiều."
+        },
+        {
+          "option": "boxess",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"boxess\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"boxes\"). box tận cùng x nên thêm es."
         }
       ],
       "difficulty": 1
@@ -456,7 +466,12 @@
       "id": "plural-nouns-ex-05",
       "type": "fill_blank",
       "question": "Two ___ are playing outside. (child)",
-      "options": [],
+      "options": [
+        "children",
+        "childs",
+        "childrens",
+        "to children"
+      ],
       "correct_answer": "children",
       "explanation": "child có số nhiều bất quy tắc children.",
       "distractor_breakdowns": [
@@ -474,6 +489,11 @@
           "option": "childrens",
           "isCorrect": false,
           "pedagogicalReason": "Không chính xác. \"children\" vốn đã mang nghĩa số nhiều, không thêm đuôi \"-s\"."
+        },
+        {
+          "option": "to children",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to children\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"children\"). child có số nhiều bất quy tắc children."
         }
       ],
       "difficulty": 1
@@ -482,7 +502,12 @@
       "id": "plural-nouns-ex-06",
       "type": "fill_blank",
       "question": "She bought three ___. (toy)",
-      "options": [],
+      "options": [
+        "toys",
+        "toies",
+        "toy",
+        "toyss"
+      ],
       "correct_answer": "toys",
       "explanation": "Nguyên âm + y: giữ y và thêm s.",
       "distractor_breakdowns": [
@@ -500,6 +525,11 @@
           "option": "toy",
           "isCorrect": false,
           "pedagogicalReason": "Không chính xác. Sau số từ \"three\" bắt buộc là danh từ số nhiều."
+        },
+        {
+          "option": "toyss",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"toyss\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"toys\"). Nguyên âm + y: giữ y và thêm s."
         }
       ],
       "difficulty": 2

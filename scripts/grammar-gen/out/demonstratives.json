@@ -375,7 +375,7 @@
         {
           "option": "this",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"this\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"this\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"that\"). Star số ít và ở xa."
         },
         {
           "option": "these",
@@ -424,7 +424,12 @@
       "id": "demonstratives-ex-04",
       "type": "fill_blank",
       "question": "___ is my desk here. (near, singular)",
-      "options": [],
+      "options": [
+        "this",
+        "that",
+        "these",
+        "those"
+      ],
       "correct_answer": "this",
       "explanation": "Gần và số ít dùng this.",
       "distractor_breakdowns": [
@@ -442,6 +447,11 @@
           "option": "these",
           "isCorrect": false,
           "pedagogicalReason": "Không chính xác. \"these\" đi với danh từ số nhiều, trong khi \"desk\" là danh từ số ít."
+        },
+        {
+          "option": "those",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"those\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"this\"). Gần và số ít dùng this."
         }
       ],
       "difficulty": 1
@@ -450,7 +460,12 @@
       "id": "demonstratives-ex-05",
       "type": "fill_blank",
       "question": "___ houses across the river are old. (far, plural)",
-      "options": [],
+      "options": [
+        "those",
+        "these",
+        "that",
+        "this"
+      ],
       "correct_answer": "those",
       "explanation": "Xa và số nhiều dùng those.",
       "distractor_breakdowns": [
@@ -468,6 +483,11 @@
           "option": "that",
           "isCorrect": false,
           "pedagogicalReason": "Không chính xác. \"that\" là số ít, trong khi \"houses\" là danh từ số nhiều."
+        },
+        {
+          "option": "this",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"this\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"those\"). Xa và số nhiều dùng those."
         }
       ],
       "difficulty": 1
@@ -476,7 +496,12 @@
       "id": "demonstratives-ex-06",
       "type": "fill_blank",
       "question": "___ are fresh cookies on this plate. (near, plural)",
-      "options": [],
+      "options": [
+        "these",
+        "this",
+        "those",
+        "that"
+      ],
       "correct_answer": "these",
       "explanation": "Gần và số nhiều dùng these.",
       "distractor_breakdowns": [
@@ -494,6 +519,11 @@
           "option": "those",
           "isCorrect": false,
           "pedagogicalReason": "Không chính xác. \"those\" chỉ khoảng cách xa, trong khi \"on this plate\" là khoảng cách gần."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"that\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"these\"). Gần và số nhiều dùng these."
         }
       ],
       "difficulty": 1
@@ -663,7 +693,7 @@
     {
       "id": "demonstratives-ex-13",
       "type": "multiple_choice",
-      "question": "Choose the correct **demonstrative**: ___ pen in my hand is blue.",
+      "question": "___ pen in my hand is blue.",
       "options": [
         "This",
         "That",
@@ -699,7 +729,7 @@
     {
       "id": "demonstratives-ex-14",
       "type": "multiple_choice",
-      "question": "Choose the correct **demonstrative**: ___ birds in the tree over there are noisy.",
+      "question": "___ birds in the tree over there are noisy.",
       "options": [
         "Those",
         "This",
@@ -735,7 +765,7 @@
     {
       "id": "demonstratives-ex-15",
       "type": "multiple_choice",
-      "question": "Choose the correct **verb**: These shoes ___ too small for me.",
+      "question": "These shoes ___ too small for me.",
       "options": [
         "are",
         "is",
@@ -771,7 +801,7 @@
     {
       "id": "demonstratives-ex-16",
       "type": "multiple_choice",
-      "question": "Choose the correct **demonstrative**: ___ is my sister, Lan.",
+      "question": "___ is my sister, Lan.",
       "options": [
         "This",
         "These",
@@ -807,7 +837,7 @@
     {
       "id": "demonstratives-ex-17",
       "type": "multiple_choice",
-      "question": "Choose the correct **noun form**: That ___ is very old.",
+      "question": "That ___ is very old.",
       "options": [
         "watch",
         "watches",
@@ -843,7 +873,7 @@
     {
       "id": "demonstratives-ex-18",
       "type": "multiple_choice",
-      "question": "Choose the correct **demonstrative**: ___ oranges in this basket are sweet.",
+      "question": "___ oranges in this basket are sweet.",
       "options": [
         "These",
         "This",
@@ -879,7 +909,7 @@
     {
       "id": "demonstratives-ex-19",
       "type": "multiple_choice",
-      "question": "Choose the correct **sentence**:",
+      "question": "Chọn câu đúng ngữ pháp:",
       "options": [
         "This is my teacher.",
         "These is my teacher.",
@@ -897,17 +927,17 @@
         {
           "option": "These is my teacher.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"These is my teacher.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"These is my teacher.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"This is my teacher.\"). \"This is...\" đúng khi nói về một người. \"These/Those\" là số nhiều nên không đi với \"is\" trong các câu kia; \"That are\" cũng sai vì \"that\" là số ít."
         },
         {
           "option": "That are my teacher.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"That are my teacher.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"That are my teacher.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"This is my teacher.\"). \"This is...\" đúng khi nói về một người. \"These/Those\" là số nhiều nên không đi với \"is\" trong các câu kia; \"That are\" cũng sai vì \"that\" là số ít."
         },
         {
           "option": "Those is my teacher.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Those is my teacher.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Those is my teacher.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"This is my teacher.\"). \"This is...\" đúng khi nói về một người. \"These/Those\" là số nhiều nên không đi với \"is\" trong các câu kia; \"That are\" cũng sai vì \"that\" là số ít."
         }
       ],
       "difficulty": 2
@@ -915,7 +945,7 @@
     {
       "id": "demonstratives-ex-20",
       "type": "multiple_choice",
-      "question": "Choose the correct **demonstrative**: Can you see ___ bus at the end of the street?",
+      "question": "Can you see ___ bus at the end of the street?",
       "options": [
         "that",
         "this",
@@ -951,7 +981,7 @@
     {
       "id": "demonstratives-ex-21",
       "type": "multiple_choice",
-      "question": "Choose the correct **form**: ___ are my new glasses.",
+      "question": "___ are my new glasses.",
       "options": [
         "These",
         "This",
@@ -987,7 +1017,7 @@
     {
       "id": "demonstratives-ex-22",
       "type": "fill_blank",
-      "question": "Fill in the correct **demonstrative**: ___ cup beside me is hot.",
+      "question": "Fill in the correct demonstrative: ___ cup beside me is hot.",
       "options": [
         "This",
         "That",
@@ -1023,7 +1053,7 @@
     {
       "id": "demonstratives-ex-23",
       "type": "fill_blank",
-      "question": "Fill in the correct **demonstrative**: ___ trees on the hill are tall.",
+      "question": "Fill in the correct demonstrative: ___ trees on the hill are tall.",
       "options": [
         "Those",
         "These",
@@ -1059,7 +1089,7 @@
     {
       "id": "demonstratives-ex-24",
       "type": "fill_blank",
-      "question": "Fill in the correct **demonstrative**: ___ is my phone, not yours.",
+      "question": "Fill in the correct demonstrative: ___ is my phone, not yours.",
       "options": [
         "This",
         "These",
@@ -1095,7 +1125,7 @@
     {
       "id": "demonstratives-ex-25",
       "type": "fill_blank",
-      "question": "Fill in the correct **demonstrative**: ___ children in the playground are my cousins.",
+      "question": "Fill in the correct demonstrative: ___ children in the playground are my cousins.",
       "options": [
         "Those",
         "That",
@@ -1131,7 +1161,7 @@
     {
       "id": "demonstratives-ex-26",
       "type": "fill_blank",
-      "question": "Fill in the correct **verb**: That cat ___ under the car.",
+      "question": "Fill in the correct verb: That cat ___ under the car.",
       "options": [
         "is",
         "are",
@@ -1167,7 +1197,7 @@
     {
       "id": "demonstratives-ex-27",
       "type": "fill_blank",
-      "question": "Fill in the correct **demonstrative**: I like ___ pictures on your phone.",
+      "question": "Fill in the correct demonstrative: I like ___ pictures on your phone.",
       "options": [
         "these",
         "this",
@@ -1203,7 +1233,7 @@
     {
       "id": "demonstratives-ex-28",
       "type": "fill_blank",
-      "question": "Fill in the correct **demonstrative**: ___ man across the road is our doctor.",
+      "question": "Fill in the correct demonstrative: ___ man across the road is our doctor.",
       "options": [
         "That",
         "This",
@@ -1239,7 +1269,7 @@
     {
       "id": "demonstratives-ex-29",
       "type": "fill_blank",
-      "question": "Fill in the correct **verb**: Those bags ___ very heavy.",
+      "question": "Fill in the correct verb: Those bags ___ very heavy.",
       "options": [
         "are",
         "is",
@@ -1275,7 +1305,7 @@
     {
       "id": "demonstratives-ex-30",
       "type": "error_correction",
-      "question": "Find the error: **This/These** apples are from my garden.",
+      "question": "Find the error: This/These apples are from my garden.",
       "options": [
         "This",
         "apples",
@@ -1311,7 +1341,7 @@
     {
       "id": "demonstratives-ex-31",
       "type": "error_correction",
-      "question": "Find the error: **That/Those** pencils is on the shelf.",
+      "question": "Find the error: That/Those pencils is on the shelf.",
       "options": [
         "That",
         "pencils",
@@ -1347,7 +1377,7 @@
     {
       "id": "demonstratives-ex-32",
       "type": "error_correction",
-      "question": "Find the error: **These/This** sandwich is for you.",
+      "question": "Find the error: These/This sandwich is for you.",
       "options": [
         "These",
         "sandwich",
@@ -1383,7 +1413,7 @@
     {
       "id": "demonstratives-ex-33",
       "type": "error_correction",
-      "question": "Find the error: **Those/That** are my aunt in the photo.",
+      "question": "Find the error: Those/That are my aunt in the photo.",
       "options": [
         "Those",
         "are",
@@ -1419,7 +1449,7 @@
     {
       "id": "demonstratives-ex-34",
       "type": "error_correction",
-      "question": "Find the error: **No a/an** I want this a notebook.",
+      "question": "Find the error: No a/an I want this a notebook.",
       "options": [
         "I want",
         "this a notebook",
@@ -1455,7 +1485,7 @@
     {
       "id": "demonstratives-ex-35",
       "type": "error_correction",
-      "question": "Find the error: **These/Those** are that socks under the bed.",
+      "question": "Find the error: These/Those are that socks under the bed.",
       "options": [
         "These",
         "are",
@@ -1491,7 +1521,7 @@
     {
       "id": "demonstratives-ex-36",
       "type": "error_correction",
-      "question": "Find the error: **This/These** are my favorite song.",
+      "question": "Find the error: This/These are my favorite song.",
       "options": [
         "This",
         "are",
@@ -1527,7 +1557,7 @@
     {
       "id": "demonstratives-ex-37",
       "type": "error_correction",
-      "question": "Find the error: **That/Those** posters near us are expensive.",
+      "question": "Find the error: That/Those posters near us are expensive.",
       "options": [
         "That",
         "posters",
@@ -1563,7 +1593,7 @@
     {
       "id": "demonstratives-ex-38",
       "type": "multiple_choice",
-      "question": "Choose the correct **demonstrative**: ___ backpack next to me is red.",
+      "question": "___ backpack next to me is red.",
       "options": [
         "This",
         "That",
@@ -1599,7 +1629,7 @@
     {
       "id": "demonstratives-ex-39",
       "type": "multiple_choice",
-      "question": "Choose the correct **demonstrative**: ___ houses across the river are small.",
+      "question": "___ houses across the river are small.",
       "options": [
         "Those",
         "These",
@@ -1635,7 +1665,7 @@
     {
       "id": "demonstratives-ex-40",
       "type": "multiple_choice",
-      "question": "Choose the correct **verb**: This room ___ very quiet.",
+      "question": "This room ___ very quiet.",
       "options": [
         "is",
         "are",
@@ -1671,7 +1701,7 @@
     {
       "id": "demonstratives-ex-41",
       "type": "multiple_choice",
-      "question": "Choose the correct **noun form**: These ___ are clean.",
+      "question": "These ___ are clean.",
       "options": [
         "plates",
         "plate",
@@ -1707,7 +1737,7 @@
     {
       "id": "demonstratives-ex-42",
       "type": "multiple_choice",
-      "question": "Choose the correct **demonstrative**: ___ cookies on this plate are for you.",
+      "question": "___ cookies on this plate are for you.",
       "options": [
         "These",
         "Those",
@@ -1743,7 +1773,7 @@
     {
       "id": "demonstratives-ex-43",
       "type": "multiple_choice",
-      "question": "Choose the correct **form**: ___ are my parents in the photo.",
+      "question": "___ are my parents in the photo.",
       "options": [
         "Those",
         "That",
@@ -1779,7 +1809,7 @@
     {
       "id": "demonstratives-ex-44",
       "type": "multiple_choice",
-      "question": "Choose the correct **demonstrative**: Is ___ your umbrella over there?",
+      "question": "Is ___ your umbrella over there?",
       "options": [
         "that",
         "this",
@@ -1815,7 +1845,7 @@
     {
       "id": "demonstratives-ex-45",
       "type": "multiple_choice",
-      "question": "Choose the correct **word order**:",
+      "question": "Chọn câu có trật tự từ đúng ngữ pháp:",
       "options": [
         "This is my teacher.",
         "This my is teacher.",
@@ -1833,17 +1863,17 @@
         {
           "option": "This my is teacher.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"This my is teacher.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"This my is teacher.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"This is my teacher.\"). Khi giới thiệu người, mẫu đúng là “This is + người”. Các lựa chọn khác sai trật tự từ hoặc thiếu dấu câu phù hợp nếu là câu hỏi."
         },
         {
           "option": "Is this my teacher.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Is this my teacher.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Is this my teacher.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"This is my teacher.\"). Khi giới thiệu người, mẫu đúng là “This is + người”. Các lựa chọn khác sai trật tự từ hoặc thiếu dấu câu phù hợp nếu là câu hỏi."
         },
         {
           "option": "This is teacher my.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"This is teacher my.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"This is teacher my.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"This is my teacher.\"). Khi giới thiệu người, mẫu đúng là “This is + người”. Các lựa chọn khác sai trật tự từ hoặc thiếu dấu câu phù hợp nếu là câu hỏi."
         }
       ],
       "difficulty": 2
@@ -1851,7 +1881,7 @@
     {
       "id": "demonstratives-ex-46",
       "type": "fill_blank",
-      "question": "Fill in the correct **demonstrative**: ___ laptop on my desk is new.",
+      "question": "Fill in the correct demonstrative: ___ laptop on my desk is new.",
       "options": [
         "This",
         "That",
@@ -1887,7 +1917,7 @@
     {
       "id": "demonstratives-ex-47",
       "type": "fill_blank",
-      "question": "Fill in the correct **demonstrative**: ___ stars in the sky are bright tonight.",
+      "question": "Fill in the correct demonstrative: ___ stars in the sky are bright tonight.",
       "options": [
         "Those",
         "These",
@@ -1923,7 +1953,7 @@
     {
       "id": "demonstratives-ex-48",
       "type": "fill_blank",
-      "question": "Fill in the correct **verb**: Those flowers ___ beautiful.",
+      "question": "Fill in the correct verb: Those flowers ___ beautiful.",
       "options": [
         "are",
         "is",
@@ -1959,7 +1989,7 @@
     {
       "id": "demonstratives-ex-49",
       "type": "fill_blank",
-      "question": "Fill in the correct **demonstrative**: ___ is my brother, Minh.",
+      "question": "Fill in the correct demonstrative: ___ is my brother, Minh.",
       "options": [
         "This",
         "These",
@@ -1995,7 +2025,7 @@
     {
       "id": "demonstratives-ex-50",
       "type": "fill_blank",
-      "question": "Fill in the correct **noun form**: That ___ is closed today.",
+      "question": "Fill in the correct noun form: That ___ is closed today.",
       "options": [
         "shop",
         "shops",
@@ -2031,7 +2061,7 @@
     {
       "id": "demonstratives-ex-51",
       "type": "fill_blank",
-      "question": "Fill in the correct **demonstrative**: ___ chairs near the window are free.",
+      "question": "Fill in the correct demonstrative: ___ chairs near the window are free.",
       "options": [
         "These",
         "Those",
@@ -2067,7 +2097,7 @@
     {
       "id": "demonstratives-ex-52",
       "type": "fill_blank",
-      "question": "Fill in the correct **demonstrative**: I don't like ___ noise from the next room.",
+      "question": "Fill in the correct demonstrative: I don't like ___ noise from the next room.",
       "options": [
         "that",
         "these",
@@ -2103,7 +2133,7 @@
     {
       "id": "demonstratives-ex-53",
       "type": "fill_blank",
-      "question": "Fill in the correct **form**: ___ are not my keys; my keys are here.",
+      "question": "Fill in the correct form: ___ are not my keys; my keys are here.",
       "options": [
         "Those",
         "That",
@@ -2139,7 +2169,7 @@
     {
       "id": "demonstratives-ex-54",
       "type": "error_correction",
-      "question": "Find the error: **This** shoes are wet.",
+      "question": "Find the error: This shoes are wet.",
       "options": [
         "This",
         "shoes",
@@ -2175,7 +2205,7 @@
     {
       "id": "demonstratives-ex-55",
       "type": "error_correction",
-      "question": "Find the error: That **books** is on the table.",
+      "question": "Find the error: That books is on the table.",
       "options": [
         "That",
         "books",
@@ -2211,7 +2241,7 @@
     {
       "id": "demonstratives-ex-56",
       "type": "error_correction",
-      "question": "Find the error: These cups **is** clean.",
+      "question": "Find the error: These cups is clean.",
       "options": [
         "These",
         "cups",
@@ -2247,7 +2277,7 @@
     {
       "id": "demonstratives-ex-57",
       "type": "error_correction",
-      "question": "Find the error: I want **that a** pencil.",
+      "question": "Find the error: I want that a pencil.",
       "options": [
         "I",
         "want",
@@ -2283,7 +2313,7 @@
     {
       "id": "demonstratives-ex-58",
       "type": "error_correction",
-      "question": "Find the error: **Those** girl is my classmate.",
+      "question": "Find the error: Those girl is my classmate.",
       "options": [
         "Those",
         "girl",
@@ -2319,7 +2349,7 @@
     {
       "id": "demonstratives-ex-59",
       "type": "error_correction",
-      "question": "Find the error: This is **a** my father.",
+      "question": "Find the error: This is a my father.",
       "options": [
         "This",
         "is",
@@ -2355,7 +2385,7 @@
     {
       "id": "demonstratives-ex-60",
       "type": "error_correction",
-      "question": "Find the error: **Those** milk is cold.",
+      "question": "Find the error: Those milk is cold.",
       "options": [
         "Those",
         "milk",
@@ -2391,7 +2421,7 @@
     {
       "id": "demonstratives-ex-61",
       "type": "error_correction",
-      "question": "Find the error: These are my **book**.",
+      "question": "Find the error: These are my book.",
       "options": [
         "These",
         "are",
@@ -2427,7 +2457,7 @@
     {
       "id": "demonstratives-ex-62",
       "type": "multiple_choice",
-      "question": "Choose the correct **demonstrative**: ___ trees on the hill are very tall.",
+      "question": "___ trees on the hill are very tall.",
       "options": [
         "Those",
         "That",
@@ -2463,7 +2493,7 @@
     {
       "id": "demonstratives-ex-63",
       "type": "multiple_choice",
-      "question": "Choose the correct **verb**: These apples ___ fresh.",
+      "question": "These apples ___ fresh.",
       "options": [
         "are",
         "is",
@@ -2499,7 +2529,7 @@
     {
       "id": "demonstratives-ex-64",
       "type": "multiple_choice",
-      "question": "Choose the correct **form**: ___ is my new teacher, Ms. Lan.",
+      "question": "___ is my new teacher, Ms. Lan.",
       "options": [
         "This",
         "These",
@@ -2535,7 +2565,7 @@
     {
       "id": "demonstratives-ex-65",
       "type": "multiple_choice",
-      "question": "Choose the correct **demonstrative**: Are ___ your bicycles near the gate?",
+      "question": "Are ___ your bicycles near the gate?",
       "options": [
         "these",
         "this",
@@ -2571,7 +2601,7 @@
     {
       "id": "demonstratives-ex-66",
       "type": "multiple_choice",
-      "question": "Choose the correct **demonstrative**: ___ cups in this box are for the party.",
+      "question": "___ cups in this box are for the party.",
       "options": [
         "These",
         "This",
@@ -2607,7 +2637,7 @@
     {
       "id": "demonstratives-ex-67",
       "type": "fill_blank",
-      "question": "Fill in the correct **demonstrative**: ___ cat on my lap is sleeping.",
+      "question": "Fill in the correct demonstrative: ___ cat on my lap is sleeping.",
       "options": [
         "This",
         "That",
@@ -2643,7 +2673,7 @@
     {
       "id": "demonstratives-ex-68",
       "type": "fill_blank",
-      "question": "Fill in the correct **demonstrative**: ___ birds in that tree are noisy.",
+      "question": "Fill in the correct demonstrative: ___ birds in that tree are noisy.",
       "options": [
         "Those",
         "These",
@@ -2679,7 +2709,7 @@
     {
       "id": "demonstratives-ex-69",
       "type": "fill_blank",
-      "question": "Fill in the correct **verb**: That door ___ open.",
+      "question": "Fill in the correct verb: That door ___ open.",
       "options": [
         "is",
         "are",
@@ -2715,7 +2745,7 @@
     {
       "id": "demonstratives-ex-70",
       "type": "fill_blank",
-      "question": "Fill in the correct **noun form**: These ___ are heavy.",
+      "question": "Fill in the correct noun form: These ___ are heavy.",
       "options": [
         "bags",
         "bag",
@@ -2751,7 +2781,7 @@
     {
       "id": "demonstratives-ex-71",
       "type": "fill_blank",
-      "question": "Fill in the correct **demonstrative**: Who is ___ man at the bus stop?",
+      "question": "Fill in the correct demonstrative: Who is ___ man at the bus stop?",
       "options": [
         "that",
         "these",
@@ -2787,7 +2817,7 @@
     {
       "id": "demonstratives-ex-72",
       "type": "fill_blank",
-      "question": "Fill in the correct **form**: ___ are my classmates, Nam and Hoa.",
+      "question": "Fill in the correct form: ___ are my classmates, Nam and Hoa.",
       "options": [
         "These",
         "This",
@@ -2823,7 +2853,7 @@
     {
       "id": "demonstratives-ex-73",
       "type": "fill_blank",
-      "question": "Fill in the correct **demonstrative**: I like ___ picture here on the wall.",
+      "question": "Fill in the correct demonstrative: I like ___ picture here on the wall.",
       "options": [
         "this",
         "that",
@@ -2859,7 +2889,7 @@
     {
       "id": "demonstratives-ex-74",
       "type": "fill_blank",
-      "question": "Fill in the correct **verb**: Those plates ___ dirty.",
+      "question": "Fill in the correct verb: Those plates ___ dirty.",
       "options": [
         "are",
         "is",
@@ -2895,7 +2925,7 @@
     {
       "id": "demonstratives-ex-75",
       "type": "error_correction",
-      "question": "Find the error: **These** dog is very friendly.",
+      "question": "Find the error: These dog is very friendly.",
       "options": [
         "These",
         "dog",
@@ -3183,7 +3213,7 @@
     {
       "id": "demonstratives-ex-83",
       "type": "multiple_choice",
-      "question": "Choose the correct **demonstrative**: ___ clouds over there are dark.",
+      "question": "___ clouds over there are dark.",
       "options": [
         "This",
         "That",
@@ -3219,7 +3249,7 @@
     {
       "id": "demonstratives-ex-84",
       "type": "multiple_choice",
-      "question": "Choose the correct **verb form**: That orange ___ sweet.",
+      "question": "That orange ___ sweet.",
       "options": [
         "is",
         "are",
@@ -3255,7 +3285,7 @@
     {
       "id": "demonstratives-ex-85",
       "type": "multiple_choice",
-      "question": "Choose the correct **form**: Hello, class. ___ is my cousin, Minh.",
+      "question": "Hello, class. ___ is my cousin, Minh.",
       "options": [
         "This",
         "That",
@@ -3291,7 +3321,7 @@
     {
       "id": "demonstratives-ex-86",
       "type": "multiple_choice",
-      "question": "Choose the correct **noun form**: These ___ are red.",
+      "question": "These ___ are red.",
       "options": [
         "flowers",
         "flower",
@@ -3327,7 +3357,7 @@
     {
       "id": "demonstratives-ex-87",
       "type": "multiple_choice",
-      "question": "Choose the correct **phrase**: I need ___ notebook on your desk.",
+      "question": "I need ___ notebook on your desk.",
       "options": [
         "that",
         "those",
@@ -3363,7 +3393,7 @@
     {
       "id": "demonstratives-ex-88",
       "type": "fill_blank",
-      "question": "Fill in the correct **demonstrative**: ___ sandwich here is for you.",
+      "question": "Fill in the correct demonstrative: ___ sandwich here is for you.",
       "options": [
         "This",
         "That",
@@ -3399,7 +3429,7 @@
     {
       "id": "demonstratives-ex-89",
       "type": "fill_blank",
-      "question": "Fill in the correct **demonstrative**: ___ houses across the river are old.",
+      "question": "Fill in the correct demonstrative: ___ houses across the river are old.",
       "options": [
         "This",
         "That",
@@ -3435,7 +3465,7 @@
     {
       "id": "demonstratives-ex-90",
       "type": "fill_blank",
-      "question": "Fill in the correct **verb**: These socks ___ dry now.",
+      "question": "Fill in the correct verb: These socks ___ dry now.",
       "options": [
         "are",
         "is",
@@ -3471,7 +3501,7 @@
     {
       "id": "demonstratives-ex-91",
       "type": "fill_blank",
-      "question": "Fill in the correct **form**: ___ is not my umbrella; mine is black.",
+      "question": "Fill in the correct form: ___ is not my umbrella; mine is black.",
       "options": [
         "This",
         "These",
@@ -3507,7 +3537,7 @@
     {
       "id": "demonstratives-ex-92",
       "type": "fill_blank",
-      "question": "Fill in the correct **noun form**: Those ___ are expensive.",
+      "question": "Fill in the correct noun form: Those ___ are expensive.",
       "options": [
         "watches",
         "watch",
@@ -3543,7 +3573,7 @@
     {
       "id": "demonstratives-ex-93",
       "type": "fill_blank",
-      "question": "Fill in the correct **demonstrative**: Can you see ___ plane in the sky?",
+      "question": "Fill in the correct demonstrative: Can you see ___ plane in the sky?",
       "options": [
         "that",
         "this",
@@ -3579,7 +3609,7 @@
     {
       "id": "demonstratives-ex-94",
       "type": "error_correction",
-      "question": "Find the error: **These** chair is near the window.",
+      "question": "Find the error: These chair is near the window.",
       "options": [
         "These",
         "chair",
@@ -3615,7 +3645,7 @@
     {
       "id": "demonstratives-ex-95",
       "type": "error_correction",
-      "question": "Find the error: That **bananas** is on the shelf.",
+      "question": "Find the error: That bananas is on the shelf.",
       "options": [
         "That",
         "bananas",
@@ -3651,7 +3681,7 @@
     {
       "id": "demonstratives-ex-96",
       "type": "error_correction",
-      "question": "Find the error: Those bags **is** under the bed.",
+      "question": "Find the error: Those bags is under the bed.",
       "options": [
         "Those",
         "bags",
@@ -3687,7 +3717,7 @@
     {
       "id": "demonstratives-ex-97",
       "type": "error_correction",
-      "question": "Find the error: I want **this an** eraser.",
+      "question": "Find the error: I want this an eraser.",
       "options": [
         "I",
         "want",
@@ -3723,7 +3753,7 @@
     {
       "id": "demonstratives-ex-98",
       "type": "error_correction",
-      "question": "Find the error: **That** notebooks are in my bag.",
+      "question": "Find the error: That notebooks are in my bag.",
       "options": [
         "That",
         "notebooks",
@@ -3759,7 +3789,7 @@
     {
       "id": "demonstratives-ex-99",
       "type": "error_correction",
-      "question": "Find the error: This **are** my headphones.",
+      "question": "Find the error: This are my headphones.",
       "options": [
         "This",
         "are",
@@ -3795,7 +3825,7 @@
     {
       "id": "demonstratives-ex-100",
       "type": "multiple_choice",
-      "question": "Choose the correct **demonstrative**: My keys are lost. I think I left them on ___ table over there.",
+      "question": "My keys are lost. I think I left them on ___ table over there.",
       "options": [
         "this",
         "that",
@@ -3808,7 +3838,7 @@
         {
           "option": "this",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"this\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"this\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"that\"). Từ 'table' là danh từ số ít, nên ta cần dùng từ chỉ định số ít (this/that). Vì cái bàn ở 'over there' (đằng kia, xa), ta dùng 'that' để chỉ vật ở xa và số ít. Các lựa chọn 'these' và 'those' dùng cho danh từ số nhiều."
         },
         {
           "option": "that",

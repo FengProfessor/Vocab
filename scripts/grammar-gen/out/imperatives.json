@@ -367,7 +367,7 @@
         {
           "option": "To be",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"To be\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"To be\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Be\"). Mệnh lệnh dùng động từ nguyên thể."
         }
       ],
       "difficulty": 1
@@ -387,7 +387,7 @@
         {
           "option": "Give me water.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Give me water.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Give me water.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Please give me some water.\"). Please làm yêu cầu lịch sự hơn."
         },
         {
           "option": "Please give me some water.",
@@ -397,7 +397,7 @@
         {
           "option": "You give water.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"You give water.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"You give water.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Please give me some water.\"). Please làm yêu cầu lịch sự hơn."
         }
       ],
       "difficulty": 1
@@ -405,7 +405,7 @@
     {
       "id": "imperatives-ex-03",
       "type": "multiple_choice",
-      "question": "Choose the correct negative imperative.",
+      "question": "Chọn câu mệnh lệnh phủ định đúng ngữ pháp:",
       "options": [
         "Not talk.",
         "Don't talk.",
@@ -417,7 +417,7 @@
         {
           "option": "Not talk.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Not talk.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Not talk.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Don't talk.\"). Phủ định dùng don't + V."
         },
         {
           "option": "Don't talk.",
@@ -427,7 +427,7 @@
         {
           "option": "Doesn't talk.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Doesn't talk.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Doesn't talk.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Don't talk.\"). Phủ định dùng don't + V."
         }
       ],
       "difficulty": 1
@@ -436,7 +436,12 @@
       "id": "imperatives-ex-04",
       "type": "fill_blank",
       "question": "___ the medicine after lunch. (take)",
-      "options": [],
+      "options": [
+        "take",
+        "taking",
+        "to take",
+        "takes"
+      ],
       "correct_answer": "take",
       "explanation": "Bắt đầu bằng động từ nguyên thể.",
       "distractor_breakdowns": [
@@ -454,6 +459,11 @@
           "option": "to take",
           "isCorrect": false,
           "pedagogicalReason": "Không chính xác. Câu mệnh lệnh không dùng động từ có \"to\"."
+        },
+        {
+          "option": "takes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"takes\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"take\"). Bắt đầu bằng động từ nguyên thể."
         }
       ],
       "difficulty": 1
@@ -462,7 +472,12 @@
       "id": "imperatives-ex-05",
       "type": "fill_blank",
       "question": "___ be noisy in the library. (don't)",
-      "options": [],
+      "options": [
+        "don't",
+        "not",
+        "no",
+        "don'ts"
+      ],
       "correct_answer": "don't",
       "explanation": "Don't đứng trước be.",
       "distractor_breakdowns": [
@@ -480,6 +495,11 @@
           "option": "no",
           "isCorrect": false,
           "pedagogicalReason": "Không chính xác. \"No\" dùng trước danh từ hoặc danh động từ, không đứng trước động từ nguyên mẫu \"be\"."
+        },
+        {
+          "option": "don'ts",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"don'ts\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"don't\"). Don't đứng trước be."
         }
       ],
       "difficulty": 1
@@ -488,7 +508,12 @@
       "id": "imperatives-ex-06",
       "type": "fill_blank",
       "question": "Let's ___ a taxi. (call)",
-      "options": [],
+      "options": [
+        "call",
+        "calling",
+        "to call",
+        "calls"
+      ],
       "correct_answer": "call",
       "explanation": "Sau let's dùng V nguyên thể.",
       "distractor_breakdowns": [
@@ -506,6 +531,11 @@
           "option": "to call",
           "isCorrect": false,
           "pedagogicalReason": "Không chính xác. Sau \"Let's\" không dùng động từ có \"to\"."
+        },
+        {
+          "option": "calls",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"calls\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"call\"). Sau let's dùng V nguyên thể."
         }
       ],
       "difficulty": 2

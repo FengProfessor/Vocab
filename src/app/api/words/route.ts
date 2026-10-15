@@ -691,13 +691,12 @@ export async function POST(req: Request): Promise<NextResponse> {
     let initialPos = body.pos || '';
     const needsGdLookup = initialTranslation === '⏳ Analyzing...';
 
-    const [existingRes, planInfo, gdRes] = await Promise.all([
+    const [existingWordsRes, planInfo, gdRes] = await Promise.all([
       supabase
         .from('words')
         .select('id, word, translation')
         .eq('classroom_id', classroomId)
-        .ilike('word', word.trim())
-        .maybeSingle(),
+        .ilike('word', word.trim()),
       resolveUserPlanInfo(supabase, userId),
       needsGdLookup
         ? supabase
@@ -708,12 +707,33 @@ export async function POST(req: Request): Promise<NextResponse> {
         : Promise.resolve({ data: null }),
     ]);
 
-    if (existingRes.data) {
+    const existingList = (existingWordsRes.data || []) as Array<{ id: string; word: string; translation?: string | null }>;
+    let duplicateWord: { id: string; word: string; translation?: string | null } | null = null;
+
+    if (existingList.length > 0) {
+      const incomingTrans = (typeof body.translation === 'string' ? body.translation : '').trim();
+      const hasSpecificTranslation = incomingTrans && incomingTrans !== '⏳ Analyzing...' && !incomingTrans.includes('⏳');
+
+      if (hasSpecificTranslation) {
+        const cleanIncoming = incomingTrans.toLowerCase().replace(/[.,;!?:"'()]/g, '').replace(/\s+/g, ' ');
+        duplicateWord = existingList.find((item) => {
+          if (!item.translation || item.translation === '⏳ Analyzing...') return false;
+          const cleanExisting = item.translation.toLowerCase().replace(/[.,;!?:"'()]/g, '').replace(/\s+/g, ' ');
+          return cleanExisting === cleanIncoming ||
+                 (cleanExisting.length >= 3 && cleanIncoming.length >= 3 && (cleanExisting.includes(cleanIncoming) || cleanIncoming.includes(cleanExisting)));
+        }) || null;
+      } else {
+        // Nếu người dùng lưu từ không có bản dịch cụ thể, coi là trùng nếu từ đã có trong sổ
+        duplicateWord = existingList[0];
+      }
+    }
+
+    if (duplicateWord) {
       return NextResponse.json({
         success: true,
         alreadyExists: true,
         message: `"${word}" already in your list!`,
-        wordId: existingRes.data.id,
+        wordId: duplicateWord.id,
       });
     }
 

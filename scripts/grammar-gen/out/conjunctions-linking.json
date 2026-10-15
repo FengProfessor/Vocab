@@ -403,26 +403,36 @@
   "exercises": [
     {
       "id": "conjunctions-linking-ex-01",
-      "type": "fill_blank",
-      "question": "I am not rich. If I ____ (be) rich, I ____ (build) a big library for my village.",
-      "options": [],
-      "correct_answer": "were / would build",
-      "explanation": "trái với sự thật vừa nêu → loại 2, to be dùng were",
+      "type": "multiple_choice",
+      "question": "___ he got up early, he missed the first bus.",
+      "options": [
+        "Although",
+        "Despite",
+        "Because",
+        "Because of"
+      ],
+      "correct_answer": "Although",
+      "explanation": "Phía sau là một mệnh đề hoàn chỉnh (\"he got up early\" có S + V) và hai vế đối lập nghĩa → dùng \"Although\" (Mặc dù).",
       "distractor_breakdowns": [
         {
-          "option": "were / would build",
+          "option": "Although",
           "isCorrect": true,
-          "pedagogicalReason": "trái với sự thật vừa nêu → loại 2, to be dùng were"
+          "pedagogicalReason": "Phía sau là một mệnh đề hoàn chỉnh (\"he got up early\" có S + V) và hai vế đối lập nghĩa → dùng \"Although\" (Mặc dù)."
         },
         {
-          "option": "were / would builds",
+          "option": "Despite",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"were / would builds\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Despite\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Although\"). Phía sau là một mệnh đề hoàn chỉnh (\"he got up early\" có S + V) và hai vế đối lập nghĩa → dùng \"Although\" (Mặc dù)."
         },
         {
-          "option": "to were / would build",
+          "option": "Because",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+          "pedagogicalReason": "Không chính xác. Phương án \"Because\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Although\"). Phía sau là một mệnh đề hoàn chỉnh (\"he got up early\" có S + V) và hai vế đối lập nghĩa → dùng \"Although\" (Mặc dù)."
+        },
+        {
+          "option": "Because of",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Because of\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Although\"). Phía sau là một mệnh đề hoàn chỉnh (\"he got up early\" có S + V) và hai vế đối lập nghĩa → dùng \"Although\" (Mặc dù)."
         }
       ],
       "difficulty": 1
@@ -430,51 +440,71 @@
     {
       "id": "conjunctions-linking-ex-02",
       "type": "fill_blank",
-      "question": "Trang is always busy. If she ____ (have) more free time, she ____ (learn) the piano.",
-      "options": [],
-      "correct_answer": "had / would learn",
-      "explanation": "trái với sự thật Trang rất bận → loại 2",
+      "question": "___ the heavy rain, they continued playing football.",
+      "options": [
+        "Despite",
+        "Although",
+        "Even though",
+        "Because"
+      ],
+      "correct_answer": "Despite",
+      "explanation": "Phía sau là cụm danh từ (\"the heavy rain\", không có động từ chia thì) và mang nghĩa nhượng bộ → dùng \"Despite\" (hoặc \"In spite of\").",
       "distractor_breakdowns": [
         {
-          "option": "had / would learn",
+          "option": "Despite",
           "isCorrect": true,
-          "pedagogicalReason": "trái với sự thật Trang rất bận → loại 2"
+          "pedagogicalReason": "Phía sau là cụm danh từ (\"the heavy rain\", không có động từ chia thì) và mang nghĩa nhượng bộ → dùng \"Despite\" (hoặc \"In spite of\")."
         },
         {
-          "option": "had / would learns",
+          "option": "Although",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"had / would learns\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Although\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Despite\"). Phía sau là cụm danh từ (\"the heavy rain\", không có động từ chia thì) và mang nghĩa nhượng bộ → dùng \"Despite\" (hoặc \"In spite of\")."
         },
         {
-          "option": "to had / would learn",
+          "option": "Even though",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+          "pedagogicalReason": "Không chính xác. Phương án \"Even though\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Despite\"). Phía sau là cụm danh từ (\"the heavy rain\", không có động từ chia thì) và mang nghĩa nhượng bộ → dùng \"Despite\" (hoặc \"In spite of\")."
+        },
+        {
+          "option": "Because",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Because\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Despite\"). Phía sau là cụm danh từ (\"the heavy rain\", không có động từ chia thì) và mang nghĩa nhượng bộ → dùng \"Despite\" (hoặc \"In spite of\")."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "conjunctions-linking-ex-03",
-      "type": "fill_blank",
-      "question": "I live in Hue. If I ____ (live) in Ha Noi, I ____ (visit) the Old Quarter every week.",
-      "options": [],
-      "correct_answer": "lived / would visit",
-      "explanation": "trái với sự thật đang sống ở Huế → loại 2",
+      "type": "multiple_choice",
+      "question": "The flight was cancelled ___ the thick fog.",
+      "options": [
+        "because of",
+        "because",
+        "although",
+        "despite"
+      ],
+      "correct_answer": "because of",
+      "explanation": "Phía sau là cụm danh từ (\"the thick fog\") chỉ nguyên nhân chuyến bay bị hủy → dùng \"because of\" (hoặc \"due to\").",
       "distractor_breakdowns": [
         {
-          "option": "lived / would visit",
+          "option": "because of",
           "isCorrect": true,
-          "pedagogicalReason": "trái với sự thật đang sống ở Huế → loại 2"
+          "pedagogicalReason": "Phía sau là cụm danh từ (\"the thick fog\") chỉ nguyên nhân chuyến bay bị hủy → dùng \"because of\" (hoặc \"due to\")."
         },
         {
-          "option": "lived / would visits",
+          "option": "because",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"lived / would visits\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"because\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"because of\"). Phía sau là cụm danh từ (\"the thick fog\") chỉ nguyên nhân chuyến bay bị hủy → dùng \"because of\" (hoặc \"due to\")."
         },
         {
-          "option": "to lived / would visit",
+          "option": "although",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+          "pedagogicalReason": "Không chính xác. Phương án \"although\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"because of\"). Phía sau là cụm danh từ (\"the thick fog\") chỉ nguyên nhân chuyến bay bị hủy → dùng \"because of\" (hoặc \"due to\")."
+        },
+        {
+          "option": "despite",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"despite\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"because of\"). Phía sau là cụm danh từ (\"the thick fog\") chỉ nguyên nhân chuyến bay bị hủy → dùng \"because of\" (hoặc \"due to\")."
         }
       ],
       "difficulty": 1
@@ -482,103 +512,143 @@
     {
       "id": "conjunctions-linking-ex-04",
       "type": "fill_blank",
-      "question": "Viết lại dùng if: Unless she says sorry, I won't talk to her again. → _____",
-      "options": [],
-      "correct_answer": "If she doesn't say sorry, I won't talk to her again.",
-      "explanation": "bỏ unless thì trả lại doesn't, động từ về dạng trơ",
+      "question": "She stayed at home ___ she was feeling unwell.",
+      "options": [
+        "because",
+        "because of",
+        "despite",
+        "in spite of"
+      ],
+      "correct_answer": "because",
+      "explanation": "Phía sau là mệnh đề nguyên nhân (\"she was feeling unwell\" có S + V) → dùng liên từ \"because\".",
       "distractor_breakdowns": [
         {
-          "option": "If she doesn't say sorry, I won't talk to her again.",
+          "option": "because",
           "isCorrect": true,
-          "pedagogicalReason": "bỏ unless thì trả lại doesn't, động từ về dạng trơ"
+          "pedagogicalReason": "Phía sau là mệnh đề nguyên nhân (\"she was feeling unwell\" có S + V) → dùng liên từ \"because\"."
         },
         {
-          "option": "If she says sorry, I won't talk to her again.",
+          "option": "because of",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"Unless\" tương đương với \"If ... not\". Bỏ \"unless\" mà không thêm phủ định sẽ làm đảo ngược hoàn toàn ý nghĩa của câu."
+          "pedagogicalReason": "Không chính xác. Phương án \"because of\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"because\"). Phía sau là mệnh đề nguyên nhân (\"she was feeling unwell\" có S + V) → dùng liên từ \"because\"."
         },
         {
-          "option": "If she doesn't says sorry, I won't talk to her again.",
+          "option": "despite",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Sau trợ động từ phủ định \"doesn't\", động từ chính phải trở về dạng nguyên thể \"say\", không giữ đuôi \"-s\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"despite\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"because\"). Phía sau là mệnh đề nguyên nhân (\"she was feeling unwell\" có S + V) → dùng liên từ \"because\"."
+        },
+        {
+          "option": "in spite of",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"in spite of\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"because\"). Phía sau là mệnh đề nguyên nhân (\"she was feeling unwell\" có S + V) → dùng liên từ \"because\"."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "conjunctions-linking-ex-05",
-      "type": "fill_blank",
-      "question": "Mai is afraid of water. If she ____ (not / be) afraid, she ____ (learn) to swim.",
-      "options": [],
-      "correct_answer": "weren't / would learn",
-      "explanation": "trái với sự thật Mai sợ nước → loại 2, phủ định to be là weren't",
-      "distractor_breakdowns": [
-        {
-          "option": "weren't / would learn",
-          "isCorrect": true,
-          "pedagogicalReason": "trái với sự thật Mai sợ nước → loại 2, phủ định to be là weren't"
-        },
-        {
-          "option": "wasn't / will learn",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Điều kiện loại 2 giả định trái hiện tại dùng to-be \"weren't\" và \"would learn\"."
-        },
-        {
-          "option": "aren't / would learn",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Mệnh đề if loại 2 phải lùi thì về quá khứ giả định."
-        }
+      "type": "multiple_choice",
+      "question": "It was raining hard, ___ we decided to stay indoors.",
+      "options": [
+        "so",
+        "but",
+        "although",
+        "because"
       ],
-      "difficulty": 2
-    },
-    {
-      "id": "conjunctions-linking-ex-06",
-      "type": "fill_blank",
-      "question": "____ he got up early, he was late for the first train.",
-      "options": [],
-      "correct_answer": "Although",
-      "explanation": "he got up là chủ ngữ + động từ → although",
+      "correct_answer": "so",
+      "explanation": "Mệnh đề sau nêu KẾT QUẢ của mệnh đề trước (\"vì vậy chúng tôi quyết định ở trong nhà\") → dùng \"so\".",
       "distractor_breakdowns": [
         {
-          "option": "Although",
+          "option": "so",
           "isCorrect": true,
-          "pedagogicalReason": "he got up là chủ ngữ + động từ → although"
+          "pedagogicalReason": "Mệnh đề sau nêu KẾT QUẢ của mệnh đề trước (\"vì vậy chúng tôi quyết định ở trong nhà\") → dùng \"so\"."
         },
         {
-          "option": "despite",
+          "option": "but",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"despite\" đi kèm với danh từ hoặc V-ing, không đứng trước một mệnh đề có đầy đủ chủ vị (S + V)."
+          "pedagogicalReason": "Không chính xác. Phương án \"but\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"so\"). Mệnh đề sau nêu KẾT QUẢ của mệnh đề trước (\"vì vậy chúng tôi quyết định ở trong nhà\") → dùng \"so\"."
+        },
+        {
+          "option": "although",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"although\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"so\"). Mệnh đề sau nêu KẾT QUẢ của mệnh đề trước (\"vì vậy chúng tôi quyết định ở trong nhà\") → dùng \"so\"."
         },
         {
           "option": "because",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"because\" chỉ nguyên nhân - kết quả, trong khi câu mang nghĩa nhượng bộ tương phản (dù thức dậy sớm nhưng vẫn muộn tàu)."
+          "pedagogicalReason": "Không chính xác. Phương án \"because\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"so\"). Mệnh đề sau nêu KẾT QUẢ của mệnh đề trước (\"vì vậy chúng tôi quyết định ở trong nhà\") → dùng \"so\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "conjunctions-linking-ex-06",
+      "type": "fill_blank",
+      "question": "You will fail the exam ___ you work harder.",
+      "options": [
+        "unless",
+        "if",
+        "because",
+        "although"
+      ],
+      "correct_answer": "unless",
+      "explanation": "\"unless\" = \"if... not\" (trừ khi / nếu không): \"Bạn sẽ trượt kỳ thi nếu bạn không học chăm chỉ hơn.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "unless",
+          "isCorrect": true,
+          "pedagogicalReason": "\"unless\" = \"if... not\" (trừ khi / nếu không): \"Bạn sẽ trượt kỳ thi nếu bạn không học chăm chỉ hơn.\""
+        },
+        {
+          "option": "if",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"if\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"unless\"). \"unless\" = \"if... not\" (trừ khi / nếu không): \"Bạn sẽ trượt kỳ thi nếu bạn không học chăm chỉ hơn.\""
+        },
+        {
+          "option": "because",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"because\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"unless\"). \"unless\" = \"if... not\" (trừ khi / nếu không): \"Bạn sẽ trượt kỳ thi nếu bạn không học chăm chỉ hơn.\""
+        },
+        {
+          "option": "although",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"although\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"unless\"). \"unless\" = \"if... not\" (trừ khi / nếu không): \"Bạn sẽ trượt kỳ thi nếu bạn không học chăm chỉ hơn.\""
         }
       ],
       "difficulty": 2
     },
     {
       "id": "conjunctions-linking-ex-07",
-      "type": "fill_blank",
-      "question": "The city council demolished the house ____ its bad condition.",
-      "options": [],
-      "correct_answer": "because of",
-      "explanation": "its bad condition là cụm danh từ, nêu lý do → because of",
+      "type": "multiple_choice",
+      "question": "He studies English every night ___ get a better job.",
+      "options": [
+        "in order to",
+        "so that",
+        "because",
+        "although"
+      ],
+      "correct_answer": "in order to",
+      "explanation": "Sau chỗ trống là động từ nguyên mẫu \"get\" chỉ mục đích → dùng \"in order to + V\" (hoặc \"so as to + V\"). (\"so that\" phải cộng mệnh đề S + V).",
       "distractor_breakdowns": [
         {
-          "option": "because of",
+          "option": "in order to",
           "isCorrect": true,
-          "pedagogicalReason": "its bad condition là cụm danh từ, nêu lý do → because of"
+          "pedagogicalReason": "Sau chỗ trống là động từ nguyên mẫu \"get\" chỉ mục đích → dùng \"in order to + V\" (hoặc \"so as to + V\"). (\"so that\" phải cộng mệnh đề S + V)."
+        },
+        {
+          "option": "so that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"so that\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in order to\"). Sau chỗ trống là động từ nguyên mẫu \"get\" chỉ mục đích → dùng \"in order to + V\" (hoặc \"so as to + V\"). (\"so that\" phải cộng mệnh đề S + V)."
         },
         {
           "option": "because",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"because\" phải đi kèm một mệnh đề (S + V), trong khi phía sau chỗ trống là cụm danh từ hoặc V-ing."
+          "pedagogicalReason": "Không chính xác. Phương án \"because\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in order to\"). Sau chỗ trống là động từ nguyên mẫu \"get\" chỉ mục đích → dùng \"in order to + V\" (hoặc \"so as to + V\"). (\"so that\" phải cộng mệnh đề S + V)."
         },
         {
           "option": "although",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"although\" chỉ sự nhượng bộ tương phản, không dùng để nêu lý do, nguyên nhân."
+          "pedagogicalReason": "Không chính xác. Phương án \"although\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in order to\"). Sau chỗ trống là động từ nguyên mẫu \"get\" chỉ mục đích → dùng \"in order to + V\" (hoặc \"so as to + V\"). (\"so that\" phải cộng mệnh đề S + V)."
         }
       ],
       "difficulty": 2
@@ -586,104 +656,182 @@
     {
       "id": "conjunctions-linking-ex-08",
       "type": "fill_blank",
-      "question": "____ the hotel prices were too high, we decided to stay at home.",
-      "options": [],
-      "correct_answer": "Because",
-      "explanation": "the hotel prices were là chủ ngữ + động từ, nêu lý do → because",
+      "question": "She wrote down the address ___ she wouldn't forget it.",
+      "options": [
+        "so that",
+        "in order to",
+        "despite",
+        "because of"
+      ],
+      "correct_answer": "so that",
+      "explanation": "Phía sau là mệnh đề chỉ mục đích (\"she wouldn't forget it\" có S + modal + V) → dùng \"so that\".",
       "distractor_breakdowns": [
         {
-          "option": "Because",
+          "option": "so that",
           "isCorrect": true,
-          "pedagogicalReason": "the hotel prices were là chủ ngữ + động từ, nêu lý do → because"
+          "pedagogicalReason": "Phía sau là mệnh đề chỉ mục đích (\"she wouldn't forget it\" có S + modal + V) → dùng \"so that\"."
+        },
+        {
+          "option": "in order to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"in order to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"so that\"). Phía sau là mệnh đề chỉ mục đích (\"she wouldn't forget it\" có S + modal + V) → dùng \"so that\"."
+        },
+        {
+          "option": "despite",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"despite\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"so that\"). Phía sau là mệnh đề chỉ mục đích (\"she wouldn't forget it\" có S + modal + V) → dùng \"so that\"."
         },
         {
           "option": "because of",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"because of\" chỉ đi với cụm danh từ hoặc V-ing, không thể đi kèm một mệnh đề có chủ vị \"the hotel prices were\"."
-        },
-        {
-          "option": "although",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"although\" chỉ sự nhượng bộ tương phản, không dùng để giải thích nguyên nhân."
+          "pedagogicalReason": "Không chính xác. Phương án \"because of\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"so that\"). Phía sau là mệnh đề chỉ mục đích (\"she wouldn't forget it\" có S + modal + V) → dùng \"so that\"."
         }
       ],
       "difficulty": 2
     },
     {
       "id": "conjunctions-linking-ex-09",
-      "type": "fill_blank",
-      "question": "____ not trying his best, he failed the exam.",
-      "options": [],
+      "type": "multiple_choice",
+      "question": "In spite of ___ tired, she finished all the housework.",
+      "options": [
+        "being",
+        "be",
+        "she was",
+        "was"
+      ],
+      "correct_answer": "being",
+      "explanation": "Sau giới từ \"In spite of\" (hoặc \"Despite\"), ta dùng danh từ hoặc danh động từ \"V-ing\" (\"being tired\").",
+      "distractor_breakdowns": [
+        {
+          "option": "being",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau giới từ \"In spite of\" (hoặc \"Despite\"), ta dùng danh từ hoặc danh động từ \"V-ing\" (\"being tired\")."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"be\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"being\"). Sau giới từ \"In spite of\" (hoặc \"Despite\"), ta dùng danh từ hoặc danh động từ \"V-ing\" (\"being tired\")."
+        },
+        {
+          "option": "she was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"she was\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"being\"). Sau giới từ \"In spite of\" (hoặc \"Despite\"), ta dùng danh từ hoặc danh động từ \"V-ing\" (\"being tired\")."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng động từ to be \"was\" ở vị trí này (đáp án đúng là \"being\"). Sau giới từ \"In spite of\" (hoặc \"Despite\"), ta dùng danh từ hoặc danh động từ \"V-ing\" (\"being tired\")."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "conjunctions-linking-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: Although it was raining, but they went for a walk.",
+      "options": [
+        "Although",
+        "was raining",
+        "but",
+        "for a walk"
+      ],
+      "correct_answer": "but",
+      "explanation": "Lỗi kinh điển của người Việt: Đã dùng \"Although\" ở vế đầu thì TUYỆT ĐỐI KHÔNG dùng \"but\" ở vế sau. Phải bỏ \"but\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Although",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"Although\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "was raining",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"was raining\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "but",
+          "isCorrect": true,
+          "pedagogicalReason": "Lỗi kinh điển của người Việt: Đã dùng \"Although\" ở vế đầu thì TUYỆT ĐỐI KHÔNG dùng \"but\" ở vế sau. Phải bỏ \"but\"."
+        },
+        {
+          "option": "for a walk",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"for a walk\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "conjunctions-linking-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: Despite of the loud noise, the baby slept soundly.",
+      "options": [
+        "Despite of",
+        "loud",
+        "noise",
+        "soundly"
+      ],
+      "correct_answer": "Despite of",
+      "explanation": "\"Despite\" không bao giờ đi với giới từ \"of\" (chỉ có \"In spite of\" hoặc \"Despite\" đứng một mình). Sửa \"Despite of\" thành \"Despite\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Despite of",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Despite\" không bao giờ đi với giới từ \"of\" (chỉ có \"In spite of\" hoặc \"Despite\" đứng một mình). Sửa \"Despite of\" thành \"Despite\"."
+        },
+        {
+          "option": "loud",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"loud\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "noise",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"noise\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "soundly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"soundly\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "conjunctions-linking-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: Because of he was late, he missed the beginning of the movie.",
+      "options": [
+        "Because of",
+        "he was",
+        "missed",
+        "beginning"
+      ],
       "correct_answer": "Because of",
-      "explanation": "not trying là V-ing → because of",
+      "explanation": "Phía sau là mệnh đề \"he was late\" (S + V) nên phải dùng \"Because\", không dùng \"Because of\".",
       "distractor_breakdowns": [
         {
           "option": "Because of",
           "isCorrect": true,
-          "pedagogicalReason": "not trying là V-ing → because of"
+          "pedagogicalReason": "Phía sau là mệnh đề \"he was late\" (S + V) nên phải dùng \"Because\", không dùng \"Because of\"."
         },
         {
-          "option": "because",
+          "option": "he was",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"because\" phải đi kèm một mệnh đề (S + V), trong khi phía sau chỗ trống là cụm danh từ hoặc V-ing."
+          "pedagogicalReason": "Không chính xác. Thành phần \"he was\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         },
         {
-          "option": "although",
+          "option": "missed",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"although\" chỉ sự nhượng bộ tương phản, không dùng để nêu lý do, nguyên nhân."
+          "pedagogicalReason": "Không chính xác. Thành phần \"missed\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "beginning",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"beginning\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
-      "difficulty": 3
-    },
-    {
-      "id": "conjunctions-linking-ex-10",
-      "type": "multiple_choice",
-      "question": "____ (Despite / Although) her poverty, everyone in the village respects her.",
-      "options": [
-        "Despite",
-        "Although"
-      ],
-      "correct_answer": "Despite",
-      "explanation": "her poverty là cụm danh từ → Despite",
-      "distractor_breakdowns": [
-        {
-          "option": "Despite",
-          "isCorrect": true,
-          "pedagogicalReason": "her poverty là cụm danh từ → Despite"
-        },
-        {
-          "option": "Although",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Although\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        }
-      ],
-      "difficulty": 3
-    },
-    {
-      "id": "conjunctions-linking-ex-11",
-      "type": "fill_blank",
-      "question": "He failed the exam because of his ____ (lazy).",
-      "options": [],
-      "correct_answer": "laziness",
-      "explanation": "sau his → cần danh từ",
-      "distractor_breakdowns": [
-        {
-          "option": "laziness",
-          "isCorrect": true,
-          "pedagogicalReason": "sau his → cần danh từ"
-        },
-        {
-          "option": "lazinesss",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"lazinesss\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
-        },
-        {
-          "option": "to laziness",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
-        }
-      ],
-      "difficulty": 3
+      "difficulty": 2
     }
   ]
 }

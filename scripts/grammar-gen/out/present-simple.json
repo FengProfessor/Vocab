@@ -458,26 +458,36 @@
   "exercises": [
     {
       "id": "present-simple-ex-01",
-      "type": "fill_blank",
-      "question": "My mother ____ (be) a nurse.",
-      "options": [],
-      "correct_answer": "is",
-      "explanation": "mother = một người → is",
+      "type": "multiple_choice",
+      "question": "Lan ___ to the library every Sunday.",
+      "options": [
+        "goes",
+        "go",
+        "going",
+        "is go"
+      ],
+      "correct_answer": "goes",
+      "explanation": "Chủ ngữ \"Lan\" là ngôi thứ 3 số ít và có trạng từ chỉ thói quen \"every Sunday\" → động từ \"go\" thêm \"-es\" thành \"goes\".",
       "distractor_breakdowns": [
         {
-          "option": "is",
+          "option": "goes",
           "isCorrect": true,
-          "pedagogicalReason": "mother = một người → is"
+          "pedagogicalReason": "Chủ ngữ \"Lan\" là ngôi thứ 3 số ít và có trạng từ chỉ thói quen \"every Sunday\" → động từ \"go\" thêm \"-es\" thành \"goes\"."
         },
         {
-          "option": "are",
+          "option": "go",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"are\" dùng cho chủ ngữ số nhiều hoặc \"you/we/they\", không phù hợp với chủ ngữ số ít."
+          "pedagogicalReason": "Không chính xác. Phương án \"go\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"goes\"). Chủ ngữ \"Lan\" là ngôi thứ 3 số ít và có trạng từ chỉ thói quen \"every Sunday\" → động từ \"go\" thêm \"-es\" thành \"goes\"."
         },
         {
-          "option": "am",
+          "option": "going",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"am\" chỉ đi duy nhất với chủ ngữ ngôi thứ nhất \"I\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"going\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"goes\"). Chủ ngữ \"Lan\" là ngôi thứ 3 số ít và có trạng từ chỉ thói quen \"every Sunday\" → động từ \"go\" thêm \"-es\" thành \"goes\"."
+        },
+        {
+          "option": "is go",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is go\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"goes\"). Chủ ngữ \"Lan\" là ngôi thứ 3 số ít và có trạng từ chỉ thói quen \"every Sunday\" → động từ \"go\" thêm \"-es\" thành \"goes\"."
         }
       ],
       "difficulty": 1
@@ -485,25 +495,35 @@
     {
       "id": "present-simple-ex-02",
       "type": "fill_blank",
-      "question": "Lan ____ (come) from Thai Nguyen.",
-      "options": [],
-      "correct_answer": "comes",
-      "explanation": "Lan = một người → thêm -s",
+      "question": "My brother ___ up at 6 a.m. every morning.",
+      "options": [
+        "gets",
+        "get",
+        "getting",
+        "got"
+      ],
+      "correct_answer": "gets",
+      "explanation": "\"My brother\" là chủ ngữ ngôi thứ 3 số ít + thói quen \"every morning\" → chia \"gets\".",
       "distractor_breakdowns": [
         {
-          "option": "comes",
+          "option": "gets",
           "isCorrect": true,
-          "pedagogicalReason": "Lan = một người → thêm -s"
+          "pedagogicalReason": "\"My brother\" là chủ ngữ ngôi thứ 3 số ít + thói quen \"every morning\" → chia \"gets\"."
         },
         {
-          "option": "come",
+          "option": "get",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ ngôi thứ ba số ít ở thì hiện tại đơn động từ bắt buộc thêm \"-s\" (\"comes\")."
+          "pedagogicalReason": "Không chính xác. Phương án \"get\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"gets\"). \"My brother\" là chủ ngữ ngôi thứ 3 số ít + thói quen \"every morning\" → chia \"gets\"."
         },
         {
-          "option": "is coming",
+          "option": "getting",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Nguồn gốc quê quán là sự thật cố định lâu dài, dùng hiện tại đơn, không dùng tiếp diễn."
+          "pedagogicalReason": "Không chính xác. Phương án \"getting\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"gets\"). \"My brother\" là chủ ngữ ngôi thứ 3 số ít + thói quen \"every morning\" → chia \"gets\"."
+        },
+        {
+          "option": "got",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"got\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"gets\"). \"My brother\" là chủ ngữ ngôi thứ 3 số ít + thói quen \"every morning\" → chia \"gets\"."
         }
       ],
       "difficulty": 1
@@ -511,51 +531,71 @@
     {
       "id": "present-simple-ex-03",
       "type": "fill_blank",
-      "question": "They ____ (not / be) at home now.",
-      "options": [],
-      "correct_answer": "aren't",
-      "explanation": "câu có be → thêm not vào be",
+      "question": "They ___ coffee in the evening.",
+      "options": [
+        "don't drink",
+        "doesn't drink",
+        "not drink",
+        "aren't drink"
+      ],
+      "correct_answer": "don't drink",
+      "explanation": "Chủ ngữ \"They\" (số nhiều) ở câu phủ định thì hiện tại đơn mượn trợ động từ \"don't\" + động từ nguyên mẫu \"drink\".",
       "distractor_breakdowns": [
         {
-          "option": "aren't",
+          "option": "don't drink",
           "isCorrect": true,
-          "pedagogicalReason": "câu có be → thêm not vào be"
+          "pedagogicalReason": "Chủ ngữ \"They\" (số nhiều) ở câu phủ định thì hiện tại đơn mượn trợ động từ \"don't\" + động từ nguyên mẫu \"drink\"."
         },
         {
-          "option": "isn't",
+          "option": "doesn't drink",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"They\" là số nhiều, phủ định của to-be là \"aren't\", không dùng \"isn't\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"doesn't drink\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"don't drink\"). Chủ ngữ \"They\" (số nhiều) ở câu phủ định thì hiện tại đơn mượn trợ động từ \"don't\" + động từ nguyên mẫu \"drink\"."
         },
         {
-          "option": "don't be",
+          "option": "not drink",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Với động từ to-be không mượn trợ động từ \"do/don't\" trong câu trần thuật."
+          "pedagogicalReason": "Không chính xác. Phương án \"not drink\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"don't drink\"). Chủ ngữ \"They\" (số nhiều) ở câu phủ định thì hiện tại đơn mượn trợ động từ \"don't\" + động từ nguyên mẫu \"drink\"."
+        },
+        {
+          "option": "aren't drink",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"aren't drink\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"don't drink\"). Chủ ngữ \"They\" (số nhiều) ở câu phủ định thì hiện tại đơn mượn trợ động từ \"don't\" + động từ nguyên mẫu \"drink\"."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "present-simple-ex-04",
-      "type": "fill_blank",
-      "question": "My brother ____ (not / do) his homework at night.",
-      "options": [],
+      "type": "multiple_choice",
+      "question": "My sister ___ homework late at night.",
+      "options": [
+        "doesn't do",
+        "don't do",
+        "doesn't does",
+        "isn't do"
+      ],
       "correct_answer": "doesn't do",
-      "explanation": "V thường + he → doesn't + V để trơ",
+      "explanation": "Chủ ngữ số ít \"My sister\" mượn trợ động từ \"doesn't\", sau đó động từ chính \"do\" trở về nguyên mẫu → \"doesn't do\".",
       "distractor_breakdowns": [
         {
           "option": "doesn't do",
           "isCorrect": true,
-          "pedagogicalReason": "V thường + he → doesn't + V để trơ"
+          "pedagogicalReason": "Chủ ngữ số ít \"My sister\" mượn trợ động từ \"doesn't\", sau đó động từ chính \"do\" trở về nguyên mẫu → \"doesn't do\"."
         },
         {
           "option": "don't do",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"My brother\" là ngôi thứ ba số ít, trợ động từ phủ định phải là \"doesn't\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"don't do\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"doesn't do\"). Chủ ngữ số ít \"My sister\" mượn trợ động từ \"doesn't\", sau đó động từ chính \"do\" trở về nguyên mẫu → \"doesn't do\"."
         },
         {
           "option": "doesn't does",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Sau trợ động từ \"doesn't\", động từ chính phải trở về dạng nguyên thể \"do\", không thêm \"-es\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"doesn't does\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"doesn't do\"). Chủ ngữ số ít \"My sister\" mượn trợ động từ \"doesn't\", sau đó động từ chính \"do\" trở về nguyên mẫu → \"doesn't do\"."
+        },
+        {
+          "option": "isn't do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"isn't do\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"doesn't do\"). Chủ ngữ số ít \"My sister\" mượn trợ động từ \"doesn't\", sau đó động từ chính \"do\" trở về nguyên mẫu → \"doesn't do\"."
         }
       ],
       "difficulty": 1
@@ -563,103 +603,143 @@
     {
       "id": "present-simple-ex-05",
       "type": "fill_blank",
-      "question": "I ____ (be) very hungry now.",
-      "options": [],
-      "correct_answer": "am",
-      "explanation": "I luôn đi với am",
+      "question": "___ your father work in a hospital?",
+      "options": [
+        "Does",
+        "Do",
+        "Is",
+        "Has"
+      ],
+      "correct_answer": "Does",
+      "explanation": "Câu hỏi hiện tại đơn với động từ thường \"work\" và chủ ngữ số ít \"your father\" mượn trợ động từ \"Does\".",
       "distractor_breakdowns": [
         {
-          "option": "am",
+          "option": "Does",
           "isCorrect": true,
-          "pedagogicalReason": "I luôn đi với am"
+          "pedagogicalReason": "Câu hỏi hiện tại đơn với động từ thường \"work\" và chủ ngữ số ít \"your father\" mượn trợ động từ \"Does\"."
         },
         {
-          "option": "is",
+          "option": "Do",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"is\" dùng cho chủ ngữ ngôi thứ ba số ít, trong khi chủ ngữ là \"I\"."
+          "pedagogicalReason": "Không chính xác. Trợ động từ \"Do\" không phù hợp với ngôi của chủ ngữ hoặc cấu trúc của câu (đáp án đúng là \"Does\")."
         },
         {
-          "option": "are",
+          "option": "Is",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"are\" không đi với chủ ngữ ngôi thứ nhất số ít \"I\"."
+          "pedagogicalReason": "Không chính xác. Không dùng động từ to be \"Is\" ở vị trí này (đáp án đúng là \"Does\"). Câu hỏi hiện tại đơn với động từ thường \"work\" và chủ ngữ số ít \"your father\" mượn trợ động từ \"Does\"."
+        },
+        {
+          "option": "Has",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Has\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Does\"). Câu hỏi hiện tại đơn với động từ thường \"work\" và chủ ngữ số ít \"your father\" mượn trợ động từ \"Does\"."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "present-simple-ex-06",
-      "type": "fill_blank",
-      "question": "It ____ (rain) a lot in my hometown.",
-      "options": [],
-      "correct_answer": "rains",
-      "explanation": "It = một thứ → thêm -s",
+      "type": "multiple_choice",
+      "question": "Water ___ at 100 degrees Celsius.",
+      "options": [
+        "boils",
+        "boil",
+        "is boiling",
+        "boiled"
+      ],
+      "correct_answer": "boils",
+      "explanation": "Sự thật hiển nhiên/chân lý khoa học dùng thì hiện tại đơn. \"Water\" là danh từ không đếm được (số ít) → \"boils\".",
       "distractor_breakdowns": [
         {
-          "option": "rains",
+          "option": "boils",
           "isCorrect": true,
-          "pedagogicalReason": "It = một thứ → thêm -s"
+          "pedagogicalReason": "Sự thật hiển nhiên/chân lý khoa học dùng thì hiện tại đơn. \"Water\" là danh từ không đếm được (số ít) → \"boils\"."
         },
         {
-          "option": "rain",
+          "option": "boil",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"It\" là ngôi thứ ba số ít, động từ chia hiện tại đơn phải thêm \"-s\" (\"rains\")."
+          "pedagogicalReason": "Không chính xác. Phương án \"boil\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"boils\"). Sự thật hiển nhiên/chân lý khoa học dùng thì hiện tại đơn. \"Water\" là danh từ không đếm được (số ít) → \"boils\"."
         },
         {
-          "option": "is raining",
+          "option": "is boiling",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Diễn tả đặc điểm khí hậu chung dùng hiện tại đơn, không dùng hiện tại tiếp diễn."
+          "pedagogicalReason": "Không chính xác. Phương án \"is boiling\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"boils\"). Sự thật hiển nhiên/chân lý khoa học dùng thì hiện tại đơn. \"Water\" là danh từ không đếm được (số ít) → \"boils\"."
+        },
+        {
+          "option": "boiled",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"boiled\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"boils\"). Sự thật hiển nhiên/chân lý khoa học dùng thì hiện tại đơn. \"Water\" là danh từ không đếm được (số ít) → \"boils\"."
         }
       ],
-      "difficulty": 1
+      "difficulty": 2
     },
     {
       "id": "present-simple-ex-07",
       "type": "fill_blank",
-      "question": "____ (be) your school big?",
-      "options": [],
-      "correct_answer": "Is",
-      "explanation": "câu hỏi có be → be lên trước chủ ngữ",
+      "question": "The train to Hue ___ at 6:30 a.m. tomorrow.",
+      "options": [
+        "leaves",
+        "leave",
+        "leaving",
+        "is leave"
+      ],
+      "correct_answer": "leaves",
+      "explanation": "Lịch trình tàu xe cố định (timetable) luôn dùng thì hiện tại đơn dù nói về ngày mai. \"The train\" là số ít → \"leaves\".",
       "distractor_breakdowns": [
         {
-          "option": "Is",
+          "option": "leaves",
           "isCorrect": true,
-          "pedagogicalReason": "câu hỏi có be → be lên trước chủ ngữ"
+          "pedagogicalReason": "Lịch trình tàu xe cố định (timetable) luôn dùng thì hiện tại đơn dù nói về ngày mai. \"The train\" là số ít → \"leaves\"."
         },
         {
-          "option": "Iss",
+          "option": "leave",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"Iss\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"leave\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"leaves\"). Lịch trình tàu xe cố định (timetable) luôn dùng thì hiện tại đơn dù nói về ngày mai. \"The train\" là số ít → \"leaves\"."
         },
         {
-          "option": "to Is",
+          "option": "leaving",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+          "pedagogicalReason": "Không chính xác. Phương án \"leaving\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"leaves\"). Lịch trình tàu xe cố định (timetable) luôn dùng thì hiện tại đơn dù nói về ngày mai. \"The train\" là số ít → \"leaves\"."
+        },
+        {
+          "option": "is leave",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is leave\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"leaves\"). Lịch trình tàu xe cố định (timetable) luôn dùng thì hiện tại đơn dù nói về ngày mai. \"The train\" là số ít → \"leaves\"."
         }
       ],
-      "difficulty": 1
+      "difficulty": 2
     },
     {
       "id": "present-simple-ex-08",
-      "type": "fill_blank",
-      "question": "My brother ____ (get) up at 6 a.m. every morning.",
-      "options": [],
-      "correct_answer": "gets",
-      "explanation": "every morning · He → -s",
+      "type": "multiple_choice",
+      "question": "How often ___ you visit your grandparents?",
+      "options": [
+        "do",
+        "does",
+        "are",
+        "have"
+      ],
+      "correct_answer": "do",
+      "explanation": "Chủ ngữ \"you\" đi với động từ thường \"visit\" trong câu hỏi hiện tại đơn mượn trợ động từ \"do\".",
       "distractor_breakdowns": [
         {
-          "option": "gets",
+          "option": "do",
           "isCorrect": true,
-          "pedagogicalReason": "every morning · He → -s"
+          "pedagogicalReason": "Chủ ngữ \"you\" đi với động từ thường \"visit\" trong câu hỏi hiện tại đơn mượn trợ động từ \"do\"."
         },
         {
-          "option": "get",
+          "option": "does",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"My brother\" là ngôi thứ ba số ít, động từ cần thêm \"-s\" (\"gets\")."
+          "pedagogicalReason": "Không chính xác. Trợ động từ \"does\" không phù hợp với ngôi của chủ ngữ hoặc cấu trúc của câu (đáp án đúng là \"do\")."
         },
         {
-          "option": "getting",
+          "option": "are",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Thiếu trợ động từ to-be nếu muốn chia thì tiếp diễn."
+          "pedagogicalReason": "Không chính xác. Không dùng động từ to be \"are\" ở vị trí này (đáp án đúng là \"do\"). Chủ ngữ \"you\" đi với động từ thường \"visit\" trong câu hỏi hiện tại đơn mượn trợ động từ \"do\"."
+        },
+        {
+          "option": "have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"do\"). Chủ ngữ \"you\" đi với động từ thường \"visit\" trong câu hỏi hiện tại đơn mượn trợ động từ \"do\"."
         }
       ],
       "difficulty": 1
@@ -667,1072 +747,146 @@
     {
       "id": "present-simple-ex-09",
       "type": "fill_blank",
-      "question": "____ your sister ____ (study) English every day?",
-      "options": [],
-      "correct_answer": "Does … study",
-      "explanation": "every day · she → Does + V trơ",
+      "question": "She ___ English and Japanese at a high school.",
+      "options": [
+        "teaches",
+        "teach",
+        "teachs",
+        "teaching"
+      ],
+      "correct_answer": "teaches",
+      "explanation": "Động từ tận cùng bằng \"-ch\" (teach) khi đi với chủ ngữ ngôi thứ 3 số ít \"She\" phải thêm \"-es\" → \"teaches\".",
       "distractor_breakdowns": [
         {
-          "option": "Does … study",
+          "option": "teaches",
           "isCorrect": true,
-          "pedagogicalReason": "every day · she → Does + V trơ"
+          "pedagogicalReason": "Động từ tận cùng bằng \"-ch\" (teach) khi đi với chủ ngữ ngôi thứ 3 số ít \"She\" phải thêm \"-es\" → \"teaches\"."
         },
         {
-          "option": "Do … study",
+          "option": "teach",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"your sister\" là ngôi thứ ba số ít, trợ động từ câu hỏi phải dùng \"Does\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"teach\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"teaches\"). Động từ tận cùng bằng \"-ch\" (teach) khi đi với chủ ngữ ngôi thứ 3 số ít \"She\" phải thêm \"-es\" → \"teaches\"."
         },
         {
-          "option": "Does … studies",
+          "option": "teachs",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Sau trợ động từ \"Does\", động từ chính giữ nguyên thể \"study\", không thêm đuôi \"-ies\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"teachs\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"teaches\"). Động từ tận cùng bằng \"-ch\" (teach) khi đi với chủ ngữ ngôi thứ 3 số ít \"She\" phải thêm \"-es\" → \"teaches\"."
+        },
+        {
+          "option": "teaching",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"teaching\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"teaches\"). Động từ tận cùng bằng \"-ch\" (teach) khi đi với chủ ngữ ngôi thứ 3 số ít \"She\" phải thêm \"-es\" → \"teaches\"."
         }
       ],
-      "difficulty": 1
+      "difficulty": 2
     },
     {
       "id": "present-simple-ex-10",
-      "type": "fill_blank",
-      "question": "I will text you when I ____ (get) to Ha Noi.",
-      "options": [],
-      "correct_answer": "get",
-      "explanation": "vế when nói tương lai → hiện tại đơn, cấm will",
+      "type": "multiple_choice",
+      "question": "The baby ___ when he is hungry.",
+      "options": [
+        "cries",
+        "crys",
+        "cry",
+        "is cry"
+      ],
+      "correct_answer": "cries",
+      "explanation": "Động từ \"cry\" tận cùng bằng phụ âm + \"y\", khi chia với ngôi thứ 3 số ít đổi \"y\" thành \"i\" rồi thêm \"-es\" → \"cries\".",
       "distractor_breakdowns": [
         {
-          "option": "get",
+          "option": "cries",
           "isCorrect": true,
-          "pedagogicalReason": "vế when nói tương lai → hiện tại đơn, cấm will"
+          "pedagogicalReason": "Động từ \"cry\" tận cùng bằng phụ âm + \"y\", khi chia với ngôi thứ 3 số ít đổi \"y\" thành \"i\" rồi thêm \"-es\" → \"cries\"."
         },
         {
-          "option": "will get",
+          "option": "crys",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Trong mệnh đề trạng ngữ chỉ thời gian bắt đầu bằng \"when\", cấm dùng \"will\", phải dùng hiện tại đơn."
+          "pedagogicalReason": "Không chính xác. Phương án \"crys\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"cries\"). Động từ \"cry\" tận cùng bằng phụ âm + \"y\", khi chia với ngôi thứ 3 số ít đổi \"y\" thành \"i\" rồi thêm \"-es\" → \"cries\"."
         },
         {
-          "option": "gets",
+          "option": "cry",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"I\" đi với động từ nguyên thể \"get\", không thêm \"-s\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"cry\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"cries\"). Động từ \"cry\" tận cùng bằng phụ âm + \"y\", khi chia với ngôi thứ 3 số ít đổi \"y\" thành \"i\" rồi thêm \"-es\" → \"cries\"."
+        },
+        {
+          "option": "is cry",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is cry\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"cries\"). Động từ \"cry\" tận cùng bằng phụ âm + \"y\", khi chia với ngôi thứ 3 số ít đổi \"y\" thành \"i\" rồi thêm \"-es\" → \"cries\"."
         }
       ],
-      "difficulty": 1
+      "difficulty": 2
     },
     {
       "id": "present-simple-ex-11",
-      "type": "fill_blank",
-      "question": "Don't turn off the computer until I ____ (say) so.",
-      "options": [],
-      "correct_answer": "say",
-      "explanation": "vế until cấm will → hiện tại đơn",
+      "type": "error_correction",
+      "question": "Find the error: He doesn't likes eating spicy food.",
+      "options": [
+        "He",
+        "likes",
+        "eating",
+        "spicy"
+      ],
+      "correct_answer": "likes",
+      "explanation": "Khi đã có trợ động từ \"doesn't\", động từ chính bắt buộc phải trở về dạng nguyên mẫu không chia. Sửa \"likes\" thành \"like\".",
       "distractor_breakdowns": [
         {
-          "option": "say",
+          "option": "He",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"He\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "likes",
           "isCorrect": true,
-          "pedagogicalReason": "vế until cấm will → hiện tại đơn"
+          "pedagogicalReason": "Khi đã có trợ động từ \"doesn't\", động từ chính bắt buộc phải trở về dạng nguyên mẫu không chia. Sửa \"likes\" thành \"like\"."
         },
         {
-          "option": "will say",
+          "option": "eating",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Trong mệnh đề chỉ thời gian bắt đầu bằng \"until\", không dùng \"will\", phải chia ở hiện tại đơn."
+          "pedagogicalReason": "Không chính xác. Thành phần \"eating\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         },
         {
-          "option": "says",
+          "option": "spicy",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"I\" đi với động từ nguyên thể \"say\", không thêm \"-s\"."
+          "pedagogicalReason": "Không chính xác. Thành phần \"spicy\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
-      "difficulty": 1
+      "difficulty": 2
     },
     {
       "id": "present-simple-ex-12",
-      "type": "fill_blank",
-      "question": "She ____ (call) you tomorrow as soon as she ____ (receive) the letter.",
-      "options": [],
-      "correct_answer": "will call / receives",
-      "explanation": "as soon as nói tương lai → hiện tại đơn, vế kia mới will",
-      "distractor_breakdowns": [
-        {
-          "option": "will call / receives",
-          "isCorrect": true,
-          "pedagogicalReason": "as soon as nói tương lai → hiện tại đơn, vế kia mới will"
-        },
-        {
-          "option": "calls / will receive",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Sau liên từ thời gian \"as soon as\", động từ chia hiện tại đơn (\"receives\"), mệnh đề chính mới dùng \"will call\"."
-        },
-        {
-          "option": "will call / will receive",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Sau liên từ chỉ thời gian \"as soon as\" cấm dùng \"will\"."
-        }
-      ],
-      "difficulty": 1
-    },
-    {
-      "id": "present-simple-ex-13",
-      "type": "fill_blank",
-      "question": "Violets ____ (bloom) in spring.",
-      "options": [],
-      "correct_answer": "bloom",
-      "explanation": "sự thật hiển nhiên → hiện tại đơn",
-      "distractor_breakdowns": [
-        {
-          "option": "bloom",
-          "isCorrect": true,
-          "pedagogicalReason": "sự thật hiển nhiên → hiện tại đơn"
-        },
-        {
-          "option": "blooms",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"Violets\" là danh từ số nhiều, động từ chia ở dạng nguyên thể \"bloom\", không thêm \"-s\"."
-        },
-        {
-          "option": "blooming",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng dạng V-ing đứng độc lập làm vị ngữ chính của câu."
-        }
-      ],
-      "difficulty": 1
-    },
-    {
-      "id": "present-simple-ex-14",
-      "type": "fill_blank",
-      "question": "I always ____ (buy) lottery tickets but I never ____ (win) anything.",
-      "options": [],
-      "correct_answer": "buy / win",
-      "explanation": "always, never = thói quen → hiện tại đơn",
-      "distractor_breakdowns": [
-        {
-          "option": "buy / win",
-          "isCorrect": true,
-          "pedagogicalReason": "always, never = thói quen → hiện tại đơn"
-        },
-        {
-          "option": "buys / wins",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"I\" đi với động từ nguyên thể, không thêm \"-s/-es\"."
-        },
-        {
-          "option": "bought / won",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Trạng từ \"always\" và \"never\" chỉ thói quen hiện tại, không dùng thì quá khứ đơn."
-        }
-      ],
-      "difficulty": 1
-    },
-    {
-      "id": "present-simple-ex-15",
-      "type": "fill_blank",
-      "question": "This kind of cloth ____ (not / use) to make shirts.",
-      "options": [],
-      "correct_answer": "isn't used",
-      "explanation": "hiện tại đơn phủ định → isn't + V3",
-      "distractor_breakdowns": [
-        {
-          "option": "isn't used",
-          "isCorrect": true,
-          "pedagogicalReason": "hiện tại đơn phủ định → isn't + V3"
-        },
-        {
-          "option": "doesn't use",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Loại vải này được dùng để may áo, phải chia bị động \"isn't used\"."
-        },
-        {
-          "option": "not used",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Thiếu trợ động từ to-be \"isn't\" trong thể bị động phủ định."
-        }
-      ],
-      "difficulty": 1
-    },
-    {
-      "id": "present-simple-ex-16",
-      "type": "fill_blank",
-      "question": "People grow rice in the Mekong Delta.  →  Rice ____ in the Mekong Delta.",
-      "options": [],
-      "correct_answer": "is grown",
-      "explanation": "People → cắt by · hiện tại đơn → is + V3",
-      "distractor_breakdowns": [
-        {
-          "option": "is grown",
-          "isCorrect": true,
-          "pedagogicalReason": "People → cắt by · hiện tại đơn → is + V3"
-        },
-        {
-          "option": "grows",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Lúa gạo được con người trồng trọt, phải chia bị động \"is grown\"."
-        },
-        {
-          "option": "was grown",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Sự thật hiển nhiên ở đồng bằng sông Cửu Long dùng thì hiện tại đơn, không dùng quá khứ."
-        }
-      ],
-      "difficulty": 1
-    },
-    {
-      "id": "present-simple-ex-17",
-      "type": "fill_blank",
-      "question": "She is tired of ____ (do) the same thing every day.",
-      "options": [],
-      "correct_answer": "doing",
-      "explanation": "of là giới từ → V-ing",
-      "distractor_breakdowns": [
-        {
-          "option": "doing",
-          "isCorrect": true,
-          "pedagogicalReason": "of là giới từ → V-ing"
-        },
-        {
-          "option": "doings",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"doings\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
-        },
-        {
-          "option": "to doing",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
-        }
-      ],
-      "difficulty": 2
-    },
-    {
-      "id": "present-simple-ex-18",
-      "type": "fill_blank",
-      "question": "I was born ____ October 12th.",
-      "options": [],
-      "correct_answer": "on",
-      "explanation": "ngày cụ thể → on",
-      "distractor_breakdowns": [
-        {
-          "option": "on",
-          "isCorrect": true,
-          "pedagogicalReason": "ngày cụ thể → on"
-        },
-        {
-          "option": "in",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Giới từ \"in\" dùng cho tháng, năm, mùa hoặc không gian kín, không dùng cho ngày cụ thể hoặc bề mặt phẳng."
-        },
-        {
-          "option": "at",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Giới từ \"at\" dùng cho mốc giờ chính xác hoặc địa điểm cụ thể, không dùng cho ngày trong tháng."
-        }
-      ],
-      "difficulty": 2
-    },
-    {
-      "id": "present-simple-ex-19",
-      "type": "fill_blank",
-      "question": "We often have a big meal ____ Christmas.",
-      "options": [],
-      "correct_answer": "at",
-      "explanation": "Christmas nằm trong nhóm at",
-      "distractor_breakdowns": [
-        {
-          "option": "at",
-          "isCorrect": true,
-          "pedagogicalReason": "Christmas nằm trong nhóm at"
-        },
-        {
-          "option": "in",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Giới từ \"in\" dùng cho khoảng thời gian dài hoặc không gian kín, không dùng cho mốc giờ chính xác hoặc sự kiện lễ hội như Christmas."
-        },
-        {
-          "option": "on",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Giới từ \"on\" chỉ dùng cho ngày trong tuần hoặc ngày cụ thể, không dùng cho mốc giờ."
-        }
-      ],
-      "difficulty": 2
-    },
-    {
-      "id": "present-simple-ex-20",
-      "type": "fill_blank",
-      "question": "There are some new books ____ the table.",
-      "options": [],
-      "correct_answer": "on",
-      "explanation": "nằm trên bề mặt bàn → on",
-      "distractor_breakdowns": [
-        {
-          "option": "on",
-          "isCorrect": true,
-          "pedagogicalReason": "nằm trên bề mặt bàn → on"
-        },
-        {
-          "option": "in",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Giới từ \"in\" dùng cho tháng, năm, mùa hoặc không gian kín, không dùng cho ngày cụ thể hoặc bề mặt phẳng."
-        },
-        {
-          "option": "at",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Giới từ \"at\" dùng cho mốc giờ chính xác hoặc địa điểm cụ thể, không dùng cho ngày trong tháng."
-        }
-      ],
-      "difficulty": 2
-    },
-    {
-      "id": "present-simple-ex-21",
-      "type": "fill_blank",
-      "question": "My uncle has lived ____ Da Nang for ten years.",
-      "options": [],
-      "correct_answer": "in",
-      "explanation": "thành phố → in",
-      "distractor_breakdowns": [
-        {
-          "option": "in",
-          "isCorrect": true,
-          "pedagogicalReason": "Đáp án chính xác. Cấu trúc \"in\" thỏa mãn đầy đủ quy tắc ngữ pháp của câu."
-        },
-        {
-          "option": "on",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Giới từ \"on\" dùng cho ngày cụ thể hoặc đường phố có số nhà, không dùng cho tên thành phố hoặc các buổi trong ngày (in the morning)."
-        },
-        {
-          "option": "at",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Giới từ \"at\" dùng cho địa chỉ cụ thể hoặc điểm mốc, không dùng cho thành phố lớn (như Da Nang)."
-        }
-      ],
-      "difficulty": 2
-    },
-    {
-      "id": "present-simple-ex-22",
-      "type": "fill_blank",
-      "question": "The train to Hue leaves ____ half past six.",
-      "options": [],
-      "correct_answer": "at",
-      "explanation": "giờ chính xác → at",
-      "distractor_breakdowns": [
-        {
-          "option": "at",
-          "isCorrect": true,
-          "pedagogicalReason": "giờ chính xác → at"
-        },
-        {
-          "option": "in",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Giới từ \"in\" dùng cho khoảng thời gian dài hoặc không gian kín, không dùng cho mốc giờ chính xác hoặc sự kiện lễ hội như Christmas."
-        },
-        {
-          "option": "on",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Giới từ \"on\" chỉ dùng cho ngày trong tuần hoặc ngày cụ thể, không dùng cho mốc giờ."
-        }
-      ],
-      "difficulty": 2
-    },
-    {
-      "id": "present-simple-ex-23",
-      "type": "fill_blank",
-      "question": "My father usually reads the news ____ the morning.",
-      "options": [],
-      "correct_answer": "in",
-      "explanation": "buổi trong ngày → in",
-      "distractor_breakdowns": [
-        {
-          "option": "in",
-          "isCorrect": true,
-          "pedagogicalReason": "buổi trong ngày → in"
-        },
-        {
-          "option": "on",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Giới từ \"on\" dùng cho ngày cụ thể hoặc đường phố có số nhà, không dùng cho tên thành phố hoặc các buổi trong ngày (in the morning)."
-        },
-        {
-          "option": "at",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Giới từ \"at\" dùng cho địa chỉ cụ thể hoặc điểm mốc, không dùng cho thành phố lớn (như Da Nang)."
-        }
-      ],
-      "difficulty": 2
-    },
-    {
-      "id": "present-simple-ex-24",
-      "type": "fill_blank",
-      "question": "She is famous ____ her beautiful voice.",
-      "options": [],
-      "correct_answer": "for",
-      "explanation": "famous for = nổi tiếng vì cái gì",
-      "distractor_breakdowns": [
-        {
-          "option": "for",
-          "isCorrect": true,
-          "pedagogicalReason": "famous for = nổi tiếng vì cái gì"
-        },
-        {
-          "option": "at",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Tính từ \"famous\" cố định đi với giới từ \"for\" (\"famous for\" = nổi tiếng vì cái gì), không đi với \"at\"."
-        },
-        {
-          "option": "about",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Cụm cố định là \"famous for\", không dùng \"famous about\"."
-        }
-      ],
-      "difficulty": 2
-    },
-    {
-      "id": "present-simple-ex-25",
-      "type": "fill_blank",
-      "question": "I'm not very good ____ remembering names.",
-      "options": [],
-      "correct_answer": "at",
-      "explanation": "good at = giỏi việc gì",
-      "distractor_breakdowns": [
-        {
-          "option": "at",
-          "isCorrect": true,
-          "pedagogicalReason": "good at = giỏi việc gì"
-        },
-        {
-          "option": "in",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Giới từ \"in\" dùng cho khoảng thời gian dài hoặc không gian kín, không dùng cho mốc giờ chính xác hoặc sự kiện lễ hội như Christmas."
-        },
-        {
-          "option": "on",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Giới từ \"on\" chỉ dùng cho ngày trong tuần hoặc ngày cụ thể, không dùng cho mốc giờ."
-        }
-      ],
-      "difficulty": 2
-    },
-    {
-      "id": "present-simple-ex-26",
-      "type": "fill_blank",
-      "question": "____ the high salary, he decided to quit the job.",
-      "options": [],
-      "correct_answer": "Despite / In spite of",
-      "explanation": "the high salary là cụm danh từ → despite",
-      "distractor_breakdowns": [
-        {
-          "option": "Despite / In spite of",
-          "isCorrect": true,
-          "pedagogicalReason": "the high salary là cụm danh từ → despite"
-        },
-        {
-          "option": "Despite / In spite ofs",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"Despite / In spite ofs\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
-        },
-        {
-          "option": "to Despite / In spite of",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
-        }
-      ],
-      "difficulty": 2
-    },
-    {
-      "id": "present-simple-ex-27",
-      "type": "multiple_choice",
-      "question": "____ (Despite of / Despite) the loud music next door, the baby slept well.",
+      "type": "error_correction",
+      "question": "Find the error: Are you go to work by bus every day?",
       "options": [
-        "Despite of",
-        "Despite"
-      ],
-      "correct_answer": "Despite",
-      "explanation": "despite không bao giờ đi với of",
-      "distractor_breakdowns": [
-        {
-          "option": "Despite of",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Despite of\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "Despite",
-          "isCorrect": true,
-          "pedagogicalReason": "despite không bao giờ đi với of"
-        }
-      ],
-      "difficulty": 2
-    },
-    {
-      "id": "present-simple-ex-28",
-      "type": "fill_blank",
-      "question": "The train was delayed for two hours. ____, we missed the wedding.",
-      "options": [],
-      "correct_answer": "Therefore",
-      "explanation": "đứng đầu câu mới và nêu kết quả → Therefore",
-      "distractor_breakdowns": [
-        {
-          "option": "Therefore",
-          "isCorrect": true,
-          "pedagogicalReason": "đứng đầu câu mới và nêu kết quả → Therefore"
-        },
-        {
-          "option": "however",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"however\" chỉ sự tương phản đối lập, trong khi câu sau là kết quả tất yếu của câu trước (dùng \"Therefore\")."
-        },
-        {
-          "option": "although",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"although\" là liên từ phụ thuộc nối 2 mệnh đề trong cùng một câu, không đứng đầu câu độc lập sau dấu chấm."
-        }
-      ],
-      "difficulty": 2
-    },
-    {
-      "id": "present-simple-ex-29",
-      "type": "fill_blank",
-      "question": "Edison's ____ (invent) of the light bulb changed the world.",
-      "options": [],
-      "correct_answer": "invention",
-      "explanation": "sau sở hữu Edison's → cần danh từ",
-      "distractor_breakdowns": [
-        {
-          "option": "invention",
-          "isCorrect": true,
-          "pedagogicalReason": "sau sở hữu Edison's → cần danh từ"
-        },
-        {
-          "option": "invent",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Sau sở hữu cách \"Edison's\" bắt buộc phải là một danh từ (\"invention\"), không thể dùng động từ \"invent\"."
-        },
-        {
-          "option": "inventor",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"inventor\" là danh từ chỉ người phát minh, không phù hợp với ngữ cảnh sự phát minh ra bóng đèn."
-        }
-      ],
-      "difficulty": 2
-    },
-    {
-      "id": "present-simple-ex-30",
-      "type": "fill_blank",
-      "question": "My grandmother is still very ____ (health) at eighty.",
-      "options": [],
-      "correct_answer": "healthy",
-      "explanation": "sau to be → cần tính từ",
-      "distractor_breakdowns": [
-        {
-          "option": "healthy",
-          "isCorrect": true,
-          "pedagogicalReason": "sau to be → cần tính từ"
-        },
-        {
-          "option": "health",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Sau động từ to-be \"is\" và phó từ chỉ mức độ \"very\" cần một tính từ (\"healthy\"), không dùng danh từ \"health\"."
-        },
-        {
-          "option": "healthily",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"healthily\" là trạng từ, không làm bổ ngữ chỉ tính chất sau động từ to-be."
-        }
-      ],
-      "difficulty": 2
-    },
-    {
-      "id": "present-simple-ex-31",
-      "type": "fill_blank",
-      "question": "This machine is out of order, ____?",
-      "options": [],
-      "correct_answer": "isn't it",
-      "explanation": "vế trước khẳng định → đuôi phủ định",
-      "distractor_breakdowns": [
-        {
-          "option": "isn't it",
-          "isCorrect": true,
-          "pedagogicalReason": "vế trước khẳng định → đuôi phủ định"
-        },
-        {
-          "option": "is it",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Vế trước khẳng định (\"is\"), câu hỏi đuôi bắt buộc phải ở thể phủ định (\"isn't it\")."
-        },
-        {
-          "option": "doesn't it",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Vế trước dùng động từ to-be \"is\", câu hỏi đuôi phải dùng to-be tương ứng, không dùng trợ động từ \"doesn't\"."
-        }
-      ],
-      "difficulty": 2
-    },
-    {
-      "id": "present-simple-ex-32",
-      "type": "fill_blank",
-      "question": "Everybody enjoyed the trip, ____?",
-      "options": [],
-      "correct_answer": "didn't they",
-      "explanation": "vế trước khẳng định ở quá khứ → didn't, và Everybody thay bằng they",
-      "distractor_breakdowns": [
-        {
-          "option": "didn't they",
-          "isCorrect": true,
-          "pedagogicalReason": "vế trước khẳng định ở quá khứ → didn't, và Everybody thay bằng they"
-        },
-        {
-          "option": "did they",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Vế trước khẳng định ở quá khứ (\"enjoyed\"), câu hỏi đuôi phải ở dạng phủ định (\"didn't they\")."
-        },
-        {
-          "option": "weren't they",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Vế trước dùng động từ thường ở quá khứ (\"enjoyed\"), câu hỏi đuôi phải mượn trợ động từ \"didn't\", không dùng to-be."
-        }
-      ],
-      "difficulty": 2
-    },
-    {
-      "id": "present-simple-ex-33",
-      "type": "fill_blank",
-      "question": "Sắp xếp: My father drives a (Japanese / small / new) car. → _____",
-      "options": [],
-      "correct_answer": "a small new Japanese car",
-      "explanation": "kích cỡ → tuổi → xuất xứ",
-      "distractor_breakdowns": [
-        {
-          "option": "a small new Japanese car",
-          "isCorrect": true,
-          "pedagogicalReason": "kích cỡ → tuổi → xuất xứ"
-        },
-        {
-          "option": "a Japanese small new car",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Theo trật tự tính từ OSASCOMP, kích cỡ (small) đứng trước tuổi tác (new), và nguồn gốc/xuất xứ (Japanese) đứng sát danh từ."
-        },
-        {
-          "option": "a new small Japanese car",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Kích cỡ (size - small) đứng trước tuổi tác (age - new)."
-        }
-      ],
-      "difficulty": 3
-    },
-    {
-      "id": "present-simple-ex-34",
-      "type": "fill_blank",
-      "question": "Sắp xếp: They live in a (wooden / lovely / old) house. → _____",
-      "options": [],
-      "correct_answer": "a lovely old wooden house",
-      "explanation": "ý kiến → tuổi → chất liệu",
-      "distractor_breakdowns": [
-        {
-          "option": "a lovely old wooden house",
-          "isCorrect": true,
-          "pedagogicalReason": "ý kiến → tuổi → chất liệu"
-        },
-        {
-          "option": "an old lovely wooden house",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Theo trật tự tính từ OSASCOMP, ý kiến/đánh giá (opinion - lovely) đứng trước tuổi tác (age - old)."
-        },
-        {
-          "option": "a wooden lovely old house",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chất liệu (material - wooden) phải đứng sát danh từ nhất, sau ý kiến và tuổi tác."
-        }
-      ],
-      "difficulty": 3
-    },
-    {
-      "id": "present-simple-ex-35",
-      "type": "multiple_choice",
-      "question": "Chọn từ có phát âm hoặc trọng âm khác với các từ còn lại:",
-      "options": [
-        "confused",
-        "faced",
-        "cried",
-        "defined"
-      ],
-      "correct_answer": "faced",
-      "explanation": "faced: trước -ed là /s/ → /t/ · ba từ kia → /d/",
-      "distractor_breakdowns": [
-        {
-          "option": "confused",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"confused\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "faced",
-          "isCorrect": true,
-          "pedagogicalReason": "faced: trước -ed là /s/ → /t/ · ba từ kia → /d/"
-        },
-        {
-          "option": "cried",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"cried\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "defined",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"defined\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        }
-      ],
-      "difficulty": 3
-    },
-    {
-      "id": "present-simple-ex-36",
-      "type": "multiple_choice",
-      "question": "Chọn từ có phát âm hoặc trọng âm khác với các từ còn lại:",
-      "options": [
-        "agreed",
-        "kissed",
-        "liked",
-        "coughed"
-      ],
-      "correct_answer": "agreed",
-      "explanation": "agreed: trước -ed là nguyên âm → /d/ · ba từ kia → /t/",
-      "distractor_breakdowns": [
-        {
-          "option": "agreed",
-          "isCorrect": true,
-          "pedagogicalReason": "agreed: trước -ed là nguyên âm → /d/ · ba từ kia → /t/"
-        },
-        {
-          "option": "kissed",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"kissed\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "liked",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"liked\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "coughed",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"coughed\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        }
-      ],
-      "difficulty": 3
-    },
-    {
-      "id": "present-simple-ex-37",
-      "type": "multiple_choice",
-      "question": "Chọn từ có phát âm hoặc trọng âm khác với các từ còn lại:",
-      "options": [
-        "cats",
-        "tapes",
-        "rides",
-        "cooks"
-      ],
-      "correct_answer": "rides",
-      "explanation": "rides: trước -s là /d/ → /z/ · ba từ kia → /s/",
-      "distractor_breakdowns": [
-        {
-          "option": "cats",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"cats\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "tapes",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"tapes\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "rides",
-          "isCorrect": true,
-          "pedagogicalReason": "rides: trước -s là /d/ → /z/ · ba từ kia → /s/"
-        },
-        {
-          "option": "cooks",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"cooks\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        }
-      ],
-      "difficulty": 3
-    },
-    {
-      "id": "present-simple-ex-38",
-      "type": "multiple_choice",
-      "question": "Chọn từ có phát âm hoặc trọng âm khác với các từ còn lại:",
-      "options": [
-        "hours",
-        "fathers",
-        "brothers",
-        "thinks"
-      ],
-      "correct_answer": "thinks",
-      "explanation": "thinks: trước -s là /k/ → /s/ · ba từ kia → /z/",
-      "distractor_breakdowns": [
-        {
-          "option": "hours",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"hours\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "fathers",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"fathers\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "brothers",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"brothers\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "thinks",
-          "isCorrect": true,
-          "pedagogicalReason": "thinks: trước -s là /k/ → /s/ · ba từ kia → /z/"
-        }
-      ],
-      "difficulty": 3
-    },
-    {
-      "id": "present-simple-ex-39",
-      "type": "multiple_choice",
-      "question": "Chọn từ có phát âm hoặc trọng âm khác với các từ còn lại:",
-      "options": [
-        "resources",
-        "stages",
-        "preserves",
-        "focuses"
-      ],
-      "correct_answer": "preserves",
-      "explanation": "preserves: trước -s là /v/ → /z/ · ba từ kia sau âm rít /s/ /dʒ/ → /ɪz/",
-      "distractor_breakdowns": [
-        {
-          "option": "resources",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"resources\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "stages",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"stages\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "preserves",
-          "isCorrect": true,
-          "pedagogicalReason": "preserves: trước -s là /v/ → /z/ · ba từ kia sau âm rít /s/ /dʒ/ → /ɪz/"
-        },
-        {
-          "option": "focuses",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"focuses\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        }
-      ],
-      "difficulty": 3
-    },
-    {
-      "id": "present-simple-ex-40",
-      "type": "multiple_choice",
-      "question": "Chọn từ có phát âm hoặc trọng âm khác với các từ còn lại:",
-      "options": [
-        "paper",
-        "police",
-        "people",
-        "cinema"
-      ],
-      "correct_answer": "police",
-      "explanation": "police nhấn âm 2 · ba từ kia nhấn âm 1",
-      "distractor_breakdowns": [
-        {
-          "option": "paper",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"paper\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "police",
-          "isCorrect": true,
-          "pedagogicalReason": "police nhấn âm 2 · ba từ kia nhấn âm 1"
-        },
-        {
-          "option": "people",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"people\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "cinema",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"cinema\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        }
-      ],
-      "difficulty": 3
-    },
-    {
-      "id": "present-simple-ex-41",
-      "type": "multiple_choice",
-      "question": "Chọn từ có phát âm hoặc trọng âm khác với các từ còn lại:",
-      "options": [
-        "problem",
-        "invent",
-        "destroy",
-        "demand"
-      ],
-      "correct_answer": "problem",
-      "explanation": "problem là danh từ 2 âm tiết nhấn âm 1 · ba từ kia là động từ nhấn âm 2",
-      "distractor_breakdowns": [
-        {
-          "option": "problem",
-          "isCorrect": true,
-          "pedagogicalReason": "problem là danh từ 2 âm tiết nhấn âm 1 · ba từ kia là động từ nhấn âm 2"
-        },
-        {
-          "option": "invent",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"invent\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "destroy",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"destroy\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "demand",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"demand\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        }
-      ],
-      "difficulty": 3
-    },
-    {
-      "id": "present-simple-ex-42",
-      "type": "multiple_choice",
-      "question": "Chọn từ có phát âm hoặc trọng âm khác với các từ còn lại:",
-      "options": [
-        "automatic",
-        "reasonable",
-        "mathematics",
-        "preservation"
-      ],
-      "correct_answer": "reasonable",
-      "explanation": "-ic / -ics / -tion kéo trọng âm về ngay trước (âm 3) · reasonable nhấn âm 1",
-      "distractor_breakdowns": [
-        {
-          "option": "automatic",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"automatic\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "reasonable",
-          "isCorrect": true,
-          "pedagogicalReason": "-ic / -ics / -tion kéo trọng âm về ngay trước (âm 3) · reasonable nhấn âm 1"
-        },
-        {
-          "option": "mathematics",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"mathematics\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "preservation",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"preservation\" là danh từ trừu tượng, không thể đảm nhận vai trò tính từ hoặc động từ ở vị trí này."
-        }
-      ],
-      "difficulty": 3
-    },
-    {
-      "id": "present-simple-ex-43",
-      "type": "multiple_choice",
-      "question": "Chọn từ có phát âm hoặc trọng âm khác với các từ còn lại:",
-      "options": [
-        "measurement",
-        "information",
-        "economic",
-        "engineer"
-      ],
-      "correct_answer": "measurement",
-      "explanation": "-tion, -ic, -eer đều đẩy trọng âm ra âm 3 · measurement nhấn âm 1",
-      "distractor_breakdowns": [
-        {
-          "option": "measurement",
-          "isCorrect": true,
-          "pedagogicalReason": "-tion, -ic, -eer đều đẩy trọng âm ra âm 3 · measurement nhấn âm 1"
-        },
-        {
-          "option": "information",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"information\" là danh từ trừu tượng, không thể đảm nhận vai trò tính từ hoặc động từ ở vị trí này."
-        },
-        {
-          "option": "economic",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"economic\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "engineer",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"engineer\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        }
-      ],
-      "difficulty": 3
-    },
-    {
-      "id": "present-simple-ex-44",
-      "type": "multiple_choice",
-      "question": "You have finished your homework, ____?",
-      "options": [
-        "do you",
-        "have you",
-        "haven't you",
-        "don't you"
-      ],
-      "correct_answer": "haven't you",
-      "explanation": "Vế trước khẳng định với have nên đuôi hỏi là haven't you · buổi 23",
-      "distractor_breakdowns": [
-        {
-          "option": "do you",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"do you\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "have you",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"have you\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "haven't you",
-          "isCorrect": true,
-          "pedagogicalReason": "Vế trước khẳng định với have nên đuôi hỏi là haven't you · buổi 23"
-        },
-        {
-          "option": "don't you",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"don't you\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        }
-      ],
-      "difficulty": 3
-    },
-    {
-      "id": "present-simple-ex-45",
-      "type": "multiple_choice",
-      "question": "Ba ____ to the library every Sunday.",
-      "options": [
+        "Are",
         "go",
-        "goes",
-        "is going",
-        "went"
+        "by bus",
+        "every day"
       ],
-      "correct_answer": "goes",
-      "explanation": "every Sunday và Ba là số ít → hiện tại đơn thêm -es · buổi 2",
+      "correct_answer": "Are",
+      "explanation": "\"go\" là động từ thường nên câu hỏi hiện tại đơn phải mượn trợ động từ \"Do\", tuyệt đối không dùng \"Are\" trước động từ nguyên mẫu.",
       "distractor_breakdowns": [
+        {
+          "option": "Are",
+          "isCorrect": true,
+          "pedagogicalReason": "\"go\" là động từ thường nên câu hỏi hiện tại đơn phải mượn trợ động từ \"Do\", tuyệt đối không dùng \"Are\" trước động từ nguyên mẫu."
+        },
         {
           "option": "go",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"go\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Thành phần \"go\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         },
         {
-          "option": "goes",
-          "isCorrect": true,
-          "pedagogicalReason": "every Sunday và Ba là số ít → hiện tại đơn thêm -es · buổi 2"
-        },
-        {
-          "option": "is going",
+          "option": "by bus",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"is going\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Thành phần \"by bus\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         },
         {
-          "option": "went",
+          "option": "every day",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"went\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Thành phần \"every day\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
-      "difficulty": 3
+      "difficulty": 2
     }
   ]
 }

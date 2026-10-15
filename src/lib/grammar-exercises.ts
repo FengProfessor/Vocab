@@ -27,6 +27,9 @@ export type NormalizedDrillExercise = {
   difficulty: number;
 };
 
+import type { GrammarExercise } from './supabase';
+export type { GrammarExercise };
+
 export function asExerciseRecord(raw: unknown): Record<string, unknown> {
   return typeof raw === 'object' && raw !== null ? (raw as Record<string, unknown>) : {};
 }
@@ -244,8 +247,10 @@ export function cleanGrammarAnswer(s: string): string {
 export function expandContractions(str: string): string[] {
   const base = cleanGrammarAnswer(str)
     .replace(/\bdđin't\b/g, "didn't")
-    .replace(/\b([a-z]+)\s*\.\.\.\s*([a-z]+)\b/gi, '$1 $2')
-    .replace(/[,/]/g, ' ');
+    .replace(/\b([a-z0-9']+)\s*(?:…|\.{2,})\s*([a-z0-9']+)\b/gi, '$1 $2')
+    .replace(/[,/]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 
   const var1 = base
     .replace(/\bdidn't\b/g, 'did not')
@@ -304,18 +309,37 @@ export function areAnswersEqual(userAns: string, correctAns: string): boolean {
   }
 
   const uVariants = expandContractions(strippedUser);
-  const cPossibilities = (strippedCorrect || '')
-    .split(/[,/]/)
+  const slashParts = (strippedCorrect || '')
+    .split('/')
     .map((s) => s.trim())
     .filter(Boolean);
+
+  const cPossibilities: string[] = [strippedCorrect.trim(), ...slashParts];
+  for (const part of slashParts) {
+    if (part.includes(',')) {
+      const commaSegments = part
+        .split(',')
+        .map((s) => s.trim())
+        .filter(Boolean);
+      const isShortAlternativeList =
+        commaSegments.length >= 2 &&
+        !part.trim().endsWith('.') &&
+        commaSegments.every((seg) => seg.split(/\s+/).length <= 3);
+      if (isShortAlternativeList) {
+        cPossibilities.push(...commaSegments);
+      }
+    }
+  }
 
   for (const pos of cPossibilities) {
     const cVariants = expandContractions(pos);
     for (const u of uVariants) {
       if (cVariants.includes(u)) return true;
       const uStripped = u.replace(/[^a-z0-9]/g, '');
-      for (const c of cVariants) {
-        if (uStripped === c.replace(/[^a-z0-9]/g, '')) return true;
+      if (uStripped.length > 0) {
+        for (const c of cVariants) {
+          if (uStripped === c.replace(/[^a-z0-9]/g, '')) return true;
+        }
       }
     }
   }
@@ -396,3 +420,120 @@ export function isGrammarAnswerCorrect(
 
   return false;
 }
+
+export const LOCAL_GRAMMAR_PROGRESS_KEY = 'lingopro_grammar_topic_progress_v1';
+export const LOCAL_GRAMMAR_WRONG_QUEUE_KEY = 'lingopro_grammar_wrong_queue_v1';
+
+export interface LocalGrammarTopicProgress {
+  topic_id: string;
+  topic_slug: string;
+  completed_lessons: number;
+  total_lessons: number;
+  mastered_lessons: number;
+  accuracy: number;
+  next_due_date: string | null;
+  updated_at: string;
+}
+
+export interface LocalGrammarWrongItem {
+  exercise: GrammarExercise;
+  topicSlug?: string;
+  failedAt: string;
+}
+
+export function readLocalGrammarProgress(): Record<string, LocalGrammarTopicProgress> {
+  if (typeof window === 'undefined') return {};
+  try {
+    const raw = window.localStorage.getItem(LOCAL_GRAMMAR_PROGRESS_KEY);
+    if (!raw) return {};
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === 'object' ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+export function saveLocalGrammarProgress(params: {
+  topicSlug: string;
+  lessonId?: string;
+  accuracy: number;
+}): Record<string, LocalGrammarTopicProgress> {
+  if (typeof window === 'undefined' || !params.topicSlug) return {};
+  try {
+    const current = readLocalGrammarProgress();
+    const now = new Date();
+    const accuracy = Math.max(0, Math.min(100, Math.round(params.accuracy)));
+    const intervalDays = accuracy >= 90 ? 7 : accuracy >= 75 ? 3 : accuracy >= 60 ? 1 : 0;
+    const nextDue =
+      intervalDays === 0
+        ? new Date(now.getTime() - 60_000).toISOString()
+        : new Date(now.getTime() + intervalDays * 86_400_000).toISOString();
+
+    const prev = current[params.topicSlug];
+    const mastered = accuracy >= 80 ? 1 : prev?.mastered_lessons || 0;
+
+    current[params.topicSlug] = {
+      topic_id: params.lessonId || prev?.topic_id || params.topicSlug,
+      topic_slug: params.topicSlug,
+      completed_lessons: Math.max(1, prev?.completed_lessons || 1),
+      total_lessons: Math.max(1, prev?.total_lessons || 1),
+      mastered_lessons: mastered,
+      accuracy,
+      next_due_date: nextDue,
+      updated_at: now.toISOString(),
+    };
+    window.localStorage.setItem(LOCAL_GRAMMAR_PROGRESS_KEY, JSON.stringify(current));
+    return current;
+  } catch {
+    return {};
+  }
+}
+
+export function readLocalGrammarWrongQueue(days = 14): LocalGrammarWrongItem[] {
+  if (typeof window === 'undefined') return [];
+  try {
+    const raw = window.localStorage.getItem(LOCAL_GRAMMAR_WRONG_QUEUE_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+    const cutoff = Date.now() - days * 86_400_000;
+    return parsed.filter((item: LocalGrammarWrongItem) => {
+      if (!item?.exercise?.question) return false;
+      const ts = item.failedAt ? new Date(item.failedAt).getTime() : Date.now();
+      return !Number.isNaN(ts) && ts >= cutoff;
+    });
+  } catch {
+    return [];
+  }
+}
+
+export function recordGrammarAttemptLocal(
+  exercise: GrammarExercise,
+  isCorrect: boolean,
+  topicSlug?: string,
+): void {
+  if (typeof window === 'undefined' || !exercise?.question) return;
+  try {
+    const current = readLocalGrammarWrongQueue(14);
+    const normQ = cleanGrammarAnswer(exercise.question);
+    const filtered = current.filter(
+      (item) =>
+        item.exercise.id !== exercise.id &&
+        cleanGrammarAnswer(item.exercise.question) !== normQ,
+    );
+    if (!isCorrect) {
+      filtered.unshift({
+        exercise,
+        topicSlug,
+        failedAt: new Date().toISOString(),
+      });
+    }
+    window.localStorage.setItem(
+      LOCAL_GRAMMAR_WRONG_QUEUE_KEY,
+      JSON.stringify(filtered.slice(0, 100)),
+    );
+  } catch {
+    // Ignore storage quota or SSR errors
+  }
+}
+

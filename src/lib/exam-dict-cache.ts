@@ -6,12 +6,21 @@ export interface ExamDictPhrase {
   imageUrl?: string;
 }
 
+export interface ExamDictSense {
+  definition: string;
+  pos?: string;
+  example?: string;
+  exampleVi?: string;
+  cefr?: string;
+}
+
 export interface ExamDictResult {
   word: string;
   cleanWord: string;
   ipa: string;
   pos: string;
   definition: string;
+  meanings?: ExamDictSense[];
   synonyms: string[];
   antonyms: string[];
   didYouMean?: string[];
@@ -236,6 +245,54 @@ export function parseDictPayload(data: any, cleanWord: string, rawWord: string):
     }))
     .filter((p: ExamDictPhrase) => Boolean(p.phrase && p.meaning));
 
+  const extractedSenses: ExamDictSense[] = [];
+  const seenDefs = new Set<string>();
+
+  const addSense = (def?: string, sensePos?: string, ex?: string, exVi?: string, cefr?: string) => {
+    if (!def || typeof def !== 'string') return;
+    const trimmed = def.trim();
+    if (!trimmed) return;
+    const key = trimmed.toLowerCase();
+    if (seenDefs.has(key)) return;
+    seenDefs.add(key);
+    extractedSenses.push({
+      definition: trimmed,
+      pos: sensePos ? POS_MAP[sensePos.toLowerCase()] || sensePos : undefined,
+      example: ex,
+      exampleVi: exVi,
+      cefr,
+    });
+  };
+
+  for (const cs of coreSenses) {
+    addSense(
+      cs?.definition_vi || cs?.label_vi || cs?.definition_en,
+      cs?.pos,
+      cs?.example,
+      cs?.example_vi,
+      cs?.cefr
+    );
+  }
+
+  for (const m of meanings) {
+    addSense(
+      m?.definition || m?.meaning_vi || m?.meaning,
+      m?.pos || m?.part_of_speech,
+      m?.example,
+      m?.example_vi || m?.exampleVi,
+      m?.cefr
+    );
+  }
+
+  if (definition && !seenDefs.has(definition.trim().toLowerCase())) {
+    extractedSenses.unshift({
+      definition: definition.trim(),
+      pos,
+      example,
+      exampleVi,
+    });
+  }
+
   return {
     word: rawWord,
     cleanWord,
@@ -244,6 +301,7 @@ export function parseDictPayload(data: any, cleanWord: string, rawWord: string):
     definition,
     synonyms,
     antonyms,
+    ...(extractedSenses.length > 0 ? { meanings: extractedSenses } : {}),
     ...(imageUrl ? { imageUrl } : {}),
     ...(phrases.length > 0 ? { phrases } : {}),
     ...(example ? { example } : {}),
@@ -534,15 +592,102 @@ export async function fetchExamWordDict(rawWord: string): Promise<ExamDictResult
   }
 }
 
+const SAVED_WORDS_KEY = 'lingo_saved_words';
+const SAVED_MEANINGS_KEY = 'lingo_saved_meanings';
+
+function normalizeTranslationStorageKey(text: string): string {
+  return text
+    .toLowerCase()
+    .trim()
+    .replace(/[.,;!?:"'()]/g, '')
+    .replace(/\s+/g, ' ');
+}
+
 /**
- * Kiểm tra xem từ vựng đã được lưu trong localStorage chưa (cho cả khách và học viên).
+ * Lấy danh sách các nghĩa đã lưu cục bộ của một từ.
  */
-export function isWordSavedLocally(cleanWord: string): boolean {
+export function getSavedMeaningsLocally(cleanWord: string): string[] {
+  if (typeof window === 'undefined' || !cleanWord) return [];
+  const target = cleanWord.trim().toLowerCase();
+  if (!target) return [];
+  try {
+    const raw = localStorage.getItem(SAVED_MEANINGS_KEY);
+    if (!raw) return [];
+    const map = JSON.parse(raw);
+    if (typeof map !== 'object' || map === null) return [];
+    const list = map[target];
+    return Array.isArray(list) ? list : [];
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Kiểm tra xem một nghĩa cụ thể của từ đã được lưu cục bộ chưa.
+ */
+export function isMeaningSavedLocally(cleanWord: string, translation: string): boolean {
+  if (typeof window === 'undefined' || !cleanWord || !translation) return false;
+  const target = cleanWord.trim().toLowerCase();
+  const targetTrans = normalizeTranslationStorageKey(translation);
+  if (!target || !targetTrans) return false;
+
+  const savedList = getSavedMeaningsLocally(target);
+  return savedList.some((s) => {
+    const norm = normalizeTranslationStorageKey(s);
+    return norm === targetTrans || (norm.length >= 3 && targetTrans.length >= 3 && (norm.includes(targetTrans) || targetTrans.includes(norm)));
+  });
+}
+
+/**
+ * Lưu nghĩa cụ thể của một từ vào localStorage.
+ */
+export function saveMeaningLocally(cleanWord: string, translation: string): void {
+  if (typeof window === 'undefined' || !cleanWord || !translation) return;
+  const target = cleanWord.trim().toLowerCase();
+  const transTrimmed = translation.trim();
+  if (!target || !transTrimmed) return;
+
+  try {
+    let map: Record<string, string[]> = {};
+    try {
+      const raw = localStorage.getItem(SAVED_MEANINGS_KEY);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (typeof parsed === 'object' && parsed !== null && !Array.isArray(parsed)) {
+          map = parsed;
+        }
+      }
+    } catch {
+      map = {};
+    }
+
+    const currentList = Array.isArray(map[target]) ? map[target] : [];
+    const normTarget = normalizeTranslationStorageKey(transTrimmed);
+    if (!currentList.some((s) => normalizeTranslationStorageKey(s) === normTarget)) {
+      currentList.push(transTrimmed);
+      map[target] = currentList;
+      localStorage.setItem(SAVED_MEANINGS_KEY, JSON.stringify(map));
+    }
+  } catch {
+    // Ignore quota errors
+  }
+}
+
+/**
+ * Kiểm tra xem từ vựng (hoặc nghĩa cụ thể của từ) đã được lưu trong localStorage chưa (cho cả khách và học viên).
+ */
+export function isWordSavedLocally(cleanWord: string, translation?: string): boolean {
   if (typeof window === 'undefined' || !cleanWord) return false;
   const target = cleanWord.trim().toLowerCase();
   if (!target) return false;
+
+  // Nếu có chỉ định nghĩa cụ thể, kiểm tra theo nghĩa
+  if (translation && translation.trim()) {
+    return isMeaningSavedLocally(target, translation);
+  }
+
   try {
-    const stored = localStorage.getItem('lingo_saved_words');
+    const stored = localStorage.getItem(SAVED_WORDS_KEY);
     if (!stored) return false;
     const localWords = JSON.parse(stored);
     if (!Array.isArray(localWords)) return false;
@@ -554,9 +699,10 @@ export function isWordSavedLocally(cleanWord: string): boolean {
 
 /**
  * Lưu từ vựng vào localStorage (hỗ trợ Guest & Offline fallback).
+ * Cho phép kèm nghĩa cụ thể để hỗ trợ từ đa nghĩa (polysemous words).
  * Tự động phục hồi nếu dữ liệu storage trước đó bị hỏng (corrupted JSON).
  */
-export function saveWordLocally(cleanWord: string): void {
+export function saveWordLocally(cleanWord: string, translation?: string): void {
   if (typeof window === 'undefined' || !cleanWord) return;
   const target = cleanWord.trim().toLowerCase();
   if (!target) return;
@@ -564,7 +710,7 @@ export function saveWordLocally(cleanWord: string): void {
   try {
     let localWords: string[] = [];
     try {
-      const stored = localStorage.getItem('lingo_saved_words');
+      const stored = localStorage.getItem(SAVED_WORDS_KEY);
       if (stored) {
         const parsed = JSON.parse(stored);
         if (Array.isArray(parsed)) {
@@ -577,7 +723,11 @@ export function saveWordLocally(cleanWord: string): void {
 
     if (!localWords.some((w) => typeof w === 'string' && w.toLowerCase() === target)) {
       localWords.push(target);
-      localStorage.setItem('lingo_saved_words', JSON.stringify(localWords));
+      localStorage.setItem(SAVED_WORDS_KEY, JSON.stringify(localWords));
+    }
+
+    if (translation && translation.trim()) {
+      saveMeaningLocally(target, translation);
     }
   } catch {
     // Ignore localStorage quota errors

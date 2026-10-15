@@ -607,6 +607,30 @@ export async function runTier1Tests(runner: TestRunner) {
       expect(history['L1']).toBeUndefined();
       expect(history['R1']).toBeDefined();
     });
+
+    // F5.7
+    await runner.it('F5.7: getVstepQuestionExplanation resolves canonical question IDs (<examId>:<qId>) in single-skill practice and bank mode', () => {
+      const practice = loadVstepSkillPractice({
+        skill: 'listening',
+        filterMode: 'unseen',
+        testId: 'vstep-listening-01',
+      });
+      expect(practice).not.toBeNull();
+      const firstQ = practice?.sections[0]?.tasks[0]?.questions?.[0];
+      expect(firstQ).toBeDefined();
+      const canonicalKey = firstQ!.canonicalId || firstQ!.id;
+      expect(canonicalKey.includes(':')).toBe(true);
+
+      // Should resolve when testId is the practice exam ID
+      const expDirect = getVstepQuestionExplanation('vstep-listening-01', canonicalKey);
+      expect(expDirect).not.toBeNull();
+      expect(typeof expDirect?.answer).toBe('number');
+
+      // Should also resolve when testId is 'bank' (cross-exam bank mode)
+      const expBank = getVstepQuestionExplanation('bank', canonicalKey);
+      expect(expBank).not.toBeNull();
+      expect(expBank?.answer).toBe(expDirect?.answer);
+    });
   });
 }
 

@@ -409,26 +409,36 @@
   "exercises": [
     {
       "id": "comparatives-superlatives-ex-01",
-      "type": "fill_blank",
-      "question": "Your flat is ____ (large) than mine.",
-      "options": [],
+      "type": "multiple_choice",
+      "question": "Your apartment is ___ than mine.",
+      "options": [
+        "larger",
+        "more large",
+        "largest",
+        "the largest"
+      ],
       "correct_answer": "larger",
-      "explanation": "than → hơn, large đã có e nên chỉ thêm r",
+      "explanation": "Có từ \"than\" là so sánh hơn. \"large\" là tính từ ngắn 1 âm tiết tận cùng bằng \"-e\" → chỉ cần thêm \"-r\" thành \"larger\".",
       "distractor_breakdowns": [
         {
           "option": "larger",
           "isCorrect": true,
-          "pedagogicalReason": "than → hơn, large đã có e nên chỉ thêm r"
+          "pedagogicalReason": "Có từ \"than\" là so sánh hơn. \"large\" là tính từ ngắn 1 âm tiết tận cùng bằng \"-e\" → chỉ cần thêm \"-r\" thành \"larger\"."
         },
         {
           "option": "more large",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"large\" là tính từ ngắn 1 âm tiết, so sánh hơn là thêm đuôi -r (\"larger\"), không dùng \"more large\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"more large\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"larger\"). Có từ \"than\" là so sánh hơn. \"large\" là tính từ ngắn 1 âm tiết tận cùng bằng \"-e\" → chỉ cần thêm \"-r\" thành \"larger\"."
         },
         {
           "option": "largest",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"largest\" là dạng so sánh nhất, trong khi từ nhận biết \"than\" yêu cầu dạng so sánh hơn."
+          "pedagogicalReason": "Không chính xác. Phương án \"largest\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"larger\"). Có từ \"than\" là so sánh hơn. \"large\" là tính từ ngắn 1 âm tiết tận cùng bằng \"-e\" → chỉ cần thêm \"-r\" thành \"larger\"."
+        },
+        {
+          "option": "the largest",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"the largest\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"larger\"). Có từ \"than\" là so sánh hơn. \"large\" là tính từ ngắn 1 âm tiết tận cùng bằng \"-e\" → chỉ cần thêm \"-r\" thành \"larger\"."
         }
       ],
       "difficulty": 1
@@ -436,51 +446,71 @@
     {
       "id": "comparatives-superlatives-ex-02",
       "type": "fill_blank",
-      "question": "Grace is ____ (old) girl in our class.",
-      "options": [],
-      "correct_answer": "the oldest",
-      "explanation": "in our class → nhất, old ngắn nên the + -est",
+      "question": "Nam is ___ student in our class.",
+      "options": [
+        "the tallest",
+        "taller",
+        "tallest",
+        "most tall"
+      ],
+      "correct_answer": "the tallest",
+      "explanation": "So sánh một người với cả tập thể (\"in our class\") dùng so sánh nhất với tính từ ngắn: \"the + adj-est\" (\"the tallest\").",
       "distractor_breakdowns": [
         {
-          "option": "the oldest",
+          "option": "the tallest",
           "isCorrect": true,
-          "pedagogicalReason": "in our class → nhất, old ngắn nên the + -est"
+          "pedagogicalReason": "So sánh một người với cả tập thể (\"in our class\") dùng so sánh nhất với tính từ ngắn: \"the + adj-est\" (\"the tallest\")."
         },
         {
-          "option": "older",
+          "option": "taller",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Cụm \"in our class\" chỉ phạm vi cả một tập thể từ 3 người trở lên, phải dùng so sánh nhất (\"the oldest\"), không dùng so sánh hơn."
+          "pedagogicalReason": "Không chính xác. Phương án \"taller\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"the tallest\"). So sánh một người với cả tập thể (\"in our class\") dùng so sánh nhất với tính từ ngắn: \"the + adj-est\" (\"the tallest\")."
         },
         {
-          "option": "oldest",
+          "option": "tallest",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. So sánh nhất đứng trước danh từ xác định bắt buộc phải có mạo từ \"the\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"tallest\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"the tallest\"). So sánh một người với cả tập thể (\"in our class\") dùng so sánh nhất với tính từ ngắn: \"the + adj-est\" (\"the tallest\")."
+        },
+        {
+          "option": "most tall",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"most tall\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"the tallest\"). So sánh một người với cả tập thể (\"in our class\") dùng so sánh nhất với tính từ ngắn: \"the + adj-est\" (\"the tallest\")."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "comparatives-superlatives-ex-03",
-      "type": "fill_blank",
-      "question": "She sings ____ (beautiful) in this school.",
-      "options": [],
-      "correct_answer": "the most beautifully",
-      "explanation": "in this school → nhất, bổ nghĩa cho sings nên là trạng từ dài",
+      "type": "multiple_choice",
+      "question": "This armchair is ___ than that wooden chair.",
+      "options": [
+        "more comfortable",
+        "comfortabler",
+        "most comfortable",
+        "the most comfortable"
+      ],
+      "correct_answer": "more comfortable",
+      "explanation": "\"comfortable\" là tính từ dài (4 âm tiết) + có \"than\" → dùng \"more + tính từ dài\" (\"more comfortable\").",
       "distractor_breakdowns": [
         {
-          "option": "the most beautifully",
+          "option": "more comfortable",
           "isCorrect": true,
-          "pedagogicalReason": "in this school → nhất, bổ nghĩa cho sings nên là trạng từ dài"
+          "pedagogicalReason": "\"comfortable\" là tính từ dài (4 âm tiết) + có \"than\" → dùng \"more + tính từ dài\" (\"more comfortable\")."
         },
         {
-          "option": "more beautifully",
+          "option": "comfortabler",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Cụm \"in this school\" chỉ phạm vi toàn bộ trường học, phải dùng so sánh nhất (\"the most beautifully\")."
+          "pedagogicalReason": "Không chính xác. Phương án \"comfortabler\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"more comfortable\"). \"comfortable\" là tính từ dài (4 âm tiết) + có \"than\" → dùng \"more + tính từ dài\" (\"more comfortable\")."
         },
         {
-          "option": "most beautiful",
+          "option": "most comfortable",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Bổ nghĩa cho động từ thường \"sings\" phải dùng trạng từ \"beautifully\", không dùng tính từ \"beautiful\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"most comfortable\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"more comfortable\"). \"comfortable\" là tính từ dài (4 âm tiết) + có \"than\" → dùng \"more + tính từ dài\" (\"more comfortable\")."
+        },
+        {
+          "option": "the most comfortable",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"the most comfortable\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"more comfortable\"). \"comfortable\" là tính từ dài (4 âm tiết) + có \"than\" → dùng \"more + tính từ dài\" (\"more comfortable\")."
         }
       ],
       "difficulty": 1
@@ -488,87 +518,323 @@
     {
       "id": "comparatives-superlatives-ex-04",
       "type": "fill_blank",
-      "question": "Jane is not ____ (intelligent) as her brother.",
-      "options": [],
-      "correct_answer": "as intelligent",
-      "explanation": "phủ định của so sánh bằng vẫn giữ tính từ gốc",
+      "question": "Which is ___ animal in the world?",
+      "options": [
+        "the most dangerous",
+        "more dangerous",
+        "dangerouser",
+        "most dangerous"
+      ],
+      "correct_answer": "the most dangerous",
+      "explanation": "So sánh nhất trong phạm vi \"in the world\" với tính từ dài \"dangerous\" → dùng \"the most dangerous\".",
       "distractor_breakdowns": [
         {
-          "option": "as intelligent",
+          "option": "the most dangerous",
           "isCorrect": true,
-          "pedagogicalReason": "phủ định của so sánh bằng vẫn giữ tính từ gốc"
+          "pedagogicalReason": "So sánh nhất trong phạm vi \"in the world\" với tính từ dài \"dangerous\" → dùng \"the most dangerous\"."
         },
         {
-          "option": "more intelligent",
+          "option": "more dangerous",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Cấu trúc so sánh bằng/không bằng là \"not as + adj + as\", câu đã có \"as\" phía sau nên chỉ cần \"as intelligent\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"more dangerous\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"the most dangerous\"). So sánh nhất trong phạm vi \"in the world\" với tính từ dài \"dangerous\" → dùng \"the most dangerous\"."
         },
         {
-          "option": "intelligently",
+          "option": "dangerouser",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Sau động từ to-be \"is\" bổ nghĩa cho chủ ngữ cần tính từ \"intelligent\", không dùng trạng từ."
+          "pedagogicalReason": "Không chính xác. Phương án \"dangerouser\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"the most dangerous\"). So sánh nhất trong phạm vi \"in the world\" với tính từ dài \"dangerous\" → dùng \"the most dangerous\"."
+        },
+        {
+          "option": "most dangerous",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"most dangerous\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"the most dangerous\"). So sánh nhất trong phạm vi \"in the world\" với tính từ dài \"dangerous\" → dùng \"the most dangerous\"."
         }
       ],
       "difficulty": 2
     },
     {
       "id": "comparatives-superlatives-ex-05",
-      "type": "fill_blank",
-      "question": "____ Earth moves around ____ Sun.",
-      "options": [],
-      "correct_answer": "The / the",
-      "explanation": "Trái Đất và Mặt Trời đều là duy nhất → the",
+      "type": "multiple_choice",
+      "question": "My cold is ___ today than it was yesterday.",
+      "options": [
+        "better",
+        "gooder",
+        "more good",
+        "best"
+      ],
+      "correct_answer": "better",
+      "explanation": "\"good\" là tính từ bất quy tắc: so sánh hơn là \"better\", so sánh nhất là \"the best\" (tuyệt đối không có \"gooder\").",
       "distractor_breakdowns": [
         {
-          "option": "The / the",
+          "option": "better",
           "isCorrect": true,
-          "pedagogicalReason": "Trái Đất và Mặt Trời đều là duy nhất → the"
+          "pedagogicalReason": "\"good\" là tính từ bất quy tắc: so sánh hơn là \"better\", so sánh nhất là \"the best\" (tuyệt đối không có \"gooder\")."
         },
         {
-          "option": "A / a",
+          "option": "gooder",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Trái Đất (\"Earth\") và Mặt Trời (\"Sun\") là các thiên thể duy nhất trong vũ trụ, bắt buộc dùng mạo từ xác định \"the\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"gooder\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"better\"). \"good\" là tính từ bất quy tắc: so sánh hơn là \"better\", so sánh nhất là \"the best\" (tuyệt đối không có \"gooder\")."
         },
         {
-          "option": "∅ / ∅",
+          "option": "more good",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Danh từ chỉ thiên thể duy nhất không thể đứng trơ mà bắt buộc phải có mạo từ xác định \"the\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"more good\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"better\"). \"good\" là tính từ bất quy tắc: so sánh hơn là \"better\", so sánh nhất là \"the best\" (tuyệt đối không có \"gooder\")."
+        },
+        {
+          "option": "best",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"best\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"better\"). \"good\" là tính từ bất quy tắc: so sánh hơn là \"better\", so sánh nhất là \"the best\" (tuyệt đối không có \"gooder\")."
         }
       ],
       "difficulty": 2
     },
     {
       "id": "comparatives-superlatives-ex-06",
+      "type": "fill_blank",
+      "question": "The traffic today is ___ than usual.",
+      "options": [
+        "worse",
+        "badder",
+        "more bad",
+        "the worst"
+      ],
+      "correct_answer": "worse",
+      "explanation": "So sánh hơn bất quy tắc của \"bad\" là \"worse\" (so sánh nhất là \"the worst\").",
+      "distractor_breakdowns": [
+        {
+          "option": "worse",
+          "isCorrect": true,
+          "pedagogicalReason": "So sánh hơn bất quy tắc của \"bad\" là \"worse\" (so sánh nhất là \"the worst\")."
+        },
+        {
+          "option": "badder",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"badder\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"worse\"). So sánh hơn bất quy tắc của \"bad\" là \"worse\" (so sánh nhất là \"the worst\")."
+        },
+        {
+          "option": "more bad",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"more bad\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"worse\"). So sánh hơn bất quy tắc của \"bad\" là \"worse\" (so sánh nhất là \"the worst\")."
+        },
+        {
+          "option": "the worst",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"the worst\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"worse\"). So sánh hơn bất quy tắc của \"bad\" là \"worse\" (so sánh nhất là \"the worst\")."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "comparatives-superlatives-ex-07",
       "type": "multiple_choice",
-      "question": "Nam is the ____ student in our class.",
+      "question": "Jane is as ___ as her older sister.",
       "options": [
         "tall",
         "taller",
         "tallest",
-        "most tall"
+        "more tall"
       ],
-      "correct_answer": "tallest",
-      "explanation": "So sánh nhất, tall là tính từ ngắn nên thêm -est · buổi 11",
+      "correct_answer": "tall",
+      "explanation": "Trong cấu trúc so sánh bằng \"as + Adj + as\", tính từ ở giữa luôn giữ nguyên mẫu (\"as tall as\").",
       "distractor_breakdowns": [
         {
           "option": "tall",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Tall là tính từ ngắn nên thêm -est · buổi 11."
+          "isCorrect": true,
+          "pedagogicalReason": "Trong cấu trúc so sánh bằng \"as + Adj + as\", tính từ ở giữa luôn giữ nguyên mẫu (\"as tall as\")."
         },
         {
           "option": "taller",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"taller\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"taller\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"tall\"). Trong cấu trúc so sánh bằng \"as + Adj + as\", tính từ ở giữa luôn giữ nguyên mẫu (\"as tall as\")."
         },
         {
           "option": "tallest",
-          "isCorrect": true,
-          "pedagogicalReason": "So sánh nhất, tall là tính từ ngắn nên thêm -est · buổi 11"
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"tallest\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"tall\"). Trong cấu trúc so sánh bằng \"as + Adj + as\", tính từ ở giữa luôn giữ nguyên mẫu (\"as tall as\")."
         },
         {
-          "option": "most tall",
+          "option": "more tall",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"most tall\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"more tall\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"tall\"). Trong cấu trúc so sánh bằng \"as + Adj + as\", tính từ ở giữa luôn giữ nguyên mẫu (\"as tall as\")."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "comparatives-superlatives-ex-08",
+      "type": "fill_blank",
+      "question": "Summer is ___ season of the year in Vietnam.",
+      "options": [
+        "the hottest",
+        "hotter",
+        "the hotest",
+        "most hot"
+      ],
+      "correct_answer": "the hottest",
+      "explanation": "\"hot\" là tính từ 1 âm tiết kết thúc bằng Phụ-Nguyên-Phụ (h-o-t) nên gấp đôi \"t\" trước khi thêm \"-est\" → \"the hottest\".",
+      "distractor_breakdowns": [
+        {
+          "option": "the hottest",
+          "isCorrect": true,
+          "pedagogicalReason": "\"hot\" là tính từ 1 âm tiết kết thúc bằng Phụ-Nguyên-Phụ (h-o-t) nên gấp đôi \"t\" trước khi thêm \"-est\" → \"the hottest\"."
+        },
+        {
+          "option": "hotter",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"hotter\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"the hottest\"). \"hot\" là tính từ 1 âm tiết kết thúc bằng Phụ-Nguyên-Phụ (h-o-t) nên gấp đôi \"t\" trước khi thêm \"-est\" → \"the hottest\"."
+        },
+        {
+          "option": "the hotest",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"the hotest\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"the hottest\"). \"hot\" là tính từ 1 âm tiết kết thúc bằng Phụ-Nguyên-Phụ (h-o-t) nên gấp đôi \"t\" trước khi thêm \"-est\" → \"the hottest\"."
+        },
+        {
+          "option": "most hot",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"most hot\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"the hottest\"). \"hot\" là tính từ 1 âm tiết kết thúc bằng Phụ-Nguyên-Phụ (h-o-t) nên gấp đôi \"t\" trước khi thêm \"-est\" → \"the hottest\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "comparatives-superlatives-ex-09",
+      "type": "multiple_choice",
+      "question": "This test is ___ than the one we took last week.",
+      "options": [
+        "easier",
+        "more easy",
+        "easyer",
+        "the easiest"
+      ],
+      "correct_answer": "easier",
+      "explanation": "\"easy\" là tính từ 2 âm tiết tận cùng bằng \"-y\" nên đổi \"y\" thành \"i\" rồi thêm \"-er\" → \"easier\".",
+      "distractor_breakdowns": [
+        {
+          "option": "easier",
+          "isCorrect": true,
+          "pedagogicalReason": "\"easy\" là tính từ 2 âm tiết tận cùng bằng \"-y\" nên đổi \"y\" thành \"i\" rồi thêm \"-er\" → \"easier\"."
+        },
+        {
+          "option": "more easy",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"more easy\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"easier\"). \"easy\" là tính từ 2 âm tiết tận cùng bằng \"-y\" nên đổi \"y\" thành \"i\" rồi thêm \"-er\" → \"easier\"."
+        },
+        {
+          "option": "easyer",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"easyer\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"easier\"). \"easy\" là tính từ 2 âm tiết tận cùng bằng \"-y\" nên đổi \"y\" thành \"i\" rồi thêm \"-er\" → \"easier\"."
+        },
+        {
+          "option": "the easiest",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"the easiest\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"easier\"). \"easy\" là tính từ 2 âm tiết tận cùng bằng \"-y\" nên đổi \"y\" thành \"i\" rồi thêm \"-er\" → \"easier\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "comparatives-superlatives-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: My new phone is more cheaper than my old one.",
+      "options": [
+        "new",
+        "more cheaper",
+        "than",
+        "old"
+      ],
+      "correct_answer": "more cheaper",
+      "explanation": "\"cheap\" là tính từ ngắn đã thêm \"-er\" (\"cheaper\"), tuyệt đối không dùng thêm \"more\" phía trước (lỗi lặp so sánh). Sửa thành \"cheaper\".",
+      "distractor_breakdowns": [
+        {
+          "option": "new",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"new\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "more cheaper",
+          "isCorrect": true,
+          "pedagogicalReason": "\"cheap\" là tính từ ngắn đã thêm \"-er\" (\"cheaper\"), tuyệt đối không dùng thêm \"more\" phía trước (lỗi lặp so sánh). Sửa thành \"cheaper\"."
+        },
+        {
+          "option": "than",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"than\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "old",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"old\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "comparatives-superlatives-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: Mount Everest is highest mountain in the world.",
+      "options": [
+        "is",
+        "highest",
+        "mountain",
+        "in"
+      ],
+      "correct_answer": "highest",
+      "explanation": "So sánh nhất luôn bắt buộc có mạo từ \"the\" đứng trước tính từ. Sửa \"highest\" thành \"the highest\".",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"is\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "highest",
+          "isCorrect": true,
+          "pedagogicalReason": "So sánh nhất luôn bắt buộc có mạo từ \"the\" đứng trước tính từ. Sửa \"highest\" thành \"the highest\"."
+        },
+        {
+          "option": "mountain",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"mountain\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"in\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "comparatives-superlatives-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: This movie is not as interesting than the book.",
+      "options": [
+        "is not",
+        "as",
+        "interesting",
+        "than"
+      ],
+      "correct_answer": "than",
+      "explanation": "Cấu trúc so sánh bằng/không bằng là \"as + Adj + as\", không đi với \"than\". Sửa \"than\" thành \"as\".",
+      "distractor_breakdowns": [
+        {
+          "option": "is not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"is not\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "as",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"as\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "interesting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"interesting\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "than",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc so sánh bằng/không bằng là \"as + Adj + as\", không đi với \"than\". Sửa \"than\" thành \"as\"."
         }
       ],
       "difficulty": 3

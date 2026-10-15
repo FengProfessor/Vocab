@@ -88,9 +88,24 @@
         "note": "Nhóm 1: Ăn uống. [S]=I (Chủ ngữ) | [V]=eat (Động từ) | [O]=rice (Tân ngữ). Trật tự từ giống hệt tiếng Việt.",
         "category": "Ăn uống & Nhu cầu thiết yếu",
         "annotations": [
-          { "word": "I", "start": 0, "end": 1, "role": "pronoun" },
-          { "word": "eat", "start": 2, "end": 5, "role": "verb" },
-          { "word": "rice", "start": 6, "end": 10, "role": "noun" }
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "eat",
+            "start": 2,
+            "end": 5,
+            "role": "verb"
+          },
+          {
+            "word": "rice",
+            "start": 6,
+            "end": 10,
+            "role": "noun"
+          }
         ]
       },
       {
@@ -99,9 +114,24 @@
         "note": "Nhóm 1: Ăn uống. [S]=I (Chủ ngữ) | [V]=drink (Động từ) | [O]=water (Tân ngữ).",
         "category": "Ăn uống & Nhu cầu thiết yếu",
         "annotations": [
-          { "word": "I", "start": 0, "end": 1, "role": "pronoun" },
-          { "word": "drink", "start": 2, "end": 7, "role": "verb" },
-          { "word": "water", "start": 8, "end": 13, "role": "noun" }
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "drink",
+            "start": 2,
+            "end": 7,
+            "role": "verb"
+          },
+          {
+            "word": "water",
+            "start": 8,
+            "end": 13,
+            "role": "noun"
+          }
         ]
       },
       {
@@ -110,9 +140,24 @@
         "note": "Nhóm 1: Ăn uống. [S]=We (Chủ ngữ số nhiều) | [V]=eat (Động từ) | [O]=bread (Tân ngữ).",
         "category": "Ăn uống & Nhu cầu thiết yếu",
         "annotations": [
-          { "word": "We", "start": 0, "end": 2, "role": "pronoun" },
-          { "word": "eat", "start": 3, "end": 6, "role": "verb" },
-          { "word": "bread", "start": 7, "end": 12, "role": "noun" }
+          {
+            "word": "We",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "eat",
+            "start": 3,
+            "end": 6,
+            "role": "verb"
+          },
+          {
+            "word": "bread",
+            "start": 7,
+            "end": 12,
+            "role": "noun"
+          }
         ]
       },
       {
@@ -121,9 +166,24 @@
         "note": "Nhóm 1: Ăn uống. [S]=They (Chủ ngữ) | [V]=drink (Động từ) | [O]=coffee (Tân ngữ).",
         "category": "Ăn uống & Nhu cầu thiết yếu",
         "annotations": [
-          { "word": "They", "start": 0, "end": 4, "role": "pronoun" },
-          { "word": "drink", "start": 5, "end": 10, "role": "verb" },
-          { "word": "coffee", "start": 11, "end": 17, "role": "noun" }
+          {
+            "word": "They",
+            "start": 0,
+            "end": 4,
+            "role": "pronoun"
+          },
+          {
+            "word": "drink",
+            "start": 5,
+            "end": 10,
+            "role": "verb"
+          },
+          {
+            "word": "coffee",
+            "start": 11,
+            "end": 17,
+            "role": "noun"
+          }
         ]
       },
       {
@@ -132,9 +192,24 @@
         "note": "Nhóm 2: Sinh hoạt. [S]=I (Chủ ngữ) | [V]=read (Động từ) | [O]=books (Tân ngữ danh từ số nhiều).",
         "category": "Sinh hoạt & Sở thích hàng ngày",
         "annotations": [
-          { "word": "I", "start": 0, "end": 1, "role": "pronoun" },
-          { "word": "read", "start": 2, "end": 6, "role": "verb" },
-          { "word": "books", "start": 7, "end": 12, "role": "noun" }
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "read",
+            "start": 2,
+            "end": 6,
+            "role": "verb"
+          },
+          {
+            "word": "books",
+            "start": 7,
+            "end": 12,
+            "role": "noun"
+          }
         ]
       },
       {
@@ -143,10 +218,30 @@
         "note": "Nhóm 2: Sinh hoạt. [S]=You (Chủ ngữ) | [V]=listen to (Cụm động từ) | [O]=music (Tân ngữ).",
         "category": "Sinh hoạt & Sở thích hàng ngày",
         "annotations": [
-          { "word": "You", "start": 0, "end": 3, "role": "pronoun" },
-          { "word": "listen", "start": 4, "end": 10, "role": "verb" },
-          { "word": "to", "start": 11, "end": 13, "role": "preposition" },
-          { "word": "music", "start": 14, "end": 19, "role": "noun" }
+          {
+            "word": "You",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "listen",
+            "start": 4,
+            "end": 10,
+            "role": "verb"
+          },
+          {
+            "word": "to",
+            "start": 11,
+            "end": 13,
+            "role": "preposition"
+          },
+          {
+            "word": "music",
+            "start": 14,
+            "end": 19,
+            "role": "noun"
+          }
         ]
       },
       {
@@ -155,9 +250,24 @@
         "note": "Nhóm 2: Sinh hoạt. [S]=We (Chủ ngữ) | [V]=watch (Động từ) | [O]=TV (Tân ngữ).",
         "category": "Sinh hoạt & Sở thích hàng ngày",
         "annotations": [
-          { "word": "We", "start": 0, "end": 2, "role": "pronoun" },
-          { "word": "watch", "start": 3, "end": 8, "role": "verb" },
-          { "word": "TV", "start": 9, "end": 11, "role": "noun" }
+          {
+            "word": "We",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "watch",
+            "start": 3,
+            "end": 8,
+            "role": "verb"
+          },
+          {
+            "word": "TV",
+            "start": 9,
+            "end": 11,
+            "role": "noun"
+          }
         ]
       },
       {
@@ -166,9 +276,24 @@
         "note": "Nhóm 2: Sinh hoạt. [S]=They (Chủ ngữ) | [V]=play (Động từ) | [O]=football (Tân ngữ môn thể thao).",
         "category": "Sinh hoạt & Sở thích hàng ngày",
         "annotations": [
-          { "word": "They", "start": 0, "end": 4, "role": "pronoun" },
-          { "word": "play", "start": 5, "end": 9, "role": "verb" },
-          { "word": "football", "start": 10, "end": 18, "role": "noun" }
+          {
+            "word": "They",
+            "start": 0,
+            "end": 4,
+            "role": "pronoun"
+          },
+          {
+            "word": "play",
+            "start": 5,
+            "end": 9,
+            "role": "verb"
+          },
+          {
+            "word": "football",
+            "start": 10,
+            "end": 18,
+            "role": "noun"
+          }
         ]
       },
       {
@@ -177,9 +302,24 @@
         "note": "Nhóm 3: Học tập & Công việc. [S]=We (Chủ ngữ) | [V]=learn (Động từ) | [O]=English (Tân ngữ danh từ chỉ ngôn ngữ).",
         "category": "Học tập & Công việc",
         "annotations": [
-          { "word": "We", "start": 0, "end": 2, "role": "pronoun" },
-          { "word": "learn", "start": 3, "end": 8, "role": "verb" },
-          { "word": "English", "start": 9, "end": 16, "role": "noun" }
+          {
+            "word": "We",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "learn",
+            "start": 3,
+            "end": 8,
+            "role": "verb"
+          },
+          {
+            "word": "English",
+            "start": 9,
+            "end": 16,
+            "role": "noun"
+          }
         ]
       },
       {
@@ -188,9 +328,24 @@
         "note": "Nhóm 3: Học tập & Công việc. [S]=She (Chủ ngữ ngôi thứ 3 số ít) | [V]=teaches (Động từ thêm -es) | [O]=math (Tân ngữ).",
         "category": "Học tập & Công việc",
         "annotations": [
-          { "word": "She", "start": 0, "end": 3, "role": "pronoun" },
-          { "word": "teaches", "start": 4, "end": 11, "role": "verb" },
-          { "word": "math", "start": 12, "end": 16, "role": "noun" }
+          {
+            "word": "She",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "teaches",
+            "start": 4,
+            "end": 11,
+            "role": "verb"
+          },
+          {
+            "word": "math",
+            "start": 12,
+            "end": 16,
+            "role": "noun"
+          }
         ]
       },
       {
@@ -199,11 +354,36 @@
         "note": "Nhóm 3: Học tập & Công việc. [S]=My father (Cụm chủ ngữ) | [V]=drives (Động từ) | [O]=a car (Cụm tân ngữ).",
         "category": "Học tập & Công việc",
         "annotations": [
-          { "word": "My", "start": 0, "end": 2, "role": "determiner" },
-          { "word": "father", "start": 3, "end": 9, "role": "noun" },
-          { "word": "drives", "start": 10, "end": 16, "role": "verb" },
-          { "word": "a", "start": 17, "end": 18, "role": "article" },
-          { "word": "car", "start": 19, "end": 22, "role": "noun" }
+          {
+            "word": "My",
+            "start": 0,
+            "end": 2,
+            "role": "determiner"
+          },
+          {
+            "word": "father",
+            "start": 3,
+            "end": 9,
+            "role": "noun"
+          },
+          {
+            "word": "drives",
+            "start": 10,
+            "end": 16,
+            "role": "verb"
+          },
+          {
+            "word": "a",
+            "start": 17,
+            "end": 18,
+            "role": "article"
+          },
+          {
+            "word": "car",
+            "start": 19,
+            "end": 22,
+            "role": "noun"
+          }
         ]
       },
       {
@@ -212,10 +392,30 @@
         "note": "Nhóm 3: Học tập & Công việc. [S]=My mother (Cụm chủ ngữ) | [V]=cooks (Động từ) | [O]=dinner (Tân ngữ).",
         "category": "Học tập & Công việc",
         "annotations": [
-          { "word": "My", "start": 0, "end": 2, "role": "determiner" },
-          { "word": "mother", "start": 3, "end": 9, "role": "noun" },
-          { "word": "cooks", "start": 10, "end": 15, "role": "verb" },
-          { "word": "dinner", "start": 16, "end": 22, "role": "noun" }
+          {
+            "word": "My",
+            "start": 0,
+            "end": 2,
+            "role": "determiner"
+          },
+          {
+            "word": "mother",
+            "start": 3,
+            "end": 9,
+            "role": "noun"
+          },
+          {
+            "word": "cooks",
+            "start": 10,
+            "end": 15,
+            "role": "verb"
+          },
+          {
+            "word": "dinner",
+            "start": 16,
+            "end": 22,
+            "role": "noun"
+          }
         ]
       },
       {
@@ -224,9 +424,24 @@
         "note": "Nhóm 4: Tương tác người. [S]=I (Chủ ngữ là đại từ 'Tôi') | [V]=love (Động từ) | [O]=you (Tân ngữ).",
         "category": "Tương tác giữa người với người (Cầu nối đại từ)",
         "annotations": [
-          { "word": "I", "start": 0, "end": 1, "role": "pronoun" },
-          { "word": "love", "start": 2, "end": 6, "role": "verb" },
-          { "word": "you", "start": 7, "end": 10, "role": "pronoun" }
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "love",
+            "start": 2,
+            "end": 6,
+            "role": "verb"
+          },
+          {
+            "word": "you",
+            "start": 7,
+            "end": 10,
+            "role": "pronoun"
+          }
         ]
       },
       {
@@ -235,9 +450,24 @@
         "note": "Nhóm 4: Cầu nối đổi dạng. Khi 'Tôi' bị đẩy xuống vị trí nhận hành động [O], tiếng Anh đổi từ 'I' thành 'me'.",
         "category": "Tương tác giữa người với người (Cầu nối đại từ)",
         "annotations": [
-          { "word": "You", "start": 0, "end": 3, "role": "pronoun" },
-          { "word": "love", "start": 4, "end": 8, "role": "verb" },
-          { "word": "me", "start": 9, "end": 11, "role": "pronoun" }
+          {
+            "word": "You",
+            "start": 0,
+            "end": 3,
+            "role": "pronoun"
+          },
+          {
+            "word": "love",
+            "start": 4,
+            "end": 8,
+            "role": "verb"
+          },
+          {
+            "word": "me",
+            "start": 9,
+            "end": 11,
+            "role": "pronoun"
+          }
         ]
       },
       {
@@ -246,9 +476,24 @@
         "note": "Nhóm 4: Tương tác người. [S]=I (Chủ ngữ) | [V]=help (Động từ) | [O]=him (Tân ngữ dạng của 'he').",
         "category": "Tương tác giữa người với người (Cầu nối đại từ)",
         "annotations": [
-          { "word": "I", "start": 0, "end": 1, "role": "pronoun" },
-          { "word": "help", "start": 2, "end": 6, "role": "verb" },
-          { "word": "him", "start": 7, "end": 10, "role": "pronoun" }
+          {
+            "word": "I",
+            "start": 0,
+            "end": 1,
+            "role": "pronoun"
+          },
+          {
+            "word": "help",
+            "start": 2,
+            "end": 6,
+            "role": "verb"
+          },
+          {
+            "word": "him",
+            "start": 7,
+            "end": 10,
+            "role": "pronoun"
+          }
         ]
       },
       {
@@ -257,9 +502,24 @@
         "note": "Nhóm 4: Cầu nối đổi dạng. 'Anh ấy' làm chủ ngữ dùng 'He'; 'tôi' làm tân ngữ nhận sự giúp đỡ dùng 'me'.",
         "category": "Tương tác giữa người với người (Cầu nối đại từ)",
         "annotations": [
-          { "word": "He", "start": 0, "end": 2, "role": "pronoun" },
-          { "word": "helps", "start": 3, "end": 8, "role": "verb" },
-          { "word": "me", "start": 9, "end": 11, "role": "pronoun" }
+          {
+            "word": "He",
+            "start": 0,
+            "end": 2,
+            "role": "pronoun"
+          },
+          {
+            "word": "helps",
+            "start": 3,
+            "end": 8,
+            "role": "verb"
+          },
+          {
+            "word": "me",
+            "start": 9,
+            "end": 11,
+            "role": "pronoun"
+          }
         ]
       }
     ],
@@ -298,7 +558,7 @@
     {
       "id": "sentence-structure-svo-ex-01",
       "type": "multiple_choice",
-      "question": "Trong câu \"I eat rice.\", từ **\"eat\"** đóng vai trò ngữ pháp gì?",
+      "question": "Trong câu \"I eat rice.\", từ \"eat\" đóng vai trò ngữ pháp gì?",
       "options": [
         "Chủ ngữ (Subject - S)",
         "Động từ (Verb - V)",
@@ -334,7 +594,7 @@
     {
       "id": "sentence-structure-svo-ex-02",
       "type": "multiple_choice",
-      "question": "Trong câu \"She teaches math.\", từ **\"math\"** đóng vai trò gì?",
+      "question": "Trong câu \"She teaches math.\", từ \"math\" đóng vai trò gì?",
       "options": [
         "Chủ ngữ (Subject - S)",
         "Động từ (Verb - V)",
@@ -370,7 +630,7 @@
     {
       "id": "sentence-structure-svo-ex-03",
       "type": "multiple_choice",
-      "question": "Chọn câu có trật tự từ đúng theo cấu trúc **S + V + O**:",
+      "question": "Chọn câu có trật tự từ đúng theo cấu trúc S + V + O:",
       "options": [
         "Water I drink.",
         "I drink water.",

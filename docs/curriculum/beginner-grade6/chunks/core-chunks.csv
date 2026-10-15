@@ -1,0 +1,36 @@
+chunk_id,formula,template,slots,vietnamese,stage_introduced,lesson_id,example_en,example_vi,generative_power_score
+chk-001,My name is [Name],My name is {name},"{""name"": [""Minh"", ""Nam"", ""Mai"", ""Lan""]}",Tên tôi là [Tên],Stage 0,L-001,My name is Minh.,Tên tôi là Minh.,5
+chk-002,I'm [Age] years old,I'm {age} years old,"{""age"": [""11"", ""12""]}",Tôi [Tuổi] tuổi,Stage 0,L-001,I'm 12 years old.,Tôi 12 tuổi.,4
+chk-003,I'm a student,I'm a student,{},Tôi là một học sinh,Stage 0,L-001,I'm a student.,Tôi là một học sinh.,4
+chk-004,I like [Noun],I like {item},"{""item"": [""football"", ""games"", ""music"", ""pizza""]}",Tôi thích [Món đồ],Stage 0,L-002,I like games.,Tôi thích chơi game.,5
+chk-005,I don't like [Noun],I don't like {item},"{""item"": [""fish"", ""math"", ""spiders""]}",Tôi không thích [Món đồ],Stage 0,L-002,I don't like fish.,Tôi không thích ăn cá.,5
+chk-006,I can [Verb],I can {action},"{""action"": [""swim"", ""run"", ""draw"", ""sing""]}",Tôi có thể [Hành động],Stage 0,L-003,I can swim.,Tôi có thể bơi.,5
+chk-007,I can't [Verb],I can't {action},"{""action"": [""cook"", ""dance"", ""fly""]}",Tôi không thể [Hành động],Stage 0,L-003,I can't cook.,Tôi không biết nấu ăn.,5
+chk-008,I don't know,I don't know,{},Con không biết ạ,Stage 0,L-004,I don't know.,Con không biết ạ.,5
+chk-009,Can you help me?,Can you help me?,{},Thầy cô giúp con với ạ?,Stage 0,L-004,Can you help me, please?,Thầy cô giúp con với ạ?,5
+chk-010,Please speak slowly,Please speak slowly,{},Làm ơn nói chậm lại ạ,Stage 0,L-004,Please speak slowly.,Làm ơn nói chậm lại ạ.,5
+chk-011,Please say it again,Please say it again,{},Làm ơn nói lại một lần nữa ạ,Stage 0,L-004,Please say it again.,Làm ơn nói lại một lần nữa ạ.,5
+chk-012,This is my [Noun],This is my {item},"{""item"": [""bag"", ""pen"", ""book"", ""friend""]}",Đây là [Đồ vật] của tôi,Stage 0,L-005,This is my bag.,Đây là chiếc cặp của tôi.,5
+chk-013,I have [Number] [Nouns],I have {number} {items},"{""number"": [""two"", ""three"", ""four""], ""items"": [""pens"", ""books"", ""cats""]}",Tôi có [Số lượng] [Đồ vật],Stage 0,L-006,I have two pens.,Tôi có hai cây bút.,5
+chk-014,How many [Nouns] do you have?,How many {items} do you have?,"{""items"": [""pens"", ""books"", ""pets""]}",Bạn có bao nhiêu [Đồ vật]?,Stage 0,L-006,How many pens do you have?,Bạn có bao nhiêu cây bút?,4
+chk-015,I'm [Feeling] today,I'm {feeling} today,"{""feeling"": [""happy"", ""tired"", ""hungry"", ""cold""]}",Hôm nay tôi thấy [Cảm xúc],Stage 1,L-007,I'm tired today.,Hôm nay tôi thấy mệt.,5
+chk-016,Are you okay?,Are you okay?,{},Bạn có sao không?,Stage 1,L-007,Are you okay? - Yes, I am.,Bạn có sao không? - Mình ổn.,4
+chk-017,My favorite color is [Color],My favorite color is {color},"{""color"": [""blue"", ""black"", ""white"", ""red""]}",Màu yêu thích của tôi là [Màu],Stage 1,L-008,My favorite color is blue.,Màu yêu thích của tôi là xanh dương.,4
+chk-018,I wear [Outfit],I wear {outfit},"{""outfit"": [""a white shirt"", ""black shoes"", ""a blue jacket""]}",Tôi mặc [Trang phục],Stage 1,L-008,I wear a white shirt.,Tôi mặc một chiếc áo sơ mi trắng.,4
+chk-019,This is my friend, [Name],This is my friend, {name},"{""name"": [""Nam"", ""Minh"", ""Mai""]}",Đây là bạn của tôi, [Tên],Stage 1,L-009,This is my friend, Nam.,Đây là bạn của tôi, bạn Nam.,5
+chk-020,He / She is very [Adjective],{pronoun} is very {trait},"{""pronoun"": [""He"", ""She""], ""trait"": [""funny"", ""kind"", ""smart""]}",Cậu ấy / Cô ấy rất [Tính từ],Stage 1,L-009,He is very funny.,Cậu ấy rất vui tính.,5
+chk-021,There is a [Noun],There is a {item},"{""item"": [""bed"", ""desk"", ""chair"", ""clock""]}",Có một [Đồ vật],Stage 1,L-010,There is a bed.,Có một chiếc giường.,5
+chk-022,There are [Number] [Nouns],There are {number} {items},"{""number"": [""two"", ""three""], ""items"": [""chairs"", ""windows"", ""tables""]}",Có [Số lượng] [Đồ vật],Stage 1,L-010,There are two chairs.,Có hai chiếc ghế.,5
+chk-023,I have a [Pet],I have a {pet},"{""pet"": [""dog"", ""cat"", ""bird""]}",Tôi có nuôi một con [Thú cưng],Stage 1,L-011,I have a dog.,Tôi có nuôi một con chó.,5
+chk-024,I don't have a pet,I don't have a pet,{},Tôi không nuôi thú cưng,Stage 1,L-011,I don't have a pet.,Tôi không nuôi thú cưng.,4
+chk-025,What's this? - It's a [Noun],What's this? - It's a {item},"{""item"": [""phone"", ""box"", ""pen""]}",Cái này là gì? - Đó là một...,Stage 1,L-012,What's this? - It's a phone.,Cái này là gì? - Đó là điện thoại.,5
+chk-026,What's that? - It's a [Noun],What's that? - It's a {item},"{""item"": [""clock"", ""board"", ""tree""]}",Cái kia là gì? - Đó là một...,Stage 1,L-012,What's that? - It's a clock.,Cái kia là gì? - Đó là đồng hồ.,5
+chk-027,My family has [Number] people,My family has {number} people,"{""number"": [""three"", ""four"", ""five""]}",Gia đình tôi có [Số] người,Stage 2,L-013,My family has four people.,Gia đình tôi có bốn người.,4
+chk-028,Can I have [Food/Drink], please?,Can I have {item}, please?,"{""item"": [""water"", ""bread"", ""milk""]}",Cho con xin [Món], làm ơn,Stage 2,L-015,Can I have water, please?,Cho con xin nước uống ạ.,5
+chk-029,The [Noun] is [Preposition] the [Location],The {item} is {prep} the {location},"{""item"": [""pen"", ""cat""], ""prep"": [""on"", ""in"", ""under"", ""next to""], ""location"": [""desk"", ""table"", ""box""]}",[Đồ vật] ở [Giới từ] [Vị trí],Stage 2,L-016,The pen is on the desk.,Cây bút ở trên bàn học.,5
+chk-030,What time is it? - It's [Time] o'clock,What time is it? - It's {time} o'clock,"{""time"": [""seven"", ""eight"", ""six""]}",Mấy giờ rồi? - [Mấy] giờ rồi,Stage 2,L-017,What time is it? - It's 7 o'clock.,Mấy giờ rồi? - 7 giờ rồi.,4
+chk-031,Do you like [Noun]? - Yes, I do / No, I don't,Do you like {item}?,"{""item"": [""football"", ""cats"", ""games""]}",Bạn có thích [Món] không?,Stage 4,L-028,Do you like games? - Yes, I do.,Bạn có thích chơi game không? - Có.,5
+chk-032,Let's [Verb]!,Let's {action}!,"{""action"": [""play football"", ""eat pizza"", ""go to the park""]}",Chúng mình cùng [Hành động] đi!,Stage 4,L-029,Let's play football!,Chúng mình cùng chơi bóng đá đi!,5
+chk-033,I like [A], but I don't like [B],I like {itemA}, but I don't like {itemB},"{""itemA"": [""apples"", ""music""], ""itemB"": [""fish"", ""math""]}",Tôi thích [A], nhưng tôi không thích [B],Stage 5,L-031,I like football, but I don't like math.,Tôi thích bóng đá, nhưng không thích toán.,5
+chk-034,I [Action] because [Reason],I {action} because {reason},"{""action"": [""like summer"", ""am tired""], ""reason"": [""it is sunny"", ""I wake up early""]}",Tôi [Hành động] vì [Lý do],Stage 5,L-032,I like music because it is exciting.,Tôi thích âm nhạc vì nó rất sôi động.,5
+chk-035,Really? That's cool!,Really? That's cool!,{},Thật thế á? Tuyệt vời quá!,Stage 5,L-036,Really? That's cool!,Thật thế á? Tuyệt vời quá!,5

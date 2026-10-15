@@ -427,7 +427,12 @@
       "id": "ellipsis-substitution-ex-01",
       "type": "fill_blank",
       "question": "Hoàn thành theo mẫu: I need a pen. Do you ___ one?",
-      "options": [],
+      "options": [
+        "have",
+        "has",
+        "had",
+        "having"
+      ],
       "correct_answer": "have",
       "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
       "distractor_breakdowns": [
@@ -445,6 +450,11 @@
           "option": "had",
           "isCorrect": false,
           "pedagogicalReason": "Không chính xác. Trợ động từ \"Do\" ở thì hiện tại, động từ chính không lùi về quá khứ."
+        },
+        {
+          "option": "having",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"having\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have\"). Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
         }
       ],
       "difficulty": 1
@@ -452,7 +462,7 @@
     {
       "id": "ellipsis-substitution-ex-02",
       "type": "multiple_choice",
-      "question": "Choose the best **substitution**: The committee has not endorsed the plan, and the board is unlikely to ___ before Friday.",
+      "question": "Choose the best substitution: The committee has not endorsed the plan, and the board is unlikely to ___ before Friday.",
       "options": [
         "do so",
         "make so",
@@ -488,7 +498,7 @@
     {
       "id": "ellipsis-substitution-ex-03",
       "type": "multiple_choice",
-      "question": "Choose the correct **ellipsis**: The first proposal was practical; the second, ___.",
+      "question": "The first proposal was practical; the second, ___.",
       "options": [
         "visionary",
         "was visionary",
@@ -506,17 +516,17 @@
         {
           "option": "was visionary",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"was visionary\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"was visionary\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"visionary\"). Sau dấu chấm phẩy, ta có thể lược bỏ “was” khi cấu trúc song song đã rõ. Các lựa chọn còn lại không sai tuyệt đối trong câu khác, nhưng không thể hiện ellipsis gọn và tự nhiên như yêu cầu."
         },
         {
           "option": "it was visionary",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"it was visionary\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"it was visionary\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"visionary\"). Sau dấu chấm phẩy, ta có thể lược bỏ “was” khi cấu trúc song song đã rõ. Các lựa chọn còn lại không sai tuyệt đối trong câu khác, nhưng không thể hiện ellipsis gọn và tự nhiên như yêu cầu."
         },
         {
           "option": "being visionary",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"being visionary\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"being visionary\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"visionary\"). Sau dấu chấm phẩy, ta có thể lược bỏ “was” khi cấu trúc song song đã rõ. Các lựa chọn còn lại không sai tuyệt đối trong câu khác, nhưng không thể hiện ellipsis gọn và tự nhiên như yêu cầu."
         }
       ],
       "difficulty": 2
@@ -524,7 +534,7 @@
     {
       "id": "ellipsis-substitution-ex-04",
       "type": "multiple_choice",
-      "question": "Choose the most natural **one** substitution: These leather gloves are too tight; could I try the woollen ___?",
+      "question": "Choose the most natural one substitution: These leather gloves are too tight; could I try the woollen ___?",
       "options": [
         "ones",
         "one",
@@ -560,7 +570,7 @@
     {
       "id": "ellipsis-substitution-ex-05",
       "type": "multiple_choice",
-      "question": "Choose the correct **so** substitution: The report suggests demand will fall, and market analysts believe ___.",
+      "question": "The report suggests demand will fall, and market analysts believe ___.",
       "options": [
         "so",
         "it",
@@ -596,7 +606,7 @@
     {
       "id": "ellipsis-substitution-ex-06",
       "type": "multiple_choice",
-      "question": "Choose the correct **not** substitution: Will the hearing be postponed? I hope ___.",
+      "question": "Will the hearing be postponed? I hope ___.",
       "options": [
         "not",
         "no",
@@ -632,7 +642,7 @@
     {
       "id": "ellipsis-substitution-ex-07",
       "type": "multiple_choice",
-      "question": "Choose the best **auxiliary**: Maya will submit the abstract if Karim ___.",
+      "question": "Choose the best auxiliary: Maya will submit the abstract if Karim ___.",
       "options": [
         "does",
         "will",
@@ -668,7 +678,7 @@
     {
       "id": "ellipsis-substitution-ex-08",
       "type": "multiple_choice",
-      "question": "Choose the correct **comparative ellipsis**: The negotiations proved more complex than anyone had expected ___.",
+      "question": "The negotiations proved more complex than anyone had expected ___.",
       "options": [
         "them to be",
         "to",
@@ -704,7 +714,7 @@
     {
       "id": "ellipsis-substitution-ex-09",
       "type": "multiple_choice",
-      "question": "Choose the best **reduced clause**: Although ___ by several reviewers, the article was eventually accepted.",
+      "question": "Choose the best reduced clause: Although ___ by several reviewers, the article was eventually accepted.",
       "options": [
         "criticised",
         "it was criticised",
@@ -722,17 +732,17 @@
         {
           "option": "it was criticised",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"it was criticised\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"it was criticised\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"criticised\"). “Although criticised” là mệnh đề trạng ngữ được rút gọn, chủ ngữ ngầm là “the article”. Các lựa chọn khác hoặc không rút gọn, hoặc làm sai quan hệ bị động."
         },
         {
           "option": "criticising",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"criticising\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"criticising\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"criticised\"). “Although criticised” là mệnh đề trạng ngữ được rút gọn, chủ ngữ ngầm là “the article”. Các lựa chọn khác hoặc không rút gọn, hoặc làm sai quan hệ bị động."
         },
         {
           "option": "to criticise",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"to criticise\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"to criticise\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"criticised\"). “Although criticised” là mệnh đề trạng ngữ được rút gọn, chủ ngữ ngầm là “the article”. Các lựa chọn khác hoặc không rút gọn, hoặc làm sai quan hệ bị động."
         }
       ],
       "difficulty": 2
@@ -740,7 +750,7 @@
     {
       "id": "ellipsis-substitution-ex-10",
       "type": "multiple_choice",
-      "question": "Choose the correct **do so** form: The minister denied leaking the memo, but several aides claimed she had ___.",
+      "question": "The minister denied leaking the memo, but several aides claimed she had ___.",
       "options": [
         "done so",
         "did so",
@@ -776,7 +786,7 @@
     {
       "id": "ellipsis-substitution-ex-11",
       "type": "fill_blank",
-      "question": "Complete the **ellipsis**: Some delegates backed reform; others, ___.",
+      "question": "Complete the ellipsis: Some delegates backed reform; others, ___.",
       "options": [
         "resignation",
         "did resignation",
@@ -794,12 +804,12 @@
         {
           "option": "did resignation",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"did resignation\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"did resignation\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"resignation\"). Câu lược bỏ động từ “backed”: “others [backed] resignation”. Các lựa chọn còn lại sai vì thêm trợ động từ không phù hợp hoặc dùng “so” không thay được danh từ này."
         },
         {
           "option": "were resignation",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"were resignation\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"were resignation\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"resignation\"). Câu lược bỏ động từ “backed”: “others [backed] resignation”. Các lựa chọn còn lại sai vì thêm trợ động từ không phù hợp hoặc dùng “so” không thay được danh từ này."
         },
         {
           "option": "so",
@@ -812,7 +822,7 @@
     {
       "id": "ellipsis-substitution-ex-12",
       "type": "fill_blank",
-      "question": "Complete the **substitution**: I have not read the full judgment, but my supervisor has ___ .",
+      "question": "Complete the substitution: I have not read the full judgment, but my supervisor has ___ .",
       "options": [
         "done so",
         "read so",
@@ -848,7 +858,7 @@
     {
       "id": "ellipsis-substitution-ex-13",
       "type": "fill_blank",
-      "question": "Complete with **one**: The old printer is unreliable, so we should buy a new ___ before term starts.",
+      "question": "Complete with one: The old printer is unreliable, so we should buy a new ___ before term starts.",
       "options": [
         "one",
         "ones",
@@ -884,7 +894,7 @@
     {
       "id": "ellipsis-substitution-ex-14",
       "type": "fill_blank",
-      "question": "Complete with **so/not**: Is the archive open on Sundays? I believe ___, but check the website.",
+      "question": "Complete with so/not: Is the archive open on Sundays? I believe ___, but check the website.",
       "options": [
         "so",
         "not",
@@ -920,7 +930,7 @@
     {
       "id": "ellipsis-substitution-ex-15",
       "type": "fill_blank",
-      "question": "Complete the **auxiliary ellipsis**: The researchers predicted a decline, and the data eventually ___ too.",
+      "question": "Complete the auxiliary ellipsis: The researchers predicted a decline, and the data eventually ___ too.",
       "options": [
         "did",
         "were",
@@ -956,7 +966,7 @@
     {
       "id": "ellipsis-substitution-ex-16",
       "type": "fill_blank",
-      "question": "Complete the **bare infinitive** ellipsis: You can attend the briefing if you want ___ .",
+      "question": "Complete the bare infinitive ellipsis: You can attend the briefing if you want ___ .",
       "options": [
         "to",
         "so",
@@ -992,7 +1002,7 @@
     {
       "id": "ellipsis-substitution-ex-17",
       "type": "fill_blank",
-      "question": "Complete the **than-clause** ellipsis: The solution was less elegant than we had hoped ___ .",
+      "question": "Complete the than-clause ellipsis: The solution was less elegant than we had hoped ___ .",
       "options": [
         "for",
         "so",
@@ -1010,17 +1020,17 @@
         {
           "option": "so",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"so\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"so\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"for\"). “Hoped for” giữ đúng giới từ của động từ “hope for”, phần “an elegant solution” được hiểu ngầm. Các lựa chọn khác không tạo cụm đúng nghĩa sau “hoped”."
         },
         {
           "option": "it",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"it\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"it\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"for\"). “Hoped for” giữ đúng giới từ của động từ “hope for”, phần “an elegant solution” được hiểu ngầm. Các lựa chọn khác không tạo cụm đúng nghĩa sau “hoped”."
         },
         {
           "option": "one",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"one\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"one\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"for\"). “Hoped for” giữ đúng giới từ của động từ “hope for”, phần “an elegant solution” được hiểu ngầm. Các lựa chọn khác không tạo cụm đúng nghĩa sau “hoped”."
         }
       ],
       "difficulty": 3
@@ -1028,7 +1038,7 @@
     {
       "id": "ellipsis-substitution-ex-18",
       "type": "fill_blank",
-      "question": "Complete the **substitute** form: If the director refuses to apologise, the chair may have to ___ instead.",
+      "question": "Complete the substitute form: If the director refuses to apologise, the chair may have to ___ instead.",
       "options": [
         "do so",
         "do",
@@ -1064,7 +1074,7 @@
     {
       "id": "ellipsis-substitution-ex-19",
       "type": "error_correction",
-      "question": "Find the error: The first version was persuasive, but the revised **one** was even more so.",
+      "question": "Find the error: The first version was persuasive, but the revised one was even more so.",
       "options": [
         "first version",
         "persuasive",
@@ -1100,7 +1110,7 @@
     {
       "id": "ellipsis-substitution-ex-20",
       "type": "error_correction",
-      "question": "Find the error: If Clara will endorse the proposal, the trustees probably **will do so** as well.",
+      "question": "Find the error: If Clara will endorse the proposal, the trustees probably will do so as well.",
       "options": [
         "If Clara will endorse",
         "the proposal",
@@ -1136,7 +1146,7 @@
     {
       "id": "ellipsis-substitution-ex-21",
       "type": "error_correction",
-      "question": "Find the error: The blue files are archived, but the red **one** are still on my desk.",
+      "question": "Find the error: The blue files are archived, but the red one are still on my desk.",
       "options": [
         "blue files",
         "archived",
@@ -1172,7 +1182,7 @@
     {
       "id": "ellipsis-substitution-ex-22",
       "type": "error_correction",
-      "question": "Find the error: She expected the merger to fail, and most investors feared **it** too.",
+      "question": "Find the error: She expected the merger to fail, and most investors feared it too.",
       "options": [
         "expected",
         "merger to fail",
@@ -1208,7 +1218,7 @@
     {
       "id": "ellipsis-substitution-ex-23",
       "type": "error_correction",
-      "question": "Find the error: The witness refused to answer, although repeatedly **asking** to do so.",
+      "question": "Find the error: The witness refused to answer, although repeatedly asking to do so.",
       "options": [
         "witness",
         "refused",
@@ -1244,7 +1254,7 @@
     {
       "id": "ellipsis-substitution-ex-24",
       "type": "error_correction",
-      "question": "Find the error: I have not submitted the appendix, but Daniel has **done** yesterday.",
+      "question": "Find the error: I have not submitted the appendix, but Daniel has done yesterday.",
       "options": [
         "have not submitted",
         "appendix",
@@ -1280,7 +1290,7 @@
     {
       "id": "ellipsis-substitution-ex-25",
       "type": "error_correction",
-      "question": "Find the error: A few candidates chose statistics; the rest **did** philosophy.",
+      "question": "Find the error: A few candidates chose statistics; the rest did philosophy.",
       "options": [
         "few candidates",
         "chose statistics",
@@ -1316,7 +1326,7 @@
     {
       "id": "ellipsis-substitution-ex-26",
       "type": "error_correction",
-      "question": "Find the error: The committee believed the figures were reliable, but the auditors did **not so**.",
+      "question": "Find the error: The committee believed the figures were reliable, but the auditors did not so.",
       "options": [
         "committee believed",
         "figures were reliable",
@@ -1352,7 +1362,7 @@
     {
       "id": "ellipsis-substitution-ex-27",
       "type": "error_correction",
-      "question": "Find the error: The laptop I bought is faster than the **one** you did last year.",
+      "question": "Find the error: The laptop I bought is faster than the one you did last year.",
       "options": [
         "laptop",
         "faster than",
@@ -1388,7 +1398,7 @@
     {
       "id": "ellipsis-substitution-ex-28",
       "type": "multiple_choice",
-      "question": "Choose the best **ellipsis**: Elena may brief the donors before noon, and Omar certainly ___.",
+      "question": "Choose the best ellipsis: Elena may brief the donors before noon, and Omar certainly ___.",
       "options": [
         "may",
         "may brief",
@@ -1424,7 +1434,7 @@
     {
       "id": "ellipsis-substitution-ex-29",
       "type": "multiple_choice",
-      "question": "Choose the correct **substitute**: I need a sharper scalpel; this ___ is too blunt for the procedure.",
+      "question": "I need a sharper scalpel; this ___ is too blunt for the procedure.",
       "options": [
         "one",
         "it",
@@ -1460,7 +1470,7 @@
     {
       "id": "ellipsis-substitution-ex-30",
       "type": "multiple_choice",
-      "question": "Choose the most natural **so** substitution: The curator insists the painting is authentic, and the insurance experts seem to think ___.",
+      "question": "Choose the most natural so substitution: The curator insists the painting is authentic, and the insurance experts seem to think ___.",
       "options": [
         "so",
         "it",
@@ -1496,7 +1506,7 @@
     {
       "id": "ellipsis-substitution-ex-31",
       "type": "multiple_choice",
-      "question": "Choose the best **do so** form: The company promised to disclose the defect, but it failed to ___ until regulators intervened.",
+      "question": "Choose the best do so form: The company promised to disclose the defect, but it failed to ___ until regulators intervened.",
       "options": [
         "do so",
         "do it",
@@ -1532,7 +1542,7 @@
     {
       "id": "ellipsis-substitution-ex-32",
       "type": "multiple_choice",
-      "question": "Choose the correct **gapping**: The chief economist favoured austerity; her deputy, ___.",
+      "question": "The chief economist favoured austerity; her deputy, ___.",
       "options": [
         "stimulus",
         "did stimulus",
@@ -1550,17 +1560,17 @@
         {
           "option": "did stimulus",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"did stimulus\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"did stimulus\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"stimulus\"). Trong gapping, động từ “favoured” được lược bỏ ở vế sau: “her deputy [favoured] stimulus”. Các lựa chọn còn lại hoặc lặp không cần thiết, hoặc sai ngữ pháp."
         },
         {
           "option": "favoured stimulus",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"favoured stimulus\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"favoured stimulus\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"stimulus\"). Trong gapping, động từ “favoured” được lược bỏ ở vế sau: “her deputy [favoured] stimulus”. Các lựa chọn còn lại hoặc lặp không cần thiết, hoặc sai ngữ pháp."
         },
         {
           "option": "was stimulus",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"was stimulus\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"was stimulus\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"stimulus\"). Trong gapping, động từ “favoured” được lược bỏ ở vế sau: “her deputy [favoured] stimulus”. Các lựa chọn còn lại hoặc lặp không cần thiết, hoặc sai ngữ pháp."
         }
       ],
       "difficulty": 3
@@ -1568,7 +1578,7 @@
     {
       "id": "ellipsis-substitution-ex-33",
       "type": "multiple_choice",
-      "question": "Choose the correct **comparative** ellipsis: The review was harsher than the editor had intended ___.",
+      "question": "The review was harsher than the editor had intended ___.",
       "options": [
         "it to be",
         "to",
@@ -1604,7 +1614,7 @@
     {
       "id": "ellipsis-substitution-ex-34",
       "type": "multiple_choice",
-      "question": "Choose the best **not** substitution: Are the archives likely to release the letters this year? The historian suspects ___.",
+      "question": "Choose the best not substitution: Are the archives likely to release the letters this year? The historian suspects ___.",
       "options": [
         "not",
         "no",
@@ -1640,7 +1650,7 @@
     {
       "id": "ellipsis-substitution-ex-35",
       "type": "multiple_choice",
-      "question": "Choose the correct **ones** substitution: These case studies are outdated; the newer ___ include much richer data.",
+      "question": "These case studies are outdated; the newer ___ include much richer data.",
       "options": [
         "ones",
         "one",
@@ -1676,7 +1686,7 @@
     {
       "id": "ellipsis-substitution-ex-36",
       "type": "multiple_choice",
-      "question": "Choose the best **reduced clause**: Once ___ in peer-reviewed journals, the findings attracted global attention.",
+      "question": "Choose the best reduced clause: Once ___ in peer-reviewed journals, the findings attracted global attention.",
       "options": [
         "published",
         "publishing",
@@ -1712,7 +1722,7 @@
     {
       "id": "ellipsis-substitution-ex-37",
       "type": "fill_blank",
-      "question": "Complete the **auxiliary** ellipsis: I have never questioned her integrity, though several colleagues ___ during the inquiry.",
+      "question": "Complete the auxiliary ellipsis: I have never questioned her integrity, though several colleagues ___ during the inquiry.",
       "options": [
         "have",
         "did",
@@ -1748,7 +1758,7 @@
     {
       "id": "ellipsis-substitution-ex-38",
       "type": "fill_blank",
-      "question": "Complete with **one**: The synthetic fabric tore easily, whereas the natural ___ proved surprisingly durable.",
+      "question": "Complete with one: The synthetic fabric tore easily, whereas the natural ___ proved surprisingly durable.",
       "options": [
         "one",
         "it",
@@ -1784,7 +1794,7 @@
     {
       "id": "ellipsis-substitution-ex-39",
       "type": "fill_blank",
-      "question": "Complete the **so** substitution: The witness claimed the door had been locked, and the security footage appears to confirm ___.",
+      "question": "Complete the so substitution: The witness claimed the door had been locked, and the security footage appears to confirm ___.",
       "options": [
         "so",
         "it",
@@ -1820,7 +1830,7 @@
     {
       "id": "ellipsis-substitution-ex-40",
       "type": "fill_blank",
-      "question": "Complete the **to** ellipsis: I did not attend the seminar, although I had intended ___.",
+      "question": "Complete the to ellipsis: I did not attend the seminar, although I had intended ___.",
       "options": [
         "to",
         "so",
@@ -1856,7 +1866,7 @@
     {
       "id": "ellipsis-substitution-ex-41",
       "type": "fill_blank",
-      "question": "Complete the **gapping**: The legal team requested mediation; the plaintiffs, ___ .",
+      "question": "Complete the gapping: The legal team requested mediation; the plaintiffs, ___ .",
       "options": [
         "arbitration",
         "did arbitration",
@@ -1874,17 +1884,17 @@
         {
           "option": "did arbitration",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"did arbitration\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"did arbitration\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"arbitration\"). Vế sau lược bỏ động từ “requested”: “the plaintiffs [requested] arbitration”. Các lựa chọn còn lại hoặc sai cấu trúc, hoặc phá vỡ phép gapping."
         },
         {
           "option": "requested to arbitrate",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"requested to arbitrate\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"requested to arbitrate\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"arbitration\"). Vế sau lược bỏ động từ “requested”: “the plaintiffs [requested] arbitration”. Các lựa chọn còn lại hoặc sai cấu trúc, hoặc phá vỡ phép gapping."
         },
         {
           "option": "were arbitration",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"were arbitration\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"were arbitration\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"arbitration\"). Vế sau lược bỏ động từ “requested”: “the plaintiffs [requested] arbitration”. Các lựa chọn còn lại hoặc sai cấu trúc, hoặc phá vỡ phép gapping."
         }
       ],
       "difficulty": 3
@@ -1892,7 +1902,7 @@
     {
       "id": "ellipsis-substitution-ex-42",
       "type": "fill_blank",
-      "question": "Complete the **do so** substitution: If the agency revises the guidelines, it must ___ transparently.",
+      "question": "Complete the do so substitution: If the agency revises the guidelines, it must ___ transparently.",
       "options": [
         "do so",
         "do it",
@@ -1928,7 +1938,7 @@
     {
       "id": "ellipsis-substitution-ex-43",
       "type": "fill_blank",
-      "question": "Complete the **than** ellipsis: The apology sounded less sincere than we had expected ___ .",
+      "question": "Complete the than ellipsis: The apology sounded less sincere than we had expected ___ .",
       "options": [
         "it to",
         "so",
@@ -1964,7 +1974,7 @@
     {
       "id": "ellipsis-substitution-ex-44",
       "type": "fill_blank",
-      "question": "Complete with **not**: Will the grant cover fieldwork expenses? I assume ___, given the new restrictions.",
+      "question": "Complete with not: Will the grant cover fieldwork expenses? I assume ___, given the new restrictions.",
       "options": [
         "not",
         "no",
@@ -2000,7 +2010,7 @@
     {
       "id": "ellipsis-substitution-ex-45",
       "type": "fill_blank",
-      "question": "Complete the **nominal** substitution: The Oxford edition is annotated, but the Cambridge ___ is more affordable.",
+      "question": "Complete the nominal substitution: The Oxford edition is annotated, but the Cambridge ___ is more affordable.",
       "options": [
         "one",
         "it",
@@ -2036,7 +2046,7 @@
     {
       "id": "ellipsis-substitution-ex-46",
       "type": "error_correction",
-      "question": "Find the error: The policy was controversial, and the minister admitted that it was **so** during the debate.",
+      "question": "Find the error: The policy was controversial, and the minister admitted that it was so during the debate.",
       "options": [
         "policy",
         "controversial",
@@ -2072,7 +2082,7 @@
     {
       "id": "ellipsis-substitution-ex-47",
       "type": "error_correction",
-      "question": "Find the error: The Spanish samples were labelled, but the Italian **one** remained unidentified.",
+      "question": "Find the error: The Spanish samples were labelled, but the Italian one remained unidentified.",
       "options": [
         "Spanish samples",
         "labelled",
@@ -2108,7 +2118,7 @@
     {
       "id": "ellipsis-substitution-ex-48",
       "type": "error_correction",
-      "question": "Find the error: Nora said she would review the contract, and she actually **did so** it before lunch.",
+      "question": "Find the error: Nora said she would review the contract, and she actually did so it before lunch.",
       "options": [
         "would review",
         "contract",
@@ -2144,7 +2154,7 @@
     {
       "id": "ellipsis-substitution-ex-49",
       "type": "error_correction",
-      "question": "Find the error: The mayor refused to resign, though repeatedly **urged** doing so by party leaders.",
+      "question": "Find the error: The mayor refused to resign, though repeatedly urged doing so by party leaders.",
       "options": [
         "refused",
         "resign",
@@ -2180,7 +2190,7 @@
     {
       "id": "ellipsis-substitution-ex-50",
       "type": "error_correction",
-      "question": "Find the error: If the first hypothesis proves false, the second may **do so** as well.",
+      "question": "Find the error: If the first hypothesis proves false, the second may do so as well.",
       "options": [
         "first hypothesis",
         "proves",
@@ -2216,7 +2226,7 @@
     {
       "id": "ellipsis-substitution-ex-51",
       "type": "error_correction",
-      "question": "Find the error: The museum acquired two early sketches and sold three later **one** to a private collector.",
+      "question": "Find the error: The museum acquired two early sketches and sold three later one to a private collector.",
       "options": [
         "acquired",
         "sketches",
@@ -2252,7 +2262,7 @@
     {
       "id": "ellipsis-substitution-ex-52",
       "type": "error_correction",
-      "question": "Find the error: The researchers expected the enzyme to stabilise, but it never **did** under extreme heat.",
+      "question": "Find the error: The researchers expected the enzyme to stabilise, but it never did under extreme heat.",
       "options": [
         "expected",
         "enzyme",
@@ -2288,7 +2298,7 @@
     {
       "id": "ellipsis-substitution-ex-53",
       "type": "multiple_choice",
-      "question": "Choose the correct **one** substitution: The revised constitution is clearer than the original ___.",
+      "question": "The revised constitution is clearer than the original ___.",
       "options": [
         "one",
         "ones",
@@ -2324,7 +2334,7 @@
     {
       "id": "ellipsis-substitution-ex-54",
       "type": "multiple_choice",
-      "question": "Choose the best **do so** substitution: The panel may reopen the investigation, but it will ___ only if new evidence emerges.",
+      "question": "Choose the best do so substitution: The panel may reopen the investigation, but it will ___ only if new evidence emerges.",
       "options": [
         "do so",
         "do it",
@@ -2360,7 +2370,7 @@
     {
       "id": "ellipsis-substitution-ex-55",
       "type": "multiple_choice",
-      "question": "Choose the correct **so** substitution: The minister denied that the report had been altered, but several aides privately admitted ___.",
+      "question": "The minister denied that the report had been altered, but several aides privately admitted ___.",
       "options": [
         "so",
         "it",
@@ -2396,7 +2406,7 @@
     {
       "id": "ellipsis-substitution-ex-56",
       "type": "multiple_choice",
-      "question": "Choose the correct **ellipsis**: No one expected the negotiations to collapse, but they eventually ___.",
+      "question": "No one expected the negotiations to collapse, but they eventually ___.",
       "options": [
         "did",
         "did so",
@@ -2432,7 +2442,7 @@
     {
       "id": "ellipsis-substitution-ex-57",
       "type": "multiple_choice",
-      "question": "Choose the correct **not** substitution: Will the amendment survive judicial review? Most scholars believe ___.",
+      "question": "Will the amendment survive judicial review? Most scholars believe ___.",
       "options": [
         "not",
         "no",
@@ -2468,7 +2478,7 @@
     {
       "id": "ellipsis-substitution-ex-58",
       "type": "multiple_choice",
-      "question": "Choose the correct **gapping**: The finance team reviewed the domestic accounts; the external auditors, ___.",
+      "question": "The finance team reviewed the domestic accounts; the external auditors, ___.",
       "options": [
         "the overseas ones",
         "did the overseas ones",
@@ -2486,17 +2496,17 @@
         {
           "option": "did the overseas ones",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"did the overseas ones\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"did the overseas ones\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"the overseas ones\"). Đây là gapping: động từ “reviewed” được lược bỏ ở vế sau. Các lựa chọn có “did/reviewed/so” phá cấu trúc gapping hoặc làm câu dư thừa."
         },
         {
           "option": "reviewed the overseas ones",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"reviewed the overseas ones\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"reviewed the overseas ones\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"the overseas ones\"). Đây là gapping: động từ “reviewed” được lược bỏ ở vế sau. Các lựa chọn có “did/reviewed/so” phá cấu trúc gapping hoặc làm câu dư thừa."
         },
         {
           "option": "so the overseas ones",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"so the overseas ones\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"so the overseas ones\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"the overseas ones\"). Đây là gapping: động từ “reviewed” được lược bỏ ở vế sau. Các lựa chọn có “did/reviewed/so” phá cấu trúc gapping hoặc làm câu dư thừa."
         }
       ],
       "difficulty": 3
@@ -2504,7 +2514,7 @@
     {
       "id": "ellipsis-substitution-ex-59",
       "type": "multiple_choice",
-      "question": "Choose the best **to** ellipsis: The board did not publish the minutes, though it had promised ___.",
+      "question": "Choose the best to ellipsis: The board did not publish the minutes, though it had promised ___.",
       "options": [
         "to",
         "to do",
@@ -2540,7 +2550,7 @@
     {
       "id": "ellipsis-substitution-ex-60",
       "type": "multiple_choice",
-      "question": "Choose the correct **ones** substitution: The older manuscripts were digitised first; the fragile ___ were handled later.",
+      "question": "The older manuscripts were digitised first; the fragile ___ were handled later.",
       "options": [
         "ones",
         "one",
@@ -2576,7 +2586,7 @@
     {
       "id": "ellipsis-substitution-ex-61",
       "type": "multiple_choice",
-      "question": "Choose the correct **comparative** ellipsis: The statute proved more ambiguous than the drafters had meant ___.",
+      "question": "The statute proved more ambiguous than the drafters had meant ___.",
       "options": [
         "it to",
         "so",
@@ -2612,7 +2622,7 @@
     {
       "id": "ellipsis-substitution-ex-62",
       "type": "fill_blank",
-      "question": "Complete the **auxiliary** ellipsis: The first witness could not recall the conversation, but the second ___ clearly.",
+      "question": "Complete the auxiliary ellipsis: The first witness could not recall the conversation, but the second ___ clearly.",
       "options": [
         "could",
         "could do",
@@ -2648,7 +2658,7 @@
     {
       "id": "ellipsis-substitution-ex-63",
       "type": "fill_blank",
-      "question": "Complete with **so**: The reviewers suspected that the data had been selectively reported, and the footnotes strongly suggest ___.",
+      "question": "Complete with so: The reviewers suspected that the data had been selectively reported, and the footnotes strongly suggest ___.",
       "options": [
         "so",
         "it",
@@ -2684,7 +2694,7 @@
     {
       "id": "ellipsis-substitution-ex-64",
       "type": "fill_blank",
-      "question": "Complete the **nominal** substitution: This edition includes the correspondence, whereas the earlier ___ omits it entirely.",
+      "question": "Complete the nominal substitution: This edition includes the correspondence, whereas the earlier ___ omits it entirely.",
       "options": [
         "one",
         "ones",
@@ -2720,7 +2730,7 @@
     {
       "id": "ellipsis-substitution-ex-65",
       "type": "fill_blank",
-      "question": "Complete the **do so** substitution: If either party terminates the agreement, it must ___ in writing.",
+      "question": "Complete the do so substitution: If either party terminates the agreement, it must ___ in writing.",
       "options": [
         "do so",
         "do it",
@@ -2756,7 +2766,7 @@
     {
       "id": "ellipsis-substitution-ex-66",
       "type": "fill_blank",
-      "question": "Complete the **ellipsis**: Several directors supported the acquisition, and the chair apparently ___ as well.",
+      "question": "Complete the ellipsis: Several directors supported the acquisition, and the chair apparently ___ as well.",
       "options": [
         "did",
         "was",
@@ -2792,7 +2802,7 @@
     {
       "id": "ellipsis-substitution-ex-67",
       "type": "fill_blank",
-      "question": "Complete the **gapping**: The northern branch reported a surplus; the southern branch, ___ .",
+      "question": "Complete the gapping: The northern branch reported a surplus; the southern branch, ___ .",
       "options": [
         "a deficit",
         "did a deficit",
@@ -2810,17 +2820,17 @@
         {
           "option": "did a deficit",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"did a deficit\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"did a deficit\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"a deficit\"). Câu dùng gapping: động từ “reported” được lược bỏ, chỉ giữ phần tương phản “a deficit”. Các lựa chọn còn lại hoặc sai cấu trúc, hoặc không tạo được ellipsis tự nhiên."
         },
         {
           "option": "reported it",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"reported it\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"reported it\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"a deficit\"). Câu dùng gapping: động từ “reported” được lược bỏ, chỉ giữ phần tương phản “a deficit”. Các lựa chọn còn lại hoặc sai cấu trúc, hoặc không tạo được ellipsis tự nhiên."
         },
         {
           "option": "so",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"so\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"so\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"a deficit\"). Câu dùng gapping: động từ “reported” được lược bỏ, chỉ giữ phần tương phản “a deficit”. Các lựa chọn còn lại hoặc sai cấu trúc, hoặc không tạo được ellipsis tự nhiên."
         }
       ],
       "difficulty": 3
@@ -2828,7 +2838,7 @@
     {
       "id": "ellipsis-substitution-ex-68",
       "type": "fill_blank",
-      "question": "Complete with **not**: Is the clause enforceable under current law? The solicitor thinks ___ .",
+      "question": "Complete with not: Is the clause enforceable under current law? The solicitor thinks ___ .",
       "options": [
         "not",
         "no",
@@ -2864,7 +2874,7 @@
     {
       "id": "ellipsis-substitution-ex-69",
       "type": "fill_blank",
-      "question": "Complete the **reduced clause**: When ___ by independent labs, the vaccine batches showed no contamination.",
+      "question": "Complete the reduced clause: When ___ by independent labs, the vaccine batches showed no contamination.",
       "options": [
         "tested",
         "testing",
@@ -2900,7 +2910,7 @@
     {
       "id": "ellipsis-substitution-ex-70",
       "type": "error_correction",
-      "question": "Find the error: The first proposal was rejected, and the revised **one** was so too.",
+      "question": "Find the error: The first proposal was rejected, and the revised one was so too.",
       "options": [
         "first proposal",
         "rejected",
@@ -2936,7 +2946,7 @@
     {
       "id": "ellipsis-substitution-ex-71",
       "type": "error_correction",
-      "question": "Find the error: The committee expected the consultant to revise the draft, and she did **so** it overnight.",
+      "question": "Find the error: The committee expected the consultant to revise the draft, and she did so it overnight.",
       "options": [
         "expected",
         "to revise",
@@ -2972,7 +2982,7 @@
     {
       "id": "ellipsis-substitution-ex-72",
       "type": "error_correction",
-      "question": "Find the error: Several objections were dismissed, but the most serious **ones** was considered in detail.",
+      "question": "Find the error: Several objections were dismissed, but the most serious ones was considered in detail.",
       "options": [
         "Several objections",
         "dismissed",
@@ -3008,7 +3018,7 @@
     {
       "id": "ellipsis-substitution-ex-73",
       "type": "error_correction",
-      "question": "Find the error: The defendant claimed the contract was void, and the judge appeared to accept **it**.",
+      "question": "Find the error: The defendant claimed the contract was void, and the judge appeared to accept it.",
       "options": [
         "defendant",
         "contract was void",
@@ -3044,7 +3054,7 @@
     {
       "id": "ellipsis-substitution-ex-74",
       "type": "error_correction",
-      "question": "Find the error: The director will brief the investors if the legal team advises **doing so**.",
+      "question": "Find the error: The director will brief the investors if the legal team advises doing so.",
       "options": [
         "will brief",
         "investors",
@@ -3080,7 +3090,7 @@
     {
       "id": "ellipsis-substitution-ex-75",
       "type": "error_correction",
-      "question": "Find the error: The newer cameras capture finer detail than the older **one** can.",
+      "question": "Find the error: The newer cameras capture finer detail than the older one can.",
       "options": [
         "newer cameras",
         "capture",
@@ -3116,7 +3126,7 @@
     {
       "id": "ellipsis-substitution-ex-76",
       "type": "error_correction",
-      "question": "Find the error: I would have attended the hearing if I had been allowed **to do**.",
+      "question": "Find the error: I would have attended the hearing if I had been allowed to do.",
       "options": [
         "would have attended",
         "hearing",
@@ -3152,7 +3162,7 @@
     {
       "id": "ellipsis-substitution-ex-77",
       "type": "error_correction",
-      "question": "Find the error: The report says the river is polluted, and the satellite images confirm **it**.",
+      "question": "Find the error: The report says the river is polluted, and the satellite images confirm it.",
       "options": [
         "report says",
         "river is polluted",
@@ -3188,7 +3198,7 @@
     {
       "id": "ellipsis-substitution-ex-78",
       "type": "multiple_choice",
-      "question": "Choose the correct **auxiliary** ellipsis: The encryption tool processes large archives faster than the older platform ___.",
+      "question": "The encryption tool processes large archives faster than the older platform ___.",
       "options": [
         "does",
         "is",
@@ -3224,7 +3234,7 @@
     {
       "id": "ellipsis-substitution-ex-79",
       "type": "multiple_choice",
-      "question": "Choose the correct **so** substitution: The editor suspected the quotation had been fabricated, and the source notes appear to confirm ___.",
+      "question": "The editor suspected the quotation had been fabricated, and the source notes appear to confirm ___.",
       "options": [
         "so",
         "one",
@@ -3260,7 +3270,7 @@
     {
       "id": "ellipsis-substitution-ex-80",
       "type": "multiple_choice",
-      "question": "Choose the correct **nominal** substitution: We need a precedent from a higher court, preferably ___ from the Supreme Court.",
+      "question": "We need a precedent from a higher court, preferably ___ from the Supreme Court.",
       "options": [
         "one",
         "so",
@@ -3296,7 +3306,7 @@
     {
       "id": "ellipsis-substitution-ex-81",
       "type": "multiple_choice",
-      "question": "Choose the best **to** ellipsis: The agency did not release the raw files, although it was legally required ___.",
+      "question": "Choose the best to ellipsis: The agency did not release the raw files, although it was legally required ___.",
       "options": [
         "to",
         "to do so it",
@@ -3332,7 +3342,7 @@
     {
       "id": "ellipsis-substitution-ex-82",
       "type": "fill_blank",
-      "question": "Complete the **do so** substitution: Any applicant wishing to challenge the result must ___ within ten working days.",
+      "question": "Complete the do so substitution: Any applicant wishing to challenge the result must ___ within ten working days.",
       "options": [
         "do so",
         "do it",
@@ -3368,7 +3378,7 @@
     {
       "id": "ellipsis-substitution-ex-83",
       "type": "fill_blank",
-      "question": "Complete with **not**: Will the merger be approved before September? Analysts increasingly think ___.",
+      "question": "Complete with not: Will the merger be approved before September? Analysts increasingly think ___.",
       "options": [
         "not",
         "so",
@@ -3404,7 +3414,7 @@
     {
       "id": "ellipsis-substitution-ex-84",
       "type": "fill_blank",
-      "question": "Complete the **gapping**: The ethics board examined the complaint; the legal office, ___ .",
+      "question": "Complete the gapping: The ethics board examined the complaint; the legal office, ___ .",
       "options": [
         "the settlement",
         "examined",
@@ -3440,7 +3450,7 @@
     {
       "id": "ellipsis-substitution-ex-85",
       "type": "fill_blank",
-      "question": "Complete the **ones** substitution: The inexpensive sensors failed first; the military-grade ___ lasted much longer.",
+      "question": "Complete the ones substitution: The inexpensive sensors failed first; the military-grade ___ lasted much longer.",
       "options": [
         "ones",
         "one",
@@ -3458,7 +3468,7 @@
         {
           "option": "one",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"one\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"one\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"ones\"). “Ones” thay cho danh từ đếm được số nhiều “sensors”. “One” là số ít; “so” thay mệnh đề; “did” thay cụm động từ chứ không thay danh từ."
         },
         {
           "option": "so",
@@ -3476,7 +3486,7 @@
     {
       "id": "ellipsis-substitution-ex-86",
       "type": "error_correction",
-      "question": "Find the error: The first algorithm detected most anomalies, and the second **one** did **so** them even faster.",
+      "question": "Find the error: The first algorithm detected most anomalies, and the second one did so them even faster.",
       "options": [
         "one",
         "did",
@@ -3512,7 +3522,7 @@
     {
       "id": "ellipsis-substitution-ex-87",
       "type": "error_correction",
-      "question": "Find the error: The witnesses denied seeing the documents, but the auditor believed they **had** **done so**.",
+      "question": "Find the error: The witnesses denied seeing the documents, but the auditor believed they had done so.",
       "options": [
         "witnesses",
         "denied",
@@ -3548,7 +3558,7 @@
     {
       "id": "ellipsis-substitution-ex-88",
       "type": "error_correction",
-      "question": "Find the error: Several clauses were ambiguous, but the arbitration **one** was especially difficult to interpret.",
+      "question": "Find the error: Several clauses were ambiguous, but the arbitration one was especially difficult to interpret.",
       "options": [
         "Several clauses",
         "were",
@@ -3584,7 +3594,7 @@
     {
       "id": "ellipsis-substitution-ex-89",
       "type": "error_correction",
-      "question": "Find the error: The report predicts a downturn, and so **does** the central bank's latest forecast **predict**.",
+      "question": "Find the error: The report predicts a downturn, and so does the central bank's latest forecast predict.",
       "options": [
         "predicts",
         "does",

@@ -18,7 +18,7 @@ import { cn } from '@/lib/utils';
 import { SentenceTranslator } from '@/components/dictionary/SentenceTranslator';
 import { SentenceStructureView } from '@/components/dictionary/SentenceStructureView';
 import type { SentenceAnalysisData } from '@/types/sentence-analysis';
-import { isWordSavedLocally, saveWordLocally } from '@/lib/exam-dict-cache';
+import { isWordSavedLocally, saveWordLocally, getSavedMeaningsLocally, saveMeaningLocally } from '@/lib/exam-dict-cache';
 import { notifyWordSavedOptimistic, notifyWordSaveRollback } from '@/lib/word-summary-cache';
 import { getCachedDictionaryEntry, setCachedDictionaryEntry } from '@/lib/dict-cache';
 import { ExampleWithSub } from '@/components/study/ExampleWithSub';
@@ -303,8 +303,10 @@ export default function DictionaryPage() {
   // Track saved state per meaning index
   const [savedIndexes, setSavedIndexes] = useState<Set<number>>(new Set());
   const [savingIndexes, setSavingIndexes] = useState<Set<number>>(new Set());
-  // Trạng thái toàn bộ từ đã có trong sổ (không phân biệt meaning index)
+  // Trạng thái từ đã có trong sổ (có ít nhất 1 nghĩa đã lưu)
   const [wordAlreadySaved, setWordAlreadySaved] = useState(false);
+  // Danh sách các nghĩa/bản dịch cụ thể đã lưu của từ này
+  const [savedTranslations, setSavedTranslations] = useState<string[]>([]);
 
   // Autocomplete state
   const [suggestions, setSuggestions] = useState<string[]>([]);
@@ -337,18 +339,24 @@ export default function DictionaryPage() {
   useEffect(() => {
     setSavedIndexes(new Set());
     setSavingIndexes(new Set());
+    setSavedTranslations([]);
+    setWordAlreadySaved(false);
   }, [result]);
 
   /** Kiểm tra từ đã có trong sổ user chưa (gọi sau khi có kết quả tra) */
   const checkWordSaved = useCallback(async (word: string) => {
     setWordAlreadySaved(false);
+    setSavedTranslations([]);
     if (!word) return;
     const cleanWord = word.trim().toLowerCase();
 
     // 0ms Local Cache Check (không tốn roundtrip Supabase)
-    if (isWordSavedLocally(cleanWord)) {
+    const localMeanings = getSavedMeaningsLocally(cleanWord);
+    if (localMeanings.length > 0) {
+      setSavedTranslations(localMeanings);
       setWordAlreadySaved(true);
-      return;
+    } else if (isWordSavedLocally(cleanWord)) {
+      setWordAlreadySaved(true);
     }
 
     try {
@@ -365,21 +373,48 @@ export default function DictionaryPage() {
 
       if (!cls?.id) return;
 
-      const { data: existing } = await supabase
+      const { data: existingWords } = await supabase
         .from('words')
-        .select('id')
+        .select('id, translation, pos')
         .eq('classroom_id', cls.id)
-        .ilike('word', word.trim())
-        .maybeSingle();
+        .ilike('word', word.trim());
 
-      if (existing?.id) {
+      if (existingWords && existingWords.length > 0) {
         setWordAlreadySaved(true);
         saveWordLocally(cleanWord);
+        const dbTranslations = existingWords
+          .map((w) => (w.translation || '').trim())
+          .filter(Boolean);
+
+        setSavedTranslations((prev) => Array.from(new Set([...prev, ...dbTranslations])));
+
+        for (const t of dbTranslations) {
+          saveMeaningLocally(cleanWord, t);
+        }
       }
     } catch {
       // không chặn UX nếu check fail
     }
   }, []);
+
+  const isMeaningSaved = useCallback(
+    (meaning: DictionaryMeaning, globalIdx: number): boolean => {
+      if (savedIndexes.has(globalIdx)) return true;
+      const def = (meaning.definition || '').toLowerCase().trim().replace(/[.,;!?:"'()]/g, '');
+      const label = (meaning.label_vi || '').toLowerCase().trim().replace(/[.,;!?:"'()]/g, '');
+      const defEn = (meaning.definition_en || '').toLowerCase().trim().replace(/[.,;!?:"'()]/g, '');
+
+      return savedTranslations.some((saved) => {
+        const s = (saved || '').toLowerCase().trim().replace(/[.,;!?:"'()]/g, '');
+        if (!s) return false;
+        if (s === def || s === label || s === defEn) return true;
+        if (s.length >= 3 && def.length >= 3 && (def.includes(s) || s.includes(def))) return true;
+        if (label && s.length >= 3 && label.length >= 3 && (label.includes(s) || s.includes(label))) return true;
+        return false;
+      });
+    },
+    [savedIndexes, savedTranslations]
+  );
 
   const lookupLexical = useCallback(
     async (
@@ -805,20 +840,26 @@ export default function DictionaryPage() {
     const translation = meaning.definition ?? '';
     if (!translation) return;
 
-    // 1. OPTIMISTIC UI: Hiển thị trạng thái Đã lưu ngay lập tức (<10ms)
+    // 1. OPTIMISTIC UI: Chỉ đánh dấu đúng nghĩa này được lưu (<10ms)
     setSavedIndexes(prev => new Set(prev).add(index));
+    setSavedTranslations(prev => Array.from(new Set([...prev, translation])));
     setWordAlreadySaved(true);
-    saveWordLocally(word);
+    saveWordLocally(word, translation);
+    saveMeaningLocally(word, translation);
     notifyWordSavedOptimistic();
     if (typeof window !== 'undefined') {
-      window.dispatchEvent(new CustomEvent('lingo_word_saved', { detail: { word } }));
+      window.dispatchEvent(new CustomEvent('lingo_word_saved', { detail: { word, translation } }));
     }
 
     try {
       const res = await authFetch('/api/words', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ word, translation }),
+        body: JSON.stringify({
+          word,
+          translation,
+          pos: meaning.pos || undefined,
+        }),
       });
       const json = await res.json().catch(() => ({}));
       if (res.status === 429) {
@@ -830,14 +871,16 @@ export default function DictionaryPage() {
           next.delete(index);
           return next;
         });
+        setSavedTranslations(prev => prev.filter(t => t !== translation));
         notifyWordSaveRollback();
         const { requestUpsell, upsellFromWordLimitError } = await import('@/lib/upsell');
         requestUpsell(upsellFromWordLimitError(json));
         toast.error(json.message ?? 'Đã đủ hạn mức lưu từ tháng này');
       } else if (json.alreadyExists) {
-        toast.info('Từ đã có trong sổ của bạn');
+        toast.info('Nghĩa này đã có trong sổ của bạn');
       } else if (json.success) {
-        toast.success(`Đã lưu "${word}" vào sổ từ vựng`);
+        const shortDef = translation.length > 30 ? `${translation.slice(0, 30)}...` : translation;
+        toast.success(`Đã lưu nghĩa "${shortDef}" của "${word}" vào sổ`);
         // Soft near-limit khi còn ≤50 (từ mốc 150)
         if (
           typeof json.wordQuota?.used === 'number' &&
@@ -859,6 +902,7 @@ export default function DictionaryPage() {
           next.delete(index);
           return next;
         });
+        setSavedTranslations(prev => prev.filter(t => t !== translation));
         notifyWordSaveRollback();
         toast.error(json.error ?? 'Lưu thất bại');
       }
@@ -869,6 +913,7 @@ export default function DictionaryPage() {
         next.delete(index);
         return next;
       });
+      setSavedTranslations(prev => prev.filter(t => t !== translation));
       notifyWordSaveRollback();
       toast.error('Lỗi kết nối, thử lại');
     } finally {
@@ -1248,7 +1293,7 @@ export default function DictionaryPage() {
                   {/* Badge từ đã lưu */}
                   {wordAlreadySaved && (
                     <span className="text-xs px-2 py-0.5 rounded-full bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 font-medium flex items-center gap-1 shrink-0">
-                      <CheckCircle2 className="h-3 w-3" /> Đã có trong sổ
+                      <CheckCircle2 className="h-3 w-3" /> Đã có trong sổ{savedTranslations.length > 1 ? ` (${savedTranslations.length} nghĩa)` : ''}
                     </span>
                   )}
                 </div>
@@ -1324,21 +1369,27 @@ export default function DictionaryPage() {
                     )}
                   </div>
 
-                  <Button
-                    variant={(savedIndexes.has(primaryItem.globalIndex) || wordAlreadySaved) ? 'outline' : 'chunky'}
-                    size="sm"
-                    disabled={savedIndexes.has(primaryItem.globalIndex) || savingIndexes.has(primaryItem.globalIndex) || wordAlreadySaved}
-                    onClick={() => handleSaveMeaning(primaryItem.meaning, primaryItem.globalIndex)}
-                    className="shrink-0 text-xs"
-                  >
-                    {savingIndexes.has(primaryItem.globalIndex) ? (
-                      <Loader2 className="h-3 w-3 animate-spin" />
-                    ) : (savedIndexes.has(primaryItem.globalIndex) || wordAlreadySaved) ? (
-                      <><CheckCircle2 className="h-3 w-3" /> Đã lưu</>
-                    ) : (
-                      <>＋ Lưu từ này</>
-                    )}
-                  </Button>
+                  {(() => {
+                    const isPrimarySaved = isMeaningSaved(primaryItem.meaning, primaryItem.globalIndex);
+                    const isPrimarySaving = savingIndexes.has(primaryItem.globalIndex);
+                    return (
+                      <Button
+                        variant={isPrimarySaved ? 'outline' : 'chunky'}
+                        size="sm"
+                        disabled={isPrimarySaved || isPrimarySaving}
+                        onClick={() => handleSaveMeaning(primaryItem.meaning, primaryItem.globalIndex)}
+                        className="shrink-0 text-xs"
+                      >
+                        {isPrimarySaving ? (
+                          <Loader2 className="h-3 w-3 animate-spin" />
+                        ) : isPrimarySaved ? (
+                          <><CheckCircle2 className="h-3 w-3" /> Đã lưu</>
+                        ) : (
+                          <>＋ Lưu từ này</>
+                        )}
+                      </Button>
+                    );
+                  })()}
                 </div>
 
                 <div className="space-y-1">
@@ -1425,21 +1476,27 @@ export default function DictionaryPage() {
                                 </div>
                               )}
                             </div>
-                            <Button
-                              variant={(savedIndexes.has(globalIndex) || wordAlreadySaved) ? 'outline' : 'chunky'}
-                              size="sm"
-                              disabled={savedIndexes.has(globalIndex) || savingIndexes.has(globalIndex) || wordAlreadySaved}
-                              onClick={() => handleSaveMeaning(meaning, globalIndex)}
-                              className="shrink-0 text-xs"
-                            >
-                              {savingIndexes.has(globalIndex) ? (
-                                <Loader2 className="h-3 w-3 animate-spin" />
-                              ) : (savedIndexes.has(globalIndex) || wordAlreadySaved) ? (
-                                <><CheckCircle2 className="h-3 w-3" /> Đã lưu</>
-                              ) : (
-                                <>＋ Lưu</>
-                              )}
-                            </Button>
+                            {(() => {
+                              const isSecSaved = isMeaningSaved(meaning, globalIndex);
+                              const isSecSaving = savingIndexes.has(globalIndex);
+                              return (
+                                <Button
+                                  variant={isSecSaved ? 'outline' : 'chunky'}
+                                  size="sm"
+                                  disabled={isSecSaved || isSecSaving}
+                                  onClick={() => handleSaveMeaning(meaning, globalIndex)}
+                                  className="shrink-0 text-xs"
+                                >
+                                  {isSecSaving ? (
+                                    <Loader2 className="h-3 w-3 animate-spin" />
+                                  ) : isSecSaved ? (
+                                    <><CheckCircle2 className="h-3 w-3" /> Đã lưu</>
+                                  ) : (
+                                    <>＋ Lưu</>
+                                  )}
+                                </Button>
+                              );
+                            })()}
                           </div>
                         ))}
                       </div>

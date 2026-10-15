@@ -88,6 +88,17 @@ const MODES = [
     arrow: 'text-sky-400',
   },
   {
+    href: '/practice/reading-library',
+    emoji: '📚',
+    title: 'Thư viện bài đọc · 588 bài',
+    desc: 'Kho bài đọc VSTEP B1-C1, TOEIC, VOA, RACE, OpenStax · Đục lỗ, trắc nghiệm & bản dịch',
+    ring: 'border-emerald-200 bg-emerald-50/70 hover:border-emerald-400 hover:bg-emerald-100 dark:border-emerald-800 dark:bg-emerald-950/30',
+    badge: 'bg-emerald-600',
+    text: 'text-emerald-950 dark:text-emerald-100',
+    sub: 'text-emerald-800/80 dark:text-emerald-300',
+    arrow: 'text-emerald-500',
+  },
+  {
     href: '/practice/daily-reading',
     emoji: '🌅',
     title: 'Bài đọc hàng ngày',

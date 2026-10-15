@@ -317,59 +317,71 @@
     {
       "id": "question-tags-ex-01",
       "type": "multiple_choice",
-      "question": "She is a teacher, ___?",
+      "question": "She is a doctor, ___?",
       "options": [
-        "is she",
         "isn't she",
-        "doesn't she"
+        "is she",
+        "doesn't she",
+        "wasn't she"
       ],
       "correct_answer": "isn't she",
-      "explanation": "Mệnh đề khẳng định với is đi cùng đuôi phủ định isn't she.",
+      "explanation": "Vế chính khẳng định (\"She is\") → phần đuôi phủ định dùng lại to be \"is\" + đại từ \"she\": \"isn't she?\".",
       "distractor_breakdowns": [
-        {
-          "option": "is she",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"is she\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
         {
           "option": "isn't she",
           "isCorrect": true,
-          "pedagogicalReason": "Mệnh đề khẳng định với is đi cùng đuôi phủ định isn't she."
+          "pedagogicalReason": "Vế chính khẳng định (\"She is\") → phần đuôi phủ định dùng lại to be \"is\" + đại từ \"she\": \"isn't she?\"."
+        },
+        {
+          "option": "is she",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is she\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"isn't she\"). Vế chính khẳng định (\"She is\") → phần đuôi phủ định dùng lại to be \"is\" + đại từ \"she\": \"isn't she?\"."
         },
         {
           "option": "doesn't she",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"doesn't she\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"doesn't she\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"isn't she\"). Vế chính khẳng định (\"She is\") → phần đuôi phủ định dùng lại to be \"is\" + đại từ \"she\": \"isn't she?\"."
+        },
+        {
+          "option": "wasn't she",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"wasn't she\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"isn't she\"). Vế chính khẳng định (\"She is\") → phần đuôi phủ định dùng lại to be \"is\" + đại từ \"she\": \"isn't she?\"."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "question-tags-ex-02",
-      "type": "multiple_choice",
-      "question": "They don't live here, ___?",
+      "type": "fill_blank",
+      "question": "They don't live near here, ___?",
       "options": [
         "do they",
         "don't they",
-        "are they"
+        "are they",
+        "did they"
       ],
       "correct_answer": "do they",
-      "explanation": "Mệnh đề phủ định với don't đi cùng đuôi khẳng định do they.",
+      "explanation": "Vế chính phủ định (\"They don't live\") → phần đuôi khẳng định dùng lại trợ động từ \"do\": \"do they?\".",
       "distractor_breakdowns": [
         {
           "option": "do they",
           "isCorrect": true,
-          "pedagogicalReason": "Mệnh đề phủ định với don't đi cùng đuôi khẳng định do they."
+          "pedagogicalReason": "Vế chính phủ định (\"They don't live\") → phần đuôi khẳng định dùng lại trợ động từ \"do\": \"do they?\"."
         },
         {
           "option": "don't they",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"don't they\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"don't they\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"do they\"). Vế chính phủ định (\"They don't live\") → phần đuôi khẳng định dùng lại trợ động từ \"do\": \"do they?\"."
         },
         {
           "option": "are they",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"are they\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"are they\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"do they\"). Vế chính phủ định (\"They don't live\") → phần đuôi khẳng định dùng lại trợ động từ \"do\": \"do they?\"."
+        },
+        {
+          "option": "did they",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"did they\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"do they\"). Vế chính phủ định (\"They don't live\") → phần đuôi khẳng định dùng lại trợ động từ \"do\": \"do they?\"."
         }
       ],
       "difficulty": 1
@@ -377,59 +389,359 @@
     {
       "id": "question-tags-ex-03",
       "type": "multiple_choice",
-      "question": "You can swim, ___?",
+      "question": "Let's take a short break, ___?",
       "options": [
-        "do you",
-        "can't you",
-        "can you"
+        "shall we",
+        "will you",
+        "don't we",
+        "aren't we"
       ],
-      "correct_answer": "can't you",
-      "explanation": "Giữ trợ động từ can và đảo khẳng định thành phủ định.",
+      "correct_answer": "shall we",
+      "explanation": "Quy tắc đặc biệt: Câu rủ rê bắt đầu bằng \"Let's + V\" luôn có câu hỏi đuôi là \"shall we?\".",
       "distractor_breakdowns": [
         {
-          "option": "do you",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"do you\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "can't you",
+          "option": "shall we",
           "isCorrect": true,
-          "pedagogicalReason": "Giữ trợ động từ can và đảo khẳng định thành phủ định."
+          "pedagogicalReason": "Quy tắc đặc biệt: Câu rủ rê bắt đầu bằng \"Let's + V\" luôn có câu hỏi đuôi là \"shall we?\"."
         },
         {
-          "option": "can you",
+          "option": "will you",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"can you\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"will you\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"shall we\"). Quy tắc đặc biệt: Câu rủ rê bắt đầu bằng \"Let's + V\" luôn có câu hỏi đuôi là \"shall we?\"."
+        },
+        {
+          "option": "don't we",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"don't we\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"shall we\"). Quy tắc đặc biệt: Câu rủ rê bắt đầu bằng \"Let's + V\" luôn có câu hỏi đuôi là \"shall we?\"."
+        },
+        {
+          "option": "aren't we",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"aren't we\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"shall we\"). Quy tắc đặc biệt: Câu rủ rê bắt đầu bằng \"Let's + V\" luôn có câu hỏi đuôi là \"shall we?\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "question-tags-ex-04",
+      "type": "fill_blank",
+      "question": "I am on the team list, ___?",
+      "options": [
+        "aren't I",
+        "amn't I",
+        "am I",
+        "don't I"
+      ],
+      "correct_answer": "aren't I",
+      "explanation": "Quy tắc bất quy tắc quan trọng: Câu khẳng định \"I am...\" có câu hỏi đuôi phủ định là \"aren't I?\" (không có \"amn't I\").",
+      "distractor_breakdowns": [
+        {
+          "option": "aren't I",
+          "isCorrect": true,
+          "pedagogicalReason": "Quy tắc bất quy tắc quan trọng: Câu khẳng định \"I am...\" có câu hỏi đuôi phủ định là \"aren't I?\" (không có \"amn't I\")."
+        },
+        {
+          "option": "amn't I",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"amn't I\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"aren't I\"). Quy tắc bất quy tắc quan trọng: Câu khẳng định \"I am...\" có câu hỏi đuôi phủ định là \"aren't I?\" (không có \"amn't I\")."
+        },
+        {
+          "option": "am I",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"am I\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"aren't I\"). Quy tắc bất quy tắc quan trọng: Câu khẳng định \"I am...\" có câu hỏi đuôi phủ định là \"aren't I?\" (không có \"amn't I\")."
+        },
+        {
+          "option": "don't I",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"don't I\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"aren't I\"). Quy tắc bất quy tắc quan trọng: Câu khẳng định \"I am...\" có câu hỏi đuôi phủ định là \"aren't I?\" (không có \"amn't I\")."
         }
       ],
       "difficulty": 2
     },
     {
-      "id": "question-tags-ex-04",
+      "id": "question-tags-ex-05",
       "type": "multiple_choice",
-      "question": "Let's go, ___?",
+      "question": "Close the door behind you, ___?",
       "options": [
-        "shall we",
         "will you",
-        "do we"
+        "shall we",
+        "do you",
+        "aren't you"
       ],
-      "correct_answer": "shall we",
-      "explanation": "Với lời rủ rê Let's..., đuôi thông dụng là shall we?",
+      "correct_answer": "will you",
+      "explanation": "Câu mệnh lệnh (khẳng định hoặc phủ định \"Don't...\") có câu hỏi đuôi thông dụng là \"will you?\".",
       "distractor_breakdowns": [
         {
-          "option": "shall we",
-          "isCorrect": true,
-          "pedagogicalReason": "Với lời rủ rê Let's..., đuôi thông dụng là shall we?"
-        },
-        {
           "option": "will you",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"will you\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "isCorrect": true,
+          "pedagogicalReason": "Câu mệnh lệnh (khẳng định hoặc phủ định \"Don't...\") có câu hỏi đuôi thông dụng là \"will you?\"."
         },
         {
-          "option": "do we",
+          "option": "shall we",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"do we\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"shall we\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"will you\"). Câu mệnh lệnh (khẳng định hoặc phủ định \"Don't...\") có câu hỏi đuôi thông dụng là \"will you?\"."
+        },
+        {
+          "option": "do you",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"do you\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"will you\"). Câu mệnh lệnh (khẳng định hoặc phủ định \"Don't...\") có câu hỏi đuôi thông dụng là \"will you?\"."
+        },
+        {
+          "option": "aren't you",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"aren't you\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"will you\"). Câu mệnh lệnh (khẳng định hoặc phủ định \"Don't...\") có câu hỏi đuôi thông dụng là \"will you?\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "question-tags-ex-06",
+      "type": "fill_blank",
+      "question": "Everyone enjoyed the trip yesterday, ___?",
+      "options": [
+        "didn't they",
+        "didn't he",
+        "did they",
+        "weren't they"
+      ],
+      "correct_answer": "didn't they",
+      "explanation": "Chủ ngữ là các đại từ bất định chỉ người (\"Everyone, Somebody, Anyone, Nobody\") khi ra câu hỏi đuôi sẽ quy về đại từ \"they\". Động từ chính \"enjoyed\" ở quá khứ đơn khẳng định → \"didn't they?\".",
+      "distractor_breakdowns": [
+        {
+          "option": "didn't they",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ là các đại từ bất định chỉ người (\"Everyone, Somebody, Anyone, Nobody\") khi ra câu hỏi đuôi sẽ quy về đại từ \"they\". Động từ chính \"enjoyed\" ở quá khứ đơn khẳng định → \"didn't they?\"."
+        },
+        {
+          "option": "didn't he",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"didn't he\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"didn't they\"). Chủ ngữ là các đại từ bất định chỉ người (\"Everyone, Somebody, Anyone, Nobody\") khi ra câu hỏi đuôi sẽ quy về đại từ \"they\". Động từ chính \"enjoyed\" ở quá khứ đơn khẳng định → \"didn't they?\"."
+        },
+        {
+          "option": "did they",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"did they\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"didn't they\"). Chủ ngữ là các đại từ bất định chỉ người (\"Everyone, Somebody, Anyone, Nobody\") khi ra câu hỏi đuôi sẽ quy về đại từ \"they\". Động từ chính \"enjoyed\" ở quá khứ đơn khẳng định → \"didn't they?\"."
+        },
+        {
+          "option": "weren't they",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"weren't they\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"didn't they\"). Chủ ngữ là các đại từ bất định chỉ người (\"Everyone, Somebody, Anyone, Nobody\") khi ra câu hỏi đuôi sẽ quy về đại từ \"they\". Động từ chính \"enjoyed\" ở quá khứ đơn khẳng định → \"didn't they?\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "question-tags-ex-07",
+      "type": "multiple_choice",
+      "question": "Nobody called while I was out, ___?",
+      "options": [
+        "did they",
+        "didn't they",
+        "did he",
+        "wasn't it"
+      ],
+      "correct_answer": "did they",
+      "explanation": "\"Nobody\" tự mang nghĩa PHỦ ĐỊNH (không ai) và quy về đại từ \"they\" → phần đuôi phải ở dạng KHẲNG ĐỊNH: \"did they?\".",
+      "distractor_breakdowns": [
+        {
+          "option": "did they",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Nobody\" tự mang nghĩa PHỦ ĐỊNH (không ai) và quy về đại từ \"they\" → phần đuôi phải ở dạng KHẲNG ĐỊNH: \"did they?\"."
+        },
+        {
+          "option": "didn't they",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"didn't they\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"did they\"). \"Nobody\" tự mang nghĩa PHỦ ĐỊNH (không ai) và quy về đại từ \"they\" → phần đuôi phải ở dạng KHẲNG ĐỊNH: \"did they?\"."
+        },
+        {
+          "option": "did he",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"did he\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"did they\"). \"Nobody\" tự mang nghĩa PHỦ ĐỊNH (không ai) và quy về đại từ \"they\" → phần đuôi phải ở dạng KHẲNG ĐỊNH: \"did they?\"."
+        },
+        {
+          "option": "wasn't it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"wasn't it\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"did they\"). \"Nobody\" tự mang nghĩa PHỦ ĐỊNH (không ai) và quy về đại từ \"they\" → phần đuôi phải ở dạng KHẲNG ĐỊNH: \"did they?\"."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "question-tags-ex-08",
+      "type": "fill_blank",
+      "question": "She seldom eats fast food, ___?",
+      "options": [
+        "does she",
+        "doesn't she",
+        "is she",
+        "did she"
+      ],
+      "correct_answer": "does she",
+      "explanation": "Các trạng từ \"seldom, rarely, hardly, never\" mang nghĩa bán phủ định → vế chính được tính là phủ định nên phần đuôi phải ở dạng khẳng định: \"does she?\".",
+      "distractor_breakdowns": [
+        {
+          "option": "does she",
+          "isCorrect": true,
+          "pedagogicalReason": "Các trạng từ \"seldom, rarely, hardly, never\" mang nghĩa bán phủ định → vế chính được tính là phủ định nên phần đuôi phải ở dạng khẳng định: \"does she?\"."
+        },
+        {
+          "option": "doesn't she",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"doesn't she\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"does she\"). Các trạng từ \"seldom, rarely, hardly, never\" mang nghĩa bán phủ định → vế chính được tính là phủ định nên phần đuôi phải ở dạng khẳng định: \"does she?\"."
+        },
+        {
+          "option": "is she",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is she\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"does she\"). Các trạng từ \"seldom, rarely, hardly, never\" mang nghĩa bán phủ định → vế chính được tính là phủ định nên phần đuôi phải ở dạng khẳng định: \"does she?\"."
+        },
+        {
+          "option": "did she",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"did she\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"does she\"). Các trạng từ \"seldom, rarely, hardly, never\" mang nghĩa bán phủ định → vế chính được tính là phủ định nên phần đuôi phải ở dạng khẳng định: \"does she?\"."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "question-tags-ex-09",
+      "type": "multiple_choice",
+      "question": "Everything is ready for the party, ___?",
+      "options": [
+        "isn't it",
+        "aren't they",
+        "is it",
+        "doesn't it"
+      ],
+      "correct_answer": "isn't it",
+      "explanation": "\"Everything, Something, Nothing\" là đại từ bất định chỉ vật nên quy về đại từ số ít \"it\" ở phần đuôi → \"isn't it?\".",
+      "distractor_breakdowns": [
+        {
+          "option": "isn't it",
+          "isCorrect": true,
+          "pedagogicalReason": "\"Everything, Something, Nothing\" là đại từ bất định chỉ vật nên quy về đại từ số ít \"it\" ở phần đuôi → \"isn't it?\"."
+        },
+        {
+          "option": "aren't they",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"aren't they\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"isn't it\"). \"Everything, Something, Nothing\" là đại từ bất định chỉ vật nên quy về đại từ số ít \"it\" ở phần đuôi → \"isn't it?\"."
+        },
+        {
+          "option": "is it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is it\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"isn't it\"). \"Everything, Something, Nothing\" là đại từ bất định chỉ vật nên quy về đại từ số ít \"it\" ở phần đuôi → \"isn't it?\"."
+        },
+        {
+          "option": "doesn't it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"doesn't it\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"isn't it\"). \"Everything, Something, Nothing\" là đại từ bất định chỉ vật nên quy về đại từ số ít \"it\" ở phần đuôi → \"isn't it?\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "question-tags-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: Your brother plays the guitar very well, isn't he?",
+      "options": [
+        "Your brother",
+        "plays",
+        "very well",
+        "isn't he"
+      ],
+      "correct_answer": "isn't he",
+      "explanation": "Vế chính dùng động từ thường \"plays\" ở hiện tại đơn nên phần đuôi phải mượn trợ động từ \"doesn't he?\", không dùng \"isn't he?\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Your brother",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"Your brother\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "plays",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"plays\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "very well",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"very well\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "isn't he",
+          "isCorrect": true,
+          "pedagogicalReason": "Vế chính dùng động từ thường \"plays\" ở hiện tại đơn nên phần đuôi phải mượn trợ động từ \"doesn't he?\", không dùng \"isn't he?\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "question-tags-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: Let's go to the beach this afternoon, will we?",
+      "options": [
+        "Let's",
+        "go to",
+        "this afternoon",
+        "will we"
+      ],
+      "correct_answer": "will we",
+      "explanation": "Câu bắt đầu bằng \"Let's\" luôn dùng câu hỏi đuôi \"shall we?\", không dùng \"will we?\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Let's",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"Let's\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "go to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"go to\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "this afternoon",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"this afternoon\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will we",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu bắt đầu bằng \"Let's\" luôn dùng câu hỏi đuôi \"shall we?\", không dùng \"will we?\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "question-tags-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: He never goes to work late, doesn't he?",
+      "options": [
+        "never",
+        "goes",
+        "late",
+        "doesn't he"
+      ],
+      "correct_answer": "doesn't he",
+      "explanation": "Vế trước đã có từ phủ định \"never\" nên câu hỏi đuôi bắt buộc phải ở dạng khẳng định \"does he?\", không dùng \"doesn't he?\".",
+      "distractor_breakdowns": [
+        {
+          "option": "never",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"never\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "goes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"goes\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "late",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"late\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "doesn't he",
+          "isCorrect": true,
+          "pedagogicalReason": "Vế trước đã có từ phủ định \"never\" nên câu hỏi đuôi bắt buộc phải ở dạng khẳng định \"does he?\", không dùng \"doesn't he?\"."
         }
       ],
       "difficulty": 3

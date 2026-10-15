@@ -417,26 +417,36 @@
   "exercises": [
     {
       "id": "present-perfect-ex-01",
-      "type": "fill_blank",
-      "question": "I ____ (already / finish) my exercise.",
-      "options": [],
-      "correct_answer": "have already finished",
-      "explanation": "already chèn giữa have và V3",
+      "type": "multiple_choice",
+      "question": "I ___ my homework already.",
+      "options": [
+        "have finished",
+        "finished",
+        "has finished",
+        "am finishing"
+      ],
+      "correct_answer": "have finished",
+      "explanation": "Dấu hiệu \"already\" (đã xong rồi, nhấn mạnh kết quả ở hiện tại) dùng thì hiện tại hoàn thành. Chủ ngữ \"I\" đi với \"have finished\".",
       "distractor_breakdowns": [
         {
-          "option": "have already finished",
+          "option": "have finished",
           "isCorrect": true,
-          "pedagogicalReason": "already chèn giữa have và V3"
+          "pedagogicalReason": "Dấu hiệu \"already\" (đã xong rồi, nhấn mạnh kết quả ở hiện tại) dùng thì hiện tại hoàn thành. Chủ ngữ \"I\" đi với \"have finished\"."
         },
         {
-          "option": "already finished",
+          "option": "finished",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Hành động vừa mới hoàn thành có \"already\" dùng thì hiện tại hoàn thành, không dùng quá khứ đơn."
+          "pedagogicalReason": "Không chính xác. Phương án \"finished\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have finished\"). Dấu hiệu \"already\" (đã xong rồi, nhấn mạnh kết quả ở hiện tại) dùng thì hiện tại hoàn thành. Chủ ngữ \"I\" đi với \"have finished\"."
         },
         {
-          "option": "has already finished",
+          "option": "has finished",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"I\" đi với trợ động từ \"have\", không đi với \"has\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"has finished\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have finished\"). Dấu hiệu \"already\" (đã xong rồi, nhấn mạnh kết quả ở hiện tại) dùng thì hiện tại hoàn thành. Chủ ngữ \"I\" đi với \"have finished\"."
+        },
+        {
+          "option": "am finishing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"am finishing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have finished\"). Dấu hiệu \"already\" (đã xong rồi, nhấn mạnh kết quả ở hiện tại) dùng thì hiện tại hoàn thành. Chủ ngữ \"I\" đi với \"have finished\"."
         }
       ],
       "difficulty": 1
@@ -444,51 +454,71 @@
     {
       "id": "present-perfect-ex-02",
       "type": "fill_blank",
-      "question": "Rashid ____ (just / pass) his driving test.",
-      "options": [],
-      "correct_answer": "has just passed",
-      "explanation": "just → hoàn thành (đứng giữa has và V3)",
+      "question": "She ___ in Da Nang since 2020.",
+      "options": [
+        "has lived",
+        "have lived",
+        "lived",
+        "is living"
+      ],
+      "correct_answer": "has lived",
+      "explanation": "Dấu hiệu \"since 2020\" (từ năm 2020 đến nay) + chủ ngữ số ít \"She\" → chia hiện tại hoàn thành \"has lived\".",
       "distractor_breakdowns": [
         {
-          "option": "has just passed",
+          "option": "has lived",
           "isCorrect": true,
-          "pedagogicalReason": "just → hoàn thành (đứng giữa has và V3)"
+          "pedagogicalReason": "Dấu hiệu \"since 2020\" (từ năm 2020 đến nay) + chủ ngữ số ít \"She\" → chia hiện tại hoàn thành \"has lived\"."
         },
         {
-          "option": "just passed",
+          "option": "have lived",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Hành động vừa mới xảy ra có \"just\" chia ở thì hiện tại hoàn thành \"has just passed\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"have lived\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has lived\"). Dấu hiệu \"since 2020\" (từ năm 2020 đến nay) + chủ ngữ số ít \"She\" → chia hiện tại hoàn thành \"has lived\"."
         },
         {
-          "option": "have just passed",
+          "option": "lived",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"Rashid\" là ngôi thứ ba số ít, phải dùng \"has\", không dùng \"have\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"lived\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has lived\"). Dấu hiệu \"since 2020\" (từ năm 2020 đến nay) + chủ ngữ số ít \"She\" → chia hiện tại hoàn thành \"has lived\"."
+        },
+        {
+          "option": "is living",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is living\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has lived\"). Dấu hiệu \"since 2020\" (từ năm 2020 đến nay) + chủ ngữ số ít \"She\" → chia hiện tại hoàn thành \"has lived\"."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "present-perfect-ex-03",
-      "type": "fill_blank",
-      "question": "Nam and I ____ (be) pen pals for a long time.",
-      "options": [],
-      "correct_answer": "have been",
-      "explanation": "for + quãng → hoàn thành (be → been)",
+      "type": "multiple_choice",
+      "question": "We have known each other ___ ten years.",
+      "options": [
+        "for",
+        "since",
+        "in",
+        "ago"
+      ],
+      "correct_answer": "for",
+      "explanation": "\"ten years\" là một khoảng thời gian (10 năm) nên đi với giới từ \"for\". (\"since\" đi với mốc thời gian bắt đầu).",
       "distractor_breakdowns": [
         {
-          "option": "have been",
+          "option": "for",
           "isCorrect": true,
-          "pedagogicalReason": "for + quãng → hoàn thành (be → been)"
+          "pedagogicalReason": "\"ten years\" là một khoảng thời gian (10 năm) nên đi với giới từ \"for\". (\"since\" đi với mốc thời gian bắt đầu)."
         },
         {
-          "option": "were",
+          "option": "since",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Cụm thời gian \"for a long time\" chỉ sự việc kéo dài từ quá khứ đến hiện tại, phải dùng hiện tại hoàn thành."
+          "pedagogicalReason": "Không chính xác. Phương án \"since\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"for\"). \"ten years\" là một khoảng thời gian (10 năm) nên đi với giới từ \"for\". (\"since\" đi với mốc thời gian bắt đầu)."
         },
         {
-          "option": "are",
+          "option": "in",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không thể dùng hiện tại đơn với khoảng thời gian \"for a long time\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"in\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"for\"). \"ten years\" là một khoảng thời gian (10 năm) nên đi với giới từ \"for\". (\"since\" đi với mốc thời gian bắt đầu)."
+        },
+        {
+          "option": "ago",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"ago\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"for\"). \"ten years\" là một khoảng thời gian (10 năm) nên đi với giới từ \"for\". (\"since\" đi với mốc thời gian bắt đầu)."
         }
       ],
       "difficulty": 1
@@ -496,51 +526,71 @@
     {
       "id": "present-perfect-ex-04",
       "type": "fill_blank",
-      "question": "How long ____ they ____ (live) here? — Since 1990.",
-      "options": [],
-      "correct_answer": "have … lived",
-      "explanation": "How long + since → hiện tại hoàn thành",
+      "question": "Have you finished the report ___?",
+      "options": [
+        "yet",
+        "already",
+        "just",
+        "since"
+      ],
+      "correct_answer": "yet",
+      "explanation": "\"yet\" đứng ở cuối câu hỏi hoặc câu phủ định thì hiện tại hoàn thành để hỏi \"đã xong chưa?\".",
       "distractor_breakdowns": [
         {
-          "option": "have … lived",
+          "option": "yet",
           "isCorrect": true,
-          "pedagogicalReason": "How long + since → hiện tại hoàn thành"
+          "pedagogicalReason": "\"yet\" đứng ở cuối câu hỏi hoặc câu phủ định thì hiện tại hoàn thành để hỏi \"đã xong chưa?\"."
         },
         {
-          "option": "did … live",
+          "option": "already",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Câu hỏi với \"How long\" và mốc thời gian \"Since 1990\" bắt buộc dùng hiện tại hoàn thành, không dùng quá khứ đơn."
+          "pedagogicalReason": "Không chính xác. Phương án \"already\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"yet\"). \"yet\" đứng ở cuối câu hỏi hoặc câu phủ định thì hiện tại hoàn thành để hỏi \"đã xong chưa?\"."
         },
         {
-          "option": "do … live",
+          "option": "just",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng hiện tại đơn khi hỏi về sự việc kéo dài từ quá khứ đến nay."
+          "pedagogicalReason": "Không chính xác. Phương án \"just\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"yet\"). \"yet\" đứng ở cuối câu hỏi hoặc câu phủ định thì hiện tại hoàn thành để hỏi \"đã xong chưa?\"."
+        },
+        {
+          "option": "since",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"since\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"yet\"). \"yet\" đứng ở cuối câu hỏi hoặc câu phủ định thì hiện tại hoàn thành để hỏi \"đã xong chưa?\"."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "present-perfect-ex-05",
-      "type": "fill_blank",
-      "question": "The teacher ____ (already / tell) us to be quiet.",
-      "options": [],
-      "correct_answer": "has already told",
-      "explanation": "already → hoàn thành (tell → told)",
+      "type": "multiple_choice",
+      "question": "Have you ___ been to Ha Long Bay?",
+      "options": [
+        "ever",
+        "yet",
+        "for",
+        "since"
+      ],
+      "correct_answer": "ever",
+      "explanation": "Câu hỏi về trải nghiệm tính đến hiện tại (\"Bạn đã từng đến vịnh Hạ Long bao giờ chưa?\") dùng \"ever\".",
       "distractor_breakdowns": [
         {
-          "option": "has already told",
+          "option": "ever",
           "isCorrect": true,
-          "pedagogicalReason": "already → hoàn thành (tell → told)"
+          "pedagogicalReason": "Câu hỏi về trải nghiệm tính đến hiện tại (\"Bạn đã từng đến vịnh Hạ Long bao giờ chưa?\") dùng \"ever\"."
         },
         {
-          "option": "already told",
+          "option": "yet",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Trạng từ \"already\" trong câu nhấn mạnh kết quả ở hiện tại, phải chia hiện tại hoàn thành."
+          "pedagogicalReason": "Không chính xác. Phương án \"yet\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"ever\"). Câu hỏi về trải nghiệm tính đến hiện tại (\"Bạn đã từng đến vịnh Hạ Long bao giờ chưa?\") dùng \"ever\"."
         },
         {
-          "option": "have already told",
+          "option": "for",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"The teacher\" là số ít, dùng \"has\", không dùng \"have\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"for\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"ever\"). Câu hỏi về trải nghiệm tính đến hiện tại (\"Bạn đã từng đến vịnh Hạ Long bao giờ chưa?\") dùng \"ever\"."
+        },
+        {
+          "option": "since",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"since\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"ever\"). Câu hỏi về trải nghiệm tính đến hiện tại (\"Bạn đã từng đến vịnh Hạ Long bao giờ chưa?\") dùng \"ever\"."
         }
       ],
       "difficulty": 1
@@ -548,310 +598,254 @@
     {
       "id": "present-perfect-ex-06",
       "type": "fill_blank",
-      "question": "She ____ (not / see) him since Christmas.",
-      "options": [],
-      "correct_answer": "hasn't seen",
-      "explanation": "since + mốc → hoàn thành phủ định",
+      "question": "My brother ___ just passed his driving test.",
+      "options": [
+        "has",
+        "have",
+        "is",
+        "was"
+      ],
+      "correct_answer": "has",
+      "explanation": "Cấu trúc \"has/have + just + V3/ed\" (vừa mới làm gì). Chủ ngữ \"My brother\" là số ít → dùng \"has\".",
       "distractor_breakdowns": [
         {
-          "option": "hasn't seen",
+          "option": "has",
           "isCorrect": true,
-          "pedagogicalReason": "since + mốc → hoàn thành phủ định"
+          "pedagogicalReason": "Cấu trúc \"has/have + just + V3/ed\" (vừa mới làm gì). Chủ ngữ \"My brother\" là số ít → dùng \"has\"."
         },
         {
-          "option": "didn't see",
+          "option": "have",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Mốc thời gian \"since Christmas\" bắt buộc dùng thì hiện tại hoàn thành, không dùng quá khứ đơn."
+          "pedagogicalReason": "Không chính xác. Phương án \"have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has\"). Cấu trúc \"has/have + just + V3/ed\" (vừa mới làm gì). Chủ ngữ \"My brother\" là số ít → dùng \"has\"."
         },
         {
-          "option": "haven't seen",
+          "option": "is",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"She\" là ngôi thứ ba số ít, dùng \"hasn't\", không dùng \"haven't\"."
+          "pedagogicalReason": "Không chính xác. Không dùng động từ to be \"is\" ở vị trí này (đáp án đúng là \"has\"). Cấu trúc \"has/have + just + V3/ed\" (vừa mới làm gì). Chủ ngữ \"My brother\" là số ít → dùng \"has\"."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng động từ to be \"was\" ở vị trí này (đáp án đúng là \"has\"). Cấu trúc \"has/have + just + V3/ed\" (vừa mới làm gì). Chủ ngữ \"My brother\" là số ít → dùng \"has\"."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "present-perfect-ex-07",
-      "type": "fill_blank",
-      "question": "____ you ____ (finish) your project yet?",
-      "options": [],
-      "correct_answer": "Have … finished",
-      "explanation": "yet trong câu hỏi → hiện tại hoàn thành",
+      "type": "multiple_choice",
+      "question": "Mr. Nam isn't in the office now. He ___ to Hanoi on business.",
+      "options": [
+        "has gone",
+        "has been",
+        "went",
+        "goes"
+      ],
+      "correct_answer": "has gone",
+      "explanation": "\"has gone to\" nghĩa là đã đi tới đó và HIỆN VẪN ĐANG Ở ĐÓ (chưa về, nên hiện không có ở văn phòng). (\"has been to\" là đã từng đi và đã về rồi).",
       "distractor_breakdowns": [
         {
-          "option": "Have … finished",
+          "option": "has gone",
           "isCorrect": true,
-          "pedagogicalReason": "yet trong câu hỏi → hiện tại hoàn thành"
+          "pedagogicalReason": "\"has gone to\" nghĩa là đã đi tới đó và HIỆN VẪN ĐANG Ở ĐÓ (chưa về, nên hiện không có ở văn phòng). (\"has been to\" là đã từng đi và đã về rồi)."
         },
         {
-          "option": "Did … finish",
+          "option": "has been",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Trạng từ \"yet\" ở cuối câu hỏi yêu cầu thì hiện tại hoàn thành, không dùng quá khứ đơn."
+          "pedagogicalReason": "Không chính xác. Phương án \"has been\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has gone\"). \"has gone to\" nghĩa là đã đi tới đó và HIỆN VẪN ĐANG Ở ĐÓ (chưa về, nên hiện không có ở văn phòng). (\"has been to\" là đã từng đi và đã về rồi)."
         },
         {
-          "option": "Do … finish",
+          "option": "went",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng hiện tại đơn với \"yet\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"went\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has gone\"). \"has gone to\" nghĩa là đã đi tới đó và HIỆN VẪN ĐANG Ở ĐÓ (chưa về, nên hiện không có ở văn phòng). (\"has been to\" là đã từng đi và đã về rồi)."
+        },
+        {
+          "option": "goes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"goes\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has gone\"). \"has gone to\" nghĩa là đã đi tới đó và HIỆN VẪN ĐANG Ở ĐÓ (chưa về, nên hiện không có ở văn phòng). (\"has been to\" là đã từng đi và đã về rồi)."
         }
       ],
-      "difficulty": 2
+      "difficulty": 3
     },
     {
       "id": "present-perfect-ex-08",
       "type": "fill_blank",
-      "question": "Karen ____ (study) Italian for three years and is still studying.",
-      "options": [],
-      "correct_answer": "has studied",
-      "explanation": "for + quãng, giờ vẫn học → hoàn thành",
+      "question": "This is the first time I ___ sushi.",
+      "options": [
+        "have eaten",
+        "eat",
+        "ate",
+        "am eating"
+      ],
+      "correct_answer": "have eaten",
+      "explanation": "Sau cấu trúc \"This is the first/second time + S + have/has V3\" ta luôn dùng thì hiện tại hoàn thành (\"have eaten\").",
       "distractor_breakdowns": [
         {
-          "option": "has studied",
+          "option": "have eaten",
           "isCorrect": true,
-          "pedagogicalReason": "for + quãng, giờ vẫn học → hoàn thành"
+          "pedagogicalReason": "Sau cấu trúc \"This is the first/second time + S + have/has V3\" ta luôn dùng thì hiện tại hoàn thành (\"have eaten\")."
         },
         {
-          "option": "studied",
+          "option": "eat",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Hành động vẫn đang tiếp tục (\"and is still studying\") kèm \"for three years\" bắt buộc dùng thì hoàn thành."
+          "pedagogicalReason": "Không chính xác. Phương án \"eat\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have eaten\"). Sau cấu trúc \"This is the first/second time + S + have/has V3\" ta luôn dùng thì hiện tại hoàn thành (\"have eaten\")."
         },
         {
-          "option": "have studied",
+          "option": "ate",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"Karen\" là ngôi thứ ba số ít, dùng \"has\", không dùng \"have\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"ate\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have eaten\"). Sau cấu trúc \"This is the first/second time + S + have/has V3\" ta luôn dùng thì hiện tại hoàn thành (\"have eaten\")."
+        },
+        {
+          "option": "am eating",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"am eating\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have eaten\"). Sau cấu trúc \"This is the first/second time + S + have/has V3\" ta luôn dùng thì hiện tại hoàn thành (\"have eaten\")."
         }
       ],
       "difficulty": 2
     },
     {
       "id": "present-perfect-ex-09",
-      "type": "fill_blank",
-      "question": "____ she ____ (visit) her grandma this Sunday? She has already bought a present.",
-      "options": [],
-      "correct_answer": "Is … going to visit",
-      "explanation": "đã mua quà sẵn = kế hoạch có từ trước → be going to",
+      "type": "multiple_choice",
+      "question": "They haven't seen their old teacher ___ they graduated.",
+      "options": [
+        "since",
+        "for",
+        "from",
+        "during"
+      ],
+      "correct_answer": "since",
+      "explanation": "Trước một mệnh đề quá khứ đơn (\"they graduated\") chỉ mốc thời gian bắt đầu, ta dùng \"since\".",
       "distractor_breakdowns": [
         {
-          "option": "Is … going to visit",
+          "option": "since",
           "isCorrect": true,
-          "pedagogicalReason": "đã mua quà sẵn = kế hoạch có từ trước → be going to"
+          "pedagogicalReason": "Trước một mệnh đề quá khứ đơn (\"they graduated\") chỉ mốc thời gian bắt đầu, ta dùng \"since\"."
         },
         {
-          "option": "Will … visit",
+          "option": "for",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Đã mua quà từ trước (\"has already bought a present\"), kế hoạch có chuẩn bị dùng \"be going to\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"for\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"since\"). Trước một mệnh đề quá khứ đơn (\"they graduated\") chỉ mốc thời gian bắt đầu, ta dùng \"since\"."
         },
         {
-          "option": "Does … visit",
+          "option": "from",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Hỏi về sự việc chủ nhật này (\"this Sunday\") không dùng hiện tại đơn chỉ thói quen."
+          "pedagogicalReason": "Không chính xác. Phương án \"from\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"since\"). Trước một mệnh đề quá khứ đơn (\"they graduated\") chỉ mốc thời gian bắt đầu, ta dùng \"since\"."
+        },
+        {
+          "option": "during",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"during\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"since\"). Trước một mệnh đề quá khứ đơn (\"they graduated\") chỉ mốc thời gian bắt đầu, ta dùng \"since\"."
         }
       ],
       "difficulty": 2
     },
     {
       "id": "present-perfect-ex-10",
-      "type": "fill_blank",
-      "question": "We ____ (live) in England for two years.",
-      "options": [],
-      "correct_answer": "have lived",
-      "explanation": "for → kéo dài tới giờ → hiện tại hoàn thành",
+      "type": "error_correction",
+      "question": "Find the error: I have bought this motorbike two years ago.",
+      "options": [
+        "have bought",
+        "this",
+        "motorbike",
+        "two years ago"
+      ],
+      "correct_answer": "have bought",
+      "explanation": "Khi có thời điểm quá khứ xác định rõ ràng (\"two years ago\"), tuyệt đối không dùng hiện tại hoàn thành. Phải sửa \"have bought\" thành \"bought\".",
       "distractor_breakdowns": [
         {
-          "option": "have lived",
+          "option": "have bought",
           "isCorrect": true,
-          "pedagogicalReason": "for → kéo dài tới giờ → hiện tại hoàn thành"
+          "pedagogicalReason": "Khi có thời điểm quá khứ xác định rõ ràng (\"two years ago\"), tuyệt đối không dùng hiện tại hoàn thành. Phải sửa \"have bought\" thành \"bought\"."
         },
         {
-          "option": "lived",
+          "option": "this",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Khoảng thời gian kéo dài đến nay (\"for two years\") dùng thì hiện tại hoàn thành, không dùng quá khứ đơn."
+          "pedagogicalReason": "Không chính xác. Thành phần \"this\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         },
         {
-          "option": "are living",
+          "option": "motorbike",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Thì tiếp diễn không dùng chung với cụm đo lường thời gian \"for two years\"."
+          "pedagogicalReason": "Không chính xác. Thành phần \"motorbike\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "two years ago",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"two years ago\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
       "difficulty": 2
     },
     {
       "id": "present-perfect-ex-11",
-      "type": "fill_blank",
-      "question": "The policeman ____ (not / stop) my father last Friday.",
-      "options": [],
-      "correct_answer": "didn't stop",
-      "explanation": "last Friday = mốc rõ → quá khứ; sau didn't để V trơ",
+      "type": "error_correction",
+      "question": "Find the error: She has lived in this neighborhood since five years.",
+      "options": [
+        "has lived",
+        "in",
+        "since",
+        "five years"
+      ],
+      "correct_answer": "since",
+      "explanation": "\"five years\" là khoảng thời gian nên phải dùng \"for five years\", không dùng \"since\".",
       "distractor_breakdowns": [
         {
-          "option": "didn't stop",
+          "option": "has lived",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"has lived\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"in\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "since",
           "isCorrect": true,
-          "pedagogicalReason": "last Friday = mốc rõ → quá khứ; sau didn't để V trơ"
+          "pedagogicalReason": "\"five years\" là khoảng thời gian nên phải dùng \"for five years\", không dùng \"since\"."
         },
         {
-          "option": "hasn't stopped",
+          "option": "five years",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Mốc thời gian quá khứ xác định (\"last Friday\") bắt buộc dùng thì quá khứ đơn, không dùng hiện tại hoàn thành."
-        },
-        {
-          "option": "doesn't stop",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Thời gian đã xảy ra trong quá khứ (\"last Friday\"), không dùng hiện tại đơn."
+          "pedagogicalReason": "Không chính xác. Thành phần \"five years\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
       "difficulty": 2
     },
     {
       "id": "present-perfect-ex-12",
-      "type": "fill_blank",
-      "question": "How long ____ Bob and Mary ____ (be) married?",
-      "options": [],
-      "correct_answer": "have … been",
-      "explanation": "How long → hiện tại hoàn thành",
+      "type": "error_correction",
+      "question": "Find the error: He has wrote three books about Vietnamese history.",
+      "options": [
+        "has",
+        "wrote",
+        "three books",
+        "history"
+      ],
+      "correct_answer": "wrote",
+      "explanation": "Sau \"has/have\" phải dùng quá khứ phân từ (V3). Dạng V3 của \"write\" là \"written\", không phải \"wrote\" (V2).",
       "distractor_breakdowns": [
         {
-          "option": "have … been",
+          "option": "has",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"has\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "wrote",
           "isCorrect": true,
-          "pedagogicalReason": "How long → hiện tại hoàn thành"
+          "pedagogicalReason": "Sau \"has/have\" phải dùng quá khứ phân từ (V3). Dạng V3 của \"write\" là \"written\", không phải \"wrote\" (V2)."
         },
         {
-          "option": "were",
+          "option": "three books",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Hỏi về khoảng thời gian hôn nhân kéo dài đến nay dùng \"have Bob and Mary been\", không dùng quá khứ đơn."
+          "pedagogicalReason": "Không chính xác. Thành phần \"three books\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         },
         {
-          "option": "are",
+          "option": "history",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng hiện tại đơn với câu hỏi \"How long\"."
+          "pedagogicalReason": "Không chính xác. Thành phần \"history\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
       "difficulty": 2
-    },
-    {
-      "id": "present-perfect-ex-13",
-      "type": "fill_blank",
-      "question": "She ____ (learn) German since 2022.",
-      "options": [],
-      "correct_answer": "has learned",
-      "explanation": "since + mốc → hiện tại hoàn thành",
-      "distractor_breakdowns": [
-        {
-          "option": "has learned",
-          "isCorrect": true,
-          "pedagogicalReason": "since + mốc → hiện tại hoàn thành"
-        },
-        {
-          "option": "learned",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Mốc thời gian \"since 2022\" yêu cầu thì hiện tại hoàn thành \"has learned\", không dùng quá khứ đơn."
-        },
-        {
-          "option": "have learned",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"She\" là số ít, dùng \"has\", không dùng \"have\"."
-        }
-      ],
-      "difficulty": 3
-    },
-    {
-      "id": "present-perfect-ex-14",
-      "type": "fill_blank",
-      "question": "____ your brother ____ (finish) his homework yet?",
-      "options": [],
-      "correct_answer": "Has … finished",
-      "explanation": "yet → hoàn thành, đảo Has lên đầu",
-      "distractor_breakdowns": [
-        {
-          "option": "Has … finished",
-          "isCorrect": true,
-          "pedagogicalReason": "yet → hoàn thành, đảo Has lên đầu"
-        },
-        {
-          "option": "Did … finish",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Trạng từ \"yet\" ở cuối câu hỏi yêu cầu thì hiện tại hoàn thành \"Has your brother finished\"."
-        },
-        {
-          "option": "Have … finished",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"your brother\" là ngôi thứ ba số ít, dùng \"Has\", không dùng \"Have\"."
-        }
-      ],
-      "difficulty": 3
-    },
-    {
-      "id": "present-perfect-ex-15",
-      "type": "fill_blank",
-      "question": "While my mother ____ (cook), the phone ____ (ring).",
-      "options": [],
-      "correct_answer": "was cooking / rang",
-      "explanation": "việc dài → tiếp diễn, việc ngắn xen vào → đơn",
-      "distractor_breakdowns": [
-        {
-          "option": "was cooking / rang",
-          "isCorrect": true,
-          "pedagogicalReason": "việc dài → tiếp diễn, việc ngắn xen vào → đơn"
-        },
-        {
-          "option": "cooked / was ringing",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Hành động đang diễn ra trong quá khứ (nấu ăn) dùng quá khứ tiếp diễn (\"was cooking\"), hành động ngắn xen vào dùng quá khứ đơn (\"rang\")."
-        },
-        {
-          "option": "was cooking / was ringing",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Tiếng chuông điện thoại reo là hành động ngắn cắt ngang, không dùng tiếp diễn."
-        }
-      ],
-      "difficulty": 3
-    },
-    {
-      "id": "present-perfect-ex-16",
-      "type": "multiple_choice",
-      "question": "You ____ wash the dishes tonight — I've already done them. (mustn't / don't have to)",
-      "options": [
-        "mustn't",
-        "don't have to"
-      ],
-      "correct_answer": "don't have to",
-      "explanation": "rửa rồi nên khỏi cần, không phải cấm",
-      "distractor_breakdowns": [
-        {
-          "option": "mustn't",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"mustn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "don't have to",
-          "isCorrect": true,
-          "pedagogicalReason": "rửa rồi nên khỏi cần, không phải cấm"
-        }
-      ],
-      "difficulty": 3
-    },
-    {
-      "id": "present-perfect-ex-17",
-      "type": "multiple_choice",
-      "question": "Whose bag is this? It ____ Lan's — she has one just like it. (must be / can't be)",
-      "options": [
-        "must be",
-        "can't be"
-      ],
-      "correct_answer": "must be",
-      "explanation": "có căn cứ nên đoán chắc → must be",
-      "distractor_breakdowns": [
-        {
-          "option": "must be",
-          "isCorrect": true,
-          "pedagogicalReason": "có căn cứ nên đoán chắc → must be"
-        },
-        {
-          "option": "can't be",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"can't be\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        }
-      ],
-      "difficulty": 3
     }
   ]
 }

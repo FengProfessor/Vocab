@@ -364,29 +364,435 @@
   "exercises": [
     {
       "id": "modals-deduction-ex-01",
-      "type": "fill_blank",
-      "question": "Đổi sang gián tiếp: My teacher said to us: “You may use dictionaries for this test.” → _____",
-      "options": [],
-      "correct_answer": "My teacher told us (that) we might use dictionaries for that test.",
-      "explanation": "may lùi thành might · this → that",
+      "type": "multiple_choice",
+      "question": "Whose jacket is this? — It ___ be Nam's. It has his name on the label.",
+      "options": [
+        "must",
+        "can't",
+        "might not",
+        "should"
+      ],
+      "correct_answer": "must",
+      "explanation": "Suy đoán có căn cứ chắc chắn đúng ở hiện tại (\"có tên cậu ấy trên nhãn áo\") → dùng \"must be\" (chắc hẳn là).",
       "distractor_breakdowns": [
         {
-          "option": "My teacher told us (that) we might use dictionaries for that test.",
+          "option": "must",
           "isCorrect": true,
-          "pedagogicalReason": "may lùi thành might · this → that"
+          "pedagogicalReason": "Suy đoán có căn cứ chắc chắn đúng ở hiện tại (\"có tên cậu ấy trên nhãn áo\") → dùng \"must be\" (chắc hẳn là)."
         },
         {
-          "option": "My teacher said us that we may use dictionaries for this test.",
+          "option": "can't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Động từ tường thuật có tân ngữ dùng \"told us\", và cần lùi thì \"may\" thành \"might\", đổi \"this\" thành \"that\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"can't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"must\"). Suy đoán có căn cứ chắc chắn đúng ở hiện tại (\"có tên cậu ấy trên nhãn áo\") → dùng \"must be\" (chắc hẳn là)."
         },
         {
-          "option": "My teacher told us we might use dictionaries for this test.",
+          "option": "might not",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Từ chỉ định \"this test\" trong lời nói gián tiếp cần chuyển đổi thành \"that test\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"might not\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"must\"). Suy đoán có căn cứ chắc chắn đúng ở hiện tại (\"có tên cậu ấy trên nhãn áo\") → dùng \"must be\" (chắc hẳn là)."
+        },
+        {
+          "option": "should",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"should\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"must\"). Suy đoán có căn cứ chắc chắn đúng ở hiện tại (\"có tên cậu ấy trên nhãn áo\") → dùng \"must be\" (chắc hẳn là)."
         }
       ],
       "difficulty": 1
+    },
+    {
+      "id": "modals-deduction-ex-02",
+      "type": "fill_blank",
+      "question": "That man ___ be Mr. Binh; Mr. Binh is in Tokyo right now!",
+      "options": [
+        "can't",
+        "must",
+        "might",
+        "should"
+      ],
+      "correct_answer": "can't",
+      "explanation": "Suy đoán chắc chắn KHÔNG THỂ ĐÚNG ở hiện tại (vì ông Bình hiện đang ở Tokyo) → dùng \"can't be\" (tuyệt đối không dùng \"mustn't be\" cho suy đoán).",
+      "distractor_breakdowns": [
+        {
+          "option": "can't",
+          "isCorrect": true,
+          "pedagogicalReason": "Suy đoán chắc chắn KHÔNG THỂ ĐÚNG ở hiện tại (vì ông Bình hiện đang ở Tokyo) → dùng \"can't be\" (tuyệt đối không dùng \"mustn't be\" cho suy đoán)."
+        },
+        {
+          "option": "must",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"must\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"can't\"). Suy đoán chắc chắn KHÔNG THỂ ĐÚNG ở hiện tại (vì ông Bình hiện đang ở Tokyo) → dùng \"can't be\" (tuyệt đối không dùng \"mustn't be\" cho suy đoán)."
+        },
+        {
+          "option": "might",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"might\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"can't\"). Suy đoán chắc chắn KHÔNG THỂ ĐÚNG ở hiện tại (vì ông Bình hiện đang ở Tokyo) → dùng \"can't be\" (tuyệt đối không dùng \"mustn't be\" cho suy đoán)."
+        },
+        {
+          "option": "should",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"should\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"can't\"). Suy đoán chắc chắn KHÔNG THỂ ĐÚNG ở hiện tại (vì ông Bình hiện đang ở Tokyo) → dùng \"can't be\" (tuyệt đối không dùng \"mustn't be\" cho suy đoán)."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "modals-deduction-ex-03",
+      "type": "multiple_choice",
+      "question": "I don't know where Mai is. She ___ be in the library, or perhaps in the canteen.",
+      "options": [
+        "might",
+        "must",
+        "can't",
+        "has to"
+      ],
+      "correct_answer": "might",
+      "explanation": "Suy đoán không chắc chắn (\"I don't know... perhaps\") → dùng \"might / may / could be\" (có lẽ đang ở).",
+      "distractor_breakdowns": [
+        {
+          "option": "might",
+          "isCorrect": true,
+          "pedagogicalReason": "Suy đoán không chắc chắn (\"I don't know... perhaps\") → dùng \"might / may / could be\" (có lẽ đang ở)."
+        },
+        {
+          "option": "must",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"must\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"might\"). Suy đoán không chắc chắn (\"I don't know... perhaps\") → dùng \"might / may / could be\" (có lẽ đang ở)."
+        },
+        {
+          "option": "can't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"can't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"might\"). Suy đoán không chắc chắn (\"I don't know... perhaps\") → dùng \"might / may / could be\" (có lẽ đang ở)."
+        },
+        {
+          "option": "has to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"might\"). Suy đoán không chắc chắn (\"I don't know... perhaps\") → dùng \"might / may / could be\" (có lẽ đang ở)."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "modals-deduction-ex-04",
+      "type": "fill_blank",
+      "question": "She has worked for twelve hours non-stop. She ___ be exhausted!",
+      "options": [
+        "must",
+        "can't",
+        "may not",
+        "couldn't"
+      ],
+      "correct_answer": "must",
+      "explanation": "Làm việc 12 tiếng liên tục thì chắc chắn hiện tại đang rất kiệt sức → điền \"must\".",
+      "distractor_breakdowns": [
+        {
+          "option": "must",
+          "isCorrect": true,
+          "pedagogicalReason": "Làm việc 12 tiếng liên tục thì chắc chắn hiện tại đang rất kiệt sức → điền \"must\"."
+        },
+        {
+          "option": "can't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"can't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"must\"). Làm việc 12 tiếng liên tục thì chắc chắn hiện tại đang rất kiệt sức → điền \"must\"."
+        },
+        {
+          "option": "may not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"may not\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"must\"). Làm việc 12 tiếng liên tục thì chắc chắn hiện tại đang rất kiệt sức → điền \"must\"."
+        },
+        {
+          "option": "couldn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"couldn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"must\"). Làm việc 12 tiếng liên tục thì chắc chắn hiện tại đang rất kiệt sức → điền \"must\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "modals-deduction-ex-05",
+      "type": "multiple_choice",
+      "question": "You have just had a big lunch. You ___ be hungry already!",
+      "options": [
+        "can't",
+        "must",
+        "may",
+        "might"
+      ],
+      "correct_answer": "can't",
+      "explanation": "Vừa mới ăn một bữa trưa thịnh soạn xong thì \"không thể nào\" đã đói bụng ngay được → dùng \"can't\".",
+      "distractor_breakdowns": [
+        {
+          "option": "can't",
+          "isCorrect": true,
+          "pedagogicalReason": "Vừa mới ăn một bữa trưa thịnh soạn xong thì \"không thể nào\" đã đói bụng ngay được → dùng \"can't\"."
+        },
+        {
+          "option": "must",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"must\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"can't\"). Vừa mới ăn một bữa trưa thịnh soạn xong thì \"không thể nào\" đã đói bụng ngay được → dùng \"can't\"."
+        },
+        {
+          "option": "may",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"may\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"can't\"). Vừa mới ăn một bữa trưa thịnh soạn xong thì \"không thể nào\" đã đói bụng ngay được → dùng \"can't\"."
+        },
+        {
+          "option": "might",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"might\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"can't\"). Vừa mới ăn một bữa trưa thịnh soạn xong thì \"không thể nào\" đã đói bụng ngay được → dùng \"can't\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "modals-deduction-ex-06",
+      "type": "fill_blank",
+      "question": "Don't make a noise. The baby ___ be sleeping in the next room.",
+      "options": [
+        "might",
+        "can't",
+        "mustn't",
+        "have to"
+      ],
+      "correct_answer": "might",
+      "explanation": "Suy đoán hành động có thể đang diễn ra ngay lúc nói: \"might / must + be + V-ing\".",
+      "distractor_breakdowns": [
+        {
+          "option": "might",
+          "isCorrect": true,
+          "pedagogicalReason": "Suy đoán hành động có thể đang diễn ra ngay lúc nói: \"might / must + be + V-ing\"."
+        },
+        {
+          "option": "can't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"can't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"might\"). Suy đoán hành động có thể đang diễn ra ngay lúc nói: \"might / must + be + V-ing\"."
+        },
+        {
+          "option": "mustn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"mustn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"might\"). Suy đoán hành động có thể đang diễn ra ngay lúc nói: \"might / must + be + V-ing\"."
+        },
+        {
+          "option": "have to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"might\"). Suy đoán hành động có thể đang diễn ra ngay lúc nói: \"might / must + be + V-ing\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-deduction-ex-07",
+      "type": "multiple_choice",
+      "question": "The lights are on in her room, so she ___ studying right now.",
+      "options": [
+        "must be",
+        "can be",
+        "must",
+        "might"
+      ],
+      "correct_answer": "must be",
+      "explanation": "Trước V-ing (\"studying\"), cấu trúc suy đoán tiếp diễn ở hiện tại là \"must be + V-ing\".",
+      "distractor_breakdowns": [
+        {
+          "option": "must be",
+          "isCorrect": true,
+          "pedagogicalReason": "Trước V-ing (\"studying\"), cấu trúc suy đoán tiếp diễn ở hiện tại là \"must be + V-ing\"."
+        },
+        {
+          "option": "can be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"can be\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"must be\"). Trước V-ing (\"studying\"), cấu trúc suy đoán tiếp diễn ở hiện tại là \"must be + V-ing\"."
+        },
+        {
+          "option": "must",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"must\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"must be\"). Trước V-ing (\"studying\"), cấu trúc suy đoán tiếp diễn ở hiện tại là \"must be + V-ing\"."
+        },
+        {
+          "option": "might",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"might\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"must be\"). Trước V-ing (\"studying\"), cấu trúc suy đoán tiếp diễn ở hiện tại là \"must be + V-ing\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-deduction-ex-08",
+      "type": "fill_blank",
+      "question": "Take an umbrella with you. It ___ rain this afternoon, though I'm not sure.",
+      "options": [
+        "may",
+        "must",
+        "can't",
+        "shall"
+      ],
+      "correct_answer": "may",
+      "explanation": "Có dấu hiệu không chắc chắn (\"though I'm not sure\") → dùng \"may\" (hoặc \"might / could\").",
+      "distractor_breakdowns": [
+        {
+          "option": "may",
+          "isCorrect": true,
+          "pedagogicalReason": "Có dấu hiệu không chắc chắn (\"though I'm not sure\") → dùng \"may\" (hoặc \"might / could\")."
+        },
+        {
+          "option": "must",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"must\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"may\"). Có dấu hiệu không chắc chắn (\"though I'm not sure\") → dùng \"may\" (hoặc \"might / could\")."
+        },
+        {
+          "option": "can't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"can't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"may\"). Có dấu hiệu không chắc chắn (\"though I'm not sure\") → dùng \"may\" (hoặc \"might / could\")."
+        },
+        {
+          "option": "shall",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"shall\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"may\"). Có dấu hiệu không chắc chắn (\"though I'm not sure\") → dùng \"may\" (hoặc \"might / could\")."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-deduction-ex-09",
+      "type": "multiple_choice",
+      "question": "He drives a very expensive sports car. He ___ have a high income.",
+      "options": [
+        "must",
+        "can't",
+        "could not",
+        "mustn't"
+      ],
+      "correct_answer": "must",
+      "explanation": "Suy luận logic dựa trên bằng chứng hiện tại (lái siêu xe đắt tiền → chắc hẳn có thu nhập cao) → dùng \"must\".",
+      "distractor_breakdowns": [
+        {
+          "option": "must",
+          "isCorrect": true,
+          "pedagogicalReason": "Suy luận logic dựa trên bằng chứng hiện tại (lái siêu xe đắt tiền → chắc hẳn có thu nhập cao) → dùng \"must\"."
+        },
+        {
+          "option": "can't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"can't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"must\"). Suy luận logic dựa trên bằng chứng hiện tại (lái siêu xe đắt tiền → chắc hẳn có thu nhập cao) → dùng \"must\"."
+        },
+        {
+          "option": "could not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"could not\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"must\"). Suy luận logic dựa trên bằng chứng hiện tại (lái siêu xe đắt tiền → chắc hẳn có thu nhập cao) → dùng \"must\"."
+        },
+        {
+          "option": "mustn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"mustn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"must\"). Suy luận logic dựa trên bằng chứng hiện tại (lái siêu xe đắt tiền → chắc hẳn có thu nhập cao) → dùng \"must\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "modals-deduction-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: That rumor mustn't be true because I know her very well.",
+      "options": [
+        "That rumor",
+        "mustn't",
+        "be true",
+        "know her"
+      ],
+      "correct_answer": "mustn't",
+      "explanation": "Khi suy đoán một điều \"chắc chắn không thể đúng\", tiếng Anh bắt buộc dùng \"can't be\", KHÔNG dùng \"mustn't be\" (mustn't chỉ dùng để cấm đoán).",
+      "distractor_breakdowns": [
+        {
+          "option": "That rumor",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"That rumor\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "mustn't",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi suy đoán một điều \"chắc chắn không thể đúng\", tiếng Anh bắt buộc dùng \"can't be\", KHÔNG dùng \"mustn't be\" (mustn't chỉ dùng để cấm đoán)."
+        },
+        {
+          "option": "be true",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"be true\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "know her",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"know her\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-deduction-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: She isn't answering her phone; she must driving to work now.",
+      "options": [
+        "isn't answering",
+        "must",
+        "driving",
+        "now"
+      ],
+      "correct_answer": "driving",
+      "explanation": "Cấu trúc suy đoán hành động đang diễn ra ở hiện tại là \"must + be + V-ing\". Thiếu \"be\" trước \"driving\" → phải sửa thành \"be driving\".",
+      "distractor_breakdowns": [
+        {
+          "option": "isn't answering",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"isn't answering\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "must",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"must\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "driving",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc suy đoán hành động đang diễn ra ở hiện tại là \"must + be + V-ing\". Thiếu \"be\" trước \"driving\" → phải sửa thành \"be driving\"."
+        },
+        {
+          "option": "now",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"now\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "modals-deduction-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: Look at the snow outside! It can be very cold today.",
+      "options": [
+        "Look at",
+        "outside",
+        "can",
+        "very cold"
+      ],
+      "correct_answer": "can",
+      "explanation": "Suy đoán chắc chắn đúng cho một tình huống cụ thể đang diễn ra trước mắt (\"Look at the snow!\") phải dùng \"must be\", không dùng \"can be\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Look at",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"Look at\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "outside",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"outside\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "can",
+          "isCorrect": true,
+          "pedagogicalReason": "Suy đoán chắc chắn đúng cho một tình huống cụ thể đang diễn ra trước mắt (\"Look at the snow!\") phải dùng \"must be\", không dùng \"can be\"."
+        },
+        {
+          "option": "very cold",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"very cold\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
     }
   ]
 }

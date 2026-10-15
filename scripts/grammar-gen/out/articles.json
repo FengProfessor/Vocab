@@ -361,29 +361,35 @@
     {
       "id": "articles-ex-01",
       "type": "multiple_choice",
-      "question": "I have ___ book.",
+      "question": "I have ___ new notebook in my bag.",
       "options": [
         "a",
         "an",
-        "the"
+        "the",
+        "Ø (không dùng)"
       ],
       "correct_answer": "a",
-      "explanation": "Book bắt đầu bằng âm phụ âm; nhắc lần đầu dùng a.",
+      "explanation": "\"new notebook\" là danh từ đếm được số ít được nhắc đến lần đầu, bắt đầu bằng âm phụ âm /n/ → dùng \"a\".",
       "distractor_breakdowns": [
         {
           "option": "a",
           "isCorrect": true,
-          "pedagogicalReason": "Book bắt đầu bằng âm phụ âm; nhắc lần đầu dùng a."
+          "pedagogicalReason": "\"new notebook\" là danh từ đếm được số ít được nhắc đến lần đầu, bắt đầu bằng âm phụ âm /n/ → dùng \"a\"."
         },
         {
           "option": "an",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Mạo từ \"an\" chỉ đứng trước danh từ đếm được số ít phát âm bắt đầu bằng một nguyên âm."
+          "pedagogicalReason": "Không chính xác. \"an\" chỉ dùng trước danh từ đếm được số ít bắt đầu bằng âm nguyên âm. \"new notebook\" là danh từ đếm được số ít được nhắc đến lần đầu, bắt đầu bằng âm phụ âm /n/ → dùng \"a\"."
         },
         {
           "option": "the",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Mạo từ xác định \"the\" chỉ dùng cho đối tượng đã được xác định cụ thể trong ngữ cảnh."
+          "pedagogicalReason": "Không chính xác. \"the\" dùng cho đối tượng đã xác định hoặc duy nhất. \"new notebook\" là danh từ đếm được số ít được nhắc đến lần đầu, bắt đầu bằng âm phụ âm /n/ → dùng \"a\"."
+        },
+        {
+          "option": "Ø (không dùng)",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Ø (không dùng)\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"a\"). \"new notebook\" là danh từ đếm được số ít được nhắc đến lần đầu, bắt đầu bằng âm phụ âm /n/ → dùng \"a\"."
         }
       ],
       "difficulty": 1
@@ -391,53 +397,71 @@
     {
       "id": "articles-ex-02",
       "type": "multiple_choice",
-      "question": "She has ___ apple.",
+      "question": "She eats ___ apple every morning.",
       "options": [
         "an",
         "a",
+        "the",
         "some"
       ],
       "correct_answer": "an",
-      "explanation": "Apple bắt đầu bằng âm nguyên âm; dùng an.",
+      "explanation": "\"apple\" là danh từ số ít bắt đầu bằng âm nguyên âm /æ/ → dùng mạo từ \"an\".",
       "distractor_breakdowns": [
         {
           "option": "an",
           "isCorrect": true,
-          "pedagogicalReason": "Apple bắt đầu bằng âm nguyên âm; dùng an."
+          "pedagogicalReason": "\"apple\" là danh từ số ít bắt đầu bằng âm nguyên âm /æ/ → dùng mạo từ \"an\"."
         },
         {
           "option": "a",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Mạo từ \"a\" chỉ đứng trước danh từ đếm được số ít phát âm bắt đầu bằng một phụ âm."
+          "pedagogicalReason": "Không chính xác. \"a\" chỉ dùng trước danh từ đếm được số ít chưa xác định bắt đầu bằng âm phụ âm. \"apple\" là danh từ số ít bắt đầu bằng âm nguyên âm /æ/ → dùng mạo từ \"an\"."
+        },
+        {
+          "option": "the",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"the\" dùng cho đối tượng đã xác định hoặc duy nhất. \"apple\" là danh từ số ít bắt đầu bằng âm nguyên âm /æ/ → dùng mạo từ \"an\"."
         },
         {
           "option": "some",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"some\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"some\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"an\"). \"apple\" là danh từ số ít bắt đầu bằng âm nguyên âm /æ/ → dùng mạo từ \"an\"."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "articles-ex-03",
-      "type": "multiple_choice",
-      "question": "He is ___ teacher. (a / an)",
+      "type": "fill_blank",
+      "question": "I saw a cat in the garden. ___ cat was sleeping.",
       "options": [
-        "a",
-        "an"
+        "The",
+        "A",
+        "An",
+        "Some"
       ],
-      "correct_answer": "a",
-      "explanation": "Teacher bắt đầu bằng âm /t/; dùng a.",
+      "correct_answer": "The",
+      "explanation": "Con mèo đã được nhắc đến ở câu trước (cả người nói và người nghe đều biết là con mèo nào) → dùng mạo từ xác định \"The\".",
       "distractor_breakdowns": [
         {
-          "option": "a",
+          "option": "The",
           "isCorrect": true,
-          "pedagogicalReason": "Teacher bắt đầu bằng âm /t/; dùng a."
+          "pedagogicalReason": "Con mèo đã được nhắc đến ở câu trước (cả người nói và người nghe đều biết là con mèo nào) → dùng mạo từ xác định \"The\"."
         },
         {
-          "option": "an",
+          "option": "A",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Mạo từ \"an\" chỉ đứng trước danh từ đếm được số ít phát âm bắt đầu bằng một nguyên âm."
+          "pedagogicalReason": "Không chính xác. \"a\" chỉ dùng trước danh từ đếm được số ít chưa xác định bắt đầu bằng âm phụ âm. Con mèo đã được nhắc đến ở câu trước (cả người nói và người nghe đều biết là con mèo nào) → dùng mạo từ xác định \"The\"."
+        },
+        {
+          "option": "An",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"an\" chỉ dùng trước danh từ đếm được số ít bắt đầu bằng âm nguyên âm. Con mèo đã được nhắc đến ở câu trước (cả người nói và người nghe đều biết là con mèo nào) → dùng mạo từ xác định \"The\"."
+        },
+        {
+          "option": "Some",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Some\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"The\"). Con mèo đã được nhắc đến ở câu trước (cả người nói và người nghe đều biết là con mèo nào) → dùng mạo từ xác định \"The\"."
         }
       ],
       "difficulty": 1
@@ -445,53 +469,71 @@
     {
       "id": "articles-ex-04",
       "type": "multiple_choice",
-      "question": "I saw a dog. ___ dog was black.",
+      "question": "It takes me ___ hour to get to work.",
       "options": [
-        "The",
-        "A",
-        "An"
+        "an",
+        "a",
+        "the",
+        "one of"
       ],
-      "correct_answer": "The",
-      "explanation": "Đã nhắc a dog rồi, lần sau dùng the dog.",
+      "correct_answer": "an",
+      "explanation": "Từ \"hour\" (/aʊər/) có chữ \"h\" câm, phát âm bắt đầu bằng nguyên âm nên bắt buộc dùng \"an hour\".",
       "distractor_breakdowns": [
         {
-          "option": "The",
+          "option": "an",
           "isCorrect": true,
-          "pedagogicalReason": "Đã nhắc a dog rồi, lần sau dùng the dog."
+          "pedagogicalReason": "Từ \"hour\" (/aʊər/) có chữ \"h\" câm, phát âm bắt đầu bằng nguyên âm nên bắt buộc dùng \"an hour\"."
         },
         {
-          "option": "A",
+          "option": "a",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. A dog rồi, lần sau dùng the dog."
+          "pedagogicalReason": "Không chính xác. \"a\" chỉ dùng trước danh từ đếm được số ít chưa xác định bắt đầu bằng âm phụ âm. Từ \"hour\" (/aʊər/) có chữ \"h\" câm, phát âm bắt đầu bằng nguyên âm nên bắt buộc dùng \"an hour\"."
         },
         {
-          "option": "An",
+          "option": "the",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Mạo từ \"an\" chỉ đứng trước danh từ đếm được số ít phát âm bắt đầu bằng một nguyên âm."
+          "pedagogicalReason": "Không chính xác. \"the\" dùng cho đối tượng đã xác định hoặc duy nhất. Từ \"hour\" (/aʊər/) có chữ \"h\" câm, phát âm bắt đầu bằng nguyên âm nên bắt buộc dùng \"an hour\"."
+        },
+        {
+          "option": "one of",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"one of\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"an\"). Từ \"hour\" (/aʊər/) có chữ \"h\" câm, phát âm bắt đầu bằng nguyên âm nên bắt buộc dùng \"an hour\"."
         }
       ],
       "difficulty": 2
     },
     {
       "id": "articles-ex-05",
-      "type": "multiple_choice",
-      "question": "This is ___ orange. (a / an)",
+      "type": "fill_blank",
+      "question": "My sister studies at ___ university in Hanoi.",
       "options": [
         "a",
-        "an"
+        "an",
+        "the",
+        "some"
       ],
-      "correct_answer": "an",
-      "explanation": "Orange bắt đầu bằng âm nguyên âm; dùng an.",
+      "correct_answer": "a",
+      "explanation": "Từ \"university\" (/ˌjuːnɪˈvɜːsəti/) viết bằng chữ \"u\" nhưng phát âm bắt đầu bằng phụ âm /j/ nên dùng \"a university\".",
       "distractor_breakdowns": [
         {
           "option": "a",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Mạo từ \"a\" chỉ đứng trước danh từ đếm được số ít phát âm bắt đầu bằng một phụ âm."
+          "isCorrect": true,
+          "pedagogicalReason": "Từ \"university\" (/ˌjuːnɪˈvɜːsəti/) viết bằng chữ \"u\" nhưng phát âm bắt đầu bằng phụ âm /j/ nên dùng \"a university\"."
         },
         {
           "option": "an",
-          "isCorrect": true,
-          "pedagogicalReason": "Orange bắt đầu bằng âm nguyên âm; dùng an."
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"an\" chỉ dùng trước danh từ đếm được số ít bắt đầu bằng âm nguyên âm. Từ \"university\" (/ˌjuːnɪˈvɜːsəti/) viết bằng chữ \"u\" nhưng phát âm bắt đầu bằng phụ âm /j/ nên dùng \"a university\"."
+        },
+        {
+          "option": "the",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"the\" dùng cho đối tượng đã xác định hoặc duy nhất. Từ \"university\" (/ˌjuːnɪˈvɜːsəti/) viết bằng chữ \"u\" nhưng phát âm bắt đầu bằng phụ âm /j/ nên dùng \"a university\"."
+        },
+        {
+          "option": "some",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"some\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"a\"). Từ \"university\" (/ˌjuːnɪˈvɜːsəti/) viết bằng chữ \"u\" nhưng phát âm bắt đầu bằng phụ âm /j/ nên dùng \"a university\"."
         }
       ],
       "difficulty": 2
@@ -499,86 +541,254 @@
     {
       "id": "articles-ex-06",
       "type": "multiple_choice",
-      "question": "Choose the correct phrase.",
+      "question": "___ sun rises in the east.",
       "options": [
-        "an umbrella",
-        "a umbrella",
-        "the umbrella for the first mention"
+        "The",
+        "A",
+        "An",
+        "Ø (không dùng)"
       ],
-      "correct_answer": "an umbrella",
-      "explanation": "Umbrella bắt đầu bằng âm nguyên âm; lần đầu nhắc dùng an umbrella.",
+      "correct_answer": "The",
+      "explanation": "\"sun\" (Mặt Trời) và \"east\" (phía Đông) là những sự vật duy nhất/phương hướng nên luôn dùng mạo từ \"The\".",
       "distractor_breakdowns": [
         {
-          "option": "an umbrella",
+          "option": "The",
           "isCorrect": true,
-          "pedagogicalReason": "Umbrella bắt đầu bằng âm nguyên âm; lần đầu nhắc dùng an umbrella."
+          "pedagogicalReason": "\"sun\" (Mặt Trời) và \"east\" (phía Đông) là những sự vật duy nhất/phương hướng nên luôn dùng mạo từ \"The\"."
         },
         {
-          "option": "a umbrella",
+          "option": "A",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"a umbrella\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. \"a\" chỉ dùng trước danh từ đếm được số ít chưa xác định bắt đầu bằng âm phụ âm. \"sun\" (Mặt Trời) và \"east\" (phía Đông) là những sự vật duy nhất/phương hướng nên luôn dùng mạo từ \"The\"."
         },
         {
-          "option": "the umbrella for the first mention",
+          "option": "An",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"the umbrella for the first mention\" là danh từ trừu tượng, không thể đảm nhận vai trò tính từ hoặc động từ ở vị trí này."
+          "pedagogicalReason": "Không chính xác. \"an\" chỉ dùng trước danh từ đếm được số ít bắt đầu bằng âm nguyên âm. \"sun\" (Mặt Trời) và \"east\" (phía Đông) là những sự vật duy nhất/phương hướng nên luôn dùng mạo từ \"The\"."
+        },
+        {
+          "option": "Ø (không dùng)",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Ø (không dùng)\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"The\"). \"sun\" (Mặt Trời) và \"east\" (phía Đông) là những sự vật duy nhất/phương hướng nên luôn dùng mạo từ \"The\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "articles-ex-07",
+      "type": "fill_blank",
+      "question": "Please take ___ umbrella with you; it is raining.",
+      "options": [
+        "an",
+        "a",
+        "the",
+        "any"
+      ],
+      "correct_answer": "an",
+      "explanation": "\"umbrella\" (/ʌmˈbrelə/) bắt đầu bằng âm nguyên âm /ʌ/ → dùng \"an\".",
+      "distractor_breakdowns": [
+        {
+          "option": "an",
+          "isCorrect": true,
+          "pedagogicalReason": "\"umbrella\" (/ʌmˈbrelə/) bắt đầu bằng âm nguyên âm /ʌ/ → dùng \"an\"."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"a\" chỉ dùng trước danh từ đếm được số ít chưa xác định bắt đầu bằng âm phụ âm. \"umbrella\" (/ʌmˈbrelə/) bắt đầu bằng âm nguyên âm /ʌ/ → dùng \"an\"."
+        },
+        {
+          "option": "the",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"the\" dùng cho đối tượng đã xác định hoặc duy nhất. \"umbrella\" (/ʌmˈbrelə/) bắt đầu bằng âm nguyên âm /ʌ/ → dùng \"an\"."
+        },
+        {
+          "option": "any",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"any\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"an\"). \"umbrella\" (/ʌmˈbrelə/) bắt đầu bằng âm nguyên âm /ʌ/ → dùng \"an\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "articles-ex-08",
+      "type": "multiple_choice",
+      "question": "Could you please close ___ door?",
+      "options": [
+        "the",
+        "a",
+        "an",
+        "some"
+      ],
+      "correct_answer": "the",
+      "explanation": "Cả người nói và người nghe trong phòng đều biết rõ cánh cửa nào cần đóng → dùng \"the door\".",
+      "distractor_breakdowns": [
+        {
+          "option": "the",
+          "isCorrect": true,
+          "pedagogicalReason": "Cả người nói và người nghe trong phòng đều biết rõ cánh cửa nào cần đóng → dùng \"the door\"."
+        },
+        {
+          "option": "a",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"a\" chỉ dùng trước danh từ đếm được số ít chưa xác định bắt đầu bằng âm phụ âm. Cả người nói và người nghe trong phòng đều biết rõ cánh cửa nào cần đóng → dùng \"the door\"."
+        },
+        {
+          "option": "an",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"an\" chỉ dùng trước danh từ đếm được số ít bắt đầu bằng âm nguyên âm. Cả người nói và người nghe trong phòng đều biết rõ cánh cửa nào cần đóng → dùng \"the door\"."
+        },
+        {
+          "option": "some",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"some\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"the\"). Cả người nói và người nghe trong phòng đều biết rõ cánh cửa nào cần đóng → dùng \"the door\"."
         }
       ],
       "difficulty": 2
     },
     {
-      "id": "articles-ex-07",
-      "type": "multiple_choice",
-      "question": "Please close ___ door. (the / a; both people know which door)",
+      "id": "articles-ex-09",
+      "type": "fill_blank",
+      "question": "My father is ___ honest man.",
       "options": [
+        "an",
+        "a",
         "the",
-        "a"
+        "very"
       ],
-      "correct_answer": "the",
-      "explanation": "Hai người đều biết cánh cửa nào nên dùng the.",
+      "correct_answer": "an",
+      "explanation": "\"honest\" (/ˈɒnɪst/) có chữ \"h\" câm, phát âm bắt đầu bằng nguyên âm /ɒ/ và đứng trước danh từ số ít \"man\" → dùng \"an\".",
       "distractor_breakdowns": [
         {
-          "option": "the",
+          "option": "an",
           "isCorrect": true,
-          "pedagogicalReason": "Hai người đều biết cánh cửa nào nên dùng the."
+          "pedagogicalReason": "\"honest\" (/ˈɒnɪst/) có chữ \"h\" câm, phát âm bắt đầu bằng nguyên âm /ɒ/ và đứng trước danh từ số ít \"man\" → dùng \"an\"."
         },
         {
           "option": "a",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. A nào nên dùng the."
+          "pedagogicalReason": "Không chính xác. \"a\" chỉ dùng trước danh từ đếm được số ít chưa xác định bắt đầu bằng âm phụ âm. \"honest\" (/ˈɒnɪst/) có chữ \"h\" câm, phát âm bắt đầu bằng nguyên âm /ɒ/ và đứng trước danh từ số ít \"man\" → dùng \"an\"."
+        },
+        {
+          "option": "the",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"the\" dùng cho đối tượng đã xác định hoặc duy nhất. \"honest\" (/ˈɒnɪst/) có chữ \"h\" câm, phát âm bắt đầu bằng nguyên âm /ɒ/ và đứng trước danh từ số ít \"man\" → dùng \"an\"."
+        },
+        {
+          "option": "very",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"very\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"an\"). \"honest\" (/ˈɒnɪst/) có chữ \"h\" câm, phát âm bắt đầu bằng nguyên âm /ɒ/ và đứng trước danh từ số ít \"man\" → dùng \"an\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "articles-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: She bought an uniform for the new school year.",
+      "options": [
+        "bought",
+        "an",
+        "uniform",
+        "new"
+      ],
+      "correct_answer": "an",
+      "explanation": "\"uniform\" (/ˈjuːnɪfɔːm/) phát âm bắt đầu bằng âm phụ âm /j/ nên phải dùng \"a uniform\", không dùng \"an\".",
+      "distractor_breakdowns": [
+        {
+          "option": "bought",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"bought\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "an",
+          "isCorrect": true,
+          "pedagogicalReason": "\"uniform\" (/ˈjuːnɪfɔːm/) phát âm bắt đầu bằng âm phụ âm /j/ nên phải dùng \"a uniform\", không dùng \"an\"."
+        },
+        {
+          "option": "uniform",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"uniform\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "new",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"new\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
       "difficulty": 3
     },
     {
-      "id": "articles-ex-08",
-      "type": "multiple_choice",
-      "question": "She bought a pen. Where is ___ pen now?",
+      "id": "articles-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: My brother is teacher at a primary school.",
       "options": [
-        "the",
-        "a",
-        "an"
+        "My",
+        "is teacher",
+        "at",
+        "primary"
       ],
-      "correct_answer": "the",
-      "explanation": "Chiếc bút đã được xác định ở câu trước.",
+      "correct_answer": "is teacher",
+      "explanation": "Khi nói về nghề nghiệp của một người (danh từ đếm được số ít), bắt buộc phải có mạo từ \"a/an\": \"is a teacher\".",
       "distractor_breakdowns": [
         {
-          "option": "the",
+          "option": "My",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"My\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "is teacher",
           "isCorrect": true,
-          "pedagogicalReason": "Chiếc bút đã được xác định ở câu trước."
+          "pedagogicalReason": "Khi nói về nghề nghiệp của một người (danh từ đếm được số ít), bắt buộc phải có mạo từ \"a/an\": \"is a teacher\"."
         },
         {
-          "option": "a",
+          "option": "at",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Mạo từ \"a\" chỉ đứng trước danh từ đếm được số ít phát âm bắt đầu bằng một phụ âm."
+          "pedagogicalReason": "Không chính xác. Thành phần \"at\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         },
         {
-          "option": "an",
+          "option": "primary",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Mạo từ \"an\" chỉ đứng trước danh từ đếm được số ít phát âm bắt đầu bằng một nguyên âm."
+          "pedagogicalReason": "Không chính xác. Thành phần \"primary\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
-      "difficulty": 3
+      "difficulty": 2
+    },
+    {
+      "id": "articles-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: Look at a moon in the sky tonight!",
+      "options": [
+        "Look",
+        "a moon",
+        "in",
+        "sky"
+      ],
+      "correct_answer": "a moon",
+      "explanation": "Mặt Trăng (the moon) là vật thể duy nhất nên phải dùng \"the moon\", không dùng \"a moon\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Look",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"Look\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "a moon",
+          "isCorrect": true,
+          "pedagogicalReason": "Mặt Trăng (the moon) là vật thể duy nhất nên phải dùng \"the moon\", không dùng \"a moon\"."
+        },
+        {
+          "option": "in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"in\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "sky",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"sky\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
     }
   ]
 }

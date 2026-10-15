@@ -477,29 +477,435 @@
   "exercises": [
     {
       "id": "third-conditional-ex-01",
-      "type": "fill_blank",
-      "question": "Hoàn thành theo mẫu: She ___ have passed if she had studied.",
-      "options": [],
-      "correct_answer": "would",
-      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "type": "multiple_choice",
+      "question": "If I ___ harder last semester, I would have passed the exam.",
+      "options": [
+        "had studied",
+        "studied",
+        "have studied",
+        "would have studied"
+      ],
+      "correct_answer": "had studied",
+      "explanation": "Câu điều kiện loại 3 diễn tả điều ước/giả định trái ngược với quá khứ (\"last semester\"): mệnh đề If dùng \"had + V3/ed\" (\"had studied\").",
       "distractor_breakdowns": [
         {
-          "option": "would",
+          "option": "had studied",
           "isCorrect": true,
-          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+          "pedagogicalReason": "Câu điều kiện loại 3 diễn tả điều ước/giả định trái ngược với quá khứ (\"last semester\"): mệnh đề If dùng \"had + V3/ed\" (\"had studied\")."
         },
         {
-          "option": "will",
+          "option": "studied",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Mệnh đề if ở quá khứ hoàn thành (\"had studied\"), câu điều kiện loại 3 dùng \"would have + V3\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"studied\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had studied\"). Câu điều kiện loại 3 diễn tả điều ước/giả định trái ngược với quá khứ (\"last semester\"): mệnh đề If dùng \"had + V3/ed\" (\"had studied\")."
         },
         {
-          "option": "would had",
+          "option": "have studied",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Sau động từ khuyết thiếu \"would\", trợ động từ phải ở dạng nguyên mẫu \"have\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"have studied\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had studied\"). Câu điều kiện loại 3 diễn tả điều ước/giả định trái ngược với quá khứ (\"last semester\"): mệnh đề If dùng \"had + V3/ed\" (\"had studied\")."
+        },
+        {
+          "option": "would have studied",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"would have studied\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had studied\"). Câu điều kiện loại 3 diễn tả điều ước/giả định trái ngược với quá khứ (\"last semester\"): mệnh đề If dùng \"had + V3/ed\" (\"had studied\")."
         }
       ],
       "difficulty": 1
+    },
+    {
+      "id": "third-conditional-ex-02",
+      "type": "fill_blank",
+      "question": "If they had left earlier, they ___ missed the flight.",
+      "options": [
+        "wouldn't have",
+        "won't have",
+        "wouldn't",
+        "didn't"
+      ],
+      "correct_answer": "wouldn't have",
+      "explanation": "Mệnh đề chính của câu điều kiện loại 3 ở dạng phủ định là \"wouldn't have + V3/ed\" (\"wouldn't have missed\").",
+      "distractor_breakdowns": [
+        {
+          "option": "wouldn't have",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề chính của câu điều kiện loại 3 ở dạng phủ định là \"wouldn't have + V3/ed\" (\"wouldn't have missed\")."
+        },
+        {
+          "option": "won't have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"won't have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wouldn't have\"). Mệnh đề chính của câu điều kiện loại 3 ở dạng phủ định là \"wouldn't have + V3/ed\" (\"wouldn't have missed\")."
+        },
+        {
+          "option": "wouldn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"wouldn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wouldn't have\"). Mệnh đề chính của câu điều kiện loại 3 ở dạng phủ định là \"wouldn't have + V3/ed\" (\"wouldn't have missed\")."
+        },
+        {
+          "option": "didn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"didn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wouldn't have\"). Mệnh đề chính của câu điều kiện loại 3 ở dạng phủ định là \"wouldn't have + V3/ed\" (\"wouldn't have missed\")."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "third-conditional-ex-03",
+      "type": "multiple_choice",
+      "question": "If she ___ me about the meeting yesterday, I would have attended it.",
+      "options": [
+        "had told",
+        "told",
+        "has told",
+        "would tell"
+      ],
+      "correct_answer": "had told",
+      "explanation": "Sự việc đã xảy ra ngày hôm qua (\"yesterday\") + kết quả \"would have attended\" → mệnh đề If dùng \"had told\".",
+      "distractor_breakdowns": [
+        {
+          "option": "had told",
+          "isCorrect": true,
+          "pedagogicalReason": "Sự việc đã xảy ra ngày hôm qua (\"yesterday\") + kết quả \"would have attended\" → mệnh đề If dùng \"had told\"."
+        },
+        {
+          "option": "told",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"told\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had told\"). Sự việc đã xảy ra ngày hôm qua (\"yesterday\") + kết quả \"would have attended\" → mệnh đề If dùng \"had told\"."
+        },
+        {
+          "option": "has told",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has told\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had told\"). Sự việc đã xảy ra ngày hôm qua (\"yesterday\") + kết quả \"would have attended\" → mệnh đề If dùng \"had told\"."
+        },
+        {
+          "option": "would tell",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"would tell\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had told\"). Sự việc đã xảy ra ngày hôm qua (\"yesterday\") + kết quả \"would have attended\" → mệnh đề If dùng \"had told\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "third-conditional-ex-04",
+      "type": "fill_blank",
+      "question": "We ___ gone to the beach if the weather had been nice last Sunday.",
+      "options": [
+        "would have",
+        "would",
+        "will have",
+        "had"
+      ],
+      "correct_answer": "would have",
+      "explanation": "Mệnh đề If có \"had been\" + phía sau chỗ trống có V3 \"gone\" → điền \"would have\".",
+      "distractor_breakdowns": [
+        {
+          "option": "would have",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề If có \"had been\" + phía sau chỗ trống có V3 \"gone\" → điền \"would have\"."
+        },
+        {
+          "option": "would",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"would\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"would have\"). Mệnh đề If có \"had been\" + phía sau chỗ trống có V3 \"gone\" → điền \"would have\"."
+        },
+        {
+          "option": "will have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"would have\"). Mệnh đề If có \"had been\" + phía sau chỗ trống có V3 \"gone\" → điền \"would have\"."
+        },
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"had\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"would have\"). Mệnh đề If có \"had been\" + phía sau chỗ trống có V3 \"gone\" → điền \"would have\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "third-conditional-ex-05",
+      "type": "multiple_choice",
+      "question": "If the driver ___ more careful, the accident wouldn't have happened.",
+      "options": [
+        "had been",
+        "was",
+        "were",
+        "would be"
+      ],
+      "correct_answer": "had been",
+      "explanation": "Tai nạn đã xảy ra trong quá khứ (\"wouldn't have happened\") → mệnh đề If chia quá khứ hoàn thành \"had been\".",
+      "distractor_breakdowns": [
+        {
+          "option": "had been",
+          "isCorrect": true,
+          "pedagogicalReason": "Tai nạn đã xảy ra trong quá khứ (\"wouldn't have happened\") → mệnh đề If chia quá khứ hoàn thành \"had been\"."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng động từ to be \"was\" ở vị trí này (đáp án đúng là \"had been\"). Tai nạn đã xảy ra trong quá khứ (\"wouldn't have happened\") → mệnh đề If chia quá khứ hoàn thành \"had been\"."
+        },
+        {
+          "option": "were",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng động từ to be \"were\" ở vị trí này (đáp án đúng là \"had been\"). Tai nạn đã xảy ra trong quá khứ (\"wouldn't have happened\") → mệnh đề If chia quá khứ hoàn thành \"had been\"."
+        },
+        {
+          "option": "would be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"would be\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had been\"). Tai nạn đã xảy ra trong quá khứ (\"wouldn't have happened\") → mệnh đề If chia quá khứ hoàn thành \"had been\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "third-conditional-ex-06",
+      "type": "fill_blank",
+      "question": "What would you have done if you ___ your passport abroad?",
+      "options": [
+        "had lost",
+        "lost",
+        "have lost",
+        "would lose"
+      ],
+      "correct_answer": "had lost",
+      "explanation": "Mệnh đề hỏi là \"What would you have done\" (loại 3) → mệnh đề If chia \"had + V3\" (\"had lost\").",
+      "distractor_breakdowns": [
+        {
+          "option": "had lost",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề hỏi là \"What would you have done\" (loại 3) → mệnh đề If chia \"had + V3\" (\"had lost\")."
+        },
+        {
+          "option": "lost",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"lost\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had lost\"). Mệnh đề hỏi là \"What would you have done\" (loại 3) → mệnh đề If chia \"had + V3\" (\"had lost\")."
+        },
+        {
+          "option": "have lost",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have lost\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had lost\"). Mệnh đề hỏi là \"What would you have done\" (loại 3) → mệnh đề If chia \"had + V3\" (\"had lost\")."
+        },
+        {
+          "option": "would lose",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"would lose\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had lost\"). Mệnh đề hỏi là \"What would you have done\" (loại 3) → mệnh đề If chia \"had + V3\" (\"had lost\")."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "third-conditional-ex-07",
+      "type": "multiple_choice",
+      "question": "If I hadn't forgotten my umbrella, I ___ wet in the rain yesterday.",
+      "options": [
+        "wouldn't have got",
+        "wouldn't get",
+        "won't get",
+        "didn't get"
+      ],
+      "correct_answer": "wouldn't have got",
+      "explanation": "Mệnh đề If là \"If I hadn't forgotten\" (loại 3) → mệnh đề chính là \"wouldn't have got\".",
+      "distractor_breakdowns": [
+        {
+          "option": "wouldn't have got",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề If là \"If I hadn't forgotten\" (loại 3) → mệnh đề chính là \"wouldn't have got\"."
+        },
+        {
+          "option": "wouldn't get",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"wouldn't get\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wouldn't have got\"). Mệnh đề If là \"If I hadn't forgotten\" (loại 3) → mệnh đề chính là \"wouldn't have got\"."
+        },
+        {
+          "option": "won't get",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"won't get\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wouldn't have got\"). Mệnh đề If là \"If I hadn't forgotten\" (loại 3) → mệnh đề chính là \"wouldn't have got\"."
+        },
+        {
+          "option": "didn't get",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"didn't get\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wouldn't have got\"). Mệnh đề If là \"If I hadn't forgotten\" (loại 3) → mệnh đề chính là \"wouldn't have got\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "third-conditional-ex-08",
+      "type": "fill_blank",
+      "question": "He could have won the race if he ___ injured his leg.",
+      "options": [
+        "hadn't",
+        "didn't",
+        "wouldn't",
+        "hasn't"
+      ],
+      "correct_answer": "hadn't",
+      "explanation": "Trước V3 \"injured\" trong mệnh đề If loại 3 phủ định ta điền \"hadn't\".",
+      "distractor_breakdowns": [
+        {
+          "option": "hadn't",
+          "isCorrect": true,
+          "pedagogicalReason": "Trước V3 \"injured\" trong mệnh đề If loại 3 phủ định ta điền \"hadn't\"."
+        },
+        {
+          "option": "didn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"didn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"hadn't\"). Trước V3 \"injured\" trong mệnh đề If loại 3 phủ định ta điền \"hadn't\"."
+        },
+        {
+          "option": "wouldn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"wouldn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"hadn't\"). Trước V3 \"injured\" trong mệnh đề If loại 3 phủ định ta điền \"hadn't\"."
+        },
+        {
+          "option": "hasn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"hadn't\"). Trước V3 \"injured\" trong mệnh đề If loại 3 phủ định ta điền \"hadn't\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "third-conditional-ex-09",
+      "type": "multiple_choice",
+      "question": "If you had asked me, I ___ you my car last weekend.",
+      "options": [
+        "would have lent",
+        "would lend",
+        "will lend",
+        "had lent"
+      ],
+      "correct_answer": "would have lent",
+      "explanation": "Mệnh đề If có \"had asked\" + mốc quá khứ \"last weekend\" → mệnh đề chính dùng \"would have lent\".",
+      "distractor_breakdowns": [
+        {
+          "option": "would have lent",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề If có \"had asked\" + mốc quá khứ \"last weekend\" → mệnh đề chính dùng \"would have lent\"."
+        },
+        {
+          "option": "would lend",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"would lend\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"would have lent\"). Mệnh đề If có \"had asked\" + mốc quá khứ \"last weekend\" → mệnh đề chính dùng \"would have lent\"."
+        },
+        {
+          "option": "will lend",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will lend\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"would have lent\"). Mệnh đề If có \"had asked\" + mốc quá khứ \"last weekend\" → mệnh đề chính dùng \"would have lent\"."
+        },
+        {
+          "option": "had lent",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"had lent\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"would have lent\"). Mệnh đề If có \"had asked\" + mốc quá khứ \"last weekend\" → mệnh đề chính dùng \"would have lent\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "third-conditional-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: If I would have known you were in hospital, I would have visited you.",
+      "options": [
+        "If",
+        "would have known",
+        "in hospital",
+        "would have visited"
+      ],
+      "correct_answer": "would have known",
+      "explanation": "Trong mệnh đề If của câu điều kiện loại 3 chỉ dùng \"had + V3\", tuyệt đối không dùng \"would have + V3\". Sửa \"would have known\" thành \"had known\".",
+      "distractor_breakdowns": [
+        {
+          "option": "If",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"If\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "would have known",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong mệnh đề If của câu điều kiện loại 3 chỉ dùng \"had + V3\", tuyệt đối không dùng \"would have + V3\". Sửa \"would have known\" thành \"had known\"."
+        },
+        {
+          "option": "in hospital",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"in hospital\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "would have visited",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"would have visited\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "third-conditional-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: If she had set her alarm last night, she wouldn't woke up late.",
+      "options": [
+        "had set",
+        "last night",
+        "wouldn't woke",
+        "up late"
+      ],
+      "correct_answer": "wouldn't woke",
+      "explanation": "Mệnh đề chính câu điều kiện loại 3 phải có cấu trúc \"wouldn't have + V3\". Sửa \"wouldn't woke\" thành \"wouldn't have woken\".",
+      "distractor_breakdowns": [
+        {
+          "option": "had set",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"had set\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "last night",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"last night\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "wouldn't woke",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề chính câu điều kiện loại 3 phải có cấu trúc \"wouldn't have + V3\". Sửa \"wouldn't woke\" thành \"wouldn't have woken\"."
+        },
+        {
+          "option": "up late",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"up late\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "third-conditional-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: If we brought a map yesterday, we wouldn't have got lost.",
+      "options": [
+        "If",
+        "brought",
+        "yesterday",
+        "wouldn't have got"
+      ],
+      "correct_answer": "brought",
+      "explanation": "Giả định trái ngược quá khứ (\"yesterday\", vế sau có \"wouldn't have got\") bắt buộc dùng câu điều kiện loại 3: sửa \"brought\" thành \"had brought\".",
+      "distractor_breakdowns": [
+        {
+          "option": "If",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"If\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "brought",
+          "isCorrect": true,
+          "pedagogicalReason": "Giả định trái ngược quá khứ (\"yesterday\", vế sau có \"wouldn't have got\") bắt buộc dùng câu điều kiện loại 3: sửa \"brought\" thành \"had brought\"."
+        },
+        {
+          "option": "yesterday",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"yesterday\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "wouldn't have got",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"wouldn't have got\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
     }
   ]
 }

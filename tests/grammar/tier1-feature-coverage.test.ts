@@ -234,8 +234,8 @@ export async function runTier1Tests(runner: TestRunner): Promise<void> {
   // Feature 1.4: Layout & Responsive Checks
   // ──────────────────────────────────────────────────────────────────────────
   runner.describe('Feature 1.4: Layout & Responsive Checks', () => {
-    runner.it('T1.4.1: Absence of hardcoded fixed widths (>=480px) in grammar learn page source', () => {
-      const pagePath = path.resolve(process.cwd(), 'src/app/grammar/learn/page.tsx');
+    runner.it('T1.4.1: Absence of hardcoded fixed widths (>=480px) in canonical grammar page source', () => {
+      const pagePath = path.resolve(process.cwd(), 'src/app/grammar/page.tsx');
       expect(fs.existsSync(pagePath)).toBe(true);
       const code = fs.readFileSync(pagePath, 'utf8');
       const constraints = checkLayoutConstraints(code);
@@ -243,8 +243,8 @@ export async function runTier1Tests(runner: TestRunner): Promise<void> {
       expect(constraints.hardcodedPixelWidths.length).toBe(0);
     });
 
-    runner.it('T1.4.2: Grammar learn page contains fluid max-width containers and horizontal scroll safety', () => {
-      const pagePath = path.resolve(process.cwd(), 'src/app/grammar/learn/page.tsx');
+    runner.it('T1.4.2: Canonical grammar page contains fluid max-width containers and horizontal scroll safety', () => {
+      const pagePath = path.resolve(process.cwd(), 'src/app/grammar/page.tsx');
       const code = fs.readFileSync(pagePath, 'utf8');
       const constraints = checkLayoutConstraints(code);
       expect(constraints.hasFluidWidth).toBe(true);

@@ -455,29 +455,435 @@
   "exercises": [
     {
       "id": "second-conditional-ex-01",
-      "type": "fill_blank",
-      "question": "Hoàn thành theo mẫu: She ___ travel more if she were rich.",
-      "options": [],
-      "correct_answer": "would",
-      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "type": "multiple_choice",
+      "question": "If I ___ a million dollars now, I would buy a house for my parents.",
+      "options": [
+        "had",
+        "have",
+        "would have",
+        "has"
+      ],
+      "correct_answer": "had",
+      "explanation": "Câu điều kiện loại 2 diễn tả giả định không có thật ở hiện tại: mệnh đề If chia quá khứ đơn (\"had\"), mệnh đề chính dùng \"would + V\".",
       "distractor_breakdowns": [
         {
-          "option": "would",
+          "option": "had",
           "isCorrect": true,
-          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+          "pedagogicalReason": "Câu điều kiện loại 2 diễn tả giả định không có thật ở hiện tại: mệnh đề If chia quá khứ đơn (\"had\"), mệnh đề chính dùng \"would + V\"."
         },
         {
-          "option": "will",
+          "option": "have",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Mệnh đề if ở quá khứ giả định (\"if she were\"), câu điều kiện loại 2 dùng \"would + V\", không dùng \"will\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had\"). Câu điều kiện loại 2 diễn tả giả định không có thật ở hiện tại: mệnh đề If chia quá khứ đơn (\"had\"), mệnh đề chính dùng \"would + V\"."
+        },
+        {
+          "option": "would have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"would have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had\"). Câu điều kiện loại 2 diễn tả giả định không có thật ở hiện tại: mệnh đề If chia quá khứ đơn (\"had\"), mệnh đề chính dùng \"would + V\"."
+        },
+        {
+          "option": "has",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had\"). Câu điều kiện loại 2 diễn tả giả định không có thật ở hiện tại: mệnh đề If chia quá khứ đơn (\"had\"), mệnh đề chính dùng \"would + V\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "second-conditional-ex-02",
+      "type": "fill_blank",
+      "question": "If I ___ you, I would accept that job offer.",
+      "options": [
+        "were",
+        "am",
+        "will be",
+        "have been"
+      ],
+      "correct_answer": "were",
+      "explanation": "Trong câu điều kiện loại 2, động từ to be ở mệnh đề If chuẩn mực dùng \"were\" cho tất cả các ngôi (\"If I were you\").",
+      "distractor_breakdowns": [
+        {
+          "option": "were",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong câu điều kiện loại 2, động từ to be ở mệnh đề If chuẩn mực dùng \"were\" cho tất cả các ngôi (\"If I were you\")."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng động từ to be \"am\" ở vị trí này (đáp án đúng là \"were\"). Trong câu điều kiện loại 2, động từ to be ở mệnh đề If chuẩn mực dùng \"were\" cho tất cả các ngôi (\"If I were you\")."
+        },
+        {
+          "option": "will be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will be\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"were\"). Trong câu điều kiện loại 2, động từ to be ở mệnh đề If chuẩn mực dùng \"were\" cho tất cả các ngôi (\"If I were you\")."
+        },
+        {
+          "option": "have been",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have been\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"were\"). Trong câu điều kiện loại 2, động từ to be ở mệnh đề If chuẩn mực dùng \"were\" cho tất cả các ngôi (\"If I were you\")."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "second-conditional-ex-03",
+      "type": "multiple_choice",
+      "question": "If she had more free time, she ___ to play the piano.",
+      "options": [
+        "would learn",
+        "will learn",
+        "learned",
+        "learns"
+      ],
+      "correct_answer": "would learn",
+      "explanation": "Mệnh đề If chia quá khứ đơn (\"had\") → mệnh đề chính câu điều kiện loại 2 dùng \"would + V nguyên mẫu\" (\"would learn\").",
+      "distractor_breakdowns": [
+        {
+          "option": "would learn",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề If chia quá khứ đơn (\"had\") → mệnh đề chính câu điều kiện loại 2 dùng \"would + V nguyên mẫu\" (\"would learn\")."
+        },
+        {
+          "option": "will learn",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will learn\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"would learn\"). Mệnh đề If chia quá khứ đơn (\"had\") → mệnh đề chính câu điều kiện loại 2 dùng \"would + V nguyên mẫu\" (\"would learn\")."
+        },
+        {
+          "option": "learned",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"learned\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"would learn\"). Mệnh đề If chia quá khứ đơn (\"had\") → mệnh đề chính câu điều kiện loại 2 dùng \"would + V nguyên mẫu\" (\"would learn\")."
+        },
+        {
+          "option": "learns",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"learns\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"would learn\"). Mệnh đề If chia quá khứ đơn (\"had\") → mệnh đề chính câu điều kiện loại 2 dùng \"would + V nguyên mẫu\" (\"would learn\")."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "second-conditional-ex-04",
+      "type": "fill_blank",
+      "question": "What would you do if you ___ a wallet on the street?",
+      "options": [
+        "found",
+        "find",
+        "would find",
+        "have found"
+      ],
+      "correct_answer": "found",
+      "explanation": "Mệnh đề chính hỏi \"What would you do\" (loại 2) → mệnh đề If dùng động từ quá khứ đơn V2 của \"find\" là \"found\".",
+      "distractor_breakdowns": [
+        {
+          "option": "found",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề chính hỏi \"What would you do\" (loại 2) → mệnh đề If dùng động từ quá khứ đơn V2 của \"find\" là \"found\"."
+        },
+        {
+          "option": "find",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"find\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"found\"). Mệnh đề chính hỏi \"What would you do\" (loại 2) → mệnh đề If dùng động từ quá khứ đơn V2 của \"find\" là \"found\"."
+        },
+        {
+          "option": "would find",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"would find\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"found\"). Mệnh đề chính hỏi \"What would you do\" (loại 2) → mệnh đề If dùng động từ quá khứ đơn V2 của \"find\" là \"found\"."
+        },
+        {
+          "option": "have found",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have found\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"found\"). Mệnh đề chính hỏi \"What would you do\" (loại 2) → mệnh đề If dùng động từ quá khứ đơn V2 của \"find\" là \"found\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "second-conditional-ex-05",
+      "type": "multiple_choice",
+      "question": "If it ___ so much here, we would go picnic more often.",
+      "options": [
+        "didn't rain",
+        "doesn't rain",
+        "wouldn't rain",
+        "isn't raining"
+      ],
+      "correct_answer": "didn't rain",
+      "explanation": "Phủ định ở mệnh đề If của câu điều kiện loại 2 dùng quá khứ đơn: \"didn't + V nguyên mẫu\" (\"didn't rain\").",
+      "distractor_breakdowns": [
+        {
+          "option": "didn't rain",
+          "isCorrect": true,
+          "pedagogicalReason": "Phủ định ở mệnh đề If của câu điều kiện loại 2 dùng quá khứ đơn: \"didn't + V nguyên mẫu\" (\"didn't rain\")."
+        },
+        {
+          "option": "doesn't rain",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"doesn't rain\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"didn't rain\"). Phủ định ở mệnh đề If của câu điều kiện loại 2 dùng quá khứ đơn: \"didn't + V nguyên mẫu\" (\"didn't rain\")."
+        },
+        {
+          "option": "wouldn't rain",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"wouldn't rain\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"didn't rain\"). Phủ định ở mệnh đề If của câu điều kiện loại 2 dùng quá khứ đơn: \"didn't + V nguyên mẫu\" (\"didn't rain\")."
+        },
+        {
+          "option": "isn't raining",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"isn't raining\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"didn't rain\"). Phủ định ở mệnh đề If của câu điều kiện loại 2 dùng quá khứ đơn: \"didn't + V nguyên mẫu\" (\"didn't rain\")."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "second-conditional-ex-06",
+      "type": "fill_blank",
+      "question": "If we lived closer to the beach, we ___ go swimming every day.",
+      "options": [
+        "could",
+        "can",
+        "will",
+        "may"
+      ],
+      "correct_answer": "could",
+      "explanation": "Ở mệnh đề chính câu điều kiện loại 2, ngoài \"would\" ta có thể dùng \"could + V\" để chỉ khả năng có thể làm gì nếu điều kiện xảy ra.",
+      "distractor_breakdowns": [
+        {
+          "option": "could",
+          "isCorrect": true,
+          "pedagogicalReason": "Ở mệnh đề chính câu điều kiện loại 2, ngoài \"would\" ta có thể dùng \"could + V\" để chỉ khả năng có thể làm gì nếu điều kiện xảy ra."
         },
         {
           "option": "can",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Câu điều kiện loại 2 dùng \"could\" hoặc \"would\", không dùng \"can\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"can\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"could\"). Ở mệnh đề chính câu điều kiện loại 2, ngoài \"would\" ta có thể dùng \"could + V\" để chỉ khả năng có thể làm gì nếu điều kiện xảy ra."
+        },
+        {
+          "option": "will",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"could\"). Ở mệnh đề chính câu điều kiện loại 2, ngoài \"would\" ta có thể dùng \"could + V\" để chỉ khả năng có thể làm gì nếu điều kiện xảy ra."
+        },
+        {
+          "option": "may",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"may\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"could\"). Ở mệnh đề chính câu điều kiện loại 2, ngoài \"would\" ta có thể dùng \"could + V\" để chỉ khả năng có thể làm gì nếu điều kiện xảy ra."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "second-conditional-ex-07",
+      "type": "multiple_choice",
+      "question": "He wouldn't be so tired if he ___ to bed earlier at night.",
+      "options": [
+        "went",
+        "goes",
+        "will go",
+        "would go"
+      ],
+      "correct_answer": "went",
+      "explanation": "Mệnh đề chính là \"wouldn't be\" (loại 2) → mệnh đề If chia quá khứ đơn \"went\".",
+      "distractor_breakdowns": [
+        {
+          "option": "went",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề chính là \"wouldn't be\" (loại 2) → mệnh đề If chia quá khứ đơn \"went\"."
+        },
+        {
+          "option": "goes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"goes\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"went\"). Mệnh đề chính là \"wouldn't be\" (loại 2) → mệnh đề If chia quá khứ đơn \"went\"."
+        },
+        {
+          "option": "will go",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will go\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"went\"). Mệnh đề chính là \"wouldn't be\" (loại 2) → mệnh đề If chia quá khứ đơn \"went\"."
+        },
+        {
+          "option": "would go",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"would go\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"went\"). Mệnh đề chính là \"wouldn't be\" (loại 2) → mệnh đề If chia quá khứ đơn \"went\"."
         }
       ],
       "difficulty": 1
+    },
+    {
+      "id": "second-conditional-ex-08",
+      "type": "fill_blank",
+      "question": "If I knew her phone number, I ___ call her right now.",
+      "options": [
+        "would",
+        "will",
+        "did",
+        "have"
+      ],
+      "correct_answer": "would",
+      "explanation": "Thực tế hiện tại tôi không biết số của cô ấy (\"If I knew\" - loại 2) → mệnh đề chính điền \"would\".",
+      "distractor_breakdowns": [
+        {
+          "option": "would",
+          "isCorrect": true,
+          "pedagogicalReason": "Thực tế hiện tại tôi không biết số của cô ấy (\"If I knew\" - loại 2) → mệnh đề chính điền \"would\"."
+        },
+        {
+          "option": "will",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"would\"). Thực tế hiện tại tôi không biết số của cô ấy (\"If I knew\" - loại 2) → mệnh đề chính điền \"would\"."
+        },
+        {
+          "option": "did",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Trợ động từ \"did\" không phù hợp với ngôi của chủ ngữ hoặc cấu trúc của câu (đáp án đúng là \"would\")."
+        },
+        {
+          "option": "have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"would\"). Thực tế hiện tại tôi không biết số của cô ấy (\"If I knew\" - loại 2) → mệnh đề chính điền \"would\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "second-conditional-ex-09",
+      "type": "multiple_choice",
+      "question": "If birds didn't have wings, they ___ fly.",
+      "options": [
+        "couldn't",
+        "can't",
+        "won't",
+        "don't"
+      ],
+      "correct_answer": "couldn't",
+      "explanation": "Giả định trái với thực tế hiện tại (\"If birds didn't have wings\") → kết quả dùng \"couldn't fly\".",
+      "distractor_breakdowns": [
+        {
+          "option": "couldn't",
+          "isCorrect": true,
+          "pedagogicalReason": "Giả định trái với thực tế hiện tại (\"If birds didn't have wings\") → kết quả dùng \"couldn't fly\"."
+        },
+        {
+          "option": "can't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"can't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"couldn't\"). Giả định trái với thực tế hiện tại (\"If birds didn't have wings\") → kết quả dùng \"couldn't fly\"."
+        },
+        {
+          "option": "won't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"won't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"couldn't\"). Giả định trái với thực tế hiện tại (\"If birds didn't have wings\") → kết quả dùng \"couldn't fly\"."
+        },
+        {
+          "option": "don't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"don't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"couldn't\"). Giả định trái với thực tế hiện tại (\"If birds didn't have wings\") → kết quả dùng \"couldn't fly\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "second-conditional-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: If I would have enough money, I would travel around the world.",
+      "options": [
+        "If",
+        "would have",
+        "enough money",
+        "would travel"
+      ],
+      "correct_answer": "would have",
+      "explanation": "Tuyệt đối không dùng \"would\" trong mệnh đề \"If\". Phải sửa \"would have\" thành quá khứ đơn \"had\".",
+      "distractor_breakdowns": [
+        {
+          "option": "If",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"If\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "would have",
+          "isCorrect": true,
+          "pedagogicalReason": "Tuyệt đối không dùng \"would\" trong mệnh đề \"If\". Phải sửa \"would have\" thành quá khứ đơn \"had\"."
+        },
+        {
+          "option": "enough money",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"enough money\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "would travel",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"would travel\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "second-conditional-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: If she lives in Hanoi now, we would visit her every weekend.",
+      "options": [
+        "If",
+        "lives",
+        "now",
+        "would visit"
+      ],
+      "correct_answer": "lives",
+      "explanation": "Mệnh đề chính dùng \"would visit\" (câu điều kiện loại 2 trái thực tế hiện tại) nên mệnh đề If phải chia quá khứ đơn \"lived\", không dùng \"lives\".",
+      "distractor_breakdowns": [
+        {
+          "option": "If",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"If\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "lives",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề chính dùng \"would visit\" (câu điều kiện loại 2 trái thực tế hiện tại) nên mệnh đề If phải chia quá khứ đơn \"lived\", không dùng \"lives\"."
+        },
+        {
+          "option": "now",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"now\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "would visit",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"would visit\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "second-conditional-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: If I were you, I will tell him the truth immediately.",
+      "options": [
+        "were",
+        "you",
+        "will tell",
+        "immediately"
+      ],
+      "correct_answer": "will tell",
+      "explanation": "Với \"If I were you\" (câu điều kiện loại 2), mệnh đề chính phải dùng \"would tell\", không dùng \"will tell\".",
+      "distractor_breakdowns": [
+        {
+          "option": "were",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"were\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "you",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"you\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will tell",
+          "isCorrect": true,
+          "pedagogicalReason": "Với \"If I were you\" (câu điều kiện loại 2), mệnh đề chính phải dùng \"would tell\", không dùng \"will tell\"."
+        },
+        {
+          "option": "immediately",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"immediately\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
     }
   ]
 }

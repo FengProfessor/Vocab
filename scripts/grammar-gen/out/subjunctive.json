@@ -389,29 +389,435 @@
   "exercises": [
     {
       "id": "subjunctive-ex-01",
-      "type": "fill_blank",
-      "question": "Hoàn thành theo mẫu: It ___ essential that every member be present.",
-      "options": [],
-      "correct_answer": "is",
-      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "type": "multiple_choice",
+      "question": "The doctor suggested that he ___ more exercise every day.",
+      "options": [
+        "take",
+        "takes",
+        "took",
+        "taking"
+      ],
+      "correct_answer": "take",
+      "explanation": "Cấu trúc thức giả định (Mandative Subjunctive): Sau \"suggest that + S\", động từ luôn ở dạng NGUYÊN MẪU KHÔNG CHIA cho mọi ngôi (\"take\", không thêm \"-s\").",
       "distractor_breakdowns": [
         {
-          "option": "is",
+          "option": "take",
           "isCorrect": true,
-          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+          "pedagogicalReason": "Cấu trúc thức giả định (Mandative Subjunctive): Sau \"suggest that + S\", động từ luôn ở dạng NGUYÊN MẪU KHÔNG CHIA cho mọi ngôi (\"take\", không thêm \"-s\")."
+        },
+        {
+          "option": "takes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"takes\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"take\"). Cấu trúc thức giả định (Mandative Subjunctive): Sau \"suggest that + S\", động từ luôn ở dạng NGUYÊN MẪU KHÔNG CHIA cho mọi ngôi (\"take\", không thêm \"-s\")."
+        },
+        {
+          "option": "took",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"took\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"take\"). Cấu trúc thức giả định (Mandative Subjunctive): Sau \"suggest that + S\", động từ luôn ở dạng NGUYÊN MẪU KHÔNG CHIA cho mọi ngôi (\"take\", không thêm \"-s\")."
+        },
+        {
+          "option": "taking",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"taking\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"take\"). Cấu trúc thức giả định (Mandative Subjunctive): Sau \"suggest that + S\", động từ luôn ở dạng NGUYÊN MẪU KHÔNG CHIA cho mọi ngôi (\"take\", không thêm \"-s\")."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "subjunctive-ex-02",
+      "type": "fill_blank",
+      "question": "It is essential that every student ___ on time for the exam.",
+      "options": [
+        "be",
+        "is",
+        "are",
+        "was"
+      ],
+      "correct_answer": "be",
+      "explanation": "Sau tính từ giả định \"It is essential / vital / crucial / important that + S\", động từ to be luôn giữ nguyên mẫu \"be\" (dù chủ ngữ là số ít \"every student\").",
+      "distractor_breakdowns": [
+        {
+          "option": "be",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau tính từ giả định \"It is essential / vital / crucial / important that + S\", động từ to be luôn giữ nguyên mẫu \"be\" (dù chủ ngữ là số ít \"every student\")."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng động từ to be \"is\" ở vị trí này (đáp án đúng là \"be\"). Sau tính từ giả định \"It is essential / vital / crucial / important that + S\", động từ to be luôn giữ nguyên mẫu \"be\" (dù chủ ngữ là số ít \"every student\")."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng động từ to be \"are\" ở vị trí này (đáp án đúng là \"be\"). Sau tính từ giả định \"It is essential / vital / crucial / important that + S\", động từ to be luôn giữ nguyên mẫu \"be\" (dù chủ ngữ là số ít \"every student\")."
         },
         {
           "option": "was",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Cấu trúc giả định thức hiện tại (Subjunctive mood) dùng \"It is essential that...\"."
-        },
+          "pedagogicalReason": "Không chính xác. Không dùng động từ to be \"was\" ở vị trí này (đáp án đúng là \"be\"). Sau tính từ giả định \"It is essential / vital / crucial / important that + S\", động từ to be luôn giữ nguyên mẫu \"be\" (dù chủ ngữ là số ít \"every student\")."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "subjunctive-ex-03",
+      "type": "multiple_choice",
+      "question": "The manager demanded that the report ___ completed before Friday.",
+      "options": [
+        "be",
+        "is",
+        "was",
+        "has been"
+      ],
+      "correct_answer": "be",
+      "explanation": "Thức giả định ở dạng bị động sau \"demanded that + S\": dùng \"be + V3/ed\" (\"be completed\").",
+      "distractor_breakdowns": [
         {
           "option": "be",
+          "isCorrect": true,
+          "pedagogicalReason": "Thức giả định ở dạng bị động sau \"demanded that + S\": dùng \"be + V3/ed\" (\"be completed\")."
+        },
+        {
+          "option": "is",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Mệnh đề chính cần động từ to-be chia ở hiện tại đơn \"is\"."
+          "pedagogicalReason": "Không chính xác. Không dùng động từ to be \"is\" ở vị trí này (đáp án đúng là \"be\"). Thức giả định ở dạng bị động sau \"demanded that + S\": dùng \"be + V3/ed\" (\"be completed\")."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng động từ to be \"was\" ở vị trí này (đáp án đúng là \"be\"). Thức giả định ở dạng bị động sau \"demanded that + S\": dùng \"be + V3/ed\" (\"be completed\")."
+        },
+        {
+          "option": "has been",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has been\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"be\"). Thức giả định ở dạng bị động sau \"demanded that + S\": dùng \"be + V3/ed\" (\"be completed\")."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "subjunctive-ex-04",
+      "type": "fill_blank",
+      "question": "She insisted that he ___ reveal the secret to anyone.",
+      "options": [
+        "not",
+        "doesn't",
+        "didn't",
+        "won't"
+      ],
+      "correct_answer": "not",
+      "explanation": "Phủ định trong thức giả định (\"insisted that + S + not + V nguyên mẫu\"): chỉ đặt \"not\" trước động từ nguyên mẫu, TUYỆT ĐỐI KHÔNG mượn \"doesn't / didn't\".",
+      "distractor_breakdowns": [
+        {
+          "option": "not",
+          "isCorrect": true,
+          "pedagogicalReason": "Phủ định trong thức giả định (\"insisted that + S + not + V nguyên mẫu\"): chỉ đặt \"not\" trước động từ nguyên mẫu, TUYỆT ĐỐI KHÔNG mượn \"doesn't / didn't\"."
+        },
+        {
+          "option": "doesn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"doesn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"not\"). Phủ định trong thức giả định (\"insisted that + S + not + V nguyên mẫu\"): chỉ đặt \"not\" trước động từ nguyên mẫu, TUYỆT ĐỐI KHÔNG mượn \"doesn't / didn't\"."
+        },
+        {
+          "option": "didn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"didn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"not\"). Phủ định trong thức giả định (\"insisted that + S + not + V nguyên mẫu\"): chỉ đặt \"not\" trước động từ nguyên mẫu, TUYỆT ĐỐI KHÔNG mượn \"doesn't / didn't\"."
+        },
+        {
+          "option": "won't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"won't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"not\"). Phủ định trong thức giả định (\"insisted that + S + not + V nguyên mẫu\"): chỉ đặt \"not\" trước động từ nguyên mẫu, TUYỆT ĐỐI KHÔNG mượn \"doesn't / didn't\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "subjunctive-ex-05",
+      "type": "multiple_choice",
+      "question": "It is vital that she ___ the medicine twice a day.",
+      "options": [
+        "take",
+        "takes",
+        "took",
+        "is taking"
+      ],
+      "correct_answer": "take",
+      "explanation": "Sau \"It is vital that + she\", động từ giữ nguyên mẫu không chia là \"take\".",
+      "distractor_breakdowns": [
+        {
+          "option": "take",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau \"It is vital that + she\", động từ giữ nguyên mẫu không chia là \"take\"."
+        },
+        {
+          "option": "takes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"takes\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"take\"). Sau \"It is vital that + she\", động từ giữ nguyên mẫu không chia là \"take\"."
+        },
+        {
+          "option": "took",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"took\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"take\"). Sau \"It is vital that + she\", động từ giữ nguyên mẫu không chia là \"take\"."
+        },
+        {
+          "option": "is taking",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is taking\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"take\"). Sau \"It is vital that + she\", động từ giữ nguyên mẫu không chia là \"take\"."
         }
       ],
       "difficulty": 1
+    },
+    {
+      "id": "subjunctive-ex-06",
+      "type": "fill_blank",
+      "question": "The committee recommended that the company ___ in renewable energy.",
+      "options": [
+        "invest",
+        "invests",
+        "invested",
+        "investing"
+      ],
+      "correct_answer": "invest",
+      "explanation": "Sau \"recommended that + the company\" dùng động từ nguyên mẫu \"invest\".",
+      "distractor_breakdowns": [
+        {
+          "option": "invest",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau \"recommended that + the company\" dùng động từ nguyên mẫu \"invest\"."
+        },
+        {
+          "option": "invests",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"invests\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"invest\"). Sau \"recommended that + the company\" dùng động từ nguyên mẫu \"invest\"."
+        },
+        {
+          "option": "invested",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"invested\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"invest\"). Sau \"recommended that + the company\" dùng động từ nguyên mẫu \"invest\"."
+        },
+        {
+          "option": "investing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"investing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"invest\"). Sau \"recommended that + the company\" dùng động từ nguyên mẫu \"invest\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "subjunctive-ex-07",
+      "type": "multiple_choice",
+      "question": "It's high time we ___ home; it is getting very late.",
+      "options": [
+        "went",
+        "go",
+        "will go",
+        "have gone"
+      ],
+      "correct_answer": "went",
+      "explanation": "Cấu trúc giả định \"It's (high/about) time + S + V2/ed\" (Đã đến lúc ai đó phải làm gì ngay) chia động từ ở quá khứ đơn (\"went\").",
+      "distractor_breakdowns": [
+        {
+          "option": "went",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc giả định \"It's (high/about) time + S + V2/ed\" (Đã đến lúc ai đó phải làm gì ngay) chia động từ ở quá khứ đơn (\"went\")."
+        },
+        {
+          "option": "go",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"go\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"went\"). Cấu trúc giả định \"It's (high/about) time + S + V2/ed\" (Đã đến lúc ai đó phải làm gì ngay) chia động từ ở quá khứ đơn (\"went\")."
+        },
+        {
+          "option": "will go",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will go\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"went\"). Cấu trúc giả định \"It's (high/about) time + S + V2/ed\" (Đã đến lúc ai đó phải làm gì ngay) chia động từ ở quá khứ đơn (\"went\")."
+        },
+        {
+          "option": "have gone",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have gone\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"went\"). Cấu trúc giả định \"It's (high/about) time + S + V2/ed\" (Đã đến lúc ai đó phải làm gì ngay) chia động từ ở quá khứ đơn (\"went\")."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "subjunctive-ex-08",
+      "type": "fill_blank",
+      "question": "I would rather you ___ smoke in the living room.",
+      "options": [
+        "didn't",
+        "don't",
+        "not",
+        "won't"
+      ],
+      "correct_answer": "didn't",
+      "explanation": "Cấu trúc \"S1 + would rather + S2 + V2/ed (didn't V)\" dùng để mong muốn người khác làm/không làm gì ở hiện tại → điền \"didn't\".",
+      "distractor_breakdowns": [
+        {
+          "option": "didn't",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc \"S1 + would rather + S2 + V2/ed (didn't V)\" dùng để mong muốn người khác làm/không làm gì ở hiện tại → điền \"didn't\"."
+        },
+        {
+          "option": "don't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"don't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"didn't\"). Cấu trúc \"S1 + would rather + S2 + V2/ed (didn't V)\" dùng để mong muốn người khác làm/không làm gì ở hiện tại → điền \"didn't\"."
+        },
+        {
+          "option": "not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"not\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"didn't\"). Cấu trúc \"S1 + would rather + S2 + V2/ed (didn't V)\" dùng để mong muốn người khác làm/không làm gì ở hiện tại → điền \"didn't\"."
+        },
+        {
+          "option": "won't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"won't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"didn't\"). Cấu trúc \"S1 + would rather + S2 + V2/ed (didn't V)\" dùng để mong muốn người khác làm/không làm gì ở hiện tại → điền \"didn't\"."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "subjunctive-ex-09",
+      "type": "multiple_choice",
+      "question": "They proposed that a new park ___ built in the city center.",
+      "options": [
+        "be",
+        "is",
+        "will be",
+        "was"
+      ],
+      "correct_answer": "be",
+      "explanation": "Sau \"proposed that + S\" ở dạng bị động dùng \"be + V3\" (\"be built\").",
+      "distractor_breakdowns": [
+        {
+          "option": "be",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau \"proposed that + S\" ở dạng bị động dùng \"be + V3\" (\"be built\")."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng động từ to be \"is\" ở vị trí này (đáp án đúng là \"be\"). Sau \"proposed that + S\" ở dạng bị động dùng \"be + V3\" (\"be built\")."
+        },
+        {
+          "option": "will be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will be\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"be\"). Sau \"proposed that + S\" ở dạng bị động dùng \"be + V3\" (\"be built\")."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng động từ to be \"was\" ở vị trí này (đáp án đúng là \"be\"). Sau \"proposed that + S\" ở dạng bị động dùng \"be + V3\" (\"be built\")."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "subjunctive-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: The teacher suggested that Nam studies harder for the test.",
+      "options": [
+        "suggested",
+        "that",
+        "studies",
+        "harder"
+      ],
+      "correct_answer": "studies",
+      "explanation": "Sau \"suggested that + S\", động từ phải ở dạng nguyên mẫu không chia (subjunctive). Sửa \"studies\" thành \"study\".",
+      "distractor_breakdowns": [
+        {
+          "option": "suggested",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"suggested\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"that\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "studies",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau \"suggested that + S\", động từ phải ở dạng nguyên mẫu không chia (subjunctive). Sửa \"studies\" thành \"study\"."
+        },
+        {
+          "option": "harder",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"harder\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "subjunctive-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: It is crucial that he doesn't miss the flight tomorrow.",
+      "options": [
+        "crucial",
+        "that",
+        "doesn't miss",
+        "tomorrow"
+      ],
+      "correct_answer": "doesn't miss",
+      "explanation": "Phủ định trong thức giả định sau \"It is crucial that...\" dùng \"not + V nguyên mẫu\", không mượn trợ động từ \"doesn't\". Sửa \"doesn't miss\" thành \"not miss\".",
+      "distractor_breakdowns": [
+        {
+          "option": "crucial",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"crucial\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"that\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "doesn't miss",
+          "isCorrect": true,
+          "pedagogicalReason": "Phủ định trong thức giả định sau \"It is crucial that...\" dùng \"not + V nguyên mẫu\", không mượn trợ động từ \"doesn't\". Sửa \"doesn't miss\" thành \"not miss\"."
+        },
+        {
+          "option": "tomorrow",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"tomorrow\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "subjunctive-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: It is important that every passenger is at the gate thirty minutes early.",
+      "options": [
+        "important",
+        "that",
+        "is",
+        "thirty minutes"
+      ],
+      "correct_answer": "is",
+      "explanation": "Trong cấu trúc giả định \"It is important that + S + V(bare)\", động từ to be phải giữ nguyên mẫu \"be\", không chia \"is\".",
+      "distractor_breakdowns": [
+        {
+          "option": "important",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"important\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"that\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong cấu trúc giả định \"It is important that + S + V(bare)\", động từ to be phải giữ nguyên mẫu \"be\", không chia \"is\"."
+        },
+        {
+          "option": "thirty minutes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"thirty minutes\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
     }
   ]
 }

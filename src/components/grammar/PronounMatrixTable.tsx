@@ -227,44 +227,44 @@ export default function PronounMatrixTable() {
   }, [filterMode, searchQuery]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* View Mode Switcher Header */}
-      <div className="border border-border p-4 bg-muted/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-none">
+      <div className="border border-border p-3.5 sm:p-4 bg-muted/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-none">
         <div>
           <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground flex items-center gap-1.5 mb-0.5">
-            <Table className="h-3.5 w-3.5 text-primary" />
-            Bảng tra cứu & Thẻ trực quan Đại từ nhân xưng
+            <Table className="h-3.5 w-3.5 text-primary shrink-0" />
+            <span>Bảng tra cứu & Thẻ trực quan Đại từ nhân xưng</span>
           </div>
-          <div className="text-sm font-semibold text-foreground">
-            Đối chiếu 8 ngôi đại từ: có ảnh minh họa thực tế, âm thanh phát âm và ví dụ song ngữ
+          <div className="text-xs sm:text-sm font-semibold text-foreground leading-snug">
+            Đối chiếu 5 dạng đại từ (Chủ ngữ, Tân ngữ, Sở hữu, Phản thân) kèm phát âm và ví dụ song ngữ
           </div>
         </div>
 
         {/* View Toggle Buttons */}
-        <div className="flex items-center gap-1.5 shrink-0 bg-background border border-border p-1">
-          <button
-            type="button"
-            onClick={() => setViewMode('cards')}
-            className={`px-3 py-1.5 font-mono text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors ${
-              viewMode === 'cards'
-                ? 'bg-primary text-primary-foreground font-bold shadow-sm'
-                : 'text-muted-foreground hover:text-foreground hover:bg-muted/40'
-            }`}
-          >
-            <Sparkles className="h-3.5 w-3.5" />
-            <span>Thẻ trực quan</span>
-          </button>
+        <div className="grid grid-cols-2 sm:flex items-center gap-1.5 shrink-0 bg-background border border-border p-1 rounded-none">
           <button
             type="button"
             onClick={() => setViewMode('table')}
-            className={`px-3 py-1.5 font-mono text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors ${
+            className={`min-h-[40px] px-3 py-1.5 font-mono text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors rounded-none ${
               viewMode === 'table'
                 ? 'bg-primary text-primary-foreground font-bold shadow-sm'
                 : 'text-muted-foreground hover:text-foreground hover:bg-muted/40'
             }`}
           >
-            <LayoutGrid className="h-3.5 w-3.5" />
+            <LayoutGrid className="h-3.5 w-3.5 shrink-0" />
             <span>Bảng ma trận</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setViewMode('cards')}
+            className={`min-h-[40px] px-3 py-1.5 font-mono text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors rounded-none ${
+              viewMode === 'cards'
+                ? 'bg-primary text-primary-foreground font-bold shadow-sm'
+                : 'text-muted-foreground hover:text-foreground hover:bg-muted/40'
+            }`}
+          >
+            <Sparkles className="h-3.5 w-3.5 shrink-0" />
+            <span>Thẻ trực quan</span>
           </button>
         </div>
       </div>
@@ -283,7 +283,7 @@ export default function PronounMatrixTable() {
               <button
                 type="button"
                 onClick={() => setFilterMode('all')}
-                className={`px-3 py-1 border transition-colors rounded-none ${
+                className={`min-h-[36px] px-3 py-1 border transition-colors rounded-none ${
                   filterMode === 'all'
                     ? 'border-foreground bg-foreground text-background font-bold'
                     : 'border-border bg-background text-muted-foreground hover:text-foreground'
@@ -294,7 +294,7 @@ export default function PronounMatrixTable() {
               <button
                 type="button"
                 onClick={() => setFilterMode('singular')}
-                className={`px-3 py-1 border transition-colors rounded-none ${
+                className={`min-h-[36px] px-3 py-1 border transition-colors rounded-none ${
                   filterMode === 'singular'
                     ? 'border-foreground bg-foreground text-background font-bold'
                     : 'border-border bg-background text-muted-foreground hover:text-foreground'
@@ -305,7 +305,7 @@ export default function PronounMatrixTable() {
               <button
                 type="button"
                 onClick={() => setFilterMode('plural')}
-                className={`px-3 py-1 border transition-colors rounded-none ${
+                className={`min-h-[36px] px-3 py-1 border transition-colors rounded-none ${
                   filterMode === 'plural'
                     ? 'border-foreground bg-foreground text-background font-bold'
                     : 'border-border bg-background text-muted-foreground hover:text-foreground'
@@ -316,7 +316,7 @@ export default function PronounMatrixTable() {
               <button
                 type="button"
                 onClick={() => setFilterMode('confusing')}
-                className={`px-3 py-1 border transition-colors rounded-none ${
+                className={`min-h-[36px] px-3 py-1 border transition-colors rounded-none ${
                   filterMode === 'confusing'
                     ? 'border-foreground bg-foreground text-background font-bold'
                     : 'border-border bg-background text-muted-foreground hover:text-foreground'
@@ -334,13 +334,105 @@ export default function PronounMatrixTable() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Tìm từ (vd: him, we)..."
-                className="w-full pl-8 pr-3 py-1.5 border border-border bg-background rounded-none font-mono text-xs focus:outline-none focus:border-foreground"
+                className="w-full min-h-[40px] sm:min-h-[34px] pl-8 pr-3 py-1.5 border border-border bg-background rounded-none font-mono text-base sm:text-xs focus:outline-none focus:border-foreground"
               />
             </div>
           </div>
 
-          {/* Main Table with Avatars & Audio */}
-          <div className="border border-border overflow-x-auto rounded-none bg-card">
+          {/* Mobile 5-Form Matrix Cards */}
+          <div className="sm:hidden space-y-2.5">
+            {filteredData.length > 0 ? (
+              filteredData.map((row, idx) => (
+                <div key={idx} className="border border-border bg-card p-3 space-y-2.5 rounded-none">
+                  <div className="flex items-center justify-between gap-2 border-b border-border/60 pb-2">
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <div className="relative w-9 h-9 shrink-0 border border-border bg-muted/40 overflow-hidden rounded-none">
+                        <Image
+                          src={row.avatar}
+                          alt={row.meaning}
+                          fill
+                          className="object-cover"
+                          unoptimized
+                        />
+                      </div>
+                      <div className="min-w-0">
+                        <div className="font-mono text-xs font-bold text-foreground truncate">{row.person}</div>
+                        <div className="text-[11px] text-primary font-medium font-sans truncate">{row.meaning}</div>
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => playPronunciation(row.exampleSentenceRaw)}
+                      className="min-h-[40px] min-w-[40px] flex items-center justify-center p-2 border border-border bg-muted/20 hover:bg-muted text-muted-foreground hover:text-foreground shrink-0 rounded-none"
+                      title="Nghe câu ví dụ"
+                      aria-label={`Nghe câu ví dụ: ${row.exampleSentenceRaw}`}
+                    >
+                      <Volume2 className="h-4 w-4" />
+                    </button>
+                  </div>
+
+                  {/* Primary Pair: Subject (S) vs Object (O) */}
+                  <div className="grid grid-cols-2 gap-1.5 font-mono text-xs">
+                    <button
+                      type="button"
+                      onClick={() => playPronunciation(row.subject)}
+                      className="p-2 border border-primary/30 bg-primary/5 flex items-center justify-between gap-1 text-left rounded-none"
+                    >
+                      <div>
+                        <div className="text-[10px] uppercase text-muted-foreground">Chủ ngữ (S)</div>
+                        <div className="text-sm font-bold text-primary">{row.subject}</div>
+                      </div>
+                      <Volume2 className="h-3.5 w-3.5 text-primary/70 shrink-0" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => playPronunciation(row.object)}
+                      className="p-2 border border-emerald-500/30 bg-emerald-500/5 flex items-center justify-between gap-1 text-left rounded-none"
+                    >
+                      <div>
+                        <div className="text-[10px] uppercase text-muted-foreground">Tân ngữ (O)</div>
+                        <div className="text-sm font-bold text-emerald-700 dark:text-emerald-400">{row.object}</div>
+                      </div>
+                      <Volume2 className="h-3.5 w-3.5 text-emerald-600/70 shrink-0" />
+                    </button>
+                  </div>
+
+                  {/* Secondary Trio: Possessive Adj, Possessive Pronoun, Reflexive */}
+                  <div className="grid grid-cols-3 gap-1.5 font-mono text-[11px]">
+                    <div className="p-1.5 border border-border/60 bg-muted/15 rounded-none">
+                      <div className="text-[10px] uppercase text-muted-foreground">TT Sở hữu</div>
+                      <div className="font-bold text-foreground">{row.possessiveAdj}</div>
+                    </div>
+                    <div className="p-1.5 border border-border/60 bg-muted/15 rounded-none">
+                      <div className="text-[10px] uppercase text-muted-foreground">ĐT Sở hữu</div>
+                      <div className="font-bold text-foreground">{row.possessivePronoun}</div>
+                    </div>
+                    <div className="p-1.5 border border-border/60 bg-muted/15 rounded-none">
+                      <div className="text-[10px] uppercase text-muted-foreground">Phản thân</div>
+                      <div className="font-bold text-foreground">{row.reflexive}</div>
+                    </div>
+                  </div>
+
+                  {/* Example */}
+                  <div className="pt-0.5 space-y-0.5 font-sans">
+                    <div className="text-xs text-foreground font-serif leading-relaxed">
+                      {row.exampleEn}
+                    </div>
+                    <div className="text-[11px] text-muted-foreground">
+                      {row.exampleVi}
+                    </div>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className="border border-border p-6 text-center text-muted-foreground font-sans text-xs rounded-none">
+                Không tìm thấy từ phù hợp với từ khóa &quot;{searchQuery}&quot;.
+              </div>
+            )}
+          </div>
+
+          {/* Desktop Main Table with Avatars & Audio */}
+          <div className="hidden sm:block border border-border overflow-x-auto rounded-none bg-card">
             <table className="w-full text-left font-mono text-xs divide-y divide-border">
               <thead className="bg-muted/40 uppercase text-muted-foreground sticky top-0 z-10">
                 <tr>

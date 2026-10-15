@@ -354,59 +354,71 @@
     {
       "id": "modals-ability-ex-01",
       "type": "multiple_choice",
-      "question": "I ___ swim.",
+      "question": "She can ___ three languages fluently.",
       "options": [
-        "can",
-        "cans",
-        "can to"
+        "speak",
+        "speaks",
+        "speaking",
+        "to speak"
       ],
-      "correct_answer": "can",
-      "explanation": "Can + động từ nguyên thể swim.",
+      "correct_answer": "speak",
+      "explanation": "Sau động từ khuyết thiếu \"can\" luôn là động từ nguyên mẫu không \"to\" và không thêm \"-s\" → chọn \"speak\".",
       "distractor_breakdowns": [
         {
-          "option": "can",
+          "option": "speak",
           "isCorrect": true,
-          "pedagogicalReason": "Can + động từ nguyên thể swim."
+          "pedagogicalReason": "Sau động từ khuyết thiếu \"can\" luôn là động từ nguyên mẫu không \"to\" và không thêm \"-s\" → chọn \"speak\"."
         },
         {
-          "option": "cans",
+          "option": "speaks",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"cans\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"speaks\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"speak\"). Sau động từ khuyết thiếu \"can\" luôn là động từ nguyên mẫu không \"to\" và không thêm \"-s\" → chọn \"speak\"."
         },
         {
-          "option": "can to",
+          "option": "speaking",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"can to\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"speaking\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"speak\"). Sau động từ khuyết thiếu \"can\" luôn là động từ nguyên mẫu không \"to\" và không thêm \"-s\" → chọn \"speak\"."
+        },
+        {
+          "option": "to speak",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to speak\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"speak\"). Sau động từ khuyết thiếu \"can\" luôn là động từ nguyên mẫu không \"to\" và không thêm \"-s\" → chọn \"speak\"."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "modals-ability-ex-02",
-      "type": "multiple_choice",
-      "question": "She can ___ English.",
+      "type": "fill_blank",
+      "question": "I ___ swim very well.",
       "options": [
-        "speak",
-        "speaks",
-        "to speak"
+        "can",
+        "cans",
+        "am can",
+        "can to"
       ],
-      "correct_answer": "speak",
-      "explanation": "Sau can dùng speak, không thêm -s hoặc to.",
+      "correct_answer": "can",
+      "explanation": "\"can\" dùng cho mọi chủ ngữ để diễn tả khả năng ở hiện tại.",
       "distractor_breakdowns": [
         {
-          "option": "speak",
+          "option": "can",
           "isCorrect": true,
-          "pedagogicalReason": "Sau can dùng speak, không thêm -s hoặc to."
+          "pedagogicalReason": "\"can\" dùng cho mọi chủ ngữ để diễn tả khả năng ở hiện tại."
         },
         {
-          "option": "speaks",
+          "option": "cans",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"speaks\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"cans\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"can\"). \"can\" dùng cho mọi chủ ngữ để diễn tả khả năng ở hiện tại."
         },
         {
-          "option": "to speak",
+          "option": "am can",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"to speak\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"am can\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"can\"). \"can\" dùng cho mọi chủ ngữ để diễn tả khả năng ở hiện tại."
+        },
+        {
+          "option": "can to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"can to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"can\"). \"can\" dùng cho mọi chủ ngữ để diễn tả khả năng ở hiện tại."
         }
       ],
       "difficulty": 1
@@ -414,107 +426,143 @@
     {
       "id": "modals-ability-ex-03",
       "type": "multiple_choice",
-      "question": "He ___ ride a bike. (can / cans)",
+      "question": "When I was five years old, I ___ ride a bike.",
       "options": [
+        "could",
         "can",
-        "cans"
+        "will can",
+        "am able"
       ],
-      "correct_answer": "can",
-      "explanation": "Can không đổi theo chủ ngữ he.",
+      "correct_answer": "could",
+      "explanation": "Mệnh đề \"When I was five years old\" ở quá khứ → dùng \"could\" để chỉ khả năng chung trong quá khứ.",
       "distractor_breakdowns": [
         {
-          "option": "can",
+          "option": "could",
           "isCorrect": true,
-          "pedagogicalReason": "Can không đổi theo chủ ngữ he."
+          "pedagogicalReason": "Mệnh đề \"When I was five years old\" ở quá khứ → dùng \"could\" để chỉ khả năng chung trong quá khứ."
         },
         {
-          "option": "cans",
+          "option": "can",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"cans\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"can\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"could\"). Mệnh đề \"When I was five years old\" ở quá khứ → dùng \"could\" để chỉ khả năng chung trong quá khứ."
+        },
+        {
+          "option": "will can",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will can\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"could\"). Mệnh đề \"When I was five years old\" ở quá khứ → dùng \"could\" để chỉ khả năng chung trong quá khứ."
+        },
+        {
+          "option": "am able",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"am able\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"could\"). Mệnh đề \"When I was five years old\" ở quá khứ → dùng \"could\" để chỉ khả năng chung trong quá khứ."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-ability-ex-04",
+      "type": "fill_blank",
+      "question": "My grandfather ___ see clearly without his glasses.",
+      "options": [
+        "can't",
+        "don't can",
+        "doesn't can",
+        "not can"
+      ],
+      "correct_answer": "can't",
+      "explanation": "Dạng phủ định của \"can\" là \"cannot\" hoặc \"can't\", tuyệt đối không mượn trợ động từ \"don't/doesn't\".",
+      "distractor_breakdowns": [
+        {
+          "option": "can't",
+          "isCorrect": true,
+          "pedagogicalReason": "Dạng phủ định của \"can\" là \"cannot\" hoặc \"can't\", tuyệt đối không mượn trợ động từ \"don't/doesn't\"."
+        },
+        {
+          "option": "don't can",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"don't can\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"can't\"). Dạng phủ định của \"can\" là \"cannot\" hoặc \"can't\", tuyệt đối không mượn trợ động từ \"don't/doesn't\"."
+        },
+        {
+          "option": "doesn't can",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"doesn't can\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"can't\"). Dạng phủ định của \"can\" là \"cannot\" hoặc \"can't\", tuyệt đối không mượn trợ động từ \"don't/doesn't\"."
+        },
+        {
+          "option": "not can",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"not can\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"can't\"). Dạng phủ định của \"can\" là \"cannot\" hoặc \"can't\", tuyệt đối không mượn trợ động từ \"don't/doesn't\"."
         }
       ],
       "difficulty": 1
     },
     {
-      "id": "modals-ability-ex-04",
-      "type": "multiple_choice",
-      "question": "Choose the negative sentence.",
-      "options": [
-        "I cannot swim.",
-        "I not can swim.",
-        "I can not to swim."
-      ],
-      "correct_answer": "I cannot swim.",
-      "explanation": "Phủ định của can là cannot hoặc can't.",
-      "distractor_breakdowns": [
-        {
-          "option": "I cannot swim.",
-          "isCorrect": true,
-          "pedagogicalReason": "Phủ định của can là cannot hoặc can't."
-        },
-        {
-          "option": "I not can swim.",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"I not can swim.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "I can not to swim.",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"I can not to swim.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        }
-      ],
-      "difficulty": 2
-    },
-    {
       "id": "modals-ability-ex-05",
       "type": "multiple_choice",
-      "question": "___ you help me? (Can / Cans)",
+      "question": "___ you play the guitar? — Yes, I can.",
       "options": [
         "Can",
-        "Cans"
+        "Do",
+        "Are",
+        "Have"
       ],
       "correct_answer": "Can",
-      "explanation": "Câu hỏi: Can + you + động từ nguyên thể?",
+      "explanation": "Câu trả lời là \"Yes, I can.\" nên câu hỏi bắt đầu bằng \"Can you...?\".",
       "distractor_breakdowns": [
         {
           "option": "Can",
           "isCorrect": true,
-          "pedagogicalReason": "Câu hỏi: Can + you + động từ nguyên thể?"
+          "pedagogicalReason": "Câu trả lời là \"Yes, I can.\" nên câu hỏi bắt đầu bằng \"Can you...?\"."
         },
         {
-          "option": "Cans",
+          "option": "Do",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Cans\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Trợ động từ \"Do\" không phù hợp với ngôi của chủ ngữ hoặc cấu trúc của câu (đáp án đúng là \"Can\")."
+        },
+        {
+          "option": "Are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng động từ to be \"Are\" ở vị trí này (đáp án đúng là \"Can\"). Câu trả lời là \"Yes, I can.\" nên câu hỏi bắt đầu bằng \"Can you...?\"."
+        },
+        {
+          "option": "Have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Can\"). Câu trả lời là \"Yes, I can.\" nên câu hỏi bắt đầu bằng \"Can you...?\"."
         }
       ],
-      "difficulty": 2
+      "difficulty": 1
     },
     {
       "id": "modals-ability-ex-06",
-      "type": "multiple_choice",
-      "question": "Can Mai sing? Choose the short positive answer.",
+      "type": "fill_blank",
+      "question": "Will you ___ attend the meeting tomorrow?",
       "options": [
-        "Yes, she can.",
-        "Yes, she cans.",
-        "Yes, she is."
+        "be able to",
+        "can",
+        "could",
+        "able to"
       ],
-      "correct_answer": "Yes, she can.",
-      "explanation": "Trả lời ngắn với can: Yes, she can.",
+      "correct_answer": "be able to",
+      "explanation": "Sau \"will\" không thể đặt trực tiếp \"can\" (không có \"will can\"). Phải dùng cấu trúc tương đương \"be able to\" → \"Will you be able to...\".",
       "distractor_breakdowns": [
         {
-          "option": "Yes, she can.",
+          "option": "be able to",
           "isCorrect": true,
-          "pedagogicalReason": "Trả lời ngắn với can: Yes, she can."
+          "pedagogicalReason": "Sau \"will\" không thể đặt trực tiếp \"can\" (không có \"will can\"). Phải dùng cấu trúc tương đương \"be able to\" → \"Will you be able to...\"."
         },
         {
-          "option": "Yes, she cans.",
+          "option": "can",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Yes, she cans.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"can\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"be able to\"). Sau \"will\" không thể đặt trực tiếp \"can\" (không có \"will can\"). Phải dùng cấu trúc tương đương \"be able to\" → \"Will you be able to...\"."
         },
         {
-          "option": "Yes, she is.",
+          "option": "could",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Yes, she is.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"could\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"be able to\"). Sau \"will\" không thể đặt trực tiếp \"can\" (không có \"will can\"). Phải dùng cấu trúc tương đương \"be able to\" → \"Will you be able to...\"."
+        },
+        {
+          "option": "able to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"able to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"be able to\"). Sau \"will\" không thể đặt trực tiếp \"can\" (không có \"will can\"). Phải dùng cấu trúc tương đương \"be able to\" → \"Will you be able to...\"."
         }
       ],
       "difficulty": 2
@@ -522,56 +570,218 @@
     {
       "id": "modals-ability-ex-07",
       "type": "multiple_choice",
-      "question": "They ___ play football. (can / cans)",
+      "question": "It was very dark, so we ___ see anything.",
       "options": [
-        "can",
-        "cans"
+        "couldn't",
+        "can't",
+        "didn't can",
+        "weren't can"
       ],
-      "correct_answer": "can",
-      "explanation": "Với they vẫn dùng can.",
+      "correct_answer": "couldn't",
+      "explanation": "Ngữ cảnh quá khứ (\"It was very dark\") + phủ định khả năng → dùng \"couldn't\".",
       "distractor_breakdowns": [
         {
-          "option": "can",
+          "option": "couldn't",
           "isCorrect": true,
-          "pedagogicalReason": "Với they vẫn dùng can."
+          "pedagogicalReason": "Ngữ cảnh quá khứ (\"It was very dark\") + phủ định khả năng → dùng \"couldn't\"."
         },
         {
-          "option": "cans",
+          "option": "can't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"cans\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"can't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"couldn't\"). Ngữ cảnh quá khứ (\"It was very dark\") + phủ định khả năng → dùng \"couldn't\"."
+        },
+        {
+          "option": "didn't can",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"didn't can\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"couldn't\"). Ngữ cảnh quá khứ (\"It was very dark\") + phủ định khả năng → dùng \"couldn't\"."
+        },
+        {
+          "option": "weren't can",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"weren't can\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"couldn't\"). Ngữ cảnh quá khứ (\"It was very dark\") + phủ định khả năng → dùng \"couldn't\"."
         }
       ],
-      "difficulty": 3
+      "difficulty": 2
     },
     {
       "id": "modals-ability-ex-08",
-      "type": "multiple_choice",
-      "question": "Which sentence asks about ability?",
+      "type": "fill_blank",
+      "question": "Nam is only four, but he is ___ read simple words.",
       "options": [
-        "Can you cook?",
-        "You can cook?",
-        "Do can you cook?"
+        "able to",
+        "can",
+        "could",
+        "ability"
       ],
-      "correct_answer": "Can you cook?",
-      "explanation": "Đưa can lên trước chủ ngữ để hỏi.",
+      "correct_answer": "able to",
+      "explanation": "Sau động từ to be \"is\" ta dùng \"able to + V\" (be able to = can).",
       "distractor_breakdowns": [
         {
-          "option": "Can you cook?",
+          "option": "able to",
           "isCorrect": true,
-          "pedagogicalReason": "Đưa can lên trước chủ ngữ để hỏi."
+          "pedagogicalReason": "Sau động từ to be \"is\" ta dùng \"able to + V\" (be able to = can)."
         },
         {
-          "option": "You can cook?",
+          "option": "can",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"You can cook?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"can\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"able to\"). Sau động từ to be \"is\" ta dùng \"able to + V\" (be able to = can)."
         },
         {
-          "option": "Do can you cook?",
+          "option": "could",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Do can you cook?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"could\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"able to\"). Sau động từ to be \"is\" ta dùng \"able to + V\" (be able to = can)."
+        },
+        {
+          "option": "ability",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"ability\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"able to\"). Sau động từ to be \"is\" ta dùng \"able to + V\" (be able to = can)."
         }
       ],
-      "difficulty": 3
+      "difficulty": 2
+    },
+    {
+      "id": "modals-ability-ex-09",
+      "type": "multiple_choice",
+      "question": "Chọn câu ĐÚNG ngữ pháp:",
+      "options": [
+        "He can drive a car.",
+        "He cans drive a car.",
+        "He can drives a car.",
+        "He can to drive a car."
+      ],
+      "correct_answer": "He can drive a car.",
+      "explanation": "Động từ khuyết thiếu \"can\" không thêm \"-s\", và động từ chính theo sau \"drive\" giữ nguyên mẫu không \"to\".",
+      "distractor_breakdowns": [
+        {
+          "option": "He can drive a car.",
+          "isCorrect": true,
+          "pedagogicalReason": "Động từ khuyết thiếu \"can\" không thêm \"-s\", và động từ chính theo sau \"drive\" giữ nguyên mẫu không \"to\"."
+        },
+        {
+          "option": "He cans drive a car.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"He cans drive a car.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"He can drive a car.\"). Động từ khuyết thiếu \"can\" không thêm \"-s\", và động từ chính theo sau \"drive\" giữ nguyên mẫu không \"to\"."
+        },
+        {
+          "option": "He can drives a car.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"He can drives a car.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"He can drive a car.\"). Động từ khuyết thiếu \"can\" không thêm \"-s\", và động từ chính theo sau \"drive\" giữ nguyên mẫu không \"to\"."
+        },
+        {
+          "option": "He can to drive a car.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"He can to drive a car.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"He can drive a car.\"). Động từ khuyết thiếu \"can\" không thêm \"-s\", và động từ chính theo sau \"drive\" giữ nguyên mẫu không \"to\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "modals-ability-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: My little sister can sings very well.",
+      "options": [
+        "little",
+        "can",
+        "sings",
+        "well"
+      ],
+      "correct_answer": "sings",
+      "explanation": "Sau \"can\" động từ bắt buộc ở dạng nguyên mẫu không chia. Phải sửa \"sings\" thành \"sing\".",
+      "distractor_breakdowns": [
+        {
+          "option": "little",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"little\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "can",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"can\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "sings",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau \"can\" động từ bắt buộc ở dạng nguyên mẫu không chia. Phải sửa \"sings\" thành \"sing\"."
+        },
+        {
+          "option": "well",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"well\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-ability-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: She doesn't can cook traditional dishes.",
+      "options": [
+        "She",
+        "doesn't can",
+        "cook",
+        "dishes"
+      ],
+      "correct_answer": "doesn't can",
+      "explanation": "Không bao giờ dùng trợ động từ \"doesn't\" trước \"can\". Phải sửa \"doesn't can\" thành \"can't\" hoặc \"cannot\".",
+      "distractor_breakdowns": [
+        {
+          "option": "She",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"She\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "doesn't can",
+          "isCorrect": true,
+          "pedagogicalReason": "Không bao giờ dùng trợ động từ \"doesn't\" trước \"can\". Phải sửa \"doesn't can\" thành \"can't\" hoặc \"cannot\"."
+        },
+        {
+          "option": "cook",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"cook\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "dishes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"dishes\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-ability-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: Can you to help me carry this heavy box?",
+      "options": [
+        "Can",
+        "to help",
+        "carry",
+        "heavy"
+      ],
+      "correct_answer": "to help",
+      "explanation": "Sau \"Can + S\" là động từ nguyên mẫu không \"to\". Phải sửa \"to help\" thành \"help\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Can",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"Can\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "to help",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau \"Can + S\" là động từ nguyên mẫu không \"to\". Phải sửa \"to help\" thành \"help\"."
+        },
+        {
+          "option": "carry",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"carry\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "heavy",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"heavy\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
     }
   ]
 }

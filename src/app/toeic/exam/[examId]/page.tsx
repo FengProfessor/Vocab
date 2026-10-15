@@ -424,6 +424,27 @@ function ToeicExamRoomInner() {
       recordQuestionAnswers(historyResults);
     }
 
+    // Persist completed exam summary to lingo_toeic_exam_history for catalog & student hub badges
+    if (typeof window !== 'undefined' && targetTestId) {
+      try {
+        const rawExams = localStorage.getItem('lingo_toeic_exam_history');
+        const list = rawExams ? JSON.parse(rawExams) : [];
+        const safeList = Array.isArray(list) ? list : [];
+        safeList.unshift({
+          examId: targetTestId,
+          testId: targetTestId,
+          part: partNum || null,
+          examMode: currentMode,
+          scaledTotal: result.scaledTotal,
+          rawTotal: result.rawTotal,
+          submittedAt: nowIso,
+        });
+        localStorage.setItem('lingo_toeic_exam_history', JSON.stringify(safeList.slice(0, 100)));
+      } catch {
+        // ignore quota errors
+      }
+    }
+
     // ONLY prompt GuestSaveExamModal if user is truly unauthenticated AND not yet saved
     if (!currentUser && isActuallyGuest && !isActuallySaved) {
       if (typeof window !== 'undefined') {
@@ -436,6 +457,7 @@ function ToeicExamRoomInner() {
               part: partNum || undefined,
               sessionKey,
               answers,
+              answeredCount: Object.keys(answers).length,
               timeSpentSeconds: durationSeconds - session.timeRemainingSeconds,
               scoreResult: result,
               savedAt: Date.now(),
@@ -599,6 +621,8 @@ function ToeicExamRoomInner() {
     if (typeof window !== 'undefined') {
       try {
         localStorage.removeItem('lingo_pending_toeic_save');
+        localStorage.removeItem(`lingo_toeic_session_${sessionKey}`);
+        localStorage.removeItem(`lingo_toeic_session_${targetTestId}`);
         localStorage.removeItem(sessionKey);
       } catch (e) {
         console.warn('[ToeicExam] Reset storage error:', e);
@@ -610,7 +634,7 @@ function ToeicExamRoomInner() {
     setIsSavedToHistoryState(false);
     session.resetExam();
     setShowPracticeExplanation(false);
-  }, [session, sessionKey]);
+  }, [session, sessionKey, targetTestId]);
 
   // ── 6. Google Sign-In for Guests (Preserves in-progress/completed session) ──
   const handleGoogleSignInForGuest = useCallback(async () => {
@@ -627,7 +651,9 @@ function ToeicExamRoomInner() {
             testId: targetTestId,
             examMode: currentMode,
             part: partNum || undefined,
+            sessionKey,
             answers: activeAnswers,
+            answeredCount: Object.keys(activeAnswers).length,
             timeSpentSeconds: durationSeconds - session.timeRemainingSeconds,
             scoreResult: activeResult,
             savedAt: Date.now(),
@@ -663,6 +689,7 @@ function ToeicExamRoomInner() {
     durationSeconds,
     currentMode,
     partNum,
+    sessionKey,
     session.answers,
     session.scoreResult,
     session.timeRemainingSeconds,

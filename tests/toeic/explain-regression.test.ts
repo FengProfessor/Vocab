@@ -9,6 +9,9 @@
  * 5. QuestionId Strictness: questionId must match requested part if part is provided.
  */
 
+(process.env as Record<string, string | undefined>).NODE_ENV = 'test';
+process.env.TSX_TEST = '1';
+
 import { NextRequest } from 'next/server';
 import { POST as explainHandler } from '../../src/app/api/toeic/explain/route';
 import { TestRunner, expect } from './test-harness';

@@ -227,16 +227,16 @@ export default function CategorizationPractice({
       {/* Unassigned Item Pool */}
       {!submitted && (
         <div className="space-y-2">
-          <div className="flex items-center justify-between font-mono text-xs text-muted-foreground">
-            <span>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 font-mono text-xs text-muted-foreground">
+            <span className="tabular-nums">
               DANH SÁCH MỤC CẦN PHÂN LOẠI ({unassignedItems.length} mục chưa xếp):
             </span>
             <span className="text-[11px] text-muted-foreground/70">
-              (Bấm chọn rồi bấm nhóm hoặc kéo thả)
+              (Chạm chọn từ rồi chạm vào nhóm bên dưới)
             </span>
           </div>
 
-          <div className="flex flex-wrap gap-2 min-h-[48px] p-3 bg-muted/20 border border-border rounded-none">
+          <div className="flex flex-wrap gap-2 min-h-[52px] p-3 bg-muted/20 border border-border rounded-none">
             {unassignedItems.map((item) => (
               <button
                 key={item.id}
@@ -244,7 +244,7 @@ export default function CategorizationPractice({
                 draggable
                 onDragStart={() => handleDragStart(item.id)}
                 onClick={() => setSelectedItemId(selectedItemId === item.id ? null : item.id)}
-                className={`px-3 py-1.5 text-xs font-mono font-medium border rounded-none transition-all cursor-pointer ${
+                className={`min-h-[40px] px-3 py-1.5 text-xs font-mono font-medium border rounded-none transition-all cursor-pointer ${
                   selectedItemId === item.id
                     ? 'bg-primary text-primary-foreground border-primary shadow-sm'
                     : 'bg-card text-foreground border-border hover:border-foreground hover:bg-muted'
@@ -264,7 +264,7 @@ export default function CategorizationPractice({
       )}
 
       {/* Category Buckets Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
         {normalizedCategories.map((cat) => {
           const assignedHere = normalizedItems.filter((it) => assignments[it.id] === cat.id);
 
@@ -274,7 +274,7 @@ export default function CategorizationPractice({
               onClick={() => handleSelectOrAssign(cat.id)}
               onDragOver={(e) => e.preventDefault()}
               onDrop={() => handleDrop(cat.id)}
-              className={`border-2 p-4 min-h-[160px] flex flex-col justify-between rounded-none transition-colors ${
+              className={`border-2 p-3.5 sm:p-4 min-h-[140px] sm:min-h-[160px] flex flex-col justify-between rounded-none transition-colors ${
                 selectedItemId && !submitted
                   ? 'border-primary border-dashed bg-primary/[0.02] cursor-pointer hover:bg-primary/[0.05]'
                   : 'border-border bg-muted/10 border-dashed'
@@ -318,7 +318,7 @@ export default function CategorizationPractice({
                           e.stopPropagation();
                           handleUnassign(item.id);
                         }}
-                        className={`px-2.5 py-1 text-xs font-mono border rounded-none flex items-center gap-1.5 transition-colors ${
+                        className={`min-h-[36px] px-2.5 py-1 text-xs font-mono border rounded-none inline-flex items-center gap-1.5 transition-colors ${
                           !submitted ? 'cursor-pointer hover:border-rose-400 hover:text-rose-600' : ''
                         } ${badgeCls}`}
                         title={
@@ -342,7 +342,7 @@ export default function CategorizationPractice({
 
                   {assignedHere.length === 0 && !submitted && (
                     <span className="text-[11px] font-mono text-muted-foreground italic py-2">
-                      (Trống — thả mục vào đây)
+                      (Trống — chạm vào đây để xếp)
                     </span>
                   )}
                 </div>
@@ -363,14 +363,14 @@ export default function CategorizationPractice({
       {submitted && scoreResult && (
         <div className="space-y-3 pt-3 border-t border-border font-sans">
           <div
-            className={`p-3.5 border rounded-none flex items-center justify-between text-xs font-mono font-semibold uppercase tracking-wider ${
+            className={`p-3.5 border rounded-none flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 text-xs font-mono font-semibold uppercase tracking-wider tabular-nums ${
               scoreResult.percentage === 100
                 ? 'bg-emerald-500/10 border-emerald-500 text-emerald-900 dark:text-emerald-300'
                 : 'bg-amber-500/10 border-amber-500 text-amber-900 dark:text-amber-300'
             }`}
           >
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="h-4 w-4" />
+              <CheckCircle2 className="h-4 w-4 shrink-0" />
               <span>
                 KẾT QUẢ: {scoreResult.correct}/{scoreResult.total} MỤC PHÂN LOẠI CHÍNH XÁC (
                 {scoreResult.percentage}%)
@@ -395,13 +395,13 @@ export default function CategorizationPractice({
       )}
 
       {/* Action Footer */}
-      <div className="flex items-center justify-end gap-2 pt-2 border-t border-border">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-2 pt-2 border-t border-border">
         {!submitted ? (
           <button
             type="button"
             disabled={unassignedItems.length > 0 || normalizedItems.length === 0}
             onClick={handleSubmit}
-            className="px-5 py-2 bg-primary text-primary-foreground font-mono text-xs uppercase font-semibold rounded-none disabled:opacity-30 hover:bg-primary/90 transition-opacity"
+            className="min-h-[44px] px-5 py-2.5 bg-primary text-primary-foreground font-mono text-xs uppercase font-semibold rounded-none disabled:opacity-30 hover:bg-primary/90 transition-opacity flex items-center justify-center"
           >
             Kiểm tra phân loại
           </button>
@@ -410,7 +410,7 @@ export default function CategorizationPractice({
             <button
               type="button"
               onClick={handleReset}
-              className="px-4 py-2 border border-border text-foreground font-mono text-xs uppercase font-semibold rounded-none hover:bg-muted flex items-center gap-1.5 transition-colors"
+              className="min-h-[44px] px-4 py-2.5 border border-border text-foreground font-mono text-xs uppercase font-semibold rounded-none hover:bg-muted flex items-center justify-center gap-1.5 transition-colors"
             >
               <RotateCcw className="h-3.5 w-3.5" />
               Làm lại bài này
@@ -419,7 +419,7 @@ export default function CategorizationPractice({
               <button
                 type="button"
                 onClick={onNextQuestion}
-                className="px-5 py-2 bg-primary text-primary-foreground font-mono text-xs uppercase font-semibold rounded-none hover:bg-primary/90 transition-opacity flex items-center gap-1.5"
+                className="min-h-[44px] px-5 py-2.5 bg-primary text-primary-foreground font-mono text-xs uppercase font-semibold rounded-none hover:bg-primary/90 transition-opacity flex items-center justify-center gap-1.5"
               >
                 <span>{nextButtonLabel || 'Câu tiếp theo'}</span>
                 <ArrowRight className="h-3.5 w-3.5" />

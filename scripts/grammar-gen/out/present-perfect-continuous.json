@@ -411,29 +411,435 @@
   "exercises": [
     {
       "id": "present-perfect-continuous-ex-01",
+      "type": "multiple_choice",
+      "question": "She ___ for this company for five years and still works here.",
+      "options": [
+        "has been working",
+        "have been working",
+        "is working",
+        "worked"
+      ],
+      "correct_answer": "has been working",
+      "explanation": "Hành động bắt đầu trong quá khứ, kéo dài liên tục suốt 5 năm (\"for five years\") và hiện vẫn đang tiếp diễn → dùng hiện tại hoàn thành tiếp diễn \"has been working\".",
+      "distractor_breakdowns": [
+        {
+          "option": "has been working",
+          "isCorrect": true,
+          "pedagogicalReason": "Hành động bắt đầu trong quá khứ, kéo dài liên tục suốt 5 năm (\"for five years\") và hiện vẫn đang tiếp diễn → dùng hiện tại hoàn thành tiếp diễn \"has been working\"."
+        },
+        {
+          "option": "have been working",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have been working\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has been working\"). Hành động bắt đầu trong quá khứ, kéo dài liên tục suốt 5 năm (\"for five years\") và hiện vẫn đang tiếp diễn → dùng hiện tại hoàn thành tiếp diễn \"has been working\"."
+        },
+        {
+          "option": "is working",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is working\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has been working\"). Hành động bắt đầu trong quá khứ, kéo dài liên tục suốt 5 năm (\"for five years\") và hiện vẫn đang tiếp diễn → dùng hiện tại hoàn thành tiếp diễn \"has been working\"."
+        },
+        {
+          "option": "worked",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"worked\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has been working\"). Hành động bắt đầu trong quá khứ, kéo dài liên tục suốt 5 năm (\"for five years\") và hiện vẫn đang tiếp diễn → dùng hiện tại hoàn thành tiếp diễn \"has been working\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "present-perfect-continuous-ex-02",
       "type": "fill_blank",
-      "question": "Hoàn thành theo mẫu: She ___ been crying; her eyes are red.",
-      "options": [],
+      "question": "I ___ for the bus for thirty minutes, and it still hasn't arrived.",
+      "options": [
+        "have been waiting",
+        "has been waiting",
+        "waited",
+        "am waiting"
+      ],
+      "correct_answer": "have been waiting",
+      "explanation": "Nhấn mạnh sự chờ đợi liên tục từ 30 phút trước đến tận lúc nói với chủ ngữ \"I\" → \"have been waiting\".",
+      "distractor_breakdowns": [
+        {
+          "option": "have been waiting",
+          "isCorrect": true,
+          "pedagogicalReason": "Nhấn mạnh sự chờ đợi liên tục từ 30 phút trước đến tận lúc nói với chủ ngữ \"I\" → \"have been waiting\"."
+        },
+        {
+          "option": "has been waiting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has been waiting\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have been waiting\"). Nhấn mạnh sự chờ đợi liên tục từ 30 phút trước đến tận lúc nói với chủ ngữ \"I\" → \"have been waiting\"."
+        },
+        {
+          "option": "waited",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"waited\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have been waiting\"). Nhấn mạnh sự chờ đợi liên tục từ 30 phút trước đến tận lúc nói với chủ ngữ \"I\" → \"have been waiting\"."
+        },
+        {
+          "option": "am waiting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"am waiting\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have been waiting\"). Nhấn mạnh sự chờ đợi liên tục từ 30 phút trước đến tận lúc nói với chủ ngữ \"I\" → \"have been waiting\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "present-perfect-continuous-ex-03",
+      "type": "multiple_choice",
+      "question": "Your eyes are red. ___ you been crying?",
+      "options": [
+        "Have",
+        "Are",
+        "Did",
+        "Were"
+      ],
+      "correct_answer": "Have",
+      "explanation": "Hành động vừa mới diễn ra liên tục để lại dấu vết rõ rệt ở hiện tại (\"Your eyes are red\") dùng câu hỏi \"Have you been crying?\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Have",
+          "isCorrect": true,
+          "pedagogicalReason": "Hành động vừa mới diễn ra liên tục để lại dấu vết rõ rệt ở hiện tại (\"Your eyes are red\") dùng câu hỏi \"Have you been crying?\"."
+        },
+        {
+          "option": "Are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng động từ to be \"Are\" ở vị trí này (đáp án đúng là \"Have\"). Hành động vừa mới diễn ra liên tục để lại dấu vết rõ rệt ở hiện tại (\"Your eyes are red\") dùng câu hỏi \"Have you been crying?\"."
+        },
+        {
+          "option": "Did",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Trợ động từ \"Did\" không phù hợp với ngôi của chủ ngữ hoặc cấu trúc của câu (đáp án đúng là \"Have\")."
+        },
+        {
+          "option": "Were",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng động từ to be \"Were\" ở vị trí này (đáp án đúng là \"Have\"). Hành động vừa mới diễn ra liên tục để lại dấu vết rõ rệt ở hiện tại (\"Your eyes are red\") dùng câu hỏi \"Have you been crying?\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "present-perfect-continuous-ex-04",
+      "type": "fill_blank",
+      "question": "It ___ all morning, so the streets are flooded.",
+      "options": [
+        "has been raining",
+        "have been raining",
+        "is raining",
+        "rained"
+      ],
+      "correct_answer": "has been raining",
+      "explanation": "Dấu hiệu \"all morning\" (suốt cả buổi sáng) + kết quả hiện tại đường ngập → dùng \"has been raining\".",
+      "distractor_breakdowns": [
+        {
+          "option": "has been raining",
+          "isCorrect": true,
+          "pedagogicalReason": "Dấu hiệu \"all morning\" (suốt cả buổi sáng) + kết quả hiện tại đường ngập → dùng \"has been raining\"."
+        },
+        {
+          "option": "have been raining",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have been raining\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has been raining\"). Dấu hiệu \"all morning\" (suốt cả buổi sáng) + kết quả hiện tại đường ngập → dùng \"has been raining\"."
+        },
+        {
+          "option": "is raining",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is raining\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has been raining\"). Dấu hiệu \"all morning\" (suốt cả buổi sáng) + kết quả hiện tại đường ngập → dùng \"has been raining\"."
+        },
+        {
+          "option": "rained",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"rained\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has been raining\"). Dấu hiệu \"all morning\" (suốt cả buổi sáng) + kết quả hiện tại đường ngập → dùng \"has been raining\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "present-perfect-continuous-ex-05",
+      "type": "multiple_choice",
+      "question": "How long ___ they been learning Japanese?",
+      "options": [
+        "have",
+        "has",
+        "are",
+        "did"
+      ],
+      "correct_answer": "have",
+      "explanation": "Câu hỏi \"How long\" với chủ ngữ số nhiều \"they\" và \"been learning\" dùng trợ động từ \"have\".",
+      "distractor_breakdowns": [
+        {
+          "option": "have",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi \"How long\" với chủ ngữ số nhiều \"they\" và \"been learning\" dùng trợ động từ \"have\"."
+        },
+        {
+          "option": "has",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have\"). Câu hỏi \"How long\" với chủ ngữ số nhiều \"they\" và \"been learning\" dùng trợ động từ \"have\"."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng động từ to be \"are\" ở vị trí này (đáp án đúng là \"have\"). Câu hỏi \"How long\" với chủ ngữ số nhiều \"they\" và \"been learning\" dùng trợ động từ \"have\"."
+        },
+        {
+          "option": "did",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Trợ động từ \"did\" không phù hợp với ngôi của chủ ngữ hoặc cấu trúc của câu (đáp án đúng là \"have\")."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "present-perfect-continuous-ex-06",
+      "type": "fill_blank",
+      "question": "Tom's hands are covered in paint because he ___ the fence.",
+      "options": [
+        "has been painting",
+        "painted",
+        "paints",
+        "is painted"
+      ],
+      "correct_answer": "has been painting",
+      "explanation": "Tay Tom hiện đang dính đầy sơn là kết quả của hành động sơn hàng rào vừa diễn ra liên tục → \"has been painting\".",
+      "distractor_breakdowns": [
+        {
+          "option": "has been painting",
+          "isCorrect": true,
+          "pedagogicalReason": "Tay Tom hiện đang dính đầy sơn là kết quả của hành động sơn hàng rào vừa diễn ra liên tục → \"has been painting\"."
+        },
+        {
+          "option": "painted",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"painted\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has been painting\"). Tay Tom hiện đang dính đầy sơn là kết quả của hành động sơn hàng rào vừa diễn ra liên tục → \"has been painting\"."
+        },
+        {
+          "option": "paints",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"paints\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has been painting\"). Tay Tom hiện đang dính đầy sơn là kết quả của hành động sơn hàng rào vừa diễn ra liên tục → \"has been painting\"."
+        },
+        {
+          "option": "is painted",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is painted\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has been painting\"). Tay Tom hiện đang dính đầy sơn là kết quả của hành động sơn hàng rào vừa diễn ra liên tục → \"has been painting\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "present-perfect-continuous-ex-07",
+      "type": "multiple_choice",
+      "question": "I ___ my best friend since we were in primary school.",
+      "options": [
+        "have known",
+        "have been knowing",
+        "am knowing",
+        "knew"
+      ],
+      "correct_answer": "have known",
+      "explanation": "\"know\" (quen biết) là động từ chỉ trạng thái (stative verb), KHÔNG được chia ở thì hiện tại hoàn thành tiếp diễn; phải dùng hiện tại hoàn thành đơn \"have known\".",
+      "distractor_breakdowns": [
+        {
+          "option": "have known",
+          "isCorrect": true,
+          "pedagogicalReason": "\"know\" (quen biết) là động từ chỉ trạng thái (stative verb), KHÔNG được chia ở thì hiện tại hoàn thành tiếp diễn; phải dùng hiện tại hoàn thành đơn \"have known\"."
+        },
+        {
+          "option": "have been knowing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have been knowing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have known\"). \"know\" (quen biết) là động từ chỉ trạng thái (stative verb), KHÔNG được chia ở thì hiện tại hoàn thành tiếp diễn; phải dùng hiện tại hoàn thành đơn \"have known\"."
+        },
+        {
+          "option": "am knowing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"am knowing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have known\"). \"know\" (quen biết) là động từ chỉ trạng thái (stative verb), KHÔNG được chia ở thì hiện tại hoàn thành tiếp diễn; phải dùng hiện tại hoàn thành đơn \"have known\"."
+        },
+        {
+          "option": "knew",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"knew\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have known\"). \"know\" (quen biết) là động từ chỉ trạng thái (stative verb), KHÔNG được chia ở thì hiện tại hoàn thành tiếp diễn; phải dùng hiện tại hoàn thành đơn \"have known\"."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "present-perfect-continuous-ex-08",
+      "type": "fill_blank",
+      "question": "We ___ tennis for two hours, so we are exhausted now.",
+      "options": [
+        "have been playing",
+        "has been playing",
+        "are playing",
+        "play"
+      ],
+      "correct_answer": "have been playing",
+      "explanation": "Chơi quần vợt liên tục 2 tiếng dẫn đến kết quả hiện tại mệt lử (\"are exhausted now\") → \"have been playing\".",
+      "distractor_breakdowns": [
+        {
+          "option": "have been playing",
+          "isCorrect": true,
+          "pedagogicalReason": "Chơi quần vợt liên tục 2 tiếng dẫn đến kết quả hiện tại mệt lử (\"are exhausted now\") → \"have been playing\"."
+        },
+        {
+          "option": "has been playing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has been playing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have been playing\"). Chơi quần vợt liên tục 2 tiếng dẫn đến kết quả hiện tại mệt lử (\"are exhausted now\") → \"have been playing\"."
+        },
+        {
+          "option": "are playing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"are playing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have been playing\"). Chơi quần vợt liên tục 2 tiếng dẫn đến kết quả hiện tại mệt lử (\"are exhausted now\") → \"have been playing\"."
+        },
+        {
+          "option": "play",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"play\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have been playing\"). Chơi quần vợt liên tục 2 tiếng dẫn đến kết quả hiện tại mệt lử (\"are exhausted now\") → \"have been playing\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "present-perfect-continuous-ex-09",
+      "type": "multiple_choice",
+      "question": "She ___ three emails this morning. (nhấn mạnh số lượng hoàn tất)",
+      "options": [
+        "has written",
+        "has been writing",
+        "is writing",
+        "writes"
+      ],
+      "correct_answer": "has written",
+      "explanation": "Khi nêu rõ SỐ LƯỢNG kết quả đã hoàn tất (\"three emails\"), ta dùng Hiện tại hoàn thành đơn (\"has written\"), không dùng tiếp diễn.",
+      "distractor_breakdowns": [
+        {
+          "option": "has written",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi nêu rõ SỐ LƯỢNG kết quả đã hoàn tất (\"three emails\"), ta dùng Hiện tại hoàn thành đơn (\"has written\"), không dùng tiếp diễn."
+        },
+        {
+          "option": "has been writing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has been writing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has written\"). Khi nêu rõ SỐ LƯỢNG kết quả đã hoàn tất (\"three emails\"), ta dùng Hiện tại hoàn thành đơn (\"has written\"), không dùng tiếp diễn."
+        },
+        {
+          "option": "is writing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is writing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has written\"). Khi nêu rõ SỐ LƯỢNG kết quả đã hoàn tất (\"three emails\"), ta dùng Hiện tại hoàn thành đơn (\"has written\"), không dùng tiếp diễn."
+        },
+        {
+          "option": "writes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"writes\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has written\"). Khi nêu rõ SỐ LƯỢNG kết quả đã hoàn tất (\"three emails\"), ta dùng Hiện tại hoàn thành đơn (\"has written\"), không dùng tiếp diễn."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "present-perfect-continuous-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: They has been discussing the project since 9 a.m.",
+      "options": [
+        "has",
+        "been",
+        "discussing",
+        "since"
+      ],
       "correct_answer": "has",
-      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "explanation": "Chủ ngữ \"They\" là số nhiều nên phải đi với trợ động từ \"have been discussing\", không dùng \"has\".",
       "distractor_breakdowns": [
         {
           "option": "has",
           "isCorrect": true,
-          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+          "pedagogicalReason": "Chủ ngữ \"They\" là số nhiều nên phải đi với trợ động từ \"have been discussing\", không dùng \"has\"."
         },
+        {
+          "option": "been",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"been\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "discussing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"discussing\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "since",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"since\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "present-perfect-continuous-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: I have been owning this house for ten years.",
+      "options": [
+        "have",
+        "been owning",
+        "this house",
+        "for"
+      ],
+      "correct_answer": "been owning",
+      "explanation": "\"own\" (sở hữu) là động từ trạng thái (stative verb), không chia tiếp diễn. Phải sửa \"been owning\" thành \"owned\" (I have owned).",
+      "distractor_breakdowns": [
         {
           "option": "have",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"She\" là ngôi thứ ba số ít, trợ động từ của thì hiện tại hoàn thành tiếp diễn phải là \"has been\"."
+          "pedagogicalReason": "Không chính xác. Thành phần \"have\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         },
         {
-          "option": "had",
+          "option": "been owning",
+          "isCorrect": true,
+          "pedagogicalReason": "\"own\" (sở hữu) là động từ trạng thái (stative verb), không chia tiếp diễn. Phải sửa \"been owning\" thành \"owned\" (I have owned)."
+        },
+        {
+          "option": "this house",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Kết quả rõ ràng ở hiện tại (\"her eyes are red\"), phải dùng thì hiện tại hoàn thành tiếp diễn \"has been\"."
+          "pedagogicalReason": "Không chính xác. Thành phần \"this house\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "for",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"for\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
-      "difficulty": 1
+      "difficulty": 3
+    },
+    {
+      "id": "present-perfect-continuous-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: She has been study in the library all afternoon.",
+      "options": [
+        "has",
+        "been",
+        "study",
+        "all afternoon"
+      ],
+      "correct_answer": "study",
+      "explanation": "Sau \"has been\" trong thì hiện tại hoàn thành tiếp diễn, động từ phải ở dạng V-ing. Sửa \"study\" thành \"studying\".",
+      "distractor_breakdowns": [
+        {
+          "option": "has",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"has\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "been",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"been\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "study",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau \"has been\" trong thì hiện tại hoàn thành tiếp diễn, động từ phải ở dạng V-ing. Sửa \"study\" thành \"studying\"."
+        },
+        {
+          "option": "all afternoon",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"all afternoon\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
     }
   ]
 }

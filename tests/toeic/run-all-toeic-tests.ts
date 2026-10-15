@@ -35,6 +35,8 @@ import { runToeicSpeakingTests } from './speaking.test';
 import { runAntiLeakWhitelabelTests } from './anti-leak-whitelabel.test';
 import { runMediaProxyRelayTests } from './media-proxy-relay.test';
 import { runEtsProIntegrationTests } from './ets-pro-integration.test';
+import { runCollocationDictionaryTests } from '../exam/collocation-dictionary.test';
+import { runDictionaryMeaningsFamilyTests } from '../exam/dictionary-meanings-family.test';
 
 (process.env as any).NODE_ENV = 'test';
 process.env.TSX_TEST = '1';
@@ -223,6 +225,22 @@ async function main() {
   const statsINT = runnerINT.getStats();
   tierStats.push({ tierName: 'ETS-PRO Integration (Tiers 1-4)', stats: statsINT, minRequired: 35 });
   console.log(`✓ ETS-PRO Integration Finished: ${statsINT.passed}/${statsINT.total} passed (${statsINT.durationMs}ms)\n`);
+
+  // Suite 23: Collocation Vocabulary Ingestion & Dictionary Cache UI
+  console.log('▶ Running Suite 23: Collocation Vocabulary & Dictionary Cache UI (13 tests, min 10 required)...');
+  const runnerCD = new TestRunner();
+  await runCollocationDictionaryTests(runnerCD);
+  const statsCD = runnerCD.getStats();
+  tierStats.push({ tierName: 'Collocation Ingestion & Dict Cache', stats: statsCD, minRequired: 10 });
+  console.log(`✓ Collocation Dict Finished: ${statsCD.passed}/${statsCD.total} passed (${statsCD.durationMs}ms)\n`);
+
+  // Suite 24: Dictionary Primary Meanings & Word Family Clusters
+  console.log('▶ Running Suite 24: Dictionary Primary Meanings & Word Family (8 tests, min 8 required)...');
+  const runnerDMF = new TestRunner();
+  await runDictionaryMeaningsFamilyTests(runnerDMF);
+  const statsDMF = runnerDMF.getStats();
+  tierStats.push({ tierName: 'Dict Primary Meanings & Word Family', stats: statsDMF, minRequired: 8 });
+  console.log(`✓ Dict Meanings & Family Finished: ${statsDMF.passed}/${statsDMF.total} passed (${statsDMF.durationMs}ms)\n`);
 
   const totalDuration = Date.now() - startTime;
   const grandTotal = tierStats.reduce((acc, t) => acc + t.stats.total, 0);

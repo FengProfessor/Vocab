@@ -12,7 +12,6 @@ import {
   ChevronLeft,
   CheckCircle2,
   XCircle,
-  Lightbulb,
   Loader2,
   RotateCcw,
   Home,
@@ -27,13 +26,17 @@ import { speak } from '@/lib/study';
 import {
   sanitizeDrillExercises,
   isGrammarAnswerCorrect,
+  cleanGrammarAnswer,
+  saveLocalGrammarProgress,
+  readLocalGrammarWrongQueue,
+  recordGrammarAttemptLocal,
 } from '@/lib/grammar-exercises';
 import { completeRoadmapStep } from '@/lib/roadmap-client';
-import { getTopicBySlug } from '@/lib/grammar-roadmap-data';
+import { getTopicBySlug, UNIFIED_GRAMMAR_TOPICS } from '@/lib/grammar-roadmap-data';
 import CategorizationPractice from '@/components/grammar/CategorizationPractice';
 import PedagogicalFeedbackPanel from '@/components/grammar/PedagogicalFeedbackPanel';
 import FormattedText from '@/components/grammar/FormattedText';
-import GrammarReferenceTable from '@/components/grammar/GrammarReferenceTable';
+import GrammarReferenceTable, { type GrammarTheoryData } from '@/components/grammar/GrammarReferenceTable';
 import PronounMatrixTable from '@/components/grammar/PronounMatrixTable';
 import { readLastProfileCache } from '@/lib/dashboard-snapshot-cache';
 
@@ -317,53 +320,55 @@ function PracticeScoreCard({
   const isPass = accuracy >= 80;
 
   return (
-    <main className="min-h-dvh flex flex-col items-center justify-center p-6 bg-background">
-      <div className="border border-border p-8 w-full max-w-md bg-card rounded-none shadow-none flex flex-col gap-6">
+    <main className="min-h-dvh flex flex-col items-center justify-center p-4 sm:p-6 bg-background">
+      <div className="border border-border p-5 sm:p-8 w-full max-w-md bg-card rounded-none shadow-none flex flex-col gap-5 sm:gap-6">
         <div className="border-b border-border pb-4">
           <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-1">
             Kết quả luyện tập ngữ pháp
           </div>
-          <h1 className="text-2xl font-serif font-bold text-foreground">
+          <h1 className="text-xl sm:text-2xl font-serif font-bold text-foreground">
             {isPass ? 'Đạt chuẩn yêu cầu' : 'Cần ôn luyện thêm'}
           </h1>
-          <p className="text-sm text-muted-foreground mt-1">
+          <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
             {isPass
               ? 'Bạn đã hoàn thành xuất sắc phiên luyện tập này với độ chính xác cao.'
               : 'Hãy xem lại các câu sai để củng cố bản chất cấu trúc ngữ pháp.'}
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 border border-border p-4 bg-muted/20">
+        <div className="grid grid-cols-2 gap-3 border border-border p-4 bg-muted/20 tabular-nums">
           <div>
             <div className="text-xs font-mono text-muted-foreground uppercase">Độ chính xác</div>
-            <div className="text-3xl font-mono font-bold mt-1 text-foreground">{accuracy}%</div>
+            <div className="text-2xl sm:text-3xl font-mono font-bold mt-1 text-foreground">{accuracy}%</div>
           </div>
           <div>
             <div className="text-xs font-mono text-muted-foreground uppercase">Số câu đúng</div>
-            <div className="text-3xl font-mono font-bold mt-1 text-emerald-600 dark:text-emerald-400">
+            <div className="text-2xl sm:text-3xl font-mono font-bold mt-1 text-emerald-600 dark:text-emerald-400">
               {correct} / {total}
             </div>
           </div>
         </div>
 
-        <div className="flex flex-col gap-2 pt-2">
+        <div className="flex flex-col gap-2.5 pt-1">
           <button
             onClick={onRetry}
-            className="w-full bg-primary text-primary-foreground py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-semibold rounded-none border border-primary hover:bg-primary/90 flex items-center justify-center gap-2"
+            className="w-full min-h-[44px] bg-primary text-primary-foreground py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-semibold rounded-none border border-primary hover:bg-primary/90 flex items-center justify-center gap-2"
           >
             <RotateCcw className="h-4 w-4" /> Làm lại bài tập
           </button>
           {topicSlug && (
-            <Link href={`/grammar?topic=${encodeURIComponent(topicSlug)}`} className="w-full">
-              <button className="w-full border border-border py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-semibold rounded-none hover:bg-muted text-foreground flex items-center justify-center gap-2">
-                <BookOpen className="h-4 w-4" /> Học lại lý thuyết
-              </button>
+            <Link
+              href={`/grammar?topic=${encodeURIComponent(topicSlug)}`}
+              className="w-full min-h-[44px] border border-border py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-semibold rounded-none hover:bg-muted text-foreground flex items-center justify-center gap-2"
+            >
+              <BookOpen className="h-4 w-4" /> Học lại lý thuyết
             </Link>
           )}
-          <Link href="/grammar" className="w-full">
-            <button className="w-full border border-border py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-semibold rounded-none hover:bg-muted text-foreground flex items-center justify-center gap-2">
-              <Home className="h-4 w-4" /> Về lộ trình ngữ pháp
-            </button>
+          <Link
+            href="/grammar"
+            className="w-full min-h-[44px] border border-border py-2.5 px-4 font-mono text-xs uppercase tracking-wider font-semibold rounded-none hover:bg-muted text-foreground flex items-center justify-center gap-2"
+          >
+            <Home className="h-4 w-4" /> Về lộ trình ngữ pháp
           </Link>
         </div>
       </div>
@@ -404,9 +409,32 @@ function PracticeHubContent() {
   const [userId, setUserId] = useState<string | null>(() => readLastProfileCache()?.id ?? null);
   const [emptyMessage, setEmptyMessage] = useState<string | null>(null);
   const [showCheatSheet, setShowCheatSheet] = useState(false);
+  const [cheatSheetTheory, setCheatSheetTheory] = useState<(GrammarTheoryData & { title?: string; title_vi?: string }) | null>(null);
 
   const rawExercises = useRef<GrammarExercise[]>([]);
   const answering = useRef(false);
+
+  const activeTopicSlug = topicSlug || current?.topic || '';
+  const activeTopicMeta = topicMeta || (current?.topic ? getTopicBySlug(current.topic) : null);
+
+  // Preload or fetch theory data for the current topic so Quick Reference ("Tra cứu") shows real formulas & rules
+  useEffect(() => {
+    if (!activeTopicSlug) return;
+    let cancelled = false;
+    authFetch(`/api/grammar/theory?topic=${encodeURIComponent(activeTopicSlug)}`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((json) => {
+        if (!cancelled && json?.data) {
+          setCheatSheetTheory(json.data as GrammarTheoryData & { title?: string; title_vi?: string });
+        }
+      })
+      .catch(() => {
+        // Non-blocking fallback
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [activeTopicSlug]);
 
   useEffect(() => {
     const resolveSavedKey = (uid: string): string | null => {
@@ -475,22 +503,37 @@ function PracticeHubContent() {
         }
       }
 
-      // Mode 1: Spaced Review (14-day error queue)
+      // Mode 1: Spaced Review (14-day error queue: merge local + server)
       if (isReviewMode) {
-        if (!user) {
-          toast.error('Cần đăng nhập để ôn tập các câu đã sai.');
-          setIsLoading(false);
-          setEmptyMessage('Vui lòng đăng nhập để mở hàng đợi ôn tập ngắt quãng.');
-          return;
+        const localWrong = readLocalGrammarWrongQueue(14).map((item) => item.exercise);
+        let serverWrong: GrammarExercise[] = [];
+
+        if (user) {
+          try {
+            const res = await authFetch('/api/grammar/review?days=14', {
+              headers: { 'X-LingoPro-Request': '1' },
+            });
+            const data = await res.json();
+            if (data.success && Array.isArray(data.data)) {
+              serverWrong = data.data as GrammarExercise[];
+            }
+          } catch (err) {
+            console.warn('Failed to fetch server review queue, using local queue:', err);
+          }
         }
 
-        const res = await fetch('/api/grammar/review?days=14', {
-          headers: { 'X-LingoPro-Request': '1' },
-        });
-        const data = await res.json();
+        const seenQ = new Set<string>();
+        const mergedWrong: GrammarExercise[] = [];
+        for (const ex of [...localWrong, ...serverWrong]) {
+          const normQ = cleanGrammarAnswer(ex?.question || '');
+          if (normQ && !seenQ.has(normQ)) {
+            seenQ.add(normQ);
+            mergedWrong.push(ex);
+          }
+        }
 
-        if (data.success && data.data?.length > 0) {
-          const cleaned = sanitizeDrillExercises(data.data as GrammarExercise[]);
+        if (mergedWrong.length > 0) {
+          const cleaned = sanitizeDrillExercises(mergedWrong);
           rawExercises.current = cleaned;
           if (!restoredFromStorage) {
             startSession(cleaned);
@@ -653,6 +696,20 @@ function PracticeHubContent() {
     };
     setScore(newScore);
     setShowExplanation(true);
+
+    // Lưu câu sai / câu đã sửa đúng vào hàng đợi 14 ngày (local + server)
+    const activeSlug =
+      topicSlug || UNIFIED_GRAMMAR_TOPICS.find((t) => t.slug === lessonId)?.slug || undefined;
+    recordGrammarAttemptLocal(current, isCorrect, activeSlug);
+    authFetch('/api/grammar/review', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        exerciseId: current.id,
+        isCorrect,
+        exercise: current,
+      }),
+    }).catch(() => {});
   };
 
   const handleFillSubmit = (e: React.FormEvent) => {
@@ -674,12 +731,40 @@ function PracticeHubContent() {
       setDone(true);
       answering.current = false;
 
+      const accuracyRatio = exercises.length > 0 ? score.correct / exercises.length : 0;
+      const accuracyPct = Math.round(accuracyRatio * 100);
+
       track('grammar_quiz_completed', {
         correct: score.correct,
         total: exercises.length,
-        accuracy: exercises.length > 0 ? Math.round((score.correct / exercises.length) * 100) : 0,
+        accuracy: accuracyPct,
         mode: topicSlug ? 'topic' : isReviewMode ? 'review' : 'classroom',
       });
+
+      // Lưu tiến độ chủ điểm ngữ pháp (0ms localStorage + đồng bộ FSRS lên server)
+      const canonicalSlug =
+        topicSlug || UNIFIED_GRAMMAR_TOPICS.find((t) => t.slug === lessonId)?.slug || '';
+      const effectiveLessonId = lessonId || exercises[0]?.lesson_id || canonicalSlug || '';
+      if (canonicalSlug) {
+        saveLocalGrammarProgress({
+          topicSlug: canonicalSlug,
+          lessonId: effectiveLessonId,
+          accuracy: accuracyPct,
+        });
+      }
+      if (canonicalSlug || effectiveLessonId) {
+        await authFetch('/api/grammar/progress', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            lessonId: effectiveLessonId,
+            topicSlug: canonicalSlug || undefined,
+            accuracy: accuracyRatio,
+            is_completed: true,
+            mastery_level: accuracyPct,
+          }),
+        }).catch((err) => console.warn('Failed to sync grammar progress:', err));
+      }
 
       // Clear cached state
       if (userId) {
@@ -804,51 +889,59 @@ function PracticeHubContent() {
   const headerTitle = isReviewMode
     ? 'Ôn tập câu sai (14 ngày)'
     : topicMeta
-    ? `${topicMeta.order < 10 ? '0' : ''}${topicMeta.order}. ${topicMeta.title}`
+    ? `${topicMeta.order < 10 ? '0' : ''}${topicMeta.order}. ${topicMeta.title_vi || topicMeta.title}`
     : current.topic || 'Luyện tập ngữ pháp';
 
   return (
     <main className="min-h-dvh flex flex-col bg-background text-foreground">
       {/* Top Header */}
-      <header className="border-b border-border bg-card px-4 py-3 sticky top-0 z-30">
-        <div className="max-w-3xl mx-auto flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <Link href="/grammar">
+      <header className="border-b border-border bg-card px-3 sm:px-4 py-2.5 sm:py-3 sticky top-0 z-30">
+        <div className="max-w-3xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
+          <div className="flex items-center gap-2 min-w-0 flex-1">
+            <Link href="/grammar" className="shrink-0">
               <button className="flex min-h-[44px] min-w-[44px] items-center justify-center p-1.5 border border-border rounded-none hover:bg-muted text-muted-foreground hover:text-foreground">
                 <ChevronLeft className="h-4 w-4" />
               </button>
             </Link>
-            <div>
-              <div className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-                {topicMeta?.stageLabel || (isReviewMode ? 'Spaced Review' : 'Practice Hub')}
+            <div className="min-w-0 flex-1">
+              <div className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground truncate">
+                {topicMeta
+                  ? `${topicMeta.level} • ${topicMeta.title}`
+                  : isReviewMode
+                  ? 'Ôn câu sai định kỳ'
+                  : 'Luyện tập ngữ pháp'}
               </div>
-              <h1 className="text-sm font-semibold font-serif text-foreground truncate max-w-[220px] sm:max-w-md">
+              <h1 className="text-sm font-semibold font-serif text-foreground truncate">
                 {headerTitle}
               </h1>
             </div>
           </div>
 
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
             <button
               type="button"
               onClick={() => setShowCheatSheet(true)}
-              className="flex min-h-[44px] items-center gap-1.5 px-2.5 py-1.5 border border-border rounded-none hover:bg-muted text-muted-foreground hover:text-foreground font-mono text-xs uppercase"
-              title="Tra cứu nhanh lý thuyết & hình ảnh trực quan"
+              className="flex min-h-[44px] min-w-[44px] items-center justify-center gap-1.5 px-2.5 py-1.5 border border-border rounded-none hover:bg-muted text-muted-foreground hover:text-foreground font-mono text-xs uppercase shrink-0"
+              title="Tra cứu nhanh lý thuyết & công thức"
             >
-              <BookOpen className="h-3.5 w-3.5 text-primary" />
+              <BookOpen className="h-3.5 w-3.5 text-primary shrink-0" />
               <span className="hidden sm:inline">Tra cứu</span>
             </button>
             <button
               onClick={() => speakEnglish(current.question)}
-              className="flex min-h-[44px] min-w-[44px] items-center justify-center p-1.5 border border-border rounded-none hover:bg-muted text-muted-foreground hover:text-foreground"
+              className="flex min-h-[44px] min-w-[44px] items-center justify-center p-1.5 border border-border rounded-none hover:bg-muted text-muted-foreground hover:text-foreground shrink-0"
               title="Nghe câu tiếng Anh"
             >
               <Volume2 className="h-4 w-4" />
             </button>
-            <div className="font-mono text-xs font-semibold px-2 py-1 border border-border bg-muted/30">
-              <span className="text-emerald-600 dark:text-emerald-400">{score.correct}</span>
-              <span className="text-muted-foreground mx-1">/</span>
-              <span className="text-red-600 dark:text-red-400">{score.wrong}</span>
+            <div
+              className="font-mono text-xs font-semibold px-2 py-1 min-h-[44px] inline-flex items-center border border-border bg-muted/30 tabular-nums shrink-0"
+              title={`Đúng ${score.correct} câu / Sai ${score.wrong} câu`}
+              aria-label={`Đúng ${score.correct}, Sai ${score.wrong}`}
+            >
+              <span className="text-emerald-600 dark:text-emerald-400">✓{score.correct}</span>
+              <span className="text-muted-foreground mx-1">·</span>
+              <span className="text-rose-600 dark:text-rose-400">✕{score.wrong}</span>
             </div>
           </div>
         </div>
@@ -860,13 +953,13 @@ function PracticeHubContent() {
       </header>
 
       {/* Main Question Container */}
-      <div className="flex-1 max-w-3xl w-full mx-auto p-4 sm:p-6 flex flex-col justify-between">
-        <div className="flex flex-col gap-6">
+      <div className="flex-1 max-w-3xl w-full mx-auto p-3.5 sm:p-6 flex flex-col justify-between">
+        <div className="flex flex-col gap-5 sm:gap-6">
           {/* Question Box (hidden for categorization as CategorizationPractice has its own dedicated header) */}
           {current.type !== 'categorization' && (
-            <div className="border border-border p-6 bg-card rounded-none">
-              <div className="flex items-center justify-between mb-4">
-                <span className="font-mono text-xs uppercase px-2 py-0.5 border border-border text-muted-foreground">
+            <div className="border border-border p-4 sm:p-6 bg-card rounded-none">
+              <div className="flex items-center justify-between gap-2 mb-3.5 sm:mb-4">
+                <span className="font-mono text-[11px] sm:text-xs uppercase px-2 py-0.5 border border-border text-muted-foreground">
                   {current.type === 'fill_blank'
                     ? 'Điền khuyết'
                     : current.type === 'error_correction'
@@ -874,7 +967,7 @@ function PracticeHubContent() {
                     : 'Trắc nghiệm'}
                 </span>
                 {current.level && (
-                  <span className="font-mono text-xs uppercase text-muted-foreground">
+                  <span className="font-mono text-[11px] sm:text-xs uppercase text-muted-foreground tabular-nums">
                     Cấp độ: {current.level}
                   </span>
                 )}
@@ -890,7 +983,7 @@ function PracticeHubContent() {
                   onSelect={handleSelectOption}
                 />
               ) : (
-                <div className="text-lg font-serif font-medium leading-relaxed">
+                <div className="text-base sm:text-lg font-serif font-medium leading-relaxed break-words">
                   {renderRichText(current.question)}
                 </div>
               )}
@@ -921,23 +1014,81 @@ function PracticeHubContent() {
                   wrong: prev.wrong + (isAllCorrect ? 0 : 1),
                 }));
                 setShowExplanation(true);
+                recordGrammarAttemptLocal(current, isAllCorrect, topicSlug || undefined);
+                authFetch('/api/grammar/review', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                    exerciseId: current.id,
+                    isCorrect: isAllCorrect,
+                    exercise: current,
+                  }),
+                }).catch(() => {});
               }}
             />
           ) : current.type === 'fill_blank' ? (
             <form onSubmit={handleFillSubmit} className="flex flex-col gap-3">
-              <div className="flex gap-2">
+              {current.options && current.options.length >= 2 && (
+                <div className="flex flex-col gap-2">
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+                    Chạm chọn nhanh từ gợi ý (hoặc tự gõ bên dưới):
+                  </span>
+                  <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
+                    {current.options.map((opt, idx) => {
+                      const cleanOpt = opt.replace(/^[A-D]\.\s*/i, '').trim();
+                      const isPicked =
+                        selected !== null &&
+                        cleanGrammarAnswer(selected) === cleanGrammarAnswer(cleanOpt);
+                      const isCorrectOpt = isGrammarAnswerCorrect(
+                        cleanOpt,
+                        current.correct_answer,
+                        current.options,
+                      );
+                      let btnStyle =
+                        'border-border bg-card hover:bg-muted/60 text-foreground';
+                      if (selected !== null) {
+                        if (isCorrectOpt) {
+                          btnStyle =
+                            'border-emerald-600 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 font-semibold';
+                        } else if (isPicked) {
+                          btnStyle =
+                            'border-rose-600 bg-rose-500/10 text-rose-700 dark:text-rose-300 line-through';
+                        } else {
+                          btnStyle =
+                            'border-border/50 bg-muted/20 text-muted-foreground opacity-60';
+                        }
+                      }
+                      return (
+                        <button
+                          key={`${idx}-${cleanOpt}`}
+                          type="button"
+                          disabled={!!selected}
+                          onClick={() => {
+                            setTypedAnswer(cleanOpt);
+                            handleSelectOption(cleanOpt);
+                          }}
+                          className={`min-h-[44px] px-3.5 py-2 border rounded-none font-mono text-sm text-left sm:text-center transition-colors touch-manipulation ${btnStyle}`}
+                        >
+                          {cleanOpt}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+              <div className="flex flex-col sm:flex-row gap-2">
                 <input
                   type="text"
                   value={typedAnswer}
                   onChange={(e) => setTypedAnswer(e.target.value)}
                   disabled={!!selected}
-                  placeholder="Nhập câu trả lời của bạn..."
-                  className="flex-1 border border-border bg-card px-4 py-3 rounded-none font-mono text-sm focus:outline-none focus:border-foreground"
+                  placeholder="Nhập từ/cụm từ còn thiếu..."
+                  className="flex-1 min-w-0 min-h-[44px] border border-border bg-card px-3.5 py-2.5 rounded-none font-mono text-base sm:text-sm focus:outline-none focus:border-foreground"
                 />
                 <button
                   type="submit"
                   disabled={!!selected || !typedAnswer.trim()}
-                  className="bg-primary text-primary-foreground px-6 py-3 font-mono text-xs uppercase tracking-wider font-semibold rounded-none border border-primary hover:bg-primary/90 disabled:opacity-40"
+                  className="min-h-[44px] bg-primary text-primary-foreground px-6 py-2.5 font-mono text-xs uppercase tracking-wider font-semibold rounded-none border border-primary hover:bg-primary/90 disabled:opacity-40 shrink-0"
                 >
                   Xác nhận
                 </button>
@@ -950,7 +1101,7 @@ function PracticeHubContent() {
                 const isSelected = selected === opt;
 
                 let optClass =
-                  'w-full text-left p-4 border rounded-none transition-colors flex items-start justify-between gap-4 font-mono text-sm ';
+                  'w-full min-h-[48px] text-left p-3.5 sm:p-4 border rounded-none transition-colors flex items-start justify-between gap-3 sm:gap-4 font-mono text-sm ';
 
                 if (selected) {
                   if (isCorrect) {
@@ -972,11 +1123,11 @@ function PracticeHubContent() {
                     className={optClass}
                     type="button"
                   >
-                    <div className="flex items-start gap-3 flex-1 text-left">
-                      <span className="text-xs text-muted-foreground uppercase pt-0.5 shrink-0 font-bold">
+                    <div className="flex items-start gap-2.5 sm:gap-3 flex-1 min-w-0 text-left">
+                      <span className="text-xs text-muted-foreground uppercase pt-0.5 shrink-0 font-bold tabular-nums">
                         {String.fromCharCode(65 + idx)}.
                       </span>
-                      <span className="flex-1 text-left leading-relaxed">
+                      <span className="flex-1 min-w-0 text-left leading-relaxed break-words">
                         <FormattedText text={opt} />
                       </span>
                     </div>
@@ -1012,7 +1163,7 @@ function PracticeHubContent() {
           <div className="mt-8 pt-4 border-t border-border flex justify-end">
             <button
               onClick={handleNext}
-              className="bg-primary text-primary-foreground py-3 px-8 font-mono text-xs uppercase tracking-wider font-semibold rounded-none border border-primary hover:bg-primary/90 flex items-center gap-2"
+              className="min-h-[44px] bg-primary text-primary-foreground py-3 px-8 font-mono text-xs uppercase tracking-wider font-semibold rounded-none border border-primary hover:bg-primary/90 flex items-center gap-2"
             >
               <span>{qIndex + 1 === exercises.length ? 'Xem kết quả' : 'Câu tiếp theo'}</span>
               <ArrowRight className="h-4 w-4" />
@@ -1023,35 +1174,41 @@ function PracticeHubContent() {
 
       {/* Quick Visual Cheat Sheet Modal */}
       {showCheatSheet && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-background/80 backdrop-blur-sm">
-          <div className="border border-border bg-card w-full max-w-4xl max-h-[90vh] rounded-none flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
-            <div className="border-b border-border p-4 flex items-center justify-between gap-4 bg-muted/10 shrink-0">
-              <div className="flex items-center gap-2">
-                <BookOpen className="h-4 w-4 text-primary" />
-                <h2 className="text-base font-serif font-bold text-foreground">
-                  Tra cứu nhanh: {topicMeta?.title || 'Ngữ pháp'}
-                </h2>
-                {topicMeta?.title_vi && (
-                  <span className="text-xs text-muted-foreground hidden sm:inline">({topicMeta.title_vi})</span>
-                )}
+        <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 md:p-6 bg-background/80 backdrop-blur-sm">
+          <div className="border-0 sm:border border-border bg-card w-full max-w-4xl h-[92dvh] sm:h-auto sm:max-h-[90vh] rounded-none flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+            <div className="border-b border-border px-3.5 py-3 sm:p-4 flex items-center justify-between gap-3 bg-muted/10 shrink-0">
+              <div className="flex items-center gap-2 min-w-0 flex-1">
+                <BookOpen className="h-4 w-4 text-primary shrink-0" />
+                <div className="min-w-0 flex-1">
+                  <h2 className="text-sm sm:text-base font-serif font-bold text-foreground truncate">
+                    Tra cứu nhanh: {activeTopicMeta?.title_vi || activeTopicMeta?.title || cheatSheetTheory?.title_vi || cheatSheetTheory?.title || 'Ngữ pháp'}
+                  </h2>
+                  {(activeTopicMeta?.title || cheatSheetTheory?.title) && (
+                    <p className="text-[11px] font-mono text-muted-foreground truncate">
+                      {activeTopicMeta?.level || 'CEFR'} • {activeTopicMeta?.title || cheatSheetTheory?.title}
+                    </p>
+                  )}
+                </div>
               </div>
               <button
                 type="button"
                 onClick={() => setShowCheatSheet(false)}
-                className="p-1.5 border border-border hover:bg-muted text-muted-foreground hover:text-foreground rounded-none"
+                aria-label="Đóng bảng tra cứu"
+                className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 border border-border hover:bg-muted text-muted-foreground hover:text-foreground rounded-none shrink-0"
               >
                 <X className="h-4 w-4" />
               </button>
             </div>
-            <div className="p-4 sm:p-6 overflow-y-auto flex-1 min-h-0 text-sm">
-              {topicSlug === 'personal-pronouns' ? (
+            <div className="p-3.5 sm:p-6 overflow-y-auto flex-1 min-h-0 text-sm">
+              {activeTopicSlug === 'personal-pronouns' ? (
                 <PronounMatrixTable />
               ) : (
                 <GrammarReferenceTable
-                  topicSlug={topicSlug || ''}
-                  topicTitle={topicMeta?.title}
-                  topicTitleVi={topicMeta?.title_vi}
-                  topicSummary={topicMeta?.summary}
+                  topicSlug={activeTopicSlug}
+                  topicTitle={activeTopicMeta?.title || cheatSheetTheory?.title}
+                  topicTitleVi={activeTopicMeta?.title_vi || cheatSheetTheory?.title_vi}
+                  topicSummary={activeTopicMeta?.summary || cheatSheetTheory?.definition}
+                  theoryData={cheatSheetTheory || undefined}
                 />
               )}
             </div>
@@ -1059,7 +1216,7 @@ function PracticeHubContent() {
               <button
                 type="button"
                 onClick={() => setShowCheatSheet(false)}
-                className="px-4 py-2 border border-border font-mono text-xs uppercase tracking-wider font-semibold rounded-none hover:bg-muted"
+                className="min-h-[44px] w-full sm:w-auto px-5 py-2.5 border border-border font-mono text-xs uppercase tracking-wider font-semibold rounded-none hover:bg-muted"
               >
                 Đóng tra cứu
               </button>

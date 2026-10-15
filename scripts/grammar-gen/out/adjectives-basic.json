@@ -314,29 +314,35 @@
     {
       "id": "adjectives-basic-ex-01",
       "type": "multiple_choice",
-      "question": "She has a ___ dress.",
+      "question": "She bought a ___ dress for the party.",
       "options": [
         "beautiful",
         "beautifully",
-        "beauty"
+        "beauty",
+        "beauties"
       ],
       "correct_answer": "beautiful",
-      "explanation": "Trước danh từ dress dùng tính từ beautiful.",
+      "explanation": "Trước danh từ \"dress\" cần một tính từ (adjective) để miêu tả tính chất → chọn \"beautiful\".",
       "distractor_breakdowns": [
         {
           "option": "beautiful",
           "isCorrect": true,
-          "pedagogicalReason": "Trước danh từ dress dùng tính từ beautiful."
+          "pedagogicalReason": "Trước danh từ \"dress\" cần một tính từ (adjective) để miêu tả tính chất → chọn \"beautiful\"."
         },
         {
           "option": "beautifully",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"beautifully\" là trạng từ (adverb), không thể đứng trước danh từ hoặc làm bổ ngữ sau linking verb thay cho tính từ."
+          "pedagogicalReason": "Không chính xác. \"beautifully\" là trạng từ (adverb), không đứng ở vị trí cần tính từ hoặc danh từ."
         },
         {
           "option": "beauty",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"beauty\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"beauty\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"beautiful\"). Trước danh từ \"dress\" cần một tính từ (adjective) để miêu tả tính chất → chọn \"beautiful\"."
+        },
+        {
+          "option": "beauties",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"beauties\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"beautiful\"). Trước danh từ \"dress\" cần một tính từ (adjective) để miêu tả tính chất → chọn \"beautiful\"."
         }
       ],
       "difficulty": 1
@@ -344,53 +350,71 @@
     {
       "id": "adjectives-basic-ex-02",
       "type": "multiple_choice",
-      "question": "The soup smells ___.",
+      "question": "The hot soup smells ___.",
       "options": [
         "delicious",
         "deliciously",
-        "delight"
+        "delight",
+        "well"
       ],
       "correct_answer": "delicious",
-      "explanation": "Sau động từ nối smells dùng tính từ delicious.",
+      "explanation": "Sau động từ liên kết chỉ giác quan \"smells\" (ngửi thấy có mùi) ta dùng tính từ \"delicious\", không dùng trạng từ đuôi -ly.",
       "distractor_breakdowns": [
         {
           "option": "delicious",
           "isCorrect": true,
-          "pedagogicalReason": "Sau động từ nối smells dùng tính từ delicious."
+          "pedagogicalReason": "Sau động từ liên kết chỉ giác quan \"smells\" (ngửi thấy có mùi) ta dùng tính từ \"delicious\", không dùng trạng từ đuôi -ly."
         },
         {
           "option": "deliciously",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"deliciously\" là trạng từ (adverb), không thể đứng trước danh từ hoặc làm bổ ngữ sau linking verb thay cho tính từ."
+          "pedagogicalReason": "Không chính xác. \"deliciously\" là trạng từ (adverb), không đứng ở vị trí cần tính từ hoặc danh từ."
         },
         {
           "option": "delight",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"delight\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"delight\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"delicious\"). Sau động từ liên kết chỉ giác quan \"smells\" (ngửi thấy có mùi) ta dùng tính từ \"delicious\", không dùng trạng từ đuôi -ly."
+        },
+        {
+          "option": "well",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"well\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"delicious\"). Sau động từ liên kết chỉ giác quan \"smells\" (ngửi thấy có mùi) ta dùng tính từ \"delicious\", không dùng trạng từ đuôi -ly."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "adjectives-basic-ex-03",
-      "type": "multiple_choice",
-      "question": "I am ___ today. (happy / happily)",
+      "type": "fill_blank",
+      "question": "I am very ___ today because I passed the test.",
       "options": [
         "happy",
-        "happily"
+        "happily",
+        "happiness",
+        "happier than"
       ],
       "correct_answer": "happy",
-      "explanation": "Sau am dùng tính từ happy.",
+      "explanation": "Sau động từ to be \"am\" cần một tính từ miêu tả trạng thái của chủ ngữ \"I\" → điền \"happy\".",
       "distractor_breakdowns": [
         {
           "option": "happy",
           "isCorrect": true,
-          "pedagogicalReason": "Sau am dùng tính từ happy."
+          "pedagogicalReason": "Sau động từ to be \"am\" cần một tính từ miêu tả trạng thái của chủ ngữ \"I\" → điền \"happy\"."
         },
         {
           "option": "happily",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"happily\" là trạng từ (adverb), không thể đứng trước danh từ hoặc làm bổ ngữ sau linking verb thay cho tính từ."
+          "pedagogicalReason": "Không chính xác. \"happily\" là trạng từ (adverb), không đứng ở vị trí cần tính từ hoặc danh từ."
+        },
+        {
+          "option": "happiness",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"happiness\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"happy\"). Sau động từ to be \"am\" cần một tính từ miêu tả trạng thái của chủ ngữ \"I\" → điền \"happy\"."
+        },
+        {
+          "option": "happier than",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"happier than\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"happy\"). Sau động từ to be \"am\" cần một tính từ miêu tả trạng thái của chủ ngữ \"I\" → điền \"happy\"."
         }
       ],
       "difficulty": 1
@@ -398,137 +422,323 @@
     {
       "id": "adjectives-basic-ex-04",
       "type": "multiple_choice",
-      "question": "Choose the correct sentence.",
+      "question": "Chọn cụm danh từ có trật tự từ ĐÚNG trong tiếng Anh:",
       "options": [
-        "She is tired.",
-        "She is tiredly.",
-        "She tired is."
+        "a red car",
+        "a car red",
+        "red a car",
+        "cars red"
       ],
-      "correct_answer": "She is tired.",
-      "explanation": "Be + tính từ: She is tired.",
+      "correct_answer": "a red car",
+      "explanation": "Trong tiếng Anh, tính từ \"red\" luôn đứng TRƯỚC danh từ \"car\" mà nó bổ nghĩa (a + Adj + N).",
       "distractor_breakdowns": [
         {
-          "option": "She is tired.",
+          "option": "a red car",
           "isCorrect": true,
-          "pedagogicalReason": "Be + tính từ: She is tired."
+          "pedagogicalReason": "Trong tiếng Anh, tính từ \"red\" luôn đứng TRƯỚC danh từ \"car\" mà nó bổ nghĩa (a + Adj + N)."
         },
         {
-          "option": "She is tiredly.",
+          "option": "a car red",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"She is tiredly.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"a car red\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"a red car\"). Trong tiếng Anh, tính từ \"red\" luôn đứng TRƯỚC danh từ \"car\" mà nó bổ nghĩa (a + Adj + N)."
         },
         {
-          "option": "She tired is.",
+          "option": "red a car",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"She tired is.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"red a car\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"a red car\"). Trong tiếng Anh, tính từ \"red\" luôn đứng TRƯỚC danh từ \"car\" mà nó bổ nghĩa (a + Adj + N)."
+        },
+        {
+          "option": "cars red",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"cars red\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"a red car\"). Trong tiếng Anh, tính từ \"red\" luôn đứng TRƯỚC danh từ \"car\" mà nó bổ nghĩa (a + Adj + N)."
         }
       ],
-      "difficulty": 2
+      "difficulty": 1
     },
     {
       "id": "adjectives-basic-ex-05",
-      "type": "multiple_choice",
-      "question": "This is a ___ book. (new / newly)",
+      "type": "fill_blank",
+      "question": "This is an ___ book about history.",
       "options": [
-        "new",
-        "newly"
+        "interesting",
+        "interestingly",
+        "interest",
+        "interested in"
       ],
-      "correct_answer": "new",
-      "explanation": "Trước danh từ book dùng tính từ new.",
+      "correct_answer": "interesting",
+      "explanation": "Trước danh từ \"book\" và sau mạo từ \"an\" cần tính từ miêu tả bản chất sự vật → điền \"interesting\".",
       "distractor_breakdowns": [
         {
-          "option": "new",
+          "option": "interesting",
           "isCorrect": true,
-          "pedagogicalReason": "Trước danh từ book dùng tính từ new."
+          "pedagogicalReason": "Trước danh từ \"book\" và sau mạo từ \"an\" cần tính từ miêu tả bản chất sự vật → điền \"interesting\"."
         },
         {
-          "option": "newly",
+          "option": "interestingly",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"newly\" là trạng từ (adverb), không thể đứng trước danh từ hoặc làm bổ ngữ sau linking verb thay cho tính từ."
+          "pedagogicalReason": "Không chính xác. \"interestingly\" là trạng từ (adverb), không đứng ở vị trí cần tính từ hoặc danh từ."
+        },
+        {
+          "option": "interest",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"interest\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"interesting\"). Trước danh từ \"book\" và sau mạo từ \"an\" cần tính từ miêu tả bản chất sự vật → điền \"interesting\"."
+        },
+        {
+          "option": "interested in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"interested in\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"interesting\"). Trước danh từ \"book\" và sau mạo từ \"an\" cần tính từ miêu tả bản chất sự vật → điền \"interesting\"."
         }
       ],
-      "difficulty": 2
+      "difficulty": 1
     },
     {
       "id": "adjectives-basic-ex-06",
       "type": "multiple_choice",
-      "question": "The flowers look ___.",
+      "question": "Those shoes are very ___. I cannot buy them.",
       "options": [
-        "nice",
-        "nicely",
-        "niceness"
+        "expensive",
+        "expensively",
+        "expensives",
+        "expense"
       ],
-      "correct_answer": "nice",
-      "explanation": "Look là động từ nối ở đây, sau đó dùng tính từ nice.",
+      "correct_answer": "expensive",
+      "explanation": "Sau to be \"are\" dùng tính từ \"expensive\". Tính từ trong tiếng Anh không bao giờ thêm \"-s\" dù chủ ngữ là số nhiều.",
       "distractor_breakdowns": [
         {
-          "option": "nice",
+          "option": "expensive",
           "isCorrect": true,
-          "pedagogicalReason": "Look là động từ nối ở đây, sau đó dùng tính từ nice."
+          "pedagogicalReason": "Sau to be \"are\" dùng tính từ \"expensive\". Tính từ trong tiếng Anh không bao giờ thêm \"-s\" dù chủ ngữ là số nhiều."
         },
         {
-          "option": "nicely",
+          "option": "expensively",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"nicely\" là trạng từ (adverb), không thể đứng trước danh từ hoặc làm bổ ngữ sau linking verb thay cho tính từ."
+          "pedagogicalReason": "Không chính xác. \"expensively\" là trạng từ (adverb), không đứng ở vị trí cần tính từ hoặc danh từ."
         },
         {
-          "option": "niceness",
+          "option": "expensives",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"niceness\" là danh từ trừu tượng, không thể đảm nhận vai trò tính từ hoặc động từ ở vị trí này."
+          "pedagogicalReason": "Không chính xác. Phương án \"expensives\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"expensive\"). Sau to be \"are\" dùng tính từ \"expensive\". Tính từ trong tiếng Anh không bao giờ thêm \"-s\" dù chủ ngữ là số nhiều."
+        },
+        {
+          "option": "expense",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"expense\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"expensive\"). Sau to be \"are\" dùng tính từ \"expensive\". Tính từ trong tiếng Anh không bao giờ thêm \"-s\" dù chủ ngữ là số nhiều."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "adjectives-basic-ex-07",
+      "type": "fill_blank",
+      "question": "The flowers in the garden look ___.",
+      "options": [
+        "fresh",
+        "freshly",
+        "freshness",
+        "freshes"
+      ],
+      "correct_answer": "fresh",
+      "explanation": "Sau động từ liên kết \"look\" (trông có vẻ) ta dùng tính từ \"fresh\" để miêu tả chủ ngữ \"The flowers\".",
+      "distractor_breakdowns": [
+        {
+          "option": "fresh",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau động từ liên kết \"look\" (trông có vẻ) ta dùng tính từ \"fresh\" để miêu tả chủ ngữ \"The flowers\"."
+        },
+        {
+          "option": "freshly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"freshly\" là trạng từ (adverb), không đứng ở vị trí cần tính từ hoặc danh từ."
+        },
+        {
+          "option": "freshness",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"freshness\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"fresh\"). Sau động từ liên kết \"look\" (trông có vẻ) ta dùng tính từ \"fresh\" để miêu tả chủ ngữ \"The flowers\"."
+        },
+        {
+          "option": "freshes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"freshes\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"fresh\"). Sau động từ liên kết \"look\" (trông có vẻ) ta dùng tính từ \"fresh\" để miêu tả chủ ngữ \"The flowers\"."
         }
       ],
       "difficulty": 2
     },
     {
-      "id": "adjectives-basic-ex-07",
-      "type": "multiple_choice",
-      "question": "The room is ___. (small / smallly)",
-      "options": [
-        "small",
-        "smallly"
-      ],
-      "correct_answer": "small",
-      "explanation": "Sau is dùng tính từ small.",
-      "distractor_breakdowns": [
-        {
-          "option": "small",
-          "isCorrect": true,
-          "pedagogicalReason": "Sau is dùng tính từ small."
-        },
-        {
-          "option": "smallly",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"smallly\" là trạng từ (adverb), không thể đứng trước danh từ hoặc làm bổ ngữ sau linking verb thay cho tính từ."
-        }
-      ],
-      "difficulty": 3
-    },
-    {
       "id": "adjectives-basic-ex-08",
       "type": "multiple_choice",
-      "question": "Which phrase describes a big house?",
+      "question": "My brother is a ___ student at school.",
       "options": [
-        "a big house",
-        "a house big",
-        "a bigly house"
+        "good",
+        "well",
+        "goodly",
+        "goods"
       ],
-      "correct_answer": "a big house",
-      "explanation": "Tính từ big đứng trước danh từ house.",
+      "correct_answer": "good",
+      "explanation": "\"good\" là tính từ đứng trước danh từ \"student\". (\"well\" thường là trạng từ bổ nghĩa cho động từ).",
       "distractor_breakdowns": [
         {
-          "option": "a big house",
+          "option": "good",
           "isCorrect": true,
-          "pedagogicalReason": "Tính từ big đứng trước danh từ house."
+          "pedagogicalReason": "\"good\" là tính từ đứng trước danh từ \"student\". (\"well\" thường là trạng từ bổ nghĩa cho động từ)."
         },
         {
-          "option": "a house big",
+          "option": "well",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"a house big\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"well\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"good\"). \"good\" là tính từ đứng trước danh từ \"student\". (\"well\" thường là trạng từ bổ nghĩa cho động từ)."
         },
         {
-          "option": "a bigly house",
+          "option": "goodly",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"a bigly house\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. \"goodly\" là trạng từ (adverb), không đứng ở vị trí cần tính từ hoặc danh từ."
+        },
+        {
+          "option": "goods",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"goods\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"good\"). \"good\" là tính từ đứng trước danh từ \"student\". (\"well\" thường là trạng từ bổ nghĩa cho động từ)."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "adjectives-basic-ex-09",
+      "type": "fill_blank",
+      "question": "The weather feels ___ this morning.",
+      "options": [
+        "cold",
+        "coldly",
+        "coldness",
+        "colds"
+      ],
+      "correct_answer": "cold",
+      "explanation": "Sau động từ liên kết \"feels\" dùng tính từ \"cold\" để chỉ cảm giác/thời tiết.",
+      "distractor_breakdowns": [
+        {
+          "option": "cold",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau động từ liên kết \"feels\" dùng tính từ \"cold\" để chỉ cảm giác/thời tiết."
+        },
+        {
+          "option": "coldly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"coldly\" là trạng từ (adverb), không đứng ở vị trí cần tính từ hoặc danh từ."
+        },
+        {
+          "option": "coldness",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"coldness\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"cold\"). Sau động từ liên kết \"feels\" dùng tính từ \"cold\" để chỉ cảm giác/thời tiết."
+        },
+        {
+          "option": "colds",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"colds\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"cold\"). Sau động từ liên kết \"feels\" dùng tính từ \"cold\" để chỉ cảm giác/thời tiết."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "adjectives-basic-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: She has two news bags on the table.",
+      "options": [
+        "has",
+        "two",
+        "news",
+        "bags"
+      ],
+      "correct_answer": "news",
+      "explanation": "Tính từ trong tiếng Anh không chia số nhiều (không thêm -s). Phải sửa \"news\" thành \"new\" (two new bags).",
+      "distractor_breakdowns": [
+        {
+          "option": "has",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"has\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "two",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"two\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "news",
+          "isCorrect": true,
+          "pedagogicalReason": "Tính từ trong tiếng Anh không chia số nhiều (không thêm -s). Phải sửa \"news\" thành \"new\" (two new bags)."
+        },
+        {
+          "option": "bags",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"bags\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "adjectives-basic-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: They live in a house big near the river.",
+      "options": [
+        "live",
+        "in",
+        "house big",
+        "near"
+      ],
+      "correct_answer": "house big",
+      "explanation": "Tính từ phải đứng TRƯỚC danh từ. Phải đổi \"house big\" thành \"big house\".",
+      "distractor_breakdowns": [
+        {
+          "option": "live",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"live\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"in\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "house big",
+          "isCorrect": true,
+          "pedagogicalReason": "Tính từ phải đứng TRƯỚC danh từ. Phải đổi \"house big\" thành \"big house\"."
+        },
+        {
+          "option": "near",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"near\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "adjectives-basic-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: The children look happily with their new toys.",
+      "options": [
+        "children",
+        "look",
+        "happily",
+        "new"
+      ],
+      "correct_answer": "happily",
+      "explanation": "Sau động từ liên kết \"look\" (trông có vẻ) phải dùng tính từ \"happy\", không dùng trạng từ \"happily\".",
+      "distractor_breakdowns": [
+        {
+          "option": "children",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"children\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "look",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"look\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "happily",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau động từ liên kết \"look\" (trông có vẻ) phải dùng tính từ \"happy\", không dùng trạng từ \"happily\"."
+        },
+        {
+          "option": "new",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"new\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
       "difficulty": 3

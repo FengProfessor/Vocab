@@ -8,8 +8,8 @@ export const dynamic = 'force-dynamic';
 
 const DAY = 24 * 60 * 60 * 1000;
 const PAGE = 1000;
-const CACHE_TTL_MS = 2 * 60 * 1000; // 2 phút fresh cache
-const CACHE_STALE_MS = 30 * 60 * 1000; // 30 phút stale-while-revalidate
+const CACHE_TTL_MS = 5 * 60 * 1000; // 5 phút fresh cache
+const CACHE_STALE_MS = 60 * 60 * 1000; // 60 phút stale-while-revalidate
 
 type ProfileRow = {
   id: string; email: string; full_name: string | null; role: string;
@@ -140,12 +140,25 @@ type ServiceClient = ReturnType<typeof createServiceClient>;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type QueryBuilder = any;
 
-// ── In-Memory Server SWR Cache ──
+// ── In-Memory Server SWR Cache (Coalesced SingleFlight) ──
 let globalCrmCache: {
   data: CrmResponseData;
   timestamp: number;
 } | null = null;
-let isRevalidating = false;
+let inFlightFetch: Promise<CrmResponseData> | null = null;
+
+async function getOrFetchFreshCrmData(supabase: ServiceClient): Promise<CrmResponseData> {
+  if (inFlightFetch) return inFlightFetch;
+  inFlightFetch = fetchFreshCrmData(supabase)
+    .then((fresh) => {
+      globalCrmCache = { data: fresh, timestamp: Date.now() };
+      return fresh;
+    })
+    .finally(() => {
+      inFlightFetch = null;
+    });
+  return inFlightFetch;
+}
 
 /**
  * Tải trực tiếp dữ liệu bảng không cần HEAD count request dư thừa:
@@ -861,7 +874,7 @@ export async function GET(req: Request): Promise<NextResponse> {
     // ── Kiểm tra cache trong bộ nhớ (SWR) ──
     if (!forceRefresh && globalCrmCache) {
       const age = now - globalCrmCache.timestamp;
-      // Dữ liệu còn tươi (< 60s): trả về tức thì trong <5ms
+      // Dữ liệu còn tươi (< CACHE_TTL_MS): trả về tức thì trong <5ms
       if (age < CACHE_TTL_MS) {
         return NextResponse.json({
           ...globalCrmCache.data,
@@ -874,21 +887,13 @@ export async function GET(req: Request): Promise<NextResponse> {
         });
       }
 
-      // Dữ liệu cũ nhưng trong hạn Stale-While-Revalidate (< 5 phút):
-      // Trả về dữ liệu cũ ngay lập tức, đồng thời kích hoạt cập nhật ngầm
+      // Dữ liệu cũ nhưng trong hạn Stale-While-Revalidate:
+      // Trả về dữ liệu cũ ngay lập tức, đồng thời kích hoạt cập nhật ngầm qua SingleFlight
       if (age < CACHE_STALE_MS) {
-        if (!isRevalidating) {
-          isRevalidating = true;
-          fetchFreshCrmData(supabase)
-            .then(fresh => {
-              globalCrmCache = { data: fresh, timestamp: Date.now() };
-            })
-            .catch(err => {
-              console.error('[CRM SWR Revalidate Error]:', err);
-            })
-            .finally(() => {
-              isRevalidating = false;
-            });
+        if (!inFlightFetch) {
+          void getOrFetchFreshCrmData(supabase).catch((err) => {
+            console.error('[CRM SWR Revalidate Error]:', err);
+          });
         }
 
         return NextResponse.json({
@@ -904,15 +909,31 @@ export async function GET(req: Request): Promise<NextResponse> {
       }
     }
 
-    // Tải mới dữ liệu (fresh fetch)
-    const freshData = await fetchFreshCrmData(supabase);
-    globalCrmCache = { data: freshData, timestamp: Date.now() };
-
-    return NextResponse.json(freshData, {
-      headers: {
-        'Cache-Control': 'private, no-cache, no-store, must-revalidate',
-      },
-    });
+    // Tải mới dữ liệu (fresh fetch hoặc cold start)
+    try {
+      const freshData = await getOrFetchFreshCrmData(supabase);
+      return NextResponse.json(freshData, {
+        headers: {
+          'Cache-Control': 'private, no-cache, no-store, must-revalidate',
+        },
+      });
+    } catch (fetchErr) {
+      // Graceful degradation: nếu có cache cũ nhưng query lỗi, trả về cache cũ thay vì làm sập trang
+      if (globalCrmCache?.data) {
+        console.warn('[CRM Fetch Error - Fallback to stale cache]:', fetchErr);
+        return NextResponse.json({
+          ...globalCrmCache.data,
+          meta: {
+            ...globalCrmCache.data.meta,
+            cached: true,
+            stale: true,
+            cachedAt: new Date(globalCrmCache.timestamp).toISOString(),
+            ageMs: now - globalCrmCache.timestamp,
+          },
+        });
+      }
+      throw fetchErr;
+    }
   } catch (error: unknown) {
     const sessionFailure = sessionErrorResponse(error);
     if (sessionFailure) return sessionFailure;

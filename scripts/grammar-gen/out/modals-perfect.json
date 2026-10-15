@@ -352,29 +352,435 @@
   "exercises": [
     {
       "id": "modals-perfect-ex-01",
-      "type": "fill_blank",
-      "question": "Hoàn thành theo mẫu: She ___ have forgotten.",
-      "options": [],
-      "correct_answer": "must",
-      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "type": "multiple_choice",
+      "question": "You ___ told me earlier! I could have helped you.",
+      "options": [
+        "should have",
+        "must have",
+        "can't have",
+        "should"
+      ],
+      "correct_answer": "should have",
+      "explanation": "\"should have + V3/ed\" dùng để trách nhẹ/tiếc nuối: \"Lẽ ra bạn nên nói với tôi sớm hơn (nhưng thực tế bạn đã không nói)\".",
       "distractor_breakdowns": [
         {
-          "option": "must",
+          "option": "should have",
           "isCorrect": true,
-          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+          "pedagogicalReason": "\"should have + V3/ed\" dùng để trách nhẹ/tiếc nuối: \"Lẽ ra bạn nên nói với tôi sớm hơn (nhưng thực tế bạn đã không nói)\"."
         },
         {
-          "option": "can",
+          "option": "must have",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phán đoán chắc chắn về một sự việc trong quá khứ dựa trên bằng chứng dùng \"must have + V3\", không dùng \"can have + V3\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"must have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"should have\"). \"should have + V3/ed\" dùng để trách nhẹ/tiếc nuối: \"Lẽ ra bạn nên nói với tôi sớm hơn (nhưng thực tế bạn đã không nói)\"."
+        },
+        {
+          "option": "can't have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"can't have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"should have\"). \"should have + V3/ed\" dùng để trách nhẹ/tiếc nuối: \"Lẽ ra bạn nên nói với tôi sớm hơn (nhưng thực tế bạn đã không nói)\"."
         },
         {
           "option": "should",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"should have + V3\" diễn tả sự tiếc nuối về việc lẽ ra nên làm, không phù hợp với ý phán đoán."
+          "pedagogicalReason": "Không chính xác. Phương án \"should\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"should have\"). \"should have + V3/ed\" dùng để trách nhẹ/tiếc nuối: \"Lẽ ra bạn nên nói với tôi sớm hơn (nhưng thực tế bạn đã không nói)\"."
         }
       ],
       "difficulty": 1
+    },
+    {
+      "id": "modals-perfect-ex-02",
+      "type": "fill_blank",
+      "question": "The streets are wet this morning. It ___ rained last night.",
+      "options": [
+        "must have",
+        "should have",
+        "can't have",
+        "would have"
+      ],
+      "correct_answer": "must have",
+      "explanation": "Suy đoán chắc chắn về một sự việc ĐÃ XẢY RA trong quá khứ dựa trên dấu vết hiện tại (\"đường ướt\") → dùng \"must have + V3/ed\" (chắc hẳn tối qua đã mưa).",
+      "distractor_breakdowns": [
+        {
+          "option": "must have",
+          "isCorrect": true,
+          "pedagogicalReason": "Suy đoán chắc chắn về một sự việc ĐÃ XẢY RA trong quá khứ dựa trên dấu vết hiện tại (\"đường ướt\") → dùng \"must have + V3/ed\" (chắc hẳn tối qua đã mưa)."
+        },
+        {
+          "option": "should have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"should have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"must have\"). Suy đoán chắc chắn về một sự việc ĐÃ XẢY RA trong quá khứ dựa trên dấu vết hiện tại (\"đường ướt\") → dùng \"must have + V3/ed\" (chắc hẳn tối qua đã mưa)."
+        },
+        {
+          "option": "can't have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"can't have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"must have\"). Suy đoán chắc chắn về một sự việc ĐÃ XẢY RA trong quá khứ dựa trên dấu vết hiện tại (\"đường ướt\") → dùng \"must have + V3/ed\" (chắc hẳn tối qua đã mưa)."
+        },
+        {
+          "option": "would have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"would have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"must have\"). Suy đoán chắc chắn về một sự việc ĐÃ XẢY RA trong quá khứ dựa trên dấu vết hiện tại (\"đường ướt\") → dùng \"must have + V3/ed\" (chắc hẳn tối qua đã mưa)."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "modals-perfect-ex-03",
+      "type": "multiple_choice",
+      "question": "He ___ stolen the money because he was with me all day yesterday.",
+      "options": [
+        "can't have",
+        "must have",
+        "should have",
+        "might have"
+      ],
+      "correct_answer": "can't have",
+      "explanation": "Suy đoán chắc chắn một việc KHÔNG THỂ ĐÃ XẢY RA trong quá khứ (vì có bằng chứng ngoại phạm cả ngày hôm qua) → dùng \"can't / couldn't have + V3\".",
+      "distractor_breakdowns": [
+        {
+          "option": "can't have",
+          "isCorrect": true,
+          "pedagogicalReason": "Suy đoán chắc chắn một việc KHÔNG THỂ ĐÃ XẢY RA trong quá khứ (vì có bằng chứng ngoại phạm cả ngày hôm qua) → dùng \"can't / couldn't have + V3\"."
+        },
+        {
+          "option": "must have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"must have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"can't have\"). Suy đoán chắc chắn một việc KHÔNG THỂ ĐÃ XẢY RA trong quá khứ (vì có bằng chứng ngoại phạm cả ngày hôm qua) → dùng \"can't / couldn't have + V3\"."
+        },
+        {
+          "option": "should have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"should have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"can't have\"). Suy đoán chắc chắn một việc KHÔNG THỂ ĐÃ XẢY RA trong quá khứ (vì có bằng chứng ngoại phạm cả ngày hôm qua) → dùng \"can't / couldn't have + V3\"."
+        },
+        {
+          "option": "might have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"might have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"can't have\"). Suy đoán chắc chắn một việc KHÔNG THỂ ĐÃ XẢY RA trong quá khứ (vì có bằng chứng ngoại phạm cả ngày hôm qua) → dùng \"can't / couldn't have + V3\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-perfect-ex-04",
+      "type": "fill_blank",
+      "question": "I can't find my umbrella anywhere. I ___ left it on the bus, though I'm not sure.",
+      "options": [
+        "might have",
+        "must have",
+        "should have",
+        "can't have"
+      ],
+      "correct_answer": "might have",
+      "explanation": "Phỏng đoán không chắc chắn về việc trong quá khứ (\"though I'm not sure\") → dùng \"might / may / could have + V3\".",
+      "distractor_breakdowns": [
+        {
+          "option": "might have",
+          "isCorrect": true,
+          "pedagogicalReason": "Phỏng đoán không chắc chắn về việc trong quá khứ (\"though I'm not sure\") → dùng \"might / may / could have + V3\"."
+        },
+        {
+          "option": "must have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"must have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"might have\"). Phỏng đoán không chắc chắn về việc trong quá khứ (\"though I'm not sure\") → dùng \"might / may / could have + V3\"."
+        },
+        {
+          "option": "should have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"should have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"might have\"). Phỏng đoán không chắc chắn về việc trong quá khứ (\"though I'm not sure\") → dùng \"might / may / could have + V3\"."
+        },
+        {
+          "option": "can't have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"can't have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"might have\"). Phỏng đoán không chắc chắn về việc trong quá khứ (\"though I'm not sure\") → dùng \"might / may / could have + V3\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-perfect-ex-05",
+      "type": "multiple_choice",
+      "question": "I ate too much cake last night. I ___ eaten so much!",
+      "options": [
+        "shouldn't have",
+        "mustn't have",
+        "can't have",
+        "wouldn't have"
+      ],
+      "correct_answer": "shouldn't have",
+      "explanation": "Hối tiếc về việc lẽ ra KHÔNG NÊN làm trong quá khứ nhưng trót làm rồi → dùng \"shouldn't have + V3\".",
+      "distractor_breakdowns": [
+        {
+          "option": "shouldn't have",
+          "isCorrect": true,
+          "pedagogicalReason": "Hối tiếc về việc lẽ ra KHÔNG NÊN làm trong quá khứ nhưng trót làm rồi → dùng \"shouldn't have + V3\"."
+        },
+        {
+          "option": "mustn't have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"mustn't have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"shouldn't have\"). Hối tiếc về việc lẽ ra KHÔNG NÊN làm trong quá khứ nhưng trót làm rồi → dùng \"shouldn't have + V3\"."
+        },
+        {
+          "option": "can't have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"can't have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"shouldn't have\"). Hối tiếc về việc lẽ ra KHÔNG NÊN làm trong quá khứ nhưng trót làm rồi → dùng \"shouldn't have + V3\"."
+        },
+        {
+          "option": "wouldn't have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"wouldn't have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"shouldn't have\"). Hối tiếc về việc lẽ ra KHÔNG NÊN làm trong quá khứ nhưng trót làm rồi → dùng \"shouldn't have + V3\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "modals-perfect-ex-06",
+      "type": "fill_blank",
+      "question": "You ___ bought any milk; we still have three cartons in the fridge.",
+      "options": [
+        "needn't have",
+        "mustn't have",
+        "can't have",
+        "shouldn't"
+      ],
+      "correct_answer": "needn't have",
+      "explanation": "\"needn't have + V3\" diễn tả một việc ĐÃ LÀM trong quá khứ nhưng thực ra là không cần thiết (bạn đã mua sữa rồi dù tủ lạnh vẫn còn 3 hộp).",
+      "distractor_breakdowns": [
+        {
+          "option": "needn't have",
+          "isCorrect": true,
+          "pedagogicalReason": "\"needn't have + V3\" diễn tả một việc ĐÃ LÀM trong quá khứ nhưng thực ra là không cần thiết (bạn đã mua sữa rồi dù tủ lạnh vẫn còn 3 hộp)."
+        },
+        {
+          "option": "mustn't have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"mustn't have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"needn't have\"). \"needn't have + V3\" diễn tả một việc ĐÃ LÀM trong quá khứ nhưng thực ra là không cần thiết (bạn đã mua sữa rồi dù tủ lạnh vẫn còn 3 hộp)."
+        },
+        {
+          "option": "can't have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"can't have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"needn't have\"). \"needn't have + V3\" diễn tả một việc ĐÃ LÀM trong quá khứ nhưng thực ra là không cần thiết (bạn đã mua sữa rồi dù tủ lạnh vẫn còn 3 hộp)."
+        },
+        {
+          "option": "shouldn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"shouldn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"needn't have\"). \"needn't have + V3\" diễn tả một việc ĐÃ LÀM trong quá khứ nhưng thực ra là không cần thiết (bạn đã mua sữa rồi dù tủ lạnh vẫn còn 3 hộp)."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "modals-perfect-ex-07",
+      "type": "multiple_choice",
+      "question": "She passed the exam with flying colors. She ___ studied very hard.",
+      "options": [
+        "must have",
+        "should have",
+        "can't have",
+        "needn't have"
+      ],
+      "correct_answer": "must have",
+      "explanation": "Đỗ điểm xuất sắc → suy luận chắc chắn trong quá khứ cô ấy đã học rất chăm chỉ (\"must have studied\").",
+      "distractor_breakdowns": [
+        {
+          "option": "must have",
+          "isCorrect": true,
+          "pedagogicalReason": "Đỗ điểm xuất sắc → suy luận chắc chắn trong quá khứ cô ấy đã học rất chăm chỉ (\"must have studied\")."
+        },
+        {
+          "option": "should have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"should have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"must have\"). Đỗ điểm xuất sắc → suy luận chắc chắn trong quá khứ cô ấy đã học rất chăm chỉ (\"must have studied\")."
+        },
+        {
+          "option": "can't have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"can't have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"must have\"). Đỗ điểm xuất sắc → suy luận chắc chắn trong quá khứ cô ấy đã học rất chăm chỉ (\"must have studied\")."
+        },
+        {
+          "option": "needn't have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"needn't have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"must have\"). Đỗ điểm xuất sắc → suy luận chắc chắn trong quá khứ cô ấy đã học rất chăm chỉ (\"must have studied\")."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "modals-perfect-ex-08",
+      "type": "fill_blank",
+      "question": "Why didn't you ask me? I could ___ lent you the money.",
+      "options": [
+        "have",
+        "has",
+        "had",
+        "be"
+      ],
+      "correct_answer": "have",
+      "explanation": "Cấu trúc \"could have + V3\" diễn tả khả năng có thể đã làm gì trong quá khứ nhưng thực tế chưa làm.",
+      "distractor_breakdowns": [
+        {
+          "option": "have",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc \"could have + V3\" diễn tả khả năng có thể đã làm gì trong quá khứ nhưng thực tế chưa làm."
+        },
+        {
+          "option": "has",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have\"). Cấu trúc \"could have + V3\" diễn tả khả năng có thể đã làm gì trong quá khứ nhưng thực tế chưa làm."
+        },
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"had\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have\"). Cấu trúc \"could have + V3\" diễn tả khả năng có thể đã làm gì trong quá khứ nhưng thực tế chưa làm."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"be\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have\"). Cấu trúc \"could have + V3\" diễn tả khả năng có thể đã làm gì trong quá khứ nhưng thực tế chưa làm."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "modals-perfect-ex-09",
+      "type": "multiple_choice",
+      "question": "They haven't arrived yet. They ___ missed the train.",
+      "options": [
+        "may have",
+        "should have",
+        "would have",
+        "needn't have"
+      ],
+      "correct_answer": "may have",
+      "explanation": "Phỏng đoán lý do họ chưa tới là có thể đã lỡ tàu → dùng \"may have + V3\".",
+      "distractor_breakdowns": [
+        {
+          "option": "may have",
+          "isCorrect": true,
+          "pedagogicalReason": "Phỏng đoán lý do họ chưa tới là có thể đã lỡ tàu → dùng \"may have + V3\"."
+        },
+        {
+          "option": "should have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"should have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"may have\"). Phỏng đoán lý do họ chưa tới là có thể đã lỡ tàu → dùng \"may have + V3\"."
+        },
+        {
+          "option": "would have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"would have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"may have\"). Phỏng đoán lý do họ chưa tới là có thể đã lỡ tàu → dùng \"may have + V3\"."
+        },
+        {
+          "option": "needn't have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"needn't have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"may have\"). Phỏng đoán lý do họ chưa tới là có thể đã lỡ tàu → dùng \"may have + V3\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-perfect-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: You should have tell me that the meeting was cancelled.",
+      "options": [
+        "should",
+        "have",
+        "tell",
+        "cancelled"
+      ],
+      "correct_answer": "tell",
+      "explanation": "Sau \"Modal + have\" bắt buộc dùng quá khứ phân từ (V3/ed). Sửa \"tell\" thành \"told\".",
+      "distractor_breakdowns": [
+        {
+          "option": "should",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"should\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"have\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "tell",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau \"Modal + have\" bắt buộc dùng quá khứ phân từ (V3/ed). Sửa \"tell\" thành \"told\"."
+        },
+        {
+          "option": "cancelled",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"cancelled\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-perfect-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: He must has forgotten about our appointment yesterday.",
+      "options": [
+        "must",
+        "has",
+        "forgotten",
+        "yesterday"
+      ],
+      "correct_answer": "has",
+      "explanation": "Sau động từ khuyết thiếu \"must\", trợ động từ luôn ở dạng nguyên mẫu \"have\" (\"must have forgotten\"), không bao giờ dùng \"must has\".",
+      "distractor_breakdowns": [
+        {
+          "option": "must",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"must\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "has",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau động từ khuyết thiếu \"must\", trợ động từ luôn ở dạng nguyên mẫu \"have\" (\"must have forgotten\"), không bao giờ dùng \"must has\"."
+        },
+        {
+          "option": "forgotten",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"forgotten\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "yesterday",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"yesterday\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-perfect-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: She mustn't have seen me yesterday because I stayed at home all day.",
+      "options": [
+        "mustn't have",
+        "seen",
+        "yesterday",
+        "stayed"
+      ],
+      "correct_answer": "mustn't have",
+      "explanation": "Để suy đoán một việc chắc chắn KHÔNG THỂ đã xảy ra trong quá khứ, phải dùng \"can't have / couldn't have + V3\", không dùng \"mustn't have\".",
+      "distractor_breakdowns": [
+        {
+          "option": "mustn't have",
+          "isCorrect": true,
+          "pedagogicalReason": "Để suy đoán một việc chắc chắn KHÔNG THỂ đã xảy ra trong quá khứ, phải dùng \"can't have / couldn't have + V3\", không dùng \"mustn't have\"."
+        },
+        {
+          "option": "seen",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"seen\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "yesterday",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"yesterday\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "stayed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"stayed\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
     }
   ]
 }

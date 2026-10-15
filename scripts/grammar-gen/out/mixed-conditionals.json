@@ -561,29 +561,435 @@
   "exercises": [
     {
       "id": "mixed-conditionals-ex-01",
+      "type": "multiple_choice",
+      "question": "If I had listened to your advice, I ___ in trouble right now.",
+      "options": [
+        "wouldn't be",
+        "wouldn't have been",
+        "won't be",
+        "am not"
+      ],
+      "correct_answer": "wouldn't be",
+      "explanation": "Câu điều kiện hỗn hợp (Quá khứ → Hiện tại): Điều kiện trái quá khứ (\"If I had listened\"), nhưng kết quả ở HIỆN TẠI (\"right now\") → mệnh đề chính dùng loại 2: \"wouldn't be\".",
+      "distractor_breakdowns": [
+        {
+          "option": "wouldn't be",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu điều kiện hỗn hợp (Quá khứ → Hiện tại): Điều kiện trái quá khứ (\"If I had listened\"), nhưng kết quả ở HIỆN TẠI (\"right now\") → mệnh đề chính dùng loại 2: \"wouldn't be\"."
+        },
+        {
+          "option": "wouldn't have been",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"wouldn't have been\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wouldn't be\"). Câu điều kiện hỗn hợp (Quá khứ → Hiện tại): Điều kiện trái quá khứ (\"If I had listened\"), nhưng kết quả ở HIỆN TẠI (\"right now\") → mệnh đề chính dùng loại 2: \"wouldn't be\"."
+        },
+        {
+          "option": "won't be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"won't be\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wouldn't be\"). Câu điều kiện hỗn hợp (Quá khứ → Hiện tại): Điều kiện trái quá khứ (\"If I had listened\"), nhưng kết quả ở HIỆN TẠI (\"right now\") → mệnh đề chính dùng loại 2: \"wouldn't be\"."
+        },
+        {
+          "option": "am not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"am not\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wouldn't be\"). Câu điều kiện hỗn hợp (Quá khứ → Hiện tại): Điều kiện trái quá khứ (\"If I had listened\"), nhưng kết quả ở HIỆN TẠI (\"right now\") → mệnh đề chính dùng loại 2: \"wouldn't be\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "mixed-conditionals-ex-02",
       "type": "fill_blank",
-      "question": "Hoàn thành theo mẫu: If she ___ more organized, she wouldn't have missed the deadline.",
-      "options": [],
+      "question": "If she ___ taken that medicine yesterday, she would feel much better today.",
+      "options": [
+        "had",
+        "has",
+        "did",
+        "would have"
+      ],
+      "correct_answer": "had",
+      "explanation": "Mệnh đề If có \"yesterday\" (giả định trái quá khứ: \"If she had taken\") dẫn đến kết quả ở hiện tại (\"would feel much better today\").",
+      "distractor_breakdowns": [
+        {
+          "option": "had",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề If có \"yesterday\" (giả định trái quá khứ: \"If she had taken\") dẫn đến kết quả ở hiện tại (\"would feel much better today\")."
+        },
+        {
+          "option": "has",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had\"). Mệnh đề If có \"yesterday\" (giả định trái quá khứ: \"If she had taken\") dẫn đến kết quả ở hiện tại (\"would feel much better today\")."
+        },
+        {
+          "option": "did",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Trợ động từ \"did\" không phù hợp với ngôi của chủ ngữ hoặc cấu trúc của câu (đáp án đúng là \"had\")."
+        },
+        {
+          "option": "would have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"would have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had\"). Mệnh đề If có \"yesterday\" (giả định trái quá khứ: \"If she had taken\") dẫn đến kết quả ở hiện tại (\"would feel much better today\")."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "mixed-conditionals-ex-03",
+      "type": "multiple_choice",
+      "question": "If he hadn't spent all his money last month, he ___ afford a holiday now.",
+      "options": [
+        "could",
+        "could have",
+        "can",
+        "will"
+      ],
+      "correct_answer": "could",
+      "explanation": "Kết quả ở hiện tại (\"now\") + sau chỗ trống là động từ nguyên mẫu \"afford\" → dùng \"could\" (loại 2 ở mệnh đề chính).",
+      "distractor_breakdowns": [
+        {
+          "option": "could",
+          "isCorrect": true,
+          "pedagogicalReason": "Kết quả ở hiện tại (\"now\") + sau chỗ trống là động từ nguyên mẫu \"afford\" → dùng \"could\" (loại 2 ở mệnh đề chính)."
+        },
+        {
+          "option": "could have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"could have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"could\"). Kết quả ở hiện tại (\"now\") + sau chỗ trống là động từ nguyên mẫu \"afford\" → dùng \"could\" (loại 2 ở mệnh đề chính)."
+        },
+        {
+          "option": "can",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"can\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"could\"). Kết quả ở hiện tại (\"now\") + sau chỗ trống là động từ nguyên mẫu \"afford\" → dùng \"could\" (loại 2 ở mệnh đề chính)."
+        },
+        {
+          "option": "will",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"could\"). Kết quả ở hiện tại (\"now\") + sau chỗ trống là động từ nguyên mẫu \"afford\" → dùng \"could\" (loại 2 ở mệnh đề chính)."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "mixed-conditionals-ex-04",
+      "type": "fill_blank",
+      "question": "If I weren't afraid of heights, I ___ climbed the mountain with them yesterday.",
+      "options": [
+        "would have",
+        "would",
+        "will have",
+        "had"
+      ],
+      "correct_answer": "would have",
+      "explanation": "Câu điều kiện hỗn hợp (Hiện tại → Quá khứ): Bản chất hiện tại sợ độ cao (\"If I weren't afraid of heights\" - loại 2) dẫn đến kết quả đã không leo núi ngày hôm qua (\"yesterday\" - loại 3: \"would have climbed\").",
+      "distractor_breakdowns": [
+        {
+          "option": "would have",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu điều kiện hỗn hợp (Hiện tại → Quá khứ): Bản chất hiện tại sợ độ cao (\"If I weren't afraid of heights\" - loại 2) dẫn đến kết quả đã không leo núi ngày hôm qua (\"yesterday\" - loại 3: \"would have climbed\")."
+        },
+        {
+          "option": "would",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"would\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"would have\"). Câu điều kiện hỗn hợp (Hiện tại → Quá khứ): Bản chất hiện tại sợ độ cao (\"If I weren't afraid of heights\" - loại 2) dẫn đến kết quả đã không leo núi ngày hôm qua (\"yesterday\" - loại 3: \"would have climbed\")."
+        },
+        {
+          "option": "will have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"would have\"). Câu điều kiện hỗn hợp (Hiện tại → Quá khứ): Bản chất hiện tại sợ độ cao (\"If I weren't afraid of heights\" - loại 2) dẫn đến kết quả đã không leo núi ngày hôm qua (\"yesterday\" - loại 3: \"would have climbed\")."
+        },
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"had\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"would have\"). Câu điều kiện hỗn hợp (Hiện tại → Quá khứ): Bản chất hiện tại sợ độ cao (\"If I weren't afraid of heights\" - loại 2) dẫn đến kết quả đã không leo núi ngày hôm qua (\"yesterday\" - loại 3: \"would have climbed\")."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "mixed-conditionals-ex-05",
+      "type": "multiple_choice",
+      "question": "We ___ lost now if we had brought a map with us.",
+      "options": [
+        "wouldn't be",
+        "wouldn't have been",
+        "aren't",
+        "weren't"
+      ],
+      "correct_answer": "wouldn't be",
+      "explanation": "Mệnh đề chính có \"now\" (kết quả ở hiện tại) còn mệnh đề If có \"had brought\" (điều kiện quá khứ) → chọn \"wouldn't be\".",
+      "distractor_breakdowns": [
+        {
+          "option": "wouldn't be",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề chính có \"now\" (kết quả ở hiện tại) còn mệnh đề If có \"had brought\" (điều kiện quá khứ) → chọn \"wouldn't be\"."
+        },
+        {
+          "option": "wouldn't have been",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"wouldn't have been\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wouldn't be\"). Mệnh đề chính có \"now\" (kết quả ở hiện tại) còn mệnh đề If có \"had brought\" (điều kiện quá khứ) → chọn \"wouldn't be\"."
+        },
+        {
+          "option": "aren't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"aren't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wouldn't be\"). Mệnh đề chính có \"now\" (kết quả ở hiện tại) còn mệnh đề If có \"had brought\" (điều kiện quá khứ) → chọn \"wouldn't be\"."
+        },
+        {
+          "option": "weren't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"weren't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wouldn't be\"). Mệnh đề chính có \"now\" (kết quả ở hiện tại) còn mệnh đề If có \"had brought\" (điều kiện quá khứ) → chọn \"wouldn't be\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "mixed-conditionals-ex-06",
+      "type": "fill_blank",
+      "question": "If she ___ fluent in French, she would have got that job in Paris last week.",
+      "options": [
+        "were",
+        "had been",
+        "is",
+        "will be"
+      ],
       "correct_answer": "were",
-      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "explanation": "Năng lực ngôn ngữ là trạng thái chung ở hiện tại (thực tế hiện cô ấy không thông thạo tiếng Pháp → \"If she were fluent\"), dẫn đến kết quả tuần trước không nhận được việc (\"would have got\").",
       "distractor_breakdowns": [
         {
           "option": "were",
           "isCorrect": true,
-          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+          "pedagogicalReason": "Năng lực ngôn ngữ là trạng thái chung ở hiện tại (thực tế hiện cô ấy không thông thạo tiếng Pháp → \"If she were fluent\"), dẫn đến kết quả tuần trước không nhận được việc (\"would have got\")."
         },
         {
-          "option": "was",
+          "option": "had been",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"was\" dùng cho chủ ngữ số ít, không hòa hợp với chủ ngữ số nhiều."
+          "pedagogicalReason": "Không chính xác. Phương án \"had been\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"were\"). Năng lực ngôn ngữ là trạng thái chung ở hiện tại (thực tế hiện cô ấy không thông thạo tiếng Pháp → \"If she were fluent\"), dẫn đến kết quả tuần trước không nhận được việc (\"would have got\")."
         },
         {
-          "option": "are",
+          "option": "is",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Sự việc đã xảy ra trong quá khứ, không dùng to-be ở hiện tại."
+          "pedagogicalReason": "Không chính xác. Động từ to be số ít \"is\" không hòa hợp với chủ ngữ hoặc thì của câu (đáp án đúng là \"were\")."
+        },
+        {
+          "option": "will be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will be\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"were\"). Năng lực ngôn ngữ là trạng thái chung ở hiện tại (thực tế hiện cô ấy không thông thạo tiếng Pháp → \"If she were fluent\"), dẫn đến kết quả tuần trước không nhận được việc (\"would have got\")."
         }
       ],
-      "difficulty": 1
+      "difficulty": 3
+    },
+    {
+      "id": "mixed-conditionals-ex-07",
+      "type": "multiple_choice",
+      "question": "If Nam had gone to bed early last night, he ___ so sleepy in class today.",
+      "options": [
+        "wouldn't feel",
+        "wouldn't have felt",
+        "doesn't feel",
+        "won't feel"
+      ],
+      "correct_answer": "wouldn't feel",
+      "explanation": "Điều kiện quá khứ (\"last night\" → \"had gone\") + kết quả hiện tại (\"today\") → dùng \"wouldn't feel\".",
+      "distractor_breakdowns": [
+        {
+          "option": "wouldn't feel",
+          "isCorrect": true,
+          "pedagogicalReason": "Điều kiện quá khứ (\"last night\" → \"had gone\") + kết quả hiện tại (\"today\") → dùng \"wouldn't feel\"."
+        },
+        {
+          "option": "wouldn't have felt",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"wouldn't have felt\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wouldn't feel\"). Điều kiện quá khứ (\"last night\" → \"had gone\") + kết quả hiện tại (\"today\") → dùng \"wouldn't feel\"."
+        },
+        {
+          "option": "doesn't feel",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"doesn't feel\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wouldn't feel\"). Điều kiện quá khứ (\"last night\" → \"had gone\") + kết quả hiện tại (\"today\") → dùng \"wouldn't feel\"."
+        },
+        {
+          "option": "won't feel",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"won't feel\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wouldn't feel\"). Điều kiện quá khứ (\"last night\" → \"had gone\") + kết quả hiện tại (\"today\") → dùng \"wouldn't feel\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "mixed-conditionals-ex-08",
+      "type": "fill_blank",
+      "question": "If they ___ missed the plane this morning, they would be in Tokyo right now.",
+      "options": [
+        "hadn't",
+        "didn't",
+        "wouldn't",
+        "weren't"
+      ],
+      "correct_answer": "hadn't",
+      "explanation": "Sáng nay đã lỡ chuyến bay (\"this morning\" + V3 \"missed\" → \"hadn't missed\") nên bây giờ (\"right now\") không ở Tokyo (\"would be\").",
+      "distractor_breakdowns": [
+        {
+          "option": "hadn't",
+          "isCorrect": true,
+          "pedagogicalReason": "Sáng nay đã lỡ chuyến bay (\"this morning\" + V3 \"missed\" → \"hadn't missed\") nên bây giờ (\"right now\") không ở Tokyo (\"would be\")."
+        },
+        {
+          "option": "didn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"didn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"hadn't\"). Sáng nay đã lỡ chuyến bay (\"this morning\" + V3 \"missed\" → \"hadn't missed\") nên bây giờ (\"right now\") không ở Tokyo (\"would be\")."
+        },
+        {
+          "option": "wouldn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"wouldn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"hadn't\"). Sáng nay đã lỡ chuyến bay (\"this morning\" + V3 \"missed\" → \"hadn't missed\") nên bây giờ (\"right now\") không ở Tokyo (\"would be\")."
+        },
+        {
+          "option": "weren't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"weren't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"hadn't\"). Sáng nay đã lỡ chuyến bay (\"this morning\" + V3 \"missed\" → \"hadn't missed\") nên bây giờ (\"right now\") không ở Tokyo (\"would be\")."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "mixed-conditionals-ex-09",
+      "type": "multiple_choice",
+      "question": "I would have translated the letter for you yesterday if I ___ Japanese.",
+      "options": [
+        "knew",
+        "know",
+        "will know",
+        "have known"
+      ],
+      "correct_answer": "knew",
+      "explanation": "Việc biết tiếng Nhật là trạng thái chung không có thật ở cả hiện tại lẫn quá khứ → mệnh đề If dùng loại 2 (\"knew\").",
+      "distractor_breakdowns": [
+        {
+          "option": "knew",
+          "isCorrect": true,
+          "pedagogicalReason": "Việc biết tiếng Nhật là trạng thái chung không có thật ở cả hiện tại lẫn quá khứ → mệnh đề If dùng loại 2 (\"knew\")."
+        },
+        {
+          "option": "know",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"know\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"knew\"). Việc biết tiếng Nhật là trạng thái chung không có thật ở cả hiện tại lẫn quá khứ → mệnh đề If dùng loại 2 (\"knew\")."
+        },
+        {
+          "option": "will know",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will know\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"knew\"). Việc biết tiếng Nhật là trạng thái chung không có thật ở cả hiện tại lẫn quá khứ → mệnh đề If dùng loại 2 (\"knew\")."
+        },
+        {
+          "option": "have known",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have known\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"knew\"). Việc biết tiếng Nhật là trạng thái chung không có thật ở cả hiện tại lẫn quá khứ → mệnh đề If dùng loại 2 (\"knew\")."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "mixed-conditionals-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: If I had taken that job five years ago, I would have been a manager now.",
+      "options": [
+        "had taken",
+        "five years ago",
+        "would have been",
+        "now"
+      ],
+      "correct_answer": "would have been",
+      "explanation": "Mệnh đề chính có trạng từ chỉ hiện tại \"now\" nên phải dùng cấu trúc kết quả ở hiện tại \"would be\", không dùng \"would have been\".",
+      "distractor_breakdowns": [
+        {
+          "option": "had taken",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"had taken\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "five years ago",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"five years ago\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "would have been",
+          "isCorrect": true,
+          "pedagogicalReason": "Mệnh đề chính có trạng từ chỉ hiện tại \"now\" nên phải dùng cấu trúc kết quả ở hiện tại \"would be\", không dùng \"would have been\"."
+        },
+        {
+          "option": "now",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"now\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "mixed-conditionals-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: If he studied medicine at university, he would be a doctor today.",
+      "options": [
+        "If",
+        "studied",
+        "would be",
+        "today"
+      ],
+      "correct_answer": "studied",
+      "explanation": "Việc học đại học đã kết thúc trong quá khứ (điều kiện trái quá khứ dẫn đến kết quả hiện tại \"today\") nên mệnh đề If phải chia quá khứ hoàn thành \"had studied\".",
+      "distractor_breakdowns": [
+        {
+          "option": "If",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"If\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "studied",
+          "isCorrect": true,
+          "pedagogicalReason": "Việc học đại học đã kết thúc trong quá khứ (điều kiện trái quá khứ dẫn đến kết quả hiện tại \"today\") nên mệnh đề If phải chia quá khứ hoàn thành \"had studied\"."
+        },
+        {
+          "option": "would be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"would be\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "today",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"today\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "mixed-conditionals-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: If she weren't so busy these days, she would helped us yesterday.",
+      "options": [
+        "weren't",
+        "these days",
+        "would helped",
+        "yesterday"
+      ],
+      "correct_answer": "would helped",
+      "explanation": "Kết quả trái ngược với quá khứ (\"yesterday\") phải dùng \"would have helped\", không có cấu trúc \"would helped\".",
+      "distractor_breakdowns": [
+        {
+          "option": "weren't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"weren't\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "these days",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"these days\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "would helped",
+          "isCorrect": true,
+          "pedagogicalReason": "Kết quả trái ngược với quá khứ (\"yesterday\") phải dùng \"would have helped\", không có cấu trúc \"would helped\"."
+        },
+        {
+          "option": "yesterday",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"yesterday\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
     }
   ]
 }

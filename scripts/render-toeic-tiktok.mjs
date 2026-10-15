@@ -38,6 +38,8 @@ const graphicOnly = args.get('graphicOnly') === 'true' || args.get('requireGraph
 const outputDir = path.resolve(args.get('outDir') || 'out/tiktok-toeic');
 const trackerPath = args.get('tracker') ? path.resolve(args.get('tracker')) : null;
 const checklistPath = path.resolve(args.get('checklist') || 'docs/tiktok-toeic-100-checklist.md');
+const episodeArg = args.get('episode') ? Number(args.get('episode')) : null;
+const slotArg = args.get('slot') || null;
 
 if (![1, 2, 3, 4].includes(part)) {
   throw new Error('--part phải là 1, 2, 3 hoặc 4.');
@@ -80,6 +82,10 @@ async function showOverlay(page, { title, subtitle, eyebrow, variant = 'intro', 
   await page.evaluate(
     ({ overlayTitle, overlaySubtitle, overlayEyebrow, overlayVariant, overlayActionText }) => {
       document.getElementById('lingopro-video-overlay')?.remove();
+      if (overlayVariant === 'cta') {
+        document.getElementById('lingopro-part1-stage')?.remove();
+        document.getElementById('lingopro-part3-stage')?.remove();
+      }
       const overlay = document.createElement('div');
       overlay.id = 'lingopro-video-overlay';
       overlay.style.position = 'fixed';
@@ -95,7 +101,7 @@ async function showOverlay(page, { title, subtitle, eyebrow, variant = 'intro', 
       overlay.style.color = '#ffffff';
       overlay.style.background =
         overlayVariant === 'cta'
-          ? 'linear-gradient(160deg, rgba(15,23,42,.97), rgba(6,95,70,.96))'
+          ? 'linear-gradient(160deg, #0b1220 0%, #064e3b 100%)'
           : 'linear-gradient(160deg, rgba(15,23,42,.96), rgba(30,41,59,.92))';
 
       const card = document.createElement('div');
@@ -295,15 +301,7 @@ function decodeHtmlEntities(value) {
 }
 
 function extractTranscriptOptions(transcript, fallbackOptions = []) {
-  const normalized = decodeHtmlEntities(
-    String(transcript || '')
-      .replace(/<br\s*\/?>/gi, '\n')
-      .replace(/<[^>]+>/g, ' ')
-      .replace(/\r/g, '')
-  )
-    .replace(/[ \t]+/g, ' ')
-    .replace(/\n\s+/g, '\n')
-    .trim();
+  const normalized = normalizeTranscriptText(transcript);
 
   const fallbackKeys = fallbackOptions
     .map((option) => option?.key)
@@ -311,9 +309,10 @@ function extractTranscriptOptions(transcript, fallbackOptions = []) {
   const keys = fallbackKeys.length > 0 ? fallbackKeys : ['A', 'B', 'C', 'D'];
   return keys.map((key, index) => {
     const nextKey = keys[index + 1];
+    const keyPattern = `(?:\\(\\s*${key}\\s*\\)|(?:\\b|(?<=\\s))${key}[.:])\\s*`;
     const pattern = nextKey
-      ? new RegExp(`\\(${key}\\)\\s*([\\s\\S]*?)(?=\\(${nextKey}\\))`, 'i')
-      : new RegExp(`\\(${key}\\)\\s*([\\s\\S]*)$`, 'i');
+      ? new RegExp(`${keyPattern}([\\s\\S]*?)(?=(?:\\(\\s*${nextKey}\\s*\\)|(?:\\b|(?<=\\s))${nextKey}[.:]))`, 'i')
+      : new RegExp(`${keyPattern}([\\s\\S]*)$`, 'i');
     const match = normalized.match(pattern);
     const transcriptText = match?.[1]?.replace(/\s+/g, ' ').trim() || '';
     const fallbackText = fallbackOptions.find((option) => option?.key === key)?.text || '';
@@ -337,29 +336,12 @@ function extractPart2Prompt(transcript) {
   const normalized = normalizeTranscriptText(transcript)
     .replace(/^Tape scripts\s*/i, '')
     .trim();
-  const firstOption = normalized.search(/\(A\)/i);
+  const firstOption = normalized.search(/(?:\(\s*[A-D]\s*\)|(?:\b|(?<=\s))[A-D][.:]\s*)/i);
   return (firstOption >= 0 ? normalized.slice(0, firstOption) : normalized)
     .replace(/\s+/g, ' ')
     .trim();
 }
 
-function buildPart2Explanation(prompt, correctOption) {
-  const normalized = String(prompt || '').trim().toLowerCase();
-  const lead = normalized.split(/\s+/)[0]?.replace(/[^a-z]/g, '') || '';
-  const hints = {
-    when: 'When → hỏi thời gian',
-    where: 'Where → hỏi địa điểm',
-    who: 'Who → hỏi người',
-    whose: 'Whose → hỏi sở hữu',
-    why: 'Why → hỏi lý do',
-    how: 'How → hỏi cách thức / trạng thái',
-    what: 'What → hỏi thông tin / sự việc',
-    which: 'Which → yêu cầu chọn một phương án',
-  };
-  const hint = hints[lead] || 'Nghe ý nghĩa cả câu, tránh chọn theo từ khóa lặp lại';
-  const answerText = correctOption?.text ? ` → “${correctOption.text}”` : '';
-  return `${hint}${answerText}`;
-}
 
 async function showPart2ListeningState(page, questionNumber, totalQuestions, mode = 'listen', speed = 1) {
   await page.evaluate(({ current, total, currentMode, currentSpeed }) => {
@@ -367,7 +349,9 @@ async function showPart2ListeningState(page, questionNumber, totalQuestions, mod
     const timer = document.getElementById('lingopro-part1-timer');
     const choices = document.getElementById('lingopro-part1-choices');
     const questionLabel = document.getElementById('lingopro-part1-question-label');
-    if (questionLabel) questionLabel.textContent = `Câu ${current}/${total}`;
+    if (questionLabel) {
+      questionLabel.innerHTML = `<span style="background:rgba(74,222,128,.15);border:1px solid rgba(74,222,128,.35);padding:3px 8px;border-radius:7px;font-size:13px;font-weight:800;color:#4ade80;letter-spacing:.04em;">PART 2</span> <span style="font-size:16px;font-weight:700;color:#f8fafc;">Câu ${current}/${total}</span>`;
+    }
     if (choices) {
       choices.style.display = 'none';
       choices.replaceChildren();
@@ -465,7 +449,9 @@ async function showPart2RetentionCard(page) {
     const timer = document.getElementById('lingopro-part1-timer');
     const choices = document.getElementById('lingopro-part1-choices');
     const questionLabel = document.getElementById('lingopro-part1-question-label');
-    if (questionLabel) questionLabel.textContent = 'Hoàn thành 3/3';
+    if (questionLabel) {
+      questionLabel.innerHTML = `<span style="background:rgba(74,222,128,.15);border:1px solid rgba(74,222,128,.35);padding:3px 8px;border-radius:7px;font-size:13px;font-weight:800;color:#4ade80;letter-spacing:.04em;">PART 2</span> <span style="font-size:16px;font-weight:700;color:#f8fafc;">Hoàn thành 3/3</span>`;
+    }
     if (timer) timer.style.display = 'none';
     if (choices) choices.style.display = 'none';
     if (!promptBox) return;
@@ -485,13 +471,15 @@ async function showPart2RetentionCard(page) {
   });
 }
 
-async function showPart2Review(page, { index, total, prompt, options, correctAnswer, explanation }) {
-  await page.evaluate(({ current, count, questionPrompt, answerOptions, correct, note }) => {
+async function showPart2Review(page, { index, total, prompt, options, correctAnswer }) {
+  await page.evaluate(({ current, count, questionPrompt, answerOptions, correct }) => {
     const promptBox = document.getElementById('lingopro-listening-prompt');
     const timer = document.getElementById('lingopro-part1-timer');
     const choices = document.getElementById('lingopro-part1-choices');
     const questionLabel = document.getElementById('lingopro-part1-question-label');
-    if (questionLabel) questionLabel.textContent = `Đáp án ${current}/${count}`;
+    if (questionLabel) {
+      questionLabel.innerHTML = `<span style="background:rgba(74,222,128,.15);border:1px solid rgba(74,222,128,.35);padding:3px 8px;border-radius:7px;font-size:13px;font-weight:800;color:#4ade80;letter-spacing:.04em;">PART 2</span> <span style="font-size:16px;font-weight:700;color:#86efac;">Đáp án ${current}/${count}</span>`;
+    }
     if (timer) timer.style.display = 'none';
 
     if (promptBox) {
@@ -551,26 +539,12 @@ async function showPart2Review(page, { index, total, prompt, options, correctAns
       row.append(key, text);
       choices.appendChild(row);
     }
-
-    const noteBox = document.createElement('div');
-    noteBox.textContent = note;
-    noteBox.style.marginTop = '6px';
-    noteBox.style.padding = '10px 12px';
-    noteBox.style.borderRadius = '12px';
-    noteBox.style.background = 'rgba(74,222,128,.08)';
-    noteBox.style.border = '1px solid rgba(74,222,128,.18)';
-    noteBox.style.color = '#bbf7d0';
-    noteBox.style.fontSize = '12px';
-    noteBox.style.fontWeight = '650';
-    noteBox.style.lineHeight = '1.35';
-    choices.appendChild(noteBox);
   }, {
     current: index,
     count: total,
     questionPrompt: prompt,
     answerOptions: options,
     correct: correctAnswer,
-    note: explanation,
   });
 }
 
@@ -586,12 +560,10 @@ async function renderPart2Sequence(page, questions, sessionToken, recordingStart
     const answerOptions = extractTranscriptOptions(explanation.transcript, question.options);
     const prompt = extractPart2Prompt(explanation.transcript) || question.prompt || 'Question–Response';
     const correctAnswer = explanation.correctAnswer;
-    const correctOption = answerOptions.find((option) => option.key === correctAnswer);
     reviews.push({
       prompt,
       options: answerOptions,
       correctAnswer,
-      explanation: buildPart2Explanation(prompt, correctOption),
     });
 
     const audioSrc = question.audioUrl || '';
@@ -610,14 +582,13 @@ async function renderPart2Sequence(page, questions, sessionToken, recordingStart
       total: reviews.length,
       ...reviews[index],
     });
-    await sleep(4300 / speed);
+    const reviewDuration = index === reviews.length - 1 ? 5500 : 4800;
+    await sleep(reviewDuration / speed);
   }
 
-  // Giữ riêng đáp án 3 thêm một nhịp trước khi dừng screencast.
-  // Puppeteer/ffmpeg có thể mất vài frame cuối khi recorder.stop() chạy ngay
-  // sau review cuối, khiến outro nối vào quá sớm và trông như đè lên đáp án 3.
+  // Giữ riêng đáp án 3 thêm một nhịp trước khi dừng screencast để đảm bảo encoder gom đủ frame
   if (reviews.length > 0) {
-    await sleep(2500 / speed);
+    await sleep(1500 / speed);
   }
 }
 
@@ -819,7 +790,7 @@ async function ensurePart3Stage(page, questionsData, imageUrl = null, currentPar
 
       qHeader.append(qNum, qPrompt);
 
-      const isShort = (q.options || []).every((o) => (o.text || '').length < 28);
+      const isShort = (q.options || []).every((o) => (o.text || '').length < 16);
       const optsGrid = document.createElement('div');
       optsGrid.style.display = 'grid';
       optsGrid.style.gridTemplateColumns = isShort ? '1fr 1fr' : '1fr';
@@ -849,13 +820,7 @@ async function ensurePart3Stage(page, questionsData, imageUrl = null, currentPar
         const t = document.createElement('span');
         t.textContent = opt.text;
         t.style.lineHeight = '1.25';
-        if (isShort) {
-          t.style.whiteSpace = 'nowrap';
-          t.style.overflow = 'hidden';
-          t.style.textOverflow = 'ellipsis';
-        } else {
-          t.style.wordBreak = 'break-word';
-        }
+        t.style.wordBreak = 'break-word';
 
         row.append(k, t);
         optsGrid.appendChild(row);
@@ -865,8 +830,28 @@ async function ensurePart3Stage(page, questionsData, imageUrl = null, currentPar
       qContainer.appendChild(card);
     });
 
-    stage.append(header, audioBar, qContainer);
+    const ticker = document.createElement('div');
+    ticker.id = 'lingopro-screencast-ticker';
+    ticker.style.position = 'fixed';
+    ticker.style.bottom = '0px';
+    ticker.style.right = '0px';
+    ticker.style.width = '1px';
+    ticker.style.height = '1px';
+    ticker.style.opacity = '0.01';
+    ticker.style.pointerEvents = 'none';
+    ticker.style.zIndex = '2147483647';
+
+    stage.append(header, audioBar, qContainer, ticker);
     document.body.appendChild(stage);
+
+    if (!window.__lingoproTicker) {
+      let tick = 0;
+      window.__lingoproTicker = setInterval(() => {
+        tick++;
+        const el = document.getElementById('lingopro-screencast-ticker');
+        if (el) el.style.opacity = tick % 2 === 0 ? '0.02' : '0.01';
+      }, 50);
+    }
   }, { data: questionsData, imgUrl: imageUrl, partNum: currentPart });
 
   if (imageUrl) {
@@ -960,7 +945,7 @@ async function showPart3TranscriptReview(page, rawTranscript, currentPart = 3, q
     card.style.border = '1px solid rgba(148, 163, 184, 0.22)';
     card.style.borderRadius = '14px';
     card.style.padding = '14px 16px';
-    card.style.maxHeight = '480px';
+    card.style.maxHeight = '650px';
     card.style.overflow = 'hidden';
 
     const cardTitle = document.createElement('div');
@@ -1081,22 +1066,7 @@ async function showPart3TranscriptReview(page, rawTranscript, currentPart = 3, q
 
     dialogue.innerHTML = clean;
     card.append(cardTitle, dialogue);
-
-    const tipBox = document.createElement('div');
-    tipBox.style.background = 'rgba(30, 41, 59, 0.7)';
-    tipBox.style.border = '1px solid rgba(148, 163, 184, 0.18)';
-    tipBox.style.borderRadius = '10px';
-    tipBox.style.padding = '8px 12px';
-    tipBox.style.fontSize = '11px';
-    tipBox.style.lineHeight = '1.45';
-    tipBox.style.color = '#94a3b8';
-    tipBox.style.marginTop = '8px';
-    tipBox.innerHTML =
-      partNum === 4
-        ? '<strong style="color:#f1f5f9;">💡 Bí kíp Part 4:</strong> Diễn giả thường mở đầu bằng mục đích/chủ đề (Q1), sau đó đến chi tiết thực hiện (Q2) và yêu cầu/hành động tiếp theo (Q3)!'
-        : '<strong style="color:#f1f5f9;">💡 Bí kíp Part 3:</strong> Vị trí đáp án thường xuất hiện tuần tự theo mạch hội thoại (Đầu ➔ Giữa ➔ Cuối). Hãy đọc trước câu hỏi để định vị manh mối!';
-
-    qContainer.append(card, tipBox);
+    qContainer.append(card);
   }, { transcript: rawTranscript, partNum: currentPart, qData: questionsData });
 }
 
@@ -1132,7 +1102,14 @@ async function preparePart3Data(page, questions, sessionToken, currentPart = 3, 
     transcript = questions.find((q) => q.transcript)?.transcript || '';
   }
   const audioUrl = questions[0]?.audioUrl || '';
-  const imageUrl = questions[0]?.imageUrl ? normalizeMediaUrl(questions[0].imageUrl) : null;
+  const imageQuestion = questions.find((q) => q?.imageUrl);
+  const imageUrl = imageQuestion?.imageUrl ? normalizeMediaUrl(imageQuestion.imageUrl) : null;
+  const mentionsGraphic = questions.some((q) =>
+    /look at the (?:graphic|table|chart|schedule|diagram|map|floor plan|list|menu)/i.test(q.prompt || '')
+  );
+  if (mentionsGraphic && !imageUrl) {
+    throw new Error(`[CRITICAL] Graphic inquiry question requires valid imageUrl. Aborting render to prevent unanswerable video.`);
+  }
 
   const tempAudio = path.join(workDir, 'cluster-audio.mp3');
   let silences = [];
@@ -1262,6 +1239,7 @@ async function ensurePart1Stage(page, currentPart = 1) {
     document.getElementById('lingopro-part1-stage')?.remove();
     const stage = document.createElement('div');
     stage.id = 'lingopro-part1-stage';
+    stage.dataset.part = String(activePart);
     stage.style.position = 'fixed';
     stage.style.inset = '0';
     stage.style.zIndex = '2147483645';
@@ -1273,11 +1251,13 @@ async function ensurePart1Stage(page, currentPart = 1) {
     questionLabel.id = 'lingopro-part1-question-label';
     questionLabel.style.position = 'absolute';
     questionLabel.style.left = '22px';
-    questionLabel.style.top = '38px';
-    questionLabel.style.fontSize = '18px';
-    questionLabel.style.fontWeight = '700';
+    questionLabel.style.top = '36px';
+    questionLabel.style.display = 'flex';
+    questionLabel.style.alignItems = 'center';
+    questionLabel.style.gap = '8px';
     questionLabel.style.letterSpacing = '-.02em';
     questionLabel.style.color = '#f8fafc';
+    questionLabel.innerHTML = `<span style="background:rgba(74,222,128,.15);border:1px solid rgba(74,222,128,.35);padding:3px 8px;border-radius:7px;font-size:13px;font-weight:800;color:#4ade80;letter-spacing:.04em;">PART ${activePart}</span> <span style="font-size:16px;font-weight:700;color:#f8fafc;">Câu 1/3</span>`;
 
     const brandLabel = document.createElement('div');
     brandLabel.textContent = 'LingoPro';
@@ -1365,8 +1345,28 @@ async function ensurePart1Stage(page, currentPart = 1) {
     choices.style.flexDirection = 'column';
     choices.style.gap = '7px';
 
-    stage.append(questionLabel, brandLabel, imageFrame, listeningPrompt, timer, choices);
+    const ticker = document.createElement('div');
+    ticker.id = 'lingopro-screencast-ticker';
+    ticker.style.position = 'fixed';
+    ticker.style.bottom = '0px';
+    ticker.style.right = '0px';
+    ticker.style.width = '1px';
+    ticker.style.height = '1px';
+    ticker.style.opacity = '0.01';
+    ticker.style.pointerEvents = 'none';
+    ticker.style.zIndex = '2147483647';
+
+    stage.append(questionLabel, brandLabel, imageFrame, listeningPrompt, timer, choices, ticker);
     document.body.appendChild(stage);
+
+    if (!window.__lingoproTicker) {
+      let tick = 0;
+      window.__lingoproTicker = setInterval(() => {
+        tick++;
+        const el = document.getElementById('lingopro-screencast-ticker');
+        if (el) el.style.opacity = tick % 2 === 0 ? '0.02' : '0.01';
+      }, 50);
+    }
   }, currentPart);
 }
 
@@ -1377,7 +1377,10 @@ async function setPart1QuestionStage(page, imageUrl, questionNumber = 1, totalQu
     const choices = document.getElementById('lingopro-part1-choices');
     const questionLabel = document.getElementById('lingopro-part1-question-label');
     if (image instanceof HTMLImageElement) image.src = src || '';
-    if (questionLabel) questionLabel.textContent = `Câu ${current}/${total}`;
+    if (questionLabel) {
+      const partNum = document.getElementById('lingopro-part1-stage')?.dataset.part || '1';
+      questionLabel.innerHTML = `<span style="background:rgba(74,222,128,.15);border:1px solid rgba(74,222,128,.35);padding:3px 8px;border-radius:7px;font-size:13px;font-weight:800;color:#4ade80;letter-spacing:.04em;">PART ${partNum}</span> <span style="font-size:16px;font-weight:700;color:#f8fafc;">Câu ${current}/${total}</span>`;
+    }
     if (timer) {
       timer.style.display = 'flex';
       timer.textContent = '00:00';
@@ -1446,11 +1449,16 @@ async function playAudioWithCountdown(page) {
   );
 }
 
-async function revealPart1Choices(page, options, correctAnswer) {
+async function revealPart1Choices(page, options, correctAnswer, current = 1, total = 3) {
   await page.evaluate(
-    ({ answerOptions, correct }) => {
+    ({ answerOptions, correct, current, total }) => {
       const timer = document.getElementById('lingopro-part1-timer');
       const choices = document.getElementById('lingopro-part1-choices');
+      const questionLabel = document.getElementById('lingopro-part1-question-label');
+      if (questionLabel) {
+        const partNum = document.getElementById('lingopro-part1-stage')?.dataset.part || '1';
+        questionLabel.innerHTML = `<span style="background:rgba(74,222,128,.15);border:1px solid rgba(74,222,128,.35);padding:3px 8px;border-radius:7px;font-size:13px;font-weight:800;color:#4ade80;letter-spacing:.04em;">PART ${partNum}</span> <span style="font-size:16px;font-weight:700;color:#86efac;">Đáp án ${current}/${total}</span>`;
+      }
       if (timer) timer.style.display = 'none';
       if (!choices) return;
       choices.replaceChildren();
@@ -1495,7 +1503,7 @@ async function revealPart1Choices(page, options, correctAnswer) {
         choices.appendChild(row);
       }
     },
-    { answerOptions: options, correct: correctAnswer }
+    { answerOptions: options, correct: correctAnswer, current, total }
   );
 }
 
@@ -1930,6 +1938,12 @@ async function renderOne(browser, videoNumber, trackerSlot = null) {
       if (!q.audioUrl) q.audioUrl = sharedAudio;
       if (!q.imageUrl && sharedImage) q.imageUrl = sharedImage;
     }
+    const mentionsGraphic = questions.some((q) =>
+      /look at the (?:graphic|table|chart|schedule|diagram|map|floor plan|list|menu)/i.test(q.prompt || '')
+    );
+    if (mentionsGraphic && !sharedImage) {
+      throw new Error(`[CRITICAL] Graphic inquiry question requires valid imageUrl. Aborting render to prevent unanswerable video.`);
+    }
   } else {
     questions = Array.isArray(testPayload?.questions) ? testPayload.questions.slice(0, questionsPerVideo) : [];
   }
@@ -1971,7 +1985,7 @@ async function renderOne(browser, videoNumber, trackerSlot = null) {
   await hideOverlay(page);
 
   let part3Preloaded = null;
-  if (part === 1) {
+  if (part === 1 || part === 2) {
     await ensurePart1Stage(page, part);
     await setPart1QuestionStage(page, questions[0]?.imageUrl, 1, questions.length);
   } else if (part === 3 || part === 4) {
@@ -2014,8 +2028,12 @@ async function renderOne(browser, videoNumber, trackerSlot = null) {
             ? extractTranscriptOptions(explanation.transcript, question.options)
             : question.options;
 
-        await revealPart1Choices(page, answerOptions, correctAnswer);
-        await sleep(4200);
+        await revealPart1Choices(page, answerOptions, correctAnswer, index + 1, questions.length);
+        const choiceDuration = index === questions.length - 1 ? 5500 : 4200;
+        await sleep(choiceDuration);
+      }
+      if (questions.length > 0) {
+        await sleep(1500);
       }
     }
 
@@ -2086,7 +2104,18 @@ async function main() {
 
     if (trackerPath) {
       const campaign = await loadCampaign(trackerPath);
-      const slots = getPendingSlots(campaign, part, videos);
+      let slots = [];
+      if (slotArg) {
+        const target = campaign.videos.find((v) => v.id === slotArg);
+        if (!target) throw new Error(`Không tìm thấy slot ${slotArg} trong tracker.`);
+        slots = [target];
+      } else if (episodeArg) {
+        const target = campaign.videos.find((v) => v.part === part && (v.episode === episodeArg || v.number === episodeArg));
+        if (!target) throw new Error(`Không tìm thấy tập ${episodeArg} Part ${part} trong tracker.`);
+        slots = [target];
+      } else {
+        slots = getPendingSlots(campaign, part, videos);
+      }
       if (slots.length === 0) {
         throw new Error(`Không còn video P${part} ở trạng thái todo trong tracker.`);
       }
@@ -2094,7 +2123,9 @@ async function main() {
         await renderWithRetry(slot.number, slot);
       }
     } else {
-      for (let index = 1; index <= videos; index += 1) {
+      const startIndex = episodeArg || 1;
+      const count = episodeArg ? 1 : videos;
+      for (let index = startIndex; index < startIndex + count; index += 1) {
         await renderWithRetry(index);
       }
     }

@@ -2,7 +2,8 @@
 
 import React, { useState, useMemo, useEffect } from 'react';
 import Image from 'next/image';
-import { Volume2, Sparkles, Lightbulb, CheckCircle2 } from 'lucide-react';
+import Link from 'next/link';
+import { Volume2, Sparkles, Lightbulb, CheckCircle2, Dumbbell, ArrowRight, RotateCcw } from 'lucide-react';
 import { grammarAudio } from '@/lib/grammar/grammarAudioManager';
 import PronounVisualDeck, { HighlightedSentence } from './PronounVisualDeck';
 import SvoSentenceVisualDeck from './SvoSentenceVisualDeck';
@@ -1129,12 +1130,97 @@ function GrammarVisualTopicDeckInner({
   if (guided) {
     const index = Math.min(cardIndex, cardsToRender.length - 1);
     const card = cardsToRender[index];
+    const isLastCard = index === cardsToRender.length - 1;
+    const navPills = cardsToRender.map((item, idx) => {
+      const rawPrefix = item.title.split(/[—–:(]/)[0].trim();
+      const shortSub = rawPrefix.length <= 16 ? rawPrefix : rawPrefix.slice(0, 14).trim();
+      return {
+        label: `Ý ${idx + 1}`,
+        subLabel: shortSub || undefined,
+      };
+    });
     return (
       <div className="space-y-3 min-w-0 max-w-3xl mx-auto">
-        <GrammarCardNavigator titles={cardsToRender.map((item) => item.title)} index={index}
-          onChange={(nextIndex) => { grammarAudio.stopAll(); setCardIndex(nextIndex); }} />
-        <VisualTopicCardItem key={`${topicSlug}-${index}`} card={card} cardIndex={index} topicSlug={topicSlug}
-          activeAudioId={audioState.activeId} onPlaySpeech={playSpeech} exampleLimit={2} />
+        <GrammarCardNavigator
+          titles={cardsToRender.map((item) => item.title)}
+          pills={navPills}
+          index={index}
+          onChange={(nextIndex) => {
+            grammarAudio.stopAll();
+            setCardIndex(nextIndex);
+          }}
+          onComplete={() => {
+            grammarAudio.stopAll();
+            if (typeof window !== 'undefined') {
+              window.location.href = `/grammar/practice?topic=${encodeURIComponent(topicSlug)}`;
+            }
+          }}
+          completeLabel="Luyện tập"
+        />
+        <VisualTopicCardItem
+          key={`${topicSlug}-${index}`}
+          card={card}
+          cardIndex={index}
+          topicSlug={topicSlug}
+          activeAudioId={audioState.activeId}
+          onPlaySpeech={playSpeech}
+          exampleLimit={2}
+        />
+        {/* Bottom progression / end-of-deck CTA bar */}
+        <div className="border border-border bg-muted/20 p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 rounded-none">
+          {isLastCard ? (
+            <>
+              <div className="text-xs text-foreground font-medium">
+                <span className="font-mono text-[11px] font-bold uppercase text-emerald-600 dark:text-emerald-400 mr-1.5">
+                  ✓ Đã xem hết {cardsToRender.length}/{cardsToRender.length} ý
+                </span>
+                Bạn đã nắm xong phần lý thuyết trực quan của bài này!
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                {cardsToRender.length > 1 && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      grammarAudio.stopAll();
+                      setCardIndex(0);
+                    }}
+                    className="min-h-[40px] px-3 py-1.5 border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground font-mono text-xs uppercase tracking-wider rounded-none inline-flex items-center gap-1.5 transition-colors"
+                  >
+                    <RotateCcw className="h-3.5 w-3.5 shrink-0" />
+                    <span>Xem lại từ Ý 1</span>
+                  </button>
+                )}
+                <Link
+                  href={`/grammar/practice?topic=${encodeURIComponent(topicSlug)}`}
+                  onClick={() => grammarAudio.stopAll()}
+                  className="min-h-[40px] px-3.5 py-1.5 bg-primary text-primary-foreground border border-primary hover:bg-primary/90 font-mono text-xs uppercase tracking-wider font-bold rounded-none inline-flex items-center gap-1.5 transition-colors"
+                >
+                  <Dumbbell className="h-3.5 w-3.5 shrink-0" />
+                  <span>Làm bài tập ngay</span>
+                  <ArrowRight className="h-3.5 w-3.5 shrink-0" />
+                </Link>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="text-xs text-muted-foreground font-mono">
+                Đang ở <strong className="text-foreground">Ý {index + 1}/{cardsToRender.length}</strong> • Tiếp theo:{' '}
+                <span className="text-foreground font-semibold">{navPills[index + 1]?.subLabel || `Ý ${index + 2}`}</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  grammarAudio.stopAll();
+                  setCardIndex(index + 1);
+                }}
+                className="min-h-[40px] px-3.5 py-1.5 bg-primary text-primary-foreground border border-primary hover:bg-primary/90 font-mono text-xs uppercase tracking-wider font-semibold rounded-none inline-flex items-center justify-center gap-1.5 shrink-0 transition-colors"
+              >
+                <span>Qua Ý {index + 2}</span>
+                <ArrowRight className="h-3.5 w-3.5 shrink-0" />
+              </button>
+            </>
+          )}
+        </div>
       </div>
     );
   }
@@ -1410,21 +1496,24 @@ function VisualTopicCardItem({
 
   return (
     <div
+      role="tabpanel"
+      id={`pronoun-panel-Ý ${cardIndex + 1}`}
+      aria-labelledby={`card-nav-tab-Ý ${cardIndex + 1}`}
       className={`relative overflow-hidden border border-border bg-card rounded-none shadow-xs hover:shadow-md transition-all duration-200 flex flex-col justify-between ${
         hoveredIdx !== null ? 'z-20' : 'z-10'
       }`}
     >
       {/* Card Header: Luôn hiển thị tên ý và badge để người học định vị bài học */}
-      <div className="p-3 sm:p-3.5 border-b border-border bg-muted/15 flex items-center justify-between gap-3 shrink-0">
+      <div className="p-2.5 sm:p-3.5 border-b border-border bg-muted/15 flex items-start sm:items-center justify-between gap-2.5 sm:gap-3 shrink-0">
         <div className="min-w-0 flex-1">
-          <h3 className="text-sm sm:text-base font-bold text-foreground tracking-tight truncate">
+          <h3 className="text-sm sm:text-base font-bold text-foreground tracking-tight leading-snug line-clamp-2 sm:truncate">
             {card.title}
           </h3>
           {card.badge && (
-            <div className="text-xs text-muted-foreground mt-0.5 truncate">{card.badge}</div>
+            <div className="text-xs text-muted-foreground mt-0.5 leading-snug line-clamp-2 sm:truncate">{card.badge}</div>
           )}
         </div>
-        <span className="font-mono text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 border border-border bg-background text-muted-foreground rounded-none shrink-0">
+        <span className="font-mono text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 border border-border bg-background text-muted-foreground rounded-none shrink-0 tabular-nums">
           Ý {cardIndex + 1}
         </span>
       </div>
@@ -1432,7 +1521,7 @@ function VisualTopicCardItem({
       <div className={exampleLimit ? 'sm:grid sm:grid-cols-[0.85fr_1.15fr] sm:items-stretch min-w-0' : undefined}>
         {/* Dynamic Image Container (Hero Stage with In-Place Swapping) */}
         {currentImage && (
-          <div className={`relative w-full bg-muted/20 overflow-hidden border-b sm:border-b-0 sm:border-r border-border ${exampleLimit ? 'h-48 sm:h-auto sm:min-h-[240px]' : 'h-52 sm:h-56'}`}>
+          <div className={`relative w-full bg-muted/20 overflow-hidden border-b sm:border-b-0 sm:border-r border-border ${exampleLimit ? 'h-40 sm:h-auto sm:min-h-[240px]' : 'h-48 sm:h-56'}`}>
             <Image
               key={currentImage}
               src={currentImage}

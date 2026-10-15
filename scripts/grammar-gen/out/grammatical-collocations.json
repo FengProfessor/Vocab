@@ -353,50 +353,72 @@
   "exercises": [
     {
       "id": "grammatical-collocations-ex-01",
-      "type": "fill_blank",
-      "question": "There is ____ old man waiting at the gate.",
-      "options": [],
-      "correct_answer": "an",
-      "explanation": "old bắt đầu bằng nguyên âm → an",
+      "type": "multiple_choice",
+      "question": "Children should not depend ___ their parents for everything.",
+      "options": [
+        "on",
+        "in",
+        "at",
+        "with"
+      ],
+      "correct_answer": "on",
+      "explanation": "Cụm kết hợp cố định (Collocation): \"depend on\" / \"rely on\" (phụ thuộc, dựa vào ai/cái gì).",
       "distractor_breakdowns": [
         {
-          "option": "an",
+          "option": "on",
           "isCorrect": true,
-          "pedagogicalReason": "old bắt đầu bằng nguyên âm → an"
+          "pedagogicalReason": "Cụm kết hợp cố định (Collocation): \"depend on\" / \"rely on\" (phụ thuộc, dựa vào ai/cái gì)."
         },
         {
-          "option": "ans",
+          "option": "in",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"ans\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"in\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"on\"). Cụm kết hợp cố định (Collocation): \"depend on\" / \"rely on\" (phụ thuộc, dựa vào ai/cái gì)."
         },
         {
-          "option": "to an",
+          "option": "at",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+          "pedagogicalReason": "Không chính xác. Phương án \"at\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"on\"). Cụm kết hợp cố định (Collocation): \"depend on\" / \"rely on\" (phụ thuộc, dựa vào ai/cái gì)."
+        },
+        {
+          "option": "with",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"with\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"on\"). Cụm kết hợp cố định (Collocation): \"depend on\" / \"rely on\" (phụ thuộc, dựa vào ai/cái gì)."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "grammatical-collocations-ex-02",
-      "type": "multiple_choice",
-      "question": "She has ____ (many / much) homework tonight.",
+      "type": "fill_blank",
+      "question": "My sister is very interested ___ learning foreign languages.",
       "options": [
-        "many",
-        "much"
+        "in",
+        "on",
+        "at",
+        "for"
       ],
-      "correct_answer": "much",
-      "explanation": "homework không đếm được → much",
+      "correct_answer": "in",
+      "explanation": "Tính từ cố định đi kèm giới từ: \"be interested in + N/V-ing\" (quan tâm, thích thú với cái gì).",
       "distractor_breakdowns": [
         {
-          "option": "many",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"many\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "option": "in",
+          "isCorrect": true,
+          "pedagogicalReason": "Tính từ cố định đi kèm giới từ: \"be interested in + N/V-ing\" (quan tâm, thích thú với cái gì)."
         },
         {
-          "option": "much",
-          "isCorrect": true,
-          "pedagogicalReason": "homework không đếm được → much"
+          "option": "on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"on\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in\"). Tính từ cố định đi kèm giới từ: \"be interested in + N/V-ing\" (quan tâm, thích thú với cái gì)."
+        },
+        {
+          "option": "at",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"at\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in\"). Tính từ cố định đi kèm giới từ: \"be interested in + N/V-ing\" (quan tâm, thích thú với cái gì)."
+        },
+        {
+          "option": "for",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"for\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in\"). Tính từ cố định đi kèm giới từ: \"be interested in + N/V-ing\" (quan tâm, thích thú với cái gì)."
         }
       ],
       "difficulty": 1
@@ -404,73 +426,359 @@
     {
       "id": "grammatical-collocations-ex-03",
       "type": "multiple_choice",
-      "question": "____ (A few / Few) people came to her party, so it was really boring.",
+      "question": "Nam is really good ___ solving difficult math problems.",
       "options": [
-        "A few",
-        "Few"
+        "at",
+        "in",
+        "on",
+        "with"
       ],
-      "correct_answer": "Few",
-      "explanation": "nghĩa xấu, gần như chẳng ai đến → Few",
+      "correct_answer": "at",
+      "explanation": "Cụm tính từ cố định: \"be good at + N/V-ing\" (giỏi về lĩnh vực/kỹ năng gì).",
       "distractor_breakdowns": [
         {
-          "option": "A few",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"A few\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "option": "at",
+          "isCorrect": true,
+          "pedagogicalReason": "Cụm tính từ cố định: \"be good at + N/V-ing\" (giỏi về lĩnh vực/kỹ năng gì)."
         },
         {
-          "option": "Few",
-          "isCorrect": true,
-          "pedagogicalReason": "nghĩa xấu, gần như chẳng ai đến → Few"
+          "option": "in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"in\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"at\"). Cụm tính từ cố định: \"be good at + N/V-ing\" (giỏi về lĩnh vực/kỹ năng gì)."
+        },
+        {
+          "option": "on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"on\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"at\"). Cụm tính từ cố định: \"be good at + N/V-ing\" (giỏi về lĩnh vực/kỹ năng gì)."
+        },
+        {
+          "option": "with",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"with\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"at\"). Cụm tính từ cố định: \"be good at + N/V-ing\" (giỏi về lĩnh vực/kỹ năng gì)."
         }
       ],
-      "difficulty": 2
+      "difficulty": 1
     },
     {
       "id": "grammatical-collocations-ex-04",
       "type": "fill_blank",
-      "question": "My brother plays ____ guitar very well.",
-      "options": [],
-      "correct_answer": "the",
-      "explanation": "nhạc cụ đứng sau play → the",
+      "question": "She insisted ___ paying for our lunch yesterday.",
+      "options": [
+        "on",
+        "in",
+        "to",
+        "for"
+      ],
+      "correct_answer": "on",
+      "explanation": "Cụm động từ đi kèm giới từ cố định: \"insist on + V-ing\" (khăng khăng đòi làm gì).",
       "distractor_breakdowns": [
         {
-          "option": "the",
+          "option": "on",
           "isCorrect": true,
-          "pedagogicalReason": "nhạc cụ đứng sau play → the"
+          "pedagogicalReason": "Cụm động từ đi kèm giới từ cố định: \"insist on + V-ing\" (khăng khăng đòi làm gì)."
         },
         {
-          "option": "thes",
+          "option": "in",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"thes\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"in\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"on\"). Cụm động từ đi kèm giới từ cố định: \"insist on + V-ing\" (khăng khăng đòi làm gì)."
         },
         {
-          "option": "to the",
+          "option": "to",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+          "pedagogicalReason": "Không chính xác. Phương án \"to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"on\"). Cụm động từ đi kèm giới từ cố định: \"insist on + V-ing\" (khăng khăng đòi làm gì)."
+        },
+        {
+          "option": "for",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"for\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"on\"). Cụm động từ đi kèm giới từ cố định: \"insist on + V-ing\" (khăng khăng đòi làm gì)."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "grammatical-collocations-ex-05",
+      "type": "multiple_choice",
+      "question": "He apologized to the teacher ___ arriving late.",
+      "options": [
+        "for",
+        "about",
+        "on",
+        "with"
+      ],
+      "correct_answer": "for",
+      "explanation": "Cấu trúc chuẩn: \"apologize (to someone) FOR something / V-ing\" (xin lỗi ai vì việc gì).",
+      "distractor_breakdowns": [
+        {
+          "option": "for",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc chuẩn: \"apologize (to someone) FOR something / V-ing\" (xin lỗi ai vì việc gì)."
+        },
+        {
+          "option": "about",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"about\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"for\"). Cấu trúc chuẩn: \"apologize (to someone) FOR something / V-ing\" (xin lỗi ai vì việc gì)."
+        },
+        {
+          "option": "on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"on\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"for\"). Cấu trúc chuẩn: \"apologize (to someone) FOR something / V-ing\" (xin lỗi ai vì việc gì)."
+        },
+        {
+          "option": "with",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"with\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"for\"). Cấu trúc chuẩn: \"apologize (to someone) FOR something / V-ing\" (xin lỗi ai vì việc gì)."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "grammatical-collocations-ex-06",
+      "type": "fill_blank",
+      "question": "Heavy rain prevented the players ___ finishing the match.",
+      "options": [
+        "from",
+        "to",
+        "of",
+        "on"
+      ],
+      "correct_answer": "from",
+      "explanation": "Cấu trúc cố định: \"prevent / stop someone FROM + V-ing\" (ngăn cản ai làm gì).",
+      "distractor_breakdowns": [
+        {
+          "option": "from",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc cố định: \"prevent / stop someone FROM + V-ing\" (ngăn cản ai làm gì)."
+        },
+        {
+          "option": "to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"from\"). Cấu trúc cố định: \"prevent / stop someone FROM + V-ing\" (ngăn cản ai làm gì)."
+        },
+        {
+          "option": "of",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"of\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"from\"). Cấu trúc cố định: \"prevent / stop someone FROM + V-ing\" (ngăn cản ai làm gì)."
+        },
+        {
+          "option": "on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"on\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"from\"). Cấu trúc cố định: \"prevent / stop someone FROM + V-ing\" (ngăn cản ai làm gì)."
         }
       ],
       "difficulty": 2
     },
     {
-      "id": "grammatical-collocations-ex-05",
+      "id": "grammatical-collocations-ex-07",
       "type": "multiple_choice",
-      "question": "There are ____ (a lot of / much) students in the library today.",
+      "question": "Finally, she succeeded ___ persuading her father to let her study abroad.",
       "options": [
-        "a lot of",
-        "much"
+        "in",
+        "on",
+        "at",
+        "to"
       ],
-      "correct_answer": "a lot of",
-      "explanation": "students đếm được → a lot of, không dùng much",
+      "correct_answer": "in",
+      "explanation": "Cấu trúc cố định: \"succeed IN + V-ing\" (thành công trong việc làm gì).",
       "distractor_breakdowns": [
         {
-          "option": "a lot of",
+          "option": "in",
           "isCorrect": true,
-          "pedagogicalReason": "students đếm được → a lot of, không dùng much"
+          "pedagogicalReason": "Cấu trúc cố định: \"succeed IN + V-ing\" (thành công trong việc làm gì)."
         },
         {
-          "option": "much",
+          "option": "on",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"much\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"on\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in\"). Cấu trúc cố định: \"succeed IN + V-ing\" (thành công trong việc làm gì)."
+        },
+        {
+          "option": "at",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"at\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in\"). Cấu trúc cố định: \"succeed IN + V-ing\" (thành công trong việc làm gì)."
+        },
+        {
+          "option": "to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in\"). Cấu trúc cố định: \"succeed IN + V-ing\" (thành công trong việc làm gì)."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "grammatical-collocations-ex-08",
+      "type": "fill_blank",
+      "question": "Who is responsible ___ organizing the welcome party?",
+      "options": [
+        "for",
+        "to",
+        "with",
+        "in"
+      ],
+      "correct_answer": "for",
+      "explanation": "Cụm tính từ cố định: \"be responsible FOR + N/V-ing\" (chịu trách nhiệm về việc gì).",
+      "distractor_breakdowns": [
+        {
+          "option": "for",
+          "isCorrect": true,
+          "pedagogicalReason": "Cụm tính từ cố định: \"be responsible FOR + N/V-ing\" (chịu trách nhiệm về việc gì)."
+        },
+        {
+          "option": "to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"for\"). Cụm tính từ cố định: \"be responsible FOR + N/V-ing\" (chịu trách nhiệm về việc gì)."
+        },
+        {
+          "option": "with",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"with\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"for\"). Cụm tính từ cố định: \"be responsible FOR + N/V-ing\" (chịu trách nhiệm về việc gì)."
+        },
+        {
+          "option": "in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"in\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"for\"). Cụm tính từ cố định: \"be responsible FOR + N/V-ing\" (chịu trách nhiệm về việc gì)."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "grammatical-collocations-ex-09",
+      "type": "multiple_choice",
+      "question": "Are you aware ___ the potential risks of this investment?",
+      "options": [
+        "of",
+        "for",
+        "with",
+        "on"
+      ],
+      "correct_answer": "of",
+      "explanation": "Cụm tính từ cố định: \"be aware OF something\" (nhận thức được, biết rõ về cái gì).",
+      "distractor_breakdowns": [
+        {
+          "option": "of",
+          "isCorrect": true,
+          "pedagogicalReason": "Cụm tính từ cố định: \"be aware OF something\" (nhận thức được, biết rõ về cái gì)."
+        },
+        {
+          "option": "for",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"for\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"of\"). Cụm tính từ cố định: \"be aware OF something\" (nhận thức được, biết rõ về cái gì)."
+        },
+        {
+          "option": "with",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"with\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"of\"). Cụm tính từ cố định: \"be aware OF something\" (nhận thức được, biết rõ về cái gì)."
+        },
+        {
+          "option": "on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"on\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"of\"). Cụm tính từ cố định: \"be aware OF something\" (nhận thức được, biết rõ về cái gì)."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "grammatical-collocations-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: She is afraid from walking alone in the dark.",
+      "options": [
+        "She is",
+        "afraid from",
+        "walking",
+        "in the dark"
+      ],
+      "correct_answer": "afraid from",
+      "explanation": "Tính từ \"afraid\" luôn đi với giới từ \"of\" (\"be afraid of + N/V-ing\"), không đi với \"from\".",
+      "distractor_breakdowns": [
+        {
+          "option": "She is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"She is\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "afraid from",
+          "isCorrect": true,
+          "pedagogicalReason": "Tính từ \"afraid\" luôn đi với giới từ \"of\" (\"be afraid of + N/V-ing\"), không đi với \"from\"."
+        },
+        {
+          "option": "walking",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"walking\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "in the dark",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"in the dark\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "grammatical-collocations-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: Hue is famous about its historical monuments and cuisine.",
+      "options": [
+        "Hue is",
+        "famous about",
+        "historical",
+        "cuisine"
+      ],
+      "correct_answer": "famous about",
+      "explanation": "Tính từ \"famous\" đi với giới từ \"for\" (\"be famous for something\" - nổi tiếng vì cái gì), không dùng \"famous about\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Hue is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"Hue is\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "famous about",
+          "isCorrect": true,
+          "pedagogicalReason": "Tính từ \"famous\" đi với giới từ \"for\" (\"be famous for something\" - nổi tiếng vì cái gì), không dùng \"famous about\"."
+        },
+        {
+          "option": "historical",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"historical\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "cuisine",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"cuisine\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "grammatical-collocations-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: The suspect was accused for stealing the company's documents.",
+      "options": [
+        "The suspect",
+        "accused for",
+        "stealing",
+        "documents"
+      ],
+      "correct_answer": "accused for",
+      "explanation": "Động từ \"accuse\" đi với giới từ \"of\" (\"accuse someone OF + V-ing\" - buộc tội ai làm gì), không dùng \"accused for\".",
+      "distractor_breakdowns": [
+        {
+          "option": "The suspect",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"The suspect\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "accused for",
+          "isCorrect": true,
+          "pedagogicalReason": "Động từ \"accuse\" đi với giới từ \"of\" (\"accuse someone OF + V-ing\" - buộc tội ai làm gì), không dùng \"accused for\"."
+        },
+        {
+          "option": "stealing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"stealing\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "documents",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"documents\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
       "difficulty": 3

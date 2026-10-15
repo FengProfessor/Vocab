@@ -133,6 +133,16 @@ export function buildStudentNavSections(opts?: {
           onboardingId: 'practice-listening',
         },
         {
+          href: '/practice/reading-library',
+          label: 'Thư viện bài đọc',
+          icon: Library,
+          badge: '588 bài',
+          match: (pathname) =>
+            pathname.startsWith('/practice/reading-library') ||
+            pathname.startsWith('/practice/reading'),
+          onboardingId: 'practice-reading-library',
+        },
+        {
           href: '/practice/pack-reading',
           label: 'Luyện đọc hiểu',
           icon: BookOpen,

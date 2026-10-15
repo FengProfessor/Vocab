@@ -175,6 +175,10 @@ export function useToeicExamSession({
       questionIds?: string[];
     }) => {
       if (isSubmittedRef.current || isSubmitting) return;
+      if (saveTimeoutRef.current) {
+        clearTimeout(saveTimeoutRef.current);
+        saveTimeoutRef.current = null;
+      }
       setIsSubmitting(true);
 
       const elapsed =
@@ -423,6 +427,10 @@ export function useToeicExamSession({
   }, []);
 
   const resetExam = useCallback(() => {
+    if (saveTimeoutRef.current) {
+      clearTimeout(saveTimeoutRef.current);
+      saveTimeoutRef.current = null;
+    }
     if (typeof window !== 'undefined') {
       try {
         localStorage.removeItem(storageKey);

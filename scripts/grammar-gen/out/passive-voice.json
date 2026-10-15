@@ -346,26 +346,36 @@
   "exercises": [
     {
       "id": "passive-voice-ex-01",
-      "type": "fill_blank",
-      "question": "The telephone ____ (invent) by Alexander Graham Bell.",
-      "options": [],
+      "type": "multiple_choice",
+      "question": "The telephone ___ by Alexander Graham Bell in 1876.",
+      "options": [
+        "was invented",
+        "invented",
+        "is invented",
+        "has invented"
+      ],
       "correct_answer": "was invented",
-      "explanation": "chuyện đã xong trong quá khứ → was + V3",
+      "explanation": "Chủ ngữ \"The telephone\" nhận hành động (bị động) + mốc quá khứ \"in 1876\" + số ít → dùng \"was + V3/ed\" (\"was invented\").",
       "distractor_breakdowns": [
         {
           "option": "was invented",
           "isCorrect": true,
-          "pedagogicalReason": "chuyện đã xong trong quá khứ → was + V3"
+          "pedagogicalReason": "Chủ ngữ \"The telephone\" nhận hành động (bị động) + mốc quá khứ \"in 1876\" + số ít → dùng \"was + V3/ed\" (\"was invented\")."
         },
         {
-          "option": "was inventeds",
+          "option": "invented",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"was inventeds\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"invented\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was invented\"). Chủ ngữ \"The telephone\" nhận hành động (bị động) + mốc quá khứ \"in 1876\" + số ít → dùng \"was + V3/ed\" (\"was invented\")."
         },
         {
-          "option": "to was invented",
+          "option": "is invented",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+          "pedagogicalReason": "Không chính xác. Phương án \"is invented\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was invented\"). Chủ ngữ \"The telephone\" nhận hành động (bị động) + mốc quá khứ \"in 1876\" + số ít → dùng \"was + V3/ed\" (\"was invented\")."
+        },
+        {
+          "option": "has invented",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has invented\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was invented\"). Chủ ngữ \"The telephone\" nhận hành động (bị động) + mốc quá khứ \"in 1876\" + số ít → dùng \"was + V3/ed\" (\"was invented\")."
         }
       ],
       "difficulty": 1
@@ -373,51 +383,71 @@
     {
       "id": "passive-voice-ex-02",
       "type": "fill_blank",
-      "question": "Trees ____ (plant) in our schoolyard since Monday.",
-      "options": [],
-      "correct_answer": "have been planted",
-      "explanation": "since Monday = kéo tới giờ → have been + V3",
+      "question": "Rice ___ in the Mekong Delta.",
+      "options": [
+        "is grown",
+        "grows",
+        "was grow",
+        "are grown"
+      ],
+      "correct_answer": "is grown",
+      "explanation": "\"Rice\" (lúa gạo) là danh từ không đếm được, được trồng ở đồng bằng sông Cửu Long (hiện tại đơn bị động) → \"is grown\".",
       "distractor_breakdowns": [
         {
-          "option": "have been planted",
+          "option": "is grown",
           "isCorrect": true,
-          "pedagogicalReason": "since Monday = kéo tới giờ → have been + V3"
+          "pedagogicalReason": "\"Rice\" (lúa gạo) là danh từ không đếm được, được trồng ở đồng bằng sông Cửu Long (hiện tại đơn bị động) → \"is grown\"."
         },
         {
-          "option": "were",
+          "option": "grows",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Cụm thời gian \"for a long time\" chỉ sự việc kéo dài từ quá khứ đến hiện tại, phải dùng hiện tại hoàn thành."
+          "pedagogicalReason": "Không chính xác. Phương án \"grows\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is grown\"). \"Rice\" (lúa gạo) là danh từ không đếm được, được trồng ở đồng bằng sông Cửu Long (hiện tại đơn bị động) → \"is grown\"."
         },
         {
-          "option": "are",
+          "option": "was grow",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không thể dùng hiện tại đơn với khoảng thời gian \"for a long time\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"was grow\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is grown\"). \"Rice\" (lúa gạo) là danh từ không đếm được, được trồng ở đồng bằng sông Cửu Long (hiện tại đơn bị động) → \"is grown\"."
+        },
+        {
+          "option": "are grown",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"are grown\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is grown\"). \"Rice\" (lúa gạo) là danh từ không đếm được, được trồng ở đồng bằng sông Cửu Long (hiện tại đơn bị động) → \"is grown\"."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "passive-voice-ex-03",
-      "type": "fill_blank",
-      "question": "Nobody can answer this question.  →  This question ____.",
-      "options": [],
-      "correct_answer": "can't be answered",
-      "explanation": "Nobody + can → can't be + V3, cắt by",
+      "type": "multiple_choice",
+      "question": "The new bridge ___ next June.",
+      "options": [
+        "will be opened",
+        "will open",
+        "is opened",
+        "was opened"
+      ],
+      "correct_answer": "will be opened",
+      "explanation": "Dấu hiệu tương lai \"next June\" + chủ ngữ \"The new bridge\" được khánh thành (bị động tương lai đơn) → \"will be + V3/ed\".",
       "distractor_breakdowns": [
         {
-          "option": "can't be answered",
+          "option": "will be opened",
           "isCorrect": true,
-          "pedagogicalReason": "Nobody + can → can't be + V3, cắt by"
+          "pedagogicalReason": "Dấu hiệu tương lai \"next June\" + chủ ngữ \"The new bridge\" được khánh thành (bị động tương lai đơn) → \"will be + V3/ed\"."
         },
         {
-          "option": "can be answered",
+          "option": "will open",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Câu gốc có chủ ngữ phủ định \"Nobody\", khi chuyển bị động phải dùng thể phủ định \"can't be answered\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"will open\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"will be opened\"). Dấu hiệu tương lai \"next June\" + chủ ngữ \"The new bridge\" được khánh thành (bị động tương lai đơn) → \"will be + V3/ed\"."
         },
         {
-          "option": "cannot answer",
+          "option": "is opened",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"This question\" cần thể bị động, không dùng chủ động \"cannot answer\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"is opened\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"will be opened\"). Dấu hiệu tương lai \"next June\" + chủ ngữ \"The new bridge\" được khánh thành (bị động tương lai đơn) → \"will be + V3/ed\"."
+        },
+        {
+          "option": "was opened",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"was opened\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"will be opened\"). Dấu hiệu tương lai \"next June\" + chủ ngữ \"The new bridge\" được khánh thành (bị động tương lai đơn) → \"will be + V3/ed\"."
         }
       ],
       "difficulty": 1
@@ -425,90 +455,326 @@
     {
       "id": "passive-voice-ex-04",
       "type": "fill_blank",
-      "question": "Rút gọn: The cakes which are sold in that shop are delicious. → _____",
-      "options": [],
-      "correct_answer": "The cakes sold in that shop are delicious.",
-      "explanation": "are sold bị động → giữ sold",
+      "question": "Many trees ___ in our schoolyard since Monday.",
+      "options": [
+        "have been planted",
+        "has been planted",
+        "planted",
+        "were planting"
+      ],
+      "correct_answer": "have been planted",
+      "explanation": "Dấu hiệu \"since Monday\" (hiện tại hoàn thành) + chủ ngữ số nhiều \"Many trees\" được trồng → \"have been planted\".",
       "distractor_breakdowns": [
         {
-          "option": "The cakes sold in that shop are delicious.",
+          "option": "have been planted",
           "isCorrect": true,
-          "pedagogicalReason": "are sold bị động → giữ sold"
+          "pedagogicalReason": "Dấu hiệu \"since Monday\" (hiện tại hoàn thành) + chủ ngữ số nhiều \"Many trees\" được trồng → \"have been planted\"."
         },
         {
-          "option": "The cakes selling in that shop are delicious.",
+          "option": "has been planted",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Những chiếc bánh được bán là mang nghĩa bị động, rút gọn bằng V-ed/V3 (\"sold\"), không dùng V-ing (\"selling\")."
+          "pedagogicalReason": "Không chính xác. Phương án \"has been planted\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have been planted\"). Dấu hiệu \"since Monday\" (hiện tại hoàn thành) + chủ ngữ số nhiều \"Many trees\" được trồng → \"have been planted\"."
         },
         {
-          "option": "The cakes to sell in that shop are delicious.",
+          "option": "planted",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không có các từ bổ nghĩa đặc biệt như the only/the first nên không rút gọn bằng to-V."
+          "pedagogicalReason": "Không chính xác. Phương án \"planted\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have been planted\"). Dấu hiệu \"since Monday\" (hiện tại hoàn thành) + chủ ngữ số nhiều \"Many trees\" được trồng → \"have been planted\"."
+        },
+        {
+          "option": "were planting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"were planting\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have been planted\"). Dấu hiệu \"since Monday\" (hiện tại hoàn thành) + chủ ngữ số nhiều \"Many trees\" được trồng → \"have been planted\"."
         }
       ],
       "difficulty": 2
     },
     {
       "id": "passive-voice-ex-05",
-      "type": "fill_blank",
-      "question": "Rút gọn: The letters which were written by my grandfather are in this box. → _____",
-      "options": [],
-      "correct_answer": "The letters written by my grandfather are in this box.",
-      "explanation": "were written bị động → giữ written",
+      "type": "multiple_choice",
+      "question": "Don't enter the room now; the floor ___ at the moment.",
+      "options": [
+        "is being cleaned",
+        "is cleaning",
+        "was cleaned",
+        "has cleaned"
+      ],
+      "correct_answer": "is being cleaned",
+      "explanation": "Dấu hiệu \"now / at the moment\" + sàn nhà đang được lau (bị động hiện tại tiếp diễn): \"am/is/are + being + V3/ed\".",
       "distractor_breakdowns": [
         {
-          "option": "The letters written by my grandfather are in this box.",
+          "option": "is being cleaned",
           "isCorrect": true,
-          "pedagogicalReason": "were written bị động → giữ written"
+          "pedagogicalReason": "Dấu hiệu \"now / at the moment\" + sàn nhà đang được lau (bị động hiện tại tiếp diễn): \"am/is/are + being + V3/ed\"."
         },
         {
-          "option": "The letters writing by my grandfather are in this box.",
+          "option": "is cleaning",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Những bức thư được ông viết mang nghĩa bị động, rút gọn bằng V-ed/V3 (\"written\"), không dùng V-ing (\"writing\")."
+          "pedagogicalReason": "Không chính xác. Phương án \"is cleaning\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is being cleaned\"). Dấu hiệu \"now / at the moment\" + sàn nhà đang được lau (bị động hiện tại tiếp diễn): \"am/is/are + being + V3/ed\"."
         },
         {
-          "option": "The letters to write by my grandfather are in this box.",
+          "option": "was cleaned",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng to-V để rút gọn mệnh đề quan hệ bị động thông thường."
+          "pedagogicalReason": "Không chính xác. Phương án \"was cleaned\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is being cleaned\"). Dấu hiệu \"now / at the moment\" + sàn nhà đang được lau (bị động hiện tại tiếp diễn): \"am/is/are + being + V3/ed\"."
+        },
+        {
+          "option": "has cleaned",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has cleaned\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is being cleaned\"). Dấu hiệu \"now / at the moment\" + sàn nhà đang được lau (bị động hiện tại tiếp diễn): \"am/is/are + being + V3/ed\"."
         }
       ],
       "difficulty": 2
     },
     {
       "id": "passive-voice-ex-06",
-      "type": "multiple_choice",
-      "question": "The homework ____ by the students last night.",
+      "type": "fill_blank",
+      "question": "This difficult question cannot ___ without a calculator.",
       "options": [
-        "did",
-        "was done",
-        "is done",
-        "does"
+        "be solved",
+        "solve",
+        "solved",
+        "being solved"
       ],
-      "correct_answer": "was done",
-      "explanation": "Bài tập được làm, mốc last night → bị động quá khứ · buổi 9",
+      "correct_answer": "be solved",
+      "explanation": "Bị động với động từ khuyết thiếu (can/cannot/must/should): \"Modal + be + V3/ed\" → \"cannot be solved\".",
       "distractor_breakdowns": [
         {
-          "option": "did",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"did\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "was done",
+          "option": "be solved",
           "isCorrect": true,
-          "pedagogicalReason": "Bài tập được làm, mốc last night → bị động quá khứ · buổi 9"
+          "pedagogicalReason": "Bị động với động từ khuyết thiếu (can/cannot/must/should): \"Modal + be + V3/ed\" → \"cannot be solved\"."
         },
         {
-          "option": "is done",
+          "option": "solve",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"is done\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"solve\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"be solved\"). Bị động với động từ khuyết thiếu (can/cannot/must/should): \"Modal + be + V3/ed\" → \"cannot be solved\"."
         },
         {
-          "option": "does",
+          "option": "solved",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Trợ động từ \"does\" chỉ dùng cho chủ ngữ ngôi thứ ba số ít (he/she/it)."
+          "pedagogicalReason": "Không chính xác. Phương án \"solved\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"be solved\"). Bị động với động từ khuyết thiếu (can/cannot/must/should): \"Modal + be + V3/ed\" → \"cannot be solved\"."
+        },
+        {
+          "option": "being solved",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"being solved\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"be solved\"). Bị động với động từ khuyết thiếu (can/cannot/must/should): \"Modal + be + V3/ed\" → \"cannot be solved\"."
         }
       ],
-      "difficulty": 3
+      "difficulty": 2
+    },
+    {
+      "id": "passive-voice-ex-07",
+      "type": "multiple_choice",
+      "question": "My bicycle ___ outside the supermarket yesterday.",
+      "options": [
+        "was stolen",
+        "stole",
+        "were stolen",
+        "is stolen"
+      ],
+      "correct_answer": "was stolen",
+      "explanation": "\"My bicycle\" (số ít) bị lấy cắp ngày hôm qua (\"yesterday\") → bị động quá khứ đơn \"was stolen\".",
+      "distractor_breakdowns": [
+        {
+          "option": "was stolen",
+          "isCorrect": true,
+          "pedagogicalReason": "\"My bicycle\" (số ít) bị lấy cắp ngày hôm qua (\"yesterday\") → bị động quá khứ đơn \"was stolen\"."
+        },
+        {
+          "option": "stole",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"stole\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was stolen\"). \"My bicycle\" (số ít) bị lấy cắp ngày hôm qua (\"yesterday\") → bị động quá khứ đơn \"was stolen\"."
+        },
+        {
+          "option": "were stolen",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"were stolen\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was stolen\"). \"My bicycle\" (số ít) bị lấy cắp ngày hôm qua (\"yesterday\") → bị động quá khứ đơn \"was stolen\"."
+        },
+        {
+          "option": "is stolen",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is stolen\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was stolen\"). \"My bicycle\" (số ít) bị lấy cắp ngày hôm qua (\"yesterday\") → bị động quá khứ đơn \"was stolen\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "passive-voice-ex-08",
+      "type": "fill_blank",
+      "question": "English ___ all over the world today.",
+      "options": [
+        "is spoken",
+        "speaks",
+        "spoke",
+        "are spoken"
+      ],
+      "correct_answer": "is spoken",
+      "explanation": "Tiếng Anh được nói trên toàn thế giới (bị động hiện tại đơn, số ít) → \"is spoken\".",
+      "distractor_breakdowns": [
+        {
+          "option": "is spoken",
+          "isCorrect": true,
+          "pedagogicalReason": "Tiếng Anh được nói trên toàn thế giới (bị động hiện tại đơn, số ít) → \"is spoken\"."
+        },
+        {
+          "option": "speaks",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"speaks\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is spoken\"). Tiếng Anh được nói trên toàn thế giới (bị động hiện tại đơn, số ít) → \"is spoken\"."
+        },
+        {
+          "option": "spoke",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"spoke\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is spoken\"). Tiếng Anh được nói trên toàn thế giới (bị động hiện tại đơn, số ít) → \"is spoken\"."
+        },
+        {
+          "option": "are spoken",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"are spoken\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is spoken\"). Tiếng Anh được nói trên toàn thế giới (bị động hiện tại đơn, số ít) → \"is spoken\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "passive-voice-ex-09",
+      "type": "multiple_choice",
+      "question": "A surprise party ___ for her birthday last night.",
+      "options": [
+        "was organized",
+        "organized",
+        "is organized",
+        "has been organized"
+      ],
+      "correct_answer": "was organized",
+      "explanation": "Bữa tiệc bất ngờ được tổ chức tối qua (\"last night\") → \"was organized\".",
+      "distractor_breakdowns": [
+        {
+          "option": "was organized",
+          "isCorrect": true,
+          "pedagogicalReason": "Bữa tiệc bất ngờ được tổ chức tối qua (\"last night\") → \"was organized\"."
+        },
+        {
+          "option": "organized",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"organized\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was organized\"). Bữa tiệc bất ngờ được tổ chức tối qua (\"last night\") → \"was organized\"."
+        },
+        {
+          "option": "is organized",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is organized\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was organized\"). Bữa tiệc bất ngờ được tổ chức tối qua (\"last night\") → \"was organized\"."
+        },
+        {
+          "option": "has been organized",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has been organized\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was organized\"). Bữa tiệc bất ngờ được tổ chức tối qua (\"last night\") → \"was organized\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "passive-voice-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: These houses was built more than fifty years ago.",
+      "options": [
+        "These houses",
+        "was",
+        "built",
+        "fifty years ago"
+      ],
+      "correct_answer": "was",
+      "explanation": "Chủ ngữ \"These houses\" là danh từ số nhiều nên to be quá khứ trong câu bị động phải là \"were\", không dùng \"was\".",
+      "distractor_breakdowns": [
+        {
+          "option": "These houses",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"These houses\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "was",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ \"These houses\" là danh từ số nhiều nên to be quá khứ trong câu bị động phải là \"were\", không dùng \"was\"."
+        },
+        {
+          "option": "built",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"built\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "fifty years ago",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"fifty years ago\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "passive-voice-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: All tickets must bought before boarding the train.",
+      "options": [
+        "All tickets",
+        "must bought",
+        "before",
+        "boarding"
+      ],
+      "correct_answer": "must bought",
+      "explanation": "Bị động sau động từ khuyết thiếu \"must\" bắt buộc phải có \"be\" ở giữa: \"must be bought\".",
+      "distractor_breakdowns": [
+        {
+          "option": "All tickets",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"All tickets\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "must bought",
+          "isCorrect": true,
+          "pedagogicalReason": "Bị động sau động từ khuyết thiếu \"must\" bắt buộc phải có \"be\" ở giữa: \"must be bought\"."
+        },
+        {
+          "option": "before",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"before\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "boarding",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"boarding\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "passive-voice-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: The cake was ate by the children after dinner.",
+      "options": [
+        "The cake",
+        "was",
+        "ate",
+        "by"
+      ],
+      "correct_answer": "ate",
+      "explanation": "Câu bị động dùng \"be + V3 (quá khứ phân từ)\". V3 của \"eat\" là \"eaten\", không phải \"ate\" (V2).",
+      "distractor_breakdowns": [
+        {
+          "option": "The cake",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"The cake\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"was\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "ate",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu bị động dùng \"be + V3 (quá khứ phân từ)\". V3 của \"eat\" là \"eaten\", không phải \"ate\" (V2)."
+        },
+        {
+          "option": "by",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"by\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
     }
   ]
 }

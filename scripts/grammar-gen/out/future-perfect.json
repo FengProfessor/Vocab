@@ -453,29 +453,435 @@
   "exercises": [
     {
       "id": "future-perfect-ex-01",
-      "type": "fill_blank",
-      "question": "Hoàn thành theo mẫu: She ___ have left before noon.",
-      "options": [],
-      "correct_answer": "will",
-      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "type": "multiple_choice",
+      "question": "By noon tomorrow, she ___ the financial report.",
+      "options": [
+        "will have finished",
+        "will finish",
+        "has finished",
+        "is finishing"
+      ],
+      "correct_answer": "will have finished",
+      "explanation": "Dấu hiệu \"By + mốc thời gian tương lai\" (\"By noon tomorrow\" - trước trưa mai) dùng thì Tương lai hoàn thành: \"will have + V3/ed\".",
       "distractor_breakdowns": [
         {
-          "option": "will",
+          "option": "will have finished",
           "isCorrect": true,
-          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+          "pedagogicalReason": "Dấu hiệu \"By + mốc thời gian tương lai\" (\"By noon tomorrow\" - trước trưa mai) dùng thì Tương lai hoàn thành: \"will have + V3/ed\"."
         },
         {
-          "option": "would",
+          "option": "will finish",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Thì tương lai hoàn thành diễn tả hành động sẽ hoàn tất trước một mốc trong tương lai (\"before noon\") dùng \"will have + V3\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"will finish\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"will have finished\"). Dấu hiệu \"By + mốc thời gian tương lai\" (\"By noon tomorrow\" - trước trưa mai) dùng thì Tương lai hoàn thành: \"will have + V3/ed\"."
         },
         {
-          "option": "is",
+          "option": "has finished",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Cấu trúc hoàn thành dùng trợ động từ \"will have\", không dùng \"is have\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"has finished\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"will have finished\"). Dấu hiệu \"By + mốc thời gian tương lai\" (\"By noon tomorrow\" - trước trưa mai) dùng thì Tương lai hoàn thành: \"will have + V3/ed\"."
+        },
+        {
+          "option": "is finishing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is finishing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"will have finished\"). Dấu hiệu \"By + mốc thời gian tương lai\" (\"By noon tomorrow\" - trước trưa mai) dùng thì Tương lai hoàn thành: \"will have + V3/ed\"."
         }
       ],
       "difficulty": 1
+    },
+    {
+      "id": "future-perfect-ex-02",
+      "type": "fill_blank",
+      "question": "By the time you arrive tonight, we ___ dinner.",
+      "options": [
+        "will have had",
+        "will have",
+        "have had",
+        "had"
+      ],
+      "correct_answer": "will have had",
+      "explanation": "Cấu trúc \"By the time + S + V (hiện tại đơn), S + will have + V3/ed\". V3 của \"have\" (ăn) là \"had\" → \"will have had\".",
+      "distractor_breakdowns": [
+        {
+          "option": "will have had",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc \"By the time + S + V (hiện tại đơn), S + will have + V3/ed\". V3 của \"have\" (ăn) là \"had\" → \"will have had\"."
+        },
+        {
+          "option": "will have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"will have had\"). Cấu trúc \"By the time + S + V (hiện tại đơn), S + will have + V3/ed\". V3 của \"have\" (ăn) là \"had\" → \"will have had\"."
+        },
+        {
+          "option": "have had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have had\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"will have had\"). Cấu trúc \"By the time + S + V (hiện tại đơn), S + will have + V3/ed\". V3 của \"have\" (ăn) là \"had\" → \"will have had\"."
+        },
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"had\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"will have had\"). Cấu trúc \"By the time + S + V (hiện tại đơn), S + will have + V3/ed\". V3 của \"have\" (ăn) là \"had\" → \"will have had\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "future-perfect-ex-03",
+      "type": "multiple_choice",
+      "question": "By next month, my sister ___ in this company for five years.",
+      "options": [
+        "will have worked",
+        "will work",
+        "worked",
+        "is working"
+      ],
+      "correct_answer": "will have worked",
+      "explanation": "Tính đến trước tháng sau (\"By next month\"), cô ấy sẽ làm việc tròn 5 năm → dùng \"will have worked\".",
+      "distractor_breakdowns": [
+        {
+          "option": "will have worked",
+          "isCorrect": true,
+          "pedagogicalReason": "Tính đến trước tháng sau (\"By next month\"), cô ấy sẽ làm việc tròn 5 năm → dùng \"will have worked\"."
+        },
+        {
+          "option": "will work",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will work\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"will have worked\"). Tính đến trước tháng sau (\"By next month\"), cô ấy sẽ làm việc tròn 5 năm → dùng \"will have worked\"."
+        },
+        {
+          "option": "worked",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"worked\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"will have worked\"). Tính đến trước tháng sau (\"By next month\"), cô ấy sẽ làm việc tròn 5 năm → dùng \"will have worked\"."
+        },
+        {
+          "option": "is working",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is working\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"will have worked\"). Tính đến trước tháng sau (\"By next month\"), cô ấy sẽ làm việc tròn 5 năm → dùng \"will have worked\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "future-perfect-ex-04",
+      "type": "fill_blank",
+      "question": "They ___ the new highway by the end of 2027.",
+      "options": [
+        "will have completed",
+        "will complete",
+        "have completed",
+        "completed"
+      ],
+      "correct_answer": "will have completed",
+      "explanation": "Dấu hiệu \"by the end of 2027\" (trước cuối năm 2027) → dùng tương lai hoàn thành \"will have completed\".",
+      "distractor_breakdowns": [
+        {
+          "option": "will have completed",
+          "isCorrect": true,
+          "pedagogicalReason": "Dấu hiệu \"by the end of 2027\" (trước cuối năm 2027) → dùng tương lai hoàn thành \"will have completed\"."
+        },
+        {
+          "option": "will complete",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will complete\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"will have completed\"). Dấu hiệu \"by the end of 2027\" (trước cuối năm 2027) → dùng tương lai hoàn thành \"will have completed\"."
+        },
+        {
+          "option": "have completed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have completed\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"will have completed\"). Dấu hiệu \"by the end of 2027\" (trước cuối năm 2027) → dùng tương lai hoàn thành \"will have completed\"."
+        },
+        {
+          "option": "completed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"completed\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"will have completed\"). Dấu hiệu \"by the end of 2027\" (trước cuối năm 2027) → dùng tương lai hoàn thành \"will have completed\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "future-perfect-ex-05",
+      "type": "multiple_choice",
+      "question": "___ you have finished your essay by Friday?",
+      "options": [
+        "Will",
+        "Do",
+        "Have",
+        "Are"
+      ],
+      "correct_answer": "Will",
+      "explanation": "Câu hỏi tương lai hoàn thành đảo \"Will\" lên trước chủ ngữ: \"Will + S + have + V3/ed?\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Will",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi tương lai hoàn thành đảo \"Will\" lên trước chủ ngữ: \"Will + S + have + V3/ed?\"."
+        },
+        {
+          "option": "Do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Trợ động từ \"Do\" không phù hợp với ngôi của chủ ngữ hoặc cấu trúc của câu (đáp án đúng là \"Will\")."
+        },
+        {
+          "option": "Have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Will\"). Câu hỏi tương lai hoàn thành đảo \"Will\" lên trước chủ ngữ: \"Will + S + have + V3/ed?\"."
+        },
+        {
+          "option": "Are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng động từ to be \"Are\" ở vị trí này (đáp án đúng là \"Will\"). Câu hỏi tương lai hoàn thành đảo \"Will\" lên trước chủ ngữ: \"Will + S + have + V3/ed?\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "future-perfect-ex-06",
+      "type": "fill_blank",
+      "question": "I ___ saved enough money for a car by this time next year.",
+      "options": [
+        "will have",
+        "would have",
+        "have",
+        "am going to"
+      ],
+      "correct_answer": "will have",
+      "explanation": "Dấu hiệu \"by this time next year\" + V3 \"saved\" → điền \"will have\".",
+      "distractor_breakdowns": [
+        {
+          "option": "will have",
+          "isCorrect": true,
+          "pedagogicalReason": "Dấu hiệu \"by this time next year\" + V3 \"saved\" → điền \"will have\"."
+        },
+        {
+          "option": "would have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"would have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"will have\"). Dấu hiệu \"by this time next year\" + V3 \"saved\" → điền \"will have\"."
+        },
+        {
+          "option": "have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"will have\"). Dấu hiệu \"by this time next year\" + V3 \"saved\" → điền \"will have\"."
+        },
+        {
+          "option": "am going to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"am going to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"will have\"). Dấu hiệu \"by this time next year\" + V3 \"saved\" → điền \"will have\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "future-perfect-ex-07",
+      "type": "multiple_choice",
+      "question": "We won't ___ the project before the deadline unless we hurry.",
+      "options": [
+        "have completed",
+        "completed",
+        "completing",
+        "completes"
+      ],
+      "correct_answer": "have completed",
+      "explanation": "Phủ định tương lai hoàn thành trước một hạn chót tương lai (\"before the deadline\"): \"won't + have + V3/ed\".",
+      "distractor_breakdowns": [
+        {
+          "option": "have completed",
+          "isCorrect": true,
+          "pedagogicalReason": "Phủ định tương lai hoàn thành trước một hạn chót tương lai (\"before the deadline\"): \"won't + have + V3/ed\"."
+        },
+        {
+          "option": "completed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"completed\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have completed\"). Phủ định tương lai hoàn thành trước một hạn chót tương lai (\"before the deadline\"): \"won't + have + V3/ed\"."
+        },
+        {
+          "option": "completing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"completing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have completed\"). Phủ định tương lai hoàn thành trước một hạn chót tương lai (\"before the deadline\"): \"won't + have + V3/ed\"."
+        },
+        {
+          "option": "completes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"completes\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have completed\"). Phủ định tương lai hoàn thành trước một hạn chót tương lai (\"before the deadline\"): \"won't + have + V3/ed\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "future-perfect-ex-08",
+      "type": "fill_blank",
+      "question": "By the time ___ home, the children will have gone to sleep.",
+      "options": [
+        "he gets",
+        "he will get",
+        "he got",
+        "he has got"
+      ],
+      "correct_answer": "he gets",
+      "explanation": "Quy tắc quan trọng: Trong mệnh đề thời gian bắt đầu bằng \"By the time / Before / When\" chỉ tương lai, động từ chia ở HIỆN TẠI ĐƠN (\"he gets\"), tuyệt đối không dùng \"will\".",
+      "distractor_breakdowns": [
+        {
+          "option": "he gets",
+          "isCorrect": true,
+          "pedagogicalReason": "Quy tắc quan trọng: Trong mệnh đề thời gian bắt đầu bằng \"By the time / Before / When\" chỉ tương lai, động từ chia ở HIỆN TẠI ĐƠN (\"he gets\"), tuyệt đối không dùng \"will\"."
+        },
+        {
+          "option": "he will get",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"he will get\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"he gets\"). Quy tắc quan trọng: Trong mệnh đề thời gian bắt đầu bằng \"By the time / Before / When\" chỉ tương lai, động từ chia ở HIỆN TẠI ĐƠN (\"he gets\"), tuyệt đối không dùng \"will\"."
+        },
+        {
+          "option": "he got",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"he got\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"he gets\"). Quy tắc quan trọng: Trong mệnh đề thời gian bắt đầu bằng \"By the time / Before / When\" chỉ tương lai, động từ chia ở HIỆN TẠI ĐƠN (\"he gets\"), tuyệt đối không dùng \"will\"."
+        },
+        {
+          "option": "he has got",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"he has got\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"he gets\"). Quy tắc quan trọng: Trong mệnh đề thời gian bắt đầu bằng \"By the time / Before / When\" chỉ tương lai, động từ chia ở HIỆN TẠI ĐƠN (\"he gets\"), tuyệt đối không dùng \"will\"."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "future-perfect-ex-09",
+      "type": "multiple_choice",
+      "question": "By 10 p.m. tonight, I ___ all thirty lessons.",
+      "options": [
+        "will have reviewed",
+        "will review",
+        "reviewed",
+        "am reviewing"
+      ],
+      "correct_answer": "will have reviewed",
+      "explanation": "Dấu hiệu \"By 10 p.m. tonight\" → chia tương lai hoàn thành \"will have reviewed\".",
+      "distractor_breakdowns": [
+        {
+          "option": "will have reviewed",
+          "isCorrect": true,
+          "pedagogicalReason": "Dấu hiệu \"By 10 p.m. tonight\" → chia tương lai hoàn thành \"will have reviewed\"."
+        },
+        {
+          "option": "will review",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will review\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"will have reviewed\"). Dấu hiệu \"By 10 p.m. tonight\" → chia tương lai hoàn thành \"will have reviewed\"."
+        },
+        {
+          "option": "reviewed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"reviewed\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"will have reviewed\"). Dấu hiệu \"By 10 p.m. tonight\" → chia tương lai hoàn thành \"will have reviewed\"."
+        },
+        {
+          "option": "am reviewing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"am reviewing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"will have reviewed\"). Dấu hiệu \"By 10 p.m. tonight\" → chia tương lai hoàn thành \"will have reviewed\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "future-perfect-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: By the time she will graduate next year, she will have found a job.",
+      "options": [
+        "By the time",
+        "will graduate",
+        "next year",
+        "will have found"
+      ],
+      "correct_answer": "will graduate",
+      "explanation": "Trong mệnh đề trạng ngữ chỉ thời gian sau \"By the time\", không được dùng \"will\". Phải sửa \"will graduate\" thành hiện tại đơn \"graduates\".",
+      "distractor_breakdowns": [
+        {
+          "option": "By the time",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"By the time\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will graduate",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong mệnh đề trạng ngữ chỉ thời gian sau \"By the time\", không được dùng \"will\". Phải sửa \"will graduate\" thành hiện tại đơn \"graduates\"."
+        },
+        {
+          "option": "next year",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"next year\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will have found",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"will have found\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "future-perfect-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: He will has finished the report before the meeting starts.",
+      "options": [
+        "will",
+        "has",
+        "finished",
+        "before"
+      ],
+      "correct_answer": "has",
+      "explanation": "Sau động từ khuyết thiếu \"will\", trợ động từ luôn ở dạng nguyên mẫu \"have\" cho mọi chủ ngữ (không dùng \"will has\").",
+      "distractor_breakdowns": [
+        {
+          "option": "will",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"will\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "has",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau động từ khuyết thiếu \"will\", trợ động từ luôn ở dạng nguyên mẫu \"have\" cho mọi chủ ngữ (không dùng \"will has\")."
+        },
+        {
+          "option": "finished",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"finished\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "before",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"before\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "future-perfect-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: By 2030, scientists will have discover a cure for that disease.",
+      "options": [
+        "By 2030",
+        "will have",
+        "discover",
+        "cure"
+      ],
+      "correct_answer": "discover",
+      "explanation": "Sau \"will have\" động từ phải ở dạng quá khứ phân từ (V3/ed). Sửa \"discover\" thành \"discovered\".",
+      "distractor_breakdowns": [
+        {
+          "option": "By 2030",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"By 2030\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"will have\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "discover",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau \"will have\" động từ phải ở dạng quá khứ phân từ (V3/ed). Sửa \"discover\" thành \"discovered\"."
+        },
+        {
+          "option": "cure",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"cure\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
     }
   ]
 }

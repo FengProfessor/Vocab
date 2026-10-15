@@ -527,10 +527,13 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
                     .then((r) => r.json())
                     .then((d) => {
                       if (d?.success && Array.isArray(d.data)) {
-                        const map: Record<string, unknown> = {};
+                        const map: Record<string, { score: number; completed: boolean; completedAt?: string }> = {};
                         for (const row of d.data) {
-                          const slug = row.topic_slug || row.topicSlug || row.topic_id;
-                          if (slug) map[slug] = row;
+                          map[row.topic_id] = {
+                            score: row.best_score,
+                            completed: row.completed,
+                            completedAt: row.completed_at ?? undefined,
+                          };
                         }
                         localStorage.setItem('lingo_grammar_topic_progress', JSON.stringify(map));
                       }

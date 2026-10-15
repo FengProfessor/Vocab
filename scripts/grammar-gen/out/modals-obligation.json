@@ -366,47 +366,71 @@
     {
       "id": "modals-obligation-ex-01",
       "type": "multiple_choice",
-      "question": "Children ____ play with matches. (mustn't / needn't)",
+      "question": "All motorcyclists ___ wear a helmet by law.",
       "options": [
-        "mustn't",
-        "needn't"
+        "have to",
+        "can",
+        "may",
+        "might"
       ],
-      "correct_answer": "mustn't",
-      "explanation": "nguy hiểm nên cấm hẳn → mustn't",
+      "correct_answer": "have to",
+      "explanation": "Quy định bắt buộc từ luật pháp bên ngoài (\"by law\") dùng \"have to\" (hoặc \"must\"). Trong 4 đáp án chỉ có \"have to\" chỉ sự bắt buộc.",
       "distractor_breakdowns": [
         {
-          "option": "mustn't",
+          "option": "have to",
           "isCorrect": true,
-          "pedagogicalReason": "nguy hiểm nên cấm hẳn → mustn't"
+          "pedagogicalReason": "Quy định bắt buộc từ luật pháp bên ngoài (\"by law\") dùng \"have to\" (hoặc \"must\"). Trong 4 đáp án chỉ có \"have to\" chỉ sự bắt buộc."
         },
         {
-          "option": "needn't",
+          "option": "can",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"needn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"can\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have to\"). Quy định bắt buộc từ luật pháp bên ngoài (\"by law\") dùng \"have to\" (hoặc \"must\"). Trong 4 đáp án chỉ có \"have to\" chỉ sự bắt buộc."
+        },
+        {
+          "option": "may",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"may\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have to\"). Quy định bắt buộc từ luật pháp bên ngoài (\"by law\") dùng \"have to\" (hoặc \"must\"). Trong 4 đáp án chỉ có \"have to\" chỉ sự bắt buộc."
+        },
+        {
+          "option": "might",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"might\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have to\"). Quy định bắt buộc từ luật pháp bên ngoài (\"by law\") dùng \"have to\" (hoặc \"must\"). Trong 4 đáp án chỉ có \"have to\" chỉ sự bắt buộc."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "modals-obligation-ex-02",
-      "type": "multiple_choice",
-      "question": "It's Sunday tomorrow, so I ____ get up early. (needn't / mustn't)",
+      "type": "fill_blank",
+      "question": "You ___ smoke at the petrol station; it is extremely dangerous.",
       "options": [
+        "mustn't",
+        "don't have to",
         "needn't",
-        "mustn't"
+        "wouldn't"
       ],
-      "correct_answer": "needn't",
-      "explanation": "chủ nhật nghỉ nên khỏi cần dậy sớm, không phải cấm",
+      "correct_answer": "mustn't",
+      "explanation": "Sự cấm đoán tuyệt đối vì nguy hiểm cháy nổ dùng \"mustn't\" (không được phép). (\"don't have to\" chỉ mang nghĩa là không cần phải làm).",
       "distractor_breakdowns": [
         {
-          "option": "needn't",
+          "option": "mustn't",
           "isCorrect": true,
-          "pedagogicalReason": "chủ nhật nghỉ nên khỏi cần dậy sớm, không phải cấm"
+          "pedagogicalReason": "Sự cấm đoán tuyệt đối vì nguy hiểm cháy nổ dùng \"mustn't\" (không được phép). (\"don't have to\" chỉ mang nghĩa là không cần phải làm)."
         },
         {
-          "option": "mustn't",
+          "option": "don't have to",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"mustn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"don't have to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"mustn't\"). Sự cấm đoán tuyệt đối vì nguy hiểm cháy nổ dùng \"mustn't\" (không được phép). (\"don't have to\" chỉ mang nghĩa là không cần phải làm)."
+        },
+        {
+          "option": "needn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"needn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"mustn't\"). Sự cấm đoán tuyệt đối vì nguy hiểm cháy nổ dùng \"mustn't\" (không được phép). (\"don't have to\" chỉ mang nghĩa là không cần phải làm)."
+        },
+        {
+          "option": "wouldn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"wouldn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"mustn't\"). Sự cấm đoán tuyệt đối vì nguy hiểm cháy nổ dùng \"mustn't\" (không được phép). (\"don't have to\" chỉ mang nghĩa là không cần phải làm)."
         }
       ],
       "difficulty": 1
@@ -414,26 +438,362 @@
     {
       "id": "modals-obligation-ex-03",
       "type": "multiple_choice",
-      "question": "You ____ take photos in this museum. Look at the sign. (mustn't / needn't)",
+      "question": "Tomorrow is Sunday, so I ___ get up early for school.",
       "options": [
+        "don't have to",
         "mustn't",
-        "needn't"
+        "can't",
+        "shouldn't to"
       ],
-      "correct_answer": "mustn't",
-      "explanation": "có biển cấm → mustn't",
+      "correct_answer": "don't have to",
+      "explanation": "Ngày Chủ nhật được nghỉ nên \"không cần phải\" dậy sớm → dùng \"don't have to\".",
       "distractor_breakdowns": [
         {
-          "option": "mustn't",
+          "option": "don't have to",
           "isCorrect": true,
-          "pedagogicalReason": "có biển cấm → mustn't"
+          "pedagogicalReason": "Ngày Chủ nhật được nghỉ nên \"không cần phải\" dậy sớm → dùng \"don't have to\"."
         },
         {
-          "option": "needn't",
+          "option": "mustn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"needn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"mustn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"don't have to\"). Ngày Chủ nhật được nghỉ nên \"không cần phải\" dậy sớm → dùng \"don't have to\"."
+        },
+        {
+          "option": "can't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"can't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"don't have to\"). Ngày Chủ nhật được nghỉ nên \"không cần phải\" dậy sớm → dùng \"don't have to\"."
+        },
+        {
+          "option": "shouldn't to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"shouldn't to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"don't have to\"). Ngày Chủ nhật được nghỉ nên \"không cần phải\" dậy sớm → dùng \"don't have to\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "modals-obligation-ex-04",
+      "type": "fill_blank",
+      "question": "My sister ___ wear a uniform at her company.",
+      "options": [
+        "has to",
+        "have to",
+        "must to",
+        "having to"
+      ],
+      "correct_answer": "has to",
+      "explanation": "Chủ ngữ ngôi thứ 3 số ít \"My sister\" đi với \"has to + V\".",
+      "distractor_breakdowns": [
+        {
+          "option": "has to",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ ngôi thứ 3 số ít \"My sister\" đi với \"has to + V\"."
+        },
+        {
+          "option": "have to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has to\"). Chủ ngữ ngôi thứ 3 số ít \"My sister\" đi với \"has to + V\"."
+        },
+        {
+          "option": "must to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"must to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has to\"). Chủ ngữ ngôi thứ 3 số ít \"My sister\" đi với \"has to + V\"."
+        },
+        {
+          "option": "having to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"having to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has to\"). Chủ ngữ ngôi thứ 3 số ít \"My sister\" đi với \"has to + V\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "modals-obligation-ex-05",
+      "type": "multiple_choice",
+      "question": "It was raining heavily yesterday, so we ___ take a taxi.",
+      "options": [
+        "had to",
+        "must",
+        "have to",
+        "has to"
+      ],
+      "correct_answer": "had to",
+      "explanation": "\"must\" không có dạng quá khứ đơn. Để nói \"đã phải làm gì\" trong quá khứ (\"yesterday\"), bắt buộc dùng \"had to\".",
+      "distractor_breakdowns": [
+        {
+          "option": "had to",
+          "isCorrect": true,
+          "pedagogicalReason": "\"must\" không có dạng quá khứ đơn. Để nói \"đã phải làm gì\" trong quá khứ (\"yesterday\"), bắt buộc dùng \"had to\"."
+        },
+        {
+          "option": "must",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"must\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had to\"). \"must\" không có dạng quá khứ đơn. Để nói \"đã phải làm gì\" trong quá khứ (\"yesterday\"), bắt buộc dùng \"had to\"."
+        },
+        {
+          "option": "have to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had to\"). \"must\" không có dạng quá khứ đơn. Để nói \"đã phải làm gì\" trong quá khứ (\"yesterday\"), bắt buộc dùng \"had to\"."
+        },
+        {
+          "option": "has to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had to\"). \"must\" không có dạng quá khứ đơn. Để nói \"đã phải làm gì\" trong quá khứ (\"yesterday\"), bắt buộc dùng \"had to\"."
         }
       ],
       "difficulty": 2
+    },
+    {
+      "id": "modals-obligation-ex-06",
+      "type": "fill_blank",
+      "question": "I really ___ call my mother tonight; I promised her.",
+      "options": [
+        "must",
+        "have",
+        "ought",
+        "able to"
+      ],
+      "correct_answer": "must",
+      "explanation": "Bổn phận xuất phát từ ý thức/tình cảm tự nguyện của chính người nói → dùng \"must\".",
+      "distractor_breakdowns": [
+        {
+          "option": "must",
+          "isCorrect": true,
+          "pedagogicalReason": "Bổn phận xuất phát từ ý thức/tình cảm tự nguyện của chính người nói → dùng \"must\"."
+        },
+        {
+          "option": "have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"must\"). Bổn phận xuất phát từ ý thức/tình cảm tự nguyện của chính người nói → dùng \"must\"."
+        },
+        {
+          "option": "ought",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"ought\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"must\"). Bổn phận xuất phát từ ý thức/tình cảm tự nguyện của chính người nói → dùng \"must\"."
+        },
+        {
+          "option": "able to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"able to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"must\"). Bổn phận xuất phát từ ý thức/tình cảm tự nguyện của chính người nói → dùng \"must\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-obligation-ex-07",
+      "type": "multiple_choice",
+      "question": "___ your brother have to work on Saturdays?",
+      "options": [
+        "Does",
+        "Do",
+        "Must",
+        "Is"
+      ],
+      "correct_answer": "Does",
+      "explanation": "Câu hỏi với \"have to\" ở hiện tại đơn và chủ ngữ số ít \"your brother\" mượn trợ động từ \"Does\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Does",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi với \"have to\" ở hiện tại đơn và chủ ngữ số ít \"your brother\" mượn trợ động từ \"Does\"."
+        },
+        {
+          "option": "Do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Trợ động từ \"Do\" không phù hợp với ngôi của chủ ngữ hoặc cấu trúc của câu (đáp án đúng là \"Does\")."
+        },
+        {
+          "option": "Must",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Must\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Does\"). Câu hỏi với \"have to\" ở hiện tại đơn và chủ ngữ số ít \"your brother\" mượn trợ động từ \"Does\"."
+        },
+        {
+          "option": "Is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng động từ to be \"Is\" ở vị trí này (đáp án đúng là \"Does\"). Câu hỏi với \"have to\" ở hiện tại đơn và chủ ngữ số ít \"your brother\" mượn trợ động từ \"Does\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-obligation-ex-08",
+      "type": "fill_blank",
+      "question": "The museum is free today. You ___ buy a ticket.",
+      "options": [
+        "don't have to",
+        "mustn't",
+        "cannot",
+        "may not"
+      ],
+      "correct_answer": "don't have to",
+      "explanation": "Vé miễn phí nên bạn \"không cần phải\" mua vé → điền \"don't have to\".",
+      "distractor_breakdowns": [
+        {
+          "option": "don't have to",
+          "isCorrect": true,
+          "pedagogicalReason": "Vé miễn phí nên bạn \"không cần phải\" mua vé → điền \"don't have to\"."
+        },
+        {
+          "option": "mustn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"mustn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"don't have to\"). Vé miễn phí nên bạn \"không cần phải\" mua vé → điền \"don't have to\"."
+        },
+        {
+          "option": "cannot",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"cannot\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"don't have to\"). Vé miễn phí nên bạn \"không cần phải\" mua vé → điền \"don't have to\"."
+        },
+        {
+          "option": "may not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"may not\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"don't have to\"). Vé miễn phí nên bạn \"không cần phải\" mua vé → điền \"don't have to\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-obligation-ex-09",
+      "type": "multiple_choice",
+      "question": "Passengers ___ fasten their seatbelts during takeoff.",
+      "options": [
+        "must",
+        "may",
+        "might",
+        "could"
+      ],
+      "correct_answer": "must",
+      "explanation": "Quy tắc an toàn bắt buộc trên máy bay dùng \"must\".",
+      "distractor_breakdowns": [
+        {
+          "option": "must",
+          "isCorrect": true,
+          "pedagogicalReason": "Quy tắc an toàn bắt buộc trên máy bay dùng \"must\"."
+        },
+        {
+          "option": "may",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"may\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"must\"). Quy tắc an toàn bắt buộc trên máy bay dùng \"must\"."
+        },
+        {
+          "option": "might",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"might\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"must\"). Quy tắc an toàn bắt buộc trên máy bay dùng \"must\"."
+        },
+        {
+          "option": "could",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"could\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"must\"). Quy tắc an toàn bắt buộc trên máy bay dùng \"must\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "modals-obligation-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: You must to finish this report before 5 p.m.",
+      "options": [
+        "You",
+        "must to",
+        "finish",
+        "before"
+      ],
+      "correct_answer": "must to",
+      "explanation": "Sau \"must\" là động từ nguyên mẫu KHÔNG có \"to\". Sửa \"must to\" thành \"must\".",
+      "distractor_breakdowns": [
+        {
+          "option": "You",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"You\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "must to",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau \"must\" là động từ nguyên mẫu KHÔNG có \"to\". Sửa \"must to\" thành \"must\"."
+        },
+        {
+          "option": "finish",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"finish\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "before",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"before\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-obligation-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: She don't have to cook dinner tonight.",
+      "options": [
+        "She",
+        "don't",
+        "have to",
+        "cook"
+      ],
+      "correct_answer": "don't",
+      "explanation": "Chủ ngữ số ít \"She\" ở câu phủ định với \"have to\" phải mượn trợ động từ \"doesn't\", không dùng \"don't\".",
+      "distractor_breakdowns": [
+        {
+          "option": "She",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"She\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "don't",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ số ít \"She\" ở câu phủ định với \"have to\" phải mượn trợ động từ \"doesn't\", không dùng \"don't\"."
+        },
+        {
+          "option": "have to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"have to\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "cook",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"cook\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-obligation-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: Keep this secret! You don't have to tell anyone.",
+      "options": [
+        "Keep",
+        "secret",
+        "don't have to",
+        "anyone"
+      ],
+      "correct_answer": "don't have to",
+      "explanation": "Giữ bí mật nghĩa là CẤM không được kể cho ai → phải dùng \"mustn't\", không dùng \"don't have to\" (không cần kể nhưng kể cũng được).",
+      "distractor_breakdowns": [
+        {
+          "option": "Keep",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"Keep\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "secret",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"secret\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "don't have to",
+          "isCorrect": true,
+          "pedagogicalReason": "Giữ bí mật nghĩa là CẤM không được kể cho ai → phải dùng \"mustn't\", không dùng \"don't have to\" (không cần kể nhưng kể cũng được)."
+        },
+        {
+          "option": "anyone",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"anyone\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
     }
   ]
 }

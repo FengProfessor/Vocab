@@ -365,29 +365,435 @@
   "exercises": [
     {
       "id": "there-is-there-are-ex-01",
-      "type": "fill_blank",
-      "question": "Hoàn thành theo mẫu: There ___ two messages for you.",
-      "options": [],
+      "type": "multiple_choice",
+      "question": "There ___ a book on the desk.",
+      "options": [
+        "is",
+        "are",
+        "am",
+        "be"
+      ],
+      "correct_answer": "is",
+      "explanation": "\"a book\" là danh từ đếm được số ít (một quyển sách) nên ta dùng \"There is\".",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "\"a book\" là danh từ đếm được số ít (một quyển sách) nên ta dùng \"There is\"."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ to be số nhiều \"are\" không hòa hợp với chủ ngữ hoặc thì của câu (đáp án đúng là \"is\")."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"am\" chỉ đi duy nhất với chủ ngữ ngôi thứ nhất số ít \"I\"."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"be\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is\"). \"a book\" là danh từ đếm được số ít (một quyển sách) nên ta dùng \"There is\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "there-is-there-are-ex-02",
+      "type": "multiple_choice",
+      "question": "There ___ three apples in the basket.",
+      "options": [
+        "are",
+        "is",
+        "am",
+        "has"
+      ],
       "correct_answer": "are",
-      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "explanation": "\"three apples\" là danh từ số nhiều (3 quả táo) nên ta dùng \"There are\".",
       "distractor_breakdowns": [
         {
           "option": "are",
           "isCorrect": true,
-          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+          "pedagogicalReason": "\"three apples\" là danh từ số nhiều (3 quả táo) nên ta dùng \"There are\"."
         },
         {
           "option": "is",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Danh từ theo sau \"two messages\" là số nhiều, cấu trúc \"There are\" phải đi với danh từ số nhiều."
+          "pedagogicalReason": "Không chính xác. Động từ to be số ít \"is\" không hòa hợp với chủ ngữ hoặc thì của câu (đáp án đúng là \"are\")."
         },
         {
-          "option": "was",
+          "option": "am",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Ngữ cảnh thông báo hiện tại cần dùng to-be hiện tại số nhiều \"are\"."
+          "pedagogicalReason": "Không chính xác. \"am\" chỉ đi duy nhất với chủ ngữ ngôi thứ nhất số ít \"I\"."
+        },
+        {
+          "option": "has",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"are\"). \"three apples\" là danh từ số nhiều (3 quả táo) nên ta dùng \"There are\"."
         }
       ],
       "difficulty": 1
+    },
+    {
+      "id": "there-is-there-are-ex-03",
+      "type": "fill_blank",
+      "question": "There ___ some milk in the fridge.",
+      "options": [
+        "is",
+        "are",
+        "have",
+        "were"
+      ],
+      "correct_answer": "is",
+      "explanation": "\"milk\" (sữa) là danh từ không đếm được nên luôn đi với động từ số ít \"There is\".",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "\"milk\" (sữa) là danh từ không đếm được nên luôn đi với động từ số ít \"There is\"."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ to be số nhiều \"are\" không hòa hợp với chủ ngữ hoặc thì của câu (đáp án đúng là \"is\")."
+        },
+        {
+          "option": "have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is\"). \"milk\" (sữa) là danh từ không đếm được nên luôn đi với động từ số ít \"There is\"."
+        },
+        {
+          "option": "were",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ to be số nhiều \"were\" không hòa hợp với chủ ngữ hoặc thì của câu (đáp án đúng là \"is\")."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "there-is-there-are-ex-04",
+      "type": "fill_blank",
+      "question": "___ there a bank near here?",
+      "options": [
+        "Is",
+        "Are",
+        "Do",
+        "Does"
+      ],
+      "correct_answer": "Is",
+      "explanation": "Câu hỏi với danh từ số ít \"a bank\" đảo \"Is\" lên trước \"there\": \"Is there a bank near here?\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Is",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi với danh từ số ít \"a bank\" đảo \"Is\" lên trước \"there\": \"Is there a bank near here?\"."
+        },
+        {
+          "option": "Are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ to be số nhiều \"Are\" không hòa hợp với chủ ngữ hoặc thì của câu (đáp án đúng là \"Is\")."
+        },
+        {
+          "option": "Do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Trợ động từ \"Do\" không phù hợp với ngôi của chủ ngữ hoặc cấu trúc của câu (đáp án đúng là \"Is\")."
+        },
+        {
+          "option": "Does",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Trợ động từ \"Does\" không phù hợp với ngôi của chủ ngữ hoặc cấu trúc của câu (đáp án đúng là \"Is\")."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "there-is-there-are-ex-05",
+      "type": "multiple_choice",
+      "question": "There ___ any chairs in that room.",
+      "options": [
+        "aren't",
+        "isn't",
+        "don't",
+        "haven't"
+      ],
+      "correct_answer": "aren't",
+      "explanation": "\"chairs\" là danh từ số nhiều và câu có \"any\" (phủ định) → dùng \"There aren't\".",
+      "distractor_breakdowns": [
+        {
+          "option": "aren't",
+          "isCorrect": true,
+          "pedagogicalReason": "\"chairs\" là danh từ số nhiều và câu có \"any\" (phủ định) → dùng \"There aren't\"."
+        },
+        {
+          "option": "isn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"isn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"aren't\"). \"chairs\" là danh từ số nhiều và câu có \"any\" (phủ định) → dùng \"There aren't\"."
+        },
+        {
+          "option": "don't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"don't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"aren't\"). \"chairs\" là danh từ số nhiều và câu có \"any\" (phủ định) → dùng \"There aren't\"."
+        },
+        {
+          "option": "haven't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"aren't\"). \"chairs\" là danh từ số nhiều và câu có \"any\" (phủ định) → dùng \"There aren't\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "there-is-there-are-ex-06",
+      "type": "fill_blank",
+      "question": "How many students ___ there in your class?",
+      "options": [
+        "are",
+        "is",
+        "do",
+        "have"
+      ],
+      "correct_answer": "are",
+      "explanation": "Sau \"How many + danh từ số nhiều (students)\" ta dùng cấu trúc câu hỏi đảo \"are there\".",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau \"How many + danh từ số nhiều (students)\" ta dùng cấu trúc câu hỏi đảo \"are there\"."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ to be số ít \"is\" không hòa hợp với chủ ngữ hoặc thì của câu (đáp án đúng là \"are\")."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Trợ động từ \"do\" không phù hợp với ngôi của chủ ngữ hoặc cấu trúc của câu (đáp án đúng là \"are\")."
+        },
+        {
+          "option": "have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"are\"). Sau \"How many + danh từ số nhiều (students)\" ta dùng cấu trúc câu hỏi đảo \"are there\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "there-is-there-are-ex-07",
+      "type": "multiple_choice",
+      "question": "There ___ a cat and two dogs in the yard.",
+      "options": [
+        "is",
+        "are",
+        "have",
+        "be"
+      ],
+      "correct_answer": "is",
+      "explanation": "Khi liệt kê nhiều danh từ sau \"There...\", động từ to be chia theo danh từ đứng NGAY SÁT nó nhất (\"a cat\" là số ít → dùng \"is\").",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi liệt kê nhiều danh từ sau \"There...\", động từ to be chia theo danh từ đứng NGAY SÁT nó nhất (\"a cat\" là số ít → dùng \"is\")."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ to be số nhiều \"are\" không hòa hợp với chủ ngữ hoặc thì của câu (đáp án đúng là \"is\")."
+        },
+        {
+          "option": "have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is\"). Khi liệt kê nhiều danh từ sau \"There...\", động từ to be chia theo danh từ đứng NGAY SÁT nó nhất (\"a cat\" là số ít → dùng \"is\")."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"be\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is\"). Khi liệt kê nhiều danh từ sau \"There...\", động từ to be chia theo danh từ đứng NGAY SÁT nó nhất (\"a cat\" là số ít → dùng \"is\")."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "there-is-there-are-ex-08",
+      "type": "fill_blank",
+      "question": "There ___ any water left in the bottle.",
+      "options": [
+        "isn't",
+        "aren't",
+        "don't",
+        "doesn't"
+      ],
+      "correct_answer": "isn't",
+      "explanation": "\"water\" là danh từ không đếm được, đi với \"any\" trong câu phủ định → dùng \"There isn't\".",
+      "distractor_breakdowns": [
+        {
+          "option": "isn't",
+          "isCorrect": true,
+          "pedagogicalReason": "\"water\" là danh từ không đếm được, đi với \"any\" trong câu phủ định → dùng \"There isn't\"."
+        },
+        {
+          "option": "aren't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"aren't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"isn't\"). \"water\" là danh từ không đếm được, đi với \"any\" trong câu phủ định → dùng \"There isn't\"."
+        },
+        {
+          "option": "don't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"don't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"isn't\"). \"water\" là danh từ không đếm được, đi với \"any\" trong câu phủ định → dùng \"There isn't\"."
+        },
+        {
+          "option": "doesn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"doesn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"isn't\"). \"water\" là danh từ không đếm được, đi với \"any\" trong câu phủ định → dùng \"There isn't\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "there-is-there-are-ex-09",
+      "type": "multiple_choice",
+      "question": "Are there any restaurants on this street? — Yes, ___.",
+      "options": [
+        "there are",
+        "they are",
+        "there is",
+        "it is"
+      ],
+      "correct_answer": "there are",
+      "explanation": "Câu hỏi bắt đầu bằng \"Are there...?\" thì câu trả lời ngắn khẳng định là \"Yes, there are.\"",
+      "distractor_breakdowns": [
+        {
+          "option": "there are",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi bắt đầu bằng \"Are there...?\" thì câu trả lời ngắn khẳng định là \"Yes, there are.\""
+        },
+        {
+          "option": "they are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"they are\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"there are\"). Câu hỏi bắt đầu bằng \"Are there...?\" thì câu trả lời ngắn khẳng định là \"Yes, there are.\""
+        },
+        {
+          "option": "there is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"there is\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"there are\"). Câu hỏi bắt đầu bằng \"Are there...?\" thì câu trả lời ngắn khẳng định là \"Yes, there are.\""
+        },
+        {
+          "option": "it is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"it is\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"there are\"). Câu hỏi bắt đầu bằng \"Are there...?\" thì câu trả lời ngắn khẳng định là \"Yes, there are.\""
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "there-is-there-are-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: There have four bedrooms in my house.",
+      "options": [
+        "have",
+        "four",
+        "bedrooms",
+        "in"
+      ],
+      "correct_answer": "have",
+      "explanation": "Để nói \"có cái gì tồn tại ở đâu\", tiếng Anh dùng \"There is / There are\", tuyệt đối không ghép \"There have\". Sửa \"have\" thành \"are\".",
+      "distractor_breakdowns": [
+        {
+          "option": "have",
+          "isCorrect": true,
+          "pedagogicalReason": "Để nói \"có cái gì tồn tại ở đâu\", tiếng Anh dùng \"There is / There are\", tuyệt đối không ghép \"There have\". Sửa \"have\" thành \"are\"."
+        },
+        {
+          "option": "four",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"four\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "bedrooms",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"bedrooms\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"in\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "there-is-there-are-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: There are a lot of traffic on the road today.",
+      "options": [
+        "are",
+        "traffic",
+        "on",
+        "today"
+      ],
+      "correct_answer": "are",
+      "explanation": "\"traffic\" (giao thông/xe cộ) là danh từ KHÔNG đếm được nên phải dùng số ít \"There is\", không dùng \"There are\".",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "\"traffic\" (giao thông/xe cộ) là danh từ KHÔNG đếm được nên phải dùng số ít \"There is\", không dùng \"There are\"."
+        },
+        {
+          "option": "traffic",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"traffic\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"on\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "today",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"today\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "there-is-there-are-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: Is there many people at the bus stop?",
+      "options": [
+        "Is",
+        "many",
+        "people",
+        "at"
+      ],
+      "correct_answer": "Is",
+      "explanation": "\"many people\" (nhiều người) là danh từ số nhiều nên câu hỏi phải bắt đầu bằng \"Are there\", không dùng \"Is there\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Is",
+          "isCorrect": true,
+          "pedagogicalReason": "\"many people\" (nhiều người) là danh từ số nhiều nên câu hỏi phải bắt đầu bằng \"Are there\", không dùng \"Is there\"."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"many\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "people",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"people\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "at",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"at\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
     }
   ]
 }

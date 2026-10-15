@@ -394,119 +394,431 @@
     {
       "id": "participle-clauses-ex-01",
       "type": "multiple_choice",
-      "question": "___ home, I met an old friend.",
+      "question": "___ along the street, I met an old friend from high school.",
       "options": [
         "Walking",
         "Walked",
-        "To walking"
+        "To walk",
+        "Walk"
       ],
       "correct_answer": "Walking",
-      "explanation": "Walking home rút gọn mệnh đề khi cùng chủ ngữ I.",
+      "explanation": "Rút gọn mệnh đề đồng chủ ngữ (\"I\") mang nghĩa CHỦ ĐỘNG (\"When I was walking...\") → dùng hiện tại phân từ \"V-ing\" (\"Walking\").",
       "distractor_breakdowns": [
         {
           "option": "Walking",
           "isCorrect": true,
-          "pedagogicalReason": "Walking home rút gọn mệnh đề khi cùng chủ ngữ I."
+          "pedagogicalReason": "Rút gọn mệnh đề đồng chủ ngữ (\"I\") mang nghĩa CHỦ ĐỘNG (\"When I was walking...\") → dùng hiện tại phân từ \"V-ing\" (\"Walking\")."
         },
         {
           "option": "Walked",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Walked\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Walked\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Walking\"). Rút gọn mệnh đề đồng chủ ngữ (\"I\") mang nghĩa CHỦ ĐỘNG (\"When I was walking...\") → dùng hiện tại phân từ \"V-ing\" (\"Walking\")."
         },
         {
-          "option": "To walking",
+          "option": "To walk",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"To walking\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"To walk\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Walking\"). Rút gọn mệnh đề đồng chủ ngữ (\"I\") mang nghĩa CHỦ ĐỘNG (\"When I was walking...\") → dùng hiện tại phân từ \"V-ing\" (\"Walking\")."
+        },
+        {
+          "option": "Walk",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Walk\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Walking\"). Rút gọn mệnh đề đồng chủ ngữ (\"I\") mang nghĩa CHỦ ĐỘNG (\"When I was walking...\") → dùng hiện tại phân từ \"V-ing\" (\"Walking\")."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "participle-clauses-ex-02",
-      "type": "multiple_choice",
-      "question": "___ by the noise, the baby woke up.",
+      "type": "fill_blank",
+      "question": "___ in 1070, the Temple of Literature is one of Hanoi's oldest landmarks.",
       "options": [
-        "Frightening",
-        "Frightened",
-        "Frighten"
+        "Built",
+        "Building",
+        "Having build",
+        "To build"
       ],
-      "correct_answer": "Frightened",
-      "explanation": "Baby bị làm cho sợ, nên dùng phân từ quá khứ Frightened.",
+      "correct_answer": "Built",
+      "explanation": "Chủ ngữ của mệnh đề chính là \"the Temple of Literature\" (Văn Miếu ĐƯỢC xây dựng năm 1070 - nghĩa BỊ ĐỘNG) → rút gọn bằng quá khứ phân từ \"V3/ed\" (\"Built\").",
       "distractor_breakdowns": [
         {
-          "option": "Frightening",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Frightening\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "Frightened",
+          "option": "Built",
           "isCorrect": true,
-          "pedagogicalReason": "Baby bị làm cho sợ, nên dùng phân từ quá khứ Frightened."
+          "pedagogicalReason": "Chủ ngữ của mệnh đề chính là \"the Temple of Literature\" (Văn Miếu ĐƯỢC xây dựng năm 1070 - nghĩa BỊ ĐỘNG) → rút gọn bằng quá khứ phân từ \"V3/ed\" (\"Built\")."
         },
         {
-          "option": "Frighten",
+          "option": "Building",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Frighten\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Building\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Built\"). Chủ ngữ của mệnh đề chính là \"the Temple of Literature\" (Văn Miếu ĐƯỢC xây dựng năm 1070 - nghĩa BỊ ĐỘNG) → rút gọn bằng quá khứ phân từ \"V3/ed\" (\"Built\")."
+        },
+        {
+          "option": "Having build",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Having build\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Built\"). Chủ ngữ của mệnh đề chính là \"the Temple of Literature\" (Văn Miếu ĐƯỢC xây dựng năm 1070 - nghĩa BỊ ĐỘNG) → rút gọn bằng quá khứ phân từ \"V3/ed\" (\"Built\")."
+        },
+        {
+          "option": "To build",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"To build\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Built\"). Chủ ngữ của mệnh đề chính là \"the Temple of Literature\" (Văn Miếu ĐƯỢC xây dựng năm 1070 - nghĩa BỊ ĐỘNG) → rút gọn bằng quá khứ phân từ \"V3/ed\" (\"Built\")."
         }
       ],
-      "difficulty": 1
+      "difficulty": 2
     },
     {
       "id": "participle-clauses-ex-03",
       "type": "multiple_choice",
-      "question": "Câu nào rút gọn đúng từ 'While she was waiting, she read a book'?",
+      "question": "___ all her work, she left the office and went home.",
       "options": [
-        "Waiting, she read a book.",
-        "Waited, she read a book.",
-        "To waited, she read a book."
+        "Having finished",
+        "Finished",
+        "To finish",
+        "Finish"
       ],
-      "correct_answer": "Waiting, she read a book.",
-      "explanation": "Hai vế cùng chủ ngữ she; dùng V-ing cho hành động chủ động.",
+      "correct_answer": "Having finished",
+      "explanation": "Nhấn mạnh hành động hoàn thành XONG TRƯỚC hành động ở mệnh đề chính và mang nghĩa chủ động → dùng phân từ hoàn thành \"Having + V3/ed\" (\"Having finished\").",
       "distractor_breakdowns": [
         {
-          "option": "Waiting, she read a book.",
+          "option": "Having finished",
           "isCorrect": true,
-          "pedagogicalReason": "Hai vế cùng chủ ngữ she; dùng V-ing cho hành động chủ động."
+          "pedagogicalReason": "Nhấn mạnh hành động hoàn thành XONG TRƯỚC hành động ở mệnh đề chính và mang nghĩa chủ động → dùng phân từ hoàn thành \"Having + V3/ed\" (\"Having finished\")."
         },
         {
-          "option": "Waited, she read a book.",
+          "option": "Finished",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Waited, she read a book.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Finished\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Having finished\"). Nhấn mạnh hành động hoàn thành XONG TRƯỚC hành động ở mệnh đề chính và mang nghĩa chủ động → dùng phân từ hoàn thành \"Having + V3/ed\" (\"Having finished\")."
         },
         {
-          "option": "To waited, she read a book.",
+          "option": "To finish",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"To waited, she read a book.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"To finish\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Having finished\"). Nhấn mạnh hành động hoàn thành XONG TRƯỚC hành động ở mệnh đề chính và mang nghĩa chủ động → dùng phân từ hoàn thành \"Having + V3/ed\" (\"Having finished\")."
+        },
+        {
+          "option": "Finish",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Finish\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Having finished\"). Nhấn mạnh hành động hoàn thành XONG TRƯỚC hành động ở mệnh đề chính và mang nghĩa chủ động → dùng phân từ hoàn thành \"Having + V3/ed\" (\"Having finished\")."
         }
       ],
       "difficulty": 2
     },
     {
       "id": "participle-clauses-ex-04",
-      "type": "multiple_choice",
-      "question": "___ in 1990, the bridge is still in use.",
+      "type": "fill_blank",
+      "question": "___ tired, he decided to go to bed early.",
       "options": [
-        "Building",
-        "Built",
-        "Build"
+        "Feeling",
+        "Felt",
+        "Feel",
+        "To feel"
       ],
-      "correct_answer": "Built",
-      "explanation": "Cây cầu được xây, nên dùng phân từ quá khứ Built.",
+      "correct_answer": "Feeling",
+      "explanation": "Rút gọn mệnh đề chỉ nguyên nhân (\"Because he felt tired...\") cùng chủ ngữ \"he\" → dùng \"Feeling\".",
       "distractor_breakdowns": [
         {
-          "option": "Building",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Building\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "Built",
+          "option": "Feeling",
           "isCorrect": true,
-          "pedagogicalReason": "Cây cầu được xây, nên dùng phân từ quá khứ Built."
+          "pedagogicalReason": "Rút gọn mệnh đề chỉ nguyên nhân (\"Because he felt tired...\") cùng chủ ngữ \"he\" → dùng \"Feeling\"."
         },
         {
-          "option": "Build",
+          "option": "Felt",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Build\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Felt\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Feeling\"). Rút gọn mệnh đề chỉ nguyên nhân (\"Because he felt tired...\") cùng chủ ngữ \"he\" → dùng \"Feeling\"."
+        },
+        {
+          "option": "Feel",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Feel\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Feeling\"). Rút gọn mệnh đề chỉ nguyên nhân (\"Because he felt tired...\") cùng chủ ngữ \"he\" → dùng \"Feeling\"."
+        },
+        {
+          "option": "To feel",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"To feel\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Feeling\"). Rút gọn mệnh đề chỉ nguyên nhân (\"Because he felt tired...\") cùng chủ ngữ \"he\" → dùng \"Feeling\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "participle-clauses-ex-05",
+      "type": "multiple_choice",
+      "question": "___ by the loud thunder, the little girl started crying.",
+      "options": [
+        "Frightened",
+        "Frightening",
+        "Having frighten",
+        "To frighten"
+      ],
+      "correct_answer": "Frightened",
+      "explanation": "Cô bé BỊ làm cho hoảng sợ bởi tiếng sấm lớn (\"Because she was frightened by...\") → rút gọn bị động bằng V3/ed \"Frightened\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Frightened",
+          "isCorrect": true,
+          "pedagogicalReason": "Cô bé BỊ làm cho hoảng sợ bởi tiếng sấm lớn (\"Because she was frightened by...\") → rút gọn bị động bằng V3/ed \"Frightened\"."
+        },
+        {
+          "option": "Frightening",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Frightening\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Frightened\"). Cô bé BỊ làm cho hoảng sợ bởi tiếng sấm lớn (\"Because she was frightened by...\") → rút gọn bị động bằng V3/ed \"Frightened\"."
+        },
+        {
+          "option": "Having frighten",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Having frighten\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Frightened\"). Cô bé BỊ làm cho hoảng sợ bởi tiếng sấm lớn (\"Because she was frightened by...\") → rút gọn bị động bằng V3/ed \"Frightened\"."
+        },
+        {
+          "option": "To frighten",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"To frighten\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Frightened\"). Cô bé BỊ làm cho hoảng sợ bởi tiếng sấm lớn (\"Because she was frightened by...\") → rút gọn bị động bằng V3/ed \"Frightened\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "participle-clauses-ex-06",
+      "type": "fill_blank",
+      "question": "___ know what to say, I remained silent.",
+      "options": [
+        "Not knowing",
+        "Not knew",
+        "Didn't know",
+        "Not known"
+      ],
+      "correct_answer": "Not knowing",
+      "explanation": "Dạng phủ định của mệnh đề phân từ đặt \"Not\" đứng ngay trước phân từ: \"Not + V-ing\" (\"Not knowing\").",
+      "distractor_breakdowns": [
+        {
+          "option": "Not knowing",
+          "isCorrect": true,
+          "pedagogicalReason": "Dạng phủ định của mệnh đề phân từ đặt \"Not\" đứng ngay trước phân từ: \"Not + V-ing\" (\"Not knowing\")."
+        },
+        {
+          "option": "Not knew",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Not knew\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Not knowing\"). Dạng phủ định của mệnh đề phân từ đặt \"Not\" đứng ngay trước phân từ: \"Not + V-ing\" (\"Not knowing\")."
+        },
+        {
+          "option": "Didn't know",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Didn't know\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Not knowing\"). Dạng phủ định của mệnh đề phân từ đặt \"Not\" đứng ngay trước phân từ: \"Not + V-ing\" (\"Not knowing\")."
+        },
+        {
+          "option": "Not known",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Not known\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Not knowing\"). Dạng phủ định của mệnh đề phân từ đặt \"Not\" đứng ngay trước phân từ: \"Not + V-ing\" (\"Not knowing\")."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "participle-clauses-ex-07",
+      "type": "multiple_choice",
+      "question": "The man ___ near the window is our headmaster.",
+      "options": [
+        "standing",
+        "stood",
+        "stands",
+        "is standing"
+      ],
+      "correct_answer": "standing",
+      "explanation": "Rút gọn mệnh đề quan hệ chủ động (\"The man who is standing...\") → dùng V-ing \"standing\".",
+      "distractor_breakdowns": [
+        {
+          "option": "standing",
+          "isCorrect": true,
+          "pedagogicalReason": "Rút gọn mệnh đề quan hệ chủ động (\"The man who is standing...\") → dùng V-ing \"standing\"."
+        },
+        {
+          "option": "stood",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"stood\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"standing\"). Rút gọn mệnh đề quan hệ chủ động (\"The man who is standing...\") → dùng V-ing \"standing\"."
+        },
+        {
+          "option": "stands",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"stands\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"standing\"). Rút gọn mệnh đề quan hệ chủ động (\"The man who is standing...\") → dùng V-ing \"standing\"."
+        },
+        {
+          "option": "is standing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is standing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"standing\"). Rút gọn mệnh đề quan hệ chủ động (\"The man who is standing...\") → dùng V-ing \"standing\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "participle-clauses-ex-08",
+      "type": "fill_blank",
+      "question": "The cakes ___ in that bakery are always fresh and delicious.",
+      "options": [
+        "sold",
+        "selling",
+        "which sold",
+        "are sold"
+      ],
+      "correct_answer": "sold",
+      "explanation": "Rút gọn mệnh đề quan hệ bị động (\"The cakes which are sold...\") → lược bỏ \"which are\", giữ lại V3 \"sold\".",
+      "distractor_breakdowns": [
+        {
+          "option": "sold",
+          "isCorrect": true,
+          "pedagogicalReason": "Rút gọn mệnh đề quan hệ bị động (\"The cakes which are sold...\") → lược bỏ \"which are\", giữ lại V3 \"sold\"."
+        },
+        {
+          "option": "selling",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"selling\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"sold\"). Rút gọn mệnh đề quan hệ bị động (\"The cakes which are sold...\") → lược bỏ \"which are\", giữ lại V3 \"sold\"."
+        },
+        {
+          "option": "which sold",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"which sold\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"sold\"). Rút gọn mệnh đề quan hệ bị động (\"The cakes which are sold...\") → lược bỏ \"which are\", giữ lại V3 \"sold\"."
+        },
+        {
+          "option": "are sold",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"are sold\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"sold\"). Rút gọn mệnh đề quan hệ bị động (\"The cakes which are sold...\") → lược bỏ \"which are\", giữ lại V3 \"sold\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "participle-clauses-ex-09",
+      "type": "multiple_choice",
+      "question": "___ with care, this wool sweater will last for many years.",
+      "options": [
+        "Washed",
+        "Washing",
+        "Having wash",
+        "To wash"
+      ],
+      "correct_answer": "Washed",
+      "explanation": "Rút gọn mệnh đề điều kiện bị động (\"If it is washed with care...\") cùng chủ ngữ \"this wool sweater\" → dùng V3/ed \"Washed\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Washed",
+          "isCorrect": true,
+          "pedagogicalReason": "Rút gọn mệnh đề điều kiện bị động (\"If it is washed with care...\") cùng chủ ngữ \"this wool sweater\" → dùng V3/ed \"Washed\"."
+        },
+        {
+          "option": "Washing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Washing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Washed\"). Rút gọn mệnh đề điều kiện bị động (\"If it is washed with care...\") cùng chủ ngữ \"this wool sweater\" → dùng V3/ed \"Washed\"."
+        },
+        {
+          "option": "Having wash",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Having wash\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Washed\"). Rút gọn mệnh đề điều kiện bị động (\"If it is washed with care...\") cùng chủ ngữ \"this wool sweater\" → dùng V3/ed \"Washed\"."
+        },
+        {
+          "option": "To wash",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"To wash\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Washed\"). Rút gọn mệnh đề điều kiện bị động (\"If it is washed with care...\") cùng chủ ngữ \"this wool sweater\" → dùng V3/ed \"Washed\"."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "participle-clauses-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: Looked out of the window, she saw a beautiful rainbow.",
+      "options": [
+        "Looked",
+        "out of",
+        "she saw",
+        "rainbow"
+      ],
+      "correct_answer": "Looked",
+      "explanation": "Chủ ngữ \"she\" tự thực hiện hành động nhìn ra cửa sổ (chủ động) nên phải dùng hiện tại phân từ \"Looking\", không dùng bị động \"Looked\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Looked",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ \"she\" tự thực hiện hành động nhìn ra cửa sổ (chủ động) nên phải dùng hiện tại phân từ \"Looking\", không dùng bị động \"Looked\"."
+        },
+        {
+          "option": "out of",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"out of\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "she saw",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"she saw\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "rainbow",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"rainbow\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "participle-clauses-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: Publishing in 2022, the book quickly became a bestseller.",
+      "options": [
+        "Publishing",
+        "in 2022",
+        "the book",
+        "bestseller"
+      ],
+      "correct_answer": "Publishing",
+      "explanation": "Chủ ngữ là \"the book\" (cuốn sách ĐƯỢC xuất bản năm 2022 - bị động) nên phải dùng quá khứ phân từ \"Published\", không dùng \"Publishing\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Publishing",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ là \"the book\" (cuốn sách ĐƯỢC xuất bản năm 2022 - bị động) nên phải dùng quá khứ phân từ \"Published\", không dùng \"Publishing\"."
+        },
+        {
+          "option": "in 2022",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"in 2022\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "the book",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"the book\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "bestseller",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"bestseller\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "participle-clauses-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: Know not her address, he couldn't send her the invitation.",
+      "options": [
+        "Know not",
+        "her address",
+        "couldn't",
+        "invitation"
+      ],
+      "correct_answer": "Know not",
+      "explanation": "Phủ định của mệnh đề phân từ chủ động là \"Not + V-ing\". Phải sửa \"Know not\" thành \"Not knowing\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Know not",
+          "isCorrect": true,
+          "pedagogicalReason": "Phủ định của mệnh đề phân từ chủ động là \"Not + V-ing\". Phải sửa \"Know not\" thành \"Not knowing\"."
+        },
+        {
+          "option": "her address",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"her address\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "couldn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"couldn't\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "invitation",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"invitation\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
       "difficulty": 3

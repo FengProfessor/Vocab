@@ -509,13 +509,31 @@ export function getVstepQuestionExplanation(
     return null;
   }
 
-  const raw = loadRawVstepExam(testId);
+  let candidateTestId = testId;
+  let rawQuestionId = trimmedQ;
+  const colonIdx = trimmedQ.indexOf(':');
+  if (colonIdx > 0) {
+    candidateTestId = trimmedQ.slice(0, colonIdx);
+    rawQuestionId = trimmedQ.slice(colonIdx + 1);
+  }
+  if (!rawQuestionId || rawQuestionId === '__proto__' || rawQuestionId === 'constructor' || rawQuestionId === 'prototype') {
+    return null;
+  }
+
+  const raw =
+    loadRawVstepExam(candidateTestId) ||
+    (candidateTestId !== testId ? loadRawVstepExam(testId) : null);
   if (!raw) return null;
 
   for (const section of raw.sections) {
     for (const task of section.tasks) {
       if (task.questions) {
-        const foundQ = task.questions.find((q) => q.id === trimmedQ);
+        const foundQ = task.questions.find(
+          (q) =>
+            q.id === trimmedQ ||
+            q.id === rawQuestionId ||
+            `${raw.id}:${q.id}` === trimmedQ
+        );
         if (foundQ) {
           return {
             answer: foundQ.answer,

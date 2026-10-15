@@ -367,59 +367,71 @@
     {
       "id": "reported-speech-ex-01",
       "type": "multiple_choice",
-      "question": "She said, 'I am tired.' → She said that she ___ tired.",
+      "question": "She said, \"I am tired.\" → She said that she ___ tired.",
       "options": [
-        "is",
         "was",
-        "were"
+        "is",
+        "were",
+        "has been"
       ],
       "correct_answer": "was",
-      "explanation": "Với động từ tường thuật said ở quá khứ, am thường lùi thành was.",
+      "explanation": "Trong câu tường thuật với động từ giới thiệu \"said\" ở quá khứ, ta lùi 1 thì: \"am\" → \"was\" và đổi \"I\" → \"she\".",
       "distractor_breakdowns": [
-        {
-          "option": "is",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng số ít \"is\" không hòa hợp với chủ ngữ số nhiều hoặc \"you/we/they\"."
-        },
         {
           "option": "was",
           "isCorrect": true,
-          "pedagogicalReason": "Với động từ tường thuật said ở quá khứ, am thường lùi thành was."
+          "pedagogicalReason": "Trong câu tường thuật với động từ giới thiệu \"said\" ở quá khứ, ta lùi 1 thì: \"am\" → \"was\" và đổi \"I\" → \"she\"."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ to be số ít \"is\" không hòa hợp với chủ ngữ hoặc thì của câu (đáp án đúng là \"was\")."
         },
         {
           "option": "were",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng số nhiều \"were\" không hòa hợp với chủ ngữ số ít hoặc danh từ không đếm được."
+          "pedagogicalReason": "Không chính xác. Động từ to be số nhiều \"were\" không hòa hợp với chủ ngữ hoặc thì của câu (đáp án đúng là \"was\")."
+        },
+        {
+          "option": "has been",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has been\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was\"). Trong câu tường thuật với động từ giới thiệu \"said\" ở quá khứ, ta lùi 1 thì: \"am\" → \"was\" và đổi \"I\" → \"she\"."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "reported-speech-ex-02",
-      "type": "multiple_choice",
-      "question": "He said, 'I will call you.' → He said he ___ call me.",
+      "type": "fill_blank",
+      "question": "He said, \"I will call you tomorrow.\" → He said he ___ call me the next day.",
       "options": [
-        "will",
         "would",
-        "can"
+        "will",
+        "can",
+        "shall"
       ],
       "correct_answer": "would",
-      "explanation": "Will thường lùi thành would trong lời tường thuật quá khứ.",
+      "explanation": "Khi tường thuật lại lời nói ở quá khứ, \"will\" lùi thì thành \"would\".",
       "distractor_breakdowns": [
-        {
-          "option": "will",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Will thường lùi thành would trong lời tường thuật quá khứ."
-        },
         {
           "option": "would",
           "isCorrect": true,
-          "pedagogicalReason": "Will thường lùi thành would trong lời tường thuật quá khứ."
+          "pedagogicalReason": "Khi tường thuật lại lời nói ở quá khứ, \"will\" lùi thì thành \"would\"."
+        },
+        {
+          "option": "will",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"would\"). Khi tường thuật lại lời nói ở quá khứ, \"will\" lùi thì thành \"would\"."
         },
         {
           "option": "can",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"can\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"can\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"would\"). Khi tường thuật lại lời nói ở quá khứ, \"will\" lùi thì thành \"would\"."
+        },
+        {
+          "option": "shall",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"shall\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"would\"). Khi tường thuật lại lời nói ở quá khứ, \"will\" lùi thì thành \"would\"."
         }
       ],
       "difficulty": 1
@@ -427,62 +439,362 @@
     {
       "id": "reported-speech-ex-03",
       "type": "multiple_choice",
-      "question": "She asked me, 'Where do you live?' → She asked me where ___ .",
+      "question": "She asked me, \"Where do you live?\" → She asked me where ___.",
       "options": [
-        "did I live",
         "I lived",
-        "do I live"
+        "did I live",
+        "do I live",
+        "I live"
       ],
       "correct_answer": "I lived",
-      "explanation": "Câu hỏi tường thuật dùng trật tự câu kể: chủ ngữ + động từ.",
+      "explanation": "Câu hỏi tường thuật (Reported Question) phải đưa về trật tự câu kể (S + V lùi thì), TUYỆT ĐỐI KHÔNG đảo trợ động từ \"did/do\" lên trước chủ ngữ → \"where I lived\".",
       "distractor_breakdowns": [
-        {
-          "option": "did I live",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"did I live\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
         {
           "option": "I lived",
           "isCorrect": true,
-          "pedagogicalReason": "Câu hỏi tường thuật dùng trật tự câu kể: chủ ngữ + động từ."
+          "pedagogicalReason": "Câu hỏi tường thuật (Reported Question) phải đưa về trật tự câu kể (S + V lùi thì), TUYỆT ĐỐI KHÔNG đảo trợ động từ \"did/do\" lên trước chủ ngữ → \"where I lived\"."
+        },
+        {
+          "option": "did I live",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"did I live\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"I lived\"). Câu hỏi tường thuật (Reported Question) phải đưa về trật tự câu kể (S + V lùi thì), TUYỆT ĐỐI KHÔNG đảo trợ động từ \"did/do\" lên trước chủ ngữ → \"where I lived\"."
         },
         {
           "option": "do I live",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"do I live\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"do I live\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"I lived\"). Câu hỏi tường thuật (Reported Question) phải đưa về trật tự câu kể (S + V lùi thì), TUYỆT ĐỐI KHÔNG đảo trợ động từ \"did/do\" lên trước chủ ngữ → \"where I lived\"."
+        },
+        {
+          "option": "I live",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"I live\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"I lived\"). Câu hỏi tường thuật (Reported Question) phải đưa về trật tự câu kể (S + V lùi thì), TUYỆT ĐỐI KHÔNG đảo trợ động từ \"did/do\" lên trước chủ ngữ → \"where I lived\"."
         }
       ],
       "difficulty": 2
     },
     {
       "id": "reported-speech-ex-04",
-      "type": "multiple_choice",
-      "question": "He said, 'I saw her yesterday.' → He said he had seen her ___ .",
+      "type": "fill_blank",
+      "question": "He said, \"I saw her yesterday.\" → He said he had seen her ___.",
       "options": [
         "the day before",
+        "yesterday",
         "tomorrow",
-        "next day"
+        "the next day"
       ],
       "correct_answer": "the day before",
-      "explanation": "Yesterday thường đổi thành the day before.",
+      "explanation": "Trong câu gián tiếp, trạng từ chỉ thời gian \"yesterday\" đổi thành \"the day before\" (hoặc \"the previous day\").",
       "distractor_breakdowns": [
         {
           "option": "the day before",
           "isCorrect": true,
-          "pedagogicalReason": "Yesterday thường đổi thành the day before."
+          "pedagogicalReason": "Trong câu gián tiếp, trạng từ chỉ thời gian \"yesterday\" đổi thành \"the day before\" (hoặc \"the previous day\")."
+        },
+        {
+          "option": "yesterday",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"yesterday\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"the day before\"). Trong câu gián tiếp, trạng từ chỉ thời gian \"yesterday\" đổi thành \"the day before\" (hoặc \"the previous day\")."
         },
         {
           "option": "tomorrow",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"tomorrow\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"tomorrow\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"the day before\"). Trong câu gián tiếp, trạng từ chỉ thời gian \"yesterday\" đổi thành \"the day before\" (hoặc \"the previous day\")."
         },
         {
-          "option": "next day",
+          "option": "the next day",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"next day\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"the next day\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"the day before\"). Trong câu gián tiếp, trạng từ chỉ thời gian \"yesterday\" đổi thành \"the day before\" (hoặc \"the previous day\")."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "reported-speech-ex-05",
+      "type": "multiple_choice",
+      "question": "Nam asked Lan, \"Are you free tonight?\" → Nam asked Lan ___ she was free that night.",
+      "options": [
+        "if",
+        "that",
+        "what",
+        "which"
+      ],
+      "correct_answer": "if",
+      "explanation": "Khi tường thuật câu hỏi Yes/No (\"Are you...?\"), ta dùng \"if\" hoặc \"whether\" để nối.",
+      "distractor_breakdowns": [
+        {
+          "option": "if",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi tường thuật câu hỏi Yes/No (\"Are you...?\"), ta dùng \"if\" hoặc \"whether\" để nối."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"that\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"if\"). Khi tường thuật câu hỏi Yes/No (\"Are you...?\"), ta dùng \"if\" hoặc \"whether\" để nối."
+        },
+        {
+          "option": "what",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"what\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"if\"). Khi tường thuật câu hỏi Yes/No (\"Are you...?\"), ta dùng \"if\" hoặc \"whether\" để nối."
+        },
+        {
+          "option": "which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"which\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"if\"). Khi tường thuật câu hỏi Yes/No (\"Are you...?\"), ta dùng \"if\" hoặc \"whether\" để nối."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "reported-speech-ex-06",
+      "type": "fill_blank",
+      "question": "The teacher told us ___ talk during the test.",
+      "options": [
+        "not to",
+        "to not",
+        "don't",
+        "didn't"
+      ],
+      "correct_answer": "not to",
+      "explanation": "Tường thuật câu mệnh lệnh phủ định (\"Don't talk!\"): \"told + O + not to V\" → \"told us not to talk\".",
+      "distractor_breakdowns": [
+        {
+          "option": "not to",
+          "isCorrect": true,
+          "pedagogicalReason": "Tường thuật câu mệnh lệnh phủ định (\"Don't talk!\"): \"told + O + not to V\" → \"told us not to talk\"."
+        },
+        {
+          "option": "to not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to not\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"not to\"). Tường thuật câu mệnh lệnh phủ định (\"Don't talk!\"): \"told + O + not to V\" → \"told us not to talk\"."
+        },
+        {
+          "option": "don't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"don't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"not to\"). Tường thuật câu mệnh lệnh phủ định (\"Don't talk!\"): \"told + O + not to V\" → \"told us not to talk\"."
+        },
+        {
+          "option": "didn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"didn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"not to\"). Tường thuật câu mệnh lệnh phủ định (\"Don't talk!\"): \"told + O + not to V\" → \"told us not to talk\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "reported-speech-ex-07",
+      "type": "multiple_choice",
+      "question": "Mary said, \"I have finished my work.\" → Mary said that she ___ her work.",
+      "options": [
+        "had finished",
+        "has finished",
+        "finished",
+        "was finishing"
+      ],
+      "correct_answer": "had finished",
+      "explanation": "Thì hiện tại hoàn thành (\"have finished\") khi lùi 1 thì trong câu gián tiếp sẽ thành quá khứ hoàn thành (\"had finished\").",
+      "distractor_breakdowns": [
+        {
+          "option": "had finished",
+          "isCorrect": true,
+          "pedagogicalReason": "Thì hiện tại hoàn thành (\"have finished\") khi lùi 1 thì trong câu gián tiếp sẽ thành quá khứ hoàn thành (\"had finished\")."
+        },
+        {
+          "option": "has finished",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has finished\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had finished\"). Thì hiện tại hoàn thành (\"have finished\") khi lùi 1 thì trong câu gián tiếp sẽ thành quá khứ hoàn thành (\"had finished\")."
+        },
+        {
+          "option": "finished",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"finished\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had finished\"). Thì hiện tại hoàn thành (\"have finished\") khi lùi 1 thì trong câu gián tiếp sẽ thành quá khứ hoàn thành (\"had finished\")."
+        },
+        {
+          "option": "was finishing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"was finishing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had finished\"). Thì hiện tại hoàn thành (\"have finished\") khi lùi 1 thì trong câu gián tiếp sẽ thành quá khứ hoàn thành (\"had finished\")."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "reported-speech-ex-08",
+      "type": "fill_blank",
+      "question": "He said, \"I can swim very fast.\" → He said that he ___ swim very fast.",
+      "options": [
+        "could",
+        "can",
+        "will",
+        "may"
+      ],
+      "correct_answer": "could",
+      "explanation": "Động từ khuyết thiếu \"can\" lùi thì thành \"could\" trong câu tường thuật.",
+      "distractor_breakdowns": [
+        {
+          "option": "could",
+          "isCorrect": true,
+          "pedagogicalReason": "Động từ khuyết thiếu \"can\" lùi thì thành \"could\" trong câu tường thuật."
+        },
+        {
+          "option": "can",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"can\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"could\"). Động từ khuyết thiếu \"can\" lùi thì thành \"could\" trong câu tường thuật."
+        },
+        {
+          "option": "will",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"could\"). Động từ khuyết thiếu \"can\" lùi thì thành \"could\" trong câu tường thuật."
+        },
+        {
+          "option": "may",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"may\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"could\"). Động từ khuyết thiếu \"can\" lùi thì thành \"could\" trong câu tường thuật."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "reported-speech-ex-09",
+      "type": "multiple_choice",
+      "question": "She said, \"We are learning English now.\" → She said they were learning English ___.",
+      "options": [
+        "then",
+        "now",
+        "here",
+        "today"
+      ],
+      "correct_answer": "then",
+      "explanation": "Trong câu tường thuật, trạng từ chỉ thời gian \"now\" đổi thành \"then\".",
+      "distractor_breakdowns": [
+        {
+          "option": "then",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong câu tường thuật, trạng từ chỉ thời gian \"now\" đổi thành \"then\"."
+        },
+        {
+          "option": "now",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"now\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"then\"). Trong câu tường thuật, trạng từ chỉ thời gian \"now\" đổi thành \"then\"."
+        },
+        {
+          "option": "here",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"here\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"then\"). Trong câu tường thuật, trạng từ chỉ thời gian \"now\" đổi thành \"then\"."
+        },
+        {
+          "option": "today",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"today\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"then\"). Trong câu tường thuật, trạng từ chỉ thời gian \"now\" đổi thành \"then\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "reported-speech-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: He asked me where did I buy that jacket.",
+      "options": [
+        "asked",
+        "where",
+        "did I buy",
+        "that jacket"
+      ],
+      "correct_answer": "did I buy",
+      "explanation": "Trong câu hỏi gián tiếp sau \"asked me where...\", không được đảo trợ động từ \"did\". Phải sửa \"did I buy\" thành \"I had bought\" (hoặc \"I bought\").",
+      "distractor_breakdowns": [
+        {
+          "option": "asked",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"asked\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "where",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"where\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "did I buy",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong câu hỏi gián tiếp sau \"asked me where...\", không được đảo trợ động từ \"did\". Phải sửa \"did I buy\" thành \"I had bought\" (hoặc \"I bought\")."
+        },
+        {
+          "option": "that jacket",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"that jacket\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
       "difficulty": 3
+    },
+    {
+      "id": "reported-speech-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: She told to me that she would arrive early.",
+      "options": [
+        "told to me",
+        "that",
+        "would",
+        "arrive"
+      ],
+      "correct_answer": "told to me",
+      "explanation": "Động từ \"tell\" đi trực tiếp với tân ngữ chỉ người (\"told me\"), không có giới từ \"to\" (chỉ có \"said to me\").",
+      "distractor_breakdowns": [
+        {
+          "option": "told to me",
+          "isCorrect": true,
+          "pedagogicalReason": "Động từ \"tell\" đi trực tiếp với tân ngữ chỉ người (\"told me\"), không có giới từ \"to\" (chỉ có \"said to me\")."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"that\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "would",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"would\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "arrive",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"arrive\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "reported-speech-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: The doctor advised him don't smoke anymore.",
+      "options": [
+        "advised",
+        "him",
+        "don't smoke",
+        "anymore"
+      ],
+      "correct_answer": "don't smoke",
+      "explanation": "Cấu trúc tường thuật lời khuyên phủ định là \"advised + O + not to V\". Phải sửa \"don't smoke\" thành \"not to smoke\".",
+      "distractor_breakdowns": [
+        {
+          "option": "advised",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"advised\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "him",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"him\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "don't smoke",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc tường thuật lời khuyên phủ định là \"advised + O + not to V\". Phải sửa \"don't smoke\" thành \"not to smoke\"."
+        },
+        {
+          "option": "anymore",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"anymore\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
     }
   ]
 }

@@ -391,7 +391,12 @@
       "id": "discourse-markers-ex-01",
       "type": "fill_blank",
       "question": "Hoàn thành theo mẫu: However, the plan ___ expensive.",
-      "options": [],
+      "options": [
+        "is",
+        "are",
+        "be",
+        "am"
+      ],
       "correct_answer": "is",
       "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
       "distractor_breakdowns": [
@@ -409,6 +414,11 @@
           "option": "be",
           "isCorrect": false,
           "pedagogicalReason": "Không chính xác. Động từ vị ngữ phải được chia theo thì hiện tại đơn."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"am\" chỉ đi duy nhất với chủ ngữ ngôi thứ nhất số ít \"I\"."
         }
       ],
       "difficulty": 1
@@ -416,7 +426,7 @@
     {
       "id": "discourse-markers-ex-02",
       "type": "multiple_choice",
-      "question": "Choose the best **concession marker**: The data set is relatively small; ___, the trend is statistically robust.",
+      "question": "Choose the best concession marker: The data set is relatively small; ___, the trend is statistically robust.",
       "options": [
         "nevertheless",
         "for instance",
@@ -452,7 +462,7 @@
     {
       "id": "discourse-markers-ex-03",
       "type": "multiple_choice",
-      "question": "Choose the correct **reformulation marker**: The policy would centralize decision-making; ___, local teams would lose much of their autonomy.",
+      "question": "The policy would centralize decision-making; ___, local teams would lose much of their autonomy.",
       "options": [
         "in other words",
         "on the contrary",
@@ -488,7 +498,7 @@
     {
       "id": "discourse-markers-ex-04",
       "type": "multiple_choice",
-      "question": "Choose the most natural **topic shift**: The budget figures look stable. ___, has the client approved the new timeline?",
+      "question": "Choose the most natural topic shift: The budget figures look stable. ___, has the client approved the new timeline?",
       "options": [
         "Incidentally",
         "Therefore",
@@ -524,7 +534,7 @@
     {
       "id": "discourse-markers-ex-05",
       "type": "multiple_choice",
-      "question": "Choose the best **ordering marker**: ___, the committee must define what counts as a successful outcome.",
+      "question": "Choose the best ordering marker: ___, the committee must define what counts as a successful outcome.",
       "options": [
         "To begin with",
         "Conversely",
@@ -547,12 +557,12 @@
         {
           "option": "Be that as it may",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Be that as it may\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Be that as it may\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"To begin with\"). “To begin with” mở đầu chuỗi lập luận hoặc bước đầu tiên. Các lựa chọn còn lại lần lượt chỉ tương phản, nhượng bộ/chuyển hướng, và khoảng thời gian xen giữa."
         },
         {
           "option": "In the meantime",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"In the meantime\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"In the meantime\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"To begin with\"). “To begin with” mở đầu chuỗi lập luận hoặc bước đầu tiên. Các lựa chọn còn lại lần lượt chỉ tương phản, nhượng bộ/chuyển hướng, và khoảng thời gian xen giữa."
         }
       ],
       "difficulty": 1
@@ -560,7 +570,7 @@
     {
       "id": "discourse-markers-ex-06",
       "type": "multiple_choice",
-      "question": "Choose the correct **emphasis marker**: The method is not merely convenient; ___, it reduces measurement bias.",
+      "question": "The method is not merely convenient; ___, it reduces measurement bias.",
       "options": [
         "more importantly",
         "otherwise",
@@ -596,7 +606,7 @@
     {
       "id": "discourse-markers-ex-07",
       "type": "multiple_choice",
-      "question": "Choose the best **contrast marker**: The first report blamed poor training. ___, the second pointed to flawed incentives.",
+      "question": "Choose the best contrast marker: The first report blamed poor training. ___, the second pointed to flawed incentives.",
       "options": [
         "By contrast",
         "In short",
@@ -632,7 +642,7 @@
     {
       "id": "discourse-markers-ex-08",
       "type": "multiple_choice",
-      "question": "Choose the appropriate **generalizing marker**: The interviews varied in detail, but ___, participants supported the reform.",
+      "question": "Choose the appropriate generalizing marker: The interviews varied in detail, but ___, participants supported the reform.",
       "options": [
         "on the whole",
         "after all",
@@ -668,7 +678,7 @@
     {
       "id": "discourse-markers-ex-09",
       "type": "multiple_choice",
-      "question": "Choose the best **clarification marker**: The contract excludes consequential loss, ___ losses that arise indirectly from the breach.",
+      "question": "Choose the best clarification marker: The contract excludes consequential loss, ___ losses that arise indirectly from the breach.",
       "options": [
         "that is",
         "meanwhile",
@@ -704,7 +714,7 @@
     {
       "id": "discourse-markers-ex-10",
       "type": "fill_blank",
-      "question": "Complete with the best **result marker**: The deadline was brought forward; ___, several teams had to reassign staff.",
+      "question": "Complete with the best result marker: The deadline was brought forward; ___, several teams had to reassign staff.",
       "options": [
         "as a result",
         "for example",
@@ -722,12 +732,12 @@
         {
           "option": "for example",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"for example\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"for example\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"as a result\"). “As a result” nối nguyên nhân với kết quả: hạn chót đổi nên các nhóm phải điều phối lại nhân sự. Các đáp án khác lần lượt đưa ví dụ, tương phản, hoặc giảm nhẹ sắc thái đánh giá."
         },
         {
           "option": "in contrast",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"in contrast\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"in contrast\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"as a result\"). “As a result” nối nguyên nhân với kết quả: hạn chót đổi nên các nhóm phải điều phối lại nhân sự. Các đáp án khác lần lượt đưa ví dụ, tương phản, hoặc giảm nhẹ sắc thái đánh giá."
         },
         {
           "option": "to put it mildly",
@@ -740,7 +750,7 @@
     {
       "id": "discourse-markers-ex-11",
       "type": "fill_blank",
-      "question": "Complete the sentence with a **limiting marker**: The proposal is persuasive. ___, it says little about long-term maintenance costs.",
+      "question": "Complete the sentence with a limiting marker: The proposal is persuasive. ___, it says little about long-term maintenance costs.",
       "options": [
         "Having said that",
         "Similarly",
@@ -776,7 +786,7 @@
     {
       "id": "discourse-markers-ex-12",
       "type": "fill_blank",
-      "question": "Complete with an **additive marker**: The model is cheaper to run. ___, it can be audited more easily.",
+      "question": "Complete with an additive marker: The model is cheaper to run. ___, it can be audited more easily.",
       "options": [
         "Moreover",
         "Conversely",
@@ -812,7 +822,7 @@
     {
       "id": "discourse-markers-ex-13",
       "type": "fill_blank",
-      "question": "Complete the **stance marker**: ___, I find the evidence too anecdotal to support such a strong conclusion.",
+      "question": "Complete the stance marker: ___, I find the evidence too anecdotal to support such a strong conclusion.",
       "options": [
         "Frankly",
         "Consequently",
@@ -830,7 +840,7 @@
         {
           "option": "Consequently",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Consequently\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Consequently\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Frankly\"). “Frankly” thể hiện thái độ thẳng thắn của người nói trước nhận định. Các lựa chọn khác không diễn tả stance cá nhân mà chỉ kết quả, ví dụ hoặc thời gian xen giữa."
         },
         {
           "option": "For example",
@@ -848,7 +858,7 @@
     {
       "id": "discourse-markers-ex-14",
       "type": "fill_blank",
-      "question": "Complete with the correct **summary marker**: The figures are volatile, the sample is narrow, and the controls are weak. ___, the claim is premature.",
+      "question": "Complete with the correct summary marker: The figures are volatile, the sample is narrow, and the controls are weak. ___, the claim is premature.",
       "options": [
         "In short",
         "On the contrary",
@@ -884,7 +894,7 @@
     {
       "id": "discourse-markers-ex-15",
       "type": "fill_blank",
-      "question": "Complete the sentence with a **counterargument marker**: The software is expensive. ___, the cost of manual processing is higher.",
+      "question": "Complete the sentence with a counterargument marker: The software is expensive. ___, the cost of manual processing is higher.",
       "options": [
         "Then again",
         "For instance",
@@ -920,7 +930,7 @@
     {
       "id": "discourse-markers-ex-16",
       "type": "fill_blank",
-      "question": "Complete with the best **example marker**: Several safeguards are missing; ___, there is no independent appeal process.",
+      "question": "Complete with the best example marker: Several safeguards are missing; ___, there is no independent appeal process.",
       "options": [
         "for one thing",
         "nevertheless",
@@ -956,7 +966,7 @@
     {
       "id": "discourse-markers-ex-17",
       "type": "fill_blank",
-      "question": "Complete the sentence with an **inference marker**: The witness changed his account three times; ___, the jury may doubt his reliability.",
+      "question": "Complete the sentence with an inference marker: The witness changed his account three times; ___, the jury may doubt his reliability.",
       "options": [
         "accordingly",
         "incidentally",
@@ -991,8 +1001,8 @@
     },
     {
       "id": "discourse-markers-ex-18",
-      "type": "fill_blank",
-      "question": "Complete with the best **return marker**: The funding issue can wait. ___, the immediate question is whether the pilot is safe.",
+      "type": "multiple_choice",
+      "question": "Complete with the best return marker: The funding issue can wait. ___, the immediate question is whether the pilot is safe.",
       "options": [
         "To return to the point",
         "On top of that",
@@ -1010,17 +1020,17 @@
         {
           "option": "On top of that",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"On top of that\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"On top of that\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"To return to the point\"). “To return to the point” đưa cuộc nói chuyện quay lại trọng tâm. Các đáp án khác thêm ý, mở rộng liên quan, hoặc so sánh."
         },
         {
           "option": "For that matter",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"For that matter\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"For that matter\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"To return to the point\"). “To return to the point” đưa cuộc nói chuyện quay lại trọng tâm. Các đáp án khác thêm ý, mở rộng liên quan, hoặc so sánh."
         },
         {
           "option": "In comparison",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"In comparison\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"In comparison\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"To return to the point\"). “To return to the point” đưa cuộc nói chuyện quay lại trọng tâm. Các đáp án khác thêm ý, mở rộng liên quan, hoặc so sánh."
         }
       ],
       "difficulty": 3
@@ -1028,7 +1038,7 @@
     {
       "id": "discourse-markers-ex-19",
       "type": "error_correction",
-      "question": "Find the error: The evidence is preliminary; **therefore**, the authors wisely avoid firm conclusions.",
+      "question": "Find the error: The evidence is preliminary; therefore, the authors wisely avoid firm conclusions.",
       "options": [
         "The evidence",
         "therefore",
@@ -1064,7 +1074,7 @@
     {
       "id": "discourse-markers-ex-20",
       "type": "error_correction",
-      "question": "Find the error: **For example**, the study has two main limitations: sample size and selection bias.",
+      "question": "Find the error: For example, the study has two main limitations: sample size and selection bias.",
       "options": [
         "For example",
         "two main limitations",
@@ -1100,7 +1110,7 @@
     {
       "id": "discourse-markers-ex-21",
       "type": "error_correction",
-      "question": "Find the error: The merger may reduce costs; **similarly**, it could eliminate hundreds of jobs.",
+      "question": "Find the error: The merger may reduce costs; similarly, it could eliminate hundreds of jobs.",
       "options": [
         "The merger",
         "may reduce costs",
@@ -1136,7 +1146,7 @@
     {
       "id": "discourse-markers-ex-22",
       "type": "error_correction",
-      "question": "Find the error: The experiment failed to replicate; **in other words**, the hypothesis remains fully confirmed.",
+      "question": "Find the error: The experiment failed to replicate; in other words, the hypothesis remains fully confirmed.",
       "options": [
         "failed to replicate",
         "in other words",
@@ -1172,7 +1182,7 @@
     {
       "id": "discourse-markers-ex-23",
       "type": "error_correction",
-      "question": "Find the error: The city expanded the subway network; **by the way**, average commute times fell.",
+      "question": "Find the error: The city expanded the subway network; by the way, average commute times fell.",
       "options": [
         "expanded",
         "by the way",
@@ -1208,7 +1218,7 @@
     {
       "id": "discourse-markers-ex-24",
       "type": "error_correction",
-      "question": "Find the error: **On the contrary**, I agree with most of your analysis, although I question the conclusion.",
+      "question": "Find the error: On the contrary, I agree with most of your analysis, although I question the conclusion.",
       "options": [
         "On the contrary",
         "agree with",
@@ -1244,7 +1254,7 @@
     {
       "id": "discourse-markers-ex-25",
       "type": "error_correction",
-      "question": "Find the error: The report is concise; **namely**, it omits the methodology section.",
+      "question": "Find the error: The report is concise; namely, it omits the methodology section.",
       "options": [
         "The report",
         "concise",
@@ -1280,7 +1290,7 @@
     {
       "id": "discourse-markers-ex-26",
       "type": "error_correction",
-      "question": "Find the error: **Meanwhile**, the CEO resigned last night, the board has appointed an interim chair.",
+      "question": "Find the error: Meanwhile, the CEO resigned last night, the board has appointed an interim chair.",
       "options": [
         "Meanwhile",
         "resigned",
@@ -1316,7 +1326,7 @@
     {
       "id": "discourse-markers-ex-27",
       "type": "multiple_choice",
-      "question": "Choose the best **concession marker**: The archive is incomplete; ___, it remains the only source that records the negotiations in detail.",
+      "question": "Choose the best concession marker: The archive is incomplete; ___, it remains the only source that records the negotiations in detail.",
       "options": [
         "even so",
         "therefore",
@@ -1352,7 +1362,7 @@
     {
       "id": "discourse-markers-ex-28",
       "type": "multiple_choice",
-      "question": "Choose the correct **dismissal marker**: The legal issue is complex. ___, the real obstacle is political will, not interpretation.",
+      "question": "The legal issue is complex. ___, the real obstacle is political will, not interpretation.",
       "options": [
         "In any case",
         "Likewise",
@@ -1388,7 +1398,7 @@
     {
       "id": "discourse-markers-ex-29",
       "type": "multiple_choice",
-      "question": "Choose the best **balancing marker**: The treatment is costly and uncomfortable; ___, it has produced unusually durable results.",
+      "question": "Choose the best balancing marker: The treatment is costly and uncomfortable; ___, it has produced unusually durable results.",
       "options": [
         "on the other hand",
         "namely",
@@ -1424,7 +1434,7 @@
     {
       "id": "discourse-markers-ex-30",
       "type": "multiple_choice",
-      "question": "Choose the most natural **stance marker**: ___, the committee underestimated how strongly residents would oppose the rezoning plan.",
+      "question": "Choose the most natural stance marker: ___, the committee underestimated how strongly residents would oppose the rezoning plan.",
       "options": [
         "If anything",
         "Meanwhile",
@@ -1442,17 +1452,17 @@
         {
           "option": "Meanwhile",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Meanwhile\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Meanwhile\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"If anything\"). “If anything” dùng để điều chỉnh hoặc nhấn mạnh nhận định theo hướng mạnh hơn: nếu có gì thì họ còn đánh giá thấp mức phản đối. Các lựa chọn khác lần lượt chỉ thời gian, ví dụ, hoặc tóm tắt."
         },
         {
           "option": "For example",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"For example\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"For example\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"If anything\"). “If anything” dùng để điều chỉnh hoặc nhấn mạnh nhận định theo hướng mạnh hơn: nếu có gì thì họ còn đánh giá thấp mức phản đối. Các lựa chọn khác lần lượt chỉ thời gian, ví dụ, hoặc tóm tắt."
         },
         {
           "option": "In short",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"In short\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"In short\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"If anything\"). “If anything” dùng để điều chỉnh hoặc nhấn mạnh nhận định theo hướng mạnh hơn: nếu có gì thì họ còn đánh giá thấp mức phản đối. Các lựa chọn khác lần lượt chỉ thời gian, ví dụ, hoặc tóm tắt."
         }
       ],
       "difficulty": 3
@@ -1460,7 +1470,7 @@
     {
       "id": "discourse-markers-ex-31",
       "type": "multiple_choice",
-      "question": "Choose the correct **qualification marker**: The survey suggests broad approval. ___, its respondents were mostly urban professionals.",
+      "question": "The survey suggests broad approval. ___, its respondents were mostly urban professionals.",
       "options": [
         "That said",
         "Consequently",
@@ -1496,7 +1506,7 @@
     {
       "id": "discourse-markers-ex-32",
       "type": "multiple_choice",
-      "question": "Choose the best **correction marker**: The witness did not contradict herself; ___, she supplied details that were absent from her first statement.",
+      "question": "Choose the best correction marker: The witness did not contradict herself; ___, she supplied details that were absent from her first statement.",
       "options": [
         "rather",
         "similarly",
@@ -1532,7 +1542,7 @@
     {
       "id": "discourse-markers-ex-33",
       "type": "multiple_choice",
-      "question": "Choose the most suitable **comparison marker**: The new policy rewards short-term output. ___, the old system rewarded long-term mentoring.",
+      "question": "Choose the most suitable comparison marker: The new policy rewards short-term output. ___, the old system rewarded long-term mentoring.",
       "options": [
         "By contrast",
         "In particular",
@@ -1568,7 +1578,7 @@
     {
       "id": "discourse-markers-ex-34",
       "type": "multiple_choice",
-      "question": "Choose the correct **concluding marker**: The samples were contaminated, the logs were incomplete, and the protocol was changed mid-trial. ___, the findings cannot be treated as decisive.",
+      "question": "The samples were contaminated, the logs were incomplete, and the protocol was changed mid-trial. ___, the findings cannot be treated as decisive.",
       "options": [
         "Taken together",
         "Incidentally",
@@ -1604,7 +1614,7 @@
     {
       "id": "discourse-markers-ex-35",
       "type": "multiple_choice",
-      "question": "Choose the best **digression marker**: The manuscript needs stronger evidence. ___, did the journal ever reply to your appeal?",
+      "question": "Choose the best digression marker: The manuscript needs stronger evidence. ___, did the journal ever reply to your appeal?",
       "options": [
         "On a separate note",
         "Accordingly",
@@ -1640,7 +1650,7 @@
     {
       "id": "discourse-markers-ex-36",
       "type": "fill_blank",
-      "question": "Complete with a **hedging marker**: The figures are encouraging; ___, they should be interpreted with caution because the follow-up period was short.",
+      "question": "Complete with a hedging marker: The figures are encouraging; ___, they should be interpreted with caution because the follow-up period was short.",
       "options": [
         "nevertheless",
         "arguably",
@@ -1675,8 +1685,8 @@
     },
     {
       "id": "discourse-markers-ex-37",
-      "type": "fill_blank",
-      "question": "Complete the **return marker**: The staffing problem is serious, but it is not urgent today. ___, the immediate decision concerns whether to publish the audit.",
+      "type": "multiple_choice",
+      "question": "Complete the return marker: The staffing problem is serious, but it is not urgent today. ___, the immediate decision concerns whether to publish the audit.",
       "options": [
         "To return to the point",
         "As a result",
@@ -1694,17 +1704,17 @@
         {
           "option": "As a result",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"As a result\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"As a result\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"To return to the point\"). “To return to the point” đưa cuộc thảo luận quay lại vấn đề chính sau một đoạn lệch hướng. Các lựa chọn còn lại chỉ kết quả, so sánh hoặc phạm vi khác nên sai quan hệ diễn ngôn."
         },
         {
           "option": "For comparison",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"For comparison\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"For comparison\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"To return to the point\"). “To return to the point” đưa cuộc thảo luận quay lại vấn đề chính sau một đoạn lệch hướng. Các lựa chọn còn lại chỉ kết quả, so sánh hoặc phạm vi khác nên sai quan hệ diễn ngôn."
         },
         {
           "option": "In other respects",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"In other respects\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"In other respects\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"To return to the point\"). “To return to the point” đưa cuộc thảo luận quay lại vấn đề chính sau một đoạn lệch hướng. Các lựa chọn còn lại chỉ kết quả, so sánh hoặc phạm vi khác nên sai quan hệ diễn ngôn."
         }
       ],
       "difficulty": 3
@@ -1712,7 +1722,7 @@
     {
       "id": "discourse-markers-ex-38",
       "type": "fill_blank",
-      "question": "Complete with an **amplifying marker**: The proposal would reduce paperwork. ___, it would make the approval process transparent to applicants.",
+      "question": "Complete with an amplifying marker: The proposal would reduce paperwork. ___, it would make the approval process transparent to applicants.",
       "options": [
         "More importantly",
         "On the contrary",
@@ -1748,7 +1758,7 @@
     {
       "id": "discourse-markers-ex-39",
       "type": "fill_blank",
-      "question": "Complete the **reframing marker**: The reform is not a cost-cutting exercise. ___, it is an attempt to change how risk is distributed.",
+      "question": "Complete the reframing marker: The reform is not a cost-cutting exercise. ___, it is an attempt to change how risk is distributed.",
       "options": [
         "Put differently",
         "Moreover",
@@ -1784,7 +1794,7 @@
     {
       "id": "discourse-markers-ex-40",
       "type": "fill_blank",
-      "question": "Complete with the best **sequencing marker**: ___, the board should decide whether the complaint falls within its mandate at all.",
+      "question": "Complete with the best sequencing marker: ___, the board should decide whether the complaint falls within its mandate at all.",
       "options": [
         "Before anything else",
         "In the same way",
@@ -1802,17 +1812,17 @@
         {
           "option": "In the same way",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"In the same way\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"In the same way\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Before anything else\"). “Before anything else” nhấn mạnh việc cần làm đầu tiên trong trình tự xử lý. Các lựa chọn khác lần lượt chỉ tương đồng, tình cờ xảy ra, hoặc cân nhắc tổng thể."
         },
         {
           "option": "As it happens",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"As it happens\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"As it happens\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Before anything else\"). “Before anything else” nhấn mạnh việc cần làm đầu tiên trong trình tự xử lý. Các lựa chọn khác lần lượt chỉ tương đồng, tình cờ xảy ra, hoặc cân nhắc tổng thể."
         },
         {
           "option": "On balance",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"On balance\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"On balance\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Before anything else\"). “Before anything else” nhấn mạnh việc cần làm đầu tiên trong trình tự xử lý. Các lựa chọn khác lần lượt chỉ tương đồng, tình cờ xảy ra, hoặc cân nhắc tổng thể."
         }
       ],
       "difficulty": 2
@@ -1820,7 +1830,7 @@
     {
       "id": "discourse-markers-ex-41",
       "type": "fill_blank",
-      "question": "Complete the **illustration marker**: Some safeguards are merely symbolic; ___, the review panel can advise ministers but cannot block a decision.",
+      "question": "Complete the illustration marker: Some safeguards are merely symbolic; ___, the review panel can advise ministers but cannot block a decision.",
       "options": [
         "for one",
         "thereby",
@@ -1856,7 +1866,7 @@
     {
       "id": "discourse-markers-ex-42",
       "type": "fill_blank",
-      "question": "Complete with a **causal marker**: The regulator had ignored repeated warnings. ___, public confidence collapsed after the breach became known.",
+      "question": "Complete with a causal marker: The regulator had ignored repeated warnings. ___, public confidence collapsed after the breach became known.",
       "options": [
         "Unsurprisingly",
         "Alternatively",
@@ -1892,7 +1902,7 @@
     {
       "id": "discourse-markers-ex-43",
       "type": "fill_blank",
-      "question": "Complete the **limiting marker**: The model predicts demand well in stable markets. ___, it performs poorly during sudden regulatory changes.",
+      "question": "Complete the limiting marker: The model predicts demand well in stable markets. ___, it performs poorly during sudden regulatory changes.",
       "options": [
         "Even then",
         "In addition",
@@ -1928,7 +1938,7 @@
     {
       "id": "discourse-markers-ex-44",
       "type": "error_correction",
-      "question": "Find the error: The court accepted the evidence; **alternatively**, it dismissed the defendant's appeal.",
+      "question": "Find the error: The court accepted the evidence; alternatively, it dismissed the defendant's appeal.",
       "options": [
         "The court",
         "accepted",
@@ -1964,7 +1974,7 @@
     {
       "id": "discourse-markers-ex-45",
       "type": "error_correction",
-      "question": "Find the error: **To sum up**, the first objection concerns cost, while the second concerns legality.",
+      "question": "Find the error: To sum up, the first objection concerns cost, while the second concerns legality.",
       "options": [
         "To sum up",
         "first objection",
@@ -2000,7 +2010,7 @@
     {
       "id": "discourse-markers-ex-46",
       "type": "error_correction",
-      "question": "Find the error: The amendment protects tenants; **for one thing**, it also caps annual rent increases.",
+      "question": "Find the error: The amendment protects tenants; for one thing, it also caps annual rent increases.",
       "options": [
         "amendment",
         "protects tenants",
@@ -2036,7 +2046,7 @@
     {
       "id": "discourse-markers-ex-47",
       "type": "error_correction",
-      "question": "Find the error: The product was marketed as sustainable; **indeed**, later tests found unsafe levels of lead.",
+      "question": "Find the error: The product was marketed as sustainable; indeed, later tests found unsafe levels of lead.",
       "options": [
         "marketed",
         "sustainable",
@@ -2072,7 +2082,7 @@
     {
       "id": "discourse-markers-ex-48",
       "type": "error_correction",
-      "question": "Find the error: The committee postponed the vote; **to be precise**, members had not yet received the legal opinion.",
+      "question": "Find the error: The committee postponed the vote; to be precise, members had not yet received the legal opinion.",
       "options": [
         "postponed",
         "to be precise",
@@ -2108,7 +2118,7 @@
     {
       "id": "discourse-markers-ex-49",
       "type": "error_correction",
-      "question": "Find the error: **Conversely**, both departments reported higher productivity after the new system was introduced.",
+      "question": "Find the error: Conversely, both departments reported higher productivity after the new system was introduced.",
       "options": [
         "Conversely",
         "both departments",
@@ -2144,7 +2154,7 @@
     {
       "id": "discourse-markers-ex-50",
       "type": "error_correction",
-      "question": "Find the error: The contract is valid until June; **hence**, either party may terminate it without notice before then.",
+      "question": "Find the error: The contract is valid until June; hence, either party may terminate it without notice before then.",
       "options": [
         "contract",
         "valid until June",
@@ -2180,7 +2190,7 @@
     {
       "id": "discourse-markers-ex-51",
       "type": "error_correction",
-      "question": "Find the error: The minister denied receiving the memo; **in fact**, she had never been briefed on the issue.",
+      "question": "Find the error: The minister denied receiving the memo; in fact, she had never been briefed on the issue.",
       "options": [
         "denied receiving",
         "in fact",
@@ -2216,7 +2226,7 @@
     {
       "id": "discourse-markers-ex-52",
       "type": "multiple_choice",
-      "question": "Choose the best **contrast marker**: The policy was designed to reduce inequality; ___, its benefits have flowed mainly to households that were already secure.",
+      "question": "Choose the best contrast marker: The policy was designed to reduce inequality; ___, its benefits have flowed mainly to households that were already secure.",
       "options": [
         "paradoxically",
         "similarly",
@@ -2252,7 +2262,7 @@
     {
       "id": "discourse-markers-ex-53",
       "type": "multiple_choice",
-      "question": "Choose the correct **reformulation marker**: The proposal does not abolish oversight. ___, it moves oversight from the ministry to an independent panel.",
+      "question": "The proposal does not abolish oversight. ___, it moves oversight from the ministry to an independent panel.",
       "options": [
         "Rather",
         "Besides",
@@ -2288,7 +2298,7 @@
     {
       "id": "discourse-markers-ex-54",
       "type": "multiple_choice",
-      "question": "Choose the most natural **resumption marker**: We can discuss the budget later. ___, the urgent question is whether the safety review should be released today.",
+      "question": "Choose the most natural resumption marker: We can discuss the budget later. ___, the urgent question is whether the safety review should be released today.",
       "options": [
         "To return to the point",
         "For instance",
@@ -2324,7 +2334,7 @@
     {
       "id": "discourse-markers-ex-55",
       "type": "multiple_choice",
-      "question": "Choose the best **emphasis marker**: The witness was not merely uncertain; ___, she gave three mutually incompatible accounts of the meeting.",
+      "question": "Choose the best emphasis marker: The witness was not merely uncertain; ___, she gave three mutually incompatible accounts of the meeting.",
       "options": [
         "more importantly",
         "otherwise",
@@ -2360,7 +2370,7 @@
     {
       "id": "discourse-markers-ex-56",
       "type": "multiple_choice",
-      "question": "Choose the correct **exemplification marker**: The platform rewards superficial engagement. ___, posts with provocative headlines are promoted even when users do not read them.",
+      "question": "The platform rewards superficial engagement. ___, posts with provocative headlines are promoted even when users do not read them.",
       "options": [
         "For example",
         "Nevertheless",
@@ -2396,7 +2406,7 @@
     {
       "id": "discourse-markers-ex-57",
       "type": "multiple_choice",
-      "question": "Choose the most suitable **qualification marker**: The data support the claim in broad terms. ___, they say little about poorer regions where sampling was sparse.",
+      "question": "Choose the most suitable qualification marker: The data support the claim in broad terms. ___, they say little about poorer regions where sampling was sparse.",
       "options": [
         "Even so",
         "Specifically",
@@ -2432,7 +2442,7 @@
     {
       "id": "discourse-markers-ex-58",
       "type": "multiple_choice",
-      "question": "Choose the best **transition marker**: The paper explains why the reform failed. ___, it considers what future legislation might learn from that failure.",
+      "question": "Choose the best transition marker: The paper explains why the reform failed. ___, it considers what future legislation might learn from that failure.",
       "options": [
         "Having said that",
         "Next",
@@ -2468,7 +2478,7 @@
     {
       "id": "discourse-markers-ex-59",
       "type": "multiple_choice",
-      "question": "Choose the correct **inference marker**: No minutes were kept, and the participants now disagree about what was promised. ___, the committee cannot reconstruct the decision with confidence.",
+      "question": "No minutes were kept, and the participants now disagree about what was promised. ___, the committee cannot reconstruct the decision with confidence.",
       "options": [
         "Accordingly",
         "Likewise",
@@ -2504,7 +2514,7 @@
     {
       "id": "discourse-markers-ex-60",
       "type": "multiple_choice",
-      "question": "Choose the best **clarification marker**: The author uses “community” in a narrow sense. ___, she means residents with voting rights, not all people who live nearby.",
+      "question": "Choose the best clarification marker: The author uses “community” in a narrow sense. ___, she means residents with voting rights, not all people who live nearby.",
       "options": [
         "That is",
         "Still",
@@ -2540,7 +2550,7 @@
     {
       "id": "discourse-markers-ex-61",
       "type": "fill_blank",
-      "question": "Complete with a **concession marker**: The interview sample was small; ___, the responses were unusually detailed and internally consistent.",
+      "question": "Complete with a concession marker: The interview sample was small; ___, the responses were unusually detailed and internally consistent.",
       "options": [
         "nonetheless",
         "therefore",
@@ -2576,7 +2586,7 @@
     {
       "id": "discourse-markers-ex-62",
       "type": "fill_blank",
-      "question": "Complete the **topic shift**: The merger still requires regulatory approval. ___, have you seen the revised timetable for staff consultations?",
+      "question": "Complete the topic shift: The merger still requires regulatory approval. ___, have you seen the revised timetable for staff consultations?",
       "options": [
         "By the way",
         "In conclusion",
@@ -2612,7 +2622,7 @@
     {
       "id": "discourse-markers-ex-63",
       "type": "fill_blank",
-      "question": "Complete with a **corrective marker**: The speaker did not promise immediate reform; ___, she promised to appoint a commission to study it.",
+      "question": "Complete with a corrective marker: The speaker did not promise immediate reform; ___, she promised to appoint a commission to study it.",
       "options": [
         "rather",
         "therefore",
@@ -2648,7 +2658,7 @@
     {
       "id": "discourse-markers-ex-64",
       "type": "fill_blank",
-      "question": "Complete the **summative marker**: The proposal is legally uncertain, administratively costly, and politically fragile. ___, it is unlikely to survive in its present form.",
+      "question": "Complete the summative marker: The proposal is legally uncertain, administratively costly, and politically fragile. ___, it is unlikely to survive in its present form.",
       "options": [
         "In short",
         "For example",
@@ -2684,7 +2694,7 @@
     {
       "id": "discourse-markers-ex-65",
       "type": "fill_blank",
-      "question": "Complete with an **additive marker**: The new archive preserves official correspondence. ___, it includes private diaries that reveal how decisions were negotiated informally.",
+      "question": "Complete with an additive marker: The new archive preserves official correspondence. ___, it includes private diaries that reveal how decisions were negotiated informally.",
       "options": [
         "Moreover",
         "Nevertheless",
@@ -2720,7 +2730,7 @@
     {
       "id": "discourse-markers-ex-66",
       "type": "fill_blank",
-      "question": "Complete the **stance marker**: ___, the report treats a political compromise as if it were a neutral technical solution.",
+      "question": "Complete the stance marker: ___, the report treats a political compromise as if it were a neutral technical solution.",
       "options": [
         "To my mind",
         "For example",
@@ -2756,7 +2766,7 @@
     {
       "id": "discourse-markers-ex-67",
       "type": "fill_blank",
-      "question": "Complete with a **causal marker**: The instructions were ambiguous and the deadline changed twice. ___, several teams submitted incompatible versions of the form.",
+      "question": "Complete with a causal marker: The instructions were ambiguous and the deadline changed twice. ___, several teams submitted incompatible versions of the form.",
       "options": [
         "As a result",
         "By comparison",
@@ -2792,7 +2802,7 @@
     {
       "id": "discourse-markers-ex-68",
       "type": "fill_blank",
-      "question": "Complete the **counterargument marker**: The law may discourage some frivolous claims. ___, it could also deter legitimate complaints from workers who fear retaliation.",
+      "question": "Complete the counterargument marker: The law may discourage some frivolous claims. ___, it could also deter legitimate complaints from workers who fear retaliation.",
       "options": [
         "On the other hand",
         "Namely",
@@ -2828,7 +2838,7 @@
     {
       "id": "discourse-markers-ex-69",
       "type": "error_correction",
-      "question": "Find the error: The grant was not renewed; **for example**, the laboratory had to suspend two long-term projects.",
+      "question": "Find the error: The grant was not renewed; for example, the laboratory had to suspend two long-term projects.",
       "options": [
         "The grant",
         "for example",
@@ -2864,7 +2874,7 @@
     {
       "id": "discourse-markers-ex-70",
       "type": "error_correction",
-      "question": "Find the error: **Nevertheless**, the report is comprehensive, it overlooks how rural clinics collect patient data.",
+      "question": "Find the error: Nevertheless, the report is comprehensive, it overlooks how rural clinics collect patient data.",
       "options": [
         "Nevertheless",
         "the report",
@@ -2900,7 +2910,7 @@
     {
       "id": "discourse-markers-ex-71",
       "type": "error_correction",
-      "question": "Find the error: The algorithm performs well on curated images; **similarly**, it fails on noisy images from mobile phones.",
+      "question": "Find the error: The algorithm performs well on curated images; similarly, it fails on noisy images from mobile phones.",
       "options": [
         "performs well",
         "similarly",
@@ -2936,7 +2946,7 @@
     {
       "id": "discourse-markers-ex-72",
       "type": "error_correction",
-      "question": "Find the error: The committee rejected the first option; **in addition**, it chose the second instead.",
+      "question": "Find the error: The committee rejected the first option; in addition, it chose the second instead.",
       "options": [
         "rejected",
         "in addition",
@@ -2972,7 +2982,7 @@
     {
       "id": "discourse-markers-ex-73",
       "type": "error_correction",
-      "question": "Find the error: The figures look impressive at first sight; **that is**, the underlying measurements are too inconsistent to support them.",
+      "question": "Find the error: The figures look impressive at first sight; that is, the underlying measurements are too inconsistent to support them.",
       "options": [
         "figures",
         "that is",
@@ -3008,7 +3018,7 @@
     {
       "id": "discourse-markers-ex-74",
       "type": "error_correction",
-      "question": "Find the error: **For this reason**, I am not convinced by the proposal, although several of its assumptions seem plausible.",
+      "question": "Find the error: For this reason, I am not convinced by the proposal, although several of its assumptions seem plausible.",
       "options": [
         "For this reason",
         "not convinced",
@@ -3044,7 +3054,7 @@
     {
       "id": "discourse-markers-ex-75",
       "type": "error_correction",
-      "question": "Find the error: The museum has expanded its public programs; **to be sure**, attendance has increased by nearly forty percent.",
+      "question": "Find the error: The museum has expanded its public programs; to be sure, attendance has increased by nearly forty percent.",
       "options": [
         "has expanded",
         "to be sure",
@@ -3080,7 +3090,7 @@
     {
       "id": "discourse-markers-ex-76",
       "type": "error_correction",
-      "question": "Find the error: The regulation applies to commercial operators; **in particular**, it does not apply to private households.",
+      "question": "Find the error: The regulation applies to commercial operators; in particular, it does not apply to private households.",
       "options": [
         "applies to",
         "commercial operators",
@@ -3116,7 +3126,7 @@
     {
       "id": "discourse-markers-ex-77",
       "type": "multiple_choice",
-      "question": "Choose the best **concession marker**: The manuscript contains several factual errors; ___, its central argument remains difficult to dismiss.",
+      "question": "Choose the best concession marker: The manuscript contains several factual errors; ___, its central argument remains difficult to dismiss.",
       "options": [
         "all the same",
         "as a result",
@@ -3152,7 +3162,7 @@
     {
       "id": "discourse-markers-ex-78",
       "type": "multiple_choice",
-      "question": "Choose the correct **specification marker**: The funding will support public-interest technology; ___, tools that improve access to legal and medical information.",
+      "question": "The funding will support public-interest technology; ___, tools that improve access to legal and medical information.",
       "options": [
         "namely",
         "meanwhile",
@@ -3188,7 +3198,7 @@
     {
       "id": "discourse-markers-ex-79",
       "type": "multiple_choice",
-      "question": "Choose the most natural **focus marker**: The design is visually elegant, but ___, it can be maintained by a small engineering team.",
+      "question": "Choose the most natural focus marker: The design is visually elegant, but ___, it can be maintained by a small engineering team.",
       "options": [
         "more to the point",
         "for instance",
@@ -3224,7 +3234,7 @@
     {
       "id": "discourse-markers-ex-80",
       "type": "multiple_choice",
-      "question": "Choose the best **reconsideration marker**: The witness sounded confident. ___, confidence is not the same as accuracy.",
+      "question": "Choose the best reconsideration marker: The witness sounded confident. ___, confidence is not the same as accuracy.",
       "options": [
         "Then again",
         "Accordingly",
@@ -3260,7 +3270,7 @@
     {
       "id": "discourse-markers-ex-81",
       "type": "multiple_choice",
-      "question": "Choose the correct **digression marker**: The lecture will focus on judicial independence. ___, the speaker trained as a historian before studying law.",
+      "question": "The lecture will focus on judicial independence. ___, the speaker trained as a historian before studying law.",
       "options": [
         "Incidentally",
         "Consequently",
@@ -3296,7 +3306,7 @@
     {
       "id": "discourse-markers-ex-82",
       "type": "fill_blank",
-      "question": "Complete with a **limiting marker**: The clinical trial shows promise in adults; ___, its relevance to children remains untested.",
+      "question": "Complete with a limiting marker: The clinical trial shows promise in adults; ___, its relevance to children remains untested.",
       "options": [
         "even so",
         "in this respect",
@@ -3332,7 +3342,7 @@
     {
       "id": "discourse-markers-ex-83",
       "type": "fill_blank",
-      "question": "Complete the **resumption marker**: The historical background is useful, but we cannot cover every detail today. ___, the central issue is how the treaty was interpreted afterward.",
+      "question": "Complete the resumption marker: The historical background is useful, but we cannot cover every detail today. ___, the central issue is how the treaty was interpreted afterward.",
       "options": [
         "At any rate",
         "By contrast",
@@ -3368,7 +3378,7 @@
     {
       "id": "discourse-markers-ex-84",
       "type": "fill_blank",
-      "question": "Complete with a **stance marker**: ___, the editorial mistakes administrative convenience for democratic legitimacy.",
+      "question": "Complete with a stance marker: ___, the editorial mistakes administrative convenience for democratic legitimacy.",
       "options": [
         "If anything",
         "In the meantime",
@@ -3404,7 +3414,7 @@
     {
       "id": "discourse-markers-ex-85",
       "type": "fill_blank",
-      "question": "Complete the **temporal marker**: The archive will not be digitized until next year. ___, researchers must request physical copies in advance.",
+      "question": "Complete the temporal marker: The archive will not be digitized until next year. ___, researchers must request physical copies in advance.",
       "options": [
         "In the interim",
         "On balance",
@@ -3440,7 +3450,7 @@
     {
       "id": "discourse-markers-ex-86",
       "type": "error_correction",
-      "question": "Find the error: The satellite images are unusually clear; **on the contrary**, they reveal damage that earlier surveys had missed.",
+      "question": "Find the error: The satellite images are unusually clear; on the contrary, they reveal damage that earlier surveys had missed.",
       "options": [
         "unusually clear",
         "on the contrary",
@@ -3476,7 +3486,7 @@
     {
       "id": "discourse-markers-ex-87",
       "type": "error_correction",
-      "question": "Find the error: The novelist rarely discusses politics directly; **moreover**, her private letters show a deep concern with censorship.",
+      "question": "Find the error: The novelist rarely discusses politics directly; moreover, her private letters show a deep concern with censorship.",
       "options": [
         "rarely discusses",
         "moreover",
@@ -3512,7 +3522,7 @@
     {
       "id": "discourse-markers-ex-88",
       "type": "error_correction",
-      "question": "Find the error: The app does not store precise location data; **namely**, it records only the city selected by the user.",
+      "question": "Find the error: The app does not store precise location data; namely, it records only the city selected by the user.",
       "options": [
         "does not store",
         "precise location data",
@@ -3548,7 +3558,7 @@
     {
       "id": "discourse-markers-ex-89",
       "type": "error_correction",
-      "question": "Find the error: The gallery is closed for restoration; **by the same token**, online tours will remain available throughout the summer.",
+      "question": "Find the error: The gallery is closed for restoration; by the same token, online tours will remain available throughout the summer.",
       "options": [
         "closed for restoration",
         "by the same token",

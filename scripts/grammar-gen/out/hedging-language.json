@@ -403,59 +403,71 @@
     {
       "id": "hedging-language-ex-01",
       "type": "multiple_choice",
-      "question": "Cách nói nào thể hiện sự chưa chắc chắn?",
+      "question": "Regular exercise ___ to reduce the risk of heart disease.",
       "options": [
-        "This is certainly the only cause.",
-        "This might be one cause.",
-        "This must be the only cause."
+        "tends",
+        "definitely is",
+        "always",
+        "must"
       ],
-      "correct_answer": "This might be one cause.",
-      "explanation": "Might làm giảm mức độ chắc chắn của nhận định.",
+      "correct_answer": "tends",
+      "explanation": "Cấu trúc rào đón học thuật (Hedging) \"tend to + V\" (có xu hướng làm gì) giúp nhận định khách quan, tránh tuyệt đối hóa 100%.",
       "distractor_breakdowns": [
         {
-          "option": "This is certainly the only cause.",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"This is certainly the only cause.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "This might be one cause.",
+          "option": "tends",
           "isCorrect": true,
-          "pedagogicalReason": "Might làm giảm mức độ chắc chắn của nhận định."
+          "pedagogicalReason": "Cấu trúc rào đón học thuật (Hedging) \"tend to + V\" (có xu hướng làm gì) giúp nhận định khách quan, tránh tuyệt đối hóa 100%."
         },
         {
-          "option": "This must be the only cause.",
+          "option": "definitely is",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"This must be the only cause.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"definitely is\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"tends\"). Cấu trúc rào đón học thuật (Hedging) \"tend to + V\" (có xu hướng làm gì) giúp nhận định khách quan, tránh tuyệt đối hóa 100%."
+        },
+        {
+          "option": "always",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"always\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"tends\"). Cấu trúc rào đón học thuật (Hedging) \"tend to + V\" (có xu hướng làm gì) giúp nhận định khách quan, tránh tuyệt đối hóa 100%."
+        },
+        {
+          "option": "must",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"must\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"tends\"). Cấu trúc rào đón học thuật (Hedging) \"tend to + V\" (có xu hướng làm gì) giúp nhận định khách quan, tránh tuyệt đối hóa 100%."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "hedging-language-ex-02",
-      "type": "multiple_choice",
-      "question": "___, the results suggest a small improvement.",
+      "type": "fill_blank",
+      "question": "The new findings ___ to suggest a link between sleep and memory.",
       "options": [
-        "It seems that",
-        "It proves beyond doubt that",
-        "It guarantees that"
+        "appear",
+        "certainly",
+        "undoubtedly",
+        "will"
       ],
-      "correct_answer": "It seems that",
-      "explanation": "It seems that báo hiệu kết luận thận trọng.",
+      "correct_answer": "appear",
+      "explanation": "\"appear to + V\" (hoặc \"seem to + V\" - dường như) là cấu trúc rào đón tiêu chuẩn trong báo cáo khoa học.",
       "distractor_breakdowns": [
         {
-          "option": "It seems that",
+          "option": "appear",
           "isCorrect": true,
-          "pedagogicalReason": "It seems that báo hiệu kết luận thận trọng."
+          "pedagogicalReason": "\"appear to + V\" (hoặc \"seem to + V\" - dường như) là cấu trúc rào đón tiêu chuẩn trong báo cáo khoa học."
         },
         {
-          "option": "It proves beyond doubt that",
+          "option": "certainly",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It proves beyond doubt that\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. \"certainly\" là trạng từ (adverb), không đứng ở vị trí cần tính từ hoặc danh từ."
         },
         {
-          "option": "It guarantees that",
+          "option": "undoubtedly",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It guarantees that\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. \"undoubtedly\" là trạng từ (adverb), không đứng ở vị trí cần tính từ hoặc danh từ."
+        },
+        {
+          "option": "will",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"appear\"). \"appear to + V\" (hoặc \"seem to + V\" - dường như) là cấu trúc rào đón tiêu chuẩn trong báo cáo khoa học."
         }
       ],
       "difficulty": 1
@@ -463,59 +475,359 @@
     {
       "id": "hedging-language-ex-03",
       "type": "multiple_choice",
-      "question": "Chọn câu lịch sự hơn khi góp ý.",
+      "question": "Chọn câu sử dụng Ngôn ngữ rào đón (Hedging) khách quan và phù hợp nhất trong bài luận học thuật:",
       "options": [
-        "Your plan is wrong.",
-        "Your plan may need some changes.",
-        "Your plan can never work."
+        "Remote work may lead to feelings of isolation for some employees.",
+        "Remote work always makes every employee feel completely isolated.",
+        "Everybody knows remote work destroys teamwork 100%.",
+        "Remote work will definitely ruin all companies."
       ],
-      "correct_answer": "Your plan may need some changes.",
-      "explanation": "May need làm lời góp ý mềm hơn mà vẫn rõ ý.",
+      "correct_answer": "Remote work may lead to feelings of isolation for some employees.",
+      "explanation": "Việc dùng động từ khuyết thiếu \"may\" kết hợp với từ giới hạn phạm vi \"some employees\" tạo nên lập luận học thuật chặt chẽ, khách quan, tránh vơ đũa cả nắm.",
       "distractor_breakdowns": [
         {
-          "option": "Your plan is wrong.",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Your plan is wrong.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "Your plan may need some changes.",
+          "option": "Remote work may lead to feelings of isolation for some employees.",
           "isCorrect": true,
-          "pedagogicalReason": "May need làm lời góp ý mềm hơn mà vẫn rõ ý."
+          "pedagogicalReason": "Việc dùng động từ khuyết thiếu \"may\" kết hợp với từ giới hạn phạm vi \"some employees\" tạo nên lập luận học thuật chặt chẽ, khách quan, tránh vơ đũa cả nắm."
         },
         {
-          "option": "Your plan can never work.",
+          "option": "Remote work always makes every employee feel completely isolated.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Your plan can never work.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Remote work always makes every employee feel completely isolated.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Remote work may lead to feelings of isolation for some employees.\"). Việc dùng động từ khuyết thiếu \"may\" kết hợp với từ giới hạn phạm vi \"some employees\" tạo nên lập luận học thuật chặt chẽ, khách quan, tránh vơ đũa cả nắm."
+        },
+        {
+          "option": "Everybody knows remote work destroys teamwork 100%.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Everybody knows remote work destroys teamwork 100%.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Remote work may lead to feelings of isolation for some employees.\"). Việc dùng động từ khuyết thiếu \"may\" kết hợp với từ giới hạn phạm vi \"some employees\" tạo nên lập luận học thuật chặt chẽ, khách quan, tránh vơ đũa cả nắm."
+        },
+        {
+          "option": "Remote work will definitely ruin all companies.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Remote work will definitely ruin all companies.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Remote work may lead to feelings of isolation for some employees.\"). Việc dùng động từ khuyết thiếu \"may\" kết hợp với từ giới hạn phạm vi \"some employees\" tạo nên lập luận học thuật chặt chẽ, khách quan, tránh vơ đũa cả nắm."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "hedging-language-ex-04",
+      "type": "fill_blank",
+      "question": "It is ___ that global temperatures will continue to rise over the next decade.",
+      "options": [
+        "likely",
+        "certainty",
+        "probability",
+        "totally"
+      ],
+      "correct_answer": "likely",
+      "explanation": "Cấu trúc \"It is likely / probable / plausible that + S + V\" (Có khả năng cao là...) dùng tính từ \"likely\" sau \"It is\".",
+      "distractor_breakdowns": [
+        {
+          "option": "likely",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc \"It is likely / probable / plausible that + S + V\" (Có khả năng cao là...) dùng tính từ \"likely\" sau \"It is\"."
+        },
+        {
+          "option": "certainty",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"certainty\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"likely\"). Cấu trúc \"It is likely / probable / plausible that + S + V\" (Có khả năng cao là...) dùng tính từ \"likely\" sau \"It is\"."
+        },
+        {
+          "option": "probability",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"probability\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"likely\"). Cấu trúc \"It is likely / probable / plausible that + S + V\" (Có khả năng cao là...) dùng tính từ \"likely\" sau \"It is\"."
+        },
+        {
+          "option": "totally",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"totally\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"likely\"). Cấu trúc \"It is likely / probable / plausible that + S + V\" (Có khả năng cao là...) dùng tính từ \"likely\" sau \"It is\"."
         }
       ],
       "difficulty": 2
     },
     {
-      "id": "hedging-language-ex-04",
+      "id": "hedging-language-ex-05",
       "type": "multiple_choice",
-      "question": "Từ nào là dấu hiệu rào đón?",
+      "question": "The initial data ___ that the policy has had a positive effect.",
       "options": [
-        "definitely",
-        "perhaps",
-        "always"
+        "indicates",
+        "proves beyond doubt",
+        "guarantees",
+        "forces"
       ],
-      "correct_answer": "perhaps",
-      "explanation": "Perhaps nghĩa là có lẽ, không khẳng định tuyệt đối.",
+      "correct_answer": "indicates",
+      "explanation": "Trong văn viết học thuật, người ta ưu tiên các động từ rào đón như \"indicate / suggest / imply\" (cho thấy/gợi ý rằng) thay vì khẳng định tuyệt đối \"prove beyond doubt / guarantee\".",
       "distractor_breakdowns": [
         {
-          "option": "definitely",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"definitely\" là trạng từ (adverb), không thể đứng trước danh từ hoặc làm bổ ngữ sau linking verb thay cho tính từ."
-        },
-        {
-          "option": "perhaps",
+          "option": "indicates",
           "isCorrect": true,
-          "pedagogicalReason": "Perhaps nghĩa là có lẽ, không khẳng định tuyệt đối."
+          "pedagogicalReason": "Trong văn viết học thuật, người ta ưu tiên các động từ rào đón như \"indicate / suggest / imply\" (cho thấy/gợi ý rằng) thay vì khẳng định tuyệt đối \"prove beyond doubt / guarantee\"."
         },
         {
-          "option": "always",
+          "option": "proves beyond doubt",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"always\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"proves beyond doubt\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"indicates\"). Trong văn viết học thuật, người ta ưu tiên các động từ rào đón như \"indicate / suggest / imply\" (cho thấy/gợi ý rằng) thay vì khẳng định tuyệt đối \"prove beyond doubt / guarantee\"."
+        },
+        {
+          "option": "guarantees",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"guarantees\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"indicates\"). Trong văn viết học thuật, người ta ưu tiên các động từ rào đón như \"indicate / suggest / imply\" (cho thấy/gợi ý rằng) thay vì khẳng định tuyệt đối \"prove beyond doubt / guarantee\"."
+        },
+        {
+          "option": "forces",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"forces\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"indicates\"). Trong văn viết học thuật, người ta ưu tiên các động từ rào đón như \"indicate / suggest / imply\" (cho thấy/gợi ý rằng) thay vì khẳng định tuyệt đối \"prove beyond doubt / guarantee\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "hedging-language-ex-06",
+      "type": "fill_blank",
+      "question": "There is a ___ possibility that the delay was caused by a software error.",
+      "options": [
+        "strong",
+        "strongly",
+        "strength",
+        "total"
+      ],
+      "correct_answer": "strong",
+      "explanation": "Cụm danh từ rào đón \"There is a strong/slight possibility that...\" dùng tính từ \"strong\" trước danh từ \"possibility\".",
+      "distractor_breakdowns": [
+        {
+          "option": "strong",
+          "isCorrect": true,
+          "pedagogicalReason": "Cụm danh từ rào đón \"There is a strong/slight possibility that...\" dùng tính từ \"strong\" trước danh từ \"possibility\"."
+        },
+        {
+          "option": "strongly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"strongly\" là trạng từ (adverb), không đứng ở vị trí cần tính từ hoặc danh từ."
+        },
+        {
+          "option": "strength",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"strength\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"strong\"). Cụm danh từ rào đón \"There is a strong/slight possibility that...\" dùng tính từ \"strong\" trước danh từ \"possibility\"."
+        },
+        {
+          "option": "total",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"total\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"strong\"). Cụm danh từ rào đón \"There is a strong/slight possibility that...\" dùng tính từ \"strong\" trước danh từ \"possibility\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "hedging-language-ex-07",
+      "type": "multiple_choice",
+      "question": "___ some extent, social media has improved global communication.",
+      "options": [
+        "To",
+        "In",
+        "At",
+        "On"
+      ],
+      "correct_answer": "To",
+      "explanation": "Cụm trạng ngữ rào đón cố định: \"To some extent\" / \"To a certain extent\" (Ở một mức độ nào đó).",
+      "distractor_breakdowns": [
+        {
+          "option": "To",
+          "isCorrect": true,
+          "pedagogicalReason": "Cụm trạng ngữ rào đón cố định: \"To some extent\" / \"To a certain extent\" (Ở một mức độ nào đó)."
+        },
+        {
+          "option": "In",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"In\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"To\"). Cụm trạng ngữ rào đón cố định: \"To some extent\" / \"To a certain extent\" (Ở một mức độ nào đó)."
+        },
+        {
+          "option": "At",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"At\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"To\"). Cụm trạng ngữ rào đón cố định: \"To some extent\" / \"To a certain extent\" (Ở một mức độ nào đó)."
+        },
+        {
+          "option": "On",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"On\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"To\"). Cụm trạng ngữ rào đón cố định: \"To some extent\" / \"To a certain extent\" (Ở một mức độ nào đó)."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "hedging-language-ex-08",
+      "type": "fill_blank",
+      "question": "The results ___ be interpreted with caution due to the small sample size.",
+      "options": [
+        "should",
+        "are",
+        "have",
+        "do"
+      ],
+      "correct_answer": "should",
+      "explanation": "Dùng \"should be + V3\" để khuyến nghị thận trọng một cách khách quan trong nghiên cứu.",
+      "distractor_breakdowns": [
+        {
+          "option": "should",
+          "isCorrect": true,
+          "pedagogicalReason": "Dùng \"should be + V3\" để khuyến nghị thận trọng một cách khách quan trong nghiên cứu."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng động từ to be \"are\" ở vị trí này (đáp án đúng là \"should\"). Dùng \"should be + V3\" để khuyến nghị thận trọng một cách khách quan trong nghiên cứu."
+        },
+        {
+          "option": "have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"should\"). Dùng \"should be + V3\" để khuyến nghị thận trọng một cách khách quan trong nghiên cứu."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Trợ động từ \"do\" không phù hợp với ngôi của chủ ngữ hoặc cấu trúc của câu (đáp án đúng là \"should\")."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "hedging-language-ex-09",
+      "type": "multiple_choice",
+      "question": "This approach is ___ the most cost-effective solution available.",
+      "options": [
+        "arguably",
+        "100% sigurno",
+        "never",
+        "impossible"
+      ],
+      "correct_answer": "arguably",
+      "explanation": "Trạng từ rào đón \"arguably\" (có thể lập luận là / có lẽ là) đứng trước so sánh nhất để giảm tính áp đặt chủ quan.",
+      "distractor_breakdowns": [
+        {
+          "option": "arguably",
+          "isCorrect": true,
+          "pedagogicalReason": "Trạng từ rào đón \"arguably\" (có thể lập luận là / có lẽ là) đứng trước so sánh nhất để giảm tính áp đặt chủ quan."
+        },
+        {
+          "option": "100% sigurno",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"100% sigurno\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"arguably\"). Trạng từ rào đón \"arguably\" (có thể lập luận là / có lẽ là) đứng trước so sánh nhất để giảm tính áp đặt chủ quan."
+        },
+        {
+          "option": "never",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"never\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"arguably\"). Trạng từ rào đón \"arguably\" (có thể lập luận là / có lẽ là) đứng trước so sánh nhất để giảm tính áp đặt chủ quan."
+        },
+        {
+          "option": "impossible",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"impossible\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"arguably\"). Trạng từ rào đón \"arguably\" (có thể lập luận là / có lẽ là) đứng trước so sánh nhất để giảm tính áp đặt chủ quan."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "hedging-language-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: The survey results tend showing that young people prefer online shopping.",
+      "options": [
+        "survey results",
+        "tend",
+        "showing",
+        "prefer"
+      ],
+      "correct_answer": "showing",
+      "explanation": "Sau động từ rào đón \"tend\" bắt buộc phải dùng \"to + V nguyên mẫu\" (\"tend to show\"), không dùng V-ing.",
+      "distractor_breakdowns": [
+        {
+          "option": "survey results",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"survey results\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "tend",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"tend\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "showing",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau động từ rào đón \"tend\" bắt buộc phải dùng \"to + V nguyên mẫu\" (\"tend to show\"), không dùng V-ing."
+        },
+        {
+          "option": "prefer",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"prefer\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "hedging-language-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: It is probability that the new vaccine will be effective.",
+      "options": [
+        "It is",
+        "probability",
+        "that",
+        "effective"
+      ],
+      "correct_answer": "probability",
+      "explanation": "Trong cấu trúc \"It is ___ that...\", sau \"It is\" phải dùng TÍNH TỪ \"probable\" (hoặc \"likely\"), không dùng danh từ \"probability\" (nếu dùng danh từ phải là \"There is a probability that...\").",
+      "distractor_breakdowns": [
+        {
+          "option": "It is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"It is\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "probability",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong cấu trúc \"It is ___ that...\", sau \"It is\" phải dùng TÍNH TỪ \"probable\" (hoặc \"likely\"), không dùng danh từ \"probability\" (nếu dùng danh từ phải là \"There is a probability that...\")."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"that\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "effective",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"effective\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "hedging-language-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: The evidence seems that the ancient city was abandoned due to drought.",
+      "options": [
+        "The evidence",
+        "seems that",
+        "abandoned",
+        "drought"
+      ],
+      "correct_answer": "seems that",
+      "explanation": "Khi chủ ngữ là danh từ cụ thể (\"The evidence\"), sau \"seem\" phải dùng \"to V\" (\"The evidence seems to suggest/show that...\"). Chỉ khi chủ ngữ giả là \"It\" mới dùng \"It seems that...\".",
+      "distractor_breakdowns": [
+        {
+          "option": "The evidence",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"The evidence\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "seems that",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi chủ ngữ là danh từ cụ thể (\"The evidence\"), sau \"seem\" phải dùng \"to V\" (\"The evidence seems to suggest/show that...\"). Chỉ khi chủ ngữ giả là \"It\" mới dùng \"It seems that...\"."
+        },
+        {
+          "option": "abandoned",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"abandoned\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "drought",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"drought\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
       "difficulty": 3

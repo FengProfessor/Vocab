@@ -419,7 +419,12 @@
       "id": "cleft-sentences-ex-01",
       "type": "fill_blank",
       "question": "Hoàn thành theo mẫu: It ___ patience that you need.",
-      "options": [],
+      "options": [
+        "is",
+        "are",
+        "was",
+        "am"
+      ],
       "correct_answer": "is",
       "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
       "distractor_breakdowns": [
@@ -437,6 +442,11 @@
           "option": "was",
           "isCorrect": false,
           "pedagogicalReason": "Không chính xác. Mệnh đề phía sau dùng thì hiện tại đơn (\"need\"), nên câu chẻ mở đầu bằng thì hiện tại \"It is\"."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"am\" chỉ đi duy nhất với chủ ngữ ngôi thứ nhất số ít \"I\"."
         }
       ],
       "difficulty": 1
@@ -444,7 +454,7 @@
     {
       "id": "cleft-sentences-ex-02",
       "type": "multiple_choice",
-      "question": "Choose the best **it-cleft** version of: The committee rejected the proposal because of its hidden costs.",
+      "question": "Choose the best it-cleft version of: The committee rejected the proposal because of its hidden costs.",
       "options": [
         "It was because of its hidden costs that the committee rejected the proposal.",
         "It was the committee that rejected because of its hidden costs the proposal.",
@@ -462,17 +472,17 @@
         {
           "option": "It was the committee that rejected because of its hidden costs the proposal.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was the committee that rejected because of its hidden costs the proposal.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was the committee that rejected because of its hidden costs the proposal.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was because of its hidden costs that the committee rejected the proposal.\"). Đáp án đúng dùng cấu trúc It was + cụm được nhấn mạnh + that + mệnh đề còn lại. Các lựa chọn khác sai trật tự, thiếu tân ngữ, hoặc dùng what-cleft không tự nhiên với cụm nguyên nhân."
         },
         {
           "option": "What rejected the proposal was because of its hidden costs.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"What rejected the proposal was because of its hidden costs.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"What rejected the proposal was because of its hidden costs.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was because of its hidden costs that the committee rejected the proposal.\"). Đáp án đúng dùng cấu trúc It was + cụm được nhấn mạnh + that + mệnh đề còn lại. Các lựa chọn khác sai trật tự, thiếu tân ngữ, hoặc dùng what-cleft không tự nhiên với cụm nguyên nhân."
         },
         {
           "option": "The proposal was because of its hidden costs that the committee rejected.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"The proposal was because of its hidden costs that the committee rejected.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"The proposal was because of its hidden costs that the committee rejected.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was because of its hidden costs that the committee rejected the proposal.\"). Đáp án đúng dùng cấu trúc It was + cụm được nhấn mạnh + that + mệnh đề còn lại. Các lựa chọn khác sai trật tự, thiếu tân ngữ, hoặc dùng what-cleft không tự nhiên với cụm nguyên nhân."
         }
       ],
       "difficulty": 3
@@ -480,7 +490,7 @@
     {
       "id": "cleft-sentences-ex-03",
       "type": "multiple_choice",
-      "question": "Choose the correct **pseudo-cleft** sentence.",
+      "question": "Chọn câu/cấu trúc đúng ngữ pháp (pseudo-cleft sentence):",
       "options": [
         "What the witnesses described was a sudden flash of light.",
         "What did the witnesses describe was a sudden flash of light.",
@@ -498,17 +508,17 @@
         {
           "option": "What did the witnesses describe was a sudden flash of light.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"What did the witnesses describe was a sudden flash of light.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"What did the witnesses describe was a sudden flash of light.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"What the witnesses described was a sudden flash of light.\"). Trong pseudo-cleft, mệnh đề What + S + V đứng như chủ ngữ, sau đó là be + phần nhấn mạnh. Các phương án khác sai vì đảo trợ động từ, thừa it, hoặc làm sai vai trò chủ-tân ngữ."
         },
         {
           "option": "What the witnesses described it was a sudden flash of light.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"What the witnesses described it was a sudden flash of light.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"What the witnesses described it was a sudden flash of light.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"What the witnesses described was a sudden flash of light.\"). Trong pseudo-cleft, mệnh đề What + S + V đứng như chủ ngữ, sau đó là be + phần nhấn mạnh. Các phương án khác sai vì đảo trợ động từ, thừa it, hoặc làm sai vai trò chủ-tân ngữ."
         },
         {
           "option": "What described the witnesses was a sudden flash of light.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"What described the witnesses was a sudden flash of light.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"What described the witnesses was a sudden flash of light.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"What the witnesses described was a sudden flash of light.\"). Trong pseudo-cleft, mệnh đề What + S + V đứng như chủ ngữ, sau đó là be + phần nhấn mạnh. Các phương án khác sai vì đảo trợ động từ, thừa it, hoặc làm sai vai trò chủ-tân ngữ."
         }
       ],
       "difficulty": 3
@@ -516,7 +526,7 @@
     {
       "id": "cleft-sentences-ex-04",
       "type": "multiple_choice",
-      "question": "Choose the natural **reversed cleft** sentence.",
+      "question": "Choose the natural reversed cleft sentence.",
       "options": [
         "A formal apology is what the residents are demanding.",
         "A formal apology what the residents are demanding is.",
@@ -534,17 +544,17 @@
         {
           "option": "A formal apology what the residents are demanding is.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"A formal apology what the residents are demanding is.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"A formal apology what the residents are demanding is.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"A formal apology is what the residents are demanding.\"). Reversed pseudo-cleft đặt phần nhấn mạnh trước: focus + be + what-clause. Các câu còn lại sai vì thiếu be đúng vị trí, dùng that thay cho what-clause, hoặc đảo câu hỏi không cần thiết."
         },
         {
           "option": "A formal apology is that the residents are demanding.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"A formal apology is that the residents are demanding.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"A formal apology is that the residents are demanding.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"A formal apology is what the residents are demanding.\"). Reversed pseudo-cleft đặt phần nhấn mạnh trước: focus + be + what-clause. Các câu còn lại sai vì thiếu be đúng vị trí, dùng that thay cho what-clause, hoặc đảo câu hỏi không cần thiết."
         },
         {
           "option": "A formal apology is what are the residents demanding.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"A formal apology is what are the residents demanding.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"A formal apology is what are the residents demanding.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"A formal apology is what the residents are demanding.\"). Reversed pseudo-cleft đặt phần nhấn mạnh trước: focus + be + what-clause. Các câu còn lại sai vì thiếu be đúng vị trí, dùng that thay cho what-clause, hoặc đảo câu hỏi không cần thiết."
         }
       ],
       "difficulty": 3
@@ -552,7 +562,7 @@
     {
       "id": "cleft-sentences-ex-05",
       "type": "multiple_choice",
-      "question": "Choose the correct **reason cleft** sentence.",
+      "question": "Chọn câu/cấu trúc đúng ngữ pháp (reason cleft sentence):",
       "options": [
         "The reason why she withdrew was that the terms had changed.",
         "The reason why she withdrew was because the terms had changed.",
@@ -570,17 +580,17 @@
         {
           "option": "The reason why she withdrew was because the terms had changed.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"The reason why she withdrew was because the terms had changed.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"The reason why she withdrew was because the terms had changed.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"The reason why she withdrew was that the terms had changed.\"). Cấu trúc trang trọng là The reason why + clause + be + that-clause. Because sau reason bị xem là dư trong văn phong chuẩn; hai đáp án còn lại sai do thừa it hoặc đảo trợ động từ."
         },
         {
           "option": "The reason she withdrew it was that the terms had changed.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"The reason she withdrew it was that the terms had changed.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"The reason she withdrew it was that the terms had changed.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"The reason why she withdrew was that the terms had changed.\"). Cấu trúc trang trọng là The reason why + clause + be + that-clause. Because sau reason bị xem là dư trong văn phong chuẩn; hai đáp án còn lại sai do thừa it hoặc đảo trợ động từ."
         },
         {
           "option": "The reason why did she withdraw was that the terms had changed.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"The reason why did she withdraw was that the terms had changed.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"The reason why did she withdraw was that the terms had changed.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"The reason why she withdrew was that the terms had changed.\"). Cấu trúc trang trọng là The reason why + clause + be + that-clause. Because sau reason bị xem là dư trong văn phong chuẩn; hai đáp án còn lại sai do thừa it hoặc đảo trợ động từ."
         }
       ],
       "difficulty": 3
@@ -588,7 +598,7 @@
     {
       "id": "cleft-sentences-ex-06",
       "type": "multiple_choice",
-      "question": "Choose the sentence with correct **focus** on the recipient.",
+      "question": "Choose the sentence with correct focus on the recipient.",
       "options": [
         "It was to the interns that the director explained the new protocol.",
         "It was the new protocol that the director explained to the interns.",
@@ -606,17 +616,17 @@
         {
           "option": "It was the new protocol that the director explained to the interns.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was the new protocol that the director explained to the interns.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was the new protocol that the director explained to the interns.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was to the interns that the director explained the new protocol.\"). Muốn nhấn mạnh người nhận, phải đưa cụm giới từ to the interns ngay sau It was. Các lựa chọn khác nhấn mạnh tân ngữ, chủ ngữ hoặc tạo câu kém tự nhiên."
         },
         {
           "option": "It was the director who explained the new protocol to the interns.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was the director who explained the new protocol to the interns.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was the director who explained the new protocol to the interns.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was to the interns that the director explained the new protocol.\"). Muốn nhấn mạnh người nhận, phải đưa cụm giới từ to the interns ngay sau It was. Các lựa chọn khác nhấn mạnh tân ngữ, chủ ngữ hoặc tạo câu kém tự nhiên."
         },
         {
           "option": "What the director explained was the new protocol to the interns.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"What the director explained was the new protocol to the interns.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"What the director explained was the new protocol to the interns.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was to the interns that the director explained the new protocol.\"). Muốn nhấn mạnh người nhận, phải đưa cụm giới từ to the interns ngay sau It was. Các lựa chọn khác nhấn mạnh tân ngữ, chủ ngữ hoặc tạo câu kém tự nhiên."
         }
       ],
       "difficulty": 3
@@ -624,7 +634,7 @@
     {
       "id": "cleft-sentences-ex-07",
       "type": "multiple_choice",
-      "question": "Choose the best **not-until cleft** sentence.",
+      "question": "Choose the best not-until cleft sentence.",
       "options": [
         "It was not until the final audit that the discrepancy became obvious.",
         "Not until the final audit it was that the discrepancy became obvious.",
@@ -642,17 +652,17 @@
         {
           "option": "Not until the final audit it was that the discrepancy became obvious.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Not until the final audit it was that the discrepancy became obvious.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Not until the final audit it was that the discrepancy became obvious.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was not until the final audit that the discrepancy became obvious.\"). Cleft với not until có mẫu It was not until + time + that + clause. Các câu khác sai vì đảo vị trí it was, phủ định sai trọng tâm, hoặc dùng what-cleft không đúng cấu trúc."
         },
         {
           "option": "It was until the final audit that the discrepancy did not become obvious.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was until the final audit that the discrepancy did not become obvious.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was until the final audit that the discrepancy did not become obvious.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was not until the final audit that the discrepancy became obvious.\"). Cleft với not until có mẫu It was not until + time + that + clause. Các câu khác sai vì đảo vị trí it was, phủ định sai trọng tâm, hoặc dùng what-cleft không đúng cấu trúc."
         },
         {
           "option": "What was not until the final audit was the discrepancy became obvious.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"What was not until the final audit was the discrepancy became obvious.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"What was not until the final audit was the discrepancy became obvious.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was not until the final audit that the discrepancy became obvious.\"). Cleft với not until có mẫu It was not until + time + that + clause. Các câu khác sai vì đảo vị trí it was, phủ định sai trọng tâm, hoặc dùng what-cleft không đúng cấu trúc."
         }
       ],
       "difficulty": 3
@@ -660,7 +670,7 @@
     {
       "id": "cleft-sentences-ex-08",
       "type": "multiple_choice",
-      "question": "Choose the correct **subject cleft** sentence.",
+      "question": "Chọn câu/cấu trúc đúng ngữ pháp (subject cleft sentence):",
       "options": [
         "It was my supervisor who insisted that the data be rechecked.",
         "It was my supervisor whom insisted that the data be rechecked.",
@@ -678,17 +688,17 @@
         {
           "option": "It was my supervisor whom insisted that the data be rechecked.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was my supervisor whom insisted that the data be rechecked.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was my supervisor whom insisted that the data be rechecked.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was my supervisor who insisted that the data be rechecked.\"). Khi nhấn mạnh người làm chủ ngữ, dùng who hoặc that; who là lựa chọn tự nhiên nhất ở đây. Whom dùng cho tân ngữ, which cho vật, whose chỉ sở hữu nên đều sai."
         },
         {
           "option": "It was my supervisor which insisted that the data be rechecked.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was my supervisor which insisted that the data be rechecked.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was my supervisor which insisted that the data be rechecked.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was my supervisor who insisted that the data be rechecked.\"). Khi nhấn mạnh người làm chủ ngữ, dùng who hoặc that; who là lựa chọn tự nhiên nhất ở đây. Whom dùng cho tân ngữ, which cho vật, whose chỉ sở hữu nên đều sai."
         },
         {
           "option": "It was my supervisor whose insisted that the data be rechecked.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was my supervisor whose insisted that the data be rechecked.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was my supervisor whose insisted that the data be rechecked.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was my supervisor who insisted that the data be rechecked.\"). Khi nhấn mạnh người làm chủ ngữ, dùng who hoặc that; who là lựa chọn tự nhiên nhất ở đây. Whom dùng cho tân ngữ, which cho vật, whose chỉ sở hữu nên đều sai."
         }
       ],
       "difficulty": 2
@@ -696,7 +706,7 @@
     {
       "id": "cleft-sentences-ex-09",
       "type": "multiple_choice",
-      "question": "Choose the best **all-cleft** sentence.",
+      "question": "Choose the best all-cleft sentence.",
       "options": [
         "All we requested was a chance to respond.",
         "All what we requested was a chance to respond.",
@@ -714,17 +724,17 @@
         {
           "option": "All what we requested was a chance to respond.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"All what we requested was a chance to respond.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"All what we requested was a chance to respond.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"All we requested was a chance to respond.\"). All-cleft chuẩn là All + clause + be + focus. All what sai vì trùng chức năng, thừa it làm hỏng cấu trúc, và were không hòa hợp tự nhiên với focus số ít."
         },
         {
           "option": "All that we requested it was a chance to respond.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"All that we requested it was a chance to respond.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"All that we requested it was a chance to respond.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"All we requested was a chance to respond.\"). All-cleft chuẩn là All + clause + be + focus. All what sai vì trùng chức năng, thừa it làm hỏng cấu trúc, và were không hòa hợp tự nhiên với focus số ít."
         },
         {
           "option": "All we requested were a chance to respond.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"All we requested were a chance to respond.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"All we requested were a chance to respond.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"All we requested was a chance to respond.\"). All-cleft chuẩn là All + clause + be + focus. All what sai vì trùng chức năng, thừa it làm hỏng cấu trúc, và were không hòa hợp tự nhiên với focus số ít."
         }
       ],
       "difficulty": 3
@@ -732,7 +742,7 @@
     {
       "id": "cleft-sentences-ex-10",
       "type": "multiple_choice",
-      "question": "Choose the correct **contrastive cleft** sentence.",
+      "question": "Chọn câu/cấu trúc đúng ngữ pháp (contrastive cleft sentence):",
       "options": [
         "It was not the policy itself but its implementation that caused the dispute.",
         "It was not the policy itself but its implementation which caused by the dispute.",
@@ -750,17 +760,17 @@
         {
           "option": "It was not the policy itself but its implementation which caused by the dispute.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was not the policy itself but its implementation which caused by the dispute.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was not the policy itself but its implementation which caused by the dispute.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was not the policy itself but its implementation that caused the dispute.\"). Câu đúng dùng It was + cấu trúc tương phản not A but B + that + mệnh đề. Các lựa chọn khác sai vì dùng bị động sai, thừa it, hoặc thiếu that để nối mệnh đề cleft."
         },
         {
           "option": "What caused the dispute it was not the policy itself but its implementation.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"What caused the dispute it was not the policy itself but its implementation.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"What caused the dispute it was not the policy itself but its implementation.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was not the policy itself but its implementation that caused the dispute.\"). Câu đúng dùng It was + cấu trúc tương phản not A but B + that + mệnh đề. Các lựa chọn khác sai vì dùng bị động sai, thừa it, hoặc thiếu that để nối mệnh đề cleft."
         },
         {
           "option": "It was not the policy itself but its implementation caused the dispute.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was not the policy itself but its implementation caused the dispute.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was not the policy itself but its implementation caused the dispute.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was not the policy itself but its implementation that caused the dispute.\"). Câu đúng dùng It was + cấu trúc tương phản not A but B + that + mệnh đề. Các lựa chọn khác sai vì dùng bị động sai, thừa it, hoặc thiếu that để nối mệnh đề cleft."
         }
       ],
       "difficulty": 3
@@ -768,7 +778,7 @@
     {
       "id": "cleft-sentences-ex-11",
       "type": "fill_blank",
-      "question": "Complete the **cleft marker**: It was the funding model ___ ultimately determined the project's scope.",
+      "question": "Complete the cleft marker: It was the funding model ___ ultimately determined the project's scope.",
       "options": [
         "that",
         "what",
@@ -804,7 +814,7 @@
     {
       "id": "cleft-sentences-ex-12",
       "type": "fill_blank",
-      "question": "Complete the **wh-cleft**: ___ I find hardest to accept is the lack of transparency.",
+      "question": "Complete the wh-cleft: ___ I find hardest to accept is the lack of transparency.",
       "options": [
         "What",
         "That",
@@ -840,7 +850,7 @@
     {
       "id": "cleft-sentences-ex-13",
       "type": "fill_blank",
-      "question": "Complete the **verb form**: What the consultant did was ___ the workflow from scratch.",
+      "question": "Complete the verb form: What the consultant did was ___ the workflow from scratch.",
       "options": [
         "redesign",
         "redesigned",
@@ -876,7 +886,7 @@
     {
       "id": "cleft-sentences-ex-14",
       "type": "fill_blank",
-      "question": "Complete the **reason cleft**: The reason the merger collapsed was ___ neither side trusted the valuation.",
+      "question": "Complete the reason cleft: The reason the merger collapsed was ___ neither side trusted the valuation.",
       "options": [
         "that",
         "because of",
@@ -912,7 +922,7 @@
     {
       "id": "cleft-sentences-ex-15",
       "type": "fill_blank",
-      "question": "Complete the **time cleft**: It was only after the second interview ___ they realized she had misrepresented her experience.",
+      "question": "Complete the time cleft: It was only after the second interview ___ they realized she had misrepresented her experience.",
       "options": [
         "that",
         "when",
@@ -948,7 +958,7 @@
     {
       "id": "cleft-sentences-ex-16",
       "type": "fill_blank",
-      "question": "Complete the **object cleft**: It was the confidentiality clause ___ the lawyers kept referring to.",
+      "question": "Complete the object cleft: It was the confidentiality clause ___ the lawyers kept referring to.",
       "options": [
         "that",
         "who",
@@ -984,7 +994,7 @@
     {
       "id": "cleft-sentences-ex-17",
       "type": "fill_blank",
-      "question": "Complete the **reversed cleft**: The excessive paperwork is ___ most applicants complain about.",
+      "question": "Complete the reversed cleft: The excessive paperwork is ___ most applicants complain about.",
       "options": [
         "what",
         "that",
@@ -1020,7 +1030,7 @@
     {
       "id": "cleft-sentences-ex-18",
       "type": "fill_blank",
-      "question": "Complete the **emphatic cleft**: It is not more data ___ we need, but better interpretation.",
+      "question": "Complete the emphatic cleft: It is not more data ___ we need, but better interpretation.",
       "options": [
         "that",
         "what",
@@ -1056,7 +1066,7 @@
     {
       "id": "cleft-sentences-ex-19",
       "type": "error_correction",
-      "question": "Find the error: It was **the board** **who** **approved** **the revised budget** yesterday.",
+      "question": "Find the error: It was the board who approved the revised budget yesterday.",
       "options": [
         "the board",
         "who",
@@ -1092,7 +1102,7 @@
     {
       "id": "cleft-sentences-ex-20",
       "type": "error_correction",
-      "question": "Find the error: What **made** **the proposal** **convincing was** **that it addressed** every objection.",
+      "question": "Find the error: What made the proposal convincing was that it addressed every objection.",
       "options": [
         "made",
         "the proposal",
@@ -1128,7 +1138,7 @@
     {
       "id": "cleft-sentences-ex-21",
       "type": "error_correction",
-      "question": "Find the error: It **was** **because** **the deadline** **why** they rushed the review.",
+      "question": "Find the error: It was because the deadline why they rushed the review.",
       "options": [
         "was",
         "because",
@@ -1164,7 +1174,7 @@
     {
       "id": "cleft-sentences-ex-22",
       "type": "error_correction",
-      "question": "Find the error: The thing **that** **worries me** **are** **the legal implications**.",
+      "question": "Find the error: The thing that worries me are the legal implications.",
       "options": [
         "that",
         "worries me",
@@ -1200,7 +1210,7 @@
     {
       "id": "cleft-sentences-ex-23",
       "type": "error_correction",
-      "question": "Find the error: All **that** **the analyst did** **was** **to compared** the quarterly figures.",
+      "question": "Find the error: All that the analyst did was to compared the quarterly figures.",
       "options": [
         "that",
         "the analyst did",
@@ -1236,7 +1246,7 @@
     {
       "id": "cleft-sentences-ex-24",
       "type": "error_correction",
-      "question": "Find the error: It **was** **in 2019** **when** **the policy changed** dramatically.",
+      "question": "Find the error: It was in 2019 when the policy changed dramatically.",
       "options": [
         "was",
         "in 2019",
@@ -1272,7 +1282,7 @@
     {
       "id": "cleft-sentences-ex-25",
       "type": "error_correction",
-      "question": "Find the error: What **the committee** **objected to** **were** **the lack of safeguards**.",
+      "question": "Find the error: What the committee objected to were the lack of safeguards.",
       "options": [
         "the committee",
         "objected to",
@@ -1308,7 +1318,7 @@
     {
       "id": "cleft-sentences-ex-26",
       "type": "error_correction",
-      "question": "Find the error: It **is** **the assumptions** **what** **need to be challenged** first.",
+      "question": "Find the error: It is the assumptions what need to be challenged first.",
       "options": [
         "is",
         "the assumptions",
@@ -1344,7 +1354,7 @@
     {
       "id": "cleft-sentences-ex-27",
       "type": "multiple_choice",
-      "question": "Choose the best **it-cleft** emphasizing the source of the delay: The delay resulted from poor coordination, not from technical failure.",
+      "question": "Choose the best it-cleft emphasizing the source of the delay: The delay resulted from poor coordination, not from technical failure.",
       "options": [
         "It was poor coordination that caused the delay, not technical failure.",
         "It was the delay that poor coordination caused, not technical failure.",
@@ -1362,17 +1372,17 @@
         {
           "option": "It was the delay that poor coordination caused, not technical failure.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was the delay that poor coordination caused, not technical failure.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was the delay that poor coordination caused, not technical failure.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was poor coordination that caused the delay, not technical failure.\"). Câu đúng dùng cấu trúc it-cleft: It was + yếu tố được nhấn mạnh + that + mệnh đề còn lại. Các lựa chọn khác đổi trọng tâm, đảo nghĩa, hoặc nhấn mạnh sai nguyên nhân."
         },
         {
           "option": "What caused poor coordination was the delay, not technical failure.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"What caused poor coordination was the delay, not technical failure.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"What caused poor coordination was the delay, not technical failure.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was poor coordination that caused the delay, not technical failure.\"). Câu đúng dùng cấu trúc it-cleft: It was + yếu tố được nhấn mạnh + that + mệnh đề còn lại. Các lựa chọn khác đổi trọng tâm, đảo nghĩa, hoặc nhấn mạnh sai nguyên nhân."
         },
         {
           "option": "It was technical failure that caused poor coordination, not the delay.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was technical failure that caused poor coordination, not the delay.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was technical failure that caused poor coordination, not the delay.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was poor coordination that caused the delay, not technical failure.\"). Câu đúng dùng cấu trúc it-cleft: It was + yếu tố được nhấn mạnh + that + mệnh đề còn lại. Các lựa chọn khác đổi trọng tâm, đảo nghĩa, hoặc nhấn mạnh sai nguyên nhân."
         }
       ],
       "difficulty": 3
@@ -1380,7 +1390,7 @@
     {
       "id": "cleft-sentences-ex-28",
       "type": "multiple_choice",
-      "question": "Choose the correct **wh-cleft** sentence.",
+      "question": "Chọn câu/cấu trúc đúng ngữ pháp (wh-cleft sentence):",
       "options": [
         "What the shareholders objected to was the secrecy surrounding the negotiations.",
         "What the shareholders objected was to the secrecy surrounding the negotiations.",
@@ -1398,17 +1408,17 @@
         {
           "option": "What the shareholders objected was to the secrecy surrounding the negotiations.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"What the shareholders objected was to the secrecy surrounding the negotiations.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"What the shareholders objected was to the secrecy surrounding the negotiations.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"What the shareholders objected to was the secrecy surrounding the negotiations.\"). Trong pseudo-cleft, mệnh đề What giữ trật tự khẳng định và vẫn cần giới từ to sau objected. Các câu sai bỏ sai giới từ, dùng đảo trợ động từ như câu hỏi, hoặc dùng bị động không phù hợp."
         },
         {
           "option": "What did the shareholders object to was the secrecy surrounding the negotiations.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"What did the shareholders object to was the secrecy surrounding the negotiations.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"What did the shareholders object to was the secrecy surrounding the negotiations.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"What the shareholders objected to was the secrecy surrounding the negotiations.\"). Trong pseudo-cleft, mệnh đề What giữ trật tự khẳng định và vẫn cần giới từ to sau objected. Các câu sai bỏ sai giới từ, dùng đảo trợ động từ như câu hỏi, hoặc dùng bị động không phù hợp."
         },
         {
           "option": "What the shareholders were objected to was the secrecy surrounding the negotiations.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"What the shareholders were objected to was the secrecy surrounding the negotiations.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"What the shareholders were objected to was the secrecy surrounding the negotiations.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"What the shareholders objected to was the secrecy surrounding the negotiations.\"). Trong pseudo-cleft, mệnh đề What giữ trật tự khẳng định và vẫn cần giới từ to sau objected. Các câu sai bỏ sai giới từ, dùng đảo trợ động từ như câu hỏi, hoặc dùng bị động không phù hợp."
         }
       ],
       "difficulty": 3
@@ -1416,7 +1426,7 @@
     {
       "id": "cleft-sentences-ex-29",
       "type": "multiple_choice",
-      "question": "Choose the natural **prepositional cleft** sentence.",
+      "question": "Choose the natural prepositional cleft sentence.",
       "options": [
         "It was to the independent mediator that both parties eventually turned.",
         "It was the independent mediator to whom both parties eventually turned to.",
@@ -1434,17 +1444,17 @@
         {
           "option": "It was the independent mediator to whom both parties eventually turned to.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was the independent mediator to whom both parties eventually turned to.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was the independent mediator to whom both parties eventually turned to.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was to the independent mediator that both parties eventually turned.\"). Khi nhấn mạnh cụm giới từ, ta có thể đặt cả cụm to the independent mediator sau It was. Các lựa chọn khác lặp giới từ, dùng who sai cho cụm giới từ, hoặc thêm him thừa."
         },
         {
           "option": "It was to the independent mediator who both parties eventually turned.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was to the independent mediator who both parties eventually turned.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was to the independent mediator who both parties eventually turned.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was to the independent mediator that both parties eventually turned.\"). Khi nhấn mạnh cụm giới từ, ta có thể đặt cả cụm to the independent mediator sau It was. Các lựa chọn khác lặp giới từ, dùng who sai cho cụm giới từ, hoặc thêm him thừa."
         },
         {
           "option": "It was the independent mediator that both parties eventually turned to him.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was the independent mediator that both parties eventually turned to him.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was the independent mediator that both parties eventually turned to him.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was to the independent mediator that both parties eventually turned.\"). Khi nhấn mạnh cụm giới từ, ta có thể đặt cả cụm to the independent mediator sau It was. Các lựa chọn khác lặp giới từ, dùng who sai cho cụm giới từ, hoặc thêm him thừa."
         }
       ],
       "difficulty": 3
@@ -1452,7 +1462,7 @@
     {
       "id": "cleft-sentences-ex-30",
       "type": "multiple_choice",
-      "question": "Choose the correct **reversed cleft** sentence.",
+      "question": "Chọn câu/cấu trúc đúng ngữ pháp (reversed cleft sentence):",
       "options": [
         "The loss of institutional memory is what worries the new director most.",
         "What worries the new director most is the loss of institutional memory.",
@@ -1470,17 +1480,17 @@
         {
           "option": "What worries the new director most is the loss of institutional memory.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"What worries the new director most is the loss of institutional memory.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"What worries the new director most is the loss of institutional memory.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"The loss of institutional memory is what worries the new director most.\"). Reversed cleft đặt thông tin nhấn mạnh trước: focus + be + what-clause. Phương án thứ hai là pseudo-cleft thường chứ không phải reversed cleft; hai câu còn lại sai cấu trúc."
         },
         {
           "option": "It is what worries the new director most the loss of institutional memory.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It is what worries the new director most the loss of institutional memory.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It is what worries the new director most the loss of institutional memory.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"The loss of institutional memory is what worries the new director most.\"). Reversed cleft đặt thông tin nhấn mạnh trước: focus + be + what-clause. Phương án thứ hai là pseudo-cleft thường chứ không phải reversed cleft; hai câu còn lại sai cấu trúc."
         },
         {
           "option": "The loss of institutional memory is that worries the new director most.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"The loss of institutional memory is that worries the new director most.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"The loss of institutional memory is that worries the new director most.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"The loss of institutional memory is what worries the new director most.\"). Reversed cleft đặt thông tin nhấn mạnh trước: focus + be + what-clause. Phương án thứ hai là pseudo-cleft thường chứ không phải reversed cleft; hai câu còn lại sai cấu trúc."
         }
       ],
       "difficulty": 3
@@ -1488,7 +1498,7 @@
     {
       "id": "cleft-sentences-ex-31",
       "type": "multiple_choice",
-      "question": "Choose the best **place cleft** sentence.",
+      "question": "Choose the best place cleft sentence.",
       "options": [
         "It was in the abandoned annex that the researchers found the missing manuscripts.",
         "It was the abandoned annex where the researchers found in the missing manuscripts.",
@@ -1506,17 +1516,17 @@
         {
           "option": "It was the abandoned annex where the researchers found in the missing manuscripts.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was the abandoned annex where the researchers found in the missing manuscripts.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was the abandoned annex where the researchers found in the missing manuscripts.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was in the abandoned annex that the researchers found the missing manuscripts.\"). It-cleft nhấn mạnh nơi chốn thường dùng It was + cụm giới từ + that + mệnh đề. Các câu sai do thừa where/there, sai trật tự, hoặc làm vỡ cấu trúc mệnh đề chính."
         },
         {
           "option": "It was in the abandoned annex where the researchers found there the missing manuscripts.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was in the abandoned annex where the researchers found there the missing manuscripts.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was in the abandoned annex where the researchers found there the missing manuscripts.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was in the abandoned annex that the researchers found the missing manuscripts.\"). It-cleft nhấn mạnh nơi chốn thường dùng It was + cụm giới từ + that + mệnh đề. Các câu sai do thừa where/there, sai trật tự, hoặc làm vỡ cấu trúc mệnh đề chính."
         },
         {
           "option": "Where the researchers found the missing manuscripts it was in the abandoned annex.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Where the researchers found the missing manuscripts it was in the abandoned annex.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Where the researchers found the missing manuscripts it was in the abandoned annex.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was in the abandoned annex that the researchers found the missing manuscripts.\"). It-cleft nhấn mạnh nơi chốn thường dùng It was + cụm giới từ + that + mệnh đề. Các câu sai do thừa where/there, sai trật tự, hoặc làm vỡ cấu trúc mệnh đề chính."
         }
       ],
       "difficulty": 3
@@ -1524,7 +1534,7 @@
     {
       "id": "cleft-sentences-ex-32",
       "type": "multiple_choice",
-      "question": "Choose the correct **negative cleft** sentence.",
+      "question": "Chọn câu/cấu trúc đúng ngữ pháp (negative cleft sentence):",
       "options": [
         "It was not the prediction itself that unsettled investors, but the confidence with which it was made.",
         "It was not the prediction itself which unsettled investors, but with the confidence it was made.",
@@ -1542,17 +1552,17 @@
         {
           "option": "It was not the prediction itself which unsettled investors, but with the confidence it was made.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was not the prediction itself which unsettled investors, but with the confidence it was made.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was not the prediction itself which unsettled investors, but with the confidence it was made.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was not the prediction itself that unsettled investors, but the confidence with which it was made.\"). Câu đúng dùng It was not + focus + that, rồi đối lập với but + focus khác. Các lựa chọn khác thiếu thành phần, đảo nghĩa, hoặc đảo Not was sai ngữ pháp."
         },
         {
           "option": "It was not investors that unsettled the prediction itself, but the confidence with which it was made.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was not investors that unsettled the prediction itself, but the confidence with which it was made.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was not investors that unsettled the prediction itself, but the confidence with which it was made.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was not the prediction itself that unsettled investors, but the confidence with which it was made.\"). Câu đúng dùng It was not + focus + that, rồi đối lập với but + focus khác. Các lựa chọn khác thiếu thành phần, đảo nghĩa, hoặc đảo Not was sai ngữ pháp."
         },
         {
           "option": "Not was the prediction itself that unsettled investors, but the confidence with which it was made.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Not was the prediction itself that unsettled investors, but the confidence with which it was made.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Not was the prediction itself that unsettled investors, but the confidence with which it was made.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was not the prediction itself that unsettled investors, but the confidence with which it was made.\"). Câu đúng dùng It was not + focus + that, rồi đối lập với but + focus khác. Các lựa chọn khác thiếu thành phần, đảo nghĩa, hoặc đảo Not was sai ngữ pháp."
         }
       ],
       "difficulty": 3
@@ -1560,7 +1570,7 @@
     {
       "id": "cleft-sentences-ex-33",
       "type": "multiple_choice",
-      "question": "Choose the correct **do-cleft** sentence.",
+      "question": "Chọn câu/cấu trúc đúng ngữ pháp (do-cleft sentence):",
       "options": [
         "What the new regulation does is restrict the use of personal data.",
         "What the new regulation does is restricting the use of personal data.",
@@ -1578,17 +1588,17 @@
         {
           "option": "What the new regulation does is restricting the use of personal data.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"What the new regulation does is restricting the use of personal data.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"What the new regulation does is restricting the use of personal data.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"What the new regulation does is restrict the use of personal data.\"). Sau What + subject + do/does/did + be, động từ chính thường ở dạng nguyên mẫu không to. Các lựa chọn khác dùng V-ing sai hoặc đảo trật tự như câu hỏi."
         },
         {
           "option": "What does the new regulation is restrict the use of personal data.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"What does the new regulation is restrict the use of personal data.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"What does the new regulation is restrict the use of personal data.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"What the new regulation does is restrict the use of personal data.\"). Sau What + subject + do/does/did + be, động từ chính thường ở dạng nguyên mẫu không to. Các lựa chọn khác dùng V-ing sai hoặc đảo trật tự như câu hỏi."
         },
         {
           "option": "What the new regulation is does restrict the use of personal data.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"What the new regulation is does restrict the use of personal data.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"What the new regulation is does restrict the use of personal data.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"What the new regulation does is restrict the use of personal data.\"). Sau What + subject + do/does/did + be, động từ chính thường ở dạng nguyên mẫu không to. Các lựa chọn khác dùng V-ing sai hoặc đảo trật tự như câu hỏi."
         }
       ],
       "difficulty": 3
@@ -1596,7 +1606,7 @@
     {
       "id": "cleft-sentences-ex-34",
       "type": "multiple_choice",
-      "question": "Choose the natural **if-cleft** sentence.",
+      "question": "Choose the natural if-cleft sentence.",
       "options": [
         "If there is one issue that deserves immediate attention, it is the erosion of public trust.",
         "If one issue deserves immediate attention is the erosion of public trust.",
@@ -1614,17 +1624,17 @@
         {
           "option": "If one issue deserves immediate attention is the erosion of public trust.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"If one issue deserves immediate attention is the erosion of public trust.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"If one issue deserves immediate attention is the erosion of public trust.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"If there is one issue that deserves immediate attention, it is the erosion of public trust.\"). If-cleft tự nhiên có mẫu If there is one thing/issue that..., it is.... Các câu sai thiếu that, thiếu mệnh đề chính hợp lệ, hoặc đảo nghĩa không tự nhiên."
         },
         {
           "option": "If there is one issue deserves immediate attention, it is the erosion of public trust.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"If there is one issue deserves immediate attention, it is the erosion of public trust.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"If there is one issue deserves immediate attention, it is the erosion of public trust.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"If there is one issue that deserves immediate attention, it is the erosion of public trust.\"). If-cleft tự nhiên có mẫu If there is one thing/issue that..., it is.... Các câu sai thiếu that, thiếu mệnh đề chính hợp lệ, hoặc đảo nghĩa không tự nhiên."
         },
         {
           "option": "If it is the erosion of public trust, one issue deserves immediate attention.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"If it is the erosion of public trust, one issue deserves immediate attention.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"If it is the erosion of public trust, one issue deserves immediate attention.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"If there is one issue that deserves immediate attention, it is the erosion of public trust.\"). If-cleft tự nhiên có mẫu If there is one thing/issue that..., it is.... Các câu sai thiếu that, thiếu mệnh đề chính hợp lệ, hoặc đảo nghĩa không tự nhiên."
         }
       ],
       "difficulty": 3
@@ -1632,7 +1642,7 @@
     {
       "id": "cleft-sentences-ex-35",
       "type": "multiple_choice",
-      "question": "Choose the correct **all-cleft** sentence.",
+      "question": "Chọn câu/cấu trúc đúng ngữ pháp (all-cleft sentence):",
       "options": [
         "All I was asking for was a chance to respond before the decision became final.",
         "All what I was asking for was a chance to respond before the decision became final.",
@@ -1650,17 +1660,17 @@
         {
           "option": "All what I was asking for was a chance to respond before the decision became final.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"All what I was asking for was a chance to respond before the decision became final.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"All what I was asking for was a chance to respond before the decision became final.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"All I was asking for was a chance to respond before the decision became final.\"). All-cleft có thể dùng All + clause + be + focus, và động từ be thường hòa hợp với ý toàn bộ yêu cầu: was. Các lựa chọn khác dùng All what sai, thiếu to, hoặc dùng were không tự nhiên với focus số ít."
         },
         {
           "option": "All I was asking was for a chance respond before the decision became final.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"All I was asking was for a chance respond before the decision became final.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"All I was asking was for a chance respond before the decision became final.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"All I was asking for was a chance to respond before the decision became final.\"). All-cleft có thể dùng All + clause + be + focus, và động từ be thường hòa hợp với ý toàn bộ yêu cầu: was. Các lựa chọn khác dùng All what sai, thiếu to, hoặc dùng were không tự nhiên với focus số ít."
         },
         {
           "option": "All that I was asking for were a chance to respond before the decision became final.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"All that I was asking for were a chance to respond before the decision became final.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"All that I was asking for were a chance to respond before the decision became final.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"All I was asking for was a chance to respond before the decision became final.\"). All-cleft có thể dùng All + clause + be + focus, và động từ be thường hòa hợp với ý toàn bộ yêu cầu: was. Các lựa chọn khác dùng All what sai, thiếu to, hoặc dùng were không tự nhiên với focus số ít."
         }
       ],
       "difficulty": 3
@@ -1668,7 +1678,7 @@
     {
       "id": "cleft-sentences-ex-36",
       "type": "fill_blank",
-      "question": "Complete the **cleft pronoun**: It was the whistleblower ___ exposed the accounting irregularities.",
+      "question": "Complete the cleft pronoun: It was the whistleblower ___ exposed the accounting irregularities.",
       "options": [
         "who",
         "which",
@@ -1704,7 +1714,7 @@
     {
       "id": "cleft-sentences-ex-37",
       "type": "fill_blank",
-      "question": "Complete the **pseudo-cleft**: ___ made the apology credible was its lack of defensiveness.",
+      "question": "Complete the pseudo-cleft: ___ made the apology credible was its lack of defensiveness.",
       "options": [
         "What",
         "That",
@@ -1740,7 +1750,7 @@
     {
       "id": "cleft-sentences-ex-38",
       "type": "fill_blank",
-      "question": "Complete the **verb pattern**: What the crisis did was ___ underlying weaknesses in the supply chain.",
+      "question": "Complete the verb pattern: What the crisis did was ___ underlying weaknesses in the supply chain.",
       "options": [
         "reveal",
         "revealed",
@@ -1776,7 +1786,7 @@
     {
       "id": "cleft-sentences-ex-39",
       "type": "fill_blank",
-      "question": "Complete the **reason cleft**: The reason the negotiations stalled was ___ the parties could not agree on liability.",
+      "question": "Complete the reason cleft: The reason the negotiations stalled was ___ the parties could not agree on liability.",
       "options": [
         "that",
         "because",
@@ -1812,7 +1822,7 @@
     {
       "id": "cleft-sentences-ex-40",
       "type": "fill_blank",
-      "question": "Complete the **focus marker**: It is the long-term consequences ___ policymakers tend to underestimate.",
+      "question": "Complete the focus marker: It is the long-term consequences ___ policymakers tend to underestimate.",
       "options": [
         "that",
         "what",
@@ -1848,7 +1858,7 @@
     {
       "id": "cleft-sentences-ex-41",
       "type": "fill_blank",
-      "question": "Complete the **reversed cleft**: The sudden withdrawal of funding was ___ forced the laboratory to close.",
+      "question": "Complete the reversed cleft: The sudden withdrawal of funding was ___ forced the laboratory to close.",
       "options": [
         "what",
         "that",
@@ -1876,7 +1886,7 @@
         {
           "option": "why",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"why\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"why\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"what\"). Reversed cleft có mẫu focus + be + what-clause. That/which không tạo mệnh đề danh từ đúng ở vị trí này, còn why chỉ lý do."
         }
       ],
       "difficulty": 3
@@ -1884,7 +1894,7 @@
     {
       "id": "cleft-sentences-ex-42",
       "type": "fill_blank",
-      "question": "Complete the **not-until** cleft: It was not until the witness changed her statement ___ the case began to unravel.",
+      "question": "Complete the not-until cleft: It was not until the witness changed her statement ___ the case began to unravel.",
       "options": [
         "that",
         "when",
@@ -1920,7 +1930,7 @@
     {
       "id": "cleft-sentences-ex-43",
       "type": "fill_blank",
-      "question": "Complete the **contrastive cleft**: It was not the contract itself ___ concerned the union, but the precedent it might set.",
+      "question": "Complete the contrastive cleft: It was not the contract itself ___ concerned the union, but the precedent it might set.",
       "options": [
         "that",
         "what",
@@ -1956,7 +1966,7 @@
     {
       "id": "cleft-sentences-ex-44",
       "type": "fill_blank",
-      "question": "Complete the **emphatic cleft**: If there was one assumption ___ the report never questioned, it was market stability.",
+      "question": "Complete the emphatic cleft: If there was one assumption ___ the report never questioned, it was market stability.",
       "options": [
         "that",
         "what",
@@ -1992,7 +2002,7 @@
     {
       "id": "cleft-sentences-ex-45",
       "type": "error_correction",
-      "question": "Find the error: It was **the delayed shipment** **what** **triggered** **the contractual penalty**.",
+      "question": "Find the error: It was the delayed shipment what triggered the contractual penalty.",
       "options": [
         "the delayed shipment",
         "what",
@@ -2028,7 +2038,7 @@
     {
       "id": "cleft-sentences-ex-46",
       "type": "error_correction",
-      "question": "Find the error: What **the witnesses remembered** **were** **the color of the van** **rather than its license plate**.",
+      "question": "Find the error: What the witnesses remembered were the color of the van rather than its license plate.",
       "options": [
         "the witnesses remembered",
         "were",
@@ -2064,7 +2074,7 @@
     {
       "id": "cleft-sentences-ex-47",
       "type": "error_correction",
-      "question": "Find the error: It **was** **the confidentiality agreement** **which** **the journalist refused to sign it**.",
+      "question": "Find the error: It was the confidentiality agreement which the journalist refused to sign it.",
       "options": [
         "was",
         "the confidentiality agreement",
@@ -2100,7 +2110,7 @@
     {
       "id": "cleft-sentences-ex-48",
       "type": "error_correction",
-      "question": "Find the error: The place **where** **the negotiations broke down** **was** **at the final drafting session**.",
+      "question": "Find the error: The place where the negotiations broke down was at the final drafting session.",
       "options": [
         "where",
         "the negotiations broke down",
@@ -2136,7 +2146,7 @@
     {
       "id": "cleft-sentences-ex-49",
       "type": "error_correction",
-      "question": "Find the error: What **the revised policy does** **is** **to reduces** **managerial discretion**.",
+      "question": "Find the error: What the revised policy does is to reduces managerial discretion.",
       "options": [
         "the revised policy does",
         "is",
@@ -2172,7 +2182,7 @@
     {
       "id": "cleft-sentences-ex-50",
       "type": "error_correction",
-      "question": "Find the error: It **was** **only after the audit** **when** **the discrepancies became undeniable**.",
+      "question": "Find the error: It was only after the audit when the discrepancies became undeniable.",
       "options": [
         "was",
         "only after the audit",
@@ -2208,7 +2218,7 @@
     {
       "id": "cleft-sentences-ex-51",
       "type": "error_correction",
-      "question": "Find the error: The reason **she withdrew her endorsement** **was because** **the candidate had ignored** **the ethics complaint**.",
+      "question": "Find the error: The reason she withdrew her endorsement was because the candidate had ignored the ethics complaint.",
       "options": [
         "she withdrew her endorsement",
         "was because",
@@ -2244,7 +2254,7 @@
     {
       "id": "cleft-sentences-ex-52",
       "type": "error_correction",
-      "question": "Find the error: It **is** **the implications** **which needs** **closer examination**.",
+      "question": "Find the error: It is the implications which needs closer examination.",
       "options": [
         "is",
         "the implications",
@@ -2280,7 +2290,7 @@
     {
       "id": "cleft-sentences-ex-53",
       "type": "multiple_choice",
-      "question": "Choose the best **it-cleft** emphasizing the negotiator: The compromise was proposed by Mei, not by the chair.",
+      "question": "Choose the best it-cleft emphasizing the negotiator: The compromise was proposed by Mei, not by the chair.",
       "options": [
         "It was Mei who proposed the compromise, not the chair.",
         "It was the compromise that Mei proposed, not the chair.",
@@ -2298,17 +2308,17 @@
         {
           "option": "It was the compromise that Mei proposed, not the chair.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was the compromise that Mei proposed, not the chair.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was the compromise that Mei proposed, not the chair.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was Mei who proposed the compromise, not the chair.\"). Đáp án đúng dùng it-cleft: It was + người được nhấn mạnh + who + mệnh đề. Các lựa chọn khác nhấn mạnh sai thành phần, dùng wh-cleft không phù hợp, hoặc sai cấu trúc."
         },
         {
           "option": "What Mei proposed was the compromise, not the chair.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"What Mei proposed was the compromise, not the chair.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"What Mei proposed was the compromise, not the chair.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was Mei who proposed the compromise, not the chair.\"). Đáp án đúng dùng it-cleft: It was + người được nhấn mạnh + who + mệnh đề. Các lựa chọn khác nhấn mạnh sai thành phần, dùng wh-cleft không phù hợp, hoặc sai cấu trúc."
         },
         {
           "option": "Mei was who proposed the compromise, not the chair.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Mei was who proposed the compromise, not the chair.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Mei was who proposed the compromise, not the chair.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was Mei who proposed the compromise, not the chair.\"). Đáp án đúng dùng it-cleft: It was + người được nhấn mạnh + who + mệnh đề. Các lựa chọn khác nhấn mạnh sai thành phần, dùng wh-cleft không phù hợp, hoặc sai cấu trúc."
         }
       ],
       "difficulty": 2
@@ -2316,7 +2326,7 @@
     {
       "id": "cleft-sentences-ex-54",
       "type": "multiple_choice",
-      "question": "Choose the correct **wh-cleft** emphasizing the consultant's recommendation.",
+      "question": "Chọn câu/cấu trúc đúng ngữ pháp (wh-cleft emphasizing the consultant's recommendation):",
       "options": [
         "What the consultant recommended was postponing the launch.",
         "It was postponing the launch what the consultant recommended.",
@@ -2334,17 +2344,17 @@
         {
           "option": "It was postponing the launch what the consultant recommended.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was postponing the launch what the consultant recommended.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was postponing the launch what the consultant recommended.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"What the consultant recommended was postponing the launch.\"). Wh-cleft đúng là What + mệnh đề + be + phần được nhấn mạnh. Các câu còn lại sai trật tự, dùng sai đại từ quan hệ hoặc thiếu cấu trúc mệnh đề hoàn chỉnh."
         },
         {
           "option": "What recommended the consultant was postponing the launch.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"What recommended the consultant was postponing the launch.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"What recommended the consultant was postponing the launch.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"What the consultant recommended was postponing the launch.\"). Wh-cleft đúng là What + mệnh đề + be + phần được nhấn mạnh. Các câu còn lại sai trật tự, dùng sai đại từ quan hệ hoặc thiếu cấu trúc mệnh đề hoàn chỉnh."
         },
         {
           "option": "The consultant recommended was what postponing the launch.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"The consultant recommended was what postponing the launch.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"The consultant recommended was what postponing the launch.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"What the consultant recommended was postponing the launch.\"). Wh-cleft đúng là What + mệnh đề + be + phần được nhấn mạnh. Các câu còn lại sai trật tự, dùng sai đại từ quan hệ hoặc thiếu cấu trúc mệnh đề hoàn chỉnh."
         }
       ],
       "difficulty": 2
@@ -2352,7 +2362,7 @@
     {
       "id": "cleft-sentences-ex-55",
       "type": "multiple_choice",
-      "question": "Choose the natural **reason cleft** sentence.",
+      "question": "Choose the natural reason cleft sentence.",
       "options": [
         "The reason the merger collapsed was that regulators blocked it.",
         "The reason why the merger collapsed was because regulators blocked it.",
@@ -2370,17 +2380,17 @@
         {
           "option": "The reason why the merger collapsed was because regulators blocked it.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"The reason why the merger collapsed was because regulators blocked it.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"The reason why the merger collapsed was because regulators blocked it.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"The reason the merger collapsed was that regulators blocked it.\"). Sau The reason ... was nên dùng that-clause để nêu lý do. Dùng “was because” thường bị xem là thừa trong văn phong chuẩn; các lựa chọn còn lại sai cấu trúc cleft."
         },
         {
           "option": "It was because regulators blocked it was the reason the merger collapsed.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was because regulators blocked it was the reason the merger collapsed.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was because regulators blocked it was the reason the merger collapsed.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"The reason the merger collapsed was that regulators blocked it.\"). Sau The reason ... was nên dùng that-clause để nêu lý do. Dùng “was because” thường bị xem là thừa trong văn phong chuẩn; các lựa chọn còn lại sai cấu trúc cleft."
         },
         {
           "option": "What the merger collapsed was that regulators blocked it.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"What the merger collapsed was that regulators blocked it.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"What the merger collapsed was that regulators blocked it.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"The reason the merger collapsed was that regulators blocked it.\"). Sau The reason ... was nên dùng that-clause để nêu lý do. Dùng “was because” thường bị xem là thừa trong văn phong chuẩn; các lựa chọn còn lại sai cấu trúc cleft."
         }
       ],
       "difficulty": 3
@@ -2388,7 +2398,7 @@
     {
       "id": "cleft-sentences-ex-56",
       "type": "multiple_choice",
-      "question": "Choose the best **not-until** cleft sentence.",
+      "question": "Choose the best not-until cleft sentence.",
       "options": [
         "It was not until the data were independently verified that the journal accepted the paper.",
         "It was not until the data were independently verified when the journal accepted the paper.",
@@ -2406,17 +2416,17 @@
         {
           "option": "It was not until the data were independently verified when the journal accepted the paper.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was not until the data were independently verified when the journal accepted the paper.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was not until the data were independently verified when the journal accepted the paper.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was not until the data were independently verified that the journal accepted the paper.\"). Cấu trúc chuẩn là It was not until + mốc thời gian/sự kiện + that + mệnh đề chính. “When” không thay cho “that” trong cleft này, và các lựa chọn khác thiếu “not” hoặc đảo sai cấu trúc."
         },
         {
           "option": "Not until the data were independently verified was that the journal accepted the paper.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Not until the data were independently verified was that the journal accepted the paper.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Not until the data were independently verified was that the journal accepted the paper.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was not until the data were independently verified that the journal accepted the paper.\"). Cấu trúc chuẩn là It was not until + mốc thời gian/sự kiện + that + mệnh đề chính. “When” không thay cho “that” trong cleft này, và các lựa chọn khác thiếu “not” hoặc đảo sai cấu trúc."
         },
         {
           "option": "It was until the data were independently verified that the journal accepted the paper.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was until the data were independently verified that the journal accepted the paper.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was until the data were independently verified that the journal accepted the paper.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was not until the data were independently verified that the journal accepted the paper.\"). Cấu trúc chuẩn là It was not until + mốc thời gian/sự kiện + that + mệnh đề chính. “When” không thay cho “that” trong cleft này, và các lựa chọn khác thiếu “not” hoặc đảo sai cấu trúc."
         }
       ],
       "difficulty": 3
@@ -2424,7 +2434,7 @@
     {
       "id": "cleft-sentences-ex-57",
       "type": "multiple_choice",
-      "question": "Choose the correct **preposition cleft** sentence.",
+      "question": "Chọn câu/cấu trúc đúng ngữ pháp (preposition cleft sentence):",
       "options": [
         "It was to the ethics committee that the researcher submitted the complaint.",
         "It was the ethics committee to that the researcher submitted the complaint.",
@@ -2442,17 +2452,17 @@
         {
           "option": "It was the ethics committee to that the researcher submitted the complaint.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was the ethics committee to that the researcher submitted the complaint.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was the ethics committee to that the researcher submitted the complaint.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was to the ethics committee that the researcher submitted the complaint.\"). Khi nhấn mạnh cụm giới từ, dùng It was + prepositional phrase + that + mệnh đề. Các lựa chọn khác đặt giới từ sai vị trí hoặc dùng “where” không phù hợp."
         },
         {
           "option": "What the researcher submitted the complaint was to the ethics committee.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"What the researcher submitted the complaint was to the ethics committee.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"What the researcher submitted the complaint was to the ethics committee.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was to the ethics committee that the researcher submitted the complaint.\"). Khi nhấn mạnh cụm giới từ, dùng It was + prepositional phrase + that + mệnh đề. Các lựa chọn khác đặt giới từ sai vị trí hoặc dùng “where” không phù hợp."
         },
         {
           "option": "It was to the ethics committee where the researcher submitted the complaint.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was to the ethics committee where the researcher submitted the complaint.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was to the ethics committee where the researcher submitted the complaint.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was to the ethics committee that the researcher submitted the complaint.\"). Khi nhấn mạnh cụm giới từ, dùng It was + prepositional phrase + that + mệnh đề. Các lựa chọn khác đặt giới từ sai vị trí hoặc dùng “where” không phù hợp."
         }
       ],
       "difficulty": 3
@@ -2460,7 +2470,7 @@
     {
       "id": "cleft-sentences-ex-58",
       "type": "multiple_choice",
-      "question": "Choose the best **contrastive cleft** emphasizing the method, not the result.",
+      "question": "Choose the best contrastive cleft emphasizing the method, not the result.",
       "options": [
         "It was the way the evidence was gathered, not the verdict itself, that troubled the appeal court.",
         "It was the verdict itself, not the way the evidence was gathered, that troubled the appeal court.",
@@ -2478,17 +2488,17 @@
         {
           "option": "It was the verdict itself, not the way the evidence was gathered, that troubled the appeal court.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was the verdict itself, not the way the evidence was gathered, that troubled the appeal court.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was the verdict itself, not the way the evidence was gathered, that troubled the appeal court.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was the way the evidence was gathered, not the verdict itself, that troubled the appeal court.\"). Câu đúng nhấn mạnh “the way the evidence was gathered” bằng it-cleft và đối lập rõ với “the verdict itself”. Các lựa chọn khác nhấn mạnh sai ý hoặc diễn đạt sai quan hệ ngữ pháp."
         },
         {
           "option": "What troubled the appeal court was not that the evidence was gathered.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"What troubled the appeal court was not that the evidence was gathered.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"What troubled the appeal court was not that the evidence was gathered.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was the way the evidence was gathered, not the verdict itself, that troubled the appeal court.\"). Câu đúng nhấn mạnh “the way the evidence was gathered” bằng it-cleft và đối lập rõ với “the verdict itself”. Các lựa chọn khác nhấn mạnh sai ý hoặc diễn đạt sai quan hệ ngữ pháp."
         },
         {
           "option": "The way the evidence was gathered was troubled by the appeal court, not the verdict.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"The way the evidence was gathered was troubled by the appeal court, not the verdict.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"The way the evidence was gathered was troubled by the appeal court, not the verdict.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was the way the evidence was gathered, not the verdict itself, that troubled the appeal court.\"). Câu đúng nhấn mạnh “the way the evidence was gathered” bằng it-cleft và đối lập rõ với “the verdict itself”. Các lựa chọn khác nhấn mạnh sai ý hoặc diễn đạt sai quan hệ ngữ pháp."
         }
       ],
       "difficulty": 3
@@ -2496,7 +2506,7 @@
     {
       "id": "cleft-sentences-ex-59",
       "type": "multiple_choice",
-      "question": "Choose the natural **do-cleft** sentence.",
+      "question": "Choose the natural do-cleft sentence.",
       "options": [
         "What the new policy does is shift responsibility onto local councils.",
         "What the new policy does is shifts responsibility onto local councils.",
@@ -2514,17 +2524,17 @@
         {
           "option": "What the new policy does is shifts responsibility onto local councils.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"What the new policy does is shifts responsibility onto local councils.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"What the new policy does is shifts responsibility onto local councils.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"What the new policy does is shift responsibility onto local councils.\"). Trong do-cleft, sau “What ... does is” thường dùng động từ nguyên mẫu không “to”. “Shifts” sai dạng sau “is”, câu hỏi đảo trợ động từ sai, và it-cleft cuối không tự nhiên."
         },
         {
           "option": "What does the new policy is shift responsibility onto local councils.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"What does the new policy is shift responsibility onto local councils.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"What does the new policy is shift responsibility onto local councils.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"What the new policy does is shift responsibility onto local councils.\"). Trong do-cleft, sau “What ... does is” thường dùng động từ nguyên mẫu không “to”. “Shifts” sai dạng sau “is”, câu hỏi đảo trợ động từ sai, và it-cleft cuối không tự nhiên."
         },
         {
           "option": "It is shift responsibility that the new policy does.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It is shift responsibility that the new policy does.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It is shift responsibility that the new policy does.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"What the new policy does is shift responsibility onto local councils.\"). Trong do-cleft, sau “What ... does is” thường dùng động từ nguyên mẫu không “to”. “Shifts” sai dạng sau “is”, câu hỏi đảo trợ động từ sai, và it-cleft cuối không tự nhiên."
         }
       ],
       "difficulty": 3
@@ -2532,7 +2542,7 @@
     {
       "id": "cleft-sentences-ex-60",
       "type": "fill_blank",
-      "question": "Complete the **focus marker**: It was the methodology ___ the reviewers criticized most severely.",
+      "question": "Complete the focus marker: It was the methodology ___ the reviewers criticized most severely.",
       "options": [
         "that",
         "what",
@@ -2568,7 +2578,7 @@
     {
       "id": "cleft-sentences-ex-61",
       "type": "fill_blank",
-      "question": "Complete the **wh-cleft**: ___ the board underestimated was the cost of delaying the decision.",
+      "question": "Complete the wh-cleft: ___ the board underestimated was the cost of delaying the decision.",
       "options": [
         "What",
         "That",
@@ -2604,7 +2614,7 @@
     {
       "id": "cleft-sentences-ex-62",
       "type": "fill_blank",
-      "question": "Complete the **verb form**: What the amendment does is ___ the minister's discretionary powers.",
+      "question": "Complete the verb form: What the amendment does is ___ the minister's discretionary powers.",
       "options": [
         "limit",
         "limits",
@@ -2640,7 +2650,7 @@
     {
       "id": "cleft-sentences-ex-63",
       "type": "fill_blank",
-      "question": "Complete the **reason cleft**: The reason the proposal was rejected was ___ it lacked financial safeguards.",
+      "question": "Complete the reason cleft: The reason the proposal was rejected was ___ it lacked financial safeguards.",
       "options": [
         "that",
         "because",
@@ -2676,7 +2686,7 @@
     {
       "id": "cleft-sentences-ex-64",
       "type": "fill_blank",
-      "question": "Complete the **person cleft**: It was Professor Malik ___ the panel eventually trusted.",
+      "question": "Complete the person cleft: It was Professor Malik ___ the panel eventually trusted.",
       "options": [
         "whom",
         "what",
@@ -2712,7 +2722,7 @@
     {
       "id": "cleft-sentences-ex-65",
       "type": "fill_blank",
-      "question": "Complete the **time cleft**: It was only after the final witness testified ___ the prosecution changed its strategy.",
+      "question": "Complete the time cleft: It was only after the final witness testified ___ the prosecution changed its strategy.",
       "options": [
         "that",
         "when",
@@ -2748,7 +2758,7 @@
     {
       "id": "cleft-sentences-ex-66",
       "type": "fill_blank",
-      "question": "Complete the **reversed cleft**: The absence of reliable evidence is ___ makes the accusation difficult to sustain.",
+      "question": "Complete the reversed cleft: The absence of reliable evidence is ___ makes the accusation difficult to sustain.",
       "options": [
         "what",
         "that",
@@ -2784,7 +2794,7 @@
     {
       "id": "cleft-sentences-ex-67",
       "type": "fill_blank",
-      "question": "Complete the **place cleft**: It was in the footnotes ___ the most damaging admission appeared.",
+      "question": "Complete the place cleft: It was in the footnotes ___ the most damaging admission appeared.",
       "options": [
         "that",
         "where",
@@ -2812,7 +2822,7 @@
         {
           "option": "what",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"what\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"what\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"that\"). Trong it-cleft nhấn mạnh nơi chốn, dạng chuẩn là It was + cụm nơi chốn + that + mệnh đề. “Where” có thể dùng trong mệnh đề quan hệ thông thường nhưng không phải lựa chọn chuẩn cho cleft này."
         }
       ],
       "difficulty": 3
@@ -2820,7 +2830,7 @@
     {
       "id": "cleft-sentences-ex-68",
       "type": "fill_blank",
-      "question": "Complete the **if-cleft**: If there is one issue ___ the committee cannot ignore, it is data privacy.",
+      "question": "Complete the if-cleft: If there is one issue ___ the committee cannot ignore, it is data privacy.",
       "options": [
         "that",
         "what",
@@ -2856,7 +2866,7 @@
     {
       "id": "cleft-sentences-ex-69",
       "type": "error_correction",
-      "question": "Find the error: It **was** **the consultant's warning** **what** **prompted the board** to delay the acquisition.",
+      "question": "Find the error: It was the consultant's warning what prompted the board to delay the acquisition.",
       "options": [
         "was",
         "the consultant's warning",
@@ -2892,7 +2902,7 @@
     {
       "id": "cleft-sentences-ex-70",
       "type": "error_correction",
-      "question": "Find the error: What **the mayor denied** **were** **that the budget** had been manipulated before the election.",
+      "question": "Find the error: What the mayor denied were that the budget had been manipulated before the election.",
       "options": [
         "the mayor denied",
         "were",
@@ -2928,7 +2938,7 @@
     {
       "id": "cleft-sentences-ex-71",
       "type": "error_correction",
-      "question": "Find the error: It **is** **the legal consequences** **that** **worries the directors** most.",
+      "question": "Find the error: It is the legal consequences that worries the directors most.",
       "options": [
         "is",
         "the legal consequences",
@@ -2964,7 +2974,7 @@
     {
       "id": "cleft-sentences-ex-72",
       "type": "error_correction",
-      "question": "Find the error: The reason **the trial was postponed** **was because** **the lead witness** had fallen ill.",
+      "question": "Find the error: The reason the trial was postponed was because the lead witness had fallen ill.",
       "options": [
         "the trial was postponed",
         "was because",
@@ -3000,7 +3010,7 @@
     {
       "id": "cleft-sentences-ex-73",
       "type": "error_correction",
-      "question": "Find the error: It **was** **the minister** **who** **the journalist confronted him** after the hearing.",
+      "question": "Find the error: It was the minister who the journalist confronted him after the hearing.",
       "options": [
         "was",
         "the minister",
@@ -3036,7 +3046,7 @@
     {
       "id": "cleft-sentences-ex-74",
       "type": "error_correction",
-      "question": "Find the error: What **the documentary revealed** **was** **how easily** could the records be falsified.",
+      "question": "Find the error: What the documentary revealed was how easily could the records be falsified.",
       "options": [
         "the documentary revealed",
         "was",
@@ -3072,7 +3082,7 @@
     {
       "id": "cleft-sentences-ex-75",
       "type": "error_correction",
-      "question": "Find the error: It **was** **not the evidence** **but the interpretation** **were** disputed by the defense.",
+      "question": "Find the error: It was not the evidence but the interpretation were disputed by the defense.",
       "options": [
         "was",
         "not the evidence",
@@ -3108,7 +3118,7 @@
     {
       "id": "cleft-sentences-ex-76",
       "type": "multiple_choice",
-      "question": "Choose the correct **it-cleft** emphasizing the timing: The inconsistency emerged during cross-examination, not in the written report.",
+      "question": "Chọn đáp án đúng: The inconsistency emerged during cross-examination, not in the written report.",
       "options": [
         "It was during cross-examination that the inconsistency emerged.",
         "It was during cross-examination when the inconsistency emerged it.",
@@ -3126,17 +3136,17 @@
         {
           "option": "It was during cross-examination when the inconsistency emerged it.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was during cross-examination when the inconsistency emerged it.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was during cross-examination when the inconsistency emerged it.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was during cross-examination that the inconsistency emerged.\"). Cấu trúc chuẩn là “It was + cụm được nhấn mạnh + that + mệnh đề”. Các phương án sai dùng thừa “it”, đảo trật tự không tự nhiên, hoặc đặt trạng ngữ sai vị trí."
         },
         {
           "option": "During cross-examination was it that the inconsistency emerged.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"During cross-examination was it that the inconsistency emerged.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"During cross-examination was it that the inconsistency emerged.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was during cross-examination that the inconsistency emerged.\"). Cấu trúc chuẩn là “It was + cụm được nhấn mạnh + that + mệnh đề”. Các phương án sai dùng thừa “it”, đảo trật tự không tự nhiên, hoặc đặt trạng ngữ sai vị trí."
         },
         {
           "option": "It was the inconsistency that during cross-examination emerged.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was the inconsistency that during cross-examination emerged.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was the inconsistency that during cross-examination emerged.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It was during cross-examination that the inconsistency emerged.\"). Cấu trúc chuẩn là “It was + cụm được nhấn mạnh + that + mệnh đề”. Các phương án sai dùng thừa “it”, đảo trật tự không tự nhiên, hoặc đặt trạng ngữ sai vị trí."
         }
       ],
       "difficulty": 3
@@ -3144,7 +3154,7 @@
     {
       "id": "cleft-sentences-ex-77",
       "type": "multiple_choice",
-      "question": "Choose the best **wh-cleft** emphasizing the real need: The committee needs transparency more than speed.",
+      "question": "Choose the best wh-cleft emphasizing the real need: The committee needs transparency more than speed.",
       "options": [
         "What the committee needs is transparency, not speed.",
         "What needs the committee is transparency, not speed.",
@@ -3162,17 +3172,17 @@
         {
           "option": "What needs the committee is transparency, not speed.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"What needs the committee is transparency, not speed.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"What needs the committee is transparency, not speed.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"What the committee needs is transparency, not speed.\"). Wh-cleft dùng “What + clause + be + focus”; ở đây “what the committee needs” được xem như một mệnh đề danh ngữ số ít nên dùng “is”. Các lựa chọn khác sai trật tự, dùng “what” thay cho “that” trong it-cleft, hoặc sai hòa hợp chủ-vị."
         },
         {
           "option": "It is transparency what the committee needs, not speed.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It is transparency what the committee needs, not speed.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It is transparency what the committee needs, not speed.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"What the committee needs is transparency, not speed.\"). Wh-cleft dùng “What + clause + be + focus”; ở đây “what the committee needs” được xem như một mệnh đề danh ngữ số ít nên dùng “is”. Các lựa chọn khác sai trật tự, dùng “what” thay cho “that” trong it-cleft, hoặc sai hòa hợp chủ-vị."
         },
         {
           "option": "What the committee needs are transparency, not speed.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"What the committee needs are transparency, not speed.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"What the committee needs are transparency, not speed.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"What the committee needs is transparency, not speed.\"). Wh-cleft dùng “What + clause + be + focus”; ở đây “what the committee needs” được xem như một mệnh đề danh ngữ số ít nên dùng “is”. Các lựa chọn khác sai trật tự, dùng “what” thay cho “that” trong it-cleft, hoặc sai hòa hợp chủ-vị."
         }
       ],
       "difficulty": 3
@@ -3180,7 +3190,7 @@
     {
       "id": "cleft-sentences-ex-78",
       "type": "multiple_choice",
-      "question": "Choose the natural **all-cleft** sentence.",
+      "question": "Choose the natural all-cleft sentence.",
       "options": [
         "All the editorial team requested was a factual correction.",
         "All what the editorial team requested was a factual correction.",
@@ -3198,17 +3208,17 @@
         {
           "option": "All what the editorial team requested was a factual correction.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"All what the editorial team requested was a factual correction.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"All what the editorial team requested was a factual correction.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"All the editorial team requested was a factual correction.\"). All-cleft có dạng “All + clause + be + focus” để nhấn mạnh điều duy nhất được yêu cầu. “All what” không chuẩn, “were” sai vì phần “All the team requested” được hiểu là một đơn vị, và “The all” sai cấu trúc."
         },
         {
           "option": "All the editorial team requested were a factual correction.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"All the editorial team requested were a factual correction.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"All the editorial team requested were a factual correction.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"All the editorial team requested was a factual correction.\"). All-cleft có dạng “All + clause + be + focus” để nhấn mạnh điều duy nhất được yêu cầu. “All what” không chuẩn, “were” sai vì phần “All the team requested” được hiểu là một đơn vị, và “The all” sai cấu trúc."
         },
         {
           "option": "The all editorial team requested was a factual correction.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"The all editorial team requested was a factual correction.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"The all editorial team requested was a factual correction.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"All the editorial team requested was a factual correction.\"). All-cleft có dạng “All + clause + be + focus” để nhấn mạnh điều duy nhất được yêu cầu. “All what” không chuẩn, “were” sai vì phần “All the team requested” được hiểu là một đơn vị, và “The all” sai cấu trúc."
         }
       ],
       "difficulty": 3
@@ -3216,7 +3226,7 @@
     {
       "id": "cleft-sentences-ex-79",
       "type": "multiple_choice",
-      "question": "Choose the best **reversed cleft** sentence.",
+      "question": "Choose the best reversed cleft sentence.",
       "options": [
         "A breakdown in trust is what ultimately derailed the merger.",
         "A breakdown in trust is that ultimately derailed the merger.",
@@ -3234,17 +3244,17 @@
         {
           "option": "A breakdown in trust is that ultimately derailed the merger.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"A breakdown in trust is that ultimately derailed the merger.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"A breakdown in trust is that ultimately derailed the merger.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"A breakdown in trust is what ultimately derailed the merger.\"). Reversed wh-cleft đặt trọng tâm lên đầu: “Focus + be + what + clause”. “That” không thay được “what” trong cấu trúc này; các câu còn lại thừa “it” hoặc dùng “why” sai chức năng."
         },
         {
           "option": "What ultimately derailed the merger it was a breakdown in trust.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"What ultimately derailed the merger it was a breakdown in trust.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"What ultimately derailed the merger it was a breakdown in trust.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"A breakdown in trust is what ultimately derailed the merger.\"). Reversed wh-cleft đặt trọng tâm lên đầu: “Focus + be + what + clause”. “That” không thay được “what” trong cấu trúc này; các câu còn lại thừa “it” hoặc dùng “why” sai chức năng."
         },
         {
           "option": "A breakdown in trust was why ultimately derailed the merger.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"A breakdown in trust was why ultimately derailed the merger.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"A breakdown in trust was why ultimately derailed the merger.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"A breakdown in trust is what ultimately derailed the merger.\"). Reversed wh-cleft đặt trọng tâm lên đầu: “Focus + be + what + clause”. “That” không thay được “what” trong cấu trúc này; các câu còn lại thừa “it” hoặc dùng “why” sai chức năng."
         }
       ],
       "difficulty": 3
@@ -3252,7 +3262,7 @@
     {
       "id": "cleft-sentences-ex-80",
       "type": "fill_blank",
-      "question": "Complete the **focus marker**: It was the overlooked appendix ___ changed the investigators’ interpretation of the case.",
+      "question": "Complete the focus marker: It was the overlooked appendix ___ changed the investigators’ interpretation of the case.",
       "options": [
         "that",
         "what",
@@ -3288,7 +3298,7 @@
     {
       "id": "cleft-sentences-ex-81",
       "type": "fill_blank",
-      "question": "Complete the **wh-cleft**: ___ the panel found most troubling was the silence of the senior auditors.",
+      "question": "Complete the wh-cleft: ___ the panel found most troubling was the silence of the senior auditors.",
       "options": [
         "What",
         "That",
@@ -3324,7 +3334,7 @@
     {
       "id": "cleft-sentences-ex-82",
       "type": "fill_blank",
-      "question": "Complete the **reason cleft**: The reason the witness hesitated was ___ answering fully might incriminate her colleagues.",
+      "question": "Complete the reason cleft: The reason the witness hesitated was ___ answering fully might incriminate her colleagues.",
       "options": [
         "that",
         "because",
@@ -3360,7 +3370,7 @@
     {
       "id": "cleft-sentences-ex-83",
       "type": "fill_blank",
-      "question": "Complete the **verb form**: What the settlement achieved was ___ years of litigation without admitting liability.",
+      "question": "Complete the verb form: What the settlement achieved was ___ years of litigation without admitting liability.",
       "options": [
         "to end",
         "ended",
@@ -3396,7 +3406,7 @@
     {
       "id": "cleft-sentences-ex-84",
       "type": "fill_blank",
-      "question": "Complete the **negative cleft**: It was not the data itself ___ the analysts questioned, but the assumptions behind it.",
+      "question": "Complete the negative cleft: It was not the data itself ___ the analysts questioned, but the assumptions behind it.",
       "options": [
         "that",
         "what",
@@ -3432,7 +3442,7 @@
     {
       "id": "cleft-sentences-ex-85",
       "type": "error_correction",
-      "question": "Find the error: What **the union demanded** **were** **binding safety guarantees** **before any restart**.",
+      "question": "Find the error: What the union demanded were binding safety guarantees before any restart.",
       "options": [
         "the union demanded",
         "were",
@@ -3468,7 +3478,7 @@
     {
       "id": "cleft-sentences-ex-86",
       "type": "error_correction",
-      "question": "Find the error: It **was** **the whistleblower** **that** **the executives tried to discredit her**.",
+      "question": "Find the error: It was the whistleblower that the executives tried to discredit her.",
       "options": [
         "was",
         "the whistleblower",
@@ -3504,7 +3514,7 @@
     {
       "id": "cleft-sentences-ex-87",
       "type": "error_correction",
-      "question": "Find the error: The point **what** **the report emphasizes** **is** **the fragility of informal agreements**.",
+      "question": "Find the error: The point what the report emphasizes is the fragility of informal agreements.",
       "options": [
         "what",
         "the report emphasizes",
@@ -3540,7 +3550,7 @@
     {
       "id": "cleft-sentences-ex-88",
       "type": "error_correction",
-      "question": "Find the error: It **was** **by withholding key evidence** **that** **the verdict was undermined by the prosecutor**.",
+      "question": "Find the error: It was by withholding key evidence that the verdict was undermined by the prosecutor.",
       "options": [
         "was",
         "by withholding key evidence",
@@ -3576,7 +3586,7 @@
     {
       "id": "cleft-sentences-ex-89",
       "type": "multiple_choice",
-      "question": "Choose the most effective cleft sentence to emphasize the **unintended consequence** of the recent policy change.",
+      "question": "Choose the most effective cleft sentence to emphasize the unintended consequence of the recent policy change.",
       "options": [
         "It was the recent policy change that accidentally created a loophole that several companies exploited.",
         "What the recent policy change accidentally created was a loophole that several companies exploited.",
@@ -3589,7 +3599,7 @@
         {
           "option": "It was the recent policy change that accidentally created a loophole that several companies exploited.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"It was the recent policy change that accidentally created a loophole that several companies exploited.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"It was the recent policy change that accidentally created a loophole that several companies exploited.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"What the recent policy change accidentally created was a loophole that several companies exploited.\"). Cấu trúc \"What... be...\" (wh-cleft) là hiệu quả nhất để nhấn mạnh vào \"điều đã xảy ra\" hoặc \"kết quả\" của một hành động. Trong trường hợp này, \"What the recent policy change accidentally created\" làm nổi bật \"a loophole that several companies exploited\" như là hệ quả trực tiếp. Các lựa chọn khác nhấn mạnh vào chủ thể hành động (A) hoặc đưa ra lý do (D), không tập trung vào hệ quả một cách trực tiếp và tự nhiên bằng lựa chọn B."
         },
         {
           "option": "What the recent policy change accidentally created was a loophole that several companies exploited.",
@@ -3599,12 +3609,12 @@
         {
           "option": "A loophole that several companies exploited was what the recent policy change accidentally created.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"A loophole that several companies exploited was what the recent policy change accidentally created.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"A loophole that several companies exploited was what the recent policy change accidentally created.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"What the recent policy change accidentally created was a loophole that several companies exploited.\"). Cấu trúc \"What... be...\" (wh-cleft) là hiệu quả nhất để nhấn mạnh vào \"điều đã xảy ra\" hoặc \"kết quả\" của một hành động. Trong trường hợp này, \"What the recent policy change accidentally created\" làm nổi bật \"a loophole that several companies exploited\" như là hệ quả trực tiếp. Các lựa chọn khác nhấn mạnh vào chủ thể hành động (A) hoặc đưa ra lý do (D), không tập trung vào hệ quả một cách trực tiếp và tự nhiên bằng lựa chọn B."
         },
         {
           "option": "The reason a loophole was exploited by several companies was the recent policy change.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"The reason a loophole was exploited by several companies was the recent policy change.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"The reason a loophole was exploited by several companies was the recent policy change.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"What the recent policy change accidentally created was a loophole that several companies exploited.\"). Cấu trúc \"What... be...\" (wh-cleft) là hiệu quả nhất để nhấn mạnh vào \"điều đã xảy ra\" hoặc \"kết quả\" của một hành động. Trong trường hợp này, \"What the recent policy change accidentally created\" làm nổi bật \"a loophole that several companies exploited\" như là hệ quả trực tiếp. Các lựa chọn khác nhấn mạnh vào chủ thể hành động (A) hoặc đưa ra lý do (D), không tập trung vào hệ quả một cách trực tiếp và tự nhiên bằng lựa chọn B."
         }
       ],
       "difficulty": 3

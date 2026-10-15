@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { translateWithDetails, translateBatch } from '@/lib/api/translation';
 import { rateLimitUnavailableResponse, getClientIp, checkRateLimitAsync, tooManyRequests } from '@/lib/api-security';
+import { extractPhrasesFromSentence } from '@/lib/api/phrase-extractor';
+import type { ExtractedPhrase } from '@/types/translation';
 
 export const runtime = 'nodejs';
 
@@ -18,7 +20,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     }
 
     const body = await req.json().catch(() => ({}));
-    const { text, texts, sourceLang = 'en', targetLang = 'vi' } = body;
+    const { text, texts, sourceLang = 'en', targetLang = 'vi', extractPhrases = true } = body;
 
     // Batch translation mode
     if (Array.isArray(texts)) {
@@ -68,6 +70,20 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
     const result = await translateWithDetails(text, { sourceLang, targetLang });
 
+    // Tự động bóc tách cụm từ quan trọng (collocations, phrasal verbs, idioms)
+    let extractedPhrases: ExtractedPhrase[] = [];
+    if (extractPhrases && result.translatedText) {
+      const enSentence = sourceLang === 'en' ? text : targetLang === 'en' ? result.translatedText : '';
+      const viSentence = sourceLang === 'vi' ? text : targetLang === 'vi' ? result.translatedText : '';
+      if (enSentence && enSentence.split(/\s+/).filter(Boolean).length >= 3) {
+        try {
+          extractedPhrases = await extractPhrasesFromSentence(enSentence, viSentence);
+        } catch {
+          extractedPhrases = [];
+        }
+      }
+    }
+
     return NextResponse.json({
       success: true,
       translatedText: result.translatedText,
@@ -75,6 +91,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       provider: result.provider,
       sourceLang: result.sourceLang,
       targetLang: result.targetLang,
+      extractedPhrases,
     });
   } catch (error: unknown) {
     const unavailable = rateLimitUnavailableResponse(error);

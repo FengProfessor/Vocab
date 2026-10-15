@@ -28,7 +28,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       const [recentRes, gamRes] = await Promise.all([
         supabase
           .from('srs_progress')
-          .select('last_reviewed_at')
+          .select('last_reviewed_at, review_count')
           .eq('user_id', userId)
           .gte('last_reviewed_at', thirtyDaysAgo)
           .not('last_reviewed_at', 'is', null),
@@ -39,8 +39,9 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
           .maybeSingle(),
       ]);
 
+      const recentRows = recentRes.data ?? [];
       const dailyActivity = buildDailyActivity(
-        (recentRes.data ?? []).map((r) => r.last_reviewed_at as string | null),
+        recentRows.map((r) => r.last_reviewed_at as string | null),
         30,
         now,
       );
@@ -53,6 +54,20 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       const todayKey = dateKeyInTimeZone(now);
       const todayWords = dailyActivity.find((d) => d.date === todayKey)?.count ?? 0;
 
+      let todayNewWords = 0;
+      let todayReviewWords = 0;
+      for (const r of recentRows) {
+        if (!r.last_reviewed_at) continue;
+        const reviewedDateKey = dateKeyInTimeZone(new Date(r.last_reviewed_at as string));
+        if (reviewedDateKey === todayKey) {
+          if ((r.review_count ?? 0) <= 1) {
+            todayNewWords++;
+          } else {
+            todayReviewWords++;
+          }
+        }
+      }
+
       return NextResponse.json(
         {
           success: true,
@@ -60,6 +75,8 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
             dailyActivity,
             studyStreak,
             todayWords,
+            todayNewWords,
+            todayReviewWords,
             todayKey,
           },
         },

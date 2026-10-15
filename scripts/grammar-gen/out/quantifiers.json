@@ -337,26 +337,36 @@
   "exercises": [
     {
       "id": "quantifiers-ex-01",
-      "type": "fill_blank",
-      "question": "We ____ (have) English on Monday and Friday.",
-      "options": [],
-      "correct_answer": "have",
-      "explanation": "We = số nhiều → V để trơ",
+      "type": "multiple_choice",
+      "question": "I bought ___ fresh apples at the market.",
+      "options": [
+        "some",
+        "any",
+        "much",
+        "a little"
+      ],
+      "correct_answer": "some",
+      "explanation": "Trong câu khẳng định với danh từ đếm được số nhiều (\"apples\"), ta dùng \"some\" (một vài).",
       "distractor_breakdowns": [
         {
-          "option": "have",
+          "option": "some",
           "isCorrect": true,
-          "pedagogicalReason": "We = số nhiều → V để trơ"
+          "pedagogicalReason": "Trong câu khẳng định với danh từ đếm được số nhiều (\"apples\"), ta dùng \"some\" (một vài)."
         },
         {
-          "option": "has",
+          "option": "any",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"We\" là ngôi thứ nhất số nhiều, động từ ở hiện tại đơn dùng \"have\", không dùng \"has\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"any\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"some\"). Trong câu khẳng định với danh từ đếm được số nhiều (\"apples\"), ta dùng \"some\" (một vài)."
         },
         {
-          "option": "are having",
+          "option": "much",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Lịch học cố định hàng tuần dùng hiện tại đơn chỉ thói quen."
+          "pedagogicalReason": "Không chính xác. Phương án \"much\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"some\"). Trong câu khẳng định với danh từ đếm được số nhiều (\"apples\"), ta dùng \"some\" (một vài)."
+        },
+        {
+          "option": "a little",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"a little\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"some\"). Trong câu khẳng định với danh từ đếm được số nhiều (\"apples\"), ta dùng \"some\" (một vài)."
         }
       ],
       "difficulty": 1
@@ -364,51 +374,71 @@
     {
       "id": "quantifiers-ex-02",
       "type": "fill_blank",
-      "question": "____ your parents ____ (work) in a factory?",
-      "options": [],
-      "correct_answer": "Do … work",
-      "explanation": "parents = số nhiều → Do + V để trơ",
+      "question": "There aren't ___ eggs left in the fridge.",
+      "options": [
+        "any",
+        "some",
+        "much",
+        "a little"
+      ],
+      "correct_answer": "any",
+      "explanation": "Trong câu phủ định (\"aren't\"), ta dùng \"any\" trước danh từ số nhiều hoặc không đếm được.",
       "distractor_breakdowns": [
         {
-          "option": "Do … work",
+          "option": "any",
           "isCorrect": true,
-          "pedagogicalReason": "parents = số nhiều → Do + V để trơ"
+          "pedagogicalReason": "Trong câu phủ định (\"aren't\"), ta dùng \"any\" trước danh từ số nhiều hoặc không đếm được."
         },
         {
-          "option": "Does … work",
+          "option": "some",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"your parents\" là danh từ số nhiều, trợ động từ câu hỏi phải dùng \"Do\", không dùng \"Does\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"some\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"any\"). Trong câu phủ định (\"aren't\"), ta dùng \"any\" trước danh từ số nhiều hoặc không đếm được."
         },
         {
-          "option": "Are … work",
+          "option": "much",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng to-be với động từ nguyên thể \"work\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"much\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"any\"). Trong câu phủ định (\"aren't\"), ta dùng \"any\" trước danh từ số nhiều hoặc không đếm được."
+        },
+        {
+          "option": "a little",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"a little\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"any\"). Trong câu phủ định (\"aren't\"), ta dùng \"any\" trước danh từ số nhiều hoặc không đếm được."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "quantifiers-ex-03",
-      "type": "fill_blank",
-      "question": "Hoa and her sister ____ (go) to school by bike.",
-      "options": [],
-      "correct_answer": "go",
-      "explanation": "and nối 2 người → số nhiều, V để trơ",
+      "type": "multiple_choice",
+      "question": "How ___ money do you have in your wallet?",
+      "options": [
+        "much",
+        "many",
+        "few",
+        "a few"
+      ],
+      "correct_answer": "much",
+      "explanation": "\"money\" (tiền) là danh từ KHÔNG đếm được nên câu hỏi dùng \"How much\".",
       "distractor_breakdowns": [
         {
-          "option": "go",
+          "option": "much",
           "isCorrect": true,
-          "pedagogicalReason": "and nối 2 người → số nhiều, V để trơ"
+          "pedagogicalReason": "\"money\" (tiền) là danh từ KHÔNG đếm được nên câu hỏi dùng \"How much\"."
         },
         {
-          "option": "goes",
+          "option": "many",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ gồm 2 người (\"Hoa and her sister\") là chủ ngữ số nhiều, động từ để nguyên mẫu \"go\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"many\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"much\"). \"money\" (tiền) là danh từ KHÔNG đếm được nên câu hỏi dùng \"How much\"."
         },
         {
-          "option": "are going",
+          "option": "few",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Thói quen đi học bằng xe đạp dùng hiện tại đơn, không dùng tiếp diễn."
+          "pedagogicalReason": "Không chính xác. Phương án \"few\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"much\"). \"money\" (tiền) là danh từ KHÔNG đếm được nên câu hỏi dùng \"How much\"."
+        },
+        {
+          "option": "a few",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"a few\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"much\"). \"money\" (tiền) là danh từ KHÔNG đếm được nên câu hỏi dùng \"How much\"."
         }
       ],
       "difficulty": 1
@@ -416,402 +446,326 @@
     {
       "id": "quantifiers-ex-04",
       "type": "fill_blank",
-      "question": "Every player in the team ____ (want) to win.",
-      "options": [],
-      "correct_answer": "wants",
-      "explanation": "Every + danh từ số ít → V số ít",
+      "question": "How ___ students are there in the library?",
+      "options": [
+        "many",
+        "much",
+        "little",
+        "a little"
+      ],
+      "correct_answer": "many",
+      "explanation": "\"students\" là danh từ đếm được số nhiều nên dùng \"How many\".",
       "distractor_breakdowns": [
         {
-          "option": "wants",
+          "option": "many",
           "isCorrect": true,
-          "pedagogicalReason": "Every + danh từ số ít → V số ít"
+          "pedagogicalReason": "\"students\" là danh từ đếm được số nhiều nên dùng \"How many\"."
         },
         {
-          "option": "is wanting",
+          "option": "much",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"want\" là stative verb (động từ chỉ nhu cầu/trạng thái), không chia ở thì tiếp diễn dù có \"at the moment\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"much\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"many\"). \"students\" là danh từ đếm được số nhiều nên dùng \"How many\"."
         },
         {
-          "option": "want",
+          "option": "little",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"My mother\" là ngôi thứ ba số ít, động từ phải thêm \"-s\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"little\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"many\"). \"students\" là danh từ đếm được số nhiều nên dùng \"How many\"."
+        },
+        {
+          "option": "a little",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"a little\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"many\"). \"students\" là danh từ đếm được số nhiều nên dùng \"How many\"."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "quantifiers-ex-05",
-      "type": "fill_blank",
-      "question": "One of my brothers ____ (live) in Da Nang.",
-      "options": [],
-      "correct_answer": "lives",
-      "explanation": "chủ ngữ chính là “One” → số ít",
-      "distractor_breakdowns": [
-        {
-          "option": "lives",
-          "isCorrect": true,
-          "pedagogicalReason": "chủ ngữ chính là “One” → số ít"
-        },
-        {
-          "option": "live",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ là \"One of my brothers\" (chỉ một người trong số các anh trai), động từ phải chia số ít \"lives\"."
-        },
-        {
-          "option": "living",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Thiếu to-be nếu muốn dùng thì tiếp diễn."
-        }
+      "type": "multiple_choice",
+      "question": "Would you like ___ coffee?",
+      "options": [
+        "some",
+        "any",
+        "many",
+        "a few"
       ],
-      "difficulty": 1
-    },
-    {
-      "id": "quantifiers-ex-06",
-      "type": "fill_blank",
-      "question": "The cost of these books ____ (be) too high.",
-      "options": [],
-      "correct_answer": "is",
-      "explanation": "chia theo “The cost” đứng trước of",
+      "correct_answer": "some",
+      "explanation": "Trong câu mời lịch sự (\"Would you like...?\"), ta luôn dùng \"some\" thay vì \"any\".",
       "distractor_breakdowns": [
         {
-          "option": "is",
+          "option": "some",
           "isCorrect": true,
-          "pedagogicalReason": "chia theo “The cost” đứng trước of"
+          "pedagogicalReason": "Trong câu mời lịch sự (\"Would you like...?\"), ta luôn dùng \"some\" thay vì \"any\"."
         },
         {
-          "option": "are",
+          "option": "any",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"are\" dùng cho chủ ngữ số nhiều hoặc \"you/we/they\", không phù hợp với chủ ngữ số ít."
+          "pedagogicalReason": "Không chính xác. Phương án \"any\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"some\"). Trong câu mời lịch sự (\"Would you like...?\"), ta luôn dùng \"some\" thay vì \"any\"."
         },
         {
-          "option": "am",
+          "option": "many",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"am\" chỉ đi duy nhất với chủ ngữ ngôi thứ nhất \"I\"."
-        }
-      ],
-      "difficulty": 1
-    },
-    {
-      "id": "quantifiers-ex-07",
-      "type": "fill_blank",
-      "question": "Neither Bill nor Mary ____ (be) going to the party tonight.",
-      "options": [],
-      "correct_answer": "is",
-      "explanation": "vế sau là “Mary” → số ít",
-      "distractor_breakdowns": [
-        {
-          "option": "is",
-          "isCorrect": true,
-          "pedagogicalReason": "vế sau là “Mary” → số ít"
+          "pedagogicalReason": "Không chính xác. Phương án \"many\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"some\"). Trong câu mời lịch sự (\"Would you like...?\"), ta luôn dùng \"some\" thay vì \"any\"."
         },
         {
-          "option": "are",
+          "option": "a few",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"are\" dùng cho chủ ngữ số nhiều hoặc \"you/we/they\", không phù hợp với chủ ngữ số ít."
-        },
-        {
-          "option": "am",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"am\" chỉ đi duy nhất với chủ ngữ ngôi thứ nhất \"I\"."
-        }
-      ],
-      "difficulty": 1
-    },
-    {
-      "id": "quantifiers-ex-08",
-      "type": "fill_blank",
-      "question": "Some of the money ____ (be) still in the box.",
-      "options": [],
-      "correct_answer": "is",
-      "explanation": "some of + money không đếm được → số ít",
-      "distractor_breakdowns": [
-        {
-          "option": "is",
-          "isCorrect": true,
-          "pedagogicalReason": "some of + money không đếm được → số ít"
-        },
-        {
-          "option": "are",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"are\" dùng cho chủ ngữ số nhiều hoặc \"you/we/they\", không phù hợp với chủ ngữ số ít."
-        },
-        {
-          "option": "am",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"am\" chỉ đi duy nhất với chủ ngữ ngôi thứ nhất \"I\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"a few\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"some\"). Trong câu mời lịch sự (\"Would you like...?\"), ta luôn dùng \"some\" thay vì \"any\"."
         }
       ],
       "difficulty": 2
     },
     {
-      "id": "quantifiers-ex-09",
+      "id": "quantifiers-ex-06",
       "type": "fill_blank",
-      "question": "There ____ (be) no girls in this class.",
-      "options": [],
-      "correct_answer": "are",
-      "explanation": "There + be theo “no girls” số nhiều",
+      "question": "I only need ___ sugar for my tea.",
+      "options": [
+        "a little",
+        "a few",
+        "many",
+        "several"
+      ],
+      "correct_answer": "a little",
+      "explanation": "\"sugar\" (đường) là danh từ không đếm được → dùng \"a little\" (một chút, đủ dùng).",
       "distractor_breakdowns": [
         {
-          "option": "are",
+          "option": "a little",
           "isCorrect": true,
-          "pedagogicalReason": "There + be theo “no girls” số nhiều"
+          "pedagogicalReason": "\"sugar\" (đường) là danh từ không đếm được → dùng \"a little\" (một chút, đủ dùng)."
         },
         {
-          "option": "is",
+          "option": "a few",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"is\" dùng cho chủ ngữ số ít, không hòa hợp với chủ ngữ số nhiều."
+          "pedagogicalReason": "Không chính xác. Phương án \"a few\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"a little\"). \"sugar\" (đường) là danh từ không đếm được → dùng \"a little\" (một chút, đủ dùng)."
         },
         {
-          "option": "was",
+          "option": "many",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Ngữ cảnh hiện tại không dùng to-be ở quá khứ đơn."
+          "pedagogicalReason": "Không chính xác. Phương án \"many\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"a little\"). \"sugar\" (đường) là danh từ không đếm được → dùng \"a little\" (một chút, đủ dùng)."
+        },
+        {
+          "option": "several",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"several\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"a little\"). \"sugar\" (đường) là danh từ không đếm được → dùng \"a little\" (một chút, đủ dùng)."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "quantifiers-ex-07",
+      "type": "multiple_choice",
+      "question": "She has ___ close friends in Hanoi, so she is never lonely.",
+      "options": [
+        "a few",
+        "few",
+        "a little",
+        "little"
+      ],
+      "correct_answer": "a few",
+      "explanation": "\"friends\" là danh từ đếm được số nhiều + nghĩa tích cực (\"never lonely\") → dùng \"a few\" (một vài người bạn).",
+      "distractor_breakdowns": [
+        {
+          "option": "a few",
+          "isCorrect": true,
+          "pedagogicalReason": "\"friends\" là danh từ đếm được số nhiều + nghĩa tích cực (\"never lonely\") → dùng \"a few\" (một vài người bạn)."
+        },
+        {
+          "option": "few",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"few\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"a few\"). \"friends\" là danh từ đếm được số nhiều + nghĩa tích cực (\"never lonely\") → dùng \"a few\" (một vài người bạn)."
+        },
+        {
+          "option": "a little",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"a little\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"a few\"). \"friends\" là danh từ đếm được số nhiều + nghĩa tích cực (\"never lonely\") → dùng \"a few\" (một vài người bạn)."
+        },
+        {
+          "option": "little",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"little\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"a few\"). \"friends\" là danh từ đếm được số nhiều + nghĩa tích cực (\"never lonely\") → dùng \"a few\" (một vài người bạn)."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "quantifiers-ex-08",
+      "type": "fill_blank",
+      "question": "___ people came to the meeting because of the storm, so we cancelled it.",
+      "options": [
+        "Few",
+        "A few",
+        "Little",
+        "Much"
+      ],
+      "correct_answer": "Few",
+      "explanation": "\"people\" là danh từ đếm được số nhiều + nghĩa tiêu cực (rất ít, hầu như không có ai nên phải hủy họp) → dùng \"Few\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Few",
+          "isCorrect": true,
+          "pedagogicalReason": "\"people\" là danh từ đếm được số nhiều + nghĩa tiêu cực (rất ít, hầu như không có ai nên phải hủy họp) → dùng \"Few\"."
+        },
+        {
+          "option": "A few",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"A few\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Few\"). \"people\" là danh từ đếm được số nhiều + nghĩa tiêu cực (rất ít, hầu như không có ai nên phải hủy họp) → dùng \"Few\"."
+        },
+        {
+          "option": "Little",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Little\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Few\"). \"people\" là danh từ đếm được số nhiều + nghĩa tiêu cực (rất ít, hầu như không có ai nên phải hủy họp) → dùng \"Few\"."
+        },
+        {
+          "option": "Much",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Much\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Few\"). \"people\" là danh từ đếm được số nhiều + nghĩa tiêu cực (rất ít, hầu như không có ai nên phải hủy họp) → dùng \"Few\"."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "quantifiers-ex-09",
+      "type": "multiple_choice",
+      "question": "We don't have ___ time before the train leaves.",
+      "options": [
+        "much",
+        "many",
+        "a few",
+        "few"
+      ],
+      "correct_answer": "much",
+      "explanation": "\"time\" (thời gian) là danh từ không đếm được trong câu phủ định → dùng \"much\".",
+      "distractor_breakdowns": [
+        {
+          "option": "much",
+          "isCorrect": true,
+          "pedagogicalReason": "\"time\" (thời gian) là danh từ không đếm được trong câu phủ định → dùng \"much\"."
+        },
+        {
+          "option": "many",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"many\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"much\"). \"time\" (thời gian) là danh từ không đếm được trong câu phủ định → dùng \"much\"."
+        },
+        {
+          "option": "a few",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"a few\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"much\"). \"time\" (thời gian) là danh từ không đếm được trong câu phủ định → dùng \"much\"."
+        },
+        {
+          "option": "few",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"few\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"much\"). \"time\" (thời gian) là danh từ không đếm được trong câu phủ định → dùng \"much\"."
         }
       ],
       "difficulty": 2
     },
     {
       "id": "quantifiers-ex-10",
-      "type": "fill_blank",
-      "question": "Each item in the bill ____ (be) correct.",
-      "options": [],
-      "correct_answer": "is",
-      "explanation": "Each + danh từ số ít → số ít",
+      "type": "error_correction",
+      "question": "Find the error: She has many homework to finish tonight.",
+      "options": [
+        "has",
+        "many",
+        "homework",
+        "tonight"
+      ],
+      "correct_answer": "many",
+      "explanation": "\"homework\" (bài tập về nhà) là danh từ KHÔNG đếm được nên không đi với \"many\". Phải sửa thành \"much\" hoặc \"a lot of\".",
       "distractor_breakdowns": [
         {
-          "option": "is",
+          "option": "has",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"has\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "many",
           "isCorrect": true,
-          "pedagogicalReason": "Each + danh từ số ít → số ít"
+          "pedagogicalReason": "\"homework\" (bài tập về nhà) là danh từ KHÔNG đếm được nên không đi với \"many\". Phải sửa thành \"much\" hoặc \"a lot of\"."
         },
         {
-          "option": "are",
+          "option": "homework",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"are\" dùng cho chủ ngữ số nhiều hoặc \"you/we/they\", không phù hợp với chủ ngữ số ít."
+          "pedagogicalReason": "Không chính xác. Thành phần \"homework\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         },
         {
-          "option": "am",
+          "option": "tonight",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"am\" chỉ đi duy nhất với chủ ngữ ngôi thứ nhất \"I\"."
+          "pedagogicalReason": "Không chính xác. Thành phần \"tonight\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
       "difficulty": 2
     },
     {
       "id": "quantifiers-ex-11",
-      "type": "fill_blank",
-      "question": "Half of the students in my class ____ (wear) glasses.",
-      "options": [],
-      "correct_answer": "wear",
-      "explanation": "half of + students số nhiều → số nhiều",
+      "type": "error_correction",
+      "question": "Find the error: Can you give me a few advice on this problem?",
+      "options": [
+        "give",
+        "a few",
+        "advice",
+        "problem"
+      ],
+      "correct_answer": "a few",
+      "explanation": "\"advice\" (lời khuyên) là danh từ KHÔNG đếm được nên phải dùng \"some\" hoặc \"a little\", không dùng \"a few\".",
       "distractor_breakdowns": [
         {
-          "option": "wear",
+          "option": "give",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"give\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "a few",
           "isCorrect": true,
-          "pedagogicalReason": "half of + students số nhiều → số nhiều"
+          "pedagogicalReason": "\"advice\" (lời khuyên) là danh từ KHÔNG đếm được nên phải dùng \"some\" hoặc \"a little\", không dùng \"a few\"."
         },
         {
-          "option": "wears",
+          "option": "advice",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"Half of the students\" chỉ một nửa số học sinh (danh từ số nhiều), động từ chia số nhiều \"wear\"."
+          "pedagogicalReason": "Không chính xác. Thành phần \"advice\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         },
         {
-          "option": "is wearing",
+          "option": "problem",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Sự thật chung về việc đeo kính dùng hiện tại đơn."
+          "pedagogicalReason": "Không chính xác. Thành phần \"problem\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
-      "difficulty": 2
+      "difficulty": 3
     },
     {
       "id": "quantifiers-ex-12",
-      "type": "fill_blank",
-      "question": "The boy with his two dogs ____ (be) waiting outside.",
-      "options": [],
-      "correct_answer": "is",
-      "explanation": "with → theo “The boy” đứng trước",
-      "distractor_breakdowns": [
-        {
-          "option": "is",
-          "isCorrect": true,
-          "pedagogicalReason": "with → theo “The boy” đứng trước"
-        },
-        {
-          "option": "are",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"are\" dùng cho chủ ngữ số nhiều hoặc \"you/we/they\", không phù hợp với chủ ngữ số ít."
-        },
-        {
-          "option": "am",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"am\" chỉ đi duy nhất với chủ ngữ ngôi thứ nhất \"I\"."
-        }
-      ],
-      "difficulty": 2
-    },
-    {
-      "id": "quantifiers-ex-13",
-      "type": "fill_blank",
-      "question": "Not only my parents but also my sister ____ (like) this song.",
-      "options": [],
-      "correct_answer": "likes",
-      "explanation": "vế sau là “my sister” → số ít",
-      "distractor_breakdowns": [
-        {
-          "option": "likes",
-          "isCorrect": true,
-          "pedagogicalReason": "vế sau là “my sister” → số ít"
-        },
-        {
-          "option": "like",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Cấu trúc \"Not only... but also...\" hòa hợp theo chủ ngữ gần nhất \"my sister\" (số ít), động từ phải thêm \"-s\" (\"likes\")."
-        },
-        {
-          "option": "are liking",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"like\" là stative verb không chia tiếp diễn."
-        }
-      ],
-      "difficulty": 2
-    },
-    {
-      "id": "quantifiers-ex-14",
-      "type": "fill_blank",
-      "question": "These exercises ____ (check) by the teacher every Friday.",
-      "options": [],
-      "correct_answer": "are checked",
-      "explanation": "exercises số nhiều + every Friday → are + V3",
-      "distractor_breakdowns": [
-        {
-          "option": "are checked",
-          "isCorrect": true,
-          "pedagogicalReason": "exercises số nhiều + every Friday → are + V3"
-        },
-        {
-          "option": "check",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Bài tập được giáo viên chấm vào mỗi thứ Sáu, phải chia bị động \"are checked\"."
-        },
-        {
-          "option": "is checked",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"These exercises\" là danh từ số nhiều, phải dùng to-be \"are\"."
-        }
-      ],
-      "difficulty": 3
-    },
-    {
-      "id": "quantifiers-ex-15",
-      "type": "fill_blank",
-      "question": "The company sent the customers a free gift.  →  The customers ____ a free gift.",
-      "options": [],
-      "correct_answer": "were sent",
-      "explanation": "Người lên đầu, số nhiều → were + V3",
-      "distractor_breakdowns": [
-        {
-          "option": "were sent",
-          "isCorrect": true,
-          "pedagogicalReason": "Người lên đầu, số nhiều → were + V3"
-        },
-        {
-          "option": "sent",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Khách hàng được công ty gửi quà tặng miễn phí, phải chia bị động \"were sent\"."
-        },
-        {
-          "option": "was sent",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"The customers\" là danh từ số nhiều, phải dùng to-be \"were\"."
-        }
-      ],
-      "difficulty": 3
-    },
-    {
-      "id": "quantifiers-ex-16",
-      "type": "fill_blank",
-      "question": "My mother is ____ nurse at a big hospital.",
-      "options": [],
-      "correct_answer": "a",
-      "explanation": "nghề nghiệp, đếm được số ít → a",
-      "distractor_breakdowns": [
-        {
-          "option": "a",
-          "isCorrect": true,
-          "pedagogicalReason": "nghề nghiệp, đếm được số ít → a"
-        },
-        {
-          "option": "an",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Danh từ \"nurse\" phát âm bắt đầu bằng một phụ âm (/n/), do đó dùng mạo từ \"a\", không dùng \"an\"."
-        },
-        {
-          "option": "the",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Nghề nghiệp được giới thiệu lần đầu tiên dùng mạo từ bất định \"a\", không dùng mạo từ xác định \"the\"."
-        }
-      ],
-      "difficulty": 3
-    },
-    {
-      "id": "quantifiers-ex-17",
-      "type": "fill_blank",
-      "question": "Many students in my class like ____ computer games.",
-      "options": [],
-      "correct_answer": "∅",
-      "explanation": "danh từ số nhiều nói chung → để trống",
-      "distractor_breakdowns": [
-        {
-          "option": "∅",
-          "isCorrect": true,
-          "pedagogicalReason": "danh từ số nhiều nói chung → để trống"
-        },
-        {
-          "option": "the",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Khi nói về sở thích chung chung với danh từ số nhiều (\"computer games\"), không dùng mạo từ \"the\"."
-        },
-        {
-          "option": "a",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"computer games\" là danh từ số nhiều, không thể đi với mạo từ số ít \"a\"."
-        }
-      ],
-      "difficulty": 3
-    },
-    {
-      "id": "quantifiers-ex-18",
-      "type": "multiple_choice",
-      "question": "Neither Lan nor her friends ____ late for class.",
+      "type": "error_correction",
+      "question": "Find the error: I don't have some cash with me right now.",
       "options": [
-        "is",
-        "am",
-        "are",
-        "was"
+        "don't",
+        "some",
+        "cash",
+        "right now"
       ],
-      "correct_answer": "are",
-      "explanation": "Neither… nor chia theo chủ ngữ gần nhất là her friends · buổi 8",
+      "correct_answer": "some",
+      "explanation": "Trong câu phủ định (\"don't have\"), phải đổi \"some\" thành \"any\".",
       "distractor_breakdowns": [
         {
-          "option": "is",
+          "option": "don't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng số ít \"is\" không hòa hợp với chủ ngữ số nhiều hoặc \"you/we/they\"."
+          "pedagogicalReason": "Không chính xác. Thành phần \"don't\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         },
         {
-          "option": "am",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Động từ to-be \"am\" chỉ đi duy nhất với chủ ngữ ngôi thứ nhất \"I\"."
-        },
-        {
-          "option": "are",
+          "option": "some",
           "isCorrect": true,
-          "pedagogicalReason": "Neither… nor chia theo chủ ngữ gần nhất là her friends · buổi 8"
+          "pedagogicalReason": "Trong câu phủ định (\"don't have\"), phải đổi \"some\" thành \"any\"."
         },
         {
-          "option": "was",
+          "option": "cash",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng số ít \"was\" không hòa hợp với chủ ngữ số nhiều hoặc \"you/we/they\"."
+          "pedagogicalReason": "Không chính xác. Thành phần \"cash\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "right now",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"right now\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
-      "difficulty": 3
+      "difficulty": 2
     }
   ]
 }

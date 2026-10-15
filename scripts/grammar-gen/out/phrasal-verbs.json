@@ -336,26 +336,36 @@
   "exercises": [
     {
       "id": "phrasal-verbs-ex-01",
-      "type": "fill_blank",
-      "question": "My family decided ____ (buy) a new fridge.",
-      "options": [],
-      "correct_answer": "to buy",
-      "explanation": "decide nằm nhóm to V",
+      "type": "multiple_choice",
+      "question": "Please ___ the lights before leaving the room.",
+      "options": [
+        "turn off",
+        "turn on",
+        "look after",
+        "give up"
+      ],
+      "correct_answer": "turn off",
+      "explanation": "\"turn off\" nghĩa là tắt (đèn, thiết bị điện) trước khi rời phòng.",
       "distractor_breakdowns": [
         {
-          "option": "to buy",
+          "option": "turn off",
           "isCorrect": true,
-          "pedagogicalReason": "decide nằm nhóm to V"
+          "pedagogicalReason": "\"turn off\" nghĩa là tắt (đèn, thiết bị điện) trước khi rời phòng."
         },
         {
-          "option": "buying",
+          "option": "turn on",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Sau động từ \"decide\", động từ theo sau bắt buộc chia ở dạng to-V (\"to buy\"), không dùng V-ing."
+          "pedagogicalReason": "Không chính xác. Phương án \"turn on\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"turn off\"). \"turn off\" nghĩa là tắt (đèn, thiết bị điện) trước khi rời phòng."
         },
         {
-          "option": "buy",
+          "option": "look after",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Sau \"decide\" không dùng động từ nguyên thể không to."
+          "pedagogicalReason": "Không chính xác. Phương án \"look after\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"turn off\"). \"turn off\" nghĩa là tắt (đèn, thiết bị điện) trước khi rời phòng."
+        },
+        {
+          "option": "give up",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"give up\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"turn off\"). \"turn off\" nghĩa là tắt (đèn, thiết bị điện) trước khi rời phòng."
         }
       ],
       "difficulty": 1
@@ -363,80 +373,398 @@
     {
       "id": "phrasal-verbs-ex-02",
       "type": "fill_blank",
-      "question": "I hope ____ (pass) the entrance exam next year.",
-      "options": [],
-      "correct_answer": "to pass",
-      "explanation": "hope nằm nhóm to V",
+      "question": "Can you ___ my cat while I am away on holiday?",
+      "options": [
+        "look after",
+        "look for",
+        "look up",
+        "look at"
+      ],
+      "correct_answer": "look after",
+      "explanation": "\"look after\" = \"take care of\" (chăm sóc, trông nom).",
       "distractor_breakdowns": [
         {
-          "option": "to pass",
+          "option": "look after",
           "isCorrect": true,
-          "pedagogicalReason": "hope nằm nhóm to V"
+          "pedagogicalReason": "\"look after\" = \"take care of\" (chăm sóc, trông nom)."
         },
         {
-          "option": "passing",
+          "option": "look for",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Sau động từ \"hope\", động từ theo sau bắt buộc dùng to-V (\"to pass\"), không dùng V-ing."
+          "pedagogicalReason": "Không chính xác. Phương án \"look for\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"look after\"). \"look after\" = \"take care of\" (chăm sóc, trông nom)."
         },
         {
-          "option": "pass",
+          "option": "look up",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Sau \"hope\" cần to-V chỉ mục tiêu tương lai."
+          "pedagogicalReason": "Không chính xác. Phương án \"look up\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"look after\"). \"look after\" = \"take care of\" (chăm sóc, trông nom)."
+        },
+        {
+          "option": "look at",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"look at\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"look after\"). \"look after\" = \"take care of\" (chăm sóc, trông nom)."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "phrasal-verbs-ex-03",
-      "type": "fill_blank",
-      "question": "Remember ____ (water) the flowers this afternoon.",
-      "options": [],
-      "correct_answer": "to water",
-      "explanation": "dặn việc chưa làm → to V",
+      "type": "multiple_choice",
+      "question": "I have lost my keys. Can you help me ___ them?",
+      "options": [
+        "look for",
+        "look after",
+        "put off",
+        "take off"
+      ],
+      "correct_answer": "look for",
+      "explanation": "\"look for\" nghĩa là tìm kiếm vật bị thất lạc.",
       "distractor_breakdowns": [
         {
-          "option": "to water",
+          "option": "look for",
           "isCorrect": true,
-          "pedagogicalReason": "dặn việc chưa làm → to V"
+          "pedagogicalReason": "\"look for\" nghĩa là tìm kiếm vật bị thất lạc."
         },
         {
-          "option": "to waters",
+          "option": "look after",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"to waters\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"look after\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"look for\"). \"look for\" nghĩa là tìm kiếm vật bị thất lạc."
         },
         {
-          "option": "to to water",
+          "option": "put off",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+          "pedagogicalReason": "Không chính xác. Phương án \"put off\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"look for\"). \"look for\" nghĩa là tìm kiếm vật bị thất lạc."
+        },
+        {
+          "option": "take off",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"take off\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"look for\"). \"look for\" nghĩa là tìm kiếm vật bị thất lạc."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "phrasal-verbs-ex-04",
+      "type": "fill_blank",
+      "question": "The plane couldn't ___ on time because of the storm.",
+      "options": [
+        "take off",
+        "take after",
+        "put on",
+        "turn down"
+      ],
+      "correct_answer": "take off",
+      "explanation": "\"take off\" dùng cho máy bay mang nghĩa \"cất cánh\" (ngoài ra còn có nghĩa là cởi giày/áo).",
+      "distractor_breakdowns": [
+        {
+          "option": "take off",
+          "isCorrect": true,
+          "pedagogicalReason": "\"take off\" dùng cho máy bay mang nghĩa \"cất cánh\" (ngoài ra còn có nghĩa là cởi giày/áo)."
+        },
+        {
+          "option": "take after",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"take after\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"take off\"). \"take off\" dùng cho máy bay mang nghĩa \"cất cánh\" (ngoài ra còn có nghĩa là cởi giày/áo)."
+        },
+        {
+          "option": "put on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"put on\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"take off\"). \"take off\" dùng cho máy bay mang nghĩa \"cất cánh\" (ngoài ra còn có nghĩa là cởi giày/áo)."
+        },
+        {
+          "option": "turn down",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"turn down\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"take off\"). \"take off\" dùng cho máy bay mang nghĩa \"cất cánh\" (ngoài ra còn có nghĩa là cởi giày/áo)."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "phrasal-verbs-ex-05",
+      "type": "multiple_choice",
+      "question": "The doctor advised him to ___ smoking immediately.",
+      "options": [
+        "give up",
+        "give in",
+        "put up",
+        "turn up"
+      ],
+      "correct_answer": "give up",
+      "explanation": "\"give up\" = \"quit\" (từ bỏ một thói quen xấu).",
+      "distractor_breakdowns": [
+        {
+          "option": "give up",
+          "isCorrect": true,
+          "pedagogicalReason": "\"give up\" = \"quit\" (từ bỏ một thói quen xấu)."
+        },
+        {
+          "option": "give in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"give in\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"give up\"). \"give up\" = \"quit\" (từ bỏ một thói quen xấu)."
+        },
+        {
+          "option": "put up",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"put up\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"give up\"). \"give up\" = \"quit\" (từ bỏ một thói quen xấu)."
+        },
+        {
+          "option": "turn up",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"turn up\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"give up\"). \"give up\" = \"quit\" (từ bỏ một thói quen xấu)."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "phrasal-verbs-ex-06",
+      "type": "fill_blank",
+      "question": "We had to ___ the outdoor concert because of the heavy rain.",
+      "options": [
+        "put off",
+        "put on",
+        "look up",
+        "wake up"
+      ],
+      "correct_answer": "put off",
+      "explanation": "\"put off\" = \"postpone\" (trì hoãn, dời lịch).",
+      "distractor_breakdowns": [
+        {
+          "option": "put off",
+          "isCorrect": true,
+          "pedagogicalReason": "\"put off\" = \"postpone\" (trì hoãn, dời lịch)."
+        },
+        {
+          "option": "put on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"put on\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"put off\"). \"put off\" = \"postpone\" (trì hoãn, dời lịch)."
+        },
+        {
+          "option": "look up",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"look up\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"put off\"). \"put off\" = \"postpone\" (trì hoãn, dời lịch)."
+        },
+        {
+          "option": "wake up",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"wake up\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"put off\"). \"put off\" = \"postpone\" (trì hoãn, dời lịch)."
         }
       ],
       "difficulty": 2
     },
     {
-      "id": "phrasal-verbs-ex-04",
-      "type": "fill_blank",
-      "question": "The teacher wants us ____ (be) quiet in the library.",
-      "options": [],
-      "correct_answer": "to be",
-      "explanation": "want ai làm gì → vẫn to V",
+      "id": "phrasal-verbs-ex-07",
+      "type": "multiple_choice",
+      "question": "The music is too loud. Could you please ___?",
+      "options": [
+        "turn it down",
+        "turn down it",
+        "it turn down",
+        "turn off it"
+      ],
+      "correct_answer": "turn it down",
+      "explanation": "Với cụm động từ tách được (separable phrasal verb), khi tân ngữ là ĐẠI TỪ (\"it\", \"them\") thì bắt buộc phải đặt đại từ ở GIỮA động từ và tiểu từ (\"turn it down\").",
       "distractor_breakdowns": [
         {
-          "option": "to be",
+          "option": "turn it down",
           "isCorrect": true,
-          "pedagogicalReason": "want ai làm gì → vẫn to V"
+          "pedagogicalReason": "Với cụm động từ tách được (separable phrasal verb), khi tân ngữ là ĐẠI TỪ (\"it\", \"them\") thì bắt buộc phải đặt đại từ ở GIỮA động từ và tiểu từ (\"turn it down\")."
         },
         {
-          "option": "being",
+          "option": "turn down it",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Cấu trúc \"want someone to do something\" bắt buộc dùng to-V (\"to be\"), không dùng V-ing."
+          "pedagogicalReason": "Không chính xác. Phương án \"turn down it\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"turn it down\"). Với cụm động từ tách được (separable phrasal verb), khi tân ngữ là ĐẠI TỪ (\"it\", \"them\") thì bắt buộc phải đặt đại từ ở GIỮA động từ và tiểu từ (\"turn it down\")."
         },
         {
-          "option": "be",
+          "option": "it turn down",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Sau tân ngữ của \"want\" bắt buộc phải có \"to\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"it turn down\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"turn it down\"). Với cụm động từ tách được (separable phrasal verb), khi tân ngữ là ĐẠI TỪ (\"it\", \"them\") thì bắt buộc phải đặt đại từ ở GIỮA động từ và tiểu từ (\"turn it down\")."
+        },
+        {
+          "option": "turn off it",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"turn off it\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"turn it down\"). Với cụm động từ tách được (separable phrasal verb), khi tân ngữ là ĐẠI TỪ (\"it\", \"them\") thì bắt buộc phải đặt đại từ ở GIỮA động từ và tiểu từ (\"turn it down\")."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "phrasal-verbs-ex-08",
+      "type": "fill_blank",
+      "question": "Our car ___ on the highway yesterday.",
+      "options": [
+        "broke down",
+        "broke up",
+        "ran out",
+        "found out"
+      ],
+      "correct_answer": "broke down",
+      "explanation": "\"break down\" (quá khứ: \"broke down\") dùng cho xe cộ/máy móc mang nghĩa \"bị hỏng, chết máy giữa đường\".",
+      "distractor_breakdowns": [
+        {
+          "option": "broke down",
+          "isCorrect": true,
+          "pedagogicalReason": "\"break down\" (quá khứ: \"broke down\") dùng cho xe cộ/máy móc mang nghĩa \"bị hỏng, chết máy giữa đường\"."
+        },
+        {
+          "option": "broke up",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"broke up\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"broke down\"). \"break down\" (quá khứ: \"broke down\") dùng cho xe cộ/máy móc mang nghĩa \"bị hỏng, chết máy giữa đường\"."
+        },
+        {
+          "option": "ran out",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"ran out\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"broke down\"). \"break down\" (quá khứ: \"broke down\") dùng cho xe cộ/máy móc mang nghĩa \"bị hỏng, chết máy giữa đường\"."
+        },
+        {
+          "option": "found out",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"found out\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"broke down\"). \"break down\" (quá khứ: \"broke down\") dùng cho xe cộ/máy móc mang nghĩa \"bị hỏng, chết máy giữa đường\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "phrasal-verbs-ex-09",
+      "type": "multiple_choice",
+      "question": "We have ___ milk. Could you buy some on your way home?",
+      "options": [
+        "run out of",
+        "looked forward to",
+        "kept up with",
+        "got on with"
+      ],
+      "correct_answer": "run out of",
+      "explanation": "\"run out of something\" nghĩa là cạn kiệt, hết sạch thứ gì đó.",
+      "distractor_breakdowns": [
+        {
+          "option": "run out of",
+          "isCorrect": true,
+          "pedagogicalReason": "\"run out of something\" nghĩa là cạn kiệt, hết sạch thứ gì đó."
+        },
+        {
+          "option": "looked forward to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"looked forward to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"run out of\"). \"run out of something\" nghĩa là cạn kiệt, hết sạch thứ gì đó."
+        },
+        {
+          "option": "kept up with",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"kept up with\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"run out of\"). \"run out of something\" nghĩa là cạn kiệt, hết sạch thứ gì đó."
+        },
+        {
+          "option": "got on with",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"got on with\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"run out of\"). \"run out of something\" nghĩa là cạn kiệt, hết sạch thứ gì đó."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "phrasal-verbs-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: These shoes are nice. Can I try on them?",
+      "options": [
+        "These shoes",
+        "Can I",
+        "try on them",
+        "?"
+      ],
+      "correct_answer": "try on them",
+      "explanation": "Khi tân ngữ của cụm động từ tách được là đại từ nhân xưng (\"them\"), bắt buộc phải đặt ở giữa: sửa \"try on them\" thành \"try them on\".",
+      "distractor_breakdowns": [
+        {
+          "option": "These shoes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"These shoes\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "Can I",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"Can I\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "try on them",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi tân ngữ của cụm động từ tách được là đại từ nhân xưng (\"them\"), bắt buộc phải đặt ở giữa: sửa \"try on them\" thành \"try them on\"."
+        },
+        {
+          "option": "?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"?\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "phrasal-verbs-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: I am really looking forward to meet you next week.",
+      "options": [
+        "looking",
+        "forward to",
+        "meet",
+        "next week"
+      ],
+      "correct_answer": "meet",
+      "explanation": "Trong cụm \"look forward to\" (mong đợi), chữ \"to\" là giới từ nên theo sau bắt buộc phải là V-ing. Sửa \"meet\" thành \"meeting\".",
+      "distractor_breakdowns": [
+        {
+          "option": "looking",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"looking\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "forward to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"forward to\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "meet",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong cụm \"look forward to\" (mong đợi), chữ \"to\" là giới từ nên theo sau bắt buộc phải là V-ing. Sửa \"meet\" thành \"meeting\"."
+        },
+        {
+          "option": "next week",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"next week\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
       "difficulty": 3
+    },
+    {
+      "id": "phrasal-verbs-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: If you don't know this word, look after it in the dictionary.",
+      "options": [
+        "don't know",
+        "look after",
+        "in",
+        "dictionary"
+      ],
+      "correct_answer": "look after",
+      "explanation": "Tra cứu từ trong từ điển là \"look up\" (\"look it up\"), còn \"look after\" là chăm sóc.",
+      "distractor_breakdowns": [
+        {
+          "option": "don't know",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"don't know\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "look after",
+          "isCorrect": true,
+          "pedagogicalReason": "Tra cứu từ trong từ điển là \"look up\" (\"look it up\"), còn \"look after\" là chăm sóc."
+        },
+        {
+          "option": "in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"in\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "dictionary",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"dictionary\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
     }
   ]
 }

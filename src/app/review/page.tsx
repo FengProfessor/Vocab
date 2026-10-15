@@ -3,22 +3,36 @@
 import { Suspense, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { ChevronLeft, Loader2 } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
 import { Button } from '@/components/ui/button';
 import { HUB_MODES } from '@/lib/review-modes';
 import { authFetch } from '@/lib/auth-fetch';
-import { supabase } from '@/lib/supabase';
 import {
   readWordSummaryCache,
+  readLastWordSummaryCache,
   writeWordSummaryCache,
 } from '@/lib/word-summary-cache';
-import { fetchWordSummaryOnce } from '@/components/student/StudentProvider';
+import {
+  fetchSessionOnce,
+  fetchWordSummaryOnce,
+  useStudentContext,
+} from '@/components/student/StudentProvider';
 
 function ReviewHubContent() {
   const searchParams = useSearchParams();
   const classParam = searchParams.get('class');
-  const [dueCount, setDueCount] = useState<number | null>(null);
+  const studentCtx = useStudentContext();
+  const [dueCount, setDueCount] = useState<number | null>(() => {
+    const cached = readLastWordSummaryCache();
+    if (cached && (!classParam || cached.classroomId === classParam)) {
+      return cached.reviewDueCount ?? 0;
+    }
+    if (!classParam && studentCtx?.wordSummary && studentCtx.wordSummary.total > 0) {
+      return studentCtx.wordSummary.reviewDueCount ?? 0;
+    }
+    return null;
+  });
 
   useEffect(() => {
     let cancelled = false;
@@ -26,9 +40,8 @@ function ReviewHubContent() {
     // Paint từ cache ngay (stale-while-revalidate) — không chờ network
     (async () => {
       try {
-        const { data: { session } } = await supabase.auth.getSession();
+        const session = studentCtx?.session ?? (await fetchSessionOnce());
         if (!session?.user) return;
-
 
         // Stale paint: hiện số cache cũ trước khi network trả về
         const cached = readWordSummaryCache(session.user.id);
@@ -82,13 +95,13 @@ function ReviewHubContent() {
           }
         }
       } catch {
-        if (!cancelled) setDueCount(null);
+        if (!cancelled) setDueCount(0);
       }
     })();
     return () => {
       cancelled = true;
     };
-  }, [classParam]);
+  }, [classParam, studentCtx?.session]);
 
   const withClass = (href: string): string => {
     if (!classParam) return href;
@@ -108,7 +121,7 @@ function ReviewHubContent() {
           </div>
         </div>
 
-        {dueCount !== null && (
+        {dueCount !== null ? (
           <div className="rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50 to-violet-50 px-4 py-4 shadow-sm">
             <p className="text-xs font-black uppercase tracking-widest text-indigo-500">Hôm nay</p>
             <p className="mt-1 text-xl font-black text-indigo-900">
@@ -147,6 +160,12 @@ function ReviewHubContent() {
                 </div>
               </div>
             )}
+          </div>
+        ) : (
+          <div className="rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50 to-violet-50 px-4 py-4 shadow-sm animate-pulse">
+            <p className="text-xs font-black uppercase tracking-widest text-indigo-400">Hôm nay</p>
+            <div className="mt-2 h-6 w-48 rounded-lg bg-indigo-200/60" />
+            <div className="mt-3 h-11 w-full rounded-xl bg-indigo-200/70" />
           </div>
         )}
 

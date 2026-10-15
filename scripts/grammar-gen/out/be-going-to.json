@@ -590,26 +590,36 @@
   "exercises": [
     {
       "id": "be-going-to-ex-01",
-      "type": "fill_blank",
-      "question": "The baby's face is red. She ____ (cry).",
-      "options": [],
-      "correct_answer": "is going to cry",
-      "explanation": "mặt đỏ = dấu hiệu thấy được → be going to",
+      "type": "multiple_choice",
+      "question": "Look at those dark clouds! It ___ rain soon.",
+      "options": [
+        "is going to",
+        "will",
+        "goes to",
+        "going to"
+      ],
+      "correct_answer": "is going to",
+      "explanation": "Có dấu hiệu thực tế rõ ràng trước mắt (\"Look at those dark clouds!\") → dùng \"is going to + V\" để dự đoán.",
       "distractor_breakdowns": [
         {
-          "option": "is going to cry",
+          "option": "is going to",
           "isCorrect": true,
-          "pedagogicalReason": "mặt đỏ = dấu hiệu thấy được → be going to"
+          "pedagogicalReason": "Có dấu hiệu thực tế rõ ràng trước mắt (\"Look at those dark clouds!\") → dùng \"is going to + V\" để dự đoán."
         },
         {
-          "option": "will cry",
+          "option": "will",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Khi có dấu hiệu trực quan rõ ràng (\"mặt em bé đỏ ửng\"), ta dùng thì tương lai gần \"is going to cry\", không dùng \"will cry\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"will\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is going to\"). Có dấu hiệu thực tế rõ ràng trước mắt (\"Look at those dark clouds!\") → dùng \"is going to + V\" để dự đoán."
         },
         {
-          "option": "cries",
+          "option": "goes to",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Hiện tại đơn chỉ thói quen, không dùng cho sự việc sắp sửa xảy ra ngay trước mắt."
+          "pedagogicalReason": "Không chính xác. Phương án \"goes to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is going to\"). Có dấu hiệu thực tế rõ ràng trước mắt (\"Look at those dark clouds!\") → dùng \"is going to + V\" để dự đoán."
+        },
+        {
+          "option": "going to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"going to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is going to\"). Có dấu hiệu thực tế rõ ràng trước mắt (\"Look at those dark clouds!\") → dùng \"is going to + V\" để dự đoán."
         }
       ],
       "difficulty": 1
@@ -617,51 +627,395 @@
     {
       "id": "be-going-to-ex-02",
       "type": "fill_blank",
-      "question": "My parents ____ (buy) a new house next year. They have saved money.",
-      "options": [],
-      "correct_answer": "are going to buy",
-      "explanation": "đã dành tiền = kế hoạch có sẵn",
+      "question": "I have bought the plane tickets. I ___ visit Da Lat next week.",
+      "options": [
+        "am going to",
+        "will",
+        "going to",
+        "is going to"
+      ],
+      "correct_answer": "am going to",
+      "explanation": "Kế hoạch đã được chuẩn bị từ trước (\"have bought the plane tickets\") với chủ ngữ \"I\" → dùng \"am going to\".",
       "distractor_breakdowns": [
         {
-          "option": "are going to buy",
+          "option": "am going to",
           "isCorrect": true,
-          "pedagogicalReason": "đã dành tiền = kế hoạch có sẵn"
+          "pedagogicalReason": "Kế hoạch đã được chuẩn bị từ trước (\"have bought the plane tickets\") với chủ ngữ \"I\" → dùng \"am going to\"."
         },
         {
-          "option": "will buy",
+          "option": "will",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Đã có kế hoạch và tích lũy tiền từ trước (\"have saved money\"), phải dùng tương lai gần \"are going to buy\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"will\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"am going to\"). Kế hoạch đã được chuẩn bị từ trước (\"have bought the plane tickets\") với chủ ngữ \"I\" → dùng \"am going to\"."
         },
         {
-          "option": "buy",
+          "option": "going to",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Sự việc xảy ra vào năm sau (\"next year\"), không dùng thì hiện tại đơn."
+          "pedagogicalReason": "Không chính xác. Phương án \"going to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"am going to\"). Kế hoạch đã được chuẩn bị từ trước (\"have bought the plane tickets\") với chủ ngữ \"I\" → dùng \"am going to\"."
+        },
+        {
+          "option": "is going to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is going to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"am going to\"). Kế hoạch đã được chuẩn bị từ trước (\"have bought the plane tickets\") với chủ ngữ \"I\" → dùng \"am going to\"."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "be-going-to-ex-03",
-      "type": "fill_blank",
-      "question": "They are going to build a new bridge here.  →  A new bridge ____ here.",
-      "options": [],
-      "correct_answer": "is going to be built",
-      "explanation": "Tương lai gần → is going to be + V3, cắt by them",
+      "type": "multiple_choice",
+      "question": "They ___ buy a new house next year; they have saved enough money.",
+      "options": [
+        "are going to",
+        "is going to",
+        "going to",
+        "will be"
+      ],
+      "correct_answer": "are going to",
+      "explanation": "Chủ ngữ \"They\" + dự định đã có sự chuẩn bị (\"saved enough money\") → dùng \"are going to\".",
       "distractor_breakdowns": [
         {
-          "option": "is going to be built",
+          "option": "are going to",
           "isCorrect": true,
-          "pedagogicalReason": "Tương lai gần → is going to be + V3, cắt by them"
+          "pedagogicalReason": "Chủ ngữ \"They\" + dự định đã có sự chuẩn bị (\"saved enough money\") → dùng \"are going to\"."
         },
         {
-          "option": "is going to build",
+          "option": "is going to",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"A new bridge\" là vật tiếp nhận hành động, bắt buộc chia bị động \"is going to be built\", không dùng chủ động."
+          "pedagogicalReason": "Không chính xác. Phương án \"is going to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"are going to\"). Chủ ngữ \"They\" + dự định đã có sự chuẩn bị (\"saved enough money\") → dùng \"are going to\"."
         },
         {
-          "option": "will build",
+          "option": "going to",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Kế hoạch đã định sẵn và ở thể bị động, không dùng \"will build\" chủ động."
+          "pedagogicalReason": "Không chính xác. Phương án \"going to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"are going to\"). Chủ ngữ \"They\" + dự định đã có sự chuẩn bị (\"saved enough money\") → dùng \"are going to\"."
+        },
+        {
+          "option": "will be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will be\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"are going to\"). Chủ ngữ \"They\" + dự định đã có sự chuẩn bị (\"saved enough money\") → dùng \"are going to\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "be-going-to-ex-04",
+      "type": "fill_blank",
+      "question": "She ___ study medicine at university after she finishes high school.",
+      "options": [
+        "is going to",
+        "are going to",
+        "am going to",
+        "going to"
+      ],
+      "correct_answer": "is going to",
+      "explanation": "Chủ ngữ số ít \"She\" diễn tả dự định tương lai → điền \"is going to\".",
+      "distractor_breakdowns": [
+        {
+          "option": "is going to",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ số ít \"She\" diễn tả dự định tương lai → điền \"is going to\"."
+        },
+        {
+          "option": "are going to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"are going to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is going to\"). Chủ ngữ số ít \"She\" diễn tả dự định tương lai → điền \"is going to\"."
+        },
+        {
+          "option": "am going to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"am going to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is going to\"). Chủ ngữ số ít \"She\" diễn tả dự định tương lai → điền \"is going to\"."
+        },
+        {
+          "option": "going to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"going to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is going to\"). Chủ ngữ số ít \"She\" diễn tả dự định tương lai → điền \"is going to\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "be-going-to-ex-05",
+      "type": "multiple_choice",
+      "question": "What ___ you going to do this weekend?",
+      "options": [
+        "are",
+        "do",
+        "will",
+        "is"
+      ],
+      "correct_answer": "are",
+      "explanation": "Câu hỏi với cấu trúc \"be going to\" và chủ ngữ \"you\" bắt đầu bằng to be \"are\".",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi với cấu trúc \"be going to\" và chủ ngữ \"you\" bắt đầu bằng to be \"are\"."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Trợ động từ \"do\" không phù hợp với ngôi của chủ ngữ hoặc cấu trúc của câu (đáp án đúng là \"are\")."
+        },
+        {
+          "option": "will",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"are\"). Câu hỏi với cấu trúc \"be going to\" và chủ ngữ \"you\" bắt đầu bằng to be \"are\"."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ to be số ít \"is\" không hòa hợp với chủ ngữ hoặc thì của câu (đáp án đúng là \"are\")."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "be-going-to-ex-06",
+      "type": "fill_blank",
+      "question": "We ___ attend the party tonight because we are busy.",
+      "options": [
+        "aren't going to",
+        "don't going to",
+        "isn't going to",
+        "not going to"
+      ],
+      "correct_answer": "aren't going to",
+      "explanation": "Phủ định của \"be going to\" với chủ ngữ \"We\" là \"aren't going to + V\".",
+      "distractor_breakdowns": [
+        {
+          "option": "aren't going to",
+          "isCorrect": true,
+          "pedagogicalReason": "Phủ định của \"be going to\" với chủ ngữ \"We\" là \"aren't going to + V\"."
+        },
+        {
+          "option": "don't going to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"don't going to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"aren't going to\"). Phủ định của \"be going to\" với chủ ngữ \"We\" là \"aren't going to + V\"."
+        },
+        {
+          "option": "isn't going to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"isn't going to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"aren't going to\"). Phủ định của \"be going to\" với chủ ngữ \"We\" là \"aren't going to + V\"."
+        },
+        {
+          "option": "not going to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"not going to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"aren't going to\"). Phủ định của \"be going to\" với chủ ngữ \"We\" là \"aren't going to + V\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "be-going-to-ex-07",
+      "type": "multiple_choice",
+      "question": "Watch out! You ___ drop those plates!",
+      "options": [
+        "are going to",
+        "will",
+        "go to",
+        "are going"
+      ],
+      "correct_answer": "are going to",
+      "explanation": "Tình huống sắp xảy ra ngay trước mắt (\"Watch out!\") → dùng \"are going to\".",
+      "distractor_breakdowns": [
+        {
+          "option": "are going to",
+          "isCorrect": true,
+          "pedagogicalReason": "Tình huống sắp xảy ra ngay trước mắt (\"Watch out!\") → dùng \"are going to\"."
+        },
+        {
+          "option": "will",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"are going to\"). Tình huống sắp xảy ra ngay trước mắt (\"Watch out!\") → dùng \"are going to\"."
+        },
+        {
+          "option": "go to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"go to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"are going to\"). Tình huống sắp xảy ra ngay trước mắt (\"Watch out!\") → dùng \"are going to\"."
+        },
+        {
+          "option": "are going",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"are going\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"are going to\"). Tình huống sắp xảy ra ngay trước mắt (\"Watch out!\") → dùng \"are going to\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "be-going-to-ex-08",
+      "type": "fill_blank",
+      "question": "Is your brother going to ___ a new job next month?",
+      "options": [
+        "start",
+        "starts",
+        "starting",
+        "started"
+      ],
+      "correct_answer": "start",
+      "explanation": "Sau \"be going to\" động từ luôn ở dạng nguyên mẫu không chia → điền \"start\".",
+      "distractor_breakdowns": [
+        {
+          "option": "start",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau \"be going to\" động từ luôn ở dạng nguyên mẫu không chia → điền \"start\"."
+        },
+        {
+          "option": "starts",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"starts\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"start\"). Sau \"be going to\" động từ luôn ở dạng nguyên mẫu không chia → điền \"start\"."
+        },
+        {
+          "option": "starting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"starting\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"start\"). Sau \"be going to\" động từ luôn ở dạng nguyên mẫu không chia → điền \"start\"."
+        },
+        {
+          "option": "started",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"started\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"start\"). Sau \"be going to\" động từ luôn ở dạng nguyên mẫu không chia → điền \"start\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "be-going-to-ex-09",
+      "type": "multiple_choice",
+      "question": "He has a paintbrush and some paint. He ___ paint his bedroom.",
+      "options": [
+        "is going to",
+        "will",
+        "paints",
+        "was going to"
+      ],
+      "correct_answer": "is going to",
+      "explanation": "Anh ấy đã cầm sẵn cọ và sơn (dự định đã chuẩn bị rõ ràng) → dùng \"is going to\".",
+      "distractor_breakdowns": [
+        {
+          "option": "is going to",
+          "isCorrect": true,
+          "pedagogicalReason": "Anh ấy đã cầm sẵn cọ và sơn (dự định đã chuẩn bị rõ ràng) → dùng \"is going to\"."
+        },
+        {
+          "option": "will",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is going to\"). Anh ấy đã cầm sẵn cọ và sơn (dự định đã chuẩn bị rõ ràng) → dùng \"is going to\"."
+        },
+        {
+          "option": "paints",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"paints\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is going to\"). Anh ấy đã cầm sẵn cọ và sơn (dự định đã chuẩn bị rõ ràng) → dùng \"is going to\"."
+        },
+        {
+          "option": "was going to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"was going to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is going to\"). Anh ấy đã cầm sẵn cọ và sơn (dự định đã chuẩn bị rõ ràng) → dùng \"is going to\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "be-going-to-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: I going to visit my grandparents this Sunday.",
+      "options": [
+        "I",
+        "going to",
+        "visit",
+        "this Sunday"
+      ],
+      "correct_answer": "going to",
+      "explanation": "Cấu trúc \"be going to\" bắt buộc phải có động từ to be (am/is/are) đứng trước \"going to\". Phải sửa thành \"am going to\".",
+      "distractor_breakdowns": [
+        {
+          "option": "I",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"I\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "going to",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc \"be going to\" bắt buộc phải có động từ to be (am/is/are) đứng trước \"going to\". Phải sửa thành \"am going to\"."
+        },
+        {
+          "option": "visit",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"visit\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "this Sunday",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"this Sunday\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "be-going-to-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: She is going to buys a new laptop tomorrow.",
+      "options": [
+        "She",
+        "is going to",
+        "buys",
+        "tomorrow"
+      ],
+      "correct_answer": "buys",
+      "explanation": "Sau \"is going to\" động từ phải ở dạng nguyên mẫu. Sửa \"buys\" thành \"buy\".",
+      "distractor_breakdowns": [
+        {
+          "option": "She",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"She\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "is going to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"is going to\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "buys",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau \"is going to\" động từ phải ở dạng nguyên mẫu. Sửa \"buys\" thành \"buy\"."
+        },
+        {
+          "option": "tomorrow",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"tomorrow\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "be-going-to-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: Do you going to watch the match tonight?",
+      "options": [
+        "Do",
+        "you",
+        "going to",
+        "watch"
+      ],
+      "correct_answer": "Do",
+      "explanation": "Câu hỏi với \"going to\" phải dùng động từ to be \"Are you going to...\", tuyệt đối không mượn trợ động từ \"Do\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Do",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi với \"going to\" phải dùng động từ to be \"Are you going to...\", tuyệt đối không mượn trợ động từ \"Do\"."
+        },
+        {
+          "option": "you",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"you\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "going to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"going to\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "watch",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"watch\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
       "difficulty": 2

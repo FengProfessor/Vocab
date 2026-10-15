@@ -407,62 +407,432 @@
   "exercises": [
     {
       "id": "prepositions-time-ex-01",
-      "type": "fill_blank",
-      "question": "My father gave me a new laptop.  →  I ____ a new laptop by my father.",
-      "options": [],
-      "correct_answer": "was given",
-      "explanation": "Người lên đầu → be + V3, không thêm giới từ",
+      "type": "multiple_choice",
+      "question": "Our English class starts ___ 8:00 a.m.",
+      "options": [
+        "at",
+        "on",
+        "in",
+        "by"
+      ],
+      "correct_answer": "at",
+      "explanation": "Trước mốc giờ đồng hồ cụ thể (\"8:00 a.m.\") ta luôn dùng giới từ \"at\".",
       "distractor_breakdowns": [
         {
-          "option": "was given",
+          "option": "at",
           "isCorrect": true,
-          "pedagogicalReason": "Người lên đầu → be + V3, không thêm giới từ"
+          "pedagogicalReason": "Trước mốc giờ đồng hồ cụ thể (\"8:00 a.m.\") ta luôn dùng giới từ \"at\"."
         },
         {
-          "option": "gave",
+          "option": "on",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"I\" nhận máy tính từ bố, phải chia bị động \"was given\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"on\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"at\"). Trước mốc giờ đồng hồ cụ thể (\"8:00 a.m.\") ta luôn dùng giới từ \"at\"."
         },
         {
-          "option": "was gave",
+          "option": "in",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phân từ hai (V3) của \"give\" là \"given\", không dùng dạng quá khứ \"gave\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"in\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"at\"). Trước mốc giờ đồng hồ cụ thể (\"8:00 a.m.\") ta luôn dùng giới từ \"at\"."
+        },
+        {
+          "option": "by",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"by\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"at\"). Trước mốc giờ đồng hồ cụ thể (\"8:00 a.m.\") ta luôn dùng giới từ \"at\"."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "prepositions-time-ex-02",
-      "type": "multiple_choice",
-      "question": "She is good ____ Maths.",
+      "type": "fill_blank",
+      "question": "I have a meeting ___ Monday morning.",
       "options": [
+        "on",
         "in",
         "at",
-        "on",
-        "for"
+        "of"
       ],
-      "correct_answer": "at",
-      "explanation": "good đi cố định với giới từ at · buổi 21",
+      "correct_answer": "on",
+      "explanation": "Khi có thứ trong tuần (\"Monday\" hoặc \"Monday morning\") ta luôn dùng giới từ \"on\".",
       "distractor_breakdowns": [
+        {
+          "option": "on",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi có thứ trong tuần (\"Monday\" hoặc \"Monday morning\") ta luôn dùng giới từ \"on\"."
+        },
         {
           "option": "in",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Giới từ \"in\" dùng cho khoảng thời gian dài (tháng, năm, mùa) hoặc không gian kín, không phù hợp ở đây."
+          "pedagogicalReason": "Không chính xác. Phương án \"in\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"on\"). Khi có thứ trong tuần (\"Monday\" hoặc \"Monday morning\") ta luôn dùng giới từ \"on\"."
         },
         {
           "option": "at",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"at\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"on\"). Khi có thứ trong tuần (\"Monday\" hoặc \"Monday morning\") ta luôn dùng giới từ \"on\"."
+        },
+        {
+          "option": "of",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"of\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"on\"). Khi có thứ trong tuần (\"Monday\" hoặc \"Monday morning\") ta luôn dùng giới từ \"on\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "prepositions-time-ex-03",
+      "type": "multiple_choice",
+      "question": "My sister was born ___ October.",
+      "options": [
+        "in",
+        "on",
+        "at",
+        "since"
+      ],
+      "correct_answer": "in",
+      "explanation": "Trước tên tháng đứng một mình (\"October\") không có ngày cụ thể, ta dùng giới từ \"in\".",
+      "distractor_breakdowns": [
+        {
+          "option": "in",
           "isCorrect": true,
-          "pedagogicalReason": "good đi cố định với giới từ at · buổi 21"
+          "pedagogicalReason": "Trước tên tháng đứng một mình (\"October\") không có ngày cụ thể, ta dùng giới từ \"in\"."
         },
         {
           "option": "on",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"on\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"on\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in\"). Trước tên tháng đứng một mình (\"October\") không có ngày cụ thể, ta dùng giới từ \"in\"."
+        },
+        {
+          "option": "at",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"at\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in\"). Trước tên tháng đứng một mình (\"October\") không có ngày cụ thể, ta dùng giới từ \"in\"."
+        },
+        {
+          "option": "since",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"since\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in\"). Trước tên tháng đứng một mình (\"October\") không có ngày cụ thể, ta dùng giới từ \"in\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "prepositions-time-ex-04",
+      "type": "fill_blank",
+      "question": "My uncle moved to Hanoi ___ 2018.",
+      "options": [
+        "in",
+        "on",
+        "at",
+        "for"
+      ],
+      "correct_answer": "in",
+      "explanation": "Trước năm (\"2018\"), mùa hoặc thế kỷ ta dùng giới từ \"in\".",
+      "distractor_breakdowns": [
+        {
+          "option": "in",
+          "isCorrect": true,
+          "pedagogicalReason": "Trước năm (\"2018\"), mùa hoặc thế kỷ ta dùng giới từ \"in\"."
+        },
+        {
+          "option": "on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"on\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in\"). Trước năm (\"2018\"), mùa hoặc thế kỷ ta dùng giới từ \"in\"."
+        },
+        {
+          "option": "at",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"at\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in\"). Trước năm (\"2018\"), mùa hoặc thế kỷ ta dùng giới từ \"in\"."
         },
         {
           "option": "for",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"for\" diễn đạt khoảng thời gian đo đếm được, không dùng cho mốc thời gian xác định (dùng \"since\")."
+          "pedagogicalReason": "Không chính xác. Phương án \"for\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in\"). Trước năm (\"2018\"), mùa hoặc thế kỷ ta dùng giới từ \"in\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "prepositions-time-ex-05",
+      "type": "multiple_choice",
+      "question": "We celebrate Independence Day ___ September 2nd.",
+      "options": [
+        "on",
+        "in",
+        "at",
+        "during"
+      ],
+      "correct_answer": "on",
+      "explanation": "Khi có NGÀY cụ thể (\"September 2nd\") ta bắt buộc dùng giới từ \"on\" (dù có tên tháng đi kèm).",
+      "distractor_breakdowns": [
+        {
+          "option": "on",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi có NGÀY cụ thể (\"September 2nd\") ta bắt buộc dùng giới từ \"on\" (dù có tên tháng đi kèm)."
+        },
+        {
+          "option": "in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"in\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"on\"). Khi có NGÀY cụ thể (\"September 2nd\") ta bắt buộc dùng giới từ \"on\" (dù có tên tháng đi kèm)."
+        },
+        {
+          "option": "at",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"at\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"on\"). Khi có NGÀY cụ thể (\"September 2nd\") ta bắt buộc dùng giới từ \"on\" (dù có tên tháng đi kèm)."
+        },
+        {
+          "option": "during",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"during\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"on\"). Khi có NGÀY cụ thể (\"September 2nd\") ta bắt buộc dùng giới từ \"on\" (dù có tên tháng đi kèm)."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "prepositions-time-ex-06",
+      "type": "fill_blank",
+      "question": "My father usually reads the newspaper ___ the morning.",
+      "options": [
+        "in",
+        "on",
+        "at",
+        "by"
+      ],
+      "correct_answer": "in",
+      "explanation": "Các buổi trong ngày (\"in the morning\", \"in the afternoon\", \"in the evening\") đi với giới từ \"in\".",
+      "distractor_breakdowns": [
+        {
+          "option": "in",
+          "isCorrect": true,
+          "pedagogicalReason": "Các buổi trong ngày (\"in the morning\", \"in the afternoon\", \"in the evening\") đi với giới từ \"in\"."
+        },
+        {
+          "option": "on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"on\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in\"). Các buổi trong ngày (\"in the morning\", \"in the afternoon\", \"in the evening\") đi với giới từ \"in\"."
+        },
+        {
+          "option": "at",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"at\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in\"). Các buổi trong ngày (\"in the morning\", \"in the afternoon\", \"in the evening\") đi với giới từ \"in\"."
+        },
+        {
+          "option": "by",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"by\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in\"). Các buổi trong ngày (\"in the morning\", \"in the afternoon\", \"in the evening\") đi với giới từ \"in\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "prepositions-time-ex-07",
+      "type": "multiple_choice",
+      "question": "The stars shine brightly ___ night.",
+      "options": [
+        "at",
+        "in",
+        "on",
+        "for"
+      ],
+      "correct_answer": "at",
+      "explanation": "Ngoại lệ quan trọng: \"ban đêm\" hoặc \"giữa trưa\" dùng giới từ \"at\" (\"at night\", \"at noon\", \"at midnight\").",
+      "distractor_breakdowns": [
+        {
+          "option": "at",
+          "isCorrect": true,
+          "pedagogicalReason": "Ngoại lệ quan trọng: \"ban đêm\" hoặc \"giữa trưa\" dùng giới từ \"at\" (\"at night\", \"at noon\", \"at midnight\")."
+        },
+        {
+          "option": "in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"in\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"at\"). Ngoại lệ quan trọng: \"ban đêm\" hoặc \"giữa trưa\" dùng giới từ \"at\" (\"at night\", \"at noon\", \"at midnight\")."
+        },
+        {
+          "option": "on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"on\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"at\"). Ngoại lệ quan trọng: \"ban đêm\" hoặc \"giữa trưa\" dùng giới từ \"at\" (\"at night\", \"at noon\", \"at midnight\")."
+        },
+        {
+          "option": "for",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"for\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"at\"). Ngoại lệ quan trọng: \"ban đêm\" hoặc \"giữa trưa\" dùng giới từ \"at\" (\"at night\", \"at noon\", \"at midnight\")."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "prepositions-time-ex-08",
+      "type": "fill_blank",
+      "question": "Flowers bloom beautifully ___ spring.",
+      "options": [
+        "in",
+        "on",
+        "at",
+        "to"
+      ],
+      "correct_answer": "in",
+      "explanation": "Trước các mùa trong năm (\"spring\", \"summer\", \"autumn\", \"winter\") ta dùng giới từ \"in\".",
+      "distractor_breakdowns": [
+        {
+          "option": "in",
+          "isCorrect": true,
+          "pedagogicalReason": "Trước các mùa trong năm (\"spring\", \"summer\", \"autumn\", \"winter\") ta dùng giới từ \"in\"."
+        },
+        {
+          "option": "on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"on\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in\"). Trước các mùa trong năm (\"spring\", \"summer\", \"autumn\", \"winter\") ta dùng giới từ \"in\"."
+        },
+        {
+          "option": "at",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"at\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in\"). Trước các mùa trong năm (\"spring\", \"summer\", \"autumn\", \"winter\") ta dùng giới từ \"in\"."
+        },
+        {
+          "option": "to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in\"). Trước các mùa trong năm (\"spring\", \"summer\", \"autumn\", \"winter\") ta dùng giới từ \"in\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "prepositions-time-ex-09",
+      "type": "multiple_choice",
+      "question": "I have lived in this city ___ five years.",
+      "options": [
+        "for",
+        "since",
+        "in",
+        "at"
+      ],
+      "correct_answer": "for",
+      "explanation": "Trước một khoảng thời gian đo đếm được (\"five years\") ta dùng \"for\". (\"since\" đi với mốc thời gian bắt đầu).",
+      "distractor_breakdowns": [
+        {
+          "option": "for",
+          "isCorrect": true,
+          "pedagogicalReason": "Trước một khoảng thời gian đo đếm được (\"five years\") ta dùng \"for\". (\"since\" đi với mốc thời gian bắt đầu)."
+        },
+        {
+          "option": "since",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"since\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"for\"). Trước một khoảng thời gian đo đếm được (\"five years\") ta dùng \"for\". (\"since\" đi với mốc thời gian bắt đầu)."
+        },
+        {
+          "option": "in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"in\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"for\"). Trước một khoảng thời gian đo đếm được (\"five years\") ta dùng \"for\". (\"since\" đi với mốc thời gian bắt đầu)."
+        },
+        {
+          "option": "at",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"at\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"for\"). Trước một khoảng thời gian đo đếm được (\"five years\") ta dùng \"for\". (\"since\" đi với mốc thời gian bắt đầu)."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "prepositions-time-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: I will see you in Friday afternoon.",
+      "options": [
+        "will",
+        "see",
+        "in",
+        "Friday"
+      ],
+      "correct_answer": "in",
+      "explanation": "Có thứ trong tuần (\"Friday afternoon\") bắt buộc phải dùng \"on Friday afternoon\", không dùng \"in\".",
+      "distractor_breakdowns": [
+        {
+          "option": "will",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"will\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "see",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"see\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "in",
+          "isCorrect": true,
+          "pedagogicalReason": "Có thứ trong tuần (\"Friday afternoon\") bắt buộc phải dùng \"on Friday afternoon\", không dùng \"in\"."
+        },
+        {
+          "option": "Friday",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"Friday\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "prepositions-time-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: The train leaves on 6:45 p.m. every day.",
+      "options": [
+        "leaves",
+        "on",
+        "6:45 p.m.",
+        "every day"
+      ],
+      "correct_answer": "on",
+      "explanation": "Trước giờ đồng hồ chính xác (\"6:45 p.m.\") phải dùng giới từ \"at\", không dùng \"on\".",
+      "distractor_breakdowns": [
+        {
+          "option": "leaves",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"leaves\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "on",
+          "isCorrect": true,
+          "pedagogicalReason": "Trước giờ đồng hồ chính xác (\"6:45 p.m.\") phải dùng giới từ \"at\", không dùng \"on\"."
+        },
+        {
+          "option": "6:45 p.m.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"6:45 p.m.\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "every day",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"every day\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "prepositions-time-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: My birthday is in May 15th.",
+      "options": [
+        "My",
+        "birthday",
+        "in",
+        "May 15th"
+      ],
+      "correct_answer": "in",
+      "explanation": "Vì có ngày cụ thể (\"May 15th\"), phải dùng giới từ \"on May 15th\" thay vì \"in\".",
+      "distractor_breakdowns": [
+        {
+          "option": "My",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"My\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "birthday",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"birthday\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "in",
+          "isCorrect": true,
+          "pedagogicalReason": "Vì có ngày cụ thể (\"May 15th\"), phải dùng giới từ \"on May 15th\" thay vì \"in\"."
+        },
+        {
+          "option": "May 15th",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"May 15th\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
       "difficulty": 2

@@ -22,7 +22,8 @@ import {
   Layers,
   ArrowLeft,
   ShieldCheck,
-  Info
+  Info,
+  Sparkles,
 } from 'lucide-react';
 import { toast } from 'sonner';
 import {
@@ -33,6 +34,7 @@ import {
   VstepScoreResult,
   VstepSkillType
 } from '@/lib/vstep-types';
+import type { WritingEvalResult } from '@/app/api/vstep/writing-eval/route';
 import { getCefrDescription } from '@/lib/vstep-scoring';
 import {
   batchRecordVstepAnswers,
@@ -53,7 +55,9 @@ function VstepExamPageInner() {
   const router = useRouter();
   const examId = params.examId as string;
   const filterMode = searchParams.get('filter') || 'unseen';
-  const draftStorageKey = `vstep_draft_${examId}_${filterMode}`;
+  const skillParam = searchParams.get('skill') || '';
+  const draftStorageKey = `vstep_draft_${examId}_${filterMode}${skillParam ? `_${skillParam}` : ''}`;
+  const writingEvalsStorageKey = `vstep_writing_evals_${examId}`;
 
   // State nạp đề
   const [exam, setExam] = useState<VstepExam | null>(null);
@@ -67,6 +71,9 @@ function VstepExamPageInner() {
   const [activeQuestionIdx, setActiveQuestionIdx] = useState<number>(0);
   const [userAnswers, setUserAnswers] = useState<Record<string, number>>({});
   const [writingAnswers, setWritingAnswers] = useState<Record<string, string>>({});
+  const [writingEvals, setWritingEvals] = useState<Record<string, WritingEvalResult>>({});
+  const [evaluatingWritingTaskId, setEvaluatingWritingTaskId] = useState<string | null>(null);
+  const [showWritingSuggestion, setShowWritingSuggestion] = useState<Record<string, boolean>>({});
   const [flaggedQuestionIds, setFlaggedQuestionIds] = useState<Set<string>>(new Set());
   const [paletteOpen, setPaletteOpen] = useState<boolean>(false);
 
@@ -81,6 +88,15 @@ function VstepExamPageInner() {
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
   const [scoreResult, setScoreResult] = useState<VstepScoreResult | null>(null);
   const [reviewExam, setReviewExam] = useState<VstepExam | null>(null);
+
+  // Mobile pane toggle ('stimulus' | 'questions') để tránh 3 thanh cuộn lồng nhau trên màn hình nhỏ
+  const [mobileActiveTab, setMobileActiveTab] = useState<'stimulus' | 'questions'>('stimulus');
+
+  // Giải thích từng câu theo yêu cầu (On-Demand Explain) khi luyện đơn kỹ năng
+  const [onDemandExplanations, setOnDemandExplanations] = useState<
+    Record<string, { answer?: number; explanationVi?: string | null; tapescript?: string | null }>
+  >({});
+  const [explainingQuestionKey, setExplainingQuestionKey] = useState<string | null>(null);
 
   // Audio Player State cho Listening
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
@@ -106,7 +122,10 @@ function VstepExamPageInner() {
         setActiveQuestionIdx(0);
         setUserAnswers({});
         setWritingAnswers({});
+        setWritingEvals({});
         setFlaggedQuestionIds(new Set());
+        setOnDemandExplanations({});
+        setExplainingQuestionKey(null);
         setIsCompleted(false);
         setScoreResult(null);
         setReviewExam(null);
@@ -119,6 +138,7 @@ function VstepExamPageInner() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             testId: examId,
+            skill: skillParam || undefined,
             filterMode,
             excludedIds: answeredIds,
             mistakeIds,
@@ -131,24 +151,79 @@ function VstepExamPageInner() {
           return;
         }
 
-        setExam(data.exam);
+        const loadedExam: VstepExam = data.exam;
+        setExam(loadedExam);
         setSessionToken(data.sessionToken || '');
-        setTimeLeft(data.exam.duration * 60);
+        const maxDurationSeconds = loadedExam.duration * 60;
+        setTimeLeft(maxDurationSeconds);
 
-        // Khôi phục câu trả lời từ localStorage nếu làm dang dở
+        // Khôi phục kết quả chấm bài Writing đã lưu riêng (nếu có)
+        let loadedWritingEvals: Record<string, WritingEvalResult> = {};
+        try {
+          const savedEvalsRaw = localStorage.getItem(writingEvalsStorageKey);
+          if (savedEvalsRaw) {
+            const parsedEvals = JSON.parse(savedEvalsRaw);
+            if (parsedEvals && typeof parsedEvals === 'object') {
+              loadedWritingEvals = parsedEvals;
+            }
+          }
+        } catch {
+          // ignore
+        }
+
+        // Khôi phục câu trả lời, thời gian & vị trí câu hỏi từ localStorage nếu làm dang dở
         const savedDraft =
           localStorage.getItem(draftStorageKey) ||
-          (filterMode === 'unseen' ? localStorage.getItem(`vstep_draft_${examId}`) : null);
+          (filterMode === 'unseen' && !skillParam ? localStorage.getItem(`vstep_draft_${examId}`) : null);
         if (savedDraft) {
           try {
             const parsed = JSON.parse(savedDraft);
             if (parsed.answers) setUserAnswers(parsed.answers);
             if (parsed.writing) setWritingAnswers(parsed.writing);
+            if (parsed.writingEvals && typeof parsed.writingEvals === 'object') {
+              loadedWritingEvals = { ...loadedWritingEvals, ...parsed.writingEvals };
+            }
             if (parsed.flags) setFlaggedQuestionIds(new Set(parsed.flags));
+            if (typeof parsed.timeLeft === 'number' && parsed.timeLeft > 0) {
+              setTimeLeft(Math.min(maxDurationSeconds, parsed.timeLeft));
+            }
+            if (
+              typeof parsed.activeSectionIdx === 'number' &&
+              parsed.activeSectionIdx >= 0 &&
+              parsed.activeSectionIdx < loadedExam.sections.length
+            ) {
+              const secIdx = parsed.activeSectionIdx;
+              setActiveSectionIdx(secIdx);
+              const sec = loadedExam.sections[secIdx];
+              if (
+                sec &&
+                typeof parsed.activeTaskIdx === 'number' &&
+                parsed.activeTaskIdx >= 0 &&
+                parsed.activeTaskIdx < sec.tasks.length
+              ) {
+                const tskIdx = parsed.activeTaskIdx;
+                setActiveTaskIdx(tskIdx);
+                const tsk = sec.tasks[tskIdx];
+                const validQuestions =
+                  sec.type === 'listening' || sec.type === 'reading'
+                    ? (tsk?.questions || []).filter(
+                        (q) => typeof q === 'object' && q !== null && Array.isArray(q.options)
+                      )
+                    : [];
+                if (
+                  typeof parsed.activeQuestionIdx === 'number' &&
+                  parsed.activeQuestionIdx >= 0 &&
+                  (validQuestions.length === 0 || parsed.activeQuestionIdx < validQuestions.length)
+                ) {
+                  setActiveQuestionIdx(parsed.activeQuestionIdx);
+                }
+              }
+            }
           } catch {
             // ignore
           }
         }
+        setWritingEvals(loadedWritingEvals);
       } catch (err) {
         console.error('Lỗi khi tải đề thi:', err);
         setError('Không thể kết nối máy chủ để tải đề thi.');
@@ -158,19 +233,40 @@ function VstepExamPageInner() {
     }
 
     if (examId) fetchExam();
-  }, [draftStorageKey, examId, filterMode]);
+  }, [draftStorageKey, examId, filterMode, skillParam, writingEvalsStorageKey]);
 
   // Tự động lưu tiến độ vào localStorage
   useEffect(() => {
     if (!exam || isCompleted) return;
     const draft = {
+      examId,
+      skill: skillParam || 'all',
       answers: userAnswers,
       writing: writingAnswers,
+      writingEvals,
       flags: Array.from(flaggedQuestionIds),
+      timeLeft,
+      activeSectionIdx,
+      activeTaskIdx,
+      activeQuestionIdx,
       updatedAt: Date.now(),
     };
     localStorage.setItem(draftStorageKey, JSON.stringify(draft));
-  }, [userAnswers, writingAnswers, flaggedQuestionIds, exam, draftStorageKey, isCompleted]);
+  }, [
+    examId,
+    skillParam,
+    userAnswers,
+    writingAnswers,
+    writingEvals,
+    flaggedQuestionIds,
+    timeLeft,
+    activeSectionIdx,
+    activeTaskIdx,
+    activeQuestionIdx,
+    exam,
+    draftStorageKey,
+    isCompleted,
+  ]);
 
   const examHasTasks = Boolean(exam?.sections.some((section) => section.tasks.length > 0));
 
@@ -373,7 +469,92 @@ function VstepExamPageInner() {
     setActiveSectionIdx(sIdx);
     setActiveTaskIdx(tIdx);
     setActiveQuestionIdx(qIdx);
+    setMobileActiveTab('questions');
     setPaletteOpen(false);
+  };
+
+  // Chấm điểm bài viết VSTEP Writing theo Rubric 4 tiêu chí
+  const handleEvaluateWriting = async (task: VstepTask) => {
+    const taskId = task.id || 'part1';
+    const text = (writingAnswers[taskId] || '').trim();
+    const wordCount = text ? text.split(/\s+/).length : 0;
+    if (wordCount < 5) {
+      toast.error('Bài viết cần tối thiểu 5 từ để chấm điểm nhận xét.');
+      return;
+    }
+    setEvaluatingWritingTaskId(taskId);
+    try {
+      const promptText = [task.title, task.content, task.description]
+        .filter(Boolean)
+        .map((s) => stripHtmlTags(String(s)))
+        .join('\n');
+      const res = await fetch('/api/vstep/writing-eval', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          examType: 'vstep',
+          taskId,
+          taskTitle: task.title ? stripHtmlTags(task.title) : taskId.toUpperCase(),
+          prompt: promptText,
+          minWords: task.minWords || (taskId === 'part1' ? 120 : 250),
+          text,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success || !data.evaluation) {
+        throw new Error(data.error || 'Không thể chấm bài viết lúc này.');
+      }
+      setWritingEvals((prev) => {
+        const next = { ...prev, [taskId]: data.evaluation as WritingEvalResult };
+        try {
+          localStorage.setItem(writingEvalsStorageKey, JSON.stringify(next));
+        } catch {
+          // ignore
+        }
+        return next;
+      });
+      toast.success('Đã hoàn tất chấm điểm & nhận xét bài viết VSTEP!');
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : 'Lỗi kết nối khi chấm bài viết.';
+      toast.error(msg);
+    } finally {
+      setEvaluatingWritingTaskId(null);
+    }
+  };
+
+  // Xem giải thích từng câu theo yêu cầu (On-Demand Explain) khi luyện tập đơn kỹ năng
+  const handleExplainQuestion = async (question: VstepQuestion) => {
+    const qKey = getVstepQuestionKey(question);
+    if (onDemandExplanations[qKey] || explainingQuestionKey === qKey) return;
+    setExplainingQuestionKey(qKey);
+    try {
+      const res = await fetch('/api/vstep/explain', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          testId: examId,
+          questionId: qKey,
+          sessionToken,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        toast.error(data.error || 'Không thể tải giải thích cho câu hỏi này.');
+        return;
+      }
+      setOnDemandExplanations((prev) => ({
+        ...prev,
+        [qKey]: {
+          answer: typeof data.answer === 'number' ? data.answer : undefined,
+          explanationVi: data.explanationVi || 'Chưa có giải thích chi tiết cho câu hỏi này.',
+          tapescript: data.tapescript || null,
+        },
+      }));
+    } catch {
+      toast.error('Không thể kết nối máy chủ để tải giải thích.');
+    } finally {
+      setExplainingQuestionKey(null);
+    }
   };
 
   const submitExam = async () => {
@@ -543,7 +724,7 @@ function VstepExamPageInner() {
           </div>
           <div className="flex flex-col sm:flex-row justify-center gap-2">
             <Link
-              href={`/vstep/exam/${encodeURIComponent(examId)}?filter=all_random`}
+              href={`/vstep/exam/${encodeURIComponent(examId)}?filter=all_random${skillParam ? `&skill=${encodeURIComponent(skillParam)}` : ''}`}
               className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold bg-blue-600 text-white hover:bg-blue-700"
             >
               <Layers className="w-4 h-4" /> Luyện ngẫu nhiên
@@ -767,10 +948,52 @@ function VstepExamPageInner() {
         </div>
       )}
 
+      {/* Thanh chuyển đổi Đề bài / Câu hỏi trên thiết bị di động (tránh 3 thanh cuộn lồng nhau) */}
+      <div className="md:hidden flex border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-3 py-1.5 gap-2">
+        <button
+          type="button"
+          onClick={() => setMobileActiveTab('stimulus')}
+          className={`flex-1 py-1.5 px-3 rounded-md text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors ${
+            mobileActiveTab === 'stimulus'
+              ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-xs'
+              : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
+          }`}
+        >
+          {currentSection?.type === 'listening' ? (
+            <Headphones className="w-3.5 h-3.5" />
+          ) : (
+            <BookOpen className="w-3.5 h-3.5" />
+          )}
+          <span>Đề bài ({currentTask?.id?.toUpperCase() || `P${activeTaskIdx + 1}`})</span>
+        </button>
+        <button
+          type="button"
+          onClick={() => setMobileActiveTab('questions')}
+          className={`flex-1 py-1.5 px-3 rounded-md text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors ${
+            mobileActiveTab === 'questions'
+              ? 'bg-blue-600 text-white shadow-xs'
+              : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
+          }`}
+        >
+          <PenTool className="w-3.5 h-3.5" />
+          <span>
+            {currentSection?.type === 'writing'
+              ? 'Làm bài viết'
+              : currentSection?.type === 'speaking'
+              ? 'Hướng dẫn nói'
+              : `Câu hỏi (${currentQuestions.length > 0 ? `${activeQuestionIdx + 1}/${currentQuestions.length}` : 0})`}
+          </span>
+        </button>
+      </div>
+
       {/* ── BỐ CỤC CHÍNH SPLIT-PANE 2 CỘT TỐI ƯU ── */}
       <div className="flex-1 flex flex-col md:flex-row overflow-hidden relative">
         {/* ── CỘT TRÁI: STIMULUS (TÀI LIỆU BÀI ĐỌC / AUDIO / ĐỀ BÀI) ── */}
-        <div className="w-full md:w-1/2 border-r border-slate-200 dark:border-slate-800 p-4 sm:p-6 overflow-y-auto bg-white dark:bg-slate-900 max-h-[45vh] md:max-h-[calc(100vh-60px)]">
+        <div
+          className={`${
+            mobileActiveTab === 'stimulus' ? 'block' : 'hidden'
+          } md:block w-full md:w-1/2 border-r border-slate-200 dark:border-slate-800 p-4 sm:p-6 overflow-y-auto bg-white dark:bg-slate-900 md:max-h-[calc(100vh-60px)]`}
+        >
           {currentSection && (
             <div className="space-y-4">
               <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-2">
@@ -989,17 +1212,25 @@ function VstepExamPageInner() {
                     </div>
                   </div>
 
-                  {/* Tapescript khi xem lại bài */}
-                  {isCompleted && currentTask.tapescript && (
-                    <div className="mt-4 pt-3 border-t border-slate-200 dark:border-slate-700">
-                      <span className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-2">
-                        📜 Tapescript Bài Nghe:
-                      </span>
-                      <div className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed bg-white dark:bg-slate-900 p-3 rounded border border-slate-200 dark:border-slate-700 whitespace-pre-line font-sans">
-                        <ExamInteractiveText text={stripHtmlTags(currentTask.tapescript)} enabled={true} />
+                  {/* Tapescript khi xem lại bài hoặc khi mở giải thích từng câu */}
+                  {(() => {
+                    const activeExplainTapescript = currentQuestion
+                      ? onDemandExplanations[getVstepQuestionKey(currentQuestion)]?.tapescript
+                      : null;
+                    const resolvedTapescript =
+                      (isCompleted ? currentTask.tapescript : null) || activeExplainTapescript;
+                    if (!resolvedTapescript) return null;
+                    return (
+                      <div className="mt-4 pt-3 border-t border-slate-200 dark:border-slate-700">
+                        <span className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-2">
+                          📜 Tapescript Bài Nghe:
+                        </span>
+                        <div className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed bg-white dark:bg-slate-900 p-3 rounded border border-slate-200 dark:border-slate-700 whitespace-pre-line font-sans">
+                          <ExamInteractiveText text={stripHtmlTags(resolvedTapescript)} enabled={true} />
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    );
+                  })()}
                 </div>
               )}
 
@@ -1049,6 +1280,40 @@ function VstepExamPageInner() {
                   <div className="p-3 bg-blue-50 dark:bg-blue-950/40 rounded border border-blue-200 dark:border-blue-800 text-xs font-mono text-blue-800 dark:text-blue-300">
                     Yêu cầu: Viết tối thiểu <strong>{currentTask.minWords || 120} từ</strong> trong khoảng <strong>{currentTask.id === 'part1' ? '20' : '40'} phút</strong>.
                   </div>
+                  {(isCompleted || Boolean(skillParam)) && currentTask.suggestion && (
+                    <div className="mt-3 space-y-2">
+                      {!isCompleted && (
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setShowWritingSuggestion((prev) => ({
+                              ...prev,
+                              [currentTask.id || 'part1']: !prev[currentTask.id || 'part1'],
+                            }))
+                          }
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-semibold text-emerald-800 dark:text-emerald-300 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-800 rounded transition-colors cursor-pointer"
+                        >
+                          <Sparkles className="w-3.5 h-3.5" />
+                          <span>
+                            {showWritingSuggestion[currentTask.id || 'part1']
+                              ? 'Ẩn bài mẫu / gợi ý dàn bài'
+                              : 'Xem bài mẫu / gợi ý dàn bài'}
+                          </span>
+                        </button>
+                      )}
+                      {(isCompleted || showWritingSuggestion[currentTask.id || 'part1']) && (
+                        <div className="p-3 bg-emerald-50/70 dark:bg-emerald-950/30 rounded border border-emerald-200 dark:border-emerald-800">
+                          <span className="text-xs font-bold text-emerald-800 dark:text-emerald-300 block mb-1">
+                            Bài mẫu / Gợi ý dàn bài:
+                          </span>
+                          <div
+                            className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed"
+                            dangerouslySetInnerHTML={{ __html: currentTask.suggestion }}
+                          />
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -1086,23 +1351,51 @@ function VstepExamPageInner() {
         </div>
 
         {/* ── CỘT PHẢI: CÂU HỎI TRẮC NGHIỆM HOẶC KHUNG SOẠN THẢO VIẾT ── */}
-        <div className="w-full md:w-1/2 p-4 sm:p-6 overflow-y-auto max-h-[55vh] md:max-h-[calc(100vh-60px)] flex flex-col justify-between">
+        <div
+          className={`${
+            mobileActiveTab === 'questions' ? 'flex' : 'hidden'
+          } md:flex w-full md:w-1/2 p-4 sm:p-6 overflow-y-auto md:max-h-[calc(100vh-60px)] flex-col justify-between`}
+        >
           {currentSection?.type === 'writing' ? (
             /* Khung Soạn Thảo Cho Phần Thi Viết */
             <div className="flex flex-col h-full space-y-3">
-              <div className="flex items-center justify-between text-xs font-mono">
+              <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
                 <span className="font-bold text-slate-700 dark:text-slate-300">
                   Bài Viết Của Bạn — {currentTask?.id?.toUpperCase()}
                 </span>
                 {(() => {
-                  const essay = writingAnswers[currentTask?.id || 'part1'] || '';
+                  const taskId = currentTask?.id || 'part1';
+                  const essay = writingAnswers[taskId] || '';
                   const words = essay.trim() ? essay.trim().split(/\s+/).length : 0;
                   const minReq = currentTask?.minWords || 120;
                   const isMet = words >= minReq;
                   return (
-                    <span className={`font-semibold ${isMet ? 'text-emerald-600' : 'text-amber-600'}`}>
-                      {words} / {minReq} từ {isMet && '✓ Đủ độ dài'}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className={`font-semibold ${isMet ? 'text-emerald-600' : 'text-amber-600'}`}>
+                        {words} / {minReq} từ {isMet && '✓ Đủ độ dài'}
+                      </span>
+                      {currentTask && (
+                        <button
+                          type="button"
+                          disabled={words < 5 || evaluatingWritingTaskId === taskId}
+                          onClick={() => void handleEvaluateWriting(currentTask)}
+                          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-mono font-bold border transition-colors ${
+                            words >= 5 && evaluatingWritingTaskId !== taskId
+                              ? 'bg-indigo-600 text-white border-indigo-600 hover:bg-indigo-700 cursor-pointer'
+                              : 'bg-slate-100 text-slate-400 border-slate-200 dark:bg-slate-800 dark:text-slate-600 cursor-not-allowed'
+                          }`}
+                        >
+                          <Sparkles className="w-3.5 h-3.5" />
+                          <span>
+                            {evaluatingWritingTaskId === taskId
+                              ? 'Đang chấm bài...'
+                              : writingEvals[taskId]
+                                ? 'Chấm lại (Rubric VSTEP)'
+                                : 'Chấm điểm & Nhận xét'}
+                          </span>
+                        </button>
+                      )}
+                    </div>
                   );
                 })()}
               </div>
@@ -1118,9 +1411,94 @@ function VstepExamPageInner() {
                   }));
                 }}
                 disabled={isCompleted}
-                placeholder="Bắt đầu gõ bài luận hoặc thư của bạn tại đây bằng tiếng Anh..."
-                className="flex-1 w-full p-4 text-sm font-serif leading-relaxed bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none min-h-[320px]"
+                placeholder="Bắt đầu gõ bài luận hoặc thư của bạn tại đây bằng tiếng Anh... (Tự động lưu nháp khi gõ)"
+                className="flex-1 w-full p-4 text-sm font-serif leading-relaxed bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-y min-h-[260px]"
               />
+
+              {/* Kết quả chấm bài Writing 4 tiêu chí VSTEP */}
+              {currentTask && writingEvals[currentTask.id || 'part1'] && (() => {
+                const evalData = writingEvals[currentTask.id || 'part1'];
+                return (
+                  <div className="p-4 bg-slate-50 dark:bg-slate-800/70 border border-indigo-200 dark:border-indigo-900 rounded-lg space-y-3 text-xs">
+                    <div className="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-slate-200 dark:border-slate-700">
+                      <div className="flex items-center gap-1.5 font-mono font-bold text-indigo-900 dark:text-indigo-200">
+                        <Sparkles className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                        <span>NHẬN XÉT BÀI VIẾT VSTEP (4 TIÊU CHÍ MOET)</span>
+                      </div>
+                      <div className="flex items-center gap-2 font-mono">
+                        <span className="px-2 py-0.5 bg-indigo-600 text-white font-bold rounded">
+                          {evalData.overallScore.toFixed(1)} / 10.0
+                        </span>
+                        <span className="px-2 py-0.5 bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 font-bold border border-emerald-300 dark:border-emerald-800 rounded">
+                          Band: {evalData.cefrBand}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      <div className="p-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded">
+                        <div className="flex items-center justify-between font-mono font-bold text-slate-700 dark:text-slate-200 mb-1">
+                          <span>1. Task Fulfillment</span>
+                          <span className="text-indigo-600 dark:text-indigo-400">{evalData.criteria.taskFulfillment.score.toFixed(1)}/10</span>
+                        </div>
+                        <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">
+                          {evalData.criteria.taskFulfillment.feedback}
+                        </p>
+                      </div>
+                      <div className="p-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded">
+                        <div className="flex items-center justify-between font-mono font-bold text-slate-700 dark:text-slate-200 mb-1">
+                          <span>2. Organization</span>
+                          <span className="text-indigo-600 dark:text-indigo-400">{evalData.criteria.organization.score.toFixed(1)}/10</span>
+                        </div>
+                        <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">
+                          {evalData.criteria.organization.feedback}
+                        </p>
+                      </div>
+                      <div className="p-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded">
+                        <div className="flex items-center justify-between font-mono font-bold text-slate-700 dark:text-slate-200 mb-1">
+                          <span>3. Vocabulary</span>
+                          <span className="text-indigo-600 dark:text-indigo-400">{evalData.criteria.vocabulary.score.toFixed(1)}/10</span>
+                        </div>
+                        <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">
+                          {evalData.criteria.vocabulary.feedback}
+                        </p>
+                      </div>
+                      <div className="p-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded">
+                        <div className="flex items-center justify-between font-mono font-bold text-slate-700 dark:text-slate-200 mb-1">
+                          <span>4. Grammar</span>
+                          <span className="text-indigo-600 dark:text-indigo-400">{evalData.criteria.grammar.score.toFixed(1)}/10</span>
+                        </div>
+                        <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed">
+                          {evalData.criteria.grammar.feedback}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                      <div className="space-y-1">
+                        <div className="font-mono font-bold text-[11px] text-emerald-700 dark:text-emerald-400 uppercase">
+                          ✓ Điểm mạnh:
+                        </div>
+                        <ul className="space-y-0.5 text-[11px] text-slate-600 dark:text-slate-300 list-disc list-inside">
+                          {evalData.strengths.map((s, i) => (
+                            <li key={i}>{s}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="space-y-1">
+                        <div className="font-mono font-bold text-[11px] text-amber-700 dark:text-amber-400 uppercase">
+                          ⚡ Cần cải thiện:
+                        </div>
+                        <ul className="space-y-0.5 text-[11px] text-slate-600 dark:text-slate-300 list-disc list-inside">
+                          {evalData.improvements.map((imp, i) => (
+                            <li key={i}>{imp}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })()}
             </div>
           ) : currentSection?.type === 'speaking' ? (
             <div className="flex flex-col items-center justify-center min-h-[320px] text-center px-6 space-y-3">
@@ -1186,11 +1564,14 @@ function VstepExamPageInner() {
                   const currentQuestionKey = getVstepQuestionKey(currentQuestion);
                   const selectedAnswer = userAnswers[currentQuestionKey] ?? userAnswers[currentQuestion.id];
                   const isSelected = selectedAnswer === optIdx;
-                  const isCorrect = isCompleted && currentQuestion.answer === optIdx;
-                  const isWrong = isCompleted && isSelected && !isCorrect;
+                  const onDemandItem = onDemandExplanations[currentQuestionKey];
+                  const revealedAnswer = isCompleted ? currentQuestion.answer : onDemandItem?.answer;
+                  const isRevealed = isCompleted || typeof revealedAnswer === 'number';
+                  const isCorrect = isRevealed && revealedAnswer === optIdx;
+                  const isWrong = isRevealed && isSelected && !isCorrect;
 
                   let cardStyle = 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-white dark:bg-slate-900';
-                  if (isSelected && !isCompleted) {
+                  if (isSelected && !isRevealed) {
                     cardStyle = 'border-blue-600 dark:border-blue-500 bg-blue-50/60 dark:bg-blue-950/40 text-blue-900 dark:text-blue-200 ring-1 ring-blue-600';
                   } else if (isCorrect) {
                     cardStyle = 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-200 ring-1 ring-emerald-500 font-bold';
@@ -1209,7 +1590,7 @@ function VstepExamPageInner() {
                       } ${cardStyle}`}
                     >
                       <span className={`w-5 h-5 rounded-full flex items-center justify-center text-xs font-mono font-bold shrink-0 mt-0.5 ${
-                        isSelected && !isCompleted
+                        isSelected && !isRevealed
                           ? 'bg-blue-600 text-white'
                           : isCorrect
                           ? 'bg-emerald-600 text-white'
@@ -1220,7 +1601,7 @@ function VstepExamPageInner() {
                         {optLetter}
                       </span>
                       <span className="text-xs sm:text-sm leading-relaxed">
-                        {isCompleted ? (
+                        {isRevealed ? (
                           <ExamInteractiveText text={stripHtmlTags(optText)} enabled={true} />
                         ) : (
                           <span dangerouslySetInnerHTML={{ __html: optText }} />
@@ -1231,17 +1612,45 @@ function VstepExamPageInner() {
                 })}
               </div>
 
-              {/* Lời giải chi tiết khi hoàn thành bài thi */}
-              {isCompleted && currentQuestion.explanationVi && (
-                <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 rounded-lg text-xs leading-relaxed text-blue-900 dark:text-blue-200 space-y-1">
-                  <span className="font-bold flex items-center gap-1 text-blue-800 dark:text-blue-300">
-                    <Info className="w-3.5 h-3.5" /> Giải thích chi tiết:
-                  </span>
-                  <div className="whitespace-pre-line">
-                    <p>{stripHtmlTags(currentQuestion.explanationVi)}</p>
-                  </div>
+              {/* Nút Xem giải thích từng câu (On-Demand Explain) khi luyện đơn kỹ năng */}
+              {supportsQuestionFilter && !isCompleted && (
+                <div className="pt-1">
+                  {!onDemandExplanations[getVstepQuestionKey(currentQuestion)] && (
+                    <button
+                      type="button"
+                      disabled={explainingQuestionKey === getVstepQuestionKey(currentQuestion)}
+                      onClick={() => handleExplainQuestion(currentQuestion)}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-blue-200 dark:border-blue-800 bg-blue-50/70 dark:bg-blue-950/40 hover:bg-blue-100/80 dark:hover:bg-blue-900/50 text-xs font-semibold text-blue-700 dark:text-blue-300 transition-colors disabled:opacity-50"
+                    >
+                      <Info className="w-3.5 h-3.5" />
+                      <span>
+                        {explainingQuestionKey === getVstepQuestionKey(currentQuestion)
+                          ? 'Đang tải lời giải...'
+                          : 'Kiểm tra đáp án & Giải thích câu này'}
+                      </span>
+                    </button>
+                  )}
                 </div>
               )}
+
+              {/* Lời giải chi tiết khi hoàn thành bài thi hoặc khi mở On-Demand Explain */}
+              {(() => {
+                const currentQuestionKey = getVstepQuestionKey(currentQuestion);
+                const explanationText =
+                  (isCompleted ? currentQuestion.explanationVi : null) ||
+                  onDemandExplanations[currentQuestionKey]?.explanationVi;
+                if (!explanationText) return null;
+                return (
+                  <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 rounded-lg text-xs leading-relaxed text-blue-900 dark:text-blue-200 space-y-1">
+                    <span className="font-bold flex items-center gap-1 text-blue-800 dark:text-blue-300">
+                      <Info className="w-3.5 h-3.5" /> Giải thích chi tiết:
+                    </span>
+                    <div className="whitespace-pre-line">
+                      <p>{stripHtmlTags(explanationText)}</p>
+                    </div>
+                  </div>
+                );
+              })()}
             </div>
           ) : (
             <div className="text-center py-12 text-slate-400 text-xs font-mono">
@@ -1249,18 +1658,38 @@ function VstepExamPageInner() {
             </div>
           )}
 
-          {/* Navigation Buttons: Previous / Next */}
+          {/* Navigation Buttons: Previous / Next (hỗ trợ chuyển mượt qua ranh giới giữa các Section) */}
           <div className="border-t border-slate-100 dark:border-slate-800 pt-4 mt-6 flex items-center justify-between">
             <button
               type="button"
-              disabled={activeQuestionIdx === 0 && activeTaskIdx === 0}
+              disabled={activeQuestionIdx === 0 && activeTaskIdx === 0 && activeSectionIdx === 0}
               onClick={() => {
                 if (activeQuestionIdx > 0) {
                   setActiveQuestionIdx(activeQuestionIdx - 1);
                 } else if (activeTaskIdx > 0) {
                   const prevTask = currentSection?.tasks[activeTaskIdx - 1];
+                  const prevQuestions =
+                    currentSection?.type === 'listening' || currentSection?.type === 'reading'
+                      ? (prevTask?.questions || []).filter(
+                          (q) => typeof q === 'object' && q !== null && Array.isArray(q.options)
+                        )
+                      : [];
                   setActiveTaskIdx(activeTaskIdx - 1);
-                  setActiveQuestionIdx((prevTask?.questions?.length || 1) - 1);
+                  setActiveQuestionIdx(Math.max(0, prevQuestions.length - 1));
+                } else if (activeSectionIdx > 0 && currentExam) {
+                  const prevSectionIdx = activeSectionIdx - 1;
+                  const prevSection = currentExam.sections[prevSectionIdx];
+                  const prevTaskIdx = Math.max(0, (prevSection?.tasks.length || 1) - 1);
+                  const prevTask = prevSection?.tasks[prevTaskIdx];
+                  const prevQuestions =
+                    prevSection?.type === 'listening' || prevSection?.type === 'reading'
+                      ? (prevTask?.questions || []).filter(
+                          (q) => typeof q === 'object' && q !== null && Array.isArray(q.options)
+                        )
+                      : [];
+                  setActiveSectionIdx(prevSectionIdx);
+                  setActiveTaskIdx(prevTaskIdx);
+                  setActiveQuestionIdx(Math.max(0, prevQuestions.length - 1));
                 }
               }}
               className="inline-flex items-center gap-1 px-3 py-1.5 rounded border border-slate-200 dark:border-slate-700 text-xs font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 disabled:opacity-40 disabled:pointer-events-none"
@@ -1270,12 +1699,20 @@ function VstepExamPageInner() {
 
             <button
               type="button"
-              disabled={activeQuestionIdx === currentQuestions.length - 1 && activeTaskIdx === (currentSection?.tasks.length || 1) - 1}
+              disabled={
+                (currentQuestions.length === 0 || activeQuestionIdx >= currentQuestions.length - 1) &&
+                activeTaskIdx >= (currentSection?.tasks.length || 1) - 1 &&
+                activeSectionIdx >= (currentExam?.sections.length || 1) - 1
+              }
               onClick={() => {
                 if (activeQuestionIdx < currentQuestions.length - 1) {
                   setActiveQuestionIdx(activeQuestionIdx + 1);
                 } else if (activeTaskIdx < (currentSection?.tasks.length || 1) - 1) {
                   setActiveTaskIdx(activeTaskIdx + 1);
+                  setActiveQuestionIdx(0);
+                } else if (activeSectionIdx < (currentExam?.sections.length || 1) - 1) {
+                  setActiveSectionIdx(activeSectionIdx + 1);
+                  setActiveTaskIdx(0);
                   setActiveQuestionIdx(0);
                 }
               }}

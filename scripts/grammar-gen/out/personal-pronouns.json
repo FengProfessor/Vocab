@@ -448,7 +448,12 @@
       "id": "personal-pronouns-ex-04",
       "type": "fill_blank",
       "question": "My parents are kind. ___ help me a lot.",
-      "options": [],
+      "options": [
+        "they",
+        "them",
+        "their",
+        "theirs"
+      ],
       "correct_answer": "they",
       "explanation": "Thay my parents ở vị trí chủ ngữ bằng they.",
       "distractor_breakdowns": [
@@ -466,6 +471,11 @@
           "option": "their",
           "isCorrect": false,
           "pedagogicalReason": "Không chính xác. \"their\" là tính từ sở hữu, bắt buộc phải có danh từ theo sau bổ nghĩa."
+        },
+        {
+          "option": "theirs",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"theirs\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"they\"). Thay my parents ở vị trí chủ ngữ bằng they."
         }
       ],
       "difficulty": 1
@@ -474,7 +484,12 @@
       "id": "personal-pronouns-ex-05",
       "type": "fill_blank",
       "question": "Please listen to ___. (I)",
-      "options": [],
+      "options": [
+        "me",
+        "I",
+        "my",
+        "mine"
+      ],
       "correct_answer": "me",
       "explanation": "Sau giới từ to dùng me.",
       "distractor_breakdowns": [
@@ -492,6 +507,11 @@
           "option": "my",
           "isCorrect": false,
           "pedagogicalReason": "Không chính xác. \"my\" là tính từ sở hữu, cần có danh từ theo sau."
+        },
+        {
+          "option": "mine",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"mine\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"me\"). Sau giới từ to dùng me."
         }
       ],
       "difficulty": 1
@@ -500,7 +520,12 @@
       "id": "personal-pronouns-ex-06",
       "type": "fill_blank",
       "question": "I like these shoes, so I bought ___.",
-      "options": [],
+      "options": [
+        "them",
+        "they",
+        "their",
+        "theirs"
+      ],
       "correct_answer": "them",
       "explanation": "Thay shoes số nhiều ở vị trí tân ngữ bằng them.",
       "distractor_breakdowns": [
@@ -518,6 +543,11 @@
           "option": "their",
           "isCorrect": false,
           "pedagogicalReason": "Không chính xác. \"their\" là tính từ sở hữu, không đứng độc lập làm tân ngữ."
+        },
+        {
+          "option": "theirs",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"theirs\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"them\"). Thay shoes số nhiều ở vị trí tân ngữ bằng them."
         }
       ],
       "difficulty": 2

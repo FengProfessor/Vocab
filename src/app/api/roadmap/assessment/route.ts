@@ -35,7 +35,13 @@ export async function GET(req: NextRequest) {
 
       if (targetId) query = query.eq('target_id', targetId);
       if (tier) query = query.eq('tier', tier);
-      if (track) query = query.eq('track', track);
+      if (track === 'vstep') {
+        query = query.or('track.eq.vstep,target_id.ilike.vstep%');
+      } else if (track === 'vnu-bac-3') {
+        query = query.or('track.eq.vnu-bac-3,target_id.ilike.vnu%');
+      } else if (track) {
+        query = query.eq('track', track);
+      }
       query = query.limit(limit);
 
       const { data, error } = await query;
@@ -77,7 +83,7 @@ export async function GET(req: NextRequest) {
  * Body:
  *   - targetId: string (bắt buộc)
  *   - tier: 'mini_quiz' | 'checkpoint' | 'exit_exam' (mặc định 'checkpoint')
- *   - track: 'cefr' | 'thpt' (mặc định 'cefr')
+ *   - track: 'cefr' | 'thpt' | 'toeic' | 'vstep' | 'vnu-bac-3' (mặc định 'cefr')
  *   - score: number (0 - 100)
  *   - passed: boolean
  *   - details: object (DiagnosticReport hoặc payload chi tiết)
@@ -92,7 +98,7 @@ export async function POST(req: NextRequest) {
       targetId?: string;
       stepId?: string;
       tier?: AssessmentType;
-      track?: RoadmapTrack;
+      track?: RoadmapTrack | 'vstep' | 'vnu-bac-3';
       score?: number;
       passed?: boolean;
       details?: Record<string, unknown>;
@@ -108,7 +114,10 @@ export async function POST(req: NextRequest) {
 
     const score = Math.max(0, Math.min(100, Math.round(Number(body.score) || 0)));
     const passed = typeof body.passed === 'boolean' ? body.passed : score >= 80;
-    const track = body.track === 'thpt' ? 'thpt' : body.track === 'toeic' ? 'toeic' : 'cefr';
+    const track =
+      body.track === 'thpt' || body.track === 'toeic' || body.track === 'vstep' || body.track === 'vnu-bac-3'
+        ? body.track
+        : 'cefr';
     const tier: AssessmentType =
       body.tier === 'mini_quiz' || body.tier === 'exit_exam' ? body.tier : 'checkpoint';
     const details = body.details ?? {};
@@ -126,11 +135,21 @@ export async function POST(req: NextRequest) {
 
     try {
       const supabase = createServiceClient();
-      const { data, error } = await supabase
+      let { data, error } = await supabase
         .from('user_roadmap_assessments')
         .insert(attemptRecord)
         .select()
         .single();
+
+      if (error && (track === 'vstep' || track === 'vnu-bac-3')) {
+        const retryRes = await supabase
+          .from('user_roadmap_assessments')
+          .insert({ ...attemptRecord, track: 'cefr' })
+          .select()
+          .single();
+        data = retryRes.data;
+        error = retryRes.error;
+      }
 
       if (error) {
         console.warn('[Assessment POST] Supabase insert failed, fallback acknowledging:', error.message);

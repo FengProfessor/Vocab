@@ -467,26 +467,36 @@
   "exercises": [
     {
       "id": "past-continuous-ex-01",
-      "type": "fill_blank",
-      "question": "At 8 p.m. last night my father ____ (feed) the pigeons.",
-      "options": [],
-      "correct_answer": "was feeding",
-      "explanation": "at + giờ + quá khứ → tiếp diễn",
+      "type": "multiple_choice",
+      "question": "At 8 p.m. last night, I ___ my English lesson.",
+      "options": [
+        "was studying",
+        "studied",
+        "am studying",
+        "were studying"
+      ],
+      "correct_answer": "was studying",
+      "explanation": "Hành động đang diễn ra tại một giờ cụ thể trong quá khứ (\"At 8 p.m. last night\") dùng quá khứ tiếp diễn. Chủ ngữ \"I\" đi với \"was studying\".",
       "distractor_breakdowns": [
         {
-          "option": "was feeding",
+          "option": "was studying",
           "isCorrect": true,
-          "pedagogicalReason": "at + giờ + quá khứ → tiếp diễn"
+          "pedagogicalReason": "Hành động đang diễn ra tại một giờ cụ thể trong quá khứ (\"At 8 p.m. last night\") dùng quá khứ tiếp diễn. Chủ ngữ \"I\" đi với \"was studying\"."
         },
         {
-          "option": "was feedings",
+          "option": "studied",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"was feedings\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"studied\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was studying\"). Hành động đang diễn ra tại một giờ cụ thể trong quá khứ (\"At 8 p.m. last night\") dùng quá khứ tiếp diễn. Chủ ngữ \"I\" đi với \"was studying\"."
         },
         {
-          "option": "to was feeding",
+          "option": "am studying",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+          "pedagogicalReason": "Không chính xác. Phương án \"am studying\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was studying\"). Hành động đang diễn ra tại một giờ cụ thể trong quá khứ (\"At 8 p.m. last night\") dùng quá khứ tiếp diễn. Chủ ngữ \"I\" đi với \"was studying\"."
+        },
+        {
+          "option": "were studying",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"were studying\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was studying\"). Hành động đang diễn ra tại một giờ cụ thể trong quá khứ (\"At 8 p.m. last night\") dùng quá khứ tiếp diễn. Chủ ngữ \"I\" đi với \"was studying\"."
         }
       ],
       "difficulty": 1
@@ -494,51 +504,71 @@
     {
       "id": "past-continuous-ex-02",
       "type": "fill_blank",
-      "question": "While I ____ (do) my homework, my sister ____ (listen) to music.",
-      "options": [],
-      "correct_answer": "was doing / was listening",
-      "explanation": "2 việc dài song song → cả 2 tiếp diễn",
+      "question": "They ___ football at 4 o'clock yesterday afternoon.",
+      "options": [
+        "were playing",
+        "was playing",
+        "played",
+        "are playing"
+      ],
+      "correct_answer": "were playing",
+      "explanation": "Chủ ngữ số nhiều \"They\" + mốc giờ cụ thể trong quá khứ → dùng \"were playing\".",
       "distractor_breakdowns": [
         {
-          "option": "was doing / was listening",
+          "option": "were playing",
           "isCorrect": true,
-          "pedagogicalReason": "2 việc dài song song → cả 2 tiếp diễn"
+          "pedagogicalReason": "Chủ ngữ số nhiều \"They\" + mốc giờ cụ thể trong quá khứ → dùng \"were playing\"."
         },
         {
-          "option": "was doing / was listenings",
+          "option": "was playing",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"was doing / was listenings\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"was playing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"were playing\"). Chủ ngữ số nhiều \"They\" + mốc giờ cụ thể trong quá khứ → dùng \"were playing\"."
         },
         {
-          "option": "to was doing / was listening",
+          "option": "played",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+          "pedagogicalReason": "Không chính xác. Phương án \"played\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"were playing\"). Chủ ngữ số nhiều \"They\" + mốc giờ cụ thể trong quá khứ → dùng \"were playing\"."
+        },
+        {
+          "option": "are playing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"are playing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"were playing\"). Chủ ngữ số nhiều \"They\" + mốc giờ cụ thể trong quá khứ → dùng \"were playing\"."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "past-continuous-ex-03",
-      "type": "fill_blank",
-      "question": "At 7 p.m. yesterday my father ____ (watch) the news when the phone ____ (ring).",
-      "options": [],
-      "correct_answer": "was watching / rang",
-      "explanation": "at 7 p.m. yesterday = đang giữa chừng · chuông reo = việc ngắn",
+      "type": "multiple_choice",
+      "question": "While my mother ___ dinner, the phone rang.",
+      "options": [
+        "was cooking",
+        "cooked",
+        "is cooking",
+        "were cooking"
+      ],
+      "correct_answer": "was cooking",
+      "explanation": "Hành động đang diễn ra kéo dài (sau \"While\") dùng quá khứ tiếp diễn \"was cooking\"; hành động cắt ngang (\"the phone rang\") dùng quá khứ đơn.",
       "distractor_breakdowns": [
         {
-          "option": "was watching / rang",
+          "option": "was cooking",
           "isCorrect": true,
-          "pedagogicalReason": "at 7 p.m. yesterday = đang giữa chừng · chuông reo = việc ngắn"
+          "pedagogicalReason": "Hành động đang diễn ra kéo dài (sau \"While\") dùng quá khứ tiếp diễn \"was cooking\"; hành động cắt ngang (\"the phone rang\") dùng quá khứ đơn."
         },
         {
-          "option": "was watching / rangs",
+          "option": "cooked",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"was watching / rangs\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"cooked\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was cooking\"). Hành động đang diễn ra kéo dài (sau \"While\") dùng quá khứ tiếp diễn \"was cooking\"; hành động cắt ngang (\"the phone rang\") dùng quá khứ đơn."
         },
         {
-          "option": "to was watching / rang",
+          "option": "is cooking",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+          "pedagogicalReason": "Không chính xác. Phương án \"is cooking\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was cooking\"). Hành động đang diễn ra kéo dài (sau \"While\") dùng quá khứ tiếp diễn \"was cooking\"; hành động cắt ngang (\"the phone rang\") dùng quá khứ đơn."
+        },
+        {
+          "option": "were cooking",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"were cooking\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was cooking\"). Hành động đang diễn ra kéo dài (sau \"While\") dùng quá khứ tiếp diễn \"was cooking\"; hành động cắt ngang (\"the phone rang\") dùng quá khứ đơn."
         }
       ],
       "difficulty": 2
@@ -546,28 +576,326 @@
     {
       "id": "past-continuous-ex-04",
       "type": "fill_blank",
-      "question": "At 9 p.m. yesterday I ____ (help) my mother in the kitchen.",
-      "options": [],
-      "correct_answer": "was helping",
-      "explanation": "at + giờ + quá khứ → quá khứ tiếp diễn",
+      "question": "When I opened the door, the cat ___ on the sofa.",
+      "options": [
+        "was sleeping",
+        "slept",
+        "is sleeping",
+        "were sleeping"
+      ],
+      "correct_answer": "was sleeping",
+      "explanation": "Lúc tôi mở cửa (quá khứ đơn), con mèo ĐANG ngủ trên ghế → dùng \"was sleeping\".",
       "distractor_breakdowns": [
         {
-          "option": "was helping",
+          "option": "was sleeping",
           "isCorrect": true,
-          "pedagogicalReason": "at + giờ + quá khứ → quá khứ tiếp diễn"
+          "pedagogicalReason": "Lúc tôi mở cửa (quá khứ đơn), con mèo ĐANG ngủ trên ghế → dùng \"was sleeping\"."
         },
         {
-          "option": "was helpings",
+          "option": "slept",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"was helpings\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"slept\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was sleeping\"). Lúc tôi mở cửa (quá khứ đơn), con mèo ĐANG ngủ trên ghế → dùng \"was sleeping\"."
         },
         {
-          "option": "to was helping",
+          "option": "is sleeping",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+          "pedagogicalReason": "Không chính xác. Phương án \"is sleeping\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was sleeping\"). Lúc tôi mở cửa (quá khứ đơn), con mèo ĐANG ngủ trên ghế → dùng \"was sleeping\"."
+        },
+        {
+          "option": "were sleeping",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"were sleeping\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was sleeping\"). Lúc tôi mở cửa (quá khứ đơn), con mèo ĐANG ngủ trên ghế → dùng \"was sleeping\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "past-continuous-ex-05",
+      "type": "multiple_choice",
+      "question": "What ___ you doing when the storm started?",
+      "options": [
+        "were",
+        "was",
+        "did",
+        "are"
+      ],
+      "correct_answer": "were",
+      "explanation": "Câu hỏi quá khứ tiếp diễn với chủ ngữ \"you\" và \"doing\" dùng to be quá khứ \"were\".",
+      "distractor_breakdowns": [
+        {
+          "option": "were",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi quá khứ tiếp diễn với chủ ngữ \"you\" và \"doing\" dùng to be quá khứ \"were\"."
+        },
+        {
+          "option": "was",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ to be số ít \"was\" không hòa hợp với chủ ngữ hoặc thì của câu (đáp án đúng là \"were\")."
+        },
+        {
+          "option": "did",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Trợ động từ \"did\" không phù hợp với ngôi của chủ ngữ hoặc cấu trúc của câu (đáp án đúng là \"were\")."
+        },
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Động từ to be số nhiều \"are\" không hòa hợp với chủ ngữ hoặc thì của câu (đáp án đúng là \"were\")."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "past-continuous-ex-06",
+      "type": "fill_blank",
+      "question": "While Nam was walking along the beach, he ___ a wallet.",
+      "options": [
+        "found",
+        "was finding",
+        "finds",
+        "find"
+      ],
+      "correct_answer": "found",
+      "explanation": "Hành động ngắn bất ngờ cắt ngang hành động đang đi bộ là nhặt được chiếc ví → chia quá khứ đơn \"found\".",
+      "distractor_breakdowns": [
+        {
+          "option": "found",
+          "isCorrect": true,
+          "pedagogicalReason": "Hành động ngắn bất ngờ cắt ngang hành động đang đi bộ là nhặt được chiếc ví → chia quá khứ đơn \"found\"."
+        },
+        {
+          "option": "was finding",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"was finding\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"found\"). Hành động ngắn bất ngờ cắt ngang hành động đang đi bộ là nhặt được chiếc ví → chia quá khứ đơn \"found\"."
+        },
+        {
+          "option": "finds",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"finds\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"found\"). Hành động ngắn bất ngờ cắt ngang hành động đang đi bộ là nhặt được chiếc ví → chia quá khứ đơn \"found\"."
+        },
+        {
+          "option": "find",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"find\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"found\"). Hành động ngắn bất ngờ cắt ngang hành động đang đi bộ là nhặt được chiếc ví → chia quá khứ đơn \"found\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "past-continuous-ex-07",
+      "type": "multiple_choice",
+      "question": "While I was reading a book, my brother ___ to music.",
+      "options": [
+        "was listening",
+        "listened",
+        "is listening",
+        "were listening"
+      ],
+      "correct_answer": "was listening",
+      "explanation": "Hai hành động diễn ra song song cùng lúc trong quá khứ (While + QKTD, QKTD) → chọn \"was listening\".",
+      "distractor_breakdowns": [
+        {
+          "option": "was listening",
+          "isCorrect": true,
+          "pedagogicalReason": "Hai hành động diễn ra song song cùng lúc trong quá khứ (While + QKTD, QKTD) → chọn \"was listening\"."
+        },
+        {
+          "option": "listened",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"listened\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was listening\"). Hai hành động diễn ra song song cùng lúc trong quá khứ (While + QKTD, QKTD) → chọn \"was listening\"."
+        },
+        {
+          "option": "is listening",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is listening\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was listening\"). Hai hành động diễn ra song song cùng lúc trong quá khứ (While + QKTD, QKTD) → chọn \"was listening\"."
+        },
+        {
+          "option": "were listening",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"were listening\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was listening\"). Hai hành động diễn ra song song cùng lúc trong quá khứ (While + QKTD, QKTD) → chọn \"was listening\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "past-continuous-ex-08",
+      "type": "fill_blank",
+      "question": "She ___ TV when her father came home; she was asleep.",
+      "options": [
+        "wasn't watching",
+        "didn't watch",
+        "weren't watching",
+        "isn't watching"
+      ],
+      "correct_answer": "wasn't watching",
+      "explanation": "Phủ định quá khứ tiếp diễn với chủ ngữ số ít \"She\" là \"wasn't watching\".",
+      "distractor_breakdowns": [
+        {
+          "option": "wasn't watching",
+          "isCorrect": true,
+          "pedagogicalReason": "Phủ định quá khứ tiếp diễn với chủ ngữ số ít \"She\" là \"wasn't watching\"."
+        },
+        {
+          "option": "didn't watch",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"didn't watch\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wasn't watching\"). Phủ định quá khứ tiếp diễn với chủ ngữ số ít \"She\" là \"wasn't watching\"."
+        },
+        {
+          "option": "weren't watching",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"weren't watching\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wasn't watching\"). Phủ định quá khứ tiếp diễn với chủ ngữ số ít \"She\" là \"wasn't watching\"."
+        },
+        {
+          "option": "isn't watching",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"isn't watching\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wasn't watching\"). Phủ định quá khứ tiếp diễn với chủ ngữ số ít \"She\" là \"wasn't watching\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "past-continuous-ex-09",
+      "type": "multiple_choice",
+      "question": "It ___ heavily when we left the office yesterday.",
+      "options": [
+        "was raining",
+        "rained",
+        "is raining",
+        "were raining"
+      ],
+      "correct_answer": "was raining",
+      "explanation": "Lúc chúng tôi rời văn phòng thì trời đang mưa nặng hạt → dùng quá khứ tiếp diễn \"was raining\".",
+      "distractor_breakdowns": [
+        {
+          "option": "was raining",
+          "isCorrect": true,
+          "pedagogicalReason": "Lúc chúng tôi rời văn phòng thì trời đang mưa nặng hạt → dùng quá khứ tiếp diễn \"was raining\"."
+        },
+        {
+          "option": "rained",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"rained\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was raining\"). Lúc chúng tôi rời văn phòng thì trời đang mưa nặng hạt → dùng quá khứ tiếp diễn \"was raining\"."
+        },
+        {
+          "option": "is raining",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is raining\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was raining\"). Lúc chúng tôi rời văn phòng thì trời đang mưa nặng hạt → dùng quá khứ tiếp diễn \"was raining\"."
+        },
+        {
+          "option": "were raining",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"were raining\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"was raining\"). Lúc chúng tôi rời văn phòng thì trời đang mưa nặng hạt → dùng quá khứ tiếp diễn \"was raining\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "past-continuous-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: We was having dinner when the lights went out.",
+      "options": [
+        "was",
+        "having",
+        "when",
+        "went"
+      ],
+      "correct_answer": "was",
+      "explanation": "Chủ ngữ \"We\" là số nhiều nên phải đi với \"were having\", không dùng \"was\".",
+      "distractor_breakdowns": [
+        {
+          "option": "was",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ \"We\" là số nhiều nên phải đi với \"were having\", không dùng \"was\"."
+        },
+        {
+          "option": "having",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"having\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "when",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"when\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "went",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"went\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "past-continuous-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: While he walked to school, he met his old teacher.",
+      "options": [
+        "While",
+        "walked",
+        "met",
+        "old"
+      ],
+      "correct_answer": "walked",
+      "explanation": "Sau \"While\" chỉ hành động đang diễn ra làm nền phải chia quá khứ tiếp diễn \"was walking\", không dùng \"walked\".",
+      "distractor_breakdowns": [
+        {
+          "option": "While",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"While\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "walked",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau \"While\" chỉ hành động đang diễn ra làm nền phải chia quá khứ tiếp diễn \"was walking\", không dùng \"walked\"."
+        },
+        {
+          "option": "met",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"met\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "old",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"old\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
       "difficulty": 3
+    },
+    {
+      "id": "past-continuous-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: What was you doing at 9 p.m. yesterday?",
+      "options": [
+        "What",
+        "was",
+        "you",
+        "doing"
+      ],
+      "correct_answer": "was",
+      "explanation": "Chủ ngữ \"you\" luôn đi với to be quá khứ \"were\": \"What were you doing...?\".",
+      "distractor_breakdowns": [
+        {
+          "option": "What",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"What\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "was",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ \"you\" luôn đi với to be quá khứ \"were\": \"What were you doing...?\"."
+        },
+        {
+          "option": "you",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"you\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "doing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"doing\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
     }
   ]
 }

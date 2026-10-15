@@ -148,11 +148,11 @@ const TABLE_PAGE = 50; // Progressive rendering — tránh paint 500+ rows cùng
 
 export default function CrmDashboard() {
   const router = useRouter();
-  // Hydrate tức thì từ sessionStorage nếu có: trang hiện ngay trong 0ms không đợi skeleton
+  // Hydrate tức thì từ sessionStorage/localStorage: trang hiện ngay trong 0ms không đợi skeleton
   const [data, setData] = useState<CrmData | null>(() => {
     if (typeof window === 'undefined') return null;
     try {
-      const saved = sessionStorage.getItem(CRM_CACHE_KEY);
+      const saved = sessionStorage.getItem(CRM_CACHE_KEY) || localStorage.getItem(CRM_CACHE_KEY);
       if (saved) return JSON.parse(saved);
     } catch {}
     return null;
@@ -208,7 +208,9 @@ export default function CrmDashboard() {
       if (json?.success) {
         setData(json);
         try {
-          sessionStorage.setItem(CRM_CACHE_KEY, JSON.stringify(json));
+          const serialized = JSON.stringify(json);
+          sessionStorage.setItem(CRM_CACHE_KEY, serialized);
+          localStorage.setItem(CRM_CACHE_KEY, serialized);
         } catch {}
       } else {
         setError(json?.error || 'Không thể lấy dữ liệu CRM.');

@@ -368,7 +368,7 @@
         {
           "option": "me",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"me\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"me\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"mine\"). mine thay cho my laptop."
         }
       ],
       "difficulty": 1
@@ -428,7 +428,7 @@
         {
           "option": "us",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"us\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"us\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"ours\"). Ours là đại từ sở hữu đứng độc lập."
         }
       ],
       "difficulty": 1
@@ -437,7 +437,12 @@
       "id": "possessives-ex-04",
       "type": "fill_blank",
       "question": "They brought ___ children to the party. (they)",
-      "options": [],
+      "options": [
+        "their",
+        "theirs",
+        "them",
+        "they"
+      ],
       "correct_answer": "their",
       "explanation": "Cần tính từ sở hữu trước children.",
       "distractor_breakdowns": [
@@ -455,6 +460,11 @@
           "option": "them",
           "isCorrect": false,
           "pedagogicalReason": "Không chính xác. \"them\" là đại từ tân ngữ, không có chức năng chỉ sự sở hữu trước danh từ."
+        },
+        {
+          "option": "they",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"they\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"their\"). Cần tính từ sở hữu trước children."
         }
       ],
       "difficulty": 1
@@ -463,7 +473,12 @@
       "id": "possessives-ex-05",
       "type": "fill_blank",
       "question": "This seat is ___. (you)",
-      "options": [],
+      "options": [
+        "yours",
+        "your",
+        "you",
+        "my"
+      ],
       "correct_answer": "yours",
       "explanation": "Cần đại từ sở hữu đứng độc lập.",
       "distractor_breakdowns": [
@@ -481,6 +496,11 @@
           "option": "you",
           "isCorrect": false,
           "pedagogicalReason": "Không chính xác. \"you\" là đại từ nhân xưng, không mang ý nghĩa sở hữu \"của bạn\"."
+        },
+        {
+          "option": "my",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"my\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"yours\"). Cần đại từ sở hữu đứng độc lập."
         }
       ],
       "difficulty": 1
@@ -489,7 +509,12 @@
       "id": "possessives-ex-06",
       "type": "fill_blank",
       "question": "The cat hurt ___ leg. (it)",
-      "options": [],
+      "options": [
+        "its",
+        "it's",
+        "it",
+        "his"
+      ],
       "correct_answer": "its",
       "explanation": "its chỉ sự sở hữu.",
       "distractor_breakdowns": [
@@ -507,6 +532,11 @@
           "option": "it",
           "isCorrect": false,
           "pedagogicalReason": "Không chính xác. \"it\" là đại từ nhân xưng, không phải tính từ sở hữu bổ nghĩa cho danh từ \"leg\"."
+        },
+        {
+          "option": "his",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"his\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"its\"). its chỉ sự sở hữu."
         }
       ],
       "difficulty": 2

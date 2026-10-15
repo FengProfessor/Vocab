@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LingoPro Foundation Pilot — End-to-End Visual Walkthrough (P4 Demo)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .slide-enter {
+      animation: fadeIn 0.35s ease-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col select-none">
+
+  <!-- TOP APP BAR -->
+  <header class="bg-slate-900/90 border-b border-slate-800 px-6 py-3 flex items-center justify-between sticky top-0 z-50 backdrop-blur">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center font-bold text-white shadow-md shadow-indigo-600/30">
+        L
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="text-sm font-bold tracking-tight text-white">LingoPro Foundation</span>
+          <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">P4 DEMO</span>
+          <span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">SYNTHETIC TEST DATA</span>
+        </div>
+        <p class="text-xs text-slate-400">Lesson 1 Pilot Walkthrough • Học sinh lớp 6 mất gốc (N=1 Field Calibration)</p>
+      </div>
+    </div>
+
+    <!-- CONTROLS & TIMELINE -->
+    <div class="flex items-center gap-4">
+      <div class="flex items-center bg-slate-800/80 rounded-lg p-1 border border-slate-700">
+        <button id="prevBtn" class="px-3 py-1.5 hover:bg-slate-700 text-slate-200 rounded text-xs font-medium transition flex items-center gap-1" title="Cảnh trước (Left Arrow)">
+          ◀ Trước
+        </button>
+        <button id="playPauseBtn" class="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded text-xs font-semibold transition flex items-center gap-1.5 shadow-sm">
+          <span id="playIcon">▶ Tự động phát</span>
+        </button>
+        <button id="nextBtn" class="px-3 py-1.5 hover:bg-slate-700 text-slate-200 rounded text-xs font-medium transition flex items-center gap-1" title="Cảnh sau (Right Arrow)">
+          Sau ▶
+        </button>
+      </div>
+
+      <div class="hidden md:flex items-center gap-2 text-xs text-slate-400">
+        <span>Tốc độ:</span>
+        <select id="speedSelect" class="bg-slate-800 border border-slate-700 rounded px-2 py-1 text-slate-200 text-xs">
+          <option value="1">1x (Thong thả)</option>
+          <option value="1.5">1.5x (Nhanh)</option>
+          <option value="2">2x (Lướt)</option>
+        </select>
+      </div>
+
+      <button id="speechToggleBtn" class="px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded text-xs flex items-center gap-1 border border-slate-700" title="Bật/Tắt giọng đọc thuyết minh">
+        <span id="speechIcon">🔊 Thuyết minh: BẬT</span>
+      </button>
+
+      <div class="text-right">
+        <span class="text-xs text-slate-400">Cảnh</span>
+        <span id="sceneCounter" class="text-sm font-bold text-indigo-400 ml-1">01 / 18</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN STAGE -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 flex flex-col gap-6">
+
+    <!-- SCENE CANVAS CONTAINER (16:9 RATIO) -->
+    <div class="relative bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col">
+
+      <!-- SCENE HEADER OVERLAY -->
+      <div class="bg-slate-900/90 border-b border-slate-800 px-6 py-3 flex items-center justify-between z-20">
+        <div class="flex items-center gap-3">
+          <span id="sceneBadgeNum" class="w-7 h-7 rounded-full bg-indigo-600/30 text-indigo-400 font-bold text-xs flex items-center justify-center border border-indigo-500/40">
+            01
+          </span>
+          <div>
+            <h2 id="sceneTitle" class="text-base font-bold text-white tracking-tight">Cổng Quản Trị Giáo Viên (Teacher Pilot Entry)</h2>
+            <p id="sceneSubtitle" class="text-xs text-slate-400">Khởi tạo buổi học an toàn tâm lý • Zero deficit scoring</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <span id="sceneStatusBadge" class="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
+            ● IMPLEMENTED
+          </span>
+          <span id="sceneRoleBadge" class="px-2.5 py-1 rounded-full text-xs font-medium bg-slate-800 text-slate-300 border border-slate-700">
+            TEACHER VIEW
+          </span>
+        </div>
+      </div>
+
+      <!-- VISUAL CANVAS CONTENT (DYNAMIC PER SCENE) -->
+      <div id="sceneStage" class="relative min-h-[460px] md:min-h-[520px] bg-slate-950 flex flex-col p-6 items-center justify-center overflow-hidden">
+        <!-- Rendered by JavaScript -->
+      </div>
+
+      <!-- NARRATION & SUBTITLE TICKER -->
+      <div class="bg-slate-900/95 border-t border-slate-800 p-4 flex items-start gap-4 z-20">
+        <div class="w-8 h-8 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center flex-shrink-0 text-sm font-bold border border-indigo-500/30 mt-0.5">
+          🎙️
+        </div>
+        <div class="flex-1">
+          <div class="text-[11px] font-bold text-indigo-400 uppercase tracking-wider mb-0.5">Thuyết minh sư phạm (Vietnamese Narration)</div>
+          <p id="sceneNarration" class="text-sm text-slate-200 leading-relaxed font-medium">
+            <!-- Dynamic Narration -->
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3-COLUMN METADATA DRAWER -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <!-- Teacher Action -->
+      <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-4">
+        <div class="flex items-center gap-2 text-xs font-bold text-indigo-400 uppercase tracking-wider mb-2">
+          <span>👩‍🏫</span> Hành động của Thầy / Cô
+        </div>
+        <p id="teacherAction" class="text-xs text-slate-300 leading-relaxed">
+          <!-- Dynamic -->
+        </p>
+      </div>
+
+      <!-- Learner Action -->
+      <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-4">
+        <div class="flex items-center gap-2 text-xs font-bold text-sky-400 uppercase tracking-wider mb-2">
+          <span>👦</span> Phản hồi của Học sinh
+        </div>
+        <p id="learnerAction" class="text-xs text-slate-300 leading-relaxed">
+          <!-- Dynamic -->
+        </p>
+      </div>
+
+      <!-- System Response & Evidence -->
+      <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-4">
+        <div class="flex items-center gap-2 text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2">
+          <span>⚙️</span> Phản hồi Hệ thống & Bằng chứng
+        </div>
+        <p id="systemAction" class="text-xs text-slate-300 leading-relaxed">
+          <!-- Dynamic -->
+        </p>
+      </div>
+    </div>
+
+    <!-- TIMELINE SCENE SELECTOR -->
+    <div class="bg-slate-900/40 border border-slate-800/80 rounded-xl p-4">
+      <div class="flex items-center justify-between mb-3 text-xs text-slate-400">
+        <span class="font-bold text-slate-300 uppercase tracking-wider">Danh sách 18 Phân cảnh (Click để nhảy tới cảnh bất kỳ)</span>
+        <span class="text-slate-500">Phím tắt: Space (Phát/Dừng) • Phím ← / →</span>
+      </div>
+      <div id="scenePillsContainer" class="grid grid-cols-3 sm:grid-cols-6 lg:grid-cols-9 gap-2">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+  </main>
+
+  <!-- DATA & LOGIC -->
+  <script>
+    // Asset image resolver helper
+    function getAssetUrl(filename) {
+      // Handles both relative file:// launch and web server launch
+      return `../../../../public/curriculum/beginner-grade6/images/${filename}`;
+    }
+
+    const SCENES = [
+      {
+        id: 1,
+        title: "Cổng Quản Trị Giáo Viên (Teacher Pilot Entry)",
+        subtitle: "Khởi tạo buổi học an toàn tâm lý • Zero deficit scoring",
+        status: "IMPLEMENTED",
+        role: "TEACHER VIEW",
+        duration: 15,
+        narration: "Chào mừng thầy cô đến với Cổng giáo viên LingoPro Foundation. Tại đây, chúng ta đồng hành cùng học sinh lớp 6 mất gốc bằng phương pháp hoàn toàn mới: không áp lực điểm số, không nhãn 'yếu kém'. Thay vào đó là một lộ trình học tập nhân văn, giúp trẻ lấy lại sự tự tin ngay từ những phút đầu tiên.",
+        teacherAction: "Mở phân hệ Foundation Curriculum Pilot trên ứng dụng giáo viên.",
+        learnerAction: "Chưa tham gia (Phiên chuẩn bị thiết bị và học liệu).",
+        systemAction: "Khởi tạo môi trường đo đạc an toàn, kiểm tra 42/42 quy chuẩn chất lượng, sẵn sàng nạp tài liệu Lesson 1.",
+        render: () => `
+          <div class="w-full max-w-4xl bg-slate-900 border border-slate-700/60 rounded-xl p-6 shadow-xl slide-enter">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-600/30 border border-indigo-500/40 flex items-center justify-center text-xl">🌱</div>
+                <div>
+                  <h3 class="text-lg font-bold text-white">English From Zero — Foundation Pilot</h3>
+                  <p class="text-xs text-slate-400">Dành riêng cho học sinh lớp 6 mất căn bản & e ngại tiếng Anh</p>
+                </div>
+              </div>
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                Hạ tầng P4: Đã sẵn sàng
+              </span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="bg-slate-950/60 border border-slate-800 p-4 rounded-xl">
+                <div class="text-xs text-slate-400 font-bold mb-1">MỤC TIÊU CỐT LÕI</div>
+                <div class="text-sm font-semibold text-slate-200">Giao tiếp 2 chiều Can-Do</div>
+                <div class="text-xs text-slate-500 mt-2">Học sinh nói tên, tuổi và hỏi lại tên thầy cô bằng phản xạ tự nhiên.</div>
+              </div>
+              <div class="bg-slate-950/60 border border-slate-800 p-4 rounded-xl">
+                <div class="text-xs text-slate-400 font-bold mb-1">CHẨN ĐOÁN NGẦM</div>
+                <div class="text-sm font-semibold text-slate-200">4 Khái niệm V0 chuẩn mực</div>
+                <div class="text-xs text-slate-500 mt-2">bag, pen, book, drink qua 2–3 micro-probe xen kẽ nhẹ nhàng.</div>
+              </div>
+              <div class="bg-slate-950/60 border border-slate-800 p-4 rounded-xl">
+                <div class="text-xs text-slate-400 font-bold mb-1">NGUYÊN TẮC BẢO VỆ</div>
+                <div class="text-sm font-semibold text-emerald-400">Không chấm điểm %</div>
+                <div class="text-xs text-slate-500 mt-2">Không phán xét đúng/sai máy móc; giữ vững cảm xúc an toàn cho trẻ.</div>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 2,
+        title: "Chọn Học Sinh Thử Nghiệm (Student Selection)",
+        subtitle: "Hồ sơ giả lập cách ly • is_test_data = true",
+        status: "IMPLEMENTED",
+        role: "TEACHER VIEW",
+        duration: 16,
+        narration: "Hôm nay giáo viên chọn học sinh thử nghiệm 'Demo Student', 12 tuổi. Hồ sơ hiển thị số lượng bằng chứng thu thập hiện tại là 0. Tuyệt đối không có các chỉ số định kiến hay điểm trừ hiển thị trước mắt học sinh.",
+        teacherAction: "Chọn học sinh 'Demo Student' từ danh sách lớp và nhấn 'Bắt đầu buổi học'.",
+        learnerAction: "Ngồi cạnh thầy cô trong tâm thế thoải mái, tò mò.",
+        systemAction: "Khởi tạo phiên làm việc với mã giả lập `mock-pilot-demo-student`, kích hoạt cờ cách ly dữ liệu `is_test_data = true`.",
+        render: () => `
+          <div class="w-full max-w-3xl bg-slate-900 border border-slate-700/60 rounded-xl p-6 shadow-xl slide-enter">
+            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">Danh sách học sinh lớp học kèm 1-1</div>
+            <div class="bg-slate-950/80 border-2 border-indigo-500/50 rounded-xl p-5 flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-indigo-600 to-sky-500 flex items-center justify-center text-2xl font-bold text-white shadow-lg">
+                  DS
+                </div>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h4 class="text-base font-bold text-white">Demo Student</h4>
+                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">TEST DATA ONLY</span>
+                  </div>
+                  <p class="text-xs text-slate-400 mt-0.5">12 tuổi • Học sinh Lớp 6 • Lộ trình Foundation Stage 0</p>
+                  <div class="flex items-center gap-4 mt-2 text-xs text-slate-300">
+                    <span>Bằng chứng đã thu thập: <strong class="text-white">0</strong></span>
+                    <span>•</span>
+                    <span>Cần kiểm tra lại: <strong class="text-white">0</strong></span>
+                    <span>•</span>
+                    <span>Trạng thái: <strong class="text-emerald-400">Sẵn sàng</strong></span>
+                  </div>
+                </div>
+              </div>
+              <button class="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold rounded-lg shadow-md transition flex items-center gap-1.5">
+                Vào Buổi Học ▶
+              </button>
+            </div>
+            <div class="mt-4 p-3 bg-slate-950/40 rounded-lg border border-slate-800 text-[11px] text-slate-400 flex items-center gap-2">
+              <span class="text-emerald-400 text-base">🛡️</span>
+              Quy chuẩn bảo vệ: Tên thật và danh tính trẻ không bao giờ được lưu trữ trên môi trường thử nghiệm.
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 3,
+        title: "Tổng Quan Bài Học 1 (Lesson 1 Brief)",
+        subtitle: "Mục tiêu Can-Do & 4 Tài sản V0 chuẩn mực đã duyệt",
+        status: "IMPLEMENTED",
+        role: "TEACHER VIEW",
+        duration: 18,
+        narration: "Thầy cô xem nhanh mục tiêu buổi học: Con hoàn thành được hội thoại chào hỏi hai chiều và nhận diện tự nhiên 4 đồ dùng học tập cốt lõi. Bốn hình ảnh chuẩn mực V0 đã qua kiểm duyệt gắt gao được nạp sẵn để hỗ trợ chẩn đoán ngầm.",
+        teacherAction: "Nắm vững kịch bản 25–35 phút và điều kiện dừng khẩn cấp nếu trẻ căng thẳng.",
+        learnerAction: "Sẵn sàng tham gia trò chơi chuyền bóng và xem tranh.",
+        systemAction: "Nạp 4 tệp ảnh V0 chuẩn mực: bag_v1.jpg, pen_v1.jpg, book_v1.jpg, drink_v1.jpg.",
+        render: () => `
+          <div class="w-full max-w-4xl bg-slate-900 border border-slate-700/60 rounded-xl p-6 shadow-xl slide-enter">
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-800">
+              <div>
+                <span class="text-xs font-bold text-indigo-400 uppercase">Kịch bản thực chiến (Runsheet)</span>
+                <h3 class="text-base font-bold text-white">Lesson 001: Who Am I? (Chào hỏi & Tên)</h3>
+              </div>
+              <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-md border border-slate-700">Thời lượng: 25–35 phút</span>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
+              <div class="bg-slate-950 p-3 rounded-lg border border-slate-800 text-center">
+                <div class="text-[11px] text-slate-400 font-bold">KHỐI CÂU 1</div>
+                <div class="text-sm font-bold text-emerald-400 mt-1">Hello! / Bye!</div>
+              </div>
+              <div class="bg-slate-950 p-3 rounded-lg border border-slate-800 text-center">
+                <div class="text-[11px] text-slate-400 font-bold">KHỐI CÂU 2</div>
+                <div class="text-sm font-bold text-sky-400 mt-1">My name is...</div>
+              </div>
+              <div class="bg-slate-950 p-3 rounded-lg border border-slate-800 text-center">
+                <div class="text-[11px] text-slate-400 font-bold">KHỐI CÂU 3</div>
+                <div class="text-sm font-bold text-amber-400 mt-1">I'm [11 / 12]</div>
+              </div>
+              <div class="bg-slate-950 p-3 rounded-lg border border-slate-800 text-center">
+                <div class="text-[11px] text-slate-400 font-bold">KHỐI CÂU 4 (HỎI)</div>
+                <div class="text-sm font-bold text-indigo-400 mt-1">What's your name?</div>
+              </div>
+            </div>
+            <div class="text-xs font-bold text-slate-400 mb-2 uppercase">4 Tài sản V0 chuẩn mực đã duyệt cho chẩn đoán ngầm:</div>
+            <div class="grid grid-cols-4 gap-3">
+              <div class="bg-slate-950 p-2 rounded-lg border border-slate-800 flex items-center gap-2">
+                <span class="w-6 h-6 rounded bg-indigo-600/30 text-indigo-400 flex items-center justify-center text-xs font-bold">1</span>
+                <div><div class="text-xs font-bold text-white">bag</div><div class="text-[10px] text-slate-500">Balo học sinh</div></div>
+              </div>
+              <div class="bg-slate-950 p-2 rounded-lg border border-slate-800 flex items-center gap-2">
+                <span class="w-6 h-6 rounded bg-indigo-600/30 text-indigo-400 flex items-center justify-center text-xs font-bold">2</span>
+                <div><div class="text-xs font-bold text-white">pen</div><div class="text-[10px] text-slate-500">Bút bi trong</div></div>
+              </div>
+              <div class="bg-slate-950 p-2 rounded-lg border border-slate-800 flex items-center gap-2">
+                <span class="w-6 h-6 rounded bg-indigo-600/30 text-indigo-400 flex items-center justify-center text-xs font-bold">3</span>
+                <div><div class="text-xs font-bold text-white">book</div><div class="text-[10px] text-slate-500">Sách xanh sage</div></div>
+              </div>
+              <div class="bg-slate-950 p-2 rounded-lg border border-slate-800 flex items-center gap-2">
+                <span class="w-6 h-6 rounded bg-indigo-600/30 text-indigo-400 flex items-center justify-center text-xs font-bold">4</span>
+                <div><div class="text-xs font-bold text-white">drink</div><div class="text-[10px] text-slate-500">Uống nước (Nghe)</div></div>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 4,
+        title: "Giao Diện Học Sinh Thân Thiện (Learner View)",
+        subtitle: "Không áp lực • Âm thanh 0.8x • Bạn Nam 12 tuổi",
+        status: "IMPLEMENTED",
+        role: "LEARNER VIEW",
+        duration: 18,
+        narration: "Đây là những gì học sinh nhìn thấy: Một không gian học tập cực kỳ thân thiện và an toàn. Không có chữ 'chẩn đoán', không có đồng hồ tính giờ gây hoảng sợ. Bạn Nam 12 tuổi xuất hiện và nói câu chào chậm rãi ở tốc độ 0.8x.",
+        teacherAction: "Vẫy tay cười tươi: 'Hello con! Bạn Nam đang chào mình kìa!'.",
+        learnerAction: "Vẫy tay chào lại, nghe giọng bạn Nam phát ra từ loa và mỉm cười thư giãn.",
+        systemAction: "Phát âm thanh mô phỏng 0.8x, hiển thị hình ảnh bạn Nam cùng khối câu giới thiệu.",
+        render: () => `
+          <div class="w-full max-w-2xl bg-white text-slate-900 rounded-2xl p-8 shadow-2xl slide-enter">
+            <div class="text-center mb-6">
+              <span class="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-xs font-bold mb-2">Trò chơi 1: Làm quen bạn mới</span>
+              <h2 class="text-2xl font-extrabold text-slate-900">Gặp Gỡ Bạn Nam (12 Tuổi)</h2>
+            </div>
+            <div class="bg-sky-50 border-2 border-sky-200 rounded-2xl p-6 flex flex-col md:flex-row items-center gap-6">
+              <div class="w-24 h-24 rounded-2xl bg-gradient-to-tr from-sky-400 to-indigo-500 flex items-center justify-center text-5xl shadow-md">
+                👦
+              </div>
+              <div class="space-y-2 text-center md:text-left">
+                <div class="text-xs font-bold text-sky-700 uppercase tracking-wider">Nam nói với con:</div>
+                <div class="text-lg font-bold text-slate-900">"Hello! My name is Nam. I'm 12. What's your name?"</div>
+                <div class="text-xs text-slate-500 italic">"Chào bạn! Mình tên là Nam, mình 12 tuổi. Bạn tên là gì?"</div>
+                <div class="pt-2">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-white border border-sky-300 rounded-lg text-xs font-semibold text-sky-800 shadow-sm">
+                    🔊 Đang phát âm thanh chậm 0.8x
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="mt-6 text-center text-xs text-slate-400">
+              Không tính giờ • Không có nút kiểm tra • Hãy thoải mái lắng nghe
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 5,
+        title: "Khái Niệm 1: bag (Phản Xạ Độc Lập)",
+        subtitle: "Âm thanh /bæɡ/ ➔ Tự chủ chọn ảnh trong 1.8s",
+        status: "IMPLEMENTED",
+        role: "TEACHER + LEARNER",
+        duration: 18,
+        narration: "Khi nghe âm thanh '/bæɡ/', học sinh chạm ngay vào ảnh chiếc ba-lô trong vòng chưa đầy 2 giây mà không cần cô nhắc. Hệ thống lập tức ghi nhận bằng chứng: Nhận diện âm thanh Độc lập (Independent). Từ 'bag' bước đầu chuyển trạng thái sang 'Một phần' (Partial).",
+        teacherAction: "Nói tự nhiên: 'Can you point to /bæɡ/?', quan sát trẻ thao tác độc lập.",
+        learnerAction: "Lắng nghe âm thanh và chạm tay vào thẻ ảnh chiếc ba-lô xanh trong 1.8 giây.",
+        systemAction: "Ghi nhận sự kiện `SOUND_RECOGNITION = true`, `support_level = INDEPENDENT`, `status_bucket = PARTIAL`.",
+        render: () => `
+          <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6 slide-enter">
+            <!-- Learner Side -->
+            <div class="bg-white text-slate-900 p-6 rounded-2xl shadow-xl flex flex-col justify-between">
+              <div>
+                <span class="text-xs font-bold text-slate-400 uppercase">Màn hình học sinh</span>
+                <div class="mt-2 text-sm font-bold text-slate-800">Nghe và chạm vào hình con nghe được:</div>
+              </div>
+              <div class="my-4 flex justify-center">
+                <div class="relative group cursor-pointer border-4 border-emerald-500 rounded-2xl p-2 bg-emerald-50 shadow-lg">
+                  <img src="${getAssetUrl('bag_v1.jpg')}" alt="bag" class="w-48 h-48 object-cover rounded-xl" onerror="this.src='https://placehold.co/400x400/1e293b/white?text=bag_v1.jpg'">
+                  <div class="absolute -top-3 -right-3 w-8 h-8 bg-emerald-500 text-white rounded-full flex items-center justify-center font-bold text-sm shadow">
+                    ✓
+                  </div>
+                </div>
+              </div>
+              <div class="text-center text-xs font-semibold text-emerald-700 bg-emerald-100 py-1.5 rounded-lg">
+                Đã chạm trong 1.8 giây (Phản xạ nhanh & độc lập)
+              </div>
+            </div>
+
+            <!-- Teacher Diagnostic Side -->
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-xs font-bold text-indigo-400 uppercase">Ghi nhận giáo viên</span>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">EVIDENCE CAPTURED</span>
+                </div>
+                <div class="text-sm font-bold text-white mb-2">Khái niệm: bag (CON-G6-001)</div>
+                <div class="space-y-2 text-xs">
+                  <div class="flex justify-between py-1 border-b border-slate-800">
+                    <span class="text-slate-400">Thể thức thử:</span>
+                    <span class="font-mono text-slate-200">MODE_A_SOUND_IMAGE</span>
+                  </div>
+                  <div class="flex justify-between py-1 border-b border-slate-800">
+                    <span class="text-slate-400">Mức độ hỗ trợ:</span>
+                    <span class="font-bold text-emerald-400">INDEPENDENT (Tự chủ)</span>
+                  </div>
+                  <div class="flex justify-between py-1 border-b border-slate-800">
+                    <span class="text-slate-400">Thời gian phản xạ:</span>
+                    <span class="font-mono text-slate-200">1800 ms (≤ 8000 ms limit)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4 p-3 bg-slate-950 rounded-xl border border-slate-800">
+                <div class="text-[11px] text-slate-400 font-bold mb-1">TRẠNG THÁI TỪ VỰNG SUY RA:</div>
+                <div class="flex items-center gap-2">
+                  <span class="px-2 py-0.5 rounded text-xs font-bold bg-amber-500/20 text-amber-300">PARTIAL (Một phần)</span>
+                  <span class="text-xs text-slate-400">• Đạt âm thanh, chờ kiểm tra ghép câu</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 6,
+        title: "Thang Đo 4 Mức Độ Hỗ Trợ (Support Levels)",
+        subtitle: "INDEPENDENT vs MODELLED vs PROMPTED vs NOT_YET",
+        status: "IMPLEMENTED",
+        role: "TEACHER VIEW",
+        duration: 20,
+        narration: "Hệ thống đo lường chính xác mức độ trợ giúp của thầy cô. Khi con tự nói được, đó là năng lực độc lập. Nhưng khi con cần cô mớm âm đầu hay nhắc bài, hệ thống ghi nhận chính xác là 'Prompted' — tránh việc ngộ nhận rằng học sinh đã hoàn toàn làm chủ kiến thức.",
+        teacherAction: "Quan sát và lựa chọn trung thực mức độ hỗ trợ trẻ cần trên phiếu quan sát.",
+        learnerAction: "Tiếp nhận gợi ý khi gặp khó khăn mà không cảm thấy mình kém cỏi.",
+        systemAction: "Phân bổ trọng số bằng chứng khác nhau giữa phản xạ tự chủ và phản xạ khi được mớm ý.",
+        render: () => `
+          <div class="w-full max-w-4xl bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl slide-enter">
+            <div class="text-center mb-6">
+              <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Thước đo sư phạm chuẩn hóa</span>
+              <h3 class="text-lg font-bold text-white mt-1">4 Mức Độ Hỗ Trợ (Scaffolding Hierarchy)</h3>
+              <p class="text-xs text-slate-400 mt-1">Đảm bảo đo lường trung thực: Không tính mớm ý thành tự chủ độc lập</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+              <div class="bg-slate-950 p-4 rounded-xl border-2 border-emerald-500/40 text-center">
+                <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center font-bold text-sm mb-2">1</div>
+                <div class="text-sm font-bold text-emerald-400">INDEPENDENT</div>
+                <div class="text-xs font-semibold text-white mt-1">Tự chủ hoàn toàn</div>
+                <p class="text-[11px] text-slate-400 mt-2">Phản xạ đúng ≤ 5s, không cần gợi ý. Tích lũy điểm vững vàng.</p>
+              </div>
+              <div class="bg-slate-950 p-4 rounded-xl border border-sky-500/40 text-center">
+                <div class="w-10 h-10 rounded-full bg-sky-500/20 text-sky-400 mx-auto flex items-center justify-center font-bold text-sm mb-2">2</div>
+                <div class="text-sm font-bold text-sky-400">MODELLED</div>
+                <div class="text-xs font-semibold text-white mt-1">Nhắc lại theo mẫu</div>
+                <p class="text-[11px] text-slate-400 mt-2">Cô phát âm mẫu 1 lần, trò nhắc lại đúng. Ghi nhận khả năng bắt chước.</p>
+              </div>
+              <div class="bg-slate-950 p-4 rounded-xl border border-amber-500/40 text-center">
+                <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 mx-auto flex items-center justify-center font-bold text-sm mb-2">3</div>
+                <div class="text-sm font-bold text-amber-400">PROMPTED</div>
+                <div class="text-xs font-semibold text-white mt-1">Cần mớm ý / Thẻ</div>
+                <p class="text-[11px] text-slate-400 mt-2">Cần mớm âm đầu (/p.../) hoặc hỏi nhị phân. Không tính là tự chủ.</p>
+              </div>
+              <div class="bg-slate-950 p-4 rounded-xl border border-rose-500/40 text-center">
+                <div class="w-10 h-10 rounded-full bg-rose-500/20 text-rose-400 mx-auto flex items-center justify-center font-bold text-sm mb-2">4</div>
+                <div class="text-sm font-bold text-rose-400">NOT YET</div>
+                <div class="text-xs font-semibold text-white mt-1">Chưa đạt</div>
+                <p class="text-[11px] text-slate-400 mt-2">Im lặng > 10s hoặc bối rối. Cô dừng lại đổi hoạt động vui nhộn.</p>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 7,
+        title: "Khái Niệm 2: pen ➔ Nói \"pencil\"",
+        subtitle: "Nhầm lẫn cặp từ (Category Confusion) • Tuyệt đối không chấm sai",
+        status: "IMPLEMENTED",
+        role: "TEACHER + LEARNER",
+        duration: 20,
+        narration: "Khi nhìn thấy ảnh bút bi 'pen', con buột miệng nói: 'pencil'. Trong cách dạy truyền thống, con sẽ bị gạch chéo là sai. Nhưng ở đây, hệ thống nhận diện đây là sự nhầm lẫn cặp từ gần gũi bút mực - bút chì, hoàn toàn không phải con mất gốc từ vựng.",
+        teacherAction: "Không phán xét hay chê sai; ghi nhận phát ngôn 'pencil' và đưa thẻ chữ 'pen' để đối chiếu.",
+        learnerAction: "Nhìn ảnh bút bi trong suốt và nói: 'pencil' do nhớ nhầm tên gọi.",
+        systemAction: "Ghi nhận `raw_response = pencil`, phân loại `PEN/PENCIL CATEGORY CONFUSION`, gợi ý thử thẻ chữ đối chiếu.",
+        render: () => `
+          <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6 slide-enter">
+            <!-- Learner Side -->
+            <div class="bg-white text-slate-900 p-6 rounded-2xl shadow-xl flex flex-col justify-between">
+              <div>
+                <span class="text-xs font-bold text-slate-400 uppercase">Hình ảnh học sinh quan sát</span>
+                <div class="mt-2 text-sm font-bold text-slate-800">Cô hỏi: "What's this in English?"</div>
+              </div>
+              <div class="my-4 flex flex-col items-center">
+                <img src="${getAssetUrl('pen_v1.jpg')}" alt="pen" class="w-44 h-44 object-cover rounded-xl border-2 border-slate-200 shadow" onerror="this.src='https://placehold.co/400x400/1e293b/white?text=pen_v1.jpg'">
+                <div class="mt-3 px-4 py-1.5 bg-amber-100 text-amber-900 rounded-full font-bold text-sm">
+                  🗣️ Trò nói: "pencil"
+                </div>
+              </div>
+              <div class="text-center text-xs text-slate-500">
+                Trẻ liên tưởng đến đồ dùng học tập cùng loại (Bút viết)
+              </div>
+            </div>
+
+            <!-- Teacher Diagnostic View -->
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-xs font-bold text-amber-400 uppercase">Chẩn đoán thông minh</span>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30">CATEGORY CONFUSION</span>
+                </div>
+                <div class="text-sm font-bold text-white mb-2">Từ vựng: pen (CON-G6-002)</div>
+                <div class="p-3 bg-amber-500/10 border border-amber-500/30 rounded-xl mb-3">
+                  <div class="text-xs font-bold text-amber-300">KHÔNG ĐÁNH DẤU LỖI SAI!</div>
+                  <p class="text-[11px] text-slate-300 mt-1">Phát ngôn 'pencil' thể hiện trẻ đã kích hoạt đúng miền khái niệm đồ dùng viết. Đây là nhầm lẫn cặp từ tự nhiên.</p>
+                </div>
+                <div class="space-y-1.5 text-xs text-slate-300">
+                  <div>• Phân loại: <strong class="text-white">LEXICAL_CATEGORY_CONFUSION</strong></div>
+                  <div>• Đơn thuốc sư phạm: <strong class="text-sky-400">Đưa thẻ chữ [pen] vs [pencil]</strong></div>
+                </div>
+              </div>
+              <div class="mt-4 p-3 bg-slate-950 rounded-xl border border-slate-800 text-xs text-slate-400">
+                Trạng thái: <strong class="text-amber-400">RECHECK (Kiểm tra lại nhẹ nhàng)</strong> • Bảo lưu tâm lý tích cực.
+              </div>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 8,
+        title: "Khái Niệm 3: book ➔ Nói \"notebook\"",
+        subtitle: "Ranh giới khái niệm (Boundary Confusion) ➔ Trạng thái RECHECK",
+        status: "IMPLEMENTED",
+        role: "TEACHER + LEARNER",
+        duration: 20,
+        narration: "Với ảnh quyển sách 'book', học sinh gọi là 'notebook' — tức là vở ghi chép. Hệ thống từ chối kết luận rằng con không biết từ 'book'. Thay vào đó, nó đưa từ này vào trạng thái 'Cần kiểm tra lại' vì có sự giao thoa ranh giới đồ dùng học tập.",
+        teacherAction: "Lắng nghe, mỉm cười và thử kiểm tra kênh chữ viết: đưa thẻ chữ [book].",
+        learnerAction: "Nói 'notebook' khi nhìn bìa sách; sau đó đọc đúng chữ 'book' trên thẻ chữ.",
+        systemAction: "Ghi nhận `POSSIBLE_CATEGORY_BOUNDARY_CONFUSION`, lưu `TEXT_RECOGNITION = true`, đưa trạng thái về `RECHECK`.",
+        render: () => `
+          <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6 slide-enter">
+            <!-- Learner Side -->
+            <div class="bg-white text-slate-900 p-6 rounded-2xl shadow-xl flex flex-col justify-between">
+              <div>
+                <span class="text-xs font-bold text-slate-400 uppercase">Hình ảnh học sinh quan sát</span>
+                <div class="mt-2 text-sm font-bold text-slate-800">Quyển sách bìa cứng màu xanh lá</div>
+              </div>
+              <div class="my-4 flex flex-col items-center">
+                <img src="${getAssetUrl('book_v1.jpg')}" alt="book" class="w-44 h-44 object-cover rounded-xl border-2 border-slate-200 shadow" onerror="this.src='https://placehold.co/400x400/1e293b/white?text=book_v1.jpg'">
+                <div class="mt-3 px-4 py-1.5 bg-sky-100 text-sky-900 rounded-full font-bold text-sm">
+                  🗣️ Trò nói: "notebook"
+                </div>
+              </div>
+              <div class="text-center text-xs text-slate-500">
+                Ranh giới sách giáo khoa và vở ghi chép thường đan xen ở học sinh lớp 6
+              </div>
+            </div>
+
+            <!-- Teacher Diagnostic View -->
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-xs font-bold text-sky-400 uppercase">Phân tích ranh giới</span>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-sky-500/20 text-sky-400 border border-sky-500/30">BOUNDARY CONFUSION</span>
+                </div>
+                <div class="text-sm font-bold text-white mb-2">Khái niệm: book (CON-G6-003)</div>
+                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 mb-3 space-y-2 text-xs">
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-400">Nhận diện mặt chữ [book]:</span>
+                    <span class="text-emerald-400 font-bold">✓ ĐẠT (Đọc đúng thẻ)</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-400">Tự bật từ qua hình ảnh:</span>
+                    <span class="text-amber-400 font-bold">Lệch ranh giới ("notebook")</span>
+                  </div>
+                </div>
+                <p class="text-xs text-slate-300">
+                  Hệ thống kết luận: Trẻ <strong class="text-white">có nhận diện từ 'book'</strong>, chỉ cần làm rõ sự khác nhau giữa sách in và vở viết.
+                </p>
+              </div>
+              <div class="mt-4 p-3 bg-slate-950 rounded-xl border border-slate-800 text-xs">
+                Trạng thái: <strong class="text-sky-400">RECHECK (Được lưu trong danh sách ôn nhẹ)</strong>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 9,
+        title: "Khái Niệm 4: drink ➔ Nói \"water\"",
+        subtitle: "Ưu thế danh từ (Nominal Salience) • Nhận diện âm thanh đạt",
+        status: "IMPLEMENTED",
+        role: "TEACHER + LEARNER",
+        duration: 20,
+        narration: "Đến bức ảnh 'drink', học sinh nói 'water'. Đây là phản xạ hoàn toàn tự nhiên vì hình ảnh ly nước khiến con chú ý vào danh từ hơn là động từ uống. Hệ thống không trừ điểm của con, và tự động chuyển sang thử nghiệm nghe: con nghe âm '/drɪŋk/' và chỉ ảnh chính xác 100%.",
+        teacherAction: "Nói: 'Đúng rồi, có ly nước nè! Vậy hành động uống trong tiếng Anh là gì con nhỉ?'",
+        learnerAction: "Nói 'water' khi nhìn ly nước; khi cô phát âm /drɪŋk/ thì giơ tay chỉ đúng ngay bức ảnh.",
+        systemAction: "Ghi nhận `ALTERNATIVE_VALID_VISUAL_INTERPRETATION`, kích hoạt probe âm thanh `SOUND_RECOGNITION = true`.",
+        render: () => `
+          <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6 slide-enter">
+            <!-- Learner Side -->
+            <div class="bg-white text-slate-900 p-6 rounded-2xl shadow-xl flex flex-col justify-between">
+              <div>
+                <span class="text-xs font-bold text-slate-400 uppercase">Hình ảnh học sinh quan sát</span>
+                <div class="mt-2 text-sm font-bold text-slate-800">Bạn nữ đang uống ly nước lọc</div>
+              </div>
+              <div class="my-4 flex flex-col items-center">
+                <img src="${getAssetUrl('drink_v1.jpg')}" alt="drink" class="w-44 h-44 object-cover rounded-xl border-2 border-slate-200 shadow" onerror="this.src='https://placehold.co/400x400/1e293b/white?text=drink_v1.jpg'">
+                <div class="mt-3 px-4 py-1.5 bg-emerald-100 text-emerald-900 rounded-full font-bold text-sm">
+                  🗣️ Trò nói: "water"
+                </div>
+              </div>
+              <div class="text-center text-xs text-slate-500">
+                Ly nước nổi bật gây kích hoạt danh từ thay vì động từ hành động
+              </div>
+            </div>
+
+            <!-- Teacher Diagnostic View -->
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-xs font-bold text-emerald-400 uppercase">Diễn giải hợp lệ</span>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">VALID INTERPRETATION</span>
+                </div>
+                <div class="text-sm font-bold text-white mb-2">Động từ: drink (CON-G6-088)</div>
+                <div class="p-3 bg-emerald-500/10 border border-emerald-500/30 rounded-xl mb-3">
+                  <div class="text-xs font-bold text-emerald-300">TÔN TRỌNG PHẢN XẠ TỰ NHIÊN:</div>
+                  <p class="text-[11px] text-slate-300 mt-1">Từ 'water' là danh từ chính xác cho đối tượng trong ảnh. Không tính lỗi mất gốc động từ.</p>
+                </div>
+                <div class="space-y-1.5 text-xs text-slate-300">
+                  <div>• Thử nghiệm âm thanh /drɪŋk/: <strong class="text-emerald-400">✓ CHỈ ĐÚNG ẢNH</strong></div>
+                  <div>• Kết luận: <strong class="text-white">Kênh âm thanh của từ drink HOÀN TOÀN TỐT</strong></div>
+                </div>
+              </div>
+              <div class="mt-4 p-3 bg-slate-950 rounded-xl border border-slate-800 text-xs">
+                Đề xuất tiếp theo: <strong class="text-indigo-400">Dạy theo khối cụm: "drink water"</strong>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 10,
+        title: "Kích Hoạt Lối Thoát Mơ Hồ Ảnh (Escape Hatch)",
+        subtitle: "visual_ambiguity_suspected = true ➔ Biến lượt thử thành phi tính điểm",
+        status: "IMPLEMENTED",
+        role: "TEACHER VIEW",
+        duration: 18,
+        narration: "Nếu bất kỳ lúc nào thầy cô cảm thấy bức tranh gây bối rối hay học sinh bị phân tâm bởi chi tiết nền, chỉ cần tích chọn 'Nghi ngờ mơ hồ hình ảnh'. Bài thử này sẽ lập tức trở thành phi tính điểm.",
+        teacherAction: "Tích chọn vào ô: `[x] Visual Ambiguity Suspected` trên màn hình giáo viên.",
+        learnerAction: "Không bị bối rối hay tự trách mình vì bức tranh khó hiểu.",
+        systemAction: "Gắn cờ vô hiệu hóa công cụ `is_instrument_invalidated = true`, loại bỏ việc tính điểm âm tính.",
+        render: () => `
+          <div class="w-full max-w-3xl bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl slide-enter">
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-800">
+              <div class="flex items-center gap-2">
+                <span class="text-2xl">🛡️</span>
+                <div>
+                  <h3 class="text-base font-bold text-white">Lối Thoát Hiểm Sư Phạm: Visual Ambiguity Suspected</h3>
+                  <p class="text-xs text-slate-400">Bảo vệ học sinh khỏi sai sót của hình ảnh hoặc giao diện</p>
+                </div>
+              </div>
+              <span class="px-2.5 py-1 bg-amber-500/20 text-amber-400 border border-amber-500/30 rounded-full text-xs font-bold">
+                NON-SCORING
+              </span>
+            </div>
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 mb-4">
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="checkbox" checked disabled class="w-5 h-5 rounded border-slate-700 bg-indigo-600 text-indigo-600">
+                <div>
+                  <span class="text-sm font-bold text-white">Nghi ngờ hình ảnh gây hiểu lầm / Phân tâm (Visual Ambiguity Suspected)</span>
+                  <p class="text-xs text-slate-400 mt-0.5">Khi tích chọn, hệ thống bảo lưu toàn bộ thành tích trước đó và gắn cờ hình ảnh cần tinh chỉnh.</p>
+                </div>
+              </label>
+            </div>
+            <div class="grid grid-cols-2 gap-3 text-xs">
+              <div class="p-3 bg-slate-950 rounded-lg border border-slate-800">
+                <div class="text-slate-400 font-bold mb-1">KHI NÀO DÙNG?</div>
+                <p class="text-slate-300">Trẻ nhìn ra sự vật khác, hoặc góc nhìn làm mất tính nổi bật của từ vựng.</p>
+              </div>
+              <div class="p-3 bg-slate-950 rounded-lg border border-slate-800">
+                <div class="text-slate-400 font-bold mb-1">KẾT QUẢ ĐẠT ĐƯỢC</div>
+                <p class="text-emerald-400 font-semibold">0% điểm phạt • Trạng thái chuyển sang RECHECK để kiểm chứng lại.</p>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 11,
+        title: "Bằng Chứng Không Phạt Điểm Học Sinh",
+        subtitle: "Truy vết logic động cơ • Giữ nguyên chuỗi thành tích độc lập",
+        status: "IMPLEMENTED",
+        role: "SYSTEM ENGINE TRACE",
+        duration: 18,
+        narration: "Nhìn vào nhật ký tính toán của hệ thống, chúng ta thấy rõ: Mọi năng lực con đã đạt trước đó đều được bảo toàn nguyên vẹn. Không có điểm số nào bị tụt dốc chỉ vì một bức ảnh chưa tối ưu.",
+        teacherAction: "Xem lại bảng trace logic trên hệ thống để đảm bảo sự công bằng.",
+        learnerAction: "Hoàn toàn không biết có lỗi công cụ, tiếp tục bài học vui vẻ.",
+        systemAction: "Động cơ state-derivation thực thi: `is_instrument_invalidated = true`, `sound_recognition = true` (không bị xóa), `consecutive_passes` được bảo lưu.",
+        render: () => `
+          <div class="w-full max-w-4xl bg-slate-950 border border-slate-800 p-6 rounded-2xl shadow-xl font-mono text-xs slide-enter">
+            <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-800 text-slate-400">
+              <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-emerald-500"></span> ENGINE STATE DERIVATION LOG (Deterministic Reconciled Engine)</span>
+              <span class="text-emerald-400 font-bold">100% FAIL-SAFE PASS</span>
+            </div>
+            <div class="space-y-3 text-slate-300">
+              <div class="p-3 bg-slate-900/80 rounded-lg border border-slate-800">
+                <span class="text-slate-500">// Bằng chứng 1: Học sinh đạt nhận diện âm thanh trước đó</span><br>
+                <span class="text-indigo-400">prior_state</span> = { sound_recognition: <span class="text-emerald-400">true</span>, consecutive_passes: <span class="text-emerald-400">2</span>, bucket: <span class="text-amber-400">"PARTIAL"</span> }
+              </div>
+              <div class="p-3 bg-slate-900/80 rounded-lg border border-slate-800">
+                <span class="text-slate-500">// Sự kiện mới: Có cờ nghi ngờ mơ hồ hình ảnh</span><br>
+                <span class="text-indigo-400">incoming_event</span> = { visual_ambiguity_suspected: <span class="text-amber-400">true</span>, is_correct: <span class="text-rose-400">false</span> }
+              </div>
+              <div class="p-3 bg-emerald-950/40 rounded-lg border border-emerald-500/40 text-emerald-300">
+                <span class="text-emerald-400 font-bold">[ENGINE EXECUTION]:</span> Tránh phạt điểm học sinh!<br>
+                state.is_instrument_invalidated = <span class="font-bold text-white">true</span>;<br>
+                state.sound_recognition = <span class="font-bold text-white">true</span>; <span class="text-slate-400">// KHÔNG BỊ XÓA</span><br>
+                state.consecutive_passes = <span class="font-bold text-white">2</span>; <span class="text-slate-400">// KHÔNG BỊ GIẢM</span><br>
+                state.status_bucket = <span class="font-bold text-white">"RECHECK"</span>; <span class="text-slate-400">// KHÔNG GÁN NHÃN UNKNOWN</span>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 12,
+        title: "Bản Đồ Khoảng Trống Từ Vựng (Gap Map)",
+        subtitle: "Thước đo trực quan 5 màu • Tuyệt đối không có điểm % gộp chung",
+        status: "IMPLEMENTED",
+        role: "TEACHER VIEW",
+        duration: 22,
+        narration: "Và đây là Bản đồ khoảng trống từ vựng cập nhật ngay sau buổi học. Giáo viên không nhìn thấy điểm số 5/10 chung chung. Thay vào đó là một bức tranh đa chiều: Từ nào con đã vững âm, từ nào con nhận diện được một phần, và từ nào cần kiểm tra lại nhẹ nhàng ở buổi sau.",
+        teacherAction: "Mở xem bảng phân loại từ vựng và thanh Barometer của học sinh.",
+        learnerAction: "Không bị phán xét bởi điểm thi.",
+        systemAction: "Tính toán và phân bổ từ vựng vào 5 nhóm: SOLID (0), PARTIAL (3), UNCERTAIN (1), RECHECK (1), NOT TESTED (35).",
+        render: () => `
+          <div class="w-full max-w-4xl bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl slide-enter">
+            <div class="flex items-center justify-between mb-4">
+              <div>
+                <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Giao diện thực tế TeacherVocabularyGapMap.tsx</span>
+                <h3 class="text-lg font-bold text-white mt-0.5">Bản Đồ Từ Vựng Của Demo Student (Lớp 6)</h3>
+              </div>
+              <span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-xs font-medium border border-slate-700">Buổi 1 / 42</span>
+            </div>
+
+            <!-- Barometer -->
+            <div class="grid grid-cols-5 gap-2 mb-6">
+              <div class="bg-slate-950 p-2.5 rounded-xl border border-emerald-500/30 text-center">
+                <div class="text-[10px] text-slate-400 font-bold">VỮNG VÀNG</div>
+                <div class="text-xl font-extrabold text-emerald-400 mt-0.5">0</div>
+                <div class="text-[9px] text-slate-500">SOLID</div>
+              </div>
+              <div class="bg-slate-950 p-2.5 rounded-xl border-2 border-amber-500 text-center bg-amber-500/10">
+                <div class="text-[10px] text-amber-300 font-bold">MỘT PHẦN</div>
+                <div class="text-xl font-extrabold text-amber-400 mt-0.5">3</div>
+                <div class="text-[9px] text-amber-300">PARTIAL (bag, drink, name)</div>
+              </div>
+              <div class="bg-slate-950 p-2.5 rounded-xl border border-sky-500/30 text-center">
+                <div class="text-[10px] text-slate-400 font-bold">CẦN ĐO THÊM</div>
+                <div class="text-xl font-extrabold text-sky-400 mt-0.5">1</div>
+                <div class="text-[9px] text-slate-500">UNCERTAIN (book)</div>
+              </div>
+              <div class="bg-slate-950 p-2.5 rounded-xl border border-rose-500/30 text-center">
+                <div class="text-[10px] text-slate-400 font-bold">KIỂM TRA LẠI</div>
+                <div class="text-xl font-extrabold text-rose-400 mt-0.5">1</div>
+                <div class="text-[9px] text-slate-500">RECHECK (pen)</div>
+              </div>
+              <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 text-center">
+                <div class="text-[10px] text-slate-400 font-bold">CHƯA HỌC</div>
+                <div class="text-xl font-extrabold text-slate-500 mt-0.5">35</div>
+                <div class="text-[9px] text-slate-600">NOT TESTED</div>
+              </div>
+            </div>
+
+            <div class="p-3 bg-indigo-500/10 border border-indigo-500/30 rounded-xl text-xs text-indigo-300 flex items-center justify-between">
+              <span>💡 <strong>Tín hiệu chẩn đoán:</strong> Nhận diện âm thanh đạt tốt ở 3/4 từ. Lỗ hổng tập trung ở phản xạ tự bật từ khi không có gợi ý.</span>
+              <span class="font-bold text-white">ZERO PERCENTAGE SCORE</span>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 13,
+        title: "Chi Tiết Từ: book (Giải Thích Rõ Lý Do)",
+        subtitle: "Modal bằng chứng thực tế • Tại sao đưa vào diện Cần đo thêm?",
+        status: "IMPLEMENTED",
+        role: "TEACHER VIEW",
+        duration: 22,
+        narration: "Khi nhấp vào từ 'book', giáo viên được giải thích cặn kẽ: 'Tại sao hệ thống xếp từ này vào diện Cần đo thêm?'. Bởi vì con đã nghe đúng, đọc chữ đúng, nhưng khi nhìn ảnh thì gọi tên là 'notebook'. Lời khuyên sư phạm đề xuất: Chỉ cần cho con chơi trò ghép thẻ để củng cố phản xạ tự gọi tên.",
+        teacherAction: "Nhấp vào thẻ từ 'book' trên bản đồ để mở bảng giải trình bằng chứng.",
+        learnerAction: "Không phải làm thêm bài thi.",
+        systemAction: "Mở Modal chi tiết từ vựng với nhật ký đầy đủ: thể thức, phản hồi thô, mức độ hỗ trợ, và hướng dẫn sư phạm.",
+        render: () => `
+          <div class="w-full max-w-3xl bg-slate-900 border border-slate-700 rounded-2xl p-6 shadow-2xl slide-enter">
+            <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-800">
+              <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-sm">📖</span>
+                <div>
+                  <h3 class="text-base font-bold text-white">Chi Tiết Bằng Chứng: book /bʊk/</h3>
+                  <p class="text-xs text-slate-400">CON-G6-003 • Đồ dùng học tập (School Nouns)</p>
+                </div>
+              </div>
+              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-sky-500/20 text-sky-300 border border-sky-500/30">
+                UNCERTAIN / RECHECK
+              </span>
+            </div>
+            <div class="space-y-3 text-xs mb-4">
+              <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 flex justify-between items-center">
+                <span class="text-slate-400">1. Nhận diện âm thanh (Sound Recognition):</span>
+                <span class="text-emerald-400 font-bold">✓ ĐẠT (Chỉ đúng ảnh sách khi nghe /bʊk/)</span>
+              </div>
+              <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 flex justify-between items-center">
+                <span class="text-slate-400">2. Nhận diện mặt chữ (Text Recognition):</span>
+                <span class="text-emerald-400 font-bold">✓ ĐẠT (Đọc được thẻ chữ [book])</span>
+              </div>
+              <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 flex justify-between items-center">
+                <span class="text-slate-400">3. Tự gợi nhớ tên (Form Recall):</span>
+                <span class="text-amber-400 font-bold">Cần đo thêm (Nói "notebook" khi nhìn ảnh)</span>
+              </div>
+            </div>
+            <div class="p-3 bg-sky-500/10 border border-sky-500/30 rounded-xl text-xs text-sky-200">
+              <div class="font-bold mb-1">👩‍🏫 ĐƠN THUỐC SƯ PHẠM CHO BUỔI SAU:</div>
+              Không cần dạy lại từ đầu. Đầu buổi sau chỉ cần giơ hai thẻ [book] và [notebook] để trò chơi trò phân loại trong 2 phút.
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 14,
+        title: "Chi Tiết Từ: drink (Giải Thích Hành Động)",
+        subtitle: "Tách bạch kênh âm thanh & hình ảnh • Lời khuyên ghép khối câu",
+        status: "IMPLEMENTED",
+        role: "TEACHER VIEW",
+        duration: 20,
+        narration: "Tương tự với từ 'drink', hệ thống phân tích rõ: Kênh tiếp nhận âm thanh đã được kích hoạt thành công. Ở các buổi tiếp theo, giáo viên chỉ cần lồng ghép cụm câu 'drink water' để giúp con chuyển hóa tự nhiên từ danh từ sang động từ.",
+        teacherAction: "Xem phân tích nguyên nhân học sinh nói 'water' thay vì 'drink'.",
+        learnerAction: "Sẵn sàng học khối câu tự nhiên thay vì học vẹt từ đơn.",
+        systemAction: "Đề xuất chuyển giao: Ghép cụm động từ + danh từ `[drink] + [water]`.",
+        render: () => `
+          <div class="w-full max-w-3xl bg-slate-900 border border-slate-700 rounded-2xl p-6 shadow-2xl slide-enter">
+            <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-800">
+              <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm">🥤</span>
+                <div>
+                  <h3 class="text-base font-bold text-white">Chi Tiết Bằng Chứng: drink /drɪŋk/</h3>
+                  <p class="text-xs text-slate-400">CON-G6-088 • Động từ hành động cốt lõi (Core Action Verbs)</p>
+                </div>
+              </div>
+              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                PARTIAL (Một phần)
+              </span>
+            </div>
+            <div class="grid grid-cols-2 gap-3 text-xs mb-4">
+              <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                <div class="text-slate-400 font-bold mb-1">KÊNH TIẾP NHẬN ÂM THANH</div>
+                <div class="text-emerald-400 font-bold text-sm">✓ ĐẠT XUẤT SẮC</div>
+                <p class="text-slate-400 mt-1">Học sinh nghe /drɪŋk/ và chọn ngay ảnh người đang uống trong 2.1s.</p>
+              </div>
+              <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                <div class="text-slate-400 font-bold mb-1">KÊNH HÌNH ẢNH GỢI NHỚ</div>
+                <div class="text-amber-400 font-bold text-sm">Ưu thế danh từ (water)</div>
+                <p class="text-slate-400 mt-1">Ảnh có cốc nước nổi bật gây kích hoạt danh từ thay vì động từ.</p>
+              </div>
+            </div>
+            <div class="p-3 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-xs text-emerald-200">
+              <div class="font-bold mb-1">🎯 ĐỊNH HƯỚNG BÀI 2 (CHUNKING STRATEGY):</div>
+              Dạy theo cặp tự nhiên: <strong>"I drink water"</strong>. Học sinh đã biết chữ water, nay chỉ cần ghép thêm động từ drink đằng trước là thành câu hoàn chỉnh!
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 15,
+        title: "Báo Cáo Tổng Kết Buổi Học (Post-Session)",
+        subtitle: "Học sinh khoanh [🙂 Dễ & Vui] • Tách bạch Sự thật & Diễn giải",
+        status: "IMPLEMENTED",
+        role: "TEACHER + LEARNER",
+        duration: 20,
+        narration: "Buổi học khép lại bằng nụ cười rạng rỡ của học sinh khi con tự tay khoanh vào biểu tượng 'Dễ & Vui'. Báo cáo buổi học tách bạch hoàn toàn giữa sự thật khách quan quan sát được và nhận định của giáo viên — làm cơ sở chuẩn xác cho phụ huynh và nhà trường.",
+        teacherAction: "High-five chúc mừng học sinh, đưa phiếu cảm xúc và hoàn thành báo cáo P4_POST_SESSION_TEMPLATE.",
+        learnerAction: "Khoanh tròn biểu tượng mặt cười [🙂 Dễ & Vui], cảm thấy tiếng Anh không hề đáng sợ.",
+        systemAction: "Lưu báo cáo buổi học với 0 điều kiện dừng khẩn cấp được kích hoạt, tâm lý an toàn tuyệt đối.",
+        render: () => `
+          <div class="w-full max-w-4xl bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl slide-enter">
+            <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
+              <div>
+                <span class="text-xs font-bold text-indigo-400 uppercase">Biên bản quan sát chuẩn mực</span>
+                <h3 class="text-lg font-bold text-white">Tổng Kết Buổi Học Số 1 (N=1 Pilot)</h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full text-xs font-bold">
+                  Hoàn thành 100% mục tiêu Can-Do
+                </span>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 text-xs">
+              <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                <div class="font-bold text-slate-300 uppercase mb-2">1. DỮ LIỆU THỰC TẾ QUAN SÁT ĐƯỢC (FACTS)</div>
+                <ul class="space-y-1.5 text-slate-400">
+                  <li>• Chào và giới thiệu tên: <strong class="text-white">Tự chủ ("My name is Minh")</strong></li>
+                  <li>• Hỏi lại tên cô: <strong class="text-white">Có gợi ý nhẹ ("What's your name?")</strong></li>
+                  <li>• Thử nghiệm từ vựng: <strong class="text-white">4 từ (bag, pen, book, drink)</strong></li>
+                  <li>• Trẻ khoanh tự đánh giá: <strong class="text-emerald-400">🙂 Dễ & Vui</strong></li>
+                  <li>• Điều kiện dừng khẩn cấp: <strong class="text-emerald-400">KHÔNG KÍCH HOẠT</strong></li>
+                </ul>
+              </div>
+              <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                <div class="font-bold text-slate-300 uppercase mb-2">2. DIỄN GIẢI SƯ PHẠM (INTERPRETATIONS)</div>
+                <ul class="space-y-1.5 text-slate-400">
+                  <li>• Điểm mạnh: <span class="text-slate-200">Kênh nhận diện âm thanh rất nhạy bén</span></li>
+                  <li>• Khoảng trống: <span class="text-slate-200">Cần thêm thời gian để tự gọi tên hình ảnh</span></li>
+                  <li>• Ranh giới từ: <span class="text-slate-200">Nhầm pen/pencil và book/notebook do liên tưởng</span></li>
+                  <li>• Mức độ mớm ý: <span class="text-slate-200">Chỉ cần gợi ý âm đầu là trẻ nhớ ra ngay</span></li>
+                  <li>• Tâm lý học tập: <span class="text-emerald-400 font-semibold">Tự tin, thoải mái, cởi mở giao tiếp</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 16,
+        title: "Lộ Trình Thích Ứng Tiếp Theo (Next Action)",
+        subtitle: "ADVANCE_WITH_TARGETED_REVIEW ➔ Tiến sang Bài 2 + 5 phút ôn có trọng tâm",
+        status: "IMPLEMENTED",
+        role: "TEACHER VIEW",
+        duration: 20,
+        narration: "Thay vì đánh trượt học sinh, hệ thống khuyến nghị lộ trình tối ưu: Tiến sang Bài 2 (Things I Like), nhưng dành 5 phút đầu buổi sau chơi trò ném bóng để củng cố nhẹ từ 'pen' và 'book'. Học sinh không bị cảm giác dậm chân tại chỗ hay học lại từ đầu.",
+        teacherAction: "Duyệt lộ trình được khuyến nghị bởi hệ thống cho buổi tiếp theo.",
+        learnerAction: "Hào hứng chờ đón buổi học số 2 để học về những thứ mình yêu thích.",
+        systemAction: "Chốt quyết định sư phạm `ADVANCE_WITH_TARGETED_REVIEW`, tự động cấu hình 5 phút khởi động của Bài 2.",
+        render: () => `
+          <div class="w-full max-w-3xl bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow-xl slide-enter">
+            <div class="text-center mb-6">
+              <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Khuyến nghị thích ứng (Adaptive Decision)</span>
+              <h3 class="text-lg font-bold text-white mt-1">Lộ Trình Sư Phạm Được Chọn: LỰA CHỌN 2</h3>
+            </div>
+            <div class="bg-gradient-to-r from-indigo-900/40 via-sky-900/30 to-slate-900 border-2 border-indigo-500/60 rounded-2xl p-5 mb-4">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="w-8 h-8 rounded-lg bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shadow">➔</span>
+                <div class="text-base font-extrabold text-white">ADVANCE WITH TARGETED REVIEW (Tiến sang Bài 2 + Ôn tập có trọng tâm)</div>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed mt-2">
+                Học sinh đã đạt xuất sắc mục tiêu giao tiếp Can-Do bài 1. Không cần bắt con học lại toàn bộ bài. Sang Bài 2 (Sở thích cá nhân), chỉ cần dành 5 phút đầu giờ chơi trò ném bóng chuyền tay để củng cố nhẹ từ 'pen' và 'book'.
+              </p>
+            </div>
+            <div class="grid grid-cols-4 gap-2 text-center text-xs">
+              <div class="p-2.5 rounded-lg border border-slate-800 bg-slate-950 text-slate-500">1. ADVANCE<br><span class="text-[10px]">Tiến thẳng</span></div>
+              <div class="p-2.5 rounded-lg border-2 border-indigo-500 bg-indigo-500/20 text-white font-bold">2. WITH REVIEW<br><span class="text-[10px] text-indigo-300">Được chọn ★</span></div>
+              <div class="p-2.5 rounded-lg border border-slate-800 bg-slate-950 text-slate-500">3. REPEAT PART<br><span class="text-[10px]">Luyện lại 1 phần</span></div>
+              <div class="p-2.5 rounded-lg border border-slate-800 bg-slate-950 text-slate-500">4. SIMPLIFY<br><span class="text-[10px]">Hạ độ khó</span></div>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: 17,
+        title: "Kiểm Tra Độ Bền Trí Nhớ (Delayed Check)",
+        subtitle: "Đo lường độ bền trí nhớ thực tế • Không ép buộc mốc 48h/72h cứng nhắc",
+        status: "CONCEPTUAL MOCKUP",
+        role: "TEACHER + LEARNER",
+        duration: 20,
+        narration: "Tại buổi gặp tiếp theo, sau 72 giờ thực tế, giáo viên sẽ kiểm tra lại 1 đến 2 từ trước khi mở sách học. Mục đích là đo độ bền ghi nhớ thực sự của não bộ, chứ không ép buộc học sinh phải nhớ như in ngay lập tức.",
+        teacherAction: "Vào đầu buổi học số 2, hỏi nhanh 1–2 từ trước khi mở sách; ghi nhận số giờ thực tế.",
+        learnerAction: "Nhớ lại tự nhiên, được thầy cô khích lệ và khen ngợi kể cả khi có quên nhẹ.",
+        systemAction: "Ghi nhận `delayed_after_hours = 72`, phân biệt giữa tiếp thu tức thời (session) và ghi nhớ lâu dài (retention).",
+        render: () => `
+          <div class="w-full max-w-3xl bg-slate-900 border-2 border-dashed border-amber-500/50 p-6 rounded-2xl shadow-xl slide-enter relative">
+            <!-- Prototype Badge -->
+            <div class="absolute -top-3 right-4 px-3 py-1 bg-amber-500 text-slate-950 rounded-full text-[10px] font-extrabold uppercase tracking-wider shadow">
+              Prototype / Not Yet Implemented in UI
+            </div>
+            <div class="flex items-center gap-3 mb-4 pb-3 border-b border-slate-800">
+              <span class="text-2xl">⏳</span>
+              <div>
+                <h3 class="text-base font-bold text-white">Kiểm Tra Trí Nhớ Cách Quãng (Spaced Delayed-Check)</h3>
+                <p class="text-xs text-slate-400">Thực hiện 3–5 phút đầu buổi học kế tiếp • Đo lường độ bền lưu giữ</p>
+              </div>
+            </div>
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 mb-4 space-y-2 text-xs">
+              <div class="flex justify-between items-center py-1 border-b border-slate-800/80">
+                <span class="text-slate-400">Khoảng cách thời gian thực tế:</span>
+                <span class="font-bold text-sky-400">delayed_after_hours = 72 giờ (Lịch thực tế của gia đình)</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-slate-800/80">
+                <span class="text-slate-400">Số lượng khái niệm thử lại:</span>
+                <span class="font-bold text-white">Tối đa 1–2 từ (bag, book)</span>
+              </div>
+              <div class="flex justify-between items-center py-1">
+                <span class="text-slate-400">Thái độ sư phạm:</span>
+                <span class="font-bold text-emerald-400">Chấp nhận hiện tượng quên tự nhiên • Khen ngợi nỗ lực</span>
+              </div>
+            </div>
+            <p class="text-[11px] text-amber-300 italic text-center">
+              "Giao diện này hiện đã có đặc tả quy trình sư phạm tại P4_DELAYED_CHECK_TEMPLATE.md và sẽ được gắn mã UI ở pha nâng cấp tiếp theo."
+            </p>
+          </div>
+        `
+      },
+      {
+        id: 18,
+        title: "Tổng Thể Chu Trình Sư Phạm Khép Kín",
+        subtitle: "Dạy An Toàn ➔ Đo Phi Xâm Lấn ➔ Bản Đồ Đa Chiều ➔ Quyết Định Đúng",
+        status: "IMPLEMENTED",
+        role: "ARCHITECTURE OVERVIEW",
+        duration: 20,
+        narration: "Toàn bộ chu trình từ Giảng dạy an toàn, Đo lường không gây sợ hãi, đến Bản đồ từ vựng đa chiều đã được xây dựng và kiểm thử hoàn chỉnh. Hệ thống sẵn sàng đồng hành cùng học sinh lớp 6 mất gốc trong buổi học thực tế đầu tiên. Xin cảm ơn quý thầy cô!",
+        teacherAction: "Tự tin bước vào buổi dạy thực tế N=1 với đầy đủ công cụ và tâm thế bảo vệ trẻ.",
+        learnerAction: "Sẵn sàng học tiếng Anh mà không còn rào cản sợ hãi.",
+        systemAction: "Khẳng định trạng thái sẵn sàng: `P4 VISUAL WALKTHROUGH READY FOR OWNER REVIEW`.",
+        render: () => `
+          <div class="w-full max-w-4xl bg-gradient-to-b from-slate-900 to-slate-950 border border-indigo-500/40 p-8 rounded-3xl shadow-2xl text-center slide-enter">
+            <span class="inline-block px-3 py-1 bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 rounded-full text-xs font-bold mb-3">
+              KẾT QUẢ ĐẠT ĐƯỢC
+            </span>
+            <h2 class="text-2xl font-extrabold text-white tracking-tight">Chu Trình Sư Phạm Khép Kín Hoàn Hảo</h2>
+            <p class="text-xs text-slate-400 max-w-xl mx-auto mt-2">
+              Hệ thống đã chứng minh năng lực chẩn đoán chính xác lỗ hổng từ vựng mà hoàn toàn không biến buổi học thành một bài thi căng thẳng.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-3 my-6 text-left">
+              <div class="bg-slate-900/90 border border-slate-800 p-4 rounded-xl">
+                <div class="text-indigo-400 font-bold text-xs mb-1">1. DẠY AN TOÀN</div>
+                <div class="text-sm font-bold text-white">Low-Anxiety Flow</div>
+                <div class="text-[11px] text-slate-400 mt-1">Âm thanh 0.8x, bạn Nam 12 tuổi, chuyền bóng vui vẻ.</div>
+              </div>
+              <div class="bg-slate-900/90 border border-slate-800 p-4 rounded-xl">
+                <div class="text-sky-400 font-bold text-xs mb-1">2. ĐO KHÔNG SỢ HÃI</div>
+                <div class="text-sm font-bold text-white">4 Ảnh V0 Chuẩn</div>
+                <div class="text-[11px] text-slate-400 mt-1">Không phạt điểm khi nhầm từ gần nghĩa (water / pencil).</div>
+              </div>
+              <div class="bg-slate-900/90 border border-slate-800 p-4 rounded-xl">
+                <div class="text-amber-400 font-bold text-xs mb-1">3. BẢN ĐỒ ĐA CHIỀU</div>
+                <div class="text-sm font-bold text-white">Gap Map Layer B</div>
+                <div class="text-[11px] text-slate-400 mt-1">Phân định rõ Âm thanh vs Mặt chữ vs Khả năng tự gọi tên.</div>
+              </div>
+              <div class="bg-slate-900/90 border border-slate-800 p-4 rounded-xl">
+                <div class="text-emerald-400 font-bold text-xs mb-1">4. QUYẾT ĐỊNH ĐÚNG</div>
+                <div class="text-sm font-bold text-white">Adaptive Action</div>
+                <div class="text-[11px] text-slate-400 mt-1">Advance with review: Không bắt trẻ học lại từ đầu.</div>
+              </div>
+            </div>
+
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold">
+              ✓ P4 VISUAL WALKTHROUGH READY FOR OWNER REVIEW
+            </div>
+          </div>
+        `
+      }
+    ];
+
+    // State
+    let currentIdx = 0;
+    let isPlaying = false;
+    let playTimer = null;
+    let speechEnabled = true;
+    let currentUtterance = null;
+
+    // Elements
+    const sceneCounter = document.getElementById('sceneCounter');
+    const sceneBadgeNum = document.getElementById('sceneBadgeNum');
+    const sceneTitle = document.getElementById('sceneTitle');
+    const sceneSubtitle = document.getElementById('sceneSubtitle');
+    const sceneStatusBadge = document.getElementById('sceneStatusBadge');
+    const sceneRoleBadge = document.getElementById('sceneRoleBadge');
+    const sceneStage = document.getElementById('sceneStage');
+    const sceneNarration = document.getElementById('sceneNarration');
+    const teacherAction = document.getElementById('teacherAction');
+    const learnerAction = document.getElementById('learnerAction');
+    const systemAction = document.getElementById('systemAction');
+    const scenePillsContainer = document.getElementById('scenePillsContainer');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const playIcon = document.getElementById('playIcon');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const speedSelect = document.getElementById('speedSelect');
+    const speechToggleBtn = document.getElementById('speechToggleBtn');
+    const speechIcon = document.getElementById('speechIcon');
+
+    // Speech synthesis function
+    function speakNarration(text) {
+      if (!speechEnabled || !('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'vi-VN';
+      const speed = parseFloat(speedSelect.value) || 1.0;
+      utterance.rate = speed;
+      currentUtterance = utterance;
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Render Scene Pills
+    function renderPills() {
+      scenePillsContainer.innerHTML = '';
+      SCENES.forEach((s, idx) => {
+        const btn = document.createElement('button');
+        const isActive = idx === currentIdx;
+        btn.className = `p-2 rounded-lg text-left transition border text-[11px] leading-tight ${
+          isActive
+            ? 'bg-indigo-600 text-white border-indigo-400 font-bold shadow-md'
+            : 'bg-slate-900/80 text-slate-400 hover:text-slate-200 hover:bg-slate-800 border-slate-800'
+        }`;
+        btn.innerHTML = `<span class="opacity-60 font-mono text-[9px] block">Cảnh ${String(s.id).padStart(2, '0')}</span>${s.title.split('(')[0]}`;
+        btn.onclick = () => goToScene(idx);
+        scenePillsContainer.appendChild(btn);
+      });
+    }
+
+    // Load Scene
+    function loadScene(idx) {
+      currentIdx = idx;
+      const s = SCENES[idx];
+
+      sceneCounter.innerText = `${String(s.id).padStart(2, '0')} / 18`;
+      sceneBadgeNum.innerText = String(s.id).padStart(2, '0');
+      sceneTitle.innerText = s.title;
+      sceneSubtitle.innerText = s.subtitle;
+      sceneNarration.innerText = s.narration;
+      teacherAction.innerText = s.teacherAction;
+      learnerAction.innerText = s.learnerAction;
+      systemAction.innerText = s.systemAction;
+      sceneRoleBadge.innerText = s.role;
+
+      // Status Badge
+      if (s.status === 'IMPLEMENTED') {
+        sceneStatusBadge.className = 'px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center gap-1';
+        sceneStatusBadge.innerText = '● IMPLEMENTED';
+      } else {
+        sceneStatusBadge.className = 'px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/40 flex items-center gap-1';
+        sceneStatusBadge.innerText = '▲ CONCEPTUAL MOCKUP';
+      }
+
+      // Render Stage Content
+      sceneStage.innerHTML = s.render();
+
+      renderPills();
+
+      // Read narration
+      speakNarration(s.narration);
+    }
+
+    function goToScene(idx) {
+      if (idx >= 0 && idx < SCENES.length) {
+        loadScene(idx);
+      }
+    }
+
+    function nextScene() {
+      if (currentIdx < SCENES.length - 1) {
+        goToScene(currentIdx + 1);
+      } else {
+        pauseAutoPlay();
+      }
+    }
+
+    function prevScene() {
+      if (currentIdx > 0) {
+        goToScene(currentIdx - 1);
+      }
+    }
+
+    function startAutoPlay() {
+      isPlaying = true;
+      playIcon.innerText = '⏸ Tạm dừng';
+      scheduleNextSlide();
+    }
+
+    function pauseAutoPlay() {
+      isPlaying = false;
+      playIcon.innerText = '▶ Tự động phát';
+      if (playTimer) clearTimeout(playTimer);
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    }
+
+    function scheduleNextSlide() {
+      if (!isPlaying) return;
+      const current = SCENES[currentIdx];
+      const speed = parseFloat(speedSelect.value) || 1.0;
+      const delayMs = (current.duration * 1000) / speed;
+
+      playTimer = setTimeout(() => {
+        if (currentIdx < SCENES.length - 1) {
+          nextScene();
+          scheduleNextSlide();
+        } else {
+          pauseAutoPlay();
+        }
+      }, delayMs);
+    }
+
+    // Event listeners
+    playPauseBtn.onclick = () => {
+      if (isPlaying) {
+        pauseAutoPlay();
+      } else {
+        startAutoPlay();
+      }
+    };
+
+    nextBtn.onclick = () => {
+      pauseAutoPlay();
+      nextScene();
+    };
+
+    prevBtn.onclick = () => {
+      pauseAutoPlay();
+      prevScene();
+    };
+
+    speechToggleBtn.onclick = () => {
+      speechEnabled = !speechEnabled;
+      speechIcon.innerText = speechEnabled ? '🔊 Thuyết minh: BẬT' : '🔇 Thuyết minh: TẮT';
+      if (!speechEnabled && 'speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      } else if (speechEnabled) {
+        speakNarration(SCENES[currentIdx].narration);
+      }
+    };
+
+    // Keyboard controls
+    window.addEventListener('keydown', (e) => {
+      if (e.code === 'Space') {
+        e.preventDefault();
+        playPauseBtn.click();
+      } else if (e.code === 'ArrowRight') {
+        nextBtn.click();
+      } else if (e.code === 'ArrowLeft') {
+        prevBtn.click();
+      }
+    });
+
+    // Initialize
+    loadScene(0);
+  </script>
+</body>
+</html>

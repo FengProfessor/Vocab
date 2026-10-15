@@ -465,29 +465,435 @@
   "exercises": [
     {
       "id": "past-perfect-continuous-ex-01",
-      "type": "fill_blank",
-      "question": "Hoàn thành theo mẫu: She ___ tired because she had been working all night.",
-      "options": [],
-      "correct_answer": "was",
-      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "type": "multiple_choice",
+      "question": "We ___ for two hours before the bus finally arrived.",
+      "options": [
+        "had been waiting",
+        "have been waiting",
+        "were waiting",
+        "are waiting"
+      ],
+      "correct_answer": "had been waiting",
+      "explanation": "Hành động kéo dài liên tục suốt 2 tiếng (\"for two hours\") tính đến TRƯỚC một mốc quá khứ (\"before the bus finally arrived\") → dùng quá khứ hoàn thành tiếp diễn \"had been waiting\".",
       "distractor_breakdowns": [
         {
-          "option": "was",
+          "option": "had been waiting",
           "isCorrect": true,
-          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+          "pedagogicalReason": "Hành động kéo dài liên tục suốt 2 tiếng (\"for two hours\") tính đến TRƯỚC một mốc quá khứ (\"before the bus finally arrived\") → dùng quá khứ hoàn thành tiếp diễn \"had been waiting\"."
         },
         {
-          "option": "is",
+          "option": "have been waiting",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Vế sau diễn tả nguyên nhân xảy ra trước trong quá khứ (\"had been working all night\"), kết quả quá khứ dùng \"was\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"have been waiting\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had been waiting\"). Hành động kéo dài liên tục suốt 2 tiếng (\"for two hours\") tính đến TRƯỚC một mốc quá khứ (\"before the bus finally arrived\") → dùng quá khứ hoàn thành tiếp diễn \"had been waiting\"."
+        },
+        {
+          "option": "were waiting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"were waiting\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had been waiting\"). Hành động kéo dài liên tục suốt 2 tiếng (\"for two hours\") tính đến TRƯỚC một mốc quá khứ (\"before the bus finally arrived\") → dùng quá khứ hoàn thành tiếp diễn \"had been waiting\"."
+        },
+        {
+          "option": "are waiting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"are waiting\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had been waiting\"). Hành động kéo dài liên tục suốt 2 tiếng (\"for two hours\") tính đến TRƯỚC một mốc quá khứ (\"before the bus finally arrived\") → dùng quá khứ hoàn thành tiếp diễn \"had been waiting\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "past-perfect-continuous-ex-02",
+      "type": "fill_blank",
+      "question": "The ground was wet because it ___ all night.",
+      "options": [
+        "had been raining",
+        "has been raining",
+        "is raining",
+        "rains"
+      ],
+      "correct_answer": "had been raining",
+      "explanation": "Nguyên nhân kéo dài để lại kết quả trong quá khứ (\"The ground was wet\") → dùng \"had been raining\".",
+      "distractor_breakdowns": [
+        {
+          "option": "had been raining",
+          "isCorrect": true,
+          "pedagogicalReason": "Nguyên nhân kéo dài để lại kết quả trong quá khứ (\"The ground was wet\") → dùng \"had been raining\"."
+        },
+        {
+          "option": "has been raining",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has been raining\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had been raining\"). Nguyên nhân kéo dài để lại kết quả trong quá khứ (\"The ground was wet\") → dùng \"had been raining\"."
+        },
+        {
+          "option": "is raining",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is raining\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had been raining\"). Nguyên nhân kéo dài để lại kết quả trong quá khứ (\"The ground was wet\") → dùng \"had been raining\"."
+        },
+        {
+          "option": "rains",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"rains\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had been raining\"). Nguyên nhân kéo dài để lại kết quả trong quá khứ (\"The ground was wet\") → dùng \"had been raining\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "past-perfect-continuous-ex-03",
+      "type": "multiple_choice",
+      "question": "She was exhausted because she ___ continuously since morning.",
+      "options": [
+        "had been working",
+        "has been working",
+        "worked",
+        "works"
+      ],
+      "correct_answer": "had been working",
+      "explanation": "Cô ấy mệt lử trong quá khứ (\"was exhausted\") vì trước đó đã làm việc liên tục → dùng \"had been working\".",
+      "distractor_breakdowns": [
+        {
+          "option": "had been working",
+          "isCorrect": true,
+          "pedagogicalReason": "Cô ấy mệt lử trong quá khứ (\"was exhausted\") vì trước đó đã làm việc liên tục → dùng \"had been working\"."
+        },
+        {
+          "option": "has been working",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has been working\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had been working\"). Cô ấy mệt lử trong quá khứ (\"was exhausted\") vì trước đó đã làm việc liên tục → dùng \"had been working\"."
+        },
+        {
+          "option": "worked",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"worked\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had been working\"). Cô ấy mệt lử trong quá khứ (\"was exhausted\") vì trước đó đã làm việc liên tục → dùng \"had been working\"."
+        },
+        {
+          "option": "works",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"works\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had been working\"). Cô ấy mệt lử trong quá khứ (\"was exhausted\") vì trước đó đã làm việc liên tục → dùng \"had been working\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "past-perfect-continuous-ex-04",
+      "type": "fill_blank",
+      "question": "How long ___ they been playing before the storm started?",
+      "options": [
+        "had",
+        "have",
+        "were",
+        "did"
+      ],
+      "correct_answer": "had",
+      "explanation": "Câu hỏi \"How long\" tính đến trước một sự kiện quá khứ (\"before the storm started\") dùng trợ động từ \"had\" (\"How long had they been playing...?\").",
+      "distractor_breakdowns": [
+        {
+          "option": "had",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi \"How long\" tính đến trước một sự kiện quá khứ (\"before the storm started\") dùng trợ động từ \"had\" (\"How long had they been playing...?\")."
+        },
+        {
+          "option": "have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had\"). Câu hỏi \"How long\" tính đến trước một sự kiện quá khứ (\"before the storm started\") dùng trợ động từ \"had\" (\"How long had they been playing...?\")."
         },
         {
           "option": "were",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"She\" là số ít, dùng \"was\", không dùng \"were\"."
+          "pedagogicalReason": "Không chính xác. Không dùng động từ to be \"were\" ở vị trí này (đáp án đúng là \"had\"). Câu hỏi \"How long\" tính đến trước một sự kiện quá khứ (\"before the storm started\") dùng trợ động từ \"had\" (\"How long had they been playing...?\")."
+        },
+        {
+          "option": "did",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Trợ động từ \"did\" không phù hợp với ngôi của chủ ngữ hoặc cấu trúc của câu (đáp án đúng là \"had\")."
         }
       ],
-      "difficulty": 1
+      "difficulty": 2
+    },
+    {
+      "id": "past-perfect-continuous-ex-05",
+      "type": "multiple_choice",
+      "question": "He ___ at that university for ten years before he retired in 2020.",
+      "options": [
+        "had been teaching",
+        "has been teaching",
+        "is teaching",
+        "teaches"
+      ],
+      "correct_answer": "had been teaching",
+      "explanation": "Quá trình giảng dạy 10 năm diễn ra trước mốc nghỉ hưu năm 2020 (\"before he retired\") → \"had been teaching\".",
+      "distractor_breakdowns": [
+        {
+          "option": "had been teaching",
+          "isCorrect": true,
+          "pedagogicalReason": "Quá trình giảng dạy 10 năm diễn ra trước mốc nghỉ hưu năm 2020 (\"before he retired\") → \"had been teaching\"."
+        },
+        {
+          "option": "has been teaching",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has been teaching\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had been teaching\"). Quá trình giảng dạy 10 năm diễn ra trước mốc nghỉ hưu năm 2020 (\"before he retired\") → \"had been teaching\"."
+        },
+        {
+          "option": "is teaching",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is teaching\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had been teaching\"). Quá trình giảng dạy 10 năm diễn ra trước mốc nghỉ hưu năm 2020 (\"before he retired\") → \"had been teaching\"."
+        },
+        {
+          "option": "teaches",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"teaches\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had been teaching\"). Quá trình giảng dạy 10 năm diễn ra trước mốc nghỉ hưu năm 2020 (\"before he retired\") → \"had been teaching\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "past-perfect-continuous-ex-06",
+      "type": "fill_blank",
+      "question": "Her eyes were red because she ___.",
+      "options": [
+        "had been crying",
+        "has been crying",
+        "is crying",
+        "cries"
+      ],
+      "correct_answer": "had been crying",
+      "explanation": "Mắt đỏ trong quá khứ (\"were red\") là kết quả của việc vừa khóc liên tục trước đó → \"had been crying\".",
+      "distractor_breakdowns": [
+        {
+          "option": "had been crying",
+          "isCorrect": true,
+          "pedagogicalReason": "Mắt đỏ trong quá khứ (\"were red\") là kết quả của việc vừa khóc liên tục trước đó → \"had been crying\"."
+        },
+        {
+          "option": "has been crying",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has been crying\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had been crying\"). Mắt đỏ trong quá khứ (\"were red\") là kết quả của việc vừa khóc liên tục trước đó → \"had been crying\"."
+        },
+        {
+          "option": "is crying",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is crying\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had been crying\"). Mắt đỏ trong quá khứ (\"were red\") là kết quả của việc vừa khóc liên tục trước đó → \"had been crying\"."
+        },
+        {
+          "option": "cries",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"cries\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had been crying\"). Mắt đỏ trong quá khứ (\"were red\") là kết quả của việc vừa khóc liên tục trước đó → \"had been crying\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "past-perfect-continuous-ex-07",
+      "type": "multiple_choice",
+      "question": "They ___ for long when the car suddenly broke down.",
+      "options": [
+        "hadn't been driving",
+        "haven't been driving",
+        "weren't driving",
+        "don't drive"
+      ],
+      "correct_answer": "hadn't been driving",
+      "explanation": "Phủ định quá khứ hoàn thành tiếp diễn trước lúc xe hỏng (\"when the car broke down\") → \"hadn't been driving\".",
+      "distractor_breakdowns": [
+        {
+          "option": "hadn't been driving",
+          "isCorrect": true,
+          "pedagogicalReason": "Phủ định quá khứ hoàn thành tiếp diễn trước lúc xe hỏng (\"when the car broke down\") → \"hadn't been driving\"."
+        },
+        {
+          "option": "haven't been driving",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"haven't been driving\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"hadn't been driving\"). Phủ định quá khứ hoàn thành tiếp diễn trước lúc xe hỏng (\"when the car broke down\") → \"hadn't been driving\"."
+        },
+        {
+          "option": "weren't driving",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"weren't driving\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"hadn't been driving\"). Phủ định quá khứ hoàn thành tiếp diễn trước lúc xe hỏng (\"when the car broke down\") → \"hadn't been driving\"."
+        },
+        {
+          "option": "don't drive",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"don't drive\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"hadn't been driving\"). Phủ định quá khứ hoàn thành tiếp diễn trước lúc xe hỏng (\"when the car broke down\") → \"hadn't been driving\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "past-perfect-continuous-ex-08",
+      "type": "fill_blank",
+      "question": "We ___ each other for five years before we got married.",
+      "options": [
+        "had known",
+        "had been knowing",
+        "have known",
+        "were knowing"
+      ],
+      "correct_answer": "had known",
+      "explanation": "Lưu ý: \"know\" là động từ trạng thái (stative verb) nên KHÔNG chia ở quá khứ hoàn thành tiếp diễn; phải dùng quá khứ hoàn thành đơn \"had known\".",
+      "distractor_breakdowns": [
+        {
+          "option": "had known",
+          "isCorrect": true,
+          "pedagogicalReason": "Lưu ý: \"know\" là động từ trạng thái (stative verb) nên KHÔNG chia ở quá khứ hoàn thành tiếp diễn; phải dùng quá khứ hoàn thành đơn \"had known\"."
+        },
+        {
+          "option": "had been knowing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"had been knowing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had known\"). Lưu ý: \"know\" là động từ trạng thái (stative verb) nên KHÔNG chia ở quá khứ hoàn thành tiếp diễn; phải dùng quá khứ hoàn thành đơn \"had known\"."
+        },
+        {
+          "option": "have known",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have known\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had known\"). Lưu ý: \"know\" là động từ trạng thái (stative verb) nên KHÔNG chia ở quá khứ hoàn thành tiếp diễn; phải dùng quá khứ hoàn thành đơn \"had known\"."
+        },
+        {
+          "option": "were knowing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"were knowing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had known\"). Lưu ý: \"know\" là động từ trạng thái (stative verb) nên KHÔNG chia ở quá khứ hoàn thành tiếp diễn; phải dùng quá khứ hoàn thành đơn \"had known\"."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "past-perfect-continuous-ex-09",
+      "type": "multiple_choice",
+      "question": "By the time he won the championship, he ___ for six years.",
+      "options": [
+        "had been training",
+        "has been training",
+        "trains",
+        "is training"
+      ],
+      "correct_answer": "had been training",
+      "explanation": "Quá trình tập luyện liên tục 6 năm trước mốc quá khứ giành chức vô địch (\"won\") → \"had been training\".",
+      "distractor_breakdowns": [
+        {
+          "option": "had been training",
+          "isCorrect": true,
+          "pedagogicalReason": "Quá trình tập luyện liên tục 6 năm trước mốc quá khứ giành chức vô địch (\"won\") → \"had been training\"."
+        },
+        {
+          "option": "has been training",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has been training\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had been training\"). Quá trình tập luyện liên tục 6 năm trước mốc quá khứ giành chức vô địch (\"won\") → \"had been training\"."
+        },
+        {
+          "option": "trains",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"trains\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had been training\"). Quá trình tập luyện liên tục 6 năm trước mốc quá khứ giành chức vô địch (\"won\") → \"had been training\"."
+        },
+        {
+          "option": "is training",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is training\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had been training\"). Quá trình tập luyện liên tục 6 năm trước mốc quá khứ giành chức vô địch (\"won\") → \"had been training\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "past-perfect-continuous-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: I have been waiting for an hour before the doctor called my name.",
+      "options": [
+        "have been waiting",
+        "for an hour",
+        "before",
+        "called"
+      ],
+      "correct_answer": "have been waiting",
+      "explanation": "Vì mốc giới hạn ở quá khứ (\"before the doctor called\"), phải lùi về quá khứ hoàn thành tiếp diễn \"had been waiting\", không dùng \"have been waiting\".",
+      "distractor_breakdowns": [
+        {
+          "option": "have been waiting",
+          "isCorrect": true,
+          "pedagogicalReason": "Vì mốc giới hạn ở quá khứ (\"before the doctor called\"), phải lùi về quá khứ hoàn thành tiếp diễn \"had been waiting\", không dùng \"have been waiting\"."
+        },
+        {
+          "option": "for an hour",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"for an hour\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "before",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"before\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "called",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"called\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "past-perfect-continuous-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: She had been sleep for three hours when the alarm went off.",
+      "options": [
+        "had",
+        "been",
+        "sleep",
+        "went off"
+      ],
+      "correct_answer": "sleep",
+      "explanation": "Sau \"had been\" trong thì quá khứ hoàn thành tiếp diễn phải là V-ing. Sửa \"sleep\" thành \"sleeping\".",
+      "distractor_breakdowns": [
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"had\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "been",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"been\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "sleep",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau \"had been\" trong thì quá khứ hoàn thành tiếp diễn phải là V-ing. Sửa \"sleep\" thành \"sleeping\"."
+        },
+        {
+          "option": "went off",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"went off\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "past-perfect-continuous-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: They had been owning that restaurant for twenty years before selling it.",
+      "options": [
+        "had",
+        "been owning",
+        "for twenty years",
+        "before"
+      ],
+      "correct_answer": "been owning",
+      "explanation": "\"own\" (sở hữu) là động từ trạng thái, không chia tiếp diễn. Sửa \"been owning\" thành \"owned\" (had owned).",
+      "distractor_breakdowns": [
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"had\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "been owning",
+          "isCorrect": true,
+          "pedagogicalReason": "\"own\" (sở hữu) là động từ trạng thái, không chia tiếp diễn. Sửa \"been owning\" thành \"owned\" (had owned)."
+        },
+        {
+          "option": "for twenty years",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"for twenty years\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "before",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"before\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
     }
   ]
 }

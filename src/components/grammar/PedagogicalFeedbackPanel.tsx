@@ -220,48 +220,48 @@ export default function PedagogicalFeedbackPanel({
           <button
             type="button"
             onClick={() => setActiveTab('distractors')}
-            className={`px-4 py-2.5 font-semibold uppercase border-r border-border flex items-center gap-1.5 transition-colors rounded-none whitespace-nowrap shrink-0 ${
+            className={`min-h-[44px] px-3.5 sm:px-4 py-2.5 font-semibold uppercase border-r border-border flex items-center gap-1.5 transition-colors rounded-none whitespace-nowrap shrink-0 ${
               activeTab === 'distractors'
                 ? 'bg-card text-primary border-b-2 border-b-primary -mb-px'
                 : 'text-muted-foreground hover:text-foreground'
             }`}
           >
-            <Layers className="h-3.5 w-3.5" />
-            Giải thích từng đáp án ({distractorList.length})
+            <Layers className="h-3.5 w-3.5 shrink-0" />
+            <span>Giải thích từng đáp án ({distractorList.length})</span>
           </button>
         )}
 
         <button
           type="button"
           onClick={() => setActiveTab('core_rule')}
-          className={`px-4 py-2.5 font-semibold uppercase border-r border-border flex items-center gap-1.5 transition-colors rounded-none whitespace-nowrap shrink-0 ${
+          className={`min-h-[44px] px-3.5 sm:px-4 py-2.5 font-semibold uppercase border-r border-border flex items-center gap-1.5 transition-colors rounded-none whitespace-nowrap shrink-0 ${
             activeTab === 'core_rule'
               ? 'bg-card text-primary border-b-2 border-b-primary -mb-px'
               : 'text-muted-foreground hover:text-foreground'
           }`}
         >
-          <BookOpen className="h-3.5 w-3.5" />
-          {distractorList.length > 0 ? 'Quy tắc cốt lõi' : 'Giải thích quy tắc'}
+          <BookOpen className="h-3.5 w-3.5 shrink-0" />
+          <span>{distractorList.length > 0 ? 'Quy tắc cốt lõi' : 'Giải thích quy tắc'}</span>
         </button>
 
         {vietnameseNote && (
           <button
             type="button"
             onClick={() => setActiveTab('context')}
-            className={`px-4 py-2.5 font-semibold uppercase flex items-center gap-1.5 transition-colors rounded-none whitespace-nowrap shrink-0 ${
+            className={`min-h-[44px] px-3.5 sm:px-4 py-2.5 font-semibold uppercase flex items-center gap-1.5 transition-colors rounded-none whitespace-nowrap shrink-0 ${
               activeTab === 'context'
                 ? 'bg-card text-primary border-b-2 border-b-primary -mb-px'
                 : 'text-muted-foreground hover:text-foreground'
             }`}
           >
-            <Lightbulb className="h-3.5 w-3.5" />
-            Dịch nghĩa & Bối cảnh
+            <Lightbulb className="h-3.5 w-3.5 shrink-0" />
+            <span>Dịch nghĩa & Bối cảnh</span>
           </button>
         )}
       </div>
 
       {/* Tab Panels */}
-      <div className="p-4 sm:p-5 text-sm leading-relaxed text-foreground font-sans">
+      <div className="p-3.5 sm:p-5 text-sm leading-relaxed text-foreground font-sans">
         {/* Tab 1: Distractor Breakdown */}
         {activeTab === 'distractors' && (
           <div className="space-y-3">
@@ -283,7 +283,7 @@ export default function PedagogicalFeedbackPanel({
                   return (
                     <div
                       key={idx}
-                      className={`p-3 text-xs flex flex-col sm:flex-row items-start justify-between gap-3 ${
+                      className={`p-3 text-xs flex flex-col sm:flex-row items-start justify-between gap-2.5 sm:gap-3 ${
                         isSelectedByLearner
                           ? 'bg-muted/30'
                           : 'bg-card'
@@ -313,7 +313,7 @@ export default function PedagogicalFeedbackPanel({
                         </span>
                       </div>
 
-                      <div className="text-foreground/90 text-left flex-1 sm:pl-4 font-sans text-xs leading-relaxed">
+                      <div className="text-foreground/90 text-left flex-1 sm:pl-4 font-sans text-xs leading-relaxed break-words">
                         <FormattedText
                           text={
                             isThisOptionCorrect
@@ -372,12 +372,12 @@ export default function PedagogicalFeedbackPanel({
 
       {/* Action Footer */}
       {(onNextQuestion || onRetry) && (
-        <div className="flex items-center justify-end gap-2 p-3 bg-muted/20 border-t border-border">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-2 p-3 bg-muted/20 border-t border-border">
           {onRetry && !isCorrect && (
             <button
               type="button"
               onClick={onRetry}
-              className="px-4 py-2 border border-border text-foreground font-mono text-xs uppercase font-semibold rounded-none hover:bg-muted transition-colors"
+              className="min-h-[44px] px-4 py-2.5 border border-border text-foreground font-mono text-xs uppercase font-semibold rounded-none hover:bg-muted transition-colors flex items-center justify-center"
             >
               Làm lại câu này
             </button>
@@ -387,10 +387,10 @@ export default function PedagogicalFeedbackPanel({
             <button
               type="button"
               onClick={onNextQuestion}
-              className="px-5 py-2 bg-primary text-primary-foreground font-mono text-xs uppercase font-semibold rounded-none hover:bg-primary/90 transition-opacity flex items-center gap-1.5"
+              className="min-h-[44px] px-5 py-2.5 bg-primary text-primary-foreground font-mono text-xs uppercase font-semibold rounded-none hover:bg-primary/90 transition-opacity flex items-center justify-center gap-1.5"
             >
               <span>{nextButtonLabel || 'Câu tiếp theo'}</span>
-              <ArrowRight className="h-3.5 w-3.5" />
+              <ArrowRight className="h-3.5 w-3.5 shrink-0" />
             </button>
           )}
         </div>

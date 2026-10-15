@@ -483,7 +483,12 @@
       "id": "have-got-ex-03",
       "type": "fill_blank",
       "question": "We ___ got any homework today. (phủ định, dạng rút gọn)",
-      "options": [],
+      "options": [
+        "haven't",
+        "haven'ts",
+        "to haven't",
+        "hasn't"
+      ],
       "correct_answer": "haven't",
       "explanation": "We dùng haven't got hoặc have not got.",
       "distractor_breakdowns": [
@@ -501,6 +506,11 @@
           "option": "to haven't",
           "isCorrect": false,
           "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        },
+        {
+          "option": "hasn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"haven't\"). We dùng haven't got hoặc have not got."
         }
       ],
       "difficulty": 1
@@ -651,12 +661,12 @@
         {
           "option": "Does he has got a bike?",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Does he has got a bike?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Does he has got a bike?\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Has he got a bike?\"). Đưa has lên trước he; không dùng does."
         },
         {
           "option": "Have he got a bike?",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Have he got a bike?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Have he got a bike?\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Has he got a bike?\"). Đưa has lên trước he; không dùng does."
         }
       ],
       "difficulty": 1
@@ -681,12 +691,12 @@
         {
           "option": "She doesn't has got time.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"She doesn't has got time.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"She doesn't has got time.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"She hasn't got time.\"). Has not rút gọn thành hasn't; giữ got."
         },
         {
           "option": "She not has got time.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"She not has got time.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"She not has got time.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"She hasn't got time.\"). Has not rút gọn thành hasn't; giữ got."
         }
       ],
       "difficulty": 1
@@ -695,7 +705,12 @@
       "id": "have-got-ex-11",
       "type": "fill_blank",
       "question": "Viết dạng rút gọn: I have got a dog. → ___ got a dog.",
-      "options": [],
+      "options": [
+        "I've",
+        "I'ves",
+        "to I've",
+        "I'veing"
+      ],
       "correct_answer": "I've",
       "explanation": "I have rút gọn thành I've.",
       "distractor_breakdowns": [
@@ -713,6 +728,11 @@
           "option": "to I've",
           "isCorrect": false,
           "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+        },
+        {
+          "option": "I'veing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"I'veing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"I've\"). I have rút gọn thành I've."
         }
       ],
       "difficulty": 1
@@ -750,7 +770,7 @@
     {
       "id": "have-got-ex-13",
       "type": "multiple_choice",
-      "question": "My parents ___ got a big house. Choose the correct **form**.",
+      "question": "My parents ___ got a big house.",
       "options": [
         "have",
         "has",
@@ -773,12 +793,12 @@
         {
           "option": "haven't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have\"). Chủ ngữ \"My parents\" (bố mẹ tôi) là số nhiều (tương đương \"they\"), vì vậy chúng ta dùng \"have got\". \"Has got\" dùng cho chủ ngữ số ít (he/she/it)."
         },
         {
           "option": "hasn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have\"). Chủ ngữ \"My parents\" (bố mẹ tôi) là số nhiều (tương đương \"they\"), vì vậy chúng ta dùng \"have got\". \"Has got\" dùng cho chủ ngữ số ít (he/she/it)."
         }
       ],
       "difficulty": 1
@@ -786,7 +806,7 @@
     {
       "id": "have-got-ex-14",
       "type": "multiple_choice",
-      "question": "The old car ___ got a flat tire. Choose the correct **verb**.",
+      "question": "The old car ___ got a flat tire.",
       "options": [
         "have",
         "has",
@@ -809,12 +829,12 @@
         {
           "option": "haven't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has\"). Chủ ngữ \"The old car\" (chiếc ô tô cũ) là số ít (tương đương \"it\"), vì vậy chúng ta dùng \"has got\"."
         },
         {
           "option": "hasn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has\"). Chủ ngữ \"The old car\" (chiếc ô tô cũ) là số ít (tương đương \"it\"), vì vậy chúng ta dùng \"has got\"."
         }
       ],
       "difficulty": 1
@@ -822,7 +842,7 @@
     {
       "id": "have-got-ex-15",
       "type": "multiple_choice",
-      "question": "We ___ got enough time for the movie. Choose the correct **negative form**.",
+      "question": "We ___ got enough time for the movie.",
       "options": [
         "haven't",
         "hasn't",
@@ -840,17 +860,17 @@
         {
           "option": "hasn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"haven't\"). Chủ ngữ \"We\" (chúng tôi) đi với \"have got\", dạng phủ định là \"haven't got\". Các lựa chọn khác không đúng với chủ ngữ \"We\" hoặc không phải cấu trúc \"have got\"."
         },
         {
           "option": "don't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"don't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"don't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"haven't\"). Chủ ngữ \"We\" (chúng tôi) đi với \"have got\", dạng phủ định là \"haven't got\". Các lựa chọn khác không đúng với chủ ngữ \"We\" hoặc không phải cấu trúc \"have got\"."
         },
         {
           "option": "doesn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"doesn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"doesn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"haven't\"). Chủ ngữ \"We\" (chúng tôi) đi với \"have got\", dạng phủ định là \"haven't got\". Các lựa chọn khác không đúng với chủ ngữ \"We\" hoặc không phải cấu trúc \"have got\"."
         }
       ],
       "difficulty": 2
@@ -858,7 +878,7 @@
     {
       "id": "have-got-ex-16",
       "type": "multiple_choice",
-      "question": "My sister ___ got a new phone. Choose the correct **short form**.",
+      "question": "My sister ___ got a new phone.",
       "options": [
         "'ve",
         "'s",
@@ -871,7 +891,7 @@
         {
           "option": "'ve",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"ve\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"'ve\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"'s\"). Chủ ngữ \"My sister\" (chị gái tôi) là số ít (tương đương \"she\"), vì vậy dùng \"has got\". Dạng rút gọn của \"has got\" là \"'s got\"."
         },
         {
           "option": "'s",
@@ -894,7 +914,7 @@
     {
       "id": "have-got-ex-17",
       "type": "multiple_choice",
-      "question": "___ you got any plans for the weekend? Choose the correct **auxiliary verb**.",
+      "question": "___ you got any plans for the weekend?",
       "options": [
         "Has",
         "Have",
@@ -930,7 +950,7 @@
     {
       "id": "have-got-ex-18",
       "type": "multiple_choice",
-      "question": "She ___ got long, blonde hair. Choose the correct **verb**.",
+      "question": "She ___ got long, blonde hair.",
       "options": [
         "have",
         "has",
@@ -953,12 +973,12 @@
         {
           "option": "haven't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has\"). Chủ ngữ \"She\" (cô ấy) là số ít, vì vậy chúng ta dùng \"has got\" để miêu tả đặc điểm cơ thể."
         },
         {
           "option": "hasn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has\"). Chủ ngữ \"She\" (cô ấy) là số ít, vì vậy chúng ta dùng \"has got\" để miêu tả đặc điểm cơ thể."
         }
       ],
       "difficulty": 1
@@ -966,7 +986,7 @@
     {
       "id": "have-got-ex-19",
       "type": "multiple_choice",
-      "question": "I ___ got a lot of work to do today. Choose the correct **short form**.",
+      "question": "I ___ got a lot of work to do today.",
       "options": [
         "has",
         "have",
@@ -989,7 +1009,7 @@
         {
           "option": "'s",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"s\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"'s\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"'ve\"). Chủ ngữ \"I\" (tôi) đi với \"have got\". Dạng rút gọn của \"I have got\" là \"I've got\"."
         },
         {
           "option": "'ve",
@@ -1002,7 +1022,7 @@
     {
       "id": "have-got-ex-20",
       "type": "multiple_choice",
-      "question": "Choose the **correct sentence**.",
+      "question": "Chọn câu đúng ngữ pháp:",
       "options": [
         "He has got a new job.",
         "He have got a new job.",
@@ -1020,17 +1040,17 @@
         {
           "option": "He have got a new job.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"He have got a new job.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"He have got a new job.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"He has got a new job.\"). Chủ ngữ \"He\" (anh ấy) đi với \"has got\". Các lựa chọn khác sai ngữ pháp vì dùng \"have\" với \"he\" hoặc dùng sai dạng động từ \"get\"."
         },
         {
           "option": "He got a new job.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"He got a new job.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"He got a new job.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"He has got a new job.\"). Chủ ngữ \"He\" (anh ấy) đi với \"has got\". Các lựa chọn khác sai ngữ pháp vì dùng \"have\" với \"he\" hoặc dùng sai dạng động từ \"get\"."
         },
         {
           "option": "He has get a new job.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"He has get a new job.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"He has get a new job.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"He has got a new job.\"). Chủ ngữ \"He\" (anh ấy) đi với \"has got\". Các lựa chọn khác sai ngữ pháp vì dùng \"have\" với \"he\" hoặc dùng sai dạng động từ \"get\"."
         }
       ],
       "difficulty": 2
@@ -1038,7 +1058,7 @@
     {
       "id": "have-got-ex-21",
       "type": "multiple_choice",
-      "question": "They ___ got any money. Choose the correct **negative short form**.",
+      "question": "They ___ got any money.",
       "options": [
         "haven't",
         "hasn't",
@@ -1056,17 +1076,17 @@
         {
           "option": "hasn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"haven't\"). Chủ ngữ \"They\" (họ) đi với \"have got\". Dạng phủ định rút gọn là \"haven't got\"."
         },
         {
           "option": "don't have",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"don't have\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"don't have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"haven't\"). Chủ ngữ \"They\" (họ) đi với \"have got\". Dạng phủ định rút gọn là \"haven't got\"."
         },
         {
           "option": "doesn't have",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"doesn't have\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"doesn't have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"haven't\"). Chủ ngữ \"They\" (họ) đi với \"have got\". Dạng phủ định rút gọn là \"haven't got\"."
         }
       ],
       "difficulty": 2
@@ -1074,7 +1094,7 @@
     {
       "id": "have-got-ex-22",
       "type": "fill_blank",
-      "question": "My brother and I ___ got many comic books. Fill in the **blank**.",
+      "question": "My brother and I ___ got many comic books. Fill in the blank.",
       "options": [
         "have",
         "has",
@@ -1097,12 +1117,12 @@
         {
           "option": "haven't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have\"). Chủ ngữ \"My brother and I\" (anh trai tôi và tôi) là số nhiều (tương đương \"we\"), vì vậy chúng ta dùng \"have got\"."
         },
         {
           "option": "hasn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have\"). Chủ ngữ \"My brother and I\" (anh trai tôi và tôi) là số nhiều (tương đương \"we\"), vì vậy chúng ta dùng \"have got\"."
         }
       ],
       "difficulty": 1
@@ -1110,7 +1130,7 @@
     {
       "id": "have-got-ex-23",
       "type": "fill_blank",
-      "question": "The dog ___ got a fluffy tail. Fill in the **blank**.",
+      "question": "The dog ___ got a fluffy tail. Fill in the blank.",
       "options": [
         "have",
         "has",
@@ -1133,12 +1153,12 @@
         {
           "option": "haven't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has\"). Chủ ngữ \"The dog\" (con chó) là số ít (tương đương \"it\"), vì vậy chúng ta dùng \"has got\" để miêu tả đặc điểm cơ thể."
         },
         {
           "option": "hasn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has\"). Chủ ngữ \"The dog\" (con chó) là số ít (tương đương \"it\"), vì vậy chúng ta dùng \"has got\" để miêu tả đặc điểm cơ thể."
         }
       ],
       "difficulty": 1
@@ -1146,7 +1166,7 @@
     {
       "id": "have-got-ex-24",
       "type": "fill_blank",
-      "question": "___ your friend got a car? Fill in the **blank** with 'Have' or 'Has'.",
+      "question": "___ your friend got a car? Fill in the blank with 'Have' or 'Has'.",
       "options": [
         "Have",
         "Has",
@@ -1182,7 +1202,7 @@
     {
       "id": "have-got-ex-25",
       "type": "fill_blank",
-      "question": "We ___ got any milk in the fridge. Complete the sentence with the **negative form**.",
+      "question": "We ___ got any milk in the fridge. Complete the sentence with the negative form.",
       "options": [
         "haven't",
         "hasn't",
@@ -1200,17 +1220,17 @@
         {
           "option": "hasn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"haven't\"). Chủ ngữ \"We\" (chúng tôi) đi với \"have got\". Dạng phủ định của \"have got\" là \"haven't got\"."
         },
         {
           "option": "don't have",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"don't have\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"don't have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"haven't\"). Chủ ngữ \"We\" (chúng tôi) đi với \"have got\". Dạng phủ định của \"have got\" là \"haven't got\"."
         },
         {
           "option": "doesn't have",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"doesn't have\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"doesn't have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"haven't\"). Chủ ngữ \"We\" (chúng tôi) đi với \"have got\". Dạng phủ định của \"have got\" là \"haven't got\"."
         }
       ],
       "difficulty": 1
@@ -1218,7 +1238,7 @@
     {
       "id": "have-got-ex-26",
       "type": "fill_blank",
-      "question": "She ___ got a beautiful voice. Fill in the **blank** with the short form.",
+      "question": "She ___ got a beautiful voice. Fill in the blank with the short form.",
       "options": [
         "'ve",
         "'s",
@@ -1231,7 +1251,7 @@
         {
           "option": "'ve",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"ve\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"'ve\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"'s\"). Chủ ngữ \"She\" (cô ấy) đi với \"has got\". Dạng rút gọn của \"has got\" là \"'s got\"."
         },
         {
           "option": "'s",
@@ -1254,7 +1274,7 @@
     {
       "id": "have-got-ex-27",
       "type": "fill_blank",
-      "question": "I ___ got a terrible cold. Fill in the **blank** with the **short form**.",
+      "question": "I ___ got a terrible cold. Fill in the blank with the short form.",
       "options": [
         "'ve",
         "'s",
@@ -1272,7 +1292,7 @@
         {
           "option": "'s",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"s\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"'s\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"'ve\"). Chủ ngữ \"I\" (tôi) đi với \"have got\". Dạng rút gọn của \"I have got\" là \"I've got\"."
         },
         {
           "option": "have",
@@ -1290,7 +1310,7 @@
     {
       "id": "have-got-ex-28",
       "type": "fill_blank",
-      "question": "The students ___ got a test tomorrow. Fill in the **blank**.",
+      "question": "The students ___ got a test tomorrow. Fill in the blank.",
       "options": [
         "have",
         "has",
@@ -1313,12 +1333,12 @@
         {
           "option": "haven't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have\"). Chủ ngữ \"The students\" (các học sinh) là số nhiều (tương đương \"they\"), vì vậy chúng ta dùng \"have got\"."
         },
         {
           "option": "hasn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have\"). Chủ ngữ \"The students\" (các học sinh) là số nhiều (tương đương \"they\"), vì vậy chúng ta dùng \"have got\"."
         }
       ],
       "difficulty": 1
@@ -1326,7 +1346,7 @@
     {
       "id": "have-got-ex-29",
       "type": "fill_blank",
-      "question": "My phone ___ got a low battery. Fill in the **blank**.",
+      "question": "My phone ___ got a low battery. Fill in the blank.",
       "options": [
         "have",
         "has",
@@ -1349,12 +1369,12 @@
         {
           "option": "haven't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has\"). Chủ ngữ \"My phone\" (điện thoại của tôi) là số ít (tương đương \"it\"), vì vậy chúng ta dùng \"has got\"."
         },
         {
           "option": "hasn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has\"). Chủ ngữ \"My phone\" (điện thoại của tôi) là số ít (tương đương \"it\"), vì vậy chúng ta dùng \"has got\"."
         }
       ],
       "difficulty": 1
@@ -1362,7 +1382,7 @@
     {
       "id": "have-got-ex-30",
       "type": "error_correction",
-      "question": "My sister have got a new bicycle. Identify the **error**.",
+      "question": "My sister have got a new bicycle. Identify the error.",
       "options": [
         "My",
         "sister",
@@ -1398,7 +1418,7 @@
     {
       "id": "have-got-ex-31",
       "type": "error_correction",
-      "question": "They hasn't got a big garden. Correct the **negative form**.",
+      "question": "They hasn't got a big garden. Correct the negative form.",
       "options": [
         "They haven't got a big garden.",
         "They don't have a big garden.",
@@ -1434,7 +1454,7 @@
     {
       "id": "have-got-ex-32",
       "type": "error_correction",
-      "question": "Has you got a pen? Correct the **question form**.",
+      "question": "Has you got a pen? Correct the question form.",
       "options": [
         "Have you got a pen?",
         "Do you got a pen?",
@@ -1470,7 +1490,7 @@
     {
       "id": "have-got-ex-33",
       "type": "error_correction",
-      "question": "I's got a new job. Correct the **short form**.",
+      "question": "I's got a new job. Correct the short form.",
       "options": [
         "I've got a new job.",
         "I has got a new job.",
@@ -1506,7 +1526,7 @@
     {
       "id": "have-got-ex-34",
       "type": "error_correction",
-      "question": "We has got a problem. Correct the **subject-verb agreement**.",
+      "question": "We has got a problem. Correct the subject-verb agreement.",
       "options": [
         "We have got a problem.",
         "We has get a problem.",
@@ -1542,7 +1562,7 @@
     {
       "id": "have-got-ex-35",
       "type": "error_correction",
-      "question": "He has get a lot of books. Correct the **verb form**.",
+      "question": "He has get a lot of books. Correct the verb form.",
       "options": [
         "He has got a lot of books.",
         "He have got a lot of books.",
@@ -1578,7 +1598,7 @@
     {
       "id": "have-got-ex-36",
       "type": "error_correction",
-      "question": "She don't got any money. Correct the **negative structure**.",
+      "question": "She don't got any money. Correct the negative structure.",
       "options": [
         "She hasn't got any money.",
         "She doesn't have any money.",
@@ -1614,7 +1634,7 @@
     {
       "id": "have-got-ex-37",
       "type": "error_correction",
-      "question": "Do you have got a pet? Correct the **question structure**.",
+      "question": "Do you have got a pet? Correct the question structure.",
       "options": [
         "Have you got a pet?",
         "Do you have a pet?",
@@ -1776,17 +1796,17 @@
         {
           "option": "I don't got a lot of free time.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"I don't got a lot of free time.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"I don't got a lot of free time.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"I haven't got a lot of free time.\"). Dạng phủ định của 'have got' là 'haven't got'. Các lựa chọn khác không đúng ngữ pháp với cấu trúc này."
         },
         {
           "option": "I hasn't got a lot of free time.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"I hasn't got a lot of free time.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"I hasn't got a lot of free time.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"I haven't got a lot of free time.\"). Dạng phủ định của 'have got' là 'haven't got'. Các lựa chọn khác không đúng ngữ pháp với cấu trúc này."
         },
         {
           "option": "I am not got a lot of free time.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"I am not got a lot of free time.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"I am not got a lot of free time.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"I haven't got a lot of free time.\"). Dạng phủ định của 'have got' là 'haven't got'. Các lựa chọn khác không đúng ngữ pháp với cấu trúc này."
         }
       ],
       "difficulty": 2
@@ -1812,17 +1832,17 @@
         {
           "option": "haven't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"hasn't\"). Với chủ ngữ 'He', dạng phủ định rút gọn của 'has got' là 'hasn't got'."
         },
         {
           "option": "don't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"don't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"don't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"hasn't\"). Với chủ ngữ 'He', dạng phủ định rút gọn của 'has got' là 'hasn't got'."
         },
         {
           "option": "doesn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"doesn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"doesn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"hasn't\"). Với chủ ngữ 'He', dạng phủ định rút gọn của 'has got' là 'hasn't got'."
         }
       ],
       "difficulty": 2
@@ -1884,17 +1904,17 @@
         {
           "option": "She've got a beautiful smile.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"She've got a beautiful smile.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"She've got a beautiful smile.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"She's got a beautiful smile.\"). Dạng rút gọn của 'has got' là 's got'. 'She's' là viết tắt của 'She has'."
         },
         {
           "option": "She got a beautiful smile.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"She got a beautiful smile.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"She got a beautiful smile.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"She's got a beautiful smile.\"). Dạng rút gọn của 'has got' là 's got'. 'She's' là viết tắt của 'She has'."
         },
         {
           "option": "She'd got a beautiful smile.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"She'd got a beautiful smile.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"She'd got a beautiful smile.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"She's got a beautiful smile.\"). Dạng rút gọn của 'has got' là 's got'. 'She's' là viết tắt của 'She has'."
         }
       ],
       "difficulty": 1
@@ -1920,12 +1940,12 @@
         {
           "option": "s",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"s\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"s\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"ve\"). Với chủ ngữ 'We', dạng rút gọn của 'have got' là 'We've got'."
         },
         {
           "option": "re",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"re\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"re\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"ve\"). Với chủ ngữ 'We', dạng rút gọn của 'have got' là 'We've got'."
         },
         {
           "option": "d",
@@ -1992,17 +2012,17 @@
         {
           "option": "Do they have got a new car?",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Do they have got a new car?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Do they have got a new car?\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Have they got a new car?\"). Để tạo câu hỏi với 'have got', chúng ta đảo 'have' lên trước chủ ngữ. 'Have they got...?' là cấu trúc đúng."
         },
         {
           "option": "Has they got a new car?",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Has they got a new car?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Has they got a new car?\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Have they got a new car?\"). Để tạo câu hỏi với 'have got', chúng ta đảo 'have' lên trước chủ ngữ. 'Have they got...?' là cấu trúc đúng."
         },
         {
           "option": "Are they got a new car?",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Are they got a new car?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Are they got a new car?\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Have they got a new car?\"). Để tạo câu hỏi với 'have got', chúng ta đảo 'have' lên trước chủ ngữ. 'Have they got...?' là cấu trúc đúng."
         }
       ],
       "difficulty": 2
@@ -2203,12 +2223,12 @@
         {
           "option": "He have got a bicycle.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"He have got a bicycle.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"He have got a bicycle.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"She has got a cat.\"). Chủ ngữ 'She' đi với 'has got'. Các lựa chọn khác sai về sự hòa hợp chủ ngữ-động từ hoặc dạng phủ định."
         },
         {
           "option": "They has got a dog.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"They has got a dog.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"They has got a dog.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"She has got a cat.\"). Chủ ngữ 'She' đi với 'has got'. Các lựa chọn khác sai về sự hòa hợp chủ ngữ-động từ hoặc dạng phủ định."
         },
         {
           "option": "She has got a cat.",
@@ -2218,7 +2238,7 @@
         {
           "option": "We hasn't got time.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"We hasn't got time.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"We hasn't got time.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"She has got a cat.\"). Chủ ngữ 'She' đi với 'has got'. Các lựa chọn khác sai về sự hòa hợp chủ ngữ-động từ hoặc dạng phủ định."
         }
       ],
       "difficulty": 2
@@ -2244,17 +2264,17 @@
         {
           "option": "hasn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"haven't\"). Với chủ ngữ 'We', dạng phủ định của 'have got' là 'haven't got'."
         },
         {
           "option": "don't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"don't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"don't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"haven't\"). Với chủ ngữ 'We', dạng phủ định của 'have got' là 'haven't got'."
         },
         {
           "option": "doesn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"doesn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"doesn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"haven't\"). Với chủ ngữ 'We', dạng phủ định của 'have got' là 'haven't got'."
         }
       ],
       "difficulty": 1
@@ -2406,7 +2426,7 @@
     {
       "id": "have-got-ex-59",
       "type": "multiple_choice",
-      "question": "Câu nào sau đây **SAI** ngữ pháp?",
+      "question": "Câu nào sau đây SAI ngữ pháp?",
       "options": [
         "I've got a lot of friends.",
         "She's got a new job.",
@@ -2419,12 +2439,12 @@
         {
           "option": "I've got a lot of friends.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"I've got a lot of friends.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"I've got a lot of friends.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"They has got a big house.\"). Với chủ ngữ 'They' (số nhiều), chúng ta phải dùng 'have got' hoặc 'haven't got', không phải 'has got'."
         },
         {
           "option": "She's got a new job.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"She's got a new job.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"She's got a new job.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"They has got a big house.\"). Với chủ ngữ 'They' (số nhiều), chúng ta phải dùng 'have got' hoặc 'haven't got', không phải 'has got'."
         },
         {
           "option": "They has got a big house.",
@@ -2434,7 +2454,7 @@
         {
           "option": "We haven't got much time.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"We haven't got much time.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"We haven't got much time.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"They has got a big house.\"). Với chủ ngữ 'They' (số nhiều), chúng ta phải dùng 'have got' hoặc 'haven't got', không phải 'has got'."
         }
       ],
       "difficulty": 2
@@ -2460,17 +2480,17 @@
         {
           "option": "haven't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"hasn't\"). Chủ ngữ 'The old TV' tương đương với 'it', nên chúng ta dùng 'hasn't got' cho dạng phủ định rút gọn."
         },
         {
           "option": "don't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"don't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"don't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"hasn't\"). Chủ ngữ 'The old TV' tương đương với 'it', nên chúng ta dùng 'hasn't got' cho dạng phủ định rút gọn."
         },
         {
           "option": "doesn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"doesn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"doesn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"hasn't\"). Chủ ngữ 'The old TV' tương đương với 'it', nên chúng ta dùng 'hasn't got' cho dạng phủ định rút gọn."
         }
       ],
       "difficulty": 2
@@ -2573,12 +2593,12 @@
         {
           "option": "haven't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has\"). Chủ ngữ \"My cat\" (con mèo của tôi) là số ít, tương đương với \"it\", vì vậy chúng ta dùng \"has got\"."
         },
         {
           "option": "hasn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has\"). Chủ ngữ \"My cat\" (con mèo của tôi) là số ít, tương đương với \"it\", vì vậy chúng ta dùng \"has got\"."
         }
       ],
       "difficulty": 1
@@ -2609,12 +2629,12 @@
         {
           "option": "haven't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have\"). Với chủ ngữ \"I\", chúng ta dùng \"have got\"."
         },
         {
           "option": "hasn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have\"). Với chủ ngữ \"I\", chúng ta dùng \"have got\"."
         }
       ],
       "difficulty": 1
@@ -2658,7 +2678,7 @@
     {
       "id": "have-got-ex-66",
       "type": "multiple_choice",
-      "question": "Chọn câu có dạng **rút gọn** đúng:",
+      "question": "Chọn câu có dạng rút gọn đúng:",
       "options": [
         "She've got a new dress.",
         "They's got a nice house.",
@@ -2671,12 +2691,12 @@
         {
           "option": "She've got a new dress.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"She've got a new dress.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"She've got a new dress.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"We've got a big dog.\"). Dạng rút gọn của \"We have got\" là \"We've got\". Các lựa chọn khác sai ngữ pháp."
         },
         {
           "option": "They's got a nice house.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"They's got a nice house.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"They's got a nice house.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"We've got a big dog.\"). Dạng rút gọn của \"We have got\" là \"We've got\". Các lựa chọn khác sai ngữ pháp."
         },
         {
           "option": "We've got a big dog.",
@@ -2686,7 +2706,7 @@
         {
           "option": "He's have got a cold.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"He's have got a cold.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"He's have got a cold.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"We've got a big dog.\"). Dạng rút gọn của \"We have got\" là \"We've got\". Các lựa chọn khác sai ngữ pháp."
         }
       ],
       "difficulty": 2
@@ -2712,17 +2732,17 @@
         {
           "option": "hasn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"haven't\"). Chủ ngữ \"My parents\" (bố mẹ tôi) là số nhiều, tương đương với \"they\", vì vậy chúng ta dùng \"haven't got\" (dạng phủ định rút gọn)."
         },
         {
           "option": "don't have",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"don't have\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"don't have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"haven't\"). Chủ ngữ \"My parents\" (bố mẹ tôi) là số nhiều, tương đương với \"they\", vì vậy chúng ta dùng \"haven't got\" (dạng phủ định rút gọn)."
         },
         {
           "option": "not have",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"not have\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"not have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"haven't\"). Chủ ngữ \"My parents\" (bố mẹ tôi) là số nhiều, tương đương với \"they\", vì vậy chúng ta dùng \"haven't got\" (dạng phủ định rút gọn)."
         }
       ],
       "difficulty": 1
@@ -2789,12 +2809,12 @@
         {
           "option": "haven't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have\"). Chủ ngữ \"They\" (họ) là số nhiều, vì vậy chúng ta dùng \"have got\"."
         },
         {
           "option": "hasn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have\"). Chủ ngữ \"They\" (họ) là số nhiều, vì vậy chúng ta dùng \"have got\"."
         }
       ],
       "difficulty": 1
@@ -2825,12 +2845,12 @@
         {
           "option": "haven't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has\"). Với chủ ngữ \"She\", chúng ta dùng \"has got\" để miêu tả đặc điểm cơ thể."
         },
         {
           "option": "hasn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has\"). Với chủ ngữ \"She\", chúng ta dùng \"has got\" để miêu tả đặc điểm cơ thể."
         }
       ],
       "difficulty": 1
@@ -2874,7 +2894,7 @@
     {
       "id": "have-got-ex-72",
       "type": "multiple_choice",
-      "question": "Câu nào sau đây sử dụng **have got / has got** đúng ngữ pháp?",
+      "question": "Câu nào sau đây sử dụng have got / has got đúng ngữ pháp?",
       "options": [
         "I has got a big family.",
         "He have got a red car.",
@@ -2887,12 +2907,12 @@
         {
           "option": "I has got a big family.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"I has got a big family.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"I has got a big family.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"They've got a lot of books.\"). Với chủ ngữ \"They\", chúng ta dùng \"have got\", và dạng rút gọn \"'ve got\" là đúng. Các câu còn lại sai ở sự hòa hợp chủ ngữ-động từ."
         },
         {
           "option": "He have got a red car.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"He have got a red car.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"He have got a red car.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"They've got a lot of books.\"). Với chủ ngữ \"They\", chúng ta dùng \"have got\", và dạng rút gọn \"'ve got\" là đúng. Các câu còn lại sai ở sự hòa hợp chủ ngữ-động từ."
         },
         {
           "option": "They've got a lot of books.",
@@ -2902,7 +2922,7 @@
         {
           "option": "She haven't got any sisters.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"She haven't got any sisters.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"She haven't got any sisters.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"They've got a lot of books.\"). Với chủ ngữ \"They\", chúng ta dùng \"have got\", và dạng rút gọn \"'ve got\" là đúng. Các câu còn lại sai ở sự hòa hợp chủ ngữ-động từ."
         }
       ],
       "difficulty": 2
@@ -3005,12 +3025,12 @@
         {
           "option": "haven't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has\"). Chủ ngữ \"The new restaurant\" là số ít, tương đương với \"it\", vì vậy chúng ta dùng \"has got\"."
         },
         {
           "option": "hasn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has\"). Chủ ngữ \"The new restaurant\" là số ít, tương đương với \"it\", vì vậy chúng ta dùng \"has got\"."
         }
       ],
       "difficulty": 1
@@ -3031,7 +3051,7 @@
         {
           "option": "ve",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"ve\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"ve\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"s\"). Chủ ngữ \"My brother\" là số ít, tương đương với \"he\", vì vậy dạng rút gọn của \"has got\" là \"'s got\"."
         },
         {
           "option": "s",
@@ -3041,12 +3061,12 @@
         {
           "option": "re",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"re\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"re\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"s\"). Chủ ngữ \"My brother\" là số ít, tương đương với \"he\", vì vậy dạng rút gọn của \"has got\" là \"'s got\"."
         },
         {
           "option": "m",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"m\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"m\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"s\"). Chủ ngữ \"My brother\" là số ít, tương đương với \"he\", vì vậy dạng rút gọn của \"has got\" là \"'s got\"."
         }
       ],
       "difficulty": 1
@@ -3103,7 +3123,7 @@
         {
           "option": "He haven't got a lot of energy.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"He haven't got a lot of energy.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"He haven't got a lot of energy.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"He hasn't got a lot of energy.\"). Với chủ ngữ \"He\", dạng phủ định của \"has got\" là \"hasn't got\"."
         },
         {
           "option": "He hasn't got a lot of energy.",
@@ -3113,12 +3133,12 @@
         {
           "option": "He don't got a lot of energy.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"He don't got a lot of energy.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"He don't got a lot of energy.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"He hasn't got a lot of energy.\"). Với chủ ngữ \"He\", dạng phủ định của \"has got\" là \"hasn't got\"."
         },
         {
           "option": "He not got a lot of energy.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"He not got a lot of energy.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"He not got a lot of energy.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"He hasn't got a lot of energy.\"). Với chủ ngữ \"He\", dạng phủ định của \"has got\" là \"hasn't got\"."
         }
       ],
       "difficulty": 1
@@ -3144,17 +3164,17 @@
         {
           "option": "hasn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"haven't\"). Với chủ ngữ \"We\", dạng phủ định của \"have got\" là \"haven't got\"."
         },
         {
           "option": "don't have",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"don't have\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"don't have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"haven't\"). Với chủ ngữ \"We\", dạng phủ định của \"have got\" là \"haven't got\"."
         },
         {
           "option": "not have",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"not have\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"not have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"haven't\"). Với chủ ngữ \"We\", dạng phủ định của \"have got\" là \"haven't got\"."
         }
       ],
       "difficulty": 1
@@ -3211,12 +3231,12 @@
         {
           "option": "Has you got a problem?",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Has you got a problem?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Has you got a problem?\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Have they got any food?\"). Với chủ ngữ \"they\", dạng câu hỏi đúng là \"Have they got...\". Các lựa chọn khác sai ở sự hòa hợp chủ ngữ-động từ hoặc cấu trúc câu hỏi."
         },
         {
           "option": "Have he got a car?",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Have he got a car?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Have he got a car?\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Have they got any food?\"). Với chủ ngữ \"they\", dạng câu hỏi đúng là \"Have they got...\". Các lựa chọn khác sai ở sự hòa hợp chủ ngữ-động từ hoặc cấu trúc câu hỏi."
         },
         {
           "option": "Have they got any food?",
@@ -3226,7 +3246,7 @@
         {
           "option": "Does she has got a pet?",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"Does she has got a pet?\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"Does she has got a pet?\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Have they got any food?\"). Với chủ ngữ \"they\", dạng câu hỏi đúng là \"Have they got...\". Các lựa chọn khác sai ở sự hòa hợp chủ ngữ-động từ hoặc cấu trúc câu hỏi."
         }
       ],
       "difficulty": 2
@@ -3257,12 +3277,12 @@
         {
           "option": "haven't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has\"). Chủ ngữ \"My new phone\" là số ít, tương đương với \"it\", vì vậy chúng ta dùng \"has got\"."
         },
         {
           "option": "hasn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has\"). Chủ ngữ \"My new phone\" là số ít, tương đương với \"it\", vì vậy chúng ta dùng \"has got\"."
         }
       ],
       "difficulty": 1
@@ -3306,7 +3326,7 @@
     {
       "id": "have-got-ex-84",
       "type": "multiple_choice",
-      "question": "Chọn câu có dạng rút gọn **phủ định** đúng:",
+      "question": "Chọn câu có dạng rút gọn phủ định đúng:",
       "options": [
         "She's not got a passport.",
         "They haven't got a map.",
@@ -3319,12 +3339,12 @@
         {
           "option": "She's not got a passport.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"She's not got a passport.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"She's not got a passport.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"He hasn't got any brothers.\"). Dạng rút gọn phủ định của \"He has got\" là \"He hasn't got\". \"She's not got\" và \"We've not got\" không phải là dạng rút gọn phủ định chuẩn. \"They haven't got\" cũng đúng nhưng câu hỏi yêu cầu chọn câu có dạng rút gọn phủ định đúng, và \"He hasn't got\" là một ví dụ rõ ràng."
         },
         {
           "option": "They haven't got a map.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"They haven't got a map.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"They haven't got a map.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"He hasn't got any brothers.\"). Dạng rút gọn phủ định của \"He has got\" là \"He hasn't got\". \"She's not got\" và \"We've not got\" không phải là dạng rút gọn phủ định chuẩn. \"They haven't got\" cũng đúng nhưng câu hỏi yêu cầu chọn câu có dạng rút gọn phủ định đúng, và \"He hasn't got\" là một ví dụ rõ ràng."
         },
         {
           "option": "He hasn't got any brothers.",
@@ -3334,7 +3354,7 @@
         {
           "option": "We've not got much time.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"We've not got much time.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"We've not got much time.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"He hasn't got any brothers.\"). Dạng rút gọn phủ định của \"He has got\" là \"He hasn't got\". \"She's not got\" và \"We've not got\" không phải là dạng rút gọn phủ định chuẩn. \"They haven't got\" cũng đúng nhưng câu hỏi yêu cầu chọn câu có dạng rút gọn phủ định đúng, và \"He hasn't got\" là một ví dụ rõ ràng."
         }
       ],
       "difficulty": 3
@@ -3365,12 +3385,12 @@
         {
           "option": "haven't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has\"). Chủ ngữ \"The old house\" là số ít, tương đương với \"it\", vì vậy chúng ta dùng \"has got\"."
         },
         {
           "option": "hasn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has\"). Chủ ngữ \"The old house\" là số ít, tương đương với \"it\", vì vậy chúng ta dùng \"has got\"."
         }
       ],
       "difficulty": 1
@@ -3437,12 +3457,12 @@
         {
           "option": "haven't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"haven't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have\"). Với chủ ngữ \"I\", chúng ta dùng \"have got\" để nói về tình trạng sức khỏe hiện tại."
         },
         {
           "option": "hasn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"have\"). Với chủ ngữ \"I\", chúng ta dùng \"have got\" để nói về tình trạng sức khỏe hiện tại."
         }
       ],
       "difficulty": 1
@@ -3450,7 +3470,7 @@
     {
       "id": "have-got-ex-88",
       "type": "multiple_choice",
-      "question": "Chọn từ đúng để hoàn thành câu: \"My friend and I **___** a lot of fun together.\"",
+      "question": "Chọn từ đúng để hoàn thành câu: \"My friend and I ___ a lot of fun together.\"",
       "options": [
         "have got",
         "has got",
@@ -3486,7 +3506,7 @@
     {
       "id": "have-got-ex-89",
       "type": "fill_blank",
-      "question": "Hoàn thành câu với dạng phủ định: \"The school **___** a big library.\"",
+      "question": "Hoàn thành câu với dạng phủ định: \"The school ___ a big library.\"",
       "options": [
         "hasn't got",
         "haven't got",
@@ -3509,12 +3529,12 @@
         {
           "option": "didn't got",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"didn't got\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"didn't got\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"hasn't got\"). Chủ ngữ \"The school\" là số ít (tương đương \"it\"), nên dùng \"hasn't got\" cho dạng phủ định. \"Haven't got\" dùng cho chủ ngữ số nhiều. Các lựa chọn khác không đúng ngữ pháp."
         },
         {
           "option": "not got",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"not got\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"not got\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"hasn't got\"). Chủ ngữ \"The school\" là số ít (tương đương \"it\"), nên dùng \"hasn't got\" cho dạng phủ định. \"Haven't got\" dùng cho chủ ngữ số nhiều. Các lựa chọn khác không đúng ngữ pháp."
         }
       ],
       "difficulty": 1
@@ -3522,7 +3542,7 @@
     {
       "id": "have-got-ex-90",
       "type": "error_correction",
-      "question": "Tìm và sửa lỗi sai trong câu: \"My parents **has got** a new car last month.\"",
+      "question": "Tìm và sửa lỗi sai trong câu: \"My parents has got a new car last month.\"",
       "options": [
         "has got -> have got",
         "has got -> had got",
@@ -3558,7 +3578,7 @@
     {
       "id": "have-got-ex-91",
       "type": "multiple_choice",
-      "question": "Chọn từ thích hợp để hoàn thành câu: \"I **___** a blue backpack for school.\"",
+      "question": "Chọn từ thích hợp để hoàn thành câu: \"I ___ a blue backpack for school.\"",
       "options": [
         "have got",
         "has got",
@@ -3594,7 +3614,7 @@
     {
       "id": "have-got-ex-92",
       "type": "fill_blank",
-      "question": "Hoàn thành câu với dạng rút gọn khẳng định: \"She**___** a beautiful voice.\"",
+      "question": "Hoàn thành câu với dạng rút gọn khẳng định: \"She___ a beautiful voice.\"",
       "options": [
         "'s got",
         "'ve got",
@@ -3617,12 +3637,12 @@
         {
           "option": "is got",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"is got\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"is got\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"'s got\"). Chủ ngữ \"She\" là ngôi thứ ba số ít, nên dùng \"has got\". Dạng rút gọn của \"has got\" là \"'s got\". \"'ve got\" dùng cho I/you/we/they."
         },
         {
           "option": "has get",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"has get\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"has get\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"'s got\"). Chủ ngữ \"She\" là ngôi thứ ba số ít, nên dùng \"has got\". Dạng rút gọn của \"has got\" là \"'s got\". \"'ve got\" dùng cho I/you/we/they."
         }
       ],
       "difficulty": 1
@@ -3630,7 +3650,7 @@
     {
       "id": "have-got-ex-93",
       "type": "error_correction",
-      "question": "Sửa lỗi trong câu: \"They **haven't gets** a lot of homework today.\"",
+      "question": "Sửa lỗi trong câu: \"They haven't gets a lot of homework today.\"",
       "options": [
         "haven't gets -> haven't got",
         "haven't gets -> hasn't got",
@@ -3666,7 +3686,7 @@
     {
       "id": "have-got-ex-94",
       "type": "multiple_choice",
-      "question": "Câu nào sau đây sử dụng **have got / has got** đúng để miêu tả đặc điểm cơ thể?",
+      "question": "Câu nào sau đây sử dụng have got / has got đúng để miêu tả đặc điểm cơ thể?",
       "options": [
         "He has got brown eyes.",
         "She have got long hair.",
@@ -3684,17 +3704,17 @@
         {
           "option": "She have got long hair.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"She have got long hair.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"She have got long hair.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"He has got brown eyes.\"). Chủ ngữ \"He\" là ngôi thứ ba số ít, đi với \"has got\". Các câu khác sai ngữ pháp: \"She\" phải đi với \"has got\"; \"They\" phải đi với \"have got\"; \"I\" phải đi với \"I've got\" hoặc \"I have got\"."
         },
         {
           "option": "They has got short legs.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"They has got short legs.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"They has got short legs.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"He has got brown eyes.\"). Chủ ngữ \"He\" là ngôi thứ ba số ít, đi với \"has got\". Các câu khác sai ngữ pháp: \"She\" phải đi với \"has got\"; \"They\" phải đi với \"have got\"; \"I\" phải đi với \"I've got\" hoặc \"I have got\"."
         },
         {
           "option": "I's got a small nose.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"I's got a small nose.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"I's got a small nose.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"He has got brown eyes.\"). Chủ ngữ \"He\" là ngôi thứ ba số ít, đi với \"has got\". Các câu khác sai ngữ pháp: \"She\" phải đi với \"has got\"; \"They\" phải đi với \"have got\"; \"I\" phải đi với \"I've got\" hoặc \"I have got\"."
         }
       ],
       "difficulty": 1
@@ -3702,7 +3722,7 @@
     {
       "id": "have-got-ex-95",
       "type": "fill_blank",
-      "question": "Điền dạng rút gọn vào chỗ trống: \"We**___** a new teacher this year.\"",
+      "question": "Điền dạng rút gọn vào chỗ trống: \"We___ a new teacher this year.\"",
       "options": [
         "'ve got",
         "'s got",
@@ -3725,12 +3745,12 @@
         {
           "option": "are got",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"are got\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"are got\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"'ve got\"). Chủ ngữ \"We\" đi với \"have got\". Dạng rút gọn của \"have got\" là \"'ve got\". \"'s got\" dùng cho he/she/it."
         },
         {
           "option": "have get",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"have get\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"have get\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"'ve got\"). Chủ ngữ \"We\" đi với \"have got\". Dạng rút gọn của \"have got\" là \"'ve got\". \"'s got\" dùng cho he/she/it."
         }
       ],
       "difficulty": 1
@@ -3738,7 +3758,7 @@
     {
       "id": "have-got-ex-96",
       "type": "error_correction",
-      "question": "Tìm và sửa lỗi sai trong câu: \"The children **has got** many toys to play with.\"",
+      "question": "Tìm và sửa lỗi sai trong câu: \"The children has got many toys to play with.\"",
       "options": [
         "has got -> have got",
         "has got -> gets",
@@ -3774,7 +3794,7 @@
     {
       "id": "have-got-ex-97",
       "type": "multiple_choice",
-      "question": "Chọn từ đúng để hoàn thành câu về tình trạng hiện tại: \"I **___** a terrible cold, I need to rest.\"",
+      "question": "Chọn từ đúng để hoàn thành câu về tình trạng hiện tại: \"I ___ a terrible cold, I need to rest.\"",
       "options": [
         "have got",
         "has got",
@@ -3810,7 +3830,7 @@
     {
       "id": "have-got-ex-98",
       "type": "fill_blank",
-      "question": "Hoàn thành câu với dạng phủ định: \"My brother **___** a mustache.\" (miêu tả đặc điểm cơ thể)",
+      "question": "Hoàn thành câu với dạng phủ định: \"My brother ___ a mustache.\" (miêu tả đặc điểm cơ thể)",
       "options": [
         "hasn't got",
         "haven't got",
@@ -3833,12 +3853,12 @@
         {
           "option": "don't got",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"don't got\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"don't got\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"hasn't got\"). Chủ ngữ \"My brother\" là số ít (tương đương \"he\"), nên dùng \"hasn't got\" cho dạng phủ định. \"Haven't got\" dùng cho chủ ngữ số nhiều. Các lựa chọn khác không đúng ngữ pháp."
         },
         {
           "option": "not got",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"not got\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"not got\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"hasn't got\"). Chủ ngữ \"My brother\" là số ít (tương đương \"he\"), nên dùng \"hasn't got\" cho dạng phủ định. \"Haven't got\" dùng cho chủ ngữ số nhiều. Các lựa chọn khác không đúng ngữ pháp."
         }
       ],
       "difficulty": 1
@@ -3846,7 +3866,7 @@
     {
       "id": "have-got-ex-99",
       "type": "error_correction",
-      "question": "Sửa lỗi trong câu: \"It **have got** a beautiful view from the window.\"",
+      "question": "Sửa lỗi trong câu: \"It have got a beautiful view from the window.\"",
       "options": [
         "have got -> has got",
         "have got -> got",
@@ -3900,17 +3920,17 @@
         {
           "option": "We hasn't got a lot of time.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"We hasn't got a lot of time.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"We hasn't got a lot of time.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"We haven't got a lot of time.\"). Dạng phủ định của \"have got\" là \"haven't got\". Vì chủ ngữ là \"We\" (số nhiều), nên dùng \"haven't got\". \"Hasn't got\" dùng cho chủ ngữ số ít. Các lựa chọn khác không đúng cấu trúc phủ định của \"have got\"."
         },
         {
           "option": "We don't got a lot of time.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"We don't got a lot of time.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"We don't got a lot of time.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"We haven't got a lot of time.\"). Dạng phủ định của \"have got\" là \"haven't got\". Vì chủ ngữ là \"We\" (số nhiều), nên dùng \"haven't got\". \"Hasn't got\" dùng cho chủ ngữ số ít. Các lựa chọn khác không đúng cấu trúc phủ định của \"have got\"."
         },
         {
           "option": "We not got a lot of time.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"We not got a lot of time.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"We not got a lot of time.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"We haven't got a lot of time.\"). Dạng phủ định của \"have got\" là \"haven't got\". Vì chủ ngữ là \"We\" (số nhiều), nên dùng \"haven't got\". \"Hasn't got\" dùng cho chủ ngữ số ít. Các lựa chọn khác không đúng cấu trúc phủ định của \"have got\"."
         }
       ],
       "difficulty": 1

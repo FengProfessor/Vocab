@@ -347,29 +347,435 @@
   "exercises": [
     {
       "id": "modals-permission-ex-01",
-      "type": "fill_blank",
-      "question": "Hoàn thành theo mẫu: ___ you open the window, please?",
-      "options": [],
-      "correct_answer": "Could",
-      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "type": "multiple_choice",
+      "question": "___ I borrow your pen for a minute, please?",
+      "options": [
+        "Can",
+        "Must",
+        "Should",
+        "Need"
+      ],
+      "correct_answer": "Can",
+      "explanation": "Để xin phép mượn đồ thân mật hàng ngày, ta dùng \"Can I + V...?\" (hoặc \"Could I / May I\").",
       "distractor_breakdowns": [
         {
-          "option": "Could",
+          "option": "Can",
           "isCorrect": true,
-          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+          "pedagogicalReason": "Để xin phép mượn đồ thân mật hàng ngày, ta dùng \"Can I + V...?\" (hoặc \"Could I / May I\")."
         },
         {
-          "option": "May",
+          "option": "Must",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"May\" dùng để xin phép cho bản thân (\"May I...?\"), không dùng để yêu cầu người khác làm gì (\"Could you...?\")."
+          "pedagogicalReason": "Không chính xác. Phương án \"Must\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Can\"). Để xin phép mượn đồ thân mật hàng ngày, ta dùng \"Can I + V...?\" (hoặc \"Could I / May I\")."
         },
         {
           "option": "Should",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"Should\" dùng để hỏi xin lời khuyên, không dùng làm câu yêu cầu lịch sự."
+          "pedagogicalReason": "Không chính xác. Phương án \"Should\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Can\"). Để xin phép mượn đồ thân mật hàng ngày, ta dùng \"Can I + V...?\" (hoặc \"Could I / May I\")."
+        },
+        {
+          "option": "Need",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Need\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Can\"). Để xin phép mượn đồ thân mật hàng ngày, ta dùng \"Can I + V...?\" (hoặc \"Could I / May I\")."
         }
       ],
       "difficulty": 1
+    },
+    {
+      "id": "modals-permission-ex-02",
+      "type": "fill_blank",
+      "question": "___ I come in, Professor? (trang trọng, lịch sự)",
+      "options": [
+        "May",
+        "Must",
+        "Will",
+        "Should"
+      ],
+      "correct_answer": "May",
+      "explanation": "Khi xin phép người lớn tuổi/thầy cô trong ngữ cảnh trang trọng, \"May I + V...?\" là lịch sự và chuẩn mực nhất.",
+      "distractor_breakdowns": [
+        {
+          "option": "May",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi xin phép người lớn tuổi/thầy cô trong ngữ cảnh trang trọng, \"May I + V...?\" là lịch sự và chuẩn mực nhất."
+        },
+        {
+          "option": "Must",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Must\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"May\"). Khi xin phép người lớn tuổi/thầy cô trong ngữ cảnh trang trọng, \"May I + V...?\" là lịch sự và chuẩn mực nhất."
+        },
+        {
+          "option": "Will",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Will\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"May\"). Khi xin phép người lớn tuổi/thầy cô trong ngữ cảnh trang trọng, \"May I + V...?\" là lịch sự và chuẩn mực nhất."
+        },
+        {
+          "option": "Should",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Should\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"May\"). Khi xin phép người lớn tuổi/thầy cô trong ngữ cảnh trang trọng, \"May I + V...?\" là lịch sự và chuẩn mực nhất."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "modals-permission-ex-03",
+      "type": "multiple_choice",
+      "question": "___ you please pass me the salt?",
+      "options": [
+        "Could",
+        "May",
+        "Must",
+        "Shall"
+      ],
+      "correct_answer": "Could",
+      "explanation": "Khi nhờ người khác làm gì (\"you\"), ta dùng \"Could you / Can you / Would you...?\", KHÔNG dùng \"May you\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Could",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi nhờ người khác làm gì (\"you\"), ta dùng \"Could you / Can you / Would you...?\", KHÔNG dùng \"May you\"."
+        },
+        {
+          "option": "May",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"May\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Could\"). Khi nhờ người khác làm gì (\"you\"), ta dùng \"Could you / Can you / Would you...?\", KHÔNG dùng \"May you\"."
+        },
+        {
+          "option": "Must",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Must\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Could\"). Khi nhờ người khác làm gì (\"you\"), ta dùng \"Could you / Can you / Would you...?\", KHÔNG dùng \"May you\"."
+        },
+        {
+          "option": "Shall",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Shall\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Could\"). Khi nhờ người khác làm gì (\"you\"), ta dùng \"Could you / Can you / Would you...?\", KHÔNG dùng \"May you\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-permission-ex-04",
+      "type": "fill_blank",
+      "question": "You ___ park your car here; it is a free parking zone.",
+      "options": [
+        "can",
+        "must",
+        "should",
+        "would"
+      ],
+      "correct_answer": "can",
+      "explanation": "Dùng \"You can + V\" để cho phép (trao quyền được làm gì).",
+      "distractor_breakdowns": [
+        {
+          "option": "can",
+          "isCorrect": true,
+          "pedagogicalReason": "Dùng \"You can + V\" để cho phép (trao quyền được làm gì)."
+        },
+        {
+          "option": "must",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"must\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"can\"). Dùng \"You can + V\" để cho phép (trao quyền được làm gì)."
+        },
+        {
+          "option": "should",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"should\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"can\"). Dùng \"You can + V\" để cho phép (trao quyền được làm gì)."
+        },
+        {
+          "option": "would",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"would\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"can\"). Dùng \"You can + V\" để cho phép (trao quyền được làm gì)."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "modals-permission-ex-05",
+      "type": "multiple_choice",
+      "question": "Students ___ not allowed to use phones during the exam.",
+      "options": [
+        "are",
+        "do",
+        "can",
+        "have"
+      ],
+      "correct_answer": "are",
+      "explanation": "Cấu trúc \"be allowed to + V\" (được phép làm gì). Chủ ngữ số nhiều \"Students\" đi với to be \"are\".",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc \"be allowed to + V\" (được phép làm gì). Chủ ngữ số nhiều \"Students\" đi với to be \"are\"."
+        },
+        {
+          "option": "do",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Trợ động từ \"do\" không phù hợp với ngôi của chủ ngữ hoặc cấu trúc của câu (đáp án đúng là \"are\")."
+        },
+        {
+          "option": "can",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"can\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"are\"). Cấu trúc \"be allowed to + V\" (được phép làm gì). Chủ ngữ số nhiều \"Students\" đi với to be \"are\"."
+        },
+        {
+          "option": "have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"are\"). Cấu trúc \"be allowed to + V\" (được phép làm gì). Chủ ngữ số nhiều \"Students\" đi với to be \"are\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-permission-ex-06",
+      "type": "fill_blank",
+      "question": "Could I use your phone? — Yes, of course you ___.",
+      "options": [
+        "can",
+        "could",
+        "may not",
+        "must"
+      ],
+      "correct_answer": "can",
+      "explanation": "Trong câu hỏi xin phép \"Could I...?\", chữ \"Could\" mang tính lịch sự ở hiện tại, nên khi đồng ý cho phép ta trả lời \"Yes, you can.\" (không trả lời \"Yes, you could\").",
+      "distractor_breakdowns": [
+        {
+          "option": "can",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong câu hỏi xin phép \"Could I...?\", chữ \"Could\" mang tính lịch sự ở hiện tại, nên khi đồng ý cho phép ta trả lời \"Yes, you can.\" (không trả lời \"Yes, you could\")."
+        },
+        {
+          "option": "could",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"could\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"can\"). Trong câu hỏi xin phép \"Could I...?\", chữ \"Could\" mang tính lịch sự ở hiện tại, nên khi đồng ý cho phép ta trả lời \"Yes, you can.\" (không trả lời \"Yes, you could\")."
+        },
+        {
+          "option": "may not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"may not\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"can\"). Trong câu hỏi xin phép \"Could I...?\", chữ \"Could\" mang tính lịch sự ở hiện tại, nên khi đồng ý cho phép ta trả lời \"Yes, you can.\" (không trả lời \"Yes, you could\")."
+        },
+        {
+          "option": "must",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"must\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"can\"). Trong câu hỏi xin phép \"Could I...?\", chữ \"Could\" mang tính lịch sự ở hiện tại, nên khi đồng ý cho phép ta trả lời \"Yes, you can.\" (không trả lời \"Yes, you could\")."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "modals-permission-ex-07",
+      "type": "multiple_choice",
+      "question": "Would you mind if I ___ the window?",
+      "options": [
+        "opened",
+        "open",
+        "opening",
+        "to open"
+      ],
+      "correct_answer": "opened",
+      "explanation": "Cấu trúc xin phép lịch sự \"Would you mind if I + V2/ed?\" dùng động từ chia ở quá khứ đơn (\"opened\").",
+      "distractor_breakdowns": [
+        {
+          "option": "opened",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc xin phép lịch sự \"Would you mind if I + V2/ed?\" dùng động từ chia ở quá khứ đơn (\"opened\")."
+        },
+        {
+          "option": "open",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"open\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"opened\"). Cấu trúc xin phép lịch sự \"Would you mind if I + V2/ed?\" dùng động từ chia ở quá khứ đơn (\"opened\")."
+        },
+        {
+          "option": "opening",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"opening\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"opened\"). Cấu trúc xin phép lịch sự \"Would you mind if I + V2/ed?\" dùng động từ chia ở quá khứ đơn (\"opened\")."
+        },
+        {
+          "option": "to open",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to open\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"opened\"). Cấu trúc xin phép lịch sự \"Would you mind if I + V2/ed?\" dùng động từ chia ở quá khứ đơn (\"opened\")."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "modals-permission-ex-08",
+      "type": "fill_blank",
+      "question": "Do you mind if I ___ here?",
+      "options": [
+        "sit",
+        "sat",
+        "sitting",
+        "to sit"
+      ],
+      "correct_answer": "sit",
+      "explanation": "Cấu trúc \"Do you mind if I + V (hiện tại đơn)?\" đi với động từ nguyên mẫu \"sit\".",
+      "distractor_breakdowns": [
+        {
+          "option": "sit",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc \"Do you mind if I + V (hiện tại đơn)?\" đi với động từ nguyên mẫu \"sit\"."
+        },
+        {
+          "option": "sat",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"sat\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"sit\"). Cấu trúc \"Do you mind if I + V (hiện tại đơn)?\" đi với động từ nguyên mẫu \"sit\"."
+        },
+        {
+          "option": "sitting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"sitting\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"sit\"). Cấu trúc \"Do you mind if I + V (hiện tại đơn)?\" đi với động từ nguyên mẫu \"sit\"."
+        },
+        {
+          "option": "to sit",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to sit\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"sit\"). Cấu trúc \"Do you mind if I + V (hiện tại đơn)?\" đi với động từ nguyên mẫu \"sit\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-permission-ex-09",
+      "type": "multiple_choice",
+      "question": "Visitors ___ take photos inside the museum; it is strictly forbidden.",
+      "options": [
+        "cannot",
+        "need not",
+        "don't have to",
+        "ought to"
+      ],
+      "correct_answer": "cannot",
+      "explanation": "\"cannot\" (hoặc \"may not / must not\") dùng để từ chối cấp phép/cấm đoán (\"Bạn không được phép chụp ảnh\").",
+      "distractor_breakdowns": [
+        {
+          "option": "cannot",
+          "isCorrect": true,
+          "pedagogicalReason": "\"cannot\" (hoặc \"may not / must not\") dùng để từ chối cấp phép/cấm đoán (\"Bạn không được phép chụp ảnh\")."
+        },
+        {
+          "option": "need not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"need not\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"cannot\"). \"cannot\" (hoặc \"may not / must not\") dùng để từ chối cấp phép/cấm đoán (\"Bạn không được phép chụp ảnh\")."
+        },
+        {
+          "option": "don't have to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"don't have to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"cannot\"). \"cannot\" (hoặc \"may not / must not\") dùng để từ chối cấp phép/cấm đoán (\"Bạn không được phép chụp ảnh\")."
+        },
+        {
+          "option": "ought to",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"ought to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"cannot\"). \"cannot\" (hoặc \"may not / must not\") dùng để từ chối cấp phép/cấm đoán (\"Bạn không được phép chụp ảnh\")."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-permission-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: May you help me carry these suitcases?",
+      "options": [
+        "May",
+        "you",
+        "help",
+        "carry"
+      ],
+      "correct_answer": "May",
+      "explanation": "Tuyệt đối không dùng \"May you...?\" để nhờ vả người khác. Phải sửa \"May\" thành \"Could\", \"Can\" hoặc \"Would\".",
+      "distractor_breakdowns": [
+        {
+          "option": "May",
+          "isCorrect": true,
+          "pedagogicalReason": "Tuyệt đối không dùng \"May you...?\" để nhờ vả người khác. Phải sửa \"May\" thành \"Could\", \"Can\" hoặc \"Would\"."
+        },
+        {
+          "option": "you",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"you\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "help",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"help\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "carry",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"carry\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-permission-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: Could I to leave the office a bit early today?",
+      "options": [
+        "Could",
+        "to leave",
+        "early",
+        "today"
+      ],
+      "correct_answer": "to leave",
+      "explanation": "Sau động từ khuyết thiếu \"Could\" là động từ nguyên mẫu không \"to\". Sửa \"to leave\" thành \"leave\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Could",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"Could\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "to leave",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau động từ khuyết thiếu \"Could\" là động từ nguyên mẫu không \"to\". Sửa \"to leave\" thành \"leave\"."
+        },
+        {
+          "option": "early",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"early\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "today",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"today\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-permission-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: Children are not allow to swim in the deep pool.",
+      "options": [
+        "are",
+        "not",
+        "allow",
+        "to swim"
+      ],
+      "correct_answer": "allow",
+      "explanation": "Cấu trúc bị động chỉ sự cho phép là \"be allowed to V\" (phải có \"-ed\"). Sửa \"allow\" thành \"allowed\".",
+      "distractor_breakdowns": [
+        {
+          "option": "are",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"are\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"not\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "allow",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc bị động chỉ sự cho phép là \"be allowed to V\" (phải có \"-ed\"). Sửa \"allow\" thành \"allowed\"."
+        },
+        {
+          "option": "to swim",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"to swim\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
     }
   ]
 }

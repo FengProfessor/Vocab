@@ -1147,5 +1147,39 @@
     - `https://lingopro.online/vnu-bac-3/exam/ulis-sample-test-01` -> HTTP 200
     - `https://lingopro.online/api/vnu-bac-3/writing-eval` -> HTTP 200 (`success: true`, Rubric B1 scoring evaluated)
 
+### Release Thư viện Bài đọc (Reading Library) 588 bài A1–C2 & Tích hợp NotebookLM (2026-10-15)
+
+- **Phạm vi & Nâng cấp Thư viện Bài đọc (Reading Library)**:
+  - **Kho dữ liệu 588 bài đọc chuẩn CEFR A1–C2**: Tích hợp kho bài đọc độc lập `public.reading_articles` và `public.user_reading_library_progress` bao phủ trọn vẹn 6 cấp độ CEFR và 15 chủ đề chuẩn LingoPro (`pack-themes.ts`) từ các nguồn: VSTEP (299 bài B1–C1), TOEIC (282 bài A2–B2), VOA (3 bài A1–B1), RACE (2 bài B2–C1), OpenStax (2 bài C1–C2).
+  - **API Endpoint Range Pagination Hiệu năng cao**: Tuyến API `/api/reading/articles` tuân thủ nghiêm ngặt `GEMINI.md` Rule 3 (phát hiện `hasMore` qua `limit + 1`, không gửi HEAD count sớm), hỗ trợ lọc CEFR level, theme, source, tìm kiếm từ khóa, và fallback catalog trong bộ nhớ.
+  - **Giao diện Đọc bài Tương tác & Sư phạm (`/practice/reading-library`)**:
+    - Trích xuất ngắt đoạn văn chuẩn xác từ HTML/văn bản.
+    - Tra cứu từ điển tức thì theo ngữ cảnh (IPA, từ loại, nghĩa tiếng Việt, phát âm bản xứ).
+    - Bản dịch tiếng Việt song ngữ on-demand.
+    - Tab Luyện điền từ (Cloze blanks) với đoạn văn ngữ cảnh `--(131)--`.
+    - Tab Trắc nghiệm (MCQ) với giải thuật Fisher-Yates xáo trộn đáp án ngẫu nhiên chống thiên vị đáp án A.
+    - Tab Sơ đồ tư duy (Mindmap) phân cấp cây và đồ thị phẳng `nodes`/`edges`.
+    - Điều hướng trình duyệt mượt mà hỗ trợ nút Back/Forward qua `popstate`.
+    - Bọc `Suspense` boundary chuẩn Next.js App Router cho CSR bailout.
+  - **Lối vào người dùng một chạm**:
+    - Thẻ nổi bật "Thư viện bài đọc · 588 bài" trên Hub `/practice`.
+    - Thanh chuyển đổi Sub-nav hai chiều [Bài đọc hôm nay (AI)] / [Thư viện 588 bài đọc] trên `/practice/daily-reading`.
+    - Redirect tự động từ `/practice/reading` sang `/practice/reading-library`.
+  - **Tích hợp NotebookLM CLI (`nlm`)**:
+    - Xác thực profile `burn-minh` (`phongvo061502@gmail.com`).
+    - Gọi an toàn qua `execFile` tránh shell injection trên Windows.
+    - Tạo notebook, podcast thảo luận 2 người bản xứ (`nlm audio create`), bộ quiz (`nlm quiz create`), và sơ đồ tư duy (`nlm mindmap create`).
+    - Nâng cấp pipeline Gemini AI sang model thế hệ mới `gemini-3.8-flash`.
+- **Kiểm chứng chất lượng**:
+  - `npm run typecheck`: PASS (0 lỗi).
+  - `npm run build`: PASS (191/191 trang tĩnh & động biên dịch thành công, zero prerender errors).
+  - `scripts/test-reading-library-ui.ts`: PASS 20/20 tests.
+  - `scripts/test-api-endpoint.ts`: PASS 7/7 tests (`Source: database` kết nối trực tiếp Supabase Postgres).
+  - `scripts/test-nlm-reading-enricher.ts`: PASS unit tests & live cloud backend tests.
+  - `tests/toeic/run-all-toeic-tests.ts`: PASS 510/510 tests.
+  - `tests/vstep/tier1-features.test.ts`: PASS 31/31 tests.
+  - `tests/grammar/run-all-grammar-tests.ts`: PASS 69/69 tests.
+
+
 
 

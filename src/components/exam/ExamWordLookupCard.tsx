@@ -1,14 +1,17 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Volume2, BookmarkPlus, Check, X, Loader2, Sparkles, Lightbulb } from 'lucide-react';
 import { playWordAudio } from '@/lib/audio';
 import { authFetch } from '@/lib/auth-fetch';
 import { supabase } from '@/lib/supabase';
 import {
   type ExamDictResult,
+  type ExamDictSense,
   isWordSavedLocally,
   saveWordLocally,
+  isMeaningSavedLocally,
+  saveMeaningLocally,
 } from '@/lib/exam-dict-cache';
 import { toast } from 'sonner';
 
@@ -33,22 +36,66 @@ export function ExamWordLookupCard({
   parentPhrase,
   onLookupPhrase,
 }: ExamWordLookupCardProps) {
-  const [isSaved, setIsSaved] = useState<boolean>(false);
+  const senses: ExamDictSense[] = useMemo(() => {
+    if (dictResult?.meanings && dictResult.meanings.length > 0) {
+      return dictResult.meanings;
+    }
+    if (dictResult?.definition) {
+      return [
+        {
+          definition: dictResult.definition,
+          pos: dictResult.pos,
+          example: dictResult.example,
+          exampleVi: dictResult.exampleVi,
+        },
+      ];
+    }
+    return [];
+  }, [dictResult]);
+
+  const [selectedMeaningIdx, setSelectedMeaningIdx] = useState<number>(0);
+  const [savedMeaningIndices, setSavedMeaningIndices] = useState<Set<number>>(new Set());
   const [isSaving, setIsSaving] = useState<boolean>(false);
   const [isPlayingAudio, setIsPlayingAudio] = useState<boolean>(false);
+
+  const activeSense: ExamDictSense | null = senses[selectedMeaningIdx] || senses[0] || null;
+  const isSaved = savedMeaningIndices.has(selectedMeaningIdx);
 
   // Sync saved status locally and via global custom event
   useEffect(() => {
     if (!dictResult?.cleanWord) return;
-    setIsSaved(isWordSavedLocally(dictResult.cleanWord));
+    const targetWord = dictResult.cleanWord;
+
+    const newSaved = new Set<number>();
+    senses.forEach((s, idx) => {
+      if (isMeaningSavedLocally(targetWord, s.definition)) {
+        newSaved.add(idx);
+      }
+    });
+
+    if (newSaved.size === 0 && isWordSavedLocally(targetWord)) {
+      newSaved.add(0);
+    }
+
+    setSavedMeaningIndices(newSaved);
+    setSelectedMeaningIdx(0);
 
     const handleWordSaved = (e: Event) => {
-      const customEvent = e as CustomEvent<{ word?: string }>;
+      const customEvent = e as CustomEvent<{ word?: string; translation?: string }>;
       if (
         customEvent.detail?.word &&
-        customEvent.detail.word.toLowerCase() === dictResult.cleanWord.toLowerCase()
+        customEvent.detail.word.toLowerCase() === targetWord.toLowerCase()
       ) {
-        setIsSaved(true);
+        if (customEvent.detail.translation) {
+          const trans = customEvent.detail.translation.trim().toLowerCase();
+          senses.forEach((s, idx) => {
+            if (s.definition.trim().toLowerCase() === trans) {
+              setSavedMeaningIndices((prev) => new Set(prev).add(idx));
+            }
+          });
+        } else {
+          setSavedMeaningIndices((prev) => new Set(prev).add(selectedMeaningIdx));
+        }
       }
     };
 
@@ -58,7 +105,7 @@ export function ExamWordLookupCard({
         window.removeEventListener('lingo_word_saved', handleWordSaved);
       };
     }
-  }, [dictResult?.cleanWord]);
+  }, [dictResult?.cleanWord, senses]);
 
   // Audio pronunciation handler (prefers native audio recording when available)
   const handlePlayAudio = async () => {
@@ -73,22 +120,23 @@ export function ExamWordLookupCard({
     }
   };
 
-  // Save to vocabulary handler (Guest + Auth SRS integration)
-  const handleSaveToVocab = async (e: React.MouseEvent) => {
-    e.stopPropagation();
+  // Save specific sense handler
+  const handleSaveSense = async (sense: ExamDictSense, senseIdx: number) => {
     if (!dictResult?.cleanWord || isSaving) return;
-    if (isSaved) {
-      toast.info('Từ này đã có trong Sổ từ SRS!');
+    if (savedMeaningIndices.has(senseIdx)) {
+      toast.info('Nghĩa này đã có trong Sổ từ SRS!');
       return;
     }
 
     setIsSaving(true);
     const targetWord = dictResult.cleanWord;
+    const targetTranslation = sense.definition;
 
     try {
       // 1. Save locally for instant persistence
-      saveWordLocally(targetWord);
-      setIsSaved(true);
+      saveWordLocally(targetWord, targetTranslation);
+      saveMeaningLocally(targetWord, targetTranslation);
+      setSavedMeaningIndices((prev) => new Set(prev).add(senseIdx));
 
       // 2. If user is authenticated, sync to Supabase SRS system
       const {
@@ -101,9 +149,9 @@ export function ExamWordLookupCard({
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             word: targetWord,
-            translation: dictResult.definition,
+            translation: targetTranslation,
             ipa: dictResult.ipa || '',
-            pos: dictResult.pos || '',
+            pos: sense.pos || dictResult.pos || '',
           }),
         });
       }
@@ -111,16 +159,33 @@ export function ExamWordLookupCard({
       // 3. Broadcast custom event across the application
       if (typeof window !== 'undefined') {
         window.dispatchEvent(
-          new CustomEvent('lingo_word_saved', { detail: { word: targetWord } })
+          new CustomEvent('lingo_word_saved', { detail: { word: targetWord, translation: targetTranslation } })
         );
       }
 
-      toast.success("Đã lưu từ vựng vào Sổ từ SRS!");
+      const shortDef = targetTranslation.length > 25 ? `${targetTranslation.slice(0, 25)}...` : targetTranslation;
+      toast.success(`Đã lưu nghĩa "${shortDef}" vào Sổ từ SRS!`);
     } catch (err) {
       console.warn('[ExamWordLookupCard] Save error:', err);
     } finally {
       setIsSaving(false);
     }
+  };
+
+  // Save to vocabulary handler (Guest + Auth SRS integration)
+  const handleSaveToVocab = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!dictResult?.cleanWord || isSaving) return;
+    if (isSaved) {
+      toast.info('Nghĩa này đã có trong Sổ từ SRS!');
+      return;
+    }
+
+    const currentSense = activeSense || {
+      definition: dictResult.definition,
+      pos: dictResult.pos,
+    };
+    await handleSaveSense(currentSense, selectedMeaningIdx);
   };
 
   return (

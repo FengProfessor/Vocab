@@ -58,9 +58,9 @@ async function main() {
   console.log(`✓ Tier 3 Finished: ${stats3.passed}/${stats3.total} passed (${stats3.durationMs}ms)\n`);
 
   // ──────────────────────────────────────────────────────────────────────────
-  // Tier 4: Real-World Curriculum Scenarios (25 Supabase Lessons)
+  // Tier 4: Real-World Curriculum Scenarios (87 Supabase Lessons)
   // ──────────────────────────────────────────────────────────────────────────
-  console.log('▶ Running Tier 4: Real-World Curriculum Scenarios (25 Supabase Lessons Audit)...');
+  console.log('▶ Running Tier 4: Real-World Curriculum Scenarios (87 Supabase Lessons Audit)...');
   const runner4 = new TestRunner();
   await runTier4Tests(runner4);
   const stats4 = await runner4.run();

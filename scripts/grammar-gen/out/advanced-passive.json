@@ -418,34 +418,435 @@
   "exercises": [
     {
       "id": "advanced-passive-ex-01",
-      "type": "fill_blank",
-      "question": "She made her son a paper boat.  →  A paper boat ____ her son.",
-      "options": [],
-      "correct_answer": "was made for",
-      "explanation": "Đồ lên đầu · make đi với for",
+      "type": "multiple_choice",
+      "question": "People say that this castle is 500 years old. → ___ that this castle is 500 years old.",
+      "options": [
+        "It is said",
+        "There is said",
+        "He is said",
+        "People are said"
+      ],
+      "correct_answer": "It is said",
+      "explanation": "Cấu trúc bị động khách quan không ngôi (Impersonal Passive) với chủ ngữ giả \"It\": \"It + be + V3 (said/believed/reported) + that + S + V\".",
       "distractor_breakdowns": [
         {
-          "option": "was made for",
+          "option": "It is said",
           "isCorrect": true,
-          "pedagogicalReason": "Đồ lên đầu · make đi với for"
+          "pedagogicalReason": "Cấu trúc bị động khách quan không ngôi (Impersonal Passive) với chủ ngữ giả \"It\": \"It + be + V3 (said/believed/reported) + that + S + V\"."
         },
         {
-          "option": "was made to",
+          "option": "There is said",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Khi chuyển sang bị động với động từ \"make\", tân ngữ người đi với giới từ \"for\" (\"was made for her son\"), không dùng \"to\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"There is said\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It is said\"). Cấu trúc bị động khách quan không ngôi (Impersonal Passive) với chủ ngữ giả \"It\": \"It + be + V3 (said/believed/reported) + that + S + V\"."
         },
         {
-          "option": "made for",
+          "option": "He is said",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Câu bị động ở thì quá khứ đơn bắt buộc phải có to-be \"was\" đi kèm phân từ hai."
+          "pedagogicalReason": "Không chính xác. Phương án \"He is said\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It is said\"). Cấu trúc bị động khách quan không ngôi (Impersonal Passive) với chủ ngữ giả \"It\": \"It + be + V3 (said/believed/reported) + that + S + V\"."
         },
         {
-          "option": "was made",
+          "option": "People are said",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Thiếu giới từ \"for\" để kết nối với tân ngữ gián tiếp \"her son\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"People are said\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"It is said\"). Cấu trúc bị động khách quan không ngôi (Impersonal Passive) với chủ ngữ giả \"It\": \"It + be + V3 (said/believed/reported) + that + S + V\"."
         }
       ],
       "difficulty": 1
+    },
+    {
+      "id": "advanced-passive-ex-02",
+      "type": "fill_blank",
+      "question": "The company is reported ___ opening three new branches next year.",
+      "options": [
+        "to be",
+        "that",
+        "being",
+        "have"
+      ],
+      "correct_answer": "to be",
+      "explanation": "Cấu trúc bị động đưa chủ ngữ của mệnh đề sau lên đầu: \"S + be + V3 (reported) + to V / to be V-ing\" → \"to be opening\".",
+      "distractor_breakdowns": [
+        {
+          "option": "to be",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc bị động đưa chủ ngữ của mệnh đề sau lên đầu: \"S + be + V3 (reported) + to V / to be V-ing\" → \"to be opening\"."
+        },
+        {
+          "option": "that",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"that\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"to be\"). Cấu trúc bị động đưa chủ ngữ của mệnh đề sau lên đầu: \"S + be + V3 (reported) + to V / to be V-ing\" → \"to be opening\"."
+        },
+        {
+          "option": "being",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"being\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"to be\"). Cấu trúc bị động đưa chủ ngữ của mệnh đề sau lên đầu: \"S + be + V3 (reported) + to V / to be V-ing\" → \"to be opening\"."
+        },
+        {
+          "option": "have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"to be\"). Cấu trúc bị động đưa chủ ngữ của mệnh đề sau lên đầu: \"S + be + V3 (reported) + to V / to be V-ing\" → \"to be opening\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "advanced-passive-ex-03",
+      "type": "multiple_choice",
+      "question": "The thief is believed ___ through the back window last night.",
+      "options": [
+        "to have escaped",
+        "to escape",
+        "escaping",
+        "having escaped"
+      ],
+      "correct_answer": "to have escaped",
+      "explanation": "Khi hành động ở mệnh đề sau xảy ra TRƯỚC hành động tường thuật (\"escaped last night\" xảy ra trước \"is believed\"), ta dùng nguyên mẫu hoàn thành: \"to have + V3/ed\" (\"to have escaped\").",
+      "distractor_breakdowns": [
+        {
+          "option": "to have escaped",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi hành động ở mệnh đề sau xảy ra TRƯỚC hành động tường thuật (\"escaped last night\" xảy ra trước \"is believed\"), ta dùng nguyên mẫu hoàn thành: \"to have + V3/ed\" (\"to have escaped\")."
+        },
+        {
+          "option": "to escape",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to escape\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"to have escaped\"). Khi hành động ở mệnh đề sau xảy ra TRƯỚC hành động tường thuật (\"escaped last night\" xảy ra trước \"is believed\"), ta dùng nguyên mẫu hoàn thành: \"to have + V3/ed\" (\"to have escaped\")."
+        },
+        {
+          "option": "escaping",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"escaping\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"to have escaped\"). Khi hành động ở mệnh đề sau xảy ra TRƯỚC hành động tường thuật (\"escaped last night\" xảy ra trước \"is believed\"), ta dùng nguyên mẫu hoàn thành: \"to have + V3/ed\" (\"to have escaped\")."
+        },
+        {
+          "option": "having escaped",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"having escaped\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"to have escaped\"). Khi hành động ở mệnh đề sau xảy ra TRƯỚC hành động tường thuật (\"escaped last night\" xảy ra trước \"is believed\"), ta dùng nguyên mẫu hoàn thành: \"to have + V3/ed\" (\"to have escaped\")."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "advanced-passive-ex-04",
+      "type": "fill_blank",
+      "question": "It is ___ that the prime minister will visit Hanoi next month.",
+      "options": [
+        "expected",
+        "expect",
+        "expecting",
+        "to expect"
+      ],
+      "correct_answer": "expected",
+      "explanation": "Cấu trúc \"It is expected that...\" (Người ta kỳ vọng rằng...).",
+      "distractor_breakdowns": [
+        {
+          "option": "expected",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc \"It is expected that...\" (Người ta kỳ vọng rằng...)."
+        },
+        {
+          "option": "expect",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"expect\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"expected\"). Cấu trúc \"It is expected that...\" (Người ta kỳ vọng rằng...)."
+        },
+        {
+          "option": "expecting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"expecting\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"expected\"). Cấu trúc \"It is expected that...\" (Người ta kỳ vọng rằng...)."
+        },
+        {
+          "option": "to expect",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to expect\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"expected\"). Cấu trúc \"It is expected that...\" (Người ta kỳ vọng rằng...)."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "advanced-passive-ex-05",
+      "type": "multiple_choice",
+      "question": "Your hair is too long; it needs ___.",
+      "options": [
+        "cutting",
+        "to cut",
+        "cut",
+        "be cut"
+      ],
+      "correct_answer": "cutting",
+      "explanation": "Cấu trúc bị động đặc biệt với \"need\" khi chủ ngữ là vật (\"it\" - mái tóc): \"S (vật) + need + V-ing\" (= need to be + V3).",
+      "distractor_breakdowns": [
+        {
+          "option": "cutting",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc bị động đặc biệt với \"need\" khi chủ ngữ là vật (\"it\" - mái tóc): \"S (vật) + need + V-ing\" (= need to be + V3)."
+        },
+        {
+          "option": "to cut",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to cut\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"cutting\"). Cấu trúc bị động đặc biệt với \"need\" khi chủ ngữ là vật (\"it\" - mái tóc): \"S (vật) + need + V-ing\" (= need to be + V3)."
+        },
+        {
+          "option": "cut",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"cut\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"cutting\"). Cấu trúc bị động đặc biệt với \"need\" khi chủ ngữ là vật (\"it\" - mái tóc): \"S (vật) + need + V-ing\" (= need to be + V3)."
+        },
+        {
+          "option": "be cut",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"be cut\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"cutting\"). Cấu trúc bị động đặc biệt với \"need\" khi chủ ngữ là vật (\"it\" - mái tóc): \"S (vật) + need + V-ing\" (= need to be + V3)."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "advanced-passive-ex-06",
+      "type": "fill_blank",
+      "question": "The broken window needs to ___ before winter comes.",
+      "options": [
+        "be repaired",
+        "repair",
+        "repaired",
+        "repairing"
+      ],
+      "correct_answer": "be repaired",
+      "explanation": "Sau \"needs to...\" với chủ ngữ chỉ vật (\"The broken window\") ta dùng \"need to be + V3/ed\" (\"needs to be repaired\").",
+      "distractor_breakdowns": [
+        {
+          "option": "be repaired",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau \"needs to...\" với chủ ngữ chỉ vật (\"The broken window\") ta dùng \"need to be + V3/ed\" (\"needs to be repaired\")."
+        },
+        {
+          "option": "repair",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"repair\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"be repaired\"). Sau \"needs to...\" với chủ ngữ chỉ vật (\"The broken window\") ta dùng \"need to be + V3/ed\" (\"needs to be repaired\")."
+        },
+        {
+          "option": "repaired",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"repaired\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"be repaired\"). Sau \"needs to...\" với chủ ngữ chỉ vật (\"The broken window\") ta dùng \"need to be + V3/ed\" (\"needs to be repaired\")."
+        },
+        {
+          "option": "repairing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"repairing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"be repaired\"). Sau \"needs to...\" với chủ ngữ chỉ vật (\"The broken window\") ta dùng \"need to be + V3/ed\" (\"needs to be repaired\")."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "advanced-passive-ex-07",
+      "type": "multiple_choice",
+      "question": "Nobody likes ___ in public.",
+      "options": [
+        "being criticized",
+        "criticizing",
+        "to criticize",
+        "been criticized"
+      ],
+      "correct_answer": "being criticized",
+      "explanation": "Sau động từ \"like\" mang nghĩa bị động (\"bị chỉ trích trước đám đông\") ta dùng danh động từ bị động: \"being + V3/ed\".",
+      "distractor_breakdowns": [
+        {
+          "option": "being criticized",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau động từ \"like\" mang nghĩa bị động (\"bị chỉ trích trước đám đông\") ta dùng danh động từ bị động: \"being + V3/ed\"."
+        },
+        {
+          "option": "criticizing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"criticizing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"being criticized\"). Sau động từ \"like\" mang nghĩa bị động (\"bị chỉ trích trước đám đông\") ta dùng danh động từ bị động: \"being + V3/ed\"."
+        },
+        {
+          "option": "to criticize",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to criticize\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"being criticized\"). Sau động từ \"like\" mang nghĩa bị động (\"bị chỉ trích trước đám đông\") ta dùng danh động từ bị động: \"being + V3/ed\"."
+        },
+        {
+          "option": "been criticized",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"been criticized\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"being criticized\"). Sau động từ \"like\" mang nghĩa bị động (\"bị chỉ trích trước đám đông\") ta dùng danh động từ bị động: \"being + V3/ed\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "advanced-passive-ex-08",
+      "type": "fill_blank",
+      "question": "She hopes ___ for the scholarship.",
+      "options": [
+        "to be selected",
+        "selecting",
+        "to select",
+        "being select"
+      ],
+      "correct_answer": "to be selected",
+      "explanation": "Sau \"hope\" mang nghĩa bị động (\"hy vọng được chọn nhận học bổng\") ta dùng nguyên mẫu bị động: \"to be + V3/ed\".",
+      "distractor_breakdowns": [
+        {
+          "option": "to be selected",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau \"hope\" mang nghĩa bị động (\"hy vọng được chọn nhận học bổng\") ta dùng nguyên mẫu bị động: \"to be + V3/ed\"."
+        },
+        {
+          "option": "selecting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"selecting\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"to be selected\"). Sau \"hope\" mang nghĩa bị động (\"hy vọng được chọn nhận học bổng\") ta dùng nguyên mẫu bị động: \"to be + V3/ed\"."
+        },
+        {
+          "option": "to select",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"to select\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"to be selected\"). Sau \"hope\" mang nghĩa bị động (\"hy vọng được chọn nhận học bổng\") ta dùng nguyên mẫu bị động: \"to be + V3/ed\"."
+        },
+        {
+          "option": "being select",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"being select\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"to be selected\"). Sau \"hope\" mang nghĩa bị động (\"hy vọng được chọn nhận học bổng\") ta dùng nguyên mẫu bị động: \"to be + V3/ed\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "advanced-passive-ex-09",
+      "type": "multiple_choice",
+      "question": "He is thought ___ one of the richest men in the region.",
+      "options": [
+        "to be",
+        "being",
+        "that he is",
+        "be"
+      ],
+      "correct_answer": "to be",
+      "explanation": "Cấu trúc bị động kép cùng thì ở hiện tại: \"S + is thought + to V\" (\"to be\").",
+      "distractor_breakdowns": [
+        {
+          "option": "to be",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc bị động kép cùng thì ở hiện tại: \"S + is thought + to V\" (\"to be\")."
+        },
+        {
+          "option": "being",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"being\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"to be\"). Cấu trúc bị động kép cùng thì ở hiện tại: \"S + is thought + to V\" (\"to be\")."
+        },
+        {
+          "option": "that he is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"that he is\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"to be\"). Cấu trúc bị động kép cùng thì ở hiện tại: \"S + is thought + to V\" (\"to be\")."
+        },
+        {
+          "option": "be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"be\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"to be\"). Cấu trúc bị động kép cùng thì ở hiện tại: \"S + is thought + to V\" (\"to be\")."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "advanced-passive-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: The president is said that he will resign next week.",
+      "options": [
+        "The president",
+        "is said",
+        "that he",
+        "resign"
+      ],
+      "correct_answer": "that he",
+      "explanation": "Khi đã đưa chủ ngữ cụ thể (\"The president\") lên đầu câu bị động, phải dùng \"to V\" (\"The president is said to resign...\"), không được dùng \"that he...\". (Chỉ có \"It is said that he...\").",
+      "distractor_breakdowns": [
+        {
+          "option": "The president",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"The president\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "is said",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"is said\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "that he",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi đã đưa chủ ngữ cụ thể (\"The president\") lên đầu câu bị động, phải dùng \"to V\" (\"The president is said to resign...\"), không được dùng \"that he...\". (Chỉ có \"It is said that he...\")."
+        },
+        {
+          "option": "resign",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"resign\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "advanced-passive-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: The ancient temple is believed to build in the 12th century.",
+      "options": [
+        "ancient temple",
+        "is believed",
+        "to build",
+        "12th century"
+      ],
+      "correct_answer": "to build",
+      "explanation": "Ngôi đền ĐƯỢC xây dựng trong quá khứ (bị động + hoàn thành trước hiện tại) nên phải dùng \"to have been built\", không dùng chủ động \"to build\".",
+      "distractor_breakdowns": [
+        {
+          "option": "ancient temple",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"ancient temple\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "is believed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"is believed\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "to build",
+          "isCorrect": true,
+          "pedagogicalReason": "Ngôi đền ĐƯỢC xây dựng trong quá khứ (bị động + hoàn thành trước hiện tại) nên phải dùng \"to have been built\", không dùng chủ động \"to build\"."
+        },
+        {
+          "option": "12th century",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"12th century\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "advanced-passive-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: My car battery is dead; it needs to recharge immediately.",
+      "options": [
+        "battery",
+        "dead",
+        "to recharge",
+        "immediately"
+      ],
+      "correct_answer": "to recharge",
+      "explanation": "Chủ ngữ \"it\" (bình ắc-quy) nhận hành động sạc → phải dùng \"needs recharging\" hoặc \"needs to be recharged\", không dùng \"needs to recharge\".",
+      "distractor_breakdowns": [
+        {
+          "option": "battery",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"battery\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "dead",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"dead\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "to recharge",
+          "isCorrect": true,
+          "pedagogicalReason": "Chủ ngữ \"it\" (bình ắc-quy) nhận hành động sạc → phải dùng \"needs recharging\" hoặc \"needs to be recharged\", không dùng \"needs to recharge\"."
+        },
+        {
+          "option": "immediately",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"immediately\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
     }
   ]
 }

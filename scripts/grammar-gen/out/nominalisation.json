@@ -379,59 +379,71 @@
     {
       "id": "nominalisation-ex-01",
       "type": "multiple_choice",
-      "question": "Danh từ của 'decide' là gì?",
+      "question": "They decided to expand the factory. → The ___ to expand the factory was approved.",
       "options": [
-        "decisive",
         "decision",
+        "decide",
+        "decisive",
         "deciding"
       ],
       "correct_answer": "decision",
-      "explanation": "Decision là danh từ chỉ quyết định; decisive là tính từ.",
+      "explanation": "Danh từ hóa (Nominalisation) biến động từ \"decide\" thành danh từ \"decision\" đứng sau mạo từ \"The\" để làm chủ ngữ học thuật.",
       "distractor_breakdowns": [
-        {
-          "option": "decisive",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Decisive là tính từ."
-        },
         {
           "option": "decision",
           "isCorrect": true,
-          "pedagogicalReason": "Decision là danh từ chỉ quyết định; decisive là tính từ."
+          "pedagogicalReason": "Danh từ hóa (Nominalisation) biến động từ \"decide\" thành danh từ \"decision\" đứng sau mạo từ \"The\" để làm chủ ngữ học thuật."
+        },
+        {
+          "option": "decide",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"decide\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"decision\"). Danh từ hóa (Nominalisation) biến động từ \"decide\" thành danh từ \"decision\" đứng sau mạo từ \"The\" để làm chủ ngữ học thuật."
+        },
+        {
+          "option": "decisive",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"decisive\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"decision\"). Danh từ hóa (Nominalisation) biến động từ \"decide\" thành danh từ \"decision\" đứng sau mạo từ \"The\" để làm chủ ngữ học thuật."
         },
         {
           "option": "deciding",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"deciding\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"deciding\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"decision\"). Danh từ hóa (Nominalisation) biến động từ \"decide\" thành danh từ \"decision\" đứng sau mạo từ \"The\" để làm chủ ngữ học thuật."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "nominalisation-ex-02",
-      "type": "multiple_choice",
-      "question": "'We investigated the problem' có thể danh từ hóa thành câu nào?",
+      "type": "fill_blank",
+      "question": "The city grew rapidly. → The rapid ___ of the city created new challenges.",
       "options": [
-        "We conducted an investigation of the problem.",
-        "We conducted an investigate of the problem.",
-        "We conducted an investigative of the problem."
+        "growth",
+        "grow",
+        "growing",
+        "grown"
       ],
-      "correct_answer": "We conducted an investigation of the problem.",
-      "explanation": "Investigate → investigation (danh từ).",
+      "correct_answer": "growth",
+      "explanation": "Sau tính từ \"rapid\" và trước giới từ \"of\" cần một danh từ: động từ \"grow\" chuyển thành danh từ \"growth\" (sự tăng trưởng).",
       "distractor_breakdowns": [
         {
-          "option": "We conducted an investigation of the problem.",
+          "option": "growth",
           "isCorrect": true,
-          "pedagogicalReason": "Investigate → investigation (danh từ)."
+          "pedagogicalReason": "Sau tính từ \"rapid\" và trước giới từ \"of\" cần một danh từ: động từ \"grow\" chuyển thành danh từ \"growth\" (sự tăng trưởng)."
         },
         {
-          "option": "We conducted an investigate of the problem.",
+          "option": "grow",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"We conducted an investigate of the problem.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"grow\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"growth\"). Sau tính từ \"rapid\" và trước giới từ \"of\" cần một danh từ: động từ \"grow\" chuyển thành danh từ \"growth\" (sự tăng trưởng)."
         },
         {
-          "option": "We conducted an investigative of the problem.",
+          "option": "growing",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"We conducted an investigative of the problem.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"growing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"growth\"). Sau tính từ \"rapid\" và trước giới từ \"of\" cần một danh từ: động từ \"grow\" chuyển thành danh từ \"growth\" (sự tăng trưởng)."
+        },
+        {
+          "option": "grown",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"grown\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"growth\"). Sau tính từ \"rapid\" và trước giới từ \"of\" cần một danh từ: động từ \"grow\" chuyển thành danh từ \"growth\" (sự tăng trưởng)."
         }
       ],
       "difficulty": 1
@@ -439,59 +451,359 @@
     {
       "id": "nominalisation-ex-03",
       "type": "multiple_choice",
-      "question": "Chọn danh từ của 'improve'.",
+      "question": "Scientists analyzed the data carefully. → A careful ___ of the data was conducted.",
       "options": [
-        "improvingly",
-        "improvement",
-        "improved"
+        "analysis",
+        "analyze",
+        "analytical",
+        "analyzing"
       ],
-      "correct_answer": "improvement",
-      "explanation": "Improve → improvement.",
+      "correct_answer": "analysis",
+      "explanation": "Sau \"A careful\" (mạo từ + tính từ) cần danh từ: động từ \"analyze\" danh từ hóa thành \"analysis\" (trạng từ \"carefully\" chuyển thành tính từ \"careful\").",
       "distractor_breakdowns": [
         {
-          "option": "improvingly",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"improvingly\" là trạng từ (adverb), không thể đứng trước danh từ hoặc làm bổ ngữ sau linking verb thay cho tính từ."
-        },
-        {
-          "option": "improvement",
+          "option": "analysis",
           "isCorrect": true,
-          "pedagogicalReason": "Improve → improvement."
+          "pedagogicalReason": "Sau \"A careful\" (mạo từ + tính từ) cần danh từ: động từ \"analyze\" danh từ hóa thành \"analysis\" (trạng từ \"carefully\" chuyển thành tính từ \"careful\")."
         },
         {
-          "option": "improved",
+          "option": "analyze",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"improved\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"analyze\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"analysis\"). Sau \"A careful\" (mạo từ + tính từ) cần danh từ: động từ \"analyze\" danh từ hóa thành \"analysis\" (trạng từ \"carefully\" chuyển thành tính từ \"careful\")."
+        },
+        {
+          "option": "analytical",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"analytical\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"analysis\"). Sau \"A careful\" (mạo từ + tính từ) cần danh từ: động từ \"analyze\" danh từ hóa thành \"analysis\" (trạng từ \"carefully\" chuyển thành tính từ \"careful\")."
+        },
+        {
+          "option": "analyzing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"analyzing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"analysis\"). Sau \"A careful\" (mạo từ + tính từ) cần danh từ: động từ \"analyze\" danh từ hóa thành \"analysis\" (trạng từ \"carefully\" chuyển thành tính từ \"careful\")."
         }
       ],
       "difficulty": 2
     },
     {
       "id": "nominalisation-ex-04",
-      "type": "multiple_choice",
-      "question": "'The company expanded rapidly' → 'The company's rapid ___'.",
+      "type": "fill_blank",
+      "question": "The project failed because of poor planning. → The ___ of the project was due to poor planning.",
       "options": [
-        "expansion",
-        "expand",
-        "expansive"
+        "failure",
+        "fail",
+        "failing",
+        "failed"
       ],
-      "correct_answer": "expansion",
-      "explanation": "Expansion là danh từ của expand.",
+      "correct_answer": "failure",
+      "explanation": "Động từ \"fail\" khi danh từ hóa đứng trong cấu trúc \"The ___ of...\" trở thành \"failure\" (sự thất bại).",
       "distractor_breakdowns": [
         {
-          "option": "expansion",
+          "option": "failure",
           "isCorrect": true,
-          "pedagogicalReason": "Expansion là danh từ của expand."
+          "pedagogicalReason": "Động từ \"fail\" khi danh từ hóa đứng trong cấu trúc \"The ___ of...\" trở thành \"failure\" (sự thất bại)."
         },
         {
-          "option": "expand",
+          "option": "fail",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"expand\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"fail\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"failure\"). Động từ \"fail\" khi danh từ hóa đứng trong cấu trúc \"The ___ of...\" trở thành \"failure\" (sự thất bại)."
         },
         {
-          "option": "expansive",
+          "option": "failing",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"expansive\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"failing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"failure\"). Động từ \"fail\" khi danh từ hóa đứng trong cấu trúc \"The ___ of...\" trở thành \"failure\" (sự thất bại)."
+        },
+        {
+          "option": "failed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"failed\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"failure\"). Động từ \"fail\" khi danh từ hóa đứng trong cấu trúc \"The ___ of...\" trở thành \"failure\" (sự thất bại)."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "nominalisation-ex-05",
+      "type": "multiple_choice",
+      "question": "Chọn câu có văn phong Danh từ hóa (Nominalisation) học thuật và trang trọng nhất:",
+      "options": [
+        "The implementation of the new policy improved efficiency.",
+        "Because we implemented the new policy, things got more efficient.",
+        "We implemented the new policy and it worked better.",
+        "Implementing the policy made us work better."
+      ],
+      "correct_answer": "The implementation of the new policy improved efficiency.",
+      "explanation": "Văn phong học thuật dùng cụm danh từ \"The implementation of the new policy\" (từ động từ \"implement\") và danh từ \"efficiency\" (từ tính từ \"efficient\").",
+      "distractor_breakdowns": [
+        {
+          "option": "The implementation of the new policy improved efficiency.",
+          "isCorrect": true,
+          "pedagogicalReason": "Văn phong học thuật dùng cụm danh từ \"The implementation of the new policy\" (từ động từ \"implement\") và danh từ \"efficiency\" (từ tính từ \"efficient\")."
+        },
+        {
+          "option": "Because we implemented the new policy, things got more efficient.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Because we implemented the new policy, things got more efficient.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"The implementation of the new policy improved efficiency.\"). Văn phong học thuật dùng cụm danh từ \"The implementation of the new policy\" (từ động từ \"implement\") và danh từ \"efficiency\" (từ tính từ \"efficient\")."
+        },
+        {
+          "option": "We implemented the new policy and it worked better.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"We implemented the new policy and it worked better.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"The implementation of the new policy improved efficiency.\"). Văn phong học thuật dùng cụm danh từ \"The implementation of the new policy\" (từ động từ \"implement\") và danh từ \"efficiency\" (từ tính từ \"efficient\")."
+        },
+        {
+          "option": "Implementing the policy made us work better.",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Implementing the policy made us work better.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"The implementation of the new policy improved efficiency.\"). Văn phong học thuật dùng cụm danh từ \"The implementation of the new policy\" (từ động từ \"implement\") và danh từ \"efficiency\" (từ tính từ \"efficient\")."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "nominalisation-ex-06",
+      "type": "fill_blank",
+      "question": "Prices increased significantly. → There was a significant ___ in prices.",
+      "options": [
+        "increase",
+        "increasing",
+        "increased",
+        "increasingly"
+      ],
+      "correct_answer": "increase",
+      "explanation": "Trạng từ \"significantly\" chuyển thành tính từ \"significant\" bổ nghĩa cho danh từ \"increase\" (\"a significant increase in...\").",
+      "distractor_breakdowns": [
+        {
+          "option": "increase",
+          "isCorrect": true,
+          "pedagogicalReason": "Trạng từ \"significantly\" chuyển thành tính từ \"significant\" bổ nghĩa cho danh từ \"increase\" (\"a significant increase in...\")."
+        },
+        {
+          "option": "increasing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"increasing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"increase\"). Trạng từ \"significantly\" chuyển thành tính từ \"significant\" bổ nghĩa cho danh từ \"increase\" (\"a significant increase in...\")."
+        },
+        {
+          "option": "increased",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"increased\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"increase\"). Trạng từ \"significantly\" chuyển thành tính từ \"significant\" bổ nghĩa cho danh từ \"increase\" (\"a significant increase in...\")."
+        },
+        {
+          "option": "increasingly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"increasingly\" là trạng từ (adverb), không đứng ở vị trí cần tính từ hoặc danh từ."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "nominalisation-ex-07",
+      "type": "multiple_choice",
+      "question": "The government invested heavily in education. → Heavy ___ in education boosted the economy.",
+      "options": [
+        "investment",
+        "invest",
+        "investing",
+        "investor"
+      ],
+      "correct_answer": "investment",
+      "explanation": "Động từ \"invest\" chuyển thành danh từ chỉ sự đầu tư \"investment\" đứng sau tính từ \"Heavy\".",
+      "distractor_breakdowns": [
+        {
+          "option": "investment",
+          "isCorrect": true,
+          "pedagogicalReason": "Động từ \"invest\" chuyển thành danh từ chỉ sự đầu tư \"investment\" đứng sau tính từ \"Heavy\"."
+        },
+        {
+          "option": "invest",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"invest\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"investment\"). Động từ \"invest\" chuyển thành danh từ chỉ sự đầu tư \"investment\" đứng sau tính từ \"Heavy\"."
+        },
+        {
+          "option": "investing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"investing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"investment\"). Động từ \"invest\" chuyển thành danh từ chỉ sự đầu tư \"investment\" đứng sau tính từ \"Heavy\"."
+        },
+        {
+          "option": "investor",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"investor\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"investment\"). Động từ \"invest\" chuyển thành danh từ chỉ sự đầu tư \"investment\" đứng sau tính từ \"Heavy\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "nominalisation-ex-08",
+      "type": "fill_blank",
+      "question": "The system was very efficient. → Everyone praised the ___ of the system.",
+      "options": [
+        "efficiency",
+        "efficient",
+        "efficiently",
+        "effect"
+      ],
+      "correct_answer": "efficiency",
+      "explanation": "Tính từ \"efficient\" (hiệu quả) khi danh từ hóa đứng sau \"the\" thành \"efficiency\" (tính hiệu quả / hiệu suất).",
+      "distractor_breakdowns": [
+        {
+          "option": "efficiency",
+          "isCorrect": true,
+          "pedagogicalReason": "Tính từ \"efficient\" (hiệu quả) khi danh từ hóa đứng sau \"the\" thành \"efficiency\" (tính hiệu quả / hiệu suất)."
+        },
+        {
+          "option": "efficient",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"efficient\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"efficiency\"). Tính từ \"efficient\" (hiệu quả) khi danh từ hóa đứng sau \"the\" thành \"efficiency\" (tính hiệu quả / hiệu suất)."
+        },
+        {
+          "option": "efficiently",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. \"efficiently\" là trạng từ (adverb), không đứng ở vị trí cần tính từ hoặc danh từ."
+        },
+        {
+          "option": "effect",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"effect\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"efficiency\"). Tính từ \"efficient\" (hiệu quả) khi danh từ hóa đứng sau \"the\" thành \"efficiency\" (tính hiệu quả / hiệu suất)."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "nominalisation-ex-09",
+      "type": "multiple_choice",
+      "question": "People reacted strongly to the news. → The news provoked a strong ___.",
+      "options": [
+        "reaction",
+        "react",
+        "reactive",
+        "reacting"
+      ],
+      "correct_answer": "reaction",
+      "explanation": "Động từ \"react\" + trạng từ \"strongly\" chuyển thành cụm danh từ \"a strong reaction\".",
+      "distractor_breakdowns": [
+        {
+          "option": "reaction",
+          "isCorrect": true,
+          "pedagogicalReason": "Động từ \"react\" + trạng từ \"strongly\" chuyển thành cụm danh từ \"a strong reaction\"."
+        },
+        {
+          "option": "react",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"react\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"reaction\"). Động từ \"react\" + trạng từ \"strongly\" chuyển thành cụm danh từ \"a strong reaction\"."
+        },
+        {
+          "option": "reactive",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"reactive\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"reaction\"). Động từ \"react\" + trạng từ \"strongly\" chuyển thành cụm danh từ \"a strong reaction\"."
+        },
+        {
+          "option": "reacting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"reacting\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"reaction\"). Động từ \"react\" + trạng từ \"strongly\" chuyển thành cụm danh từ \"a strong reaction\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "nominalisation-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: The quickly development of artificial intelligence has transformed healthcare.",
+      "options": [
+        "The",
+        "quickly",
+        "development",
+        "transformed"
+      ],
+      "correct_answer": "quickly",
+      "explanation": "Khi đã danh từ hóa thành danh từ \"development\", từ bổ nghĩa đứng trước danh từ phải là TÍNH TỪ (\"quick\" hoặc \"rapid\"), không dùng trạng từ \"quickly\".",
+      "distractor_breakdowns": [
+        {
+          "option": "The",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"The\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "quickly",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi đã danh từ hóa thành danh từ \"development\", từ bổ nghĩa đứng trước danh từ phải là TÍNH TỪ (\"quick\" hoặc \"rapid\"), không dùng trạng từ \"quickly\"."
+        },
+        {
+          "option": "development",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"development\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "transformed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"transformed\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "nominalisation-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: The announce of the exam results made everyone nervous.",
+      "options": [
+        "The",
+        "announce",
+        "exam results",
+        "nervous"
+      ],
+      "correct_answer": "announce",
+      "explanation": "Sau mạo từ \"The\" và trước \"of\" bắt buộc phải là danh từ. Phải sửa động từ \"announce\" thành danh từ \"announcement\".",
+      "distractor_breakdowns": [
+        {
+          "option": "The",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"The\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "announce",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau mạo từ \"The\" và trước \"of\" bắt buộc phải là danh từ. Phải sửa động từ \"announce\" thành danh từ \"announcement\"."
+        },
+        {
+          "option": "exam results",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"exam results\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "nervous",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"nervous\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "nominalisation-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: There has been a dramatic reduce in carbon emissions this year.",
+      "options": [
+        "has been",
+        "dramatic",
+        "reduce",
+        "emissions"
+      ],
+      "correct_answer": "reduce",
+      "explanation": "Sau cụm \"a dramatic...\" (mạo từ + tính từ) phải dùng danh từ \"reduction\", không dùng động từ \"reduce\".",
+      "distractor_breakdowns": [
+        {
+          "option": "has been",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"has been\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "dramatic",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"dramatic\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "reduce",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau cụm \"a dramatic...\" (mạo từ + tính từ) phải dùng danh từ \"reduction\", không dùng động từ \"reduce\"."
+        },
+        {
+          "option": "emissions",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"emissions\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
       "difficulty": 3

@@ -328,50 +328,72 @@
   "exercises": [
     {
       "id": "modals-advice-ex-01",
-      "type": "fill_blank",
-      "question": "You should turn off the lights before you go to bed.  →  The lights ____ before you go to bed.",
-      "options": [],
-      "correct_answer": "should be turned off",
-      "explanation": "Modal should → should be + V3",
+      "type": "multiple_choice",
+      "question": "You look very tired. You ___ go to bed early tonight.",
+      "options": [
+        "should",
+        "mustn't",
+        "can't",
+        "may"
+      ],
+      "correct_answer": "should",
+      "explanation": "Đưa ra lời khuyên nhẹ nhàng có lợi cho người nghe (\"Bạn nên đi ngủ sớm\") → dùng \"should + V\".",
       "distractor_breakdowns": [
         {
-          "option": "should be turned off",
+          "option": "should",
           "isCorrect": true,
-          "pedagogicalReason": "Modal should → should be + V3"
+          "pedagogicalReason": "Đưa ra lời khuyên nhẹ nhàng có lợi cho người nghe (\"Bạn nên đi ngủ sớm\") → dùng \"should + V\"."
         },
         {
-          "option": "should turn off",
+          "option": "mustn't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"The lights\" là đồ vật, phải chia bị động \"should be turned off\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"mustn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"should\"). Đưa ra lời khuyên nhẹ nhàng có lợi cho người nghe (\"Bạn nên đi ngủ sớm\") → dùng \"should + V\"."
         },
         {
-          "option": "should turned off",
+          "option": "can't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Sau modal verb \"should\" phải có \"be\" kết hợp phân từ hai, không dùng trực tiếp V-ed."
+          "pedagogicalReason": "Không chính xác. Phương án \"can't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"should\"). Đưa ra lời khuyên nhẹ nhàng có lợi cho người nghe (\"Bạn nên đi ngủ sớm\") → dùng \"should + V\"."
+        },
+        {
+          "option": "may",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"may\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"should\"). Đưa ra lời khuyên nhẹ nhàng có lợi cho người nghe (\"Bạn nên đi ngủ sớm\") → dùng \"should + V\"."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "modals-advice-ex-02",
-      "type": "multiple_choice",
-      "question": "I think you ____ go to bed earlier. (should / must)",
+      "type": "fill_blank",
+      "question": "Children ___ eat too much candy because it is bad for their teeth.",
       "options": [
+        "shouldn't",
+        "don't have to",
         "should",
-        "must"
+        "would"
       ],
-      "correct_answer": "should",
-      "explanation": "I think + lời khuyên → should",
+      "correct_answer": "shouldn't",
+      "explanation": "Khuyên không nên làm điều có hại → dùng \"shouldn't + V\".",
       "distractor_breakdowns": [
         {
-          "option": "should",
+          "option": "shouldn't",
           "isCorrect": true,
-          "pedagogicalReason": "I think + lời khuyên → should"
+          "pedagogicalReason": "Khuyên không nên làm điều có hại → dùng \"shouldn't + V\"."
         },
         {
-          "option": "must",
+          "option": "don't have to",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"must\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"don't have to\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"shouldn't\"). Khuyên không nên làm điều có hại → dùng \"shouldn't + V\"."
+        },
+        {
+          "option": "should",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"should\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"shouldn't\"). Khuyên không nên làm điều có hại → dùng \"shouldn't + V\"."
+        },
+        {
+          "option": "would",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"would\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"shouldn't\"). Khuyên không nên làm điều có hại → dùng \"shouldn't + V\"."
         }
       ],
       "difficulty": 1
@@ -379,23 +401,35 @@
     {
       "id": "modals-advice-ex-03",
       "type": "multiple_choice",
-      "question": "It's a school rule: we ____ speak English in class. (have to / should)",
+      "question": "We ___ to respect elderly people.",
       "options": [
-        "have to",
-        "should"
+        "ought",
+        "should",
+        "had better",
+        "must"
       ],
-      "correct_answer": "have to",
-      "explanation": "nội quy trường bắt → have to",
+      "correct_answer": "ought",
+      "explanation": "Phía sau chỗ trống đã có sẵn giới từ \"to\" (\"___ to respect\") → chọn \"ought\" để tạo thành cụm \"ought to + V\" (= should + V).",
       "distractor_breakdowns": [
         {
-          "option": "have to",
+          "option": "ought",
           "isCorrect": true,
-          "pedagogicalReason": "nội quy trường bắt → have to"
+          "pedagogicalReason": "Phía sau chỗ trống đã có sẵn giới từ \"to\" (\"___ to respect\") → chọn \"ought\" để tạo thành cụm \"ought to + V\" (= should + V)."
         },
         {
           "option": "should",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"should\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"should\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"ought\"). Phía sau chỗ trống đã có sẵn giới từ \"to\" (\"___ to respect\") → chọn \"ought\" để tạo thành cụm \"ought to + V\" (= should + V)."
+        },
+        {
+          "option": "had better",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"had better\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"ought\"). Phía sau chỗ trống đã có sẵn giới từ \"to\" (\"___ to respect\") → chọn \"ought\" để tạo thành cụm \"ought to + V\" (= should + V)."
+        },
+        {
+          "option": "must",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"must\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"ought\"). Phía sau chỗ trống đã có sẵn giới từ \"to\" (\"___ to respect\") → chọn \"ought\" để tạo thành cụm \"ought to + V\" (= should + V)."
         }
       ],
       "difficulty": 2
@@ -403,51 +437,323 @@
     {
       "id": "modals-advice-ex-04",
       "type": "fill_blank",
-      "question": "You should avoid ____ (eat) too much sugar.",
-      "options": [],
-      "correct_answer": "eating",
-      "explanation": "avoid nằm nhóm V-ing",
+      "question": "You had better ___ an umbrella; it is going to rain.",
+      "options": [
+        "take",
+        "to take",
+        "taking",
+        "took"
+      ],
+      "correct_answer": "take",
+      "explanation": "Sau cấu trúc khuyên bảo/cảnh báo mạnh \"had better\" ('d better) luôn là động từ nguyên mẫu KHÔNG \"to\" → điền \"take\".",
       "distractor_breakdowns": [
         {
-          "option": "eating",
+          "option": "take",
           "isCorrect": true,
-          "pedagogicalReason": "avoid nằm nhóm V-ing"
+          "pedagogicalReason": "Sau cấu trúc khuyên bảo/cảnh báo mạnh \"had better\" ('d better) luôn là động từ nguyên mẫu KHÔNG \"to\" → điền \"take\"."
         },
         {
-          "option": "eatings",
+          "option": "to take",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"eatings\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"to take\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"take\"). Sau cấu trúc khuyên bảo/cảnh báo mạnh \"had better\" ('d better) luôn là động từ nguyên mẫu KHÔNG \"to\" → điền \"take\"."
         },
         {
-          "option": "to eating",
+          "option": "taking",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+          "pedagogicalReason": "Không chính xác. Phương án \"taking\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"take\"). Sau cấu trúc khuyên bảo/cảnh báo mạnh \"had better\" ('d better) luôn là động từ nguyên mẫu KHÔNG \"to\" → điền \"take\"."
+        },
+        {
+          "option": "took",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"took\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"take\"). Sau cấu trúc khuyên bảo/cảnh báo mạnh \"had better\" ('d better) luôn là động từ nguyên mẫu KHÔNG \"to\" → điền \"take\"."
         }
       ],
       "difficulty": 2
     },
     {
       "id": "modals-advice-ex-05",
-      "type": "fill_blank",
-      "question": "Children should not depend ____ their parents for everything.",
-      "options": [],
-      "correct_answer": "on",
-      "explanation": "depend luôn dính với on",
+      "type": "multiple_choice",
+      "question": "What ___ I do to improve my English speaking skills?",
+      "options": [
+        "should",
+        "ought",
+        "had better",
+        "have"
+      ],
+      "correct_answer": "should",
+      "explanation": "Xin lời khuyên trong câu hỏi thông dụng nhất là \"What should I do...?\".",
       "distractor_breakdowns": [
         {
-          "option": "on",
+          "option": "should",
           "isCorrect": true,
-          "pedagogicalReason": "depend luôn dính với on"
+          "pedagogicalReason": "Xin lời khuyên trong câu hỏi thông dụng nhất là \"What should I do...?\"."
         },
         {
-          "option": "in",
+          "option": "ought",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Giới từ \"in\" dùng cho tháng, năm, mùa hoặc không gian kín, không dùng cho ngày cụ thể hoặc bề mặt phẳng."
+          "pedagogicalReason": "Không chính xác. Phương án \"ought\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"should\"). Xin lời khuyên trong câu hỏi thông dụng nhất là \"What should I do...?\"."
         },
         {
-          "option": "at",
+          "option": "had better",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Giới từ \"at\" dùng cho mốc giờ chính xác hoặc địa điểm cụ thể, không dùng cho ngày trong tháng."
+          "pedagogicalReason": "Không chính xác. Phương án \"had better\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"should\"). Xin lời khuyên trong câu hỏi thông dụng nhất là \"What should I do...?\"."
+        },
+        {
+          "option": "have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"should\"). Xin lời khuyên trong câu hỏi thông dụng nhất là \"What should I do...?\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "modals-advice-ex-06",
+      "type": "fill_blank",
+      "question": "You had better ___ late for the job interview tomorrow.",
+      "options": [
+        "not be",
+        "not to be",
+        "don't be",
+        "hadn't be"
+      ],
+      "correct_answer": "not be",
+      "explanation": "Dạng phủ định của \"had better\" là \"had better not + V nguyên mẫu\" → \"had better not be\".",
+      "distractor_breakdowns": [
+        {
+          "option": "not be",
+          "isCorrect": true,
+          "pedagogicalReason": "Dạng phủ định của \"had better\" là \"had better not + V nguyên mẫu\" → \"had better not be\"."
+        },
+        {
+          "option": "not to be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"not to be\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"not be\"). Dạng phủ định của \"had better\" là \"had better not + V nguyên mẫu\" → \"had better not be\"."
+        },
+        {
+          "option": "don't be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"don't be\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"not be\"). Dạng phủ định của \"had better\" là \"had better not + V nguyên mẫu\" → \"had better not be\"."
+        },
+        {
+          "option": "hadn't be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"hadn't be\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"not be\"). Dạng phủ định của \"had better\" là \"had better not + V nguyên mẫu\" → \"had better not be\"."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "modals-advice-ex-07",
+      "type": "multiple_choice",
+      "question": "If I were you, I ___ apologize to her immediately.",
+      "options": [
+        "would",
+        "will",
+        "can",
+        "am"
+      ],
+      "correct_answer": "would",
+      "explanation": "Cấu trúc giả định để khuyên nhủ: \"If I were you, I would + V\" (Nếu tôi là bạn, tôi sẽ...).",
+      "distractor_breakdowns": [
+        {
+          "option": "would",
+          "isCorrect": true,
+          "pedagogicalReason": "Cấu trúc giả định để khuyên nhủ: \"If I were you, I would + V\" (Nếu tôi là bạn, tôi sẽ...)."
+        },
+        {
+          "option": "will",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"would\"). Cấu trúc giả định để khuyên nhủ: \"If I were you, I would + V\" (Nếu tôi là bạn, tôi sẽ...)."
+        },
+        {
+          "option": "can",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"can\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"would\"). Cấu trúc giả định để khuyên nhủ: \"If I were you, I would + V\" (Nếu tôi là bạn, tôi sẽ...)."
+        },
+        {
+          "option": "am",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Không dùng động từ to be \"am\" ở vị trí này (đáp án đúng là \"would\"). Cấu trúc giả định để khuyên nhủ: \"If I were you, I would + V\" (Nếu tôi là bạn, tôi sẽ...)."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-advice-ex-08",
+      "type": "fill_blank",
+      "question": "He ___ spend so much time playing video games.",
+      "options": [
+        "shouldn't",
+        "oughtn't",
+        "doesn't should",
+        "not should"
+      ],
+      "correct_answer": "shouldn't",
+      "explanation": "Khuyên anh ấy không nên dành quá nhiều thời gian chơi game → dùng \"shouldn't + V\".",
+      "distractor_breakdowns": [
+        {
+          "option": "shouldn't",
+          "isCorrect": true,
+          "pedagogicalReason": "Khuyên anh ấy không nên dành quá nhiều thời gian chơi game → dùng \"shouldn't + V\"."
+        },
+        {
+          "option": "oughtn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"oughtn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"shouldn't\"). Khuyên anh ấy không nên dành quá nhiều thời gian chơi game → dùng \"shouldn't + V\"."
+        },
+        {
+          "option": "doesn't should",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"doesn't should\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"shouldn't\"). Khuyên anh ấy không nên dành quá nhiều thời gian chơi game → dùng \"shouldn't + V\"."
+        },
+        {
+          "option": "not should",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"not should\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"shouldn't\"). Khuyên anh ấy không nên dành quá nhiều thời gian chơi game → dùng \"shouldn't + V\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "modals-advice-ex-09",
+      "type": "multiple_choice",
+      "question": "You have a bad toothache. You ___ see a dentist soon.",
+      "options": [
+        "should",
+        "may",
+        "could not",
+        "would"
+      ],
+      "correct_answer": "should",
+      "explanation": "Khuyên người bị đau răng nên đi khám nha sĩ → dùng \"should\".",
+      "distractor_breakdowns": [
+        {
+          "option": "should",
+          "isCorrect": true,
+          "pedagogicalReason": "Khuyên người bị đau răng nên đi khám nha sĩ → dùng \"should\"."
+        },
+        {
+          "option": "may",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"may\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"should\"). Khuyên người bị đau răng nên đi khám nha sĩ → dùng \"should\"."
+        },
+        {
+          "option": "could not",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"could not\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"should\"). Khuyên người bị đau răng nên đi khám nha sĩ → dùng \"should\"."
+        },
+        {
+          "option": "would",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"would\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"should\"). Khuyên người bị đau răng nên đi khám nha sĩ → dùng \"should\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "modals-advice-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: You should to drink more water every day.",
+      "options": [
+        "You",
+        "should to",
+        "drink",
+        "more water"
+      ],
+      "correct_answer": "should to",
+      "explanation": "Sau \"should\" là động từ nguyên mẫu không \"to\". Phải sửa \"should to\" thành \"should\" (hoặc đổi thành \"ought to\").",
+      "distractor_breakdowns": [
+        {
+          "option": "You",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"You\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "should to",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau \"should\" là động từ nguyên mẫu không \"to\". Phải sửa \"should to\" thành \"should\" (hoặc đổi thành \"ought to\")."
+        },
+        {
+          "option": "drink",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"drink\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "more water",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"more water\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-advice-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: We had better to leave now or we will miss the bus.",
+      "options": [
+        "had better",
+        "to leave",
+        "now",
+        "will miss"
+      ],
+      "correct_answer": "to leave",
+      "explanation": "Sau \"had better\" bắt buộc dùng động từ nguyên mẫu không \"to\". Sửa \"to leave\" thành \"leave\".",
+      "distractor_breakdowns": [
+        {
+          "option": "had better",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"had better\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "to leave",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau \"had better\" bắt buộc dùng động từ nguyên mẫu không \"to\". Sửa \"to leave\" thành \"leave\"."
+        },
+        {
+          "option": "now",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"now\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "will miss",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"will miss\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "modals-advice-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: He oughts to study harder for the final exam.",
+      "options": [
+        "He",
+        "oughts",
+        "to study",
+        "harder"
+      ],
+      "correct_answer": "oughts",
+      "explanation": "\"ought to\" là động từ khuyết thiếu nên không bao giờ thêm \"-s\" ở ngôi thứ 3 số ít. Sửa \"oughts\" thành \"ought\".",
+      "distractor_breakdowns": [
+        {
+          "option": "He",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"He\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "oughts",
+          "isCorrect": true,
+          "pedagogicalReason": "\"ought to\" là động từ khuyết thiếu nên không bao giờ thêm \"-s\" ở ngôi thứ 3 số ít. Sửa \"oughts\" thành \"ought\"."
+        },
+        {
+          "option": "to study",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"to study\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "harder",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"harder\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
       "difficulty": 3

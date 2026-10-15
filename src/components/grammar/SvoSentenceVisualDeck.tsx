@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import {
   Volume2,
   Sparkles,
@@ -11,6 +12,9 @@ import {
   Users,
   CheckCircle2,
   ArrowRight,
+  Dumbbell,
+  RotateCcw,
+  ChevronDown,
 } from 'lucide-react';
 import { grammarAudio } from '@/lib/grammar/grammarAudioManager';
 import GrammarCardNavigator from './GrammarCardNavigator';
@@ -388,86 +392,108 @@ export default function SvoSentenceVisualDeck({
   };
 
   const currentGroup = SVO_GROUPS[activeCategoryIdx] || SVO_GROUPS[0];
+  const isLastSvoGroup = activeCategoryIdx === SVO_GROUPS.length - 1;
 
   return (
-    <div className="space-y-4 max-w-4xl mx-auto min-w-0">
-      {/* Hero Header Card */}
-      <div className="border border-border bg-card p-4 sm:p-5 rounded-none shadow-xs space-y-3">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div className="space-y-1">
-            <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-primary font-bold">
-              <Sparkles className="h-4 w-4 shrink-0" />
-              <span>Bài số 0 • Cấu trúc câu căn bản (S + V + O)</span>
-            </div>
-            <h2 className="text-xl sm:text-2xl font-bold font-serif text-foreground">
-              Mô hình 3 Khối SVO: Bắc cầu trực giác Việt ➔ Anh
-            </h2>
-            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-              Trật tự câu khẳng định cơ bản trong tiếng Anh tương đồng trực giác 1:1 với tiếng Việt qua câu kinh điển:
-              <strong className="text-foreground ml-1 font-mono">TÔI [S] + ĂN [V] + CƠM [O]</strong> ➔{' '}
-              <strong className="text-foreground font-mono">I [S] + eat [V] + rice [O]</strong>.
-            </p>
-          </div>
-        </div>
-
-        {/* 3 Colored Structural Reference Blocks */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
-          {/* S Block */}
-          <div className="border border-sky-400 bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 p-3 rounded-none flex flex-col justify-between">
-            <div className="flex items-center justify-between">
-              <span className="font-mono text-xs font-bold px-1.5 py-0.5 border border-sky-400/50 bg-sky-100/80 dark:bg-sky-900/40 rounded-none">
-                [S] Chủ ngữ
-              </span>
-              <span className="font-mono text-[11px] opacity-80">Subject</span>
-            </div>
-            <div className="mt-2 text-xs">
-              <p className="font-bold text-sm">Ai làm?</p>
-              <p className="text-[11px] opacity-80 mt-0.5">Người, con vật hoặc đồ vật thực hiện hành động</p>
-            </div>
-          </div>
-
-          {/* V Block */}
-          <div className="border border-amber-400 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 p-3 rounded-none flex flex-col justify-between">
-            <div className="flex items-center justify-between">
-              <span className="font-mono text-xs font-bold px-1.5 py-0.5 border border-amber-400/50 bg-amber-100/80 dark:bg-amber-900/40 rounded-none">
-                [V] Động từ
-              </span>
-              <span className="font-mono text-[11px] opacity-80">Verb</span>
-            </div>
-            <div className="mt-2 text-xs">
-              <p className="font-bold text-sm">Làm gì?</p>
-              <p className="text-[11px] opacity-80 mt-0.5">Hành động diễn ra (ăn, uống, học, lái xe, giúp...)</p>
-            </div>
-          </div>
-
-          {/* O Block */}
-          <div className="border border-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 p-3 rounded-none flex flex-col justify-between">
-            <div className="flex items-center justify-between">
-              <span className="font-mono text-xs font-bold px-1.5 py-0.5 border border-emerald-400/50 bg-emerald-100/80 dark:bg-emerald-900/40 rounded-none">
-                [O] Tân ngữ
-              </span>
-              <span className="font-mono text-[11px] opacity-80">Object</span>
-            </div>
-            <div className="mt-2 text-xs">
-              <p className="font-bold text-sm">Bị / Được tác động?</p>
-              <p className="text-[11px] opacity-80 mt-0.5">Đối tượng chịu tác động từ hành động của S</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Guided Category Navigator or Segmented Tabs */}
+    <div className="space-y-3 sm:space-y-4 max-w-4xl mx-auto min-w-0">
+      {/* Guided Category Navigator or Segmented Tabs placed at the top so interactive cards appear above the fold on mobile */}
       {guided ? (
         <GrammarCardNavigator
           titles={SVO_GROUPS.map((g) => `${g.label} — ${g.description}`)}
-          pills={SVO_GROUPS.map((g) => g.shortLabel)}
+          pills={SVO_GROUPS.map((g) => ({ label: g.shortLabel, subLabel: g.label }))}
           index={activeCategoryIdx}
           onChange={(nextIdx) => {
             grammarAudio.stopAll();
             setActiveCategoryIdx(nextIdx);
           }}
+          onComplete={() => {
+            grammarAudio.stopAll();
+            if (typeof window !== 'undefined') {
+              window.location.href = '/grammar/practice?topic=sentence-structure-svo';
+            }
+          }}
+          completeLabel="Luyện tập"
         />
-      ) : (
+      ) : null}
+
+      {/* Hero Header Card: Compact collapsible summary in guided modal so mobile learners see examples immediately */}
+      <details
+        open={!guided}
+        className="border border-border bg-card p-3 sm:p-4 rounded-none shadow-xs group"
+      >
+        <summary className="list-none cursor-pointer flex items-center justify-between gap-2 select-none">
+          <div className="min-w-0">
+            <div className="flex items-center gap-2 font-mono text-[11px] sm:text-xs uppercase tracking-wider text-primary font-bold">
+              <Sparkles className="h-3.5 w-3.5 shrink-0" />
+              <span>Bài số 0 • Cấu trúc câu căn bản (S + V + O)</span>
+            </div>
+            <h2 className="text-sm sm:text-xl font-bold font-serif text-foreground mt-0.5">
+              Mô hình 3 Khối SVO: Bắc cầu trực giác Việt ➔ Anh
+            </h2>
+          </div>
+          <span className="font-mono text-[11px] px-2 py-1 border border-border bg-muted/30 text-muted-foreground rounded-none inline-flex items-center gap-1 shrink-0">
+            <span className="hidden sm:inline">Giải thích S-V-O</span>
+            <span className="sm:hidden">Mẹo S-V-O</span>
+            <ChevronDown className="h-3.5 w-3.5 transition-transform group-open:rotate-180" />
+          </span>
+        </summary>
+
+        <div className="space-y-3 pt-2.5 mt-2.5 border-t border-border/60">
+          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            Trật tự câu khẳng định cơ bản trong tiếng Anh tương đồng trực giác 1:1 với tiếng Việt qua câu kinh điển:
+            <strong className="text-foreground ml-1 font-mono">TÔI [S] + ĂN [V] + CƠM [O]</strong> ➔{' '}
+            <strong className="text-foreground font-mono">I [S] + eat [V] + rice [O]</strong>.
+          </p>
+
+          {/* 3 Colored Structural Reference Blocks */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
+            {/* S Block */}
+            <div className="border border-sky-400 bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 p-3 rounded-none flex flex-col justify-between">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs font-bold px-1.5 py-0.5 border border-sky-400/50 bg-sky-100/80 dark:bg-sky-900/40 rounded-none">
+                  [S] Chủ ngữ
+                </span>
+                <span className="font-mono text-[11px] opacity-80">Subject</span>
+              </div>
+              <div className="mt-2 text-xs">
+                <p className="font-bold text-sm">Ai làm?</p>
+                <p className="text-[11px] opacity-80 mt-0.5">Người, con vật hoặc đồ vật thực hiện hành động</p>
+              </div>
+            </div>
+
+            {/* V Block */}
+            <div className="border border-amber-400 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 p-3 rounded-none flex flex-col justify-between">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs font-bold px-1.5 py-0.5 border border-amber-400/50 bg-amber-100/80 dark:bg-amber-900/40 rounded-none">
+                  [V] Động từ
+                </span>
+                <span className="font-mono text-[11px] opacity-80">Verb</span>
+              </div>
+              <div className="mt-2 text-xs">
+                <p className="font-bold text-sm">Làm gì?</p>
+                <p className="text-[11px] opacity-80 mt-0.5">Hành động diễn ra (ăn, uống, học, lái xe, giúp...)</p>
+              </div>
+            </div>
+
+            {/* O Block */}
+            <div className="border border-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 p-3 rounded-none flex flex-col justify-between">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs font-bold px-1.5 py-0.5 border border-emerald-400/50 bg-emerald-100/80 dark:bg-emerald-900/40 rounded-none">
+                  [O] Tân ngữ
+                </span>
+                <span className="font-mono text-[11px] opacity-80">Object</span>
+              </div>
+              <div className="mt-2 text-xs">
+                <p className="font-bold text-sm">Bị / Được tác động?</p>
+                <p className="text-[11px] opacity-80 mt-0.5">Đối tượng chịu tác động từ hành động của S</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      {/* Non-guided Segmented Tabs */}
+      {!guided && (
         <div
           role="tablist"
           aria-label="Nhóm ngữ cảnh SVO"
@@ -643,9 +669,9 @@ export default function SvoSentenceVisualDeck({
             1. <strong>Tiếng Việt có thể nói cộc lốc:</strong> Trong tiếng Việt ta thường nói tỉnh lược như{' '}
             <em>&ldquo;Ăn cơm chưa?&rdquo;</em>, <em>&ldquo;Mưa rồi&rdquo;</em>, <em>&ldquo;Rất mệt&rdquo;</em>.
             Nhưng trong tiếng Anh, <strong>mọi câu kể đều bắt buộc phải có đủ Chủ ngữ (S) và Động từ (V)</strong> (ví dụ:{' '}
-            <code className="font-mono font-bold bg-background/80 px-1 border border-border">I eat rice</code>,{' '}
-            <code className="font-mono font-bold bg-background/80 px-1 border border-border">It is raining</code>,{' '}
-            <code className="font-mono font-bold bg-background/80 px-1 border border-border">I am very tired</code>).
+            <code className="font-mono font-bold bg-background/80 px-1 border border-border rounded-none">I eat rice</code>,{' '}
+            <code className="font-mono font-bold bg-background/80 px-1 border border-border rounded-none">It is raining</code>,{' '}
+            <code className="font-mono font-bold bg-background/80 px-1 border border-border rounded-none">I am very tired</code>).
           </p>
           <p>
             2. <strong>Cầu nối đại từ (I vs me):</strong> Trong tiếng Việt, từ &ldquo;tôi&rdquo; ở đầu câu hay cuối câu
@@ -663,6 +689,62 @@ export default function SvoSentenceVisualDeck({
           </div>
         </div>
       </div>
+
+      {/* Bottom progression / end-of-deck CTA bar */}
+      {guided && (
+        <div className="border border-border bg-muted/20 p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 rounded-none">
+          {isLastSvoGroup ? (
+            <>
+              <div className="text-xs text-foreground font-medium">
+                <span className="font-mono text-[11px] font-bold uppercase text-emerald-600 dark:text-emerald-400 mr-1.5">
+                  ✓ Đã xem hết {SVO_GROUPS.length}/{SVO_GROUPS.length} nhóm câu
+                </span>
+                Bạn đã nắm vững mô hình 3 khối S + V + O!
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                <button
+                  type="button"
+                  onClick={() => {
+                    grammarAudio.stopAll();
+                    setActiveCategoryIdx(0);
+                  }}
+                  className="min-h-[40px] px-3 py-1.5 border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground font-mono text-xs uppercase tracking-wider rounded-none inline-flex items-center gap-1.5 transition-colors touch-manipulation"
+                >
+                  <RotateCcw className="h-3.5 w-3.5 shrink-0" />
+                  <span>Xem lại nhóm 1</span>
+                </button>
+                <Link
+                  href="/grammar/practice?topic=sentence-structure-svo"
+                  onClick={() => grammarAudio.stopAll()}
+                  className="min-h-[40px] px-3.5 py-1.5 bg-primary text-primary-foreground border border-primary hover:bg-primary/90 font-mono text-xs uppercase tracking-wider font-bold rounded-none inline-flex items-center gap-1.5 transition-colors touch-manipulation"
+                >
+                  <Dumbbell className="h-3.5 w-3.5 shrink-0" />
+                  <span>Làm bài tập #00 ngay</span>
+                  <ArrowRight className="h-3.5 w-3.5 shrink-0" />
+                </Link>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="text-xs text-muted-foreground font-mono">
+                Đang ở <strong className="text-foreground">Nhóm {activeCategoryIdx + 1}/{SVO_GROUPS.length}</strong> • Tiếp theo:{' '}
+                <span className="text-foreground font-semibold">{SVO_GROUPS[activeCategoryIdx + 1]?.label}</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  grammarAudio.stopAll();
+                  setActiveCategoryIdx(activeCategoryIdx + 1);
+                }}
+                className="min-h-[40px] px-3.5 py-1.5 bg-primary text-primary-foreground border border-primary hover:bg-primary/90 font-mono text-xs uppercase tracking-wider font-semibold rounded-none inline-flex items-center justify-center gap-1.5 shrink-0 transition-colors touch-manipulation"
+              >
+                <span>Qua nhóm {activeCategoryIdx + 2}</span>
+                <ArrowRight className="h-3.5 w-3.5 shrink-0" />
+              </button>
+            </>
+          )}
+        </div>
+      )}
     </div>
   );
 }

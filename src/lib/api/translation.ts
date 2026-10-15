@@ -15,7 +15,7 @@ export interface TranslateResult {
   sourceLang: string;
   targetLang: string;
   fromCache: boolean;
-  provider: 'libretranslate' | 'cache' | 'google-fallback';
+  provider: 'libretranslate' | 'cache' | 'google-fallback' | 'gemini' | 'words-db';
 }
 
 function getClient() {
@@ -92,6 +92,36 @@ async function callGoogleFallback(
     console.warn('[Translate] Fallback to Google Translate failed:', err);
     throw err;
   }
+}
+
+/**
+ * Fallback to Gemini 2.5 Flash for high-accuracy contextual translation
+ */
+async function callGeminiTranslate(
+  text: string,
+  sourceLang: string,
+  targetLang: string
+): Promise<string> {
+  const { hasGeminiKeys, geminiGenerate } = await import('@/lib/gemini-multi');
+  if (!hasGeminiKeys()) throw new Error('No Gemini keys available');
+
+  const src = sourceLang === 'en' ? 'English' : sourceLang === 'vi' ? 'Vietnamese' : sourceLang;
+  const tgt = targetLang === 'vi' ? 'Vietnamese' : targetLang === 'en' ? 'English' : targetLang;
+
+  const prompt = `Translate the following text accurately from ${src} to ${tgt}.
+Preserve natural idioms, conversational nuances, and grammatical context (e.g. "table this" -> "tạm gác lại", "call it a day" -> "kết thúc ngày làm việc/nghỉ ngơi").
+Return ONLY the raw translated text. No quotes, no markdown, no explanations.
+
+Text:
+${text}`;
+
+  const res = await geminiGenerate(prompt, {
+    model: 'gemini-3.8-flash',
+    json: false,
+    temperature: 0.1,
+  });
+
+  return res.trim().replace(/^"(.*)"$/, '$1');
 }
 
 async function asyncSaveCache(
@@ -221,7 +251,7 @@ export async function translateWithDetails(
 
   // 2️⃣ Call LibreTranslate ONLY if configured explicitly
   let translated = '';
-  let provider: 'libretranslate' | 'google-fallback' = 'google-fallback';
+  let provider: TranslateResult['provider'] = 'google-fallback';
 
   if (process.env.LIBRETRANSLATE_URL) {
     try {
@@ -233,14 +263,27 @@ export async function translateWithDetails(
     }
   }
 
-  // 3️⃣ Fast fallback to Google Translate
+  // 3️⃣ Fast fallback to Google Translate, then Gemini AI
   if (!translated) {
+    let googleSuccess = false;
     try {
       translated = await callGoogleFallback(trimmed, sourceLang, targetLang);
-      provider = 'google-fallback';
+      if (translated) {
+        provider = 'google-fallback';
+        googleSuccess = true;
+      }
     } catch (fbError) {
-      console.error(`[Translate] Translation fallback failed:`, fbError);
-      throw new Error('Dịch không thành công, vui lòng thử lại');
+      console.warn(`[Translate] Google fallback failed, trying Gemini AI:`, (fbError as Error)?.message);
+    }
+
+    if (!googleSuccess) {
+      try {
+        translated = await callGeminiTranslate(trimmed, sourceLang, targetLang);
+        provider = 'gemini';
+      } catch (geminiErr) {
+        console.error(`[Translate] Both Google and Gemini fallbacks failed:`, geminiErr);
+        throw new Error('Dịch không thành công, vui lòng thử lại');
+      }
     }
   }
 

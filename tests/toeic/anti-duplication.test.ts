@@ -12,6 +12,9 @@
  *           and smart selector loader (loadToeicPartPractice, loadToeicQuestionsByIds).
  */
 
+(process.env as Record<string, string | undefined>).NODE_ENV = 'test';
+process.env.TSX_TEST = '1';
+
 import fs from 'node:fs';
 import path from 'node:path';
 import {

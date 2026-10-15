@@ -2,7 +2,7 @@
   "campaign": "LingoPro TOEIC Part 3 · 100 videos",
   "version": 1,
   "createdAt": "2026-09-27T10:09:09.472Z",
-  "updatedAt": "2026-09-27T10:54:38.975Z",
+  "updatedAt": "2026-10-10T10:05:38.966Z",
   "totalVideos": 100,
   "questionsPerVideo": 3,
   "distribution": {
@@ -18,17 +18,17 @@
       "part": 3,
       "episode": 1,
       "questionCount": 3,
-      "status": "rendered",
+      "status": "todo",
       "questionIds": [
-        "q-estudyme-part_3_conversations-test-2-34",
-        "q-estudyme-part_3_conversations-test-2-35",
-        "q-estudyme-part_3_conversations-test-2-36"
+        "q-estudyme-part_3_conversations-test-7-37",
+        "q-estudyme-part_3_conversations-test-7-38",
+        "q-estudyme-part_3_conversations-test-7-39"
       ],
       "outputFile": "out/tiktok-toeic-part3-100/P3/001,p3.mp4",
-      "renderedAt": "2026-09-27T10:10:59.449Z",
+      "renderedAt": null,
       "postedAt": null,
       "platformUrl": null,
-      "note": ""
+      "note": "Quarantined graphic question without image; replaced with clean audio-only cluster for re-rendering."
     },
     {
       "id": "LP-TK-002",
@@ -38,12 +38,12 @@
       "questionCount": 3,
       "status": "rendered",
       "questionIds": [
-        "q-estudyme-part_3_conversations-test-1-10",
-        "q-estudyme-part_3_conversations-test-1-11",
-        "q-estudyme-part_3_conversations-test-1-12"
+        "q-estudyme-part_3_conversations-test-21-22",
+        "q-estudyme-part_3_conversations-test-21-23",
+        "q-estudyme-part_3_conversations-test-21-24"
       ],
       "outputFile": "out/tiktok-toeic-part3-100/P3/002,p3.mp4",
-      "renderedAt": "2026-09-27T10:13:58.978Z",
+      "renderedAt": "2026-10-10T01:54:13.205Z",
       "postedAt": null,
       "platformUrl": null,
       "note": ""
@@ -56,12 +56,12 @@
       "questionCount": 3,
       "status": "rendered",
       "questionIds": [
-        "q-estudyme-part_3_conversations-test-1-16",
-        "q-estudyme-part_3_conversations-test-1-17",
-        "q-estudyme-part_3_conversations-test-1-18"
+        "q-estudyme-part_3_conversations-test-2-13",
+        "q-estudyme-part_3_conversations-test-2-14",
+        "q-estudyme-part_3_conversations-test-2-15"
       ],
       "outputFile": "out/tiktok-toeic-part3-100/P3/003,p3.mp4",
-      "renderedAt": "2026-09-27T10:15:20.586Z",
+      "renderedAt": "2026-10-10T10:01:58.504Z",
       "postedAt": null,
       "platformUrl": null,
       "note": ""
@@ -74,12 +74,12 @@
       "questionCount": 3,
       "status": "rendered",
       "questionIds": [
-        "q-estudyme-part_3_conversations-test-2-16",
-        "q-estudyme-part_3_conversations-test-2-17",
-        "q-estudyme-part_3_conversations-test-2-18"
+        "q-estudyme-part_3_conversations-test-22-19",
+        "q-estudyme-part_3_conversations-test-22-20",
+        "q-estudyme-part_3_conversations-test-22-21"
       ],
       "outputFile": "out/tiktok-toeic-part3-100/P3/004,p3.mp4",
-      "renderedAt": "2026-09-27T10:17:20.500Z",
+      "renderedAt": "2026-10-10T10:03:45.959Z",
       "postedAt": null,
       "platformUrl": null,
       "note": ""
@@ -92,12 +92,12 @@
       "questionCount": 3,
       "status": "rendered",
       "questionIds": [
-        "q-estudyme-part_3_conversations-test-2-7",
-        "q-estudyme-part_3_conversations-test-2-8",
-        "q-estudyme-part_3_conversations-test-2-9"
+        "q-estudyme-part_3_conversations-test-2-16",
+        "q-estudyme-part_3_conversations-test-2-17",
+        "q-estudyme-part_3_conversations-test-2-18"
       ],
       "outputFile": "out/tiktok-toeic-part3-100/P3/005,p3.mp4",
-      "renderedAt": "2026-09-27T10:19:21.777Z",
+      "renderedAt": "2026-10-10T10:05:38.965Z",
       "postedAt": null,
       "platformUrl": null,
       "note": ""
@@ -540,17 +540,17 @@
       "part": 3,
       "episode": 30,
       "questionCount": 3,
-      "status": "rendered",
+      "status": "todo",
       "questionIds": [
-        "q-estudyme-part_3_conversations-test-3-31",
-        "q-estudyme-part_3_conversations-test-3-32",
-        "q-estudyme-part_3_conversations-test-3-33"
+        "q-estudyme-part_3_conversations-test-8-1",
+        "q-estudyme-part_3_conversations-test-8-2",
+        "q-estudyme-part_3_conversations-test-8-3"
       ],
       "outputFile": "out/tiktok-toeic-part3-100/P3/030,p3.mp4",
-      "renderedAt": "2026-09-27T10:21:24.871Z",
+      "renderedAt": null,
       "postedAt": null,
       "platformUrl": null,
-      "note": ""
+      "note": "Quarantined graphic question without image; replaced with clean audio-only cluster for re-rendering."
     },
     {
       "id": "LP-TK-031",
@@ -720,17 +720,17 @@
       "part": 3,
       "episode": 40,
       "questionCount": 3,
-      "status": "rendered",
+      "status": "todo",
       "questionIds": [
-        "q-estudyme-part_3_conversations-test-3-34",
-        "q-estudyme-part_3_conversations-test-3-35",
-        "q-estudyme-part_3_conversations-test-3-36"
+        "q-estudyme-part_3_conversations-test-8-4",
+        "q-estudyme-part_3_conversations-test-8-5",
+        "q-estudyme-part_3_conversations-test-8-6"
       ],
       "outputFile": "out/tiktok-toeic-part3-100/P3/040,p3.mp4",
-      "renderedAt": "2026-09-27T10:37:52.393Z",
+      "renderedAt": null,
       "postedAt": null,
       "platformUrl": null,
-      "note": ""
+      "note": "Quarantined graphic question without image; replaced with clean audio-only cluster for re-rendering."
     },
     {
       "id": "LP-TK-041",
@@ -954,17 +954,17 @@
       "part": 3,
       "episode": 53,
       "questionCount": 3,
-      "status": "rendered",
+      "status": "todo",
       "questionIds": [
-        "q-estudyme-part_3_conversations-test-4-34",
-        "q-estudyme-part_3_conversations-test-4-35",
-        "q-estudyme-part_3_conversations-test-4-36"
+        "q-estudyme-part_3_conversations-test-8-7",
+        "q-estudyme-part_3_conversations-test-8-8",
+        "q-estudyme-part_3_conversations-test-8-9"
       ],
       "outputFile": "out/tiktok-toeic-part3-100/P3/053,p3.mp4",
-      "renderedAt": "2026-09-27T10:18:59.832Z",
+      "renderedAt": null,
       "postedAt": null,
       "platformUrl": null,
-      "note": ""
+      "note": "Quarantined graphic question without image; replaced with clean audio-only cluster for re-rendering."
     },
     {
       "id": "LP-TK-054",
@@ -1044,17 +1044,17 @@
       "part": 3,
       "episode": 58,
       "questionCount": 3,
-      "status": "rendered",
+      "status": "todo",
       "questionIds": [
-        "q-estudyme-part_3_conversations-test-5-31",
-        "q-estudyme-part_3_conversations-test-5-32",
-        "q-estudyme-part_3_conversations-test-5-33"
+        "q-estudyme-part_3_conversations-test-8-10",
+        "q-estudyme-part_3_conversations-test-8-11",
+        "q-estudyme-part_3_conversations-test-8-12"
       ],
       "outputFile": "out/tiktok-toeic-part3-100/P3/058,p3.mp4",
-      "renderedAt": "2026-09-27T10:27:06.847Z",
+      "renderedAt": null,
       "postedAt": null,
       "platformUrl": null,
-      "note": ""
+      "note": "Quarantined graphic question without image; replaced with clean audio-only cluster for re-rendering."
     },
     {
       "id": "LP-TK-059",
@@ -1116,17 +1116,17 @@
       "part": 3,
       "episode": 62,
       "questionCount": 3,
-      "status": "rendered",
+      "status": "todo",
       "questionIds": [
-        "q-estudyme-part_3_conversations-test-4-37",
-        "q-estudyme-part_3_conversations-test-4-38",
-        "q-estudyme-part_3_conversations-test-4-39"
+        "q-estudyme-part_3_conversations-test-8-13",
+        "q-estudyme-part_3_conversations-test-8-14",
+        "q-estudyme-part_3_conversations-test-8-15"
       ],
       "outputFile": "out/tiktok-toeic-part3-100/P3/062,p3.mp4",
-      "renderedAt": "2026-09-27T10:33:43.657Z",
+      "renderedAt": null,
       "postedAt": null,
       "platformUrl": null,
-      "note": ""
+      "note": "Quarantined graphic question without image; replaced with clean audio-only cluster for re-rendering."
     },
     {
       "id": "LP-TK-063",
@@ -1134,17 +1134,17 @@
       "part": 3,
       "episode": 63,
       "questionCount": 3,
-      "status": "rendered",
+      "status": "todo",
       "questionIds": [
-        "q-estudyme-part_3_conversations-test-5-34",
-        "q-estudyme-part_3_conversations-test-5-35",
-        "q-estudyme-part_3_conversations-test-5-36"
+        "q-estudyme-part_3_conversations-test-8-16",
+        "q-estudyme-part_3_conversations-test-8-17",
+        "q-estudyme-part_3_conversations-test-8-18"
       ],
       "outputFile": "out/tiktok-toeic-part3-100/P3/063,p3.mp4",
-      "renderedAt": "2026-09-27T10:35:18.897Z",
+      "renderedAt": null,
       "postedAt": null,
       "platformUrl": null,
-      "note": ""
+      "note": "Quarantined graphic question without image; replaced with clean audio-only cluster for re-rendering."
     },
     {
       "id": "LP-TK-064",
@@ -1224,17 +1224,17 @@
       "part": 3,
       "episode": 68,
       "questionCount": 3,
-      "status": "rendered",
+      "status": "todo",
       "questionIds": [
-        "q-estudyme-part_3_conversations-test-5-37",
-        "q-estudyme-part_3_conversations-test-5-38",
-        "q-estudyme-part_3_conversations-test-5-39"
+        "q-estudyme-part_3_conversations-test-8-19",
+        "q-estudyme-part_3_conversations-test-8-20",
+        "q-estudyme-part_3_conversations-test-8-21"
       ],
       "outputFile": "out/tiktok-toeic-part3-100/P3/068,p3.mp4",
-      "renderedAt": "2026-09-27T10:43:10.407Z",
+      "renderedAt": null,
       "postedAt": null,
       "platformUrl": null,
-      "note": ""
+      "note": "Quarantined graphic question without image; replaced with clean audio-only cluster for re-rendering."
     },
     {
       "id": "LP-TK-069",
@@ -1260,17 +1260,17 @@
       "part": 3,
       "episode": 70,
       "questionCount": 3,
-      "status": "rendered",
+      "status": "todo",
       "questionIds": [
-        "q-estudyme-part_3_conversations-test-4-31",
-        "q-estudyme-part_3_conversations-test-4-32",
-        "q-estudyme-part_3_conversations-test-4-33"
+        "q-estudyme-part_3_conversations-test-8-22",
+        "q-estudyme-part_3_conversations-test-8-23",
+        "q-estudyme-part_3_conversations-test-8-24"
       ],
       "outputFile": "out/tiktok-toeic-part3-100/P3/070,p3.mp4",
-      "renderedAt": "2026-09-27T10:46:28.051Z",
+      "renderedAt": null,
       "postedAt": null,
       "platformUrl": null,
-      "note": ""
+      "note": "Quarantined graphic question without image; replaced with clean audio-only cluster for re-rendering."
     },
     {
       "id": "LP-TK-071",
@@ -1422,17 +1422,17 @@
       "part": 3,
       "episode": 79,
       "questionCount": 3,
-      "status": "rendered",
+      "status": "todo",
       "questionIds": [
-        "q-estudyme-part_3_conversations-test-7-28",
-        "q-estudyme-part_3_conversations-test-7-29",
-        "q-estudyme-part_3_conversations-test-7-30"
+        "q-estudyme-part_3_conversations-test-8-25",
+        "q-estudyme-part_3_conversations-test-8-26",
+        "q-estudyme-part_3_conversations-test-8-27"
       ],
       "outputFile": "out/tiktok-toeic-part3-100/P3/079,p3.mp4",
-      "renderedAt": "2026-09-27T10:19:46.674Z",
+      "renderedAt": null,
       "postedAt": null,
       "platformUrl": null,
-      "note": ""
+      "note": "Quarantined graphic question without image; replaced with clean audio-only cluster for re-rendering."
     },
     {
       "id": "LP-TK-080",
@@ -1440,17 +1440,17 @@
       "part": 3,
       "episode": 80,
       "questionCount": 3,
-      "status": "rendered",
+      "status": "todo",
       "questionIds": [
-        "q-estudyme-part_3_conversations-test-6-34",
-        "q-estudyme-part_3_conversations-test-6-35",
-        "q-estudyme-part_3_conversations-test-6-36"
+        "q-estudyme-part_3_conversations-test-8-28",
+        "q-estudyme-part_3_conversations-test-8-29",
+        "q-estudyme-part_3_conversations-test-8-30"
       ],
       "outputFile": "out/tiktok-toeic-part3-100/P3/080,p3.mp4",
-      "renderedAt": "2026-09-27T10:21:30.876Z",
+      "renderedAt": null,
       "postedAt": null,
       "platformUrl": null,
-      "note": ""
+      "note": "Quarantined graphic question without image; replaced with clean audio-only cluster for re-rendering."
     },
     {
       "id": "LP-TK-081",
@@ -1584,17 +1584,17 @@
       "part": 3,
       "episode": 88,
       "questionCount": 3,
-      "status": "rendered",
+      "status": "todo",
       "questionIds": [
-        "q-estudyme-part_3_conversations-test-7-31",
-        "q-estudyme-part_3_conversations-test-7-32",
-        "q-estudyme-part_3_conversations-test-7-33"
+        "q-estudyme-part_3_conversations-test-9-1",
+        "q-estudyme-part_3_conversations-test-9-2",
+        "q-estudyme-part_3_conversations-test-9-3"
       ],
       "outputFile": "out/tiktok-toeic-part3-100/P3/088,p3.mp4",
-      "renderedAt": "2026-09-27T10:34:20.827Z",
+      "renderedAt": null,
       "postedAt": null,
       "platformUrl": null,
-      "note": ""
+      "note": "Quarantined graphic question without image; replaced with clean audio-only cluster for re-rendering."
     },
     {
       "id": "LP-TK-089",
@@ -1764,17 +1764,17 @@
       "part": 3,
       "episode": 98,
       "questionCount": 3,
-      "status": "rendered",
+      "status": "todo",
       "questionIds": [
-        "q-estudyme-part_3_conversations-test-6-31",
-        "q-estudyme-part_3_conversations-test-6-32",
-        "q-estudyme-part_3_conversations-test-6-33"
+        "q-estudyme-part_3_conversations-test-9-4",
+        "q-estudyme-part_3_conversations-test-9-5",
+        "q-estudyme-part_3_conversations-test-9-6"
       ],
       "outputFile": "out/tiktok-toeic-part3-100/P3/098,p3.mp4",
-      "renderedAt": "2026-09-27T10:50:24.130Z",
+      "renderedAt": null,
       "postedAt": null,
       "platformUrl": null,
-      "note": ""
+      "note": "Quarantined graphic question without image; replaced with clean audio-only cluster for re-rendering."
     },
     {
       "id": "LP-TK-099",
@@ -1782,17 +1782,17 @@
       "part": 3,
       "episode": 99,
       "questionCount": 3,
-      "status": "rendered",
+      "status": "todo",
       "questionIds": [
-        "q-estudyme-part_3_conversations-test-6-37",
-        "q-estudyme-part_3_conversations-test-6-38",
-        "q-estudyme-part_3_conversations-test-6-39"
+        "q-estudyme-part_3_conversations-test-9-7",
+        "q-estudyme-part_3_conversations-test-9-8",
+        "q-estudyme-part_3_conversations-test-9-9"
       ],
       "outputFile": "out/tiktok-toeic-part3-100/P3/099,p3.mp4",
-      "renderedAt": "2026-09-27T10:51:41.307Z",
+      "renderedAt": null,
       "postedAt": null,
       "platformUrl": null,
-      "note": ""
+      "note": "Quarantined graphic question without image; replaced with clean audio-only cluster for re-rendering."
     },
     {
       "id": "LP-TK-100",

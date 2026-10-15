@@ -531,26 +531,36 @@
   "exercises": [
     {
       "id": "present-continuous-ex-01",
-      "type": "fill_blank",
-      "question": "Listen! Someone ____ (cry) in the next room.",
-      "options": [],
-      "correct_answer": "is crying",
-      "explanation": "Listen! = ngay lúc này",
+      "type": "multiple_choice",
+      "question": "Listen! Someone ___ the piano in the next room.",
+      "options": [
+        "is playing",
+        "plays",
+        "play",
+        "playing"
+      ],
+      "correct_answer": "is playing",
+      "explanation": "Dấu hiệu \"Listen!\" cho biết hành động đang diễn ra ngay lúc nói → dùng \"am/is/are + V-ing\". Chủ ngữ \"Someone\" là số ít → \"is playing\".",
       "distractor_breakdowns": [
         {
-          "option": "is crying",
+          "option": "is playing",
           "isCorrect": true,
-          "pedagogicalReason": "Listen! = ngay lúc này"
+          "pedagogicalReason": "Dấu hiệu \"Listen!\" cho biết hành động đang diễn ra ngay lúc nói → dùng \"am/is/are + V-ing\". Chủ ngữ \"Someone\" là số ít → \"is playing\"."
         },
         {
-          "option": "cries",
+          "option": "plays",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dấu hiệu nhận biết \"Listen!\" yêu cầu thì hiện tại tiếp diễn \"is crying\" cho hành động đang diễn ra."
+          "pedagogicalReason": "Không chính xác. Phương án \"plays\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is playing\"). Dấu hiệu \"Listen!\" cho biết hành động đang diễn ra ngay lúc nói → dùng \"am/is/are + V-ing\". Chủ ngữ \"Someone\" là số ít → \"is playing\"."
         },
         {
-          "option": "are crying",
+          "option": "play",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Đại từ bất định \"Someone\" luôn đi với động từ số ít \"is\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"play\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is playing\"). Dấu hiệu \"Listen!\" cho biết hành động đang diễn ra ngay lúc nói → dùng \"am/is/are + V-ing\". Chủ ngữ \"Someone\" là số ít → \"is playing\"."
+        },
+        {
+          "option": "playing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"playing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is playing\"). Dấu hiệu \"Listen!\" cho biết hành động đang diễn ra ngay lúc nói → dùng \"am/is/are + V-ing\". Chủ ngữ \"Someone\" là số ít → \"is playing\"."
         }
       ],
       "difficulty": 1
@@ -558,25 +568,35 @@
     {
       "id": "present-continuous-ex-02",
       "type": "fill_blank",
-      "question": "Tom ____ (not / like) coffee.",
-      "options": [],
-      "correct_answer": "doesn't like",
-      "explanation": "like = trong đầu → đơn, phủ định doesn't",
+      "question": "Look! The bus ___ now.",
+      "options": [
+        "is coming",
+        "comes",
+        "coming",
+        "are coming"
+      ],
+      "correct_answer": "is coming",
+      "explanation": "Dấu hiệu \"Look!\" và \"now\" chỉ sự việc đang diễn ra trước mắt → chia hiện tại tiếp diễn \"is coming\".",
       "distractor_breakdowns": [
         {
-          "option": "doesn't like",
+          "option": "is coming",
           "isCorrect": true,
-          "pedagogicalReason": "like = trong đầu → đơn, phủ định doesn't"
+          "pedagogicalReason": "Dấu hiệu \"Look!\" và \"now\" chỉ sự việc đang diễn ra trước mắt → chia hiện tại tiếp diễn \"is coming\"."
         },
         {
-          "option": "isn't liking",
+          "option": "comes",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Động từ \"like\" là động từ chỉ sở thích/trạng thái (stative verb), không chia ở thì tiếp diễn."
+          "pedagogicalReason": "Không chính xác. Phương án \"comes\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is coming\"). Dấu hiệu \"Look!\" và \"now\" chỉ sự việc đang diễn ra trước mắt → chia hiện tại tiếp diễn \"is coming\"."
         },
         {
-          "option": "don't like",
+          "option": "coming",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"Tom\" là ngôi thứ ba số ít, phải dùng trợ động từ \"doesn't\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"coming\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is coming\"). Dấu hiệu \"Look!\" và \"now\" chỉ sự việc đang diễn ra trước mắt → chia hiện tại tiếp diễn \"is coming\"."
+        },
+        {
+          "option": "are coming",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"are coming\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is coming\"). Dấu hiệu \"Look!\" và \"now\" chỉ sự việc đang diễn ra trước mắt → chia hiện tại tiếp diễn \"is coming\"."
         }
       ],
       "difficulty": 1
@@ -584,51 +604,71 @@
     {
       "id": "present-continuous-ex-03",
       "type": "fill_blank",
-      "question": "We ____ (watch) TV every night.",
-      "options": [],
-      "correct_answer": "watch",
-      "explanation": "every night · We → V trơ",
+      "question": "We ___ dinner at the moment.",
+      "options": [
+        "are cooking",
+        "is cooking",
+        "cook",
+        "cooking"
+      ],
+      "correct_answer": "are cooking",
+      "explanation": "Dấu hiệu \"at the moment\" (ngay lúc này) + chủ ngữ \"We\" → chia \"are cooking\".",
       "distractor_breakdowns": [
         {
-          "option": "watch",
+          "option": "are cooking",
           "isCorrect": true,
-          "pedagogicalReason": "every night · We → V trơ"
+          "pedagogicalReason": "Dấu hiệu \"at the moment\" (ngay lúc này) + chủ ngữ \"We\" → chia \"are cooking\"."
         },
         {
-          "option": "are watching",
+          "option": "is cooking",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Trạng từ \"every night\" chỉ thói quen lặp đi lặp lại, phải chia hiện tại đơn, không dùng tiếp diễn."
+          "pedagogicalReason": "Không chính xác. Phương án \"is cooking\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"are cooking\"). Dấu hiệu \"at the moment\" (ngay lúc này) + chủ ngữ \"We\" → chia \"are cooking\"."
         },
         {
-          "option": "watches",
+          "option": "cook",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"We\" là ngôi thứ nhất số nhiều, động từ để nguyên mẫu \"watch\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"cook\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"are cooking\"). Dấu hiệu \"at the moment\" (ngay lúc này) + chủ ngữ \"We\" → chia \"are cooking\"."
+        },
+        {
+          "option": "cooking",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"cooking\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"are cooking\"). Dấu hiệu \"at the moment\" (ngay lúc này) + chủ ngữ \"We\" → chia \"are cooking\"."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "present-continuous-ex-04",
-      "type": "fill_blank",
-      "question": "Where ____ she ____ (go) now?",
-      "options": [],
-      "correct_answer": "is … going",
-      "explanation": "now → tiếp diễn",
+      "type": "multiple_choice",
+      "question": "I ___ TV right now; I am doing my homework.",
+      "options": [
+        "am not watching",
+        "don't watch",
+        "not watching",
+        "isn't watching"
+      ],
+      "correct_answer": "am not watching",
+      "explanation": "Phủ định hiện tại tiếp diễn với chủ ngữ \"I\" là \"am not + V-ing\" (\"am not watching\").",
       "distractor_breakdowns": [
         {
-          "option": "is … going",
+          "option": "am not watching",
           "isCorrect": true,
-          "pedagogicalReason": "now → tiếp diễn"
+          "pedagogicalReason": "Phủ định hiện tại tiếp diễn với chủ ngữ \"I\" là \"am not + V-ing\" (\"am not watching\")."
         },
         {
-          "option": "does … go",
+          "option": "don't watch",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Trạng từ \"now\" yêu cầu thì hiện tại tiếp diễn (\"is she going\"), không dùng hiện tại đơn."
+          "pedagogicalReason": "Không chính xác. Phương án \"don't watch\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"am not watching\"). Phủ định hiện tại tiếp diễn với chủ ngữ \"I\" là \"am not + V-ing\" (\"am not watching\")."
         },
         {
-          "option": "is … go",
+          "option": "not watching",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Thì tiếp diễn phải dùng V-ing (\"going\"), không dùng động từ nguyên thể."
+          "pedagogicalReason": "Không chính xác. Phương án \"not watching\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"am not watching\"). Phủ định hiện tại tiếp diễn với chủ ngữ \"I\" là \"am not + V-ing\" (\"am not watching\")."
+        },
+        {
+          "option": "isn't watching",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"isn't watching\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"am not watching\"). Phủ định hiện tại tiếp diễn với chủ ngữ \"I\" là \"am not + V-ing\" (\"am not watching\")."
         }
       ],
       "difficulty": 1
@@ -636,51 +676,71 @@
     {
       "id": "present-continuous-ex-05",
       "type": "fill_blank",
-      "question": "My mother ____ (want) a new phone at the moment.",
-      "options": [],
-      "correct_answer": "wants",
-      "explanation": "want = trong đầu → đơn dù có at the moment",
+      "question": "What ___ you doing right now?",
+      "options": [
+        "are",
+        "do",
+        "is",
+        "have"
+      ],
+      "correct_answer": "are",
+      "explanation": "Câu hỏi hiện tại tiếp diễn với chủ ngữ \"you\" và động từ \"doing\" dùng to be \"are\".",
       "distractor_breakdowns": [
         {
-          "option": "wants",
+          "option": "are",
           "isCorrect": true,
-          "pedagogicalReason": "want = trong đầu → đơn dù có at the moment"
+          "pedagogicalReason": "Câu hỏi hiện tại tiếp diễn với chủ ngữ \"you\" và động từ \"doing\" dùng to be \"are\"."
         },
         {
-          "option": "is wanting",
+          "option": "do",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"want\" là stative verb (động từ chỉ nhu cầu/trạng thái), không chia ở thì tiếp diễn dù có \"at the moment\"."
+          "pedagogicalReason": "Không chính xác. Trợ động từ \"do\" không phù hợp với ngôi của chủ ngữ hoặc cấu trúc của câu (đáp án đúng là \"are\")."
         },
         {
-          "option": "want",
+          "option": "is",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"My mother\" là ngôi thứ ba số ít, động từ phải thêm \"-s\"."
+          "pedagogicalReason": "Không chính xác. Động từ to be số ít \"is\" không hòa hợp với chủ ngữ hoặc thì của câu (đáp án đúng là \"are\")."
+        },
+        {
+          "option": "have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"are\"). Câu hỏi hiện tại tiếp diễn với chủ ngữ \"you\" và động từ \"doing\" dùng to be \"are\"."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "present-continuous-ex-06",
-      "type": "fill_blank",
-      "question": "They ____ (build) a new school in my village this year.",
-      "options": [],
-      "correct_answer": "are building",
-      "explanation": "this year = giai đoạn tạm thời",
+      "type": "multiple_choice",
+      "question": "Chọn dạng V-ing viết ĐÚNG chính tả của động từ \"run\":",
+      "options": [
+        "running",
+        "runing",
+        "runeing",
+        "runs"
+      ],
+      "correct_answer": "running",
+      "explanation": "\"run\" là từ 1 âm tiết kết thúc bằng Phụ âm - Nguyên âm - Phụ âm (r-u-n) nên phải gấp đôi phụ âm cuối trước khi thêm \"-ing\" → \"running\".",
       "distractor_breakdowns": [
         {
-          "option": "are building",
+          "option": "running",
           "isCorrect": true,
-          "pedagogicalReason": "this year = giai đoạn tạm thời"
+          "pedagogicalReason": "\"run\" là từ 1 âm tiết kết thúc bằng Phụ âm - Nguyên âm - Phụ âm (r-u-n) nên phải gấp đôi phụ âm cuối trước khi thêm \"-ing\" → \"running\"."
         },
         {
-          "option": "build",
+          "option": "runing",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Hành động đang diễn ra xung quanh thời điểm nói (\"this year\") phải chia hiện tại tiếp diễn \"are building\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"runing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"running\"). \"run\" là từ 1 âm tiết kết thúc bằng Phụ âm - Nguyên âm - Phụ âm (r-u-n) nên phải gấp đôi phụ âm cuối trước khi thêm \"-ing\" → \"running\"."
         },
         {
-          "option": "is building",
+          "option": "runeing",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"They\" là số nhiều, phải dùng to-be \"are\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"runeing\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"running\"). \"run\" là từ 1 âm tiết kết thúc bằng Phụ âm - Nguyên âm - Phụ âm (r-u-n) nên phải gấp đôi phụ âm cuối trước khi thêm \"-ing\" → \"running\"."
+        },
+        {
+          "option": "runs",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"runs\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"running\"). \"run\" là từ 1 âm tiết kết thúc bằng Phụ âm - Nguyên âm - Phụ âm (r-u-n) nên phải gấp đôi phụ âm cuối trước khi thêm \"-ing\" → \"running\"."
         }
       ],
       "difficulty": 2
@@ -688,181 +748,215 @@
     {
       "id": "present-continuous-ex-07",
       "type": "fill_blank",
-      "question": "The train ____ (leave) at 8 a.m. tomorrow.",
-      "options": [],
-      "correct_answer": "leaves",
-      "explanation": "thời gian biểu cố định → đơn",
+      "question": "They ___ a new bridge in my town this month.",
+      "options": [
+        "are building",
+        "builds",
+        "building",
+        "is building"
+      ],
+      "correct_answer": "are building",
+      "explanation": "Hành động đang diễn ra xung quanh thời điểm hiện tại (\"this month\") với chủ ngữ \"They\" → \"are building\".",
       "distractor_breakdowns": [
         {
-          "option": "leaves",
+          "option": "are building",
           "isCorrect": true,
-          "pedagogicalReason": "thời gian biểu cố định → đơn"
+          "pedagogicalReason": "Hành động đang diễn ra xung quanh thời điểm hiện tại (\"this month\") với chủ ngữ \"They\" → \"are building\"."
         },
         {
-          "option": "is leaving",
+          "option": "builds",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Lịch trình tàu xe cố định (\"at 8 a.m. tomorrow\") bắt buộc dùng thì hiện tại đơn \"leaves\", không dùng tiếp diễn."
+          "pedagogicalReason": "Không chính xác. Phương án \"builds\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"are building\"). Hành động đang diễn ra xung quanh thời điểm hiện tại (\"this month\") với chủ ngữ \"They\" → \"are building\"."
         },
         {
-          "option": "will leave",
+          "option": "building",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Lịch trình tàu xe công cộng cố định ưu tiên hiện tại đơn thay vì \"will\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"building\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"are building\"). Hành động đang diễn ra xung quanh thời điểm hiện tại (\"this month\") với chủ ngữ \"They\" → \"are building\"."
+        },
+        {
+          "option": "is building",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"is building\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"are building\"). Hành động đang diễn ra xung quanh thời điểm hiện tại (\"this month\") với chủ ngữ \"They\" → \"are building\"."
         }
       ],
       "difficulty": 2
     },
     {
       "id": "present-continuous-ex-08",
-      "type": "fill_blank",
-      "question": "You ____ always ____ (leave) your phone at home!",
-      "options": [],
-      "correct_answer": "are always leaving",
-      "explanation": "always + bực mình → tiếp diễn",
+      "type": "multiple_choice",
+      "question": "Please be quiet! The baby ___.",
+      "options": [
+        "is sleeping",
+        "sleeps",
+        "sleeping",
+        "are sleeping"
+      ],
+      "correct_answer": "is sleeping",
+      "explanation": "\"Please be quiet!\" là dấu hiệu sự việc đang xảy ra ngay lúc nói. \"The baby\" là số ít → \"is sleeping\".",
       "distractor_breakdowns": [
         {
-          "option": "are always leaving",
+          "option": "is sleeping",
           "isCorrect": true,
-          "pedagogicalReason": "always + bực mình → tiếp diễn"
+          "pedagogicalReason": "\"Please be quiet!\" là dấu hiệu sự việc đang xảy ra ngay lúc nói. \"The baby\" là số ít → \"is sleeping\"."
         },
         {
-          "option": "always leave",
+          "option": "sleeps",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Cấu trúc \"be always + V-ing\" dùng để phàn nàn về một thói quen gây khó chịu cho người khác."
+          "pedagogicalReason": "Không chính xác. Phương án \"sleeps\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is sleeping\"). \"Please be quiet!\" là dấu hiệu sự việc đang xảy ra ngay lúc nói. \"The baby\" là số ít → \"is sleeping\"."
         },
         {
-          "option": "is always leaving",
+          "option": "sleeping",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"You\" đi với to-be \"are\", không đi với \"is\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"sleeping\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is sleeping\"). \"Please be quiet!\" là dấu hiệu sự việc đang xảy ra ngay lúc nói. \"The baby\" là số ít → \"is sleeping\"."
+        },
+        {
+          "option": "are sleeping",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"are sleeping\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"is sleeping\"). \"Please be quiet!\" là dấu hiệu sự việc đang xảy ra ngay lúc nói. \"The baby\" là số ít → \"is sleeping\"."
         }
       ],
-      "difficulty": 2
+      "difficulty": 1
     },
     {
       "id": "present-continuous-ex-09",
       "type": "fill_blank",
-      "question": "I ____ (fly) to Da Nang at 6 a.m. tomorrow. My ticket is booked.",
-      "options": [],
-      "correct_answer": "am flying",
-      "explanation": "đã đặt vé, chốt giờ → hiện tại tiếp diễn",
+      "question": "She ___ a new phone now.",
+      "options": [
+        "wants",
+        "is wanting",
+        "want",
+        "wanting"
+      ],
+      "correct_answer": "wants",
+      "explanation": "\"want\" (muốn) là động từ chỉ trạng thái/mong muốn (stative verb), không chia ở thì tiếp diễn dù có \"now\" → dùng hiện tại đơn \"wants\".",
       "distractor_breakdowns": [
         {
-          "option": "am flying",
+          "option": "wants",
           "isCorrect": true,
-          "pedagogicalReason": "đã đặt vé, chốt giờ → hiện tại tiếp diễn"
+          "pedagogicalReason": "\"want\" (muốn) là động từ chỉ trạng thái/mong muốn (stative verb), không chia ở thì tiếp diễn dù có \"now\" → dùng hiện tại đơn \"wants\"."
         },
         {
-          "option": "will fly",
+          "option": "is wanting",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Kế hoạch đã có vé máy bay đặt sẵn (\"ticket is booked\") dùng hiện tại tiếp diễn chỉ tương lai chắc chắn xảy ra."
+          "pedagogicalReason": "Không chính xác. Phương án \"is wanting\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wants\"). \"want\" (muốn) là động từ chỉ trạng thái/mong muốn (stative verb), không chia ở thì tiếp diễn dù có \"now\" → dùng hiện tại đơn \"wants\"."
         },
         {
-          "option": "fly",
+          "option": "want",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Lịch trình cá nhân đã chốt vé dùng hiện tại tiếp diễn, không dùng hiện tại đơn."
+          "pedagogicalReason": "Không chính xác. Phương án \"want\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wants\"). \"want\" (muốn) là động từ chỉ trạng thái/mong muốn (stative verb), không chia ở thì tiếp diễn dù có \"now\" → dùng hiện tại đơn \"wants\"."
+        },
+        {
+          "option": "wanting",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"wanting\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wants\"). \"want\" (muốn) là động từ chỉ trạng thái/mong muốn (stative verb), không chia ở thì tiếp diễn dù có \"now\" → dùng hiện tại đơn \"wants\"."
         }
       ],
-      "difficulty": 2
+      "difficulty": 3
     },
     {
       "id": "present-continuous-ex-10",
-      "type": "fill_blank",
-      "question": "We ____ (have) a big birthday party next weekend. The invitations are sent.",
-      "options": [],
-      "correct_answer": "are having",
-      "explanation": "thiệp đã gửi = lịch chốt → hiện tại tiếp diễn",
+      "type": "error_correction",
+      "question": "Find the error: The children playing football in the park now.",
+      "options": [
+        "children",
+        "playing",
+        "in",
+        "now"
+      ],
+      "correct_answer": "playing",
+      "explanation": "Thì hiện tại tiếp diễn bắt buộc phải có đủ cả \"to be (am/is/are)\" VÀ \"V-ing\". Thiếu \"are\" trước \"playing\" → phải sửa thành \"are playing\".",
       "distractor_breakdowns": [
         {
-          "option": "are having",
+          "option": "children",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"children\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "playing",
           "isCorrect": true,
-          "pedagogicalReason": "thiệp đã gửi = lịch chốt → hiện tại tiếp diễn"
+          "pedagogicalReason": "Thì hiện tại tiếp diễn bắt buộc phải có đủ cả \"to be (am/is/are)\" VÀ \"V-ing\". Thiếu \"are\" trước \"playing\" → phải sửa thành \"are playing\"."
         },
         {
-          "option": "will have",
+          "option": "in",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Đã gửi thiệp mời (\"invitations are sent\"), sự việc đã sắp xếp chắc chắn dùng hiện tại tiếp diễn \"are having\"."
+          "pedagogicalReason": "Không chính xác. Thành phần \"in\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         },
         {
-          "option": "have",
+          "option": "now",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Bữa tiệc diễn ra vào cuối tuần tới, không dùng hiện tại đơn chỉ thói quen."
+          "pedagogicalReason": "Không chính xác. Thành phần \"now\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
       "difficulty": 2
     },
     {
       "id": "present-continuous-ex-11",
-      "type": "fill_blank",
-      "question": "Look! That man ____ (try) to open the door of your car.",
-      "options": [],
-      "correct_answer": "is trying",
-      "explanation": "Look! đầu câu → hiện tại tiếp diễn",
+      "type": "error_correction",
+      "question": "Find the error: She is write an email to her teacher right now.",
+      "options": [
+        "She",
+        "is",
+        "write",
+        "right now"
+      ],
+      "correct_answer": "write",
+      "explanation": "Sau \"is\" trong thì hiện tại tiếp diễn, động từ phải thêm \"-ing\" (bỏ \"e\" cuối thêm \"-ing\") → sửa \"write\" thành \"writing\".",
       "distractor_breakdowns": [
         {
-          "option": "is trying",
+          "option": "She",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"She\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"is\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "write",
           "isCorrect": true,
-          "pedagogicalReason": "Look! đầu câu → hiện tại tiếp diễn"
+          "pedagogicalReason": "Sau \"is\" trong thì hiện tại tiếp diễn, động từ phải thêm \"-ing\" (bỏ \"e\" cuối thêm \"-ing\") → sửa \"write\" thành \"writing\"."
         },
         {
-          "option": "tries",
+          "option": "right now",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Mệnh lệnh \"Look!\" yêu cầu thì hiện tại tiếp diễn cho hành động đang diễn ra ngay lúc nói."
-        },
-        {
-          "option": "try",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"That man\" là ngôi thứ ba số ít, cần to-be số ít \"is trying\"."
+          "pedagogicalReason": "Không chính xác. Thành phần \"right now\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
-      "difficulty": 3
+      "difficulty": 2
     },
     {
       "id": "present-continuous-ex-12",
-      "type": "fill_blank",
-      "question": "Don't come in — the floor ____ (wash) at the moment.",
-      "options": [],
-      "correct_answer": "is being washed",
-      "explanation": "at the moment = đang xảy ra → is being + V3",
-      "distractor_breakdowns": [
-        {
-          "option": "is being washed",
-          "isCorrect": true,
-          "pedagogicalReason": "at the moment = đang xảy ra → is being + V3"
-        },
-        {
-          "option": "is washing",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Sàn nhà đang được lau dọn, phải chia bị động tiếp diễn \"is being washed\", không dùng chủ động."
-        },
-        {
-          "option": "is washed",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Ngữ cảnh ngay lúc này (\"at the moment\") cần bị động tiếp diễn \"is being washed\"."
-        }
+      "type": "error_correction",
+      "question": "Find the error: I am knowing the answer to this question.",
+      "options": [
+        "I",
+        "am knowing",
+        "the answer",
+        "this"
       ],
-      "difficulty": 3
-    },
-    {
-      "id": "present-continuous-ex-13",
-      "type": "fill_blank",
-      "question": "Rút gọn: The bridge which was destroyed in the storm is being repaired. → _____",
-      "options": [],
-      "correct_answer": "The bridge destroyed in the storm is being repaired.",
-      "explanation": "was destroyed bị động → giữ destroyed",
+      "correct_answer": "am knowing",
+      "explanation": "\"know\" (biết) là động từ chỉ trạng thái nhận thức, tuyệt đối không chia tiếp diễn \"am knowing\". Phải sửa thành \"know\".",
       "distractor_breakdowns": [
         {
-          "option": "The bridge destroyed in the storm is being repaired.",
+          "option": "I",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"I\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "am knowing",
           "isCorrect": true,
-          "pedagogicalReason": "was destroyed bị động → giữ destroyed"
+          "pedagogicalReason": "\"know\" (biết) là động từ chỉ trạng thái nhận thức, tuyệt đối không chia tiếp diễn \"am knowing\". Phải sửa thành \"know\"."
         },
         {
-          "option": "The bridge destroying in the storm is being repaired.",
+          "option": "the answer",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Cây cầu bị tàn phá mang nghĩa bị động, rút gọn bằng V-ed/V3 (\"destroyed\"), không dùng V-ing."
+          "pedagogicalReason": "Không chính xác. Thành phần \"the answer\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         },
         {
-          "option": "The bridge to destroy in the storm is being repaired.",
+          "option": "this",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng to-V để rút gọn mệnh đề quan hệ mang nghĩa bị động trong quá khứ."
+          "pedagogicalReason": "Không chính xác. Thành phần \"this\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
       "difficulty": 3

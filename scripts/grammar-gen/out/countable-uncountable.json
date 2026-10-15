@@ -340,7 +340,7 @@
         {
           "option": "two",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"two\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"two\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"a\"). Book đếm được, số ít và bắt đầu bằng âm /b/: a book."
         }
       ],
       "difficulty": 1
@@ -403,7 +403,12 @@
       "id": "countable-uncountable-ex-04",
       "type": "fill_blank",
       "question": "We bought two ___ of water. (bottle)",
-      "options": [],
+      "options": [
+        "bottles",
+        "bottle",
+        "bottles of",
+        "bottless"
+      ],
       "correct_answer": "bottles",
       "explanation": "Đếm đơn vị chứa nước: two bottles of water.",
       "distractor_breakdowns": [
@@ -421,6 +426,11 @@
           "option": "bottles of",
           "isCorrect": false,
           "pedagogicalReason": "Không chính xác. Từ \"of\" đã có sẵn trong câu sau chỗ trống, điền thừa từ nối."
+        },
+        {
+          "option": "bottless",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"bottless\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"bottles\"). Đếm đơn vị chứa nước: two bottles of water."
         }
       ],
       "difficulty": 1
@@ -523,12 +533,12 @@
         {
           "option": "chair",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"chair\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"chair\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"furniture\"). Furniture không có dạng số nhiều furnitures trong tiếng Anh chuẩn."
         },
         {
           "option": "table",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"table\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"table\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"furniture\"). Furniture không có dạng số nhiều furnitures trong tiếng Anh chuẩn."
         }
       ],
       "difficulty": 1
@@ -552,7 +562,7 @@
         {
           "option": "advices",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"advices\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"advices\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"advice\"). Advice không thêm -s; dùng a piece of advice."
         }
       ],
       "difficulty": 1
@@ -577,12 +587,12 @@
         {
           "option": "two furnitures",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"two furnitures\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"two furnitures\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"two pieces of furniture\"). Đếm furniture qua đơn vị: two pieces of furniture."
         },
         {
           "option": "two furniture",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"two furniture\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"two furniture\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"two pieces of furniture\"). Đếm furniture qua đơn vị: two pieces of furniture."
         }
       ],
       "difficulty": 1
@@ -591,7 +601,12 @@
       "id": "countable-uncountable-ex-11",
       "type": "fill_blank",
       "question": "There are three ___ on the table. (apple)",
-      "options": [],
+      "options": [
+        "apples",
+        "apple",
+        "apples of",
+        "appless"
+      ],
       "correct_answer": "apples",
       "explanation": "Sau three, danh từ đếm được apple chuyển thành apples.",
       "distractor_breakdowns": [
@@ -609,6 +624,11 @@
           "option": "apples of",
           "isCorrect": false,
           "pedagogicalReason": "Không chính xác. Không cần giới từ \"of\" sau danh từ đếm được trực tiếp."
+        },
+        {
+          "option": "appless",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"appless\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"apples\"). Sau three, danh từ đếm được apple chuyển thành apples."
         }
       ],
       "difficulty": 1
@@ -633,12 +653,12 @@
         {
           "option": "a apple",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"a apple\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"a apple\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"an apple\"). Apple bắt đầu bằng âm nguyên âm: an apple."
         },
         {
           "option": "one apples",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"one apples\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"one apples\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"an apple\"). Apple bắt đầu bằng âm nguyên âm: an apple."
         }
       ],
       "difficulty": 1
@@ -646,7 +666,7 @@
     {
       "id": "countable-uncountable-ex-13",
       "type": "multiple_choice",
-      "question": "Choose the correct **article**: I saw ___ dog in the park.",
+      "question": "I saw ___ dog in the park.",
       "options": [
         "a",
         "an",
@@ -682,7 +702,7 @@
     {
       "id": "countable-uncountable-ex-14",
       "type": "multiple_choice",
-      "question": "Choose the correct **plural noun**: There are three ___ on the table.",
+      "question": "There are three ___ on the table.",
       "options": [
         "cup",
         "cups",
@@ -718,7 +738,7 @@
     {
       "id": "countable-uncountable-ex-15",
       "type": "multiple_choice",
-      "question": "Choose the correct **quantifier**: We don't have ___ rice for dinner.",
+      "question": "We don't have ___ rice for dinner.",
       "options": [
         "many",
         "any",
@@ -754,7 +774,7 @@
     {
       "id": "countable-uncountable-ex-16",
       "type": "multiple_choice",
-      "question": "Choose the correct **quantity word**: Can I have a ___ of coffee?",
+      "question": "Can I have a ___ of coffee?",
       "options": [
         "cup",
         "many",
@@ -772,17 +792,17 @@
         {
           "option": "many",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"many\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"many\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"cup\"). “Coffee” là danh từ không đếm được, nên cần đơn vị đo như “a cup of coffee”. Các lựa chọn còn lại không tạo cụm danh từ đúng trong câu này."
         },
         {
           "option": "rice",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"rice\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"rice\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"cup\"). “Coffee” là danh từ không đếm được, nên cần đơn vị đo như “a cup of coffee”. Các lựa chọn còn lại không tạo cụm danh từ đúng trong câu này."
         },
         {
           "option": "chairs",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"chairs\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"chairs\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"cup\"). “Coffee” là danh từ không đếm được, nên cần đơn vị đo như “a cup of coffee”. Các lựa chọn còn lại không tạo cụm danh từ đúng trong câu này."
         }
       ],
       "difficulty": 2
@@ -790,7 +810,7 @@
     {
       "id": "countable-uncountable-ex-17",
       "type": "multiple_choice",
-      "question": "Choose the correct **noun form**: I need two ___ for the classroom.",
+      "question": "I need two ___ for the classroom.",
       "options": [
         "chair",
         "chairs",
@@ -826,7 +846,7 @@
     {
       "id": "countable-uncountable-ex-18",
       "type": "multiple_choice",
-      "question": "Choose the correct **question word**: How ___ sugar do you want?",
+      "question": "How ___ sugar do you want?",
       "options": [
         "many",
         "much",
@@ -862,7 +882,7 @@
     {
       "id": "countable-uncountable-ex-19",
       "type": "multiple_choice",
-      "question": "Choose the correct **quantifier**: There are ___ students in the room.",
+      "question": "There are ___ students in the room.",
       "options": [
         "some",
         "much",
@@ -898,7 +918,7 @@
     {
       "id": "countable-uncountable-ex-20",
       "type": "multiple_choice",
-      "question": "Choose the correct **measure phrase**: She bought two ___ of bread.",
+      "question": "She bought two ___ of bread.",
       "options": [
         "loaves",
         "bread",
@@ -934,7 +954,7 @@
     {
       "id": "countable-uncountable-ex-21",
       "type": "multiple_choice",
-      "question": "Choose the correct **noun type**: Which noun is uncountable?",
+      "question": "Chọn loại danh từ đúng: Danh từ nào sau đây KHÔNG đếm được?",
       "options": [
         "music",
         "banana",
@@ -970,7 +990,7 @@
     {
       "id": "countable-uncountable-ex-22",
       "type": "fill_blank",
-      "question": "Fill in the correct **article**: She has ___ umbrella.",
+      "question": "Fill in the correct article: She has ___ umbrella.",
       "options": [
         "a",
         "an",
@@ -1006,7 +1026,7 @@
     {
       "id": "countable-uncountable-ex-23",
       "type": "fill_blank",
-      "question": "Fill in the correct **quantifier**: There isn't ___ milk in the fridge.",
+      "question": "Fill in the correct quantifier: There isn't ___ milk in the fridge.",
       "options": [
         "any",
         "many",
@@ -1042,7 +1062,7 @@
     {
       "id": "countable-uncountable-ex-24",
       "type": "fill_blank",
-      "question": "Fill in the correct **plural form**: We need five ___ for the game.",
+      "question": "Fill in the correct plural form: We need five ___ for the game.",
       "options": [
         "ball",
         "balls",
@@ -1078,7 +1098,7 @@
     {
       "id": "countable-uncountable-ex-25",
       "type": "fill_blank",
-      "question": "Fill in the correct **quantity word**: I ate a ___ of cheese.",
+      "question": "Fill in the correct quantity word: I ate a ___ of cheese.",
       "options": [
         "piece",
         "many",
@@ -1114,7 +1134,7 @@
     {
       "id": "countable-uncountable-ex-26",
       "type": "fill_blank",
-      "question": "Fill in the correct **question word**: How ___ oranges are in the bag?",
+      "question": "Fill in the correct question word: How ___ oranges are in the bag?",
       "options": [
         "many",
         "much",
@@ -1150,7 +1170,7 @@
     {
       "id": "countable-uncountable-ex-27",
       "type": "fill_blank",
-      "question": "Fill in the correct **noun form**: I have a lot of ___ today.",
+      "question": "Fill in the correct noun form: I have a lot of ___ today.",
       "options": [
         "homework",
         "homeworks",
@@ -1186,7 +1206,7 @@
     {
       "id": "countable-uncountable-ex-28",
       "type": "fill_blank",
-      "question": "Fill in the correct **quantifier**: Do you have ___ money?",
+      "question": "Fill in the correct quantifier: Do you have ___ money?",
       "options": [
         "any",
         "many",
@@ -1222,7 +1242,7 @@
     {
       "id": "countable-uncountable-ex-29",
       "type": "fill_blank",
-      "question": "Fill in the correct **measure phrase**: Please buy a ___ of juice.",
+      "question": "Fill in the correct measure phrase: Please buy a ___ of juice.",
       "options": [
         "bottle",
         "many",
@@ -1258,7 +1278,7 @@
     {
       "id": "countable-uncountable-ex-30",
       "type": "error_correction",
-      "question": "Find the error: He has three **furniture** in his room.",
+      "question": "Find the error: He has three furniture in his room.",
       "options": [
         "He",
         "has",
@@ -1294,7 +1314,7 @@
     {
       "id": "countable-uncountable-ex-31",
       "type": "error_correction",
-      "question": "Find the error: I need an **orange juice** after lunch.",
+      "question": "Find the error: I need an orange juice after lunch.",
       "options": [
         "I",
         "need",
@@ -1330,7 +1350,7 @@
     {
       "id": "countable-uncountable-ex-32",
       "type": "error_correction",
-      "question": "Find the error: There is **many** salt in the soup.",
+      "question": "Find the error: There is many salt in the soup.",
       "options": [
         "There is",
         "many",
@@ -1366,7 +1386,7 @@
     {
       "id": "countable-uncountable-ex-33",
       "type": "error_correction",
-      "question": "Find the error: She bought two **bread** at the bakery.",
+      "question": "Find the error: She bought two bread at the bakery.",
       "options": [
         "She",
         "bought",
@@ -1402,7 +1422,7 @@
     {
       "id": "countable-uncountable-ex-34",
       "type": "error_correction",
-      "question": "Find the error: We saw a lot of **child** in the park.",
+      "question": "Find the error: We saw a lot of child in the park.",
       "options": [
         "We",
         "saw",
@@ -1438,7 +1458,7 @@
     {
       "id": "countable-uncountable-ex-35",
       "type": "error_correction",
-      "question": "Find the error: Can you give me a **advice**?",
+      "question": "Find the error: Can you give me a advice?",
       "options": [
         "Can you",
         "give me",
@@ -1474,7 +1494,7 @@
     {
       "id": "countable-uncountable-ex-36",
       "type": "error_correction",
-      "question": "Find the error: There are **much** eggs in the basket.",
+      "question": "Find the error: There are much eggs in the basket.",
       "options": [
         "There are",
         "much",
@@ -1510,7 +1530,7 @@
     {
       "id": "countable-uncountable-ex-37",
       "type": "error_correction",
-      "question": "Find the error: This **news** are very important.",
+      "question": "Find the error: This news are very important.",
       "options": [
         "This",
         "news",
@@ -1546,7 +1566,7 @@
     {
       "id": "countable-uncountable-ex-38",
       "type": "multiple_choice",
-      "question": "Choose the correct **article**: My brother wants ___ new bike.",
+      "question": "My brother wants ___ new bike.",
       "options": [
         "a",
         "an",
@@ -1582,7 +1602,7 @@
     {
       "id": "countable-uncountable-ex-39",
       "type": "multiple_choice",
-      "question": "Choose the correct **article**: Anna has ___ egg for breakfast.",
+      "question": "Anna has ___ egg for breakfast.",
       "options": [
         "an",
         "a",
@@ -1618,7 +1638,7 @@
     {
       "id": "countable-uncountable-ex-40",
       "type": "multiple_choice",
-      "question": "Choose the correct **plural noun**: I can see four ___ in the photo.",
+      "question": "I can see four ___ in the photo.",
       "options": [
         "cats",
         "cat",
@@ -1636,7 +1656,7 @@
         {
           "option": "cat",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"cat\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"cat\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"cats\"). Sau số đếm “four”, danh từ đếm được phải ở dạng số nhiều: “cats”. “Cat” là số ít; “water” không đếm được; “milks” không dùng theo nghĩa thông thường ở trình độ này."
         },
         {
           "option": "water",
@@ -1654,7 +1674,7 @@
     {
       "id": "countable-uncountable-ex-41",
       "type": "multiple_choice",
-      "question": "Choose the correct **quantifier**: There is ___ tea in the cup.",
+      "question": "There is ___ tea in the cup.",
       "options": [
         "some",
         "a",
@@ -1690,7 +1710,7 @@
     {
       "id": "countable-uncountable-ex-42",
       "type": "multiple_choice",
-      "question": "Choose the correct **noun type**: Which noun is countable?",
+      "question": "Chọn loại danh từ đúng: Danh từ nào sau đây ĐẾM ĐƯỢC?",
       "options": [
         "pencil",
         "milk",
@@ -1726,7 +1746,7 @@
     {
       "id": "countable-uncountable-ex-43",
       "type": "multiple_choice",
-      "question": "Choose the correct **question word**: How ___ bottles of water do we need?",
+      "question": "How ___ bottles of water do we need?",
       "options": [
         "many",
         "much",
@@ -1762,7 +1782,7 @@
     {
       "id": "countable-uncountable-ex-44",
       "type": "multiple_choice",
-      "question": "Choose the correct **measure phrase**: Please buy a ___ of soap.",
+      "question": "Please buy a ___ of soap.",
       "options": [
         "bar",
         "slice",
@@ -1798,7 +1818,7 @@
     {
       "id": "countable-uncountable-ex-45",
       "type": "multiple_choice",
-      "question": "Choose the correct **noun form**: We have six ___ in our kitchen.",
+      "question": "We have six ___ in our kitchen.",
       "options": [
         "plates",
         "plate",
@@ -1834,7 +1854,7 @@
     {
       "id": "countable-uncountable-ex-46",
       "type": "multiple_choice",
-      "question": "Choose the correct **quantifier**: I don't have ___ time today.",
+      "question": "I don't have ___ time today.",
       "options": [
         "much",
         "many",
@@ -1870,7 +1890,7 @@
     {
       "id": "countable-uncountable-ex-47",
       "type": "fill_blank",
-      "question": "Fill in the correct **article**: We need ___ table for the living room.",
+      "question": "Fill in the correct article: We need ___ table for the living room.",
       "options": [
         "a",
         "an",
@@ -1906,7 +1926,7 @@
     {
       "id": "countable-uncountable-ex-48",
       "type": "fill_blank",
-      "question": "Fill in the correct **article**: He is eating ___ ice cream.",
+      "question": "Fill in the correct article: He is eating ___ ice cream.",
       "options": [
         "an",
         "a",
@@ -1942,7 +1962,7 @@
     {
       "id": "countable-uncountable-ex-49",
       "type": "fill_blank",
-      "question": "Fill in the correct **plural form**: There are seven ___ near the school.",
+      "question": "Fill in the correct plural form: There are seven ___ near the school.",
       "options": [
         "buses",
         "bus",
@@ -1978,7 +1998,7 @@
     {
       "id": "countable-uncountable-ex-50",
       "type": "fill_blank",
-      "question": "Fill in the correct **quantifier**: There is ___ soup in the bowl.",
+      "question": "Fill in the correct quantifier: There is ___ soup in the bowl.",
       "options": [
         "some",
         "many",
@@ -2014,7 +2034,7 @@
     {
       "id": "countable-uncountable-ex-51",
       "type": "fill_blank",
-      "question": "Fill in the correct **question word**: How ___ homework do you have tonight?",
+      "question": "Fill in the correct question word: How ___ homework do you have tonight?",
       "options": [
         "much",
         "many",
@@ -2050,7 +2070,7 @@
     {
       "id": "countable-uncountable-ex-52",
       "type": "fill_blank",
-      "question": "Fill in the correct **measure phrase**: She drinks a ___ of milk every morning.",
+      "question": "Fill in the correct measure phrase: She drinks a ___ of milk every morning.",
       "options": [
         "glass",
         "piece",
@@ -2086,7 +2106,7 @@
     {
       "id": "countable-uncountable-ex-53",
       "type": "fill_blank",
-      "question": "Fill in the correct **noun form**: My sister bought three ___ yesterday.",
+      "question": "Fill in the correct noun form: My sister bought three ___ yesterday.",
       "options": [
         "dresses",
         "dress",
@@ -2122,7 +2142,7 @@
     {
       "id": "countable-uncountable-ex-54",
       "type": "fill_blank",
-      "question": "Fill in the correct **quantifier**: Do you need ___ help with this exercise?",
+      "question": "Fill in the correct quantifier: Do you need ___ help with this exercise?",
       "options": [
         "any",
         "many",
@@ -2158,7 +2178,7 @@
     {
       "id": "countable-uncountable-ex-55",
       "type": "error_correction",
-      "question": "Find the error: She has two **luggages** for the trip.",
+      "question": "Find the error: She has two luggages for the trip.",
       "options": [
         "She",
         "has",
@@ -2194,7 +2214,7 @@
     {
       "id": "countable-uncountable-ex-56",
       "type": "error_correction",
-      "question": "Find the error: I bought a **milk** at the shop.",
+      "question": "Find the error: I bought a milk at the shop.",
       "options": [
         "I",
         "bought",
@@ -2230,7 +2250,7 @@
     {
       "id": "countable-uncountable-ex-57",
       "type": "error_correction",
-      "question": "Find the error: There are three **juice** on the table.",
+      "question": "Find the error: There are three juice on the table.",
       "options": [
         "There are",
         "three juice",
@@ -2266,7 +2286,7 @@
     {
       "id": "countable-uncountable-ex-58",
       "type": "error_correction",
-      "question": "Find the error: We need much **chairs** for the party.",
+      "question": "Find the error: We need much chairs for the party.",
       "options": [
         "We",
         "need",
@@ -2302,7 +2322,7 @@
     {
       "id": "countable-uncountable-ex-59",
       "type": "error_correction",
-      "question": "Find the error: He gave me an **information** about the bus.",
+      "question": "Find the error: He gave me an information about the bus.",
       "options": [
         "He",
         "gave me",
@@ -2338,7 +2358,7 @@
     {
       "id": "countable-uncountable-ex-60",
       "type": "error_correction",
-      "question": "Find the error: I have five **toothbrush** in my bag.",
+      "question": "Find the error: I have five toothbrush in my bag.",
       "options": [
         "I",
         "have",
@@ -2374,7 +2394,7 @@
     {
       "id": "countable-uncountable-ex-61",
       "type": "error_correction",
-      "question": "Find the error: There is many **sand** on the beach.",
+      "question": "Find the error: There is many sand on the beach.",
       "options": [
         "There is",
         "many sand",
@@ -2410,7 +2430,7 @@
     {
       "id": "countable-uncountable-ex-62",
       "type": "error_correction",
-      "question": "Find the error: She needs a **paper** to write a note.",
+      "question": "Find the error: She needs a paper to write a note.",
       "options": [
         "She",
         "needs",
@@ -2446,7 +2466,7 @@
     {
       "id": "countable-uncountable-ex-63",
       "type": "multiple_choice",
-      "question": "Choose the correct **article**: I need ___ umbrella today.",
+      "question": "I need ___ umbrella today.",
       "options": [
         "a",
         "an",
@@ -2482,7 +2502,7 @@
     {
       "id": "countable-uncountable-ex-64",
       "type": "multiple_choice",
-      "question": "Choose the correct **noun form**: There are two ___ on the desk.",
+      "question": "There are two ___ on the desk.",
       "options": [
         "pen",
         "pens",
@@ -2518,7 +2538,7 @@
     {
       "id": "countable-uncountable-ex-65",
       "type": "multiple_choice",
-      "question": "Choose the correct **quantifier**: We need ___ sugar for the cake.",
+      "question": "We need ___ sugar for the cake.",
       "options": [
         "some",
         "a",
@@ -2554,7 +2574,7 @@
     {
       "id": "countable-uncountable-ex-66",
       "type": "multiple_choice",
-      "question": "Choose the correct **question word**: How ___ apples are in the bag?",
+      "question": "How ___ apples are in the bag?",
       "options": [
         "many",
         "much",
@@ -2590,7 +2610,7 @@
     {
       "id": "countable-uncountable-ex-67",
       "type": "multiple_choice",
-      "question": "Choose the correct **measure phrase**: I want a ___ of coffee.",
+      "question": "I want a ___ of coffee.",
       "options": [
         "cup",
         "piece",
@@ -2626,7 +2646,7 @@
     {
       "id": "countable-uncountable-ex-68",
       "type": "multiple_choice",
-      "question": "Choose the correct **plural form**: She has three ___.",
+      "question": "She has three ___.",
       "options": [
         "boxs",
         "boxes",
@@ -2662,7 +2682,7 @@
     {
       "id": "countable-uncountable-ex-69",
       "type": "multiple_choice",
-      "question": "Choose the correct **quantifier**: There isn't ___ cheese in the fridge.",
+      "question": "There isn't ___ cheese in the fridge.",
       "options": [
         "much",
         "many",
@@ -2698,7 +2718,7 @@
     {
       "id": "countable-uncountable-ex-70",
       "type": "multiple_choice",
-      "question": "Choose the correct **sentence**: Which sentence is correct?",
+      "question": "Chọn câu đúng ngữ pháp:",
       "options": [
         "I have a banana.",
         "I have a water.",
@@ -2716,17 +2736,17 @@
         {
           "option": "I have a water.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"I have a water.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"I have a water.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"I have a banana.\"). “Banana” là danh từ đếm được số ít nên dùng được với “a”. “Water”, “rice” và “money” là danh từ không đếm được nên không dùng trực tiếp với “a”, “two”, hoặc “many” trong nghĩa thông thường."
         },
         {
           "option": "I have two rice.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"I have two rice.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"I have two rice.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"I have a banana.\"). “Banana” là danh từ đếm được số ít nên dùng được với “a”. “Water”, “rice” và “money” là danh từ không đếm được nên không dùng trực tiếp với “a”, “two”, hoặc “many” trong nghĩa thông thường."
         },
         {
           "option": "I have many money.",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"I have many money.\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"I have many money.\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"I have a banana.\"). “Banana” là danh từ đếm được số ít nên dùng được với “a”. “Water”, “rice” và “money” là danh từ không đếm được nên không dùng trực tiếp với “a”, “two”, hoặc “many” trong nghĩa thông thường."
         }
       ],
       "difficulty": 2
@@ -2734,7 +2754,7 @@
     {
       "id": "countable-uncountable-ex-71",
       "type": "fill_blank",
-      "question": "Fill in the correct **article**: She has ___ orange in her lunch box.",
+      "question": "Fill in the correct article: She has ___ orange in her lunch box.",
       "options": [
         "an",
         "a",
@@ -2770,7 +2790,7 @@
     {
       "id": "countable-uncountable-ex-72",
       "type": "fill_blank",
-      "question": "Fill in the correct **plural noun**: I can see five ___ in the garden.",
+      "question": "Fill in the correct plural noun: I can see five ___ in the garden.",
       "options": [
         "flowers",
         "flower",
@@ -2806,7 +2826,7 @@
     {
       "id": "countable-uncountable-ex-73",
       "type": "fill_blank",
-      "question": "Fill in the correct **quantifier**: Do you have ___ salt?",
+      "question": "Fill in the correct quantifier: Do you have ___ salt?",
       "options": [
         "any",
         "a",
@@ -2842,7 +2862,7 @@
     {
       "id": "countable-uncountable-ex-74",
       "type": "fill_blank",
-      "question": "Fill in the correct **question word**: How ___ water is in the bottle?",
+      "question": "Fill in the correct question word: How ___ water is in the bottle?",
       "options": [
         "much",
         "many",
@@ -2878,7 +2898,7 @@
     {
       "id": "countable-uncountable-ex-75",
       "type": "fill_blank",
-      "question": "Fill in the correct **measure phrase**: Please give me a ___ of bread.",
+      "question": "Fill in the correct measure phrase: Please give me a ___ of bread.",
       "options": [
         "slice",
         "cup",
@@ -2914,7 +2934,7 @@
     {
       "id": "countable-uncountable-ex-76",
       "type": "fill_blank",
-      "question": "Fill in the correct **noun form**: My mother bought four ___ for the kitchen.",
+      "question": "Fill in the correct noun form: My mother bought four ___ for the kitchen.",
       "options": [
         "plates",
         "plate",
@@ -2950,7 +2970,7 @@
     {
       "id": "countable-uncountable-ex-77",
       "type": "fill_blank",
-      "question": "Fill in the correct **quantifier**: There are ___ tomatoes in the fridge.",
+      "question": "Fill in the correct quantifier: There are ___ tomatoes in the fridge.",
       "options": [
         "some",
         "much",
@@ -2986,7 +3006,7 @@
     {
       "id": "countable-uncountable-ex-78",
       "type": "fill_blank",
-      "question": "Fill in the correct **article**: He is reading ___ interesting book.",
+      "question": "Fill in the correct article: He is reading ___ interesting book.",
       "options": [
         "an",
         "a",
@@ -3022,7 +3042,7 @@
     {
       "id": "countable-uncountable-ex-79",
       "type": "error_correction",
-      "question": "Find the error: I need two **waters** after the game.",
+      "question": "Find the error: I need two waters after the game.",
       "options": [
         "I",
         "need",
@@ -3058,7 +3078,7 @@
     {
       "id": "countable-uncountable-ex-80",
       "type": "error_correction",
-      "question": "Find the error: There is a lot of **cars** on the street.",
+      "question": "Find the error: There is a lot of cars on the street.",
       "options": [
         "There is",
         "a lot of",
@@ -3094,7 +3114,7 @@
     {
       "id": "countable-uncountable-ex-81",
       "type": "error_correction",
-      "question": "Find the error: She wants many **butter** on her toast.",
+      "question": "Find the error: She wants many butter on her toast.",
       "options": [
         "She",
         "wants",
@@ -3130,7 +3150,7 @@
     {
       "id": "countable-uncountable-ex-82",
       "type": "error_correction",
-      "question": "Find the error: We have three **mouse** in the classroom.",
+      "question": "Find the error: We have three mouse in the classroom.",
       "options": [
         "We",
         "have",
@@ -3166,7 +3186,7 @@
     {
       "id": "countable-uncountable-ex-83",
       "type": "error_correction",
-      "question": "Find the error: He gave me a **homework** yesterday.",
+      "question": "Find the error: He gave me a homework yesterday.",
       "options": [
         "He",
         "gave",
@@ -3202,7 +3222,7 @@
     {
       "id": "countable-uncountable-ex-84",
       "type": "error_correction",
-      "question": "Find the error: I don't have many **money** today.",
+      "question": "Find the error: I don't have many money today.",
       "options": [
         "I",
         "don't have",
@@ -3238,7 +3258,7 @@
     {
       "id": "countable-uncountable-ex-85",
       "type": "error_correction",
-      "question": "Find the error: There are two **person** at the door.",
+      "question": "Find the error: There are two person at the door.",
       "options": [
         "There are",
         "two person",
@@ -3274,7 +3294,7 @@
     {
       "id": "countable-uncountable-ex-86",
       "type": "error_correction",
-      "question": "Find the error: Can I have an **cup** of tea?",
+      "question": "Find the error: Can I have an cup of tea?",
       "options": [
         "Can I have",
         "an cup",
@@ -3310,7 +3330,7 @@
     {
       "id": "countable-uncountable-ex-87",
       "type": "multiple_choice",
-      "question": "Choose the correct **quantifier**: There are ___ eggs in the box.",
+      "question": "There are ___ eggs in the box.",
       "options": [
         "many",
         "much",
@@ -3346,7 +3366,7 @@
     {
       "id": "countable-uncountable-ex-88",
       "type": "multiple_choice",
-      "question": "Choose the correct **article**: I saw ___ elephant at the zoo.",
+      "question": "I saw ___ elephant at the zoo.",
       "options": [
         "an",
         "a",
@@ -3382,7 +3402,7 @@
     {
       "id": "countable-uncountable-ex-89",
       "type": "multiple_choice",
-      "question": "Choose the correct **measure phrase**: Please buy a ___ of toothpaste.",
+      "question": "Please buy a ___ of toothpaste.",
       "options": [
         "tube",
         "slice",
@@ -3418,7 +3438,7 @@
     {
       "id": "countable-uncountable-ex-90",
       "type": "multiple_choice",
-      "question": "Choose the correct **quantifier**: There is ___ rice in the bowl.",
+      "question": "There is ___ rice in the bowl.",
       "options": [
         "some",
         "many",
@@ -3454,7 +3474,7 @@
     {
       "id": "countable-uncountable-ex-91",
       "type": "fill_blank",
-      "question": "Fill in the correct **article**: She wants ___ sandwich for lunch.",
+      "question": "Fill in the correct article: She wants ___ sandwich for lunch.",
       "options": [
         "a",
         "an",
@@ -3490,7 +3510,7 @@
     {
       "id": "countable-uncountable-ex-92",
       "type": "fill_blank",
-      "question": "Fill in the correct **plural noun**: Two ___ stop here every morning.",
+      "question": "Fill in the correct plural noun: Two ___ stop here every morning.",
       "options": [
         "buses",
         "bus",
@@ -3526,7 +3546,7 @@
     {
       "id": "countable-uncountable-ex-93",
       "type": "fill_blank",
-      "question": "Fill in the correct **quantifier**: There isn't ___ coffee in the pot.",
+      "question": "Fill in the correct quantifier: There isn't ___ coffee in the pot.",
       "options": [
         "much",
         "many",
@@ -3562,7 +3582,7 @@
     {
       "id": "countable-uncountable-ex-94",
       "type": "fill_blank",
-      "question": "Fill in the correct **measure phrase**: He eats a ___ of soup for dinner.",
+      "question": "Fill in the correct measure phrase: He eats a ___ of soup for dinner.",
       "options": [
         "bowl",
         "can",
@@ -3598,7 +3618,7 @@
     {
       "id": "countable-uncountable-ex-95",
       "type": "fill_blank",
-      "question": "Fill in the correct **noun form**: Put the two ___ on the table.",
+      "question": "Fill in the correct noun form: Put the two ___ on the table.",
       "options": [
         "knives",
         "knife",
@@ -3634,7 +3654,7 @@
     {
       "id": "countable-uncountable-ex-96",
       "type": "error_correction",
-      "question": "Find the error: I bought three **bread** at the bakery.",
+      "question": "Find the error: I bought three bread at the bakery.",
       "options": [
         "I",
         "bought",
@@ -3670,7 +3690,7 @@
     {
       "id": "countable-uncountable-ex-97",
       "type": "error_correction",
-      "question": "Find the error: There aren't **much** bananas in the basket.",
+      "question": "Find the error: There aren't much bananas in the basket.",
       "options": [
         "There aren't",
         "much",
@@ -3706,7 +3726,7 @@
     {
       "id": "countable-uncountable-ex-98",
       "type": "error_correction",
-      "question": "Find the error: She has a lot of **furnitures** in her room.",
+      "question": "Find the error: She has a lot of furnitures in her room.",
       "options": [
         "She has",
         "a lot of",
@@ -3742,7 +3762,7 @@
     {
       "id": "countable-uncountable-ex-99",
       "type": "error_correction",
-      "question": "Find the error: This **luggage** are heavy at the airport.",
+      "question": "Find the error: This luggage are heavy at the airport.",
       "options": [
         "This luggage",
         "are",
@@ -3778,7 +3798,7 @@
     {
       "id": "countable-uncountable-ex-100",
       "type": "error_correction",
-      "question": "Find the **error**: She gave me an **advice** about my studies.",
+      "question": "Find the error: She gave me an advice about my studies.",
       "options": [
         "She gave",
         "me",

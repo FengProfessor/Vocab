@@ -4,7 +4,9 @@ import React from 'react';
 import { Clock, Info, CheckCircle2 } from 'lucide-react';
 
 interface TenseTimelineProps {
-  lessonTitle: string;
+  lessonTitle?: string;
+  slug?: string;
+  titleVi?: string;
 }
 
 interface TenseDetail {
@@ -168,13 +170,32 @@ const TENSE_DATA: Record<string, TenseDetail> = {
       );
     }
   },
+  past_perfect_continuous: {
+    id: 'past_perfect_continuous',
+    nameVi: 'Thì Quá khứ hoàn thành tiếp diễn',
+    nameEn: 'Past Perfect Continuous Tense',
+    formula: 'S + had + been + V-ing + O',
+    usage: 'Nhấn mạnh tính liên tục của một hành động đang kéo dài trước một thời điểm hoặc hành động khác trong quá khứ.',
+    markers: ['for + khoảng thời gian + before', 'since', 'until then', 'how long ... before'],
+    timelineSvg: (w, h) => {
+      const cy = h / 2;
+      return (
+        <g>
+          <path d={`M ${w * 0.14} ${cy - 4} Q ${w * 0.2} ${cy - 12}, ${w * 0.25} ${cy - 4} T ${w * 0.34} ${cy - 4}`}
+                fill="none" stroke="var(--color-purple-500, #a855f7)" strokeWidth="2.5" />
+          <circle cx={w * 0.35} cy={cy} r="5" className="fill-rose-500" />
+          <text x={w * 0.24} y={cy - 16} textAnchor="middle" className="text-[9px] fill-purple-600 font-bold">Kéo dài liên tục trước mốc QK</text>
+        </g>
+      );
+    }
+  },
   future_simple: {
     id: 'future_simple',
-    nameVi: 'Thì Tương lai đơn',
-    nameEn: 'Future Simple Tense',
+    nameVi: 'Thì Tương lai đơn (will)',
+    nameEn: 'Future Simple Tense (will)',
     formula: 'S + will + V-inf + O',
-    usage: 'Diễn tả một quyết định ngay tại thời điểm nói, một dự đoán không có căn cứ, hoặc một lời hứa.',
-    markers: ['tomorrow', 'next week/year', 'in the future', 'in + khoảng thời gian (in 5 minutes)'],
+    usage: 'Diễn tả một quyết định ngay tại thời điểm nói, một dự đoán, hoặc một lời hứa/đề nghị.',
+    markers: ['tomorrow', 'next week/year', 'in the future', 'I think / I promise'],
     timelineSvg: (w, h) => {
       const cy = h / 2;
       return (
@@ -183,6 +204,44 @@ const TENSE_DATA: Record<string, TenseDetail> = {
           <polygon points={`${w * 0.75},${cy - 8} ${w * 0.75 + 2},${cy - 2} ${w * 0.75 + 8},${cy - 2} ${w * 0.75 + 3},${cy + 2} ${w * 0.75 + 5},${cy + 8} ${w * 0.75},${cy + 4} ${w * 0.75 - 5},${cy + 8} ${w * 0.75 - 3},${cy + 2} ${w * 0.75 - 8},${cy - 2} ${w * 0.75 - 2},${cy - 2}`} 
                    className="fill-sky-500 animate-spin" style={{ transformOrigin: `${w * 0.75}px ${cy}px`, animationDuration: '6s' }} />
           <text x={w * 0.75} y={cy - 16} textAnchor="middle" className="text-[10px] fill-sky-600 font-bold uppercase tracking-wider">Sẽ xảy ra</text>
+        </g>
+      );
+    }
+  },
+  be_going_to: {
+    id: 'be_going_to',
+    nameVi: 'Tương lai gần (be going to)',
+    nameEn: 'Near Future (be going to)',
+    formula: 'S + am/is/are + going to + V-inf + O',
+    usage: 'Diễn tả kế hoạch/dự định đã quyết định từ trước lúc nói, hoặc dự đoán tương lai có dấu hiệu rõ ràng ở hiện tại.',
+    markers: ['tomorrow', 'tonight', 'next week', 'Look at those clouds!'],
+    timelineSvg: (w, h) => {
+      const cy = h / 2;
+      return (
+        <g>
+          <circle cx={w * 0.5} cy={cy} r="4" className="fill-indigo-600" />
+          <path d={`M ${w * 0.5} ${cy} L ${w * 0.72} ${cy}`} stroke="var(--color-indigo-500, #6366f1)" strokeWidth="2.5" strokeDasharray="4 2" />
+          <circle cx={w * 0.74} cy={cy} r="6" className="fill-sky-600" />
+          <text x={w * 0.62} y={cy - 14} textAnchor="middle" className="text-[9px] fill-indigo-600 font-bold">Dự định từ hiện tại → Sắp xảy ra</text>
+        </g>
+      );
+    }
+  },
+  future_continuous: {
+    id: 'future_continuous',
+    nameVi: 'Thì Tương lai tiếp diễn',
+    nameEn: 'Future Continuous Tense',
+    formula: 'S + will + be + V-ing + O',
+    usage: 'Diễn tả hành động sẽ đang diễn ra tại một thời điểm xác định cụ thể trong tương lai.',
+    markers: ['at this time tomorrow', 'at 8 a.m. tomorrow', 'when + mệnh đề hiện tại đơn'],
+    timelineSvg: (w, h) => {
+      const cy = h / 2;
+      return (
+        <g>
+          <path d={`M ${w * 0.65} ${cy - 5} Q ${w * 0.7} ${cy - 12}, ${w * 0.75} ${cy - 5} T ${w * 0.85} ${cy - 5}`}
+                fill="none" stroke="var(--color-sky-500, #0ea5e9)" strokeWidth="3" />
+          <circle cx={w * 0.75} cy={cy - 5} r="4" className="fill-sky-600 animate-pulse" />
+          <text x={w * 0.75} y={cy - 18} textAnchor="middle" className="text-[10px] fill-sky-600 font-bold uppercase tracking-wider">Sẽ đang diễn ra</text>
         </g>
       );
     }
@@ -206,14 +265,33 @@ const TENSE_DATA: Record<string, TenseDetail> = {
         </g>
       );
     }
+  },
+  future_in_the_past: {
+    id: 'future_in_the_past',
+    nameVi: 'Tương lai trong quá khứ',
+    nameEn: 'Future in the Past',
+    formula: 'S + would + V-inf / was/were going to + V-inf',
+    usage: 'Diễn tả một dự định hoặc dự đoán về tương lai được nhìn từ một thời điểm trong quá khứ.',
+    markers: ['said that ... would', 'thought ... was going to', 'promised that ... would'],
+    timelineSvg: (w, h) => {
+      const cy = h / 2;
+      return (
+        <g>
+          <circle cx={w * 0.22} cy={cy} r="5" className="fill-amber-600" />
+          <path d={`M ${w * 0.22} ${cy} L ${w * 0.42} ${cy}`} stroke="var(--color-amber-500, #f59e0b)" strokeWidth="2" strokeDasharray="4 2" />
+          <circle cx={w * 0.42} cy={cy} r="5" className="fill-sky-600" />
+          <text x={w * 0.32} y={cy - 14} textAnchor="middle" className="text-[9px] fill-amber-700 font-bold">Từ QK nhìn về tương lai</text>
+        </g>
+      );
+    }
   }
 };
 
 /**
- * Phân tích tiêu đề bài học và trả về khóa của thì tương ứng (nếu khớp)
+ * Phân tích tiêu đề bài học hoặc slug và trả về khóa của thì tương ứng (nếu khớp)
  */
 function detectTense(title: string): TenseDetail | null {
-  const norm = title.toLowerCase();
+  const norm = title.toLowerCase().replace(/[-_]+/g, ' ');
   
   if (norm.includes('hiện tại đơn') || norm.includes('present simple')) {
     return TENSE_DATA.present_simple;
@@ -221,33 +299,62 @@ function detectTense(title: string): TenseDetail | null {
   if (norm.includes('hiện tại tiếp diễn') || norm.includes('present continuous')) {
     return TENSE_DATA.present_continuous;
   }
-  if (norm.includes('hiện tại hoàn thành tiếp diễn') || norm.includes('present perfect continuous')) {
+  if (
+    norm.includes('hiện tại hoàn thành tiếp diễn') ||
+    norm.includes('present perfect continuous') ||
+    norm.includes('present perfect progressive')
+  ) {
     return TENSE_DATA.present_perfect_continuous;
   }
   if (norm.includes('hiện tại hoàn thành') || norm.includes('present perfect')) {
     return TENSE_DATA.present_perfect;
   }
-  if (norm.includes('quá khứ đơn') || norm.includes('past simple') || norm.includes('simple past')) {
-    return TENSE_DATA.past_simple;
-  }
-  if (norm.includes('quá khứ tiếp diễn') || norm.includes('past continuous')) {
-    return TENSE_DATA.past_continuous;
+  if (
+    norm.includes('quá khứ hoàn thành tiếp diễn') ||
+    norm.includes('past perfect continuous') ||
+    norm.includes('past perfect progressive')
+  ) {
+    return TENSE_DATA.past_perfect_continuous;
   }
   if (norm.includes('quá khứ hoàn thành') || norm.includes('past perfect')) {
     return TENSE_DATA.past_perfect;
   }
+  if (norm.includes('quá khứ tiếp diễn') || norm.includes('past continuous')) {
+    return TENSE_DATA.past_continuous;
+  }
+  if (norm.includes('quá khứ đơn') || norm.includes('past simple') || norm.includes('simple past')) {
+    return TENSE_DATA.past_simple;
+  }
+  if (norm.includes('tương lai trong quá khứ') || norm.includes('future in the past')) {
+    return TENSE_DATA.future_in_the_past;
+  }
   if (norm.includes('tương lai hoàn thành') || norm.includes('future perfect')) {
     return TENSE_DATA.future_perfect;
   }
-  if (norm.includes('tương lai đơn') || norm.includes('future simple') || norm.includes('simple future')) {
+  if (
+    norm.includes('tương lai tiếp diễn') ||
+    norm.includes('future continuous') ||
+    norm.includes('future progressive')
+  ) {
+    return TENSE_DATA.future_continuous;
+  }
+  if (norm.includes('tương lai gần') || norm.includes('going to')) {
+    return TENSE_DATA.be_going_to;
+  }
+  if (
+    norm.includes('tương lai đơn') ||
+    norm.includes('future simple') ||
+    norm.includes('simple future') ||
+    norm.includes('future will')
+  ) {
     return TENSE_DATA.future_simple;
   }
   
   return null;
 }
 
-export default function TenseTimeline({ lessonTitle }: TenseTimelineProps) {
-  const tense = detectTense(lessonTitle);
+export default function TenseTimeline({ lessonTitle, slug, titleVi }: TenseTimelineProps) {
+  const tense = detectTense(`${lessonTitle || ''} ${titleVi || ''} ${slug || ''}`.trim());
   if (!tense) return null;
 
   const width = 480;
@@ -261,8 +368,8 @@ export default function TenseTimeline({ lessonTitle }: TenseTimelineProps) {
           <Clock className="h-5 w-5" />
         </div>
         <div>
-          <div className="flex items-baseline gap-2">
-            <h4 className="font-serif font-semibold text-foreground text-lg leading-tight">{tense.nameVi}</h4>
+          <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+            <h4 className="font-sans font-bold text-foreground text-base sm:text-lg leading-tight">{tense.nameVi}</h4>
             <span className="text-[11px] font-mono tracking-widest text-muted-foreground uppercase">{tense.nameEn}</span>
           </div>
           <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">

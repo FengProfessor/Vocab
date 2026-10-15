@@ -14,7 +14,7 @@ export default function SvoSentenceDiagram() {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Layers className="h-4 w-4 text-primary" />
-          <h3 className="font-serif font-semibold text-foreground text-lg">Sơ đồ cấu trúc câu cơ bản (S – V – O)</h3>
+          <h3 className="font-sans font-bold text-foreground text-base sm:text-lg leading-snug">Sơ đồ cấu trúc câu cơ bản (S – V – O)</h3>
         </div>
         <span className="text-[11px] font-mono uppercase tracking-widest text-muted-foreground/80">
           Cấu trúc nền tảng
@@ -64,7 +64,7 @@ export default function SvoSentenceDiagram() {
         <div className="p-4 bg-muted/20 border border-border rounded-none flex flex-col justify-between space-y-3">
           <div>
             <div className="flex items-center justify-between mb-2">
-              <span className="h-7 w-7 rounded-none border border-emerald-300 dark:border-emerald-800 bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 font-bold text-sm flex items-center justify-center font-mono">O / C</span>
+              <span className="h-7 px-2 min-w-[28px] whitespace-nowrap rounded-none border border-emerald-300 dark:border-emerald-800 bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 font-bold text-xs sm:text-sm flex items-center justify-center font-mono">O / C</span>
               <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-none border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300">
                 Object / Comp
               </span>

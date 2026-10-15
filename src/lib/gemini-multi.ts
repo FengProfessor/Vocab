@@ -53,8 +53,8 @@ export function resolveGeminiModel(): string {
   const envModel =
     process.env.GEMINI_MODEL?.trim() ||
     process.env.GEMINI_PACK_MODEL?.trim();
-  if (!envModel || envModel === 'gemini-2.0-flash' || envModel === 'gemini-3.5-flash-lite') {
-    return 'gemini-3.6-flash';
+  if (!envModel || envModel === 'gemini-2.0-flash' || envModel === 'gemini-3.5-flash-lite' || envModel === 'gemini-3.6-flash' || envModel === 'gemini-2.5-flash') {
+    return 'gemini-3.8-flash';
   }
   return envModel;
 }
@@ -169,9 +169,9 @@ export async function geminiGenerate(
         continue;
       }
       if (/404|not found|no longer/i.test(msg)) {
-        if (modelName !== 'gemini-3.6-flash') {
-          console.warn(`${LOG} model ${modelName} returned 404, falling back to gemini-3.6-flash...`);
-          return geminiGenerate(prompt, { ...opts, model: 'gemini-3.6-flash' });
+        if (modelName !== 'gemini-3.8-flash') {
+          console.warn(`${LOG} model ${modelName} returned 404, falling back to gemini-3.8-flash...`);
+          return geminiGenerate(prompt, { ...opts, model: 'gemini-3.8-flash' });
         }
         throw new Error(`${LOG} model unavailable: ${modelName} · ${msg.slice(0, 160)}`);
       }

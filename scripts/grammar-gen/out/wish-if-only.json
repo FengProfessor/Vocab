@@ -381,26 +381,36 @@
   "exercises": [
     {
       "id": "wish-if-only-ex-01",
-      "type": "fill_blank",
-      "question": "I wish I ____ (speak) English fluently.",
-      "options": [],
+      "type": "multiple_choice",
+      "question": "I wish I ___ English fluently right now.",
+      "options": [
+        "spoke",
+        "speak",
+        "will speak",
+        "have spoken"
+      ],
       "correct_answer": "spoke",
-      "explanation": "Ước chuyện bây giờ → V2",
+      "explanation": "Ước một điều trái với thực tế ở HIỆN TẠI (\"right now\") ta lùi động từ về thì quá khứ đơn (\"spoke\").",
       "distractor_breakdowns": [
         {
           "option": "spoke",
           "isCorrect": true,
-          "pedagogicalReason": "Ước chuyện bây giờ → V2"
+          "pedagogicalReason": "Ước một điều trái với thực tế ở HIỆN TẠI (\"right now\") ta lùi động từ về thì quá khứ đơn (\"spoke\")."
         },
         {
           "option": "speak",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Câu ước cho điều không có thật ở hiện tại phải lùi một thì về quá khứ đơn (\"spoke\"), không dùng hiện tại \"speak\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"speak\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"spoke\"). Ước một điều trái với thực tế ở HIỆN TẠI (\"right now\") ta lùi động từ về thì quá khứ đơn (\"spoke\")."
         },
         {
           "option": "will speak",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Sau \"wish\" ước ở hiện tại không dùng \"will speak\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"will speak\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"spoke\"). Ước một điều trái với thực tế ở HIỆN TẠI (\"right now\") ta lùi động từ về thì quá khứ đơn (\"spoke\")."
+        },
+        {
+          "option": "have spoken",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have spoken\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"spoke\"). Ước một điều trái với thực tế ở HIỆN TẠI (\"right now\") ta lùi động từ về thì quá khứ đơn (\"spoke\")."
         }
       ],
       "difficulty": 1
@@ -408,51 +418,71 @@
     {
       "id": "wish-if-only-ex-02",
       "type": "fill_blank",
-      "question": "My sister wishes she ____ (be) a doctor.",
-      "options": [],
+      "question": "My sister wishes she ___ taller.",
+      "options": [
+        "were",
+        "is",
+        "will be",
+        "has been"
+      ],
       "correct_answer": "were",
-      "explanation": "Sau wish, động từ be luôn là were",
+      "explanation": "Sau \"wish\" ước cho hiện tại, động từ to be chuẩn mực dùng \"were\" cho tất cả các ngôi.",
       "distractor_breakdowns": [
         {
           "option": "were",
           "isCorrect": true,
-          "pedagogicalReason": "Sau wish, động từ be luôn là were"
-        },
-        {
-          "option": "was",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Trong văn phong học thuật chuẩn ETS, câu ước cho hiện tại quy chuẩn dùng to-be \"were\" cho tất cả các ngôi."
+          "pedagogicalReason": "Sau \"wish\" ước cho hiện tại, động từ to be chuẩn mực dùng \"were\" cho tất cả các ngôi."
         },
         {
           "option": "is",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Sau \"wish\" ước ở hiện tại bắt buộc phải lùi thì về quá khứ, không dùng hiện tại \"is\"."
+          "pedagogicalReason": "Không chính xác. Động từ to be số ít \"is\" không hòa hợp với chủ ngữ hoặc thì của câu (đáp án đúng là \"were\")."
+        },
+        {
+          "option": "will be",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will be\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"were\"). Sau \"wish\" ước cho hiện tại, động từ to be chuẩn mực dùng \"were\" cho tất cả các ngôi."
+        },
+        {
+          "option": "has been",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has been\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"were\"). Sau \"wish\" ước cho hiện tại, động từ to be chuẩn mực dùng \"were\" cho tất cả các ngôi."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "wish-if-only-ex-03",
-      "type": "fill_blank",
-      "question": "I wish it ____ (not / rain) so much these days.",
-      "options": [],
-      "correct_answer": "didn't rain",
-      "explanation": "these days = bây giờ → didn't + V",
+      "type": "multiple_choice",
+      "question": "I wish I ___ to bed earlier last night; I am so tired today.",
+      "options": [
+        "had gone",
+        "went",
+        "go",
+        "would go"
+      ],
+      "correct_answer": "had gone",
+      "explanation": "Ước/hối tiếc về một việc đã xảy ra trong QUÁ KHỨ (\"last night\") ta lùi về thì quá khứ hoàn thành: \"wish + S + had + V3/ed\" (\"had gone\").",
       "distractor_breakdowns": [
         {
-          "option": "didn't rain",
+          "option": "had gone",
           "isCorrect": true,
-          "pedagogicalReason": "these days = bây giờ → didn't + V"
+          "pedagogicalReason": "Ước/hối tiếc về một việc đã xảy ra trong QUÁ KHỨ (\"last night\") ta lùi về thì quá khứ hoàn thành: \"wish + S + had + V3/ed\" (\"had gone\")."
         },
         {
-          "option": "doesn't rain",
+          "option": "went",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Câu ước cho hiện tại phải lùi thì về quá khứ đơn (\"didn't rain\"), không dùng hiện tại đơn \"doesn't rain\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"went\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had gone\"). Ước/hối tiếc về một việc đã xảy ra trong QUÁ KHỨ (\"last night\") ta lùi về thì quá khứ hoàn thành: \"wish + S + had + V3/ed\" (\"had gone\")."
         },
         {
-          "option": "won't rain",
+          "option": "go",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Ước cho hiện tại không dùng \"won't rain\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"go\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had gone\"). Ước/hối tiếc về một việc đã xảy ra trong QUÁ KHỨ (\"last night\") ta lùi về thì quá khứ hoàn thành: \"wish + S + had + V3/ed\" (\"had gone\")."
+        },
+        {
+          "option": "would go",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"would go\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"had gone\"). Ước/hối tiếc về một việc đã xảy ra trong QUÁ KHỨ (\"last night\") ta lùi về thì quá khứ hoàn thành: \"wish + S + had + V3/ed\" (\"had gone\")."
         }
       ],
       "difficulty": 2
@@ -460,25 +490,35 @@
     {
       "id": "wish-if-only-ex-04",
       "type": "fill_blank",
-      "question": "I wish I ____ (go) to bed earlier last night.",
-      "options": [],
-      "correct_answer": "had gone",
-      "explanation": "last night = chuyện đã qua → had + V3",
+      "question": "If only it ___ stop raining! We want to go out.",
+      "options": [
+        "would",
+        "will",
+        "does",
+        "has"
+      ],
+      "correct_answer": "would",
+      "explanation": "Mong muốn sự việc thay đổi trong tương lai hoặc phàn nàn về tình trạng gây khó chịu dùng \"wish / if only + S + would + V\".",
       "distractor_breakdowns": [
         {
-          "option": "had gone",
+          "option": "would",
           "isCorrect": true,
-          "pedagogicalReason": "last night = chuyện đã qua → had + V3"
+          "pedagogicalReason": "Mong muốn sự việc thay đổi trong tương lai hoặc phàn nàn về tình trạng gây khó chịu dùng \"wish / if only + S + would + V\"."
         },
         {
-          "option": "went",
+          "option": "will",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Ước cho một sự việc trái với quá khứ (\"last night\") phải lùi thì về quá khứ hoàn thành (\"had gone\"), không dùng quá khứ đơn."
+          "pedagogicalReason": "Không chính xác. Phương án \"will\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"would\"). Mong muốn sự việc thay đổi trong tương lai hoặc phàn nàn về tình trạng gây khó chịu dùng \"wish / if only + S + would + V\"."
         },
         {
-          "option": "have gone",
+          "option": "does",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Sau \"wish\" ước cho quá khứ phải dùng \"had + V3\", không dùng \"have gone\"."
+          "pedagogicalReason": "Không chính xác. Trợ động từ \"does\" không phù hợp với ngôi của chủ ngữ hoặc cấu trúc của câu (đáp án đúng là \"would\")."
+        },
+        {
+          "option": "has",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"has\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"would\"). Mong muốn sự việc thay đổi trong tương lai hoặc phàn nàn về tình trạng gây khó chịu dùng \"wish / if only + S + would + V\"."
         }
       ],
       "difficulty": 2
@@ -486,35 +526,287 @@
     {
       "id": "wish-if-only-ex-05",
       "type": "multiple_choice",
-      "question": "Chọn từ có phát âm hoặc trọng âm khác với các từ còn lại:",
+      "question": "Nam wishes he ___ his mother's favourite vase yesterday.",
       "options": [
-        "devoted",
-        "suggested",
-        "provided",
-        "wished"
+        "hadn't broken",
+        "didn't break",
+        "doesn't break",
+        "wouldn't break"
       ],
-      "correct_answer": "wished",
-      "explanation": "wished: trước -ed là /ʃ/ → /t/ · ba từ kia sau t/d → /ɪd/",
+      "correct_answer": "hadn't broken",
+      "explanation": "Hối tiếc về sự việc ngày hôm qua (\"yesterday\") dùng quá khứ hoàn thành phủ định: \"hadn't broken\".",
       "distractor_breakdowns": [
         {
-          "option": "devoted",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"devoted\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "suggested",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"suggested\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "provided",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"provided\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
-        },
-        {
-          "option": "wished",
+          "option": "hadn't broken",
           "isCorrect": true,
-          "pedagogicalReason": "wished: trước -ed là /ʃ/ → /t/ · ba từ kia sau t/d → /ɪd/"
+          "pedagogicalReason": "Hối tiếc về sự việc ngày hôm qua (\"yesterday\") dùng quá khứ hoàn thành phủ định: \"hadn't broken\"."
+        },
+        {
+          "option": "didn't break",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"didn't break\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"hadn't broken\"). Hối tiếc về sự việc ngày hôm qua (\"yesterday\") dùng quá khứ hoàn thành phủ định: \"hadn't broken\"."
+        },
+        {
+          "option": "doesn't break",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"doesn't break\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"hadn't broken\"). Hối tiếc về sự việc ngày hôm qua (\"yesterday\") dùng quá khứ hoàn thành phủ định: \"hadn't broken\"."
+        },
+        {
+          "option": "wouldn't break",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"wouldn't break\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"hadn't broken\"). Hối tiếc về sự việc ngày hôm qua (\"yesterday\") dùng quá khứ hoàn thành phủ định: \"hadn't broken\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wish-if-only-ex-06",
+      "type": "fill_blank",
+      "question": "I live far from school. I wish I ___ closer to school.",
+      "options": [
+        "lived",
+        "live",
+        "will live",
+        "have lived"
+      ],
+      "correct_answer": "lived",
+      "explanation": "Thực tế hiện tại là \"I live far from school\" → ước trái hiện tại dùng quá khứ đơn \"lived\".",
+      "distractor_breakdowns": [
+        {
+          "option": "lived",
+          "isCorrect": true,
+          "pedagogicalReason": "Thực tế hiện tại là \"I live far from school\" → ước trái hiện tại dùng quá khứ đơn \"lived\"."
+        },
+        {
+          "option": "live",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"live\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"lived\"). Thực tế hiện tại là \"I live far from school\" → ước trái hiện tại dùng quá khứ đơn \"lived\"."
+        },
+        {
+          "option": "will live",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will live\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"lived\"). Thực tế hiện tại là \"I live far from school\" → ước trái hiện tại dùng quá khứ đơn \"lived\"."
+        },
+        {
+          "option": "have lived",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have lived\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"lived\"). Thực tế hiện tại là \"I live far from school\" → ước trái hiện tại dùng quá khứ đơn \"lived\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wish-if-only-ex-07",
+      "type": "multiple_choice",
+      "question": "If only I ___ her phone number now!",
+      "options": [
+        "knew",
+        "know",
+        "will know",
+        "have known"
+      ],
+      "correct_answer": "knew",
+      "explanation": "\"If only\" = \"I wish\". Ước biết số điện thoại ở hiện tại (\"now\") → dùng quá khứ đơn \"knew\".",
+      "distractor_breakdowns": [
+        {
+          "option": "knew",
+          "isCorrect": true,
+          "pedagogicalReason": "\"If only\" = \"I wish\". Ước biết số điện thoại ở hiện tại (\"now\") → dùng quá khứ đơn \"knew\"."
+        },
+        {
+          "option": "know",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"know\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"knew\"). \"If only\" = \"I wish\". Ước biết số điện thoại ở hiện tại (\"now\") → dùng quá khứ đơn \"knew\"."
+        },
+        {
+          "option": "will know",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will know\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"knew\"). \"If only\" = \"I wish\". Ước biết số điện thoại ở hiện tại (\"now\") → dùng quá khứ đơn \"knew\"."
+        },
+        {
+          "option": "have known",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"have known\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"knew\"). \"If only\" = \"I wish\". Ước biết số điện thoại ở hiện tại (\"now\") → dùng quá khứ đơn \"knew\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wish-if-only-ex-08",
+      "type": "fill_blank",
+      "question": "She wishes her brother ___ leave his dirty clothes on the floor all the time.",
+      "options": [
+        "wouldn't",
+        "won't",
+        "doesn't",
+        "hasn't"
+      ],
+      "correct_answer": "wouldn't",
+      "explanation": "Phàn nàn về thói quen xấu gây bực mình của người khác (\"all the time\") mong họ thay đổi → dùng \"wish + S + wouldn't + V\".",
+      "distractor_breakdowns": [
+        {
+          "option": "wouldn't",
+          "isCorrect": true,
+          "pedagogicalReason": "Phàn nàn về thói quen xấu gây bực mình của người khác (\"all the time\") mong họ thay đổi → dùng \"wish + S + wouldn't + V\"."
+        },
+        {
+          "option": "won't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"won't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wouldn't\"). Phàn nàn về thói quen xấu gây bực mình của người khác (\"all the time\") mong họ thay đổi → dùng \"wish + S + wouldn't + V\"."
+        },
+        {
+          "option": "doesn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"doesn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wouldn't\"). Phàn nàn về thói quen xấu gây bực mình của người khác (\"all the time\") mong họ thay đổi → dùng \"wish + S + wouldn't + V\"."
+        },
+        {
+          "option": "hasn't",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"hasn't\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"wouldn't\"). Phàn nàn về thói quen xấu gây bực mình của người khác (\"all the time\") mong họ thay đổi → dùng \"wish + S + wouldn't + V\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wish-if-only-ex-09",
+      "type": "multiple_choice",
+      "question": "We wish we ___ travel with you to Da Nang next week, but we have exams.",
+      "options": [
+        "could",
+        "can",
+        "will",
+        "may"
+      ],
+      "correct_answer": "could",
+      "explanation": "Ước có khả năng làm gì ở hiện tại/tương lai gần (nhưng thực tế không thể vì vướng thi) → lùi \"can\" thành \"could\".",
+      "distractor_breakdowns": [
+        {
+          "option": "could",
+          "isCorrect": true,
+          "pedagogicalReason": "Ước có khả năng làm gì ở hiện tại/tương lai gần (nhưng thực tế không thể vì vướng thi) → lùi \"can\" thành \"could\"."
+        },
+        {
+          "option": "can",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"can\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"could\"). Ước có khả năng làm gì ở hiện tại/tương lai gần (nhưng thực tế không thể vì vướng thi) → lùi \"can\" thành \"could\"."
+        },
+        {
+          "option": "will",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"will\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"could\"). Ước có khả năng làm gì ở hiện tại/tương lai gần (nhưng thực tế không thể vì vướng thi) → lùi \"can\" thành \"could\"."
+        },
+        {
+          "option": "may",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"may\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"could\"). Ước có khả năng làm gì ở hiện tại/tương lai gần (nhưng thực tế không thể vì vướng thi) → lùi \"can\" thành \"could\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wish-if-only-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: I wish I have enough money to buy that laptop right now.",
+      "options": [
+        "wish",
+        "have",
+        "enough money",
+        "right now"
+      ],
+      "correct_answer": "have",
+      "explanation": "Sau \"wish\" không bao giờ dùng thì hiện tại đơn. Ước cho hiện tại (\"right now\") phải lùi về quá khứ đơn: sửa \"have\" thành \"had\".",
+      "distractor_breakdowns": [
+        {
+          "option": "wish",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"wish\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "have",
+          "isCorrect": true,
+          "pedagogicalReason": "Sau \"wish\" không bao giờ dùng thì hiện tại đơn. Ước cho hiện tại (\"right now\") phải lùi về quá khứ đơn: sửa \"have\" thành \"had\"."
+        },
+        {
+          "option": "enough money",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"enough money\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "right now",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"right now\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wish-if-only-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: She wishes she didn't say those unkind words to him yesterday.",
+      "options": [
+        "wishes",
+        "didn't say",
+        "unkind words",
+        "yesterday"
+      ],
+      "correct_answer": "didn't say",
+      "explanation": "Ước trái ngược với quá khứ (\"yesterday\") phải dùng quá khứ hoàn thành: sửa \"didn't say\" thành \"hadn't said\".",
+      "distractor_breakdowns": [
+        {
+          "option": "wishes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"wishes\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "didn't say",
+          "isCorrect": true,
+          "pedagogicalReason": "Ước trái ngược với quá khứ (\"yesterday\") phải dùng quá khứ hoàn thành: sửa \"didn't say\" thành \"hadn't said\"."
+        },
+        {
+          "option": "unkind words",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"unkind words\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "yesterday",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"yesterday\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "wish-if-only-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: I wish I would be taller so I could join the basketball team.",
+      "options": [
+        "wish",
+        "would be",
+        "taller",
+        "could join"
+      ],
+      "correct_answer": "would be",
+      "explanation": "Không dùng \"wish + would\" khi cùng chủ ngữ (\"I wish I...\") để ước cho trạng thái bản thân ở hiện tại. Phải sửa \"would be\" thành \"were\".",
+      "distractor_breakdowns": [
+        {
+          "option": "wish",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"wish\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "would be",
+          "isCorrect": true,
+          "pedagogicalReason": "Không dùng \"wish + would\" khi cùng chủ ngữ (\"I wish I...\") để ước cho trạng thái bản thân ở hiện tại. Phải sửa \"would be\" thành \"were\"."
+        },
+        {
+          "option": "taller",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"taller\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "could join",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"could join\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
       "difficulty": 3

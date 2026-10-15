@@ -319,29 +319,435 @@
   "exercises": [
     {
       "id": "wh-questions-ex-01",
-      "type": "fill_blank",
-      "question": "Hoàn thành theo mẫu: Why ___ she upset?",
-      "options": [],
-      "correct_answer": "was",
-      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "type": "multiple_choice",
+      "question": "___ is your full name? — My name is Minh.",
+      "options": [
+        "What",
+        "Where",
+        "When",
+        "Who"
+      ],
+      "correct_answer": "What",
+      "explanation": "Hỏi thông tin/tên gọi (\"tên của bạn là gì\") ta dùng từ để hỏi \"What\".",
       "distractor_breakdowns": [
         {
-          "option": "was",
+          "option": "What",
           "isCorrect": true,
-          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+          "pedagogicalReason": "Hỏi thông tin/tên gọi (\"tên của bạn là gì\") ta dùng từ để hỏi \"What\"."
         },
         {
-          "option": "were",
+          "option": "Where",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Chủ ngữ \"she\" là ngôi thứ ba số ít, to-be ở quá khứ phải là \"was\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"Where\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"What\"). Hỏi thông tin/tên gọi (\"tên của bạn là gì\") ta dùng từ để hỏi \"What\"."
+        },
+        {
+          "option": "When",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"When\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"What\"). Hỏi thông tin/tên gọi (\"tên của bạn là gì\") ta dùng từ để hỏi \"What\"."
+        },
+        {
+          "option": "Who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Who\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"What\"). Hỏi thông tin/tên gọi (\"tên của bạn là gì\") ta dùng từ để hỏi \"What\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wh-questions-ex-02",
+      "type": "multiple_choice",
+      "question": "___ do you live? — I live in Da Nang.",
+      "options": [
+        "Where",
+        "What",
+        "Who",
+        "Why"
+      ],
+      "correct_answer": "Where",
+      "explanation": "Câu trả lời chỉ nơi chốn/địa điểm (\"in Da Nang\") nên dùng từ để hỏi \"Where\" (Ở đâu).",
+      "distractor_breakdowns": [
+        {
+          "option": "Where",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu trả lời chỉ nơi chốn/địa điểm (\"in Da Nang\") nên dùng từ để hỏi \"Where\" (Ở đâu)."
+        },
+        {
+          "option": "What",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"What\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Where\"). Câu trả lời chỉ nơi chốn/địa điểm (\"in Da Nang\") nên dùng từ để hỏi \"Where\" (Ở đâu)."
+        },
+        {
+          "option": "Who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Who\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Where\"). Câu trả lời chỉ nơi chốn/địa điểm (\"in Da Nang\") nên dùng từ để hỏi \"Where\" (Ở đâu)."
+        },
+        {
+          "option": "Why",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Why\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Where\"). Câu trả lời chỉ nơi chốn/địa điểm (\"in Da Nang\") nên dùng từ để hỏi \"Where\" (Ở đâu)."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wh-questions-ex-03",
+      "type": "fill_blank",
+      "question": "___ does the movie start? — At 7:30 p.m.",
+      "options": [
+        "When",
+        "Where",
+        "Who",
+        "Why"
+      ],
+      "correct_answer": "When",
+      "explanation": "Câu trả lời chỉ mốc thời gian (\"At 7:30 p.m.\") nên dùng từ để hỏi \"When\" (Khi nào).",
+      "distractor_breakdowns": [
+        {
+          "option": "When",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu trả lời chỉ mốc thời gian (\"At 7:30 p.m.\") nên dùng từ để hỏi \"When\" (Khi nào)."
+        },
+        {
+          "option": "Where",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Where\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"When\"). Câu trả lời chỉ mốc thời gian (\"At 7:30 p.m.\") nên dùng từ để hỏi \"When\" (Khi nào)."
+        },
+        {
+          "option": "Who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Who\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"When\"). Câu trả lời chỉ mốc thời gian (\"At 7:30 p.m.\") nên dùng từ để hỏi \"When\" (Khi nào)."
+        },
+        {
+          "option": "Why",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Why\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"When\"). Câu trả lời chỉ mốc thời gian (\"At 7:30 p.m.\") nên dùng từ để hỏi \"When\" (Khi nào)."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wh-questions-ex-04",
+      "type": "fill_blank",
+      "question": "___ is that woman over there? — She is our new teacher.",
+      "options": [
+        "Who",
+        "What",
+        "Which",
+        "Where"
+      ],
+      "correct_answer": "Who",
+      "explanation": "Câu trả lời chỉ con người (\"our new teacher\") nên dùng từ để hỏi \"Who\" (Ai).",
+      "distractor_breakdowns": [
+        {
+          "option": "Who",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu trả lời chỉ con người (\"our new teacher\") nên dùng từ để hỏi \"Who\" (Ai)."
+        },
+        {
+          "option": "What",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"What\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Who\"). Câu trả lời chỉ con người (\"our new teacher\") nên dùng từ để hỏi \"Who\" (Ai)."
+        },
+        {
+          "option": "Which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Which\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Who\"). Câu trả lời chỉ con người (\"our new teacher\") nên dùng từ để hỏi \"Who\" (Ai)."
+        },
+        {
+          "option": "Where",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Where\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Who\"). Câu trả lời chỉ con người (\"our new teacher\") nên dùng từ để hỏi \"Who\" (Ai)."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wh-questions-ex-05",
+      "type": "multiple_choice",
+      "question": "___ are you late this morning? — Because my bike broke down.",
+      "options": [
+        "Why",
+        "How",
+        "When",
+        "Where"
+      ],
+      "correct_answer": "Why",
+      "explanation": "Câu trả lời bắt đầu bằng \"Because...\" (nêu lý do) nên câu hỏi bắt đầu bằng \"Why\" (Tại sao).",
+      "distractor_breakdowns": [
+        {
+          "option": "Why",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu trả lời bắt đầu bằng \"Because...\" (nêu lý do) nên câu hỏi bắt đầu bằng \"Why\" (Tại sao)."
+        },
+        {
+          "option": "How",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"How\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Why\"). Câu trả lời bắt đầu bằng \"Because...\" (nêu lý do) nên câu hỏi bắt đầu bằng \"Why\" (Tại sao)."
+        },
+        {
+          "option": "When",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"When\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Why\"). Câu trả lời bắt đầu bằng \"Because...\" (nêu lý do) nên câu hỏi bắt đầu bằng \"Why\" (Tại sao)."
+        },
+        {
+          "option": "Where",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Where\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Why\"). Câu trả lời bắt đầu bằng \"Because...\" (nêu lý do) nên câu hỏi bắt đầu bằng \"Why\" (Tại sao)."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wh-questions-ex-06",
+      "type": "fill_blank",
+      "question": "___ do you go to school every day? — By bus.",
+      "options": [
+        "How",
+        "Where",
+        "When",
+        "Who"
+      ],
+      "correct_answer": "How",
+      "explanation": "Hỏi về phương tiện/cách thức (\"By bus\" - bằng xe buýt) ta dùng từ để hỏi \"How\" (Bằng cách nào).",
+      "distractor_breakdowns": [
+        {
+          "option": "How",
+          "isCorrect": true,
+          "pedagogicalReason": "Hỏi về phương tiện/cách thức (\"By bus\" - bằng xe buýt) ta dùng từ để hỏi \"How\" (Bằng cách nào)."
+        },
+        {
+          "option": "Where",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Where\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"How\"). Hỏi về phương tiện/cách thức (\"By bus\" - bằng xe buýt) ta dùng từ để hỏi \"How\" (Bằng cách nào)."
+        },
+        {
+          "option": "When",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"When\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"How\"). Hỏi về phương tiện/cách thức (\"By bus\" - bằng xe buýt) ta dùng từ để hỏi \"How\" (Bằng cách nào)."
+        },
+        {
+          "option": "Who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Who\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"How\"). Hỏi về phương tiện/cách thức (\"By bus\" - bằng xe buýt) ta dùng từ để hỏi \"How\" (Bằng cách nào)."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "wh-questions-ex-07",
+      "type": "multiple_choice",
+      "question": "Chọn câu hỏi Wh- có trật tự từ ĐÚNG ngữ pháp:",
+      "options": [
+        "Where does she work?",
+        "Where she works?",
+        "Where does she works?",
+        "Where is she work?"
+      ],
+      "correct_answer": "Where does she work?",
+      "explanation": "Công thức câu hỏi Wh- với động từ thường: Từ để hỏi (Where) + trợ động từ (does) + chủ ngữ (she) + động từ nguyên mẫu (work).",
+      "distractor_breakdowns": [
+        {
+          "option": "Where does she work?",
+          "isCorrect": true,
+          "pedagogicalReason": "Công thức câu hỏi Wh- với động từ thường: Từ để hỏi (Where) + trợ động từ (does) + chủ ngữ (she) + động từ nguyên mẫu (work)."
+        },
+        {
+          "option": "Where she works?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Where she works?\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Where does she work?\"). Công thức câu hỏi Wh- với động từ thường: Từ để hỏi (Where) + trợ động từ (does) + chủ ngữ (she) + động từ nguyên mẫu (work)."
+        },
+        {
+          "option": "Where does she works?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Where does she works?\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Where does she work?\"). Công thức câu hỏi Wh- với động từ thường: Từ để hỏi (Where) + trợ động từ (does) + chủ ngữ (she) + động từ nguyên mẫu (work)."
+        },
+        {
+          "option": "Where is she work?",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Where is she work?\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Where does she work?\"). Công thức câu hỏi Wh- với động từ thường: Từ để hỏi (Where) + trợ động từ (does) + chủ ngữ (she) + động từ nguyên mẫu (work)."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wh-questions-ex-08",
+      "type": "fill_blank",
+      "question": "___ books do you have in your backpack? — Five books.",
+      "options": [
+        "How many",
+        "How much",
+        "How old",
+        "How often"
+      ],
+      "correct_answer": "How many",
+      "explanation": "Hỏi số lượng với danh từ đếm được số nhiều (\"books\") ta dùng \"How many\".",
+      "distractor_breakdowns": [
+        {
+          "option": "How many",
+          "isCorrect": true,
+          "pedagogicalReason": "Hỏi số lượng với danh từ đếm được số nhiều (\"books\") ta dùng \"How many\"."
+        },
+        {
+          "option": "How much",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"How much\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"How many\"). Hỏi số lượng với danh từ đếm được số nhiều (\"books\") ta dùng \"How many\"."
+        },
+        {
+          "option": "How old",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"How old\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"How many\"). Hỏi số lượng với danh từ đếm được số nhiều (\"books\") ta dùng \"How many\"."
+        },
+        {
+          "option": "How often",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"How often\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"How many\"). Hỏi số lượng với danh từ đếm được số nhiều (\"books\") ta dùng \"How many\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wh-questions-ex-09",
+      "type": "multiple_choice",
+      "question": "___ is this umbrella? — It is Lan's umbrella.",
+      "options": [
+        "Whose",
+        "Who",
+        "Which",
+        "What"
+      ],
+      "correct_answer": "Whose",
+      "explanation": "Hỏi quyền sở hữu (\"của ai\" → \"Lan's\") ta dùng từ để hỏi \"Whose\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Whose",
+          "isCorrect": true,
+          "pedagogicalReason": "Hỏi quyền sở hữu (\"của ai\" → \"Lan's\") ta dùng từ để hỏi \"Whose\"."
+        },
+        {
+          "option": "Who",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Who\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Whose\"). Hỏi quyền sở hữu (\"của ai\" → \"Lan's\") ta dùng từ để hỏi \"Whose\"."
+        },
+        {
+          "option": "Which",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"Which\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Whose\"). Hỏi quyền sở hữu (\"của ai\" → \"Lan's\") ta dùng từ để hỏi \"Whose\"."
+        },
+        {
+          "option": "What",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"What\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"Whose\"). Hỏi quyền sở hữu (\"của ai\" → \"Lan's\") ta dùng từ để hỏi \"Whose\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wh-questions-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: What time you get up in the morning?",
+      "options": [
+        "What time",
+        "you get",
+        "in",
+        "morning"
+      ],
+      "correct_answer": "you get",
+      "explanation": "Câu hỏi Wh- với động từ thường bắt buộc phải có trợ động từ \"do/does\" trước chủ ngữ: sửa \"you get\" thành \"do you get\".",
+      "distractor_breakdowns": [
+        {
+          "option": "What time",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"What time\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "you get",
+          "isCorrect": true,
+          "pedagogicalReason": "Câu hỏi Wh- với động từ thường bắt buộc phải có trợ động từ \"do/does\" trước chủ ngữ: sửa \"you get\" thành \"do you get\"."
+        },
+        {
+          "option": "in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"in\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "morning",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"morning\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "wh-questions-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: Where did she went last Sunday?",
+      "options": [
+        "Where",
+        "did",
+        "went",
+        "last Sunday"
+      ],
+      "correct_answer": "went",
+      "explanation": "Khi đã mượn trợ động từ quá khứ \"did\", động từ chính phải ở dạng nguyên mẫu \"go\", không dùng \"went\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Where",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"Where\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         },
         {
           "option": "did",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"upset\" là tính từ, câu hỏi với tính từ dùng to-be làm trợ động từ, không dùng trợ động từ \"did\"."
+          "pedagogicalReason": "Không chính xác. Thành phần \"did\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "went",
+          "isCorrect": true,
+          "pedagogicalReason": "Khi đã mượn trợ động từ quá khứ \"did\", động từ chính phải ở dạng nguyên mẫu \"go\", không dùng \"went\"."
+        },
+        {
+          "option": "last Sunday",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"last Sunday\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
-      "difficulty": 1
+      "difficulty": 2
+    },
+    {
+      "id": "wh-questions-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: Why they are laughing so loudly?",
+      "options": [
+        "Why",
+        "they are",
+        "laughing",
+        "loudly"
+      ],
+      "correct_answer": "they are",
+      "explanation": "Trong câu hỏi trực tiếp, phải đảo to be \"are\" lên trước chủ ngữ \"they\": \"Why are they laughing so loudly?\".",
+      "distractor_breakdowns": [
+        {
+          "option": "Why",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"Why\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "they are",
+          "isCorrect": true,
+          "pedagogicalReason": "Trong câu hỏi trực tiếp, phải đảo to be \"are\" lên trước chủ ngữ \"they\": \"Why are they laughing so loudly?\"."
+        },
+        {
+          "option": "laughing",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"laughing\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "loudly",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"loudly\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
     }
   ]
 }

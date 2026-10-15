@@ -13,6 +13,8 @@ export interface GrammarCardNavigatorProps {
   index: number;
   onChange: (index: number) => void;
   pills?: Array<GrammarCardNavigatorPill | string>;
+  onComplete?: () => void;
+  completeLabel?: string;
 }
 
 /**
@@ -27,6 +29,8 @@ export default function GrammarCardNavigator({
   index,
   onChange,
   pills,
+  onComplete,
+  completeLabel,
 }: GrammarCardNavigatorProps) {
   const total = pills ? pills.length : titles.length;
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -51,8 +55,12 @@ export default function GrammarCardNavigator({
   }, [index, selectTab]);
 
   const handleNext = useCallback(() => {
-    if (index < total - 1) selectTab(index + 1);
-  }, [index, total, selectTab]);
+    if (index < total - 1) {
+      selectTab(index + 1);
+    } else if (onComplete) {
+      onComplete();
+    }
+  }, [index, total, selectTab, onComplete]);
 
   // Phím tắt bàn phím: Mũi tên Trái / Phải / Home / End
   useEffect(() => {
@@ -66,7 +74,7 @@ export default function GrammarCardNavigator({
         handlePrev();
       } else if (e.key === 'ArrowRight') {
         e.preventDefault();
-        handleNext();
+        if (index < total - 1) selectTab(index + 1);
       } else if (e.key === 'Home') {
         e.preventDefault();
         selectTab(0);
@@ -78,7 +86,7 @@ export default function GrammarCardNavigator({
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [handlePrev, handleNext, selectTab, total]);
+  }, [handlePrev, index, selectTab, total]);
 
   if (total <= 1) {
     return (
@@ -92,10 +100,16 @@ export default function GrammarCardNavigator({
   // Chế độ Segmented Control / Step Pills (khi truyền pills hoặc danh sách ngắn <= 7)
   const pillList: GrammarCardNavigatorPill[] = pills
     ? pills.map((p) => (typeof p === 'string' ? { label: p } : p))
-    : titles.map((t, idx) => ({
-        label: `${idx + 1}`,
-        subLabel: t.length <= 10 ? t : undefined,
-      }));
+    : titles.map((t, idx) => {
+        const prefix = t.split(/[(:—–]/)[0]?.trim() || '';
+        const shortLabel = prefix.length > 0 && prefix.length <= 16 ? prefix : t.slice(0, 14).trim();
+        return {
+          label: `${idx + 1}`,
+          subLabel: shortLabel || undefined,
+        };
+      });
+
+  const isLastStep = index === total - 1;
 
   return (
     <nav
@@ -125,6 +139,7 @@ export default function GrammarCardNavigator({
       >
         {pillList.map((item, pIdx) => {
           const isSelected = pIdx === index;
+          const isPronounMode = pillList.length === 7 && item.label.length <= 4;
           return (
             <button
               key={pIdx}
@@ -138,21 +153,21 @@ export default function GrammarCardNavigator({
               aria-selected={isSelected}
               tabIndex={isSelected ? 0 : -1}
               onClick={() => selectTab(pIdx)}
-              className={`min-h-[42px] sm:min-h-[44px] px-1 sm:px-2 py-1 font-mono transition-all flex flex-col sm:flex-row items-center justify-center gap-0.5 sm:gap-1 text-center rounded-none cursor-pointer touch-manipulation ${
+              className={`min-h-[42px] sm:min-h-[44px] px-1 sm:px-2 py-1 font-mono transition-all flex flex-col sm:flex-row items-center justify-center gap-0.5 sm:gap-1 text-center rounded-none cursor-pointer touch-manipulation min-w-0 ${
                 isSelected
                   ? 'bg-primary text-primary-foreground font-bold shadow-xs border border-primary'
                   : 'bg-card text-muted-foreground hover:text-foreground hover:bg-muted/60 border border-border/70'
               }`}
               title={pills ? `Ngôi: ${item.label}${item.subLabel ? ` → ${item.subLabel}` : ''}` : `Ý ${item.label}${item.subLabel ? `: ${item.subLabel}` : ''}`}
             >
-              <span className="text-xs sm:text-sm font-bold tracking-tight">{item.label}</span>
+              <span className="text-xs sm:text-sm font-bold tracking-tight shrink-0">{item.label}</span>
               {item.subLabel && (
                 <span
-                  className={`text-[10px] sm:text-xs font-normal opacity-80 hidden sm:inline ${
+                  className={`text-[9px] sm:text-xs font-normal opacity-90 truncate max-w-full leading-tight inline ${
                     isSelected ? 'text-primary-foreground' : 'text-muted-foreground'
                   }`}
                 >
-                  →{item.subLabel}
+                  {isPronounMode ? `→${item.subLabel}` : item.subLabel}
                 </span>
               )}
             </button>
@@ -162,14 +177,33 @@ export default function GrammarCardNavigator({
 
       <button
         type="button"
-        aria-label={pills ? 'Ngôi tiếp theo (Phím mũi tên Phải)' : 'Mục tiếp theo (Phím mũi tên Phải)'}
-        title={pills ? 'Ngôi tiếp theo (→)' : 'Mục tiếp theo (→)'}
-        disabled={index === total - 1}
+        aria-label={
+          isLastStep && onComplete
+            ? completeLabel || 'Làm bài tập thực hành'
+            : pills
+            ? 'Ngôi tiếp theo (Phím mũi tên Phải)'
+            : 'Mục tiếp theo (Phím mũi tên Phải)'
+        }
+        title={
+          isLastStep && onComplete
+            ? completeLabel || 'Làm bài tập thực hành'
+            : pills
+            ? 'Ngôi tiếp theo (→)'
+            : 'Mục tiếp theo (→)'
+        }
+        disabled={isLastStep && !onComplete}
         onClick={handleNext}
         className={`${
           pills ? 'hidden sm:flex' : 'flex'
-        } min-h-[44px] min-w-[44px] border border-border bg-card hover:bg-muted items-center justify-center disabled:opacity-30 disabled:pointer-events-none rounded-none text-foreground transition-colors shrink-0 touch-manipulation`}
+        } min-h-[44px] ${
+          isLastStep && onComplete
+            ? 'px-2.5 bg-primary text-primary-foreground border-primary hover:bg-primary/90 font-mono text-[11px] font-bold uppercase tracking-wider gap-1'
+            : 'min-w-[44px] bg-card hover:bg-muted text-foreground border-border'
+        } border items-center justify-center disabled:opacity-30 disabled:pointer-events-none rounded-none transition-colors shrink-0 touch-manipulation`}
       >
+        {isLastStep && onComplete && (
+          <span className="hidden md:inline">{completeLabel || 'Luyện tập'}</span>
+        )}
         <ChevronRight className="h-4 w-4" />
       </button>
     </nav>

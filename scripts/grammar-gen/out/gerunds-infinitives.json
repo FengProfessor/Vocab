@@ -331,26 +331,36 @@
   "exercises": [
     {
       "id": "gerunds-infinitives-ex-01",
-      "type": "fill_blank",
-      "question": "The ____ (high) you climb, the colder it becomes.",
-      "options": [],
-      "correct_answer": "higher",
-      "explanation": "high là tính từ ngắn → higher",
+      "type": "multiple_choice",
+      "question": "My brother enjoys ___ football with his friends after school.",
+      "options": [
+        "playing",
+        "to play",
+        "play",
+        "played"
+      ],
+      "correct_answer": "playing",
+      "explanation": "Sau động từ \"enjoy\" (thích/tận hưởng) ta luôn dùng danh động từ \"V-ing\" (\"playing\").",
       "distractor_breakdowns": [
         {
-          "option": "higher",
+          "option": "playing",
           "isCorrect": true,
-          "pedagogicalReason": "high là tính từ ngắn → higher"
+          "pedagogicalReason": "Sau động từ \"enjoy\" (thích/tận hưởng) ta luôn dùng danh động từ \"V-ing\" (\"playing\")."
         },
         {
-          "option": "more high",
+          "option": "to play",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"high\" là tính từ ngắn 1 âm tiết, so sánh hơn là \"higher\", không dùng \"more high\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"to play\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"playing\"). Sau động từ \"enjoy\" (thích/tận hưởng) ta luôn dùng danh động từ \"V-ing\" (\"playing\")."
         },
         {
-          "option": "highest",
+          "option": "play",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Cấu trúc so sánh kép (The + comparative, the + comparative) yêu cầu dạng so sánh hơn \"higher\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"play\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"playing\"). Sau động từ \"enjoy\" (thích/tận hưởng) ta luôn dùng danh động từ \"V-ing\" (\"playing\")."
+        },
+        {
+          "option": "played",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"played\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"playing\"). Sau động từ \"enjoy\" (thích/tận hưởng) ta luôn dùng danh động từ \"V-ing\" (\"playing\")."
         }
       ],
       "difficulty": 1
@@ -358,51 +368,71 @@
     {
       "id": "gerunds-infinitives-ex-02",
       "type": "fill_blank",
-      "question": "The ____ (careful) you are, the fewer mistakes you make.",
-      "options": [],
-      "correct_answer": "more careful",
-      "explanation": "careful là tính từ dài → more careful",
+      "question": "She decided ___ abroad for her master's degree.",
+      "options": [
+        "to study",
+        "studying",
+        "study",
+        "studied"
+      ],
+      "correct_answer": "to study",
+      "explanation": "Sau động từ \"decide\" (quyết định) ta luôn dùng động từ nguyên mẫu có \"to\" (\"to study\").",
       "distractor_breakdowns": [
         {
-          "option": "more careful",
+          "option": "to study",
           "isCorrect": true,
-          "pedagogicalReason": "careful là tính từ dài → more careful"
+          "pedagogicalReason": "Sau động từ \"decide\" (quyết định) ta luôn dùng động từ nguyên mẫu có \"to\" (\"to study\")."
         },
         {
-          "option": "more carefuls",
+          "option": "studying",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"more carefuls\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"studying\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"to study\"). Sau động từ \"decide\" (quyết định) ta luôn dùng động từ nguyên mẫu có \"to\" (\"to study\")."
         },
         {
-          "option": "to more careful",
+          "option": "study",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+          "pedagogicalReason": "Không chính xác. Phương án \"study\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"to study\"). Sau động từ \"decide\" (quyết định) ta luôn dùng động từ nguyên mẫu có \"to\" (\"to study\")."
+        },
+        {
+          "option": "studied",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"studied\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"to study\"). Sau động từ \"decide\" (quyết định) ta luôn dùng động từ nguyên mẫu có \"to\" (\"to study\")."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "gerunds-infinitives-ex-03",
-      "type": "fill_blank",
-      "question": "The ____ (little) I sleep, the worse I feel.",
-      "options": [],
-      "correct_answer": "less",
-      "explanation": "little bất quy tắc → less",
+      "type": "multiple_choice",
+      "question": "Would you mind ___ the window? It is quite cold.",
+      "options": [
+        "closing",
+        "to close",
+        "close",
+        "closed"
+      ],
+      "correct_answer": "closing",
+      "explanation": "Sau cấu trúc lịch sự \"Would you mind / Do you mind...\" ta luôn dùng \"V-ing\" (\"closing\").",
       "distractor_breakdowns": [
         {
-          "option": "less",
+          "option": "closing",
           "isCorrect": true,
-          "pedagogicalReason": "little bất quy tắc → less"
+          "pedagogicalReason": "Sau cấu trúc lịch sự \"Would you mind / Do you mind...\" ta luôn dùng \"V-ing\" (\"closing\")."
         },
         {
-          "option": "lesss",
+          "option": "to close",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"lesss\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"to close\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"closing\"). Sau cấu trúc lịch sự \"Would you mind / Do you mind...\" ta luôn dùng \"V-ing\" (\"closing\")."
         },
         {
-          "option": "to less",
+          "option": "close",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+          "pedagogicalReason": "Không chính xác. Phương án \"close\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"closing\"). Sau cấu trúc lịch sự \"Would you mind / Do you mind...\" ta luôn dùng \"V-ing\" (\"closing\")."
+        },
+        {
+          "option": "closed",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"closed\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"closing\"). Sau cấu trúc lịch sự \"Would you mind / Do you mind...\" ta luôn dùng \"V-ing\" (\"closing\")."
         }
       ],
       "difficulty": 1
@@ -410,51 +440,71 @@
     {
       "id": "gerunds-infinitives-ex-04",
       "type": "fill_blank",
-      "question": "The days are getting ____ (short) in winter.",
-      "options": [],
-      "correct_answer": "shorter and shorter",
-      "explanation": "short ngắn → -er and -er",
+      "question": "You should avoid ___ too much fast food.",
+      "options": [
+        "eating",
+        "to eat",
+        "eat",
+        "eaten"
+      ],
+      "correct_answer": "eating",
+      "explanation": "Sau động từ \"avoid\" (tránh làm gì) bắt buộc dùng \"V-ing\" (\"eating\").",
       "distractor_breakdowns": [
         {
-          "option": "shorter and shorter",
+          "option": "eating",
           "isCorrect": true,
-          "pedagogicalReason": "short ngắn → -er and -er"
+          "pedagogicalReason": "Sau động từ \"avoid\" (tránh làm gì) bắt buộc dùng \"V-ing\" (\"eating\")."
         },
         {
-          "option": "shorter and shorters",
+          "option": "to eat",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"shorter and shorters\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"to eat\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"eating\"). Sau động từ \"avoid\" (tránh làm gì) bắt buộc dùng \"V-ing\" (\"eating\")."
         },
         {
-          "option": "to shorter and shorter",
+          "option": "eat",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+          "pedagogicalReason": "Không chính xác. Phương án \"eat\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"eating\"). Sau động từ \"avoid\" (tránh làm gì) bắt buộc dùng \"V-ing\" (\"eating\")."
+        },
+        {
+          "option": "eaten",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"eaten\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"eating\"). Sau động từ \"avoid\" (tránh làm gì) bắt buộc dùng \"V-ing\" (\"eating\")."
         }
       ],
       "difficulty": 1
     },
     {
       "id": "gerunds-infinitives-ex-05",
-      "type": "fill_blank",
-      "question": "The story is becoming ____ (interesting).",
-      "options": [],
-      "correct_answer": "more and more interesting",
-      "explanation": "interesting là tính từ dài → more and more",
+      "type": "multiple_choice",
+      "question": "He promised ___ me as soon as he arrived in Hanoi.",
+      "options": [
+        "to call",
+        "calling",
+        "call",
+        "called"
+      ],
+      "correct_answer": "to call",
+      "explanation": "Sau động từ \"promise\" (hứa) ta dùng \"to + V nguyên mẫu\" (\"to call\").",
       "distractor_breakdowns": [
         {
-          "option": "more and more interesting",
+          "option": "to call",
           "isCorrect": true,
-          "pedagogicalReason": "interesting là tính từ dài → more and more"
+          "pedagogicalReason": "Sau động từ \"promise\" (hứa) ta dùng \"to + V nguyên mẫu\" (\"to call\")."
         },
         {
-          "option": "more and more interestings",
+          "option": "calling",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"more and more interestings\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"calling\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"to call\"). Sau động từ \"promise\" (hứa) ta dùng \"to + V nguyên mẫu\" (\"to call\")."
         },
         {
-          "option": "to more and more interesting",
+          "option": "call",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+          "pedagogicalReason": "Không chính xác. Phương án \"call\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"to call\"). Sau động từ \"promise\" (hứa) ta dùng \"to + V nguyên mẫu\" (\"to call\")."
+        },
+        {
+          "option": "called",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"called\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"to call\"). Sau động từ \"promise\" (hứa) ta dùng \"to + V nguyên mẫu\" (\"to call\")."
         }
       ],
       "difficulty": 1
@@ -462,51 +512,71 @@
     {
       "id": "gerunds-infinitives-ex-06",
       "type": "fill_blank",
-      "question": "Smartphones are getting ____ (cheap) every year.",
-      "options": [],
-      "correct_answer": "cheaper and cheaper",
-      "explanation": "cheap là tính từ ngắn → -er and -er",
+      "question": "My father stopped ___ coffee after the doctor's warning.",
+      "options": [
+        "drinking",
+        "to drink",
+        "drink",
+        "drank"
+      ],
+      "correct_answer": "drinking",
+      "explanation": "\"stop + V-ing\" nghĩa là DỪNG HẲN/TỪ BỎ việc đang làm (bỏ uống cà phê). (\"stop + to V\" là dừng việc khác lại để làm V).",
       "distractor_breakdowns": [
         {
-          "option": "cheaper and cheaper",
+          "option": "drinking",
           "isCorrect": true,
-          "pedagogicalReason": "cheap là tính từ ngắn → -er and -er"
+          "pedagogicalReason": "\"stop + V-ing\" nghĩa là DỪNG HẲN/TỪ BỎ việc đang làm (bỏ uống cà phê). (\"stop + to V\" là dừng việc khác lại để làm V)."
         },
         {
-          "option": "cheaper and cheapers",
+          "option": "to drink",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"cheaper and cheapers\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"to drink\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"drinking\"). \"stop + V-ing\" nghĩa là DỪNG HẲN/TỪ BỎ việc đang làm (bỏ uống cà phê). (\"stop + to V\" là dừng việc khác lại để làm V)."
         },
         {
-          "option": "to cheaper and cheaper",
+          "option": "drink",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+          "pedagogicalReason": "Không chính xác. Phương án \"drink\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"drinking\"). \"stop + V-ing\" nghĩa là DỪNG HẲN/TỪ BỎ việc đang làm (bỏ uống cà phê). (\"stop + to V\" là dừng việc khác lại để làm V)."
+        },
+        {
+          "option": "drank",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"drank\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"drinking\"). \"stop + V-ing\" nghĩa là DỪNG HẲN/TỪ BỎ việc đang làm (bỏ uống cà phê). (\"stop + to V\" là dừng việc khác lại để làm V)."
         }
       ],
       "difficulty": 2
     },
     {
       "id": "gerunds-infinitives-ex-07",
-      "type": "fill_blank",
-      "question": "The ____ (much) you practise, the better you get.",
-      "options": [],
-      "correct_answer": "more",
-      "explanation": "much bất quy tắc → more",
+      "type": "multiple_choice",
+      "question": "Please remember ___ the door before you go to bed.",
+      "options": [
+        "to lock",
+        "locking",
+        "lock",
+        "locked"
+      ],
+      "correct_answer": "to lock",
+      "explanation": "\"remember + to V\" dùng để nhắc nhở một nhiệm vụ CẦN PHẢI LÀM (\"Hãy nhớ khóa cửa\"). (\"remember + V-ing\" là nhớ lại kỷ niệm đã làm trong quá khứ).",
       "distractor_breakdowns": [
         {
-          "option": "more",
+          "option": "to lock",
           "isCorrect": true,
-          "pedagogicalReason": "much bất quy tắc → more"
+          "pedagogicalReason": "\"remember + to V\" dùng để nhắc nhở một nhiệm vụ CẦN PHẢI LÀM (\"Hãy nhớ khóa cửa\"). (\"remember + V-ing\" là nhớ lại kỷ niệm đã làm trong quá khứ)."
         },
         {
-          "option": "mores",
+          "option": "locking",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"mores\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"locking\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"to lock\"). \"remember + to V\" dùng để nhắc nhở một nhiệm vụ CẦN PHẢI LÀM (\"Hãy nhớ khóa cửa\"). (\"remember + V-ing\" là nhớ lại kỷ niệm đã làm trong quá khứ)."
         },
         {
-          "option": "to more",
+          "option": "lock",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+          "pedagogicalReason": "Không chính xác. Phương án \"lock\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"to lock\"). \"remember + to V\" dùng để nhắc nhở một nhiệm vụ CẦN PHẢI LÀM (\"Hãy nhớ khóa cửa\"). (\"remember + V-ing\" là nhớ lại kỷ niệm đã làm trong quá khứ)."
+        },
+        {
+          "option": "locked",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"locked\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"to lock\"). \"remember + to V\" dùng để nhắc nhở một nhiệm vụ CẦN PHẢI LÀM (\"Hãy nhớ khóa cửa\"). (\"remember + V-ing\" là nhớ lại kỷ niệm đã làm trong quá khứ)."
         }
       ],
       "difficulty": 2
@@ -514,139 +584,179 @@
     {
       "id": "gerunds-infinitives-ex-08",
       "type": "fill_blank",
-      "question": "My brother enjoys ____ (play) computer games.",
-      "options": [],
-      "correct_answer": "playing",
-      "explanation": "enjoy nằm nhóm V-ing",
+      "question": "I still remember ___ Ha Long Bay when I was ten years old.",
+      "options": [
+        "visiting",
+        "to visit",
+        "visit",
+        "visited"
+      ],
+      "correct_answer": "visiting",
+      "explanation": "Nhớ lại một kỷ niệm ĐÃ XẢY RA trong quá khứ (\"when I was ten\") → dùng \"remember + V-ing\" (\"visiting\").",
       "distractor_breakdowns": [
         {
-          "option": "playing",
+          "option": "visiting",
           "isCorrect": true,
-          "pedagogicalReason": "enjoy nằm nhóm V-ing"
+          "pedagogicalReason": "Nhớ lại một kỷ niệm ĐÃ XẢY RA trong quá khứ (\"when I was ten\") → dùng \"remember + V-ing\" (\"visiting\")."
         },
         {
-          "option": "playings",
+          "option": "to visit",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"playings\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"to visit\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"visiting\"). Nhớ lại một kỷ niệm ĐÃ XẢY RA trong quá khứ (\"when I was ten\") → dùng \"remember + V-ing\" (\"visiting\")."
         },
         {
-          "option": "to playing",
+          "option": "visit",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+          "pedagogicalReason": "Không chính xác. Phương án \"visit\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"visiting\"). Nhớ lại một kỷ niệm ĐÃ XẢY RA trong quá khứ (\"when I was ten\") → dùng \"remember + V-ing\" (\"visiting\")."
+        },
+        {
+          "option": "visited",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"visited\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"visiting\"). Nhớ lại một kỷ niệm ĐÃ XẢY RA trong quá khứ (\"when I was ten\") → dùng \"remember + V-ing\" (\"visiting\")."
         }
       ],
       "difficulty": 2
     },
     {
       "id": "gerunds-infinitives-ex-09",
-      "type": "fill_blank",
-      "question": "Would you mind ____ (turn) down the music?",
-      "options": [],
-      "correct_answer": "turning",
-      "explanation": "mind nằm nhóm V-ing",
+      "type": "multiple_choice",
+      "question": "They suggested ___ to the museum by bus.",
+      "options": [
+        "going",
+        "to go",
+        "go",
+        "went"
+      ],
+      "correct_answer": "going",
+      "explanation": "Sau động từ \"suggest\" khi không có mệnh đề \"that\", ta dùng \"suggest + V-ing\" (\"going\").",
       "distractor_breakdowns": [
         {
-          "option": "turning",
+          "option": "going",
           "isCorrect": true,
-          "pedagogicalReason": "mind nằm nhóm V-ing"
+          "pedagogicalReason": "Sau động từ \"suggest\" khi không có mệnh đề \"that\", ta dùng \"suggest + V-ing\" (\"going\")."
         },
         {
-          "option": "turnings",
+          "option": "to go",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"turnings\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"to go\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"going\"). Sau động từ \"suggest\" khi không có mệnh đề \"that\", ta dùng \"suggest + V-ing\" (\"going\")."
         },
         {
-          "option": "to turning",
+          "option": "go",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+          "pedagogicalReason": "Không chính xác. Phương án \"go\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"going\"). Sau động từ \"suggest\" khi không có mệnh đề \"that\", ta dùng \"suggest + V-ing\" (\"going\")."
+        },
+        {
+          "option": "went",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"went\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"going\"). Sau động từ \"suggest\" khi không có mệnh đề \"that\", ta dùng \"suggest + V-ing\" (\"going\")."
         }
       ],
       "difficulty": 2
     },
     {
       "id": "gerunds-infinitives-ex-10",
-      "type": "fill_blank",
-      "question": "My father stopped ____ (drink) coffee after the doctor's advice.",
-      "options": [],
-      "correct_answer": "drinking",
-      "explanation": "bỏ hẳn cà phê → V-ing",
+      "type": "error_correction",
+      "question": "Find the error: She hopes passing the entrance exam this year.",
+      "options": [
+        "hopes",
+        "passing",
+        "entrance exam",
+        "this year"
+      ],
+      "correct_answer": "passing",
+      "explanation": "Sau động từ \"hope\" (hy vọng) phải dùng \"to V\". Sửa \"passing\" thành \"to pass\".",
       "distractor_breakdowns": [
         {
-          "option": "drinking",
+          "option": "hopes",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"hopes\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "passing",
           "isCorrect": true,
-          "pedagogicalReason": "bỏ hẳn cà phê → V-ing"
+          "pedagogicalReason": "Sau động từ \"hope\" (hy vọng) phải dùng \"to V\". Sửa \"passing\" thành \"to pass\"."
         },
         {
-          "option": "drinkings",
+          "option": "entrance exam",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"drinkings\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
+          "pedagogicalReason": "Không chính xác. Thành phần \"entrance exam\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         },
         {
-          "option": "to drinking",
+          "option": "this year",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+          "pedagogicalReason": "Không chính xác. Thành phần \"this year\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
-      "difficulty": 3
+      "difficulty": 2
     },
     {
       "id": "gerunds-infinitives-ex-11",
-      "type": "fill_blank",
-      "question": "I still remember ____ (visit) Ha Long Bay when I was ten.",
-      "options": [],
-      "correct_answer": "visiting",
-      "explanation": "nhớ chuyện đã xảy ra → V-ing",
+      "type": "error_correction",
+      "question": "Find the error: Have you finished to read the book I lent you?",
+      "options": [
+        "Have",
+        "finished",
+        "to read",
+        "lent"
+      ],
+      "correct_answer": "to read",
+      "explanation": "Sau động từ \"finish\" (hoàn thành) bắt buộc dùng \"V-ing\". Sửa \"to read\" thành \"reading\".",
       "distractor_breakdowns": [
         {
-          "option": "visiting",
+          "option": "Have",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"Have\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "finished",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"finished\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "to read",
           "isCorrect": true,
-          "pedagogicalReason": "nhớ chuyện đã xảy ra → V-ing"
+          "pedagogicalReason": "Sau động từ \"finish\" (hoàn thành) bắt buộc dùng \"V-ing\". Sửa \"to read\" thành \"reading\"."
         },
         {
-          "option": "visitings",
+          "option": "lent",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Dạng biến thể \"visitings\" không thỏa mãn quy tắc cú pháp hoặc hòa hợp ngôi trong câu này."
-        },
-        {
-          "option": "to visiting",
-          "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Không dùng cấu trúc to-V ở vị trí này trong câu."
+          "pedagogicalReason": "Không chính xác. Thành phần \"lent\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
-      "difficulty": 3
+      "difficulty": 2
     },
     {
       "id": "gerunds-infinitives-ex-12",
-      "type": "multiple_choice",
-      "question": "He enjoys ____ football with his friends.",
+      "type": "error_correction",
+      "question": "Find the error: My parents don't let me to stay out late at night.",
       "options": [
-        "play",
-        "to play",
-        "playing",
-        "played"
+        "don't",
+        "let",
+        "to stay",
+        "at night"
       ],
-      "correct_answer": "playing",
-      "explanation": "Sau enjoy luôn là V-ing · buổi 19",
+      "correct_answer": "to stay",
+      "explanation": "Cấu trúc \"let + tân ngữ + V nguyên mẫu không to\" (let someone do something). Sửa \"to stay\" thành \"stay\".",
       "distractor_breakdowns": [
         {
-          "option": "play",
+          "option": "don't",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"play\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Thành phần \"don't\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         },
         {
-          "option": "to play",
+          "option": "let",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"to play\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Thành phần \"let\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         },
         {
-          "option": "playing",
+          "option": "to stay",
           "isCorrect": true,
-          "pedagogicalReason": "Sau enjoy luôn là V-ing · buổi 19"
+          "pedagogicalReason": "Cấu trúc \"let + tân ngữ + V nguyên mẫu không to\" (let someone do something). Sửa \"to stay\" thành \"stay\"."
         },
         {
-          "option": "played",
+          "option": "at night",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"played\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Thành phần \"at night\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
         }
       ],
       "difficulty": 3

@@ -373,29 +373,435 @@
   "exercises": [
     {
       "id": "prepositions-place-ex-01",
-      "type": "fill_blank",
-      "question": "Hoàn thành theo mẫu: Your phone ___ on the desk.",
-      "options": [],
-      "correct_answer": "is",
-      "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
+      "type": "multiple_choice",
+      "question": "The keys are ___ the kitchen table.",
+      "options": [
+        "on",
+        "in",
+        "at",
+        "between"
+      ],
+      "correct_answer": "on",
+      "explanation": "Vật nằm tiếp xúc TRÊN một mặt phẳng (\"the kitchen table\" - mặt bàn) ta dùng giới từ \"on\".",
       "distractor_breakdowns": [
         {
-          "option": "is",
+          "option": "on",
           "isCorrect": true,
-          "pedagogicalReason": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
+          "pedagogicalReason": "Vật nằm tiếp xúc TRÊN một mặt phẳng (\"the kitchen table\" - mặt bàn) ta dùng giới từ \"on\"."
         },
         {
-          "option": "are",
+          "option": "in",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. \"Your phone\" là danh từ số ít, phải đi với to-be \"is\"."
+          "pedagogicalReason": "Không chính xác. Phương án \"in\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"on\"). Vật nằm tiếp xúc TRÊN một mặt phẳng (\"the kitchen table\" - mặt bàn) ta dùng giới từ \"on\"."
         },
         {
-          "option": "be",
+          "option": "at",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Động từ vị ngữ phải được chia phù hợp với ngôi và thì."
+          "pedagogicalReason": "Không chính xác. Phương án \"at\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"on\"). Vật nằm tiếp xúc TRÊN một mặt phẳng (\"the kitchen table\" - mặt bàn) ta dùng giới từ \"on\"."
+        },
+        {
+          "option": "between",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"between\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"on\"). Vật nằm tiếp xúc TRÊN một mặt phẳng (\"the kitchen table\" - mặt bàn) ta dùng giới từ \"on\"."
         }
       ],
       "difficulty": 1
+    },
+    {
+      "id": "prepositions-place-ex-02",
+      "type": "multiple_choice",
+      "question": "My sister is studying ___ her bedroom.",
+      "options": [
+        "in",
+        "on",
+        "at",
+        "above"
+      ],
+      "correct_answer": "in",
+      "explanation": "Ở BÊN TRONG một không gian kín có tường bao quanh (\"her bedroom\" - phòng ngủ) ta dùng giới từ \"in\".",
+      "distractor_breakdowns": [
+        {
+          "option": "in",
+          "isCorrect": true,
+          "pedagogicalReason": "Ở BÊN TRONG một không gian kín có tường bao quanh (\"her bedroom\" - phòng ngủ) ta dùng giới từ \"in\"."
+        },
+        {
+          "option": "on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"on\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in\"). Ở BÊN TRONG một không gian kín có tường bao quanh (\"her bedroom\" - phòng ngủ) ta dùng giới từ \"in\"."
+        },
+        {
+          "option": "at",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"at\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in\"). Ở BÊN TRONG một không gian kín có tường bao quanh (\"her bedroom\" - phòng ngủ) ta dùng giới từ \"in\"."
+        },
+        {
+          "option": "above",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"above\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in\"). Ở BÊN TRONG một không gian kín có tường bao quanh (\"her bedroom\" - phòng ngủ) ta dùng giới từ \"in\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "prepositions-place-ex-03",
+      "type": "fill_blank",
+      "question": "We are waiting for the bus ___ the bus stop.",
+      "options": [
+        "at",
+        "in",
+        "on",
+        "into"
+      ],
+      "correct_answer": "at",
+      "explanation": "Tại một điểm cụ thể/trạm dừng (\"the bus stop\") ta dùng giới từ \"at\".",
+      "distractor_breakdowns": [
+        {
+          "option": "at",
+          "isCorrect": true,
+          "pedagogicalReason": "Tại một điểm cụ thể/trạm dừng (\"the bus stop\") ta dùng giới từ \"at\"."
+        },
+        {
+          "option": "in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"in\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"at\"). Tại một điểm cụ thể/trạm dừng (\"the bus stop\") ta dùng giới từ \"at\"."
+        },
+        {
+          "option": "on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"on\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"at\"). Tại một điểm cụ thể/trạm dừng (\"the bus stop\") ta dùng giới từ \"at\"."
+        },
+        {
+          "option": "into",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"into\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"at\"). Tại một điểm cụ thể/trạm dừng (\"the bus stop\") ta dùng giới từ \"at\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "prepositions-place-ex-04",
+      "type": "fill_blank",
+      "question": "My family lives ___ Ho Chi Minh City.",
+      "options": [
+        "in",
+        "on",
+        "at",
+        "under"
+      ],
+      "correct_answer": "in",
+      "explanation": "Với tên thành phố, tỉnh hoặc quốc gia lớn (\"Ho Chi Minh City\", \"Vietnam\") ta luôn dùng giới từ \"in\".",
+      "distractor_breakdowns": [
+        {
+          "option": "in",
+          "isCorrect": true,
+          "pedagogicalReason": "Với tên thành phố, tỉnh hoặc quốc gia lớn (\"Ho Chi Minh City\", \"Vietnam\") ta luôn dùng giới từ \"in\"."
+        },
+        {
+          "option": "on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"on\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in\"). Với tên thành phố, tỉnh hoặc quốc gia lớn (\"Ho Chi Minh City\", \"Vietnam\") ta luôn dùng giới từ \"in\"."
+        },
+        {
+          "option": "at",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"at\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in\"). Với tên thành phố, tỉnh hoặc quốc gia lớn (\"Ho Chi Minh City\", \"Vietnam\") ta luôn dùng giới từ \"in\"."
+        },
+        {
+          "option": "under",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"under\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in\"). Với tên thành phố, tỉnh hoặc quốc gia lớn (\"Ho Chi Minh City\", \"Vietnam\") ta luôn dùng giới từ \"in\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "prepositions-place-ex-05",
+      "type": "multiple_choice",
+      "question": "The cat is hiding ___ the bed.",
+      "options": [
+        "under",
+        "between",
+        "among",
+        "into"
+      ],
+      "correct_answer": "under",
+      "explanation": "\"under the bed\" nghĩa là ở phía dưới gầm giường (\"between\" và \"among\" cần từ 2 vật trở lên).",
+      "distractor_breakdowns": [
+        {
+          "option": "under",
+          "isCorrect": true,
+          "pedagogicalReason": "\"under the bed\" nghĩa là ở phía dưới gầm giường (\"between\" và \"among\" cần từ 2 vật trở lên)."
+        },
+        {
+          "option": "between",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"between\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"under\"). \"under the bed\" nghĩa là ở phía dưới gầm giường (\"between\" và \"among\" cần từ 2 vật trở lên)."
+        },
+        {
+          "option": "among",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"among\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"under\"). \"under the bed\" nghĩa là ở phía dưới gầm giường (\"between\" và \"among\" cần từ 2 vật trở lên)."
+        },
+        {
+          "option": "into",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"into\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"under\"). \"under the bed\" nghĩa là ở phía dưới gầm giường (\"between\" và \"among\" cần từ 2 vật trở lên)."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "prepositions-place-ex-06",
+      "type": "fill_blank",
+      "question": "The pharmacy is ___ the bank and the post office.",
+      "options": [
+        "between",
+        "under",
+        "in",
+        "on"
+      ],
+      "correct_answer": "between",
+      "explanation": "Ở giữa HAI đối tượng xác định (\"the bank AND the post office\") ta dùng \"between\".",
+      "distractor_breakdowns": [
+        {
+          "option": "between",
+          "isCorrect": true,
+          "pedagogicalReason": "Ở giữa HAI đối tượng xác định (\"the bank AND the post office\") ta dùng \"between\"."
+        },
+        {
+          "option": "under",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"under\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"between\"). Ở giữa HAI đối tượng xác định (\"the bank AND the post office\") ta dùng \"between\"."
+        },
+        {
+          "option": "in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"in\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"between\"). Ở giữa HAI đối tượng xác định (\"the bank AND the post office\") ta dùng \"between\"."
+        },
+        {
+          "option": "on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"on\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"between\"). Ở giữa HAI đối tượng xác định (\"the bank AND the post office\") ta dùng \"between\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "prepositions-place-ex-07",
+      "type": "multiple_choice",
+      "question": "There is a beautiful picture hanging ___ the wall.",
+      "options": [
+        "on",
+        "in",
+        "at",
+        "under"
+      ],
+      "correct_answer": "on",
+      "explanation": "Bức tranh treo trên bề mặt bức tường dùng cụm cố định \"on the wall\".",
+      "distractor_breakdowns": [
+        {
+          "option": "on",
+          "isCorrect": true,
+          "pedagogicalReason": "Bức tranh treo trên bề mặt bức tường dùng cụm cố định \"on the wall\"."
+        },
+        {
+          "option": "in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"in\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"on\"). Bức tranh treo trên bề mặt bức tường dùng cụm cố định \"on the wall\"."
+        },
+        {
+          "option": "at",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"at\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"on\"). Bức tranh treo trên bề mặt bức tường dùng cụm cố định \"on the wall\"."
+        },
+        {
+          "option": "under",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"under\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"on\"). Bức tranh treo trên bề mặt bức tường dùng cụm cố định \"on the wall\"."
+        }
+      ],
+      "difficulty": 1
+    },
+    {
+      "id": "prepositions-place-ex-08",
+      "type": "fill_blank",
+      "question": "Someone is knocking ___ the door.",
+      "options": [
+        "at",
+        "in",
+        "under",
+        "between"
+      ],
+      "correct_answer": "at",
+      "explanation": "Tại vị trí cánh cửa/điểm hẹn cụ thể ta dùng \"at the door\".",
+      "distractor_breakdowns": [
+        {
+          "option": "at",
+          "isCorrect": true,
+          "pedagogicalReason": "Tại vị trí cánh cửa/điểm hẹn cụ thể ta dùng \"at the door\"."
+        },
+        {
+          "option": "in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"in\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"at\"). Tại vị trí cánh cửa/điểm hẹn cụ thể ta dùng \"at the door\"."
+        },
+        {
+          "option": "under",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"under\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"at\"). Tại vị trí cánh cửa/điểm hẹn cụ thể ta dùng \"at the door\"."
+        },
+        {
+          "option": "between",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"between\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"at\"). Tại vị trí cánh cửa/điểm hẹn cụ thể ta dùng \"at the door\"."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "prepositions-place-ex-09",
+      "type": "multiple_choice",
+      "question": "My office is ___ the third floor.",
+      "options": [
+        "on",
+        "in",
+        "at",
+        "over"
+      ],
+      "correct_answer": "on",
+      "explanation": "Nói ở tầng mấy của tòa nhà ta luôn dùng giới từ \"on\" (\"on the third floor\").",
+      "distractor_breakdowns": [
+        {
+          "option": "on",
+          "isCorrect": true,
+          "pedagogicalReason": "Nói ở tầng mấy của tòa nhà ta luôn dùng giới từ \"on\" (\"on the third floor\")."
+        },
+        {
+          "option": "in",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"in\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"on\"). Nói ở tầng mấy của tòa nhà ta luôn dùng giới từ \"on\" (\"on the third floor\")."
+        },
+        {
+          "option": "at",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"at\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"on\"). Nói ở tầng mấy của tòa nhà ta luôn dùng giới từ \"on\" (\"on the third floor\")."
+        },
+        {
+          "option": "over",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"over\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"on\"). Nói ở tầng mấy của tòa nhà ta luôn dùng giới từ \"on\" (\"on the third floor\")."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "prepositions-place-ex-10",
+      "type": "error_correction",
+      "question": "Find the error: My brother is staying in home tonight.",
+      "options": [
+        "is",
+        "staying",
+        "in home",
+        "tonight"
+      ],
+      "correct_answer": "in home",
+      "explanation": "Cụm từ cố định chỉ việc ở nhà là \"at home\", không nói \"in home\".",
+      "distractor_breakdowns": [
+        {
+          "option": "is",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"is\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "staying",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"staying\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "in home",
+          "isCorrect": true,
+          "pedagogicalReason": "Cụm từ cố định chỉ việc ở nhà là \"at home\", không nói \"in home\"."
+        },
+        {
+          "option": "tonight",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"tonight\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
+    },
+    {
+      "id": "prepositions-place-ex-11",
+      "type": "error_correction",
+      "question": "Find the error: She sits between her mother on the sofa.",
+      "options": [
+        "sits",
+        "between",
+        "her mother",
+        "on"
+      ],
+      "correct_answer": "between",
+      "explanation": "\"between\" phải đi với 2 đối tượng (between A and B). Ngồi cạnh 1 người (\"her mother\") phải dùng \"next to\" hoặc \"beside\".",
+      "distractor_breakdowns": [
+        {
+          "option": "sits",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"sits\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "between",
+          "isCorrect": true,
+          "pedagogicalReason": "\"between\" phải đi với 2 đối tượng (between A and B). Ngồi cạnh 1 người (\"her mother\") phải dùng \"next to\" hoặc \"beside\"."
+        },
+        {
+          "option": "her mother",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"her mother\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "on",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"on\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 3
+    },
+    {
+      "id": "prepositions-place-ex-12",
+      "type": "error_correction",
+      "question": "Find the error: Put the milk on the fridge to keep it cold.",
+      "options": [
+        "Put",
+        "on",
+        "the fridge",
+        "cold"
+      ],
+      "correct_answer": "on",
+      "explanation": "Bỏ sữa vào BÊN TRONG tủ lạnh phải dùng \"in the fridge\" (hoặc \"into the fridge\"), không dùng \"on\" (trên nóc tủ).",
+      "distractor_breakdowns": [
+        {
+          "option": "Put",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"Put\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "on",
+          "isCorrect": true,
+          "pedagogicalReason": "Bỏ sữa vào BÊN TRONG tủ lạnh phải dùng \"in the fridge\" (hoặc \"into the fridge\"), không dùng \"on\" (trên nóc tủ)."
+        },
+        {
+          "option": "the fridge",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"the fridge\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        },
+        {
+          "option": "cold",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Thành phần \"cold\" được dùng đúng ngữ pháp trong câu này, không phải là lỗi sai cần sửa."
+        }
+      ],
+      "difficulty": 2
     }
   ]
 }

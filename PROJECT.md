@@ -1,170 +1,89 @@
-# Project: LingoPro 3-Tier English Speaking Subsystem & Ingestion Pipeline
+# Project: VNU Test Bậc 3 (ULIS - ĐHQGHN) Comprehensive Quality Assurance, Interactive Dictionary & Test Suite Remediation
 
 ## Architecture
-The LingoPro Speaking Subsystem provides an end-to-end, scientifically grounded speaking acquisition pathway for Vietnamese learners, spanning False Beginner (A0-A1), 3-Tier Curriculum (Beginner A1 / 0-3.0, Elementary A2-B1 / 3.0-5.0, Intermediate B1-B2 / 5.0-6.5), and AI Speaking Tutor.
-
-```
-                  ┌─────────────────────────────────────────┐
-                  │    /student/speaking (Master Hub)       │
-                  └────┬───────────────┬────────────────┬───┘
-                       │               │                │
-                       ▼               ▼                ▼
-         ┌──────────────────┐ ┌──────────────────┐ ┌──────────────────┐
-         │ Foundation (A0)  │ │ 3-Tier Curriculum│ │ AI Speaking Tutor│
-         │ (Preserved 100%) │ │ (/curriculum)    │ │ (24+ Scenarios)  │
-         └──────────────────┘ └────────┬─────────┘ └──────────────────┘
-                                       │
-                ┌──────────────────────┼──────────────────────┐
-                ▼                      ▼                      ▼
-         Phase 1: Beginner     Phase 2: Elementary   Phase 3: Intermediate
-         (12 Lessons)          (10 Lessons)          (10 Lessons)
-         - Final Consonants    - PREP / PEEL / 5W1H   - IELTS Part 2 Mindmap
-         - Invariant Frames    - Cooking & Food §IV  - IELTS Part 3 Reflexes
-         - 3-Beat Expansion    - Discourse Connectors- Abstract Arguments
-                │                      │                      │
-                └──────────────────────┼──────────────────────┘
-                                       ▼
-                     4-Stage Interactive Lesson Player
-                     - Stage 1: Warm-up & Phonetics Drill
-                     - Stage 2: Core Patterns & Chunks
-                     - Stage 3: Guided Dialogue Practice
-                     - Stage 4: SafeHarbor Speech Reflex
-                                       │
-                         ┌─────────────┴─────────────┐
-                         ▼                           ▼
-              DualSpeedAudioButton           SafeHarborRecorder
-              (0.8x / 1.0x Pitch-Preserved)  (Levenshtein Fuzzy Engine)
-```
+- **Data Layer (`src/data/vnu-bac-3/`)**:
+  - `ulis-sample-test-01.json`: Official ULIS sample test with 4 sections: Reading (25 Qs), Listening (20 Qs), Writing (2 tasks), Speaking (2 parts). (AUDITED & REMEDIATED)
+  - `cambridge-pet-equiv-01.json`: Standardized Cambridge PET B1 equivalent test 1. (AUDITED & REMEDIATED)
+  - `cambridge-pet-equiv-02.json`: Standardized Cambridge PET B1 equivalent test 2. (AUDITED & REMEDIATED)
+  - `vnu-bac-3-catalog.json`: Exam registry with metadata, timing, and question counts.
+- **Audio Assets (`public/audio/vnu-bac3/`)**:
+  - `sample-01/listening-part{1,2,3}.mp3` (GENERATED, >850KB, valid ID3v2.4 headers)
+  - `equiv-01/listening-part{1,2,3}.mp3` (GENERATED, >850KB, valid ID3v2.4 headers)
+  - `equiv-02/listening-part{1,2,3}.mp3` (GENERATED, >850KB, valid ID3v2.4 headers)
+  - `pet-01/` & `pet-02/` (COMPATIBILITY ALIASES)
+- **Player & Engine (`src/components/vnu-bac-3/`, `src/lib/vnu-bac-3/`)**:
+  - `VnuAudioPlayer.tsx`: Audio player with loading state, duration display, error banner with retry, volume control, practice speed switcher, and ULIS 2-play limit.
+  - `VnuExamRoom.tsx`: Master exam room controller managing timer, state, 4-skill switching, local storage.
+  - `VnuSplitPane.tsx`: Left pane (reading text / audio player / writing prompts / speaking cues), Right pane (questions / writing editor with word counter vs minWords / speaking notes). Interactive dictionary lookup enabled via `ExamInteractiveText` during review/explanation.
+  - `VnuQuestionPalette.tsx`: 4-skill palette (Reading, Listening, Writing, Speaking) with draft/notes status tracking.
+  - `scoring.ts`: Decoupled scoring engine (Reading 25 Qs -> 10.0, Listening 20 Qs -> 10.0, combined score >= 6.0 without < 2.0).
+- **Navigation & Integration (`src/app/`)**:
+  - `src/app/vstep/page.tsx`: Prominent Technical Minimalist banner directing learners to `/vnu-bac-3`.
+  - `src/app/vnu-bac-3/`: Dedicated testing and practice portal.
+  - `src/app/api/vnu-bac-3/`: Secure exam delivery API with Zero Bulk Leaks defense.
+  - `src/app/api/vstep/submit/route.ts`: VSTEP exam submission route with authenticated persistence to `user_roadmap_assessments` (`track: 'vstep'` with `'cefr'` fallback).
+- **Rate Limiting & Security (`src/lib/`)**:
+  - `src/lib/distributed-rate-limit.ts`: Upstash Redis distributed rate limiting with non-production test bypass (`TSX_TEST='1'` or `NODE_ENV='test'`).
+- **Verification Harness (`tests/`)**:
+  - `tests/vnu-bac-3/`: `scoring.test.mjs`, `security.test.mjs`, `forensic-audit.mjs`, `quality-e2e.test.mjs`.
+  - `tests/toeic/run-all-toeic-tests.ts`: Master runner covering 24 test suites (510 tests), including collocation dictionary and word family clusters.
+  - `tests/exam/vstep-vnu-toeic-persistence.test.ts`: Cross-exam submission metadata and schema persistence verification.
+  - `tests/grammar/run-all-grammar-tests.ts`: Curriculum test runner across 87 lessons and canonical `/grammar` route.
 
 ## Feature Inventory
 | # | Feature | Description | Milestone | Source |
 |---|---------|-------------|-----------|--------|
-| 1 | F01: Foundation Architecture Preservation | Preserve legacy A0-A1 foundation types and datasets without touching existing files | M1 | codebase_audit |
-| 2 | F02: Scalable Curriculum Type System | Define `SpeakingCurriculumLesson`, sections, and validation schemas in `src/types/speaking-curriculum.ts` | M1 | academic_curriculum_spec |
-| 3 | F03: DRY Component Export Index | Export `DualSpeedAudioButton`, `SafeHarborRecorder`, `StageProgressNav` via `src/components/speaking/index.ts` | M1 | codebase_audit |
-| 4 | F04: ELLLO.org Scraper | Ingest dialogues, audio streams, CEFR levels, and vocabulary from ELLLO | M2 | pipeline_design |
-| 5 | F05: TalkEnglish.com Scraper | Ingest speech reflex pairs and audio from Basics, Regular, and Business tracks | M2 | pipeline_design |
-| 6 | F06: YouTube Zero-Dependency Transcripts | Extract timed subtitles and oEmbed metadata without API keys via regex caption tracks | M2 | pipeline_design |
-| 7 | F07: Ethical Crawler & Rate Limiter | Jittered delay (1.5-4s), User-Agent rotation, 429/503 exponential backoff | M2 | pipeline_design |
-| 8 | F08: Deterministic Offline Fallback Seeds | Curated mock/seed JSONs for ELLLO, TalkEnglish, and YouTube with `--offline` support | M2 | pipeline_design |
-| 9 | F09: Ingestion Normalizer & Catalog | Standardize crawled raw inputs into `src/data/speaking/ingested/` catalog | M2 | pipeline_design |
-| 10| F10: Phase 1 Beginner Curriculum (12 lessons)| 0-3.0 IELTS: Final consonants (/s, z, ed, t, d, k/), invariant frames, daily routines | M3 | academic_curriculum_spec |
-| 11| F11: Phase 2 Elementary Curriculum (10 lessons)| 3.0-5.0 IELTS: PREP/PEEL/5W1H, discourse connectors, Cooking & Food module (§IV) | M3 | academic_curriculum_spec |
-| 12| F12: Phase 3 Intermediate Curriculum (10 lessons)| 5.0-6.5 IELTS: IELTS Part 2 (4-quadrant), Part 3 concession/categorization, advanced grammar | M3 | academic_curriculum_spec |
-| 13| F13: 100% Vietnamese Explanation Layer | Contrastive linguistics and empathetic Vietnamese pedagogical instructions in all lessons | M3 | academic_curriculum_spec |
-| 14| F14: Student Curriculum Hub UI | `/student/speaking/curriculum` overview with phase selectors, lesson cards, and progress | M4 | codebase_audit |
-| 15| F15: Interactive 4-Stage Lesson Player | `/student/speaking/curriculum/[phaseId]/[lessonId]` running stages 1-4 with audio & recording | M4 | codebase_audit |
-| 16| F16: Master Speaking Hub Integration | Unified portal at `/student/speaking` routing to Foundation, Curriculum, and AI Tutor | M4 | codebase_audit |
-| 17| F17: Curriculum Data Integrity Test Suite | Verify 100% dataset schema conformity, zero TODO/placeholder, URL validation | M5 | codebase_audit |
-| 18| F18: Crawler & Offline Fallback Test Suite | Automated verification of crawler parsing, offline mode, and rate-limiting | M5 | pipeline_design |
+| 1 | Pedagogical Audit & Key Alignment | 135 MCQs and 12 Writing/Speaking tasks audited, Q21 grammar fix, Q23 text align | M1 | Survey & R1 (DONE) |
+| 2 | Sample Answers for Writing | High-quality sample answers for Task 2 in equiv-01 and equiv-02 | M1 | Survey & R1 (DONE) |
+| 3 | Listening Vocabulary Notes | Add high-utility vocabulary notes with IPA and Vietnamese meaning for Listening | M1 | Survey & R1 (DONE) |
+| 4 | Quality Audit Report | Publish comprehensive markdown report at `docs/vnu-bac-3/QUALITY_AUDIT_REPORT.md` | M1 | Survey & R1 (DONE) |
+| 5 | Audio Pipeline & Generation | Generate 9 realistic English neural MP3 files (>20KB, valid headers) via edge-tts & ffmpeg | M2 | Survey & R2 (DONE) |
+| 6 | Audio URL Alignment & Aliasing | Align JSON audio URLs to `equiv-01`/`equiv-02` and ensure `pet-01`/`pet-02` compatibility | M2 | Survey & R2 (DONE) |
+| 7 | VnuAudioPlayer Enhancement | Loading spinner, accurate duration, error handling banner, 2-play limit | M2 | Survey & R2 (DONE) |
+| 8 | Writing Interactive UI | Prompts, real-time word counter vs minWords, localStorage drafts, sample answer toggle | M3 | Survey & R3 (DONE) |
+| 9 | Speaking Interactive UI | Social questions, Cue Cards & follow-ups, outline notes textarea with localStorage | M3 | Survey & R3 (DONE) |
+| 10 | 4-Skill Question Palette & Nav | Palette tabs for Reading, Listening, Writing, Speaking; active section switching | M3 | Survey & R3 (DONE) |
+| 11 | Decoupled Scoring Invariance | Preserve 100% Reading (25->10) and Listening (20->10) scoring algorithm | M3 | Survey & R3 (DONE) |
+| 12 | Navigation Banner on /vstep | Prominent banner/card on `/vstep` directing users to `/vnu-bac-3` | M4 | Survey & R4 (DONE) |
+| 13 | Comprehensive Quality E2E Suite | Automate test suite `tests/vnu-bac-3/quality-e2e.test.mjs` verifying audio, 4-skills, APIs, UI | M4 | Survey & R4 (DONE) |
+| 14 | Full Test Suite & TSC Verification | Execute scoring, security, forensic-audit, quality-e2e, and npx tsc --noEmit | M4 | Survey & R4 (DONE) |
+| 15 | VNU Bậc 3 Interactive Dictionary | Integrate `ExamInteractiveText` in `VnuSplitPane.tsx` for reading, prompts, tapescripts, options during review | M5 | Survey & R1 (DONE) |
+| 16 | Test Environment Rate Limiter Bypass | Support `TSX_TEST === '1'` / `NODE_ENV === 'test'` in `distributed-rate-limit.ts` when Redis is absent | M5 | Survey & R2 (DONE) |
+| 17 | TOEIC Master Runner & Dictionary Suites | Integrate suites 23 & 24 into `run-all-toeic-tests.ts`, export `runDictionaryMeaningsFamilyTests` | M5 | Survey & R3.1 (DONE) |
+| 18 | VSTEP Submit Persistence Metadata | Persist with `track: 'vstep'` and `'cefr'` fallback in `src/app/api/vstep/submit/route.ts` | M5 | Survey & R3.2 (DONE) |
+| 19 | Grammar Test Suite 87 Lessons Alignment | Update grammar tests for 87 curriculum lessons, `order_index <= 62`, and canonical `/grammar` route | M5 | Survey & R4 (DONE) |
 
 ## Milestones
 | # | Name | Scope | Dependencies | Status |
 |---|------|-------|-------------|--------|
-| 1 | M1: Architecture & Type Contracts | Create `src/types/speaking-curriculum.ts` and `src/components/speaking/index.ts` | none | DONE |
-| 2 | M2: Data Ingestion & Crawling Pipeline | Implement `scripts/speaking/` (crawlers, seeds, normalizer, CLI) & output to `src/data/speaking/ingested/` | M1 | DONE |
-| 3 | M3: 3-Tier Curriculum Digitization | Digitize 32 lessons (Phase 1, Phase 2 with Cooking, Phase 3) in `src/data/speaking/curriculum/` | M1 | DONE |
-| 4 | M4: Interactive UI Integration | Build `/student/speaking/curriculum/` pages & update `/student/speaking/` hub | M1, M3 | DONE |
-| 5 | M5: E2E Testing & Verification | Comprehensive test suite in `tests/speaking/speaking-master-e2e-runner.ts` & `tsc --noEmit` 0 errors | M1, M2, M3, M4 | DONE |
+| 1 | Pedagogical Content Audit & JSON Remediation | F1, F2, F3, F4: Audit all 135 MCQs + 12 tasks, fix Q21/Q23, add Task 2 sample answers, add listening vocab, publish QUALITY_AUDIT_REPORT.md | none | DONE |
+| 2 | Realistic MP3 Generation & Audio Player Upgrade | F5, F6, F7: Generate 9 MP3 files, align paths, upgrade VnuAudioPlayer.tsx | M1 | DONE |
+| 3 | Exam Room 4-Skill Interactive UI Upgrade | F8, F9, F10, F11: Upgrade VnuExamRoom, VnuSplitPane, VnuQuestionPalette for Writing & Speaking, preserve scoring | M1 | DONE |
+| 4 | Navigation Banner & E2E Quality Verification | F12, F13, F14: Add /vstep banner, write tests/vnu-bac-3/quality-e2e.test.mjs, verify all test suites & tsc | M2, M3 | DONE |
+| 5 | Interactive Dictionary & Test Suite Remediation | F15, F16, F17, F18, F19: Implement R1-R4, pass 100% of VNU Bậc 3, TOEIC master runner, VSTEP persistence, and Grammar tests | M4 | DONE |
 
 ## Interface Contracts
-### `src/types/speaking-curriculum.ts`
-```typescript
-export type SpeakingPhaseId = 'phase-1-beginner' | 'phase-2-elementary' | 'phase-3-intermediate';
-
-export interface PhoneticDrillSection {
-  titleVi: string;
-  focusSound: string;
-  vietnameseContrastiveTip: string;
-  minimalPairs: Array<{
-    wordA: string;
-    wordB: string;
-    ipaA: string;
-    ipaB: string;
-    meaningA: string;
-    meaningB: string;
-  }>;
-  practiceSentences: Array<{
-    sentence: string;
-    phoneticTarget: string;
-    vietnameseTranslation: string;
-    audioUrl?: string;
-  }>;
-}
-
-export interface CorePatternsSection {
-  titleVi: string;
-  vietnameseGrammarRule: string;
-  formula: string;
-  legoSlots: Array<{
-    template: string;
-    slots: Record<string, string[]>;
-    examples: Array<{ en: string; vi: string }>;
-  }>;
-}
-
-export interface GuidedDialogueSection {
-  titleVi: string;
-  contextVi: string;
-  turns: Array<{
-    speaker: 'A' | 'B';
-    en: string;
-    vi: string;
-    audioUrl?: string;
-    coreKeywords: string[];
-  }>;
-}
-
-export interface SafeHarborEvaluationSection {
-  titleVi: string;
-  promptVi: string;
-  targetSentence: string;
-  acceptableVariations: string[];
-  coreKeywords: string[];
-  minimumPassingScore: number; // default 75
-}
-
-export interface SpeakingCurriculumLesson {
-  id: string;
-  phaseId: SpeakingPhaseId;
-  order: number;
-  titleEn: string;
-  titleVi: string;
-  cefrLevel: 'A1' | 'A2' | 'B1' | 'B2';
-  targetBandIelts: string;
-  estimatedMinutes: number;
-  summaryVi: string;
-  stage1Phonetics: PhoneticDrillSection;
-  stage2CorePatterns: CorePatternsSection;
-  stage3GuidedDialogue: GuidedDialogueSection;
-  stage4SafeHarborEvaluation: SafeHarborEvaluationSection;
-}
-```
+### VnuSplitPane ↔ ExamInteractiveText
+- `ExamInteractiveText`: `{ text?: string; enabled?: boolean; as?: 'span' | 'p' | 'div' }`
+- Enabled condition: `Boolean(isReviewMode || showReviewModal || explanation)`
+- Option button: Click guard ignores events when `target.closest('.exam-lookup-trigger')` is clicked, preventing accidental button re-selection while permitting popover dictionary lookup.
+### Distributed Rate Limiting
+- `checkRateLimitAsync(key, limit, windowMs)`: In non-production test mode (`process.env.NODE_ENV !== 'production' && (process.env.TSX_TEST === '1' || process.env.NODE_ENV === 'test')`) without Redis, returns `{ allowed: true, remaining: limit, resetIn: windowMs }`.
+- In production (`process.env.NODE_ENV === 'production'`) without Redis, strictly throws `RateLimitUnavailableError`.
+### VSTEP Submission Persistence
+- `src/app/api/vstep/submit/route.ts`: Inserts exam record to `user_roadmap_assessments` with `{ ...payload, track: 'vstep' }`, retrying with `{ ...payload, track: 'cefr' }` if database error occurs.
+### Grammar Test Harness
+- Live curriculum: 87 lessons across 62 topics (`order_index <= 62`). Canonical route: `/grammar`.
 
 ## Code Layout
-- `src/types/speaking-curriculum.ts`: Type definitions for 3-tier curriculum & lessons.
-- `src/types/speaking-foundation.ts`: Legacy foundation types (DO NOT MODIFY).
-- `src/components/speaking/index.ts`: Unified export barrel for speaking UI components.
-- `scripts/speaking/`:
-  - `core/rate-limiter.ts`: Rate limiting & retry logic.
-  - `core/http-client.ts`: Axios wrapper with user-agent pool.
-  - `crawlers/crawl-elllo.ts`: ELLLO crawler.
-  - `crawlers/crawl-talkenglish.ts`: TalkEnglish crawler.
-  - `crawlers/crawl-youtube.ts`: YouTube transcript parser.
-  - `normalizer.ts`: Standardize raw crawls into uniform JSON schema.
-  - `seeds/`: High-fidelity deterministic seed JSONs for offline mode.
-  - `ingest.ts`: Master ingestion CLI (`--source`, `--offline`, `--outDir`).
-- `src/data/speaking/ingested/`: Normalized crawled lesson JSONs.
-- `src/data/speaking/curriculum/`:
-  - `phase-1-beginner/`: 12 lesson files + `index.ts`.
-  - `phase-2-elementary/`: 10 lesson files (including `p2-l03-cooking-cuisine.ts`) + `index.ts`.
-  - `phase-3-intermediate/`: 10 lesson files (IELTS Parts 2 & 3) + `index.ts`.
-  - `index.ts`: Master catalog exporting all phases and lookup helpers.
-- `src/app/student/speaking/`:
-  - `page.tsx`: Updated Master Speaking Hub.
-  - `curriculum/page.tsx`: Curriculum phase & lesson browser.
-  - `curriculum/[phaseId]/[lessonId]/page.tsx`: 4-stage interactive lesson player.
-- `tests/speaking/`:
-  - `run-all-speaking-tests.ts`: Legacy test runner (157 tests preserved).
-  - `curriculum-data-integrity.test.ts`: 3-tier curriculum verification.
-  - `crawling-pipeline.test.ts`: Ingestion & offline seed verification.
+- `src/components/vnu-bac-3/VnuSplitPane.tsx`
+- `tests/vnu-bac-3/quality-e2e.test.mjs`
+- `src/lib/distributed-rate-limit.ts`
+- `tests/toeic/explain-regression.test.ts`
+- `tests/toeic/anti-duplication.test.ts`
+- `tests/exam/dictionary-meanings-family.test.ts`
+- `tests/toeic/run-all-toeic-tests.ts`
+- `src/app/api/vstep/submit/route.ts`
+- `tests/grammar/tier1-feature-coverage.test.ts`
+- `tests/grammar/tier4-curriculum-scenarios.test.ts`
+- `tests/grammar/run-all-grammar-tests.ts`

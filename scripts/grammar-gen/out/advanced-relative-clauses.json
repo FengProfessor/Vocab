@@ -450,7 +450,12 @@
       "id": "advanced-relative-clauses-ex-01",
       "type": "fill_blank",
       "question": "Hoàn thành theo mẫu: She ___ three sons, all of whom are doctors.",
-      "options": [],
+      "options": [
+        "has",
+        "have",
+        "is having",
+        "had"
+      ],
       "correct_answer": "has",
       "explanation": "Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc.",
       "distractor_breakdowns": [
@@ -468,6 +473,11 @@
           "option": "is having",
           "isCorrect": false,
           "pedagogicalReason": "Không chính xác. Động từ \"have\" mang nghĩa sở hữu là động từ chỉ trạng thái, không dùng ở thì tiếp diễn."
+        },
+        {
+          "option": "had",
+          "isCorrect": false,
+          "pedagogicalReason": "Không chính xác. Phương án \"had\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"has\"). Chọn từ phù hợp với chủ ngữ, thời điểm và cấu trúc."
         }
       ],
       "difficulty": 1
@@ -475,7 +485,7 @@
     {
       "id": "advanced-relative-clauses-ex-02",
       "type": "multiple_choice",
-      "question": "Choose the correct **relative phrase**: The manager ___ I sent the report replied immediately.",
+      "question": "The manager ___ I sent the report replied immediately.",
       "options": [
         "to whom",
         "to which",
@@ -511,7 +521,7 @@
     {
       "id": "advanced-relative-clauses-ex-03",
       "type": "multiple_choice",
-      "question": "Choose the best **clause connector**: The train was delayed for two hours, ___ made us miss the interview.",
+      "question": "Choose the best clause connector: The train was delayed for two hours, ___ made us miss the interview.",
       "options": [
         "which",
         "that",
@@ -547,7 +557,7 @@
     {
       "id": "advanced-relative-clauses-ex-04",
       "type": "multiple_choice",
-      "question": "Choose the correct **of phrase**: The course has twelve modules, ___ focus on academic writing.",
+      "question": "The course has twelve modules, ___ focus on academic writing.",
       "options": [
         "several of which",
         "several of whom",
@@ -565,17 +575,17 @@
         {
           "option": "several of whom",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"several of whom\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"several of whom\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"several of which\"). “Modules” là vật/khái niệm nên dùng “which”; sau lượng từ “several” cần cấu trúc “of which”. “Whom” dùng cho người, còn thiếu “of” là sai cấu trúc."
         },
         {
           "option": "several which",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"several which\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"several which\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"several of which\"). “Modules” là vật/khái niệm nên dùng “which”; sau lượng từ “several” cần cấu trúc “of which”. “Whom” dùng cho người, còn thiếu “of” là sai cấu trúc."
         },
         {
           "option": "several whom",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"several whom\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"several whom\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"several of which\"). “Modules” là vật/khái niệm nên dùng “which”; sau lượng từ “several” cần cấu trúc “of which”. “Whom” dùng cho người, còn thiếu “of” là sai cấu trúc."
         }
       ],
       "difficulty": 2
@@ -583,7 +593,7 @@
     {
       "id": "advanced-relative-clauses-ex-05",
       "type": "multiple_choice",
-      "question": "Choose the formal **preposition** structure: This is the policy ___ our decision was based.",
+      "question": "Choose the formal preposition structure: This is the policy ___ our decision was based.",
       "options": [
         "on which",
         "which on",
@@ -619,7 +629,7 @@
     {
       "id": "advanced-relative-clauses-ex-06",
       "type": "multiple_choice",
-      "question": "Choose the correct **non-defining** clause: My sister lives in Da Nang, ___ she runs a small design studio.",
+      "question": "My sister lives in Da Nang, ___ she runs a small design studio.",
       "options": [
         "where",
         "that",
@@ -655,7 +665,7 @@
     {
       "id": "advanced-relative-clauses-ex-07",
       "type": "multiple_choice",
-      "question": "Choose the correct **relative pronoun**: The scientist, ___ latest paper won an award, teaches at our university.",
+      "question": "The scientist, ___ latest paper won an award, teaches at our university.",
       "options": [
         "whose",
         "whom",
@@ -691,7 +701,7 @@
     {
       "id": "advanced-relative-clauses-ex-08",
       "type": "multiple_choice",
-      "question": "Choose the correct **quantifier clause**: The applicants submitted portfolios, ___ were reviewed by two judges.",
+      "question": "The applicants submitted portfolios, ___ were reviewed by two judges.",
       "options": [
         "all of which",
         "all of whom",
@@ -709,7 +719,7 @@
         {
           "option": "all of whom",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"all of whom\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"all of whom\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"all of which\"). “Portfolios” là vật nên dùng “which”, và sau “all” cần “of which”. “Whom” dùng cho người; “all which” và “which all” không đúng cấu trúc chuẩn."
         },
         {
           "option": "all which",
@@ -727,7 +737,7 @@
     {
       "id": "advanced-relative-clauses-ex-09",
       "type": "multiple_choice",
-      "question": "Choose the best **formal clause**: The committee interviewed three experts, ___ had worked abroad.",
+      "question": "Choose the best formal clause: The committee interviewed three experts, ___ had worked abroad.",
       "options": [
         "two of whom",
         "two of which",
@@ -745,17 +755,17 @@
         {
           "option": "two of which",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"two of which\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"two of which\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"two of whom\"). “Experts” là người nên dùng “whom” sau lượng từ “two of”. “Which” dùng cho vật; hai lựa chọn còn lại sai trật tự hoặc thiếu “of”."
         },
         {
           "option": "two whom",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"two whom\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"two whom\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"two of whom\"). “Experts” là người nên dùng “whom” sau lượng từ “two of”. “Which” dùng cho vật; hai lựa chọn còn lại sai trật tự hoặc thiếu “of”."
         },
         {
           "option": "whom two",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"whom two\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"whom two\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"two of whom\"). “Experts” là người nên dùng “whom” sau lượng từ “two of”. “Which” dùng cho vật; hai lựa chọn còn lại sai trật tự hoặc thiếu “of”."
         }
       ],
       "difficulty": 2
@@ -763,7 +773,7 @@
     {
       "id": "advanced-relative-clauses-ex-10",
       "type": "multiple_choice",
-      "question": "Choose the correct **preposition choice**: The topic ___ they disagreed was later removed from the agenda.",
+      "question": "The topic ___ they disagreed was later removed from the agenda.",
       "options": [
         "about which",
         "which about",
@@ -799,7 +809,7 @@
     {
       "id": "advanced-relative-clauses-ex-11",
       "type": "fill_blank",
-      "question": "Complete the **relative clause**: The printer broke again, ___ delayed the whole project.",
+      "question": "Complete the relative clause: The printer broke again, ___ delayed the whole project.",
       "options": [
         "which",
         "that",
@@ -835,7 +845,7 @@
     {
       "id": "advanced-relative-clauses-ex-12",
       "type": "fill_blank",
-      "question": "Complete the **formal phrase**: The client ___ we prepared the proposal was very demanding.",
+      "question": "Complete the formal phrase: The client ___ we prepared the proposal was very demanding.",
       "options": [
         "for whom",
         "for which",
@@ -871,7 +881,7 @@
     {
       "id": "advanced-relative-clauses-ex-13",
       "type": "fill_blank",
-      "question": "Complete the **of whom** clause: She invited six colleagues, ___ had worked with her before.",
+      "question": "Complete the of whom clause: She invited six colleagues, ___ had worked with her before.",
       "options": [
         "three of whom",
         "three of which",
@@ -889,7 +899,7 @@
         {
           "option": "three of which",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"three of which\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"three of which\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"three of whom\"). “Colleagues” là người nên dùng “three of whom”. “Which” dùng cho vật, còn “three whom” và “whom three” sai cấu trúc."
         },
         {
           "option": "three whom",
@@ -907,7 +917,7 @@
     {
       "id": "advanced-relative-clauses-ex-14",
       "type": "fill_blank",
-      "question": "Complete the **of which** clause: The company opened five branches, ___ are in the north.",
+      "question": "Complete the of which clause: The company opened five branches, ___ are in the north.",
       "options": [
         "two of which",
         "two of whom",
@@ -925,17 +935,17 @@
         {
           "option": "two of whom",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"two of whom\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"two of whom\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"two of which\"). “Branches” là vật/địa điểm nên dùng “two of which”. “Whom” dùng cho người, hai lựa chọn còn lại thiếu hoặc sai vị trí “of”."
         },
         {
           "option": "two which",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"two which\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"two which\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"two of which\"). “Branches” là vật/địa điểm nên dùng “two of which”. “Whom” dùng cho người, hai lựa chọn còn lại thiếu hoặc sai vị trí “of”."
         },
         {
           "option": "which two",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"which two\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"which two\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"two of which\"). “Branches” là vật/địa điểm nên dùng “two of which”. “Whom” dùng cho người, hai lựa chọn còn lại thiếu hoặc sai vị trí “of”."
         }
       ],
       "difficulty": 2
@@ -943,7 +953,7 @@
     {
       "id": "advanced-relative-clauses-ex-15",
       "type": "fill_blank",
-      "question": "Complete the **preposition clause**: The contract ___ both sides referred was signed last year.",
+      "question": "Complete the preposition clause: The contract ___ both sides referred was signed last year.",
       "options": [
         "to which",
         "to whom",
@@ -961,7 +971,7 @@
         {
           "option": "to whom",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"to whom\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"to whom\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"to which\"). Ta nói “refer to a contract”, nên dạng trang trọng là “to which”. “Whom” dùng cho người, “which to” và “that to” sai trật tự/cấu trúc."
         },
         {
           "option": "which to",
@@ -979,7 +989,7 @@
     {
       "id": "advanced-relative-clauses-ex-16",
       "type": "fill_blank",
-      "question": "Complete the **whole-clause** reference: He forgot to attach the file, ___ meant we had to resend the email.",
+      "question": "Complete the whole-clause reference: He forgot to attach the file, ___ meant we had to resend the email.",
       "options": [
         "which",
         "what",
@@ -1015,7 +1025,7 @@
     {
       "id": "advanced-relative-clauses-ex-17",
       "type": "fill_blank",
-      "question": "Complete the **whose clause**: The author, ___ novel was translated into Vietnamese, visited Hanoi.",
+      "question": "Complete the whose clause: The author, ___ novel was translated into Vietnamese, visited Hanoi.",
       "options": [
         "whose",
         "whom",
@@ -1051,7 +1061,7 @@
     {
       "id": "advanced-relative-clauses-ex-18",
       "type": "fill_blank",
-      "question": "Complete the **formal object** clause: The candidate ___ the panel selected had excellent references.",
+      "question": "Complete the formal object clause: The candidate ___ the panel selected had excellent references.",
       "options": [
         "whom",
         "which",
@@ -1087,7 +1097,7 @@
     {
       "id": "advanced-relative-clauses-ex-19",
       "type": "error_correction",
-      "question": "Find the error: The article **to whom** I referred was published in 2021.",
+      "question": "Find the error: The article to whom I referred was published in 2021.",
       "options": [
         "The article",
         "to whom",
@@ -1123,7 +1133,7 @@
     {
       "id": "advanced-relative-clauses-ex-20",
       "type": "error_correction",
-      "question": "Find the error: The seminar was postponed, **that** disappointed many students.",
+      "question": "Find the error: The seminar was postponed, that disappointed many students.",
       "options": [
         "The seminar",
         "was postponed",
@@ -1159,7 +1169,7 @@
     {
       "id": "advanced-relative-clauses-ex-21",
       "type": "error_correction",
-      "question": "Find the error: The engineers, **many of which** had overseas experience, solved the issue quickly.",
+      "question": "Find the error: The engineers, many of which had overseas experience, solved the issue quickly.",
       "options": [
         "The engineers",
         "many of which",
@@ -1195,7 +1205,7 @@
     {
       "id": "advanced-relative-clauses-ex-22",
       "type": "error_correction",
-      "question": "Find the error: The plan **which on** we relied failed after two months.",
+      "question": "Find the error: The plan which on we relied failed after two months.",
       "options": [
         "The plan",
         "which on",
@@ -1231,7 +1241,7 @@
     {
       "id": "advanced-relative-clauses-ex-23",
       "type": "error_correction",
-      "question": "Find the error: Our office, **that** is near the station, closes at six.",
+      "question": "Find the error: Our office, that is near the station, closes at six.",
       "options": [
         "Our office",
         "that",
@@ -1267,7 +1277,7 @@
     {
       "id": "advanced-relative-clauses-ex-24",
       "type": "error_correction",
-      "question": "Find the error: The students submitted essays, **all of whom** were checked for plagiarism.",
+      "question": "Find the error: The students submitted essays, all of whom were checked for plagiarism.",
       "options": [
         "The students",
         "submitted essays",
@@ -1303,7 +1313,7 @@
     {
       "id": "advanced-relative-clauses-ex-25",
       "type": "error_correction",
-      "question": "Find the error: The hotel **in whom** we stayed had a beautiful rooftop cafe.",
+      "question": "Find the error: The hotel in whom we stayed had a beautiful rooftop cafe.",
       "options": [
         "The hotel",
         "in whom",
@@ -1339,7 +1349,7 @@
     {
       "id": "advanced-relative-clauses-ex-26",
       "type": "error_correction",
-      "question": "Find the error: The report, **whose** was submitted late, still received a high score.",
+      "question": "Find the error: The report, whose was submitted late, still received a high score.",
       "options": [
         "The report",
         "whose",
@@ -1375,7 +1385,7 @@
     {
       "id": "advanced-relative-clauses-ex-27",
       "type": "multiple_choice",
-      "question": "Choose the correct **relative phrase**: The lawyer ___ we gave the documents explained the risks clearly.",
+      "question": "The lawyer ___ we gave the documents explained the risks clearly.",
       "options": [
         "to whom",
         "to which",
@@ -1411,7 +1421,7 @@
     {
       "id": "advanced-relative-clauses-ex-28",
       "type": "multiple_choice",
-      "question": "Choose the best **whole-clause** reference: He missed the final deadline, ___ put the team under pressure.",
+      "question": "Choose the best whole-clause reference: He missed the final deadline, ___ put the team under pressure.",
       "options": [
         "which",
         "that",
@@ -1447,7 +1457,7 @@
     {
       "id": "advanced-relative-clauses-ex-29",
       "type": "multiple_choice",
-      "question": "Choose the correct **of which** phrase: The project has four stages, ___ requires separate approval.",
+      "question": "The project has four stages, ___ requires separate approval.",
       "options": [
         "each of which",
         "each of whom",
@@ -1483,7 +1493,7 @@
     {
       "id": "advanced-relative-clauses-ex-30",
       "type": "multiple_choice",
-      "question": "Choose the formal **preposition** structure: The evidence ___ the conclusion depends is still incomplete.",
+      "question": "Choose the formal preposition structure: The evidence ___ the conclusion depends is still incomplete.",
       "options": [
         "on which",
         "which on",
@@ -1519,7 +1529,7 @@
     {
       "id": "advanced-relative-clauses-ex-31",
       "type": "multiple_choice",
-      "question": "Choose the correct **whose clause**: The village, ___ roads were damaged by the storm, received emergency support.",
+      "question": "The village, ___ roads were damaged by the storm, received emergency support.",
       "options": [
         "whose",
         "which",
@@ -1555,7 +1565,7 @@
     {
       "id": "advanced-relative-clauses-ex-32",
       "type": "multiple_choice",
-      "question": "Choose the correct **relative adverb**: The archive, ___ many rare letters are kept, is open to researchers.",
+      "question": "The archive, ___ many rare letters are kept, is open to researchers.",
       "options": [
         "where",
         "which",
@@ -1591,7 +1601,7 @@
     {
       "id": "advanced-relative-clauses-ex-33",
       "type": "multiple_choice",
-      "question": "Choose the best **quantifier** clause: The volunteers brought ten laptops, ___ were donated to local schools.",
+      "question": "Choose the best quantifier clause: The volunteers brought ten laptops, ___ were donated to local schools.",
       "options": [
         "most of which",
         "most of whom",
@@ -1627,7 +1637,7 @@
     {
       "id": "advanced-relative-clauses-ex-34",
       "type": "multiple_choice",
-      "question": "Choose the correct **formal clause**: The consultant ___ we turned for advice suggested a simpler solution.",
+      "question": "The consultant ___ we turned for advice suggested a simpler solution.",
       "options": [
         "to whom",
         "to which",
@@ -1663,7 +1673,7 @@
     {
       "id": "advanced-relative-clauses-ex-35",
       "type": "multiple_choice",
-      "question": "Choose the correct **non-defining** clause: Our main server, ___ stores all customer records, will be upgraded tonight.",
+      "question": "Our main server, ___ stores all customer records, will be upgraded tonight.",
       "options": [
         "which",
         "that",
@@ -1699,7 +1709,7 @@
     {
       "id": "advanced-relative-clauses-ex-36",
       "type": "fill_blank",
-      "question": "Complete the **preposition phrase**: The research method ___ they objected was later revised.",
+      "question": "Complete the preposition phrase: The research method ___ they objected was later revised.",
       "options": [
         "to which",
         "which to",
@@ -1735,7 +1745,7 @@
     {
       "id": "advanced-relative-clauses-ex-37",
       "type": "fill_blank",
-      "question": "Complete the **whole-clause** reference: The lights went out during the exam, ___ caused a short delay.",
+      "question": "Complete the whole-clause reference: The lights went out during the exam, ___ caused a short delay.",
       "options": [
         "which",
         "that",
@@ -1771,7 +1781,7 @@
     {
       "id": "advanced-relative-clauses-ex-38",
       "type": "fill_blank",
-      "question": "Complete the **of whom** clause: The panel included five judges, ___ had taught at international universities.",
+      "question": "Complete the of whom clause: The panel included five judges, ___ had taught at international universities.",
       "options": [
         "three of whom",
         "three of which",
@@ -1807,7 +1817,7 @@
     {
       "id": "advanced-relative-clauses-ex-39",
       "type": "fill_blank",
-      "question": "Complete the **of which** clause: The report listed several causes, ___ was poor communication.",
+      "question": "Complete the of which clause: The report listed several causes, ___ was poor communication.",
       "options": [
         "one of which",
         "one of whom",
@@ -1843,7 +1853,7 @@
     {
       "id": "advanced-relative-clauses-ex-40",
       "type": "fill_blank",
-      "question": "Complete the **formal relative** clause: The mentor ___ I owe much of my progress still teaches online.",
+      "question": "Complete the formal relative clause: The mentor ___ I owe much of my progress still teaches online.",
       "options": [
         "to whom",
         "to which",
@@ -1879,7 +1889,7 @@
     {
       "id": "advanced-relative-clauses-ex-41",
       "type": "fill_blank",
-      "question": "Complete the **whose phrase**: The start-up, ___ founders met at university, has just raised new funding.",
+      "question": "Complete the whose phrase: The start-up, ___ founders met at university, has just raised new funding.",
       "options": [
         "whose",
         "which",
@@ -1915,7 +1925,7 @@
     {
       "id": "advanced-relative-clauses-ex-42",
       "type": "fill_blank",
-      "question": "Complete the **relative place** clause: The laboratory, ___ the samples were tested, follows strict safety rules.",
+      "question": "Complete the relative place clause: The laboratory, ___ the samples were tested, follows strict safety rules.",
       "options": [
         "where",
         "which",
@@ -1951,7 +1961,7 @@
     {
       "id": "advanced-relative-clauses-ex-43",
       "type": "fill_blank",
-      "question": "Complete the **quantifier phrase**: The company hired twelve interns, ___ were assigned to the data team.",
+      "question": "Complete the quantifier phrase: The company hired twelve interns, ___ were assigned to the data team.",
       "options": [
         "half of whom",
         "half of which",
@@ -1987,7 +1997,7 @@
     {
       "id": "advanced-relative-clauses-ex-44",
       "type": "error_correction",
-      "question": "Find the error: The conference, **that** attracted speakers from six countries, ended on Friday.",
+      "question": "Find the error: The conference, that attracted speakers from six countries, ended on Friday.",
       "options": [
         "conference",
         "that",
@@ -2023,7 +2033,7 @@
     {
       "id": "advanced-relative-clauses-ex-45",
       "type": "error_correction",
-      "question": "Find the error: The professor **to which** I sent my draft gave detailed comments.",
+      "question": "Find the error: The professor to which I sent my draft gave detailed comments.",
       "options": [
         "professor",
         "to which",
@@ -2059,7 +2069,7 @@
     {
       "id": "advanced-relative-clauses-ex-46",
       "type": "error_correction",
-      "question": "Find the error: The two solutions, **both of whom** seemed practical, were tested immediately.",
+      "question": "Find the error: The two solutions, both of whom seemed practical, were tested immediately.",
       "options": [
         "solutions",
         "both of whom",
@@ -2095,7 +2105,7 @@
     {
       "id": "advanced-relative-clauses-ex-47",
       "type": "error_correction",
-      "question": "Find the error: The deadline was moved forward, **what** upset several departments.",
+      "question": "Find the error: The deadline was moved forward, what upset several departments.",
       "options": [
         "deadline",
         "moved forward",
@@ -2131,7 +2141,7 @@
     {
       "id": "advanced-relative-clauses-ex-48",
       "type": "error_correction",
-      "question": "Find the error: The charity **for whom** the concert raised money supports children with disabilities.",
+      "question": "Find the error: The charity for whom the concert raised money supports children with disabilities.",
       "options": [
         "charity",
         "for whom",
@@ -2167,7 +2177,7 @@
     {
       "id": "advanced-relative-clauses-ex-49",
       "type": "error_correction",
-      "question": "Find the error: The guidebook, **whose** explains local customs, is available at the airport.",
+      "question": "Find the error: The guidebook, whose explains local customs, is available at the airport.",
       "options": [
         "guidebook",
         "whose",
@@ -2203,7 +2213,7 @@
     {
       "id": "advanced-relative-clauses-ex-50",
       "type": "error_correction",
-      "question": "Find the error: The survey included 800 responses, **many of whom** came from rural areas.",
+      "question": "Find the error: The survey included 800 responses, many of whom came from rural areas.",
       "options": [
         "survey",
         "responses",
@@ -2239,7 +2249,7 @@
     {
       "id": "advanced-relative-clauses-ex-51",
       "type": "error_correction",
-      "question": "Find the error: The issue **about whom** we were concerned has now been resolved.",
+      "question": "Find the error: The issue about whom we were concerned has now been resolved.",
       "options": [
         "issue",
         "about whom",
@@ -2275,7 +2285,7 @@
     {
       "id": "advanced-relative-clauses-ex-52",
       "type": "multiple_choice",
-      "question": "Choose the correct **formal phrase**: The committee ___ the grant was awarded had proposed a community garden.",
+      "question": "The committee ___ the grant was awarded had proposed a community garden.",
       "options": [
         "to which",
         "for whom",
@@ -2298,7 +2308,7 @@
         {
           "option": "to whom",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"to whom\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"to whom\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"to which\"). “Committee” là một tổ chức/nhóm nên dùng “which”, và động từ “award” đi với giới từ “to”. “Whom” dùng cho người, còn “for whom/at which” không đúng quan hệ ý nghĩa ở đây."
         },
         {
           "option": "at which",
@@ -2311,7 +2321,7 @@
     {
       "id": "advanced-relative-clauses-ex-53",
       "type": "multiple_choice",
-      "question": "Choose the best **whole-clause** reference: She ignored the safety warning, ___ led to a serious delay.",
+      "question": "Choose the best whole-clause reference: She ignored the safety warning, ___ led to a serious delay.",
       "options": [
         "which",
         "that",
@@ -2347,7 +2357,7 @@
     {
       "id": "advanced-relative-clauses-ex-54",
       "type": "multiple_choice",
-      "question": "Choose the correct **quantifier phrase**: The museum owns six paintings by the artist, ___ are rarely displayed.",
+      "question": "The museum owns six paintings by the artist, ___ are rarely displayed.",
       "options": [
         "two of which",
         "two of whom",
@@ -2365,17 +2375,17 @@
         {
           "option": "two of whom",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"two of whom\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"two of whom\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"two of which\"). “Paintings” là vật nên dùng “which” trong cấu trúc “two of which”. “Whom” dùng cho người, còn “that” không đứng sau “of” trong cấu trúc này."
         },
         {
           "option": "two of that",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"two of that\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"two of that\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"two of which\"). “Paintings” là vật nên dùng “which” trong cấu trúc “two of which”. “Whom” dùng cho người, còn “that” không đứng sau “of” trong cấu trúc này."
         },
         {
           "option": "two whose",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"two whose\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"two whose\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"two of which\"). “Paintings” là vật nên dùng “which” trong cấu trúc “two of which”. “Whom” dùng cho người, còn “that” không đứng sau “of” trong cấu trúc này."
         }
       ],
       "difficulty": 2
@@ -2383,7 +2393,7 @@
     {
       "id": "advanced-relative-clauses-ex-55",
       "type": "multiple_choice",
-      "question": "Choose the correct **relative pronoun**: The translator, ___ native language is Korean, checked the final version.",
+      "question": "The translator, ___ native language is Korean, checked the final version.",
       "options": [
         "whose",
         "who",
@@ -2419,7 +2429,7 @@
     {
       "id": "advanced-relative-clauses-ex-56",
       "type": "multiple_choice",
-      "question": "Choose the correct **preposition clause**: The theory ___ the experiment was based has been questioned.",
+      "question": "The theory ___ the experiment was based has been questioned.",
       "options": [
         "on which",
         "in whom",
@@ -2455,7 +2465,7 @@
     {
       "id": "advanced-relative-clauses-ex-57",
       "type": "multiple_choice",
-      "question": "Choose the best **time phrase**: The train arrived late, ___ most passengers had missed their connections.",
+      "question": "Choose the best time phrase: The train arrived late, ___ most passengers had missed their connections.",
       "options": [
         "by which time",
         "in which case",
@@ -2473,17 +2483,17 @@
         {
           "option": "in which case",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"in which case\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"in which case\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"by which time\"). “By which time” nghĩa là “vào thời điểm đó thì”, phù hợp với việc hành khách đã lỡ chuyến nối. Các lựa chọn còn lại nói về trường hợp, nơi chốn hoặc lý do nên không đúng nghĩa."
         },
         {
           "option": "at which place",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"at which place\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"at which place\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"by which time\"). “By which time” nghĩa là “vào thời điểm đó thì”, phù hợp với việc hành khách đã lỡ chuyến nối. Các lựa chọn còn lại nói về trường hợp, nơi chốn hoặc lý do nên không đúng nghĩa."
         },
         {
           "option": "for which reason",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"for which reason\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"for which reason\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"by which time\"). “By which time” nghĩa là “vào thời điểm đó thì”, phù hợp với việc hành khách đã lỡ chuyến nối. Các lựa chọn còn lại nói về trường hợp, nơi chốn hoặc lý do nên không đúng nghĩa."
         }
       ],
       "difficulty": 3
@@ -2491,7 +2501,7 @@
     {
       "id": "advanced-relative-clauses-ex-58",
       "type": "multiple_choice",
-      "question": "Choose the correct **of whom** clause: The research team included three statisticians, ___ had worked in public health.",
+      "question": "The research team included three statisticians, ___ had worked in public health.",
       "options": [
         "one of whom",
         "one of which",
@@ -2509,7 +2519,7 @@
         {
           "option": "one of which",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"one of which\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"one of which\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"one of whom\"). “Statisticians” là người nên dùng “one of whom”. “Which” dùng cho vật, còn “one whom/one whose” thiếu cấu trúc “of” hoặc sai quan hệ sở hữu."
         },
         {
           "option": "one whom",
@@ -2527,7 +2537,7 @@
     {
       "id": "advanced-relative-clauses-ex-59",
       "type": "multiple_choice",
-      "question": "Choose the correct **place clause**: The courthouse, ___ the documents were signed, is now a museum.",
+      "question": "The courthouse, ___ the documents were signed, is now a museum.",
       "options": [
         "where",
         "which",
@@ -2563,7 +2573,7 @@
     {
       "id": "advanced-relative-clauses-ex-60",
       "type": "multiple_choice",
-      "question": "Choose the correct **reason phrase**: The data were incomplete, ___ the results should be treated carefully.",
+      "question": "The data were incomplete, ___ the results should be treated carefully.",
       "options": [
         "for which reason",
         "in whose case",
@@ -2581,17 +2591,17 @@
         {
           "option": "in whose case",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"in whose case\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"in whose case\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"for which reason\"). “For which reason” nối với cả ý trước và diễn tả lý do dẫn đến kết luận sau. Các lựa chọn khác không diễn đạt quan hệ nguyên nhân đúng hoặc sai cấu trúc."
         },
         {
           "option": "at which point",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"at which point\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"at which point\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"for which reason\"). “For which reason” nối với cả ý trước và diễn tả lý do dẫn đến kết luận sau. Các lựa chọn khác không diễn đạt quan hệ nguyên nhân đúng hoặc sai cấu trúc."
         },
         {
           "option": "of which reason",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"of which reason\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"of which reason\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"for which reason\"). “For which reason” nối với cả ý trước và diễn tả lý do dẫn đến kết luận sau. Các lựa chọn khác không diễn đạt quan hệ nguyên nhân đúng hoặc sai cấu trúc."
         }
       ],
       "difficulty": 3
@@ -2599,7 +2609,7 @@
     {
       "id": "advanced-relative-clauses-ex-61",
       "type": "fill_blank",
-      "question": "Complete the **formal clause**: The client ___ we sent the invoice has requested a revision.",
+      "question": "Complete the formal clause: The client ___ we sent the invoice has requested a revision.",
       "options": [
         "to whom",
         "to which",
@@ -2635,7 +2645,7 @@
     {
       "id": "advanced-relative-clauses-ex-62",
       "type": "fill_blank",
-      "question": "Complete the **whole-clause** reference: The software crashed twice during the demo, ___ made the investors nervous.",
+      "question": "Complete the whole-clause reference: The software crashed twice during the demo, ___ made the investors nervous.",
       "options": [
         "which",
         "that",
@@ -2671,7 +2681,7 @@
     {
       "id": "advanced-relative-clauses-ex-63",
       "type": "fill_blank",
-      "question": "Complete the **of which** phrase: The contract contains several conditions, ___ must be approved by the board.",
+      "question": "Complete the of which phrase: The contract contains several conditions, ___ must be approved by the board.",
       "options": [
         "each of which",
         "each of whom",
@@ -2689,7 +2699,7 @@
         {
           "option": "each of whom",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"each of whom\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"each of whom\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"each of which\"). “Conditions” là vật/ý nên dùng “each of which”. “Whom” dùng cho người, còn “each which/each of that” sai cấu trúc."
         },
         {
           "option": "each which",
@@ -2707,7 +2717,7 @@
     {
       "id": "advanced-relative-clauses-ex-64",
       "type": "fill_blank",
-      "question": "Complete the **whose clause**: The novelist, ___ first book became a bestseller, avoids interviews.",
+      "question": "Complete the whose clause: The novelist, ___ first book became a bestseller, avoids interviews.",
       "options": [
         "whose",
         "who",
@@ -2743,7 +2753,7 @@
     {
       "id": "advanced-relative-clauses-ex-65",
       "type": "fill_blank",
-      "question": "Complete the **preposition phrase**: The policy ___ many employees complained was changed last week.",
+      "question": "Complete the preposition phrase: The policy ___ many employees complained was changed last week.",
       "options": [
         "about which",
         "about whom",
@@ -2761,7 +2771,7 @@
         {
           "option": "about whom",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"about whom\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"about whom\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"about which\"). Động từ “complain” đi với “about”, và “policy” là vật/ý nên dùng “about which”. “Whom” dùng cho người, còn “which about/that about” sai trật tự hoặc sai cấu trúc."
         },
         {
           "option": "which about",
@@ -2779,7 +2789,7 @@
     {
       "id": "advanced-relative-clauses-ex-66",
       "type": "fill_blank",
-      "question": "Complete the **relative phrase**: The candidate ___ the committee finally agreed withdrew yesterday.",
+      "question": "Complete the relative phrase: The candidate ___ the committee finally agreed withdrew yesterday.",
       "options": [
         "on whom",
         "on which",
@@ -2797,17 +2807,17 @@
         {
           "option": "on which",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"on which\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"on which\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"on whom\"). “Agree on someone” nghĩa là thống nhất chọn ai, nên với “candidate” dùng “on whom”. “Which” không dùng cho người trong câu này, còn hai lựa chọn sau sai trật tự."
         },
         {
           "option": "whom on",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"whom on\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"whom on\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"on whom\"). “Agree on someone” nghĩa là thống nhất chọn ai, nên với “candidate” dùng “on whom”. “Which” không dùng cho người trong câu này, còn hai lựa chọn sau sai trật tự."
         },
         {
           "option": "that on",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"that on\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"that on\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"on whom\"). “Agree on someone” nghĩa là thống nhất chọn ai, nên với “candidate” dùng “on whom”. “Which” không dùng cho người trong câu này, còn hai lựa chọn sau sai trật tự."
         }
       ],
       "difficulty": 3
@@ -2815,7 +2825,7 @@
     {
       "id": "advanced-relative-clauses-ex-67",
       "type": "fill_blank",
-      "question": "Complete the **case phrase**: You may need extra documents, ___ you should contact the embassy.",
+      "question": "Complete the case phrase: You may need extra documents, ___ you should contact the embassy.",
       "options": [
         "in which case",
         "by which time",
@@ -2833,17 +2843,17 @@
         {
           "option": "by which time",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"by which time\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"by which time\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in which case\"). “In which case” nghĩa là “trong trường hợp đó”, nối với toàn bộ khả năng ở mệnh đề trước. Các cụm còn lại không phù hợp về nghĩa hoặc sai cấu trúc."
         },
         {
           "option": "for which place",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"for which place\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"for which place\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in which case\"). “In which case” nghĩa là “trong trường hợp đó”, nối với toàn bộ khả năng ở mệnh đề trước. Các cụm còn lại không phù hợp về nghĩa hoặc sai cấu trúc."
         },
         {
           "option": "of which case",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"of which case\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"of which case\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"in which case\"). “In which case” nghĩa là “trong trường hợp đó”, nối với toàn bộ khả năng ở mệnh đề trước. Các cụm còn lại không phù hợp về nghĩa hoặc sai cấu trúc."
         }
       ],
       "difficulty": 3
@@ -2851,7 +2861,7 @@
     {
       "id": "advanced-relative-clauses-ex-68",
       "type": "fill_blank",
-      "question": "Complete the **non-defining** clause: My laptop, ___ I bought in 2021, still runs smoothly.",
+      "question": "Complete the non-defining clause: My laptop, ___ I bought in 2021, still runs smoothly.",
       "options": [
         "which",
         "that",
@@ -2887,7 +2897,7 @@
     {
       "id": "advanced-relative-clauses-ex-69",
       "type": "error_correction",
-      "question": "Find the error: The manuscript, **that** was rejected twice, later won a national prize.",
+      "question": "Find the error: The manuscript, that was rejected twice, later won a national prize.",
       "options": [
         "The manuscript",
         "that",
@@ -2923,7 +2933,7 @@
     {
       "id": "advanced-relative-clauses-ex-70",
       "type": "error_correction",
-      "question": "Find the error: The engineer **to which** we described the problem suggested a quick fix.",
+      "question": "Find the error: The engineer to which we described the problem suggested a quick fix.",
       "options": [
         "The engineer",
         "to which",
@@ -2959,7 +2969,7 @@
     {
       "id": "advanced-relative-clauses-ex-71",
       "type": "error_correction",
-      "question": "Find the error: The devices, **several of whom** were brand new, stopped working after the update.",
+      "question": "Find the error: The devices, several of whom were brand new, stopped working after the update.",
       "options": [
         "The devices",
         "several of whom",
@@ -2995,7 +3005,7 @@
     {
       "id": "advanced-relative-clauses-ex-72",
       "type": "error_correction",
-      "question": "Find the error: The manager, **whose** approved the budget, asked for a shorter report.",
+      "question": "Find the error: The manager, whose approved the budget, asked for a shorter report.",
       "options": [
         "The manager",
         "whose",
@@ -3031,7 +3041,7 @@
     {
       "id": "advanced-relative-clauses-ex-73",
       "type": "error_correction",
-      "question": "Find the error: The bridge **over whom** we drove was built in the 1930s.",
+      "question": "Find the error: The bridge over whom we drove was built in the 1930s.",
       "options": [
         "The bridge",
         "over whom",
@@ -3067,7 +3077,7 @@
     {
       "id": "advanced-relative-clauses-ex-74",
       "type": "error_correction",
-      "question": "Find the error: The announcement was delayed, **that** confused many applicants.",
+      "question": "Find the error: The announcement was delayed, that confused many applicants.",
       "options": [
         "The announcement",
         "was delayed",
@@ -3103,7 +3113,7 @@
     {
       "id": "advanced-relative-clauses-ex-75",
       "type": "error_correction",
-      "question": "Find the error: The workshop had twenty participants, **most of which** were teachers.",
+      "question": "Find the error: The workshop had twenty participants, most of which were teachers.",
       "options": [
         "The workshop",
         "twenty participants",
@@ -3139,7 +3149,7 @@
     {
       "id": "advanced-relative-clauses-ex-76",
       "type": "error_correction",
-      "question": "Find the error: The town **in where** she grew up has become a tourist destination.",
+      "question": "Find the error: The town in where she grew up has become a tourist destination.",
       "options": [
         "The town",
         "in where",
@@ -3175,7 +3185,7 @@
     {
       "id": "advanced-relative-clauses-ex-77",
       "type": "multiple_choice",
-      "question": "Choose the correct **preposition phrase**: The professor ___ the article was dedicated retired last year.",
+      "question": "The professor ___ the article was dedicated retired last year.",
       "options": [
         "to whom",
         "for which",
@@ -3211,7 +3221,7 @@
     {
       "id": "advanced-relative-clauses-ex-78",
       "type": "multiple_choice",
-      "question": "Choose the best **whole-clause** reference: He submitted the application after the deadline, ___ meant he could not be considered.",
+      "question": "Choose the best whole-clause reference: He submitted the application after the deadline, ___ meant he could not be considered.",
       "options": [
         "which",
         "what",
@@ -3247,7 +3257,7 @@
     {
       "id": "advanced-relative-clauses-ex-79",
       "type": "multiple_choice",
-      "question": "Choose the correct **of which** phrase: The report listed five recommendations, ___ required immediate action.",
+      "question": "The report listed five recommendations, ___ required immediate action.",
       "options": [
         "two of which",
         "two of whom",
@@ -3265,7 +3275,7 @@
         {
           "option": "two of whom",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"two of whom\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"two of whom\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"two of which\"). “Recommendations” là vật/ý tưởng nên dùng “two of which”. “Whom” chỉ người, “two which” thiếu “of”, còn “whose two” sai cấu trúc trong câu này."
         },
         {
           "option": "two which",
@@ -3283,7 +3293,7 @@
     {
       "id": "advanced-relative-clauses-ex-80",
       "type": "multiple_choice",
-      "question": "Choose the correct **formal clause**: The legal principles ___ the decision rested were rarely discussed in class.",
+      "question": "The legal principles ___ the decision rested were rarely discussed in class.",
       "options": [
         "on which",
         "in whom",
@@ -3319,7 +3329,7 @@
     {
       "id": "advanced-relative-clauses-ex-81",
       "type": "multiple_choice",
-      "question": "Choose the correct **relative determiner**: The company, ___ overseas branches are expanding quickly, needs more bilingual staff.",
+      "question": "The company, ___ overseas branches are expanding quickly, needs more bilingual staff.",
       "options": [
         "whose",
         "which",
@@ -3355,7 +3365,7 @@
     {
       "id": "advanced-relative-clauses-ex-82",
       "type": "fill_blank",
-      "question": "Complete the **relative phrase**: The river ___ the village depends has become badly polluted.",
+      "question": "Complete the relative phrase: The river ___ the village depends has become badly polluted.",
       "options": [
         "on which",
         "to whom",
@@ -3391,7 +3401,7 @@
     {
       "id": "advanced-relative-clauses-ex-83",
       "type": "fill_blank",
-      "question": "Complete the **whole-clause** reference: The speaker changed the topic suddenly, ___ made the audience uneasy.",
+      "question": "Complete the whole-clause reference: The speaker changed the topic suddenly, ___ made the audience uneasy.",
       "options": [
         "which",
         "that",
@@ -3427,7 +3437,7 @@
     {
       "id": "advanced-relative-clauses-ex-84",
       "type": "fill_blank",
-      "question": "Complete the **quantifier phrase**: The candidates answered ten questions, ___ were about environmental policy.",
+      "question": "Complete the quantifier phrase: The candidates answered ten questions, ___ were about environmental policy.",
       "options": [
         "three of which",
         "three of whom",
@@ -3445,7 +3455,7 @@
         {
           "option": "three of whom",
           "isCorrect": false,
-          "pedagogicalReason": "Không chính xác. Phương án \"three of whom\" không thỏa mãn quy tắc ngữ pháp hoặc sự hòa hợp cú pháp trong cấu trúc câu này."
+          "pedagogicalReason": "Không chính xác. Phương án \"three of whom\" không phù hợp với cấu trúc ngữ pháp của câu (đáp án đúng là \"three of which\"). “Questions” là vật nên dùng “three of which”. “Whom” chỉ người, “which three” sai trật tự, còn “three whose” sai cấu trúc."
         },
         {
           "option": "which three",
@@ -3463,7 +3473,7 @@
     {
       "id": "advanced-relative-clauses-ex-85",
       "type": "fill_blank",
-      "question": "Complete the **formal clause**: The witnesses ___ the lawyer referred were not present in court.",
+      "question": "Complete the formal clause: The witnesses ___ the lawyer referred were not present in court.",
       "options": [
         "to whom",
         "for which",
@@ -3499,7 +3509,7 @@
     {
       "id": "advanced-relative-clauses-ex-86",
       "type": "error_correction",
-      "question": "Find the error: The negotiations, **during which** lasted six months, finally produced an agreement.",
+      "question": "Find the error: The negotiations, during which lasted six months, finally produced an agreement.",
       "options": [
         "The negotiations",
         "during which",
@@ -3535,7 +3545,7 @@
     {
       "id": "advanced-relative-clauses-ex-87",
       "type": "error_correction",
-      "question": "Find the error: The interns, **each of which** received a certificate, completed the training program.",
+      "question": "Find the error: The interns, each of which received a certificate, completed the training program.",
       "options": [
         "The interns",
         "each of which",
@@ -3571,7 +3581,7 @@
     {
       "id": "advanced-relative-clauses-ex-88",
       "type": "error_correction",
-      "question": "Find the error: The decision was announced without warning, **what** caused confusion among staff.",
+      "question": "Find the error: The decision was announced without warning, what caused confusion among staff.",
       "options": [
         "The decision",
         "without warning",
@@ -3607,7 +3617,7 @@
     {
       "id": "advanced-relative-clauses-ex-89",
       "type": "error_correction",
-      "question": "Find the error: The apartment **in which** balcony faces the park is on the top floor.",
+      "question": "Find the error: The apartment in which balcony faces the park is on the top floor.",
       "options": [
         "The apartment",
         "in which",
