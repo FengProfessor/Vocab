@@ -198,3 +198,26 @@ export interface VnuBac3CatalogItem {
   tags: string[];
 }
 
+export interface WritingEvalCriteriaScore {
+  score: number; // 0.0 - 10.0 (step 0.5)
+  feedback: string;
+}
+
+export interface WritingEvalResult {
+  taskId: string;
+  overallScore: number; // 0.0 - 10.0 (step 0.5)
+  cefrBand: 'C1' | 'B2' | 'B1' | 'Below B1';
+  wordCount: number;
+  minWords: number;
+  evaluatedAt: string;
+  source: 'ai' | 'rubric';
+  criteria: {
+    taskFulfillment: WritingEvalCriteriaScore;
+    organization: WritingEvalCriteriaScore;
+    vocabulary: WritingEvalCriteriaScore;
+    grammar: WritingEvalCriteriaScore;
+  };
+  strengths: string[];
+  improvements: string[];
+}
+

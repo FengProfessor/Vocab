@@ -25,9 +25,9 @@ import {
   VnuBac3ExamMode,
   VnuBac3ScoreResult,
   VnuBac3SkillType,
+  WritingEvalResult,
 } from '@/types/vnu-bac-3';
 import { recordVnuB3Attempt } from '@/lib/vnu-bac-3/history';
-import type { WritingEvalResult } from '@/app/api/vstep/writing-eval/route';
 import { VnuSplitPane } from './VnuSplitPane';
 import { VnuQuestionPalette } from './VnuQuestionPalette';
 

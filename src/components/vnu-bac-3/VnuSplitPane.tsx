@@ -26,8 +26,8 @@ import {
   VnuBac3Section,
   VnuBac3ExamMode,
   VnuBac3QuestionReview,
+  WritingEvalResult,
 } from '@/types/vnu-bac-3';
-import type { WritingEvalResult } from '@/app/api/vstep/writing-eval/route';
 import { VnuAudioPlayer } from './VnuAudioPlayer';
 
 interface ExplanationData {
