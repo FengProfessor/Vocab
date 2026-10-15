@@ -29,6 +29,12 @@ import {
   WritingEvalResult,
 } from '@/types/vnu-bac-3';
 import { VnuAudioPlayer } from './VnuAudioPlayer';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import {
+  stripHtmlTags,
+  cleanOptionText,
+  cleanQuestionPrompt,
+} from '@/components/toeic/ToeicSplitPane';
 
 interface ExplanationData {
   questionId: string;
@@ -50,6 +56,7 @@ interface VnuSplitPaneProps {
   onNavigateQuestion: (nextId: string) => void;
   onRequestExplain?: (questionId: string) => Promise<ExplanationData | null>;
   isReviewMode?: boolean;
+  showReviewModal?: boolean;
   reviewQuestions?: VnuBac3QuestionReview[];
   writingDrafts?: Record<string, string>;
   speakingNotes?: Record<string, string>;
@@ -79,6 +86,7 @@ export function VnuSplitPane({
   onNavigateQuestion,
   onRequestExplain,
   isReviewMode = false,
+  showReviewModal = false,
   reviewQuestions,
   writingDrafts,
   speakingNotes,
@@ -90,7 +98,8 @@ export function VnuSplitPane({
   onOpenPalette,
 }: VnuSplitPaneProps) {
   const [explanations, setExplanations] = useState<Record<string, ExplanationData>>({});
-  const [loadingExplain, setLoadingExplain] = useState<boolean>(false);
+  const [loadingExplainId, setLoadingExplainId] = useState<string | null>(null);
+  const [viewModeOverride, setViewModeOverride] = useState<Record<string, 'all' | 'single'>>({});
 
   // Trạng thái cho Writing
   const [localWritingDraft, setLocalWritingDraft] = useState<string>('');
@@ -105,9 +114,11 @@ export function VnuSplitPane({
   let currentTask: VnuBac3Task | null = null;
   let currentQuestion: VnuBac3Question | null = null;
   const allItemIds: string[] = [];
+  const allTasks: VnuBac3Task[] = [];
 
   for (const s of exam.sections) {
     for (const t of s.tasks) {
+      allTasks.push(t);
       if (t.questions && t.questions.length > 0) {
         for (const q of t.questions) {
           allItemIds.push(q.id);
@@ -116,6 +127,11 @@ export function VnuSplitPane({
             currentTask = t;
             currentQuestion = q;
           }
+        }
+        if (t.id === currentQuestionId && !currentTask) {
+          currentSection = s;
+          currentTask = t;
+          currentQuestion = t.questions[0];
         }
       } else {
         // Writing hoặc Speaking task
@@ -133,8 +149,67 @@ export function VnuSplitPane({
     }
   }
 
-  // Khôi phục nháp Writing từ localStorage khi chuyển Task
+  // Điều hướng giữa các Task / Part
+  const currentTaskIndex = allTasks.findIndex((t) => t.id === currentTask?.id);
+  const prevTask = currentTaskIndex > 0 ? allTasks[currentTaskIndex - 1] : null;
+  const nextTask = currentTaskIndex < allTasks.length - 1 ? allTasks[currentTaskIndex + 1] : null;
+
+  const getTaskTargetId = (task: VnuBac3Task): string => {
+    if (task.questions && task.questions.length > 0) {
+      return task.questions[0].id;
+    }
+    return task.id;
+  };
+
+  // Nhận diện phần dùng chung ngữ liệu (Shared Stimulus Tasks):
+  // - Reading có passage (Part 2 Cloze 8 câu, Part 3 T/F 5 câu, Part 4 Đọc hiểu 5 câu)
+  // - Listening Part 3 (Hội thoại dài 6 câu)
+  const isSharedStimulusTask = Boolean(
+    currentSection &&
+    currentTask &&
+    currentTask.questions &&
+    currentTask.questions.length > 1 &&
+    (
+      (currentSection.type === 'reading' && Boolean(currentTask.passage)) ||
+      (currentSection.type === 'listening' && (
+        currentTask.partNumber === 3 ||
+        Number(currentTask.partNumber) === 3 ||
+        currentTask.id.includes('part3') ||
+        Boolean(currentTask.title?.includes('Part 3'))
+      ))
+    )
+  );
+
+  const defaultMode: 'all' | 'single' = isSharedStimulusTask ? 'all' : 'single';
   const currentTaskId = currentTask?.id;
+  const currentViewMode: 'all' | 'single' =
+    currentTaskId && viewModeOverride[currentTaskId]
+      ? viewModeOverride[currentTaskId]
+      : defaultMode;
+
+  const handleSetViewMode = (mode: 'all' | 'single') => {
+    if (currentTaskId) {
+      setViewModeOverride((prev) => ({ ...prev, [currentTaskId]: mode }));
+    }
+  };
+
+  // Tự động cuộn mượt tới câu hỏi đang focus khi ở chế độ 'all'
+  useEffect(() => {
+    if (currentViewMode === 'all' && currentQuestionId) {
+      const timer = setTimeout(() => {
+        const el = document.getElementById(`vnu-question-${currentQuestionId}`);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }, 60);
+      return () => clearTimeout(timer);
+    }
+  }, [currentQuestionId, currentViewMode]);
+
+  const taskQuestions = currentTask?.questions || [];
+  const taskAnsweredCount = taskQuestions.filter((q) => Boolean(userAnswers[q.id])).length;
+
+  // Khôi phục nháp Writing từ localStorage khi chuyển Task
   const isWritingSection = currentSection?.type === 'writing';
   const isSpeakingSection = currentSection?.type === 'speaking';
 
@@ -496,7 +571,7 @@ export function VnuSplitPane({
             <textarea
               value={localWritingDraft}
               onChange={(e) => handleWritingDraftChange(e.target.value)}
-              disabled={isReviewMode}
+              readOnly={isReviewMode}
               placeholder={`Nhập nội dung bài viết (tối thiểu ${minWords} từ)... Tự động lưu nháp.`}
               className="flex-1 w-full min-h-[240px] p-3.5 text-base sm:text-sm font-sans leading-relaxed text-slate-900 dark:text-slate-100 bg-slate-50 dark:bg-slate-800/40 border border-slate-300 dark:border-slate-700 rounded-sm focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:bg-white dark:focus:bg-slate-900 resize-y"
               spellCheck={false}
@@ -857,7 +932,7 @@ export function VnuSplitPane({
             <textarea
               value={localSpeakingNotes}
               onChange={(e) => handleSpeakingNotesChange(e.target.value)}
-              disabled={isReviewMode}
+              readOnly={isReviewMode}
               placeholder="Ghi chú nhanh dàn ý (Mở đầu → Ý chính 1 → Ý chính 2 → Kết luận)... Tự động lưu nháp."
               className="flex-1 w-full min-h-[300px] p-3.5 text-base sm:text-sm leading-relaxed text-slate-900 dark:text-slate-100 bg-slate-50 dark:bg-slate-800/40 border border-slate-300 dark:border-slate-700 rounded-sm focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:bg-white dark:focus:bg-slate-900 resize-none font-mono"
               spellCheck={false}
@@ -937,19 +1012,23 @@ export function VnuSplitPane({
   const selectedAnswer = userAnswers[currentQuestion.id];
   const isFlagged = Boolean(flaggedQuestions[currentQuestion.id]);
 
-  // Tìm kết quả review nếu có (sau khi nộp bài)
-  const activeReview = reviewQuestions?.find((rq) => rq.id === currentQuestion.id);
-  const reviewExplanation: ExplanationData | undefined = activeReview
-    ? {
-        questionId: activeReview.id,
-        correctAnswer: activeReview.correctAnswer,
-        explanationVi: activeReview.explanationVi,
-        transcript: activeReview.transcript,
-        vocabularyNotes: activeReview.vocabularyNotes,
-      }
-    : undefined;
+  // Lấy giải thích chi tiết cho câu hỏi (trong Review hoặc Practice)
+  const getQuestionExplanation = (qId: string): ExplanationData | undefined => {
+    const activeReview = reviewQuestions?.find((rq) => rq.id === qId);
+    const reviewExplanation: ExplanationData | undefined = activeReview
+      ? {
+          questionId: activeReview.id,
+          correctAnswer: activeReview.correctAnswer,
+          explanationVi: activeReview.explanationVi,
+          transcript: activeReview.transcript,
+          vocabularyNotes: activeReview.vocabularyNotes,
+        }
+      : undefined;
+    return explanations[qId] || reviewExplanation;
+  };
 
-  const explanation = explanations[currentQuestion.id] || reviewExplanation;
+  const explanation = getQuestionExplanation(currentQuestion.id);
+  const isInteractiveEnabled = Boolean(isReviewMode || showReviewModal || explanation);
 
   const isAnswerKeyMatch = (correctKey?: string, optKey?: string) => {
     if (!correctKey || !optKey) return false;
@@ -962,18 +1041,25 @@ export function VnuSplitPane({
   };
 
   // Xử lý lấy giải thích trong Practice Mode
-  const handleFetchExplanation = async () => {
-    if (!currentQuestion || !onRequestExplain || explanation) return;
-    setLoadingExplain(true);
+  const handleFetchQuestionExplanation = async (qId: string) => {
+    if (!onRequestExplain || explanations[qId]) return;
+    setLoadingExplainId(qId);
     try {
-      const data = await onRequestExplain(currentQuestion.id);
+      const data = await onRequestExplain(qId);
       if (data) {
-        setExplanations((prev) => ({ ...prev, [currentQuestion!.id]: data }));
+        setExplanations((prev) => ({ ...prev, [qId]: data }));
       }
     } finally {
-      setLoadingExplain(false);
+      setLoadingExplainId(null);
     }
   };
+
+  const handleFetchExplanation = () => {
+    if (currentQuestion) {
+      handleFetchQuestionExplanation(currentQuestion.id);
+    }
+  };
+  const loadingExplain = Boolean(currentQuestion && loadingExplainId === currentQuestion.id);
 
   const isListening = currentSection.type === 'listening';
 
@@ -1020,7 +1106,10 @@ export function VnuSplitPane({
                   Sign / Notice #{currentQuestion.questionNumber}
                 </div>
                 <div className="whitespace-pre-line font-mono font-bold text-xs sm:text-base tracking-wide text-slate-900 dark:text-slate-100 leading-snug select-text">
-                  {currentQuestion.prompt}
+                  <ExamInteractiveText
+                    text={stripHtmlTags(currentQuestion.prompt)}
+                    enabled={isInteractiveEnabled}
+                  />
                 </div>
               </div>
             </div>
@@ -1031,11 +1120,17 @@ export function VnuSplitPane({
             <div className="space-y-2">
               {currentTask.passage.title && (
                 <h3 className="font-bold text-sm sm:text-base text-slate-900 dark:text-slate-100 border-b border-slate-100 dark:border-slate-800 pb-1">
-                  {currentTask.passage.title}
+                  <ExamInteractiveText
+                    text={stripHtmlTags(currentTask.passage.title)}
+                    enabled={isInteractiveEnabled}
+                  />
                 </h3>
               )}
               <div className="whitespace-pre-line text-slate-700 dark:text-slate-200 text-xs sm:text-sm leading-relaxed font-sans select-text">
-                {currentTask.passage.text}
+                <ExamInteractiveText
+                  text={stripHtmlTags(currentTask.passage.text)}
+                  enabled={isInteractiveEnabled}
+                />
               </div>
             </div>
           )}
@@ -1047,8 +1142,11 @@ export function VnuSplitPane({
                 <Volume2 className="w-3.5 h-3.5" />
                 <span>Transcript bài nghe</span>
               </div>
-              <div className="text-xs text-slate-700 dark:text-slate-300 whitespace-pre-line font-mono">
-                {explanation.transcript}
+              <div className="text-xs text-slate-700 dark:text-slate-300 whitespace-pre-line font-mono select-text">
+                <ExamInteractiveText
+                  text={stripHtmlTags(explanation.transcript)}
+                  enabled={isInteractiveEnabled}
+                />
               </div>
             </div>
           )}
@@ -1058,202 +1156,553 @@ export function VnuSplitPane({
       {/* ================= CỘT PHẢI: INTERACTIVE QUESTION PANEL ================= */}
       <div className="lg:col-span-6 flex flex-col bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-sm overflow-hidden shadow-xs">
         {/* Header câu hỏi siêu gọn */}
-        <div className="px-2.5 py-1 sm:py-1.5 bg-slate-50 dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="font-mono text-xs font-bold px-2 py-0.5 bg-blue-600 text-white rounded-none">
-              Câu {currentQuestion.questionNumber}
-            </span>
-            <span className="text-[11px] text-slate-500 font-mono">
-              / {allItemIds.length} mục
-            </span>
-          </div>
-
-          <button
-            type="button"
-            onClick={() => onToggleFlag(currentQuestion!.id)}
-            className={`flex items-center gap-1 px-2 py-0.5 text-xs font-mono rounded-none border transition-colors cursor-pointer ${
-              isFlagged
-                ? 'bg-amber-100 text-amber-800 border-amber-300 dark:bg-amber-950 dark:text-amber-300 dark:border-amber-700 font-bold'
-                : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-100 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700'
-            }`}
-          >
-            <Flag className={`w-3.5 h-3.5 ${isFlagged ? 'fill-current text-amber-600' : ''}`} />
-            <span>{isFlagged ? 'Đã cờ' : 'Gắn cờ'}</span>
-          </button>
-        </div>
-
-        {/* Nội dung câu hỏi và các phương án */}
-        <div className="flex-1 p-2.5 sm:p-4 overflow-y-auto space-y-2 sm:space-y-3">
-          {/* Prompt / Câu hỏi */}
-          {currentQuestion.prompt && (
-            <div className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-slate-100 whitespace-pre-line leading-snug sm:leading-relaxed">
-              {currentSection.type === 'reading' && !currentTask.passage
-                ? `What does Sign / Notice #${currentQuestion.questionNumber} mean?`
-                : currentQuestion.prompt}
+        <div className="px-2.5 py-1 sm:py-1.5 bg-slate-50 dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between gap-2">
+          {currentViewMode === 'all' ? (
+            <div className="flex items-center gap-2 min-w-0">
+              <span className="font-mono text-xs font-bold px-2 py-0.5 bg-blue-600 text-white rounded-none shrink-0">
+                Câu {taskQuestions[0]?.questionNumber}–{taskQuestions[taskQuestions.length - 1]?.questionNumber}
+              </span>
+              <span className="text-[11px] text-slate-500 font-mono truncate hidden sm:inline">
+                ({taskAnsweredCount}/{taskQuestions.length} câu)
+              </span>
+            </div>
+          ) : (
+            <div className="flex items-center gap-2 min-w-0">
+              <span className="font-mono text-xs font-bold px-2 py-0.5 bg-blue-600 text-white rounded-none shrink-0">
+                Câu {currentQuestion.questionNumber}
+              </span>
+              <span className="text-[11px] text-slate-500 font-mono shrink-0">
+                / {allItemIds.length} mục
+              </span>
             </div>
           )}
 
-          {/* Danh sách lựa chọn (A, B, C hoặc True, False) */}
-          <div className="space-y-1.5 sm:space-y-2">
-            {currentQuestion.options.map((opt) => {
-              const isSelected = selectedAnswer === opt.key;
-              const isCorrectAnswer = Boolean(
-                explanation && isAnswerKeyMatch(explanation.correctAnswer, opt.key)
-              );
-              const isWrongSelection = Boolean(explanation && isSelected && !isCorrectAnswer);
+          <div className="flex items-center gap-2 shrink-0">
+            {/* Nút gạt chế độ Tất cả / Từng câu (nếu task có từ 2 câu trở lên) */}
+            {taskQuestions.length > 1 && (
+              <div className="flex items-center bg-slate-200/80 dark:bg-slate-700/80 p-0.5 rounded-xs text-[11px] font-mono">
+                <button
+                  type="button"
+                  onClick={() => handleSetViewMode('all')}
+                  className={`px-2 py-0.5 rounded-2xs font-semibold transition-all cursor-pointer ${
+                    currentViewMode === 'all'
+                      ? 'bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 shadow-2xs'
+                      : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
+                  }`}
+                  title={`Hiển thị danh sách tất cả ${taskQuestions.length} câu hỏi`}
+                >
+                  Tất cả ({taskQuestions.length} câu)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleSetViewMode('single')}
+                  className={`px-2 py-0.5 rounded-2xs font-semibold transition-all cursor-pointer ${
+                    currentViewMode === 'single'
+                      ? 'bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 shadow-2xs'
+                      : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white'
+                  }`}
+                  title="Hiển thị từng câu hỏi độc lập"
+                >
+                  Từng câu
+                </button>
+              </div>
+            )}
 
-              let optionStyle =
-                'border-slate-200 hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800/60 text-slate-700 dark:text-slate-200';
+            {/* Nút gắn cờ ở header (chỉ hiển thị ở chế độ single vì ở chế độ all mỗi câu đã có cờ riêng) */}
+            {currentViewMode === 'single' && (
+              <button
+                type="button"
+                onClick={() => onToggleFlag(currentQuestion!.id)}
+                className={`flex items-center gap-1 px-2 py-0.5 text-xs font-mono rounded-none border transition-colors cursor-pointer ${
+                  isFlagged
+                    ? 'bg-amber-100 text-amber-800 border-amber-300 dark:bg-amber-950 dark:text-amber-300 dark:border-amber-700 font-bold'
+                    : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-100 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700'
+                }`}
+              >
+                <Flag className={`w-3.5 h-3.5 ${isFlagged ? 'fill-current text-amber-600' : ''}`} />
+                <span className="hidden sm:inline">{isFlagged ? 'Đã cờ' : 'Gắn cờ'}</span>
+              </button>
+            )}
+          </div>
+        </div>
 
-              if (explanation) {
-                if (isCorrectAnswer) {
-                  optionStyle =
-                    'border-emerald-500 bg-emerald-50 text-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-200 font-semibold ring-1 ring-emerald-500/30';
-                } else if (isWrongSelection) {
-                  optionStyle =
-                    'border-rose-400 bg-rose-50 text-rose-900 dark:bg-rose-950/40 dark:text-rose-200 ring-1 ring-rose-400/30';
-                }
-              } else if (isSelected) {
-                optionStyle =
-                  'border-blue-600 bg-blue-50 text-blue-900 dark:bg-blue-950/40 dark:text-blue-200 font-semibold shadow-xs';
-              }
+        {/* Chế độ Tất cả: Danh sách cuộn độc lập các câu hỏi trong Task */}
+        {currentViewMode === 'all' ? (
+          <div className="flex-1 p-2.5 sm:p-4 overflow-y-auto space-y-3 sm:space-y-4">
+            {taskQuestions.map((q) => {
+              const isCurrentFocus = q.id === currentQuestionId;
+              const qSelectedAnswer = userAnswers[q.id];
+              const isQFlagged = Boolean(flaggedQuestions[q.id]);
+              const qExplanation = getQuestionExplanation(q.id);
 
               return (
-                <button
-                  key={opt.key}
-                  type="button"
-                  disabled={isReviewMode}
-                  onClick={() => !isReviewMode && onAnswerSelect(currentQuestion!.id, opt.key)}
-                  className={`w-full min-h-[42px] sm:min-h-[46px] p-2 sm:p-2.5 text-left border rounded-sm flex items-start gap-2.5 transition-all ${
-                    isReviewMode ? 'cursor-default' : 'cursor-pointer'
-                  } ${optionStyle}`}
+                <div
+                  key={q.id}
+                  id={`vnu-question-${q.id}`}
+                  onClick={() => {
+                    if (currentQuestionId !== q.id) {
+                      onNavigateQuestion(q.id);
+                    }
+                  }}
+                  className={`p-3 sm:p-4 rounded-sm border transition-all duration-150 scroll-mt-14 sm:scroll-mt-4 ${
+                    isCurrentFocus
+                      ? 'border-blue-500 dark:border-blue-500 ring-2 ring-blue-500/20 bg-blue-50/20 dark:bg-blue-950/20 shadow-xs'
+                      : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 hover:border-slate-300 dark:hover:border-slate-700'
+                  }`}
                 >
-                  <span
-                    className={`flex-shrink-0 w-5 h-5 rounded-none flex items-center justify-center font-mono text-xs font-bold border mt-0.5 ${
-                      isSelected
-                        ? 'bg-blue-600 text-white border-blue-600'
-                        : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-300 dark:border-slate-700'
-                    }`}
-                  >
-                    {opt.key}
-                  </span>
-                  <span className="text-xs sm:text-sm leading-snug sm:leading-relaxed flex-1 pt-0.5">{opt.text}</span>
-                  {explanation && isCorrectAnswer && (
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  {/* Header câu hỏi */}
+                  <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-100 dark:border-slate-800">
+                    <div className="flex items-center gap-2">
+                      <span
+                        className={`font-mono text-xs font-bold px-2 py-0.5 rounded-none ${
+                          isCurrentFocus
+                            ? 'bg-blue-600 text-white'
+                            : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200'
+                        }`}
+                      >
+                        Câu {q.questionNumber}
+                      </span>
+                      {qSelectedAnswer && (
+                        <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1">
+                          <CheckCircle2 className="w-3.5 h-3.5" />
+                          <span>Đã chọn: {qSelectedAnswer}</span>
+                        </span>
+                      )}
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onToggleFlag(q.id);
+                      }}
+                      className={`flex items-center gap-1 px-2 py-0.5 text-xs font-mono rounded-none border transition-colors cursor-pointer ${
+                        isQFlagged
+                          ? 'bg-amber-100 text-amber-800 border-amber-300 dark:bg-amber-950 dark:text-amber-300 dark:border-amber-700 font-bold'
+                          : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-100 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700'
+                      }`}
+                      title={isQFlagged ? 'Bỏ cờ câu này' : 'Gắn cờ câu này'}
+                    >
+                      <Flag className={`w-3.5 h-3.5 ${isQFlagged ? 'fill-current text-amber-600' : ''}`} />
+                      <span className="hidden sm:inline">{isQFlagged ? 'Đã cờ' : 'Gắn cờ'}</span>
+                    </button>
+                  </div>
+
+                  {/* Nếu là Reading Part 1 (Signs & Notices): Hiển thị trực tiếp nội dung Biển báo trong Card khi ở chế độ xem tất cả */}
+                  {currentSection.type === 'reading' && !currentTask.passage && q.prompt && (
+                    <div className="mb-2.5 p-2.5 bg-amber-50/70 dark:bg-slate-800/90 border border-slate-700 dark:border-slate-400 text-center rounded-xs shadow-2xs">
+                      <div className="inline-block px-2 py-0.5 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 font-mono text-[10px] font-bold tracking-wider mb-1">
+                        Sign / Notice #{q.questionNumber}
+                      </div>
+                      <div className="whitespace-pre-line font-mono font-bold text-xs sm:text-sm tracking-wide text-slate-900 dark:text-slate-100 leading-snug select-text">
+                        {q.prompt}
+                      </div>
+                    </div>
                   )}
-                  {explanation && isWrongSelection && (
-                    <XCircle className="w-4 h-4 text-rose-600 flex-shrink-0 mt-0.5" />
+
+                  {/* Prompt / Câu hỏi */}
+                  {q.prompt && (
+                    <div className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-slate-100 whitespace-pre-line leading-snug sm:leading-relaxed mb-2.5 select-text">
+                      <ExamInteractiveText
+                        text={
+                          currentSection.type === 'reading' && !currentTask.passage
+                            ? `What does Sign / Notice #${q.questionNumber} mean?`
+                            : cleanQuestionPrompt(q.prompt)
+                        }
+                        enabled={Boolean(isReviewMode || showReviewModal || qExplanation)}
+                      />
+                    </div>
                   )}
-                </button>
+
+                  {/* Danh sách lựa chọn (A, B, C hoặc True, False) */}
+                  <div className="space-y-1.5 sm:space-y-2">
+                    {q.options.map((opt) => {
+                      const isSelected = qSelectedAnswer === opt.key;
+                      const isCorrectAnswer = Boolean(
+                        qExplanation && isAnswerKeyMatch(qExplanation.correctAnswer, opt.key)
+                      );
+                      const isWrongSelection = Boolean(
+                        qExplanation && isSelected && !isCorrectAnswer
+                      );
+                      const isOptionInteractive = Boolean(
+                        isReviewMode || showReviewModal || qExplanation
+                      );
+
+                      let optionStyle =
+                        'border-slate-200 hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800/60 text-slate-700 dark:text-slate-200';
+
+                      if (qExplanation) {
+                        if (isCorrectAnswer) {
+                          optionStyle =
+                            'border-emerald-500 bg-emerald-50 text-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-200 font-semibold ring-1 ring-emerald-500/30';
+                        } else if (isWrongSelection) {
+                          optionStyle =
+                            'border-rose-400 bg-rose-50 text-rose-900 dark:bg-rose-950/40 dark:text-rose-200 ring-1 ring-rose-400/30';
+                        }
+                      } else if (isSelected) {
+                        optionStyle =
+                          'border-blue-600 bg-blue-50 text-blue-900 dark:bg-blue-950/40 dark:text-blue-200 font-semibold shadow-xs';
+                      }
+
+                      return (
+                        <button
+                          key={opt.key}
+                          type="button"
+                          onClick={(e) => {
+                            const target = e.target as HTMLElement | null;
+                            if (
+                              target?.closest?.('.exam-lookup-trigger') ||
+                              target?.closest?.('.exam-lookup-card')
+                            ) {
+                              return;
+                            }
+                            e.stopPropagation();
+                            if (!isReviewMode) {
+                              onAnswerSelect(q.id, opt.key);
+                              if (currentQuestionId !== q.id) {
+                                onNavigateQuestion(q.id);
+                              }
+                            }
+                          }}
+                          className={`w-full min-h-[38px] sm:min-h-[42px] p-2 sm:p-2.5 text-left border rounded-sm flex items-start gap-2.5 transition-all ${
+                            isReviewMode ? 'cursor-default' : 'cursor-pointer'
+                          } ${isOptionInteractive ? 'select-text' : ''} ${optionStyle}`}
+                        >
+                          <span
+                            className={`flex-shrink-0 w-5 h-5 rounded-none flex items-center justify-center font-mono text-xs font-bold border mt-0.5 ${
+                              isSelected
+                                ? 'bg-blue-600 text-white border-blue-600'
+                                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-300 dark:border-slate-700'
+                            }`}
+                          >
+                            {opt.key}
+                          </span>
+                          <span className="text-xs sm:text-sm leading-snug sm:leading-relaxed flex-1 pt-0.5">
+                            <ExamInteractiveText
+                              text={cleanOptionText(opt.text, opt.key)}
+                              enabled={isOptionInteractive}
+                            />
+                          </span>
+                          {qExplanation && isCorrectAnswer && (
+                            <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                          )}
+                          {qExplanation && isWrongSelection && (
+                            <XCircle className="w-4 h-4 text-rose-600 flex-shrink-0 mt-0.5" />
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  {/* Nút Xem giải thích trong Practice Mode */}
+                  {mode === 'practice' && !isReviewMode && !qExplanation && (
+                    <div className="pt-2">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleFetchQuestionExplanation(q.id);
+                        }}
+                        disabled={loadingExplainId === q.id}
+                        className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono font-semibold text-blue-700 bg-blue-50 hover:bg-blue-100 border border-blue-200 dark:bg-blue-950/40 dark:text-blue-300 dark:border-blue-800 rounded-sm transition-colors cursor-pointer"
+                      >
+                        <HelpCircle className="w-3.5 h-3.5" />
+                        <span>{loadingExplainId === q.id ? 'Đang tải...' : 'Xem giải thích'}</span>
+                      </button>
+                    </div>
+                  )}
+
+                  {/* Hộp hiển thị Lời giải thích On-Demand */}
+                  {qExplanation && (
+                    <div className="p-3 sm:p-3.5 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-sm space-y-2 mt-3">
+                      <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-700 pb-1.5">
+                        <span className="text-xs font-mono font-bold text-slate-700 dark:text-slate-200">
+                          Giải thích câu {q.questionNumber}
+                        </span>
+                        <span className="text-xs font-mono font-bold px-2 py-0.5 bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 rounded-none">
+                          Đáp án đúng: {qExplanation.correctAnswer}
+                        </span>
+                      </div>
+                      <div
+                        className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed font-sans"
+                        dangerouslySetInnerHTML={{ __html: qExplanation.explanationVi }}
+                      />
+
+                      {qExplanation.vocabularyNotes && qExplanation.vocabularyNotes.length > 0 && (
+                        <div className="pt-2 border-t border-slate-200 dark:border-slate-700 space-y-1">
+                          <div className="text-[11px] font-mono font-bold text-slate-500">
+                            Từ vựng lưu ý:
+                          </div>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs">
+                            {qExplanation.vocabularyNotes.map((voc, idx) => (
+                              <div
+                                key={idx}
+                                className="p-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-none"
+                              >
+                                <span className="font-bold text-blue-700 dark:text-blue-400">
+                                  {voc.word}
+                                </span>
+                                {voc.ipa && (
+                                  <span className="text-slate-400 text-[11px] ml-1">{voc.ipa}</span>
+                                )}
+                                <p className="text-slate-600 dark:text-slate-300 text-[11px]">
+                                  {voc.meaning}
+                                </p>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
               );
             })}
           </div>
+        ) : (
+          /* Chế độ Từng câu: Giữ nguyên giao diện 1 câu gọn gàng */
+          <div className="flex-1 p-2.5 sm:p-4 overflow-y-auto space-y-2 sm:space-y-3">
+            {/* Prompt / Câu hỏi */}
+            {currentQuestion.prompt && (
+              <div className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-slate-100 whitespace-pre-line leading-snug sm:leading-relaxed select-text">
+                <ExamInteractiveText
+                  text={
+                    currentSection.type === 'reading' && !currentTask.passage
+                      ? `What does Sign / Notice #${currentQuestion.questionNumber} mean?`
+                      : cleanQuestionPrompt(currentQuestion.prompt)
+                  }
+                  enabled={isInteractiveEnabled}
+                />
+              </div>
+            )}
 
-          {/* Nút Xem giải thích trong Practice Mode */}
-          {mode === 'practice' && !isReviewMode && !explanation && (
-            <div className="pt-2">
+            {/* Danh sách lựa chọn (A, B, C hoặc True, False) */}
+            <div className="space-y-1.5 sm:space-y-2">
+              {currentQuestion.options.map((opt) => {
+                const isSelected = selectedAnswer === opt.key;
+                const isCorrectAnswer = Boolean(
+                  explanation && isAnswerKeyMatch(explanation.correctAnswer, opt.key)
+                );
+                const isWrongSelection = Boolean(explanation && isSelected && !isCorrectAnswer);
+
+                let optionStyle =
+                  'border-slate-200 hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800/60 text-slate-700 dark:text-slate-200';
+
+                if (explanation) {
+                  if (isCorrectAnswer) {
+                    optionStyle =
+                      'border-emerald-500 bg-emerald-50 text-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-200 font-semibold ring-1 ring-emerald-500/30';
+                  } else if (isWrongSelection) {
+                    optionStyle =
+                      'border-rose-400 bg-rose-50 text-rose-900 dark:bg-rose-950/40 dark:text-rose-200 ring-1 ring-rose-400/30';
+                  }
+                } else if (isSelected) {
+                  optionStyle =
+                    'border-blue-600 bg-blue-50 text-blue-900 dark:bg-blue-950/40 dark:text-blue-200 font-semibold shadow-xs';
+                }
+
+                return (
+                  <button
+                    key={opt.key}
+                    type="button"
+                    onClick={(e) => {
+                      const target = e.target as HTMLElement | null;
+                      if (
+                        target?.closest?.('.exam-lookup-trigger') ||
+                        target?.closest?.('.exam-lookup-card')
+                      ) {
+                        return;
+                      }
+                      if (!isReviewMode) {
+                        onAnswerSelect(currentQuestion!.id, opt.key);
+                      }
+                    }}
+                    className={`w-full min-h-[42px] sm:min-h-[46px] p-2 sm:p-2.5 text-left border rounded-sm flex items-start gap-2.5 transition-all ${
+                      isReviewMode ? 'cursor-default' : 'cursor-pointer'
+                    } ${isInteractiveEnabled ? 'select-text' : ''} ${optionStyle}`}
+                  >
+                    <span
+                      className={`flex-shrink-0 w-5 h-5 rounded-none flex items-center justify-center font-mono text-xs font-bold border mt-0.5 ${
+                        isSelected
+                          ? 'bg-blue-600 text-white border-blue-600'
+                          : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-300 dark:border-slate-700'
+                      }`}
+                    >
+                      {opt.key}
+                    </span>
+                    <span className="text-xs sm:text-sm leading-snug sm:leading-relaxed flex-1 pt-0.5">
+                      <ExamInteractiveText
+                        text={cleanOptionText(opt.text, opt.key)}
+                        enabled={isInteractiveEnabled}
+                      />
+                    </span>
+                    {explanation && isCorrectAnswer && (
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                    )}
+                    {explanation && isWrongSelection && (
+                      <XCircle className="w-4 h-4 text-rose-600 flex-shrink-0 mt-0.5" />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Nút Xem giải thích trong Practice Mode */}
+            {mode === 'practice' && !isReviewMode && !explanation && (
+              <div className="pt-2">
+                <button
+                  type="button"
+                  onClick={handleFetchExplanation}
+                  disabled={loadingExplain}
+                  className="flex items-center gap-2 px-3 py-1.5 text-xs font-mono font-semibold text-blue-700 bg-blue-50 hover:bg-blue-100 border border-blue-200 dark:bg-blue-950/40 dark:text-blue-300 dark:border-blue-800 rounded-sm transition-colors cursor-pointer"
+                >
+                  <HelpCircle className="w-3.5 h-3.5" />
+                  <span>{loadingExplain ? 'Đang tải...' : 'Xem giải thích'}</span>
+                </button>
+              </div>
+            )}
+
+            {/* Hộp hiển thị Lời giải thích On-Demand */}
+            {explanation && (
+              <div className="p-4 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-sm space-y-3 mt-4">
+                <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-700 pb-2">
+                  <span className="text-xs font-mono font-bold text-slate-700 dark:text-slate-200">
+                    Giải thích câu {currentQuestion.questionNumber}
+                  </span>
+                  <span className="text-xs font-mono font-bold px-2 py-0.5 bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 rounded-none">
+                    Đáp án đúng: {explanation.correctAnswer}
+                  </span>
+                </div>
+                <div
+                  className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed font-sans"
+                  dangerouslySetInnerHTML={{ __html: explanation.explanationVi }}
+                />
+
+                {explanation.vocabularyNotes && explanation.vocabularyNotes.length > 0 && (
+                  <div className="pt-2 border-t border-slate-200 dark:border-slate-700 space-y-1">
+                    <div className="text-[11px] font-mono font-bold text-slate-500">
+                      Từ vựng lưu ý:
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs">
+                      {explanation.vocabularyNotes.map((voc, idx) => (
+                        <div
+                          key={idx}
+                          className="p-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-none"
+                        >
+                          <span className="font-bold text-blue-700 dark:text-blue-400">
+                            {voc.word}
+                          </span>
+                          {voc.ipa && (
+                            <span className="text-slate-400 text-[11px] ml-1">{voc.ipa}</span>
+                          )}
+                          <p className="text-slate-600 dark:text-slate-300 text-[11px]">
+                            {voc.meaning}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Footer điều hướng: Câu trước / Câu sau hoặc Phần trước / Phần sau */}
+        <div className="p-3 bg-slate-50/95 dark:bg-slate-800/95 backdrop-blur-xs border-t border-slate-200 dark:border-slate-800 flex items-center justify-between sticky bottom-0 z-20 shadow-md lg:static lg:shadow-none">
+          {currentViewMode === 'all' ? (
+            <>
               <button
                 type="button"
-                onClick={handleFetchExplanation}
-                disabled={loadingExplain}
-                className="flex items-center gap-2 px-3 py-1.5 text-xs font-mono font-semibold text-blue-700 bg-blue-50 hover:bg-blue-100 border border-blue-200 dark:bg-blue-950/40 dark:text-blue-300 dark:border-blue-800 rounded-sm transition-colors cursor-pointer"
+                disabled={!prevTask}
+                onClick={() => prevTask && onNavigateQuestion(getTaskTargetId(prevTask))}
+                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-bold rounded-sm border transition-all ${
+                  prevTask
+                    ? 'bg-white text-slate-700 border-slate-300 hover:bg-slate-100 dark:bg-slate-800 dark:text-slate-200 cursor-pointer shadow-xs'
+                    : 'bg-slate-100 text-slate-400 border-slate-200 dark:bg-slate-800/40 dark:text-slate-600 cursor-not-allowed'
+                }`}
               >
-                <HelpCircle className="w-3.5 h-3.5" />
-                <span>{loadingExplain ? 'Đang tải...' : 'Xem giải thích'}</span>
+                <ChevronLeft className="w-3.5 h-3.5" />
+                <span>Phần trước</span>
               </button>
-            </div>
-          )}
 
-          {/* Hộp hiển thị Lời giải thích On-Demand */}
-          {explanation && (
-            <div className="p-4 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-sm space-y-3 mt-4">
-              <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-700 pb-2">
-                <span className="text-xs font-mono font-bold text-slate-700 dark:text-slate-200">
-                  Giải thích câu {currentQuestion.questionNumber}
+              {onOpenPalette ? (
+                <button
+                  type="button"
+                  onClick={onOpenPalette}
+                  className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono font-bold text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-sm hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer shadow-2xs transition-colors"
+                  title="Mở danh sách câu hỏi"
+                >
+                  <FileText className="w-3.5 h-3.5 text-blue-600" />
+                  <span>Đã làm {taskAnsweredCount}/{taskQuestions.length} câu</span>
+                </button>
+              ) : (
+                <span className="text-xs font-mono text-slate-500">
+                  Đã làm {taskAnsweredCount}/{taskQuestions.length} câu
                 </span>
-                <span className="text-xs font-mono font-bold px-2 py-0.5 bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 rounded-none">
-                  Đáp án đúng: {explanation.correctAnswer}
-                </span>
-              </div>
-              <div
-                className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed font-sans"
-                dangerouslySetInnerHTML={{ __html: explanation.explanationVi }}
-              />
-
-              {explanation.vocabularyNotes && explanation.vocabularyNotes.length > 0 && (
-                <div className="pt-2 border-t border-slate-200 dark:border-slate-700 space-y-1">
-                  <div className="text-[11px] font-mono font-bold text-slate-500">
-                    Từ vựng lưu ý:
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs">
-                    {explanation.vocabularyNotes.map((voc, idx) => (
-                      <div
-                        key={idx}
-                        className="p-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-none"
-                      >
-                        <span className="font-bold text-blue-700 dark:text-blue-400">
-                          {voc.word}
-                        </span>
-                        {voc.ipa && (
-                          <span className="text-slate-400 text-[11px] ml-1">{voc.ipa}</span>
-                        )}
-                        <p className="text-slate-600 dark:text-slate-300 text-[11px]">
-                          {voc.meaning}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
               )}
-            </div>
-          )}
-        </div>
 
-        {/* Footer điều hướng: Câu trước / Câu sau */}
-        <div className="p-3 bg-slate-50/95 dark:bg-slate-800/95 backdrop-blur-xs border-t border-slate-200 dark:border-slate-800 flex items-center justify-between sticky bottom-0 z-20 shadow-md sm:static sm:shadow-none">
-          <button
-            type="button"
-            disabled={!prevId}
-            onClick={() => prevId && onNavigateQuestion(prevId)}
-            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-bold rounded-sm border transition-all ${
-              prevId
-                ? 'bg-white text-slate-700 border-slate-300 hover:bg-slate-100 dark:bg-slate-800 dark:text-slate-200 cursor-pointer shadow-xs'
-                : 'bg-slate-100 text-slate-400 border-slate-200 dark:bg-slate-800/40 dark:text-slate-600 cursor-not-allowed'
-            }`}
-          >
-            <ChevronLeft className="w-3.5 h-3.5" />
-            <span>Câu trước</span>
-          </button>
-
-          {onOpenPalette ? (
-            <button
-              type="button"
-              onClick={onOpenPalette}
-              className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono font-bold text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-sm hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer shadow-2xs transition-colors"
-              title="Mở danh sách câu hỏi"
-            >
-              <FileText className="w-3.5 h-3.5 text-blue-600" />
-              <span>{currentIndex + 1} / {allItemIds.length}</span>
-            </button>
+              <button
+                type="button"
+                disabled={!nextTask}
+                onClick={() => nextTask && onNavigateQuestion(getTaskTargetId(nextTask))}
+                className={`flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-mono font-bold rounded-sm border transition-all ${
+                  nextTask
+                    ? 'bg-blue-600 text-white border-blue-600 hover:bg-blue-700 active:scale-95 cursor-pointer shadow-xs'
+                    : 'bg-slate-100 text-slate-400 border-slate-200 dark:bg-slate-800/40 dark:text-slate-600 cursor-not-allowed'
+                }`}
+              >
+                <span>Phần tiếp</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </button>
+            </>
           ) : (
-            <span className="text-xs font-mono text-slate-500">
-              {currentIndex + 1} / {allItemIds.length}
-            </span>
-          )}
+            <>
+              <button
+                type="button"
+                disabled={!prevId}
+                onClick={() => prevId && onNavigateQuestion(prevId)}
+                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-bold rounded-sm border transition-all ${
+                  prevId
+                    ? 'bg-white text-slate-700 border-slate-300 hover:bg-slate-100 dark:bg-slate-800 dark:text-slate-200 cursor-pointer shadow-xs'
+                    : 'bg-slate-100 text-slate-400 border-slate-200 dark:bg-slate-800/40 dark:text-slate-600 cursor-not-allowed'
+                }`}
+              >
+                <ChevronLeft className="w-3.5 h-3.5" />
+                <span>Câu trước</span>
+              </button>
 
-          <button
-            type="button"
-            disabled={!nextId}
-            onClick={() => nextId && onNavigateQuestion(nextId)}
-            className={`flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-mono font-bold rounded-sm border transition-all ${
-              nextId
-                ? 'bg-blue-600 text-white border-blue-600 hover:bg-blue-700 active:scale-95 cursor-pointer shadow-xs'
-                : 'bg-slate-100 text-slate-400 border-slate-200 dark:bg-slate-800/40 dark:text-slate-600 cursor-not-allowed'
-            }`}
-          >
-            <span>Câu tiếp</span>
-            <ChevronRight className="w-3.5 h-3.5" />
-          </button>
+              {onOpenPalette ? (
+                <button
+                  type="button"
+                  onClick={onOpenPalette}
+                  className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono font-bold text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-sm hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer shadow-2xs transition-colors"
+                  title="Mở danh sách câu hỏi"
+                >
+                  <FileText className="w-3.5 h-3.5 text-blue-600" />
+                  <span>{currentIndex + 1} / {allItemIds.length}</span>
+                </button>
+              ) : (
+                <span className="text-xs font-mono text-slate-500">
+                  {currentIndex + 1} / {allItemIds.length}
+                </span>
+              )}
+
+              <button
+                type="button"
+                disabled={!nextId}
+                onClick={() => nextId && onNavigateQuestion(nextId)}
+                className={`flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-mono font-bold rounded-sm border transition-all ${
+                  nextId
+                    ? 'bg-blue-600 text-white border-blue-600 hover:bg-blue-700 active:scale-95 cursor-pointer shadow-xs'
+                    : 'bg-slate-100 text-slate-400 border-slate-200 dark:bg-slate-800/40 dark:text-slate-600 cursor-not-allowed'
+                }`}
+              >
+                <span>Câu tiếp</span>
+                <ChevronRight className="w-3.5 h-3.5" />
+              </button>
+            </>
+          )}
         </div>
       </div>
     </div>

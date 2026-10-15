@@ -413,23 +413,27 @@ class VnuAudioPlayerSim {
 // ============================================================================
 console.log('\n>>> [PART 3] Physical Audio File Header & Size Audit');
 
-const expectedFiles = [
-  'sample-01/listening-part1.mp3',
-  'sample-01/listening-part2.mp3',
-  'sample-01/listening-part3.mp3',
-  'equiv-01/listening-part1.mp3',
-  'equiv-01/listening-part2.mp3',
-  'equiv-01/listening-part3.mp3',
-  'equiv-02/listening-part1.mp3',
-  'equiv-02/listening-part2.mp3',
-  'equiv-02/listening-part3.mp3',
-  'pet-01/listening-part1.mp3',
-  'pet-01/listening-part2.mp3',
-  'pet-01/listening-part3.mp3',
-  'pet-02/listening-part1.mp3',
-  'pet-02/listening-part2.mp3',
-  'pet-02/listening-part3.mp3',
+const FOLDERS = [
+  'sample-01',
+  'vnupress-mock-01',
+  'vnupress-practice-02',
+  'equiv-01',
+  'equiv-02',
+  'test-03',
+  'test-04',
+  'test-05',
+  'test-06',
+  'test-07',
+  'test-08',
+  'test-09',
+  'test-10',
 ];
+
+const expectedFiles = FOLDERS.flatMap((folder) => [
+  `${folder}/listening-part1.mp3`,
+  `${folder}/listening-part2.mp3`,
+  `${folder}/listening-part3.mp3`,
+]);
 
 for (const relPath of expectedFiles) {
   const fullPath = path.join(AUDIO_DIR, relPath);

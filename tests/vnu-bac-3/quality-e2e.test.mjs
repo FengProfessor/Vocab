@@ -642,7 +642,15 @@ assert.ok(
   splitPaneCode.includes('sampleAnswer'),
   'VnuSplitPane must provide sampleAnswer viewing capability in practice / review mode'
 );
-console.log('  [PASS] VnuSplitPane component contract verified (audio player, word counter, cue cards, sample answers).');
+assert.ok(
+  splitPaneCode.includes('ExamInteractiveText'),
+  'VnuSplitPane must import and integrate ExamInteractiveText for 1-click dictionary lookup'
+);
+assert.ok(
+  !splitPaneCode.includes('disabled={isReviewMode}'),
+  'VnuSplitPane must not use disabled={isReviewMode} on option buttons so that word lookup clicks are not blocked'
+);
+console.log('  [PASS] VnuSplitPane component contract verified (audio player, word counter, cue cards, sample answers, interactive dictionary).');
 
 // 4.4 Component Contract: VnuQuestionPalette.tsx
 const palettePath = path.join(COMPONENTS_DIR, 'VnuQuestionPalette.tsx');
