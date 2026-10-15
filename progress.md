@@ -1040,3 +1040,25 @@
   - Independent live HTTPS probes:
     - `https://lingopro.online/api/health` -> HTTP 200 `{"status":"ok"}`
     - `https://lingopro.online/student` -> HTTP 200
+
+### Release Tinh Gọn Desktop UI & Luyện Thi Chuẩn Hóa Above-the-fold (2026-10-15)
+
+- **Phạm vi & Tinh chỉnh Desktop UI**:
+  - **Header máy tính siêu gọn (`py-2.5`)**: Thu nhỏ chiều cao header, mascot LingoPro nhỏ gọn (`h-9 w-9`), lời chào kèm thông điệp phụ (`· X từ cần ôn FSRS...`) đặt trên cùng 1 hàng; các badge thống kê (Cấp độ, Tổng từ vựng, Đếm ngược) dạng viên nang nhỏ gọn nằm bên phải.
+  - **Nén 2 thẻ Hero CTA ("Học Từ Mới" & "Ôn Tập FSRS")**: Chiều cao giảm từ >170px xuống chỉ còn ~78px (`p-2.5 px-3`, icon `h-8 w-8`), tiêu đề + số lượng từ đặt inline, các chế độ ôn tập/học nhanh tinh chỉnh thành thanh pill nhỏ gọn (`h-5.5 px-2 text-[10.5px]`), loại bỏ hoàn toàn các khoảng trắng dọc thừa.
+  - **Đưa khối Luyện thi chuẩn hóa lên trên (100% Above the Fold)**:
+    - Di chuyển khối **Luyện thi chuẩn hóa** (TOEIC 7 Parts, VSTEP B1–B2–C1, VNU Test Bậc 3, IELTS) lên ngay dưới 2 thẻ Hero CTA.
+    - Hiển thị 100% trong tầm mắt ngay trên màn hình đầu tiên (laptop 1366×768 hoặc 1080p có Windows scale) mà người dùng không cần cuộn trang.
+  - **Bố cục bổ trợ**: Khối Kỹ năng thực hành (5 thẻ) và Lịch tháng / Tiến độ ngày tiếp nối phía dưới, ô lịch nén `19px` cân bằng pixel chuẩn chỉnh.
+  - **Bảo toàn 100% Mobile**: Nhánh `!isDesktop` được giữ nguyên vẹn.
+  - **Khắc phục Secret Supabase Migration**: Cập nhật GitHub secrets `SUPABASE_DB_URL` và `SUPABASE_DB_PASSWORD` cho kết nối pooler Supabase (`aws-1-ap-southeast-1.pooler.supabase.com:6543`), giải quyết triệt để lỗi authentication.
+- **Thực thi triển khai & Kiểm chứng Production**:
+  - Released commit `8f3d193fb855a790223e8c73979a356d7d124dbd`.
+  - Canonical GitHub Actions run [38674871171](https://github.com/FengProfessor/Vocab/actions/runs/38674871171) SUCCESS:
+    - `Validate exact source before production changes`: PASS (tất cả compile, lint, security tests, typecheck baseline, e2e smoke, build app).
+    - `Apply required database migrations / apply`: PASS (28s, connected, SKIP13/applied0).
+    - `Deploy to LingoPro Ubuntu Server`: PASS (10m58s, checkout exact SHA `8f3d193fb855a790223e8c73979a356d7d124dbd`, out-of-place staging build, atomic swap via `activate-release.sh`, service `lingopro.service` restarted với MainPID `581932`, readiness HTTP 200, previous release preserved at `/home/ubuntu/Vocab/.next-previous.mJ5pqF/.next`).
+  - Independent live HTTPS probes:
+    - `https://lingopro.online/api/health` -> HTTP 200 `{"status":"ok"}`
+    - `https://lingopro.online/student` -> HTTP 200
+    - `https://lingopro.online/` -> HTTP 200
