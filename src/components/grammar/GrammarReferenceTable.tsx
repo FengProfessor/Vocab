@@ -5,6 +5,8 @@ import Image from 'next/image';
 import PronounMatrixTable from './PronounMatrixTable';
 import TenseTimeline from './TenseTimeline';
 import FormattedText from './FormattedText';
+import HighlightedSentence from './HighlightedSentence';
+import { detectGrammarKeywords } from './GrammarVisualTopicDeck';
 import { Table, CheckCircle2, AlertCircle, Info, BookOpen, AlertTriangle, Sparkles, Volume2 } from 'lucide-react';
 import { grammarAudio } from '@/lib/grammar/grammarAudioManager';
 
@@ -88,6 +90,7 @@ export default function GrammarReferenceTable({
         question: 'Am I...?',
         past: 'was',
         exampleEn: 'I am a student.',
+        highlight: 'am',
         exampleVi: 'Tôi là học sinh.',
         audioId: 'table-tobe-i',
       },
@@ -99,6 +102,7 @@ export default function GrammarReferenceTable({
         question: 'Is he / she...?',
         past: 'was',
         exampleEn: 'She is very happy.',
+        highlight: 'is',
         exampleVi: 'Cô ấy rất vui vẻ.',
         audioId: 'table-tobe-she',
       },
@@ -110,6 +114,7 @@ export default function GrammarReferenceTable({
         question: 'Are you / they...?',
         past: 'were',
         exampleEn: 'They are in the garden.',
+        highlight: 'are',
         exampleVi: 'Họ đang ở trong vườn.',
         audioId: 'table-tobe-they',
       },
@@ -165,7 +170,9 @@ export default function GrammarReferenceTable({
                 </div>
               </div>
               <div className="text-xs font-sans pt-0.5">
-                <span className="font-semibold text-foreground">{row.exampleEn}</span>{' '}
+                <span className="font-semibold text-foreground">
+                  <HighlightedSentence text={row.exampleEn} highlight={row.highlight} />
+                </span>{' '}
                 <span className="text-muted-foreground">({row.exampleVi})</span>
               </div>
             </div>
@@ -210,7 +217,7 @@ export default function GrammarReferenceTable({
                 <td className="p-3 font-bold border-r border-border/60">was</td>
                 <td className="p-3 font-sans text-xs">
                   <div className="flex items-start justify-between gap-1">
-                    <div className="font-medium text-foreground">I am a student.</div>
+                    <div className="font-medium text-foreground"><HighlightedSentence text="I am a student." highlight="am" /></div>
                     <button
                       type="button"
                       onClick={() => grammarAudio.play('table-tobe-i', 'I am a student.')}
@@ -250,7 +257,7 @@ export default function GrammarReferenceTable({
                 <td className="p-3 font-bold border-r border-border/60">was</td>
                 <td className="p-3 font-sans text-xs">
                   <div className="flex items-start justify-between gap-1">
-                    <div className="font-medium text-foreground">She is very happy.</div>
+                    <div className="font-medium text-foreground"><HighlightedSentence text="She is very happy." highlight="is" /></div>
                     <button
                       type="button"
                       onClick={() => grammarAudio.play('table-tobe-she', 'She is very happy.')}
@@ -290,7 +297,7 @@ export default function GrammarReferenceTable({
                 <td className="p-3 font-bold border-r border-border/60">were</td>
                 <td className="p-3 font-sans text-xs">
                   <div className="flex items-start justify-between gap-1">
-                    <div className="font-medium text-foreground">They are in the garden.</div>
+                    <div className="font-medium text-foreground"><HighlightedSentence text="They are in the garden." highlight="are" /></div>
                     <button
                       type="button"
                       onClick={() => grammarAudio.play('table-tobe-they', 'They are in the garden.')}
@@ -790,7 +797,12 @@ export default function GrammarReferenceTable({
                     Subject + Verb (chia) + Object / Complement
                   </td>
                   <td className="p-3 font-sans text-xs">
-                    <div className="font-medium text-foreground">The team completed the analysis on schedule.</div>
+                    <div className="font-medium text-foreground">
+                      <HighlightedSentence
+                        text="The team completed the analysis on schedule."
+                        highlight={detectGrammarKeywords('The team completed the analysis on schedule.', topicSlug, topicTitle)}
+                      />
+                    </div>
                     <div className="text-muted-foreground text-[11px]">Đội ngũ đã hoàn thành phân tích đúng tiến độ.</div>
                   </td>
                 </tr>
@@ -800,7 +812,12 @@ export default function GrammarReferenceTable({
                     Subject + Auxiliary + not + Verb (nguyên thể)
                   </td>
                   <td className="p-3 font-sans text-xs">
-                    <div className="font-medium text-foreground">We do not compromise on project quality.</div>
+                    <div className="font-medium text-foreground">
+                      <HighlightedSentence
+                        text="We do not compromise on project quality."
+                        highlight={detectGrammarKeywords('We do not compromise on project quality.', topicSlug, topicTitle)}
+                      />
+                    </div>
                     <div className="text-muted-foreground text-[11px]">Chúng tôi không thỏa hiệp về chất lượng dự án.</div>
                   </td>
                 </tr>
@@ -810,7 +827,12 @@ export default function GrammarReferenceTable({
                     (Wh-) + Auxiliary + Subject + Verb...?
                   </td>
                   <td className="p-3 font-sans text-xs">
-                    <div className="font-medium text-foreground">Do they need further assistance with the report?</div>
+                    <div className="font-medium text-foreground">
+                      <HighlightedSentence
+                        text="Do they need further assistance with the report?"
+                        highlight={detectGrammarKeywords('Do they need further assistance with the report?', topicSlug, topicTitle)}
+                      />
+                    </div>
                     <div className="text-muted-foreground text-[11px]">Họ có cần thêm hỗ trợ với bản báo cáo không?</div>
                   </td>
                 </tr>
@@ -841,7 +863,10 @@ export default function GrammarReferenceTable({
                 {ruleItem.example && (
                   <div className="text-xs text-muted-foreground font-sans pt-0.5">
                     <span className="font-mono text-[10px] uppercase text-muted-foreground/80 mr-1">VD:</span>
-                    <FormattedText text={ruleItem.example} />
+                    <HighlightedSentence
+                      text={ruleItem.example}
+                      highlight={detectGrammarKeywords(ruleItem.example, topicSlug, topicTitle)}
+                    />
                   </div>
                 )}
               </div>
@@ -868,7 +893,10 @@ export default function GrammarReferenceTable({
                       <FormattedText text={ruleItem.rule} />
                     </td>
                     <td className="p-3 text-muted-foreground font-sans">
-                      <FormattedText text={ruleItem.example} />
+                      <HighlightedSentence
+                        text={ruleItem.example || '—'}
+                        highlight={ruleItem.example ? detectGrammarKeywords(ruleItem.example, topicSlug, topicTitle) : undefined}
+                      />
                     </td>
                   </tr>
                 ))}

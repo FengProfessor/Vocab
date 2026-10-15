@@ -38,40 +38,8 @@ export interface PronounItem {
   badgeBg: string;
 }
 
-export function HighlightedSentence({
-  text,
-  highlight,
-  className = '',
-  highlightClassName = 'text-primary dark:text-primary font-extrabold uppercase bg-primary/10 px-1 py-0.5 border border-primary/30 font-mono tracking-wide',
-}: {
-  text: string;
-  highlight?: string;
-  className?: string;
-  highlightClassName?: string;
-}) {
-  if (!highlight) {
-    return <span className={className}>{text}</span>;
-  }
-
-  const escaped = highlight.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const regex = new RegExp(`\\b(${escaped})\\b`, 'gi');
-  const parts = text.split(regex);
-
-  return (
-    <span className={className}>
-      {parts.map((part, i) => {
-        if (part.toLowerCase() === highlight.toLowerCase()) {
-          return (
-            <span key={i} className={`inline-block ${highlightClassName}`}>
-              {part}
-            </span>
-          );
-        }
-        return <React.Fragment key={i}>{part}</React.Fragment>;
-      })}
-    </span>
-  );
-}
+import HighlightedSentence from './HighlightedSentence';
+export { HighlightedSentence };
 
 export const PRONOUN_VISUAL_ITEMS: PronounItem[] = [
   {
@@ -434,14 +402,14 @@ function PronounCardItem({
 }: PronounCardItemProps) {
   const [activeIdx, setActiveIdx] = useState<number>(0);
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
-  const [showAllExamples, setShowAllExamples] = useState(false);
+  const [showAllExamples, _setShowAllExamples] = useState(false);
   const visibleExamples = exampleLimit && !showAllExamples ? item.examples.slice(0, exampleLimit) : item.examples;
 
   const currentIdx = hoveredIdx !== null ? hoveredIdx : activeIdx;
   const currentExample = item.examples[currentIdx] || item.examples[0];
   const currentImage = (hoveredIdx !== null ? currentExample.image : null) || currentExample.image || item.image;
   const isPlayingSubject = activeAudioId === `subject-${item.subject}`;
-  const isPlayingCurrent = activeAudioId === `${item.subject}-${currentIdx}`;
+  const _isPlayingCurrent = activeAudioId === `${item.subject}-${currentIdx}`;
 
   return (
     <div
@@ -552,18 +520,30 @@ function PronounCardItem({
               </button>
             </div>
 
-            {/* Bottom Image Overlay Tag */}
-            <div className="absolute bottom-2 left-2 right-2 z-10">
-              <div className="bg-background/95 backdrop-blur-md border border-border px-2.5 py-1.5 flex items-baseline justify-between shadow-xs rounded-none">
+            {/* Bottom Image Overlay Tag with Active Sentence & Bold Target Pronoun */}
+            <div className="absolute bottom-2 left-2 right-2 z-10 space-y-1.5">
+              <div className="bg-background/95 backdrop-blur-md border border-border px-2.5 py-1 flex items-baseline justify-between shadow-xs rounded-none">
                 <div className="flex items-baseline gap-2">
-                  <span className="font-serif text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">
+                  <span className="font-serif text-lg sm:text-xl font-extrabold tracking-tight text-foreground">
                     {item.subject}
                   </span>
-                  <span className="font-sans text-xs sm:text-sm font-bold text-primary">
+                  <span className="font-sans text-xs font-bold text-primary">
                     = {item.meaning}
                   </span>
                 </div>
               </div>
+              {currentExample && (
+                <div className="bg-background/95 backdrop-blur-md border border-border p-2 shadow-xs rounded-none space-y-0.5">
+                  <div className="text-xs sm:text-sm font-serif font-semibold text-foreground leading-snug">
+                    <HighlightedSentence text={currentExample.en} highlight={currentExample.highlightWord} />
+                  </div>
+                  {currentExample.vi && (
+                    <div className="text-[11px] text-muted-foreground font-sans leading-tight">
+                      {currentExample.vi}
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           </div>
 

@@ -266,9 +266,84 @@ export function ExamWordLookupCard({
               </div>
             )}
 
-            <p className="text-xs sm:text-sm leading-relaxed text-slate-800 dark:text-slate-200">
-              {dictResult?.definition}
-            </p>
+            {/* Multiple Meanings (Các nghĩa của từ) */}
+            {senses.length > 1 ? (
+              <div className="my-2 space-y-1.5 border-t border-b border-slate-100 dark:border-slate-800/80 py-2">
+                <div className="flex items-center justify-between text-[10px] uppercase tracking-wider font-semibold text-slate-400">
+                  <span>Các nghĩa của từ ({senses.length}):</span>
+                  {savedMeaningIndices.size > 0 && (
+                    <span className="text-emerald-600 dark:text-emerald-400 font-mono">
+                      Đã lưu {savedMeaningIndices.size}/{senses.length} nghĩa
+                    </span>
+                  )}
+                </div>
+                <div className="space-y-1.5 max-h-36 overflow-y-auto pr-0.5">
+                  {senses.map((sense, idx) => {
+                    const isSenseSaved = savedMeaningIndices.has(idx);
+                    const isSelected = selectedMeaningIdx === idx;
+                    return (
+                      <div
+                        key={idx}
+                        onClick={() => setSelectedMeaningIdx(idx)}
+                        className={`flex items-start justify-between gap-1.5 p-1.5 rounded-sm border text-xs cursor-pointer transition-colors ${
+                          isSelected
+                            ? 'border-indigo-400 bg-indigo-50/70 dark:border-indigo-600 dark:bg-indigo-950/50'
+                            : 'border-slate-100 hover:border-slate-300 dark:border-slate-800 dark:hover:border-slate-700 bg-slate-50/50 dark:bg-slate-800/30'
+                        }`}
+                      >
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center gap-1 flex-wrap">
+                            <span className="font-bold text-[11px] text-slate-500">
+                              {idx + 1}.
+                            </span>
+                            {sense.pos && (
+                              <span className="text-[9px] font-semibold uppercase px-1 py-0.2 rounded bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300">
+                                {sense.pos}
+                              </span>
+                            )}
+                            <span className="font-medium text-slate-800 dark:text-slate-200">
+                              {sense.definition}
+                            </span>
+                          </div>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedMeaningIdx(idx);
+                            if (!isSenseSaved) {
+                              void handleSaveSense(sense, idx);
+                            }
+                          }}
+                          disabled={isSaving || isSenseSaved}
+                          className={`shrink-0 text-[10px] px-1.5 py-0.5 rounded-xs font-semibold flex items-center gap-0.5 transition ${
+                            isSenseSaved
+                              ? 'text-emerald-700 bg-emerald-100/70 dark:bg-emerald-950 dark:text-emerald-400'
+                              : 'text-indigo-700 bg-indigo-100 hover:bg-indigo-200 dark:bg-indigo-900/60 dark:text-indigo-300 cursor-pointer'
+                          }`}
+                        >
+                          {isSenseSaved ? (
+                            <>
+                              <Check className="h-2.5 w-2.5" />
+                              <span>Đã lưu</span>
+                            </>
+                          ) : (
+                            <>
+                              <BookmarkPlus className="h-2.5 w-2.5" />
+                              <span>Lưu</span>
+                            </>
+                          )}
+                        </button>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ) : (
+              <p className="text-xs sm:text-sm leading-relaxed text-slate-800 dark:text-slate-200">
+                {activeSense?.definition || dictResult?.definition}
+              </p>
+            )}
 
             {/* Bilingual Example Sentence */}
             {dictResult?.example && (

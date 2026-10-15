@@ -41,6 +41,8 @@ import GrammarVideoPlayer, { CURATED_GRAMMAR_VIDEOS } from '@/components/grammar
 import SvoSentenceDiagram from '@/components/grammar/SvoSentenceDiagram';
 import TenseTimeline from '@/components/grammar/TenseTimeline';
 import FormattedText from '@/components/grammar/FormattedText';
+import HighlightedSentence from '@/components/grammar/HighlightedSentence';
+import { detectGrammarKeywords } from '@/components/grammar/GrammarVisualTopicDeck';
 import { grammarAudio } from '@/lib/grammar/grammarAudioManager';
 import {
   LOCAL_GRAMMAR_PROGRESS_KEY,
@@ -1294,35 +1296,38 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                     Câu ví dụ đối chiếu ngữ pháp
                   </div>
                   {theoryData?.bilingual_examples && theoryData.bilingual_examples.length > 0 ? (
-                    theoryData.bilingual_examples.map((ex, i) => (
-                      <div key={i} className="border border-border p-3.5 bg-background space-y-1.5 rounded-none flex items-start justify-between gap-3">
-                        <div className="space-y-1 flex-1 min-w-0">
-                          <div className="font-semibold text-foreground text-sm font-serif break-words">
-                            <FormattedText text={ex.en} />
-                          </div>
-                          <div className="text-xs text-muted-foreground break-words">
-                            <FormattedText text={ex.vi} />
-                          </div>
-                          {ex.note && (
-                            <div className="text-[11px] font-mono text-primary/80 pt-1 border-t border-border/40 mt-1">
-                              Ghi chú: <FormattedText text={ex.note} />
+                    theoryData.bilingual_examples.map((ex, i) => {
+                      const kw = detectGrammarKeywords(ex.en || '', activeTopic.slug, activeTopic.title);
+                      return (
+                        <div key={i} className="border border-border p-3.5 bg-background space-y-1.5 rounded-none flex items-start justify-between gap-3">
+                          <div className="space-y-1 flex-1 min-w-0">
+                            <div className="font-semibold text-foreground text-sm font-serif break-words">
+                              <HighlightedSentence text={ex.en || ''} highlight={kw} />
                             </div>
+                            <div className="text-xs text-muted-foreground break-words">
+                              <FormattedText text={ex.vi || ''} />
+                            </div>
+                            {ex.note && (
+                              <div className="text-[11px] font-mono text-primary/80 pt-1 border-t border-border/40 mt-1">
+                                Ghi chú: <FormattedText text={ex.note} />
+                              </div>
+                            )}
+                          </div>
+                          {ex.en && (
+                            <button
+                              type="button"
+                              onClick={() => {
+                                if (ex.en) grammarAudio.play(`bilingual-${i}`, ex.en);
+                              }}
+                              aria-label={`Nghe phát âm: ${ex.en}`}
+                              className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground shrink-0 rounded-none transition-colors"
+                            >
+                              <Volume2 className="h-4 w-4" />
+                            </button>
                           )}
                         </div>
-                        {ex.en && (
-                          <button
-                            type="button"
-                            onClick={() => {
-                              if (ex.en) grammarAudio.play(`bilingual-${i}`, ex.en);
-                            }}
-                            aria-label={`Nghe phát âm: ${ex.en}`}
-                            className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground shrink-0 rounded-none transition-colors"
-                          >
-                            <Volume2 className="h-4 w-4" />
-                          </button>
-                        )}
-                      </div>
-                    ))
+                      );
+                    })
                   ) : (
                     <p className="text-xs text-muted-foreground">
                       Ví dụ song ngữ đang được biên soạn chi tiết cho chủ điểm này.

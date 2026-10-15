@@ -1,4 +1,4 @@
-// File: src/lib/grammar/grammarAudioManager.ts
+import { findMatchingAudioUrl } from './grammarAudioMap';
 
 type AudioStateListener = (state: { isPlaying: boolean; activeId: string | null }) => void;
 
@@ -8,8 +8,28 @@ class GrammarAudioManager {
   private currentUtterance: SpeechSynthesisUtterance | null = null;
   private activeId: string | null = null;
   private listeners: Set<AudioStateListener> = new Set();
+  private voicesLoaded = false;
+  private cachedEnVoice: SpeechSynthesisVoice | null = null;
 
-  private constructor() {}
+  private constructor() {
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      const loadVoices = () => {
+        try {
+          const voices = window.speechSynthesis.getVoices();
+          if (voices && voices.length > 0) {
+            this.voicesLoaded = true;
+            this.cachedEnVoice =
+              voices.find((v) => v.lang === 'en-US' && (v.name.includes('Natural') || v.name.includes('Neural') || v.name.includes('Google') || v.name.includes('Samantha'))) ||
+              voices.find((v) => v.lang === 'en-US') ||
+              voices.find((v) => v.lang.startsWith('en')) ||
+              null;
+          }
+        } catch {}
+      };
+      loadVoices();
+      window.speechSynthesis.addEventListener('voiceschanged', loadVoices);
+    }
+  }
 
   public static getInstance(): GrammarAudioManager {
     if (!GrammarAudioManager.instance) {
@@ -45,23 +65,30 @@ class GrammarAudioManager {
       this.currentAudio = null;
     }
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
+      try {
+        window.speechSynthesis.cancel();
+      } catch {}
     }
     this.currentUtterance = null;
     this.activeId = null;
     this.notify();
   }
 
-  public play(id: string, text: string, audioUrl?: string): void {
+  public play(id: string, text: string, candidateAudioUrl?: string): void {
     // 1. Immediately abort preceding playback to eliminate concurrency
     this.stopAll();
+
+    const cleanText = text.replace(/[*_#`]/g, '').trim();
+    if (!cleanText) return;
 
     this.activeId = id;
     this.notify();
 
-    // 2. Prioritize Native Studio MP3 Asset if available
-    if (audioUrl) {
-      const audio = new Audio(audioUrl);
+    // 2. Verified Native Studio MP3 Asset (Guarantees zero audio desync!)
+    const verifiedAudioUrl = findMatchingAudioUrl(cleanText, candidateAudioUrl);
+
+    if (verifiedAudioUrl) {
+      const audio = new Audio(verifiedAudioUrl);
       this.currentAudio = audio;
       let fellBack = false;
 
@@ -72,7 +99,7 @@ class GrammarAudioManager {
           this.currentAudio = null;
         }
         if (this.activeId === id) {
-          this.fallbackSpeak(text);
+          this.fallbackSpeak(cleanText);
         }
       };
 
@@ -94,8 +121,8 @@ class GrammarAudioManager {
       return;
     }
 
-    // 3. Web Speech Fallback
-    this.fallbackSpeak(text);
+    // 3. High-Quality Web Speech Fallback for sentences without pre-recorded MP3
+    this.fallbackSpeak(cleanText);
   }
 
   private fallbackSpeak(text: string): void {
@@ -110,20 +137,24 @@ class GrammarAudioManager {
     utterance.rate = 0.9;
     this.currentUtterance = utterance;
 
-    // Ưu tiên chọn giọng tiếng Anh chuẩn (tránh phát âm lỗi trên thiết bị dùng ngôn ngữ mặc định khác như vi-VN)
-    try {
-      const voices = window.speechSynthesis.getVoices();
-      if (voices && voices.length > 0) {
-        const enVoice =
-          voices.find((v) => v.lang === 'en-US') ||
-          voices.find((v) => v.lang.startsWith('en-US')) ||
-          voices.find((v) => v.lang.startsWith('en'));
-        if (enVoice) {
-          utterance.voice = enVoice;
+    if (this.cachedEnVoice) {
+      utterance.voice = this.cachedEnVoice;
+    } else {
+      try {
+        const voices = window.speechSynthesis.getVoices();
+        if (voices && voices.length > 0) {
+          const enVoice =
+            voices.find((v) => v.lang === 'en-US' && (v.name.includes('Natural') || v.name.includes('Neural') || v.name.includes('Google') || v.name.includes('Samantha'))) ||
+            voices.find((v) => v.lang === 'en-US') ||
+            voices.find((v) => v.lang.startsWith('en'));
+          if (enVoice) {
+            this.cachedEnVoice = enVoice;
+            utterance.voice = enVoice;
+          }
         }
+      } catch {
+        // Ignore if getVoices unavailable
       }
-    } catch {
-      // Bỏ qua nếu môi trường không hỗ trợ getVoices
     }
 
     utterance.onend = () => {

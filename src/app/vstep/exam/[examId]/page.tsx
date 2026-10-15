@@ -43,6 +43,7 @@ import {
   getIncorrectVstepQuestionIds,
 } from '@/lib/vstep-history';
 import { stripHtmlTags } from '@/components/toeic/ToeicSplitPane';
+import { authFetch } from '@/lib/auth-fetch';
 import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 
 function getVstepQuestionKey(question: VstepQuestion): string {
@@ -566,9 +567,9 @@ function VstepExamPageInner() {
     try {
       const practiceSkill = exam.id.startsWith('vstep-practice-') ? exam.sections[0]?.type : undefined;
       const isPracticeSession = practiceSkill === 'listening' || practiceSkill === 'reading';
-      const res = await fetch('/api/vstep/submit', {
+      const res = await authFetch('/api/vstep/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'X-LingoPro-Request': '1' },
         body: JSON.stringify({
           testId: examId,
           examMode: isPracticeSession ? 'practice' : 'full_simulation',

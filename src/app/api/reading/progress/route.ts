@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getAuthUser } from '@/lib/api-security';
 import { createServiceClient } from '@/lib/supabase-server';
+import { sessionErrorResponse } from '@/lib/session-response';
 
 export const dynamic = 'force-dynamic';
 
@@ -53,9 +54,12 @@ export async function GET(req: NextRequest) {
 
     const bookmarks = (list || []).filter((r) => r.is_bookmarked).map((r) => r.article_id);
     return NextResponse.json({ authenticated: true, items: list || [], bookmarks });
-  } catch (err: any) {
+  } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
+    const message = err instanceof Error ? err.message : 'Failed to fetch reading progress';
     return NextResponse.json(
-      { error: err?.message || 'Failed to fetch reading progress' },
+      { error: message },
       { status: 500 }
     );
   }
@@ -108,7 +112,7 @@ export async function POST(req: NextRequest) {
     const readCount = (existing?.read_count || 0) + 1;
     const now = new Date().toISOString();
 
-    const payload: Record<string, any> = {
+    const payload: Record<string, unknown> = {
       user_id: authUser.userId,
       article_id,
       status: status || existing?.status || 'in_progress',
@@ -146,9 +150,12 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json({ success: true, progress: data });
-  } catch (err: any) {
+  } catch (err: unknown) {
+    const sessionFailure = sessionErrorResponse(err);
+    if (sessionFailure) return sessionFailure;
+    const message = err instanceof Error ? err.message : 'Failed to save reading progress';
     return NextResponse.json(
-      { success: false, error: err?.message || 'Failed to save reading progress' },
+      { success: false, error: message },
       { status: 500 }
     );
   }

@@ -5,7 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Volume2, Sparkles, Lightbulb, CheckCircle2, Dumbbell, ArrowRight, RotateCcw } from 'lucide-react';
 import { grammarAudio } from '@/lib/grammar/grammarAudioManager';
-import PronounVisualDeck, { HighlightedSentence } from './PronounVisualDeck';
+import PronounVisualDeck from './PronounVisualDeck';
+import HighlightedSentence from './HighlightedSentence';
 import SvoSentenceVisualDeck from './SvoSentenceVisualDeck';
 import type { GrammarTheoryData } from './GrammarReferenceTable';
 import topicAssetsData from '@/data/grammar-topic-assets.json';
@@ -15,7 +16,7 @@ import FormattedText from './FormattedText';
 export interface VisualDeckExample {
   en: string;
   vi: string;
-  highlightWord?: string;
+  highlightWord?: string | string[];
   image?: string;
 }
 
@@ -63,7 +64,7 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
           { en: 'I am a student.', vi: 'Tôi là học sinh.', highlightWord: 'am' },
           { en: 'I am happy today.', vi: 'Hôm nay tôi rất vui vẻ.', highlightWord: 'am' },
           { en: 'I am twenty years old.', vi: 'Tôi 20 tuổi.', highlightWord: 'am' },
-          { en: 'I am not tired at all.', vi: 'Tôi không hề mệt chút nào.', highlightWord: 'am' },
+          { en: 'I am not tired at all.', vi: 'Tôi không hề mệt chút nào.', highlightWord: ['am', 'not'] },
         ],
         tip: 'Chủ ngữ "I" luôn luôn đi với "am". Dạng viết tắt là "I\'m". Dạng phủ định là "I am not" (hoặc "I\'m not").',
         ruleSummary: 'Khẳng định: I am ... · Phủ định: I am not ... · Câu hỏi: Am I ...?',
@@ -76,7 +77,7 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/verb-to-be/02.mp3',
         accentColor: '#f43f5e',
         examples: [
-          { en: 'She is very happy.', vi: 'Cô ấy rất vui vẻ.', highlightWord: 'is' },
+          { en: 'She is happy.', vi: 'Cô ấy rất vui vẻ.', highlightWord: 'is' },
           { en: 'He is my best friend.', vi: 'Cậu ấy là bạn thân của tôi.', highlightWord: 'is' },
           { en: 'It is a sunny day.', vi: 'Hôm nay trời nắng đẹp.', highlightWord: 'is' },
           { en: 'My cat is very cute.', vi: 'Chú mèo của tôi rất dễ thương.', highlightWord: 'is' },
@@ -92,10 +93,10 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/verb-to-be/03.mp3',
         accentColor: '#10b981',
         examples: [
+          { en: 'The keys are on the table.', vi: 'Những chiếc chìa khóa ở trên bàn.', highlightWord: 'are' },
           { en: 'You are very kind.', vi: 'Bạn rất tốt bụng.', highlightWord: 'are' },
           { en: 'We are ready to learn.', vi: 'Chúng tôi đã sẵn sàng học tập.', highlightWord: 'are' },
           { en: 'They are in the garden.', vi: 'Họ đang ở trong vườn.', highlightWord: 'are' },
-          { en: 'The books are on the desk.', vi: 'Những cuốn sách ở trên bàn học.', highlightWord: 'are' },
         ],
         tip: 'You, We, They hoặc từ 2 người / 2 vật trở lên luôn đi với "are". Viết tắt: You\'re, We\'re, They\'re. Phủ định là "aren\'t".',
         ruleSummary: 'Khẳng định: You/We/They are ... · Phủ định: are not (aren\'t) · Câu hỏi: Are you/we/they ...?',
@@ -105,7 +106,6 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         badge: 'Đảo to be lên trước chủ ngữ',
         category: 'questions',
         image: '/grammar/topics/verb-to-be/04.webp',
-        audio: '/grammar/topics/verb-to-be/04.mp3',
         accentColor: '#8b5cf6',
         examples: [
           { en: 'Are you ready?', vi: 'Bạn đã sẵn sàng chưa?', highlightWord: 'Are' },
@@ -131,10 +131,10 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/demonstratives/01.mp3',
         accentColor: '#3b82f6',
         examples: [
-          { en: 'This is my book.', vi: 'Đây là cuốn sách của tôi.' },
-          { en: 'This coffee is very hot.', vi: 'Cốc cà phê này nóng quá.' },
-          { en: 'This is my friend Nam.', vi: 'Đây là Nam, bạn của mình.' },
-          { en: 'Do you like this shirt?', vi: 'Bạn có thích chiếc áo này không?' },
+          { en: 'This key is mine.', vi: 'Chiếc chìa khóa này là của tôi.', highlightWord: 'This' },
+          { en: 'This coffee is very hot.', vi: 'Cốc cà phê này nóng quá.', highlightWord: 'This' },
+          { en: 'This is my friend Nam.', vi: 'Đây là Nam, bạn của mình.', highlightWord: 'This' },
+          { en: 'Do you like this shirt?', vi: 'Bạn có thích chiếc áo này không?', highlightWord: 'this' },
         ],
         tip: '"This" dùng cho 1 vật hoặc 1 người ở ngay gần bạn hoặc trong tầm tay. Luôn đi với động từ "is".',
         ruleSummary: 'This + danh từ số ít + is ... (Ví dụ: This car is new)',
@@ -147,10 +147,10 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/demonstratives/02.mp3',
         accentColor: '#0ea5e9',
         examples: [
-          { en: 'That building is a museum.', vi: 'Tòa nhà đằng kia là viện bảo tàng.' },
-          { en: 'That is my car over there.', vi: 'Chiếc xe đằng kia là của tôi.' },
-          { en: 'Who is that girl?', vi: 'Cô gái đằng kia là ai thế?' },
-          { en: 'That was a wonderful trip!', vi: 'Đó từng là một chuyến đi tuyệt vời!' },
+          { en: 'That building is a museum.', vi: 'Tòa nhà đằng kia là viện bảo tàng.', highlightWord: 'That' },
+          { en: 'That is my car over there.', vi: 'Chiếc xe đằng kia là của tôi.', highlightWord: 'That' },
+          { en: 'Who is that girl?', vi: 'Cô gái đằng kia là ai thế?', highlightWord: 'that' },
+          { en: 'That was a wonderful trip!', vi: 'Đó từng là một chuyến đi tuyệt vời!', highlightWord: 'That' },
         ],
         tip: '"That" dùng cho 1 vật hoặc 1 người ở xa bạn (ngoài tầm với). Luôn đi với động từ "is".',
         ruleSummary: 'That + danh từ số ít + is ... (Ví dụ: That house is big)',
@@ -163,10 +163,10 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/demonstratives/03.mp3',
         accentColor: '#10b981',
         examples: [
-          { en: 'These books are very useful.', vi: 'Những cuốn sách này rất hữu ích.' },
-          { en: 'These apples are sweet.', vi: 'Những quả táo này ngọt lắm.' },
-          { en: 'These are my new glasses.', vi: 'Đây là chiếc kính mắt mới của tôi.' },
-          { en: 'Look at these pictures!', vi: 'Hãy nhìn những bức ảnh này xem!' },
+          { en: 'These books are useful.', vi: 'Những cuốn sách này rất hữu ích.', highlightWord: 'These' },
+          { en: 'These apples are sweet.', vi: 'Những quả táo này ngọt lắm.', highlightWord: 'These' },
+          { en: 'These are my new glasses.', vi: 'Đây là chiếc kính mắt mới của tôi.', highlightWord: 'These' },
+          { en: 'Look at these pictures!', vi: 'Hãy nhìn những bức ảnh này xem!', highlightWord: 'these' },
         ],
         tip: '"These" là dạng số nhiều của "This". Dùng cho từ 2 vật/người trở lên ở gần. Luôn đi với "are" và danh từ số nhiều.',
         ruleSummary: 'These + danh từ số nhiều + are ... (Ví dụ: These pens are mine)',
@@ -179,10 +179,10 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/demonstratives/04.mp3',
         accentColor: '#a855f7',
         examples: [
-          { en: 'Those mountains are beautiful.', vi: 'Những ngọn núi đằng xa kia thật đẹp.' },
-          { en: 'Those cars are very fast.', vi: 'Những chiếc xe hơi đằng kia chạy rất nhanh.' },
-          { en: 'Are those your shoes?', vi: 'Đó có phải là đôi giày của bạn đằng kia không?' },
-          { en: 'Those children are playing outside.', vi: 'Những đứa trẻ đằng kia đang chơi ngoài trời.' },
+          { en: 'Those mountains are beautiful.', vi: 'Những ngọn núi đằng xa kia thật đẹp.', highlightWord: 'Those' },
+          { en: 'Those cars are very fast.', vi: 'Những chiếc xe hơi đằng kia chạy rất nhanh.', highlightWord: 'Those' },
+          { en: 'Are those your shoes?', vi: 'Đó có phải là đôi giày của bạn đằng kia không?', highlightWord: 'those' },
+          { en: 'Those children are playing outside.', vi: 'Những đứa trẻ đằng kia đang chơi ngoài trời.', highlightWord: 'Those' },
         ],
         tip: '"Those" là dạng số nhiều của "That". Dùng cho từ 2 vật/người trở lên ở đằng xa. Luôn đi với "are" và danh từ số nhiều.',
         ruleSummary: 'Those + danh từ số nhiều + are ... (Ví dụ: Those birds are flying)',
@@ -202,10 +202,10 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/there-is-there-are/01.mp3',
         accentColor: '#3b82f6',
         examples: [
-          { en: 'There is a cat on the chair.', vi: 'Có một con mèo ở trên ghế.' },
-          { en: 'There is an apple on the table.', vi: 'Có một quả táo trên bàn.' },
-          { en: 'There is some water in the bottle.', vi: 'Có một ít nước trong chai.' },
-          { en: 'There is a pharmacy near my house.', vi: 'Có một hiệu thuốc ở gần nhà tôi.' },
+          { en: 'There is a pharmacy near my house.', vi: 'Có một hiệu thuốc ở gần nhà tôi.', highlightWord: 'There is' },
+          { en: 'There is a cat on the chair.', vi: 'Có một con mèo ở trên ghế.', highlightWord: 'There is' },
+          { en: 'There is an apple on the table.', vi: 'Có một quả táo trên bàn.', highlightWord: 'There is' },
+          { en: 'There is some water in the bottle.', vi: 'Có một ít nước trong chai.', highlightWord: 'There is' },
         ],
         tip: 'Dùng "There is" (viết tắt: There\'s) khi danh từ phía sau là số ít (a/an) hoặc không đếm được (water, milk, bread).',
         ruleSummary: 'There is + a / an + danh từ số ít (hoặc danh từ không đếm được)',
@@ -218,29 +218,29 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/there-is-there-are/02.mp3',
         accentColor: '#10b981',
         examples: [
-          { en: 'There are two messages for you.', vi: 'Có hai tin nhắn dành cho bạn.' },
-          { en: 'There are many students in the room.', vi: 'Có nhiều học sinh ở trong phòng.' },
-          { en: 'There are four chairs around the table.', vi: 'Có bốn chiếc ghế quanh bàn.' },
-          { en: 'There are seven days in a week.', vi: 'Có 7 ngày trong một tuần.' },
+          { en: 'There are two messages for you.', vi: 'Có hai tin nhắn dành cho bạn.', highlightWord: 'There are' },
+          { en: 'There are many students in the room.', vi: 'Có nhiều học sinh ở trong phòng.', highlightWord: 'There are' },
+          { en: 'There are four chairs around the table.', vi: 'Có bốn chiếc ghế quanh bàn.', highlightWord: 'There are' },
+          { en: 'There are seven days in a week.', vi: 'Có 7 ngày trong một tuần.', highlightWord: 'There are' },
         ],
         tip: 'Dùng "There are" khi danh từ theo sau là số nhiều (có đuôi -s/-es hoặc bất quy tắc như children, people).',
         ruleSummary: 'There are + số lượng / many / two + danh từ số nhiều',
       },
       {
-        title: 'PHỦ ĐỊNH (There isn\'t / There aren\'t)',
+        title: "PHỦ ĐỊNH (There isn't / There aren't)",
         badge: 'Không có người hoặc vật nào',
         category: 'negative',
         image: '/grammar/topics/there-is-there-are/03.webp',
         audio: '/grammar/topics/there-is-there-are/03.mp3',
         accentColor: '#f43f5e',
         examples: [
-          { en: 'There isn\'t any milk left.', vi: 'Không còn chút sữa nào cả.' },
-          { en: 'There isn\'t a problem here.', vi: 'Không có vấn đề gì ở đây cả.' },
-          { en: 'There aren\'t any empty seats.', vi: 'Không còn chỗ ngồi trống nào cả.' },
-          { en: 'There aren\'t many cars today.', vi: 'Hôm nay không có nhiều xe cộ.' },
+          { en: "There isn't any milk left.", vi: 'Không còn chút sữa nào cả.', highlightWord: "There isn't" },
+          { en: "There isn't a problem here.", vi: 'Không có vấn đề gì ở đây cả.', highlightWord: "There isn't" },
+          { en: "There aren't any empty seats.", vi: 'Không còn chỗ ngồi trống nào cả.', highlightWord: "There aren't" },
+          { en: "There aren't many cars today.", vi: 'Hôm nay không có nhiều xe cộ.', highlightWord: "There aren't" },
         ],
         tip: 'Trong câu phủ định, thường dùng "any" đi kèm: There isn\'t any + không đếm được; There aren\'t any + số nhiều.',
-        ruleSummary: 'There isn\'t (any) ... · There aren\'t (any) ...',
+        ruleSummary: "There isn't (any) ... · There aren't (any) ...",
       },
       {
         title: 'CÂU HỎI (Is there...? / Are there...?)',
@@ -250,10 +250,10 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/there-is-there-are/04.mp3',
         accentColor: '#8b5cf6',
         examples: [
-          { en: 'Is there a bank near here?', vi: 'Có ngân hàng nào ở gần đây không?' },
-          { en: 'Is there any water in the fridge?', vi: 'Có nước trong tủ lạnh không?' },
-          { en: 'Are there enough chairs for everyone?', vi: 'Có đủ ghế cho mọi người không?' },
-          { en: 'How many books are there in your bag?', vi: 'Có bao nhiêu cuốn sách trong túi bạn?' },
+          { en: 'Are there enough chairs for everyone?', vi: 'Có đủ ghế cho mọi người không?', highlightWord: 'Are there' },
+          { en: 'Is there a bank near here?', vi: 'Có ngân hàng nào ở gần đây không?', highlightWord: 'Is there' },
+          { en: 'Is there any water in the fridge?', vi: 'Có nước trong tủ lạnh không?', highlightWord: 'Is there' },
+          { en: 'How many books are there in your bag?', vi: 'Có bao nhiêu cuốn sách trong túi bạn?', highlightWord: 'are there' },
         ],
         tip: 'Đảo "Is" hoặc "Are" lên đầu câu. Trả lời ngắn: Yes, there is. / No, there isn\'t. hoặc Yes, there are. / No, there aren\'t.',
         ruleSummary: 'Is there a/any ...? · Are there any ...?',
@@ -273,10 +273,10 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/articles/01.mp3',
         accentColor: '#3b82f6',
         examples: [
-          { en: 'I have a book.', vi: 'Tôi có một cuốn sách.' },
-          { en: 'She is a friendly teacher.', vi: 'Cô ấy là một giáo viên thân thiện.' },
-          { en: 'He drives a blue car.', vi: 'Anh ấy lái một chiếc xe màu xanh.' },
-          { en: 'There is a cat in the garden.', vi: 'Có một con mèo trong vườn.' },
+          { en: 'I have a book.', vi: 'Tôi có một cuốn sách.', highlightWord: 'a' },
+          { en: 'She is a friendly teacher.', vi: 'Cô ấy là một giáo viên thân thiện.', highlightWord: 'a' },
+          { en: 'He drives a blue car.', vi: 'Anh ấy lái một chiếc xe màu xanh.', highlightWord: 'a' },
+          { en: 'There is a cat in the garden.', vi: 'Có một con mèo trong vườn.', highlightWord: 'a' },
         ],
         tip: 'Dùng "a" trước danh từ số ít đếm được bắt đầu bằng PHỤ ÂM phát âm: a book, a cat, a dog, a university (phát âm /ju:/).',
         ruleSummary: 'a + phụ âm (a pen, a boy, a doctor)',
@@ -289,10 +289,10 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/articles/02.mp3',
         accentColor: '#0ea5e9',
         examples: [
-          { en: 'I have an apple.', vi: 'Tôi có một quả táo.' },
-          { en: 'She eats an orange every day.', vi: 'Cô ấy ăn một quả cam mỗi ngày.' },
-          { en: 'Take an umbrella with you.', vi: 'Hãy mang theo một chiếc ô nhé.' },
-          { en: 'It took an hour to finish.', vi: 'Mất một giờ đồng hồ để hoàn thành.' },
+          { en: 'I have an apple.', vi: 'Tôi có một quả táo.', highlightWord: 'an' },
+          { en: 'She eats an orange every day.', vi: 'Cô ấy ăn một quả cam mỗi ngày.', highlightWord: 'an' },
+          { en: 'Take an umbrella with you.', vi: 'Hãy mang theo một chiếc ô nhé.', highlightWord: 'an' },
+          { en: 'It took an hour to finish.', vi: 'Mất một giờ đồng hồ để hoàn thành.', highlightWord: 'an' },
         ],
         tip: 'Dùng "an" trước danh từ bắt đầu bằng NGUYÊN ÂM phát âm (u, e, o, a, i - mẹo nhớ: uể oải): an apple, an egg, an hour (chữ h câm).',
         ruleSummary: 'an + nguyên âm phát âm (an apple, an hour, an idea)',
@@ -305,10 +305,10 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/articles/03.mp3',
         accentColor: '#10b981',
         examples: [
-          { en: 'I am reading the book.', vi: 'Tôi đang đọc cuốn sách đó (cuốn sách cụ thể).' },
-          { en: 'The sun rises in the east.', vi: 'Mặt trời mọc ở hướng đông (duy nhất).' },
-          { en: 'Please close the door.', vi: 'Làm ơn đóng cánh cửa lại giúp tôi.' },
-          { en: 'I saw a dog. The dog was big.', vi: 'Tôi thấy một con chó. Con chó đó rất to (nhắc lại lần 2).' },
+          { en: 'I am reading the book.', vi: 'Tôi đang đọc cuốn sách đó (cuốn sách cụ thể).', highlightWord: 'the' },
+          { en: 'The sun rises in the east.', vi: 'Mặt trời mọc ở hướng đông (duy nhất).', highlightWord: 'The' },
+          { en: 'Please close the door.', vi: 'Làm ơn đóng cánh cửa lại giúp tôi.', highlightWord: 'the' },
+          { en: 'I saw a dog. The dog was big.', vi: 'Tôi thấy một con chó. Con chó đó rất to (nhắc lại lần 2).', highlightWord: 'The' },
         ],
         tip: 'Dùng "the" cho vật đã được nhắc đến trước đó, vật mà người nghe và người nói đều biết rõ, hoặc vật thể duy nhất (the sun, the moon, the sky).',
         ruleSummary: 'the + vật thể cụ thể / xác định / duy nhất',
@@ -318,13 +318,12 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         badge: 'Nói chung chung hoặc tên bữa ăn',
         category: 'zero',
         image: '/grammar/topics/articles/04.webp',
-        audio: '/grammar/topics/articles/04.mp3',
         accentColor: '#f59e0b',
         examples: [
-          { en: 'Dogs are loyal animals.', vi: 'Chó là loài vật trung thành (nói chung).' },
-          { en: 'I love drinking milk.', vi: 'Tôi thích uống sữa (chất lỏng không đếm được).' },
-          { en: 'We have breakfast at 7 a.m.', vi: 'Chúng tôi ăn sáng lúc 7 giờ (bữa ăn).' },
-          { en: 'She plays tennis on Sundays.', vi: 'Cô ấy chơi quần vợt vào Chủ nhật (môn thể thao).' },
+          { en: 'Dogs are loyal animals.', vi: 'Chó là loài vật trung thành (nói chung).', highlightWord: 'Dogs' },
+          { en: 'I love drinking milk.', vi: 'Tôi thích uống sữa (chất lỏng không đếm được).', highlightWord: 'milk' },
+          { en: 'We have breakfast at 7 a.m.', vi: 'Chúng tôi ăn sáng lúc 7 giờ (bữa ăn).', highlightWord: 'breakfast' },
+          { en: 'She plays tennis on Sundays.', vi: 'Cô ấy chơi quần vợt vào Chủ nhật (môn thể thao).', highlightWord: 'tennis' },
         ],
         tip: 'KHÔNG dùng a/an/the trước: danh từ số nhiều nói chung, danh từ không đếm được nói chung, tên bữa ăn (breakfast, dinner), và môn thể thao (football, tennis).',
         ruleSummary: '∅ + số nhiều nói chung · ∅ + bữa ăn · ∅ + thể thao',
@@ -344,10 +343,10 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/possessives/01.mp3',
         accentColor: '#3b82f6',
         examples: [
-          { en: 'This is my notebook.', vi: 'Đây là cuốn vở của tôi.' },
-          { en: 'The car is mine.', vi: 'Chiếc xe hơi đó là của tôi.' },
-          { en: 'My mother is a doctor.', vi: 'Mẹ của tôi là một bác sĩ.' },
-          { en: 'That bag is mine, not yours.', vi: 'Cái túi đó là của tôi, không phải của bạn.' },
+          { en: 'This is my notebook. It is mine.', vi: 'Đây là cuốn vở của tôi. Nó là của tôi.', highlightWord: ['my', 'mine'] },
+          { en: 'This is my notebook.', vi: 'Đây là cuốn vở của tôi.', highlightWord: 'my' },
+          { en: 'The car is mine.', vi: 'Chiếc xe hơi đó là của tôi.', highlightWord: 'mine' },
+          { en: 'My mother is a doctor.', vi: 'Mẹ của tôi là một bác sĩ.', highlightWord: 'My' },
         ],
         tip: '"My" bắt buộc có danh từ theo sau (my pen). "Mine" đứng một mình làm đại từ thay thế (This pen is mine).',
         ruleSummary: 'Tính từ sở hữu: my + N · Đại từ sở hữu: mine (đứng độc lập)',
@@ -360,10 +359,10 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/possessives/02.mp3',
         accentColor: '#14b8a6',
         examples: [
-          { en: 'Is this your phone?', vi: 'Đây có phải điện thoại của bạn không?' },
-          { en: 'The choice is yours.', vi: 'Quyết định là của bạn.' },
-          { en: 'Your house is very lovely.', vi: 'Ngôi nhà của bạn rất xinh xắn.' },
-          { en: 'My coat is red, yours is black.', vi: 'Áo khoác tôi màu đỏ, của bạn màu đen.' },
+          { en: 'Is this your seat or hers?', vi: 'Đây là chỗ ngồi của bạn hay của cô ấy?', highlightWord: ['your', 'hers'] },
+          { en: 'Is this your phone?', vi: 'Đây có phải điện thoại của bạn không?', highlightWord: 'your' },
+          { en: 'The choice is yours.', vi: 'Quyết định là của bạn.', highlightWord: 'yours' },
+          { en: 'Your house is very lovely.', vi: 'Ngôi nhà của bạn rất xinh xắn.', highlightWord: 'Your' },
         ],
         tip: '"Your" + danh từ (your key). "Yours" có thêm chữ s, đứng một mình không cần danh từ phía sau.',
         ruleSummary: 'Tính từ sở hữu: your + N · Đại từ sở hữu: yours',
@@ -376,10 +375,10 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/possessives/03.mp3',
         accentColor: '#f43f5e',
         examples: [
-          { en: 'His father is a teacher.', vi: 'Bố của anh ấy là một giáo viên.' },
-          { en: 'The bicycle is his.', vi: 'Chiếc xe đạp đó là của anh ấy.' },
-          { en: 'Her dress is very pretty.', vi: 'Chiếc váy của cô ấy rất đẹp.' },
-          { en: 'This notebook is hers.', vi: 'Cuốn sổ này là của cô ấy.' },
+          { en: 'Their house is next to ours.', vi: 'Nhà của họ ở ngay cạnh nhà chúng tôi.', highlightWord: ['Their', 'ours'] },
+          { en: 'His father is a teacher.', vi: 'Bố của anh ấy là một giáo viên.', highlightWord: 'His' },
+          { en: 'The bicycle is his.', vi: 'Chiếc xe đạp đó là của anh ấy.', highlightWord: 'his' },
+          { en: 'Her dress is very pretty.', vi: 'Chiếc váy của cô ấy rất đẹp.', highlightWord: 'Her' },
         ],
         tip: '"His" vừa là tính từ (his car) vừa là đại từ (it is his). Với nữ: "her" là tính từ (her dog), "hers" là đại từ (the dog is hers).',
         ruleSummary: 'Nam: his (cả 2 dạng) · Nữ: her + N / hers (độc lập)',
@@ -392,10 +391,10 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/possessives/04.mp3',
         accentColor: '#a855f7',
         examples: [
-          { en: 'Our school is very modern.', vi: 'Trường học của chúng tôi rất hiện đại.' },
-          { en: 'Their house is next to ours.', vi: 'Nhà của họ ở ngay cạnh nhà chúng tôi.' },
-          { en: 'The future is ours.', vi: 'Tương lai thuộc về chúng ta.' },
-          { en: 'That beautiful garden is theirs.', vi: 'Khu vườn xinh đẹp đó là của họ.' },
+          { en: 'My bag is blue; yours is black.', vi: 'Túi của tôi màu xanh; của bạn màu đen.', highlightWord: ['My', 'yours'] },
+          { en: 'Our school is very modern.', vi: 'Trường học của chúng tôi rất hiện đại.', highlightWord: 'Our' },
+          { en: 'The future is ours.', vi: 'Tương lai thuộc về chúng ta.', highlightWord: 'ours' },
+          { en: 'That beautiful garden is theirs.', vi: 'Khu vườn xinh đẹp đó là của họ.', highlightWord: 'theirs' },
         ],
         tip: 'Chỉ cần thêm "s" vào đuôi our và their để chuyển thành đại từ sở hữu độc lập: our -> ours, their -> theirs.',
         ruleSummary: 'Chúng tôi: our + N / ours · Họ: their + N / theirs',
@@ -415,10 +414,10 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/plural-nouns/01.mp3',
         accentColor: '#3b82f6',
         examples: [
-          { en: 'I have two sisters.', vi: 'Tôi có hai chị em gái.' },
-          { en: 'She bought three books.', vi: 'Cô ấy đã mua ba cuốn sách.' },
-          { en: 'There are five cats in the room.', vi: 'Có 5 con mèo ở trong phòng.' },
-          { en: 'Cars are parked outside.', vi: 'Những chiếc xe hơi đang đỗ ở ngoài.' },
+          { en: 'I have two sisters.', vi: 'Tôi có hai chị em gái.', highlightWord: 'sisters' },
+          { en: 'She bought three books.', vi: 'Cô ấy đã mua ba cuốn sách.', highlightWord: 'books' },
+          { en: 'There are five cats in the room.', vi: 'Có 5 con mèo ở trong phòng.', highlightWord: 'cats' },
+          { en: 'Cars are parked outside.', vi: 'Những chiếc xe hơi đang đỗ ở ngoài.', highlightWord: 'Cars' },
         ],
         tip: 'Quy tắc phổ biến nhất trong tiếng Anh: chỉ cần thêm chữ "-s" vào cuối danh từ: book -> books, pen -> pens, cat -> cats.',
         ruleSummary: 'Danh từ + s (book → books, car → cars)',
@@ -431,10 +430,10 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/plural-nouns/02.mp3',
         accentColor: '#f59e0b',
         examples: [
-          { en: 'There are many boxes here.', vi: 'Có nhiều chiếc hộp ở đây.' },
-          { en: 'He washes the dishes every night.', vi: 'Anh ấy rửa bát đĩa mỗi tối.' },
-          { en: 'She watches two movies on Sunday.', vi: 'Cô ấy xem hai bộ phim vào Chủ nhật.' },
-          { en: 'I have three bus passes.', vi: 'Tôi có 3 chiếc vé xe buýt.' },
+          { en: 'There are many boxes.', vi: 'Có nhiều chiếc hộp ở đây.', highlightWord: 'boxes' },
+          { en: 'He washes the dishes every night.', vi: 'Anh ấy rửa bát đĩa mỗi tối.', highlightWord: 'dishes' },
+          { en: 'She watches two movies on Sunday.', vi: 'Cô ấy xem hai bộ phim vào Chủ nhật.', highlightWord: 'movies' },
+          { en: 'I have three bus passes.', vi: 'Tôi có 3 chiếc vé xe buýt.', highlightWord: 'passes' },
         ],
         tip: 'Khi danh từ tận cùng bằng s, ss, sh, ch, x, z ta thêm "-es" để phát âm thành /ɪz/: box -> boxes, bus -> buses, watch -> watches.',
         ruleSummary: 'Tận cùng s, sh, ch, x, z + es (box → boxes)',
@@ -444,31 +443,30 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         badge: 'Biến đổi đuôi y',
         category: 'ies',
         image: '/grammar/topics/plural-nouns/03.webp',
-        audio: '/grammar/topics/plural-nouns/03.mp3',
         accentColor: '#10b981',
         examples: [
-          { en: 'Two babies are smiling.', vi: 'Hai em bé đang mỉm cười.' },
-          { en: 'They visited three cities in Europe.', vi: 'Họ đã đến thăm 3 thành phố ở châu Âu.' },
-          { en: 'I love fresh strawberries.', vi: 'Tôi rất thích dâu tây tươi.' },
-          { en: 'She told us two different stories.', vi: 'Cô ấy đã kể cho chúng tôi nghe hai câu chuyện khác nhau.' },
+          { en: 'Two babies are smiling.', vi: 'Hai em bé đang mỉm cười.', highlightWord: 'babies' },
+          { en: 'We visited three cities in France.', vi: 'Chúng tôi đã thăm 3 thành phố ở Pháp.', highlightWord: 'cities' },
+          { en: 'Tell me your stories.', vi: 'Hãy kể cho tôi nghe những câu chuyện của bạn.', highlightWord: 'stories' },
+          { en: 'The party had two families.', vi: 'Bữa tiệc có hai gia đình tham dự.', highlightWord: 'families' },
         ],
-        tip: 'Nếu trước "y" là phụ âm: đổi "y" thành "i" rồi thêm "es" (baby -> babies). Nhưng nếu trước "y" là nguyên âm thì chỉ thêm s (boy -> boys, day -> days).',
+        tip: 'Phụ âm + y đổi thành "-ies" (baby -> babies). Nhưng nguyên âm + y chỉ thêm "-s" (boy -> boys, day -> days).',
         ruleSummary: 'Phụ âm + y → -ies (baby → babies, city → cities)',
       },
       {
         title: 'BẤT QUY TẮC (Irregular Plurals)',
-        badge: 'Biến đổi dạng từ đặc biệt',
+        badge: 'Cần học thuộc lòng',
         category: 'irregular',
         image: '/grammar/topics/plural-nouns/04.webp',
-        audio: '/grammar/topics/plural-nouns/04.mp3',
-        accentColor: '#f43f5e',
+        audio: '/grammar/topics/plural-nouns/03.mp3',
+        accentColor: '#ec4899',
         examples: [
-          { en: 'The children are playing happily.', vi: 'Những đứa trẻ đang chơi đùa vui vẻ.' },
-          { en: 'Many people live in this town.', vi: 'Nhiều người sống ở thị trấn này.' },
-          { en: 'Brush your teeth twice a day.', vi: 'Hãy đánh răng 2 lần mỗi ngày.' },
-          { en: 'Two men and three women entered.', vi: 'Hai người đàn ông và ba người phụ nữ bước vào.' },
+          { en: 'The children are playing.', vi: 'Những đứa trẻ đang chơi đùa.', highlightWord: 'children' },
+          { en: 'There are ten people in the room.', vi: 'Có 10 người ở trong phòng.', highlightWord: 'people' },
+          { en: 'Two men and three women arrived.', vi: 'Hai người đàn ông và 3 người phụ nữ đã đến.', highlightWord: ['men', 'women'] },
+          { en: 'Brush your teeth twice a day.', vi: 'Hãy đánh răng của bạn hai lần mỗi ngày.', highlightWord: 'teeth' },
         ],
-        tip: 'Những từ này không thêm s mà biến đổi hoàn toàn: child -> children, person -> people, tooth -> teeth, foot -> feet, man -> men, woman -> women.',
+        tip: 'Các danh từ biến đổi đặc biệt không thêm s: man -> men, woman -> women, child -> children, person -> people, tooth -> teeth, foot -> feet.',
         ruleSummary: 'child → children · person → people · tooth → teeth',
       },
     ],
@@ -486,10 +484,10 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/present-simple/01.mp3',
         accentColor: '#3b82f6',
         examples: [
-          { en: 'I drink coffee every morning.', vi: 'Tôi uống cà phê mỗi buổi sáng.' },
-          { en: 'We live in Hanoi.', vi: 'Chúng tôi sống ở Hà Nội.' },
-          { en: 'They play football on Sundays.', vi: 'Họ chơi bóng đá vào mỗi Chủ nhật.' },
-          { en: 'You speak English very well.', vi: 'Bạn nói tiếng Anh rất giỏi.' },
+          { en: 'I drink coffee every morning.', vi: 'Tôi uống cà phê mỗi buổi sáng.', highlightWord: 'drink' },
+          { en: 'We live in Hanoi.', vi: 'Chúng tôi sống ở Hà Nội.', highlightWord: 'live' },
+          { en: 'They play football on Sundays.', vi: 'Họ chơi bóng đá vào mỗi Chủ nhật.', highlightWord: 'play' },
+          { en: 'You speak English very well.', vi: 'Bạn nói tiếng Anh rất giỏi.', highlightWord: 'speak' },
         ],
         tip: 'Với chủ ngữ I, You, We, They và danh từ số nhiều, động từ giữ NGUYÊN MẪU, không thêm s hay es.',
         ruleSummary: 'I / You / We / They + V nguyên thể',
@@ -502,42 +500,40 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/present-simple/02.mp3',
         accentColor: '#f43f5e',
         examples: [
-          { en: 'She works at a hospital.', vi: 'Cô ấy làm việc tại một bệnh viện.' },
-          { en: 'He likes classical music.', vi: 'Anh ấy thích nhạc cổ điển.' },
-          { en: 'The sun rises in the east.', vi: 'Mặt trời mọc ở hướng đông.' },
-          { en: 'The train leaves at 7 a.m.', vi: 'Chuyến tàu khởi hành lúc 7 giờ sáng.' },
+          { en: 'The Earth revolves around the Sun.', vi: 'Trái đất quay quanh Mặt trời (chân lý).', highlightWord: 'revolves' },
+          { en: 'She works at a hospital.', vi: 'Cô ấy làm việc tại một bệnh viện.', highlightWord: 'works' },
+          { en: 'He likes classical music.', vi: 'Anh ấy thích nhạc cổ điển.', highlightWord: 'likes' },
+          { en: 'The train leaves at 7 a.m.', vi: 'Chuyến tàu khởi hành lúc 7 giờ sáng.', highlightWord: 'leaves' },
         ],
         tip: 'Với He, She, It và danh từ số ít, động từ BẮT BUỘC thêm "-s" (works, likes) hoặc "-es" khi tận cùng là o, s, sh, ch, x (goes, watches).',
         ruleSummary: 'He / She / It + V-s / V-es',
       },
       {
-        title: 'PHỦ ĐỊNH (Don\'t / Doesn\'t + V nguyên mẫu)',
+        title: "PHỦ ĐỊNH (Don't / Doesn't + V nguyên mẫu)",
         badge: 'Không làm gì đó',
         category: 'negative',
         image: '/grammar/topics/present-simple/03.webp',
-        audio: '/grammar/topics/present-simple/03.mp3',
         accentColor: '#f59e0b',
         examples: [
-          { en: 'I don\'t like spicy food.', vi: 'Tôi không thích đồ ăn cay.' },
-          { en: 'She doesn\'t eat meat.', vi: 'Cô ấy không ăn thịt.' },
-          { en: 'They don\'t watch TV very often.', vi: 'Họ không hay xem tivi.' },
-          { en: 'He doesn\'t know the answer.', vi: 'Anh ấy không biết câu trả lời.' },
+          { en: "I don't like spicy food.", vi: 'Tôi không thích đồ ăn cay.', highlightWord: ["don't", 'like'] },
+          { en: "She doesn't eat meat.", vi: 'Cô ấy không ăn thịt.', highlightWord: ["doesn't", 'eat'] },
+          { en: "They don't watch TV very often.", vi: 'Họ không hay xem tivi.', highlightWord: ["don't", 'watch'] },
+          { en: "He doesn't know the answer.", vi: 'Anh ấy không biết câu trả lời.', highlightWord: ["doesn't", 'know'] },
         ],
         tip: 'Dùng "don\'t" cho I/you/we/they; dùng "doesn\'t" cho he/she/it. Sau don\'t/doesn\'t động từ LUÔN về nguyên mẫu.',
-        ruleSummary: 'don\'t + V (nguyên thể) · doesn\'t + V (nguyên thể)',
+        ruleSummary: "don't + V (nguyên thể) · doesn't + V (nguyên thể)",
       },
       {
         title: 'CÂU HỎI (Do / Does + S + V...?)',
         badge: 'Hỏi về thói quen & sở thích',
         category: 'questions',
         image: '/grammar/topics/present-simple/04.webp',
-        audio: '/grammar/topics/present-simple/04.mp3',
         accentColor: '#10b981',
         examples: [
-          { en: 'Do you speak English?', vi: 'Bạn có nói tiếng Anh không?' },
-          { en: 'Does she work here?', vi: 'Cô ấy có làm việc ở đây không?' },
-          { en: 'Where do you live?', vi: 'Bạn sống ở đâu?' },
-          { en: 'What time does the bus leave?', vi: 'Mấy giờ thì xe buýt chạy?' },
+          { en: 'Do you speak English?', vi: 'Bạn có nói tiếng Anh không?', highlightWord: ['Do', 'speak'] },
+          { en: 'Does she work here?', vi: 'Cô ấy có làm việc ở đây không?', highlightWord: ['Does', 'work'] },
+          { en: 'Where do you live?', vi: 'Bạn sống ở đâu?', highlightWord: ['do', 'live'] },
+          { en: 'What time does the bus leave?', vi: 'Mấy giờ thì xe buýt chạy?', highlightWord: ['does', 'leave'] },
         ],
         tip: 'Đưa trợ động từ Do/Does lên trước chủ ngữ. Động từ chính luôn ở dạng nguyên mẫu không chia.',
         ruleSummary: 'Do/Does + S + V nguyên thể?',
@@ -551,209 +547,205 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
     cards: [
       {
         title: 'HAVE GOT (I / You / We / They)',
-        badge: 'Tôi / Bạn / Chúng tôi / Họ có',
+        badge: 'Sở hữu (Ngôi 1, 2 và số nhiều)',
         category: 'have-got',
         image: '/grammar/topics/have-got/01.webp',
         audio: '/grammar/topics/have-got/01.mp3',
         accentColor: '#3b82f6',
         examples: [
-          { en: 'I have got a new laptop.', vi: 'Tôi có một chiếc laptop mới.' },
-          { en: 'We have got two tickets.', vi: 'Chúng tôi có hai chiếc vé.' },
-          { en: 'They have got a lovely garden.', vi: 'Họ có một khu vườn xinh xắn.' },
-          { en: 'Have you got a pen?', vi: 'Bạn có bút không?' },
+          { en: 'I have got a new bag.', vi: 'Tôi có một chiếc túi mới.', highlightWord: 'have got' },
+          { en: 'We have got two tickets for the movie.', vi: 'Chúng tôi có hai vé xem phim.', highlightWord: 'have got' },
+          { en: 'They have got a lovely garden.', vi: 'Họ có một khu vườn xinh xắn.', highlightWord: 'have got' },
+          { en: "I've got a headache today.", vi: 'Hôm nay tôi bị đau đầu.', highlightWord: "'ve got" },
         ],
-        tip: '"Have got" tương đương với "have" mang nghĩa "có". Dạng viết tắt phổ biến: I\'ve got, We\'ve got, They\'ve got.',
-        ruleSummary: 'I / You / We / They + have got + Danh từ',
+        tip: 'Viết tắt: I have got -> I\'ve got, We have got -> We\'ve got. Rất phổ biến trong văn nói Anh-Anh.',
+        ruleSummary: "I/You/We/They + have got ('ve got)",
       },
       {
         title: 'HAS GOT (He / She / It)',
-        badge: 'Anh ấy / Cô ấy / Nó có',
+        badge: 'Sở hữu (Ngôi 3 số ít)',
         category: 'has-got',
         image: '/grammar/topics/have-got/02.webp',
         audio: '/grammar/topics/have-got/02.mp3',
-        accentColor: '#f43f5e',
-        examples: [
-          { en: 'She has got two brothers.', vi: 'Cô ấy có hai người anh em trai.' },
-          { en: 'He has got blue eyes.', vi: 'Cậu ấy có đôi mắt màu xanh.' },
-          { en: 'The house has got a big roof.', vi: 'Ngôi nhà có một mái nhà lớn.' },
-          { en: 'Has he got a car?', vi: 'Anh ấy có xe ô tô không?' },
-        ],
-        tip: 'Với chủ ngữ He, She, It hoặc 1 người / vật, dùng "has got". Viết tắt: He\'s got, She\'s got (tránh nhầm với He is).',
-        ruleSummary: 'He / She / It + has got + Danh từ',
-      },
-      {
-        title: 'PHỦ ĐỊNH (Haven\'t got / Hasn\'t got)',
-        badge: 'Không có gì đó',
-        category: 'negative',
-        image: '/grammar/topics/have-got/03.webp',
-        audio: '/grammar/topics/have-got/03.mp3',
-        accentColor: '#f59e0b',
-        examples: [
-          { en: 'I haven\'t got much time.', vi: 'Tôi không có nhiều thời gian.' },
-          { en: 'She hasn\'t got any sisters.', vi: 'Cô ấy không có chị em gái nào.' },
-          { en: 'We haven\'t got a car.', vi: 'Chúng tôi không có xe ô tô.' },
-          { en: 'He hasn\'t got a job right now.', vi: 'Hiện tại anh ấy chưa có việc làm.' },
-        ],
-        tip: 'Phủ định chỉ cần thêm "not" trực tiếp sau have/has: haven\'t got, hasn\'t got. Không cần mượn trợ động từ don\'t/doesn\'t.',
-        ruleSummary: 'haven\'t got ... · hasn\'t got ...',
-      },
-      {
-        title: 'SỨC KHỎE & TRIỆU CHỨNG (Have got a headache...)',
-        badge: 'Nói về cảm cúm, đau ốm',
-        category: 'health',
-        image: '/grammar/topics/have-got/04.webp',
-        audio: '/grammar/topics/have-got/04.mp3',
         accentColor: '#10b981',
         examples: [
-          { en: 'I have got a headache.', vi: 'Tôi bị đau đầu.' },
-          { en: 'She has got a bad cold.', vi: 'Cô ấy bị cảm lạnh nặng.' },
-          { en: 'He has got a high fever.', vi: 'Cậu ấy bị sốt cao.' },
-          { en: 'I\'ve got a sore throat.', vi: 'Tôi bị đau rát họng.' },
+          { en: 'She has got two brothers.', vi: 'Cô ấy có hai người anh trai.', highlightWord: 'has got' },
+          { en: 'He has got blue eyes.', vi: 'Cậu ấy có đôi mắt màu xanh biển.', highlightWord: 'has got' },
+          { en: 'She has got a friendly smile.', vi: 'Cô ấy có nụ cười thân thiện.', highlightWord: 'has got' },
+          { en: 'Our cat has got white paws.', vi: 'Chú mèo của chúng tôi có bốn chân màu trắng.', highlightWord: 'has got' },
         ],
-        tip: 'Người bản xứ rất hay dùng "have got" để miêu tả các triệu chứng bệnh tật thường ngày: a cold, a headache, a toothache.',
-        ruleSummary: 'have got + a cold / a headache / a fever',
+        tip: 'He, She, It dùng "has got" (viết tắt là \'s got: He\'s got = He has got, không phải He is got).',
+        ruleSummary: "He/She/It + has got ('s got)",
+      },
+      {
+        title: "PHỦ ĐỊNH (Haven't got / Hasn't got)",
+        badge: 'Không có thứ gì đó',
+        category: 'negative',
+        image: '/grammar/topics/have-got/03.webp',
+        accentColor: '#f43f5e',
+        examples: [
+          { en: "I haven't got any cash.", vi: 'Tôi không có chút tiền mặt nào.', highlightWord: "haven't got" },
+          { en: "She hasn't got time right now.", vi: 'Cô ấy không có thời gian lúc này.', highlightWord: "hasn't got" },
+          { en: "We haven't got any milk left.", vi: 'Chúng tôi không còn chút sữa nào.', highlightWord: "haven't got" },
+          { en: "He hasn't got a car.", vi: 'Anh ấy không có ô tô.', highlightWord: "hasn't got" },
+        ],
+        tip: 'Chỉ cần thêm not sau have/has: have not got -> haven\'t got; has not got -> hasn\'t got. Không cần mượn trợ động từ do/does.',
+        ruleSummary: "haven't got / hasn't got + danh từ",
+      },
+      {
+        title: 'CÂU HỎI (Have you got...? / Has she got...?)',
+        badge: 'Hỏi xem ai có gì không',
+        category: 'questions',
+        image: '/grammar/topics/have-got/04.webp',
+        accentColor: '#8b5cf6',
+        examples: [
+          { en: 'Have you got a pen?', vi: 'Bạn có chiếc bút nào không?', highlightWord: 'Have you got' },
+          { en: 'Has he got a car?', vi: 'Anh ấy có ô tô không?', highlightWord: 'Has he got' },
+          { en: 'Have they got any children?', vi: 'Họ có con chưa?', highlightWord: 'Have they got' },
+          { en: 'What have you got in your bag?', vi: 'Bạn có gì trong túi thế?', highlightWord: 'have you got' },
+        ],
+        tip: 'Đảo Have/Has lên trước chủ ngữ: Have you got...? Trả lời: Yes, I have. / No, I haven\'t.',
+        ruleSummary: 'Have/Has + S + got ...?',
       },
     ],
   },
 
   // 9. Present Continuous
   'present-continuous': {
-    subtitle: 'Diễn tả hành động đang diễn ra tại thời điểm nói hoặc kế hoạch tương lai gần',
+    subtitle: 'Diễn tả hành động đang diễn ra tại thời điểm nói hoặc kế hoạch chắc chắn',
     cards: [
       {
-        title: 'ĐANG DIỄN RA (am / is / are + V-ing)',
-        badge: 'Hành động tại lúc nói (Now / At the moment)',
-        category: 'now',
+        title: 'KHẲNG ĐỊNH (am / is / are + V-ing)',
+        badge: 'Đang xảy ra ngay lúc này',
+        category: 'affirmative',
         image: '/grammar/topics/present-continuous/01.webp',
         audio: '/grammar/topics/present-continuous/01.mp3',
         accentColor: '#3b82f6',
         examples: [
-          { en: 'I am studying English now.', vi: 'Tôi đang học tiếng Anh bây giờ.' },
-          { en: 'She is cooking in the kitchen.', vi: 'Cô ấy đang nấu ăn trong bếp.' },
-          { en: 'The baby is sleeping.', vi: 'Em bé đang ngủ say.' },
-          { en: 'They are watching TV together.', vi: 'Họ đang xem tivi cùng nhau.' },
+          { en: 'I am studying English now.', vi: 'Bây giờ tôi đang học tiếng Anh.', highlightWord: 'am studying' },
+          { en: 'She is cooking dinner.', vi: 'Cô ấy đang nấu bữa tối.', highlightWord: 'is cooking' },
+          { en: 'They are playing football.', vi: 'Họ đang chơi bóng đá ngoài sân.', highlightWord: 'are playing' },
+          { en: 'Listen! The birds are singing.', vi: 'Hãy lắng nghe xem! Những chú chim đang hót.', highlightWord: 'are singing' },
         ],
-        tip: 'Công thức: Chủ ngữ + am / is / are + Động từ thêm đuôi -ing. Dấu hiệu nhận biết: now, right now, at the moment, look!',
-        ruleSummary: 'S + am/is/are + V-ing (I am reading, She is working)',
+        tip: 'Công thức luôn gồm 2 phần: to be (am/is/are) + động từ thêm đuôi -ing. Tuyệt đối không được bỏ to be (sai: "I reading").',
+        ruleSummary: 'S + am / is / are + V-ing',
       },
       {
-        title: 'PHỦ ĐỊNH (am not / isn\'t / aren\'t + V-ing)',
-        badge: 'Không đang làm gì đó',
+        title: "PHỦ ĐỊNH (am not / isn't / aren't + V-ing)",
+        badge: 'Đang không làm gì đó',
         category: 'negative',
         image: '/grammar/topics/present-continuous/02.webp',
-        audio: '/grammar/topics/present-continuous/02.mp3',
         accentColor: '#f43f5e',
         examples: [
-          { en: 'I am not playing games.', vi: 'Tôi không phải đang chơi game đâu.' },
-          { en: 'He isn\'t listening to music.', vi: 'Anh ấy không đang nghe nhạc.' },
-          { en: 'They aren\'t working today.', vi: 'Hôm nay họ không làm việc.' },
-          { en: 'We aren\'t sleeping.', vi: 'Chúng tôi không ngủ.' },
+          { en: 'I am not playing games.', vi: 'Tôi đang không chơi game.', highlightWord: 'am not playing' },
+          { en: "He isn't sleeping right now.", vi: 'Anh ấy đang không ngủ đâu.', highlightWord: "isn't sleeping" },
+          { en: "We aren't watching TV.", vi: 'Chúng tôi đang không xem ti vi.', highlightWord: "aren't watching" },
+          { en: "It isn't raining anymore.", vi: 'Trời không còn mưa nữa rồi.', highlightWord: "isn't raining" },
         ],
-        tip: 'Thêm "not" trực tiếp sau to be: am not + V-ing, isn\'t + V-ing, aren\'t + V-ing.',
-        ruleSummary: 'S + am not / isn\'t / aren\'t + V-ing',
+        tip: 'Thêm not ngay sau to be: am not, is not (isn\'t), are not (aren\'t). Động từ chính vẫn giữ nguyên đuôi -ing.',
+        ruleSummary: "S + am not / isn't / aren't + V-ing",
       },
       {
-        title: 'CÂU HỎI (Am/Is/Are + S + V-ing...?)',
-        badge: 'Hỏi ai đó đang làm gì',
+        title: 'CÂU HỎI (Am / Is / Are + S + V-ing...?)',
+        badge: 'Hỏi ai đang làm gì',
         category: 'questions',
         image: '/grammar/topics/present-continuous/03.webp',
-        audio: '/grammar/topics/present-continuous/03.mp3',
         accentColor: '#8b5cf6',
         examples: [
-          { en: 'What are you doing?', vi: 'Bạn đang làm gì thế?' },
-          { en: 'Is it raining outside?', vi: 'Ngoài trời đang mưa à?' },
-          { en: 'Are they coming to the party?', vi: 'Họ đang đến bữa tiệc à?' },
-          { en: 'Who is she calling right now?', vi: 'Cô ấy đang gọi điện cho ai vậy?' },
+          { en: 'What are you doing?', vi: 'Bạn đang làm gì thế?', highlightWord: 'are you doing' },
+          { en: 'Are you listening to me?', vi: 'Bạn có đang lắng nghe tôi nói không?', highlightWord: 'Are you listening' },
+          { en: 'Is she studying in her room?', vi: 'Có phải cô ấy đang học trong phòng không?', highlightWord: 'Is she studying' },
+          { en: 'Where are they going?', vi: 'Họ đang đi đâu thế?', highlightWord: 'are they going' },
         ],
-        tip: 'Đưa to be lên trước chủ ngữ. Với câu hỏi có từ để hỏi (What/Where/Why), đặt từ để hỏi ở đầu: What are you doing?',
-        ruleSummary: 'What/Where + am/is/are + S + V-ing?',
+        tip: 'Đảo to be lên trước chủ ngữ. Với câu hỏi có từ để hỏi (What/Where/Why), đặt Wh- lên đầu tiên.',
+        ruleSummary: '(Wh-) + Am / Is / Are + S + V-ing?',
       },
       {
         title: 'KẾ HOẠCH TƯƠNG LAI GẦN',
         badge: 'Đã lên lịch trình chắc chắn',
         category: 'future-plan',
         image: '/grammar/topics/present-continuous/04.webp',
-        audio: '/grammar/topics/present-continuous/04.mp3',
+        audio: '/grammar/topics/present-continuous/03.mp3',
         accentColor: '#10b981',
         examples: [
-          { en: 'We are flying to Japan next week.', vi: 'Chúng tôi sẽ bay sang Nhật Bản vào tuần tới.' },
-          { en: 'I am meeting Nam tomorrow.', vi: 'Tôi sẽ gặp Nam vào ngày mai.' },
-          { en: 'She is starting her new job on Monday.', vi: 'Cô ấy sẽ bắt đầu công việc mới vào thứ Hai.' },
-          { en: 'Are you coming tonight?', vi: 'Tối nay bạn có đến không?' },
+          { en: 'We are flying to Japan next week.', vi: 'Chúng tôi sẽ bay sang Nhật vào tuần tới.', highlightWord: 'are flying' },
+          { en: 'I am meeting my doctor tomorrow.', vi: 'Tôi sẽ gặp bác sĩ vào ngày mai (đã đặt hẹn).', highlightWord: 'am meeting' },
+          { en: 'She is having a party this Saturday.', vi: 'Cô ấy sẽ tổ chức tiệc vào thứ Bảy này.', highlightWord: 'is having' },
+          { en: 'They are leaving tonight.', vi: 'Họ sẽ rời đi tối nay.', highlightWord: 'are leaving' },
         ],
-        tip: 'Hiện tại tiếp diễn còn dùng rất nhiều cho lịch trình, cuộc hẹn đã sắp xếp sẵn trong tương lai gần kèm mốc thời gian (tomorrow, next week).',
-        ruleSummary: 'S + am/is/are + V-ing + thời gian tương lai (tomorrow, next week)',
+        tip: 'Thì hiện tại tiếp diễn dùng rất nhiều để nói về kế hoạch tương lai đã sắp xếp sẵn kèm thời gian cụ thể (tomorrow, next week).',
+        ruleSummary: 'S + am/is/are + V-ing + từ chỉ tương lai (tomorrow, next week)',
       },
     ],
   },
 
   // 10. Prepositions of Place
   'prepositions-place': {
-    subtitle: 'Chỉ rõ vị trí của người và vật trong không gian (In, On, At, Under...)',
+    subtitle: 'Nắm vững 3 giới từ cốt lõi IN, ON, AT và các giới từ chỉ vị trí xung quanh',
     cards: [
       {
-        title: 'IN (Ở trong không gian / phòng / thành phố)',
-        badge: 'Bên trong không gian 3 chiều hoặc địa danh lớn',
+        title: 'IN (Bên trong không gian 3 chiều)',
+        badge: 'Trong túi, trong phòng, thành phố',
         category: 'in',
         image: '/grammar/topics/prepositions-place/01.webp',
         audio: '/grammar/topics/prepositions-place/01.mp3',
         accentColor: '#3b82f6',
         examples: [
-          { en: 'The keys are in my bag.', vi: 'Chìa khóa ở trong túi của tôi.' },
-          { en: 'He lives in Hanoi.', vi: 'Anh ấy sống ở Hà Nội.' },
-          { en: 'The milk is in the fridge.', vi: 'Sữa ở trong tủ lạnh.' },
-          { en: 'She is sitting in the room.', vi: 'Cô ấy đang ngồi trong phòng.' },
+          { en: 'The keys are in my bag.', vi: 'Chìa khóa ở trong túi của tôi.', highlightWord: 'in' },
+          { en: 'The children are in the room.', vi: 'Những đứa trẻ đang ở trong phòng.', highlightWord: 'in' },
+          { en: 'I live in Hanoi.', vi: 'Tôi sống ở Hà Nội.', highlightWord: 'in' },
+          { en: 'There is some water in the cup.', vi: 'Có một chút nước ở trong cốc.', highlightWord: 'in' },
         ],
-        tip: 'Dùng "IN" cho: vật chứa (in a box), phòng ốc (in the kitchen), thành phố / quốc gia (in Vietnam, in Tokyo).',
-        ruleSummary: 'in + vật chứa / phòng / thành phố / đất nước',
+        tip: '"IN" dùng cho không gian khép kín (in a box, in a car, in the room) và địa giới lớn (in Vietnam, in Tokyo).',
+        ruleSummary: 'in + không gian khép kín / thành phố / đất nước',
       },
       {
-        title: 'ON (Ở trên bề mặt / sàn / tầng)',
-        badge: 'Có sự tiếp xúc trực tiếp trên bề mặt',
+        title: 'ON (Trên bề mặt tiếp xúc)',
+        badge: 'Ở trên bề mặt bàn, sàn, tường',
         category: 'on',
         image: '/grammar/topics/prepositions-place/02.webp',
         audio: '/grammar/topics/prepositions-place/02.mp3',
         accentColor: '#10b981',
         examples: [
-          { en: 'Your phone is on the desk.', vi: 'Điện thoại của bạn ở trên bàn làm việc.' },
-          { en: 'The clock is on the wall.', vi: 'Chiếc đồng hồ treo trên tường.' },
-          { en: 'I live on the third floor.', vi: 'Tôi sống ở tầng ba.' },
-          { en: 'There is a cat on the roof.', vi: 'Có một con mèo ở trên mái nhà.' },
+          { en: 'Your phone is on the desk.', vi: 'Điện thoại của bạn ở trên bàn.', highlightWord: 'on' },
+          { en: 'The picture is on the wall.', vi: 'Bức tranh treo trên tường.', highlightWord: 'on' },
+          { en: 'My phone is on the floor.', vi: 'Điện thoại của tôi ở trên sàn nhà.', highlightWord: 'on' },
+          { en: 'There is a cup on the desk.', vi: 'Có một chiếc cốc ở trên bàn làm việc.', highlightWord: 'on' },
         ],
-        tip: 'Dùng "ON" khi có sự tiếp xúc trên bề mặt phẳng: on the table, on the wall, on the floor, on the street.',
-        ruleSummary: 'on + bề mặt phẳng (table, wall, floor, screen)',
+        tip: '"ON" dùng khi có sự tiếp xúc trực tiếp trên một bề mặt: on the table, on the wall, on the floor, on the roof.',
+        ruleSummary: 'on + bề mặt (on the table, on the wall, on the 2nd floor)',
       },
       {
-        title: 'AT (Tại một địa điểm cụ thể / điểm hẹn)',
-        badge: 'Vị trí xác định tại một mốc cụ thể',
+        title: 'AT (Tại một địa điểm / điểm xác định)',
+        badge: 'Trạm xe, lối vào, cửa sổ, trường học',
         category: 'at',
         image: '/grammar/topics/prepositions-place/03.webp',
         audio: '/grammar/topics/prepositions-place/03.mp3',
         accentColor: '#f59e0b',
         examples: [
-          { en: 'Meet me at the entrance.', vi: 'Gặp tôi ở lối vào nhé.' },
-          { en: 'She is at school right now.', vi: 'Bây giờ cô ấy đang ở trường.' },
-          { en: 'He is waiting at the bus stop.', vi: 'Anh ấy đang đợi ở trạm xe buýt.' },
-          { en: 'I am at home.', vi: 'Tôi đang ở nhà.' },
+          { en: 'Meet me at the entrance.', vi: 'Gặp tôi ở lối vào nhé.', highlightWord: 'at' },
+          { en: 'She is waiting at the bus stop.', vi: 'Cô ấy đang đợi ở trạm xe buýt.', highlightWord: 'at' },
+          { en: 'Someone is knocking at the door.', vi: 'Có ai đó đang gõ cửa.', highlightWord: 'at' },
+          { en: 'We met at the airport.', vi: 'Chúng tôi đã gặp nhau tại sân bay.', highlightWord: 'at' },
         ],
-        tip: 'Dùng "AT" cho điểm hẹn chính xác, địa chỉ cụ thể, hoặc các cụm từ quen thuộc: at home, at school, at work, at the station.',
-        ruleSummary: 'at + địa điểm cụ thể / điểm dừng (bus stop, door, school)',
+        tip: '"AT" xem địa điểm như một tọa độ/điểm dừng cụ thể: at home, at work, at school, at the bus stop, at the station.',
+        ruleSummary: 'at + địa điểm cụ thể / tọa độ (at home, at the bus stop)',
       },
       {
-        title: 'UNDER / NEXT TO / BEHIND (Vị trí tương quan)',
-        badge: 'Ở dưới, bên cạnh, đằng sau',
-        category: 'relative',
+        title: 'VỊ TRÍ TƯƠNG ĐỐI (opposite, under, behind, next to)',
+        badge: 'Đối diện, dưới, sau, cạnh',
+        category: 'relative-place',
         image: '/grammar/topics/prepositions-place/04.webp',
         audio: '/grammar/topics/prepositions-place/04.mp3',
-        accentColor: '#a855f7',
+        accentColor: '#ec4899',
         examples: [
-          { en: 'The puppy is under the chair.', vi: 'Chú cún con ở dưới gầm ghế.' },
-          { en: 'My house is next to a bank.', vi: 'Nhà của tôi ở ngay cạnh một ngân hàng.' },
-          { en: 'The car is behind the house.', vi: 'Chiếc ô tô ở đằng sau ngôi nhà.' },
-          { en: 'The shop is between two cafes.', vi: 'Cửa hàng nằm ở giữa hai quán cà phê.' },
+          { en: 'The bank is opposite the post office.', vi: 'Ngân hàng nằm đối diện bưu điện.', highlightWord: 'opposite' },
+          { en: 'The puppy is under the chair.', vi: 'Chú cún con ở dưới gầm ghế.', highlightWord: 'under' },
+          { en: 'My house is next to a supermarket.', vi: 'Nhà của tôi ở ngay cạnh siêu thị.', highlightWord: 'next to' },
+          { en: 'The shop is between two banks.', vi: 'Cửa hàng nằm ở giữa hai ngân hàng.', highlightWord: 'between' },
         ],
-        tip: 'Under: ở dưới; Next to: ở bên cạnh; Behind: ở phía sau; In front of: ở phía trước; Between: ở giữa.',
-        ruleSummary: 'under (dưới) · next to (cạnh) · behind (sau) · between (giữa)',
+        tip: 'opposite = đối diện · under = ở dưới · next to = ở ngay cạnh · behind = ở phía sau.',
+        ruleSummary: 'opposite (đối diện) · under (dưới) · next to (cạnh) · between A and B (giữa)',
       },
     ],
   },
@@ -763,68 +755,67 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
     subtitle: 'Cách đặt câu hỏi với từ để hỏi (What, Where, When, Who, Why, How...)',
     cards: [
       {
-        title: 'WHAT & WHICH (Cái gì & Cái nào)',
-        badge: 'Hỏi thông tin sự vật, hiện tượng',
-        category: 'what-which',
+        title: 'WHAT (Cái gì / Điều gì)',
+        badge: 'Hỏi về sự vật, thông tin hoặc nghề nghiệp',
+        category: 'what',
         image: '/grammar/topics/wh-questions/01.webp',
-        audio: '/grammar/topics/wh-questions/01.mp3',
         accentColor: '#3b82f6',
         examples: [
-          { en: 'What is your name?', vi: 'Tên của bạn là gì?' },
-          { en: 'What time does the movie start?', vi: 'Mấy giờ thì bộ phim bắt đầu?' },
-          { en: 'What are you doing?', vi: 'Bạn đang làm gì thế?' },
-          { en: 'Which color do you prefer, red or blue?', vi: 'Bạn thích màu nào hơn, đỏ hay xanh?' },
+          { en: 'What is your name?', vi: 'Tên của bạn là gì?', highlightWord: 'What' },
+          { en: 'What are you doing?', vi: 'Bạn đang làm gì thế?', highlightWord: 'What' },
+          { en: 'What do you do?', vi: 'Bạn làm nghề gì?', highlightWord: 'What' },
+          { en: 'What time is it?', vi: 'Mấy giờ rồi?', highlightWord: 'What' },
         ],
-        tip: '"What" hỏi thông tin chung không giới hạn. "Which" hỏi lựa chọn cụ thể giữa một số ít phương án.',
-        ruleSummary: 'What / Which + trợ động từ / to be + S + V...?',
+        tip: '"What" hỏi về đồ vật, hành động, hoặc danh tính. "What... for" = để làm gì. "What time" = mấy giờ.',
+        ruleSummary: 'What + be + S...? hoặc What + do/does + S + V...?',
       },
       {
         title: 'WHERE & WHEN (Ở đâu & Khi nào)',
-        badge: 'Hỏi địa điểm và thời gian',
+        badge: 'Hỏi về nơi chốn và thời gian',
         category: 'where-when',
         image: '/grammar/topics/wh-questions/02.webp',
-        audio: '/grammar/topics/wh-questions/02.mp3',
+        audio: '/grammar/topics/wh-questions/01.mp3',
         accentColor: '#10b981',
         examples: [
-          { en: 'Where do you live?', vi: 'Bạn sống ở đâu?' },
-          { en: 'Where is the nearest library?', vi: 'Thư viện gần nhất ở đâu?' },
-          { en: 'When does the class start?', vi: 'Khi nào lớp học bắt đầu?' },
-          { en: 'When is your birthday?', vi: 'Sinh nhật của bạn là khi nào?' },
+          { en: 'Where do you live?', vi: 'Bạn sống ở đâu?', highlightWord: 'Where' },
+          { en: 'Where is my phone?', vi: 'Điện thoại của tôi ở đâu rồi?', highlightWord: 'Where' },
+          { en: 'When does the class start?', vi: 'Khi nào thì lớp học bắt đầu?', highlightWord: 'When' },
+          { en: 'When is your birthday?', vi: 'Sinh nhật của bạn là khi nào?', highlightWord: 'When' },
         ],
-        tip: '"Where" hỏi nơi chốn (Where are you?). "When" hỏi thời gian, ngày giờ (When will you leave?).',
-        ruleSummary: 'Where (nơi chốn) · When (thời gian)',
+        tip: '"Where" hỏi về nơi chốn (Trả lời bằng giới từ in/on/at). "When" hỏi về thời gian (ngày, giờ, tháng, năm).',
+        ruleSummary: 'Where/When + trợ động từ + S + V...?',
       },
       {
         title: 'WHO & WHY (Ai & Tại sao)',
-        badge: 'Hỏi người và lý do',
+        badge: 'Hỏi về con người và lý do / nguyên nhân',
         category: 'who-why',
         image: '/grammar/topics/wh-questions/03.webp',
         audio: '/grammar/topics/wh-questions/03.mp3',
         accentColor: '#f43f5e',
         examples: [
-          { en: 'Who is that friendly girl?', vi: 'Cô gái thân thiện kia là ai?' },
-          { en: 'Who called you last night?', vi: 'Ai đã gọi cho bạn tối qua?' },
-          { en: 'Why are you late today?', vi: 'Tại sao hôm nay bạn đến muộn?' },
-          { en: 'Why do you study English?', vi: 'Tại sao bạn lại học tiếng Anh?' },
+          { en: 'Who called you last night?', vi: 'Ai đã gọi cho bạn tối qua?', highlightWord: 'Who' },
+          { en: 'Who is that friendly girl?', vi: 'Cô gái thân thiện đằng kia là ai thế?', highlightWord: 'Who' },
+          { en: 'Why are you learning English?', vi: 'Tại sao bạn lại học tiếng Anh?', highlightWord: 'Why' },
+          { en: 'Why are you late today?', vi: 'Tại sao hôm nay bạn lại đến muộn?', highlightWord: 'Why' },
         ],
-        tip: '"Who" hỏi người. "Why" hỏi lý do, nguyên nhân (câu trả lời thường bắt đầu bằng: Because...).',
-        ruleSummary: 'Who (người) · Why (lý do → trả lời bằng Because)',
+        tip: '"Who" hỏi về người. "Why" hỏi về lý do (câu trả lời luôn bắt đầu bằng "Because...").',
+        ruleSummary: 'Who + V...? (hỏi chủ ngữ) · Why + do/does/is + S...?',
       },
       {
         title: 'HOW & HOW MUCH / MANY (Như thế nào & Bao nhiêu)',
-        badge: 'Hỏi phương thức, số lượng và giá cả',
+        badge: 'Cách thức, tình trạng và số lượng',
         category: 'how',
         image: '/grammar/topics/wh-questions/04.webp',
         audio: '/grammar/topics/wh-questions/04.mp3',
-        accentColor: '#8b5cf6',
+        accentColor: '#f59e0b',
         examples: [
-          { en: 'How are you today?', vi: 'Hôm nay bạn thế nào?' },
-          { en: 'How do you go to school?', vi: 'Bạn đi học bằng phương tiện gì?' },
-          { en: 'How much does this shirt cost?', vi: 'Chiếc áo này giá bao nhiêu?' },
-          { en: 'How many books have you got?', vi: 'Bạn có bao nhiêu cuốn sách?' },
+          { en: 'How much does it cost?', vi: 'Cái này có giá bao nhiêu tiền?', highlightWord: 'How much' },
+          { en: 'How are you today?', vi: 'Hôm nay bạn khỏe không?', highlightWord: 'How' },
+          { en: 'How many books did you buy?', vi: 'Bạn đã mua bao nhiêu cuốn sách?', highlightWord: 'How many' },
+          { en: 'How do you go to school?', vi: 'Bạn đến trường bằng phương tiện gì?', highlightWord: 'How' },
         ],
-        tip: 'How many + danh từ số nhiều (How many pens); How much + danh từ không đếm được hoặc hỏi giá tiền (How much is it?).',
-        ruleSummary: 'How many + đếm được · How much + không đếm được / giá tiền',
+        tip: 'How many + danh từ đếm được số nhiều (books). How much + danh từ không đếm được hoặc giá tiền (money).',
+        ruleSummary: 'How many + N số nhiều · How much + N không đếm được / giá tiền',
       },
     ],
   },
@@ -835,35 +826,35 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
     cards: [
       {
         title: 'ALWAYS & USUALLY (100% & 80%)',
-        badge: 'Luôn luôn và Thường xuyên',
+        badge: 'Luôn luôn và Thường lệ',
         category: 'always-usually',
         image: '/grammar/topics/adverbs-frequency/01.webp',
-        audio: '/grammar/topics/adverbs-frequency/01.mp3',
+        audio: '/grammar/topics/adverbs-frequency/02.mp3',
         accentColor: '#3b82f6',
         examples: [
-          { en: 'I always brush my teeth before bed.', vi: 'Tôi luôn đánh răng trước khi đi ngủ.' },
-          { en: 'She always arrives on time.', vi: 'Cô ấy luôn luôn đến đúng giờ.' },
-          { en: 'I usually walk to work.', vi: 'Tôi thường đi bộ đến chỗ làm.' },
-          { en: 'We usually have lunch at noon.', vi: 'Chúng tôi thường ăn trưa vào buổi trưa.' },
+          { en: 'She is always helpful.', vi: 'Cô ấy luôn luôn nhiệt tình giúp đỡ.', highlightWord: 'always' },
+          { en: 'I usually walk to work.', vi: 'Tôi thường đi bộ đi làm.', highlightWord: 'usually' },
+          { en: 'I always brush my teeth before bed.', vi: 'Tôi luôn luôn đánh răng trước khi đi ngủ.', highlightWord: 'always' },
+          { en: 'We usually have dinner together at 7.', vi: 'Chúng tôi thường lệ ăn tối cùng nhau lúc 7 giờ.', highlightWord: 'usually' },
         ],
-        tip: 'Always (100%): luôn luôn; Usually (80%): thường lệ. Vị trí: đứng TRƯỚC động từ thường (always walk), đứng SAU to be (is always happy).',
-        ruleSummary: 'Always (100%) · Usually (80%) — Đứng trước V thường, sau To Be',
+        tip: 'Always (100%): luôn luôn làm. Usually (80%): việc làm theo thói quen hàng ngày.',
+        ruleSummary: 'S + always / usually + V thường (hoặc be + always / usually)',
       },
       {
         title: 'OFTEN & SOMETIMES (60% & 30%)',
-        badge: 'Hay làm và Thỉnh thoảng',
+        badge: 'Thường thường và Thỉnh thoảng',
         category: 'often-sometimes',
         image: '/grammar/topics/adverbs-frequency/02.webp',
-        audio: '/grammar/topics/adverbs-frequency/02.mp3',
+        audio: '/grammar/topics/adverbs-frequency/04.mp3',
         accentColor: '#10b981',
         examples: [
-          { en: 'I often read books on weekends.', vi: 'Tôi hay đọc sách vào cuối tuần.' },
-          { en: 'Do you often call your parents?', vi: 'Bạn có hay gọi điện cho bố mẹ không?' },
-          { en: 'I sometimes cook dinner myself.', vi: 'Thỉnh thoảng tôi tự nấu bữa tối.' },
-          { en: 'She sometimes forgets her umbrella.', vi: 'Thỉnh thoảng cô ấy quên mang ô.' },
+          { en: 'Do you often call your parents?', vi: 'Bạn có thường gọi điện cho bố mẹ không?', highlightWord: 'often' },
+          { en: 'I often read books on weekends.', vi: 'Tôi thường hay đọc sách vào cuối tuần.', highlightWord: 'often' },
+          { en: 'He sometimes drinks green tea.', vi: 'Thỉnh thoảng anh ấy uống trà xanh.', highlightWord: 'sometimes' },
+          { en: 'Sometimes we go cinema together.', vi: 'Thỉnh thoảng chúng tôi đi xem phim cùng nhau.', highlightWord: 'Sometimes' },
         ],
-        tip: 'Often (khoảng 60%): thường xuyên; Sometimes (khoảng 30%): thỉnh thoảng (Sometimes có thể đứng ở đầu câu: Sometimes I feel tired).',
-        ruleSummary: 'Often (60%) · Sometimes (30%)',
+        tip: 'Often (60%): xảy ra khá nhiều lần. Sometimes (30%): thỉnh thoảng (có thể đứng đầu câu: Sometimes I...).',
+        ruleSummary: 'S + often / sometimes + V',
       },
       {
         title: 'RARELY & NEVER (10% & 0%)',
@@ -873,29 +864,28 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/adverbs-frequency/03.mp3',
         accentColor: '#f43f5e',
         examples: [
-          { en: 'We rarely eat fast food.', vi: 'Chúng tôi hiếm khi ăn đồ ăn nhanh.' },
-          { en: 'He rarely goes to bed late.', vi: 'Anh ấy hiếm khi đi ngủ muộn.' },
-          { en: 'I never drink alcohol.', vi: 'Tôi không bao giờ uống rượu bia.' },
-          { en: 'She never tells lies.', vi: 'Cô ấy không bao giờ nói dối.' },
+          { en: 'We rarely eat out.', vi: 'Chúng tôi hiếm khi đi ăn tiệm.', highlightWord: 'rarely' },
+          { en: 'We rarely eat fast food.', vi: 'Chúng tôi hiếm khi ăn đồ ăn nhanh.', highlightWord: 'rarely' },
+          { en: 'He never smokes cigarettes.', vi: 'Anh ấy không bao giờ hút thuốc lá.', highlightWord: 'never' },
+          { en: 'I never stay up after midnight.', vi: 'Tôi không bao giờ thức khuya sau nửa đêm.', highlightWord: 'never' },
         ],
-        tip: '"Never" bản thân đã mang nghĩa phủ định tuyệt đối. Tuyệt đối KHÔNG dùng thêm don\'t/doesn\'t (Sai: I don\'t never eat meat).',
-        ruleSummary: 'Rarely (10%) · Never (0% - Không dùng thêm trợ từ phủ định)',
+        tip: 'Never (0%): mang nghĩa phủ định sẵn, tuyệt đối KHÔNG dùng kèm "not" (sai: "I don\'t never").',
+        ruleSummary: 'S + rarely / never + V khẳng định (không dùng not)',
       },
       {
         title: 'HỎI VỀ TẦN SUẤT: HOW OFTEN...?',
-        badge: 'Bao lâu một lần',
+        badge: 'Hỏi bao lâu một lần',
         category: 'how-often',
         image: '/grammar/topics/adverbs-frequency/04.webp',
-        audio: '/grammar/topics/adverbs-frequency/04.mp3',
         accentColor: '#8b5cf6',
         examples: [
-          { en: 'How often do you exercise?', vi: 'Bạn tập thể dục bao lâu một lần?' },
-          { en: 'How often does she travel?', vi: 'Cô ấy có hay đi du lịch không?' },
-          { en: 'I exercise once a day.', vi: 'Tôi tập thể dục mỗi ngày một lần.' },
-          { en: 'We meet twice a week.', vi: 'Chúng tôi gặp nhau hai lần một tuần.' },
+          { en: 'How often do you exercise?', vi: 'Bạn có thường xuyên tập thể dục không?', highlightWord: 'How often' },
+          { en: 'How often do you travel abroad?', vi: 'Bao lâu thì bạn đi du lịch nước ngoài một lần?', highlightWord: 'How often' },
+          { en: 'I go swimming twice a week.', vi: 'Tôi đi bơi hai lần một tuần.', highlightWord: 'twice a week' },
+          { en: 'She visits her grandparents once a month.', vi: 'Cô ấy về thăm ông bà mỗi tháng một lần.', highlightWord: 'once a month' },
         ],
-        tip: 'Trả lời: once a day (1 lần/ngày), twice a week (2 lần/tuần), three times a month (3 lần/tháng), every day (mỗi ngày).',
-        ruleSummary: 'How often + do/does + S + V...? → once / twice / three times a ...',
+        tip: 'Trả lời: once a week (1 lần/tuần), twice a month (2 lần/tháng), three times a year (3 lần/năm), every day (mỗi ngày).',
+        ruleSummary: 'How often + do/does + S + V...?',
       },
     ],
   },
@@ -912,10 +902,10 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/adjectives-basic/01.mp3',
         accentColor: '#3b82f6',
         examples: [
-          { en: 'She bought a beautiful dress.', vi: 'Cô ấy đã mua một chiếc váy đẹp.' },
-          { en: 'He drives a fast car.', vi: 'Anh ấy lái một chiếc xe hơi chạy nhanh.' },
-          { en: 'They live in a big house.', vi: 'Họ sống trong một ngôi nhà lớn.' },
-          { en: 'This is a difficult question.', vi: 'Đây là một câu hỏi khó.' },
+          { en: 'She bought a beautiful dress.', vi: 'Cô ấy đã mua một chiếc váy đẹp.', highlightWord: 'beautiful' },
+          { en: 'He drives a fast car.', vi: 'Anh ấy lái một chiếc xe hơi chạy nhanh.', highlightWord: 'fast' },
+          { en: 'They live in a big house.', vi: 'Họ sống trong một ngôi nhà lớn.', highlightWord: 'big' },
+          { en: 'This is a difficult question.', vi: 'Đây là một câu hỏi khó.', highlightWord: 'difficult' },
         ],
         tip: 'Trong tiếng Anh, tính từ LUÔN đứng TRƯỚC danh từ (a red apple), ngược lại hoàn toàn so với tiếng Việt (quả táo đỏ).',
         ruleSummary: 'a / an / the + Tính từ + Danh từ (a new car, a good student)',
@@ -928,10 +918,10 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/adjectives-basic/02.mp3',
         accentColor: '#10b981',
         examples: [
-          { en: 'The soup smells delicious.', vi: 'Món súp có mùi thơm ngon quá.' },
-          { en: 'My father is tall and strong.', vi: 'Bố tôi cao và khỏe mạnh.' },
-          { en: 'The classroom is very clean.', vi: 'Phòng học rất sạch sẽ.' },
-          { en: 'She looks very happy today.', vi: 'Hôm nay trông cô ấy rất vui vẻ.' },
+          { en: 'The soup smells delicious.', vi: 'Món súp có mùi thơm ngon quá.', highlightWord: 'delicious' },
+          { en: 'My father is tall and strong.', vi: 'Bố tôi cao và khỏe mạnh.', highlightWord: ['tall', 'strong'] },
+          { en: 'The classroom is very clean.', vi: 'Phòng học rất sạch sẽ.', highlightWord: 'clean' },
+          { en: 'She looks very happy today.', vi: 'Hôm nay trông cô ấy rất vui vẻ.', highlightWord: 'happy' },
         ],
         tip: 'Tính từ đứng sau to be (is, am, are) và các động từ nối cảm giác như look (trông có vẻ), smell (có mùi), feel (cảm thấy).',
         ruleSummary: 'S + is/am/are/look/smell + Tính từ (She is smart)',
@@ -944,10 +934,10 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/adjectives-basic/03.mp3',
         accentColor: '#f43f5e',
         examples: [
-          { en: 'I am tired after the long trip.', vi: 'Tôi mệt sau chuyến đi dài.' },
-          { en: 'Are you hungry?', vi: 'Bạn có đói không?' },
-          { en: 'He feels happy and relaxed.', vi: 'Cậu ấy cảm thấy vui vẻ và thư thái.' },
-          { en: 'Don\'t be sad, everything will be fine.', vi: 'Đừng buồn, mọi chuyện sẽ ổn thôi.' },
+          { en: 'I am tired after the long trip.', vi: 'Tôi mệt sau chuyến đi dài.', highlightWord: ['tired', 'long'] },
+          { en: 'Are you hungry?', vi: 'Bạn có đói không?', highlightWord: 'hungry' },
+          { en: 'He feels happy and relaxed.', vi: 'Cậu ấy cảm thấy vui vẻ và thư thái.', highlightWord: ['happy', 'relaxed'] },
+          { en: "Don't be sad, everything will be fine.", vi: 'Đừng buồn, mọi chuyện sẽ ổn thôi.', highlightWord: 'sad' },
         ],
         tip: 'Các tính từ cảm xúc quen thuộc: happy (vui), sad (buồn), tired (mệt), hungry (đói), thirsty (khát), angry (tức giận).',
         ruleSummary: 'feel / be + happy / tired / hungry / thirsty',
@@ -960,10 +950,10 @@ export const CURATED_TOPIC_DECKS: Record<string, { subtitle: string; cards: Visu
         audio: '/grammar/topics/adjectives-basic/04.mp3',
         accentColor: '#f59e0b',
         examples: [
-          { en: 'This house is big, that one is small.', vi: 'Ngôi nhà này to, ngôi nhà kia nhỏ.' },
-          { en: 'Summer is hot, winter is cold.', vi: 'Mùa hè thì nóng, mùa đông thì lạnh.' },
-          { en: 'An old book vs a new car.', vi: 'Một cuốn sách cũ đối lập với chiếc xe mới.' },
-          { en: 'We need something cheaper.', vi: 'Chúng ta cần thứ gì đó rẻ hơn.' },
+          { en: 'We need something cheaper.', vi: 'Chúng ta cần thứ gì đó rẻ hơn.', highlightWord: 'cheaper' },
+          { en: 'This house is big, that one is small.', vi: 'Ngôi nhà này to, ngôi nhà kia nhỏ.', highlightWord: ['big', 'small'] },
+          { en: 'Summer is hot, winter is cold.', vi: 'Mùa hè thì nóng, mùa đông thì lạnh.', highlightWord: ['hot', 'cold'] },
+          { en: 'An old book vs a new car.', vi: 'Một cuốn sách cũ đối lập với chiếc xe mới.', highlightWord: ['old', 'new'] },
         ],
         tip: 'Học tính từ theo cặp trái nghĩa giúp bạn nhớ từ vựng lâu hơn gấp đôi: big/small, hot/cold, cheap/expensive, easy/difficult.',
         ruleSummary: 'big ≠ small · hot ≠ cold · cheap ≠ expensive · easy ≠ hard',
@@ -1164,7 +1154,6 @@ function GrammarVisualTopicDeckInner({
           topicSlug={topicSlug}
           activeAudioId={audioState.activeId}
           onPlaySpeech={playSpeech}
-          exampleLimit={2}
         />
         {/* Bottom progression / end-of-deck CTA bar */}
         <div className="border border-border bg-muted/20 p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 rounded-none">
@@ -1304,47 +1293,50 @@ function GrammarVisualTopicDeckInner({
   );
 }
 
-export function detectGrammarKeyword(sentence: string, topicSlug: string = '', cardTitle: string = ''): string | undefined {
+export function detectGrammarKeywords(
+  sentence: string,
+  topicSlug: string = '',
+  cardTitle: string = ''
+): string | string[] | undefined {
   if (!sentence) return undefined;
 
-  // 1. Check if card title has an explicit capital keyword like "THIS", "ARE", "COULD", "HAVE GOT", "USED TO", "ALWAYS", etc.
-  const titleMatch = cardTitle.match(/^([A-Z\s'/]+)(?:\s*\(|$)/);
-  if (titleMatch) {
-    const candidate = titleMatch[1].trim();
-    if (
-      candidate.length >= 2 &&
-      !['CÂU', 'PHỦ', 'KHẲNG', 'TÌNH', 'QUY', 'BẢNG', 'BẤT', 'THÊM', 'TRƯỚC', 'SAU'].includes(candidate)
-    ) {
-      const escaped = candidate.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      const reg = new RegExp(`\\b${escaped}\\b`, 'i');
-      const match = sentence.match(reg);
-      if (match) return match[0];
-    }
-  }
-
-  // 2. Specific Topic RegEx Patterns
   const slug = topicSlug.toLowerCase();
+  const title = cardTitle.toLowerCase();
 
-  // Verb to be
-  if (slug.includes('to-be') || slug.includes('verb-to-be')) {
-    const m = sentence.match(/\b(am not|isn't|aren't|wasn't|weren't|am|is|are|was|were)\b/i);
-    if (m) return m[0];
+  // 1. Adjectives
+  if (slug.includes('adjective') || title.includes('tính từ')) {
+    const matches = sentence.match(
+      /\b(happy|sad|tired|hungry|thirsty|angry|relaxed|clean|dirty|hot|cold|warm|cool|big|small|huge|tiny|tall|short|long|fast|slow|old|new|young|cheaper|cheap|expensive|rich|poor|good|bad|delicious|sweet|fresh|smart|clever|beautiful|kind|nice|cute|easy|hard|difficult|heavy|light|dark|bright|loud|quiet|strong|weak|safe|dangerous|busy|lazy|brave|scared|famous|funny|important|special|careful|simple)\b/gi
+    );
+    if (matches && matches.length > 0) return Array.from(new Set(matches));
   }
 
-  // Demonstratives (this, that, these, those)
-  if (slug.includes('demonstrative')) {
-    const m = sentence.match(/\b(this|that|these|those)\b/i);
-    if (m) return m[0];
+  // 2. Personal Pronouns / Object Pronouns
+  if (slug.includes('pronoun') || slug.includes('personal-pronouns') || title.includes('đại từ')) {
+    const matches = sentence.match(/\b(I|you|he|she|it|we|they|me|him|her|us|them)\b/gi);
+    if (matches && matches.length > 0) return Array.from(new Set(matches));
   }
 
-  // There is / There are
+  // 3. Verb To Be
+  if (slug.includes('to-be') || slug.includes('verb-to-be') || title.includes('to be')) {
+    const matches = sentence.match(/\b(am not|isn't|aren't|wasn't|weren't|'m not|'m|'s|'re|am|is|are|was|were)\b/gi);
+    if (matches && matches.length > 0) return Array.from(new Set(matches));
+  }
+
+  // 4. Demonstratives (this, that, these, those)
+  if (slug.includes('demonstrative') || title.includes('chỉ định')) {
+    const matches = sentence.match(/\b(this|that|these|those)\b/gi);
+    if (matches && matches.length > 0) return Array.from(new Set(matches));
+  }
+
+  // 5. There is / There are
   if (slug.includes('there-is') || slug.includes('there-are')) {
-    const m = sentence.match(/\b(there isn't|there aren't|there is|there are|is there|are there|there's)\b/i);
-    if (m) return m[0];
+    const matches = sentence.match(/\b(there isn't|there aren't|there is|there are|is there|are there|there's)\b/gi);
+    if (matches && matches.length > 0) return Array.from(new Set(matches));
   }
 
-  // Articles (a, an, the)
-  if (slug.includes('article')) {
+  // 6. Articles (a, an, the)
+  if (slug.includes('article') || title.includes('mạo từ')) {
     if (cardTitle.toUpperCase().startsWith('A ') || cardTitle.toUpperCase().includes('(A')) {
       const m = sentence.match(/\b(a)\b/i);
       if (m) return m[0];
@@ -1357,101 +1349,124 @@ export function detectGrammarKeyword(sentence: string, topicSlug: string = '', c
       const m = sentence.match(/\b(the)\b/i);
       if (m) return m[0];
     }
-    const m = sentence.match(/\b(a|an|the)\b/i);
-    if (m) return m[0];
+    const matches = sentence.match(/\b(a|an|the)\b/gi);
+    if (matches && matches.length > 0) return Array.from(new Set(matches));
   }
 
-  // Possessives
-  if (slug.includes('possessive')) {
-    const m = sentence.match(/('s\b|\b(my|your|his|her|its|our|their|mine|yours|hers|ours|theirs)\b)/i);
-    if (m) return m[0];
+  // 7. Possessives
+  if (slug.includes('possessive') || title.includes('sở hữu')) {
+    const matches = sentence.match(/('s\b|\b(my|your|his|her|its|our|their|mine|yours|hers|ours|theirs)\b)/gi);
+    if (matches && matches.length > 0) return Array.from(new Set(matches));
   }
 
-  // Have got
+  // 8. Have got
   if (slug.includes('have-got')) {
     const m = sentence.match(/\b(have got|has got|haven't got|hasn't got|have you got|has he got|has she got|'ve got|'s got)\b/i);
     if (m) return m[0];
   }
 
-  // Modals (can, could, should, must, might, etc.)
+  // 9. Modals (can, could, should, must, might, etc.)
   if (slug.includes('modal') || slug.includes('can') || slug.includes('could') || slug.includes('should') || slug.includes('must')) {
-    const m = sentence.match(/\b(can't|cannot|couldn't|shouldn't|mustn't|won't|can|could|should|must|might|may|have to|has to|had to|will)\b/i);
-    if (m) return m[0];
+    const matches = sentence.match(/\b(can't|cannot|couldn't|shouldn't|mustn't|won't|can|could|should|must|might|may|have to|has to|had to|will)\b/gi);
+    if (matches && matches.length > 0) return Array.from(new Set(matches));
   }
 
-  // Continuous / Progressive (am/is/are/was/were + V-ing)
+  // 10. Plurals
+  if (slug.includes('plural') || title.includes('số nhiều')) {
+    const matches = sentence.match(/\b(cats|dogs|books|pens|boxes|buses|dishes|watches|babies|cities|leaves|knives|children|men|women|feet|teeth|people|mice)\b/gi);
+    if (matches && matches.length > 0) return Array.from(new Set(matches));
+  }
+
+  // 11. Prepositions
+  if (slug.includes('preposition') || title.includes('giới từ')) {
+    const matches = sentence.match(/\b(in front of|next to|between|behind|under|above|below|near|in|on|at)\b/gi);
+    if (matches && matches.length > 0) return Array.from(new Set(matches));
+  }
+
+  // 12. Continuous / Progressive
   if (slug.includes('continuous') || slug.includes('progressive')) {
     const m = sentence.match(/\b(am|is|are|was|were)\s+\w+ing\b/i) || sentence.match(/\b\w+ing\b/i);
     if (m) return m[0];
   }
 
-  // Perfect tenses (have/has/had + V3/ed)
+  // 13. Perfect tenses
   if (slug.includes('perfect')) {
     const m = sentence.match(/\b(have|has|had|haven't|hasn't|hadn't)\s+\w+(ed|en|ne|t|d)?\b/i) || sentence.match(/\b(have|has|had)\b/i);
     if (m) return m[0];
   }
 
-  // Past Simple
+  // 14. Past Simple
   if (slug.includes('past-simple') || slug.includes('past')) {
-    const m = sentence.match(/\b(was|were|wasn't|weren't|didn't|did|went|saw|bought|had|played|studied|worked|watched|visited|started)\b/i);
-    if (m) return m[0];
+    const matches = sentence.match(/\b(was|were|wasn't|weren't|didn't|did|went|saw|bought|had|played|studied|worked|watched|visited|started|cooked|walked|ate|drank|made|took|got|came|said|told|found|gave|thought|knew|felt|left|heard|ran|brought|wrote|sat|stood|lost|paid|met|sent|spoke)\b/gi);
+    if (matches && matches.length > 0) return Array.from(new Set(matches));
   }
 
-  // Present Simple
+  // 15. Present Simple
   if (slug.includes('present-simple') || slug.includes('present')) {
     const m = sentence.match(/\b(don't|doesn't|do|does)\b/i);
     if (m) return m[0];
+    const verbMatch = sentence.match(/\b(lives|works|loves|likes|reads|plays|studies|watches|teaches|goes|has|drinks|eats|speaks|knows|wants|needs|helps|starts|leaves|travels)\b/i);
+    if (verbMatch) return verbMatch[0];
   }
 
-  // Conditionals
+  // 16. Conditionals
   if (slug.includes('conditional') || slug.includes('if')) {
     const m = sentence.match(/\b(if|unless|would|will)\b/i);
     if (m) return m[0];
   }
 
-  // Prepositions
-  if (slug.includes('preposition')) {
-    const m = sentence.match(/\b(in front of|next to|between|behind|under|above|below|near|in|on|at)\b/i);
-    if (m) return m[0];
-  }
-
-  // Questions / Wh-
+  // 17. Questions / Wh-
   if (slug.includes('question') || slug.includes('wh-')) {
     const m = sentence.match(/\b(what|where|when|who|why|which|how|whose|whom)\b/i);
     if (m) return m[0];
   }
 
-  // Adverbs of frequency
+  // 18. Adverbs of frequency
   if (slug.includes('adverb') || slug.includes('frequency')) {
     const m = sentence.match(/\b(always|usually|often|sometimes|rarely|seldom|never)\b/i);
     if (m) return m[0];
   }
 
-  // Comparisons
+  // 19. Comparisons
   if (slug.includes('compar') || slug.includes('superlat')) {
-    const m = sentence.match(/\b(more|most|better|best|worse|worst|than|as\s+\w+\s+as)\b/i);
+    const m = sentence.match(/\b(more|most|better|best|worse|worst|than|as\s+\w+\s+as|cheaper|faster|bigger|smaller|taller|shorter|hotter|colder)\b/i);
     if (m) return m[0];
   }
 
-  // Passive
+  // 20. Passive
   if (slug.includes('passive')) {
     const m = sentence.match(/\b(is|are|was|were|been|being)\s+\w+(ed|en|t|d)\b/i);
     if (m) return m[0];
   }
 
-  // Relative clauses
+  // 21. Relative clauses
   if (slug.includes('relative')) {
     const m = sentence.match(/\b(who|which|that|whose|where|whom)\b/i);
     if (m) return m[0];
   }
 
-  // Conjunctions
+  // 22. Conjunctions
   if (slug.includes('conjunction') || slug.includes('clause')) {
     const m = sentence.match(/\b(although|though|even though|because|since|so|however|despite|in spite of)\b/i);
     if (m) return m[0];
   }
 
-  // 3. Fallback: Check if there's any capitalized or distinctive word in card title
+  // Explicit uppercase title matching (e.g. "THIS", "ARE", "COULD")
+  const titleMatch = cardTitle.match(/^([A-Z\s'/]+)(?:\s*\(|$)/);
+  if (titleMatch) {
+    const candidate = titleMatch[1].trim();
+    if (
+      candidate.length >= 2 &&
+      !['CÂU', 'PHỦ', 'KHẲNG', 'TÌNH', 'QUY', 'BẢNG', 'BẤT', 'THÊM', 'TRƯỚC', 'SAU', 'VỊ', 'CẶP'].includes(candidate)
+    ) {
+      const escaped = candidate.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const reg = new RegExp(`\\b${escaped}\\b`, 'i');
+      const match = sentence.match(reg);
+      if (match) return match[0];
+    }
+  }
+
+  // Fallback: Check distinctive capitalized words in card title
   const words = cardTitle.replace(/[()/:,]/g, ' ').split(/\s+/).filter(w => w.length > 2);
   for (const w of words) {
     const reg = new RegExp(`\\b${w}\\b`, 'i');
@@ -1461,6 +1476,8 @@ export function detectGrammarKeyword(sentence: string, topicSlug: string = '', c
 
   return undefined;
 }
+
+export const detectGrammarKeyword = detectGrammarKeywords;
 
 interface VisualTopicCardItemProps {
   card: VisualDeckCard;
@@ -1482,14 +1499,21 @@ function VisualTopicCardItem({
   const [activeIdx, setActiveIdx] = useState<number>(0);
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [showAllExamples, setShowAllExamples] = useState(false);
+  const [imgError, setImgError] = useState(false);
+
   const visibleExamples = exampleLimit && !showAllExamples ? card.examples.slice(0, exampleLimit) : card.examples;
 
   const currentIdx = hoveredIdx !== null ? hoveredIdx : activeIdx;
   const currentExample = card.examples[currentIdx] || card.examples[0];
   const currentImage = (hoveredIdx !== null ? currentExample?.image : null) || currentExample?.image || card.image;
 
+  // Reset imgError whenever currentImage changes
+  useEffect(() => {
+    setImgError(false);
+  }, [currentImage]);
+
   const currentHighlight = currentExample
-    ? currentExample.highlightWord || detectGrammarKeyword(currentExample.en, topicSlug, card.title)
+    ? currentExample.highlightWord || detectGrammarKeywords(currentExample.en, topicSlug, card.title)
     : undefined;
 
   const isStageAudioPlaying = activeAudioId === `${card.title}-${currentIdx}`;
@@ -1518,10 +1542,10 @@ function VisualTopicCardItem({
         </span>
       </div>
 
-      <div className={exampleLimit ? 'sm:grid sm:grid-cols-[0.85fr_1.15fr] sm:items-stretch min-w-0' : undefined}>
-        {/* Dynamic Image Container (Hero Stage with In-Place Swapping) */}
-        {currentImage && (
-          <div className={`relative w-full bg-muted/20 overflow-hidden border-b sm:border-b-0 sm:border-r border-border ${exampleLimit ? 'h-40 sm:h-auto sm:min-h-[240px]' : 'h-48 sm:h-56'}`}>
+      <div className={exampleLimit ? 'sm:grid sm:grid-cols-[0.9fr_1.1fr] sm:items-stretch min-w-0' : undefined}>
+        {/* Dynamic Hero Stage: Image or Typographic Concept Card with Active Sentence Overlay */}
+        {currentImage && !imgError ? (
+          <div className={`relative w-full bg-muted/20 overflow-hidden border-b sm:border-b-0 sm:border-r border-border ${exampleLimit ? 'h-48 sm:h-auto sm:min-h-[250px]' : 'h-48 sm:h-56'}`}>
             <Image
               key={currentImage}
               src={currentImage}
@@ -1531,43 +1555,87 @@ function VisualTopicCardItem({
                 currentImage.endsWith('.svg') ? 'object-contain p-4' : 'object-cover object-center'
               }`}
               sizes="(max-width: 768px) 100vw, 50vw"
+              onError={() => setImgError(true)}
               unoptimized
             />
-            {/* Direct 44x44px Audio Button on Hero Stage */}
-            {currentExample && (
-              <button
-                type="button"
-                onClick={() => onPlaySpeech(`${card.title}-${currentIdx}`, currentExample.en, currentIdx === 0 ? card.audio : undefined)}
-                className="absolute bottom-2.5 right-2.5 min-h-[44px] min-w-[44px] flex items-center justify-center p-2.5 bg-background/95 hover:bg-background border border-border rounded-none shadow-sm transition-colors z-10"
-                aria-label={`Nghe câu: ${currentExample.en}`}
-                title="Nghe câu ví dụ đang chọn"
-              >
-                <Volume2
-                  className={`h-5 w-5 ${
-                    isStageAudioPlaying ? 'text-primary animate-pulse' : 'text-foreground'
-                  }`}
-                />
-              </button>
-            )}
-          </div>
-        )}
-
-        {/* Dynamic Active Sentence Banner */}
-        {currentExample && !exampleLimit && (
-          <div className="p-3.5 bg-primary/[0.04] border-b border-border space-y-1">
-            <div className="flex items-center gap-2 min-w-0">
-              <span className="inline-block w-2 h-2 bg-primary shrink-0" />
-              <span className="font-serif text-sm sm:text-base font-bold text-foreground">
-                <HighlightedSentence
-                  text={currentExample.en}
-                  highlight={currentHighlight}
-                />
+            {/* Top Concept Badge */}
+            <div className="absolute top-2.5 left-2.5 z-10">
+              <span className="font-mono text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-background/90 backdrop-blur-xs border border-border text-foreground shadow-xs">
+                {card.badge || `Tình huống ${currentIdx + 1}`}
               </span>
             </div>
-            {currentExample.vi && (
-              <p className="text-xs text-muted-foreground font-sans pl-4">
-                {currentExample.vi}
-              </p>
+
+            {/* Bottom Overlay: Active Sentence & Audio Button */}
+            {currentExample && (
+              <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-background/95 via-background/85 to-transparent p-2.5 sm:p-3 pt-6 flex items-end justify-between gap-2 border-t border-border/40">
+                <div className="min-w-0 flex-1">
+                  <div className="font-serif text-xs sm:text-sm font-bold text-foreground leading-snug line-clamp-2">
+                    <HighlightedSentence text={currentExample.en} highlight={currentHighlight} />
+                  </div>
+                  {currentExample.vi && (
+                    <div className="text-[11px] text-muted-foreground leading-tight line-clamp-1 mt-0.5">
+                      {currentExample.vi}
+                    </div>
+                  )}
+                </div>
+                <button
+                  type="button"
+                  onClick={() => onPlaySpeech(`${card.title}-${currentIdx}`, currentExample.en, currentIdx === 0 ? card.audio : undefined)}
+                  className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2.5 bg-background hover:bg-muted border border-border rounded-none shadow-xs transition-colors shrink-0"
+                  aria-label={`Nghe câu: ${currentExample.en}`}
+                  title="Nghe câu ví dụ đang chọn"
+                >
+                  <Volume2
+                    className={`h-4 w-4 ${
+                      isStageAudioPlaying ? 'text-primary animate-pulse' : 'text-foreground'
+                    }`}
+                  />
+                </button>
+              </div>
+            )}
+          </div>
+        ) : (
+          <div className={`relative w-full bg-gradient-to-br from-muted/40 via-muted/20 to-primary/5 p-3.5 sm:p-4 flex flex-col justify-between border-b sm:border-b-0 sm:border-r border-border ${exampleLimit ? 'h-48 sm:h-auto sm:min-h-[250px]' : 'h-48 sm:h-56'}`}>
+            <div className="flex items-center justify-between gap-2">
+              <span className="font-mono text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 border border-primary/30 bg-primary/10 text-primary">
+                {card.badge || 'Trực quan ngữ pháp'}
+              </span>
+              <span className="font-mono text-[10px] text-muted-foreground uppercase">
+                Tình huống {currentIdx + 1}/{card.examples.length}
+              </span>
+            </div>
+
+            <div className="text-center py-2 px-2 my-auto">
+              <div className="font-serif text-base sm:text-lg font-bold text-foreground tracking-tight">
+                {card.title}
+              </div>
+              {card.ruleSummary && (
+                <div className="mt-1 font-mono text-[11px] text-muted-foreground line-clamp-2">
+                  {card.ruleSummary}
+                </div>
+              )}
+            </div>
+
+            {currentExample && (
+              <div className="bg-background/95 backdrop-blur-xs border border-border p-2 sm:p-2.5 flex items-center justify-between gap-2 shadow-xs">
+                <div className="min-w-0 flex-1">
+                  <div className="font-serif text-xs sm:text-sm font-bold text-foreground truncate">
+                    <HighlightedSentence text={currentExample.en} highlight={currentHighlight} />
+                  </div>
+                  {currentExample.vi && (
+                    <div className="text-[11px] text-muted-foreground truncate">{currentExample.vi}</div>
+                  )}
+                </div>
+                <button
+                  type="button"
+                  onClick={() => onPlaySpeech(`${card.title}-${currentIdx}`, currentExample.en, currentIdx === 0 ? card.audio : undefined)}
+                  className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 hover:bg-muted text-foreground transition-colors shrink-0"
+                  aria-label={`Nghe câu: ${currentExample.en}`}
+                  title="Nghe câu ví dụ đang chọn"
+                >
+                  <Volume2 className={`h-4 w-4 ${isStageAudioPlaying ? 'text-primary animate-pulse' : ''}`} />
+                </button>
+              </div>
             )}
           </div>
         )}
@@ -1586,7 +1654,7 @@ function VisualTopicCardItem({
               const isSpeaking = activeAudioId === `${card.title}-${exIdx}`;
               const isHovered = hoveredIdx === exIdx;
               const isSelected = activeIdx === exIdx;
-              const effectiveHighlight = ex.highlightWord || detectGrammarKeyword(ex.en, topicSlug, card.title);
+              const effectiveHighlight = ex.highlightWord || detectGrammarKeywords(ex.en, topicSlug, card.title);
 
               return (
                 <div
@@ -1605,8 +1673,12 @@ function VisualTopicCardItem({
                       : 'border-border/60 bg-muted/10 hover:border-border hover:bg-muted/20'
                   }`}
                 >
-                  <button type="button" aria-pressed={isSelected} onClick={() => setActiveIdx(exIdx)}
-                    className="space-y-0.5 min-w-0 flex-1 text-left min-h-[44px]">
+                  <button
+                    type="button"
+                    aria-pressed={isSelected}
+                    onClick={() => setActiveIdx(exIdx)}
+                    className="space-y-0.5 min-w-0 flex-1 text-left min-h-[44px]"
+                  >
                     <p className="text-xs sm:text-sm font-semibold text-foreground font-sans leading-snug">
                       <HighlightedSentence text={ex.en} highlight={effectiveHighlight} />
                     </p>
@@ -1635,9 +1707,17 @@ function VisualTopicCardItem({
             })}
           </div>
           {exampleLimit && card.examples.length > exampleLimit && (
-            <button type="button" aria-expanded={showAllExamples}
-              onClick={() => { setShowAllExamples(!showAllExamples); setActiveIdx(0); setHoveredIdx(null); grammarAudio.stopAll(); }}
-              className="min-h-[44px] w-full text-sm text-primary hover:bg-muted border border-border">
+            <button
+              type="button"
+              aria-expanded={showAllExamples}
+              onClick={() => {
+                setShowAllExamples(!showAllExamples);
+                setActiveIdx(0);
+                setHoveredIdx(null);
+                grammarAudio.stopAll();
+              }}
+              className="min-h-[44px] w-full text-xs font-mono uppercase tracking-wider text-primary hover:bg-muted border border-border"
+            >
               {showAllExamples ? 'Thu gọn ví dụ' : `Xem thêm ${card.examples.length - exampleLimit} ví dụ`}
             </button>
           )}
