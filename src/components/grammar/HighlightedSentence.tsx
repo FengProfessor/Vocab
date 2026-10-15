@@ -20,7 +20,7 @@ export default function HighlightedSentence({
   text,
   highlight,
   className = '',
-  highlightClassName = 'font-bold text-primary dark:text-primary bg-primary/10 dark:bg-primary/15 px-1 py-0.5 border border-primary/30 rounded-none font-mono',
+  highlightClassName = 'font-bold text-primary dark:text-primary bg-primary/10 dark:bg-primary/20 px-1 py-0.2 border border-primary/30 rounded-xs transition-colors',
 }: HighlightedSentenceProps) {
   if (!text) return null;
 

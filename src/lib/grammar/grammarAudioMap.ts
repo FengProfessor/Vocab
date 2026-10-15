@@ -275,21 +275,40 @@ export function normalizeSentence(s: string): string {
 
 const REVERSE_MAP: Map<string, string> = new Map();
 for (const [url, transcript] of Object.entries(KNOWN_GRAMMAR_AUDIO)) {
-  REVERSE_MAP.set(normalizeSentence(transcript), url);
+  const norm = normalizeSentence(transcript);
+  REVERSE_MAP.set(norm, url);
+
+  // Split multiple sentences by punctuation or arrows to index individual utterances
+  const subSentences = transcript.split(/[.?!→/]\s+/).map((s) => s.trim()).filter(Boolean);
+  if (subSentences.length > 1) {
+    for (const sub of subSentences) {
+      const subNorm = normalizeSentence(sub);
+      if (subNorm && subNorm.split(' ').length >= 2) {
+        if (!REVERSE_MAP.has(subNorm)) {
+          REVERSE_MAP.set(subNorm, url);
+        }
+      }
+    }
+  }
 }
 
 export function findMatchingAudioUrl(text: string, candidateUrl?: string): string | undefined {
   const normText = normalizeSentence(text);
   if (!normText) return undefined;
 
-  // 1. If candidateUrl is provided, verify it actually matches this text
+  // 1. If candidateUrl is provided, verify it actually matches this text (full sentence or one of its clauses)
   if (candidateUrl && KNOWN_GRAMMAR_AUDIO[candidateUrl]) {
-    const candidateNorm = normalizeSentence(KNOWN_GRAMMAR_AUDIO[candidateUrl]);
-    if (candidateNorm === normText || candidateNorm.includes(normText) || normText.includes(candidateNorm)) {
-      return candidateUrl;
-    }
+    const candidateFull = normalizeSentence(KNOWN_GRAMMAR_AUDIO[candidateUrl]);
+    if (candidateFull === normText) return candidateUrl;
+
+    const subSentences = KNOWN_GRAMMAR_AUDIO[candidateUrl]
+      .split(/[.?!→/]\s+/)
+      .map((s) => normalizeSentence(s))
+      .filter(Boolean);
+    if (subSentences.includes(normText)) return candidateUrl;
   }
 
   // 2. Lookup in reverse map
   return REVERSE_MAP.get(normText);
 }
+

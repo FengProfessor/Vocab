@@ -13,6 +13,8 @@ import {
 import { grammarAudio } from '@/lib/grammar/grammarAudioManager';
 import type { VettedMediaAsset } from '@/lib/grammar-types';
 import FormattedText from './FormattedText';
+import HighlightedSentence from './HighlightedSentence';
+import { detectGrammarKeywords } from './GrammarVisualTopicDeck';
 
 export interface VideoChapter {
   time: string;
@@ -64,6 +66,8 @@ export default function VettedMediaCard({
     activeId: null,
   });
 
+  const [imgError, setImgError] = useState(false);
+
   // Unify props from media asset or direct props
   const resolvedImageUrl = media?.imageUrl || imageUrl || '';
   const resolvedImageAlt = media?.imageAlt || imageAlt || caption || 'Minh họa ngữ cảnh ngữ pháp';
@@ -73,6 +77,10 @@ export default function VettedMediaCard({
   const resolvedCommonMistake = media?.usageAnalysisVi?.commonMistake || commonMistake || '';
   const resolvedVideoEmbedUrl = media?.videoEmbedUrl || videoEmbedUrl || '';
   const resolvedVideoTitle = media?.videoTitle || videoTitle || 'Video bài giảng ngữ pháp';
+
+  React.useEffect(() => {
+    setImgError(false);
+  }, [resolvedImageUrl]);
 
   const cardAudioId = `media-${sceneTitle || resolvedImageUrl}`;
 
@@ -99,13 +107,15 @@ export default function VettedMediaCard({
     }
   };
 
+  const detectedKws = derivedEn ? detectGrammarKeywords(derivedEn) : undefined;
+
   return (
     <div className="border border-border bg-card rounded-none my-6 overflow-hidden shadow-xs">
       {/* Main Visual & Situational Section */}
       <div className="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-border">
         {/* Visual Asset Container (Left Pane - 5 cols) */}
         <div className="md:col-span-5 bg-slate-50 dark:bg-muted/20 flex flex-col items-center justify-center p-4 relative min-h-[220px]">
-          {resolvedImageUrl ? (
+          {resolvedImageUrl && !imgError ? (
             <div className="relative w-full h-48 sm:h-56 flex items-center justify-center">
               <Image
                 src={resolvedImageUrl}
@@ -113,13 +123,19 @@ export default function VettedMediaCard({
                 fill
                 className={`${resolvedImageUrl.endsWith('.svg') ? 'object-contain p-2' : 'object-cover'} rounded-none`}
                 sizes="(max-width: 768px) 100vw, 40vw"
+                onError={() => setImgError(true)}
                 unoptimized
               />
             </div>
           ) : (
-            <div className="flex flex-col items-center justify-center text-muted-foreground py-10 font-mono text-xs">
-              <BookOpen className="h-8 w-8 mb-2 opacity-40" />
-              <span>Chưa có tư liệu hình ảnh</span>
+            <div className="flex flex-col items-center justify-center text-center p-6 space-y-2 text-muted-foreground font-mono text-xs">
+              <BookOpen className="h-8 w-8 opacity-50 text-primary" />
+              <div className="font-serif font-bold text-sm text-foreground">
+                {sceneTitle || 'Minh họa ngữ cảnh'}
+              </div>
+              <p className="text-[11px] text-muted-foreground line-clamp-2">
+                {resolvedRule || 'Tình huống minh họa ngữ pháp thực tế'}
+              </p>
             </div>
           )}
         </div>
@@ -139,13 +155,13 @@ export default function VettedMediaCard({
               </p>
             )}
 
-            {/* Example sentence with native audio */}
+            {/* Example sentence with native audio & bold target keywords */}
             {(derivedEn || derivedVi) && (
               <div className="border border-border bg-slate-50 dark:bg-muted/20 p-3 rounded-none flex items-start justify-between gap-3">
                 <div className="space-y-0.5">
                   {derivedEn && (
                     <p className="text-sm font-semibold text-foreground font-sans">
-                      <FormattedText text={derivedEn} />
+                      <HighlightedSentence text={derivedEn} highlight={detectedKws} />
                     </p>
                   )}
                   {derivedVi && (
@@ -154,6 +170,7 @@ export default function VettedMediaCard({
                     </p>
                   )}
                 </div>
+
 
                 <button
                   type="button"
