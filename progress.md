@@ -1086,3 +1086,16 @@
   - `tests/student-nav.test.ts`: PASS 100% (273/273 assertions).
   - `tests/exam/vstep-vnu-toeic-persistence.test.ts`: PASS 100% (5/5 tests).
   - `npm run build`: PASS 100% (tất cả 187 routes sinh bundle tối ưu).
+- **Thực thi triển khai & Kiểm chứng Production**:
+  - Released commit `a6968686fd59648a97ec750a98f108f97da6ebf2`.
+  - Canonical GitHub Actions run [38682217908](https://github.com/FengProfessor/Vocab/actions/runs/38682217908) SUCCESS:
+    - `Validate exact source before production changes`: PASS (tất cả 24 bước: npm ci, actionlint, security regressions, phase3a route & auth lint, Next.js build application, browser smoke, typecheck baseline).
+    - `Apply required database migrations / apply`: PASS (32s, connected Supabase pooler, SKIP13/applied0).
+    - `Deploy to LingoPro Ubuntu Server`: PASS (13m29s, detached checkout exact SHA `a6968686fd59648a97ec750a98f108f97da6ebf2`, out-of-place staging build trong `~/Vocab-build`, atomic directory swap via `activate-release.sh`, service `lingopro.service` restarted với MainPID `584731`, readiness HTTP 200, previous release preserved at `/home/ubuntu/Vocab/.next-previous.zsoFfW/.next`).
+  - Independent live HTTPS probes:
+    - `https://lingopro.online/api/health` -> HTTP 200 `{"status":"ok"}`
+    - `https://lingopro.online/vnu-bac-3` -> HTTP 200
+    - `https://lingopro.online/vnu-bac-3/exam/ulis-sample-test-01` -> HTTP 200
+    - `https://lingopro.online/audio/vnu-bac3/sample-01/listening-part1.mp3` -> HTTP 200 (1.1 MB MP3 streaming)
+    - `https://lingopro.online/student` -> HTTP 200
+
