@@ -1099,3 +1099,21 @@
     - `https://lingopro.online/audio/vnu-bac3/sample-01/listening-part1.mp3` -> HTTP 200 (1.1 MB MP3 streaming)
     - `https://lingopro.online/student` -> HTTP 200
 
+### Release Sửa lỗi thanh tiến độ Listening & Chống giật Arrow Nudge trên Dashboard (2026-10-15)
+
+- **Phạm vi & Khắc phục lỗi UI Dashboard**:
+  - **Triệt tiêu Data Leak trong LocalStorage**: Loại bỏ fallback tự ý gán `updatedAt = new Date().toISOString()` trong `src/lib/listening-recommendation.ts` (`getVideoWatchProgress`), ngăn chặn triệt để tình trạng các video dở dang trong quá khứ bị gán nhầm sang ngày hôm nay.
+  - **Đóng khung ngày hôm nay chuẩn xác**: Trong `src/app/student/page.tsx` (`syncListening`), loại bỏ fallback `maxInProgress` toàn thời gian khi `todayInProgress === 0`. Tiến độ chỉ tính các bài phát sinh đúng trong ngày hôm nay (`itemDateKey === todayKey`), giúp thanh tiến độ trả về đúng 0% và nhãn `Chưa nghe` khi chưa học bài nào.
+  - **Giới hạn tỉ lệ hiển thị an toàn**: Bọc `listeningProgressPct` trong khoảng `[0, 100]`.
+  - **Loại bỏ hiệu ứng giật vô hạn (Infinite Loop CSS)**: Trong `src/app/globals.css`, thay thế `@keyframes arrowNudge ... infinite` bằng hover transition `transform: translateX(2.5px)` tĩnh và thanh lịch khi rê chuột, triệt tiêu cảm giác giao diện liên tục rung lắc / chạy ngầm.
+- **Thực thi triển khai & Kiểm chứng Production**:
+  - Released commit `054dd82110c797fb15b6754b2d18471bba77fe09`.
+  - Canonical GitHub Actions run [38719964716](https://github.com/FengProfessor/Vocab/actions/runs/38719964716) SUCCESS:
+    - `Validate exact source before production changes`: PASS (npm ci, actionlint, security regressions, phase3a route & auth lint, Next.js build application, browser smoke, typecheck baseline).
+    - `Apply required database migrations / apply`: PASS (31s, connected Supabase pooler, SKIP13/applied0).
+    - `Deploy to LingoPro Ubuntu Server`: PASS (11m12s, detached checkout exact SHA `054dd82110c797fb15b6754b2d18471bba77fe09`, out-of-place staging build trong `~/Vocab-build`, atomic directory swap via `activate-release.sh`, service `lingopro.service` restarted với MainPID `598173`, readiness HTTP 200, previous release preserved at `/home/ubuntu/Vocab/.next-previous.YVRlDL/.next`).
+  - Independent live HTTPS probes:
+    - `https://lingopro.online/api/health` -> HTTP 200 `{"status":"ok"}`
+    - `https://lingopro.online/student` -> HTTP 200
+
+
