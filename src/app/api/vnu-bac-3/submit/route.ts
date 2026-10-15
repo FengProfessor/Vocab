@@ -9,6 +9,7 @@ import { gradeVnuBac3Exam } from '@/lib/vnu-bac-3/scoring';
 import { VnuBac3Submission } from '@/types/vnu-bac-3';
 import { getAuthUser } from '@/lib/api-security';
 import { createServiceClient } from '@/lib/supabase-server';
+import { sessionErrorResponse } from '@/lib/session-response';
 
 export async function POST(request: NextRequest) {
   try {
@@ -89,7 +90,9 @@ export async function POST(request: NextRequest) {
           savedToDb = true;
         }
       }
-    } catch {
+    } catch (dbErr) {
+      const sessionFailure = sessionErrorResponse(dbErr);
+      if (sessionFailure) return sessionFailure;
       // Non-fatal: vẫn trả về kết quả chấm bài cho client
     }
 
@@ -99,6 +102,8 @@ export async function POST(request: NextRequest) {
       savedToDb,
     });
   } catch (error) {
+    const sessionFailure = sessionErrorResponse(error);
+    if (sessionFailure) return sessionFailure;
     console.error('Lỗi API /api/vnu-bac-3/submit:', error);
     return NextResponse.json(
       { success: false, error: 'Lỗi máy chủ trong quá trình chấm điểm.' },
