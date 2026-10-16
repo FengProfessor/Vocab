@@ -33,17 +33,13 @@ async function runNavTests() {
 
   // ── 1. SECTION HEADERS & GROUP STRUCTURE ──
   console.log('--- 1. Testing Section Structure & Headers ---');
-  assert(sections.length === 5, `Expected 5 navigation sections, got ${sections.length}`);
+  assert(sections.length === 3, `Expected 3 navigation sections, got ${sections.length}`);
   assert(sections[0].id === 'learn', 'Section 0 id is learn');
   assert(sections[0].title === 'Học & Lộ trình', `Section 0 title is 'Học & Lộ trình', got '${sections[0].title}'`);
   assert(sections[1].id === 'practice', 'Section 1 id is practice');
-  assert(sections[1].title === 'Kỹ năng thực hành', `Section 1 title is 'Kỹ năng thực hành', got '${sections[1].title}'`);
-  assert(sections[2].id === 'exam', 'Section 2 id is exam');
-  assert(sections[2].title === 'Khảo thí', `Section 2 title is 'Khảo thí', got '${sections[2].title}'`);
-  assert(sections[3].id === 'vault', 'Section 3 id is vault');
-  assert(sections[3].title === 'Tra cứu & Kho', `Section 3 title is 'Tra cứu & Kho', got '${sections[3].title}'`);
-  assert(sections[4].id === 'referral', 'Section 4 id is referral');
-  assert(sections[4].title === 'Cộng đồng & Quà tặng', `Section 4 title is 'Cộng đồng & Quà tặng', got '${sections[4].title}'`);
+  assert(sections[1].title === 'Luyện tập & Khảo thí', `Section 1 title is 'Luyện tập & Khảo thí', got '${sections[1].title}'`);
+  assert(sections[2].id === 'vault', 'Section 2 id is vault');
+  assert(sections[2].title === 'Kho & Tra cứu', `Section 2 title is 'Kho & Tra cứu', got '${sections[2].title}'`);
 
   // ── 2. ITEMS PER SECTION & CONTENT ──
   console.log('\n--- 2. Testing Items Per Section ---');
@@ -55,34 +51,18 @@ async function runNavTests() {
   assert(learnHrefs.includes('/review'), 'Learn group contains /review (Ôn tập ngắt quãng)');
   assert(learnHrefs.includes('/grammar'), 'Learn group contains /grammar (Ngữ pháp ứng dụng)');
 
-  // Group 2: Kỹ năng thực hành (5 items)
-  assert(sections[1].items.length === 5, `Section 'Kỹ năng thực hành' has 5 items, got ${sections[1].items.length}`);
+  // Group 2: Luyện tập & Khảo thí (2 items: Hub Luyện tập & Hub Khảo thí)
+  assert(sections[1].items.length === 2, `Section 'Luyện tập & Khảo thí' has 2 items, got ${sections[1].items.length}`);
   const practiceHrefs = sections[1].items.map((i) => i.href);
-  assert(practiceHrefs.includes('/practice/games'), 'Practice group contains /practice/games (Phản xạ học thuật)');
-  assert(practiceHrefs.includes('/student/speaking/foundation'), 'Practice group contains /student/speaking/foundation (Luyện nói phản xạ)');
-  assert(practiceHrefs.includes('/practice/listening'), 'Practice group contains /practice/listening (Luyện nghe Video)');
-  assert(practiceHrefs.includes('/practice/pack-reading'), 'Practice group contains /practice/pack-reading (Luyện đọc hiểu)');
-  assert(practiceHrefs.includes('/practice/codemix'), 'Practice group contains /practice/codemix (Đặt câu song ngữ)');
+  assert(practiceHrefs.includes('/practice'), 'Practice group contains /practice (Trung tâm Luyện tập)');
+  assert(practiceHrefs.includes('/toeic'), 'Practice group contains /toeic (Thi thử & Khảo thí)');
 
-  // Group 3: Khảo thí (3 items: TOEIC, VSTEP & VNU Test Bậc 3)
-  assert(sections[2].items.length === 3, `Section 'Khảo thí' has 3 items, got ${sections[2].items.length}`);
-  assert(sections[2].items[0].href === '/toeic', 'Exam group contains /toeic (Thi thử TOEIC)');
-  assert(sections[2].items[1].href === '/vstep', 'Exam group contains /vstep (Thi thử VSTEP)');
-  assert(sections[2].items[2].href === '/vnu-bac-3', 'Exam group contains /vnu-bac-3 (VNU Test Bậc 3)');
+  // Group 3: Kho & Tra cứu (1 item)
+  assert(sections[2].items.length === 1, `Section 'Kho & Tra cứu' has 1 item, got ${sections[2].items.length}`);
+  assert(sections[2].items[0].href === '/library', 'Vault group contains /library (Kho từ vựng & Tra cứu)');
 
-  // Group 4: Tra cứu & Kho (3 items)
-  assert(sections[3].items.length === 3, `Section 'Tra cứu & Kho' has 3 items, got ${sections[3].items.length}`);
-  const vaultHrefs = sections[3].items.map((i) => i.href);
-  assert(vaultHrefs.includes('/dictionary'), 'Vault group contains /dictionary (Tra từ điển)');
-  assert(vaultHrefs.includes('/library'), 'Vault group contains /library (Thư viện từ vựng)');
-  assert(vaultHrefs.includes('/import'), 'Vault group contains /import (Nhập danh sách riêng)');
-
-  // Group 5: Cộng đồng & Quà tặng (1 item)
-  assert(sections[4].items.length === 1, `Section 'Cộng đồng & Quà tặng' has 1 item, got ${sections[4].items.length}`);
-  assert(sections[4].items[0].href === '/student/referral', 'Referral group contains /student/referral (Mời bạn học nhận VIP)');
-
-  // Total items check
-  assert(items.length === 16, `Total nav items across all sections is 16, got ${items.length}`);
+  // Total items check: exactly 7 streamlined items
+  assert(items.length === 7, `Total nav items across all sections is 7, got ${items.length}`);
 
   // ── 3. ICON INTEGRITY & NO EMOJI TILES ──
   console.log('\n--- 3. Testing Iconography & Component Types ---');
@@ -95,7 +75,7 @@ async function runNavTests() {
     assert(!seenIcons.has(item.icon), `Item '${item.label}' icon is unique across all nav items (no icon collisions)`);
     seenIcons.add(item.icon);
   }
-  assert(seenIcons.size === 16, `All 16 nav items have mutually distinct Lucide icons, got ${seenIcons.size}`);
+  assert(seenIcons.size === 7, `All 7 nav items have mutually distinct Lucide icons, got ${seenIcons.size}`);
 
   // ── 4. ROUTE MATCHING BEHAVIOR ──
   console.log('\n--- 4. Testing Exact & Subpath Route Matching ---');
@@ -128,75 +108,31 @@ async function runNavTests() {
   assert(grammarItem.match('/grammar/learn') === true, '/grammar matches /grammar/learn');
   assert(grammarItem.match('/grammar/unit-5') === true, '/grammar matches /grammar/unit-5');
 
-  // Practice subpaths
-  const listeningItem = findItem('/practice/listening')!;
-  assert(listeningItem.match('/practice/listening') === true, 'listening item matches /practice/listening');
-  assert(listeningItem.match('/practice/listening/video123') === true, 'listening item matches /practice/listening/video123');
-  assert(listeningItem.match('/practice/codemix') === false, 'listening item does not match /practice/codemix');
+  // Practice hub subpaths (practice, listening, reading, codemix, speaking, games)
+  const practiceItem = findItem('/practice')!;
+  assert(practiceItem.match('/practice') === true, 'practice item matches /practice');
+  assert(practiceItem.match('/practice/listening') === true, 'practice item matches /practice/listening');
+  assert(practiceItem.match('/practice/games') === true, 'practice item matches /practice/games');
+  assert(practiceItem.match('/practice/pack-reading') === true, 'practice item matches /practice/pack-reading');
+  assert(practiceItem.match('/practice/codemix') === true, 'practice item matches /practice/codemix');
+  assert(practiceItem.match('/student/speaking/foundation') === true, 'practice item matches speaking foundation');
+  assert(practiceItem.match('/student') === false, 'practice item does not match /student');
 
-  const readingItem = findItem('/practice/pack-reading')!;
-  assert(readingItem.match('/practice/pack-reading') === true, 'reading item matches /practice/pack-reading');
-  assert(readingItem.match('/practice/pack-reading/step-2') === true, 'reading item matches /practice/pack-reading/step-2');
-  assert(readingItem.match('/practice/daily-reading') === true, 'reading item matches /practice/daily-reading');
-  assert(readingItem.match('/practice/listening') === false, 'reading item does not match /practice/listening');
-
-  const codemixItem = findItem('/practice/codemix')!;
-  assert(codemixItem.match('/practice/codemix') === true, 'codemix item matches /practice/codemix');
-  assert(codemixItem.match('/practice/listening') === false, 'codemix item does not match /practice/listening');
-
-  // Practice Hub direct access: /practice should not falsely highlight any specific subpath
-  assert(listeningItem.match('/practice') === false, '/practice does not match listening');
-  assert(readingItem.match('/practice') === false, '/practice does not match reading');
-  assert(codemixItem.match('/practice') === false, '/practice does not match codemix');
-
-  // /toeic subpaths
+  // /toeic subpaths (toeic, vstep, vnu-bac-3, sat-thu-toeic)
   const toeicItem = findItem('/toeic')!;
   assert(toeicItem.match('/toeic') === true, 'toeic item matches /toeic');
   assert(toeicItem.match('/toeic/part5/ref-1') === true, 'toeic item matches /toeic/part5/ref-1');
-  assert(toeicItem.match('/toeic/exam/full-1') === true, 'toeic item matches /toeic/exam/full-1');
+  assert(toeicItem.match('/vstep') === true, 'toeic item matches /vstep');
+  assert(toeicItem.match('/vstep/exam/mock') === true, 'toeic item matches /vstep/exam/mock');
+  assert(toeicItem.match('/vnu-bac-3') === true, 'toeic item matches /vnu-bac-3');
   assert(toeicItem.match('/practice') === false, 'toeic item does not match /practice');
 
-  // /vstep subpaths
-  const vstepItem = findItem('/vstep')!;
-  assert(vstepItem.match('/vstep') === true, 'vstep item matches /vstep');
-  assert(vstepItem.match('/vstep/exam/vstep-mock-01') === true, 'vstep item matches /vstep/exam/vstep-mock-01');
-  assert(vstepItem.match('/practice') === false, 'vstep item does not match /practice');
-  assert(vstepItem.match('/toeic') === false, 'vstep item does not match /toeic');
-
-  // /vnu-bac-3 subpaths
-  const vnuItem = findItem('/vnu-bac-3')!;
-  assert(vnuItem.match('/vnu-bac-3') === true, 'vnu item matches /vnu-bac-3');
-  assert(vnuItem.match('/vnu-bac-3/exam/ulis-sample-test-01') === true, 'vnu item matches /vnu-bac-3/exam/ulis-sample-test-01');
-  assert(vnuItem.match('/practice') === false, 'vnu item does not match /practice');
-  assert(vnuItem.match('/toeic') === false, 'vnu item does not match /toeic');
-
-  // Speaking & Games subpaths
-  const speakingFoundItem = findItem('/student/speaking/foundation')!;
-  assert(speakingFoundItem.match('/student/speaking/foundation') === true, 'speaking foundation matches /student/speaking/foundation');
-  assert(speakingFoundItem.match('/student/speaking/foundation/stage-0') === true, 'speaking foundation matches subpath');
-  assert(speakingFoundItem.match('/student/speaking') === true, 'speaking foundation matches /student/speaking');
-
-  const gamesItem = findItem('/practice/games')!;
-  assert(gamesItem.match('/practice/games') === true, 'games item matches /practice/games');
-  assert(gamesItem.match('/practice/games/speed') === true, 'games item matches /practice/games/speed');
-  assert(gamesItem.match('/student/speaking/foundation') === false, 'games item does not match speaking foundation');
-
-  // Referral subpaths
-  const referralItem = findItem('/student/referral')!;
-  assert(referralItem.match('/student/referral') === true, 'referral item matches /student/referral');
-  assert(referralItem.match('/referral') === true, 'referral item matches /referral alias');
-  assert(referralItem.match('/student') === false, 'referral item does not match /student');
-
-  // Vault subpaths
-  const dictItem = findItem('/dictionary')!;
-  assert(dictItem.match('/dictionary') === true, 'dict item matches /dictionary');
-  assert(dictItem.match('/dictionary/word/example') === true, 'dict item matches /dictionary/word/example');
-
+  // Vault / Library subpaths (library, dictionary, import)
   const libraryItem = findItem('/library')!;
   assert(libraryItem.match('/library') === true, 'library item matches /library');
-
-  const importItem = findItem('/import')!;
-  assert(importItem.match('/import') === true, 'import item matches /import');
+  assert(libraryItem.match('/dictionary') === true, 'library item matches /dictionary');
+  assert(libraryItem.match('/import') === true, 'library item matches /import');
+  assert(libraryItem.match('/practice') === false, 'library item does not match /practice');
 
   // ── 5. MOBILE DRAWER FILTERING LOGIC ──
   console.log('\n--- 5. Testing Mobile Drawer Deduplication ---');
@@ -208,40 +144,24 @@ async function runNavTests() {
     }))
     .filter((s) => s.items.length > 0);
 
-  assert(drawerSections.length === 5, `Mobile drawer preserves all 5 sections with remaining items, got ${drawerSections.length}`);
+  assert(drawerSections.length === 2, `Mobile drawer preserves 2 sections with remaining items, got ${drawerSections.length}`);
 
-  // Check section 1 in drawer
+  // Check section 0 in drawer (Grammar)
   assert(drawerSections[0].id === 'learn', 'Drawer section 0 is learn');
   assert(drawerSections[0].items.length === 1, `Drawer section 0 has 1 item, got ${drawerSections[0].items.length}`);
   assert(drawerSections[0].items[0].href === '/grammar', 'Drawer section 0 item is /grammar');
 
-  // Check section 2 in drawer
+  // Check section 1 in drawer (Practice & Exam)
   assert(drawerSections[1].id === 'practice', 'Drawer section 1 is practice');
-  assert(drawerSections[1].items.length === 5, `Drawer section 1 has 5 practice items, got ${drawerSections[1].items.length}`);
+  assert(drawerSections[1].items.length === 2, `Drawer section 1 has 2 items, got ${drawerSections[1].items.length}`);
+  assert(drawerSections[1].items[0].href === '/practice', 'Drawer section 1 item 0 is /practice');
+  assert(drawerSections[1].items[1].href === '/toeic', 'Drawer section 1 item 1 is /toeic');
 
-  // Check section 3 in drawer
-  assert(drawerSections[2].id === 'exam', 'Drawer section 2 is exam');
-  assert(drawerSections[2].items.length === 3, `Drawer section 2 has 3 items (/toeic, /vstep & /vnu-bac-3), got ${drawerSections[2].items.length}`);
-  assert(drawerSections[2].items[0].href === '/toeic', 'Drawer section 2 item 0 is /toeic');
-  assert(drawerSections[2].items[1].href === '/vstep', 'Drawer section 2 item 1 is /vstep');
-  assert(drawerSections[2].items[2].href === '/vnu-bac-3', 'Drawer section 2 item 2 is /vnu-bac-3');
-
-  // Check section 4 in drawer
-  assert(drawerSections[3].id === 'vault', 'Drawer section 3 is vault');
-  assert(drawerSections[3].items.length === 1, `Drawer section 3 has 1 item (/import), got ${drawerSections[3].items.length}`);
-  assert(drawerSections[3].items[0].href === '/import', 'Drawer section 3 item is /import');
-
-  // Check section 5 in drawer
-  assert(drawerSections[4].id === 'referral', 'Drawer section 4 is referral');
-  assert(drawerSections[4].items.length === 1, `Drawer section 4 has 1 item (/student/referral), got ${drawerSections[4].items.length}`);
-  assert(drawerSections[4].items[0].href === '/student/referral', 'Drawer section 4 item is /student/referral');
-
-  // Verify that the 5 bottom nav items are filtered out of drawer
+  // Verify that the bottom nav items are filtered out of drawer
   const drawerHrefs = drawerSections.flatMap((s) => s.items.map((i) => i.href));
   assert(!drawerHrefs.includes('/student'), 'Drawer does NOT contain /student (in bottom nav)');
   assert(!drawerHrefs.includes('/journey'), 'Drawer does NOT contain /journey (in bottom nav)');
   assert(!drawerHrefs.some((h) => h.startsWith('/review')), 'Drawer does NOT contain /review (in bottom nav)');
-  assert(!drawerHrefs.includes('/dictionary'), 'Drawer does NOT contain /dictionary (in bottom nav)');
   assert(!drawerHrefs.includes('/library'), 'Drawer does NOT contain /library (in bottom nav)');
 
   // ── 6. CLASSROOM ID PROPAGATION & SANITIZATION ──
@@ -311,9 +231,9 @@ async function runNavTests() {
   console.log('\n--- 8. Testing Edge Cases & Default Arguments ---');
   // buildStudentNavSections with undefined opts
   const defaultSections = buildStudentNavSections(undefined);
-  assert(defaultSections.length === 5, 'buildStudentNavSections(undefined) succeeds with 5 sections');
+  assert(defaultSections.length === 3, 'buildStudentNavSections(undefined) succeeds with 3 sections');
   const defaultItems = buildStudentNavItems(undefined);
-  assert(defaultItems.length === 16, 'buildStudentNavItems(undefined) succeeds with 16 items');
+  assert(defaultItems.length === 7, 'buildStudentNavItems(undefined) succeeds with 7 items');
 
   // Null classroomId fallback
   const nullClassSections = buildStudentNavSections({ classroomId: null });
@@ -348,7 +268,7 @@ async function runNavTests() {
   assert(b1Review.badge === 1, `Count 1 produces number 1, got ${b1Review.badge}`);
   assert(b1Grammar.badge === 1, `Grammar count 1 produces number 1, got ${b1Grammar.badge}`);
 
-  // Invariant: all 12 items have onboardingId
+  // Invariant: all items have onboardingId
   for (const item of items) {
     assert(
       typeof item.onboardingId === 'string' && item.onboardingId.length > 0,
@@ -356,10 +276,10 @@ async function runNavTests() {
     );
   }
 
-  // Invariant: footerDup is set ONLY on exactly the 5 bottom nav items
+  // Invariant: footerDup is set on bottom nav duplicate items
   const footerDupItems = items.filter((i) => i.footerDup === true);
-  assert(footerDupItems.length === 5, `Exactly 5 items have footerDup: true, got ${footerDupItems.length}`);
-  const expectedFooterDupHrefs = ['/student', '/journey', '/review', '/dictionary', '/library'];
+  assert(footerDupItems.length === 4, `Exactly 4 items have footerDup: true, got ${footerDupItems.length}`);
+  const expectedFooterDupHrefs = ['/student', '/journey', '/review', '/library'];
   for (const expectedHref of expectedFooterDupHrefs) {
     assert(
       footerDupItems.some((i) => i.href === expectedHref || (expectedHref === '/review' && i.href.startsWith('/review'))),
@@ -392,4 +312,3 @@ runNavTests().catch((err) => {
   console.error('Fatal error running tests:', err);
   process.exit(1);
 });
-

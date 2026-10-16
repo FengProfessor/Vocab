@@ -11,6 +11,17 @@ import { StudentShell } from '@/components/student/StudentShell';
 
 const MODES = [
   {
+    href: '/student/speaking/foundation',
+    emoji: '🎙️',
+    title: 'Luyện nói phản xạ · A0–C1',
+    desc: 'Luyện cơ miệng, phản xạ câu tự nhiên, sửa phát âm chuẩn xác cùng AI',
+    ring: 'border-rose-200 bg-rose-50/70 hover:border-rose-400 hover:bg-rose-100 dark:border-rose-800 dark:bg-rose-950/30',
+    badge: 'bg-rose-600',
+    text: 'text-rose-950 dark:text-rose-100',
+    sub: 'text-rose-800/80 dark:text-rose-300',
+    arrow: 'text-rose-500',
+  },
+  {
     href: '/practice/games',
     emoji: '🎮',
     title: 'Sân chơi tiếng Anh · 6 mini game',

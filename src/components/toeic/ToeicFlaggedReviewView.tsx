@@ -122,10 +122,10 @@ export function ToeicFlaggedReviewView({ onSwitchToPractice }: ToeicFlaggedRevie
   }, [records, filterStatus, searchQuery]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-5">
       {/* ── 1. HEADER & CONTROLS TOOLBAR ── */}
-      <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 sm:p-5 space-y-4 shadow-2xs">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-3.5">
+      <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3.5 sm:p-4 space-y-3.5 shadow-2xs">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-3">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
               <span className="flex h-7 w-7 items-center justify-center rounded-xs bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-800/80">
@@ -257,7 +257,7 @@ export function ToeicFlaggedReviewView({ onSwitchToPractice }: ToeicFlaggedRevie
           </div>
 
           {/* Search Input */}
-          <div className="relative w-full sm:w-64">
+          <div className="relative w-full sm:w-56">
             <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-slate-400" />
             <input
               type="text"

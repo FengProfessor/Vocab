@@ -455,15 +455,14 @@ export async function runTier1Tests(runner: TestRunner): Promise<void> {
       }
     });
 
-    runner.it('7.3: Verifies student-nav.ts structure accommodates speaking item', () => {
+    runner.it('7.3: Verifies student-nav.ts structure accommodates speaking item via practice hub', () => {
       const studentNavSections = buildStudentNavSections();
       const practiceSection = studentNavSections.find((s) => s.id === 'practice');
       expect(practiceSection).toBeDefined();
-      const speakingItem = practiceSection?.items.find((item) => item.href === '/student/speaking/foundation');
-      expect(speakingItem).toBeDefined();
-      expect(speakingItem?.label).toContain('Luyện nói');
-      expect(speakingItem?.onboardingId).toBe('speaking-foundation');
-      expect(String(speakingItem?.badge)).toContain('A0');
+      const practiceItem = practiceSection?.items.find((item) => item.href === '/practice');
+      expect(practiceItem).toBeDefined();
+      expect(practiceItem?.match('/student/speaking/foundation')).toBe(true);
+      expect(practiceItem?.match('/student/speaking')).toBe(true);
     });
 
     runner.it('7.4: Validates sequential stage progression logic (Stage 0 -> Stage 1 -> Stage 2 -> Stage 3)', () => {

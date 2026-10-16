@@ -4,18 +4,9 @@ import {
   Compass,
   RotateCcw,
   BookA,
-  Headphones,
-  BookOpen,
-  Languages,
-  Award,
-  ShieldCheck,
-  GraduationCap,
-  Search,
-  Library,
-  FileUp,
-  Mic,
-  Gift,
   Zap,
+  Award,
+  Library,
 } from 'lucide-react';
 
 export type StudentNavItem = {
@@ -107,129 +98,46 @@ export function buildStudentNavSections(opts?: {
     },
     {
       id: 'practice',
-      title: 'Kỹ năng thực hành',
+      title: 'Luyện tập & Khảo thí',
       items: [
         {
-          href: '/practice/games',
-          label: 'Phản xạ học thuật',
+          href: '/practice',
+          label: 'Trung tâm Luyện tập',
           icon: Zap,
-          badge: 'Speed',
-          match: (pathname) => pathname.startsWith('/practice/games'),
-          onboardingId: 'practice-games',
-        },
-        {
-          href: '/student/speaking/foundation',
-          label: 'Luyện nói phản xạ',
-          icon: Mic,
-          badge: 'A0–C1',
-          match: (pathname) => pathname.startsWith('/student/speaking'),
-          onboardingId: 'speaking-foundation',
-        },
-        {
-          href: '/practice/listening',
-          label: 'Luyện nghe Video',
-          icon: Headphones,
-          match: (pathname) => pathname.startsWith('/practice/listening'),
-          onboardingId: 'practice-listening',
-        },
-        {
-          href: '/practice/reading-library',
-          label: 'Thư viện bài đọc',
-          icon: Library,
-          badge: '588 bài',
           match: (pathname) =>
-            pathname.startsWith('/practice/reading-library') ||
-            pathname.startsWith('/practice/reading'),
-          onboardingId: 'practice-reading-library',
+            pathname === '/practice' ||
+            pathname.startsWith('/practice') ||
+            pathname.startsWith('/student/speaking'),
+          onboardingId: 'practice-hub',
         },
-        {
-          href: '/practice/pack-reading',
-          label: 'Luyện đọc hiểu',
-          icon: BookOpen,
-          match: (pathname) =>
-            pathname.startsWith('/practice/pack-reading') ||
-            pathname.startsWith('/practice/daily-reading'),
-          onboardingId: 'practice-reading',
-        },
-        {
-          href: '/practice/codemix',
-          label: 'Đặt câu song ngữ',
-          icon: Languages,
-          match: (pathname) => pathname.startsWith('/practice/codemix'),
-          onboardingId: 'practice-codemix',
-        },
-      ],
-    },
-    {
-      id: 'exam',
-      title: 'Khảo thí',
-      items: [
         {
           href: '/toeic',
-          label: 'Thi thử TOEIC',
+          label: 'Thi thử & Khảo thí',
           icon: Award,
-          badge: 'ETS 990',
-          match: (pathname) => pathname.startsWith('/toeic'),
+          match: (pathname) =>
+            pathname.startsWith('/toeic') ||
+            pathname.startsWith('/vstep') ||
+            pathname.startsWith('/vnu-bac-3') ||
+            pathname.startsWith('/thpt') ||
+            pathname.startsWith('/sat-thu-toeic'),
           onboardingId: 'toeic',
-        },
-        {
-          href: '/vstep',
-          label: 'Thi thử VSTEP',
-          icon: ShieldCheck,
-          badge: 'B1–C1',
-          match: (pathname) => pathname.startsWith('/vstep'),
-          onboardingId: 'vstep',
-        },
-        {
-          href: '/vnu-bac-3',
-          label: 'VNU Test Bậc 3',
-          icon: GraduationCap,
-          badge: 'ULIS B1',
-          match: (pathname) => pathname.startsWith('/vnu-bac-3'),
-          onboardingId: 'vnu-bac-3',
         },
       ],
     },
     {
       id: 'vault',
-      title: 'Tra cứu & Kho',
+      title: 'Kho & Tra cứu',
       items: [
-        {
-          href: '/dictionary',
-          label: 'Tra từ điển',
-          icon: Search,
-          footerDup: true,
-          match: (pathname) => pathname.startsWith('/dictionary'),
-          onboardingId: 'dictionary',
-        },
         {
           href: '/library',
-          label: 'Thư viện từ vựng',
+          label: 'Kho từ vựng & Tra cứu',
           icon: Library,
           footerDup: true,
-          match: (pathname) => pathname.startsWith('/library'),
+          match: (pathname) =>
+            pathname.startsWith('/library') ||
+            pathname.startsWith('/dictionary') ||
+            pathname.startsWith('/import'),
           onboardingId: 'library',
-        },
-        {
-          href: '/import',
-          label: 'Nhập danh sách riêng',
-          icon: FileUp,
-          match: (pathname) => pathname.startsWith('/import'),
-          onboardingId: 'import',
-        },
-      ],
-    },
-    {
-      id: 'referral',
-      title: 'Cộng đồng & Quà tặng',
-      items: [
-        {
-          href: '/student/referral',
-          label: 'Mời bạn học nhận VIP',
-          icon: Gift,
-          badge: '+7 ngày VIP',
-          match: (pathname) => pathname.startsWith('/student/referral') || pathname === '/referral',
-          onboardingId: 'referral-hub',
         },
       ],
     },

@@ -722,12 +722,12 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
       </header>
 
       {/* ── 3. MAIN CATALOG BODY ── */}
-      <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 space-y-6 min-w-0 max-w-full overflow-x-hidden">
+      <main className="mx-auto max-w-3xl px-3 sm:px-4 py-5 sm:py-6 space-y-5 min-w-0 overflow-x-hidden">
         {/* ── TAB 1: FULL TEST CATALOG ── */}
         {activeTab === 'full_test' && (
-          <div className="space-y-6 min-w-0 max-w-full">
+          <div className="space-y-5 min-w-0">
             {/* Filter & Search Bar */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3 min-w-0 max-w-full">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-2.5 sm:p-3 min-w-0">
               {/* Category Filter Pills */}
               <div className="flex flex-wrap items-center gap-1.5 min-w-0">
                 <span className="flex items-center gap-1 text-xs font-semibold text-slate-500 dark:text-slate-400 mr-1">
@@ -816,7 +816,7 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
             </div>
 
             {/* Results Counter & Layout Switcher */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 font-mono text-xs text-slate-500 dark:text-slate-400 min-w-0 max-w-full">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 font-mono text-xs text-slate-500 dark:text-slate-400 min-w-0">
               <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 min-w-0">
                 <span>Hiển thị <strong className="text-slate-900 dark:text-white tabular-nums">{displayedFullTests.length}</strong> đề thi phù hợp</span>
                 <span className="hidden xs:inline">•</span>
@@ -879,7 +879,7 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
 
             {/* View Mode 1: Compact List View (Default) */}
             {displayedFullTests.length > 0 && displayLayout === 'list' && (
-              <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 divide-y divide-slate-100 dark:divide-slate-800/80 shadow-xs min-w-0 max-w-full">
+              <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 divide-y divide-slate-100 dark:divide-slate-800/80 shadow-xs min-w-0">
                 {displayedFullTests.map((test, index) => {
                   const meta = getTestMeta(test, index);
                   const status = userExamStatus[test.id];
@@ -887,7 +887,7 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                   return (
                     <div
                       key={test.id}
-                      className="p-3.5 sm:p-4 hover:bg-slate-50/90 dark:hover:bg-slate-850/60 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4 min-w-0 max-w-full overflow-hidden"
+                      className="p-3.5 sm:p-4 hover:bg-slate-50/90 dark:hover:bg-slate-850/60 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4 min-w-0 overflow-hidden"
                     >
                       {/* Left: Identifier, Title, Badges & Meta Specs */}
                       <div className="space-y-1.5 min-w-0 flex-1">
@@ -978,7 +978,7 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
 
             {/* View Mode 2: Enhanced Grid View */}
             {displayedFullTests.length > 0 && displayLayout === 'grid' && (
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-3.5 sm:grid-cols-2">
                 {displayedFullTests.map((test, index) => {
                   const meta = getTestMeta(test, index);
                   const status = userExamStatus[test.id];
