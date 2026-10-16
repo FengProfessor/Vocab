@@ -1215,3 +1215,22 @@
   - Workflow GitHub Actions `#38773788814`: 3 jobs (Quality gate, Migration, Deploy to Ubuntu Server) đều PASS.
   - Runtime production: `lingopro.service` ổn định với PID 615914, swap atomic candidate an toàn.
   - Live HTTPS probes: `/api/health` 200 OK, `/toeic` 200 OK, `/banana-vocab-gemini.jpg` 200 OK.
+
+### Release Tinh Gọn Sidebar Desktop & Căn Giữa Đồng Trục Tab 1, Tab 3 Khảo Thí TOEIC (2026-10-16)
+
+- **Canonical run & Commit**: [canonical run 38856536167](https://github.com/FengProfessor/Vocab/actions/runs/38856536167) SUCCESS, SHA `3ddb7979936e1796e4497bc676ff46b760f9911c`; quality gate PASS, migration PASS, deploy PASS (candidate HEALTHY, HTTP 200).
+- **Phạm vi & Tính năng triển khai**:
+  - **Căn giữa đồng trục Tab 1 (Đề Thi Full Test) & Tab 3 (Câu Cần Luyện Lại)**:
+    - Loại bỏ xung đột `max-w-full`, quy chuẩn container `<main>` về `max-w-3xl mx-auto` (~768px), đồng bộ trục trung tâm 100% với dải 3 Tab ở trên và Tab 2 ở giữa.
+    - **Tab 1 (`?tab=full_test`)**: Khắc phục dãn lề 1280px; nén cụm 6 bộ lọc và thanh tìm kiếm về cùng một tầm mắt; thông tin đề thi và 2 nút CTA `[Luyện đề (Có giải thích)]` / `[Thi thử (120p)]` nằm kề cận liền mạch, xóa bỏ hoàn toàn khoảng trống chết ở giữa. Chế độ lưới thẻ co về 2 cột (`sm:grid-cols-2`) cân đối.
+    - **Tab 3 (`?tab=review_flagged`)**: Banner chế độ ôn luyện, dải nút bộ lọc trạng thái và danh sách các thẻ câu hỏi `ReviewQuestionCard` co về 768px, đạt khoảng cách đọc văn bản tối ưu (optimal reading length) cho câu hỏi trắc nghiệm, audio player và ô ghi chú cá nhân.
+  - **Tinh gọn Sidebar Desktop & Tối ưu chân trang tài khoản PRO**:
+    - Tinh giản Sidebar máy tính từ 16 mục rải rác xuống còn 7 mục cốt lõi theo mô hình Hub-and-Spoke.
+    - Loại bỏ 8 badge tĩnh gây nhiễu thị giác (`Speed`, `A0–C1`, `588 bài`, `ETS 990`).
+    - Tự động ẩn thẻ quảng cáo Nâng cấp Pro khi tài khoản đã sở hữu gói trả phí (gói Pro VIP).
+    - Bổ sung thẻ Luyện nói phản xạ AI vào Practice Hub (`/practice`).
+- **Kiểm chứng chất lượng & Production**:
+  - `npx tsc --noEmit`: PASS (0 lỗi compile).
+  - `npx eslint`: PASS (0 error).
+  - Workflow GitHub Actions `#38856536167`: Cả 3 jobs (Quality gate, Migration, Deploy to Ubuntu Server) đều PASS.
+  - Live HTTPS probes: `/api/health` 200 OK, `/toeic` 200 OK, `/toeic?tab=full_test` 200 OK, `/toeic?tab=review_flagged` 200 OK, `/practice` 200 OK, `/journey` 200 OK.
