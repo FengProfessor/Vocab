@@ -8,22 +8,29 @@
 ### 1. Thông tin chung
 * **Actor / Role thực hiện:**
   * `Student` (Học viên).
-* **Mô tả tóm tắt:** Quản lý cơ chế duy trì thói quen học tập hàng ngày qua Chuỗi ngày liên tục (Daily Streaks), tích lũy điểm kinh nghiệm (XP), thăng cấp độ danh hiệu (Level/Badges) và tham gia các chiến dịch Thử thách học tập (Challenges) có bảng xếp hạng (Leaderboard) theo mùa.
+  * `Cron System` (Hệ thống tác vụ định kỳ tổng kết ngày).
+* **Mô tả tóm tắt:** Quản lý cơ chế duy trì động lực học tập hàng ngày qua Chuỗi ngày liên tục (Daily Streaks tính theo múi giờ chuẩn `Asia/Ho_Chi_Minh`), tích lũy điểm kinh nghiệm (XP) qua Stored Procedure `award_xp`, thăng cấp độ danh hiệu (11 cấp từ `Rookie` đến `Legend`, hệ thống huy hiệu `BADGES`) và tham gia các chiến dịch Thử thách học tập (`/api/challenges`) có bảng xếp hạng người tham gia.
 * **Tiền điều kiện (Pre-conditions):**
   * Học viên đã đăng nhập tài khoản.
 * **Hậu điều kiện (Post-conditions):**
-  * Cập nhật chỉ số `streak_count`, `last_study_date`, `xp` trong `profiles`.
-  * Nhật ký thử thách được lưu trong `challenge_daily_log`.
+  * Điểm kinh nghiệm (`total_xp`) và chuỗi ngày (`current_streak`, `longest_streak`, `last_active_date`) được cập nhật nguyên tử qua RPC `award_xp`.
+  * Tiến độ tham gia thử thách được ghi nhận vào `challenge_participants` và `challenge_daily_log`.
 
 ---
 
-### 2. Danh sách API liên quan
-| Phương thức | Endpoint | Chức năng | Quyền hạn |
+### 2. Danh sách API & Thư viện Nghiệp vụ liên quan
+| Phương thức | Endpoint / RPC | Chức năng | Quyền hạn |
 |---|---|---|---|
-| `POST` | `/api/challenge/join` | Học viên tham gia vào một chiến dịch thử thách | User đã đăng nhập |
-| `POST` | `/api/challenge/log` | Ghi nhận hoạt động học hàng ngày cho thử thách | User đã đăng nhập |
-| `GET` | `/api/challenge/leaderboard?challengeId=...` | Lấy bảng xếp hạng Top học viên chăm chỉ nhất | User đã đăng nhập |
-| `GET` | `/api/profile/gamification` | Lấy thông tin Streak, XP, Cấp độ và Danh hiệu | User đã đăng nhập |
+| `RPC` | `supabase.rpc('award_xp', { p_user_id, p_xp })` | Stored Procedure cộng điểm XP nguyên tử và cập nhật chuỗi ngày học (`current_streak`, `last_active_date`) trên Server DB | Backend Service Client |
+| `GET` | `/api/student/stats` & `/api/profile` | Lấy thông tin XP, Level, Huy hiệu và chuỗi Streak hiển thị (`resolveDisplayStreak` & `consecutiveStudyStreak` từ `dailyActivity`) | User đã đăng nhập |
+| `GET` / `POST` | `/api/challenges` & `GET /api/challenges/widget` | Lấy danh sách các chiến dịch thử thách đang mở (`GET`) hoặc tạo chiến dịch thử thách mới (`POST`) | Public (`GET`) / Teacher (`POST`) |
+| `GET` / `PATCH` | `/api/challenges/[id]` | Xem thông tin chi tiết thể lệ (`GET`) hoặc cập nhật cấu hình chiến dịch thử thách (`PATCH`) | Public (`GET`) / Teacher (`PATCH`) |
+| `POST` | `/api/challenges/[id]/join` | Học viên đăng ký tham gia thử thách (kiểm tra thời hạn, sĩ số tối đa, tạo đơn cọc `order_kind = 'challenge'` và bản ghi `challenge_participants`) | User đã đăng nhập |
+| `GET` | `/api/challenges/[id]/progress` | Lấy tiến độ cá nhân hàng ngày (`challenge_daily_log`) và chỉ số học tập trực tiếp trong ngày (`aggregateDailyMetrics`) | User đã đăng nhập |
+| `GET` | `/api/challenges/[id]/participants` | Lấy danh sách học viên tham gia và bảng xếp hạng (Leaderboard) của thử thách | Public / User |
+| `POST` | `/api/challenges/check-daily` | Cronjob tổng kết nhật ký ngày (`processChallengeDayEnd`) và hoàn tất thử thách khi hết hạn (`completeChallenge`) | Cron Secret Token |
+| `POST` | `/api/challenge/lead` | Thu thập thông tin đăng ký tư vấn tại `/challenge-landing` (lưu vào `data/campaign-leads/leads-challenge-landing.jsonl` và `pilot_leads`) | Public (Rate limit 10/min/IP) |
+| `POST` | `/api/auth/data/rpc/claim_onboarding_xp` | Nhận thưởng XP khởi đầu sau khi hoàn tất khảo sát Onboarding | User đã đăng nhập |
 
 ---
 
@@ -32,117 +39,128 @@
 #### 3.1 Sơ đồ luồng tổng quan Gamification & Thử thách (Activity Flowchart)
 ```mermaid
 flowchart TD
-    Start([Học viên hoàn thành bài học]) --> TriggerGame[Gọi recordStudyActivity: userId, activity]
-    TriggerGame --> GetProfile[(Đọc profiles: streak_count, last_study_date, xp)]
-    GetProfile --> DateCheck{Khoảng cách so với<br/>last_study_date?}
+    Start([Học viên hoàn thành hoạt động học tập]) --> TriggerXP[Backend gọi RPC award_xp: p_user_id, p_xp]
+    TriggerXP --> AtomicDB[(Stored Procedure award_xp:<br/>Cộng total_xp & Cập nhật current_streak, last_active_date)]
     
-    %% Xử lý Streak
-    DateCheck -->|Cùng ngày: diff = 0| KeepStreak[Giữ nguyên streak_count]
-    DateCheck -->|Hôm sau: diff = 1| IncStreak[Tăng streak_count + 1<br/>Cập nhật last_study_date = TODAY]
-    DateCheck -->|Bỏ lỡ: diff > 1| StreakBroken{Có Streak Freeze<br/>hoặc Gói Pro VIP?}
-    StreakBroken -->|Có bảo vệ| SaveStreak[Kích hoạt bù ngày & Bảo toàn Streak]
-    StreakBroken -->|Không có| ResetStreak[Reset streak_count = 1<br/>Cập nhật last_study_date = TODAY]
-    
-    KeepStreak --> AddXP[Cộng dồn XP theo độ khó bài]
-    IncStreak --> AddXP
-    SaveStreak --> AddXP
-    ResetStreak --> AddXP
-    
-    AddXP --> LevelCheck{Tổng XP vượt ngưỡng<br/>cấp độ tiếp theo?}
-    LevelCheck -->|Vượt| LevelUp[Thăng hạng Level + Cấp huy hiệu mới]
-    LevelCheck -->|Chưa vượt| SaveGameDB[(UPDATE profiles: streak, xp, level)]
-    LevelUp --> SaveGameDB
+    %% Tính toán hiển thị Streak & Level
+    AtomicDB --> BuildActivity[buildDailyActivity: Quy đổi timestamps sang lịch VN<br/>APP_TIMEZONE = 'Asia/Ho_Chi_Minh']
+    BuildActivity --> CalcStreak[consecutiveStudyStreak & resolveDisplayStreak:<br/>Đếm chuỗi ngày liên tiếp có count > 0]
+    CalcStreak --> CalcLevel[xpToLevel & levelProgress:<br/>Xác định cấp độ Lv1 Rookie -> Lv11 Legend]
+    CalcLevel --> CheckBadges[earnedBadges: Kiểm tra 16 huy hiệu Streak / XP / Words / Journey]
     
     %% Đồng bộ Thử thách & Leaderboard
-    SaveGameDB --> CheckChallengePart{Có đang tham gia<br/>Thử thách Challenge?}
-    CheckChallengePart -->|Không| ShowStreakEffect[Hiệu ứng ngọn lửa Streak 🔥 + Thưởng XP]
-    CheckChallengePart -->|Có| LogChallenge[(INSERT/UPDATE challenge_daily_log)]
-    LogChallenge --> ReRank[Tính lại xếp hạng Leaderboard]
-    ReRank --> ShowStreakEffect
+    CheckBadges --> CheckChallengePart{Có đang tham gia<br/>Thử thách /api/challenges?}
+    CheckChallengePart -->|Không| ShowStreakEffect[Hiển thị ngọn lửa Streak 🔥 + Cấp độ & Huy hiệu]
+    CheckChallengePart -->|Có| LiveMetrics[GET /api/challenges/id/progress:<br/>aggregateDailyMetrics tính chỉ số trong ngày]
+    LiveMetrics --> CronEndDay[Cron POST /api/challenges/check-daily:<br/>processChallengeDayEnd ghi challenge_daily_log]
+    CronEndDay --> LeaderboardAPI[GET /api/challenges/id/participants:<br/>Cập nhật thứ hạng trên Bảng xếp hạng]
+    LeaderboardAPI --> ShowStreakEffect
 ```
 
-#### Ca sử dụng 1: Hoàn thành bài học & Duy trì chuỗi Streak (UC-GAME-08.1)
+#### Ca sử dụng 1: Hoàn thành bài học, Cộng XP qua RPC & Tính chuỗi Streak (UC-GAME-08.1)
 ```mermaid
 sequenceDiagram
     autonumber
     actor Student as Học viên
-    participant UI as Giao diện Học tập
+    participant UI as Giao diện Học tập & Dashboard
+    participant Route as API Nghiệp vụ (/api/words/srs, /api/roadmap/progress, ...)
+    participant DB as Supabase DB (RPC award_xp)
     participant GameLib as gamification.ts
-    participant DB as Supabase DB
 
-    Student->>UI: Hoàn thành bài học từ vựng / Làm bài quiz
-    UI->>GameLib: recordStudyActivity(userId, activityType)
-    GameLib->>DB: Lấy last_study_date và streak_count hiện tại của user
-    DB-->>GameLib: { last_study_date: '2026-10-14', streak_count: 5 }
+    Student->>UI: Hoàn thành lượt ôn tập FSRS / Vượt trạm Roadmap / Làm Quiz
+    UI->>Route: Gửi kết quả hoàn thành bài học
+    Route->>DB: supabase.rpc('award_xp', { p_user_id: userId, p_xp: earnedXP })
+    Note over DB: Thực thi nguyên tử trong Database:<br/>- Cộng dồn total_xp<br/>- So sánh last_active_date để giữ/tăng/reset current_streak<br/>- Cập nhật longest_streak
+    DB-->>Route: Hoàn tất cập nhật XP & Streak
+    Route-->>UI: Trả về xpAwarded
     
-    alt Đã học hôm nay rồi (cùng ngày)
-        GameLib->>GameLib: Giữ nguyên streak_count, chỉ cộng thêm XP
-    else Học vào ngày hôm sau (cách 1 ngày)
-        GameLib->>GameLib: Tăng streak_count = 6, cập nhật last_study_date = TODAY
-    else Bỏ lỡ > 1 ngày (đứt streak)
-        GameLib->>GameLib: Reset streak_count = 1, cập nhật last_study_date = TODAY
-    end
-    
-    GameLib->>DB: UPDATE profiles SET streak_count = newStreak, xp = xp + earnedXP
-    GameLib-->>UI: Kết quả: { streak: 6, xpGained: 20, isNewStreak: true }
-    UI->>Student: Popup ngọn lửa Streak rực cháy 🔥 + Hiệu ứng pháo hoa
+    UI->>GameLib: buildDailyActivity(timestamps, 30) theo múi giờ Asia/Ho_Chi_Minh
+    GameLib->>GameLib: consecutiveStudyStreak(dailyActivity) & resolveDisplayStreak(...)
+    GameLib->>GameLib: levelProgress(totalXp) & earnedBadges(...)
+    GameLib-->>UI: Chuỗi Streak chuẩn xác, Cấp độ hiện tại (Rookie..Legend) & Danh sách Badges
+    UI->>Student: Hiển thị ngọn lửa Streak 🔥, thanh tiến trình Level & Huy hiệu đạt được
 ```
 
-1. **Bước 1 (Student):** Học viên hoàn thành bất kỳ một hoạt động học tập nào trong ngày (ví dụ: hoàn thành 1 lượt Flashcard, làm xong 1 bài nghe TOEIC hoặc hoàn tất 1 Unit lộ trình).
-2. **Bước 2 (Frontend/Backend):** Kích hoạt hàm ghi nhận hoạt động `recordStudyActivity(userId, activityType)`.
-3. **Bước 3 (Backend):** Module `gamification.ts` lấy ngày học gần nhất (`last_study_date`) và số chuỗi ngày hiện tại (`streak_count`) từ bảng `profiles`:
-   * **Trường hợp A (Cùng ngày):** Học viên đã học trước đó trong ngày hôm nay $\rightarrow$ Giữ nguyên `streak_count`, chỉ cộng dồn điểm XP nhận được.
-   * **Trường hợp B (Ngày tiếp theo liên tiếp):** Ngày học gần nhất là ngày hôm qua $\rightarrow$ Tăng chuỗi ngày: `streak_count = streak_count + 1`, cập nhật `last_study_date = TODAY`.
-4. **Bước 4 (Backend):** Tính toán cộng điểm kinh nghiệm XP dựa theo độ khó của bài học (ví dụ: +15 XP cho Flashcard, +50 XP cho bài thi thử).
-5. **Bước 5 (Backend):** Kiểm tra điều kiện thăng cấp độ (Level Up): Nếu tổng XP vượt ngưỡng level tiếp theo, cập nhật danh hiệu mới.
-6. **Bước 6 (Frontend):** Hiển thị hoạt ảnh ngọn lửa Streak bùng cháy kèm thông báo số ngày học liên tiếp và hiệu ứng âm thanh cổ vũ tích cực.
+1. **Bước 1 (Student):** Học viên hoàn thành một hoạt động học tập (ví dụ: chấm thẻ FSRS qua `/api/words/srs` nhận 2–15 XP, hoàn thành bước lộ trình qua `/api/roadmap/progress` nhận 15–45 XP, hoặc lưu kết quả quiz qua `/api/quiz/save`).
+2. **Bước 2 (Backend -> Supabase RPC):** Tuyến API xử lý trên server gọi trực tiếp **Supabase Stored Procedure `award_xp({ p_user_id, p_xp })`** thay vì để client tự cập nhật bảng `profiles`, nhằm ngăn chặn hoàn toàn lỗi race condition và hành vi gian lận điểm số từ phía client.
+3. **Bước 3 (Database):** Stored Procedure `award_xp` cộng dồn `total_xp` và đối chiếu `last_active_date` để cập nhật `current_streak` và `longest_streak`.
+4. **Bước 4 (Backend/Frontend - Chuẩn hóa hiển thị Streak):** Khi tải trang thống kê hoặc hồ sơ học viên, module `src/lib/gamification.ts` thực hiện:
+   * Gọi `buildDailyActivity(timestamps, 30)` để quy đổi toàn bộ lịch sử hoạt động sang khóa ngày `YYYY-MM-DD` theo múi giờ Việt Nam (`APP_TIMEZONE = 'Asia/Ho_Chi_Minh'`).
+   * Gọi hàm hồi quy `consecutiveStudyStreak(dailyActivity)` và `resolveDisplayStreak()` để đếm lùi số ngày học liên tiếp từ hôm nay (có cơ chế ân hạn nếu hôm nay chưa học nhưng hôm qua đã học; dừng ngay khi gặp ngày `count === 0`).
+5. **Bước 5 (Frontend):** Hàm `levelProgress(totalXp)` ánh xạ tổng XP sang 11 cấp bậc (`Rookie` $\rightarrow$ `Legend`) và hàm `earnedBadges()` mở khóa các huy hiệu tương ứng (Streak 3/7/30 ngày, 100/500/2000 XP, 10/50/100 từ thành thạo, hoàn thành cấp độ A0–B2).
 
 #### Ca sử dụng 2: Tham gia Thử thách & Đua top Bảng xếp hạng (UC-GAME-08.2)
 ```mermaid
 sequenceDiagram
     autonumber
     actor Student as Học viên
-    participant ChallengeUI as Trang Thử thách (/challenge)
-    participant API as /api/challenge
-    participant ChallengeLib as challenge.ts
-    participant DB as Database
+    participant ChallengeUI as Giao diện Thử thách (/challenge)
+    participant JoinAPI as POST /api/challenges/[id]/join
+    participant ProgAPI as GET /api/challenges/[id]/progress
+    participant PartAPI as GET /api/challenges/[id]/participants
+    participant CronAPI as POST /api/challenges/check-daily
+    participant DB as Supabase DB
 
-    Student->>ChallengeUI: Xem danh sách: "Thử thách 21 ngày Chinh phục 600 từ vựng"
-    Student->>ChallengeUI: Bấm "Tham gia thử thách"
-    ChallengeUI->>API: POST /api/challenge/join { challengeId }
-    API->>DB: INSERT into challenge_participants (challenge_id, user_id)
-    API-->>ChallengeUI: Đã tham gia thành công
+    Student->>ChallengeUI: Xem danh sách sự kiện từ GET /api/challenges
+    Student->>ChallengeUI: Chọn thử thách & Bấm "Tham gia thử thách"
+    ChallengeUI->>JoinAPI: POST /api/challenges/[id]/join
+    JoinAPI->>DB: Kiểm tra status='open', thời hạn đăng ký & max_participants
+    JoinAPI->>DB: Tạo đơn cọc orders (order_kind='challenge') & INSERT challenge_participants
+    JoinAPI-->>ChallengeUI: { success: true, order, participant, qrUrl }
     
-    Note over Student,ChallengeUI: Hàng ngày học sinh hoàn thành chỉ tiêu học từ
-    ChallengeUI->>API: POST /api/challenge/log { wordsCount }
-    API->>ChallengeLib: Cập nhật nhật ký ngày vào challenge_daily_log
-    ChallengeLib->>DB: Tính toán lại thứ hạng trên bảng tổng sắp
+    Note over Student,ChallengeUI: Hàng ngày học viên học từ vựng và làm bài trên hệ thống
+    Student->>ChallengeUI: Mở bảng theo dõi tiến độ thử thách
+    ChallengeUI->>ProgAPI: GET /api/challenges/[id]/progress
+    ProgAPI->>DB: Đọc challenge_daily_log + Gọi aggregateDailyMetrics(supabase, userId, today)
+    ProgAPI-->>ChallengeUI: Trả về participant, dailyLogs & liveMetrics hôm nay
     
-    ChallengeUI->>API: GET /api/challenge/leaderboard
-    API-->>ChallengeUI: Danh sách Top 50 học viên tích cực nhất
-    ChallengeUI->>Student: Hiển thị thứ hạng của học viên và đối thủ cạnh tranh
+    CronAPI->>DB: Cuối ngày: processChallengeDayEnd() ghi nhận challenge_daily_log & completeChallenge()
+    
+    ChallengeUI->>PartAPI: GET /api/challenges/[id]/participants
+    PartAPI-->>ChallengeUI: Danh sách người tham gia & Thứ hạng Leaderboard
+    ChallengeUI->>Student: Hiển thị vị trí xếp hạng và tiến độ hoàn thành thử thách
 ```
 
-1. **Bước 1 (Student):** Học viên truy cập `/challenge`, duyệt qua các sự kiện đang diễn ra (ví dụ: *"Thử thách 21 ngày Chinh phục 600 từ vựng"*).
-2. **Bước 2 (Student):** Bấm nút **"Tham gia thử thách"**.
-3. **Bước 3 (Frontend):** Gửi `POST /api/challenge/join` với `{ challengeId }`.
-4. **Bước 4 (Backend):** Lưu thông tin vào bảng `challenge_participants` với `current_streak = 0`, `is_completed = false`.
-5. **Bước 5 (Student):** Mỗi ngày học viên vào học, hệ thống tự động ghi số lượng từ học được vào `challenge_daily_log`.
-6. **Bước 6 (Frontend):** Gọi `GET /api/challenge/leaderboard` để tải bảng tổng sắp:
-   * Backend sắp xếp danh sách học viên theo tổng số từ đã học và chuỗi ngày duy trì trong sự kiện.
-7. **Bước 7 (Frontend):** Hiển thị Top 1-3 với huy hiệu Vàng, Bạc, Đồng và vị trí thứ hạng cụ thể của chính học viên.
-8. **Bước 8 (Student):** Khi duy trì đủ số ngày yêu cầu (ví dụ: 21 ngày), hệ thống tự động đánh dấu hoàn thành và cấp huy hiệu chứng nhận đặc biệt trên trang cá nhân.
+1. **Bước 1 (Student):** Học viên truy cập trang thử thách, hệ thống gọi `GET /api/challenges` để hiển thị các chiến dịch đang mở đăng ký hoặc đang diễn ra.
+2. **Bước 2 (Student):** Học viên chọn một chiến dịch và bấm **"Tham gia thử thách"**.
+3. **Bước 3 (Frontend -> Backend):** Gửi `POST /api/challenges/[id]/join`. Server kiểm tra chiến dịch đang ở trạng thái `open`, trong khung giờ `registration_opens_at` – `registration_closes_at`, chưa vượt quá `max_participants` và học viên chưa đăng ký trùng.
+4. **Bước 4 (Backend):** Khởi tạo đơn hàng đặt cọc cam kết (`order_kind = 'challenge'`) cùng bản ghi trong bảng `challenge_participants` và trả về mã QR thanh toán cọc (`qrUrl`).
+5. **Bước 5 (Student & Frontend):** Trong suốt thời gian diễn ra thử thách, học viên theo dõi tiến độ cá nhân qua `GET /api/challenges/[id]/progress`. Tuyến API này kết hợp dữ liệu lịch sử từ `challenge_daily_log` và chỉ số học tập thời gian thực trong ngày hôm đó qua hàm `aggregateDailyMetrics(supabase, userId, today)`.
+6. **Bước 6 (Cron System):** Hàng ngày, hệ thống thực thi `POST /api/challenges/check-daily` (được bảo vệ bởi `assertCronAuthorized`) để gọi `processChallengeDayEnd()` chốt sổ `challenge_daily_log` cho từng học viên và gọi `completeChallenge()` khi chiến dịch kết thúc (`now > ends_at`).
+7. **Bước 7 (Frontend):** Gọi `GET /api/challenges/[id]/participants` để hiển thị danh sách bảng xếp hạng các học viên tham gia thử thách.
 
 ---
 
 ### 4. Kịch bản ngoại lệ (Alternative & Exception Flows)
 
 * **E1: Bị gián đoạn chuỗi ngày học (Đứt Streak)**
-  * *Tại Bước 3 của UC-GAME-08.1:* Học viên không vào học ngày hôm qua (khoảng cách giữa ngày học gần nhất và hôm nay $> 1$ ngày).
-  * *Xử lý:* `streak_count` bị reset về `1`. Nếu học viên có vật phẩm "Bảo vệ Streak" (Streak Freeze) hoặc có gói Pro VIP, hệ thống sẽ kích hoạt tự động bù ngày và bảo lưu chuỗi ngày hiện tại cho học viên.
-* **E2: Học viên tham gia thử thách đã kết thúc thời hạn**
-  * *Tại Bước 3 của UC-GAME-08.2:* Chiến dịch thử thách đã quá ngày kết thúc (`end_date < NOW()`).
-  * *Xử lý:* Backend từ chối tham gia, trả về HTTP 400: *"Thử thách này đã kết thúc thời gian đăng ký."* Frontend hiển thị danh sách các thử thách mới sắp khởi tranh.
-* **E3: Lệch múi giờ giữa client và server (Timezone Handling)**
-  * *Tại Bước 3 của UC-GAME-08.1:* Học viên học vào lúc 23:55 hoặc sống ở nước ngoài lệch múi giờ.
-  * *Xử lý:* Hệ thống chuẩn hóa việc tính mốc ngày theo múi giờ địa phương của người dùng (mặc định GMT+7 - `Asia/Ho_Chi_Minh`), đảm bảo không bị tính nhầm sang ngày mới trước nửa đêm.
+  * *Tại Bước 4 của UC-GAME-08.1:* Học viên bỏ lỡ cả ngày hôm qua và hôm nay chưa học (`lastActiveDate` cũ hơn ngày hôm qua theo lịch `Asia/Ho_Chi_Minh`).
+  * *Xử lý:* Hàm `effectiveCurrentStreak` và `consecutiveStudyStreak` trả về `0` (chuỗi đã gãy, không cộng dồn các ngày học rải rác). Khi học viên hoàn thành bài học mới hôm nay, chuỗi Streak bắt đầu lại từ `1`.
+* **E2: Học viên đăng ký thử thách đã đóng hoặc đủ chỗ**
+  * *Tại Bước 3 của UC-GAME-08.2:* Chiến dịch có `status !== 'open'`, đã quá `registration_closes_at`, hoặc số người tham gia đã chạm ngưỡng `max_participants`.
+  * *Xử lý:* Tuyến `POST /api/challenges/[id]/join` từ chối yêu cầu và trả về thông báo lỗi tương ứng (*"Đã hết thời gian đăng ký"* hoặc *"Đã đủ số lượng người tham gia tối đa"*).
+* **E3: Lệch múi giờ giữa Server UTC và người dùng Việt Nam (Timezone Normalization)**
+  * *Tại Bước 4 của UC-GAME-08.1 & Bước 6 của UC-GAME-08.2:* Học viên học vào khung giờ 23:00–23:59 giờ Việt Nam (tương ứng 16:00–16:59 UTC).
+  * *Xử lý:* Toàn bộ các hàm tính ngày (`dateKeyInTimeZone`, `buildDailyActivity`, `aggregateDailyMetrics`) đều ép chuẩn múi giờ `APP_TIMEZONE = 'Asia/Ho_Chi_Minh'`, đảm bảo hoạt động của học viên luôn được ghi nhận chính xác vào đúng ngày lịch Việt Nam.
+
+---
+
+### 5. Điểm hạn chế, Rủi ro & Nút thắt trong Luồng hiện tại (Current Limitations & Architectural Bottlenecks)
+
+1. **Lỗi Kép làm gãy hoàn toàn luồng thanh toán & kích hoạt Thử thách qua Webhook (`supabase/migrations/20260710_atomic_paid_order_confirmation.sql` dòng 125, `src/app/api/challenges/[id]/join/route.ts` dòng 55–78 & `src/app/api/billing/webhook/route.ts` dòng 285–292):**
+   * *Hiện trạng:*
+     * **Lỗi tầng 1 (RPC Exception):** Khi Webhook gọi `confirmOrder()`, Stored Procedure `confirm_paid_order` chỉ hỗ trợ `order_kind IN ('individual', 'group')` và ném thẳng ngoại lệ `raise exception 'Unsupported order kind: challenge'`, làm Webhook dừng ngay lập tức với lỗi 500 trước khi chạm tới đoạn mã kích hoạt thử thách!
+     * **Lỗi tầng 2 (Thiếu `order_id`):** Ngay cả khi bỏ qua lỗi RPC, tại `POST /api/challenges/[id]/join`, hệ thống thực hiện `INSERT INTO orders` rồi `INSERT INTO challenge_participants` nhưng **không truyền trường `order_id: order.id`** vào `challenge_participants`. Trong khi đó, `/api/billing/webhook` (dòng 288) lại tìm người tham gia bằng `.from('challenge_participants').update({ deposit_status: 'paid', status: 'active' }).eq('order_id', order.id)`.
+   * *Hệ quả:* Không một đơn đặt cọc thử thách nào (`order_kind = 'challenge'`) có thể được xác nhận tự động; học viên chuyển khoản xong vẫn bị kẹt vĩnh viễn ở `deposit_status: 'pending', status: 'registered'`.
+2. **Chặn nhầm tài khoản Admin tạo/sửa Thử thách & Cho phép Giáo viên sửa Thử thách của người khác (`src/app/api/challenges/route.ts` dòng 54 & `src/app/api/challenges/[id]/route.ts` dòng 62):**
+   * *Hiện trạng:* Cả `POST /api/challenges` lẫn `PATCH /api/challenges/[id]` đều kiểm tra cứng `if (profile?.role !== 'teacher') return forbidden('Teacher access required')`, từ chối cả tài khoản `role === 'admin'`. Đồng thời, `PATCH /api/challenges/[id]` không kiểm tra `challenge.created_by === auth.userId`.
+   * *Hệ quả:* Quản trị viên (`admin`) không thể tạo hoặc cập nhật chiến dịch thử thách, trong khi bất kỳ tài khoản `teacher` nào cũng có thể chỉnh sửa trái phép thể lệ và tiền cọc của chiến dịch do người khác tạo.
+3. **Đếm cả các bản ghi chưa đóng cọc (`pending`) vào giới hạn sĩ số `max_participants` & Thiếu nguồn dữ liệu trong `aggregateDailyMetrics` (`src/app/api/challenges/[id]/join/route.ts` dòng 35–45 & `src/lib/challenge.ts` dòng 130–145):**
+   * *Hiện trạng:*
+     * Câu lệnh kiểm tra `max_participants` đếm toàn bộ dòng trong `challenge_participants` mà không lọc theo `deposit_status = 'paid'` hay `status = 'active'`.
+     * Hàm `aggregateDailyMetrics` (`src/lib/challenge.ts` dòng 130–145) chỉ đếm `reading_sessions` và `listening_sessions` từ bảng `user_toeic_question_history`, bỏ qua hoàn toàn các bài Đọc hiểu hàng ngày (`daily_reading_completions`), Thư viện đọc (`user_reading_library_progress`) và Video luyện nghe (`/api/listening/complete`).
+   * *Hệ quả:* Các đơn ảo chưa thanh toán có thể làm đầy `max_participants`; đồng thời học viên luyện đọc/nghe ngoài phân hệ TOEIC không được tính chỉ số hoàn thành mục tiêu ngày của thử thách.
+4. **Không đồng bộ tiến độ Ngữ pháp, Đọc hiểu, VSTEP và Foundation vào XP/Streak (`award_xp`) & Giới hạn cửa sổ 30 ngày của `buildDailyActivity`:**
+   * *Hiện trạng:* Học viên hoàn thành bài tập Ngữ pháp (`POST /api/grammar/progress`), Đọc hiểu hàng ngày (`POST /api/practice/daily-reading`), đề thi VSTEP/VNU (`POST /api/vstep/submit`), hoặc bài luyện Foundation (`POST /api/foundation/vocabulary-map`) đều **không** gọi RPC `award_xp`; đồng thời `buildDailyActivity(timestamps, 30)` chỉ xét tối đa 30 ngày gần nhất.
+
+
