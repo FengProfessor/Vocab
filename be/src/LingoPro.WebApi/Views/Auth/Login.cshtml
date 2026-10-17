@@ -1,0 +1,49 @@
+@{
+    Layout = null;
+    var returnUrl = ViewData["ReturnUrl"] as string ?? "/app/journey";
+    var errorMessage = ViewData["ErrorMessage"] as string;
+    var emailValue = ViewData["Email"] as string ?? "";
+}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng Nhập — LingoPro</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background: #0f172a; color: #f8fafc; display: flex; min-height: 100vh; align-items: center; justify-content: center; }
+        .login-card { width: 100%; max-width: 420px; background: #1e293b; padding: 32px; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+        h1 { margin: 0 0 8px; font-size: 24px; }
+        p.sub { margin: 0 0 24px; color: #94a3b8; font-size: 14px; }
+        label { display: block; font-size: 13px; margin-bottom: 6px; color: #cbd5e1; }
+        input { width: 100%; box-sizing: border-box; padding: 12px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: #fff; margin-bottom: 16px; }
+        button { width: 100%; padding: 12px; border: 0; border-radius: 8px; background: #2563eb; color: #fff; font-weight: 600; cursor: pointer; }
+        .error { background: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444; color: #fca5a5; padding: 10px 12px; border-radius: 8px; margin-bottom: 16px; font-size: 13px; }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <h1>Đăng nhập LingoPro</h1>
+        <p class="sub">Xác thực trực tiếp trên Server (Access Token 15 phút • Refresh Token 30 ngày) và chuyển thẳng vào ứng dụng React.</p>
+
+        @if (!string.IsNullOrWhiteSpace(errorMessage))
+        {
+            <div class="error" role="alert">@errorMessage</div>
+        }
+
+        <form method="post" action="/auth/login">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="ReturnUrl" value="@returnUrl" />
+
+            <label for="email">Email</label>
+            <input id="email" name="Email" type="email" required autocomplete="email" value="@emailValue" placeholder="you@example.com" />
+
+            <label for="password">Mật khẩu</label>
+            <input id="password" name="Password" type="password" required autocomplete="current-password" placeholder="••••••••" />
+
+            <button type="submit">Đăng nhập & Vào App React</button>
+        </form>
+    </div>
+</body>
+</html>
