@@ -34,36 +34,36 @@
 #### 3.1 Sơ đồ luồng tổng quan Lộ trình học (Roadmap Activity Flowchart)
 ```mermaid
 flowchart TD
-    Start([Truy cập /journey]) --> CheckTrack[GET /api/roadmap?track=...]
-    CheckTrack --> IsEnrolled{Đã ghi danh<br/>track này chưa?}
+    Start(["Truy cập /journey"]) --> CheckTrack["GET /api/roadmap?track=..."]
+    CheckTrack --> IsEnrolled{"Đã ghi danh<br/>track này chưa?"}
     
     %% Chưa ghi danh
-    IsEnrolled -->|Chưa ghi danh| ChoiceMode{Chọn cách bắt đầu}
-    ChoiceMode -->|Làm bài kiểm tra CEFR| GetPlacement[GET /api/roadmap/placement]
-    GetPlacement --> DoPlacement[Làm Placement Test & Nộp answers]
-    ChoiceMode -->|Tự chọn Level / Lớp| SelectLevel[Chọn selfSelect: A0..B2 / lop-10..12 / toeic-450..800]
+    IsEnrolled -->|"Chưa ghi danh"| ChoiceMode{"Chọn cách bắt đầu"}
+    ChoiceMode -->|"Làm bài kiểm tra CEFR"| GetPlacement["GET /api/roadmap/placement"]
+    GetPlacement --> DoPlacement["Làm Placement Test & Nộp answers"]
+    ChoiceMode -->|"Tự chọn Level / Lớp"| SelectLevel["Chọn selfSelect: A0..B2 / lop-10..12 / toeic-450..800"]
     
-    DoPlacement --> PlacementAPI[POST /api/roadmap/placement]
+    DoPlacement --> PlacementAPI["POST /api/roadmap/placement"]
     SelectLevel --> PlacementAPI
-    PlacementAPI --> ScoreOrValidate[scorePlacement hoặc kiểm tra levelOrder]
-    ScoreOrValidate --> InitDB[(Upsert user_roadmap:<br/>user_id, track, level_id, placement)]
+    PlacementAPI --> ScoreOrValidate["scorePlacement hoặc kiểm tra levelOrder"]
+    ScoreOrValidate --> InitDB[("Upsert user_roadmap:<br/>user_id, track, level_id, placement")]
     
     %% Đã ghi danh
-    IsEnrolled -->|Đã ghi danh| LoadMap[Hiển thị Bản đồ Trạm học / Map Units]
+    IsEnrolled -->|"Đã ghi danh"| LoadMap["Hiển thị Bản đồ Trạm học / Map Units"]
     InitDB --> LoadMap
     
-    LoadMap --> ClickUnit[Học viên bấm vào Unit/Step đang mở khóa]
-    ClickUnit --> StudyContent[Học: Từ vựng / Ngữ pháp / Checkpoint Quiz]
-    StudyContent --> SubmitScore[POST /api/roadmap/progress { stepId, score }]
+    LoadMap --> ClickUnit["Học viên bấm vào Unit/Step đang mở khóa"]
+    ClickUnit --> StudyContent["Học: Từ vựng / Ngữ pháp / Checkpoint Quiz"]
+    StudyContent --> SubmitScore["POST /api/roadmap/progress: stepId, score"]
     
-    SubmitScore --> PassCheck{Nếu là Checkpoint/Exam:<br/>score >= 80%?}
-    PassCheck -->|Không đạt: HTTP 422| RetakeStep[Gợi ý ôn lại chặng & Cho làm lại bài]
+    SubmitScore --> PassCheck{"Nếu là Checkpoint/Exam:<br/>score >= 80%?"}
+    PassCheck -->|"Không đạt: HTTP 422"| RetakeStep["Gợi ý ôn lại chặng & Cho làm lại bài"]
     RetakeStep --> StudyContent
     
-    PassCheck -->|Đạt chuẩn| CreditLib[creditRoadmapFromLibrary:<br/>Liên thông các gói đã học trong kho]
-    CreditLib --> SaveStep[(Upsert user_roadmap_steps:<br/>status='completed', score)]
-    SaveStep --> UnlockNext[(UPDATE user_roadmap:<br/>current_unit_id + RPC award_xp)]
-    UnlockNext --> Celebrate[Bắn pháo hoa 🎉 + Thưởng XP + Mở trạm kế tiếp]
+    PassCheck -->|"Đạt chuẩn"| CreditLib["creditRoadmapFromLibrary:<br/>Liên thông các gói đã học trong kho"]
+    CreditLib --> SaveStep[("Upsert user_roadmap_steps:<br/>status='completed', score")]
+    SaveStep --> UnlockNext[("UPDATE user_roadmap:<br/>current_unit_id + RPC award_xp")]
+    UnlockNext --> Celebrate["Bắn pháo hoa + Thưởng XP + Mở trạm kế tiếp"]
     Celebrate --> LoadMap
 ```
 
@@ -118,7 +118,7 @@ sequenceDiagram
     participant DB as Supabase DB
 
     Student->>Map: Bấm vào Unit/Step đang mở khóa (Step N)
-    Map->>StepModal: Mở nội dung: [Từ vựng / Ngữ pháp / Checkpoint Quiz]
+    Map->>StepModal: Mở nội dung: Từ vựng / Ngữ pháp / Checkpoint Quiz
     Student->>StepModal: Hoàn thành bài học (Checkpoint đạt score >= 80%)
     StepModal->>API: POST /api/roadmap/progress { stepId, score }
     API->>Credit: creditRoadmapFromLibrary(supabase, userId, track, levelId, doneSet)

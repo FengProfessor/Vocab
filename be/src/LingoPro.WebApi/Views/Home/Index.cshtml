@@ -1,0 +1,72 @@
+@model LingoPro.Application.Features.Seo.LandingPageSeoDto
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@Model.PageTitle</title>
+    <meta name="description" content="@Model.MetaDescription" />
+    <link rel="canonical" href="@Model.CanonicalUrl" />
+
+    <!-- OpenGraph / Facebook / Zalo SEO Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="@Model.PageTitle" />
+    <meta property="og:description" content="@Model.MetaDescription" />
+    <meta property="og:url" content="@Model.CanonicalUrl" />
+    <meta property="og:site_name" content="LingoPro" />
+
+    <!-- Structured Data JSON-LD for Google Rich Results -->
+    <script type="application/ld+json">
+    {
+      "@@context": "https://schema.org",
+      "@@type": "EducationalOrganization",
+      "name": "LingoPro",
+      "url": "@Model.CanonicalUrl",
+      "description": "@Model.MetaDescription"
+    }
+    </script>
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; margin: 0; background: #0f172a; color: #f8fafc; }
+        .hero { max-width: 1080px; margin: 0 auto; padding: 72px 24px; text-align: center; }
+        .badge { display: inline-block; padding: 6px 14px; border-radius: 999px; background: #1e293b; color: #38bdf8; font-weight: 600; font-size: 14px; }
+        h1 { font-size: 42px; line-height: 1.2; margin: 20px 0; }
+        p.lead { font-size: 18px; color: #94a3b8; max-width: 760px; margin: 0 auto 32px; }
+        .cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn-primary { background: #2563eb; color: #fff; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-weight: 600; }
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 48px; }
+        .stat-card { background: #1e293b; padding: 20px; border-radius: 12px; }
+        .stat-num { font-size: 28px; font-weight: 700; color: #38bdf8; }
+    </style>
+</head>
+<body>
+    <main class="hero">
+        <span class="badge">Server-Side Rendered SEO • FSRS-5 & AI Coaching</span>
+        <h1>@Model.PageTitle</h1>
+        <p class="lead">@Model.MetaDescription</p>
+        <div class="cta-group">
+            <a class="btn-primary" href="/auth/login">Đăng Nhập Học Ngay (SSR Login → React App)</a>
+        </div>
+        <section class="stats" aria-label="Thống kê học liệu">
+            <div class="stat-card">
+                <div class="stat-num">@Model.TotalActiveLearners.ToString("N0")+</div>
+                <div>Học viên đang luyện tập</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">@Model.TotalVocabularyPacks</div>
+                <div>Bộ từ vựng CEFR A1–C2</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">@Model.TotalGrammarTopics</div>
+                <div>Chuyên đề ngữ pháp chuẩn</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">@Model.TotalReadingArticles</div>
+                <div>Bài đọc song ngữ & Quiz</div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

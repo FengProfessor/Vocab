@@ -136,4 +136,31 @@ scripts/node_modules/
 /scripts/verify-challenger-videos.mjs
 /REPO_PEDAGOGY_AUDIT.md
 
+# .NET build artifacts & outputs
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+[Tt]est[Rr]esults/
+[Bb]uild[Ll]og.*
+publish/
+artifacts/
+*.dll
+*.exe
+*.pdb
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.DotSettings.user
+project.lock.json
+project.fragment.lock.json
 
+# JetBrains Rider & Visual Studio IDE files
+.idea/
+**/.idea/
+.vs/
+**/.vs/
+*.iws
+*.iml
+*.ipr

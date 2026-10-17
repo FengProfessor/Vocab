@@ -49,7 +49,7 @@ flowchart TD
     LoadEx --> DoPractice[Student hoàn thành bài tập & Xem giải thích tiếng Việt]
     DoPractice --> SubmitProgress[POST /api/grammar/progress { topicSlug, accuracy }]
     
-    SubmitProgress --> MapFSRS[accuracyToRating: >=90% Easy(4), >=70% Good(3), >=50% Hard(2), <50% Again(1)]
+    SubmitProgress --> MapFSRS["accuracyToRating: >=90% Easy(4), >=70% Good(3), >=50% Hard(2), <50% Again(1)"]
     MapFSRS --> CalcSchedule[scheduleNext FSRS: Tính stability, difficulty, next_review_date]
     CalcSchedule --> CheckMastery{mastery_score >= 80%?}
     CheckMastery -->|Đạt >= 80%| SetMastered[state = 'mastered']

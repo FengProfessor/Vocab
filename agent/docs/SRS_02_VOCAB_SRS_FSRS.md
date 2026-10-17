@@ -41,44 +41,44 @@
 #### 3.1 Sơ đồ luồng tổng quan tính năng Học & Ôn tập (Activity Flowchart)
 ```mermaid
 flowchart TD
-    Start([Bắt đầu phiên học]) --> ModeChoice{Chọn chế độ}
+    Start(["Bắt đầu phiên học"]) --> ModeChoice{"Chọn chế độ"}
     
     %% Nhánh Học từ mới
-    ModeChoice -->|Học từ mới| PickTopic[Chọn Chủ đề / Gói từ / Lớp học]
-    PickTopic --> FetchNewWords[GET /api/words hoặc /api/vocab/topic]
-    FetchNewWords --> ShowFront[Hiển thị mặt trước: Từ, IPA, Ảnh minh họa]
-    ShowFront --> PlayAudio[GET /api/tts: Phát âm thanh bản xứ]
-    PlayAudio --> FlipCard[Student bấm 'Lật thẻ']
-    FlipCard --> ShowBack[Hiển thị mặt sau: Nghĩa, Từ loại, Câu ví dụ, Từ gia đình]
-    ShowBack --> Understood[Student chọn mức độ ghi nhớ ban đầu]
-    Understood --> SaveNewWord[POST /api/words/srs<br/>Khởi tạo srs_progress]
-    SaveNewWord --> CheckMoreNew{Còn từ mới?}
-    CheckMoreNew -->|Còn| ShowFront
-    CheckMoreNew -->|Hết| FinishNew[Hoàn thành bài học & Nhận XP qua award_xp]
+    ModeChoice -->|"Học từ mới"| PickTopic["Chọn Chủ đề / Gói từ / Lớp học"]
+    PickTopic --> FetchNewWords["GET /api/words hoặc /api/vocab/topic"]
+    FetchNewWords --> ShowFront["Hiển thị mặt trước: Từ, IPA, Ảnh minh họa"]
+    ShowFront --> PlayAudio["GET /api/tts: Phát âm thanh bản xứ"]
+    PlayAudio --> FlipCard["Student bấm Lật thẻ"]
+    FlipCard --> ShowBack["Hiển thị mặt sau: Nghĩa, Từ loại, Câu ví dụ, Từ gia đình"]
+    ShowBack --> Understood["Student chọn mức độ ghi nhớ ban đầu"]
+    Understood --> SaveNewWord["POST /api/words/srs<br/>Khởi tạo srs_progress"]
+    SaveNewWord --> CheckMoreNew{"Còn từ mới?"}
+    CheckMoreNew -->|"Còn"| ShowFront
+    CheckMoreNew -->|"Hết"| FinishNew["Hoàn thành bài học & Nhận XP qua award_xp"]
 
     %% Nhánh Ôn tập FSRS
-    ModeChoice -->|Ôn tập hàng ngày| FetchQueue[GET /api/words: Lọc từ có next_review_date <= TODAY]
-    FetchQueue --> HasDue{Có từ đến hạn?}
-    HasDue -->|Không| CleanState[Thông báo: Đã hoàn thành ôn tập hôm nay!]
-    HasDue -->|Có| ShowQuestion[Hiển thị câu hỏi / Thẻ ôn tập]
-    ShowQuestion --> Answer[Student trả lời & Chọn mức đánh giá]
-    Answer --> RateChoice{Quality / Rating}
+    ModeChoice -->|"Ôn tập hàng ngày"| FetchQueue["GET /api/words: Lọc từ có next_review_date <= TODAY"]
+    FetchQueue --> HasDue{"Có từ đến hạn?"}
+    HasDue -->|"Không"| CleanState["Thông báo: Đã hoàn thành ôn tập hôm nay!"]
+    HasDue -->|"Có"| ShowQuestion["Hiển thị câu hỏi / Thẻ ôn tập"]
+    ShowQuestion --> Answer["Student trả lời & Chọn mức đánh giá"]
+    Answer --> RateChoice{"Quality / Rating"}
     
-    RateChoice -->|Again: quality=0| FSRSAgain[scheduleNext: state='relearning'<br/>Tăng lapses, ôn lại trong phiên]
-    RateChoice -->|Hard: quality=3| FSRSHard[scheduleNext: Tăng nhẹ interval_days<br/>Tăng chỉ số difficulty D]
-    RateChoice -->|Good: quality=4| FSRSGood[scheduleNext: Nhân interval_days theo stability S<br/>Lịch ôn theo chuẩn FSRS v5]
-    RateChoice -->|Easy: quality=5| FSRSEasy[scheduleNext: Nhảy vọt interval_days<br/>Giảm nhẹ difficulty D]
+    RateChoice -->|"Again: quality=0"| FSRSAgain["scheduleNext: state='relearning'<br/>Tăng lapses, ôn lại trong phiên"]
+    RateChoice -->|"Hard: quality=3"| FSRSHard["scheduleNext: Tăng nhẹ interval_days<br/>Tăng chỉ số difficulty D"]
+    RateChoice -->|"Good: quality=4"| FSRSGood["scheduleNext: Nhân interval_days theo stability S<br/>Lịch ôn theo chuẩn FSRS v5"]
+    RateChoice -->|"Easy: quality=5"| FSRSEasy["scheduleNext: Nhảy vọt interval_days<br/>Giảm nhẹ difficulty D"]
     
-    FSRSAgain --> CallSrsAPI[POST /api/words/srs { wordId, quality, reviewId }]
+    FSRSAgain --> CallSrsAPI["POST /api/words/srs: wordId, quality, reviewId"]
     FSRSHard --> CallSrsAPI
     FSRSGood --> CallSrsAPI
     FSRSEasy --> CallSrsAPI
     
-    CallSrsAPI --> ApplyRPC[(RPC apply_srs_review:<br/>CAS check & Upsert srs_progress)]
-    ApplyRPC --> MirrorBg[Đồng bộ ngầm mirrorSrsProgress + RPC award_xp]
-    MirrorBg --> CheckQueueRemaining{Còn từ trong hàng đợi?}
-    CheckQueueRemaining -->|Còn| ShowQuestion
-    CheckQueueRemaining -->|Hết| CongratReview[Tổng kết phiên ôn tập & Tăng Streak 🔥]
+    CallSrsAPI --> ApplyRPC[("RPC apply_srs_review:<br/>CAS check & Upsert srs_progress")]
+    ApplyRPC --> MirrorBg["Đồng bộ ngầm mirrorSrsProgress + RPC award_xp"]
+    MirrorBg --> CheckQueueRemaining{"Còn từ trong hàng đợi?"}
+    CheckQueueRemaining -->|"Còn"| ShowQuestion
+    CheckQueueRemaining -->|"Hết"| CongratReview["Tổng kết phiên ôn tập & Tăng Streak"]
 ```
 
 #### Ca sử dụng 1: Học từ mới bằng Flashcard (UC-VOCAB-02.1)
@@ -132,7 +132,7 @@ sequenceDiagram
     DB-->>ReviewUI: Hàng đợi từ cần ôn (Due Queue)
     loop Từng từ ôn tập
         ReviewUI->>Student: Hiển thị câu hỏi (Lật thẻ / Trắc nghiệm / Gõ từ)
-        Student->>ReviewUI: Chọn đánh giá: [Again (0) | Hard (3) | Good (4) | Easy (5)]
+        Student->>ReviewUI: Chọn đánh giá: Again (0) / Hard (3) / Good (4) / Easy (5)
         ReviewUI->>SaveHelper: saveSrsReview(wordId, quality)
         SaveHelper->>SrsAPI: POST /api/words/srs { wordId, quality, reviewId }
         SrsAPI->>FSRS: mapQualityToRating(quality) & scheduleNext(existingSRS, rating)

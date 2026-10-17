@@ -34,29 +34,40 @@
 #### 3.1 Sơ đồ luồng tổng quan AI Coaching & Skills (Activity Flowchart)
 ```mermaid
 flowchart TD
-    Start([Chọn kỹ năng AI Coaching]) --> Choice{Speaking hay<br/>Phân tích Câu / Writing?}
-    
-    %% Nhánh Speaking
-    Choice -->|Luyện Speaking| ShowTarget[Chọn chủ đề hội thoại / Bài học Speaking]
-    ShowTarget --> MicRec[Thu âm giọng nói qua Mic & Trích xuất Transcript]
-    MicRec --> UploadAudio[POST /api/speaking/upload-audio<br/>Lưu file ghi âm vào bucket speaking-recordings]
-    UploadAudio --> CallSpeakingAPI[POST /api/dictionary/ai-speaking<br/>{ history, topic, lastTranscript }]
-    CallSpeakingAPI --> CheckSpeakingRL{Vượt Rate Limit<br/>15 req/phút?}
-    CheckSpeakingRL -->|Vượt ngưỡng| RateLimit429[Trả về 429 Too Many Requests + Retry-After]
-    CheckSpeakingRL -->|Hợp lệ| DispatchAISpeak[getRouter.generate gọi AI Tutor Lingo]
-    DispatchAISpeak --> ReturnSpeakingJSON[Trả về JSON: response, feedback, suggestedResponse]
-    ReturnSpeakingJSON --> RenderSpeechUI[Hiển thị lời khuyên tiếng Việt + Câu gợi ý chuẩn hóa]
+    Start([Chọn công cụ AI Coaching & Luyện Kỹ Năng]) --> ToolSelect{Chọn kỹ năng thực hành}
 
-    %% Nhánh Phân tích Câu & Golden Sentences
-    Choice -->|Phân tích Câu & Golden Sentences| InputSentence[Nhập câu tiếng Anh cần phân tích / nâng cấp]
-    InputSentence --> SubmitSentence[POST /api/dictionary/ai-sentence { sentence, context }]
-    SubmitSentence --> CheckProAccess{Kiểm tra quyền<br/>checkAccess ai_sentence?}
-    CheckProAccess -->|Gói Free: 403| UpgradeNotice[Thông báo PRO_REQUIRED & Đề xuất nâng cấp VIP]
-    CheckProAccess -->|Gói Pro| CheckGolden{Khớp kho câu chuẩn<br/>matchGoldenSentence?}
-    CheckGolden -->|Khớp Golden| ReturnGolden[Trả về tức thì dữ liệu Golden Sentence chuẩn hóa]
-    CheckGolden -->|Chưa có trong kho| CallAIRouter[AIRouter fast/normal -> Fallback geminiGenerate]
-    CallAIRouter --> EnrichDB[enrichChunksFromDb từ bảng global_dictionary]
-    EnrichDB --> ReturnAnalysis[Trả về Main Clause, Secondary Clauses, Kernel S-V-O, Build Levels & Chunks]
+    %% Nhánh Luyện Nói Hội Thoại
+    ToolSelect -->|Luyện nói / Ghi âm /student/speaking| PickTopic[Chọn Topic hội thoại hoặc Bài luyện phát âm]
+    PickTopic --> RecordAudio[Student bấm Micro & Nói tiếng Anh]
+    RecordAudio --> CaptureVoice[Web Speech API ghi nhận lastTranscript<br/>MediaRecorder tạo Blob âm thanh]
+    CaptureVoice --> NeedsUpload{Cần lưu file<br/>ghi âm để chấm/nghe lại?}
+    NeedsUpload -->|Có| UploadAudioAPI[POST /api/speaking/upload-audio<br/>Upload vào Supabase Storage speaking-recordings]
+    NeedsUpload -->|Không / Song song| CallAiSpeaking[POST /api/dictionary/ai-speaking<br/>Gửi history, topic, lastTranscript]
+    UploadAudioAPI --> CallAiSpeaking
+    CallAiSpeaking --> CheckRateLimit{Kiểm tra Rate Limit<br/>15 req/phút/IP?}
+    CheckRateLimit -->|Vượt hạn mức| Error429[Báo lỗi 429 Too Many Requests]
+    CheckRateLimit -->|Hợp lệ| AIRouterCall[AIRouter.generate: Groq / Zhipu / Gemini]
+    AIRouterCall --> RenderSpeakFeedback[Hiển thị câu đáp lại của AI Tutor Lingo<br/>+ Nhận xét tiếng Việt & Câu chuẩn suggestedResponse]
+
+    %% Nhánh Phân Tích Câu & Golden Sentences
+    ToolSelect -->|Phân tích câu / Từ điển AI| InputSentence[Nhập hoặc bôi đen câu tiếng Anh phức tạp]
+    InputSentence --> CallAiSentence[POST /api/dictionary/ai-sentence]
+    CallAiSentence --> CheckProPlan{Kiểm tra gói Pro VIP<br/>checkAccess 'ai_sentence'?}
+    CheckProPlan -->|Gói Free| RequirePro[Trả về 403 PRO_REQUIRED<br/>Hiển thị modal nâng cấp]
+    CheckProPlan -->|Hợp lệ| MatchGolden{matchGoldenSentence:<br/>Thuộc bộ Golden Sentences?}
+    MatchGolden -->|Khớp câu mẫu| ReturnGolden[Trả về phân tích chuẩn 100%<br/>aiSource = 'golden']
+    MatchGolden -->|Không khớp| MultiTierAI[Gọi Multi-Tier AI: fast -> normal -> geminiGenerate]
+    MultiTierAI --> AICheck{AI phản hồi<br/>thành công?}
+    AICheck -->|Lỗi / Quá tải| FallbackHeuristic[Local Parser: advancedHeuristicAnalysis<br/>Đảm bảo không bao giờ trả lỗi 500]
+    AICheck -->|Thành công| EnrichDB[enrichChunksFromDb: Tra nghĩa trong global_dictionary]
+    FallbackHeuristic --> EnrichDB
+    ReturnGolden --> RenderSentenceView[Hiển thị Xương câu S-V-O, Mệnh đề phụ,<br/>Build Levels lắp câu & Vocabulary Chunks]
+    EnrichDB --> RenderSentenceView
+
+    %% Nhánh Chấm Viết Luận AI Writing
+    ToolSelect -->|Chấm viết VSTEP / VNU Bậc 3| SubmitEssay[POST /api/vstep/writing-eval<br/>hoặc /api/vnu-bac-3/writing-eval]
+    SubmitEssay --> AIWritingRubric[Chấm theo Rubric 4 tiêu chí:<br/>Task Fulfillment, Organization, Vocabulary, Grammar]
+    AIWritingRubric --> RenderWritingFeedback[Trả về điểm số, nhận xét chi tiết & bài viết mẫu nâng cao]
 ```
 
 #### Ca sử dụng 1: Luyện nói hội thoại & Ghi âm cùng AI Tutor (UC-AI-05.1)
