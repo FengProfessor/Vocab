@@ -70,105 +70,98 @@ flowchart TD
 sequenceDiagram
     autonumber
     actor Student as Học viên
-    participant UI as Giao diện Sát thủ Listening (/sat-thu-toeic-listening)
-    participant Proxy as GET /api/toeic/media/proxy
-    participant Utils as listening-utils.ts (Client-side)
-    participant CompleteAPI as POST /api/listening/complete
+    participant UI as Giao diện Sát thủ Listening
+    participant Audio as Media Proxy & Audio Player
+    participant Checker as Text Normalizer & Diff Checker
+    participant History as Lịch sử học viên
 
-    Student->>UI: Chọn Part (Part 1 - Part 4) & Bài luyện nghe
-    UI->>Proxy: GET /api/toeic/media/proxy?src=...
-    Proxy-->>UI: Stream dữ liệu âm thanh bài nghe
-    UI->>Student: Phát đoạn audio câu hỏi
+    Student->>UI: Chọn Part (VD: Part 1 - Mô tả tranh) & Mức độ
+    UI->>Audio: Tải file nghe (qua Media Proxy bảo vệ bản quyền)
+    Audio->>Student: Phát đoạn audio câu hỏi
     Student->>UI: Gõ lại văn bản nghe được vào ô Input
     alt Nghe chưa rõ
         Student->>UI: Chọn "Nghe lại tốc độ chậm (0.8x / 0.5x)"
-        UI->>UI: Điều chỉnh audio.playbackRate
+        UI->>Audio: Điều chỉnh playbackRate
     end
-    Student->>UI: Bấm "Kiểm tra đáp án" (hoặc nhấn Enter)
-    UI->>Utils: Chuẩn hóa văn bản & chạy thuật toán Diff Matcher tại Client
-    Utils-->>UI: Kết quả khớp từng từ (Xanh = Đúng, Đỏ = Sai/Thiếu)
-    UI->>Student: Hiển thị Transcript đầy đủ + Phân tích bẫy phát âm / đồng âm
-    Student->>UI: Hoàn thành bài luyện nghe
-    UI->>CompleteAPI: POST /api/listening/complete
-    CompleteAPI-->>UI: Lưu lịch sử hoàn thành & cộng điểm XP
+    Student->>UI: Bấm "Kiểm tra đáp án"
+    UI->>Checker: So khớp chuỗi học viên gõ với transcript gốc
+    Checker-->>UI: Highlight màu từ đúng (Xanh), từ sai/thiếu (Đỏ)
+    UI->>Student: Hiển thị giải thích từ vựng trọng tâm + Cấu trúc ngữ pháp
+    UI->>History: Lưu kết quả câu nghe vào DB
 ```
 
-1. **Bước 1 (Student):** Học viên truy cập `/sat-thu-toeic-listening`, chọn Part cần luyện (ví dụ: Part 2 - Hỏi đáp phản xạ) và bài luyện.
-2. **Bước 2 (Frontend):** Tải luồng âm thanh qua Media Proxy `GET /api/toeic/media/proxy?src=...` và tự động phát câu nghe.
-3. **Bước 3 (Student):** Học viên gõ lại các từ hoặc toàn bộ câu nghe được vào ô nhập liệu.
-4. **Bước 4 (Student):** Học viên bấm nút **"Kiểm tra đáp án"** (hoặc nhấn phím Enter).
-5. **Bước 5 (Frontend - Client-side):** Module `src/lib/listening-utils.ts` thực hiện chuẩn hóa chuỗi (bỏ dấu câu thừa, chuẩn hóa viết tắt) và so khớp trực tiếp ngay trên trình duyệt với độ trễ 0ms:
+1. **Bước 1 (Student):** Học viên truy cập `/sat-thu-toeic-listening`, chọn Part cần luyện (ví dụ: Part 2 - Hỏi đáp phản xạ) và chủ đề.
+2. **Bước 2 (Frontend):** Gọi API tải câu luyện nghe kèm đường dẫn stream audio từ `toeic-media-proxy.ts`.
+3. **Bước 3 (Frontend):** Tự động phát đoạn âm thanh câu nói.
+4. **Bước 4 (Student):** Học viên gõ lại các từ hoặc toàn bộ câu nghe được vào ô nhập liệu.
+5. **Bước 5 (Frontend):** Học viên bấm nút **"Kiểm tra đáp án"** (hoặc nhấn phím Enter).
+6. **Bước 6 (Frontend):** Thuật toán chuẩn hóa chuỗi (normalizer) và so khớp văn bản:
    * Tô màu **Xanh lá**: Từ gõ đúng hoàn toàn.
-   * Tô màu **Đỏ gạch**: Từ gõ sai chính tả hoặc còn thiếu.
-6. **Bước 6 (Frontend):** Hiển thị câu transcript đầy đủ, giải nghĩa từ vựng trọng tâm và chỉ rõ các bẫy âm thanh (nối âm, nuốt âm, từ đồng âm).
-7. **Bước 7 (Frontend/Backend):** Khi hoàn tất bài luyện, giao diện đồng bộ tiến độ học tập qua `POST /api/listening/complete` để lưu lịch sử và nhận thưởng XP.
+   * Tô màu **Đỏ gạch**: Từ gõ sai chính tả hoặc thiếu từ.
+7. **Bước 7 (Frontend):** Hiển thị câu transcript đầy đủ, giải nghĩa từ vựng trọng tâm trong câu và cấu trúc bẫy thường gặp.
+8. **Bước 8 (Frontend):** Lưu lại lịch sử câu vừa luyện vào cơ sở dữ liệu để đưa vào danh mục ôn tập nếu làm sai.
 
-#### Ca sử dụng 2: Thi thử đề TOEIC & Xem giải thích On-Demand (UC-TOEIC-04.2)
+#### Ca sử dụng 2: Thi thử đề TOEIC Full Test bấm giờ (UC-TOEIC-04.2)
 ```mermaid
 sequenceDiagram
     autonumber
     actor Student as Học viên
     participant ExamUI as Giao diện Đề thi (/toeic)
-    participant TestAPI as GET /api/toeic/test
-    participant SubmitAPI as POST /api/toeic/submit
-    participant ExplainAPI as POST /api/toeic/explain
-    participant DB as Supabase DB
+    participant API as /api/toeic
+    participant Barem as toeic-scoring.ts
+    participant DB as Database
 
-    Student->>ExamUI: Chọn bộ đề thi thử (VD: ETS 2024 Test 01) hoặc Luyện Part
-    ExamUI->>TestAPI: GET /api/toeic/test?testId=...
-    TestAPI->>TestAPI: Kiểm tra Anti-Scraping, gọi stripSensitiveToeicData & tạo sessionToken
-    TestAPI-->>ExamUI: Danh sách câu hỏi (KHÔNG kèm đáp án/lời giải) + sessionToken
-    ExamUI->>Student: Bắt đầu đếm ngược thời gian (120 phút cho Full Test)
-    Student->>ExamUI: Làm bài trên phiếu trả lời điện tử & Bấm "Nộp bài"
-    ExamUI->>SubmitAPI: POST /api/toeic/submit { testId, answers, sessionToken }
-    SubmitAPI->>SubmitAPI: toeic-scoring.ts đối chiếu Answer Key & quy đổi Barem (10 - 990)
-    SubmitAPI->>DB: Lưu kết quả thi và thống kê lịch sử làm bài
-    SubmitAPI-->>ExamUI: Điểm Listening, Reading, Tổng điểm & Danh sách câu Đúng/Sai
-    Student->>ExamUI: Bấm xem giải thích chi tiết tại câu hỏi bất kỳ (Câu N)
-    ExamUI->>ExplainAPI: POST /api/toeic/explain { testId, questionNumber: N, questionId, sessionToken }
-    ExplainAPI->>ExplainAPI: Kiểm tra Velocity & Nhúng thủy vân ẩn embedInvisibleWatermark
-    ExplainAPI-->>ExamUI: Trả về correctAnswer, transcript & explanationVi của Câu N
+    Student->>ExamUI: Chọn bộ đề thi thử (VD: ETS 2024 Test 01)
+    ExamUI->>API: GET /api/toeic?testId=xxx
+    API->>API: Kiểm tra rate limit & Token chống scraping
+    API-->>ExamUI: Nội dung 100 câu Listening + 100 câu Reading
+    ExamUI->>Student: Bắt đầu đếm ngược thời gian (120 phút)
+    Student->>ExamUI: Hoàn thành bài làm trắc nghiệm & Bấm "Nộp bài"
+    ExamUI->>Barem: computeToeicScore(userAnswers, answerKey)
+    Note over Barem: Tính số câu đúng từng Part:<br/>- Tra bảng barem chuyển đổi câu đúng sang điểm (5 - 495)<br/>- Tổng điểm = Listening + Reading
+    Barem-->>ExamUI: Kết quả: Điểm chi tiết, Thống kê part yếu
+    ExamUI->>DB: Lưu vào bảng toeic_test_results
+    ExamUI->>Student: Bảng điểm chi tiết + Lời khuyên cải thiện từ AI
 ```
 
-1. **Bước 1 (Student):** Học viên truy cập `/toeic`, chọn bộ đề thi thử (Full Test 200 câu hoặc Luyện theo Part kèm bộ lọc câu chưa làm `unseen` / câu hay sai `mistakes`) và bấm **"Bắt đầu làm bài"**.
-2. **Bước 2 (Frontend):** Gửi `GET /api/toeic/test?testId=...` (hoặc `POST /api/toeic/test` khi gửi danh sách `excludedIds`/`mistakeIds` lớn).
-3. **Bước 3 (Backend):** Tuyến `/api/toeic/test` kiểm tra Rate Limit (60 req/phút/IP), gọi `stripSensitiveToeicData()` để loại bỏ hoàn toàn `correctAnswer`, `explanationVi`, `transcript` khỏi payload, đồng thời cấp `sessionToken` ký HMAC gắn với IP hash.
-4. **Bước 4 (Frontend):** Kích hoạt đồng hồ đếm ngược. Học viên nghe audio qua `/api/toeic/media/proxy?src=...` và chọn đáp án A, B, C, D trên phiếu trả lời điện tử.
-5. **Bước 5 (Frontend):** Khi bấm **"Nộp bài thi"** (hoặc hết giờ), gửi mảng câu trả lời lên `POST /api/toeic/submit`.
-6. **Bước 6 (Backend):** Module `toeic-scoring.ts` đối chiếu với Answer Key trên server, quy đổi số câu đúng sang thang điểm chuẩn ETS (5–495 cho từng kỹ năng, tổng 10–990) và trả về bảng kết quả.
-7. **Bước 7 (Student & Frontend):** Khi ôn tập lại các câu sai sau khi nộp bài (hoặc trong chế độ luyện tập), học viên bấm xem giải thích của một câu hỏi. Frontend gọi `POST /api/toeic/explain` với `{ testId, questionNumber, questionId, sessionToken }`.
-8. **Bước 8 (Backend):** Tuyến `/api/toeic/explain` kiểm tra tốc độ đọc (`checkReadingVelocity`), nhúng thủy vân ký tự độ rộng bằng không (`embedInvisibleWatermark`) chứa mã định danh IP + thời gian vào lời giải, và trả về `correctAnswer`, `transcript`, `explanationVi` cho đúng câu hỏi đó.
+1. **Bước 1 (Student):** Học viên truy cập `/toeic`, chọn bộ đề thi thử (ví dụ: ETS 2024 Test 01) và bấm **"Bắt đầu làm bài"**.
+2. **Bước 2 (Frontend):** Gửi `GET /api/toeic?testId=ets_2024_01`. Server kiểm tra tính hợp lệ và trả về 200 câu hỏi (100 câu Listening + 100 câu Reading), **không trả kèm đáp án đúng hoặc transcript**.
+3. **Bước 3 (Frontend):** Kích hoạt đồng hồ đếm ngược 120 phút. Học viên lần lượt nghe và chọn đáp án trắc nghiệm A, B, C, D trên phiếu trả lời điện tử.
+4. **Bước 4 (Student):** Học viên bấm nút **"Nộp bài thi"** (hoặc hệ thống tự động thu bài khi hết 120 phút).
+5. **Bước 5 (Frontend):** Gửi mảng câu trả lời `answers: { [qId]: 'A' }` lên `POST /api/toeic/submit`.
+6. **Bước 6 (Backend):** Module `toeic-scoring.ts` đối chiếu đáp án với Answer Key được bảo mật trên server:
+   * Đếm số câu đúng của Listening và Reading.
+   * Tra cứu bảng barem (`toeic-barem.ts`) để quy đổi sang thang điểm 5 - 495 cho từng phần.
+   * Tính tổng điểm: $Score_{total} = Score_{listening} + Score_{reading}$ (Thang 10 - 990).
+7. **Bước 7 (Backend):** Lưu kết quả vào bảng `toeic_test_results`, sau đó trả về điểm số chi tiết kèm toàn bộ Transcript và Giải thích chi tiết từng câu.
+8. **Bước 8 (Frontend):** Hiển thị Dashboard phân tích bài thi: Báo cáo tỷ lệ đúng theo từng Part (Part 1 đến Part 7) và gợi ý lộ trình cải thiện.
 
 ---
 
 ### 4. Kịch bản ngoại lệ (Alternative & Exception Flows)
 
 * **E1: Hết giờ làm bài khi chưa bấm Nộp bài (Time-out Auto-submit)**
-  * *Tại Bước 4 của UC-TOEIC-04.2:* Đồng hồ đếm ngược chạm mốc `00:00:00`.
-  * *Xử lý:* Giao diện khóa thao tác chọn đáp án, tự động đóng gói các câu trả lời đã tích và gửi request lên `POST /api/toeic/submit`.
-* **E2: Phát hiện bot cào dữ liệu đề thi & lời giải (Active Cyber Defense & Data Poisoning)**
-  * *Tại Bước 3 hoặc Bước 8 của UC-TOEIC-04.2:* Client truy cập vào Honeypot (`isHoneypotTestId`, tham số bẫy `include_answers`, `_hp_author_trap`) hoặc bị gắn cờ bot (`isClientFlaggedAsBot`).
-  * *Xử lý:* Hệ thống **không trả lỗi 403** để tránh lộ cơ chế chặn, mà âm thầm trả về HTTP 200 OK kèm dữ liệu đã bị đầu độc hợp lý (`poisonUnifiedQuestion` / `createPoisonedQuestionBank` trong `src/lib/toeic-anti-scraping.ts`) nhằm vô hiệu hóa cơ sở dữ liệu của trình cào.
-* **E3: Vượt ngưỡng tần suất tải đề hoặc xem giải thích (Rate Limit Exceeded)**
-  * *Tại Bước 3 hoặc Bước 8 của UC-TOEIC-04.2:* Một IP gửi quá 60 request/phút tới `/api/toeic/test` hoặc `/api/toeic/explain`.
-  * *Xử lý:* Backend trả về HTTP 429 Too Many Requests (`tooManyRequests()`).
-* **E4: Mất kết nối audio khi đang làm phần thi Listening**
-  * *Tại Bước 4 của UC-TOEIC-04.2:* Mạng chập chờn khiến luồng âm thanh từ `/api/toeic/media/proxy` bị ngắt quãng.
-  * *Xử lý:* Trình phát audio tự động thử kết nối lại (retry stream) từ vị trí giây hiện tại mà không làm mất các đáp án học viên đã chọn trên phiếu làm bài.
+  * *Tại Bước 3 của UC-TOEIC-04.2:* Đồng hồ đếm ngược chạm mốc `00:00:00`.
+  * *Xử lý:* Giao diện khóa toàn bộ thao tác chọn đáp án, tự động đóng gói các câu trả lời đã tích và gửi request nộp bài lên server.
+* **E2: Phát hiện hành vi cào đề thi trái phép (Anti-Scraping Block)**
+  * *Tại Bước 2 của UC-TOEIC-04.2:* Người dùng hoặc tool bot gọi request tải hàng chục đề thi liên tiếp trong vài giây.
+  * *Xử lý:* `toeic-anti-scraping.ts` phát hiện bất thường, từ chối cấp đề bài và trả về HTTP 403 Forbidden.
+* **E3: Mất kết nối audio khi đang làm phần thi Listening**
+  * *Tại Bước 3 của UC-TOEIC-04.2:* Mạng chập chờn khiến file âm thanh bị dừng giữa chừng.
+  * *Xử lý:* Hệ thống tạm dừng đồng hồ đếm ngược trong tối đa 30 giây để tiến hành tải lại (retry audio stream) từ Media Proxy. Nếu không tải được, hiển thị thông báo để học viên làm tiếp phần Reading trước.
 
 ---
 
 ### 5. Điểm hạn chế, Rủi ro & Nút thắt trong Luồng hiện tại (Current Limitations & Architectural Bottlenecks)
 
-1. **Cửa hậu tự gỡ cờ Bot công khai (`?unban=1`) trong `/api/toeic/test` và `/api/toeic/explain` (`src/app/api/toeic/test/route.ts` dòng 322, 365 & `src/app/api/toeic/explain/route.ts` dòng 49):**
-   * *Hiện trạng:* Cả 2 route đều chứa đoạn mã: `if (isWhitelistedIp(ip) || req.nextUrl.searchParams.get('unban') === '1') { clearBotFlag(ip); }`.
-   * *Hệ quả:* Bất kỳ bot scraper nào bị dính bẫy Honeypot hoặc bị gắn cờ tốc độ cao (`checkReadingVelocity`) chỉ cần truyền thêm query param `?unban=1` vào URL là tự động xóa sạch cờ bot của chính mình mà không cần quyền Admin.
-2. **Lộ toàn bộ đáp án & lời giải 200 câu qua 1 lệnh `POST /api/toeic/submit` (`src/app/api/toeic/submit/route.ts` dòng 96–151):**
-   * *Hiện trạng:* Mặc dù `/api/toeic/test` áp dụng Zero Bulk Leaks và `/api/toeic/explain` giới hạn lấy từng câu, nhưng `POST /api/toeic/submit` lại: (a) **không bắt buộc xác thực `sessionToken`** và (b) trả về mảng `reviewQuestions` chứa toàn bộ 200 câu hỏi kèm `correctAnswer`, `explanationVi`, `transcript` trong 1 response duy nhất. Hơn nữa, điều kiện phát hiện nộp bài siêu tốc `if (answeredCount >= 50 && timeSpentSeconds > 0 && timeSpentSeconds < 5)` dựa hoàn toàn vào biến `timeSpentSeconds` do client tự gửi lên.
-   * *Hệ quả:* Kẻ cào dữ liệu chỉ cần gửi 1 request `POST /api/toeic/submit` với `{ testId, answers: {}, timeSpentSeconds: 3600 }` (hoặc `timeSpentSeconds: 0`) là lấy trọn bộ đáp án, lời giải và transcript của cả đề 200 câu mà không cần gọi `/api/toeic/explain` 200 lần.
-3. **Lỗ hổng cày XP không giới hạn tại `POST /api/listening/complete` (`src/app/api/listening/complete/route.ts` dòng 12–43):**
-   * *Hiện trạng:* Endpoint này không áp dụng Rate Limit, không kiểm tra `videoId` có tồn tại trong bảng `listening_videos` hay không, không lưu bảng lịch sử hoàn thành để chống trùng lặp, và vẫn thưởng cứng `+50 XP` ngay cả khi `clozeScore = 0` và `quizScore = 0`.
-   * *Hệ quả:* Người dùng có thể gọi lặp lại `POST /api/listening/complete` để cày hàng nghìn XP trong vài giây.
-4. **Cờ Bot (`flaggedBots`) và Velocity Tracker lưu trong RAM cục bộ (`src/lib/toeic-anti-scraping.ts`):**
-   * *Hiện trạng:* `flaggedBots` và `velocityMap` là các `Map` trong bộ nhớ tiến trình Node.js, không đồng bộ qua Redis và sẽ bị xóa sạch mỗi khi server khởi động lại.
-
+1. **Backdoor công khai `?unban=1` và Lộ toàn bộ 200 đáp án qua `POST /api/toeic/submit` (`src/app/api/toeic/submit/route.ts` & `src/lib/toeic-anti-scraping.ts`):**
+   * *Hiện trạng:*
+     * Tham số query `?unban=1` trên các endpoint `/api/toeic/*` cho phép bot hoặc người dùng tự xóa cờ vi phạm scraping trong `toeic-anti-scraping.ts`, vô hiệu hóa cơ chế phòng thủ chủ động Active Cyber Defense.
+     * Tuyến `POST /api/toeic/submit` không kiểm tra `sessionToken` đã cấp lúc tải đề, đồng thời trả về toàn bộ 200 câu hỏi kèm đáp án đúng và lời giải chi tiết ngay trong response nộp bài, tạo điều kiện cho bot cào trọn bộ đề ETS chỉ bằng 1 request submit giả lập.
+   * *Hệ quả:* Nguy cơ thất thoát kho đề thi bản quyền và phá vỡ cơ chế cấp lời giải On-Demand có gắn thủy vân (`POST /api/toeic/explain`).
+2. **Cày XP vô hạn và Thiếu bảo vệ chống replay trên `POST /api/listening/complete` (`src/app/api/listening/complete/route.ts`):**
+   * *Hiện trạng:* Endpoint `/api/listening/complete` nhận `videoId` và gọi RPC `award_xp` (+50 XP) mà không kiểm tra xem học viên đã từng hoàn thành bài nghe video này trước đó hay chưa (chỉ lưu tiến độ tại `localStorage` phía client).
+   * *Hệ quả:* Bất kỳ tài khoản nào cũng có thể gửi lặp lại request nộp bài nhiều lần liên tiếp để cày điểm kinh nghiệm và thăng hạng ảo trên bảng xếp hạng Leaderboard.
+3. **Phụ thuộc hoàn toàn vào tính trung thực của Client trong chế độ Nghe chép chính tả Dictation (`src/lib/listening-utils.ts`):**
+   * *Hiện trạng:* Toàn bộ thuật toán chuẩn hóa xâu ký tự và đối khớp sai khác (Diff Matcher) chạy trên trình duyệt client để đạt 0ms độ trễ, không có xác thực độc lập trên server.
+   * *Hệ quả:* Người dùng kỹ thuật có thể inspect mã nguồn client để lấy transcript gốc và vượt qua bài luyện mà không cần thực sự nghe.
