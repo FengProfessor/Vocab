@@ -19,5 +19,15 @@ public sealed class SrsProgressConfiguration : IEntityTypeConfiguration<SrsProgr
 
         builder.HasIndex(x => new { x.UserId, x.WordId }).IsUnique();
         builder.HasIndex(x => new { x.UserId, x.NextReviewDate });
+
+        builder.HasOne(x => x.User)
+            .WithMany(p => p.SrsProgresses)
+            .HasForeignKey(x => x.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasOne(x => x.Word)
+            .WithMany(w => w.SrsProgresses)
+            .HasForeignKey(x => x.WordId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

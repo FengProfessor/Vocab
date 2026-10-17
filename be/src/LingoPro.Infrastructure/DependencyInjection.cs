@@ -26,6 +26,7 @@ public static class DependencyInjection
         services.AddScoped<ISaveChangesInterceptor, AuditableEntitySaveChangesInterceptor>();
 
         var connectionString = configuration.GetConnectionString("DefaultConnection")
+            ?? configuration.GetConnectionString("SupabasePostgres")
             ?? "Host=aws-0-ap-southeast-1.pooler.supabase.com;Port=6543;Database=postgres;Username=postgres;Password=your-password";
 
         services.AddDbContext<LingoProDbContext>((sp, options) =>
@@ -33,11 +34,15 @@ public static class DependencyInjection
             options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
             options.UseNpgsql(connectionString, npgsqlOptions =>
             {
+                npgsqlOptions.MigrationsAssembly(typeof(LingoProDbContext).Assembly.FullName);
+                npgsqlOptions.MigrationsHistoryTable("__EFMigrationsHistory", "public");
+                npgsqlOptions.CommandTimeout(30);
                 npgsqlOptions.EnableRetryOnFailure(
                     maxRetryCount: 3,
                     maxRetryDelay: TimeSpan.FromSeconds(5),
                     errorCodesToAdd: null);
-            });
+            })
+            .UseSnakeCaseNamingConvention();
         });
 
         services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<LingoProDbContext>());

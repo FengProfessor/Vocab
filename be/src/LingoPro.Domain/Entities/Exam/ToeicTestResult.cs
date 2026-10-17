@@ -1,4 +1,5 @@
 using LingoPro.Domain.Common;
+using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Enums;
 
 namespace LingoPro.Domain.Entities.Exam;
@@ -18,4 +19,6 @@ public class ToeicTestResult : BaseAuditableEntity
     public int TotalScore { get; set; }
     public int DurationSeconds { get; set; }
     public string AnswersJson { get; set; } = "{}";
+
+    public virtual Profile User { get; set; } = null!;
 }

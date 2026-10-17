@@ -18,5 +18,10 @@ public sealed class GrammarTopicConfiguration : IEntityTypeConfiguration<Grammar
         builder.HasIndex(x => x.Slug).IsUnique();
         builder.Property(x => x.CertLevel).HasColumnName("cefr_level").HasConversion<string>().HasMaxLength(8);
         builder.Property(x => x.Level).HasColumnName("grammar_level").HasConversion<string>().HasMaxLength(32);
+
+        builder.HasOne(x => x.Parent)
+            .WithMany(x => x.Children)
+            .HasForeignKey(x => x.ParentId)
+            .OnDelete(DeleteBehavior.SetNull);
     }
 }

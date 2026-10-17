@@ -1,4 +1,5 @@
 using LingoPro.Domain.Common;
+using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Enums;
 
 namespace LingoPro.Domain.Entities.Speaking;
@@ -15,4 +16,7 @@ public class LearnerLexicalState : BaseAuditableEntity
     public int EvidenceCount { get; set; }
     public double ConfidenceScore { get; set; }
     public DateTime LastUpdatedAt { get; set; } = DateTime.UtcNow;
+
+    public virtual Profile Learner { get; set; } = null!;
+    public virtual FoundationLexicalConcept Concept { get; set; } = null!;
 }

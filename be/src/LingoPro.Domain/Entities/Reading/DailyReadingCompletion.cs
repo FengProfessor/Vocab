@@ -1,4 +1,5 @@
 using LingoPro.Domain.Common;
+using LingoPro.Domain.Entities.Auth;
 
 namespace LingoPro.Domain.Entities.Reading;
 
@@ -14,4 +15,7 @@ public class DailyReadingCompletion : BaseAuditableEntity
     public int ClozeScore { get; set; }
     public int ClozeTotal { get; set; }
     public DateTime CompletedAt { get; set; } = DateTime.UtcNow;
+
+    public virtual Profile User { get; set; } = null!;
+    public virtual DailyReadingExercise Exercise { get; set; } = null!;
 }

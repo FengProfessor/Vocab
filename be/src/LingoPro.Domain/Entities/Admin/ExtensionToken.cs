@@ -1,4 +1,5 @@
 using LingoPro.Domain.Common;
+using LingoPro.Domain.Entities.Auth;
 
 namespace LingoPro.Domain.Entities.Admin;
 
@@ -13,4 +14,6 @@ public class ExtensionToken : BaseAuditableEntity
     public DateTime? LastUsedAt { get; set; }
     public DateTime ExpiresAt { get; set; }
     public bool IsRevoked { get; set; }
+
+    public virtual Profile User { get; set; } = null!;
 }

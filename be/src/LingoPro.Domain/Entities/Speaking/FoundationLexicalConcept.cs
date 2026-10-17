@@ -14,4 +14,8 @@ public class FoundationLexicalConcept : BaseAuditableEntity
     public string MeaningVi { get; set; } = string.Empty;
     public int FrequencyBand { get; set; } = 1;
     public CertLevel CertLevel { get; set; } = CertLevel.A1;
+
+    public virtual ICollection<FoundationRepresentation> Representations { get; set; } = new List<FoundationRepresentation>();
+    public virtual ICollection<LearnerLexicalEvidence> Evidences { get; set; } = new List<LearnerLexicalEvidence>();
+    public virtual ICollection<LearnerLexicalState> LearnerStates { get; set; } = new List<LearnerLexicalState>();
 }

@@ -18,5 +18,20 @@ public sealed class OrderConfiguration : IEntityTypeConfiguration<Order>
         builder.Property(x => x.PlanId).HasColumnName("plan_id").HasConversion<string>().HasMaxLength(64);
         builder.Property(x => x.Status).HasColumnName("status").HasConversion<string>().HasMaxLength(32);
         builder.HasIndex(x => x.TransferCode).IsUnique();
+
+        builder.HasOne(x => x.User)
+            .WithMany()
+            .HasForeignKey(x => x.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasOne(x => x.TargetChallenge)
+            .WithMany()
+            .HasForeignKey(x => x.TargetChallengeId)
+            .OnDelete(DeleteBehavior.SetNull);
+
+        builder.HasOne(x => x.ProcessedByUser)
+            .WithMany()
+            .HasForeignKey(x => x.ProcessedBy)
+            .OnDelete(DeleteBehavior.SetNull);
     }
 }

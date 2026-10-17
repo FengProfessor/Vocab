@@ -1,4 +1,5 @@
 using LingoPro.Domain.Common;
+using LingoPro.Domain.Entities.Auth;
 
 namespace LingoPro.Domain.Entities.Classroom;
 
@@ -12,4 +13,5 @@ public class Enrollment : BaseAuditableEntity
     public DateTime JoinedAt { get; set; } = DateTime.UtcNow;
 
     public virtual ClassroomEntity Classroom { get; set; } = null!;
+    public virtual Profile Student { get; set; } = null!;
 }

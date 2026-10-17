@@ -1,4 +1,6 @@
 using LingoPro.Domain.Common;
+using LingoPro.Domain.Entities.Auth;
+using LingoPro.Domain.Entities.Classroom;
 using LingoPro.Domain.Enums;
 
 namespace LingoPro.Domain.Entities.Vocab;
@@ -20,4 +22,8 @@ public class Word : BaseAuditableEntity
     public WordApprovalStatus Status { get; set; } = WordApprovalStatus.Approved;
     public Guid? AddedBy { get; set; }
     public Guid? ClassroomId { get; set; }
+
+    public virtual ClassroomEntity? Classroom { get; set; }
+    public virtual Profile? AddedByUser { get; set; }
+    public virtual ICollection<SrsProgress> SrsProgresses { get; set; } = new List<SrsProgress>();
 }

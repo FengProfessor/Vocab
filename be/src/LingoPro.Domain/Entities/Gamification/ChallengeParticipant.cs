@@ -1,4 +1,6 @@
 using LingoPro.Domain.Common;
+using LingoPro.Domain.Entities.Auth;
+using LingoPro.Domain.Entities.Billing;
 using LingoPro.Domain.Enums;
 
 namespace LingoPro.Domain.Entities.Gamification;
@@ -16,4 +18,7 @@ public class ChallengeParticipant : BaseAuditableEntity
     public int TotalPoints { get; set; }
 
     public virtual Challenge Challenge { get; set; } = null!;
+    public virtual Profile User { get; set; } = null!;
+    public virtual Order? Order { get; set; }
+    public virtual ICollection<ChallengeDailyLog> DailyLogs { get; set; } = new List<ChallengeDailyLog>();
 }

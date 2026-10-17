@@ -1,4 +1,5 @@
 using LingoPro.Domain.Common;
+using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Enums;
 
 namespace LingoPro.Domain.Entities.Roadmap;
@@ -16,5 +17,6 @@ public class UserRoadmapStep : BaseAuditableEntity
     public double? Score { get; set; }
     public DateTime? CompletedAt { get; set; }
 
+    public virtual Profile User { get; set; } = null!;
     public virtual UserRoadmap Roadmap { get; set; } = null!;
 }

@@ -19,5 +19,15 @@ public sealed class WordConfiguration : IEntityTypeConfiguration<Word>
         builder.Property(x => x.Level).HasColumnName("cefr_level").HasConversion<string>().HasMaxLength(8);
         builder.Property(x => x.Status).HasColumnName("approval_status").HasConversion<string>().HasMaxLength(32);
         builder.HasIndex(x => new { x.Term, x.ClassroomId });
+
+        builder.HasOne(x => x.Classroom)
+            .WithMany(c => c.Words)
+            .HasForeignKey(x => x.ClassroomId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasOne(x => x.AddedByUser)
+            .WithMany()
+            .HasForeignKey(x => x.AddedBy)
+            .OnDelete(DeleteBehavior.SetNull);
     }
 }
