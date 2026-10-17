@@ -1,4 +1,6 @@
 using LingoPro.Domain.Common;
+using LingoPro.Domain.Entities.Auth;
+using LingoPro.Domain.Entities.Classroom;
 
 namespace LingoPro.Domain.Entities.Social;
 
@@ -12,4 +14,7 @@ public class StudyRoomPresence : BaseAuditableEntity
     public string CurrentActivity { get; set; } = "Studying Vocabulary";
     public Guid? ClassroomId { get; set; }
     public DateTime LastHeartbeatAt { get; set; } = DateTime.UtcNow;
+
+    public virtual Profile User { get; set; } = null!;
+    public virtual ClassroomEntity? Classroom { get; set; }
 }

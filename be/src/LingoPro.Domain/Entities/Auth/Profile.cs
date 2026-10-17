@@ -1,5 +1,7 @@
 using LingoPro.Domain.Common;
+using LingoPro.Domain.Entities.Admin;
 using LingoPro.Domain.Entities.Roadmap;
+using LingoPro.Domain.Entities.Social;
 using LingoPro.Domain.Entities.Vocab;
 using LingoPro.Domain.Enums;
 
@@ -25,8 +27,13 @@ public class Profile : BaseAuditableEntity
     public int DailyTargetMins { get; set; } = 15;
     public bool OnboardingCompleted { get; set; }
 
+    public virtual UserGamification? Gamification { get; set; }
+    public virtual ReferralLink? ReferralLink { get; set; }
+    public virtual StudyRoomPresence? RoomPresence { get; set; }
     public virtual ICollection<SrsProgress> SrsProgresses { get; set; } = new List<SrsProgress>();
     public virtual ICollection<UserRoadmap> Roadmaps { get; set; } = new List<UserRoadmap>();
+    public virtual ICollection<ExtensionToken> ExtensionTokens { get; set; } = new List<ExtensionToken>();
+    public virtual ICollection<PushSubscriptionEntity> PushSubscriptions { get; set; } = new List<PushSubscriptionEntity>();
 
     /// <summary>
     /// Awards experience points and updates the user's daily streak based on local date progression.

@@ -1,4 +1,5 @@
 using LingoPro.Domain.Common;
+using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Enums;
 
 namespace LingoPro.Domain.Entities.Exam;
@@ -15,4 +16,6 @@ public class UserToeicQuestionHistory : BaseAuditableEntity
     public bool IsCorrect { get; set; }
     public string SelectedOption { get; set; } = string.Empty;
     public DateTime AttemptedAt { get; set; } = DateTime.UtcNow;
+
+    public virtual Profile User { get; set; } = null!;
 }

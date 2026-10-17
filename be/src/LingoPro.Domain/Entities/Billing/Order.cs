@@ -1,4 +1,6 @@
 using LingoPro.Domain.Common;
+using LingoPro.Domain.Entities.Auth;
+using LingoPro.Domain.Entities.Gamification;
 using LingoPro.Domain.Enums;
 
 namespace LingoPro.Domain.Entities.Billing;
@@ -22,4 +24,9 @@ public class Order : BaseAuditableEntity
     public string? PaymentGateway { get; set; }
     public string? GatewayTransactionId { get; set; }
     public DateTime? PaidAt { get; set; }
+    public Guid? ProcessedBy { get; set; }
+
+    public virtual Profile User { get; set; } = null!;
+    public virtual Challenge? TargetChallenge { get; set; }
+    public virtual Profile? ProcessedByUser { get; set; }
 }

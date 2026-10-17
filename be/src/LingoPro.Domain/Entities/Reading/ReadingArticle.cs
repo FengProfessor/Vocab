@@ -17,4 +17,6 @@ public class ReadingArticle : BaseAuditableEntity
     public int WordCount { get; set; }
     public string ContentText { get; set; } = string.Empty;
     public string QuestionsJson { get; set; } = "[]";
+
+    public virtual ICollection<UserReadingLibraryProgress> UserProgresses { get; set; } = new List<UserReadingLibraryProgress>();
 }

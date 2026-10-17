@@ -1,4 +1,6 @@
 using LingoPro.Domain.Common;
+using LingoPro.Domain.Entities.Auth;
+using LingoPro.Domain.Entities.Classroom;
 using LingoPro.Domain.Enums;
 
 namespace LingoPro.Domain.Entities.Reading;
@@ -18,4 +20,8 @@ public class DailyReadingExercise : BaseAuditableEntity
     public string UsedWordsJson { get; set; } = "[]";
     public string McqQuestionsJson { get; set; } = "[]";
     public string ClozeItemsJson { get; set; } = "[]";
+
+    public virtual ClassroomEntity? Classroom { get; set; }
+    public virtual Profile? TargetUser { get; set; }
+    public virtual ICollection<DailyReadingCompletion> Completions { get; set; } = new List<DailyReadingCompletion>();
 }

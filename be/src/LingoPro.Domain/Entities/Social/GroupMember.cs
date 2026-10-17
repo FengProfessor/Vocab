@@ -1,4 +1,5 @@
 using LingoPro.Domain.Common;
+using LingoPro.Domain.Entities.Auth;
 
 namespace LingoPro.Domain.Entities.Social;
 
@@ -12,4 +13,5 @@ public class GroupMember : BaseAuditableEntity
     public DateTime JoinedAt { get; set; } = DateTime.UtcNow;
 
     public virtual StudyGroup Group { get; set; } = null!;
+    public virtual Profile User { get; set; } = null!;
 }

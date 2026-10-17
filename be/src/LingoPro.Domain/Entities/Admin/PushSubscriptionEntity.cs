@@ -1,4 +1,5 @@
 using LingoPro.Domain.Common;
+using LingoPro.Domain.Entities.Auth;
 
 namespace LingoPro.Domain.Entities.Admin;
 
@@ -11,4 +12,6 @@ public class PushSubscriptionEntity : BaseAuditableEntity
     public string FcmToken { get; set; } = string.Empty;
     public string? DevicePlatform { get; set; } = "web";
     public bool IsActive { get; set; } = true;
+
+    public virtual Profile User { get; set; } = null!;
 }
