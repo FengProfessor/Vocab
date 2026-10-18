@@ -32,8 +32,8 @@ Tài liệu này định hình kiến trúc tổng thể, ngăn xếp công ngh�
 |---|---|---|
 | **SSR (SEO & Auth)** | **ASP.NET Core 10 Razor Pages / MVC Views** | Render Server-Side cho Trang chủ SEO (`/`, `/landing`) và cổng Đăng nhập (`/auth/login`) |
 | **Frontend App (SPA)** | **React 19** + **TypeScript** + **Vite** | Ứng dụng học tập tương tác cao sau khi đã đăng nhập (`/app/*`) |
-| | **TailwindCSS** + **Shadcn/UI** | Hệ thống Design System đồng nhất giữa SSR và React SPA |
-| | **TanStack Query** + **Zustand** | Client-side Caching, SWR, 0ms Hydration & nhận thông tin Auth từ Server |
+| **UI Component Library (FE)** | **Ant Design (`antd` v5)** + **`@ant-design/icons`** | Hệ thống UI Components & Design Tokens (`ConfigProvider`) chuẩn hóa cho toàn bộ React SPA |
+| **State & Data Fetching (FE)** | **TanStack Query** + **Zustand** | Client-side Caching, SWR, 0ms Hydration & nhận thông tin Auth từ Server |
 | **Backend Core** | **.NET 10** (C# 14) Web API & BFF | Monolithic Service xử lý toàn bộ Business Logic & điều phối Auth/API |
 | **Architectural Style** | **Clean Architecture** + **SOLID** | Tách biệt Core Domain khỏi Framework, 1 File = 1 Class, Business Enums |
 | **Patterns** | **CQRS** (MediatR), **Strategy / Decorator** | Tách luồng Read/Write, Pipeline Validation, Logging, Selective Caching |

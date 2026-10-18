@@ -1,7 +1,7 @@
 namespace LingoPro.Domain.Enums;
 
 /// <summary>
-/// Defines CRM pipeline statuses for B2B teacher and school pilot leads ('new', 'contacted', 'qualified', 'won', 'lost').
+/// Defines CRM pipeline statuses for B2B teacher and school pilot leads.
 /// </summary>
 public enum PilotLeadStatus
 {
@@ -9,5 +9,8 @@ public enum PilotLeadStatus
     Contacted = 1,
     Qualified = 2,
     Won = 3,
-    Lost = 4
+    Lost = 4,
+    ActivePilot = 5,
+    Converted = 6,
+    Closed = 7
 }

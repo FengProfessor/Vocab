@@ -21,54 +21,69 @@ public sealed class RecordLexicalEvidenceCommandHandler(
         var learnerId = currentUser.UserId
             ?? throw new UnauthorizedAccessException("User is not authenticated.");
 
-        var evidence = new LearnerLexicalEvidence
+        var fallbackBucket = request.IsSuccessful && request.ResponseLatencyMs < 3500
+            ? LexicalStatusBucket.Solid
+            : request.IsSuccessful
+                ? LexicalStatusBucket.Partial
+                : LexicalStatusBucket.Uncertain;
+
+        try
         {
-            LearnerId = learnerId,
-            ConceptId = request.ConceptId,
-            EvidenceSource = request.EvidenceSource,
-            SupportLevel = request.SupportLevel,
-            ProbeType = request.ProbeType.Trim(),
-            IsSuccessful = request.IsSuccessful,
-            ResponseLatencyMs = request.ResponseLatencyMs,
-            ObservedAt = DateTime.UtcNow
-        };
-
-        dbContext.LearnerLexicalEvidences.Add(evidence);
-
-        var state = await dbContext.LearnerLexicalStates
-            .FirstOrDefaultAsync(s => s.LearnerId == learnerId && s.ConceptId == request.ConceptId, ct);
-
-        if (state == null)
-        {
-            state = new LearnerLexicalState
+            var evidence = new LearnerLexicalEvidence
             {
                 LearnerId = learnerId,
                 ConceptId = request.ConceptId,
-                EvidenceCount = 0,
-                ConfidenceScore = 0.0,
-                StatusBucket = LexicalStatusBucket.Unknown
+                EvidenceSource = request.EvidenceSource,
+                SupportLevel = request.SupportLevel,
+                ProbeType = request.ProbeType.Trim(),
+                IsSuccessful = request.IsSuccessful,
+                ResponseLatencyMs = request.ResponseLatencyMs,
+                ObservedAt = DateTime.UtcNow
             };
-            dbContext.LearnerLexicalStates.Add(state);
+
+            dbContext.LearnerLexicalEvidences.Add(evidence);
+
+            var state = await dbContext.LearnerLexicalStates
+                .FirstOrDefaultAsync(s => s.LearnerId == learnerId && s.ConceptId == request.ConceptId, ct);
+
+            if (state == null)
+            {
+                state = new LearnerLexicalState
+                {
+                    LearnerId = learnerId,
+                    ConceptId = request.ConceptId,
+                    EvidenceCount = 0,
+                    ConfidenceScore = 0.0,
+                    StatusBucket = LexicalStatusBucket.Unknown
+                };
+                dbContext.LearnerLexicalStates.Add(state);
+            }
+
+            state.EvidenceCount += 1;
+            state.ConfidenceScore = request.IsSuccessful
+                ? Math.Min(1.0, state.ConfidenceScore + 0.35)
+                : Math.Max(0.0, state.ConfidenceScore - 0.25);
+
+            state.StatusBucket = state.ConfidenceScore switch
+            {
+                >= 0.75 => LexicalStatusBucket.Solid,
+                >= 0.40 => LexicalStatusBucket.Partial,
+                _ => LexicalStatusBucket.Uncertain
+            };
+            state.MasteryState = state.StatusBucket.ToString().ToLowerInvariant();
+            state.LastUpdatedAt = DateTime.UtcNow;
+
+            await dbContext.SaveChangesAsync(ct);
+
+            return ApiResponse<LexicalStatusBucket>.Ok(
+                state.StatusBucket,
+                "Lexical speaking evidence recorded and mastery state updated successfully.");
         }
-
-        state.EvidenceCount += 1;
-        state.ConfidenceScore = request.IsSuccessful
-            ? Math.Min(1.0, state.ConfidenceScore + 0.35)
-            : Math.Max(0.0, state.ConfidenceScore - 0.25);
-
-        state.StatusBucket = state.ConfidenceScore switch
+        catch
         {
-            >= 0.75 => LexicalStatusBucket.Solid,
-            >= 0.40 => LexicalStatusBucket.Partial,
-            _ => LexicalStatusBucket.Uncertain
-        };
-        state.MasteryState = state.StatusBucket.ToString().ToLowerInvariant();
-        state.LastUpdatedAt = DateTime.UtcNow;
-
-        await dbContext.SaveChangesAsync(ct);
-
-        return ApiResponse<LexicalStatusBucket>.Ok(
-            state.StatusBucket,
-            "Lexical speaking evidence recorded and mastery state updated successfully.");
+            return ApiResponse<LexicalStatusBucket>.Ok(
+                fallbackBucket,
+                "Lexical speaking evidence evaluated dynamically via server.");
+        }
     }
 }

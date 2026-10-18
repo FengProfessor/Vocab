@@ -4,6 +4,7 @@ using LingoPro.Application.Common.Models;
 using LingoPro.Infrastructure;
 using LingoPro.WebApi.Extensions;
 using LingoPro.WebApi.Middlewares;
+using LingoPro.WebApi.Security;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,6 +16,7 @@ builder.Services.AddInfrastructureServices(builder.Configuration);
 
 // 2. Register JWT Authentication (15m Access / 30d Refresh + HttpOnly Cookie Support) & Authorization Policies
 builder.Services.AddSupabaseAuthentication(builder.Configuration);
+builder.Services.AddSingleton<OAuthFlowCookieService>();
 
 // 3. Register Native .NET 10 Rate Limiting & SSR Response Caching Middleware
 builder.Services.AddAppRateLimiting();
@@ -84,8 +86,18 @@ else
 }
 
 app.UseStaticFiles();
+var repoPublicPath = Path.GetFullPath(Path.Combine(app.Environment.ContentRootPath, "..", "..", "..", "public"));
+if (Directory.Exists(repoPublicPath))
+{
+    app.UseStaticFiles(new StaticFileOptions
+    {
+        FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(repoPublicPath)
+    });
+}
 app.UseCors("ReactSpaPolicy");
 app.UseResponseCaching();
+
+app.UseMiddleware<CookieCsrfMiddleware>();
 
 app.UseAuthentication();
 app.UseAuthorization();
@@ -101,5 +113,16 @@ app.MapGet("/api/v1/health", () => Results.Ok(
         StatusCodes.Status200OK
     )
 ));
+
+// 8. Forward React SPA workspace routes (/app, /teacher, /admin) to the configured SPA origin
+var spaBaseUrl = (builder.Configuration["Frontend:BaseUrl"] ?? "http://localhost:5173").TrimEnd('/');
+string[] spaPrefixes = ["/app", "/teacher", "/admin"];
+foreach (var prefix in spaPrefixes)
+{
+    app.MapGet(prefix, (HttpContext ctx) =>
+        Results.Redirect($"{spaBaseUrl}{ctx.Request.Path}{ctx.Request.QueryString}"));
+    app.MapGet($"{prefix}/{{**slug}}", (HttpContext ctx) =>
+        Results.Redirect($"{spaBaseUrl}{ctx.Request.Path}{ctx.Request.QueryString}"));
+}
 
 app.Run();

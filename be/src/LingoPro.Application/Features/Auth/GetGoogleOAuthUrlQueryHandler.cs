@@ -12,7 +12,7 @@ public class GetGoogleOAuthUrlQueryHandler(ISupabaseAuthService supabaseAuth)
 {
     public async Task<ApiResponse<OAuthUrlDto>> Handle(GetGoogleOAuthUrlQuery request, CancellationToken ct)
     {
-        var url = await supabaseAuth.GetGoogleOAuthUrlAsync(request.RedirectUri, ct);
+        var url = await supabaseAuth.GetGoogleOAuthUrlAsync(request.RedirectUri, request.CodeChallenge, ct);
         return ApiResponse<OAuthUrlDto>.Ok(new OAuthUrlDto(url), "Google OAuth authorization URL generated successfully.");
     }
 }

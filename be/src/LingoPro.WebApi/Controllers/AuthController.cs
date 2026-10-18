@@ -21,6 +21,11 @@ public sealed class AuthController : ApiControllerBase
         CancellationToken ct)
     {
         var result = await Mediator.Send(command, ct);
+        if (result.Success && result.Data is not null)
+        {
+            AppendAuthCookies(result.Data);
+        }
+
         return OkResponse(result, "Authentication successful.");
     }
 
@@ -31,26 +36,50 @@ public sealed class AuthController : ApiControllerBase
         CancellationToken ct)
     {
         var result = await Mediator.Send(command, ct);
+        if (result.Success && result.Data is not null)
+        {
+            AppendAuthCookies(result.Data);
+        }
+
         return CreatedResponse(result, "Account registered successfully.");
     }
 
     [HttpPost("refresh")]
     [AllowAnonymous]
     public async Task<ActionResult<ApiResponse<AuthTokensDto>>> Refresh(
-        [FromBody] RefreshTokenCommand command,
-        CancellationToken ct)
+        [FromBody] RefreshTokenCommand? command = null,
+        CancellationToken ct = default)
     {
-        var result = await Mediator.Send(command, ct);
+        var refreshToken = !string.IsNullOrWhiteSpace(command?.RefreshToken)
+            ? command.RefreshToken
+            : Request.Cookies[AuthenticationExtensions.RefreshTokenCookieName] ?? string.Empty;
+
+        var result = await Mediator.Send(new RefreshTokenCommand(refreshToken), ct);
+        if (result.Success && result.Data is not null)
+        {
+            AppendAuthCookies(result.Data);
+        }
+
         return OkResponse(result, "Session token refreshed successfully.");
+    }
+
+    [HttpPost("logout")]
+    [AllowAnonymous]
+    public ActionResult<ApiResponse<bool>> Logout()
+    {
+        Response.Cookies.Delete(AuthenticationExtensions.AccessTokenCookieName, new CookieOptions { Path = "/" });
+        Response.Cookies.Delete(AuthenticationExtensions.RefreshTokenCookieName, new CookieOptions { Path = "/" });
+        return OkResponse(true, "Logged out successfully.");
     }
 
     [HttpGet("google-url")]
     [AllowAnonymous]
     public async Task<ActionResult<ApiResponse<OAuthUrlDto>>> GetGoogleOAuthUrl(
         [FromQuery] string redirectUri,
+        [FromQuery] string codeChallenge,
         CancellationToken ct)
     {
-        var result = await Mediator.Send(new GetGoogleOAuthUrlQuery(redirectUri), ct);
+        var result = await Mediator.Send(new GetGoogleOAuthUrlQuery(redirectUri, codeChallenge), ct);
         return OkResponse(result, "Google OAuth authorization URL generated.");
     }
 
@@ -61,6 +90,11 @@ public sealed class AuthController : ApiControllerBase
         CancellationToken ct)
     {
         var result = await Mediator.Send(command, ct);
+        if (result.Success && result.Data is not null)
+        {
+            AppendAuthCookies(result.Data);
+        }
+
         return OkResponse(result, "Google OAuth login completed successfully.");
     }
 
@@ -111,6 +145,33 @@ public sealed class AuthController : ApiControllerBase
         {
             return authHeader["Bearer ".Length..].Trim();
         }
-        return string.Empty;
+        return Request.Cookies[AuthenticationExtensions.AccessTokenCookieName] ?? string.Empty;
+    }
+
+    private void AppendAuthCookies(AuthTokensDto authTokens)
+    {
+        Response.Cookies.Append(
+            AuthenticationExtensions.AccessTokenCookieName,
+            authTokens.AccessToken,
+            new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = Request.IsHttps,
+                SameSite = SameSiteMode.Lax,
+                Expires = authTokens.AccessTokenExpiresAtUtc,
+                Path = "/"
+            });
+
+        Response.Cookies.Append(
+            AuthenticationExtensions.RefreshTokenCookieName,
+            authTokens.RefreshToken,
+            new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = Request.IsHttps,
+                SameSite = SameSiteMode.Lax,
+                Expires = authTokens.RefreshTokenExpiresAtUtc,
+                Path = "/"
+            });
     }
 }

@@ -5,11 +5,11 @@ namespace LingoPro.Domain.Enums;
 /// </summary>
 public enum ToeicPart
 {
-    Part1Photographs = 1,
-    Part2QuestionResponse = 2,
-    Part3Conversations = 3,
-    Part4Talks = 4,
-    Part5IncompleteSentences = 5,
-    Part6TextCompletion = 6,
-    Part7ReadingComprehension = 7
+    Part1 = 1,
+    Part2 = 2,
+    Part3 = 3,
+    Part4 = 4,
+    Part5 = 5,
+    Part6 = 6,
+    Part7 = 7
 }

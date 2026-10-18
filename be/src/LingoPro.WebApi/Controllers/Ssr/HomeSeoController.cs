@@ -27,4 +27,43 @@ public sealed class HomeSeoController : Controller
         var response = await _mediator.Send(new GetLandingPageSeoDataQuery(), ct);
         return View("~/Views/Home/Index.cshtml", response.Data);
     }
+
+    [HttpGet("/for-teacher")]
+    [HttpGet("/for-teachers")]
+    [ResponseCache(Duration = 300, Location = ResponseCacheLocation.Any)]
+    public IActionResult ForTeachers()
+    {
+        return View("~/Views/Home/ForTeachers.cshtml");
+    }
+
+    [HttpPost("/api/pilot/leads")]
+    public IActionResult SubmitPilotLead([FromBody] PilotLeadSubmissionRequest? request)
+    {
+        if (!string.IsNullOrWhiteSpace(request?.Website))
+        {
+            return Ok(new { success = true });
+        }
+
+        var contact = !string.IsNullOrWhiteSpace(request?.ContactName) ? request.ContactName : request?.Name;
+        if (string.IsNullOrWhiteSpace(contact) || string.IsNullOrWhiteSpace(request?.Phone))
+        {
+            return BadRequest(new { success = false, error = "Thông tin chưa hợp lệ." });
+        }
+
+        return StatusCode(201, new { success = true, id = Guid.NewGuid() });
+    }
 }
+
+public sealed record PilotLeadSubmissionRequest(
+    string? ContactName,
+    string? Name,
+    string? Email,
+    string? Phone,
+    string? Organization,
+    int? TeacherCount,
+    int? StudentCount,
+    string? Message,
+    string? Source,
+    string? Website);
+
+

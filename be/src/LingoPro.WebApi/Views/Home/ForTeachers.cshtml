@@ -1,0 +1,1093 @@
+@{
+    Layout = null;
+
+    const string pageTitle = "Phần mềm quản lý lớp tiếng Anh cho giáo viên | LingoPro";
+    const string pageDescription = "Dashboard lớp, giao từ vựng & ngữ pháp, nhắc ôn FSRS tự động. Tiết kiệm 2–4 giờ/tuần soạn bài và chấm. Dùng thử miễn phí cho gia sư, GV, trung tâm.";
+    const string canonicalUrl = "https://lingopro.online/for-teachers";
+}
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@pageTitle</title>
+    <meta name="description" content="@pageDescription" />
+    <meta name="keywords" content="phần mềm quản lý lớp học tiếng Anh, app học từ vựng cho học sinh, dashboard giáo viên tiếng Anh, FSRS, học từ vựng AI, phần mềm giáo viên tiếng Anh, theo dõi tiến độ học sinh" />
+    <link rel="canonical" href="@canonicalUrl" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <!-- OpenGraph -->
+    <meta property="og:title" content="LingoPro cho Giáo viên &amp; Trung tâm — Dashboard lớp + FSRS" />
+    <meta property="og:description" content="Quản lý lớp, giao bài, phát hiện học sinh hụt nhịp. Giảm 2–4 giờ soạn &amp; chấm mỗi tuần." />
+    <meta property="og:url" content="@canonicalUrl" />
+    <meta property="og:site_name" content="LingoPro" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:type" content="website" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS v4 Browser Runtime -->
+    <script src="https://cdn.jsdelivr.net/npm/@@tailwindcss/browser@@4"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+        }
+        .pilot-input {
+            width: 100%;
+            border: 1px solid rgb(255 255 255 / 12%);
+            border-radius: 0.875rem;
+            background: rgb(255 255 255 / 7%);
+            padding: 0.75rem 0.875rem;
+            color: white;
+            outline: none;
+        }
+        .pilot-input:focus {
+            border-color: #d7ff64;
+            box-shadow: 0 0 0 3px rgb(215 255 100 / 12%);
+        }
+    </style>
+
+    <!-- Structured Data JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@@context": "https://schema.org",
+      "@@graph": [
+        {
+          "@@type": "SoftwareApplication",
+          "name": "LingoPro for Teachers",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "Web",
+          "url": "https://lingopro.online/for-teachers",
+          "description": "Phần mềm quản lý lớp tiếng Anh: dashboard tiến độ, giao từ vựng, nhắc ôn FSRS, AI hỗ trợ giáo viên.",
+          "inLanguage": "vi",
+          "offers": {
+            "@@type": "Offer",
+            "price": "0",
+            "priceCurrency": "VND",
+            "description": "Tạo lớp miễn phí — báo giá gói trả phí theo quy mô (liên hệ)"
+          }
+        },
+        {
+          "@@type": "VideoObject",
+          "name": "Demo quy trình giáo viên LingoPro",
+          "description": "Tạo lớp, mời học sinh, giao bài, theo dõi tiến độ và phát hiện học sinh cần hỗ trợ.",
+          "contentUrl": "https://lingopro.online/lingopro-teacher-flow.mp4",
+          "embedUrl": "https://lingopro.online/for-teachers#demo",
+          "uploadDate": "2026-06-01",
+          "inLanguage": "vi"
+        },
+        {
+          "@@type": "VideoObject",
+          "name": "LingoPro vs Anki Quizlet Duolingo cho lớp học",
+          "description": "So sánh LingoPro với Anki, Quizlet, Duolingo trong bối cảnh giáo viên quản lý lớp.",
+          "contentUrl": "https://lingopro.online/lingopro-vs-anki.mp4",
+          "embedUrl": "https://lingopro.online/for-teachers#demo",
+          "uploadDate": "2026-06-01",
+          "inLanguage": "vi"
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="min-h-dvh overflow-x-hidden bg-[#f7f8f2] text-[#17231d]">
+    <div class="min-h-dvh overflow-hidden bg-[#f7f8f2] text-[#17231d]">
+        <!-- 1. Header sticky -->
+        <header class="sticky top-0 z-50 border-b border-[#17231d]/10 bg-[#f7f8f2]/90 backdrop-blur-xl">
+            <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
+                <a href="/" class="flex items-center gap-2.5 font-black tracking-tight">
+                    <span class="flex size-9 items-center justify-center rounded-xl bg-[#17231d] text-[#d7ff64]">
+                        <i data-lucide="brain" class="size-5"></i>
+                    </span>
+                    LingoPro
+                </a>
+                <nav class="hidden items-center gap-7 text-sm font-semibold text-[#526057] md:flex">
+                    <a href="#giai-phap" class="transition-colors hover:text-[#17231d]">Giải pháp</a>
+                    <a href="#tinh-nang" class="transition-colors hover:text-[#17231d]">Tính năng</a>
+                    <a href="#demo" class="transition-colors hover:text-[#17231d]">Demo</a>
+                    <a href="#bang-gia" class="transition-colors hover:text-[#17231d]">Gói &amp; báo giá</a>
+                    <a href="#faq" class="transition-colors hover:text-[#17231d]">FAQ</a>
+                </nav>
+                <a href="/auth?mode=signup&amp;role=teacher&amp;pilot=teacher_pro"
+                   onclick="trackPilotCta('teacher_pro', 'header')"
+                   class="inline-flex items-center gap-2 rounded-full bg-[#17231d] px-4 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5">
+                    Tạo lớp miễn phí <i data-lucide="arrow-right" class="size-4"></i>
+                </a>
+            </div>
+        </header>
+
+        <main>
+            <!-- 2. Hero + AudienceTabs -->
+            <section class="relative px-4 pb-20 pt-16 sm:px-6 sm:pb-28 sm:pt-24">
+                <div class="pointer-events-none absolute -right-32 top-0 size-[32rem] rounded-full bg-[#d7ff64]/35 blur-3xl"></div>
+                <div class="pointer-events-none absolute -left-48 bottom-0 size-96 rounded-full bg-[#74cbb2]/20 blur-3xl"></div>
+                <div class="relative mx-auto grid max-w-7xl items-start gap-14 lg:grid-cols-[1.08fr_0.92fr]">
+                    <!-- AudienceTabs -->
+                    <div>
+                        <div class="flex w-full rounded-full border border-gray-200 bg-white/80 p-1.5 backdrop-blur-sm sm:max-w-md">
+                            <button type="button"
+                                    data-audience-tab="tutor"
+                                    onclick="setActiveAudience('tutor')"
+                                    class="audience-tab-btn w-1/3 rounded-full py-2.5 text-sm font-bold transition-colors bg-[#17231d] text-[#d7ff64] cursor-pointer">
+                                Gia sư
+                            </button>
+                            <button type="button"
+                                    data-audience-tab="teacher"
+                                    onclick="setActiveAudience('teacher')"
+                                    class="audience-tab-btn w-1/3 rounded-full py-2.5 text-sm font-bold transition-colors border border-transparent bg-transparent text-[#526057] hover:bg-white cursor-pointer">
+                                Giáo viên
+                            </button>
+                            <button type="button"
+                                    data-audience-tab="center"
+                                    onclick="setActiveAudience('center')"
+                                    class="audience-tab-btn w-1/3 rounded-full py-2.5 text-sm font-bold transition-colors border border-transparent bg-transparent text-[#526057] hover:bg-white cursor-pointer">
+                                Trung tâm
+                            </button>
+                        </div>
+
+                        <div class="mt-8">
+                            <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-[#17231d]/10 bg-white/70 px-4 py-2 text-xs font-black uppercase tracking-[0.16em] text-[#526057]">
+                                <i data-lucide="sparkles" class="size-4 text-[#567600]"></i>
+                                <span id="audience-badge">Cho gia sư 1:1 &amp; nhóm nhỏ</span>
+                            </div>
+                            <h1 class="max-w-4xl text-5xl font-black leading-[0.98] tracking-[-0.055em] sm:text-7xl">
+                                <span id="audience-lead">Dạy sát từng em.</span>
+                                <span id="audience-accent" class="mt-2 block text-[#567600]">Không cần thêm giờ.</span>
+                            </h1>
+                            <p id="audience-sub" class="mt-7 max-w-2xl text-lg font-medium leading-8 text-[#526057] sm:text-xl">
+                                Giảm 2–4 giờ soạn và chấm mỗi tuần, giữ học viên bằng kết quả thấy rõ.
+                            </p>
+                            <ul id="audience-bullets" class="mt-7 space-y-2.5">
+                                <li class="flex items-center gap-3 font-semibold text-[#17231d]">
+                                    <i data-lucide="check-circle-2" class="size-5 shrink-0 text-[#567600]"></i>
+                                    <span>Nhắc học sinh ôn tự động theo FSRS</span>
+                                </li>
+                                <li class="flex items-center gap-3 font-semibold text-[#17231d]">
+                                    <i data-lucide="check-circle-2" class="size-5 shrink-0 text-[#567600]"></i>
+                                    <span>Thấy ngay từ/cấu trúc em đang yếu</span>
+                                </li>
+                                <li class="flex items-center gap-3 font-semibold text-[#17231d]">
+                                    <i data-lucide="check-circle-2" class="size-5 shrink-0 text-[#567600]"></i>
+                                    <span>Tạo lớp và mời học sinh trong vài phút</span>
+                                </li>
+                            </ul>
+                            <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+                                <a id="audience-cta-primary"
+                                   href="/auth?mode=signup&amp;role=teacher&amp;pilot=tutor"
+                                   onclick="trackPilotCta(currentAudiencePlan, 'hero_' + currentAudience)"
+                                   class="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#17231d] px-7 py-4 font-black text-white shadow-[0_12px_0_#b9df4d] transition-transform hover:-translate-y-1">
+                                    <span id="audience-cta-text">Tạo lớp miễn phí</span>
+                                    <i data-lucide="arrow-right" class="size-5"></i>
+                                </a>
+                                <a href="#bang-gia"
+                                   class="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#17231d]/15 bg-white/70 px-7 py-4 font-black transition-colors hover:bg-white">
+                                    Xem gói &amp; báo giá
+                                </a>
+                            </div>
+                            <p class="mt-6 flex items-center gap-x-4 text-sm font-semibold text-[#657269]">
+                                <span class="flex items-center gap-2">
+                                    <i data-lucide="shield-check" class="size-4 text-[#567600]"></i> Không cần thẻ
+                                </span>
+                                <span>Hủy bất cứ lúc nào</span>
+                                <span>Dữ liệu học sinh bảo mật</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right Hero Dashboard Preview -->
+                    <div class="relative mx-auto hidden w-full max-w-xl lg:block">
+                        <div class="absolute -inset-5 rotate-3 rounded-[2rem] bg-[#d7ff64]"></div>
+                        <div class="relative rounded-[2rem] border border-[#17231d]/10 bg-[#17231d] p-5 text-white shadow-2xl sm:p-7">
+                            <div class="flex items-center justify-between border-b border-white/10 pb-5">
+                                <div>
+                                    <p class="text-xs font-bold uppercase tracking-[0.16em] text-[#9caaa1]">Lớp IELTS 7.0</p>
+                                    <p class="mt-1 text-xl font-black">Tổng quan tuần này</p>
+                                </div>
+                                <div class="rounded-xl bg-[#d7ff64] p-2 text-[#17231d]">
+                                    <i data-lucide="bar-chart-3" class="size-5"></i>
+                                </div>
+                            </div>
+                            <div class="mt-5 grid grid-cols-3 gap-3">
+                                <div class="rounded-2xl bg-white/[0.07] p-3">
+                                    <p class="text-2xl font-black text-[#d7ff64]">24</p>
+                                    <p class="mt-1 text-xs font-semibold text-[#9caaa1]">Học sinh</p>
+                                </div>
+                                <div class="rounded-2xl bg-white/[0.07] p-3">
+                                    <p class="text-2xl font-black text-[#d7ff64]">86%</p>
+                                    <p class="mt-1 text-xs font-semibold text-[#9caaa1]">Chính xác</p>
+                                </div>
+                                <div class="rounded-2xl bg-white/[0.07] p-3">
+                                    <p class="text-2xl font-black text-[#d7ff64]">142</p>
+                                    <p class="mt-1 text-xs font-semibold text-[#9caaa1]">Lượt ôn</p>
+                                </div>
+                            </div>
+                            <div class="mt-5 rounded-2xl bg-white/[0.07] p-4">
+                                <div class="mb-4 flex items-center justify-between">
+                                    <p class="font-bold">Cần hỗ trợ hôm nay</p>
+                                    <span class="rounded-full bg-[#ff8069]/15 px-2.5 py-1 text-xs font-bold text-[#ff9c89]">3 học sinh</span>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex items-center gap-3">
+                                        <span class="flex size-9 items-center justify-center rounded-full bg-[#d7ff64]/15 text-xs font-black text-[#d7ff64]">M</span>
+                                        <div class="min-w-0 flex-1">
+                                            <p class="text-sm font-bold">Minh Anh</p>
+                                            <p class="truncate text-xs text-[#9caaa1]">Cụm động từ</p>
+                                        </div>
+                                        <span class="text-sm font-black text-[#ff9c89]">62%</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <span class="flex size-9 items-center justify-center rounded-full bg-[#d7ff64]/15 text-xs font-black text-[#d7ff64]">G</span>
+                                        <div class="min-w-0 flex-1">
+                                            <p class="text-sm font-bold">Gia Huy</p>
+                                            <p class="truncate text-xs text-[#9caaa1]">Thì hoàn thành</p>
+                                        </div>
+                                        <span class="text-sm font-black text-[#ff9c89]">68%</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <span class="flex size-9 items-center justify-center rounded-full bg-[#d7ff64]/15 text-xs font-black text-[#d7ff64]">T</span>
+                                        <div class="min-w-0 flex-1">
+                                            <p class="text-sm font-bold">Thảo Vy</p>
+                                            <p class="truncate text-xs text-[#9caaa1]">Từ học thuật</p>
+                                        </div>
+                                        <span class="text-sm font-black text-[#ff9c89]">71%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-5 flex items-center gap-3 rounded-2xl bg-[#d7ff64] p-4 text-[#17231d]">
+                                <i data-lucide="zap" class="size-5 shrink-0"></i>
+                                <p class="text-sm font-bold">AI đề xuất giao drill “phrasal verbs” cho 8 học sinh.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Dải kết quả -->
+            <section class="border-y border-[#17231d]/10 bg-white/70 px-4 py-10 sm:px-6">
+                <div class="mx-auto grid max-w-7xl gap-7 md:grid-cols-3">
+                    <div class="flex items-start gap-4">
+                        <span class="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-[#d7ff64]/60">
+                            <i data-lucide="clock-3" class="size-5"></i>
+                        </span>
+                        <div>
+                            <p class="text-xl font-black">Tiết kiệm 2–4 giờ/tuần</p>
+                            <p class="mt-1 text-sm font-medium leading-6 text-[#657269]">soạn bài, chấm và nhắc ôn thủ công</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-[#d7ff64]/60">
+                            <i data-lucide="target" class="size-5"></i>
+                        </span>
+                        <div>
+                            <p class="text-xl font-black">1 dashboard</p>
+                            <p class="mt-1 text-sm font-medium leading-6 text-[#657269]">nắm tiến độ, độ chính xác và từ khó của cả lớp</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-[#d7ff64]/60">
+                            <i data-lucide="user-round-check" class="size-5"></i>
+                        </span>
+                        <div>
+                            <p class="text-xl font-black">Nhắc ôn tự động</p>
+                            <p class="mt-1 text-sm font-medium leading-6 text-[#657269]">mỗi học sinh có lịch ghi nhớ riêng theo FSRS</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. So sánh -->
+            <section class="bg-[#17231d] px-4 py-24 text-white sm:px-6">
+                <div class="mx-auto max-w-7xl">
+                    <div class="grid gap-12 lg:grid-cols-2">
+                        <div>
+                            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#d7ff64]">So sánh cách làm</p>
+                            <h2 class="mt-4 text-4xl font-black tracking-[-0.04em] sm:text-5xl">Gom Sheet, Quizlet, Zalo vào một luồng.</h2>
+                            <p class="mt-6 max-w-xl font-medium leading-8 text-[#aab5ae]">
+                                LingoPro là lớp học tập (learning layer) — bổ sung cho phần mềm quản lý/điểm danh trung tâm đang dùng, không thay thế.
+                            </p>
+                        </div>
+                        <div class="overflow-hidden rounded-3xl border border-white/10">
+                            <div class="grid grid-cols-[1fr_80px_80px] border-b border-white/10 bg-white/[0.06] px-4 py-3 text-xs font-black uppercase tracking-wider text-[#aab5ae]">
+                                <span>Khả năng</span>
+                                <span>LingoPro</span>
+                                <span class="truncate">Sheet...</span>
+                            </div>
+                            <div class="grid grid-cols-[1fr_80px_80px] items-center border-b border-white/10 px-4 py-4">
+                                <span class="pr-3 text-sm font-semibold">Theo dõi tiến độ từng học sinh</span>
+                                <span class="flex justify-center"><i data-lucide="check" class="size-5 text-[#d7ff64]"></i></span>
+                                <span class="flex justify-center"><i data-lucide="x" class="size-5 text-[#77837b]"></i></span>
+                            </div>
+                            <div class="grid grid-cols-[1fr_80px_80px] items-center border-b border-white/10 px-4 py-4">
+                                <span class="pr-3 text-sm font-semibold">Nhắc ôn cá nhân hóa tự động</span>
+                                <span class="flex justify-center"><i data-lucide="check" class="size-5 text-[#d7ff64]"></i></span>
+                                <span class="flex justify-center"><i data-lucide="x" class="size-5 text-[#77837b]"></i></span>
+                            </div>
+                            <div class="grid grid-cols-[1fr_80px_80px] items-center border-b border-white/10 px-4 py-4">
+                                <span class="pr-3 text-sm font-semibold">Phát hiện từ khó và lỗi phổ biến</span>
+                                <span class="flex justify-center"><i data-lucide="check" class="size-5 text-[#d7ff64]"></i></span>
+                                <span class="flex justify-center"><i data-lucide="x" class="size-5 text-[#77837b]"></i></span>
+                            </div>
+                            <div class="grid grid-cols-[1fr_80px_80px] items-center border-b border-white/10 px-4 py-4">
+                                <span class="pr-3 text-sm font-semibold">Giao bài theo vấn đề của lớp</span>
+                                <span class="flex justify-center"><i data-lucide="check" class="size-5 text-[#d7ff64]"></i></span>
+                                <span class="flex justify-center"><i data-lucide="x" class="size-5 text-[#77837b]"></i></span>
+                            </div>
+                            <div class="grid grid-cols-[1fr_80px_80px] items-center px-4 py-4">
+                                <span class="pr-3 text-sm font-semibold">Một nơi cho từ vựng và ngữ pháp</span>
+                                <span class="flex justify-center"><i data-lucide="check" class="size-5 text-[#d7ff64]"></i></span>
+                                <span class="flex justify-center"><i data-lucide="x" class="size-5 text-[#77837b]"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. Quy trình 3 bước -->
+            <section id="giai-phap" class="px-4 py-24 sm:px-6">
+                <div class="mx-auto max-w-4xl text-center">
+                    <p class="text-sm font-black uppercase tracking-[0.18em] text-[#567600]">Quy trình đơn giản</p>
+                    <h2 class="mt-4 text-4xl font-black tracking-[-0.04em] sm:text-5xl">Từ tạo lớp đến quyết định can thiệp trong ba bước.</h2>
+                </div>
+                <div class="mx-auto mt-12 grid max-w-7xl gap-5 lg:grid-cols-3">
+                    <div class="group rounded-[1.75rem] border border-[#17231d]/10 bg-white p-7 transition-transform hover:-translate-y-1">
+                        <div class="flex items-center justify-between">
+                            <span class="text-5xl font-black tracking-[-0.08em] text-[#c8d0ca]">01</span>
+                            <i data-lucide="arrow-right" class="size-5 transition-transform group-hover:translate-x-1"></i>
+                        </div>
+                        <h3 class="mt-10 text-xl font-black">Tạo lớp và mời học sinh</h3>
+                        <p class="mt-3 text-sm font-medium leading-7 text-[#657269]">Gửi một mã lớp. Học sinh tham gia trong vài giây, không cần cài đặt phức tạp.</p>
+                    </div>
+                    <div class="group rounded-[1.75rem] border border-[#17231d]/10 bg-white p-7 transition-transform hover:-translate-y-1">
+                        <div class="flex items-center justify-between">
+                            <span class="text-5xl font-black tracking-[-0.08em] text-[#c8d0ca]">02</span>
+                            <i data-lucide="arrow-right" class="size-5 transition-transform group-hover:translate-x-1"></i>
+                        </div>
+                        <h3 class="mt-10 text-xl font-black">Giao nội dung cần học</h3>
+                        <p class="mt-3 text-sm font-medium leading-7 text-[#657269]">Tạo danh sách từ, giao bài ngữ pháp và duyệt nội dung học sinh tự thêm.</p>
+                    </div>
+                    <div class="group rounded-[1.75rem] border border-[#17231d]/10 bg-white p-7 transition-transform hover:-translate-y-1">
+                        <div class="flex items-center justify-between">
+                            <span class="text-5xl font-black tracking-[-0.08em] text-[#c8d0ca]">03</span>
+                            <i data-lucide="arrow-right" class="size-5 transition-transform group-hover:translate-x-1"></i>
+                        </div>
+                        <h3 class="mt-10 text-xl font-black">Theo dõi và can thiệp</h3>
+                        <p class="mt-3 text-sm font-medium leading-7 text-[#657269]">Xem ai đang chậm, từ nào gây khó và giao bài luyện tập đúng vấn đề.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. Lưới tính năng -->
+            <section id="tinh-nang" class="border-t border-[#17231d]/10 px-4 py-24 sm:px-6">
+                <div class="mx-auto max-w-7xl">
+                    <div class="max-w-3xl">
+                        <p class="text-sm font-black uppercase tracking-[0.18em] text-[#567600]">Đủ sâu để hành động</p>
+                        <h2 class="mt-4 text-4xl font-black tracking-[-0.04em]">Không chỉ báo cáo. LingoPro chỉ ra việc cần làm tiếp theo.</h2>
+                        <p class="mt-5 font-medium leading-8 text-[#657269]">
+                            Mỗi tính năng đều phục vụ một quyết định thực tế: dạy gì, giao gì và hỗ trợ ai trước.
+                        </p>
+                    </div>
+                    <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                        <div class="rounded-3xl border border-[#17231d]/10 bg-white p-6">
+                            <span class="flex size-11 items-center justify-center rounded-2xl bg-[#17231d] text-[#d7ff64]">
+                                <i data-lucide="circle-gauge" class="size-5"></i>
+                            </span>
+                            <h3 class="mt-5 text-lg font-black">Dashboard tiến độ lớp</h3>
+                            <p class="mt-2 text-sm font-medium leading-6 text-[#657269]">Theo dõi số học sinh hoạt động, độ chính xác, lượng từ đã học và bài cần ôn.</p>
+                        </div>
+                        <div class="rounded-3xl border border-[#17231d]/10 bg-white p-6">
+                            <span class="flex size-11 items-center justify-center rounded-2xl bg-[#17231d] text-[#d7ff64]">
+                                <i data-lucide="brain" class="size-5"></i>
+                            </span>
+                            <h3 class="mt-5 text-lg font-black">Ôn tập cá nhân hóa FSRS</h3>
+                            <p class="mt-2 text-sm font-medium leading-6 text-[#657269]">Mỗi học sinh có lịch ôn riêng, giúp giáo viên không phải tự nhắc từng em.</p>
+                        </div>
+                        <div class="rounded-3xl border border-[#17231d]/10 bg-white p-6">
+                            <span class="flex size-11 items-center justify-center rounded-2xl bg-[#17231d] text-[#d7ff64]">
+                                <i data-lucide="wand-sparkles" class="size-5"></i>
+                            </span>
+                            <h3 class="mt-5 text-lg font-black">AI hỗ trợ tạo nội dung</h3>
+                            <p class="mt-2 text-sm font-medium leading-6 text-[#657269]">Làm giàu từ vựng, tạo ví dụ, bài luyện ngữ pháp và phân tích lỗi học tập.</p>
+                        </div>
+                        <div class="rounded-3xl border border-[#17231d]/10 bg-white p-6">
+                            <span class="flex size-11 items-center justify-center rounded-2xl bg-[#17231d] text-[#d7ff64]">
+                                <i data-lucide="book-open-check" class="size-5"></i>
+                            </span>
+                            <h3 class="mt-5 text-lg font-black">Giao bài và duyệt từ</h3>
+                            <p class="mt-2 text-sm font-medium leading-6 text-[#657269]">Quản lý nội dung theo lớp, duyệt từ học sinh thêm và giao drill theo lỗi.</p>
+                        </div>
+                        <div class="rounded-3xl border border-[#17231d]/10 bg-white p-6">
+                            <span class="flex size-11 items-center justify-center rounded-2xl bg-[#17231d] text-[#d7ff64]">
+                                <i data-lucide="line-chart" class="size-5"></i>
+                            </span>
+                            <h3 class="mt-5 text-lg font-black">Phát hiện học sinh cần hỗ trợ</h3>
+                            <p class="mt-2 text-sm font-medium leading-6 text-[#657269]">Nhìn thấy nhóm học sinh đang hụt nhịp trước khi kết quả kiểm tra giảm.</p>
+                        </div>
+                        <div class="rounded-3xl border border-[#17231d]/10 bg-white p-6">
+                            <span class="flex size-11 items-center justify-center rounded-2xl bg-[#17231d] text-[#d7ff64]">
+                                <i data-lucide="message-square-text" class="size-5"></i>
+                            </span>
+                            <h3 class="mt-5 text-lg font-black">Từ vựng, ngữ pháp, phát âm</h3>
+                            <p class="mt-2 text-sm font-medium leading-6 text-[#657269]">Một luồng học thống nhất thay vì ghép nhiều công cụ và bảng tính rời rạc.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6.5 Demo video — quy trình giáo viên (+ video phụ so sánh app) -->
+            <section id="demo" class="bg-[#17231d] px-4 py-24 text-white sm:px-6">
+                <div class="mx-auto max-w-5xl">
+                    <div class="mx-auto max-w-3xl text-center">
+                        <div class="inline-flex items-center gap-2 rounded-full bg-[#d7ff64]/15 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#d7ff64]">
+                            <i data-lucide="sparkles" class="size-4"></i> Demo · quy trình giáo viên
+                        </div>
+                        <h2 class="mt-5 text-4xl font-black tracking-[-0.04em] sm:text-5xl">
+                            Quy trình của giáo viên — trong 5 bước.
+                        </h2>
+                        <p class="mt-5 font-medium leading-8 text-[#aab5ae]">
+                            Tạo lớp, mời học sinh, giao bài, theo dõi tiến độ và biết chính xác ai cần hỗ trợ — xem toàn bộ trong 30 giây.
+                        </p>
+                    </div>
+                    <div class="relative mx-auto mt-10 max-w-4xl">
+                        <div class="absolute -inset-4 rotate-1 rounded-[2rem] bg-[#d7ff64]/20 blur-2xl"></div>
+                        <video class="relative w-full rounded-[1.5rem] border border-white/10 shadow-2xl"
+                               src="/lingopro-teacher-flow.mp4"
+                               controls
+                               playsinline
+                               preload="none"
+                               poster="/lingopro-teacher-flow-poster.jpg">
+                            Trình duyệt của bạn không hỗ trợ video.
+                        </video>
+                    </div>
+                    <div class="mt-7 flex flex-wrap items-center justify-center gap-3 text-sm font-bold text-[#aab5ae]">
+                        <span class="inline-flex items-center gap-2"><i data-lucide="check-circle-2" class="size-4 text-[#d7ff64]"></i> Tạo lớp &amp; mời học sinh</span>
+                        <span class="inline-flex items-center gap-2"><i data-lucide="check-circle-2" class="size-4 text-[#d7ff64]"></i> Giao từ vựng + ngữ pháp</span>
+                        <span class="inline-flex items-center gap-2"><i data-lucide="check-circle-2" class="size-4 text-[#d7ff64]"></i> Dashboard tiến độ realtime</span>
+                        <span class="inline-flex items-center gap-2"><i data-lucide="check-circle-2" class="size-4 text-[#d7ff64]"></i> 3 kiểu HS: đều đặn · lười · nhồi nhét</span>
+                        <span class="inline-flex items-center gap-2"><i data-lucide="check-circle-2" class="size-4 text-[#d7ff64]"></i> Phát hiện HS tụt + AI giao drill</span>
+                    </div>
+
+                    <!-- Video phụ: so sánh với app khác -->
+                    <div class="mx-auto mt-16 max-w-2xl text-center">
+                        <p class="text-sm font-black uppercase tracking-[0.18em] text-[#74cbb2]">Còn so với app khác?</p>
+                        <h3 class="mt-3 text-2xl font-black tracking-[-0.02em]">LingoPro vs Anki · Quizlet · Duolingo</h3>
+                        <div class="relative mt-6">
+                            <video class="relative w-full rounded-2xl border border-white/10 shadow-xl"
+                                   src="/lingopro-vs-anki.mp4"
+                                   controls
+                                   playsinline
+                                   preload="none"
+                                   poster="/lingopro-vs-anki-poster.jpg">
+                                Trình duyệt của bạn không hỗ trợ video.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. Mockup sản phẩm -->
+            <section class="border-y border-[#17231d]/10 bg-white/70 px-4 py-24 sm:px-6">
+                <div class="mx-auto max-w-7xl">
+                    <div class="mx-auto max-w-3xl text-center">
+                        <h2 class="text-4xl font-black tracking-[-0.04em] sm:text-5xl">Thấy đúng những gì thầy cô và học sinh sẽ dùng.</h2>
+                    </div>
+                    <div class="mt-12 grid gap-8 md:grid-cols-3">
+                        <!-- Card A: Student View -->
+                        <div class="rounded-[2rem] border border-[#17231d]/10 bg-white p-6 shadow-lg">
+                            <p class="text-center text-sm font-bold text-[#657269]">Minh họa giao diện học sinh</p>
+                            <div class="mt-4 flex aspect-[3/4] flex-col justify-between rounded-2xl bg-[#17231d] p-4">
+                                <div class="text-white">
+                                    <p class="text-xs font-bold text-[#9caaa1]">Học từ vựng</p>
+                                    <p class="mt-2 text-2xl font-bold">catalyst</p>
+                                    <p class="text-sm text-[#9caaa1]">/ˈkæt.əl.ɪst/</p>
+                                </div>
+                                <div class="rounded-xl bg-white/10 p-3 text-center text-sm font-semibold text-white">Chất xúc tác</div>
+                            </div>
+                        </div>
+                        <!-- Card B: Teacher View -->
+                        <div class="rounded-[2rem] border border-[#17231d]/10 bg-white p-6 shadow-lg md:scale-105">
+                            <p class="text-center text-sm font-bold text-[#657269]">Minh họa giao diện giáo viên</p>
+                            <div class="mt-4 aspect-[3/4] rounded-2xl bg-[#17231d] p-4 text-white">
+                                <p class="text-xs font-bold text-[#9caaa1]">Lớp IELTS 7.0</p>
+                                <div class="mt-4 space-y-3">
+                                    <div class="rounded-xl bg-white/10 p-3">
+                                        <p class="text-xs font-semibold text-[#9caaa1]">Học sinh hoạt động</p>
+                                        <p class="text-lg font-bold text-[#d7ff64]">21/24</p>
+                                    </div>
+                                    <div class="rounded-xl bg-white/10 p-3">
+                                        <p class="text-xs font-semibold text-[#9caaa1]">Độ chính xác trung bình</p>
+                                        <p class="text-lg font-bold text-[#d7ff64]">86%</p>
+                                    </div>
+                                    <div class="rounded-xl bg-[#ff8069]/15 p-3">
+                                        <p class="text-xs font-semibold text-[#ff9c89]">Cần hỗ trợ</p>
+                                        <p class="text-lg font-bold text-white">Minh Anh, Gia Huy...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card C: Grammar View -->
+                        <div class="rounded-[2rem] border border-[#17231d]/10 bg-white p-6 shadow-lg">
+                            <p class="text-center text-sm font-bold text-[#657269]">Minh họa giao diện ngữ pháp</p>
+                            <div class="mt-4 flex aspect-[3/4] flex-col rounded-2xl bg-[#17231d] p-4 text-white">
+                                <p class="text-xs font-bold text-[#9caaa1]">Bài tập: Thì hoàn thành</p>
+                                <div class="mt-4 flex-1 rounded-xl bg-white/10 p-3 text-sm">
+                                    <p class="text-[#9caaa1]">I have ____ (see) that movie before.</p>
+                                    <p class="mt-4 rounded-lg bg-[#d7ff64]/15 p-2 text-white">
+                                        <span class="font-bold text-[#d7ff64]">✓</span> seen
+                                    </p>
+                                    <p class="mt-2 rounded-lg bg-[#ff8069]/15 p-2 text-white">
+                                        <span class="font-bold text-[#ff9c89]">✗</span> saw
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. Giá trị theo vai trò -->
+            <section class="px-4 py-24 sm:px-6">
+                <div class="mx-auto max-w-7xl">
+                    <div class="grid gap-5 lg:grid-cols-3">
+                        <div class="rounded-[1.75rem] border border-[#17231d]/10 bg-white p-7">
+                            <h3 class="text-xl font-black">Gia sư 1:1/nhóm nhỏ</h3>
+                            <p class="mt-3 text-sm font-medium leading-7 text-[#657269]">Giảm 2–4 giờ soạn &amp; chấm mỗi tuần. Giữ học viên bằng kết quả thấy được. HS được nhắc ôn tự động để buổi học không phải ôn lại từ cũ.</p>
+                        </div>
+                        <div class="rounded-[1.75rem] border border-[#17231d]/10 bg-white p-7">
+                            <h3 class="text-xl font-black">Giáo viên nhiều lớp</h3>
+                            <p class="mt-3 text-sm font-medium leading-7 text-[#657269]">Một dashboard nắm cả lớp. Thấy ai tụt TRƯỚC khi điểm rớt. Giao drill đúng lỗi thay vì giao đại trà.</p>
+                        </div>
+                        <div class="rounded-[1.75rem] border border-[#17231d]/10 bg-white p-7">
+                            <h3 class="text-xl font-black">Chủ trung tâm</h3>
+                            <p class="mt-3 text-sm font-medium leading-7 text-[#657269]">Chuẩn hóa chất lượng nhiều giáo viên. Báo cáo tiến độ cho phụ huynh. Onboarding đội ngũ. Bổ sung learning layer cho phần mềm CRM sẵn có.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. Gói & báo giá -->
+            <section id="bang-gia" class="border-t border-[#17231d]/10 px-4 py-24 sm:px-6">
+                <div class="mx-auto max-w-7xl">
+                    <div class="mx-auto max-w-3xl text-center">
+                        <h2 class="text-4xl font-black tracking-[-0.04em] sm:text-5xl">Chọn gói theo quy mô. Báo giá khi liên hệ.</h2>
+                        <p class="mt-5 font-medium leading-7 text-[#657269]">
+                            Bắt đầu miễn phí. Mức giá chốt theo số lớp / học sinh thực tế — gọi hoặc nhắn Mr Phong.
+                        </p>
+                    </div>
+                    <div class="mt-12 grid items-stretch gap-5 lg:grid-cols-3">
+                        <!-- Plan 1: Gia sư -->
+                        <div class="relative flex flex-col rounded-[2rem] border border-[#17231d]/10 bg-white p-7">
+                            <span class="flex size-11 items-center justify-center rounded-2xl bg-[#d7ff64]/60">
+                                <i data-lucide="graduation-cap" class="size-5"></i>
+                            </span>
+                            <h3 class="mt-6 text-2xl font-black">Gia sư</h3>
+                            <p class="mt-1 text-sm font-semibold text-[#657269]">Dạy 1:1 hoặc nhóm nhỏ</p>
+                            <div class="mt-7">
+                                <span class="text-3xl font-black tracking-[-0.04em]">Báo giá</span>
+                            </div>
+                            <p class="mt-2 text-xs font-bold uppercase tracking-wider text-[#567600]">Liên hệ nhận giá</p>
+                            <ul class="mt-7 flex-1 space-y-3">
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#567600]"></i>Tối đa 3 lớp</li>
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#567600]"></i>Tối đa 30 học sinh</li>
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#567600]"></i>Dashboard tiến độ</li>
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#567600]"></i>Giao từ vựng và ngữ pháp</li>
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#567600]"></i>AI coaching insight</li>
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#567600]"></i>Trả năm: tặng 2 tháng</li>
+                            </ul>
+                            <a href="/auth?mode=signup&amp;role=teacher&amp;pilot=tutor"
+                               onclick="trackPilotCta('tutor', 'pricing_tutor')"
+                               class="mt-8 inline-flex items-center justify-center gap-2 rounded-2xl bg-[#17231d] px-5 py-3.5 text-center text-sm font-black text-white transition-transform hover:-translate-y-0.5">
+                                Tạo lớp miễn phí <i data-lucide="arrow-right" class="size-4"></i>
+                            </a>
+                        </div>
+
+                        <!-- Plan 2: Giáo viên Pro (Featured) -->
+                        <div class="relative flex flex-col rounded-[2rem] border border-[#17231d] bg-[#17231d] p-7 text-white shadow-2xl">
+                            <span class="absolute -top-3 left-7 rounded-full bg-[#d7ff64] px-4 py-1.5 text-xs font-black uppercase tracking-wider text-[#17231d]">
+                                Phổ biến nhất
+                            </span>
+                            <span class="flex size-11 items-center justify-center rounded-2xl bg-[#d7ff64] text-[#17231d]">
+                                <i data-lucide="users" class="size-5"></i>
+                            </span>
+                            <h3 class="mt-6 text-2xl font-black">Giáo viên Pro</h3>
+                            <p class="mt-1 text-sm font-semibold text-[#aab5ae]">Giáo viên có nhiều lớp</p>
+                            <div class="mt-7">
+                                <span class="text-3xl font-black tracking-[-0.04em]">Báo giá</span>
+                            </div>
+                            <p class="mt-2 text-xs font-bold uppercase tracking-wider text-[#d7ff64]">Phù hợp nhất</p>
+                            <ul class="mt-7 flex-1 space-y-3">
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#d7ff64]"></i>Tối đa 10 lớp</li>
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#d7ff64]"></i>Tối đa 150 học sinh</li>
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#d7ff64]"></i>Toàn bộ tính năng Gia sư</li>
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#d7ff64]"></i>Phân tích nâng cao theo lớp</li>
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#d7ff64]"></i>Hỗ trợ ưu tiên</li>
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#d7ff64]"></i>Trả năm: tặng 2 tháng</li>
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#d7ff64]"></i>Hoàn tiền 30 ngày</li>
+                            </ul>
+                            <a href="/auth?mode=signup&amp;role=teacher&amp;pilot=teacher_pro"
+                               onclick="trackPilotCta('teacher_pro', 'pricing_teacher_pro')"
+                               class="mt-8 inline-flex items-center justify-center gap-2 rounded-2xl bg-[#d7ff64] px-5 py-3.5 text-center text-sm font-black text-[#17231d] shadow-[0_10px_0_#b9df4d] transition-transform hover:-translate-y-0.5">
+                                Tạo lớp miễn phí <i data-lucide="arrow-right" class="size-4"></i>
+                            </a>
+                        </div>
+
+                        <!-- Plan 3: Trung tâm -->
+                        <div class="relative flex flex-col rounded-[2rem] border border-[#17231d]/10 bg-white p-7">
+                            <span class="flex size-11 items-center justify-center rounded-2xl bg-[#d7ff64]/60">
+                                <i data-lucide="school" class="size-5"></i>
+                            </span>
+                            <h3 class="mt-6 text-2xl font-black">Trung tâm</h3>
+                            <p class="mt-1 text-sm font-semibold text-[#657269]">Nhiều giáo viên, cần triển khai chung</p>
+                            <div class="mt-7">
+                                <span class="text-3xl font-black tracking-[-0.04em]">Báo giá</span>
+                            </div>
+                            <p class="mt-2 text-xs font-bold uppercase tracking-wider text-[#567600]">Theo quy mô</p>
+                            <ul class="mt-7 flex-1 space-y-3">
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#567600]"></i>Từ 10 tài khoản giáo viên</li>
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#567600]"></i>Từ 500 học sinh</li>
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#567600]"></i>Onboarding đội ngũ</li>
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#567600]"></i>Báo cáo vận hành</li>
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#567600]"></i>Hỗ trợ triển khai riêng</li>
+                            </ul>
+                            <a href="#tu-van-trung-tam"
+                               onclick="trackPilotCta('center', 'pricing_center')"
+                               class="mt-8 inline-flex items-center justify-center gap-2 rounded-2xl bg-[#17231d] px-5 py-3.5 text-center text-sm font-black text-white transition-transform hover:-translate-y-0.5">
+                                Đặt lịch demo <i data-lucide="arrow-right" class="size-4"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mx-auto mt-10 max-w-xl rounded-[1.75rem] border border-[#17231d]/10 bg-white p-6 text-center sm:p-8">
+                        <p class="text-sm font-black uppercase tracking-[0.16em] text-[#567600]">Báo giá · Liên hệ</p>
+                        <p class="mt-3 text-2xl font-black tracking-tight sm:text-3xl">Mr Phong</p>
+                        <a href="tel:0949317036"
+                           class="mt-4 inline-flex items-center justify-center gap-2 rounded-2xl bg-[#17231d] px-6 py-3.5 text-lg font-black text-white transition-transform hover:-translate-y-0.5">
+                            <i data-lucide="phone" class="size-5"></i>
+                            0949 317 036
+                        </a>
+                        <p class="mt-4 text-sm font-semibold text-[#657269]">
+                            Zalo / gọi trực tiếp · Phản hồi trong ngày làm việc
+                        </p>
+                    </div>
+                    <p class="mt-8 text-center text-sm font-semibold text-[#657269]">
+                        Không cần thẻ · Bắt đầu miễn phí · Hủy bất cứ lúc nào · Hỗ trợ tiếng Việt
+                    </p>
+                </div>
+            </section>
+
+            <!-- 10. Tư vấn trung tâm + form -->
+            <section id="tu-van-trung-tam" class="px-4 pb-24 sm:px-6">
+                <div class="mx-auto grid max-w-7xl items-start gap-10 rounded-[2.25rem] bg-white p-6 sm:p-10 lg:grid-cols-2">
+                    <div>
+                        <p class="text-sm font-black uppercase tracking-[0.18em] text-[#567600]">Dành cho trung tâm</p>
+                        <h2 class="mt-4 text-4xl font-black tracking-[-0.04em]">Nhận demo theo đúng quy mô vận hành.</h2>
+                        <p class="mt-5 font-medium leading-8 text-[#657269]">
+                            Gửi nhu cầu để LingoPro chuẩn bị demo dashboard, kế hoạch onboarding và mức giá phù hợp với số giáo viên, học sinh thực tế.
+                        </p>
+                        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+                            <!-- CenterLeadFormSubmitted -->
+                            <div id="center-lead-success" class="hidden min-h-80 flex-col items-center justify-center rounded-[2rem] bg-[#17231d] p-8 text-center text-white">
+                                <span class="flex size-14 items-center justify-center rounded-full bg-[#d7ff64] text-[#17231d]">
+                                    <i data-lucide="check-circle-2" class="size-7"></i>
+                                </span>
+                                <h3 class="mt-5 text-2xl font-black">Đã nhận yêu cầu tư vấn</h3>
+                                <p class="mt-3 max-w-md text-sm font-medium leading-6 text-[#aab5ae]">
+                                    Đội ngũ LingoPro sẽ liên hệ để xác nhận nhu cầu, quy mô và lịch demo phù hợp.
+                                </p>
+                            </div>
+
+                            <!-- CenterLeadForm -->
+                            <form id="center-lead-form" onsubmit="submitCenterLeadForm(event)" class="rounded-[2rem] bg-[#17231d] p-6 text-white sm:p-8">
+                                <div class="grid gap-4 sm:grid-cols-2">
+                                    <label class="block text-sm font-bold text-[#cbd4ce]">
+                                        <span class="mb-2 block">Người liên hệ</span>
+                                        <input required id="lead-contact-name" class="pilot-input" maxlength="80" />
+                                    </label>
+                                    <label class="block text-sm font-bold text-[#cbd4ce]">
+                                        <span class="mb-2 block">Tên trung tâm</span>
+                                        <input required id="lead-organization" class="pilot-input" maxlength="160" />
+                                    </label>
+                                    <label class="block text-sm font-bold text-[#cbd4ce]">
+                                        <span class="mb-2 block">Email</span>
+                                        <input required type="email" id="lead-email" class="pilot-input" maxlength="160" />
+                                    </label>
+                                    <label class="block text-sm font-bold text-[#cbd4ce]">
+                                        <span class="mb-2 block">Số điện thoại</span>
+                                        <input required type="tel" id="lead-phone" class="pilot-input" maxlength="30" />
+                                    </label>
+                                    <label class="block text-sm font-bold text-[#cbd4ce]">
+                                        <span class="mb-2 block">Số giáo viên</span>
+                                        <input required type="number" min="1" max="10000" value="10" id="lead-teacher-count" class="pilot-input" />
+                                    </label>
+                                    <label class="block text-sm font-bold text-[#cbd4ce]">
+                                        <span class="mb-2 block">Số học sinh</span>
+                                        <input required type="number" min="1" max="1000000" value="200" id="lead-student-count" class="pilot-input" />
+                                    </label>
+                                </div>
+                                <label class="mt-4 block text-sm font-bold text-[#cbd4ce]">
+                                    <span class="mb-2 block">Nhu cầu hiện tại</span>
+                                    <textarea id="lead-message" class="pilot-input min-h-24 resize-y" maxlength="1000"></textarea>
+                                </label>
+                                <input tabindex="-1" autocomplete="off" id="lead-website" class="hidden" aria-hidden="true" />
+                                <p id="center-lead-error" class="mt-4 hidden text-sm font-semibold text-[#ff9c89]"></p>
+                                <button type="submit"
+                                        id="center-lead-submit"
+                                        class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-[#d7ff64] px-6 py-4 font-black text-[#17231d] transition-transform hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer">
+                                    <i data-lucide="send" class="size-5"></i>
+                                    <span id="center-lead-submit-text">Gửi yêu cầu demo</span>
+                                    <i data-lucide="arrow-right" class="size-5"></i>
+                                </button>
+                            </form>
+
+                            <!-- ZaloButton -->
+                            <a href="https://zalo.me/0949317036"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-[#17231d]/15 bg-white/70 px-6 py-4 font-black text-[#17231d] transition-colors hover:bg-white">
+                                <i data-lucide="message-circle" class="size-5"></i>
+                                Chat Zalo tư vấn
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hidden lg:block">
+                        <ul class="space-y-4 text-sm font-bold">
+                            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="size-5 text-[#567600]"></i> Phản hồi trong 1 ngày làm việc</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="size-5 text-[#567600]"></i> Không yêu cầu thanh toán trước</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="size-5 text-[#567600]"></i> Dùng thử bằng lớp học thật trước khi chốt</li>
+                        </ul>
+                        <div class="mt-6 rounded-2xl border border-[#17231d]/10 p-5">
+                            <p class="font-bold text-[#17231d]">LingoPro bổ sung, không thay thế</p>
+                            <p class="mt-2 text-sm leading-6 text-[#657269]">
+                                Sản phẩm hoạt động như một lớp học tập (learning layer) bên trên phần mềm quản lý (CRM/LMS) trung tâm bạn đang dùng để điểm danh, xếp lớp.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 11. FAQ -->
+            <section id="faq" class="border-t border-[#17231d]/10 bg-white/70 px-4 py-24 sm:px-6">
+                <div class="mx-auto max-w-4xl">
+                    <div class="text-center">
+                        <h2 class="text-4xl font-black tracking-[-0.04em] sm:text-5xl">Câu hỏi thường gặp</h2>
+                    </div>
+                    <div class="mt-12 space-y-4">
+                        <div class="rounded-2xl border border-[#17231d]/10 bg-white">
+                            <button type="button" onclick="toggleFaq(0)" class="flex w-full items-center justify-between gap-4 p-6 text-left cursor-pointer">
+                                <span class="text-lg font-black text-[#17231d]">Học sinh có phải trả tiền không?</span>
+                                <i id="faq-icon-0" data-lucide="chevron-down" class="size-5 shrink-0 text-[#657269] transition-transform"></i>
+                            </button>
+                            <div id="faq-answer-0" class="hidden px-6 pb-6 text-base font-medium text-[#526057]">
+                                Không. Học sinh tham gia lớp miễn phí bằng mã lớp; chỉ tài khoản giáo viên/trung tâm mới có gói trả phí.
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl border border-[#17231d]/10 bg-white">
+                            <button type="button" onclick="toggleFaq(1)" class="flex w-full items-center justify-between gap-4 p-6 text-left cursor-pointer">
+                                <span class="text-lg font-black text-[#17231d]">Giá các gói gia sư / giáo viên / trung tâm là bao nhiêu?</span>
+                                <i id="faq-icon-1" data-lucide="chevron-down" class="size-5 shrink-0 text-[#657269] transition-transform"></i>
+                            </button>
+                            <div id="faq-answer-1" class="hidden px-6 pb-6 text-base font-medium text-[#526057]">
+                                Giá theo quy mô lớp và số học sinh. Liên hệ Mr Phong: 0949 317 036 (Zalo/gọi) để nhận báo giá phù hợp.
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl border border-[#17231d]/10 bg-white">
+                            <button type="button" onclick="toggleFaq(2)" class="flex w-full items-center justify-between gap-4 p-6 text-left cursor-pointer">
+                                <span class="text-lg font-black text-[#17231d]">Có cần cài đặt phần mềm không?</span>
+                                <i id="faq-icon-2" data-lucide="chevron-down" class="size-5 shrink-0 text-[#657269] transition-transform"></i>
+                            </button>
+                            <div id="faq-answer-2" class="hidden px-6 pb-6 text-base font-medium text-[#526057]">
+                                Không. LingoPro chạy trên trình duyệt (PWA), thêm vào màn hình chính như một app. Có thêm Chrome Extension để tra &amp; lưu từ khi đọc web.
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl border border-[#17231d]/10 bg-white">
+                            <button type="button" onclick="toggleFaq(3)" class="flex w-full items-center justify-between gap-4 p-6 text-left cursor-pointer">
+                                <span class="text-lg font-black text-[#17231d]">Học sinh dùng trên điện thoại được không?</span>
+                                <i id="faq-icon-3" data-lucide="chevron-down" class="size-5 shrink-0 text-[#657269] transition-transform"></i>
+                            </button>
+                            <div id="faq-answer-3" class="hidden px-6 pb-6 text-base font-medium text-[#526057]">
+                                Được. Giao diện thiết kế mobile-first, học sinh học mọi lúc trên điện thoại.
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl border border-[#17231d]/10 bg-white">
+                            <button type="button" onclick="toggleFaq(4)" class="flex w-full items-center justify-between gap-4 p-6 text-left cursor-pointer">
+                                <span class="text-lg font-black text-[#17231d]">Dữ liệu học sinh có an toàn không?</span>
+                                <i id="faq-icon-4" data-lucide="chevron-down" class="size-5 shrink-0 text-[#657269] transition-transform"></i>
+                            </button>
+                            <div id="faq-answer-4" class="hidden px-6 pb-6 text-base font-medium text-[#526057]">
+                                Có. Mỗi giáo viên chỉ thấy lớp của mình nhờ bảo mật theo dòng (RLS) ở tầng cơ sở dữ liệu. Chúng tôi không bán dữ liệu.
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl border border-[#17231d]/10 bg-white">
+                            <button type="button" onclick="toggleFaq(5)" class="flex w-full items-center justify-between gap-4 p-6 text-left cursor-pointer">
+                                <span class="text-lg font-black text-[#17231d]">LingoPro khác Quizlet / Anki ở đâu?</span>
+                                <i id="faq-icon-5" data-lucide="chevron-down" class="size-5 shrink-0 text-[#657269] transition-transform"></i>
+                            </button>
+                            <div id="faq-answer-5" class="hidden px-6 pb-6 text-base font-medium text-[#526057]">
+                                LingoPro thêm lớp quản lý lớp học, AI làm giàu từ vựng và dashboard phát hiện học sinh tụt — những thứ Quizlet/Anki không có.
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl border border-[#17231d]/10 bg-white">
+                            <button type="button" onclick="toggleFaq(6)" class="flex w-full items-center justify-between gap-4 p-6 text-left cursor-pointer">
+                                <span class="text-lg font-black text-[#17231d]">Có hỗ trợ tiếng Việt không?</span>
+                                <i id="faq-icon-6" data-lucide="chevron-down" class="size-5 shrink-0 text-[#657269] transition-transform"></i>
+                            </button>
+                            <div id="faq-answer-6" class="hidden px-6 pb-6 text-base font-medium text-[#526057]">
+                                Có. Toàn bộ sản phẩm và hỗ trợ đều bằng tiếng Việt.
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl border border-[#17231d]/10 bg-white">
+                            <button type="button" onclick="toggleFaq(7)" class="flex w-full items-center justify-between gap-4 p-6 text-left cursor-pointer">
+                                <span class="text-lg font-black text-[#17231d]">Mất bao lâu để bắt đầu?</span>
+                                <i id="faq-icon-7" data-lucide="chevron-down" class="size-5 shrink-0 text-[#657269] transition-transform"></i>
+                            </button>
+                            <div id="faq-answer-7" class="hidden px-6 pb-6 text-base font-medium text-[#526057]">
+                                Vài phút: tạo lớp, gửi mã lớp, học sinh tham gia và bắt đầu học ngay.
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl border border-[#17231d]/10 bg-white">
+                            <button type="button" onclick="toggleFaq(8)" class="flex w-full items-center justify-between gap-4 p-6 text-left cursor-pointer">
+                                <span class="text-lg font-black text-[#17231d]">Có thể hủy bất cứ lúc nào không?</span>
+                                <i id="faq-icon-8" data-lucide="chevron-down" class="size-5 shrink-0 text-[#657269] transition-transform"></i>
+                            </button>
+                            <div id="faq-answer-8" class="hidden px-6 pb-6 text-base font-medium text-[#526057]">
+                                Được, không ràng buộc hợp đồng.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 12. CTA cuối -->
+            <section class="px-4 pb-24 sm:px-6">
+                <div class="mx-auto max-w-5xl overflow-hidden rounded-[2.25rem] bg-[#17231d] p-8 sm:p-12">
+                    <div class="grid items-center gap-8 md:grid-cols-[1fr_auto]">
+                        <div>
+                            <div class="flex items-center gap-2 text-sm font-black uppercase tracking-[0.16em] text-[#d7ff64]">
+                                <i data-lucide="layers-3" class="size-5"></i> Bắt đầu từ một lớp
+                            </div>
+                            <h2 class="mt-4 text-4xl font-black tracking-[-0.045em] text-white">Tạo lớp thật. Mời học sinh thật. Đo kết quả thật.</h2>
+                        </div>
+                        <div>
+                            <a href="/auth?mode=signup&amp;role=teacher&amp;pilot=teacher_pro"
+                               onclick="trackPilotCta('teacher_pro', 'bottom_cta')"
+                               class="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#d7ff64] px-7 py-4 text-center font-black text-[#17231d] shadow-[0_12px_0_#b9df4d] transition-transform hover:-translate-y-1">
+                                Tạo lớp ngay <i data-lucide="arrow-right" class="size-5"></i>
+                            </a>
+                            <p class="mt-5 text-center text-sm font-semibold text-[#aab5ae]">Không cần thẻ · Hoàn tiền 30 ngày · Dữ liệu học sinh bảo mật</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 13. Footer -->
+        <footer class="border-t border-[#17231d]/10 px-4 py-10 sm:px-6">
+            <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 text-sm font-semibold text-[#657269] sm:flex-row">
+                <a href="/" class="flex items-center gap-2 font-black text-[#17231d]">
+                    <i data-lucide="brain" class="size-4"></i> LingoPro
+                </a>
+                <p>AI + FSRS cho lớp học tiếng Anh tiến bộ có thể đo lường.</p>
+                <a href="/auth" class="font-black text-[#17231d]">Đăng nhập</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Client-side Interactive Scripts matching TeacherPilotClient.tsx -->
+    <script>
+        if (window.lucide) {
+            window.lucide.createIcons();
+        }
+
+        const audienceContent = {
+            tutor: {
+                badge: 'Cho gia sư 1:1 & nhóm nhỏ',
+                lead: 'Dạy sát từng em.',
+                accent: 'Không cần thêm giờ.',
+                sub: 'Giảm 2–4 giờ soạn và chấm mỗi tuần, giữ học viên bằng kết quả thấy rõ.',
+                bullets: [
+                    'Nhắc học sinh ôn tự động theo FSRS',
+                    'Thấy ngay từ/cấu trúc em đang yếu',
+                    'Tạo lớp và mời học sinh trong vài phút'
+                ],
+                ctaPrimary: {
+                    plan: 'tutor',
+                    text: 'Tạo lớp miễn phí',
+                    href: '/auth?mode=signup&role=teacher&pilot=tutor'
+                }
+            },
+            teacher: {
+                badge: 'Cho giáo viên nhiều lớp',
+                lead: 'Biết ai cần giúp,',
+                accent: 'trước khi điểm rớt.',
+                sub: 'Một dashboard cho mọi lớp — can thiệp đúng người, đúng lúc.',
+                bullets: [
+                    'Dashboard tiến độ cả lớp theo thời gian thực',
+                    'Phát hiện học sinh hụt nhịp sớm',
+                    'Giao drill đúng lỗi thay vì đại trà'
+                ],
+                ctaPrimary: {
+                    plan: 'teacher_pro',
+                    text: 'Tạo lớp miễn phí',
+                    href: '/auth?mode=signup&role=teacher&pilot=teacher_pro'
+                }
+            },
+            center: {
+                badge: 'Cho trung tâm & chuỗi',
+                lead: 'Chuẩn hóa chất lượng dạy',
+                accent: 'trên mọi lớp.',
+                sub: 'Theo dõi nhiều giáo viên, báo cáo cho phụ huynh, onboarding đội ngũ nhanh.',
+                bullets: [
+                    'Bổ sung learning layer cho phần mềm CRM sẵn có',
+                    'Báo cáo tiến độ gửi phụ huynh',
+                    'Onboarding & hỗ trợ triển khai riêng'
+                ],
+                ctaPrimary: {
+                    plan: 'center',
+                    text: 'Đặt lịch demo',
+                    href: '#tu-van-trung-tam'
+                }
+            }
+        };
+
+        let currentAudience = 'tutor';
+        let currentAudiencePlan = 'tutor';
+
+        function trackPilotCta(plan, placement) {
+            try {
+                const source = new URLSearchParams(window.location.search).get('utm_source') || 'direct';
+                sessionStorage.setItem('teacher_pilot_source', source);
+                sessionStorage.setItem('teacher_pilot_plan', plan);
+            } catch (_) {}
+        }
+
+        function setActiveAudience(audience) {
+            const content = audienceContent[audience];
+            if (!content) return;
+            currentAudience = audience;
+            currentAudiencePlan = content.ctaPrimary.plan;
+
+            document.querySelectorAll('.audience-tab-btn').forEach(btn => {
+                if (btn.getAttribute('data-audience-tab') === audience) {
+                    btn.className = 'audience-tab-btn w-1/3 rounded-full py-2.5 text-sm font-bold transition-colors bg-[#17231d] text-[#d7ff64] cursor-pointer';
+                } else {
+                    btn.className = 'audience-tab-btn w-1/3 rounded-full py-2.5 text-sm font-bold transition-colors border border-transparent bg-transparent text-[#526057] hover:bg-white cursor-pointer';
+                }
+            });
+
+            const badgeEl = document.getElementById('audience-badge');
+            const leadEl = document.getElementById('audience-lead');
+            const accentEl = document.getElementById('audience-accent');
+            const subEl = document.getElementById('audience-sub');
+            const bulletsEl = document.getElementById('audience-bullets');
+            const ctaEl = document.getElementById('audience-cta-primary');
+            const ctaTextEl = document.getElementById('audience-cta-text');
+
+            if (badgeEl) badgeEl.textContent = content.badge;
+            if (leadEl) leadEl.textContent = content.lead;
+            if (accentEl) accentEl.textContent = content.accent;
+            if (subEl) subEl.textContent = content.sub;
+            if (ctaEl) ctaEl.setAttribute('href', content.ctaPrimary.href);
+            if (ctaTextEl) ctaTextEl.textContent = content.ctaPrimary.text;
+
+            if (bulletsEl) {
+                bulletsEl.innerHTML = content.bullets.map(b => `
+                    <li class="flex items-center gap-3 font-semibold text-[#17231d]">
+                        <i data-lucide="check-circle-2" class="size-5 shrink-0 text-[#567600]"></i>
+                        <span>${b}</span>
+                    </li>
+                `).join('');
+                if (window.lucide) {
+                    window.lucide.createIcons();
+                }
+            }
+        }
+
+        let openFaqIndex = null;
+        function toggleFaq(index) {
+            const nextOpen = openFaqIndex === index ? null : index;
+            for (let i = 0; i < 9; i++) {
+                const ans = document.getElementById('faq-answer-' + i);
+                const icon = document.getElementById('faq-icon-' + i);
+                if (i === nextOpen) {
+                    ans?.classList.remove('hidden');
+                    icon?.classList.add('rotate-180');
+                } else {
+                    ans?.classList.add('hidden');
+                    icon?.classList.remove('rotate-180');
+                }
+            }
+            openFaqIndex = nextOpen;
+        }
+
+        async function submitCenterLeadForm(event) {
+            event.preventDefault();
+            const contactName = (document.getElementById('lead-contact-name')?.value || '').trim();
+            const organization = (document.getElementById('lead-organization')?.value || '').trim();
+            const email = (document.getElementById('lead-email')?.value || '').trim();
+            const phone = (document.getElementById('lead-phone')?.value || '').trim();
+            const teacherCount = Number(document.getElementById('lead-teacher-count')?.value || 10);
+            const studentCount = Number(document.getElementById('lead-student-count')?.value || 200);
+            const message = (document.getElementById('lead-message')?.value || '').trim();
+            const website = document.getElementById('lead-website')?.value || '';
+
+            const errorEl = document.getElementById('center-lead-error');
+            const submitBtn = document.getElementById('center-lead-submit');
+
+            if (errorEl) {
+                errorEl.classList.add('hidden');
+                errorEl.textContent = '';
+            }
+            if (submitBtn) submitBtn.disabled = true;
+
+            try {
+                const res = await fetch('/api/pilot/leads', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contactName,
+                        email,
+                        phone,
+                        organization,
+                        teacherCount,
+                        studentCount,
+                        message,
+                        website,
+                        source: 'teacher_landing_center_form'
+                    })
+                });
+                const data = await res.json().catch(() => ({}));
+                if (!res.ok || !data.success) {
+                    throw new Error(data.error || 'Không thể gửi yêu cầu.');
+                }
+
+                const formEl = document.getElementById('center-lead-form');
+                const successEl = document.getElementById('center-lead-success');
+                formEl?.classList.add('hidden');
+                if (successEl) {
+                    successEl.classList.remove('hidden');
+                    successEl.classList.add('flex');
+                }
+            } catch (err) {
+                if (errorEl) {
+                    errorEl.textContent = err instanceof Error ? err.message : 'Không thể gửi yêu cầu.';
+                    errorEl.classList.remove('hidden');
+                }
+            } finally {
+                if (submitBtn) submitBtn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>

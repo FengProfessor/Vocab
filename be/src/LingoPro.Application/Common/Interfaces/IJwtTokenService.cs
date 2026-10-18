@@ -8,4 +8,10 @@ namespace LingoPro.Application.Common.Interfaces;
 public interface IJwtTokenService
 {
     JwtTokenPairDto GenerateTokenPair(Profile profile);
+
+    /// <summary>
+    /// Validates a signed refresh token (signature, issuer, audience, lifetime and token use).
+    /// Returns null when the token is missing, tampered with, expired, or is not a refresh token.
+    /// </summary>
+    RefreshTokenClaims? ValidateRefreshToken(string? refreshToken);
 }

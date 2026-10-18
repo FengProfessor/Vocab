@@ -82,7 +82,7 @@ const audienceContent = {
 };
 
 export function AudienceTabs() {
-  const [activeAudience, setActiveAudience] = useState<Audience>('teacher');
+  const [activeAudience, setActiveAudience] = useState<Audience>('tutor');
   const content = audienceContent[activeAudience];
 
   return (
