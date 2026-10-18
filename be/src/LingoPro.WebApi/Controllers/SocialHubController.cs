@@ -22,6 +22,15 @@ public sealed class SocialHubController : ApiControllerBase
         return OkResponse(result, "Referral hub statistics retrieved successfully.");
     }
 
+    [HttpPost("referrals/claim")]
+    public async Task<ActionResult<ApiResponse<ClaimReferralResultDto>>> ClaimReferral(
+        [FromBody] ClaimReferralCommand command,
+        CancellationToken ct)
+    {
+        var result = await Mediator.Send(command, ct);
+        return OkResponse(result, "Referral claim processed successfully.");
+    }
+
     [HttpPost("groups/join")]
     public async Task<ActionResult<ApiResponse<StudyGroupDto>>> JoinStudyGroup(
         [FromBody] JoinStudyGroupCommand command,

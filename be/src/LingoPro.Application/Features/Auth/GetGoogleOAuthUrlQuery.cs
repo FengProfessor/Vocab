@@ -4,6 +4,8 @@ using MediatR;
 namespace LingoPro.Application.Features.Auth;
 
 /// <summary>
-/// Query to generate a Google OAuth SSO authorization URL.
+/// Query to generate a Google OAuth (PKCE) authorization URL via Supabase Auth.
 /// </summary>
-public record GetGoogleOAuthUrlQuery(string RedirectUri) : IRequest<ApiResponse<OAuthUrlDto>>;
+/// <param name="RedirectUri">Absolute callback URL Supabase redirects to after Google consent.</param>
+/// <param name="CodeChallenge">Base64url S256 challenge derived from the caller-held code verifier.</param>
+public record GetGoogleOAuthUrlQuery(string RedirectUri, string CodeChallenge) : IRequest<ApiResponse<OAuthUrlDto>>;

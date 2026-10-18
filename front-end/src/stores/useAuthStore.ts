@@ -1,0 +1,249 @@
+import { create } from 'zustand';
+import { apiClient, SESSION_EXPIRED_EVENT } from '@/lib/apiClient';
+import { AccountCache } from '@/lib/auth/AccountCache';
+import { AuthProfileCache } from '@/lib/auth/AuthProfileCache';
+import { AuthSessionChannel } from '@/lib/auth/AuthSessionChannel';
+import { ServerAuthLinks } from '@/lib/auth/ServerAuthLinks';
+import { ApiResponse } from '@/types/api/ApiResponse';
+import { AuthSessionDto } from '@/types/auth/AuthSessionDto';
+import { UserProfileDto } from '@/types/auth/UserProfileDto';
+import { AccountStatus } from '@/types/enums/AccountStatus';
+import { AuthProviderType } from '@/types/enums/AuthProviderType';
+import { CertLevel } from '@/types/enums/CertLevel';
+import { SubscriptionPlanType } from '@/types/enums/SubscriptionPlanType';
+import { UserRole } from '@/types/enums/UserRole';
+
+/**
+ * Server profile DTO returned by GET /api/v1/auth/profile on the .NET 10 backend.
+ */
+interface ServerProfilePayload {
+  id: string;
+  email: string;
+  fullName: string;
+  avatarUrl: string | null;
+  role: UserRole | string;
+  plan?: SubscriptionPlanType | string;
+  subscriptionPlan?: SubscriptionPlanType;
+  totalXp?: number;
+  currentStreak?: number;
+  streakDays?: number;
+  targetCertLevel?: CertLevel;
+}
+
+/**
+ * Normalizes a server role value (numeric enum or string) into UserRole.
+ */
+function normalizeUserRole(rawRole: UserRole | string | undefined): UserRole {
+  if (typeof rawRole === 'number') {
+    return rawRole;
+  }
+  if (typeof rawRole === 'string') {
+    const lower = rawRole.toLowerCase();
+    if (lower === 'admin') return UserRole.Admin;
+    if (lower === 'teacher') return UserRole.Teacher;
+  }
+  return UserRole.Student;
+}
+
+/**
+ * Normalizes a server subscription plan value into SubscriptionPlanType.
+ */
+function normalizeSubscriptionPlan(rawPlan: SubscriptionPlanType | string | undefined): SubscriptionPlanType {
+  if (typeof rawPlan === 'number') {
+    return rawPlan;
+  }
+  if (typeof rawPlan === 'string') {
+    const lower = rawPlan.toLowerCase();
+    if (lower === 'premium') return SubscriptionPlanType.Premium;
+    if (lower === 'pro') return SubscriptionPlanType.Pro;
+  }
+  return SubscriptionPlanType.Pro;
+}
+
+/**
+ * State contract for the global cookie-session authentication and RBAC store.
+ */
+interface AuthStoreState {
+  /** Convenience pointer to the authenticated user profile. */
+  user: UserProfileDto | null;
+
+  /** Whether the user is currently authenticated with the server. */
+  isAuthenticated: boolean;
+
+  /** Whether a server session check via /api/v1/auth/profile is in progress. */
+  isCheckingSession: boolean;
+
+  /** Whether the server verification has completed at least once. */
+  hasVerifiedServer: boolean;
+
+  /** Verifies the HttpOnly cookie session against GET /api/v1/auth/profile. */
+  verifyServerSession: () => Promise<boolean>;
+
+  /** Switches the active RBAC role for testing Student, Teacher, and Admin portals. */
+  switchRole: (role: UserRole) => void;
+
+  /** Updates the learner's target certification level (B1, B2, C1). */
+  setTargetCertLevel: (level: CertLevel) => void;
+
+  /**
+   * Hands the browser to the server's logout endpoint. The SPA never calls an auth API to end the session;
+   * the server clears the HttpOnly cookies and shows its own login page.
+   */
+  signOut: () => void;
+}
+
+// Hydrate instantly from the profile-only cache (0ms perceived latency); the server cookie stays authoritative.
+const initialSession: AuthSessionDto | null = AuthProfileCache.read();
+
+/** Incremented whenever the identity changes so slower, older profile reads can never overwrite newer state. */
+let generation = 0;
+
+/** Shared in-flight verification so concurrent callers (StrictMode, focus, tabs) trigger a single request. */
+let inFlightVerification: Promise<boolean> | null = null;
+
+const sessionChannel = new AuthSessionChannel();
+
+/**
+ * Global Zustand store managing the cookie session. Behaviour is ported from the original appAuth client:
+ * request de-duplication, generation-based invalidation, account-cache wipe on identity change,
+ * cross-tab sync, focus re-validation, and offline-first session preservation.
+ */
+export const useAuthStore = create<AuthStoreState>((set, get) => {
+  const clearSession = (): void => {
+    AccountCache.clear();
+    AuthProfileCache.clear();
+    set({ user: null, isAuthenticated: false, isCheckingSession: false, hasVerifiedServer: true });
+  };
+
+  return {
+    user: initialSession?.user ?? null,
+    isAuthenticated: Boolean(initialSession?.user),
+    isCheckingSession: false,
+    hasVerifiedServer: false,
+
+    verifyServerSession: (): Promise<boolean> => {
+      if (inFlightVerification) {
+        return inFlightVerification;
+      }
+
+      const requestedGeneration = generation;
+      set({ isCheckingSession: true });
+
+      inFlightVerification = (async (): Promise<boolean> => {
+        try {
+          const response = await apiClient.get<ApiResponse<ServerProfilePayload>>('/auth/profile');
+          if (requestedGeneration !== generation) {
+            return get().isAuthenticated;
+          }
+
+          const payload = response.data?.data;
+          if (!response.data?.success || !payload) {
+            throw new Error('Empty profile payload');
+          }
+
+          const previousUser = get().user;
+          if (previousUser && previousUser.id !== payload.id) {
+            // Different account than the cached one: nothing of the previous identity may survive.
+            AccountCache.clear();
+          }
+
+          const user: UserProfileDto = {
+            id: payload.id,
+            email: payload.email,
+            fullName: payload.fullName || payload.email.split('@')[0],
+            avatarUrl: payload.avatarUrl ?? null,
+            role: normalizeUserRole(payload.role),
+            authProvider: previousUser?.authProvider ?? AuthProviderType.Email,
+            accountStatus: AccountStatus.Active,
+            targetCertLevel: previousUser?.id === payload.id
+              ? previousUser.targetCertLevel
+              : payload.targetCertLevel ?? CertLevel.B2,
+            subscriptionPlan: normalizeSubscriptionPlan(payload.plan ?? payload.subscriptionPlan),
+            streakDays: payload.currentStreak ?? payload.streakDays ?? 0,
+            totalXp: payload.totalXp ?? 0,
+          };
+
+          AuthProfileCache.write({ user });
+          set({ user, isAuthenticated: true, isCheckingSession: false, hasVerifiedServer: true });
+          return true;
+        } catch (error: unknown) {
+          if (requestedGeneration !== generation) {
+            return get().isAuthenticated;
+          }
+
+          const status = (error as { response?: { status?: number } })?.response?.status;
+
+          // Offline-first: a network failure or 5xx must never sign the user out; keep the cached session.
+          if (!status || status >= 500) {
+            const cachedUser = get().user;
+            set({
+              isAuthenticated: Boolean(cachedUser),
+              isCheckingSession: false,
+              hasVerifiedServer: true,
+            });
+            return Boolean(cachedUser);
+          }
+
+          clearSession();
+          return false;
+        } finally {
+          if (requestedGeneration === generation) {
+            inFlightVerification = null;
+          }
+        }
+      })();
+
+      return inFlightVerification;
+    },
+
+    switchRole: (role: UserRole) =>
+      set((state) => {
+        if (!state.user) {
+          return state;
+        }
+        const user: UserProfileDto = { ...state.user, role };
+        AuthProfileCache.write({ user });
+        return { user };
+      }),
+
+    setTargetCertLevel: (targetCertLevel: CertLevel) =>
+      set((state) => {
+        if (!state.user) {
+          return state;
+        }
+        const user: UserProfileDto = { ...state.user, targetCertLevel };
+        AuthProfileCache.write({ user });
+        return { user };
+      }),
+
+    signOut: (): void => {
+      // Drop this account's cached data and tell other tabs; the server then ends the session and shows its login.
+      AccountCache.clear();
+      AuthProfileCache.clear();
+      sessionChannel.notifyInvalidate();
+      ServerAuthLinks.logout();
+    },
+  };
+});
+
+if (typeof window !== 'undefined') {
+  // Another tab signed in/out: drop caches and re-check this tab's cookie session.
+  sessionChannel.onInvalidate(() => {
+    generation += 1;
+    inFlightVerification = null;
+    AccountCache.clear();
+    void useAuthStore.getState().verifyServerSession();
+  });
+
+  // Switching back to the tab only re-validates the session; it never discards in-flight data.
+  window.addEventListener('focus', () => {
+    if (useAuthStore.getState().hasVerifiedServer) {
+      void useAuthStore.getState().verifyServerSession();
+    }
+  });
+
+  // The refresh cookie was rejected by the server: re-validate, which routes the user back to /auth/login.
+  window.addEventListener(SESSION_EXPIRED_EVENT, () => {
+    void useAuthStore.getState().verifyServerSession();
+  });
+}

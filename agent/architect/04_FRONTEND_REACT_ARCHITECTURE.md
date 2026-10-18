@@ -1,12 +1,12 @@
-# Kiến Trúc Tầng Giao Diện: Hybrid SSR (Trang Chủ SEO + Server-Side Login) & React 19 SPA
+# Kiến Trúc Tầng Giao Diện: Hybrid SSR (Trang Chủ SEO + Server-Side Login) & React 19 SPA (Ant Design v5)
 
 Tài liệu này đặc tả kiến trúc giao diện kết hợp (**Hybrid Rendering Architecture**) giữa:
 1. **Server-Side Rendering (SSR) trên .NET 10**: Phục vụ **Trang Chủ / Landing Page tối ưu SEO 100%** (`/`, `/landing`, `/pricing`) và **Cổng Đăng Nhập / Đăng Ký Server-Side** (`/auth/login`, `/auth/register`).
-2. **React 19 Single Page Application (SPA)**: Phục vụ toàn bộ không gian học tập tương tác cao (`/app/*`) sau khi người dùng đã đăng nhập thành công từ Server.
+2. **React 19 Single Page Application (SPA) sử dụng Ant Design (`antd` v5)**: Phục vụ toàn bộ không gian học tập tương tác cao, cổng Giáo viên và Admin CRM (`/app/*`) sau khi người dùng đã đăng nhập thành công từ Server.
 
 ---
 
-## 1. Sơ Đồ Phân Vùng Giữa Server-Side Rendering (SSR) & React SPA
+## 1. Sơ Đồ Phân Vùng Giữa Server-Side Rendering (SSR) & React SPA (Ant Design)
 
 ```mermaid
 flowchart LR
@@ -20,10 +20,11 @@ flowchart LR
         Redirect["HTTP 302 Redirect -> /app/journey<br/>+ Set-Cookie HttpOnly (15m / 30d)<br/>+ Inject __INITIAL_AUTH_STATE__"]
     end
 
-    subgraph SPA_Zone["3. Vùng Ứng Dụng Học Tập (React 19 SPA - /app/*)"]
+    subgraph SPA_Zone["3. Vùng Ứng Dụng Học Tập (React 19 SPA + Ant Design v5 - /app/*)"]
         Hydrate["useAuthStore Hydrate Tức Thì (0ms)<br/>Nhận thông tin User đã đăng nhập từ Server"]
+        AntdConfig["Ant Design ConfigProvider (viVN, Theme Tokens)<br/>Layout, Table, Form, Modal, Drawer, Card, Statistic"]
         Modules["Phân hệ Học tập:<br/>Vocab FSRS | Roadmap | TOEIC | AI Coach | Classroom (Teacher)"]
-        Hydrate --> Modules
+        Hydrate --> AntdConfig --> Modules
     end
 
     AuthSSR -->|"Đăng nhập thành công"| Redirect
@@ -76,31 +77,35 @@ public class HomeSeoController(ICacheService cacheService, ISender sender) : Con
 
 ---
 
-## 3. Cấu Trúc Dự Án React 19 SPA (`src/frontend` — Chuẩn 1 File = 1 Component/Type/Enum)
+## 3. Cấu Trúc Dự Án React 19 SPA Với Ant Design v5 (`src/frontend` — Chuẩn 1 File = 1 Component/Type/Enum)
 
-Dự án React SPA phục vụ các route sau đăng nhập (`/app/*`), tuân thủ nghiêm ngặt quy tắc **SOLID**, **1 File = 1 Component / Hook / Store / Enum** và **100% comment trong code bằng tiếng Anh**:
+### 3.1 Cấu Trúc Thư Mục Chuẩn Hóa
+Dự án React SPA phục vụ các route sau đăng nhập (`/app/*`), sử dụng **Ant Design (`antd` v5)** + **`@ant-design/icons`** và tuân thủ nghiêm ngặt quy tắc **SOLID**, **1 File = 1 Component / Hook / Store / Enum** cùng **100% comment trong code bằng tiếng Anh**:
 
 ```text
 src/frontend/
 ├── src/
 │   ├── app/                    # Routing & App Providers (Base path: /app)
 │   │   ├── AppRouter.tsx
-│   │   └── AppProviders.tsx
+│   │   └── AppProviders.tsx    # Wraps Ant Design ConfigProvider, AntdApp, and QueryClientProvider
 │   │
-│   ├── components/             # Reusable UI Components (1 Component = 1 File .tsx)
-│   │   ├── ui/                 # Button.tsx, Dialog.tsx, Input.tsx, Card.tsx
+│   ├── theme/                  # Ant Design v5 Design Tokens (1 File = 1 Config)
+│   │   └── lingoProTheme.ts    # Centralized ThemeConfig (Primary colors, border radius, typography)
+│   │
+│   ├── components/             # Reusable Ant Design Wrapper Components (1 Component = 1 File .tsx)
+│   │   ├── layout/             # AppShellLayout.tsx (Antd Layout, Sider, Header, Content), TopHeaderBar.tsx
 │   │   ├── audio/              # WaveformPlayer.tsx, AudioRecorder.tsx
-│   │   └── common/             # Navbar.tsx, Sidebar.tsx, ErrorBoundary.tsx
+│   │   └── common/             # CertLevelTag.tsx (Antd Tag), PageHeaderCard.tsx, ErrorBoundary.tsx
 │   │
-│   ├── features/               # Feature-based modules (1 File = 1 Component)
-│   │   ├── auth/               # AccountLinkingModal.tsx, ProtectedRoute.tsx, TeacherRouteGuard.tsx
-│   │   ├── vocab/              # FlashcardDeck.tsx, FsrsReviewQueue.tsx, VocabPackCard.tsx
-│   │   ├── roadmap/            # JourneyMap.tsx, UnitStation.tsx, PlacementModal.tsx
+│   ├── features/               # Feature-based modules built with Ant Design (1 File = 1 Component)
+│   │   ├── auth/               # AccountLinkingModal.tsx (Antd Modal), ProtectedRoute.tsx, TeacherRouteGuard.tsx
+│   │   ├── vocab/              # FlashcardDeck.tsx (Antd Card/Progress), FsrsReviewQueue.tsx, VocabPackCard.tsx
+│   │   ├── roadmap/            # JourneyMap.tsx (Antd Steps/Timeline), UnitStation.tsx, PlacementModal.tsx
 │   │   ├── toeic/              # AudioProxyPlayer.tsx, ToeicExamGrid.tsx, PartDictation.tsx
-│   │   ├── ai-coach/           # VoiceDialogueTutor.tsx, SentenceKernelTree.tsx
-│   │   ├── teacher/            # [Teacher Only] ClassroomDashboard.tsx, StudentDetailModal.tsx, TeacherVocabManager.tsx
+│   │   ├── ai-coach/           # VoiceDialogueTutor.tsx, SentenceKernelTree.tsx (Antd Tree/Descriptions)
+│   │   ├── teacher/            # [Teacher Only] ClassroomDashboard.tsx (Antd Table/Statistic), StudentDetailDrawer.tsx (Antd Drawer), TeacherVocabFormModal.tsx (Antd Form/Modal)
 │   │   ├── billing/            # PricingCards.tsx, OrderModal.tsx, QrPaymentDialog.tsx
-│   │   └── challenges/         # LeaderboardTable.tsx, StreakCounter.tsx, ChallengeCard.tsx
+│   │   └── challenges/         # LeaderboardTable.tsx (Antd Table), StreakCounter.tsx, ChallengeCard.tsx
 │   │
 │   ├── lib/                    # Clients & Utilities
 │   │   ├── apiClient.ts        # Axios instance handling ApiResponse<T> with statusCode & 15m/30d token refresh
@@ -131,6 +136,78 @@ src/frontend/
 │   │
 │   ├── App.tsx
 │   └── main.tsx
+```
+
+### 3.2 Quy Chuẩn Sử Dụng Ant Design v5 (`antd` + `@ant-design/icons`)
+* **Quản lý Theme Token tập trung (`lingoProTheme.ts`)**: Không hardcode mã màu rời rạc trong từng component. Toàn bộ màu sắc thương hiệu, bo góc (`borderRadius`), font chữ và kích thước component được định nghĩa qua `ThemeConfig` của Ant Design v5.
+* **Sử dụng Context-Aware Feedback (`App.useApp()`)**: Luôn bọc ứng dụng trong `<AntdApp>` và gọi `const { message, notification, modal } = App.useApp()` thay vì gọi hàm tĩnh `message.error(...)` để đảm bảo nhận đầy đủ Design Tokens và ngữ cảnh React 19.
+* **Chuẩn hóa Form & Bảng Dữ Liệu**:
+  * Các màn hình nhập liệu (Tạo lớp học, Thêm từ vựng của Giáo viên, Thanh toán, Đổi mật khẩu) sử dụng `<Form layout="vertical">` của Ant Design kết hợp rule validation đồng bộ với `FluentValidation` phía Backend.
+  * Các màn hình danh sách (Quản lý học sinh trong lớp, Bảng xếp hạng Challenge, Lịch sử đơn hàng, Admin CRM) sử dụng `<Table>` của Ant Design với phân trang chuẩn hóa theo `PaginatedList<T>`.
+
+```typescript
+// src/frontend/src/theme/lingoProTheme.ts
+import type { ThemeConfig } from 'antd';
+
+/**
+ * Centralized Ant Design v5 theme token configuration for the LingoPro SPA.
+ */
+export const lingoProTheme: ThemeConfig = {
+  token: {
+    colorPrimary: '#2563eb',
+    colorSuccess: '#16a34a',
+    colorWarning: '#d97706',
+    colorError: '#dc2626',
+    borderRadius: 10,
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+  },
+  components: {
+    Button: {
+      controlHeight: 40,
+      fontWeight: 600,
+    },
+    Card: {
+      borderRadiusLG: 14,
+    },
+    Table: {
+      borderRadius: 12,
+    },
+  },
+};
+```
+
+```tsx
+// src/frontend/src/app/AppProviders.tsx
+import React, { type PropsWithChildren } from 'react';
+import { ConfigProvider, App as AntdApp } from 'antd';
+import viVN from 'antd/locale/vi_VN';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { lingoProTheme } from '../theme/lingoProTheme';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 60_000,
+      retry: 1,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
+
+/**
+ * Root application provider configuring Ant Design v5 theme tokens, Vietnamese locale, and TanStack Query.
+ */
+export const AppProviders: React.FC<PropsWithChildren> = ({ children }) => {
+  return (
+    <ConfigProvider locale={viVN} theme={lingoProTheme}>
+      <AntdApp>
+        <QueryClientProvider client={queryClient}>
+          {children}
+        </QueryClientProvider>
+      </AntdApp>
+    </ConfigProvider>
+  );
+};
 ```
 
 ---

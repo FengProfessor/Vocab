@@ -1,14 +1,14 @@
 ---
 name: architect
 description: >-
-  Bộ quy chuẩn Kiến trúc Hệ thống (.NET 10 Clean Architecture, Hybrid SSR SEO/Auth + React SPA, Supabase BFF,
+  Bộ quy chuẩn Kiến trúc Hệ thống (.NET 10 Clean Architecture, Hybrid SSR SEO/Auth + React 19 SPA dùng Ant Design v5, Supabase BFF,
   Phased Selective Multi-Level Cache Local + Redis, JWT 15m/30d, Teacher RBAC, NUnit Business Testing) và Tiêu chuẩn
   Lập trình bắt buộc (SOLID, 1 File = 1 Class, 100% English Code Comments, Business Enums như CertLevel từ supabase/migrations) cho dự án LingoPro.
 ---
 
 # LingoPro System Architect Skill
 
-Skill này định nghĩa các nguyên tắc kiến trúc cốt lõi và quy chuẩn viết code bắt buộc khi thiết kế, khởi tạo hoặc chỉnh sửa mã nguồn cho nền tảng **LingoPro** (**.NET 10 Clean Architecture Monolith + Server-Side Rendered SEO/Auth + React 19 SPA + Supabase PostgreSQL**).
+Skill này định nghĩa các nguyên tắc kiến trúc cốt lõi và quy chuẩn viết code bắt buộc khi thiết kế, khởi tạo hoặc chỉnh sửa mã nguồn cho nền tảng **LingoPro** (**.NET 10 Clean Architecture Monolith + Server-Side Rendered SEO/Auth + React 19 SPA với Ant Design (`antd` v5) + Supabase PostgreSQL**).
 
 ---
 
@@ -76,11 +76,14 @@ Skill này định nghĩa các nguyên tắc kiến trúc cốt lõi và quy chu
 
 ---
 
-### 1.6 Kiến Trúc Hybrid SSR (Trang Chủ SEO + Server-Side Login), React SPA, JWT (15m / 30d) & Phân Quyền Giáo Viên (`RequireTeacher`)
+### 1.6 Kiến Trúc Hybrid SSR (Trang Chủ SEO + Server-Side Login), React SPA (Ant Design v5), JWT (15m / 30d) & Phân Quyền Giáo Viên (`RequireTeacher`)
 * **Trang Chủ & Public Pages (`GET /`, `/landing`, `/pricing`)**: Render trực tiếp **Server-Side (SSR)** trên `.NET 10` (Razor Pages / MVC Views) tối ưu tuyệt đối cho **SEO** (Meta tags, OpenGraph, JSON-LD, Sitemap, < 200ms FCP).
 * **Luồng Đăng Nhập Server-Side (`GET /auth/login`, `POST /auth/login`, `/auth/callback/google`)**:
   * Giao diện đăng nhập được render Server-Side và gửi form trực tiếp lên Server `.NET 10`.
   * Sau khi xác thực thành công trên Server, Backend khởi tạo phiên và chuyển hướng (redirect) người dùng sang ứng dụng **React SPA (`/app/...`)** kèm theo thông tin đăng nhập đã xác thực.
+* **Giao Diện Frontend React 19 SPA Sử Dụng Ant Design (`antd` v5)**:
+  * Toàn bộ không gian học tập, quản lý lớp học của Giáo viên và Admin CRM trong **React SPA (`fe`)** sử dụng hệ thống UI Component của **Ant Design (`antd` v5)** kết hợp **`@ant-design/icons`** (`Layout`, `Menu`, `Card`, `Table`, `Form`, `Modal`, `Drawer`, `Tabs`, `Steps`, `Progress`, `Tag`, `Statistic`, `App.useApp()`).
+  * Cấu hình Design Tokens đồng nhất (màu chủ đạo, bo góc, typography, chế độ Sáng/Tối và ngôn ngữ `viVN`) thông qua `<ConfigProvider theme={lingoProTheme}>` tại `AppProviders.tsx`.
 * **Cấu hình thời hạn JWT**:
   * **Access Token**: Hết hạn sau **15 phút** (`AccessTokenExpirationMinutes = 15`).
   * **Refresh Token**: Hết hạn sau **30 ngày** (`RefreshTokenExpirationDays = 30`), hỗ trợ cơ chế Refresh Token Rotation an toàn.
@@ -96,9 +99,10 @@ Skill này định nghĩa các nguyên tắc kiến trúc cốt lõi và quy chu
 
 ## 2. Danh Mục Tài Liệu Kiến Trúc Chi Tiết
 
-1. [README.md](./README.md) — Tổng quan kiến trúc Monolith .NET 10 (SSR SEO/Login + React SPA + Supabase BFF).
+1. [README.md](./README.md) — Tổng quan kiến trúc Monolith .NET 10 (SSR SEO/Login + React 19 SPA với Ant Design + Supabase BFF).
 2. [01_CLEAN_ARCHITECTURE_DOTNET10.md](./01_CLEAN_ARCHITECTURE_DOTNET10.md) — Phân tầng Clean Architecture, SOLID, 1 File = 1 Class, 100% English Code Comments, Phased Selective Multi-Level Caching (`NoOpCacheService` $\rightarrow$ `HybridMultiLevelCacheService` L1 Local + L2 Redis), NUnit Business Testing và `ApiResponse<T>` có `StatusCode`.
 3. [02_AUTHENTICATION_SUPABASE_INTEGRATION.md](./02_AUTHENTICATION_SUPABASE_INTEGRATION.md) — Luồng Server-Side Login chuyển tiếp sang React SPA, cấu hình JWT (Access Token 15 phút, Refresh Token 30 ngày), phân quyền `RequireTeacher` chi tiết, Google SSO & Account Linking.
 4. [03_DATABASE_EFCORE_POSTGRESQL.md](./03_DATABASE_EFCORE_POSTGRESQL.md) — Thiết kế toàn bộ Entities & Business Enums (`CertLevel`, ...) ánh xạ trực tiếp từ `supabase/schema.sql` và `supabase/migrations/` với EF Core 10.
-5. [04_FRONTEND_REACT_ARCHITECTURE.md](./04_FRONTEND_REACT_ARCHITECTURE.md) — Kiến trúc Hybrid: Server-Side Rendered Landing/SEO + Login bàn giao phiên sang React 19 SPA, đồng bộ Business Enums (`CertLevel`) và `ApiResponse<T>`.
+5. [04_FRONTEND_REACT_ARCHITECTURE.md](./04_FRONTEND_REACT_ARCHITECTURE.md) — Kiến trúc Hybrid: Server-Side Rendered Landing/SEO + Login bàn giao phiên sang React 19 SPA sử dụng **Ant Design (`antd` v5)**, đồng bộ Business Enums (`CertLevel`) và `ApiResponse<T>`.
 6. [05_MODULE_MAPPING_SRS.md](./05_MODULE_MAPPING_SRS.md) — Bản đồ ánh xạ 15 phân hệ SRS (`SRS_01` $\rightarrow$ `SRS_15`) vào các tầng Clean Architecture, phân quyền `RequireTeacher`, phân loại Selective Cache và NUnit Test Suites.
+

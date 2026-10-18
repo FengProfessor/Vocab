@@ -14,8 +14,8 @@ public class ExchangeGoogleOAuthCodeCommandHandler(
 {
     public async Task<ApiResponse<AuthTokensDto>> Handle(ExchangeGoogleOAuthCodeCommand request, CancellationToken ct)
     {
-        var authResult = await supabaseAuth.ExchangeOAuthCodeAsync(request.Code, ct);
-        var profile = await ProfileSyncHelper.EnsureUserProfileAsync(dbContext, authResult, ct);
+        var authResult = await supabaseAuth.ExchangeOAuthCodeAsync(request.Code, request.CodeVerifier, ct);
+        var profile = await ProfileSyncHelper.EnsureUserProfileAsync(dbContext, authResult, ct, request.Role);
         var tokenPair = jwtTokenService.GenerateTokenPair(profile);
         var dto = ProfileSyncHelper.MapToAuthTokensDto(profile, tokenPair);
 

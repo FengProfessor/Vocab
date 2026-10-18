@@ -10,5 +10,9 @@ public enum RewardTransactionType
     AffiliateCash = 2,
     MilestoneBonus = 3,
     PayoutDebit = 4,
-    ClawbackDebt = 5
+    ClawbackDebt = 5,
+    ReferralBonus = 6,
+    ChallengeRefund = 7,
+    StreakMilestone = 8,
+    PayoutWithdrawal = 9
 }

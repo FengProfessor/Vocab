@@ -12,7 +12,6 @@ namespace LingoPro.WebApi.Controllers.Ssr;
 /// so the React SPA hydrates immediately with 0ms authentication latency.
 /// </summary>
 [AllowAnonymous]
-[Route("app")]
 public sealed class SpaBootstrapController : Controller
 {
     private readonly ISender _mediator;
@@ -22,13 +21,31 @@ public sealed class SpaBootstrapController : Controller
         _mediator = mediator;
     }
 
-    [HttpGet("{**slug}")]
+    [HttpGet("/app")]
+    [HttpGet("/app/{**slug}")]
+    [HttpGet("/teacher")]
+    [HttpGet("/teacher/{**slug}")]
+    [HttpGet("/student")]
+    [HttpGet("/student/{**slug}")]
     public async Task<IActionResult> BootstrapSpa(string? slug, CancellationToken ct)
     {
         if (User.Identity?.IsAuthenticated != true)
         {
-            var returnUrl = $"/app/{slug ?? "journey"}";
+            var returnUrl = Request.Path.Value ?? $"/app/{slug ?? "journey"}";
             return Redirect($"/auth/login?returnUrl={Uri.EscapeDataString(returnUrl)}");
+        }
+
+        // When running locally on port 5000 alongside the Vite React 19 dev server (port 5173),
+        // redirect the authenticated browser session directly to the React SPA.
+        if (Request.Host.Port == 5000 &&
+            string.Equals(Request.Host.Host, "localhost", StringComparison.OrdinalIgnoreCase))
+        {
+            var targetPath = Request.Path.Value ?? "/app";
+            if (string.Equals(targetPath, "/app/journey", StringComparison.OrdinalIgnoreCase))
+            {
+                targetPath = "/app";
+            }
+            return Redirect($"http://localhost:5173{targetPath}{Request.QueryString}");
         }
 
         var response = await _mediator.Send(new GetCurrentProfileQuery(), ct);
@@ -49,6 +66,7 @@ public sealed class SpaBootstrapController : Controller
                 <title>LingoPro App — Bảng Điều Khiển Học Tập</title>
                 <script>
                     window.__LINGOPRO_INITIAL_AUTH__ = {{serializedAuthBootstrap}};
+                    window.__INITIAL_AUTH_STATE__ = {{serializedAuthBootstrap}};
                 </script>
             </head>
             <body>

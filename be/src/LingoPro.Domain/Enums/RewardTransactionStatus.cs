@@ -10,5 +10,7 @@ public enum RewardTransactionStatus
     Deducted = 2,
     Withdrawn = 3,
     Cancelled = 4,
-    Clawback = 5
+    Clawback = 5,
+    Pending = 6,
+    Completed = 7
 }

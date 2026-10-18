@@ -15,7 +15,7 @@ public class RegisterCommandHandler(
     public async Task<ApiResponse<AuthTokensDto>> Handle(RegisterCommand request, CancellationToken ct)
     {
         var authResult = await supabaseAuth.SignUpWithPasswordAsync(request.Email, request.Password, request.FullName, ct);
-        var profile = await ProfileSyncHelper.EnsureUserProfileAsync(dbContext, authResult, ct);
+        var profile = await ProfileSyncHelper.EnsureUserProfileAsync(dbContext, authResult, ct, request.Role);
         var tokenPair = jwtTokenService.GenerateTokenPair(profile);
         var dto = ProfileSyncHelper.MapToAuthTokensDto(profile, tokenPair);
 
