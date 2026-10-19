@@ -1,0 +1,56 @@
+@* Social proof testimonials (port of SocialProofSection.tsx). *@
+@{
+    var reviews = new[]
+    {
+        new { Name = "Trần Minh Hoàng", Role = "Sinh viên ĐH Ngoại Thương Hà Nội", Before = "315 LC", After = "445 LC", Increase = "+130 điểm",
+              Review = "Trước đây mình rất hay bị lừa ở Part 1 với mấy câu có being, cứ thấy máy đọc là mừng rỡ khoanh luôn. Đọc xong trang 5 trong Ebook này mới vỡ lẽ 11/11 câu being ở ETS 2026 đều là bẫy sai! Vào phòng thi thật mình né sạch bẫy, Part 1 đúng trọn vẹn 6/6 câu.",
+              Highlight = "Né sạch bẫy Being Part 1" },
+        new { Name = "Nguyễn Lê Quỳnh Anh", Role = "Chuyên viên Nhân sự tại FPT Software", Before = "360 LC", After = "470 LC", Increase = "+110 điểm",
+              Review = "Part 2 đề mới không còn Yes/No đơn giản nữa mà toàn bẫy trả lời vòng vo kiểu đùn việc. Nhờ cẩm nang giải thích 15 câu cửa miệng ngầm ý và quy tắc phản xạ 3s của LingoPro, mình nghe hiểu ngay ý tứ người nói mà không cần phải cố dịch từng từ sang tiếng Việt.",
+              Highlight = "Bắt trọn câu trả lời vòng vo Part 2" },
+        new { Name = "Phạm Đức Dũng", Role = "Kỹ sư Vi mạch tại Khu Công Nghệ Cao Q9", Before = "280 LC", After = "425 LC", Increase = "+145 điểm",
+              Review = "Mình tải rất nhiều tài liệu trên mạng nhưng chưa thấy ở đâu thống kê tỉ mỉ từng con số như cuốn này. Đặc biệt mẹo gióng cột đối diện ở câu hỏi biểu đồ Part 3-4 cực kỳ chuẩn, mắt liếc cột nào là tai bắt trúng từ đồng nghĩa ở cột kia. Cảm ơn đội ngũ LingoPro!",
+              Highlight = "Mẹo gióng cột biểu đồ Part 3-4" },
+    };
+}
+<section class="bg-white px-4 py-16 sm:px-6 sm:py-24">
+    <div class="mx-auto max-w-6xl space-y-12">
+        <div class="mx-auto max-w-3xl space-y-3 text-center">
+            <div class="inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-amber-800 shadow-xs">🏅 Bằng Chứng Thực Tế Từ Thí Sinh</div>
+            <h2 class="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">Thí Sinh Phòng Thi Nói Gì Về Cẩm Nang Sát Thủ?</h2>
+            <p class="text-xs leading-relaxed text-slate-600 sm:text-base">Hơn 3,850+ người học đã áp dụng bộ cẩm nang 15 bẫy và từ điển 150 cụm từ để cải thiện trung bình <strong class="font-bold text-emerald-700">+115 đến +145 điểm Listening</strong> chỉ sau 3 đến 4 tuần ôn luyện.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+            @foreach (var r in reviews)
+            {
+                <div class="flex flex-col justify-between space-y-4 rounded-3xl border border-slate-200/90 bg-slate-50/70 p-6 shadow-xs transition-all duration-300 hover:border-indigo-200 hover:shadow-lg">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <div class="text-sm tracking-tight text-amber-400" aria-label="5 sao">★★★★★</div>
+                            <span class="inline-flex items-center gap-1 rounded-full border border-emerald-200 bg-emerald-100/80 px-2.5 py-0.5 text-xs font-black text-emerald-700">📈 @r.Increase</span>
+                        </div>
+                        <span class="inline-block rounded-xl border border-indigo-200/60 bg-indigo-50 px-2.5 py-1 text-[11px] font-bold text-indigo-700">@r.Highlight</span>
+                        <p class="text-xs italic leading-relaxed text-slate-600 sm:text-sm">"@r.Review"</p>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-200/80 pt-4">
+                        <div>
+                            <h4 class="text-sm font-bold text-slate-900">@r.Name</h4>
+                            <p class="text-[11px] text-slate-500">@r.Role</p>
+                        </div>
+                        <div class="text-right font-mono text-[11px]">
+                            <span class="mr-1.5 text-slate-400 line-through">@r.Before</span>
+                            <span class="font-bold text-indigo-600">@r.After</span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-4 rounded-2xl border border-slate-200 bg-slate-100/70 p-4 text-center text-xs text-slate-600 sm:gap-8">
+            <div class="flex items-center gap-2"><span class="text-emerald-600">✔</span><span><strong>3,850+</strong> Lượt tải về trong 30 ngày qua</span></div>
+            <div class="flex items-center gap-2"><span class="text-emerald-600">✔</span><span><strong>98.4%</strong> Đánh giá hữu ích sát đề thi thật</span></div>
+            <div class="flex items-center gap-2"><span class="text-emerald-600">✔</span><span><strong>100%</strong> Miễn phí không yêu cầu thẻ visa</span></div>
+        </div>
+    </div>
+</section>

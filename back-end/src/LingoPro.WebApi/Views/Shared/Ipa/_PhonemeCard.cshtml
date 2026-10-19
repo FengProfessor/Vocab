@@ -1,0 +1,23 @@
+@model LingoPro.WebApi.Services.Ipa.IpaPhoneme
+@* Phoneme card. Mastery state is applied client-side via data-mastered / data-mastery attributes. *@
+<div role="button" tabindex="0" data-ipa-open="@Model.Id" data-ipa-card="@Model.Id" data-type="@Model.Type" data-hard="@(Model.DifficultyForVn == "high" ? "true" : "false")"
+     class="ipa-card group relative flex cursor-pointer select-none flex-col items-center justify-center rounded-xl border border-[#bca58f]/50 bg-white/70 p-3 text-center transition hover:border-[#b5502f] hover:bg-white">
+    <div class="absolute left-2 top-2">
+        @if (Model.DifficultyForVn == "high")
+        {
+            <span class="rounded-full border border-amber-300/70 bg-amber-500/15 px-1.5 py-0.5 text-[9px] font-bold text-amber-700" title="Âm người Việt hay phát âm sai">🔥 Hay sai</span>
+        }
+    </div>
+    <div class="absolute right-2 top-2 flex items-center">
+        <span data-ipa-check class="hidden text-emerald-600" title="Đã nắm vững">✔</span>
+        <button type="button" data-ipa-play="@Model.AnchorWord" class="rounded-md p-1 text-[#241710]/50 transition hover:bg-[#b5502f]/10 hover:text-[#b5502f]" title="Nghe phát âm từ mẫu" aria-label="Nghe từ @Model.AnchorWord">🔊</button>
+    </div>
+    <div class="pb-0.5 pt-3">
+        <div class="font-mono text-xl font-black tracking-tight text-[#241710] transition group-hover:text-[#b5502f] sm:text-2xl">/@Model.Symbol/</div>
+        <p class="mt-0.5 flex items-center justify-center gap-1 text-xs font-semibold text-[#241710]/80">
+            <span>@Model.AnchorWord</span>
+            <span class="font-mono text-[10px] text-[#241710]/50">@Model.AnchorWordIpa</span>
+        </p>
+    </div>
+    <div data-ipa-bar class="mt-1.5 hidden h-1 w-8 overflow-hidden rounded-full bg-[#bca58f]/30"><div class="h-full rounded-full bg-[#b5502f]" style="width:0%"></div></div>
+</div>

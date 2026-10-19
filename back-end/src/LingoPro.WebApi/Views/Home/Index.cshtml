@@ -1,0 +1,1341 @@
+@model LingoPro.Application.Features.Seo.LandingPageSeoDto
+@{
+    Layout = null;
+    ViewData["ActiveNav"] = "home";
+    var siteUrl = string.IsNullOrWhiteSpace(Model?.CanonicalUrl) ? "https://lingopro.online" : Model.CanonicalUrl.TrimEnd('/');
+    var pageTitle = string.IsNullOrWhiteSpace(Model?.PageTitle)
+        ? "LingoPro — Học từ vựng tiếng Anh, tra từ 1 chạm, nhớ lâu với FSRS"
+        : Model.PageTitle;
+    var metaDesc = string.IsNullOrWhiteSpace(Model?.MetaDescription)
+        ? "App học từ vựng cho người Việt: tra từ trên web, flashcard FSRS, lộ trình THPT · TOEIC · IELTS. Miễn phí bắt đầu — 5–8 phút/ngày."
+        : Model.MetaDescription;
+    var vocabPacksText = (Model?.TotalVocabularyPacks ?? 660) >= 660 ? $"{Model?.TotalVocabularyPacks ?? 660}+" : "660+";
+}
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#241710" />
+    <title>@pageTitle</title>
+    <meta name="description" content="@metaDesc" />
+    <meta name="keywords" content="học từ vựng, học từ vựng tiếng Anh, tra từ tiếng Anh, flashcard FSRS, spaced repetition, ôn từ vựng, từ vựng TOEIC, từ vựng IELTS, từ vựng THPT, Anki tiếng Việt, LingoPro" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="@siteUrl" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <!-- OpenGraph / Facebook / Zalo SEO Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:site_name" content="LingoPro" />
+    <meta property="og:title" content="LingoPro — Học từ vựng, tra từ 1 chạm, nhớ lâu hơn" />
+    <meta property="og:description" content="Tra từ trên web · flashcard FSRS · lộ trình sẵn cho người Việt. Bắt đầu miễn phí." />
+    <meta property="og:url" content="@siteUrl" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="LingoPro — Học từ vựng tiếng Anh nhớ lâu hơn" />
+    <meta name="twitter:description" content="Tra từ 1 chạm, ôn đúng lúc bằng FSRS. Miễn phí bắt đầu." />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS v4 Browser Runtime -->
+    <script src="https://cdn.jsdelivr.net/npm/@@tailwindcss/browser@@4"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@@latest"></script>
+
+    <!-- Structured Data JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@@context": "https://schema.org",
+      "@@graph": [
+        {
+          "@@type": "SoftwareApplication",
+          "name": "LingoPro",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "Web, Windows",
+          "url": "@siteUrl",
+          "description": "App học từ vựng tiếng Anh: tra từ 1 chạm, flashcard FSRS, lộ trình THPT · TOEIC · IELTS cho người Việt.",
+          "offers": {
+            "@@type": "Offer",
+            "price": "0",
+            "priceCurrency": "VND",
+            "description": "Gói Free — nâng Pro tùy chọn"
+          },
+          "inLanguage": "vi"
+        },
+        {
+          "@@type": "WebSite",
+          "name": "LingoPro",
+          "url": "@siteUrl",
+          "inLanguage": "vi-VN",
+          "description": "Học từ vựng tiếng Anh với tra từ 1 chạm và flashcard FSRS."
+        },
+        {
+          "@@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@@type": "Question",
+              "name": "LingoPro học từ vựng bằng cách nào?",
+              "acceptedAnswer": {
+                "@@type": "Answer",
+                "text": "Tra từ trên web, lưu vào kho, rồi ôn lại theo lịch FSRS (spaced repetition) — mỗi chặng khoảng 5–8 phút."
+              }
+            },
+            {
+              "@@type": "Question",
+              "name": "Có miễn phí không?",
+              "acceptedAnswer": {
+                "@@type": "Answer",
+                "text": "Có gói Free: flashcard FSRS, lưu 200 từ mới/tháng, lộ trình sẵn và tra từ AI 5 lượt/ngày. Nâng Pro khi cần không giới hạn."
+              }
+            },
+            {
+              "@@type": "Question",
+              "name": "LingoPro khác Anki ở điểm nào?",
+              "acceptedAnswer": {
+                "@@type": "Answer",
+                "text": "LingoPro có sẵn lộ trình Việt hóa, tra–lưu 1 chạm và nhắc ôn. Anki mạnh hơn nếu bạn thích tự dựng toàn bộ hệ thống."
+              }
+            },
+            {
+              "@@type": "Question",
+              "name": "Có cần cài app không?",
+              "acceptedAnswer": {
+                "@@type": "Answer",
+                "text": "Học ngay trên web. Có thêm app Desktop và Chrome Extension để tra từ khi đọc trang."
+              }
+            }
+          ]
+        },
+        {
+          "@@type": "VideoObject",
+          "name": "Demo LingoPro — tra từ và lưu vào kho",
+          "description": "Xem cách bôi đen từ trên web, lưu vào kho riêng và ôn theo FSRS với LingoPro.",
+          "thumbnailUrl": "@siteUrl/images/intro-save-word-poster.webp",
+          "contentUrl": "@siteUrl/intro-save-word.mp4?v=2",
+          "embedUrl": "@siteUrl/#video-demo",
+          "uploadDate": "2026-06-01",
+          "inLanguage": "vi"
+        },
+        {
+          "@@type": "VideoObject",
+          "name": "Demo tra từ 1 chạm trên web — LingoPro Extension",
+          "description": "Tra từ ngay trên trang đang đọc bằng Chrome Extension LingoPro.",
+          "thumbnailUrl": "@siteUrl/images/extension-lookup-poster.webp",
+          "contentUrl": "@siteUrl/extension-lookup.mp4?v=2",
+          "embedUrl": "@siteUrl/#video-demo",
+          "uploadDate": "2026-06-01",
+          "inLanguage": "vi"
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+        }
+        @@keyframes spinIcon {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-icon { animation: spinIcon 1s linear infinite; }
+    </style>
+</head>
+<body class="min-h-dvh overflow-x-hidden bg-[#f6efe6] text-[#241710] antialiased">
+    <!-- AuthRedirectGate -->
+    <script>
+        (function () {
+            try {
+                var params = new URLSearchParams(window.location.search);
+                if (params.get('stay') === '1') return;
+                var cached = localStorage.getItem('lingopro_last_profile_v1');
+                if (cached) {
+                    var parsed = JSON.parse(cached);
+                    if (parsed && parsed.id) {
+                        window.location.replace('/app/journey');
+                    }
+                }
+            } catch (_) {}
+        })();
+    </script>
+
+    <div class="min-h-dvh overflow-hidden bg-[#f6efe6] text-[#241710]">
+        <partial name="_MarketingHeader" />
+
+        <main>
+            <!-- 2. Hero + LearnerTabs (phong cách /for-teacher, giữ màu gốc #f6efe6 / #241710 / #b5502f / #f1c46d) -->
+            <section class="relative px-4 pb-20 pt-16 sm:px-6 sm:pb-28 sm:pt-24">
+                <div class="pointer-events-none absolute -right-32 top-0 size-[32rem] rounded-full bg-[#f1c46d]/30 blur-3xl"></div>
+                <div class="pointer-events-none absolute -left-48 bottom-0 size-96 rounded-full bg-[#e57b52]/20 blur-3xl"></div>
+                <div class="relative mx-auto grid max-w-7xl items-start gap-14 lg:grid-cols-[1.08fr_0.92fr]">
+                    <!-- Left Column: Tabs + Editorial Hero Copy -->
+                    <div>
+                        <div class="flex w-full rounded-full border border-[#d7c7b6] bg-white/85 p-1.5 backdrop-blur-sm sm:max-w-md">
+                            <button type="button"
+                                    data-learner-tab="daily"
+                                    onclick="setActiveLearner('daily')"
+                                    class="learner-tab-btn w-1/3 rounded-full py-2.5 text-sm font-bold transition-colors bg-[#241710] text-[#f1c46d] cursor-pointer">
+                                Giao tiếp
+                            </button>
+                            <button type="button"
+                                    data-learner-tab="toeic"
+                                    onclick="setActiveLearner('toeic')"
+                                    class="learner-tab-btn w-1/3 rounded-full py-2.5 text-sm font-bold transition-colors border border-transparent bg-transparent text-[#5e4b40] hover:bg-white cursor-pointer">
+                                Luyện TOEIC
+                            </button>
+                            <button type="button"
+                                    data-learner-tab="ielts"
+                                    onclick="setActiveLearner('ielts')"
+                                    class="learner-tab-btn w-1/3 rounded-full py-2.5 text-sm font-bold transition-colors border border-transparent bg-transparent text-[#5e4b40] hover:bg-white cursor-pointer">
+                                IELTS &amp; THPT
+                            </button>
+                        </div>
+
+                        <div class="mt-8">
+                            <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-[#241710]/10 bg-white/80 px-4 py-2 text-xs font-black uppercase tracking-[0.16em] text-[#5e4b40]">
+                                <i data-lucide="sparkles" class="size-4 text-[#b5502f]"></i>
+                                <span id="learner-badge">App học từ vựng · Thuật toán FSRS</span>
+                            </div>
+                            <h1 class="max-w-4xl text-5xl font-black leading-[0.98] tracking-[-0.055em] text-[#241710] sm:text-7xl">
+                                <span id="learner-lead">Tra từ 1 chạm.</span>
+                                <span id="learner-accent" class="mt-2 block text-[#b5502f]">Nhớ lâu không cần nhồi.</span>
+                            </h1>
+                            <p id="learner-sub" class="mt-7 max-w-2xl text-lg font-medium leading-8 text-[#5e4b40] sm:text-xl">
+                                Tra từ trên web → lưu kho riêng → ôn đúng lúc sắp quên bằng FSRS. Mỗi chặng chỉ 5–8 phút, lộ trình Việt hóa sẵn sàng.
+                            </p>
+                            <ul id="learner-bullets" class="mt-7 space-y-2.5">
+                                <li class="flex items-center gap-3 font-semibold text-[#241710]">
+                                    <i data-lucide="check-circle-2" class="size-5 shrink-0 text-[#b5502f]"></i>
+                                    <span>Bôi đen từ trên web — hiện nghĩa Việt, IPA và ví dụ ngay</span>
+                                </li>
+                                <li class="flex items-center gap-3 font-semibold text-[#241710]">
+                                    <i data-lucide="check-circle-2" class="size-5 shrink-0 text-[#b5502f]"></i>
+                                    <span>Nhắc ôn tự động đúng thời điểm não sắp quên theo FSRS</span>
+                                </li>
+                                <li class="flex items-center gap-3 font-semibold text-[#241710]">
+                                    <i data-lucide="check-circle-2" class="size-5 shrink-0 text-[#b5502f]"></i>
+                                    <span>Hơn 9.000+ từ vựng chia sẵn theo chặng ngắn 5–8 phút</span>
+                                </li>
+                            </ul>
+                            <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+                                <a id="learner-cta-primary"
+                                   href="/auth"
+                                   class="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#b5502f] px-7 py-4 font-black text-white shadow-[0_12px_0_#241710] transition-transform hover:-translate-y-1 hover:bg-[#a04428]">
+                                    <span id="learner-cta-text">Bắt đầu miễn phí</span>
+                                    <i data-lucide="arrow-right" class="size-5"></i>
+                                </a>
+                                <a href="#demo"
+                                   class="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-[#241710]/20 bg-white px-7 py-4 font-black text-[#241710] shadow-xs transition-colors hover:border-[#241710]/40 hover:bg-[#fffaf5]">
+                                    <i data-lucide="search" class="size-5 text-[#b5502f]"></i>
+                                    Thử tra từ ngay
+                                </a>
+                            </div>
+                            <p class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-semibold text-[#6d574a]">
+                                <span class="flex items-center gap-2">
+                                    <i data-lucide="shield-check" class="size-4 text-[#2d7f5e]"></i> Miễn phí bắt đầu
+                                </span>
+                                <span>5–8 phút / chặng</span>
+                                <span>Đồng bộ Web &amp; Extension</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Product Dashboard Preview Card (phong cách /for-teacher) -->
+                    <div class="relative mx-auto w-full max-w-xl">
+                        <div class="absolute -inset-4 rotate-3 rounded-[2rem] bg-[#f1c46d] sm:-inset-5"></div>
+                        <div class="relative rounded-[2rem] border border-[#241710]/10 bg-[#241710] p-5 text-white shadow-2xl sm:p-7">
+                            <div class="flex items-center justify-between border-b border-white/10 pb-5">
+                                <div>
+                                    <p class="text-xs font-bold uppercase tracking-[0.16em] text-[#cbb7a6]">Lộ trình cá nhân hóa</p>
+                                    <p class="mt-1 text-xl font-black text-white">3 bước nhớ từ vựng sâu</p>
+                                </div>
+                                <div class="rounded-xl bg-[#f1c46d] px-3 py-2 text-xs font-black uppercase tracking-wider text-[#241710]">
+                                    FSRS v5
+                                </div>
+                            </div>
+
+                            <div class="mt-5 grid grid-cols-3 gap-3">
+                                <div class="rounded-2xl bg-white/[0.07] p-3">
+                                    <p class="text-2xl font-black text-[#f1c46d]">9.000+</p>
+                                    <p class="mt-1 text-xs font-semibold text-[#cbb7a6]">Từ vựng</p>
+                                </div>
+                                <div class="rounded-2xl bg-white/[0.07] p-3">
+                                    <p class="text-2xl font-black text-[#f1c46d]">@vocabPacksText</p>
+                                    <p class="mt-1 text-xs font-semibold text-[#cbb7a6]">Chặng học</p>
+                                </div>
+                                <div class="rounded-2xl bg-white/[0.07] p-3">
+                                    <p class="text-2xl font-black text-[#f1c46d]">30+</p>
+                                    <p class="mt-1 text-xs font-semibold text-[#cbb7a6]">Lộ trình</p>
+                                </div>
+                            </div>
+
+                            <div class="mt-5 rounded-2xl bg-white/[0.07] p-4">
+                                <div class="mb-4 flex items-center justify-between">
+                                    <p class="font-bold text-white">Chu trình học mỗi ngày</p>
+                                    <span class="rounded-full bg-[#b5502f]/30 px-2.5 py-1 text-xs font-bold text-[#ff9c89]">5–8 phút</span>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex items-center gap-3">
+                                        <span class="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#f1c46d]/20 text-xs font-black text-[#f1c46d]">01</span>
+                                        <div class="min-w-0 flex-1">
+                                            <p class="text-sm font-bold text-white">Tra từ 1 chạm</p>
+                                            <p class="truncate text-xs text-[#cbb7a6]">Bôi đen trên web — hiện nghĩa Việt, IPA, ví dụ</p>
+                                        </div>
+                                        <span class="text-xs font-black text-[#f1c46d]">Tức thì</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <span class="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#f1c46d]/20 text-xs font-black text-[#f1c46d]">02</span>
+                                        <div class="min-w-0 flex-1">
+                                            <p class="text-sm font-bold text-white">Lưu vào kho riêng</p>
+                                            <p class="truncate text-xs text-[#cbb7a6]">Tự động tạo flashcard kèm âm thanh &amp; ngữ cảnh</p>
+                                        </div>
+                                        <span class="text-xs font-black text-[#f1c46d]">1 chạm</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <span class="flex size-9 shrink-0 items-center justify-center rounded-full bg-[#f1c46d]/20 text-xs font-black text-[#f1c46d]">03</span>
+                                        <div class="min-w-0 flex-1">
+                                            <p class="text-sm font-bold text-white">Ôn đúng lúc sắp quên</p>
+                                            <p class="truncate text-xs text-[#cbb7a6]">FSRS tính lịch riêng cho từng từ khó / dễ</p>
+                                        </div>
+                                        <span class="text-xs font-black text-[#74cbb2]">94% nhớ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-5 flex items-center justify-between gap-3 rounded-2xl bg-[#f1c46d] p-4 text-[#241710]">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="zap" class="size-5 shrink-0"></i>
+                                    <p class="text-sm font-bold">Lộ trình: @string.Join(" · ", Model?.FeaturedExamTracks is { Count: > 0 } ? Model.FeaturedExamTracks : new[] { "IELTS", "TOEIC", "THPT", "Giao tiếp" })</p>
+                                </div>
+                                <a href="/auth" class="shrink-0 rounded-xl bg-[#241710] px-3 py-1.5 text-xs font-black text-white transition-transform hover:-translate-y-0.5">
+                                    Học ngay
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Dải kết quả (giống bố cục /for-teacher) -->
+            <section class="border-y border-[#241710]/10 bg-white/75 px-4 py-10 sm:px-6">
+                <div class="mx-auto grid max-w-7xl gap-7 md:grid-cols-3">
+                    <div class="flex items-start gap-4">
+                        <span class="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-[#f1c46d]/55 text-[#241710]">
+                            <i data-lucide="clock-3" class="size-5"></i>
+                        </span>
+                        <div>
+                            <p class="text-xl font-black text-[#241710]">Chỉ 5–8 phút/ngày</p>
+                            <p class="mt-1 text-sm font-medium leading-6 text-[#5e4b40]">chặng học ngắn gọn, dễ duy trì thói quen mỗi ngày</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-[#f1c46d]/55 text-[#241710]">
+                            <i data-lucide="mouse-pointer-click" class="size-5"></i>
+                        </span>
+                        <div>
+                            <p class="text-xl font-black text-[#241710]">Tra &amp; lưu 1 chạm</p>
+                            <p class="mt-1 text-sm font-medium leading-6 text-[#5e4b40]">không mất hàng giờ tự gõ từng mặt thẻ flashcard</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-[#f1c46d]/55 text-[#241710]">
+                            <i data-lucide="brain" class="size-5"></i>
+                        </span>
+                        <div>
+                            <p class="text-xl font-black text-[#241710]">Nhắc ôn tự động FSRS</p>
+                            <p class="mt-1 text-sm font-medium leading-6 text-[#5e4b40]">từ khó ôn dày, từ đã thuộc giãn thưa để nhớ lâu dài</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Tương tác tra từ trực tiếp (DictionaryDemo) -->
+            <section id="demo" class="px-4 py-24 sm:px-6">
+                <div class="mx-auto grid max-w-7xl items-start gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+                    <div>
+                        <p class="text-sm font-black uppercase tracking-[0.18em] text-[#b5502f]">Thử ngay không cần tài khoản</p>
+                        <h2 class="mt-4 text-4xl font-black tracking-[-0.04em] text-[#241710] sm:text-5xl">
+                            Tra thử một từ — thấy ngay cách LingoPro hoạt động.
+                        </h2>
+                        <p class="mt-5 font-medium leading-8 text-[#5e4b40]">
+                            Xem nghĩa tiếng Việt chọn lọc, phiên âm IPA chuẩn, âm thanh UK/US và câu ví dụ sát thực tế. Chỉ đăng ký khi bạn muốn lưu vào kho riêng để ôn tập.
+                        </p>
+                        <ul class="mt-7 space-y-3 text-sm font-semibold text-[#241710]">
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="size-5 shrink-0 text-[#2d7f5e]"></i>
+                                <span>Kết hợp kho từ điển biên soạn sẵn &amp; giải thích AI</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="size-5 shrink-0 text-[#2d7f5e]"></i>
+                                <span>Đồng bộ xuyên suốt giữa Web, Desktop và Chrome Extension</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="size-5 shrink-0 text-[#2d7f5e]"></i>
+                                <span>Biết ngay sản phẩm có hợp với mình chỉ trong 30 giây</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- DictionaryDemo Widget Card -->
+                    <div class="rounded-[2rem] border border-[#241710]/10 bg-white p-6 shadow-xl sm:p-8">
+                        <form id="dict-demo-form" class="relative flex gap-2 rounded-2xl border-2 border-[#d7c7b6] bg-[#fffaf5] p-2 focus-within:border-[#b5502f]">
+                            <input
+                                id="dict-demo-input"
+                                type="text"
+                                placeholder="Gõ một từ tiếng Anh… vd: resilient"
+                                autocomplete="off"
+                                autocorrect="off"
+                                spellcheck="false"
+                                class="h-12 flex-1 rounded-xl bg-transparent px-4 text-base font-semibold text-[#241710] placeholder:font-normal placeholder:text-[#9a8578] focus:outline-none"
+                            />
+                            <button
+                                id="dict-demo-submit"
+                                type="submit"
+                                class="inline-flex h-12 items-center gap-2 rounded-xl bg-[#241710] px-5 font-black text-white shadow-sm transition-colors hover:bg-[#b5502f] disabled:opacity-50 cursor-pointer"
+                            >
+                                <svg id="dict-demo-search-icon" class="h-5 w-5 text-[#f1c46d]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                                <svg id="dict-demo-spinner" style="display:none" class="animate-spin-icon h-5 w-5 text-[#f1c46d]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
+                                <span>Tra ngay</span>
+                            </button>
+                        </form>
+
+                        <!-- Sample chips -->
+                        <div class="mt-4 flex flex-wrap items-center gap-2">
+                            <span class="text-xs font-bold uppercase tracking-wider text-[#7b6558]">Từ mẫu:</span>
+                            <button type="button" data-sample-word="resilient" class="dict-sample-chip rounded-full border border-[#d7c7b6] bg-[#fffaf5] px-3.5 py-1.5 text-xs font-bold text-[#241710] transition-colors hover:border-[#b5502f] hover:bg-[#b5502f] hover:text-white cursor-pointer">resilient</button>
+                            <button type="button" data-sample-word="achieve" class="dict-sample-chip rounded-full border border-[#d7c7b6] bg-[#fffaf5] px-3.5 py-1.5 text-xs font-bold text-[#241710] transition-colors hover:border-[#b5502f] hover:bg-[#b5502f] hover:text-white cursor-pointer">achieve</button>
+                            <button type="button" data-sample-word="benefit" class="dict-sample-chip rounded-full border border-[#d7c7b6] bg-[#fffaf5] px-3.5 py-1.5 text-xs font-bold text-[#241710] transition-colors hover:border-[#b5502f] hover:bg-[#b5502f] hover:text-white cursor-pointer">benefit</button>
+                            <button type="button" data-sample-word="environment" class="dict-sample-chip rounded-full border border-[#d7c7b6] bg-[#fffaf5] px-3.5 py-1.5 text-xs font-bold text-[#241710] transition-colors hover:border-[#b5502f] hover:bg-[#b5502f] hover:text-white cursor-pointer">environment</button>
+                            <button type="button" data-sample-word="opportunity" class="dict-sample-chip rounded-full border border-[#d7c7b6] bg-[#fffaf5] px-3.5 py-1.5 text-xs font-bold text-[#241710] transition-colors hover:border-[#b5502f] hover:bg-[#b5502f] hover:text-white cursor-pointer">opportunity</button>
+                        </div>
+
+                        <!-- Hint / Loading / Error / Result states -->
+                        <div id="dict-demo-hint" class="mt-6 flex items-center justify-center gap-2 rounded-2xl border border-dashed border-[#d7c7b6] bg-[#fffaf5]/60 p-5 text-center text-sm font-medium text-[#5e4b40]">
+                            <i data-lucide="sparkles" class="size-4 shrink-0 text-[#b5502f]"></i>
+                            <span>Bấm <strong class="font-black text-[#241710]">Tra ngay</strong> hoặc chọn một từ mẫu phía trên để xem kết quả.</span>
+                        </div>
+
+                        <div id="dict-demo-loading" style="display:none" class="mt-6 flex items-center justify-center gap-3 py-8 font-semibold text-[#5e4b40]">
+                            <svg class="animate-spin-icon h-5 w-5 text-[#b5502f]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
+                            Đang tra từ điển…
+                        </div>
+
+                        <div id="dict-demo-error" style="display:none" class="mt-6 rounded-2xl border border-[#d7c7b6] bg-[#fffaf5] p-5 text-center">
+                            <p id="dict-demo-error-text" class="text-sm font-medium text-[#5e4b40]"></p>
+                            <a href="/auth" class="mt-4 inline-flex items-center gap-2 rounded-xl bg-[#b5502f] px-5 py-2.5 text-sm font-black text-white shadow-sm hover:bg-[#a04428]">
+                                Đăng ký miễn phí
+                                <i data-lucide="arrow-right" class="size-4"></i>
+                            </a>
+                        </div>
+
+                        <div id="dict-demo-result" style="display:none" class="mt-6 rounded-2xl border border-[#d7c7b6] bg-[#fffaf5] p-5 text-left">
+                            <div class="flex items-start justify-between gap-4">
+                                <div class="min-w-0 flex-1">
+                                    <div class="flex flex-wrap items-center gap-2.5">
+                                        <h3 id="dict-res-word" class="text-2xl font-black text-[#241710]"></h3>
+                                        <span id="dict-res-source" class="rounded-full bg-[#241710] px-2.5 py-0.5 text-[11px] font-bold text-[#f1c46d]">Kho từ điển</span>
+                                    </div>
+                                    <div class="mt-2 flex flex-wrap items-center gap-2">
+                                        <span id="dict-res-ipa" class="rounded-lg border border-[#d7c7b6] bg-white px-2.5 py-0.5 font-mono text-sm font-semibold text-[#241710]"></span>
+                                        <button type="button" id="dict-speak-uk" class="inline-flex items-center gap-1 rounded-lg border border-[#d7c7b6] bg-white px-2.5 py-1 text-xs font-bold text-[#241710] transition-colors hover:border-[#b5502f] hover:bg-[#b5502f] hover:text-white cursor-pointer" title="Phát âm UK">
+                                            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6"/></svg>
+                                            <span>UK</span>
+                                        </button>
+                                        <button type="button" id="dict-speak-us" class="inline-flex items-center gap-1 rounded-lg border border-[#d7c7b6] bg-white px-2.5 py-1 text-xs font-bold text-[#241710] transition-colors hover:border-[#b5502f] hover:bg-[#b5502f] hover:text-white cursor-pointer" title="Phát âm US">
+                                            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6"/></svg>
+                                            <span>US</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <ul id="dict-res-meanings" class="mt-4 space-y-2.5"></ul>
+
+                            <div class="mt-5 flex flex-col items-center justify-between gap-3 rounded-2xl bg-[#241710] p-4 text-white sm:flex-row">
+                                <div class="flex items-center gap-2.5 text-sm font-medium text-[#e9dccf]">
+                                    <i data-lucide="bookmark-plus" class="size-5 shrink-0 text-[#f1c46d]"></i>
+                                    <span>Lưu từ này vào sổ riêng &amp; nhận lịch nhắc ôn FSRS tự động.</span>
+                                </div>
+                                <a href="/auth"
+                                   class="inline-flex shrink-0 items-center gap-1.5 rounded-xl bg-[#f1c46d] px-4 py-2.5 text-sm font-black text-[#241710] shadow-sm transition-transform hover:-translate-y-0.5">
+                                    Lưu vào sổ <i data-lucide="arrow-right" class="size-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. So sánh LingoPro vs Anki / Cách học cũ (phong cách bảng so sánh của /for-teacher) -->
+            <section class="bg-[#241710] px-4 py-24 text-white sm:px-6">
+                <div class="mx-auto max-w-7xl">
+                    <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+                        <div>
+                            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#f1c46d]">So sánh cách học</p>
+                            <h2 class="mt-4 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">
+                                Muốn học ngay — không mất công tự dựng hệ thống.
+                            </h2>
+                            <p class="mt-6 max-w-xl font-medium leading-8 text-[#d8c9bc]">
+                                Anki hay sổ tay rất tốt nếu bạn có thời gian tự soạn thẻ và tìm deck. LingoPro chuẩn bị sẵn kho từ Việt hóa, tra–lưu 1 chạm và tự động lên lịch ôn tập cho bạn.
+                            </p>
+                            <div class="mt-8 flex flex-wrap gap-3">
+                                <a href="/auth"
+                                   class="inline-flex items-center gap-2 rounded-2xl bg-[#f1c46d] px-6 py-3.5 text-sm font-black text-[#241710] shadow-[0_8px_0_#c49538] transition-transform hover:-translate-y-0.5">
+                                    Trải nghiệm miễn phí <i data-lucide="arrow-right" class="size-4"></i>
+                                </a>
+                                <a href="/for-teacher"
+                                   class="inline-flex items-center gap-2 rounded-2xl border border-white/25 bg-white/10 px-6 py-3.5 text-sm font-black text-white transition-colors hover:bg-white/20">
+                                    Bản cho Giáo viên
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="overflow-hidden rounded-3xl border border-white/15 bg-white/[0.03]">
+                            <div class="grid grid-cols-[1fr_90px_90px] border-b border-white/10 bg-white/[0.07] px-5 py-3.5 text-xs font-black uppercase tracking-wider text-[#cbb7a6]">
+                                <span>Trải nghiệm học tập</span>
+                                <span class="text-center text-[#f1c46d]">LingoPro</span>
+                                <span class="text-center">Anki / Cũ</span>
+                            </div>
+                            <div class="grid grid-cols-[1fr_90px_90px] items-center border-b border-white/10 px-5 py-4">
+                                <span class="pr-3 text-sm font-semibold text-white">Mở web học ngay, không cần tự dựng deck</span>
+                                <span class="flex justify-center"><i data-lucide="check" class="size-5 text-[#f1c46d]"></i></span>
+                                <span class="flex justify-center"><i data-lucide="x" class="size-5 text-[#9a8578]"></i></span>
+                            </div>
+                            <div class="grid grid-cols-[1fr_90px_90px] items-center border-b border-white/10 px-5 py-4">
+                                <span class="pr-3 text-sm font-semibold text-white">9.000+ từ vựng Việt hóa theo TOEIC · IELTS · THPT</span>
+                                <span class="flex justify-center"><i data-lucide="check" class="size-5 text-[#f1c46d]"></i></span>
+                                <span class="flex justify-center"><i data-lucide="x" class="size-5 text-[#9a8578]"></i></span>
+                            </div>
+                            <div class="grid grid-cols-[1fr_90px_90px] items-center border-b border-white/10 px-5 py-4">
+                                <span class="pr-3 text-sm font-semibold text-white">Bôi đen tra &amp; lưu từ 1 chạm ngay khi đọc web</span>
+                                <span class="flex justify-center"><i data-lucide="check" class="size-5 text-[#f1c46d]"></i></span>
+                                <span class="flex justify-center"><i data-lucide="x" class="size-5 text-[#9a8578]"></i></span>
+                            </div>
+                            <div class="grid grid-cols-[1fr_90px_90px] items-center border-b border-white/10 px-5 py-4">
+                                <span class="pr-3 text-sm font-semibold text-white">AI giải thích ngữ cảnh, tạo ví dụ &amp; bài tập</span>
+                                <span class="flex justify-center"><i data-lucide="check" class="size-5 text-[#f1c46d]"></i></span>
+                                <span class="flex justify-center"><i data-lucide="x" class="size-5 text-[#9a8578]"></i></span>
+                            </div>
+                            <div class="grid grid-cols-[1fr_90px_90px] items-center px-5 py-4">
+                                <span class="pr-3 text-sm font-semibold text-white">Thuật toán FSRS nhắc ôn đúng điểm sắp quên</span>
+                                <span class="flex justify-center"><i data-lucide="check" class="size-5 text-[#f1c46d]"></i></span>
+                                <span class="flex justify-center"><i data-lucide="check" class="size-5 text-[#9a8578]"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. Quy trình 3 bước (#cach-hoc - giống bố cục 01/02/03 của /for-teacher) -->
+            <section id="cach-hoc" class="px-4 py-24 sm:px-6">
+                <div class="mx-auto max-w-4xl text-center">
+                    <p class="text-sm font-black uppercase tracking-[0.18em] text-[#b5502f]">Quy trình đơn giản</p>
+                    <h2 class="mt-4 text-4xl font-black tracking-[-0.04em] text-[#241710] sm:text-5xl">
+                        Từ từ lạ gặp trên web đến trí nhớ dài hạn trong ba bước.
+                    </h2>
+                </div>
+                <div class="mx-auto mt-12 grid max-w-7xl gap-5 lg:grid-cols-3">
+                    <div class="group rounded-[1.75rem] border border-[#241710]/10 bg-white p-7 shadow-sm transition-transform hover:-translate-y-1">
+                        <div class="flex items-center justify-between">
+                            <span class="text-5xl font-black tracking-[-0.08em] text-[#d7c7b6]">01</span>
+                            <i data-lucide="arrow-right" class="size-5 text-[#b5502f] transition-transform group-hover:translate-x-1"></i>
+                        </div>
+                        <h3 class="mt-10 text-xl font-black text-[#241710]">Tra từ 1 chạm hoặc chọn lộ trình</h3>
+                        <p class="mt-3 text-sm font-medium leading-7 text-[#5e4b40]">Bôi đen từ bất kỳ khi đọc báo, tài liệu hoặc bắt đầu ngay từ 30+ lộ trình TOEIC, IELTS, THPT có sẵn.</p>
+                    </div>
+                    <div class="group rounded-[1.75rem] border border-[#241710]/10 bg-white p-7 shadow-sm transition-transform hover:-translate-y-1">
+                        <div class="flex items-center justify-between">
+                            <span class="text-5xl font-black tracking-[-0.08em] text-[#d7c7b6]">02</span>
+                            <i data-lucide="arrow-right" class="size-5 text-[#b5502f] transition-transform group-hover:translate-x-1"></i>
+                        </div>
+                        <h3 class="mt-10 text-xl font-black text-[#241710]">Lưu kho riêng không cần gõ thẻ</h3>
+                        <p class="mt-3 text-sm font-medium leading-7 text-[#5e4b40]">Nghĩa tiếng Việt, phiên âm IPA, giọng đọc UK/US và câu ví dụ được đóng gói tự động thành flashcard.</p>
+                    </div>
+                    <div class="group rounded-[1.75rem] border border-[#241710]/10 bg-white p-7 shadow-sm transition-transform hover:-translate-y-1">
+                        <div class="flex items-center justify-between">
+                            <span class="text-5xl font-black tracking-[-0.08em] text-[#d7c7b6]">03</span>
+                            <i data-lucide="arrow-right" class="size-5 text-[#b5502f] transition-transform group-hover:translate-x-1"></i>
+                        </div>
+                        <h3 class="mt-10 text-xl font-black text-[#241710]">Ôn tập 5–8 phút đúng điểm quên</h3>
+                        <p class="mt-3 text-sm font-medium leading-7 text-[#5e4b40]">Thuật toán FSRS tính toán độ bền trí nhớ cho từng từ, nhắc bạn ôn lại ngay trước khi não quên.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. Lưới tính năng (#tinh-nang - 6 thẻ giống /for-teacher) -->
+            <section id="tinh-nang" class="border-t border-[#241710]/10 px-4 py-24 sm:px-6">
+                <div class="mx-auto max-w-7xl">
+                    <div class="max-w-3xl">
+                        <p class="text-sm font-black uppercase tracking-[0.18em] text-[#b5502f]">Hệ sinh thái học tập</p>
+                        <h2 class="mt-4 text-4xl font-black tracking-[-0.04em] text-[#241710]">
+                            Mọi công cụ cần thiết để biến từ mới thành phản xạ.
+                        </h2>
+                        <p class="mt-5 font-medium leading-8 text-[#5e4b40]">
+                            Thiết kế tối ưu cho người Việt: ít thao tác thừa, tập trung hoàn toàn vào việc hiểu ngữ cảnh và nhớ lâu.
+                        </p>
+                    </div>
+                    <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                        <div class="rounded-3xl border border-[#241710]/10 bg-white p-6">
+                            <span class="flex size-11 items-center justify-center rounded-2xl bg-[#241710] text-[#f1c46d]">
+                                <i data-lucide="brain" class="size-5"></i>
+                            </span>
+                            <h3 class="mt-5 text-lg font-black text-[#241710]">Thuật toán FSRS thế hệ mới</h3>
+                            <p class="mt-2 text-sm font-medium leading-6 text-[#5e4b40]">Tối ưu khoảng cách lặp lại thông minh hơn SM-2 truyền thống, giảm 30% số lần phải ôn vô ích.</p>
+                        </div>
+                        <div class="rounded-3xl border border-[#241710]/10 bg-white p-6">
+                            <span class="flex size-11 items-center justify-center rounded-2xl bg-[#241710] text-[#f1c46d]">
+                                <i data-lucide="mouse-pointer-click" class="size-5"></i>
+                            </span>
+                            <h3 class="mt-5 text-lg font-black text-[#241710]">Chrome Extension tra 1 chạm</h3>
+                            <p class="mt-2 text-sm font-medium leading-6 text-[#5e4b40]">Bôi đen từ hoặc cụm từ khi đọc báo tiếng Anh, xem nghĩa tức thì và lưu thẳng về sổ từ vựng.</p>
+                        </div>
+                        <div class="rounded-3xl border border-[#241710]/10 bg-white p-6">
+                            <span class="flex size-11 items-center justify-center rounded-2xl bg-[#241710] text-[#f1c46d]">
+                                <i data-lucide="wand-sparkles" class="size-5"></i>
+                            </span>
+                            <h3 class="mt-5 text-lg font-black text-[#241710]">AI phân tích câu &amp; ngữ cảnh</h3>
+                            <p class="mt-2 text-sm font-medium leading-6 text-[#5e4b40]">Giải thích cấu trúc ngữ pháp, collocations và sắc thái nghĩa ngay trong câu bạn đang đọc.</p>
+                        </div>
+                        <div class="rounded-3xl border border-[#241710]/10 bg-white p-6">
+                            <span class="flex size-11 items-center justify-center rounded-2xl bg-[#241710] text-[#f1c46d]">
+                                <i data-lucide="compass" class="size-5"></i>
+                            </span>
+                            <h3 class="mt-5 text-lg font-black text-[#241710]">30+ lộ trình theo mục tiêu</h3>
+                            <p class="mt-2 text-sm font-medium leading-6 text-[#5e4b40]">Chia sẵn từ vựng cốt lõi cho mất gốc, giao tiếp, THPT Quốc gia, TOEIC 600–800+ và IELTS.</p>
+                        </div>
+                        <div class="rounded-3xl border border-[#241710]/10 bg-white p-6">
+                            <span class="flex size-11 items-center justify-center rounded-2xl bg-[#241710] text-[#f1c46d]">
+                                <i data-lucide="headphones" class="size-5"></i>
+                            </span>
+                            <h3 class="mt-5 text-lg font-black text-[#241710]">Luyện nghe &amp; Phiên âm IPA</h3>
+                            <p class="mt-2 text-sm font-medium leading-6 text-[#5e4b40]">Kết hợp chuẩn hóa phát âm 44 âm IPA và luyện nghe phản xạ TOEIC thực chiến.</p>
+                        </div>
+                        <div class="rounded-3xl border border-[#241710]/10 bg-white p-6">
+                            <span class="flex size-11 items-center justify-center rounded-2xl bg-[#241710] text-[#f1c46d]">
+                                <i data-lucide="book-open-check" class="size-5"></i>
+                            </span>
+                            <h3 class="mt-5 text-lg font-black text-[#241710]">Ngữ pháp &amp; Quiz thực hành</h3>
+                            <p class="mt-2 text-sm font-medium leading-6 text-[#5e4b40]">Kiểm tra lại bằng trắc nghiệm, điền từ vào ngữ cảnh và sửa lỗi để nhớ sâu chủ động.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. Video Demo (#video-demo - phong cách /for-teacher) -->
+            <section id="video-demo" class="bg-[#241710] px-4 py-24 text-white sm:px-6">
+                <div class="mx-auto max-w-6xl">
+                    <div class="mx-auto max-w-3xl text-center">
+                        <div class="inline-flex items-center gap-2 rounded-full bg-[#f1c46d]/15 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#f1c46d]">
+                            <i data-lucide="play-circle" class="size-4"></i> Video thực tế · 15–30 giây
+                        </div>
+                        <h2 class="mt-5 text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl">
+                            Xem cách tra từ và lưu — không cần tưởng tượng.
+                        </h2>
+                        <p class="mt-5 font-medium leading-8 text-[#d8c9bc]">
+                            Bôi đen từ trên web → lưu kho riêng → ôn đúng lúc. Hai clip ngắn quay trực tiếp thao tác thật trên LingoPro.
+                        </p>
+                    </div>
+
+                    <div class="mt-12 grid gap-8 lg:grid-cols-2">
+                        <div class="relative">
+                            <div class="absolute -inset-2 rotate-1 rounded-[2rem] bg-[#f1c46d]/15 blur-xl"></div>
+                            <figure class="relative overflow-hidden rounded-[1.5rem] border border-white/15 bg-white/5 shadow-2xl">
+                                <video
+                                    class="aspect-video w-full object-cover"
+                                    src="/intro-save-word.mp4?v=2"
+                                    poster="/images/intro-save-word-poster.webp"
+                                    controls
+                                    playsinline
+                                    muted
+                                    autoplay
+                                    loop
+                                    preload="metadata"
+                                    title="Demo lưu từ vựng vào kho LingoPro"
+                                ></video>
+                                <figcaption class="px-5 py-4 text-sm font-semibold text-[#e9dccf]">
+                                    <span class="font-black text-[#f1c46d]">01 · Lưu từ vào kho</span>
+                                    — Từ lạ biến thành thẻ trong kho riêng, sẵn sàng ôn tập FSRS.
+                                </figcaption>
+                            </figure>
+                        </div>
+
+                        <div class="relative">
+                            <div class="absolute -inset-2 -rotate-1 rounded-[2rem] bg-[#b5502f]/20 blur-xl"></div>
+                            <figure class="relative overflow-hidden rounded-[1.5rem] border border-white/15 bg-white/5 shadow-2xl">
+                                <video
+                                    class="aspect-video w-full object-cover"
+                                    src="/extension-lookup.mp4?v=2"
+                                    poster="/images/extension-lookup-poster.webp"
+                                    controls
+                                    playsinline
+                                    muted
+                                    autoplay
+                                    loop
+                                    preload="metadata"
+                                    title="Demo tra từ 1 chạm trên web với LingoPro"
+                                ></video>
+                                <figcaption class="px-5 py-4 text-sm font-semibold text-[#e9dccf]">
+                                    <span class="font-black text-[#f1c46d]">02 · Tra ngay trên web</span>
+                                    — Bôi đen từ đang đọc trên bất kỳ trang nào, nghĩa Việt hiện ngay.
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+                        <a href="#demo"
+                           class="inline-flex items-center gap-2 rounded-2xl bg-[#f1c46d] px-7 py-4 text-sm font-black text-[#241710] shadow-[0_10px_0_#c49538] transition-transform hover:-translate-y-0.5">
+                            Thử tra một từ ngay <i data-lucide="arrow-right" class="size-4"></i>
+                        </a>
+                        <a href="/auth"
+                           class="inline-flex items-center gap-2 rounded-2xl border border-white/30 bg-white/10 px-7 py-4 text-sm font-black text-white transition-colors hover:bg-white/20">
+                            Tạo tài khoản miễn phí
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. Đánh giá người dùng (Social Proof) -->
+            <section class="border-b border-[#241710]/10 bg-white/75 px-4 py-24 sm:px-6">
+                <div class="mx-auto max-w-7xl">
+                    <div class="mx-auto max-w-3xl text-center">
+                        <p class="text-sm font-black uppercase tracking-[0.18em] text-[#b5502f]">Người học thực tế</p>
+                        <h2 class="mt-4 text-4xl font-black tracking-[-0.04em] text-[#241710] sm:text-5xl">
+                            Dễ bắt đầu và dễ quay lại mỗi ngày.
+                        </h2>
+                    </div>
+                    <div class="mt-12 grid gap-6 md:grid-cols-3">
+                        <blockquote class="flex flex-col rounded-[1.75rem] border border-[#241710]/10 bg-white p-7 shadow-sm">
+                            <div class="flex gap-1 text-[#d39b29]" aria-label="5 sao">
+                                @for (var i = 0; i < 5; i++)
+                                {
+                                    <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                }
+                            </div>
+                            <p class="mt-4 flex-1 text-base font-medium leading-7 text-[#4f3f35]">“Bớt vài giờ mỗi tuần vì không còn phải tự dựng flashcard từ đầu. Bôi đen khi đọc bài là lưu xong.”</p>
+                            <footer class="mt-6 flex items-center gap-3 border-t border-[#eadfd0] pt-4">
+                                <div class="flex size-10 items-center justify-center rounded-full bg-[#241710] text-xs font-black text-[#f1c46d]">NL</div>
+                                <div>
+                                    <div class="text-sm font-black text-[#241710]">Nguyễn Linh</div>
+                                    <div class="text-xs font-semibold text-[#7b6558]">Gia sư tiếng Anh · TP.HCM</div>
+                                </div>
+                            </footer>
+                        </blockquote>
+
+                        <blockquote class="flex flex-col rounded-[1.75rem] border border-[#241710]/10 bg-white p-7 shadow-sm">
+                            <div class="flex gap-1 text-[#d39b29]" aria-label="5 sao">
+                                @for (var i = 0; i < 5; i++)
+                                {
+                                    <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                }
+                            </div>
+                            <p class="mt-4 flex-1 text-base font-medium leading-7 text-[#4f3f35]">“Nhắc ôn đúng lúc. Mỗi chặng chỉ tốn hơn 5 phút nên mình giữ được chuỗi học liên tục suốt kỳ thi.”</p>
+                            <footer class="mt-6 flex items-center gap-3 border-t border-[#eadfd0] pt-4">
+                                <div class="flex size-10 items-center justify-center rounded-full bg-[#241710] text-xs font-black text-[#f1c46d]">TM</div>
+                                <div>
+                                    <div class="text-sm font-black text-[#241710]">Trần Minh</div>
+                                    <div class="text-xs font-semibold text-[#7b6558]">Học viên IELTS 7.0</div>
+                                </div>
+                            </footer>
+                        </blockquote>
+
+                        <blockquote class="flex flex-col rounded-[1.75rem] border border-[#241710]/10 bg-white p-7 shadow-sm">
+                            <div class="flex gap-1 text-[#d39b29]" aria-label="5 sao">
+                                @for (var i = 0; i < 5; i++)
+                                {
+                                    <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                }
+                            </div>
+                            <p class="mt-4 flex-1 text-base font-medium leading-7 text-[#4f3f35]">“Học sinh vào học được ngay vì giải thích tiếng Việt rõ ràng, lộ trình chia nhỏ không gây ngợp.”</p>
+                            <footer class="mt-6 flex items-center gap-3 border-t border-[#eadfd0] pt-4">
+                                <div class="flex size-10 items-center justify-center rounded-full bg-[#241710] text-xs font-black text-[#f1c46d]">MP</div>
+                                <div>
+                                    <div class="text-sm font-black text-[#241710]">Ms. Phương</div>
+                                    <div class="text-xs font-semibold text-[#7b6558]">Giáo viên THPT · Hà Nội</div>
+                                </div>
+                            </footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 10. Bảng giá (#bang-gia - bố cục 3 cột giống /for-teacher, nút rõ nét không bị chìm màu) -->
+            <section id="bang-gia" class="px-4 py-24 sm:px-6">
+                <div class="mx-auto max-w-7xl">
+                    <div class="mx-auto max-w-3xl text-center">
+                        <p class="text-sm font-black uppercase tracking-[0.18em] text-[#b5502f]">Bảng giá minh bạch</p>
+                        <h2 class="mt-4 text-4xl font-black tracking-[-0.04em] text-[#241710] sm:text-5xl">
+                            Miễn phí bắt đầu. Nâng cấp khi cần học không giới hạn.
+                        </h2>
+                        <p class="mt-5 font-medium leading-7 text-[#5e4b40]">
+                            Bắt đầu ngay với gói Free — không cần thẻ ngân hàng. Chọn Pro cá nhân hoặc gói Nhóm để tiết kiệm chi phí.
+                        </p>
+                    </div>
+
+                    <div class="mt-12 grid items-stretch gap-5 lg:grid-cols-3">
+                        <!-- Plan 1: Free -->
+                        <div class="relative flex flex-col rounded-[2rem] border border-[#241710]/10 bg-white p-7 shadow-sm">
+                            <span class="flex size-11 items-center justify-center rounded-2xl bg-[#f1c46d]/55 text-[#241710]">
+                                <i data-lucide="sparkles" class="size-5"></i>
+                            </span>
+                            <h3 class="mt-6 text-2xl font-black text-[#241710]">Free</h3>
+                            <p class="mt-1 text-sm font-semibold text-[#5e4b40]">Tra · lưu · ôn FSRS cơ bản</p>
+                            <div class="mt-7">
+                                <span class="text-4xl font-black tracking-[-0.04em] text-[#241710]">0₫</span>
+                            </div>
+                            <p class="mt-2 text-xs font-bold uppercase tracking-wider text-[#2d7f5e]">Miễn phí mãi mãi</p>
+                            <ul class="mt-7 flex-1 space-y-3 text-[#241710]">
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#2d7f5e]"></i>Flashcard FSRS thông minh</li>
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#2d7f5e]"></i>Lưu 200 từ mới / tháng</li>
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#2d7f5e]"></i>Mở các lộ trình từ vựng sẵn có</li>
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#2d7f5e]"></i>Tra từ AI: 5 lượt / ngày</li>
+                            </ul>
+                            <a href="/auth"
+                               class="mt-8 inline-flex items-center justify-center gap-2 rounded-2xl bg-[#241710] px-5 py-3.5 text-center text-sm font-black text-white shadow-sm transition-transform hover:-translate-y-0.5 hover:bg-[#382419]">
+                                Dùng thử miễn phí <i data-lucide="arrow-right" class="size-4 text-[#f1c46d]"></i>
+                            </a>
+                        </div>
+
+                        <!-- Plan 2: Pro (Featured) -->
+                        <div class="relative flex flex-col rounded-[2rem] border border-[#241710] bg-[#241710] p-7 text-white shadow-2xl">
+                            <span class="absolute -top-3 left-7 rounded-full bg-[#f1c46d] px-4 py-1.5 text-xs font-black uppercase tracking-wider text-[#241710]">
+                                Phổ biến nhất
+                            </span>
+                            <span class="flex size-11 items-center justify-center rounded-2xl bg-[#f1c46d] text-[#241710]">
+                                <i data-lucide="zap" class="size-5"></i>
+                            </span>
+                            <h3 class="mt-6 text-2xl font-black text-white">Cá nhân Pro</h3>
+                            <p class="mt-1 text-sm font-semibold text-[#cbb7a6]">Học &amp; luyện chuyên sâu không giới hạn</p>
+                            <div class="mt-7 flex items-baseline gap-1">
+                                <span class="text-4xl font-black tracking-[-0.04em] text-white">79.000₫</span>
+                                <span class="text-sm font-semibold text-[#cbb7a6]">/tháng</span>
+                            </div>
+                            <p class="mt-2 text-xs font-bold uppercase tracking-wider text-[#f1c46d]">Hoặc 599.000₫/năm (tiết kiệm 37%)</p>
+                            <ul class="mt-7 flex-1 space-y-3 text-white">
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#f1c46d]"></i>Lưu từ &amp; tra AI không giới hạn</li>
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#f1c46d]"></i>AI phân tích cấu trúc câu chuyên sâu</li>
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#f1c46d]"></i>Mở khóa toàn bộ Ngữ pháp, Quiz, Điền từ</li>
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#f1c46d]"></i>Thống kê độ bền trí nhớ FSRS chi tiết</li>
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#f1c46d]"></i>Đồng bộ ưu tiên mọi thiết bị</li>
+                            </ul>
+                            <a href="/upgrade"
+                               class="mt-8 inline-flex items-center justify-center gap-2 rounded-2xl bg-[#f1c46d] px-5 py-3.5 text-center text-sm font-black text-[#241710] shadow-[0_10px_0_#c49538] transition-transform hover:-translate-y-0.5">
+                                Nâng cấp Pro <i data-lucide="arrow-right" class="size-4"></i>
+                            </a>
+                        </div>
+
+                        <!-- Plan 3: Gói Nhóm -->
+                        <div class="relative flex flex-col rounded-[2rem] border border-[#241710]/10 bg-white p-7 shadow-sm">
+                            <span class="flex size-11 items-center justify-center rounded-2xl bg-[#f1c46d]/55 text-[#241710]">
+                                <i data-lucide="users" class="size-5"></i>
+                            </span>
+                            <h3 class="mt-6 text-2xl font-black text-[#241710]">Gói Nhóm</h3>
+                            <p class="mt-1 text-sm font-semibold text-[#5e4b40]">Đôi bạn cùng tiến · Nhóm 2–20 người</p>
+                            <div class="mt-7 flex items-baseline gap-1">
+                                <span class="text-4xl font-black tracking-[-0.04em] text-[#241710]">39.000₫</span>
+                                <span class="text-sm font-semibold text-[#5e4b40]">/người/tháng</span>
+                            </div>
+                            <p class="mt-2 text-xs font-bold uppercase tracking-wider text-[#b5502f]">Tiết kiệm tới 50% so với gói lẻ</p>
+                            <ul class="mt-7 flex-1 space-y-3 text-[#241710]">
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#2d7f5e]"></i>Mỗi thành viên nhận 100% quyền lợi Pro</li>
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#2d7f5e]"></i>Sổ từ vựng và tiến độ FSRS độc lập</li>
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#2d7f5e]"></i>Mời bạn bè dễ dàng bằng mã nhóm</li>
+                                <li class="flex items-start gap-3 text-sm font-semibold"><i data-lucide="check-circle-2" class="mt-0.5 size-4 shrink-0 text-[#2d7f5e]"></i>1 người đại diện thanh toán nhanh gọn</li>
+                            </ul>
+                            <a href="/upgrade?mode=group"
+                               class="mt-8 inline-flex items-center justify-center gap-2 rounded-2xl bg-[#241710] px-5 py-3.5 text-center text-sm font-black text-white shadow-sm transition-transform hover:-translate-y-0.5 hover:bg-[#382419]">
+                                Xem gói nhóm <i data-lucide="arrow-right" class="size-4 text-[#f1c46d]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 11. FAQ (#faq - thiết kế accordion giống /for-teacher) -->
+            <section id="faq" class="border-t border-[#241710]/10 bg-white/75 px-4 py-24 sm:px-6">
+                <div class="mx-auto max-w-4xl">
+                    <div class="text-center">
+                        <p class="text-sm font-black uppercase tracking-[0.18em] text-[#b5502f]">Giải đáp nhanh</p>
+                        <h2 class="mt-3 text-4xl font-black tracking-[-0.04em] text-[#241710] sm:text-5xl">Câu hỏi thường gặp</h2>
+                    </div>
+                    <div class="mt-12 space-y-4">
+                        <div class="rounded-2xl border border-[#241710]/10 bg-white">
+                            <button type="button" onclick="toggleFaq(0)" class="flex w-full items-center justify-between gap-4 p-6 text-left cursor-pointer">
+                                <span class="text-lg font-black text-[#241710]">LingoPro học từ vựng bằng cách nào?</span>
+                                <i id="faq-icon-0" data-lucide="chevron-down" class="size-5 shrink-0 text-[#5e4b40] transition-transform"></i>
+                            </button>
+                            <div id="faq-answer-0" class="hidden px-6 pb-6 text-base font-medium leading-7 text-[#5e4b40]">
+                                Tra từ trực tiếp khi đọc web hoặc chọn từ lộ trình có sẵn, lưu vào kho riêng, rồi ôn lại theo lịch nhắc FSRS (Spaced Repetition) — mỗi chặng học chỉ kéo dài khoảng 5–8 phút.
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl border border-[#241710]/10 bg-white">
+                            <button type="button" onclick="toggleFaq(1)" class="flex w-full items-center justify-between gap-4 p-6 text-left cursor-pointer">
+                                <span class="text-lg font-black text-[#241710]">Có miễn phí không?</span>
+                                <i id="faq-icon-1" data-lucide="chevron-down" class="size-5 shrink-0 text-[#5e4b40] transition-transform"></i>
+                            </button>
+                            <div id="faq-answer-1" class="hidden px-6 pb-6 text-base font-medium leading-7 text-[#5e4b40]">
+                                Có gói Free vĩnh viễn: đầy đủ flashcard FSRS, lưu 200 từ mới/tháng, học các lộ trình sẵn có và tra từ AI 5 lượt/ngày. Bạn chỉ nâng cấp Pro khi cần tra cứu và lưu từ không giới hạn.
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl border border-[#241710]/10 bg-white">
+                            <button type="button" onclick="toggleFaq(2)" class="flex w-full items-center justify-between gap-4 p-6 text-left cursor-pointer">
+                                <span class="text-lg font-black text-[#241710]">LingoPro khác Anki hay Quizlet ở điểm nào?</span>
+                                <i id="faq-icon-2" data-lucide="chevron-down" class="size-5 shrink-0 text-[#5e4b40] transition-transform"></i>
+                            </button>
+                            <div id="faq-answer-2" class="hidden px-6 pb-6 text-base font-medium leading-7 text-[#5e4b40]">
+                                LingoPro có sẵn 9.000+ từ vựng Việt hóa theo lộ trình, tích hợp tra–lưu 1 chạm bằng Chrome Extension, AI phân tích ngữ cảnh và lịch ôn FSRS tự động mà không bắt bạn phải tự gõ từng thẻ.
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl border border-[#241710]/10 bg-white">
+                            <button type="button" onclick="toggleFaq(3)" class="flex w-full items-center justify-between gap-4 p-6 text-left cursor-pointer">
+                                <span class="text-lg font-black text-[#241710]">Có cần cài đặt phần mềm phức tạp không?</span>
+                                <i id="faq-icon-3" data-lucide="chevron-down" class="size-5 shrink-0 text-[#5e4b40] transition-transform"></i>
+                            </button>
+                            <div id="faq-answer-3" class="hidden px-6 pb-6 text-base font-medium leading-7 text-[#5e4b40]">
+                                Không. Bạn có thể mở trình duyệt học ngay trên điện thoại hoặc máy tính. Ngoài ra LingoPro có thêm bản Desktop và Chrome Extension để tra từ tức thì khi đọc báo, tài liệu.
+                            </div>
+                        </div>
+
+                        <div class="rounded-2xl border border-[#241710]/10 bg-white">
+                            <button type="button" onclick="toggleFaq(4)" class="flex w-full items-center justify-between gap-4 p-6 text-left cursor-pointer">
+                                <span class="text-lg font-black text-[#241710]">Tôi là giáo viên muốn quản lý lớp học thì sao?</span>
+                                <i id="faq-icon-4" data-lucide="chevron-down" class="size-5 shrink-0 text-[#5e4b40] transition-transform"></i>
+                            </button>
+                            <div id="faq-answer-4" class="hidden px-6 pb-6 text-base font-medium leading-7 text-[#5e4b40]">
+                                LingoPro có giải pháp chuyên biệt cho Gia sư, Giáo viên và Trung tâm tại trang <a href="/for-teacher" class="font-bold text-[#b5502f] underline">Dành cho Giáo viên</a> với dashboard theo dõi tiến độ từng học sinh và giao bài tự động.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 12. CTA cuối (giống bố cục hộp lớn của /for-teacher, màu nút tương phản rõ nét) -->
+            <section class="px-4 py-24 sm:px-6">
+                <div class="mx-auto max-w-5xl overflow-hidden rounded-[2.25rem] bg-[#241710] p-8 sm:p-12">
+                    <div class="grid items-center gap-8 md:grid-cols-[1fr_auto]">
+                        <div>
+                            <div class="flex items-center gap-2 text-sm font-black uppercase tracking-[0.16em] text-[#f1c46d]">
+                                <i data-lucide="zap" class="size-5"></i> Bắt đầu từ hôm nay
+                            </div>
+                            <h2 class="mt-4 text-4xl font-black tracking-[-0.045em] text-white">
+                                Một từ lạ đầu tiên là đủ để bắt đầu.
+                            </h2>
+                            <p class="mt-3 text-base font-medium text-[#d8c9bc]">
+                                Mở web học ngay · Miễn phí bắt đầu · Chỉ 5–8 phút mỗi chặng.
+                            </p>
+                        </div>
+                        <div class="flex flex-col items-stretch gap-3 sm:items-center">
+                            <a href="/auth"
+                               class="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#f1c46d] px-7 py-4 text-center font-black text-[#241710] shadow-[0_12px_0_#c49538] transition-transform hover:-translate-y-1">
+                                Tạo tài khoản miễn phí <i data-lucide="arrow-right" class="size-5"></i>
+                            </a>
+                            <a href="/for-teacher"
+                               class="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/25 bg-white/10 px-6 py-3 text-center text-sm font-black text-white transition-colors hover:bg-white/20">
+                                Dành cho Giáo viên &amp; Trung tâm
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 13. Footer (đồng bộ phong cách với /for-teacher) -->
+        <footer class="border-t border-[#241710]/10 px-4 py-10 sm:px-6">
+            <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 text-sm font-semibold text-[#5e4b40] sm:flex-row">
+                <a href="/" class="flex items-center gap-2 font-black text-[#241710]">
+                    <span class="flex size-7 items-center justify-center rounded-lg bg-[#241710] text-[#f1c46d]">
+                        <i data-lucide="brain" class="size-4"></i>
+                    </span>
+                    LingoPro
+                </a>
+                <p>Học từ vựng tiếng Anh · Tra từ 1 chạm · Ghi nhớ dài hạn với FSRS.</p>
+                <div class="flex flex-wrap items-center gap-5">
+                    <a href="/ipa" class="transition-colors hover:text-[#241710]">Phiên Âm IPA</a>
+                    <a href="/sat-thu-toeic-listening" class="transition-colors hover:text-[#241710]">Sát Thủ TOEIC</a>
+                    <a href="/for-teacher" class="transition-colors hover:text-[#241710]">Giáo viên</a>
+                    <a href="/download" class="transition-colors hover:text-[#241710]">Desktop</a>
+                    <a href="/auth" class="font-black text-[#241710] hover:text-[#b5502f]">Đăng nhập</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Client-side Interactive Scripts (Learner Tabs, FAQ Accordion, DictionaryDemo) -->
+    <script>
+        if (window.lucide) {
+            window.lucide.createIcons();
+        }
+
+        const learnerContent = {
+            daily: {
+                badge: 'App học từ vựng · Thuật toán FSRS',
+                lead: 'Tra từ 1 chạm.',
+                accent: 'Nhớ lâu không cần nhồi.',
+                sub: 'Tra từ trên web → lưu kho riêng → ôn đúng lúc sắp quên bằng FSRS. Mỗi chặng chỉ 5–8 phút, lộ trình Việt hóa sẵn sàng.',
+                bullets: [
+                    'Bôi đen từ trên web — hiện nghĩa Việt, IPA và ví dụ ngay',
+                    'Nhắc ôn tự động đúng thời điểm não sắp quên theo FSRS',
+                    'Hơn 9.000+ từ vựng chia sẵn theo chặng ngắn 5–8 phút'
+                ],
+                ctaText: 'Bắt đầu miễn phí',
+                ctaHref: '/auth'
+            },
+            toeic: {
+                badge: 'Lộ trình TOEIC 450 → 850+',
+                lead: 'Nắm trọn từ vựng TOEIC.',
+                accent: 'Tăng điểm nghe & đọc rõ rệt.',
+                sub: 'Hệ thống hóa toàn bộ từ vựng ETS hay bẫy nhất theo từng Part, kết hợp luyện nghe phản xạ và nhắc ôn FSRS.',
+                bullets: [
+                    'Bộ từ vựng sát đề TOEIC chia theo chủ đề & mục tiêu điểm',
+                    'Luyện phát âm IPA & phản xạ nghe tránh bẫy âm gần giống',
+                    'Ôn tập 5–8 phút mỗi ngày, không lo học trước quên sau'
+                ],
+                ctaText: 'Học lộ trình TOEIC',
+                ctaHref: '/auth?track=toeic'
+            },
+            ielts: {
+                badge: 'Lộ trình IELTS & THPT Quốc Gia',
+                lead: 'Từ học thuật chọn lọc.',
+                accent: 'Dùng chuẩn trong bài thi.',
+                sub: 'Tập trung vào Academic Vocabulary, Collocations và Paraphrase giúp nâng band Reading, Listening và Writing.',
+                bullets: [
+                    'Tra từ học thuật trực tiếp khi luyện đọc bài báo & đề thi',
+                    'AI giải thích sắc thái nghĩa và cách ghép cụm từ (collocations)',
+                    'Theo dõi độ bền trí nhớ từng từ cho đến ngày bước vào phòng thi'
+                ],
+                ctaText: 'Khám phá lộ trình IELTS',
+                ctaHref: '/auth?track=ielts'
+            }
+        };
+
+        function setActiveLearner(tab) {
+            const content = learnerContent[tab];
+            if (!content) return;
+
+            document.querySelectorAll('.learner-tab-btn').forEach(btn => {
+                if (btn.getAttribute('data-learner-tab') === tab) {
+                    btn.className = 'learner-tab-btn w-1/3 rounded-full py-2.5 text-sm font-bold transition-colors bg-[#241710] text-[#f1c46d] cursor-pointer';
+                } else {
+                    btn.className = 'learner-tab-btn w-1/3 rounded-full py-2.5 text-sm font-bold transition-colors border border-transparent bg-transparent text-[#5e4b40] hover:bg-white cursor-pointer';
+                }
+            });
+
+            const badgeEl = document.getElementById('learner-badge');
+            const leadEl = document.getElementById('learner-lead');
+            const accentEl = document.getElementById('learner-accent');
+            const subEl = document.getElementById('learner-sub');
+            const bulletsEl = document.getElementById('learner-bullets');
+            const ctaEl = document.getElementById('learner-cta-primary');
+            const ctaTextEl = document.getElementById('learner-cta-text');
+
+            if (badgeEl) badgeEl.textContent = content.badge;
+            if (leadEl) leadEl.textContent = content.lead;
+            if (accentEl) accentEl.textContent = content.accent;
+            if (subEl) subEl.textContent = content.sub;
+            if (ctaEl) ctaEl.setAttribute('href', content.ctaHref);
+            if (ctaTextEl) ctaTextEl.textContent = content.ctaText;
+
+            if (bulletsEl) {
+                bulletsEl.innerHTML = content.bullets.map(b => `
+                    <li class="flex items-center gap-3 font-semibold text-[#241710]">
+                        <i data-lucide="check-circle-2" class="size-5 shrink-0 text-[#b5502f]"></i>
+                        <span>${b}</span>
+                    </li>
+                `).join('');
+                if (window.lucide) {
+                    window.lucide.createIcons();
+                }
+            }
+        }
+
+        let openFaqIndex = null;
+        function toggleFaq(index) {
+            const nextOpen = openFaqIndex === index ? null : index;
+            for (let i = 0; i < 5; i++) {
+                const ans = document.getElementById('faq-answer-' + i);
+                const icon = document.getElementById('faq-icon-' + i);
+                if (i === nextOpen) {
+                    ans?.classList.remove('hidden');
+                    icon?.classList.add('rotate-180');
+                } else {
+                    ans?.classList.add('hidden');
+                    icon?.classList.remove('rotate-180');
+                }
+            }
+            openFaqIndex = nextOpen;
+        }
+
+        (function () {
+            var BUILTIN_SAMPLES = {
+                resilient: {
+                    ipa: 'rɪˈzɪliənt',
+                    source: 'Kho từ điển',
+                    meanings: [
+                        {
+                            pos: 'adj',
+                            definition: 'Kiên cường, có khả năng phục hồi nhanh sau khó khăn hoặc biến cố',
+                            example: 'She remained resilient despite all the setbacks in her career.'
+                        },
+                        {
+                            pos: 'adj',
+                            definition: 'Đàn hồi, co giãn tốt (vật liệu, hệ thống)',
+                            example: 'Building a resilient supply chain is critical for modern businesses.'
+                        }
+                    ]
+                },
+                achieve: {
+                    ipa: 'əˈtʃiːv',
+                    source: 'Kho từ điển',
+                    meanings: [
+                        {
+                            pos: 'verb',
+                            definition: 'Đạt được, giành được (mục tiêu, kết quả sau nỗ lực)',
+                            example: 'With consistent daily practice, you can achieve a high TOEIC score.'
+                        }
+                    ]
+                },
+                benefit: {
+                    ipa: 'ˈbenɪfɪt',
+                    source: 'Kho từ điển',
+                    meanings: [
+                        {
+                            pos: 'noun',
+                            definition: 'Lợi ích, phúc lợi, quyền lợi',
+                            example: 'Regular spaced repetition brings long-term benefits to memory.'
+                        },
+                        {
+                            pos: 'verb',
+                            definition: 'Mang lại lợi ích cho, hưởng lợi từ',
+                            example: 'Students benefit greatly from contextual examples.'
+                        }
+                    ]
+                },
+                environment: {
+                    ipa: 'ɪnˈvaɪrənmənt',
+                    source: 'Kho từ điển',
+                    meanings: [
+                        {
+                            pos: 'noun',
+                            definition: 'Môi trường (tự nhiên hoặc môi trường làm việc, học tập)',
+                            example: 'We strive to create a supportive learning environment for everyone.'
+                        }
+                    ]
+                },
+                opportunity: {
+                    ipa: 'ˌɒpəˈtjuːnəti',
+                    source: 'Kho từ điển',
+                    meanings: [
+                        {
+                            pos: 'noun',
+                            definition: 'Cơ hội, thời cơ thuận lợi',
+                            example: 'Mastering English opens up global career opportunities.'
+                        }
+                    ]
+                }
+            };
+
+            var form = document.getElementById('dict-demo-form');
+            var input = document.getElementById('dict-demo-input');
+            var submitBtn = document.getElementById('dict-demo-submit');
+            var searchIcon = document.getElementById('dict-demo-search-icon');
+            var spinner = document.getElementById('dict-demo-spinner');
+            var hintEl = document.getElementById('dict-demo-hint');
+            var loadingEl = document.getElementById('dict-demo-loading');
+            var errorEl = document.getElementById('dict-demo-error');
+            var errorTextEl = document.getElementById('dict-demo-error-text');
+            var resultEl = document.getElementById('dict-demo-result');
+            var wordEl = document.getElementById('dict-res-word');
+            var sourceEl = document.getElementById('dict-res-source');
+            var ipaEl = document.getElementById('dict-res-ipa');
+            var meaningsEl = document.getElementById('dict-res-meanings');
+            var speakUkBtn = document.getElementById('dict-speak-uk');
+            var speakUsBtn = document.getElementById('dict-speak-us');
+            var currentWord = '';
+
+            function speakWord(word, lang) {
+                if (!word || typeof window.speechSynthesis === 'undefined') return;
+                try {
+                    window.speechSynthesis.cancel();
+                    var utter = new SpeechSynthesisUtterance(word);
+                    utter.lang = lang || 'en-US';
+                    utter.rate = 1.0;
+                    window.speechSynthesis.speak(utter);
+                } catch (_) {}
+            }
+
+            if (speakUkBtn) {
+                speakUkBtn.addEventListener('click', function () { speakWord(currentWord, 'en-GB'); });
+            }
+            if (speakUsBtn) {
+                speakUsBtn.addEventListener('click', function () { speakWord(currentWord, 'en-US'); });
+            }
+
+            function setLoadingState(isLoading) {
+                if (submitBtn) submitBtn.disabled = isLoading;
+                if (searchIcon) searchIcon.style.display = isLoading ? 'none' : 'block';
+                if (spinner) spinner.style.display = isLoading ? 'block' : 'none';
+                if (loadingEl) loadingEl.style.display = isLoading ? 'flex' : 'none';
+                if (isLoading) {
+                    if (hintEl) hintEl.style.display = 'none';
+                    if (errorEl) errorEl.style.display = 'none';
+                    if (resultEl) resultEl.style.display = 'none';
+                }
+            }
+
+            function renderResult(word, ipa, source, meanings) {
+                currentWord = word;
+                if (wordEl) wordEl.textContent = word;
+                if (sourceEl) sourceEl.textContent = source || 'Kho từ điển';
+                if (ipaEl) {
+                    if (ipa) {
+                        var cleanIpa = ipa.replace(/^\/+|\/+$/g, '');
+                        ipaEl.textContent = '/' + cleanIpa + '/';
+                        ipaEl.style.display = 'inline-block';
+                    } else {
+                        ipaEl.style.display = 'none';
+                    }
+                }
+                if (meaningsEl) {
+                    meaningsEl.innerHTML = '';
+                    (meanings || []).slice(0, 4).forEach(function (m) {
+                        var li = document.createElement('li');
+                        li.className = 'rounded-xl border border-[#eadfd0] bg-white p-3.5 shadow-2xs';
+
+                        var posSpan = document.createElement('span');
+                        posSpan.className = 'mr-2 rounded-md bg-[#b5502f]/12 px-2 py-0.5 text-[11px] font-black uppercase tracking-wider text-[#b5502f]';
+                        posSpan.textContent = m.pos || 'word';
+                        li.appendChild(posSpan);
+
+                        var defSpan = document.createElement('span');
+                        defSpan.className = 'text-sm font-semibold text-[#241710]';
+                        defSpan.textContent = m.definition || '';
+                        li.appendChild(defSpan);
+
+                        if (m.example) {
+                            var exP = document.createElement('p');
+                            exP.className = 'mt-1.5 text-xs italic text-[#6d574a]';
+                            exP.textContent = '“' + m.example + '”';
+                            li.appendChild(exP);
+                        }
+                        meaningsEl.appendChild(li);
+                    });
+                }
+                if (hintEl) hintEl.style.display = 'none';
+                if (errorEl) errorEl.style.display = 'none';
+                if (resultEl) resultEl.style.display = 'block';
+            }
+
+            function renderError(trimmed) {
+                if (errorTextEl) {
+                    errorTextEl.textContent = 'Chưa tìm thấy "' + trimmed + '" ở 2 nguồn miễn phí. Đăng ký để dùng AI tra mọi từ.';
+                }
+                if (hintEl) hintEl.style.display = 'none';
+                if (resultEl) resultEl.style.display = 'none';
+                if (errorEl) errorEl.style.display = 'block';
+            }
+
+            async function lookupWord(rawWord) {
+                var trimmed = (rawWord || '').trim().toLowerCase();
+                if (!trimmed) return;
+                setLoadingState(true);
+
+                // Tier 1: Backend API (/api/v1/dictionary/lookup)
+                try {
+                    var res = await fetch('/api/v1/dictionary/lookup?term=' + encodeURIComponent(trimmed));
+                    if (res.ok) {
+                        var payload = await res.json();
+                        var entry = payload && payload.data;
+                        if (entry && entry.term) {
+                            var parsedDefs = [];
+                            try {
+                                var rawDefs = JSON.parse(entry.definitionsJson || '[]');
+                                if (Array.isArray(rawDefs)) {
+                                    parsedDefs = rawDefs.map(function (d) {
+                                        if (typeof d === 'string') {
+                                            return { pos: entry.partOfSpeech || 'word', definition: d };
+                                        }
+                                        return {
+                                            pos: d.pos || entry.partOfSpeech || 'word',
+                                            definition: d.definition || d.meaning || d.vi || '',
+                                            example: d.example || ''
+                                        };
+                                    });
+                                }
+                            } catch (_) {}
+                            if (parsedDefs.length > 0) {
+                                setLoadingState(false);
+                                renderResult(entry.term, entry.ipa, 'Kho từ điển', parsedDefs);
+                                return;
+                            }
+                        }
+                    }
+                } catch (_) {}
+
+                // Tier 2: Built-in high-speed dictionary sample cache
+                if (BUILTIN_SAMPLES[trimmed]) {
+                    var sample = BUILTIN_SAMPLES[trimmed];
+                    setLoadingState(false);
+                    renderResult(trimmed, sample.ipa, sample.source, sample.meanings);
+                    return;
+                }
+
+                // Tier 3: Public Free Dictionary API fallback
+                try {
+                    var extRes = await fetch('https://api.dictionaryapi.dev/api/v2/entries/en/' + encodeURIComponent(trimmed));
+                    if (extRes.ok) {
+                        var extJson = await extRes.json();
+                        if (Array.isArray(extJson) && extJson.length > 0) {
+                            var first = extJson[0];
+                            var ipa = first.phonetic || (first.phonetics && first.phonetics[0] && first.phonetics[0].text) || '';
+                            var meanings = [];
+                            (first.meanings || []).forEach(function (m) {
+                                (m.definitions || []).forEach(function (d) {
+                                    if (meanings.length < 4 && d.definition) {
+                                        meanings.push({
+                                            pos: m.partOfSpeech || 'word',
+                                            definition: d.definition,
+                                            example: d.example || ''
+                                        });
+                                    }
+                                });
+                            });
+                            if (meanings.length > 0) {
+                                setLoadingState(false);
+                                renderResult(trimmed, ipa, 'Wiktionary', meanings);
+                                return;
+                            }
+                        }
+                    }
+                } catch (_) {}
+
+                setLoadingState(false);
+                renderError(trimmed);
+            }
+
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    lookupWord(input ? input.value : '');
+                });
+            }
+
+            var chips = document.querySelectorAll('.dict-sample-chip');
+            chips.forEach(function (chip) {
+                chip.addEventListener('click', function () {
+                    var w = chip.getAttribute('data-sample-word') || '';
+                    if (input) input.value = w;
+                    lookupWord(w);
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

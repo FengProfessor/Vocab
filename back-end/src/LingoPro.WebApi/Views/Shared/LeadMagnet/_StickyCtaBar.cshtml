@@ -1,0 +1,22 @@
+@* Sticky bottom CTA bar (port of StickyCtaBar.tsx). Shown by lead-magnet.js after the user scrolls past 550px. *@
+<div id="lm-sticky" class="lm-sticky pointer-events-none fixed inset-x-0 bottom-0 z-40 p-3 sm:p-4" aria-hidden="true">
+    <div class="pointer-events-auto mx-auto flex max-w-4xl items-center justify-between gap-3 rounded-2xl border border-slate-200/90 bg-white/95 p-2.5 shadow-2xl backdrop-blur-xl sm:p-3">
+        <div class="flex min-w-0 items-center gap-3">
+            <div class="relative hidden h-10 w-10 shrink-0 overflow-hidden rounded-xl border border-slate-200 shadow-xs sm:block">
+                <img src="/images/sat-thu-toeic-3d-book.jpg" alt="Ebook Thumbnail" loading="lazy" class="h-full w-full object-cover" />
+            </div>
+            <div class="min-w-0">
+                <div class="flex items-center gap-1.5">
+                    <span class="rounded-md bg-emerald-100 px-2 py-0.5 text-[10px] font-extrabold tracking-wide text-emerald-800">MIỄN PHÍ 0Đ</span>
+                    <span class="hidden font-mono text-[11px] text-slate-500 md:inline">(Gói quà tặng 699,000đ)</span>
+                </div>
+                <h4 class="truncate text-xs font-bold text-slate-900 sm:text-sm">Bách Khoa Sát Thủ Bài Nghe TOEIC ETS 2024–2026</h4>
+            </div>
+        </div>
+
+        <div class="flex shrink-0 items-center gap-2">
+            <button type="button" data-lm-open-reader tabindex="-1" class="hidden cursor-pointer items-center gap-1 rounded-xl bg-slate-100 px-3 py-2 text-xs font-semibold text-slate-700 transition hover:bg-slate-200 sm:inline-flex"><span>📖</span><span>Đọc Online</span></button>
+            <button type="button" data-lm-scroll="optin-hero" tabindex="-1" class="flex cursor-pointer items-center gap-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 px-4 py-2 text-xs font-black text-white shadow-md shadow-emerald-600/20 transition hover:from-emerald-700 hover:to-teal-700 sm:py-2.5"><span>✨</span><span>Tải Trọn Bộ Ngay</span><span>→</span></button>
+        </div>
+    </div>
+</div>

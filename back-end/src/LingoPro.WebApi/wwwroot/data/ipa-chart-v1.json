@@ -1,0 +1,3042 @@
+{
+  "version": "2026-09-06-v1",
+  "author": "LingoPro Pedagogy Team & Rachel's English Integration",
+  "totalPhonemes": 44,
+  "monophthongsCount": 12,
+  "diphthongsCount": 8,
+  "consonantsCount": 24,
+  "phonemes": [
+    {
+      "id": "i-long",
+      "symbol": "iː",
+      "name": "Nguyên âm /iː/ dài",
+      "type": "monophthong",
+      "subType": "long-vowel",
+      "partnerId": "i-short",
+      "anchorWord": "sheep",
+      "anchorWordIpa": "/ʃiːp/",
+      "vietnameseNote": "Người Việt hay phát âm /iː/ và /ɪ/ giống hệt nhau như chữ \"i\" tiếng Việt, dẫn đến hiểu nhầm nghiêm trọng giữa \"sheet\" và \"shit\", \"beach\" và \"bitch\".",
+      "mouthTip": "Khóe miệng mỉm cười kéo căng sang 2 bên, lưỡi đưa cao về phía trước, giữ âm dài và căng.",
+      "difficultyForVn": "high",
+      "video": {
+        "youtubeVideoId": "scCesnn-0XY",
+        "startSeconds": 45,
+        "endSeconds": 115,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the EE /iː/ Vowel",
+        "videoTip": "Smile and pull mouth corners wide. Front of tongue arches high toward hard palate. Tense vowel held longer."
+      },
+      "initialWords": [
+        "each",
+        "east",
+        "eagle",
+        "even"
+      ],
+      "medialWords": [
+        "sheep",
+        "team",
+        "feel",
+        "sleep",
+        "beach"
+      ],
+      "finalWords": [
+        "see",
+        "tree",
+        "key",
+        "free"
+      ],
+      "minimalPairs": [
+        {
+          "target": "sheep",
+          "contrast": "ship",
+          "contrastPhoneme": "ɪ",
+          "note": "con cừu vs con tàu"
+        },
+        {
+          "target": "seat",
+          "contrast": "sit",
+          "contrastPhoneme": "ɪ",
+          "note": "chỗ ngồi vs ngồi xuống"
+        },
+        {
+          "target": "heat",
+          "contrast": "hit",
+          "contrastPhoneme": "ɪ",
+          "note": "nhiệt độ vs đánh"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "Please keep these three green leaves clean.",
+          "translationVi": "Làm ơn giữ cho ba chiếc lá xanh này sạch sẽ.",
+          "targetWords": [
+            "Please",
+            "keep",
+            "these",
+            "three",
+            "green",
+            "leaves",
+            "clean"
+          ]
+        },
+        {
+          "sentence": "We see sheep in the field each week.",
+          "translationVi": "Chúng tôi thấy những con cừu trên cánh đồng mỗi tuần.",
+          "targetWords": [
+            "see",
+            "sheep",
+            "field",
+            "each",
+            "week"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "i-short",
+      "symbol": "ɪ",
+      "name": "Nguyên âm /ɪ/ ngắn",
+      "type": "monophthong",
+      "subType": "short-vowel",
+      "partnerId": "i-long",
+      "anchorWord": "ship",
+      "anchorWordIpa": "/ʃɪp/",
+      "vietnameseNote": "Âm này không phải là \"i\" tiếng Việt! Nó nằm giữa âm \"i\" và \"ê\", phát âm thả lỏng cơ miệng và ngắn gọn.",
+      "mouthTip": "Thả lỏng khóe miệng (không cười), hạ hàm xuống khoảng 3mm so với /iː/, đẩy hơi nhanh và dứt khoát.",
+      "difficultyForVn": "high",
+      "video": {
+        "youtubeVideoId": "-km81q6DIlM",
+        "startSeconds": 35,
+        "endSeconds": 105,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the IH /ɪ/ Vowel",
+        "videoTip": "Relax jaw slightly, lips and tongue relaxed. Front of tongue arches slightly, lower than /iː/."
+      },
+      "initialWords": [
+        "it",
+        "in",
+        "if",
+        "ill",
+        "image"
+      ],
+      "medialWords": [
+        "ship",
+        "sit",
+        "fish",
+        "listen",
+        "minute"
+      ],
+      "finalWords": [
+        "busy",
+        "city",
+        "happy",
+        "coffee"
+      ],
+      "minimalPairs": [
+        {
+          "target": "ship",
+          "contrast": "sheep",
+          "contrastPhoneme": "iː",
+          "note": "con tàu vs con cừu"
+        },
+        {
+          "target": "fit",
+          "contrast": "feet",
+          "contrastPhoneme": "iː",
+          "note": "vừa vặn vs bàn chân"
+        },
+        {
+          "target": "bitch",
+          "contrast": "beach",
+          "contrastPhoneme": "iː",
+          "note": "từ chửi thề vs bãi biển"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "Tim sits with his big sister in the city.",
+          "translationVi": "Tim ngồi cùng chị gái lớn của mình ở thành phố.",
+          "targetWords": [
+            "Tim",
+            "sits",
+            "with",
+            "his",
+            "big",
+            "sister",
+            "city"
+          ]
+        },
+        {
+          "sentence": "This little fish swims in the river.",
+          "translationVi": "Chú cá nhỏ này bơi ở dưới sông.",
+          "targetWords": [
+            "This",
+            "little",
+            "fish",
+            "swims",
+            "river"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u-short",
+      "symbol": "ʊ",
+      "name": "Nguyên âm /ʊ/ ngắn",
+      "type": "monophthong",
+      "subType": "short-vowel",
+      "partnerId": "u-long",
+      "anchorWord": "foot",
+      "anchorWordIpa": "/fʊt/",
+      "vietnameseNote": "Người Việt hay đọc âm này thành \"u\" tiếng Việt (chu môi quá đà). Đúng ra môi phải hơi thả lỏng, hơi lai giữa \"u\" và \"ơ\".",
+      "mouthTip": "Môi hơi tròn nhẹ nhưng thả lỏng, không chu mỏ nhọn. Lưỡi hơi lùi về sau, phát âm bật hơi ngắn gọn.",
+      "difficultyForVn": "medium",
+      "video": {
+        "youtubeVideoId": "phlnzlzCPqE",
+        "startSeconds": 40,
+        "endSeconds": 110,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the UH /ʊ/ as in PUSH Vowel",
+        "videoTip": "Lips flare slightly away from teeth, back of tongue raises towards soft palate."
+      },
+      "initialWords": [],
+      "medialWords": [
+        "foot",
+        "good",
+        "book",
+        "look",
+        "cook",
+        "sugar"
+      ],
+      "finalWords": [],
+      "minimalPairs": [
+        {
+          "target": "foot",
+          "contrast": "food",
+          "contrastPhoneme": "uː",
+          "note": "bàn chân vs thức ăn"
+        },
+        {
+          "target": "look",
+          "contrast": "Luke",
+          "contrastPhoneme": "uː",
+          "note": "nhìn vs tên Luke"
+        },
+        {
+          "target": "pull",
+          "contrast": "pool",
+          "contrastPhoneme": "uː",
+          "note": "kéo vs bể bơi"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "He took a good look at the cook book.",
+          "translationVi": "Anh ấy xem kỹ cuốn sách dạy nấu ăn.",
+          "targetWords": [
+            "took",
+            "good",
+            "look",
+            "cook",
+            "book"
+          ]
+        },
+        {
+          "sentence": "Put your foot on the wooden stool.",
+          "translationVi": "Đặt chân bạn lên chiếc ghế gỗ.",
+          "targetWords": [
+            "Put",
+            "foot",
+            "wooden"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u-long",
+      "symbol": "uː",
+      "name": "Nguyên âm /uː/ dài",
+      "type": "monophthong",
+      "subType": "long-vowel",
+      "partnerId": "u-short",
+      "anchorWord": "goose",
+      "anchorWordIpa": "/ɡuːs/",
+      "vietnameseNote": "Cần chu môi tròn nhỏ và giữ âm dài, cơ môi căng hơn hẳn so với âm /ʊ/ ngắn.",
+      "mouthTip": "Chu môi thành một vòng tròn nhỏ và căng như đang huýt sáo. Lưỡi lùi sâu về sau vòm họng.",
+      "difficultyForVn": "medium",
+      "video": {
+        "youtubeVideoId": "IwahymIkGJ0",
+        "startSeconds": 45,
+        "endSeconds": 115,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the OO /uː/ Vowel",
+        "videoTip": "Start with relaxed lips, gradually round into a tight circle. Tongue back high."
+      },
+      "initialWords": [
+        "ooze"
+      ],
+      "medialWords": [
+        "food",
+        "moon",
+        "school",
+        "group",
+        "blue"
+      ],
+      "finalWords": [
+        "too",
+        "who",
+        "shoe",
+        "through"
+      ],
+      "minimalPairs": [
+        {
+          "target": "pool",
+          "contrast": "pull",
+          "contrastPhoneme": "ʊ",
+          "note": "bể bơi vs kéo"
+        },
+        {
+          "target": "suit",
+          "contrast": "soot",
+          "contrastPhoneme": "ʊ",
+          "note": "bộ vest vs bồ hóng"
+        },
+        {
+          "target": "fool",
+          "contrast": "full",
+          "contrastPhoneme": "ʊ",
+          "note": "kẻ ngốc vs đầy đủ"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "Sue chose two blue shoes at school.",
+          "translationVi": "Sue đã chọn hai đôi giày màu xanh ở trường.",
+          "targetWords": [
+            "Sue",
+            "chose",
+            "two",
+            "blue",
+            "shoes",
+            "school"
+          ]
+        },
+        {
+          "sentence": "The cool pool had smooth blue water.",
+          "translationVi": "Bể bơi mát lạnh có làn nước xanh mượt mà.",
+          "targetWords": [
+            "cool",
+            "pool",
+            "smooth",
+            "blue"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e-sound",
+      "symbol": "e",
+      "name": "Nguyên âm /e/ ngắn",
+      "type": "monophthong",
+      "subType": "short-vowel",
+      "partnerId": "ae-sound",
+      "anchorWord": "bed",
+      "anchorWordIpa": "/bed/",
+      "vietnameseNote": "Người Việt hay đọc lẫn với âm /æ/ (bẹt) hoặc âm \"ê\". Âm này miệng mở vừa phải, phát âm dứt khoát.",
+      "mouthTip": "Miệng mở rộng vừa phải, lưỡi đặt ở giữa vòm họng, đầu lưỡi chạm nhẹ chân răng hàm dưới.",
+      "difficultyForVn": "medium",
+      "video": {
+        "youtubeVideoId": "xKxV8XfigaE",
+        "startSeconds": 35,
+        "endSeconds": 105,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the EH /e/ Vowel",
+        "videoTip": "Jaw drops mid-way, tongue tip touches behind bottom teeth, mid-front raises slightly."
+      },
+      "initialWords": [
+        "end",
+        "egg",
+        "enter",
+        "empty"
+      ],
+      "medialWords": [
+        "bed",
+        "pen",
+        "red",
+        "head",
+        "bread"
+      ],
+      "finalWords": [],
+      "minimalPairs": [
+        {
+          "target": "men",
+          "contrast": "man",
+          "contrastPhoneme": "æ",
+          "note": "những người đàn ông vs một người đàn ông"
+        },
+        {
+          "target": "bed",
+          "contrast": "bad",
+          "contrastPhoneme": "æ",
+          "note": "cái giường vs tồi tệ"
+        },
+        {
+          "target": "pen",
+          "contrast": "pan",
+          "contrastPhoneme": "æ",
+          "note": "cây bút vs cái chảo"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "Ben sent ten red pens to the friend.",
+          "translationVi": "Ben gửi mười cây bút đỏ cho người bạn.",
+          "targetWords": [
+            "Ben",
+            "sent",
+            "ten",
+            "red",
+            "pens",
+            "friend"
+          ]
+        },
+        {
+          "sentence": "Get ready for bed at seven.",
+          "translationVi": "Hãy sẵn sàng đi ngủ lúc bảy giờ.",
+          "targetWords": [
+            "Get",
+            "ready",
+            "bed",
+            "seven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "schwa",
+      "symbol": "ə",
+      "name": "Âm Schwa /ə/ (Âm phổ biến nhất)",
+      "type": "monophthong",
+      "subType": "short-vowel",
+      "anchorWord": "teacher",
+      "anchorWordIpa": "/ˈtiːtʃər/",
+      "vietnameseNote": "Âm quan trọng số 1 tiếng Anh! Xuất hiện trong mọi từ đa âm tiết ở vị trí KHÔNG nhấn trọng âm. Người Việt hay đọc rõ từng chữ nên mất ngữ điệu.",
+      "mouthTip": "Thả lỏng toàn bộ khuôn mặt, môi, răng và lưỡi ở vị trí trung tính nhất. Bật hơi cực kỳ ngắn và nhẹ.",
+      "difficultyForVn": "high",
+      "video": {
+        "youtubeVideoId": "2BmkUa4Mv60",
+        "startSeconds": 30,
+        "endSeconds": 90,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the Schwa /ə/ Vowel",
+        "videoTip": "Completely neutral mouth posture. Unstressed syllables only. Fast, low in pitch, quiet."
+      },
+      "initialWords": [
+        "about",
+        "ago",
+        "again",
+        "alone"
+      ],
+      "medialWords": [
+        "banana",
+        "family",
+        "police",
+        "support"
+      ],
+      "finalWords": [
+        "teacher",
+        "sofa",
+        "mother",
+        "brother"
+      ],
+      "minimalPairs": [
+        {
+          "target": "sofa",
+          "contrast": "suffer",
+          "contrastPhoneme": "ʌ",
+          "note": "ghế sô pha vs chịu đựng"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "The teacher bought a banana about an hour ago.",
+          "translationVi": "Giáo viên đã mua một quả chuối khoảng một tiếng trước.",
+          "targetWords": [
+            "teacher",
+            "banana",
+            "about",
+            "ago"
+          ]
+        },
+        {
+          "sentence": "Support the police in a quiet manner.",
+          "translationVi": "Ủng hộ cảnh sát theo cách yên lặng.",
+          "targetWords": [
+            "Support",
+            "police",
+            "manner"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "er-sound",
+      "symbol": "ɜː",
+      "name": "Nguyên âm /ɜː/ dài (uốn lưỡi R)",
+      "type": "monophthong",
+      "subType": "long-vowel",
+      "partnerId": "schwa",
+      "anchorWord": "bird",
+      "anchorWordIpa": "/bɜːrd/",
+      "vietnameseNote": "Giọng Mỹ thường cuộn đầu lưỡi về sau tạo âm R đặc trưng (rhotic). Người Việt hay đọc thành âm \"ơ\" phẳng.",
+      "mouthTip": "Môi hơi chu nhẹ, thân lưỡi nâng lên, đầu lưỡi uốn cong nhẹ về sau mà không chạm vòm họng.",
+      "difficultyForVn": "medium",
+      "video": {
+        "youtubeVideoId": "D-M_h763L_0",
+        "startSeconds": 35,
+        "endSeconds": 105,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the UR /ɜː/ Vowel",
+        "videoTip": "Middle of tongue pulls back and up. Sides touch upper teeth, tongue tip touches nothing."
+      },
+      "initialWords": [
+        "early",
+        "earth",
+        "earn",
+        "urban"
+      ],
+      "medialWords": [
+        "bird",
+        "girl",
+        "work",
+        "learn",
+        "first",
+        "turn"
+      ],
+      "finalWords": [
+        "her",
+        "sir",
+        "fur"
+      ],
+      "minimalPairs": [
+        {
+          "target": "bird",
+          "contrast": "board",
+          "contrastPhoneme": "ɔː",
+          "note": "con chim vs tấm ván"
+        },
+        {
+          "target": "turn",
+          "contrast": "torn",
+          "contrastPhoneme": "ɔː",
+          "note": "rẽ/lượt vs bị rách"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "The early bird learned thirty words first.",
+          "translationVi": "Con chim dậy sớm đã học được ba mươi từ đầu tiên.",
+          "targetWords": [
+            "early",
+            "bird",
+            "learned",
+            "thirty",
+            "words",
+            "first"
+          ]
+        },
+        {
+          "sentence": "Her girl works at a nursing firm.",
+          "translationVi": "Con gái cô ấy làm việc tại một công ty điều dưỡng.",
+          "targetWords": [
+            "Her",
+            "girl",
+            "works",
+            "nursing",
+            "firm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aw-sound",
+      "symbol": "ɔː",
+      "name": "Nguyên âm /ɔː/ dài",
+      "type": "monophthong",
+      "subType": "long-vowel",
+      "anchorWord": "door",
+      "anchorWordIpa": "/dɔːr/",
+      "vietnameseNote": "Âm \"o\" sâu trong cổ họng, tròn môi và giữ dài. Người Việt hay phát âm ngắn hoặc lai sang âm \"ô\".",
+      "mouthTip": "Mở hàm rộng theo chiều dọc, môi hơi tròn, lưỡi lùi sâu về sau, phát âm ngân vang từ cuống họng.",
+      "difficultyForVn": "low",
+      "video": {
+        "youtubeVideoId": "opMab62SybY",
+        "startSeconds": 35,
+        "endSeconds": 95,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the AW /ɔː/ Vowel",
+        "videoTip": "Drop the jaw low, back of tongue pulls down and back. Round lips slightly."
+      },
+      "initialWords": [
+        "all",
+        "also",
+        "autumn",
+        "always"
+      ],
+      "medialWords": [
+        "water",
+        "talk",
+        "ball",
+        "call",
+        "door"
+      ],
+      "finalWords": [
+        "saw",
+        "law",
+        "raw"
+      ],
+      "minimalPairs": [
+        {
+          "target": "saw",
+          "contrast": "so",
+          "contrastPhoneme": "oʊ",
+          "note": "nhìn thấy vs vì vậy"
+        },
+        {
+          "target": "ball",
+          "contrast": "bowl",
+          "contrastPhoneme": "oʊ",
+          "note": "quả bóng vs cái bát"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "Paul saw four tall boys call for water.",
+          "translationVi": "Paul thấy bốn cậu bé cao lớn gọi lấy nước.",
+          "targetWords": [
+            "Paul",
+            "saw",
+            "four",
+            "tall",
+            "call",
+            "water"
+          ]
+        },
+        {
+          "sentence": "All students walked across the lawn.",
+          "translationVi": "Tất cả học sinh đi bộ qua bãi cỏ.",
+          "targetWords": [
+            "All",
+            "walked",
+            "lawn"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ae-sound",
+      "symbol": "æ",
+      "name": "Nguyên âm /æ/ bẹt (A bẹt)",
+      "type": "monophthong",
+      "subType": "short-vowel",
+      "partnerId": "e-sound",
+      "anchorWord": "cat",
+      "anchorWordIpa": "/kæt/",
+      "vietnameseNote": "Âm đặc trưng của tiếng Anh Mỹ! Không phải \"a\" cũng không phải \"e\". Cần mở to miệng hết cỡ theo chiều dọc.",
+      "mouthTip": "Hạ quai hàm xuống tối đa, khóe miệng kéo rộng sang hai bên, mặt lưỡi bẹt phẳng ở đáy miệng.",
+      "difficultyForVn": "high",
+      "video": {
+        "youtubeVideoId": "UM9gPzKs1Hg",
+        "startSeconds": 40,
+        "endSeconds": 110,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the AA /æ/ Vowel",
+        "videoTip": "Drop jaw low and wide, back of tongue raises, front stays down behind bottom teeth."
+      },
+      "initialWords": [
+        "apple",
+        "act",
+        "after",
+        "animal"
+      ],
+      "medialWords": [
+        "cat",
+        "bad",
+        "man",
+        "hand",
+        "black",
+        "family"
+      ],
+      "finalWords": [],
+      "minimalPairs": [
+        {
+          "target": "man",
+          "contrast": "men",
+          "contrastPhoneme": "e",
+          "note": "người đàn ông vs các người đàn ông"
+        },
+        {
+          "target": "bad",
+          "contrast": "bed",
+          "contrastPhoneme": "e",
+          "note": "xấu/tệ vs cái giường"
+        },
+        {
+          "target": "pan",
+          "contrast": "pen",
+          "contrastPhoneme": "e",
+          "note": "cái chảo vs cây bút"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "The fat cat sat on the black man’s bag.",
+          "translationVi": "Con mèo béo ngồi trên chiếc túi của người đàn ông da đen.",
+          "targetWords": [
+            "fat",
+            "cat",
+            "sat",
+            "black",
+            "man",
+            "bag"
+          ]
+        },
+        {
+          "sentence": "Sam has an apple in his hand.",
+          "translationVi": "Sam có một quả táo trong tay anh ấy.",
+          "targetWords": [
+            "Sam",
+            "has",
+            "apple",
+            "hand"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uh-sound",
+      "symbol": "ʌ",
+      "name": "Nguyên âm /ʌ/ ngắn (Á ngắn)",
+      "type": "monophthong",
+      "subType": "short-vowel",
+      "anchorWord": "cup",
+      "anchorWordIpa": "/kʌp/",
+      "vietnameseNote": "Gần giống chữ \"ă\" hoặc \"ơ\" trong tiếng Việt, nhưng âm phát ra từ cuống họng rất ngắn và gọn gàng.",
+      "mouthTip": "Hàm mở trung bình, môi thả lỏng tự nhiên, lưỡi đặt ở giữa đáy miệng.",
+      "difficultyForVn": "low",
+      "video": {
+        "youtubeVideoId": "eJPv2mJJwHQ",
+        "startSeconds": 35,
+        "endSeconds": 100,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the UH /ʌ/ Vowel",
+        "videoTip": "Mid-low jaw drop. Tongue is relaxed and flat. Quick, short vowel stressed syllable."
+      },
+      "initialWords": [
+        "up",
+        "us",
+        "under",
+        "uncle"
+      ],
+      "medialWords": [
+        "cup",
+        "sun",
+        "love",
+        "money",
+        "bus",
+        "mother"
+      ],
+      "finalWords": [],
+      "minimalPairs": [
+        {
+          "target": "cup",
+          "contrast": "cap",
+          "contrastPhoneme": "æ",
+          "note": "chiếc cốc vs chiếc mũ"
+        },
+        {
+          "target": "hut",
+          "contrast": "hat",
+          "contrastPhoneme": "æ",
+          "note": "cái lều vs cái nón"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "My uncle loves to run in the summer sun.",
+          "translationVi": "Chú tôi thích chạy dưới ánh nắng mùa hè.",
+          "targetWords": [
+            "uncle",
+            "loves",
+            "run",
+            "summer",
+            "sun"
+          ]
+        },
+        {
+          "sentence": "Mother cut the butter for us.",
+          "translationVi": "Mẹ đã cắt bơ cho chúng tôi.",
+          "targetWords": [
+            "Mother",
+            "cut",
+            "butter",
+            "us"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ah-sound",
+      "symbol": "ɑː",
+      "name": "Nguyên âm /ɑː/ dài (A mở)",
+      "type": "monophthong",
+      "subType": "long-vowel",
+      "anchorWord": "father",
+      "anchorWordIpa": "/ˈfɑːðər/",
+      "vietnameseNote": "Âm \"A\" mở rộng miệng giống như khi bác sĩ bảo bạn \"há to miệng ra nói A\".",
+      "mouthTip": "Hạ hàm mở rộng miệng tối đa, lưỡi nằm bẹt ở đáy miệng, phát âm dài và sâu từ cuống họng.",
+      "difficultyForVn": "low",
+      "video": {
+        "youtubeVideoId": "TWO6g9x-TgI",
+        "startSeconds": 40,
+        "endSeconds": 110,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the AH /ɑː/ Vowel as in FATHER",
+        "videoTip": "Jaw drops significantly, lips relaxed, back of tongue presses down creating deep space."
+      },
+      "initialWords": [
+        "arm",
+        "art",
+        "artist",
+        "honest"
+      ],
+      "medialWords": [
+        "father",
+        "calm",
+        "heart",
+        "start",
+        "party"
+      ],
+      "finalWords": [
+        "spa",
+        "bra"
+      ],
+      "minimalPairs": [
+        {
+          "target": "heart",
+          "contrast": "hut",
+          "contrastPhoneme": "ʌ",
+          "note": "trái tim vs cái lều"
+        },
+        {
+          "target": "calm",
+          "contrast": "come",
+          "contrastPhoneme": "ʌ",
+          "note": "bình tĩnh vs đến"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "Father parked the large car near the park.",
+          "translationVi": "Bố đã đỗ chiếc xe hơi lớn gần công viên.",
+          "targetWords": [
+            "Father",
+            "parked",
+            "large",
+            "car",
+            "park"
+          ]
+        },
+        {
+          "sentence": "The smart artist started the art project.",
+          "translationVi": "Người nghệ sĩ thông minh đã bắt đầu dự án nghệ thuật.",
+          "targetWords": [
+            "smart",
+            "artist",
+            "started",
+            "art"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "o-short",
+      "symbol": "ɒ",
+      "name": "Nguyên âm /ɒ/ ngắn",
+      "type": "monophthong",
+      "subType": "short-vowel",
+      "partnerId": "aw-sound",
+      "anchorWord": "hot",
+      "anchorWordIpa": "/hɒt/",
+      "vietnameseNote": "Trong tiếng Anh-Anh là âm O tròn ngắn, trong tiếng Anh-Mỹ thường chuyển dịch gần về âm /ɑː/ (như \"hot\" đọc gần như \"hát\").",
+      "mouthTip": "Mở hàm dưới, môi hơi tròn nhẹ, lưỡi hơi rút về sau.",
+      "difficultyForVn": "low",
+      "video": {
+        "youtubeVideoId": "mEdSBxDWzow",
+        "startSeconds": 35,
+        "endSeconds": 100,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the Short O /ɒ/ /ɑː/ Vowel",
+        "videoTip": "American Short O is an AH /ɑː/ sound. Jaw drops wide, tongue stays low and flat."
+      },
+      "initialWords": [
+        "on",
+        "off",
+        "odd",
+        "office"
+      ],
+      "medialWords": [
+        "hot",
+        "pot",
+        "box",
+        "clock",
+        "coffee",
+        "stop"
+      ],
+      "finalWords": [],
+      "minimalPairs": [
+        {
+          "target": "pot",
+          "contrast": "port",
+          "contrastPhoneme": "ɔː",
+          "note": "cái nồi vs cảng biển"
+        },
+        {
+          "target": "spot",
+          "contrast": "sport",
+          "contrastPhoneme": "ɔː",
+          "note": "đốm/vết vs thể thao"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "The hot coffee is on top of the box.",
+          "translationVi": "Cốc cà phê nóng ở trên đỉnh chiếc hộp.",
+          "targetWords": [
+            "hot",
+            "coffee",
+            "top",
+            "box"
+          ]
+        },
+        {
+          "sentence": "Stop the clock at once.",
+          "translationVi": "Dừng đồng hồ lại ngay lập tức.",
+          "targetWords": [
+            "Stop",
+            "clock"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ei-sound",
+      "symbol": "eɪ",
+      "name": "Nguyên âm đôi /eɪ/",
+      "type": "diphthong",
+      "subType": "diphthong",
+      "anchorWord": "face",
+      "anchorWordIpa": "/feɪs/",
+      "vietnameseNote": "Trượt từ /e/ sang /ɪ/. Người Việt hay đọc ngắn thành \"ê\", làm mất giai điệu mềm mại của từ.",
+      "mouthTip": "Bắt đầu ở âm /e/, sau đó trượt hàm lên trên và khóe miệng dẹt sang 2 bên về vị trí /ɪ/.",
+      "difficultyForVn": "medium",
+      "video": {
+        "youtubeVideoId": "XOuD6mFr6sQ",
+        "startSeconds": 35,
+        "endSeconds": 105,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the AY [eɪ] Diphthong",
+        "videoTip": "Drop jaw for starting position, glide smoothly into /ɪ/ position as jaw closes."
+      },
+      "initialWords": [
+        "age",
+        "eight",
+        "able",
+        "April"
+      ],
+      "medialWords": [
+        "face",
+        "name",
+        "make",
+        "rain",
+        "table"
+      ],
+      "finalWords": [
+        "day",
+        "say",
+        "play",
+        "stay",
+        "way"
+      ],
+      "minimalPairs": [
+        {
+          "target": "taste",
+          "contrast": "test",
+          "contrastPhoneme": "e",
+          "note": "nếm vs bài kiểm tra"
+        },
+        {
+          "target": "wait",
+          "contrast": "wet",
+          "contrastPhoneme": "e",
+          "note": "chờ đợi vs ẩm ướt"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "They came to play the great game today.",
+          "translationVi": "Họ đã đến chơi trò chơi tuyệt vời ngày hôm nay.",
+          "targetWords": [
+            "They",
+            "came",
+            "play",
+            "great",
+            "game",
+            "today"
+          ]
+        },
+        {
+          "sentence": "Wait for the train at the station gate.",
+          "translationVi": "Chờ tàu hỏa ở cổng nhà ga.",
+          "targetWords": [
+            "Wait",
+            "train",
+            "station",
+            "gate"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ai-sound",
+      "symbol": "aɪ",
+      "name": "Nguyên âm đôi /aɪ/",
+      "type": "diphthong",
+      "subType": "diphthong",
+      "anchorWord": "price",
+      "anchorWordIpa": "/praɪs/",
+      "vietnameseNote": "Gần giống \"ai\" tiếng Việt, nhưng bắt đầu từ âm /ɑː/ sâu và trượt nhẹ lên /ɪ/.",
+      "mouthTip": "Mở rộng miệng ở âm /a/ rồi từ từ khép hàm đưa lên âm /ɪ/.",
+      "difficultyForVn": "low",
+      "video": {
+        "youtubeVideoId": "rbQtAWNFy2I",
+        "startSeconds": 35,
+        "endSeconds": 105,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the AI [aɪ] Diphthong",
+        "videoTip": "Jaw drops wide for /a/, glide up toward /ɪ/ as mid-front of tongue arches high."
+      },
+      "initialWords": [
+        "ice",
+        "island",
+        "idea",
+        "item"
+      ],
+      "medialWords": [
+        "time",
+        "price",
+        "white",
+        "night",
+        "mind"
+      ],
+      "finalWords": [
+        "my",
+        "fly",
+        "sky",
+        "try",
+        "bye"
+      ],
+      "minimalPairs": [
+        {
+          "target": "rice",
+          "contrast": "race",
+          "contrastPhoneme": "eɪ",
+          "note": "cơm/gạo vs cuộc đua"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "I like to fly my white kite high in the sky.",
+          "translationVi": "Tôi thích thả con diều trắng của mình bay cao trên bầu trời.",
+          "targetWords": [
+            "like",
+            "fly",
+            "my",
+            "white",
+            "kite",
+            "high",
+            "sky"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oi-sound",
+      "symbol": "ɔɪ",
+      "name": "Nguyên âm đôi /ɔɪ/",
+      "type": "diphthong",
+      "subType": "diphthong",
+      "anchorWord": "choice",
+      "anchorWordIpa": "/tʃɔɪs/",
+      "vietnameseNote": "Gần giống \"oi\" tiếng Việt. Trượt từ /ɔː/ tròn môi sang /ɪ/ dẹt môi.",
+      "mouthTip": "Bắt đầu với môi tròn ở /ɔː/, sau đó nhếch khóe miệng dẹt sang hai bên về phía /ɪ/.",
+      "difficultyForVn": "low",
+      "video": {
+        "youtubeVideoId": "3cdSvIuTxLY",
+        "startSeconds": 35,
+        "endSeconds": 105,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the OY [ɔɪ] Diphthong",
+        "videoTip": "Start with rounded flared lips for /ɔ/, glide to relaxed spread lips for /ɪ/."
+      },
+      "initialWords": [
+        "oil",
+        "oyster"
+      ],
+      "medialWords": [
+        "voice",
+        "choice",
+        "noise",
+        "point",
+        "coin"
+      ],
+      "finalWords": [
+        "boy",
+        "toy",
+        "joy",
+        "employ"
+      ],
+      "minimalPairs": [
+        {
+          "target": "boy",
+          "contrast": "buy",
+          "contrastPhoneme": "aɪ",
+          "note": "cậu bé vs mua"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "The boy enjoyed his noisy new toy.",
+          "translationVi": "Cậu bé rất thích món đồ chơi mới kêu ồn ào của mình.",
+          "targetWords": [
+            "boy",
+            "enjoyed",
+            "noisy",
+            "toy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ou-sound",
+      "symbol": "oʊ",
+      "name": "Nguyên âm đôi /oʊ/ (hoặc /əʊ/)",
+      "type": "diphthong",
+      "subType": "diphthong",
+      "anchorWord": "goat",
+      "anchorWordIpa": "/ɡoʊt/",
+      "vietnameseNote": "Người Việt hay đọc âm này thành \"ô\" cụt lủn. Cần trượt từ miệng mở vừa sang môi chu tròn nhỏ ở cuối.",
+      "mouthTip": "Bắt đầu ở âm mở /o/, sau đó chu tròn môi dần về phía /ʊ/.",
+      "difficultyForVn": "medium",
+      "video": {
+        "youtubeVideoId": "Civ7UBZP99M",
+        "startSeconds": 35,
+        "endSeconds": 105,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the OH [oʊ] Diphthong",
+        "videoTip": "Start with moderate jaw drop, lips round into tight small circle at the end."
+      },
+      "initialWords": [
+        "old",
+        "open",
+        "over",
+        "only"
+      ],
+      "medialWords": [
+        "goat",
+        "home",
+        "boat",
+        "cold",
+        "road"
+      ],
+      "finalWords": [
+        "go",
+        "no",
+        "so",
+        "show",
+        "snow"
+      ],
+      "minimalPairs": [
+        {
+          "target": "boat",
+          "contrast": "bought",
+          "contrastPhoneme": "ɔː",
+          "note": "con thuyền vs đã mua"
+        },
+        {
+          "target": "coat",
+          "contrast": "caught",
+          "contrastPhoneme": "ɔː",
+          "note": "áo khoác vs đã bắt"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "Joe goes home on the cold snow road.",
+          "translationVi": "Joe về nhà trên con đường tuyết lạnh giá.",
+          "targetWords": [
+            "Joe",
+            "goes",
+            "home",
+            "cold",
+            "snow",
+            "road"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "au-sound",
+      "symbol": "aʊ",
+      "name": "Nguyên âm đôi /aʊ/",
+      "type": "diphthong",
+      "subType": "diphthong",
+      "anchorWord": "mouth",
+      "anchorWordIpa": "/maʊθ/",
+      "vietnameseNote": "Gần giống \"ao\" tiếng Việt. Mở rộng miệng ở /a/ rồi chu môi vào /ʊ/.",
+      "mouthTip": "Mở rộng quai hàm tối đa lúc đầu, sau đó thu môi thành hình tròn nhỏ.",
+      "difficultyForVn": "low",
+      "video": {
+        "youtubeVideoId": "i8KThVR713Q",
+        "startSeconds": 35,
+        "endSeconds": 105,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the OW [aʊ] Diphthong",
+        "videoTip": "Wide jaw drop for /a/, glide into rounded lips for /ʊ/."
+      },
+      "initialWords": [
+        "out",
+        "our",
+        "owl"
+      ],
+      "medialWords": [
+        "mouth",
+        "house",
+        "sound",
+        "brown",
+        "town"
+      ],
+      "finalWords": [
+        "now",
+        "how",
+        "cow"
+      ],
+      "minimalPairs": [
+        {
+          "target": "now",
+          "contrast": "no",
+          "contrastPhoneme": "oʊ",
+          "note": "bây giờ vs không"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "A brown cow is found out around the house.",
+          "translationVi": "Một con bò màu nâu được tìm thấy ở quanh ngôi nhà.",
+          "targetWords": [
+            "brown",
+            "cow",
+            "found",
+            "out",
+            "around",
+            "house"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ia-sound",
+      "symbol": "ɪə",
+      "name": "Nguyên âm đôi /ɪə/",
+      "type": "diphthong",
+      "subType": "diphthong",
+      "anchorWord": "near",
+      "anchorWordIpa": "/nɪr/",
+      "vietnameseNote": "Trượt từ /ɪ/ sang âm lướt /ə/ (ở Mỹ cuộn lưỡi R).",
+      "mouthTip": "Bắt đầu từ /ɪ/, thả lỏng cơ miệng dần về vị trí âm schwa trung tính.",
+      "difficultyForVn": "medium",
+      "video": {
+        "youtubeVideoId": "K3R8VZSEla4",
+        "startSeconds": 40,
+        "endSeconds": 115,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce EAR /ɪr/ in American English",
+        "videoTip": "Transition from forward high tongue of EE into pulled-back R consonant."
+      },
+      "initialWords": [
+        "ear",
+        "eerie"
+      ],
+      "medialWords": [
+        "beard",
+        "fierce"
+      ],
+      "finalWords": [
+        "near",
+        "here",
+        "clear",
+        "dear",
+        "cheer"
+      ],
+      "minimalPairs": [],
+      "practiceSentences": [
+        {
+          "sentence": "Come near here to hear the clear cheer.",
+          "translationVi": "Lại gần đây để nghe tiếng cổ vũ rõ ràng.",
+          "targetWords": [
+            "near",
+            "here",
+            "hear",
+            "clear",
+            "cheer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ea-sound",
+      "symbol": "eə",
+      "name": "Nguyên âm đôi /eə/",
+      "type": "diphthong",
+      "subType": "diphthong",
+      "anchorWord": "square",
+      "anchorWordIpa": "/skwer/",
+      "vietnameseNote": "Trượt từ /e/ sang /ə/ (kèm R trong tiếng Anh-Mỹ).",
+      "mouthTip": "Mở hàm ở vị trí /e/ rồi thả lỏng về âm /ə/.",
+      "difficultyForVn": "medium",
+      "video": {
+        "youtubeVideoId": "WJMwIC1muYs",
+        "startSeconds": 40,
+        "endSeconds": 115,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce AIR words: care, share, fair",
+        "videoTip": "EH vowel blending into R-controlled tongue position. Lips flare slightly."
+      },
+      "initialWords": [
+        "air",
+        "area"
+      ],
+      "medialWords": [
+        "careful",
+        "parent",
+        "scared"
+      ],
+      "finalWords": [
+        "square",
+        "chair",
+        "hair",
+        "bear",
+        "there",
+        "wear"
+      ],
+      "minimalPairs": [],
+      "practiceSentences": [
+        {
+          "sentence": "The bear sat on the fair chair over there.",
+          "translationVi": "Con gấu ngồi trên chiếc ghế hội chợ ở đằng kia.",
+          "targetWords": [
+            "bear",
+            "fair",
+            "chair",
+            "there"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ua-sound",
+      "symbol": "ʊə",
+      "name": "Nguyên âm đôi /ʊə/",
+      "type": "diphthong",
+      "subType": "diphthong",
+      "anchorWord": "cure",
+      "anchorWordIpa": "/kjʊr/",
+      "vietnameseNote": "Trượt từ /ʊ/ sang /ə/. Nhiều người Mỹ ngày nay đọc thành /ɔːr/ trong từ \"poor\" hay \"tour\".",
+      "mouthTip": "Môi hơi tròn ở /ʊ/, sau đó thả lỏng về vị trí /ə/.",
+      "difficultyForVn": "medium",
+      "video": {
+        "youtubeVideoId": "mO7J-b8vi54",
+        "startSeconds": 216,
+        "endSeconds": 260,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the URE /ʊr/ Diphthong",
+        "videoTip": "OO glide to R, commonly merged with OR in modern US English."
+      },
+      "initialWords": [],
+      "medialWords": [
+        "tourist"
+      ],
+      "finalWords": [
+        "cure",
+        "pure",
+        "sure",
+        "tour",
+        "poor"
+      ],
+      "minimalPairs": [],
+      "practiceSentences": [
+        {
+          "sentence": "Are you sure the poor tourist found a cure?",
+          "translationVi": "Bạn có chắc người du khách tội nghiệp đã tìm ra cách chữa trị không?",
+          "targetWords": [
+            "sure",
+            "poor",
+            "tourist",
+            "cure"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p-sound",
+      "symbol": "p",
+      "name": "Phụ âm /p/ (Vô thanh - Bật hơi)",
+      "type": "consonant",
+      "subType": "voiceless-consonant",
+      "partnerId": "b-sound",
+      "anchorWord": "pen",
+      "anchorWordIpa": "/pen/",
+      "vietnameseNote": "Tiếng Việt không có âm /p/ đứng đầu từ (chỉ mượn như \"pin\", \"pha\"), nên người Việt hay phát âm /p/ nhẹ hều thành /b/. Cần nén hơi và bật thật mạnh!",
+      "mouthTip": "Mím chặt hai môi lại để nén luồng khí trong miệng, sau đó bung mạnh hai môi ra để luồng hơi bật tóe ra ngoài. Dây thanh quản KHÔNG rung.",
+      "difficultyForVn": "high",
+      "video": {
+        "youtubeVideoId": "JPUr5MgeDHM",
+        "startSeconds": 30,
+        "endSeconds": 85,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the P and B Consonants",
+        "videoTip": "Voiceless bilabial plosive. Press lips together, build air pressure, release with sudden puff of air."
+      },
+      "initialWords": [
+        "pen",
+        "pig",
+        "party",
+        "paper",
+        "people"
+      ],
+      "medialWords": [
+        "happy",
+        "apple",
+        "super",
+        "open"
+      ],
+      "finalWords": [
+        "stop",
+        "cup",
+        "help",
+        "sleep",
+        "map"
+      ],
+      "minimalPairs": [
+        {
+          "target": "pen",
+          "contrast": "ben",
+          "contrastPhoneme": "b",
+          "note": "cây bút vs tên Ben"
+        },
+        {
+          "target": "pig",
+          "contrast": "big",
+          "contrastPhoneme": "b",
+          "note": "con heo vs to lớn"
+        },
+        {
+          "target": "cap",
+          "contrast": "cab",
+          "contrastPhoneme": "b",
+          "note": "mũ lưỡi trai vs xe taxi"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "Peter picked a pair of pink pens.",
+          "translationVi": "Peter đã chọn một đôi bút màu hồng.",
+          "targetWords": [
+            "Peter",
+            "picked",
+            "pair",
+            "pink",
+            "pens"
+          ]
+        },
+        {
+          "sentence": "Please stop at the top of the map.",
+          "translationVi": "Làm ơn dừng lại ở đỉnh bản đồ.",
+          "targetWords": [
+            "Please",
+            "stop",
+            "top",
+            "map"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b-sound",
+      "symbol": "b",
+      "name": "Phụ âm /b/ (Hữu thanh - Rung cổ)",
+      "type": "consonant",
+      "subType": "voiced-consonant",
+      "partnerId": "p-sound",
+      "anchorWord": "bad",
+      "anchorWordIpa": "/bæd/",
+      "vietnameseNote": "Cùng vị trí mím môi như /p/ nhưng DÂY THANH RUNG. Người Việt hay quên rung hoặc nuốt mất âm /b/ khi nó đứng cuối từ (như \"cab\", \"job\").",
+      "mouthTip": "Mím hai môi, tạo tiếng rung ở cổ họng trước khi mở môi ra. Khi đứng cuối từ, khép môi lại và giữ tiếng rung khẽ.",
+      "difficultyForVn": "medium",
+      "video": {
+        "youtubeVideoId": "JPUr5MgeDHM",
+        "startSeconds": 86,
+        "endSeconds": 140,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the B Sound",
+        "videoTip": "Voiced bilabial plosive. Vocal cords vibrate as lips release."
+      },
+      "initialWords": [
+        "bad",
+        "boy",
+        "book",
+        "banana",
+        "business"
+      ],
+      "medialWords": [
+        "baby",
+        "table",
+        "number",
+        "about"
+      ],
+      "finalWords": [
+        "job",
+        "cab",
+        "club",
+        "grab",
+        "web"
+      ],
+      "minimalPairs": [
+        {
+          "target": "big",
+          "contrast": "pig",
+          "contrastPhoneme": "p",
+          "note": "to lớn vs con heo"
+        },
+        {
+          "target": "cab",
+          "contrast": "cap",
+          "contrastPhoneme": "p",
+          "note": "xe taxi vs mũ lưỡi trai"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "Bob bought a big blue bag for his brother.",
+          "translationVi": "Bob đã mua một chiếc túi xanh lớn cho anh trai.",
+          "targetWords": [
+            "Bob",
+            "bought",
+            "big",
+            "blue",
+            "bag",
+            "brother"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "t-sound",
+      "symbol": "t",
+      "name": "Phụ âm /t/ (Vô thanh - Bật hơi)",
+      "type": "consonant",
+      "subType": "voiceless-consonant",
+      "partnerId": "d-sound",
+      "anchorWord": "tea",
+      "anchorWordIpa": "/tiː/",
+      "vietnameseNote": "Khác chữ \"t\" tiếng Việt (đầu lưỡi bẹt vào răng)! Âm /t/ tiếng Anh đầu lưỡi chạm vào NƯỚU RĂNG TRÊN (ngay sau răng), tích hơi và bật mạnh ra.",
+      "mouthTip": "Đặt đầu lưỡi áp chặt vào phần gờ nướu sau răng cửa trên. Nén hơi lại rồi giật nhẹ đầu lưỡi xuống để hơi bật mạnh ra.",
+      "difficultyForVn": "high",
+      "video": {
+        "youtubeVideoId": "hGZ9GwrNWmU",
+        "startSeconds": 30,
+        "endSeconds": 85,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce T [t] Consonant",
+        "videoTip": "Tongue tip seals against alveolar ridge, building pressure, then releases with voiceless puff."
+      },
+      "initialWords": [
+        "tea",
+        "time",
+        "take",
+        "two",
+        "table"
+      ],
+      "medialWords": [
+        "water",
+        "city",
+        "hotel",
+        "doctor"
+      ],
+      "finalWords": [
+        "cat",
+        "hat",
+        "wait",
+        "meet",
+        "hot"
+      ],
+      "minimalPairs": [
+        {
+          "target": "two",
+          "contrast": "do",
+          "contrastPhoneme": "d",
+          "note": "số hai vs làm"
+        },
+        {
+          "target": "bat",
+          "contrast": "bad",
+          "contrastPhoneme": "d",
+          "note": "con dơi vs tồi tệ"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "Tom took two cups of hot tea to the cat.",
+          "translationVi": "Tom mang hai tách trà nóng cho con mèo.",
+          "targetWords": [
+            "Tom",
+            "took",
+            "two",
+            "hot",
+            "tea",
+            "cat"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d-sound",
+      "symbol": "d",
+      "name": "Phụ âm /d/ (Hữu thanh - Rung cổ)",
+      "type": "consonant",
+      "subType": "voiced-consonant",
+      "partnerId": "t-sound",
+      "anchorWord": "did",
+      "anchorWordIpa": "/dɪd/",
+      "vietnameseNote": "Cùng vị trí đầu lưỡi ở nướu trên như /t/, nhưng cổ họng RUNG. Người Việt hay quên âm /d/ ở đuôi từ (biến \"need\" thành \"ni\").",
+      "mouthTip": "Đầu lưỡi chạm nướu trên, bật rung dây thanh quản. Cuối từ phải chặn hơi và tạo tiếng bật rung nhẹ.",
+      "difficultyForVn": "medium",
+      "video": {
+        "youtubeVideoId": "hGZ9GwrNWmU",
+        "startSeconds": 86,
+        "endSeconds": 145,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce D [d] Consonant",
+        "videoTip": "Same position as T, but vocal cords vibrate upon release (voiced stop)."
+      },
+      "initialWords": [
+        "day",
+        "door",
+        "dog",
+        "dark",
+        "dinner"
+      ],
+      "medialWords": [
+        "ready",
+        "window",
+        "under",
+        "idea"
+      ],
+      "finalWords": [
+        "bed",
+        "bad",
+        "need",
+        "food",
+        "red"
+      ],
+      "minimalPairs": [
+        {
+          "target": "do",
+          "contrast": "to",
+          "contrastPhoneme": "t",
+          "note": "làm vs đến"
+        },
+        {
+          "target": "bad",
+          "contrast": "bat",
+          "contrastPhoneme": "t",
+          "note": "tồi tệ vs con dơi"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "David did a good deed for his old dad.",
+          "translationVi": "David đã làm một việc tốt cho người cha già của mình.",
+          "targetWords": [
+            "David",
+            "did",
+            "good",
+            "deed",
+            "old",
+            "dad"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "k-sound",
+      "symbol": "k",
+      "name": "Phụ âm /k/ (Vô thanh - Bật cuống họng)",
+      "type": "consonant",
+      "subType": "voiceless-consonant",
+      "partnerId": "g-sound",
+      "anchorWord": "cat",
+      "anchorWordIpa": "/kæt/",
+      "vietnameseNote": "Khác \"c/k\" tiếng Việt (ở cuối từ tiếng Việt không bật hơi). Âm /k/ cuối từ trong tiếng Anh BẮT BUỘC phải bật hơi (như \"like\", \"book\").",
+      "mouthTip": "Nâng cuống lưỡi chạm vào ngạc mềm ở sau vòm họng để chặn khí, sau đó hạ cuống lưỡi bật hơi mạnh ra.",
+      "difficultyForVn": "high",
+      "video": {
+        "youtubeVideoId": "O_NisgL1dvY",
+        "startSeconds": 30,
+        "endSeconds": 85,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce K [k] Consonant",
+        "videoTip": "Back of tongue presses against soft palate, releases with burst of voiceless air."
+      },
+      "initialWords": [
+        "cat",
+        "key",
+        "king",
+        "car",
+        "coffee"
+      ],
+      "medialWords": [
+        "market",
+        "lucky",
+        "bacon",
+        "chicken"
+      ],
+      "finalWords": [
+        "like",
+        "book",
+        "make",
+        "cook",
+        "music",
+        "work"
+      ],
+      "minimalPairs": [
+        {
+          "target": "coat",
+          "contrast": "goat",
+          "contrastPhoneme": "g",
+          "note": "áo khoác vs con dê"
+        },
+        {
+          "target": "back",
+          "contrast": "bag",
+          "contrastPhoneme": "g",
+          "note": "lưng vs chiếc túi"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "Keep the black cook book in the kitchen.",
+          "translationVi": "Giữ cuốn sách nấu ăn màu đen trong nhà bếp.",
+          "targetWords": [
+            "Keep",
+            "black",
+            "cook",
+            "book",
+            "kitchen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "g-sound",
+      "symbol": "g",
+      "name": "Phụ âm /g/ (Hữu thanh - Rung cuống họng)",
+      "type": "consonant",
+      "subType": "voiced-consonant",
+      "partnerId": "k-sound",
+      "anchorWord": "got",
+      "anchorWordIpa": "/ɡɒt/",
+      "vietnameseNote": "Người Việt hay đọc lẫn /g/ thành \"gờ\" tiếng Việt hoặc nuốt âm /g/ ở cuối từ (\"big\" thành \"bi\").",
+      "mouthTip": "Cùng vị trí cuống lưỡi như /k/, nhưng DÂY THANH QUẢN RUNG MẠNH.",
+      "difficultyForVn": "medium",
+      "video": {
+        "youtubeVideoId": "O_NisgL1dvY",
+        "startSeconds": 86,
+        "endSeconds": 140,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce G [g] Consonant",
+        "videoTip": "Same position as K, but vocal cords vibrate upon release (voiced velar stop)."
+      },
+      "initialWords": [
+        "go",
+        "good",
+        "girl",
+        "get",
+        "game"
+      ],
+      "medialWords": [
+        "sugar",
+        "again",
+        "tiger",
+        "magazine"
+      ],
+      "finalWords": [
+        "big",
+        "bag",
+        "dog",
+        "leg",
+        "pig"
+      ],
+      "minimalPairs": [
+        {
+          "target": "goat",
+          "contrast": "coat",
+          "contrastPhoneme": "k",
+          "note": "con dê vs áo khoác"
+        },
+        {
+          "target": "bag",
+          "contrast": "back",
+          "contrastPhoneme": "k",
+          "note": "chiếc túi vs lưng"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "The big dog got a green bag as a gift.",
+          "translationVi": "Chú chó to lớn nhận được một chiếc túi màu xanh làm quà.",
+          "targetWords": [
+            "big",
+            "dog",
+            "got",
+            "green",
+            "bag",
+            "gift"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f-sound",
+      "symbol": "f",
+      "name": "Phụ âm /f/ (Vô thanh - Răng trên môi dưới)",
+      "type": "consonant",
+      "subType": "voiceless-consonant",
+      "partnerId": "v-sound",
+      "anchorWord": "fall",
+      "anchorWordIpa": "/fɔːl/",
+      "vietnameseNote": "Khác chữ \"ph\" tiếng Việt (môi chụm lại). Âm /f/ chuẩn phải đặt RĂNG CỬA TRÊN chạm nhẹ vào lòng môi dưới và xì hơi.",
+      "mouthTip": "Răng cửa trên chạm nhẹ vào phần ướt bên trong môi dưới. Đẩy luồng hơi xì qua khe hở mà không rung cổ họng.",
+      "difficultyForVn": "medium",
+      "video": {
+        "youtubeVideoId": "nR-K3mrHFv0",
+        "startSeconds": 30,
+        "endSeconds": 95,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce F and V Consonants",
+        "videoTip": "Upper front teeth touch inner lower lip. Steady stream of unvoiced air."
+      },
+      "initialWords": [
+        "fall",
+        "fish",
+        "four",
+        "family",
+        "food"
+      ],
+      "medialWords": [
+        "coffee",
+        "after",
+        "telephone",
+        "office"
+      ],
+      "finalWords": [
+        "life",
+        "half",
+        "safe",
+        "laugh",
+        "enough"
+      ],
+      "minimalPairs": [
+        {
+          "target": "fan",
+          "contrast": "van",
+          "contrastPhoneme": "v",
+          "note": "cái quạt vs xe tải nhỏ"
+        },
+        {
+          "target": "safe",
+          "contrast": "save",
+          "contrastPhoneme": "v",
+          "note": "an toàn vs cứu/lưu"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "Frank found four fresh fish for Friday.",
+          "translationVi": "Frank đã tìm được bốn con cá tươi cho ngày thứ Sáu.",
+          "targetWords": [
+            "Frank",
+            "found",
+            "four",
+            "fresh",
+            "fish",
+            "Friday"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v-sound",
+      "symbol": "v",
+      "name": "Phụ âm /v/ (Hữu thanh - Răng trên môi dưới rung)",
+      "type": "consonant",
+      "subType": "voiced-consonant",
+      "partnerId": "f-sound",
+      "anchorWord": "van",
+      "anchorWordIpa": "/væn/",
+      "vietnameseNote": "Người miền Nam hay đọc /v/ thành \"d/gi\" (\"về\" thành \"dề\"). Khi /v/ ở cuối từ (\"have\", \"love\"), người Việt hay nuốt mất âm hoặc đọc thành \"f\".",
+      "mouthTip": "Răng trên chạm môi dưới như /f/, nhưng RUNG DÂY THANH RẤT MẠNH. Cảm nhận độ tê rần rần ở môi dưới.",
+      "difficultyForVn": "high",
+      "video": {
+        "youtubeVideoId": "nR-K3mrHFv0",
+        "startSeconds": 96,
+        "endSeconds": 155,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the V Sound",
+        "videoTip": "Upper teeth on lower lip with strong vocal cord vibration. Feel the buzzing sensation on your lip."
+      },
+      "initialWords": [
+        "van",
+        "voice",
+        "very",
+        "village",
+        "visit"
+      ],
+      "medialWords": [
+        "seven",
+        "every",
+        "river",
+        "never",
+        "travel"
+      ],
+      "finalWords": [
+        "have",
+        "love",
+        "live",
+        "give",
+        "leave",
+        "save"
+      ],
+      "minimalPairs": [
+        {
+          "target": "van",
+          "contrast": "fan",
+          "contrastPhoneme": "f",
+          "note": "xe tải nhỏ vs cái quạt"
+        },
+        {
+          "target": "save",
+          "contrast": "safe",
+          "contrastPhoneme": "f",
+          "note": "cứu/lưu vs an toàn"
+        },
+        {
+          "target": "leave",
+          "contrast": "leaf",
+          "contrastPhoneme": "f",
+          "note": "rời đi vs chiếc lá"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "We love to travel and visit seven villages.",
+          "translationVi": "Chúng tôi thích đi du lịch và ghé thăm bảy ngôi làng.",
+          "targetWords": [
+            "love",
+            "travel",
+            "visit",
+            "seven",
+            "villages"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "th-voiceless",
+      "symbol": "θ",
+      "name": "Phụ âm /θ/ (\"th\" không kêu - Thè lưỡi xì hơi)",
+      "type": "consonant",
+      "subType": "voiceless-consonant",
+      "partnerId": "th-voiced",
+      "anchorWord": "think",
+      "anchorWordIpa": "/θɪŋk/",
+      "vietnameseNote": "Tiếng Việt KHÔNG CÓ âm này! Người Việt 99% phát âm sai thành âm \"th\" tiếng Việt (thanh kìu, thinh) hoặc âm \"s\" (sink). BẮT BUỘC PHẢI THÈ ĐẦU LƯỠI RA GIỮA 2 HÀM RĂNG!",
+      "mouthTip": "Đưa đầu lưỡi ra giữa hai hàng răng trên và dưới (nhìn vào gương phải thấy đầu lưỡi thò ra). Đẩy luồng hơi xì qua khe giữa lưỡi và răng trên. Cổ họng hoàn toàn KHÔNG RUNG.",
+      "difficultyForVn": "high",
+      "video": {
+        "youtubeVideoId": "nlKNo1TGALA",
+        "startSeconds": 25,
+        "endSeconds": 85,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce TH Consonants (Voiceless)",
+        "videoTip": "Tongue tip MUST come between the teeth! Push unvoiced air over tongue tip. Never substitute with S or T."
+      },
+      "initialWords": [
+        "think",
+        "thank",
+        "three",
+        "thing",
+        "thief",
+        "Thursday"
+      ],
+      "medialWords": [
+        "birthday",
+        "author",
+        "something",
+        "nothing",
+        "healthy"
+      ],
+      "finalWords": [
+        "mouth",
+        "tooth",
+        "bath",
+        "both",
+        "north",
+        "south"
+      ],
+      "minimalPairs": [
+        {
+          "target": "think",
+          "contrast": "sink",
+          "contrastPhoneme": "s",
+          "note": "suy nghĩ vs chìm/bồn rửa"
+        },
+        {
+          "target": "three",
+          "contrast": "tree",
+          "contrastPhoneme": "t",
+          "note": "số ba vs cái cây"
+        },
+        {
+          "target": "bath",
+          "contrast": "bass",
+          "contrastPhoneme": "s",
+          "note": "tắm vs cá vược/âm trầm"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "Thank you for thinking of these three things.",
+          "translationVi": "Cảm ơn bạn vì đã nghĩ về ba điều này.",
+          "targetWords": [
+            "Thank",
+            "thinking",
+            "three",
+            "things"
+          ]
+        },
+        {
+          "sentence": "Thursday is my brother’s thirty-fourth birthday.",
+          "translationVi": "Thứ Năm là sinh nhật lần thứ 34 của em trai tôi.",
+          "targetWords": [
+            "Thursday",
+            "thirty-fourth",
+            "birthday"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "th-voiced",
+      "symbol": "ð",
+      "name": "Phụ âm /ð/ (\"th\" kêu - Thè lưỡi rung cổ)",
+      "type": "consonant",
+      "subType": "voiced-consonant",
+      "partnerId": "th-voiceless",
+      "anchorWord": "this",
+      "anchorWordIpa": "/ðɪs/",
+      "vietnameseNote": "Âm xuất hiện trong các từ thông dụng nhất tiếng Anh (this, that, the, they, father). Người Bắc hay thay bằng /z/ (\"zây\"), người Nam thay bằng /d/ (\"dít, đát\"). Phải thè lưỡi và rung cổ họng!",
+      "mouthTip": "Cùng vị trí thè đầu lưỡi giữa hai hàm răng như /θ/, nhưng RUNG DÂY THANH QUẢN THẬT MẠNH. Đặt tay lên cổ họng phải cảm nhận được độ rung.",
+      "difficultyForVn": "high",
+      "video": {
+        "youtubeVideoId": "nlKNo1TGALA",
+        "startSeconds": 85,
+        "endSeconds": 145,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the Voiced TH /ð/ Sound",
+        "videoTip": "Tongue tip between teeth with full vocal cord vibration. Shortcut for fast speech: tip presses lightly behind upper teeth."
+      },
+      "initialWords": [
+        "this",
+        "that",
+        "these",
+        "those",
+        "they",
+        "them",
+        "there",
+        "the"
+      ],
+      "medialWords": [
+        "mother",
+        "father",
+        "brother",
+        "together",
+        "weather",
+        "other"
+      ],
+      "finalWords": [
+        "breathe",
+        "smooth",
+        "clothe",
+        "with"
+      ],
+      "minimalPairs": [
+        {
+          "target": "they",
+          "contrast": "day",
+          "contrastPhoneme": "d",
+          "note": "họ vs ngày"
+        },
+        {
+          "target": "then",
+          "contrast": "den",
+          "contrastPhoneme": "d",
+          "note": "sau đó vs hang ổ"
+        },
+        {
+          "target": "there",
+          "contrast": "dare",
+          "contrastPhoneme": "d",
+          "note": "ở đó vs dám"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "My mother and father are together with them there.",
+          "translationVi": "Mẹ và bố tôi đang ở cùng họ tại đó.",
+          "targetWords": [
+            "mother",
+            "father",
+            "together",
+            "with",
+            "them",
+            "there"
+          ]
+        },
+        {
+          "sentence": "This weather is smoother than that one.",
+          "translationVi": "Thời tiết này dễ chịu hơn thời tiết đó.",
+          "targetWords": [
+            "This",
+            "weather",
+            "smoother",
+            "than",
+            "that"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s-sound",
+      "symbol": "s",
+      "name": "Phụ âm /s/ (Vô thanh - Tiếng xì gió)",
+      "type": "consonant",
+      "subType": "voiceless-consonant",
+      "partnerId": "z-sound",
+      "anchorWord": "see",
+      "anchorWordIpa": "/siː/",
+      "vietnameseNote": "Người Việt rất hay nuốt âm /s/ ở cuối từ (ăn mất số nhiều hoặc chia ngôi thứ ba số ít).",
+      "mouthTip": "Khép hai hàm răng lại gần nhau, đầu lưỡi đặt gần nướu trên, đẩy luồng hơi xì sắc nét qua kẽ răng. Cổ họng không rung.",
+      "difficultyForVn": "high",
+      "video": {
+        "youtubeVideoId": "xl-7mSeybmI",
+        "startSeconds": 25,
+        "endSeconds": 88,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce S and Z Consonants",
+        "videoTip": "Teeth touch lightly, tongue tip behind teeth. Clean sharp unvoiced hiss of air."
+      },
+      "initialWords": [
+        "see",
+        "sun",
+        "sister",
+        "city",
+        "school"
+      ],
+      "medialWords": [
+        "lesson",
+        "music",
+        "pencil",
+        "history"
+      ],
+      "finalWords": [
+        "yes",
+        "bus",
+        "miss",
+        "class",
+        "face",
+        "nice"
+      ],
+      "minimalPairs": [
+        {
+          "target": "see",
+          "contrast": "she",
+          "contrastPhoneme": "ʃ",
+          "note": "nhìn thấy vs cô ấy"
+        },
+        {
+          "target": "sue",
+          "contrast": "zoo",
+          "contrastPhoneme": "z",
+          "note": "kiện vs vườn thú"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "Sam saw six small snakes outside.",
+          "translationVi": "Sam đã nhìn thấy sáu con rắn nhỏ ở bên ngoài.",
+          "targetWords": [
+            "Sam",
+            "saw",
+            "six",
+            "small",
+            "snakes",
+            "outside"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "z-sound",
+      "symbol": "z",
+      "name": "Phụ âm /z/ (Hữu thanh - Tiếng ong kêu)",
+      "type": "consonant",
+      "subType": "voiced-consonant",
+      "partnerId": "s-sound",
+      "anchorWord": "zoo",
+      "anchorWordIpa": "/zuː/",
+      "vietnameseNote": "Người Việt hay đọc lẫn /z/ thành /s/ (bỏ rung), làm mất phân biệt đuôi -s/-es trong tiếng Anh.",
+      "mouthTip": "Vị trí răng và lưỡi y hệt /s/, nhưng rung dây thanh quản tạo tiếng vo ve như con ong.",
+      "difficultyForVn": "medium",
+      "video": {
+        "youtubeVideoId": "xl-7mSeybmI",
+        "startSeconds": 89,
+        "endSeconds": 145,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the Z Sound",
+        "videoTip": "Identical mouth shape to S, but vocal cords buzz like a bee."
+      },
+      "initialWords": [
+        "zoo",
+        "zero",
+        "zone",
+        "zebra"
+      ],
+      "medialWords": [
+        "busy",
+        "easy",
+        "music",
+        "season",
+        "crazy"
+      ],
+      "finalWords": [
+        "is",
+        "his",
+        "was",
+        "nose",
+        "rose",
+        "eyes"
+      ],
+      "minimalPairs": [
+        {
+          "target": "zoo",
+          "contrast": "sue",
+          "contrastPhoneme": "s",
+          "note": "vườn thú vs kiện"
+        },
+        {
+          "target": "eyes",
+          "contrast": "ice",
+          "contrastPhoneme": "s",
+          "note": "đôi mắt vs đá lạnh"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "He is busy playing music at the zoo on Tuesdays.",
+          "translationVi": "Anh ấy bận chơi nhạc ở sở thú vào các ngày thứ Ba.",
+          "targetWords": [
+            "is",
+            "busy",
+            "music",
+            "zoo",
+            "Tuesdays"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sh-sound",
+      "symbol": "ʃ",
+      "name": "Phụ âm /ʃ/ (Vô thanh - Suỵt im lặng)",
+      "type": "consonant",
+      "subType": "voiceless-consonant",
+      "partnerId": "zh-sound",
+      "anchorWord": "she",
+      "anchorWordIpa": "/ʃiː/",
+      "vietnameseNote": "Người miền Bắc hay đọc lẫn /ʃ/ (she, ship) với /s/ (see, sip). Cần chu tròn môi và cong lưỡi.",
+      "mouthTip": "Chu môi thành hình phễu tròn nhô ra phía trước, thân lưỡi nâng lên hướng vòm miệng, đẩy luồng hơi xì dày và êm (như tiếng ra hiệu im lặng \"suỵt\").",
+      "difficultyForVn": "high",
+      "video": {
+        "youtubeVideoId": "uguN4ghpKtQ",
+        "startSeconds": 30,
+        "endSeconds": 95,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce SH and ZH Sounds",
+        "videoTip": "Flare lips out into a trumpet shape. Broader, softer stream of air than S."
+      },
+      "initialWords": [
+        "she",
+        "ship",
+        "shoe",
+        "short",
+        "shop",
+        "share"
+      ],
+      "medialWords": [
+        "fashion",
+        "station",
+        "nation",
+        "action",
+        "cushion"
+      ],
+      "finalWords": [
+        "fish",
+        "wash",
+        "wish",
+        "push",
+        "English"
+      ],
+      "minimalPairs": [
+        {
+          "target": "she",
+          "contrast": "see",
+          "contrastPhoneme": "s",
+          "note": "cô ấy vs nhìn"
+        },
+        {
+          "target": "ship",
+          "contrast": "sip",
+          "contrastPhoneme": "s",
+          "note": "con tàu vs nhấp ngụm"
+        },
+        {
+          "target": "shoe",
+          "contrast": "sue",
+          "contrastPhoneme": "s",
+          "note": "chiếc giày vs kiện"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "She sells sea shells at the seashore shop.",
+          "translationVi": "Cô ấy bán vỏ sò tại cửa hàng ven bờ biển.",
+          "targetWords": [
+            "She",
+            "shells",
+            "seashore",
+            "shop"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zh-sound",
+      "symbol": "ʒ",
+      "name": "Phụ âm /ʒ/ (Hữu thanh - Chu môi rung)",
+      "type": "consonant",
+      "subType": "voiced-consonant",
+      "partnerId": "sh-sound",
+      "anchorWord": "vision",
+      "anchorWordIpa": "/ˈvɪʒn/",
+      "vietnameseNote": "Âm này không bao giờ đứng đầu từ trong tiếng Anh gốc. Người Việt hay đọc thành /z/ hoặc /dʒ/.",
+      "mouthTip": "Cùng vị trí chu môi phễu như /ʃ/, nhưng RUNG DÂY THANH QUẢN LIÊN TỤC.",
+      "difficultyForVn": "medium",
+      "video": {
+        "youtubeVideoId": "uguN4ghpKtQ",
+        "startSeconds": 96,
+        "endSeconds": 155,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the ZH Sound",
+        "videoTip": "Voiced counterpart to SH. Lips flared, full throat vibration."
+      },
+      "initialWords": [
+        "genre"
+      ],
+      "medialWords": [
+        "vision",
+        "measure",
+        "pleasure",
+        "treasure",
+        "decision",
+        "casual"
+      ],
+      "finalWords": [
+        "beige",
+        "massage",
+        "mirage"
+      ],
+      "minimalPairs": [],
+      "practiceSentences": [
+        {
+          "sentence": "It is a pleasure to measure this treasure on television.",
+          "translationVi": "Thật là một vinh dự khi đo lường kho báu này trên truyền hình.",
+          "targetWords": [
+            "pleasure",
+            "measure",
+            "treasure",
+            "television"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ch-sound",
+      "symbol": "tʃ",
+      "name": "Phụ âm /tʃ/ (Vô thanh - Bật tắc xát \"ch\")",
+      "type": "consonant",
+      "subType": "voiceless-consonant",
+      "partnerId": "j-consonant",
+      "anchorWord": "chair",
+      "anchorWordIpa": "/tʃer/",
+      "vietnameseNote": "Khác chữ \"ch\" tiếng Việt (môi phẳng, không bật). Âm /tʃ/ tiếng Anh phải chu môi và giật nảy hơi mạnh.",
+      "mouthTip": "Bắt đầu từ vị trí chặn hơi của /t/, sau đó bật ngay sang âm xì /ʃ/. Chu môi tròn và giật hơi dứt khoát.",
+      "difficultyForVn": "high",
+      "video": {
+        "youtubeVideoId": "jaRcbpN_KlM",
+        "startSeconds": 948,
+        "endSeconds": 1010,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the CH Sound",
+        "videoTip": "Stop air with tongue tip at roof of mouth, then release explosively into a flared SH position."
+      },
+      "initialWords": [
+        "chair",
+        "child",
+        "chicken",
+        "cheap",
+        "choose"
+      ],
+      "medialWords": [
+        "teacher",
+        "picture",
+        "kitchen",
+        "watching"
+      ],
+      "finalWords": [
+        "watch",
+        "catch",
+        "beach",
+        "much",
+        "rich",
+        "teach"
+      ],
+      "minimalPairs": [
+        {
+          "target": "rich",
+          "contrast": "ridge",
+          "contrastPhoneme": "dʒ",
+          "note": "giàu có vs sống núi"
+        },
+        {
+          "target": "cheer",
+          "contrast": "jeer",
+          "contrastPhoneme": "dʒ",
+          "note": "cổ vũ vs chế giễu"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "The teacher watched children choose cheap chicken.",
+          "translationVi": "Giáo viên quan sát lũ trẻ chọn thịt gà giá rẻ.",
+          "targetWords": [
+            "teacher",
+            "watched",
+            "children",
+            "choose",
+            "cheap",
+            "chicken"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "j-consonant",
+      "symbol": "dʒ",
+      "name": "Phụ âm /dʒ/ (Hữu thanh - Rung tắc xát \"j\")",
+      "type": "consonant",
+      "subType": "voiced-consonant",
+      "partnerId": "ch-sound",
+      "anchorWord": "June",
+      "anchorWordIpa": "/dʒuːn/",
+      "vietnameseNote": "Người Việt hay đọc nhầm thành \"d\" hoặc \"gi\" tiếng Việt hoặc đọc thành /z/. Phải kết hợp chặn hơi của /d/ và rung của /ʒ/.",
+      "mouthTip": "Chặn hơi như /d/, bật bung môi như /ʒ/ kèm rung họng mạnh mẽ.",
+      "difficultyForVn": "high",
+      "video": {
+        "youtubeVideoId": "jaRcbpN_KlM",
+        "startSeconds": 1011,
+        "endSeconds": 1075,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the J /dʒ/ Sound",
+        "videoTip": "Voiced affricate: vocal cords vibrate from the initial D-stop through the buzzing ZH release."
+      },
+      "initialWords": [
+        "June",
+        "job",
+        "juice",
+        "jacket",
+        "journey",
+        "join"
+      ],
+      "medialWords": [
+        "major",
+        "danger",
+        "project",
+        "magic",
+        "energy"
+      ],
+      "finalWords": [
+        "age",
+        "page",
+        "large",
+        "college",
+        "orange",
+        "bridge"
+      ],
+      "minimalPairs": [
+        {
+          "target": "ridge",
+          "contrast": "rich",
+          "contrastPhoneme": "tʃ",
+          "note": "sống núi vs giàu có"
+        },
+        {
+          "target": "jeep",
+          "contrast": "cheap",
+          "contrastPhoneme": "tʃ",
+          "note": "xe jeep vs rẻ tiền"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "Jack joined a major project in June.",
+          "translationVi": "Jack đã tham gia một dự án lớn vào tháng Sáu.",
+          "targetWords": [
+            "Jack",
+            "joined",
+            "major",
+            "project",
+            "June"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "m-sound",
+      "symbol": "m",
+      "name": "Phụ âm mũi /m/",
+      "type": "consonant",
+      "subType": "sonorant",
+      "anchorWord": "man",
+      "anchorWordIpa": "/mæn/",
+      "vietnameseNote": "Khá giống tiếng Việt, nhưng khi đứng cuối từ (\"name\", \"come\") cần ngậm môi giữ hơi để thoát qua mũi.",
+      "mouthTip": "Ngậm chặt hai môi, hơi thoát hoàn toàn qua đường mũi, dây thanh quản rung đều.",
+      "difficultyForVn": "low",
+      "video": {
+        "youtubeVideoId": "CoEh8cz-mS4",
+        "startSeconds": 25,
+        "endSeconds": 80,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce M [m] Consonant",
+        "videoTip": "Press lips together lightly, air resonates through nasal cavity with vocal vibration."
+      },
+      "initialWords": [
+        "man",
+        "mother",
+        "make",
+        "milk"
+      ],
+      "medialWords": [
+        "summer",
+        "family",
+        "simple"
+      ],
+      "finalWords": [
+        "name",
+        "time",
+        "home",
+        "room",
+        "warm"
+      ],
+      "minimalPairs": [],
+      "practiceSentences": [
+        {
+          "sentence": "Mom made warm milk for me in my room.",
+          "translationVi": "Mẹ đã làm sữa ấm cho tôi trong phòng.",
+          "targetWords": [
+            "Mom",
+            "made",
+            "warm",
+            "milk",
+            "room"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "n-sound",
+      "symbol": "n",
+      "name": "Phụ âm mũi /n/",
+      "type": "consonant",
+      "subType": "sonorant",
+      "anchorWord": "no",
+      "anchorWordIpa": "/noʊ/",
+      "vietnameseNote": "Khi đứng cuối từ (\"sun\", \"can\"), đầu lưỡi phải dán chặt lên nướu răng trên để hơi thoát qua mũi, không được thả rơi lưỡi.",
+      "mouthTip": "Đầu lưỡi dán chặt vào gờ nướu trên, chặn luồng khí qua miệng để thoát qua mũi.",
+      "difficultyForVn": "medium",
+      "video": {
+        "youtubeVideoId": "HeMzjC672OA",
+        "startSeconds": 25,
+        "endSeconds": 80,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce N [n] Consonant",
+        "videoTip": "Tongue tip seals against roof of mouth behind front teeth, air flows through nose."
+      },
+      "initialWords": [
+        "no",
+        "name",
+        "night",
+        "new"
+      ],
+      "medialWords": [
+        "winter",
+        "money",
+        "funny",
+        "dinner"
+      ],
+      "finalWords": [
+        "sun",
+        "ten",
+        "one",
+        "moon",
+        "green",
+        "rain"
+      ],
+      "minimalPairs": [
+        {
+          "target": "sun",
+          "contrast": "sung",
+          "contrastPhoneme": "ŋ",
+          "note": "mặt trời vs đã hát"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "Nine nice neighbors invited us to dinner.",
+          "translationVi": "Chín người hàng xóm tốt bụng đã mời chúng tôi ăn tối.",
+          "targetWords": [
+            "Nine",
+            "nice",
+            "neighbors",
+            "dinner"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ng-sound",
+      "symbol": "ŋ",
+      "name": "Phụ âm mũi /ŋ/ (Âm \"ng\" cuối từ)",
+      "type": "consonant",
+      "subType": "sonorant",
+      "anchorWord": "sing",
+      "anchorWordIpa": "/sɪŋ/",
+      "vietnameseNote": "Âm \"ng\" chỉ đứng cuối hoặc giữa từ trong tiếng Anh. Người Việt hay nhầm đuôi /n/ với /ŋ/ (như \"thin\" vs \"thing\").",
+      "mouthTip": "Nâng cuống lưỡi chạm ngạc mềm sau vòm họng để ép luồng khí thoát qua mũi.",
+      "difficultyForVn": "medium",
+      "video": {
+        "youtubeVideoId": "6ESY7ueSfrc",
+        "startSeconds": 32,
+        "endSeconds": 95,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the NG /ŋ/ Sound",
+        "videoTip": "Velar nasal. Back of tongue raises to soft palate. Essential contrast with N."
+      },
+      "initialWords": [],
+      "medialWords": [
+        "singer",
+        "finger",
+        "English",
+        "monkey"
+      ],
+      "finalWords": [
+        "sing",
+        "ring",
+        "song",
+        "king",
+        "morning",
+        "spring"
+      ],
+      "minimalPairs": [
+        {
+          "target": "thing",
+          "contrast": "thin",
+          "contrastPhoneme": "n",
+          "note": "đồ vật vs gầy"
+        },
+        {
+          "target": "sing",
+          "contrast": "sin",
+          "contrastPhoneme": "n",
+          "note": "hát vs tội lỗi"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "The king was singing a long morning song.",
+          "translationVi": "Nhà vua đang hát một bài ca dài buổi sáng.",
+          "targetWords": [
+            "king",
+            "singing",
+            "long",
+            "morning",
+            "song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "h-sound",
+      "symbol": "h",
+      "name": "Phụ âm /h/ (Thở nhẹ)",
+      "type": "consonant",
+      "subType": "sonorant",
+      "anchorWord": "hat",
+      "anchorWordIpa": "/hæt/",
+      "vietnameseNote": "Là tiếng thở dài đẩy hơi từ thanh quản, cơ miệng hoàn toàn thả lỏng chuẩn bị cho nguyên âm kế tiếp.",
+      "mouthTip": "Mở miệng tự nhiên, thở một luồng khí nhẹ từ cuống họng ra ngoài.",
+      "difficultyForVn": "low",
+      "video": {
+        "youtubeVideoId": "pRXsIthxgH8",
+        "startSeconds": 10,
+        "endSeconds": 50,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the H Sound",
+        "videoTip": "Glottal fricative. Pure whisper of unvoiced breath."
+      },
+      "initialWords": [
+        "hat",
+        "home",
+        "hot",
+        "happy",
+        "house"
+      ],
+      "medialWords": [
+        "ahead",
+        "behind",
+        "perhaps"
+      ],
+      "finalWords": [],
+      "minimalPairs": [
+        {
+          "target": "heat",
+          "contrast": "eat",
+          "contrastPhoneme": "vowel",
+          "note": "nhiệt độ vs ăn"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "Harry hopes to have a happy holiday at home.",
+          "translationVi": "Harry hy vọng có một kỳ nghỉ vui vẻ tại nhà.",
+          "targetWords": [
+            "Harry",
+            "hopes",
+            "have",
+            "happy",
+            "holiday",
+            "home"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "l-sound",
+      "symbol": "l",
+      "name": "Phụ âm /l/ (L đầu & Dark L cuối)",
+      "type": "consonant",
+      "subType": "sonorant",
+      "anchorWord": "leg",
+      "anchorWordIpa": "/leɡ/",
+      "vietnameseNote": "Cực kỳ quan trọng: Âm \"L tối\" (Dark L) khi đứng cuối từ (\"ball\", \"milk\", \"table\"). Người Việt hay đọc thành âm \"u\" hoặc nuốt mất. Phải cuộn nhẹ đáy lưỡi!",
+      "mouthTip": "Đầu từ: đầu lưỡi chạm nướu trên. Cuối từ: gốc lưỡi hơi nâng lên sau vòm họng tạo độ sâu ấm cho âm thanh.",
+      "difficultyForVn": "high",
+      "video": {
+        "youtubeVideoId": "FP0jHNoFqWo",
+        "startSeconds": 35,
+        "endSeconds": 105,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce Light and Dark L",
+        "videoTip": "Light L: tongue tip touches alveolar ridge. Dark L: back of tongue arches back."
+      },
+      "initialWords": [
+        "leg",
+        "light",
+        "love",
+        "listen",
+        "look"
+      ],
+      "medialWords": [
+        "yellow",
+        "color",
+        "family",
+        "million"
+      ],
+      "finalWords": [
+        "ball",
+        "bell",
+        "cool",
+        "apple",
+        "school",
+        "table"
+      ],
+      "minimalPairs": [
+        {
+          "target": "light",
+          "contrast": "right",
+          "contrastPhoneme": "r",
+          "note": "ánh sáng vs bên phải/đúng"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "Little Lucy loves to call all her friends at school.",
+          "translationVi": "Lucy bé nhỏ thích gọi điện cho tất cả bạn bè ở trường.",
+          "targetWords": [
+            "Little",
+            "Lucy",
+            "loves",
+            "call",
+            "all",
+            "school"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r-sound",
+      "symbol": "r",
+      "name": "Phụ âm /r/ (Mỹ uốn lưỡi sâu)",
+      "type": "consonant",
+      "subType": "sonorant",
+      "anchorWord": "red",
+      "anchorWordIpa": "/red/",
+      "vietnameseNote": "Âm /r/ tiếng Anh Mỹ KHÔNG rung lưỡi như tiếng Việt. Đầu lưỡi uốn cong về sau nhưng TUYỆT ĐỐI KHÔNG CHẠM bất kỳ phần nào trong miệng!",
+      "mouthTip": "Môi hơi chu tròn nhẹ, đầu lưỡi uốn cong ngược về sau khoang miệng (cách vòm họng 1 khoảng nhỏ), hơi đi qua không chạm.",
+      "difficultyForVn": "high",
+      "video": {
+        "youtubeVideoId": "G_OQjKLvt0E",
+        "startSeconds": 35,
+        "endSeconds": 110,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the American R [ɹ] Consonant",
+        "videoTip": "Tongue tip pulls back, middle arches up, tongue touches nothing. Lips flare."
+      },
+      "initialWords": [
+        "red",
+        "run",
+        "read",
+        "room",
+        "rain",
+        "radio"
+      ],
+      "medialWords": [
+        "parent",
+        "story",
+        "orange",
+        "very"
+      ],
+      "finalWords": [
+        "car",
+        "door",
+        "four",
+        "near",
+        "star"
+      ],
+      "minimalPairs": [
+        {
+          "target": "red",
+          "contrast": "led",
+          "contrastPhoneme": "l",
+          "note": "màu đỏ vs đã dẫn dắt"
+        },
+        {
+          "target": "right",
+          "contrast": "light",
+          "contrastPhoneme": "l",
+          "note": "đúng vs ánh sáng"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "Robert ran around the red river in the rain.",
+          "translationVi": "Robert đã chạy quanh dòng sông đỏ dưới trời mưa.",
+          "targetWords": [
+            "Robert",
+            "ran",
+            "around",
+            "red",
+            "river",
+            "rain"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "w-sound",
+      "symbol": "w",
+      "name": "Phụ âm /w/ (Lướt môi)",
+      "type": "consonant",
+      "subType": "sonorant",
+      "anchorWord": "wet",
+      "anchorWordIpa": "/wet/",
+      "vietnameseNote": "Gần giống chữ \"qu\" hoặc \"o/u\" trong tiếng Việt. Cần chu môi tròn nhỏ rồi mở nhanh sang nguyên âm tiếp theo.",
+      "mouthTip": "Chu môi tròn như huýt sáo rồi mở bung nhanh ra kết hợp rung dây thanh quản.",
+      "difficultyForVn": "low",
+      "video": {
+        "youtubeVideoId": "RW94L6606DE",
+        "startSeconds": 20,
+        "endSeconds": 75,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the W Consonant",
+        "videoTip": "Tight lip rounding glides instantly into next vowel."
+      },
+      "initialWords": [
+        "wet",
+        "want",
+        "water",
+        "window",
+        "world",
+        "work"
+      ],
+      "medialWords": [
+        "away",
+        "always",
+        "between",
+        "reward"
+      ],
+      "finalWords": [],
+      "minimalPairs": [
+        {
+          "target": "wet",
+          "contrast": "vet",
+          "contrastPhoneme": "v",
+          "note": "ẩm ướt vs bác sĩ thú y"
+        },
+        {
+          "target": "west",
+          "contrast": "vest",
+          "contrastPhoneme": "v",
+          "note": "hướng tây vs áo gi-lê"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "We will walk with William to the west window.",
+          "translationVi": "Chúng tôi sẽ đi bộ cùng William tới cửa sổ phía tây.",
+          "targetWords": [
+            "We",
+            "will",
+            "walk",
+            "with",
+            "William",
+            "west",
+            "window"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "j-sound",
+      "symbol": "j",
+      "name": "Phụ âm /j/ (Lướt Y - \"yes\")",
+      "type": "consonant",
+      "subType": "sonorant",
+      "anchorWord": "yes",
+      "anchorWordIpa": "/jes/",
+      "vietnameseNote": "Ký hiệu là /j/ nhưng đọc là âm \"y\" (như trong \"yes\", \"year\", \"young\"). Người miền Nam hay nhầm với âm /z/.",
+      "mouthTip": "Thân lưỡi nâng cao về phía ngạc cứng như âm /iː/, rồi lướt nhanh sang nguyên âm tiếp theo.",
+      "difficultyForVn": "low",
+      "video": {
+        "youtubeVideoId": "1Yo4BHIIBP8",
+        "startSeconds": 28,
+        "endSeconds": 82,
+        "channelName": "Rachel's English",
+        "clipTitle": "How to Pronounce the Y /j/ Consonant",
+        "videoTip": "Palatal glide. Tongue arches high like EE, quickly releasing into vowel."
+      },
+      "initialWords": [
+        "yes",
+        "year",
+        "yellow",
+        "you",
+        "young",
+        "yesterday"
+      ],
+      "medialWords": [
+        "million",
+        "onion",
+        "beauty",
+        "music"
+      ],
+      "finalWords": [],
+      "minimalPairs": [
+        {
+          "target": "year",
+          "contrast": "ear",
+          "contrastPhoneme": "vowel",
+          "note": "năm vs cái tai"
+        },
+        {
+          "target": "yes",
+          "contrast": "guess",
+          "contrastPhoneme": "g",
+          "note": "đồng ý vs đoán"
+        }
+      ],
+      "practiceSentences": [
+        {
+          "sentence": "Yes, yesterday the young youth wore a yellow jacket.",
+          "translationVi": "Vâng, ngày hôm qua chàng thanh niên trẻ đã mặc chiếc áo khoác vàng.",
+          "targetWords": [
+            "Yes",
+            "yesterday",
+            "young",
+            "youth",
+            "yellow"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+@* Visual exam showcase (port of VisualExamShowcase.tsx). All three panels are server-rendered; JS only toggles [hidden]. *@
+@{
+    var examples = new[]
+    {
+        new { Part = "Part 1: Tranh Tả Cảnh", Title = "Bẫy Từ Nhóm Lớn (Hypernym)", Subtitle = "Nhìn thấy hoa quả quả táo, cam, dứa nhưng đề không đọc tên riêng",
+              Img = "/images/toeic-part1-produce.jpg", Alt = "Quầy hoa quả rau củ siêu thị với táo, cam, chuối",
+              Audio = "Look at the picture marked number 1 in your test book.", Expected = "apples, oranges, pineapples, bananas, fruits",
+              Actual = "Some produce is displayed on shelves.",
+              Trap = "Băng KHÔNG hề nhắc đến quả táo (apple) hay chuối (banana). Người học thụ động chờ nghe tên quả sẽ bị lỡ nhịp và khoanh bừa.",
+              Takeaway = "Mẹo: Nhìn thấy rau củ quả lập tức dịch nhẩm sang produce / groceries trong 2 giây đầu tiên!" },
+        new { Part = "Part 1: Tranh Người & Động Tác", Title = "Dáng Người Tĩnh vs Bẫy Being", Subtitle = "Nữ kỹ sư cúi người kiểm tra máy bơm trong xưởng",
+              Img = "/images/toeic-part1-bending.jpg", Alt = "Nữ kỹ sư cúi người kiểm tra máy móc thiết bị công nghiệp",
+              Audio = "Look at the picture marked number 2 in your test book.", Expected = "She is picking up tools / She is fixing the machine",
+              Actual = "A woman is bending over the equipment.",
+              Trap = "Đề bẫy phương án: \"The machine is being repaired\" hoặc \"She is carrying a toolbox\". Thao tác dở dang hiếm khi đúng, ETS luôn ưu tiên tư thế duy trì (bending over).",
+              Takeaway = "Mẹo: Tập trung vào tư thế cơ thể (bending, kneeling, reaching) thay vì suy diễn hành động sửa chữa." },
+        new { Part = "Part 3 & 4: Đọc Bảng Biểu", Title = "Quy Tắc Gióng Cột Đối Diện", Subtitle = "Bảng chương trình hội nghị 3 cột: Giờ - Phòng - Diễn giả",
+              Img = "/images/toeic-part3-graphic.jpg", Alt = "Bảng lịch trình hội thảo Conference Schedule với các phòng Room 101, Room 204",
+              Audio = "Look at the graphic. Which room will the speaker attend next?", Expected = "Room 101, Room 102, Room 204, Room 301",
+              Actual = "Room 204 (Vì audio nói: \"Let's attend Dr. Henderson's keynote\")",
+              Trap = "Audio KHÔNG BAO GIỜ đọc thẳng số phòng Room 204. Nếu nghe thấy số phòng nào trong băng, 90% đó là phòng bẫy của người nói trước!",
+              Takeaway = "Mẹo: Nhìn 4 đáp án (cột Phòng) -> Bịt tai chỉ bắt thông tin ở cột đối diện (Tên người hoặc Tên đề tài)." },
+    };
+}
+<section class="border-t border-slate-200/80 bg-slate-50/70 px-4 py-16 sm:px-6 sm:py-24" data-lm-visual>
+    <div class="mx-auto max-w-6xl space-y-10">
+        <div class="mx-auto max-w-3xl space-y-3 text-center">
+            <div class="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-indigo-700 shadow-xs">✨ Mục Sở Thị Đề Thi Thật ETS 2024 - 2026</div>
+            <h2 class="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">Hình Ảnh Minh Họa Bẫy Đề Thi Thực Tế</h2>
+            <p class="text-xs leading-relaxed text-slate-600 sm:text-base">Xem trực tiếp 3 tình huống "kinh điển" khiến thí sinh mất điểm oan uổng: Sự lệch pha giữa <strong class="font-semibold text-rose-600">từ bạn trông đợi nghe</strong> và <strong class="font-semibold text-emerald-700">từ ngữ thực tế ETS phát âm</strong>.</p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3" role="tablist">
+            @for (var i = 0; i < examples.Length; i++)
+            {
+                <button type="button" role="tab" data-visual-tab="@i" aria-selected="@(i == 0 ? "true" : "false")" class="lm-vtab flex cursor-pointer items-center gap-2 rounded-2xl px-4 py-2.5 text-xs font-bold shadow-xs transition sm:text-sm">
+                    <span class="lm-vdot h-2 w-2 rounded-full"></span>@examples[i].Part
+                </button>
+            }
+        </div>
+
+        @for (var i = 0; i < examples.Length; i++)
+        {
+            var ex = examples[i];
+            <div data-visual-panel="@i" @(i == 0 ? "" : "hidden") class="grid grid-cols-1 gap-0 overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-sm lg:grid-cols-12">
+                <div class="group relative flex flex-col justify-between overflow-hidden bg-slate-950 p-6 sm:p-8 lg:col-span-6">
+                    <div class="z-10 mb-4 space-y-2">
+                        <div class="flex items-center justify-between font-mono text-xs text-slate-400">
+                            <span class="rounded-md border border-slate-700 bg-slate-800 px-2.5 py-1 font-semibold text-indigo-300">@ex.Part</span>
+                            <span>ETS Real Exam Format</span>
+                        </div>
+                        <p class="font-mono text-xs italic text-slate-300">🔊 "@ex.Audio"</p>
+                    </div>
+                    <div class="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border-2 border-slate-700/60 bg-slate-900 shadow-2xl">
+                        <img src="@ex.Img" alt="@ex.Alt" loading="@(i == 0 ? "eager" : "lazy")" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent p-4 text-xs text-slate-300">
+                            <p class="font-semibold text-white">@ex.Title</p>
+                            <p class="line-clamp-1 text-[11px] text-slate-300">@ex.Subtitle</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-center font-mono text-[11px] text-slate-400">Ảnh mô phỏng trực quan trích từ ngân hàng đề thi chuẩn hóa ETS</div>
+                </div>
+
+                <div class="flex flex-col justify-between space-y-6 p-6 sm:p-8 lg:col-span-6">
+                    <div class="space-y-4">
+                        <div>
+                            <span class="font-mono text-xs font-bold uppercase tracking-wider text-indigo-600">Bóc Tách Phản Xạ</span>
+                            <h3 class="mt-1 text-xl font-black text-slate-900 sm:text-2xl">@ex.Title</h3>
+                            <p class="mt-1 text-xs text-slate-600 sm:text-sm">@ex.Subtitle</p>
+                        </div>
+                        <div class="space-y-3 pt-2">
+                            <div class="space-y-1 rounded-2xl border border-rose-200/80 bg-rose-50/70 p-4">
+                                <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-rose-700"><span class="shrink-0">⚠️</span><span>Bạn trông đợi nghe trong đầu (Từ tiếng Anh quen thuộc):</span></div>
+                                <p class="pl-6 font-mono text-sm font-bold text-slate-900">@ex.Expected</p>
+                            </div>
+                            <div class="space-y-1 rounded-2xl border border-emerald-200/80 bg-emerald-50/70 p-4">
+                                <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800"><span class="shrink-0">✅</span><span>Thực tế đề thi phát âm (Đáp án ĐÚNG):</span></div>
+                                <p class="pl-6 font-mono text-sm font-extrabold text-emerald-950 sm:text-base">"@ex.Actual"</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2 rounded-2xl border border-slate-200/80 bg-slate-50 p-4">
+                            <h4 class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-700">❓ Tại sao lại như vậy? (Phân tích bẫy ETS)</h4>
+                            <p class="text-xs leading-relaxed text-slate-600 sm:text-sm">@ex.Trap</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 rounded-2xl border border-amber-200/70 bg-amber-50/60 p-3.5">
+                        <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-amber-100 text-xs font-bold text-amber-800">💡</div>
+                        <p class="text-xs font-semibold leading-snug text-amber-950">@ex.Takeaway</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>

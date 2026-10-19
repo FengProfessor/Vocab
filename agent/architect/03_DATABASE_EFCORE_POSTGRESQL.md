@@ -1,4 +1,4 @@
-# Đặc Tả Tầng Dữ Liệu: Entity Framework Core 10 & Supabase PostgreSQL (Đồng Bộ 100% Từ `supabase/migrations`)
+﻿# Đặc Tả Tầng Dữ Liệu: Entity Framework Core 10 & Supabase PostgreSQL (Đồng Bộ 100% Từ `supabase/migrations`)
 
 Tài liệu này chi tiết hóa thiết kế tầng lưu trữ và truy cập dữ liệu (Data Access Layer) của giải pháp Monolith bằng **EF Core 10** kết nối tới cơ sở dữ liệu **Supabase PostgreSQL**, được trích xuất và chuẩn hóa trực tiếp từ `supabase/schema.sql` cùng toàn bộ hơn 50 file migrations trong `supabase/migrations/`.
 *(Lưu ý: Toàn bộ comment trong mã nguồn bắt buộc viết bằng tiếng Anh).*
@@ -69,80 +69,116 @@ Toàn bộ các ràng buộc `CHECK (...)` và phân loại nghiệp vụ trong 
 ```csharp
 // LingoPro.Domain/Enums/Certification/CertLevel.cs
 // Source migrations: 20260703_learning_roadmap.sql, 20260930_unify_grammar_roadmap.sql, 20261015_reading_library_articles.sql
-namespace LingoPro.Domain.Enums.Certification;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 /// <summary>
 /// Represents standardized certification proficiency levels (A0 through C2).
 /// </summary>
 public enum CertLevel
 {
-    A0 = 0,
-    A1 = 1,
-    A2 = 2,
-    B1 = 3,
-    B2 = 4,
-    C1 = 5,
-    C2 = 6
+    [Display(Name = "A0")]
+    A0,
+    [Display(Name = "A1")]
+    A1,
+    [Display(Name = "A2")]
+    A2,
+    [Display(Name = "B1")]
+    B1,
+    [Display(Name = "B2")]
+    B2,
+    [Display(Name = "C1")]
+    C1,
+    [Display(Name = "C2")]
+    C2,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Certification/RoadmapLevelId.cs
 // Source migration: 20260907_roadmap_toeic_track.sql (check level_id in A0..B2, lop-10..lop-12, toeic-450..toeic-800)
-namespace LingoPro.Domain.Enums.Certification;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 /// <summary>
 /// Represents target proficiency or grade levels across CEFR, High School (THPT), and TOEIC tracks.
 /// </summary>
 public enum RoadmapLevelId
 {
-    A0 = 1,
-    A1 = 2,
-    A2 = 3,
-    B1 = 4,
-    B2 = 5,
-    Lop10 = 10,     // 'lop-10'
-    Lop11 = 11,     // 'lop-11'
-    Lop12 = 12,     // 'lop-12'
-    Toeic450 = 450, // 'toeic-450'
-    Toeic650 = 650, // 'toeic-650'
-    Toeic800 = 800  // 'toeic-800'
+    [Display(Name = "A0")]
+    A0,
+    [Display(Name = "A1")]
+    A1,
+    [Display(Name = "A2")]
+    A2,
+    [Display(Name = "B1")]
+    B1,
+    [Display(Name = "B2")]
+    B2,
+    [Display(Name = "Lop10")]
+    Lop10,
+    [Display(Name = "Lop11")]
+    Lop11,
+    [Display(Name = "Lop12")]
+    Lop12,
+    [Display(Name = "Toeic450")]
+    Toeic450,
+    [Display(Name = "Toeic650")]
+    Toeic650,
+    [Display(Name = "Toeic800")]
+    Toeic800,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Certification/GrammarLevel.cs
 // Source migration: 20260930_unify_grammar_roadmap.sql
-namespace LingoPro.Domain.Enums.Certification;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 /// <summary>
 /// Represents difficulty and certification levels for grammar topics.
 /// </summary>
 public enum GrammarLevel
 {
-    A0 = 0,
-    A1 = 1,
-    A2 = 2,
-    B1 = 3,
-    B2 = 4,
-    Beginner = 10,     // 'beginner'
-    Intermediate = 11, // 'intermediate'
-    Advanced = 12      // 'advanced'
+    [Display(Name = "A0")]
+    A0,
+    [Display(Name = "A1")]
+    A1,
+    [Display(Name = "A2")]
+    A2,
+    [Display(Name = "B1")]
+    B1,
+    [Display(Name = "B2")]
+    B2,
+    [Display(Name = "Beginner")]
+    Beginner,
+    [Display(Name = "Intermediate")]
+    Intermediate,
+    [Display(Name = "Advanced")]
+    Advanced,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Certification/GrammarMicroStage.cs
 // Source migration: 20260923_grammar_micro_progress.sql (check stage in ('a0', 'a1'))
-namespace LingoPro.Domain.Enums.Certification;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 /// <summary>
 /// Represents foundation micro-grammar stages.
 /// </summary>
 public enum GrammarMicroStage
 {
-    A0 = 0, // 'a0'
-    A1 = 1  // 'a1'
+    [Display(Name = "A0")]
+    A0,
+    [Display(Name = "A1")]
+    A1,
 }
 ```
 
@@ -151,106 +187,147 @@ public enum GrammarMicroStage
 ```csharp
 // LingoPro.Domain/Enums/Auth/UserRole.cs
 // Source migrations: schema.sql & 20261015_reading_library_articles.sql
-namespace LingoPro.Domain.Enums.Auth;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 /// <summary>
 /// Defines user authorization roles in the platform.
 /// </summary>
 public enum UserRole
 {
-    Student = 1, // 'student'
-    Teacher = 2, // 'teacher'
-    Admin = 3    // 'admin'
+    [Display(Name = "Student")]
+    Student,
+    [Display(Name = "Teacher")]
+    Teacher,
+    [Display(Name = "Admin")]
+    Admin,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Billing/SubscriptionPlanType.cs
 // Source migrations: 20260530_entitlement_quiz_cache.sql & 20260531_billing_system.sql
-namespace LingoPro.Domain.Enums.Billing;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 /// <summary>
 /// Defines subscription entitlement tiers.
 /// </summary>
 public enum SubscriptionPlanType
 {
-    Free = 0,    // 'free'
-    Pro = 1,     // 'pro'
-    Premium = 2, // 'premium'
-    School = 3   // 'school'
+    [Display(Name = "Free")]
+    Free,
+    [Display(Name = "Pro")]
+    Pro,
+    [Display(Name = "Premium")]
+    Premium,
+    [Display(Name = "School")]
+    School,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Billing/OrderKind.cs
 // Source migrations: 20260617_group_plan.sql & 20260914_challenge_campaigns.sql
-namespace LingoPro.Domain.Enums.Billing;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 /// <summary>
 /// Distinguishes individual subscriptions, group plans, and commitment challenge deposits.
 /// </summary>
 public enum OrderKind
 {
-    Individual = 1, // 'individual'
-    Group = 2,      // 'group'
-    Challenge = 3   // 'challenge'
+    [Display(Name = "Individual")]
+    Individual,
+    [Display(Name = "Group")]
+    Group,
+    [Display(Name = "Challenge")]
+    Challenge,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Billing/PaymentMethodType.cs
 // Source migration: 20260531_billing_system.sql
-namespace LingoPro.Domain.Enums.Billing;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum PaymentMethodType
 {
-    VnPay = 1,        // 'vnpay'
-    MoMo = 2,         // 'momo'
-    BankTransfer = 3, // 'bank_transfer'
-    Manual = 4        // 'manual'
+    [Display(Name = "VnPay")]
+    VnPay,
+    [Display(Name = "MoMo")]
+    MoMo,
+    [Display(Name = "BankTransfer")]
+    BankTransfer,
+    [Display(Name = "Manual")]
+    Manual,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Billing/OrderStatus.cs
 // Source migration: 20260531_billing_system.sql
-namespace LingoPro.Domain.Enums.Billing;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum OrderStatus
 {
-    Pending = 1,  // 'pending'
-    Paid = 2,     // 'paid'
-    Failed = 3,   // 'failed'
-    Refunded = 4, // 'refunded'
-    Expired = 5   // 'expired'
+    [Display(Name = "Pending")]
+    Pending,
+    [Display(Name = "Paid")]
+    Paid,
+    [Display(Name = "Failed")]
+    Failed,
+    [Display(Name = "Refunded")]
+    Refunded,
+    [Display(Name = "Expired")]
+    Expired,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Billing/SubscriptionChangeReason.cs
 // Source migration: 20260531_billing_system.sql
-namespace LingoPro.Domain.Enums.Billing;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum SubscriptionChangeReason
 {
-    Upgrade = 1,     // 'upgrade'
-    Downgrade = 2,   // 'downgrade'
-    Expired = 3,     // 'expired'
-    AdminManual = 4, // 'admin_manual'
-    Payment = 5      // 'payment'
+    [Display(Name = "Upgrade")]
+    Upgrade,
+    [Display(Name = "Downgrade")]
+    Downgrade,
+    [Display(Name = "Expired")]
+    Expired,
+    [Display(Name = "AdminManual")]
+    AdminManual,
+    [Display(Name = "Payment")]
+    Payment,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Billing/StudyGroupStatus.cs
 // Source migration: 20260617_group_plan.sql
-namespace LingoPro.Domain.Enums.Billing;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum StudyGroupStatus
 {
-    Active = 1,   // 'active'
-    Expired = 2,  // 'expired'
-    Cancelled = 3 // 'cancelled'
+    [Display(Name = "Active")]
+    Active,
+    [Display(Name = "Expired")]
+    Expired,
+    [Display(Name = "Cancelled")]
+    Cancelled,
 }
 ```
 
@@ -259,79 +336,110 @@ public enum StudyGroupStatus
 ```csharp
 // LingoPro.Domain/Enums/Vocab/SrsCardState.cs
 // Source migration: 20260411_fsrs_upgrade.sql (0=New, 1=Learning, 2=Review, 3=Relearning)
-namespace LingoPro.Domain.Enums.Vocab;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum SrsCardState
 {
-    New = 0,
-    Learning = 1,
-    Review = 2,
-    Relearning = 3
+    [Display(Name = "New")]
+    New,
+    [Display(Name = "Learning")]
+    Learning,
+    [Display(Name = "Review")]
+    Review,
+    [Display(Name = "Relearning")]
+    Relearning,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Vocab/SrsReviewQuality.cs
 // Source migration: 20260923_fix_vocab_review_consistency.sql (CHECK quality IN (0, 3, 4, 5))
-namespace LingoPro.Domain.Enums.Vocab;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum SrsReviewQuality
 {
-    Again = 0,
-    Hard = 3,
-    Good = 4,
-    Easy = 5
+    [Display(Name = "Again")]
+    Again,
+    [Display(Name = "Hard")]
+    Hard,
+    [Display(Name = "Good")]
+    Good,
+    [Display(Name = "Easy")]
+    Easy,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Vocab/VocabPackStatus.cs
 // Source migration: 20260612_vocab_pack_progress.sql
-namespace LingoPro.Domain.Enums.Vocab;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum VocabPackStatus
 {
-    NotStarted = 0, // 'not_started'
-    InProgress = 1, // 'in_progress'
-    Completed = 2   // 'completed'
+    [Display(Name = "NotStarted")]
+    NotStarted,
+    [Display(Name = "InProgress")]
+    InProgress,
+    [Display(Name = "Completed")]
+    Completed,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Vocab/QuizType.cs
 // Source migration: schema.sql (check quiz_type in ('vocabulary', 'grammar'))
-namespace LingoPro.Domain.Enums.Vocab;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum QuizType
 {
-    Vocabulary = 1, // 'vocabulary'
-    Grammar = 2     // 'grammar'
+    [Display(Name = "Vocabulary")]
+    Vocabulary,
+    [Display(Name = "Grammar")]
+    Grammar,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Grammar/GrammarExerciseType.cs
 // Source migration: schema.sql (check type in ('multiple_choice', 'fill_blank', 'error_correction'))
-namespace LingoPro.Domain.Enums.Grammar;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum GrammarExerciseType
 {
-    MultipleChoice = 1, // 'multiple_choice'
-    FillBlank = 2,      // 'fill_blank'
-    ErrorCorrection = 3 // 'error_correction'
+    [Display(Name = "MultipleChoice")]
+    MultipleChoice,
+    [Display(Name = "FillBlank")]
+    FillBlank,
+    [Display(Name = "ErrorCorrection")]
+    ErrorCorrection,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Grammar/GrammarLessonSource.cs
 // Source migration: 20260519_grammar_lessons.sql
-namespace LingoPro.Domain.Enums.Grammar;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum GrammarLessonSource
 {
-    MaiLanHuongPdf = 1, // 'mai-lan-huong-pdf'
-    WebScrape = 2,      // 'web-scrape'
-    Ai = 3              // 'ai'
+    [Display(Name = "MaiLanHuongPdf")]
+    MaiLanHuongPdf,
+    [Display(Name = "WebScrape")]
+    WebScrape,
+    [Display(Name = "Ai")]
+    Ai,
 }
 ```
 
@@ -340,113 +448,162 @@ public enum GrammarLessonSource
 ```csharp
 // LingoPro.Domain/Enums/Roadmap/RoadmapTrackType.cs
 // Source migration: 20261014_roadmap_vstep_vnu_tracks.sql (check track in ('cefr', 'thpt', 'toeic', 'vstep', 'vnu-bac-3'))
-namespace LingoPro.Domain.Enums.Roadmap;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum RoadmapTrackType
 {
-    Cefr = 1,    // 'cefr'
-    Thpt = 2,    // 'thpt'
-    Toeic = 3,   // 'toeic'
-    Vstep = 4,   // 'vstep'
-    VnuBac3 = 5  // 'vnu-bac-3'
+    [Display(Name = "Cefr")]
+    Cefr,
+    [Display(Name = "Thpt")]
+    Thpt,
+    [Display(Name = "Toeic")]
+    Toeic,
+    [Display(Name = "Vstep")]
+    Vstep,
+    [Display(Name = "VnuBac3")]
+    VnuBac3,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Roadmap/RoadmapStepStatus.cs
 // Source migration: 20260703_learning_roadmap.sql (check status in ('in_progress', 'completed'))
-namespace LingoPro.Domain.Enums.Roadmap;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum RoadmapStepStatus
 {
-    InProgress = 1, // 'in_progress'
-    Completed = 2   // 'completed'
+    [Display(Name = "InProgress")]
+    InProgress,
+    [Display(Name = "Completed")]
+    Completed,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Roadmap/RoadmapAssessmentTier.cs
 // Source migration: 20260906_roadmap_assessments.sql (check tier in ('mini_quiz', 'checkpoint', 'exit_exam'))
-namespace LingoPro.Domain.Enums.Roadmap;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum RoadmapAssessmentTier
 {
-    MiniQuiz = 1,   // 'mini_quiz'
-    Checkpoint = 2, // 'checkpoint'
-    ExitExam = 3    // 'exit_exam'
+    [Display(Name = "MiniQuiz")]
+    MiniQuiz,
+    [Display(Name = "Checkpoint")]
+    Checkpoint,
+    [Display(Name = "ExitExam")]
+    ExitExam,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Exam/ToeicPart.cs
 // Source migration: 20260911_toeic_question_history.sql (check part between 1 and 7)
-namespace LingoPro.Domain.Enums.Exam;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum ToeicPart
 {
-    Part1Photographs = 1,
-    Part2QuestionResponse = 2,
-    Part3Conversations = 3,
-    Part4Talks = 4,
-    Part5IncompleteSentences = 5,
-    Part6TextCompletion = 6,
-    Part7ReadingComprehension = 7
+    [Display(Name = "Part1Photographs")]
+    Part1Photographs,
+    [Display(Name = "Part2QuestionResponse")]
+    Part2QuestionResponse,
+    [Display(Name = "Part3Conversations")]
+    Part3Conversations,
+    [Display(Name = "Part4Talks")]
+    Part4Talks,
+    [Display(Name = "Part5IncompleteSentences")]
+    Part5IncompleteSentences,
+    [Display(Name = "Part6TextCompletion")]
+    Part6TextCompletion,
+    [Display(Name = "Part7ReadingComprehension")]
+    Part7ReadingComprehension,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Reading/DailyReadingStatus.cs
 // Source migration: 20260811_daily_reading_exercises.sql
-namespace LingoPro.Domain.Enums.Reading;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum DailyReadingStatus
 {
-    Generating = 1, // 'generating'
-    Ready = 2,      // 'ready'
-    Failed = 3,     // 'failed'
-    Archived = 4    // 'archived'
+    [Display(Name = "Generating")]
+    Generating,
+    [Display(Name = "Ready")]
+    Ready,
+    [Display(Name = "Failed")]
+    Failed,
+    [Display(Name = "Archived")]
+    Archived,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Reading/ReadingArticleSourceType.cs
 // Source migration: 20261015_reading_library_articles.sql (check source_type in ('vstep', 'toeic', 'voa', 'race', 'openstax', 'custom'))
-namespace LingoPro.Domain.Enums.Reading;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum ReadingArticleSourceType
 {
-    Vstep = 1,    // 'vstep'
-    Toeic = 2,    // 'toeic'
-    Voa = 3,      // 'voa'
-    Race = 4,     // 'race'
-    OpenStax = 5, // 'openstax'
-    Custom = 6    // 'custom'
+    [Display(Name = "Vstep")]
+    Vstep,
+    [Display(Name = "Toeic")]
+    Toeic,
+    [Display(Name = "Voa")]
+    Voa,
+    [Display(Name = "Race")]
+    Race,
+    [Display(Name = "OpenStax")]
+    OpenStax,
+    [Display(Name = "Custom")]
+    Custom,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Reading/ReadingArticleStatus.cs
 // Source migration: 20261015_reading_library_articles.sql (check status in ('draft', 'published', 'archived'))
-namespace LingoPro.Domain.Enums.Reading;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum ReadingArticleStatus
 {
-    Draft = 1,     // 'draft'
-    Published = 2, // 'published'
-    Archived = 3   // 'archived'
+    [Display(Name = "Draft")]
+    Draft,
+    [Display(Name = "Published")]
+    Published,
+    [Display(Name = "Archived")]
+    Archived,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Reading/UserReadingProgressStatus.cs
 // Source migration: 20261015_reading_library_articles.sql (check status in ('in_progress', 'completed', 'bookmarked'))
-namespace LingoPro.Domain.Enums.Reading;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum UserReadingProgressStatus
 {
-    InProgress = 1, // 'in_progress'
-    Completed = 2,  // 'completed'
-    Bookmarked = 3  // 'bookmarked'
+    [Display(Name = "InProgress")]
+    InProgress,
+    [Display(Name = "Completed")]
+    Completed,
+    [Display(Name = "Bookmarked")]
+    Bookmarked,
 }
 ```
 
@@ -455,146 +612,212 @@ public enum UserReadingProgressStatus
 ```csharp
 // LingoPro.Domain/Enums/Foundation/FoundationModalityType.cs
 // Source migration: 20261009_foundation_curriculum_gap_map.sql
-namespace LingoPro.Domain.Enums.Foundation;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum FoundationModalityType
 {
-    Text = 1,           // 'TEXT'
-    Audio = 2,          // 'AUDIO'
-    Visual = 3,         // 'VISUAL'
-    SyntacticFrame = 4  // 'SYNTACTIC_FRAME'
+    [Display(Name = "Text")]
+    Text,
+    [Display(Name = "Audio")]
+    Audio,
+    [Display(Name = "Visual")]
+    Visual,
+    [Display(Name = "SyntacticFrame")]
+    SyntacticFrame,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Foundation/LexicalStatusBucket.cs
 // Source migration: 20261009_foundation_curriculum_gap_map.sql
-namespace LingoPro.Domain.Enums.Foundation;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum LexicalStatusBucket
 {
-    Solid = 1,     // 'SOLID'
-    Partial = 2,   // 'PARTIAL'
-    Unknown = 3,   // 'UNKNOWN'
-    Uncertain = 4, // 'UNCERTAIN'
-    Recheck = 5    // 'RECHECK'
+    [Display(Name = "Solid")]
+    Solid,
+    [Display(Name = "Partial")]
+    Partial,
+    [Display(Name = "Unknown")]
+    Unknown,
+    [Display(Name = "Uncertain")]
+    Uncertain,
+    [Display(Name = "Recheck")]
+    Recheck,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Gamification/ChallengeStatus.cs
 // Source migration: 20260914_challenge_campaigns.sql (check status in ('draft','open','active','completed','cancelled'))
-namespace LingoPro.Domain.Enums.Gamification;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum ChallengeStatus
 {
-    Draft = 1,     // 'draft'
-    Open = 2,      // 'open'
-    Active = 3,    // 'active'
-    Completed = 4, // 'completed'
-    Cancelled = 5  // 'cancelled'
+    [Display(Name = "Draft")]
+    Draft,
+    [Display(Name = "Open")]
+    Open,
+    [Display(Name = "Active")]
+    Active,
+    [Display(Name = "Completed")]
+    Completed,
+    [Display(Name = "Cancelled")]
+    Cancelled,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Gamification/ChallengeParticipantStatus.cs
 // Source migration: 20260914_challenge_campaigns.sql
-namespace LingoPro.Domain.Enums.Gamification;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum ChallengeParticipantStatus
 {
-    Pending = 1,   // 'pending'
-    Active = 2,    // 'active'
-    Failed = 3,    // 'failed'
-    Completed = 4, // 'completed'
-    Refunded = 5   // 'refunded'
+    [Display(Name = "Pending")]
+    Pending,
+    [Display(Name = "Active")]
+    Active,
+    [Display(Name = "Failed")]
+    Failed,
+    [Display(Name = "Completed")]
+    Completed,
+    [Display(Name = "Refunded")]
+    Refunded,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Gamification/ChallengeRewardChoice.cs
 // Source migration: 20260914_challenge_model_c.sql (check reward_choice in ('cash', 'pro'))
-namespace LingoPro.Domain.Enums.Gamification;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum ChallengeRewardChoice
 {
-    Cash = 1, // 'cash'
-    Pro = 2   // 'pro'
+    [Display(Name = "Cash")]
+    Cash,
+    [Display(Name = "Pro")]
+    Pro,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Referral/ReferralLogStatus.cs
 // Source migration: 20260918_referral_system.sql
-namespace LingoPro.Domain.Enums.Referral;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum ReferralLogStatus
 {
-    Registered = 1,   // 'registered'
-    Activated = 2,    // 'activated'
-    Converted = 3,    // 'converted'
-    FraudFlagged = 4  // 'fraud_flagged'
+    [Display(Name = "Registered")]
+    Registered,
+    [Display(Name = "Activated")]
+    Activated,
+    [Display(Name = "Converted")]
+    Converted,
+    [Display(Name = "FraudFlagged")]
+    FraudFlagged,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Referral/RewardTransactionType.cs
 // Source migration: 20260918_referral_system.sql
-namespace LingoPro.Domain.Enums.Referral;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum RewardTransactionType
 {
-    ProDays = 1,        // 'pro_days'
-    CashCommission = 2, // 'cash_commission'
-    AffiliateCash = 3,  // 'affiliate_cash'
-    MilestoneBonus = 4, // 'milestone_bonus'
-    PayoutDebit = 5,    // 'payout_debit'
-    ClawbackDebt = 6    // 'clawback_debt'
+    [Display(Name = "ProDays")]
+    ProDays,
+    [Display(Name = "CashCommission")]
+    CashCommission,
+    [Display(Name = "AffiliateCash")]
+    AffiliateCash,
+    [Display(Name = "MilestoneBonus")]
+    MilestoneBonus,
+    [Display(Name = "PayoutDebit")]
+    PayoutDebit,
+    [Display(Name = "ClawbackDebt")]
+    ClawbackDebt,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Referral/RewardTransactionStatus.cs
 // Source migration: 20260918_referral_system.sql
-namespace LingoPro.Domain.Enums.Referral;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum RewardTransactionStatus
 {
-    PendingClearance = 1, // 'pending_clearance'
-    Available = 2,        // 'available'
-    Deducted = 3,         // 'deducted'
-    Withdrawn = 4,        // 'withdrawn'
-    Cancelled = 5,        // 'cancelled'
-    Clawback = 6          // 'clawback'
+    [Display(Name = "PendingClearance")]
+    PendingClearance,
+    [Display(Name = "Available")]
+    Available,
+    [Display(Name = "Deducted")]
+    Deducted,
+    [Display(Name = "Withdrawn")]
+    Withdrawn,
+    [Display(Name = "Cancelled")]
+    Cancelled,
+    [Display(Name = "Clawback")]
+    Clawback,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Referral/PayoutRequestStatus.cs
 // Source migration: 20260918_referral_system.sql
-namespace LingoPro.Domain.Enums.Referral;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum PayoutRequestStatus
 {
-    Pending = 1,   // 'pending'
-    Approved = 2,  // 'approved'
-    Rejected = 3,  // 'rejected'
-    Completed = 4  // 'completed'
+    [Display(Name = "Pending")]
+    Pending,
+    [Display(Name = "Approved")]
+    Approved,
+    [Display(Name = "Rejected")]
+    Rejected,
+    [Display(Name = "Completed")]
+    Completed,
 }
 ```
 
 ```csharp
 // LingoPro.Domain/Enums/Referral/PilotLeadStatus.cs
 // Source migration: 20260614_teacher_sales_pilot.sql
-namespace LingoPro.Domain.Enums.Referral;
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 public enum PilotLeadStatus
 {
-    New = 1,       // 'new'
-    Contacted = 2, // 'contacted'
-    Qualified = 3, // 'qualified'
-    Won = 4,       // 'won'
-    Lost = 5       // 'lost'
+    [Display(Name = "New")]
+    New,
+    [Display(Name = "Contacted")]
+    Contacted,
+    [Display(Name = "Qualified")]
+    Qualified,
+    [Display(Name = "Won")]
+    Won,
+    [Display(Name = "Lost")]
+    Lost,
 }
 ```
 

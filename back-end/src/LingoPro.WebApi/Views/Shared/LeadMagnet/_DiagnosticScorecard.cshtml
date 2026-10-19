@@ -1,0 +1,788 @@
+@* 15-trap diagnostic scorecard (port of DiagnosticScorecard.tsx). Generated; behaviour lives in wwwroot/js/lead-magnet.js. *@
+<div class="w-full rounded-3xl border border-slate-200/90 bg-white p-4 text-slate-900 shadow-xl shadow-slate-100/80 sm:p-7" data-lm-quiz>
+    <div class="border-b border-slate-100 pb-5">
+        <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+            <div>
+                <div class="mb-2 inline-flex items-center gap-2 rounded-full border border-indigo-200/80 bg-indigo-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-indigo-700 shadow-xs">✨ Công Cụ Khảo Thí Độc Quyền LingoPro</div>
+                <h2 class="text-xl font-black tracking-tight text-slate-900 sm:text-2xl">Bảng Tự Chẩn Đoán Lỗ Hổng Nghe 15 Bẫy Sát Thủ</h2>
+                <p class="mt-1 text-xs leading-relaxed text-slate-600 sm:text-sm">Chấm điểm từ 0 – 2 cho từng bẫy để đo lường độ nhạy phản xạ và phát hiện chính xác lý do khiến bạn dậm chân tại chỗ.</p>
+            </div>
+            <div class="flex flex-wrap items-center gap-1.5 self-start sm:self-auto">
+                <span class="mr-1 hidden text-[11px] font-medium text-slate-500 sm:inline">Thử nhanh:</span>
+                <button type="button" data-quiz-preset="beginner" class="cursor-pointer rounded-lg border border-slate-200 bg-slate-100 px-2.5 py-1 text-[11px] font-medium text-slate-700 transition hover:bg-slate-200">Mất gốc (&lt;15đ)</button>
+                <button type="button" data-quiz-preset="stuck" class="cursor-pointer rounded-lg border border-amber-200 bg-amber-50 px-2.5 py-1 text-[11px] font-medium text-amber-800 transition hover:bg-amber-100">Kẹt 600-750 (18đ)</button>
+                <button type="button" data-quiz-preset="master" class="cursor-pointer rounded-lg border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[11px] font-medium text-emerald-800 transition hover:bg-emerald-100">Master 495 (30đ)</button>
+                <button type="button" data-quiz-reset title="Làm lại từ đầu (xóa điểm)" aria-label="Làm lại từ đầu" class="cursor-pointer rounded-lg p-1.5 text-slate-400 transition hover:bg-slate-100 hover:text-slate-700">↺</button>
+            </div>
+        </div>
+
+        <div class="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <div class="flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-slate-50 p-3.5 shadow-xs">
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Tổng điểm phản xạ</span>
+                <div class="mt-1 flex items-baseline gap-1">
+                    <span class="font-mono text-2xl font-black text-indigo-700 sm:text-3xl" data-quiz-total>0</span>
+                    <span class="text-xs font-medium text-slate-400">/ 30</span>
+                </div>
+                <div class="mt-1 text-[10px] font-medium text-slate-500">Đã đánh giá <span data-quiz-answered>0</span>/15 bẫy</div>
+            </div>
+            <div class="flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-slate-50 p-3.5 shadow-xs">
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Part 1 (Tranh ảnh)</span>
+                <div class="mt-1 flex items-baseline gap-1">
+                    <span class="font-mono text-xl font-bold text-sky-700 sm:text-2xl" data-quiz-block-score="1">0</span>
+                    <span class="text-xs font-medium text-slate-400">/ 10</span>
+                </div>
+                <div class="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-slate-200"><div class="h-full bg-sky-600 transition-all duration-300" style="width:0%" data-quiz-block-bar="1"></div></div>
+            </div>
+            <div class="flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-slate-50 p-3.5 shadow-xs">
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Part 2 (Hỏi - Đáp)</span>
+                <div class="mt-1 flex items-baseline gap-1">
+                    <span class="font-mono text-xl font-bold text-amber-700 sm:text-2xl" data-quiz-block-score="2">0</span>
+                    <span class="text-xs font-medium text-slate-400">/ 10</span>
+                </div>
+                <div class="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-slate-200"><div class="h-full bg-amber-600 transition-all duration-300" style="width:0%" data-quiz-block-bar="2"></div></div>
+            </div>
+            <div class="flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-slate-50 p-3.5 shadow-xs">
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Part 3 &amp; 4 (Hội thoại)</span>
+                <div class="mt-1 flex items-baseline gap-1">
+                    <span class="font-mono text-xl font-bold text-purple-700 sm:text-2xl" data-quiz-block-score="3">0</span>
+                    <span class="text-xs font-medium text-slate-400">/ 10</span>
+                </div>
+                <div class="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-slate-200"><div class="h-full bg-purple-600 transition-all duration-300" style="width:0%" data-quiz-block-bar="3"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex items-center gap-2 overflow-x-auto border-b border-slate-200 pb-1 pt-4 text-xs font-semibold sm:text-sm" role="tablist">
+            <button type="button" class="lm-qtab cursor-pointer whitespace-nowrap rounded-xl px-4 py-2 transition" data-b="1" data-quiz-tab="1" aria-selected="true">Khối 1: Part 1 (Bẫy 1 - 5)</button>
+            <button type="button" class="lm-qtab cursor-pointer whitespace-nowrap rounded-xl px-4 py-2 transition" data-b="2" data-quiz-tab="2" aria-selected="false">Khối 2: Part 2 (Bẫy 6 - 10)</button>
+            <button type="button" class="lm-qtab cursor-pointer whitespace-nowrap rounded-xl px-4 py-2 transition" data-b="3" data-quiz-tab="3" aria-selected="false">Khối 3: Part 3 &amp; 4 (Bẫy 11 - 15)</button>
+    </div>
+
+    <div class="my-4 divide-y divide-slate-100">
+            <div class="py-4 first:pt-2 last:pb-2" data-quiz-row="1" data-block="1">
+                <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+                    <div class="flex-1 cursor-pointer select-none" data-quiz-toggle="1" role="button" tabindex="0" aria-expanded="true">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="rounded border border-indigo-200 bg-indigo-50 px-2 py-0.5 font-mono text-xs font-bold text-indigo-700">Bẫy 1</span>
+                            <h3 class="text-sm font-bold text-slate-900 transition hover:text-indigo-600 sm:text-base">Bẫy từ chỉ nhóm đồ vật lớn (Từ bao hàm)</h3>
+                            <span class="hidden font-mono text-[11px] text-slate-400 md:inline">(Bẫy từ chỉ nhóm đồ vật lớn)</span>
+                        </div>
+                        <p class="mt-1 line-clamp-1 text-xs text-slate-600">Khi nhìn ảnh có đồ vật quen thuộc (như đèn trần, rau quả, thìa dĩa), bạn có tự động nghĩ ngay đến tên nhóm chung (produce, light fixtures, utensils) không?</p>
+                    </div>
+                    <div class="flex shrink-0 items-center gap-1.5 self-start sm:self-center">
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="0" data-dim="1" aria-pressed="false" title="Chưa biết: Tôi vẫn hay chờ nghe tên đồ vật cụ thể (lamp, apple, fork) và bị bất ngờ khi nghe từ nhóm lớn.">
+                            <span class="font-mono font-bold">0đ</span><span class="hidden text-[10px] font-medium sm:inline">Bị bẫy</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="1" data-dim="1" aria-pressed="false" title="Đã biết: Nhận biết được nhưng mất &gt; 1.5s để suy nghĩ hoặc hay bị phân vân với các phương án mồi.">
+                            <span class="font-mono font-bold">1đ</span><span class="hidden text-[10px] font-medium sm:inline">Chậm</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="2" data-dim="1" aria-pressed="false" title="Phản xạ tức thì: Tự động đoán từ nhóm lớn trong 0.5s và bắt trúng ngay khi băng vừa phát.">
+                            <span class="font-mono font-bold">2đ</span><span class="hidden text-[10px] font-medium sm:inline">Phản xạ</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-3 space-y-3 rounded-2xl border border-slate-200/80 bg-slate-50 p-4 text-xs sm:text-sm" data-quiz-details="1">
+                    <div class="grid grid-cols-1 gap-3 text-xs sm:grid-cols-2">
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Bản chất Bẫy ETS</span>
+                            <p class="leading-relaxed text-slate-700">Người học thường đợi nghe từ vựng cụ thể quen tai (như desk, apple, fork). Nhưng đề thi thật chỉ đọc tên nhóm lớn (furnishings, produce, utensils). Nếu không chuẩn bị trước từ chỉ nhóm, bạn sẽ hoàn toàn bị &quot;lướt qua&quot;!</p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Dẫn chứng Thực tế</span>
+                            <p class="rounded-lg border border-emerald-200 bg-emerald-50 p-2.5 font-mono text-emerald-800">ETS-2026-01 Q3: Băng đọc &quot;Some light fixtures are hanging from the ceiling&quot; thay vì &quot;lamps&quot; hay &quot;chandeliers&quot;.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-200 pt-2 text-xs text-indigo-700">
+                        <span class="font-semibold">⚡ Nhìn đồ vật cụ thể -&gt; Nghĩ ngay đến tên nhóm chung: Nhạc cụ, Nông sản, Dụng cụ ăn uống, Đồ mặc, Phương tiện, Bàn ghế.</span>
+                        <span class="font-mono text-[11px] text-slate-500">+61.5% trong ETS 2026 (21/60 câu)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="py-4 first:pt-2 last:pb-2" data-quiz-row="2" data-block="1">
+                <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+                    <div class="flex-1 cursor-pointer select-none" data-quiz-toggle="2" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="rounded border border-indigo-200 bg-indigo-50 px-2 py-0.5 font-mono text-xs font-bold text-indigo-700">Bẫy 2</span>
+                            <h3 class="text-sm font-bold text-slate-900 transition hover:text-indigo-600 sm:text-base">Soi vi cử động ngón tay &amp; ánh mắt</h3>
+                            <span class="hidden font-mono text-[11px] text-slate-400 md:inline">(Soi vi cử động ngón tay &amp; ánh mắt)</span>
+                        </div>
+                        <p class="mt-1 line-clamp-1 text-xs text-slate-600">Bạn có soi kỹ và bắt đúng các cử động nhỏ của ngón tay, tư thế (reaching into, propping open, leaning, bending) không?</p>
+                    </div>
+                    <div class="flex shrink-0 items-center gap-1.5 self-start sm:self-center">
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="0" data-dim="2" aria-pressed="false" title="Chưa biết: Tôi chỉ chú ý các động tác to (sitting, standing, looking) nên hay bị lừa ở các chi tiết ngón tay/tư thế.">
+                            <span class="font-mono font-bold">0đ</span><span class="hidden text-[10px] font-medium sm:inline">Bị bẫy</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="1" data-dim="2" aria-pressed="false" title="Đã biết: Nhớ được một số cụm từ nhưng khi nghe nhanh vẫn dễ chọn nhầm động tác giả.">
+                            <span class="font-mono font-bold">1đ</span><span class="hidden text-[10px] font-medium sm:inline">Chậm</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="2" data-dim="2" aria-pressed="false" title="Phản xạ tức thì: Nắm vững các vi cử động sát thủ, phát hiện ngay vị trí bàn tay và tư thế chính xác.">
+                            <span class="font-mono font-bold">2đ</span><span class="hidden text-[10px] font-medium sm:inline">Phản xạ</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-3 space-y-3 rounded-2xl border border-slate-200/80 bg-slate-50 p-4 text-xs sm:text-sm" data-quiz-details="2" hidden>
+                    <div class="grid grid-cols-1 gap-3 text-xs sm:grid-cols-2">
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Bản chất Bẫy ETS</span>
+                            <p class="leading-relaxed text-slate-700">Không còn những hành động thô như walking/sitting, đề thi mới soi vào các cử động rất tinh tế: buộc tóc (tying hair), với tay vào ngăn kéo (reaching into), che mắt (shading), cúi gập người (bending).</p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Dẫn chứng Thực tế</span>
+                            <p class="rounded-lg border border-emerald-200 bg-emerald-50 p-2.5 font-mono text-emerald-800">ETS-2026-01 Q1: Bẫy &quot;tying up her hair&quot; và &quot;removing her hat&quot; khi tay người phụ nữ chỉ đang đặt trên bàn.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-200 pt-2 text-xs text-indigo-700">
+                        <span class="font-semibold">⚡ Soi nhanh bàn tay và hướng mắt trong 1 giây đầu: Tay đang cầm hay đang với? Mắt đang nhìn thẳng hay ngắm ra xa?</span>
+                        <span class="font-mono text-[11px] text-slate-500">+78.9% trong ETS 2026 (34/60 câu)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="py-4 first:pt-2 last:pb-2" data-quiz-row="3" data-block="1">
+                <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+                    <div class="flex-1 cursor-pointer select-none" data-quiz-toggle="3" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="rounded border border-indigo-200 bg-indigo-50 px-2 py-0.5 font-mono text-xs font-bold text-indigo-700">Bẫy 3</span>
+                            <h3 class="text-sm font-bold text-slate-900 transition hover:text-indigo-600 sm:text-base">Bẫy &quot;Đang làm&quot; vs &quot;Đã làm xong&quot; (Being vs Been)</h3>
+                            <span class="hidden font-mono text-[11px] text-slate-400 md:inline">(Bẫy &quot;Đang làm&quot; vs &quot;Đã làm xong&quot; (Being vs Been))</span>
+                        </div>
+                        <p class="mt-1 line-clamp-1 text-xs text-slate-600">Khi nghe thấy &quot;is/are being V-ed&quot; trong bức tranh không có người tác động trực tiếp, bạn xử lý thế nào?</p>
+                    </div>
+                    <div class="flex shrink-0 items-center gap-1.5 self-start sm:self-center">
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="0" data-dim="3" aria-pressed="false" title="Chưa biết: Tôi vẫn hay chọn nhầm vì thấy câu phát âm rõ ràng, êm tai và hợp với đồ vật trong ảnh.">
+                            <span class="font-mono font-bold">0đ</span><span class="hidden text-[10px] font-medium sm:inline">Bị bẫy</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="1" data-dim="3" aria-pressed="false" title="Đã biết: Biết quy tắc nhưng đôi khi vẫn lúng túng giữa &quot;has been&quot; (đã xong) và &quot;is being&quot; (đang làm).">
+                            <span class="font-mono font-bold">1đ</span><span class="hidden text-[10px] font-medium sm:inline">Chậm</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="2" data-dim="3" aria-pressed="false" title="Phản xạ tức thì: Khắc cốt ghi tâm &quot;Không người = Gạch ngay Being&quot;, loại thẳng tay trong 0.2 giây.">
+                            <span class="font-mono font-bold">2đ</span><span class="hidden text-[10px] font-medium sm:inline">Phản xạ</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-3 space-y-3 rounded-2xl border border-slate-200/80 bg-slate-50 p-4 text-xs sm:text-sm" data-quiz-details="3" hidden>
+                    <div class="grid grid-cols-1 gap-3 text-xs sm:grid-cols-2">
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Bản chất Bẫy ETS</span>
+                            <p class="leading-relaxed text-slate-700">Cấu trúc &quot;is/are being + V3&quot; chỉ hành động đang có người trực tiếp làm. Trong 10 đề ETS 2026, 11/11 phương án chứa &quot;being&quot; đều là BẪY SAI (tỷ lệ bẫy 100%). Thí sinh nghe âm /biː.ɪŋ/ bắt tai rất dễ khoanh nhầm.</p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Dẫn chứng Thực tế</span>
+                            <p class="rounded-lg border border-emerald-200 bg-emerald-50 p-2.5 font-mono text-emerald-800">ETS-2026-01 Q3: &quot;(D) Some tiles are being installed in a hallway&quot; -&gt; Loại ngay trong 0.2s vì không có thợ lát gạch!</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-200 pt-2 text-xs text-indigo-700">
+                        <span class="font-semibold">⚡ Tranh không người hoặc người đứng yên -&gt; Nghe thấy chữ &quot;BEING&quot; là gạch ngay lập tức trong 0.2 giây!</span>
+                        <span class="font-mono text-[11px] text-slate-500">Tỷ lệ bẫy 100% trong ETS 2026 (0/11 câu đúng)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="py-4 first:pt-2 last:pb-2" data-quiz-row="4" data-block="1">
+                <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+                    <div class="flex-1 cursor-pointer select-none" data-quiz-toggle="4" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="rounded border border-indigo-200 bg-indigo-50 px-2 py-0.5 font-mono text-xs font-bold text-indigo-700">Bẫy 4</span>
+                            <h3 class="text-sm font-bold text-slate-900 transition hover:text-indigo-600 sm:text-base">Bẫy mồi nhử người phía trước, đáp án giấu phía sau</h3>
+                            <span class="hidden font-mono text-[11px] text-slate-400 md:inline">(Bẫy mồi nhử người phía trước, đáp án giấu phía sau)</span>
+                        </div>
+                        <p class="mt-1 line-clamp-1 text-xs text-slate-600">Khi nhìn bức tranh có người nổi bật ở phía trước, bạn có liếc mắt quan sát cả hậu cảnh (đèn trần, bờ tường, cửa sổ) không?</p>
+                    </div>
+                    <div class="flex shrink-0 items-center gap-1.5 self-start sm:self-center">
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="0" data-dim="4" aria-pressed="false" title="Chưa biết: Tôi dồn 100% sự chú ý vào con người ở chính giữa và thường bỏ lỡ chi tiết hậu cảnh.">
+                            <span class="font-mono font-bold">0đ</span><span class="hidden text-[10px] font-medium sm:inline">Bị bẫy</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="1" data-dim="4" aria-pressed="false" title="Đã biết: Có nhìn hậu cảnh nhưng khi nghe các phương án về người vẫn dễ bị cuốn theo mồi nhử.">
+                            <span class="font-mono font-bold">1đ</span><span class="hidden text-[10px] font-medium sm:inline">Chậm</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="2" data-dim="4" aria-pressed="false" title="Phản xạ tức thì: Luôn quét 3 lớp trong 1.5s, sẵn sàng phương án hậu cảnh tĩnh khi người bị gài bẫy động thái.">
+                            <span class="font-mono font-bold">2đ</span><span class="hidden text-[10px] font-medium sm:inline">Phản xạ</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-3 space-y-3 rounded-2xl border border-slate-200/80 bg-slate-50 p-4 text-xs sm:text-sm" data-quiz-details="4" hidden>
+                    <div class="grid grid-cols-1 gap-3 text-xs sm:grid-cols-2">
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Bản chất Bẫy ETS</span>
+                            <p class="leading-relaxed text-slate-700">Tâm lý tự nhiên là mắt nhìn vào nhân vật nổi bật ở giữa. ETS gài 3 câu sai về người đó, còn đáp án đúng lại tả hàng đèn trên trần, bờ tường hoặc đồ vật nằm khuất ở hậu cảnh.</p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Dẫn chứng Thực tế</span>
+                            <p class="rounded-lg border border-emerald-200 bg-emerald-50 p-2.5 font-mono text-emerald-800">ETS-2026-01 Q3: 2 phụ nữ ngồi tiền cảnh quầy bar, nhưng đáp án đúng là đèn treo trên trần nhà hậu cảnh.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-200 pt-2 text-xs text-indigo-700">
+                        <span class="font-semibold">⚡ Quy tắc quét 3 lớp: Người phía trước -&gt; Đồ đạc ở giữa -&gt; Trần nhà/Bờ tường phía sau. Đừng dán mắt 100% vào người!</span>
+                        <span class="font-mono text-[11px] text-slate-500">Xuất hiện ở 35% câu tranh người trong ETS 2026</span>
+                    </div>
+                </div>
+            </div>
+            <div class="py-4 first:pt-2 last:pb-2" data-quiz-row="5" data-block="1">
+                <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+                    <div class="flex-1 cursor-pointer select-none" data-quiz-toggle="5" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="rounded border border-indigo-200 bg-indigo-50 px-2 py-0.5 font-mono text-xs font-bold text-indigo-700">Bẫy 5</span>
+                            <h3 class="text-sm font-bold text-slate-900 transition hover:text-indigo-600 sm:text-base">Bẫy &quot;Đã mặc sẵn&quot; vs &quot;Đang mặc đồ&quot; (Wearing vs Putting on)</h3>
+                            <span class="hidden font-mono text-[11px] text-slate-400 md:inline">(Bẫy &quot;Đã mặc sẵn&quot; vs &quot;Đang mặc đồ&quot;)</span>
+                        </div>
+                        <p class="mt-1 line-clamp-1 text-xs text-slate-600">Bạn có phân biệt chính xác trong 0.5s giữa việc đã mặc sẵn (wearing) và động tác đang xỏ áo, đội mũ (putting on - 100% bẫy sai) không?</p>
+                    </div>
+                    <div class="flex shrink-0 items-center gap-1.5 self-start sm:self-center">
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="0" data-dim="5" aria-pressed="false" title="Chưa biết: Tôi hay dịch chung &quot;wear&quot; và &quot;put on&quot; đều là mặc đồ nên thường bị mất điểm oan.">
+                            <span class="font-mono font-bold">0đ</span><span class="hidden text-[10px] font-medium sm:inline">Bị bẫy</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="1" data-dim="5" aria-pressed="false" title="Đã biết: Hiểu lý thuyết nhưng trong phòng thi đôi khi phản xạ không kịp khi băng đọc lướt qua.">
+                            <span class="font-mono font-bold">1đ</span><span class="hidden text-[10px] font-medium sm:inline">Chậm</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="2" data-dim="5" aria-pressed="false" title="Phản xạ tức thì: Tách bạch rõ rệt giữa Đã mặc sẵn và Đang xỏ đồ, không bao giờ nhầm lẫn.">
+                            <span class="font-mono font-bold">2đ</span><span class="hidden text-[10px] font-medium sm:inline">Phản xạ</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-3 space-y-3 rounded-2xl border border-slate-200/80 bg-slate-50 p-4 text-xs sm:text-sm" data-quiz-details="5" hidden>
+                    <div class="grid grid-cols-1 gap-3 text-xs sm:grid-cols-2">
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Bản chất Bẫy ETS</span>
+                            <p class="leading-relaxed text-slate-700">Cụm từ &quot;putting on&quot; xuất hiện 11 lần trong 20 đề ETS 2024-2026 thì cả 11 lần đều là bẫy sai. Nhân vật trong ảnh chụp tĩnh luôn đã đội mũ sẵn, đeo kính sẵn hoặc mặc áo sẵn (đáp án đúng phải là wearing).</p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Dẫn chứng Thực tế</span>
+                            <p class="rounded-lg border border-emerald-200 bg-emerald-50 p-2.5 font-mono text-emerald-800">ETS-2026-01 Q1: Đáp án đúng &quot;wearing a jacket&quot; (đang mặc áo). Bẫy &quot;removing her hat&quot; bị loại vì tay để trên bàn.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-200 pt-2 text-xs text-indigo-700">
+                        <span class="font-semibold">⚡ Thấy quần áo, mũ kính đã ở trên người -&gt; WEARING. Tay đang cầm, kéo, xỏ vào -&gt; Mới là PUTTING ON.</span>
+                        <span class="font-mono text-[11px] text-slate-500">Chiếm 25% các câu tranh người ETS 2024-2026</span>
+                    </div>
+                </div>
+            </div>
+            <div class="py-4 first:pt-2 last:pb-2" data-quiz-row="6" data-block="2" hidden>
+                <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+                    <div class="flex-1 cursor-pointer select-none" data-quiz-toggle="6" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="rounded border border-indigo-200 bg-indigo-50 px-2 py-0.5 font-mono text-xs font-bold text-indigo-700">Bẫy 6</span>
+                            <h3 class="text-sm font-bold text-slate-900 transition hover:text-indigo-600 sm:text-base">Cách đối đáp câu trần thuật nơi công sở</h3>
+                            <span class="hidden font-mono text-[11px] text-slate-400 md:inline">(Cách đối đáp câu trần thuật nơi công sở)</span>
+                        </div>
+                        <p class="mt-1 line-clamp-1 text-xs text-slate-600">Khi gặp câu trần thuật (không có từ để hỏi Who/Where/When hay trợ động từ), bạn phản xạ như thế nào?</p>
+                    </div>
+                    <div class="flex shrink-0 items-center gap-1.5 self-start sm:self-center">
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="0" data-dim="6" aria-pressed="false" title="Chưa biết: Tôi bị &quot;đứng hình&quot; vì quen đợi từ để hỏi Where/When/Who để bắt mẹo cơ học.">
+                            <span class="font-mono font-bold">0đ</span><span class="hidden text-[10px] font-medium sm:inline">Bị bẫy</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="1" data-dim="6" aria-pressed="false" title="Đã biết: Nhận ra câu trần thuật nhưng hay phân vân giữa các phương án xã giao bình thường và câu đính chính.">
+                            <span class="font-mono font-bold">1đ</span><span class="hidden text-[10px] font-medium sm:inline">Chậm</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="2" data-dim="6" aria-pressed="false" title="Phản xạ tức thì: Nhận diện ngay 4 tình huống công sở (than phiền, đính chính, gợi ý, hẹn gặp) và bắt dấu hiệu &quot;Actually&quot;.">
+                            <span class="font-mono font-bold">2đ</span><span class="hidden text-[10px] font-medium sm:inline">Phản xạ</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-3 space-y-3 rounded-2xl border border-slate-200/80 bg-slate-50 p-4 text-xs sm:text-sm" data-quiz-details="6" hidden>
+                    <div class="grid grid-cols-1 gap-3 text-xs sm:grid-cols-2">
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Bản chất Bẫy ETS</span>
+                            <p class="leading-relaxed text-slate-700">Không có từ Who/Where/When để bắt bài. Người nói đưa ra một sự cố hoặc thông tin; câu trả lời đúng thường đưa ra giải pháp giúp đỡ hoặc giải thích lý do thực tế (thường có Actually, In fact).</p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Dẫn chứng Thực tế</span>
+                            <p class="rounded-lg border border-emerald-200 bg-emerald-50 p-2.5 font-mono text-emerald-800">ETS-2026-01 Q24: &quot;The tickets cost ten dollars each.&quot; -&gt; Đáp án đúng: &quot;(A) Actually, they're fifteen.&quot;</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-200 pt-2 text-xs text-indigo-700">
+                        <span class="font-semibold">⚡ Nghe câu trần thuật nêu con số hoặc giả định -&gt; Phương án có &quot;Actually / In fact&quot; có xác suất đúng tới 92%!</span>
+                        <span class="font-mono text-[11px] text-slate-500">+37.3% trong ETS 2026 (70 câu / 250 câu)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="py-4 first:pt-2 last:pb-2" data-quiz-row="7" data-block="2" hidden>
+                <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+                    <div class="flex-1 cursor-pointer select-none" data-quiz-toggle="7" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="rounded border border-indigo-200 bg-indigo-50 px-2 py-0.5 font-mono text-xs font-bold text-indigo-700">Bẫy 7</span>
+                            <h3 class="text-sm font-bold text-slate-900 transition hover:text-indigo-600 sm:text-base">Bẫy trả lời vòng vo né tránh &amp; thoái thác trách nhiệm</h3>
+                            <span class="hidden font-mono text-[11px] text-slate-400 md:inline">(Bẫy trả lời vòng vo né tránh)</span>
+                        </div>
+                        <p class="mt-1 line-clamp-1 text-xs text-slate-600">Khi câu trả lời không nói thẳng mà đưa ra lý do bận, phụ thuộc việc khác hoặc đùn việc cho người khác, bạn có nhận ra ngay không?</p>
+                    </div>
+                    <div class="flex shrink-0 items-center gap-1.5 self-start sm:self-center">
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="0" data-dim="7" aria-pressed="false" title="Chưa biết: Tôi thường loại trừ các câu này vì thấy nó không trả lời đúng trọng tâm từ để hỏi.">
+                            <span class="font-mono font-bold">0đ</span><span class="hidden text-[10px] font-medium sm:inline">Bị bẫy</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="1" data-dim="7" aria-pressed="false" title="Đã biết: Có biết nhưng dễ bị dao động trước các phương án bẫy chứa từ khóa quen thuộc.">
+                            <span class="font-mono font-bold">1đ</span><span class="hidden text-[10px] font-medium sm:inline">Chậm</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="2" data-dim="7" aria-pressed="false" title="Phản xạ tức thì: Nắm trọn 3 chiêu trả lời vòng vo của ETS, coi câu gián tiếp hợp logic là ứng viên số 1.">
+                            <span class="font-mono font-bold">2đ</span><span class="hidden text-[10px] font-medium sm:inline">Phản xạ</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-3 space-y-3 rounded-2xl border border-slate-200/80 bg-slate-50 p-4 text-xs sm:text-sm" data-quiz-details="7" hidden>
+                    <div class="grid grid-cols-1 gap-3 text-xs sm:grid-cols-2">
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Bản chất Bẫy ETS</span>
+                            <p class="leading-relaxed text-slate-700">Tăng vọt 159.1% trong ETS 2026. Thay vì nói Yes/No hoặc giờ cụ thể, người bản xứ nêu lý do bận (&quot;Tàu tôi sắp chạy rồi&quot;) hoặc đẩy việc cho người khác (&quot;Hỏi Clara nhé, cô ấy phụ trách&quot;).</p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Dẫn chứng Thực tế</span>
+                            <p class="rounded-lg border border-emerald-200 bg-emerald-50 p-2.5 font-mono text-emerald-800">ETS-2026-01 Q27: &quot;Who's interested in starting a car pool program?&quot; -&gt; Đáp án đúng: &quot;(B) Clara's already organizing one.&quot;</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-200 pt-2 text-xs text-indigo-700">
+                        <span class="font-semibold">⚡ Gặp câu trả lời gián tiếp: Tự hỏi &quot;Câu này có xử lý tình huống thực tế không?&quot;. Càng thoái thác khéo thì xác suất ĐÚNG càng cao!</span>
+                        <span class="font-mono text-[11px] text-slate-500">+159.1% trong ETS 2026 (57 câu trong 10 đề)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="py-4 first:pt-2 last:pb-2" data-quiz-row="8" data-block="2" hidden>
+                <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+                    <div class="flex-1 cursor-pointer select-none" data-quiz-toggle="8" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="rounded border border-indigo-200 bg-indigo-50 px-2 py-0.5 font-mono text-xs font-bold text-indigo-700">Bẫy 8</span>
+                            <h3 class="text-sm font-bold text-slate-900 transition hover:text-indigo-600 sm:text-base">Quy tắc thật Có là Yes - Không là No (Câu hỏi phủ định &amp; đuôi)</h3>
+                            <span class="hidden font-mono text-[11px] text-slate-400 md:inline">(Quy tắc thật Có là Yes - Không là No)</span>
+                        </div>
+                        <p class="mt-1 line-clamp-1 text-xs text-slate-600">Khi gặp câu hỏi phủ định (Didn't you...?) hoặc câu hỏi đuôi (..., aren't you?), bạn có giữ vững quy tắc Có là Yes - Không là No không?</p>
+                    </div>
+                    <div class="flex shrink-0 items-center gap-1.5 self-start sm:self-center">
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="0" data-dim="8" aria-pressed="false" title="Chưa biết: Tôi thường bị rối do thói quen trả lời &quot;Ừ/Không&quot; trong tiếng Việt.">
+                            <span class="font-mono font-bold">0đ</span><span class="hidden text-[10px] font-medium sm:inline">Bị bẫy</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="1" data-dim="8" aria-pressed="false" title="Đã biết: Biết quy tắc nhưng khi băng nói nhanh với ngữ điệu đuôi đi xuống vẫn bị khựng lại suy nghĩ.">
+                            <span class="font-mono font-bold">1đ</span><span class="hidden text-[10px] font-medium sm:inline">Chậm</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="2" data-dim="8" aria-pressed="false" title="Phản xạ tức thì: Tự động xóa NOT trong não, xác định tính có/không của sự việc trong chớp mắt.">
+                            <span class="font-mono font-bold">2đ</span><span class="hidden text-[10px] font-medium sm:inline">Phản xạ</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-3 space-y-3 rounded-2xl border border-slate-200/80 bg-slate-50 p-4 text-xs sm:text-sm" data-quiz-details="8" hidden>
+                    <div class="grid grid-cols-1 gap-3 text-xs sm:grid-cols-2">
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Bản chất Bẫy ETS</span>
+                            <p class="leading-relaxed text-slate-700">Người Việt hay trả lời &quot;Ừ&quot; khi đồng tình với câu phủ định (&quot;Cậu chưa nộp à? - Ừ&quot;). Trong tiếng Anh, nếu chưa nộp bắt buộc phải trả lời NO. Câu hỏi đuôi tăng gấp 3 lần trong ETS 2026 để gài bẫy này.</p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Dẫn chứng Thực tế</span>
+                            <p class="rounded-lg border border-emerald-200 bg-emerald-50 p-2.5 font-mono text-emerald-800">ETS-2026-01 Q25: &quot;Can't you update the database today?&quot; -&gt; Đáp án đúng: &quot;(A) I did it yesterday.&quot;</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-200 pt-2 text-xs text-indigo-700">
+                        <span class="font-semibold">⚡ Nghe câu hỏi có NOT hoặc câu hỏi đuôi -&gt; Xóa chữ NOT trong đầu, chỉ xét sự việc thực tế CÓ (Yes) hay KHÔNG (No)!</span>
+                        <span class="font-mono text-[11px] text-slate-500">+200.0% Tag Questions trong ETS 2026 (Gấp 3 lần)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="py-4 first:pt-2 last:pb-2" data-quiz-row="9" data-block="2" hidden>
+                <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+                    <div class="flex-1 cursor-pointer select-none" data-quiz-toggle="9" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="rounded border border-indigo-200 bg-indigo-50 px-2 py-0.5 font-mono text-xs font-bold text-indigo-700">Bẫy 9</span>
+                            <h3 class="text-sm font-bold text-slate-900 transition hover:text-indigo-600 sm:text-base">Bẫy từ nghe giống hệt &amp; phát âm na ná (Lặp từ câu hỏi)</h3>
+                            <span class="hidden font-mono text-[11px] text-slate-400 md:inline">(Bẫy từ nghe giống hệt &amp; phát âm na ná)</span>
+                        </div>
+                        <p class="mt-1 line-clamp-1 text-xs text-slate-600">Bạn có thói quen nghi ngờ và loại trừ ngay các phương án có từ phát âm giống hệt từ trong câu hỏi Wh- không?</p>
+                    </div>
+                    <div class="flex shrink-0 items-center gap-1.5 self-start sm:self-center">
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="0" data-dim="9" aria-pressed="false" title="Chưa biết: Tôi vẫn hay mừng rỡ khoanh ngay khi nghe thấy một từ quen thuộc trùng với câu hỏi.">
+                            <span class="font-mono font-bold">0đ</span><span class="hidden text-[10px] font-medium sm:inline">Bị bẫy</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="1" data-dim="9" aria-pressed="false" title="Đã biết: Nhận thức được bẫy lặp từ nhưng đôi khi vẫn bị bẫy từ phát âm gần giống đánh lừa.">
+                            <span class="font-mono font-bold">1đ</span><span class="hidden text-[10px] font-medium sm:inline">Chậm</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="2" data-dim="9" aria-pressed="false" title="Phản xạ tức thì: Định luật 85% ăn sâu vào tiềm thức, tự động nghi ngờ và gạt bỏ mồi nhử trùng âm.">
+                            <span class="font-mono font-bold">2đ</span><span class="hidden text-[10px] font-medium sm:inline">Phản xạ</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-3 space-y-3 rounded-2xl border border-slate-200/80 bg-slate-50 p-4 text-xs sm:text-sm" data-quiz-details="9" hidden>
+                    <div class="grid grid-cols-1 gap-3 text-xs sm:grid-cols-2">
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Bản chất Bẫy ETS</span>
+                            <p class="leading-relaxed text-slate-700">Não bộ khi nghe không rõ thường thích bám víu vào từ quen tai vừa nghe được. Thí sinh nghe từ &quot;car pool&quot; liền chọn câu có &quot;swimming pool&quot;, nghe &quot;training&quot; chọn câu có &quot;train&quot; hoặc &quot;rain&quot;.</p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Dẫn chứng Thực tế</span>
+                            <p class="rounded-lg border border-emerald-200 bg-emerald-50 p-2.5 font-mono text-emerald-800">ETS-2026-01 Q27: Câu hỏi &quot;car pool&quot;, phương án bẫy &quot;(A) Thanks, but I can't swim&quot;!</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-200 pt-2 text-xs text-indigo-700">
+                        <span class="font-semibold">⚡ Trong Part 2: Nghe từ nào giống hệt trong câu hỏi -&gt; Bật cờ đỏ cảnh báo bẫy lặp từ, loại trừ ngay!</span>
+                        <span class="font-mono text-[11px] text-slate-500">Xuất hiện ở 82% các câu hỏi Part 2 trong ETS 2026</span>
+                    </div>
+                </div>
+            </div>
+            <div class="py-4 first:pt-2 last:pb-2" data-quiz-row="10" data-block="2" hidden>
+                <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+                    <div class="flex-1 cursor-pointer select-none" data-quiz-toggle="10" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="rounded border border-indigo-200 bg-indigo-50 px-2 py-0.5 font-mono text-xs font-bold text-indigo-700">Bẫy 10</span>
+                            <h3 class="text-sm font-bold text-slate-900 transition hover:text-indigo-600 sm:text-base">Mẹo gạt phăng Yes/No ở câu hỏi Wh- &amp; Cảnh giác câu hỏi lồng</h3>
+                            <span class="hidden font-mono text-[11px] text-slate-400 md:inline">(Mẹo gạt phăng Yes/No ở câu hỏi Wh-)</span>
+                        </div>
+                        <p class="mt-1 line-clamp-1 text-xs text-slate-600">Bạn có gạt bỏ ngay lập tức các câu trả lời &quot;Yes/No/Sure&quot; khi nghe câu hỏi Wh- trực tiếp, đồng thời cảnh giác với câu hỏi lồng không?</p>
+                    </div>
+                    <div class="flex shrink-0 items-center gap-1.5 self-start sm:self-center">
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="0" data-dim="10" aria-pressed="false" title="Chưa biết: Tôi vẫn nghe hết cả câu trả lời rồi mới dịch nghĩa, mất thời gian và dễ chọn bừa.">
+                            <span class="font-mono font-bold">0đ</span><span class="hidden text-[10px] font-medium sm:inline">Bị bẫy</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="1" data-dim="10" aria-pressed="false" title="Đã biết: Gạt bỏ được Yes/No với câu Wh- trực tiếp nhưng hay nhầm khi gặp câu hỏi lồng &quot;Do you know...&quot;.">
+                            <span class="font-mono font-bold">1đ</span><span class="hidden text-[10px] font-medium sm:inline">Chậm</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="2" data-dim="10" aria-pressed="false" title="Phản xạ tức thì: Loại trừ trong 0.2s với Wh- trực tiếp, xử lý chuẩn xác câu hỏi lồng với độ chính xác 100%.">
+                            <span class="font-mono font-bold">2đ</span><span class="hidden text-[10px] font-medium sm:inline">Phản xạ</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-3 space-y-3 rounded-2xl border border-slate-200/80 bg-slate-50 p-4 text-xs sm:text-sm" data-quiz-details="10" hidden>
+                    <div class="grid grid-cols-1 gap-3 text-xs sm:grid-cols-2">
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Bản chất Bẫy ETS</span>
+                            <p class="leading-relaxed text-slate-700">Triệt tiêu ngay phương án mở đầu bằng &quot;Yes/No&quot; khi nghe từ để hỏi Who/When/Where trong 0.2s. Cảnh giác với câu hỏi lồng: &quot;Do you know when...&quot; thì Yes/No lại hoàn toàn hợp lệ.</p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Dẫn chứng Thực tế</span>
+                            <p class="rounded-lg border border-emerald-200 bg-emerald-50 p-2.5 font-mono text-emerald-800">ETS-2026-01 Q8: &quot;When does the warehouse manager arrive?&quot; -&gt; Phương án &quot;(A) Sure, no problem&quot; bị triệt tiêu ngay lập tức!</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-200 pt-2 text-xs text-indigo-700">
+                        <span class="font-semibold">⚡ Nghe Wh- trực tiếp -&gt; Tai nghe thấy Yes/No/Sure là gạt ngay trong đầu trước khi loa đọc hết câu!</span>
+                        <span class="font-mono text-[11px] text-slate-500">Loại trừ ngay 33% - 50% số phương án trong 0.2s</span>
+                    </div>
+                </div>
+            </div>
+            <div class="py-4 first:pt-2 last:pb-2" data-quiz-row="11" data-block="3" hidden>
+                <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+                    <div class="flex-1 cursor-pointer select-none" data-quiz-toggle="11" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="rounded border border-indigo-200 bg-indigo-50 px-2 py-0.5 font-mono text-xs font-bold text-indigo-700">Bẫy 11</span>
+                            <h3 class="text-sm font-bold text-slate-900 transition hover:text-indigo-600 sm:text-base">Kỹ thuật đổi chữ đồng nghĩa (Paraphrase 3 Tầng)</h3>
+                            <span class="hidden font-mono text-[11px] text-slate-400 md:inline">(Kỹ thuật đổi chữ đồng nghĩa (Paraphrase 3 Tầng))</span>
+                        </div>
+                        <p class="mt-1 line-clamp-1 text-xs text-slate-600">Khi nghe Part 3 &amp; 4, bạn có bắt được ngay từ đồng nghĩa hoặc cách nói khác của từ vừa nghe trên đáp án không?</p>
+                    </div>
+                    <div class="flex shrink-0 items-center gap-1.5 self-start sm:self-center">
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="0" data-dim="11" aria-pressed="false" title="Chưa biết: Tôi vẫn dùng mắt dò từ giống hệt audio để khoanh và liên tục dính bẫy mồi nhử.">
+                            <span class="font-mono font-bold">0đ</span><span class="hidden text-[10px] font-medium sm:inline">Bị bẫy</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="1" data-dim="11" aria-pressed="false" title="Đã biết: Nhận ra từ đồng nghĩa cơ bản (renovate = repair), nhưng lúng túng trước tầng đổi cách nói hoặc khái quát hóa.">
+                            <span class="font-mono font-bold">1đ</span><span class="hidden text-[10px] font-medium sm:inline">Chậm</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="2" data-dim="11" aria-pressed="false" title="Phản xạ tức thì: Làm chủ 3 tầng đổi chữ, tự động bắt trúng đáp án đồng nghĩa trong &lt; 300ms.">
+                            <span class="font-mono font-bold">2đ</span><span class="hidden text-[10px] font-medium sm:inline">Phản xạ</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-3 space-y-3 rounded-2xl border border-slate-200/80 bg-slate-50 p-4 text-xs sm:text-sm" data-quiz-details="11" hidden>
+                    <div class="grid grid-cols-1 gap-3 text-xs sm:grid-cols-2">
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Bản chất Bẫy ETS</span>
+                            <p class="leading-relaxed text-slate-700">Audio đọc: &quot;give away pens&quot; -&gt; Đáp án: &quot;promotional items&quot;; Audio đọc: &quot;repair tracks&quot; -&gt; Đáp án: &quot;track maintenance&quot;. Phương án chứa từ nguyên xi là mồi bẫy!</p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Dẫn chứng Thực tế</span>
+                            <p class="rounded-lg border border-emerald-200 bg-emerald-50 p-2.5 font-mono text-emerald-800">ETS-2026-01 Q41: Audio đọc &quot;pens to give away&quot; -&gt; Đáp án đúng viết &quot;promotional items&quot;.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-200 pt-2 text-xs text-indigo-700">
+                        <span class="font-semibold">⚡ Nghe từ cụ thể -&gt; Tìm từ đồng nghĩa hoặc từ chỉ nhóm lớn trong đề. Thấy từ giống hệt trong audio -&gt; Coi chừng bẫy!</span>
+                        <span class="font-mono text-[11px] text-slate-500">Tỷ lệ bẫy mồi nguyên xi đạt 79% trong ETS 2026</span>
+                    </div>
+                </div>
+            </div>
+            <div class="py-4 first:pt-2 last:pb-2" data-quiz-row="12" data-block="3" hidden>
+                <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+                    <div class="flex-1 cursor-pointer select-none" data-quiz-toggle="12" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="rounded border border-indigo-200 bg-indigo-50 px-2 py-0.5 font-mono text-xs font-bold text-indigo-700">Bẫy 12</span>
+                            <h3 class="text-sm font-bold text-slate-900 transition hover:text-indigo-600 sm:text-base">Mẹo gióng cột bắt trúng đáp án tranh biểu đồ</h3>
+                            <span class="hidden font-mono text-[11px] text-slate-400 md:inline">(Mẹo gióng cột bắt trúng đáp án tranh biểu đồ)</span>
+                        </div>
+                        <p class="mt-1 line-clamp-1 text-xs text-slate-600">Khi làm câu hỏi có hình ảnh/bảng biểu (Look at the graphic), bạn nhìn vào cột nào trước khi audio phát?</p>
+                    </div>
+                    <div class="flex shrink-0 items-center gap-1.5 self-start sm:self-center">
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="0" data-dim="12" aria-pressed="false" title="Chưa biết: Tôi nhìn chằm chằm vào các chữ trong đáp án A, B, C, D và hy vọng audio sẽ đọc trúng chữ đó.">
+                            <span class="font-mono font-bold">0đ</span><span class="hidden text-[10px] font-medium sm:inline">Bị bẫy</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="1" data-dim="12" aria-pressed="false" title="Đã biết: Biết nhìn cột đối diện nhưng mắt đảo qua đảo lại chậm, không kịp đối chiếu khi audio lướt qua.">
+                            <span class="font-mono font-bold">1đ</span><span class="hidden text-[10px] font-medium sm:inline">Chậm</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="2" data-dim="12" aria-pressed="false" title="Phản xạ tức thì: Khóa chặt cột đối diện hoặc địa danh mốc lân cận, bắt thông tin và chốt đáp án trong 1 giây.">
+                            <span class="font-mono font-bold">2đ</span><span class="hidden text-[10px] font-medium sm:inline">Phản xạ</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-3 space-y-3 rounded-2xl border border-slate-200/80 bg-slate-50 p-4 text-xs sm:text-sm" data-quiz-details="12" hidden>
+                    <div class="grid grid-cols-1 gap-3 text-xs sm:grid-cols-2">
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Bản chất Bẫy ETS</span>
+                            <p class="leading-relaxed text-slate-700">Nếu đáp án A, B, C, D là Tên người (Cột 1) -&gt; Audio sẽ đọc Số phòng/Chức vụ (Cột 2). Nếu đáp án là Vị trí 1, 2, 3, 4 -&gt; Audio sẽ đọc địa danh mốc sát cạnh để bạn gióng mắt qua.</p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Dẫn chứng Thực tế</span>
+                            <p class="rounded-lg border border-emerald-200 bg-emerald-50 p-2.5 font-mono text-emerald-800">ETS-2026-01 Q69: Đề hỏi Location 1, 2, 3, 4 -&gt; Audio đọc &quot;as close to the platform as possible&quot; -&gt; Chọn vị trí sát platform.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-200 pt-2 text-xs text-indigo-700">
+                        <span class="font-semibold">⚡ Trước khi nghe: Nhìn vào CỘT ĐỐI DIỆN với cột chứa đáp án A, B, C, D. Lắng nghe thông tin ở cột đó rồi gióng sang!</span>
+                        <span class="font-mono text-[11px] text-slate-500">Áp dụng cho 100% câu hỏi Graphic trong ETS 2024 &amp; ETS 2026</span>
+                    </div>
+                </div>
+            </div>
+            <div class="py-4 first:pt-2 last:pb-2" data-quiz-row="13" data-block="3" hidden>
+                <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+                    <div class="flex-1 cursor-pointer select-none" data-quiz-toggle="13" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="rounded border border-indigo-200 bg-indigo-50 px-2 py-0.5 font-mono text-xs font-bold text-indigo-700">Bẫy 13</span>
+                            <h3 class="text-sm font-bold text-slate-900 transition hover:text-indigo-600 sm:text-base">15 câu cửa miệng ngầm ý của người bản xứ (Hiểu ý tại ngôn ngoại)</h3>
+                            <span class="hidden font-mono text-[11px] text-slate-400 md:inline">(15 câu cửa miệng ngầm ý của người bản xứ)</span>
+                        </div>
+                        <p class="mt-1 line-clamp-1 text-xs text-slate-600">Khi gặp câu hỏi ý ngầm trích dẫn (&quot;Why does the woman say...?&quot;), bạn giải mã ý nghĩa ngầm như thế nào?</p>
+                    </div>
+                    <div class="flex shrink-0 items-center gap-1.5 self-start sm:self-center">
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="0" data-dim="13" aria-pressed="false" title="Chưa biết: Tôi dịch nghĩa đen của câu trích dẫn và thường chọn phương án khớp nghĩa bề mặt nhất.">
+                            <span class="font-mono font-bold">0đ</span><span class="hidden text-[10px] font-medium sm:inline">Bị bẫy</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="1" data-dim="13" aria-pressed="false" title="Đã biết: Biết cần xét ngữ cảnh nhưng hay bị bỏ lỡ câu nói trước đó do mải dịch câu trích dẫn.">
+                            <span class="font-mono font-bold">1đ</span><span class="hidden text-[10px] font-medium sm:inline">Chậm</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="2" data-dim="13" aria-pressed="false" title="Phản xạ tức thì: Bắt đúng bối cảnh diễn ra trước câu nói, nắm bắt ý tại ngôn ngoại và chốt đáp án tự tin.">
+                            <span class="font-mono font-bold">2đ</span><span class="hidden text-[10px] font-medium sm:inline">Phản xạ</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-3 space-y-3 rounded-2xl border border-slate-200/80 bg-slate-50 p-4 text-xs sm:text-sm" data-quiz-details="13" hidden>
+                    <div class="grid grid-cols-1 gap-3 text-xs sm:grid-cols-2">
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Bản chất Bẫy ETS</span>
+                            <p class="leading-relaxed text-slate-700">Dạng câu hỏi kiểm tra khả năng hiểu ý ngầm. Câu &quot;I have another meeting at two&quot; không đơn thuần là báo giờ mà là giục đối phương kết thúc nhanh. Cần bắt ngữ cảnh xảy ra ngay trước đó.</p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Dẫn chứng Thực tế</span>
+                            <p class="rounded-lg border border-emerald-200 bg-emerald-50 p-2.5 font-mono text-emerald-800">ETS-2026-01 Q93: &quot;I have another meeting at two&quot; -&gt; Hàm ý: Yêu cầu đồng nghiệp đẩy nhanh tiến độ review tài liệu.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-200 pt-2 text-xs text-indigo-700">
+                        <span class="font-semibold">⚡ Đọc trước câu trích dẫn -&gt; Lắng nghe tình huống xảy ra ngay trước đó -&gt; Bắt đúng ý ngầm thật sự của người nói.</span>
+                        <span class="font-mono text-[11px] text-slate-500">2 - 4 câu trong mỗi đề ETS 2024-2026</span>
+                    </div>
+                </div>
+            </div>
+            <div class="py-4 first:pt-2 last:pb-2" data-quiz-row="14" data-block="3" hidden>
+                <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+                    <div class="flex-1 cursor-pointer select-none" data-quiz-toggle="14" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="rounded border border-indigo-200 bg-indigo-50 px-2 py-0.5 font-mono text-xs font-bold text-indigo-700">Bẫy 14</span>
+                            <h3 class="text-sm font-bold text-slate-900 transition hover:text-indigo-600 sm:text-base">Mẹo phân biệt 3 người nói không bị lú (Tránh gán nhầm người)</h3>
+                            <span class="hidden font-mono text-[11px] text-slate-400 md:inline">(Mẹo phân biệt 3 người nói không bị lú)</span>
+                        </div>
+                        <p class="mt-1 line-clamp-1 text-xs text-slate-600">Bạn xử lý đoạn thoại 3 người (1 Nữ + 2 Nam hoặc 2 Nữ + 1 Nam) như thế nào để không bị tráo đổi nhân vật?</p>
+                    </div>
+                    <div class="flex shrink-0 items-center gap-1.5 self-start sm:self-center">
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="0" data-dim="14" aria-pressed="false" title="Chưa biết: Tôi không phân biệt được ai đang nói, thường gán nhầm đề xuất của người này cho người khác.">
+                            <span class="font-mono font-bold">0đ</span><span class="hidden text-[10px] font-medium sm:inline">Bị bẫy</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="1" data-dim="14" aria-pressed="false" title="Đã biết: Nhận ra có 3 người nhưng khi họ tranh luận nhanh thì bắt đầu bị loạn luồng thông tin.">
+                            <span class="font-mono font-bold">1đ</span><span class="hidden text-[10px] font-medium sm:inline">Chậm</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="2" data-dim="14" aria-pressed="false" title="Phản xạ tức thì: Gắn nhãn nhân vật tức thời, bắt chính xác đề xuất của từng cá nhân không bị lú.">
+                            <span class="font-mono font-bold">2đ</span><span class="hidden text-[10px] font-medium sm:inline">Phản xạ</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-3 space-y-3 rounded-2xl border border-slate-200/80 bg-slate-50 p-4 text-xs sm:text-sm" data-quiz-details="14" hidden>
+                    <div class="grid grid-cols-1 gap-3 text-xs sm:grid-cols-2">
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Bản chất Bẫy ETS</span>
+                            <p class="leading-relaxed text-slate-700">ETS 2026 chứng kiến sự bùng nổ của đối thoại 3 người (tăng từ 8 lên 20 đoạn thoại trong 10 đề). Thí sinh không phân biệt được chất giọng sẽ dính bẫy gán nhầm người.</p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Dẫn chứng Thực tế</span>
+                            <p class="rounded-lg border border-emerald-200 bg-emerald-50 p-2.5 font-mono text-emerald-800">ETS-2026-01 Q41-43: W hỏi ý kiến -&gt; Brian (M1) đề xuất in logo -&gt; Matteo (M2) nhắc kiểm tra ngân sách. Đề hỏi Brian, bẫy gài ngân sách!</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-200 pt-2 text-xs text-indigo-700">
+                        <span class="font-semibold">⚡ Đầu đoạn thoại: Đánh dấu nhanh 3 nhân vật trong đầu (W - M1 - M2). Gắn chặt tên với từng ý kiến đề xuất!</span>
+                        <span class="font-mono text-[11px] text-slate-500">+150.0% trong ETS 2026 (Trung bình 2 đoạn / đề)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="py-4 first:pt-2 last:pb-2" data-quiz-row="15" data-block="3" hidden>
+                <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+                    <div class="flex-1 cursor-pointer select-none" data-quiz-toggle="15" role="button" tabindex="0" aria-expanded="false">
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="rounded border border-indigo-200 bg-indigo-50 px-2 py-0.5 font-mono text-xs font-bold text-indigo-700">Bẫy 15</span>
+                            <h3 class="text-sm font-bold text-slate-900 transition hover:text-indigo-600 sm:text-base">4 mẹo nghe thủng nối âm - nuốt âm &amp; Ngữ điệu 4 nước</h3>
+                            <span class="hidden font-mono text-[11px] text-slate-400 md:inline">(4 mẹo nghe thủng nối âm - nuốt âm)</span>
+                        </div>
+                        <p class="mt-1 line-clamp-1 text-xs text-slate-600">Bạn có nghe rõ các hiện tượng nối âm, nuốt âm (như water đọc thành woa-đờ, nuốt âm cuối khi nói nhanh) và giọng Anh-Úc không?</p>
+                    </div>
+                    <div class="flex shrink-0 items-center gap-1.5 self-start sm:self-center">
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="0" data-dim="15" aria-pressed="false" title="Chưa biết: Tôi quen nghe phát âm từng từ rời rạc; gặp nối âm và giọng Anh-Úc là bị &quot;điếc&quot; hoàn toàn.">
+                            <span class="font-mono font-bold">0đ</span><span class="hidden text-[10px] font-medium sm:inline">Bị bẫy</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="1" data-dim="15" aria-pressed="false" title="Đã biết: Nghe được giọng Mỹ quen thuộc nhưng vẫn gặp khó khăn lớn với giọng Anh-Anh và giọng Úc.">
+                            <span class="font-mono font-bold">1đ</span><span class="hidden text-[10px] font-medium sm:inline">Chậm</span>
+                        </button>
+                        <button type="button" class="lm-score flex cursor-pointer items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs transition" data-quiz-score="2" data-dim="15" aria-pressed="false" title="Phản xạ tức thì: Thích ứng mượt mà với cả 4 giọng đọc Mỹ, Anh, Úc, Canada và các hiện tượng nối - nuốt âm.">
+                            <span class="font-mono font-bold">2đ</span><span class="hidden text-[10px] font-medium sm:inline">Phản xạ</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-3 space-y-3 rounded-2xl border border-slate-200/80 bg-slate-50 p-4 text-xs sm:text-sm" data-quiz-details="15" hidden>
+                    <div class="grid grid-cols-1 gap-3 text-xs sm:grid-cols-2">
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Bản chất Bẫy ETS</span>
+                            <p class="leading-relaxed text-slate-700">ETS dùng 4 giọng đọc đại diện (Mỹ, Anh, Úc, Canada). Biến âm vỗ &quot;water&quot; -&gt; &quot;woa-đờ&quot;, rơi âm &quot;can't&quot; -&gt; /kɑːnt/, &quot;schedule&quot; -&gt; &quot;she-dul&quot; làm tê liệt tai người học nếu chỉ quen giọng chuẩn trường lớp.</p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="block font-semibold uppercase tracking-wider text-slate-500">Dẫn chứng Thực tế</span>
+                            <p class="rounded-lg border border-emerald-200 bg-emerald-50 p-2.5 font-mono text-emerald-800">ETS-2026-02: Giọng Anh-Anh đọc &quot;schedule&quot; là /ˈʃedʒ.uːl/ thay vì &quot;sked-jool&quot; kiểu Mỹ khiến 70% thí sinh không nhận ra từ.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between border-t border-slate-200 pt-2 text-xs text-indigo-700">
+                        <span class="font-semibold">⚡ Luyện tai theo cả cụm âm thanh thay vì tách rời từng từ. Quen với biến thể nối âm - nuốt âm Anh - Úc - Mỹ!</span>
+                        <span class="font-mono text-[11px] text-slate-500">Tốc độ 160 - 180 wpm với độ biến thiên ngữ điệu phức tạp</span>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <div class="mt-6 space-y-5 rounded-2xl border-2 border-indigo-200/90 bg-gradient-to-br from-indigo-50/40 via-white to-emerald-50/30 p-5 shadow-lg sm:p-7">
+        <div data-quiz-empty class="flex items-start gap-3 rounded-2xl border border-indigo-200 bg-indigo-50 p-4 text-xs text-slate-700 sm:text-sm">
+            <span class="mt-0.5 shrink-0 text-lg">❓</span>
+            <div>
+                <h4 class="text-sm font-bold text-slate-900">Chưa có kết quả chẩn đoán</h4>
+                <p class="mt-1 text-slate-600">Hãy bấm chọn mức phản xạ (0đ: Bị bẫy / 1đ: Chậm / 2đ: Phản xạ) cho từng bẫy ở các tab bên trên, hoặc bấm <strong>&quot;Thử nhanh&quot;</strong> ở góc phải trên để xem kịch bản mẫu.</p>
+            </div>
+        </div>
+        <div data-quiz-result hidden>
+                <div class="space-y-5" data-quiz-tier="0" data-min="0" data-max="15" hidden>
+                    <div class="flex flex-col justify-between gap-3 border-b border-slate-200/80 pb-4 sm:flex-row sm:items-center">
+                        <div class="space-y-1">
+                            <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Kết Quả Chẩn Đoán Của Bạn</span>
+                            <div class="flex items-center gap-3">
+                                <span class="font-mono text-3xl font-black text-slate-900 sm:text-4xl"><span data-quiz-total>0</span> <span class="text-base font-normal text-slate-400">/ 30 Điểm</span></span>
+                                <span class="rounded-full border px-3 py-1 text-xs font-bold bg-rose-100 border-rose-300 text-rose-700">0 – 15 Điểm</span>
+                            </div>
+                            <span class="font-mono text-[11px] text-slate-500" data-quiz-progress-note></span>
+                        </div>
+                        <div class="text-left sm:text-right">
+                            <h4 class="text-base font-bold text-slate-900 sm:text-lg">Kẹt ở ngưỡng 300 – 350 điểm nghe (Cần rèn lại phản xạ âm thanh)</h4>
+                            <span class="text-xs font-medium text-slate-500">Cần thanh lọc tư duy cơ học</span>
+                        </div>
+                    </div>
+                    <p class="text-xs leading-relaxed text-slate-700 sm:text-sm">Bạn vẫn đang nghe theo thói quen dịch từng chữ trong đầu sang tiếng Việt. Não bộ mất &gt; 1.5s để dịch nghĩa, khiến bạn liên tục bị &quot;khựng lại&quot; và mất trắng nhiều câu liên tiếp khi tốc độ đọc tăng cao.</p>
+                    <div class="space-y-2.5">
+                        <h5 class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-700">✅ Lộ trình khắc phục ưu tiên dành riêng cho bạn:</h5>
+                        <div class="grid grid-cols-1 gap-2 text-xs text-slate-700 sm:grid-cols-2">
+                            <div class="flex items-start gap-2 rounded-xl border border-slate-200 bg-white p-3 shadow-xs">
+                                <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-indigo-200 bg-indigo-50 font-mono text-[11px] font-bold text-indigo-700">1</span>
+                                <span>Cắt bỏ thói quen dịch mặt chữ trong đầu: Luyện nhận diện ý niệm trực tiếp từ âm thanh</span>
+                            </div>
+                            <div class="flex items-start gap-2 rounded-xl border border-slate-200 bg-white p-3 shadow-xs">
+                                <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-indigo-200 bg-indigo-50 font-mono text-[11px] font-bold text-indigo-700">2</span>
+                                <span>Làm chủ tuyệt đối các bẫy Part 1 (đặc biệt là quy tắc &quot;Không người = Gạch ngay Being&quot; và Từ chỉ nhóm lớn)</span>
+                            </div>
+                            <div class="flex items-start gap-2 rounded-xl border border-slate-200 bg-white p-3 shadow-xs">
+                                <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-indigo-200 bg-indigo-50 font-mono text-[11px] font-bold text-indigo-700">3</span>
+                                <span>Nạp ngay 50 từ vựng chỉ nhóm đồ vật &amp; vi cử động có trong Từ điển Sát thủ LingoPro</span>
+                            </div>
+                            <div class="flex items-start gap-2 rounded-xl border border-slate-200 bg-white p-3 shadow-xs">
+                                <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-indigo-200 bg-indigo-50 font-mono text-[11px] font-bold text-indigo-700">4</span>
+                                <span>Luyện tập trên LingoPro Focus Player ở chế độ Dictation (chép chính tả điền khuyết) để rèn tai</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-5" data-quiz-tier="1" data-min="16" data-max="24" hidden>
+                    <div class="flex flex-col justify-between gap-3 border-b border-slate-200/80 pb-4 sm:flex-row sm:items-center">
+                        <div class="space-y-1">
+                            <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Kết Quả Chẩn Đoán Của Bạn</span>
+                            <div class="flex items-center gap-3">
+                                <span class="font-mono text-3xl font-black text-slate-900 sm:text-4xl"><span data-quiz-total>0</span> <span class="text-base font-normal text-slate-400">/ 30 Điểm</span></span>
+                                <span class="rounded-full border px-3 py-1 text-xs font-bold bg-amber-100 border-amber-300 text-amber-800">16 – 24 Điểm</span>
+                            </div>
+                            <span class="font-mono text-[11px] text-slate-500" data-quiz-progress-note></span>
+                        </div>
+                        <div class="text-left sm:text-right">
+                            <h4 class="text-base font-bold text-slate-900 sm:text-lg">Kẹt ở ngưỡng 380 – 420 điểm nghe (&quot;Bình nguyên kẹt điểm&quot; dậm chân tại chỗ)</h4>
+                            <span class="text-xs font-medium text-slate-500">Kẹt tại bình nguyên ETS</span>
+                        </div>
+                    </div>
+                    <p class="text-xs leading-relaxed text-slate-700 sm:text-sm">Bạn có nền tảng từ vựng và ngữ pháp khá tốt nhưng liên tục bị bẫy ở câu trần thuật Part 2, đoạn thoại 3 người và các cặp Paraphrase đổi chữ tinh vi trong Part 3 &amp; 4. Đây chính là &quot;Bình nguyên kẹt điểm&quot; khiến 85% người học dậm chân tại chỗ.</p>
+                    <div class="space-y-2.5">
+                        <h5 class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-700">✅ Lộ trình khắc phục ưu tiên dành riêng cho bạn:</h5>
+                        <div class="grid grid-cols-1 gap-2 text-xs text-slate-700 sm:grid-cols-2">
+                            <div class="flex items-start gap-2 rounded-xl border border-slate-200 bg-white p-3 shadow-xs">
+                                <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-indigo-200 bg-indigo-50 font-mono text-[11px] font-bold text-indigo-700">1</span>
+                                <span>Áp dụng triệt để Mẹo Gióng Cột Đối Diện cho toàn bộ câu hỏi tranh ảnh bảng biểu Part 3 &amp; 4</span>
+                            </div>
+                            <div class="flex items-start gap-2 rounded-xl border border-slate-200 bg-white p-3 shadow-xs">
+                                <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-indigo-200 bg-indigo-50 font-mono text-[11px] font-bold text-indigo-700">2</span>
+                                <span>Bẻ khóa 3 chiêu trả lời vòng vo Part 2 (đùn việc cho người khác, nêu lý do bận, Actually)</span>
+                            </div>
+                            <div class="flex items-start gap-2 rounded-xl border border-slate-200 bg-white p-3 shadow-xs">
+                                <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-indigo-200 bg-indigo-50 font-mono text-[11px] font-bold text-indigo-700">3</span>
+                                <span>Luyện phân biệt chất giọng trong 20 đoạn thoại 3 người của ETS 2026 trên LingoPro Exam Engine</span>
+                            </div>
+                            <div class="flex items-start gap-2 rounded-xl border border-slate-200 bg-white p-3 shadow-xs">
+                                <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-indigo-200 bg-indigo-50 font-mono text-[11px] font-bold text-indigo-700">4</span>
+                                <span>Tăng tốc độ nghe lên 1.1x - 1.2x để tạo thặng dư xử lý thông tin dưới áp lực phòng thi thật</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-5" data-quiz-tier="2" data-min="25" data-max="30" hidden>
+                    <div class="flex flex-col justify-between gap-3 border-b border-slate-200/80 pb-4 sm:flex-row sm:items-center">
+                        <div class="space-y-1">
+                            <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Kết Quả Chẩn Đoán Của Bạn</span>
+                            <div class="flex items-center gap-3">
+                                <span class="font-mono text-3xl font-black text-slate-900 sm:text-4xl"><span data-quiz-total>0</span> <span class="text-base font-normal text-slate-400">/ 30 Điểm</span></span>
+                                <span class="rounded-full border px-3 py-1 text-xs font-bold bg-emerald-100 border-emerald-300 text-emerald-700">25 – 30 Điểm</span>
+                            </div>
+                            <span class="font-mono text-[11px] text-slate-500" data-quiz-progress-note></span>
+                        </div>
+                        <div class="text-left sm:text-right">
+                            <h4 class="text-base font-bold text-slate-900 sm:text-lg">Ngưỡng Master 450 – 495 điểm tuyệt đối</h4>
+                            <span class="text-xs font-medium text-slate-500">Làm chủ phản xạ 15 chiều</span>
+                        </div>
+                    </div>
+                    <p class="text-xs leading-relaxed text-slate-700 sm:text-sm">Xuất sắc! Bạn đã làm chủ hoàn toàn 15 bẫy nghe khảo thí. Phản xạ âm thanh đạt dưới 300ms, miễn nhiễm với bẫy lặp từ nguyên xi và bẫy being tiếp diễn. Bạn đã sẵn sàng chinh phục điểm tuyệt đối phần Listening!</p>
+                    <div class="space-y-2.5">
+                        <h5 class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-700">✅ Lộ trình khắc phục ưu tiên dành riêng cho bạn:</h5>
+                        <div class="grid grid-cols-1 gap-2 text-xs text-slate-700 sm:grid-cols-2">
+                            <div class="flex items-start gap-2 rounded-xl border border-slate-200 bg-white p-3 shadow-xs">
+                                <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-indigo-200 bg-indigo-50 font-mono text-[11px] font-bold text-indigo-700">1</span>
+                                <span>Duy trì cọ xát với trọn bộ 20 đề thi chuẩn ETS 2024 &amp; ETS 2026 trên LingoPro</span>
+                            </div>
+                            <div class="flex items-start gap-2 rounded-xl border border-slate-200 bg-white p-3 shadow-xs">
+                                <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-indigo-200 bg-indigo-50 font-mono text-[11px] font-bold text-indigo-700">2</span>
+                                <span>Thực hành Native Shadowing ở tốc độ 1.2x để mài sắc phản xạ với cả 4 chất giọng Anh - Úc - Mỹ - Canada</span>
+                            </div>
+                            <div class="flex items-start gap-2 rounded-xl border border-slate-200 bg-white p-3 shadow-xs">
+                                <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-indigo-200 bg-indigo-50 font-mono text-[11px] font-bold text-indigo-700">3</span>
+                                <span>Tham gia Thử thách Kỷ luật Hoàn tiền Giảm dần để cam kết học đều đặn mỗi ngày trước khi thi thật</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <form data-lm-form="quiz" novalidate class="space-y-3 border-t border-slate-200 pt-4">
+            <div class="flex flex-col gap-3 sm:flex-row">
+                <input type="text" name="fullName" data-lm-name autocomplete="name" placeholder="Họ tên của bạn" aria-label="Họ tên" class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs text-slate-900 shadow-xs transition placeholder:text-slate-400 focus:border-indigo-600 focus:outline-none sm:w-1/3 sm:text-sm" />
+                <input type="email" name="email" required data-lm-email autocomplete="email" placeholder="Nhập Email để nhận Ebook &amp; Báo Cáo Chi Tiết" aria-label="Email" class="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-xs text-slate-900 shadow-xs transition placeholder:text-slate-400 focus:border-indigo-600 focus:outline-none sm:w-2/3 sm:text-sm" />
+                <button type="submit" data-lm-submit class="flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-emerald-500/20 transition hover:from-emerald-600 hover:to-teal-700 disabled:opacity-50 sm:text-sm"><span data-lm-submit-label>NHẬN BÁO CÁO &amp; EBOOK →</span></button>
+            </div>
+            <div class="hidden" aria-hidden="true" style="display:none"><label>Website <input type="text" name="hp" tabindex="-1" autocomplete="off" /></label></div>
+            <p class="text-xs text-rose-600" data-lm-error hidden></p>
+            <p class="flex items-center gap-1 text-[11px] text-slate-500">🔒 LingoPro cam kết bảo mật thông tin. Bạn sẽ nhận được bản PDF/Markdown hoàn chỉnh qua email.</p>
+        </form>
+        <div data-lm-success="quiz" hidden class="flex flex-col items-center justify-between gap-3 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-xs text-emerald-900 sm:flex-row sm:text-sm">
+            <div class="flex items-center gap-2"><span class="shrink-0 text-lg">✅</span><span>Đã lưu kết quả bài test (<span data-quiz-total>0</span>/30)! Bạn có thể tải ngay Ebook trọn bộ bên dưới.</span></div>
+            <div class="flex items-center gap-2">
+                <a href="/downloads/Bach-Khoa-Sat-Thu-TOEIC-Listening-ETS-2026-LingoPro.pdf" download class="flex items-center gap-1.5 whitespace-nowrap rounded-xl bg-emerald-600 px-4 py-2 text-xs font-bold text-white shadow-xs transition hover:bg-emerald-700">TẢI EBOOK (BẢN PDF) →</a>
+                <a href="/downloads/sat-thu-toeic-listening-lead-magnet.md" download title="Tải bản Markdown thô" class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs text-slate-700 shadow-xs transition hover:bg-slate-50">Bản .MD</a>
+            </div>
+        </div>
+    </div>
+</div>
