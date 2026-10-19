@@ -83,7 +83,7 @@ export class FsrsEngine {
    * Maps a 0-5 SM-2 review quality enum to the 4-point FSRS grade (1=Again, 2=Hard, 3=Good, 4=Easy).
    */
   private static mapQualityToFsrsGrade(quality: SrsReviewQuality): 1 | 2 | 3 | 4 {
-    if (quality <= SrsReviewQuality.Again) {
+    if (quality === SrsReviewQuality.Again) {
       return 1;
     }
     if (quality === SrsReviewQuality.Hard) {

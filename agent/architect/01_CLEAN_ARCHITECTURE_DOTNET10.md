@@ -169,41 +169,55 @@ src/backend/
 
 ### 3.3 Định Nghĩa Đầy Đủ Enum Cho Các Business Types (`CertLevel`, `SrsCardState`, ...)
 * **Cấm sử dụng chuỗi cứng (magic strings)** trong Entity, DTO hay logic nghiệp vụ.
-* Tất cả các loại hình và cấp độ chứng chỉ nghiệp vụ đều được định nghĩa thành Enum (1 file = 1 Enum):
+* Tất cả các loại hình và cấp độ chứng chỉ nghiệp vụ đều được định nghĩa thành Enum tại `LingoPro.Domain/Enums` (1 file = 1 Enum), gắn `[Display(Name = "...")]` (`System.ComponentModel.DataAnnotations`) trực tiếp trên từng phần tử để đồng bộ tên định danh chuỗi với Frontend:
 
 ```csharp
-// LingoPro.Domain/Enums/Certification/CertLevel.cs
-namespace LingoPro.Domain.Enums.Certification;
+// LingoPro.Domain/Enums/CertLevel.cs
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 /// <summary>
-/// Represents standardized certification proficiency levels (CEFR A0-C2).
+/// Represents standardized certification proficiency levels (CEFR A0-C2) mapped from database migrations.
 /// </summary>
 public enum CertLevel
 {
-    A0 = 0,
-    A1 = 1,
-    A2 = 2,
-    B1 = 3,
-    B2 = 4,
-    C1 = 5,
-    C2 = 6
+    [Display(Name = "A0")]
+    A0,
+    [Display(Name = "A1")]
+    A1,
+    [Display(Name = "A2")]
+    A2,
+    [Display(Name = "B1")]
+    B1,
+    [Display(Name = "B2")]
+    B2,
+    [Display(Name = "C1")]
+    C1,
+    [Display(Name = "C2")]
+    C2,
 }
 ```
 
 ```csharp
-// LingoPro.Domain/Enums/Vocab/SrsCardState.cs
-namespace LingoPro.Domain.Enums.Vocab;
+// LingoPro.Domain/Enums/SrsCardState.cs
+using System.ComponentModel.DataAnnotations;
+
+namespace LingoPro.Domain.Enums;
 
 /// <summary>
-/// Represents the FSRS v5 scheduling state of a vocabulary or grammar card.
-/// Maps to srs_progress.state in database migration 20260411_fsrs_upgrade.sql.
+/// Defines the FSRS v5 scheduling state of a vocabulary or grammar card.
 /// </summary>
 public enum SrsCardState
 {
-    New = 0,
-    Learning = 1,
-    Review = 2,
-    Relearning = 3
+    [Display(Name = "New")]
+    New,
+    [Display(Name = "Learning")]
+    Learning,
+    [Display(Name = "Review")]
+    Review,
+    [Display(Name = "Relearning")]
+    Relearning,
 }
 ```
 

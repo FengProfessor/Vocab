@@ -199,7 +199,7 @@ export const VocabStudyView: React.FC = () => {
           [SrsCardState.Review]: 'green',
           [SrsCardState.Relearning]: 'red',
         };
-        return <Tag color={colorMap[state]}>{SrsCardState[state]}</Tag>;
+        return <Tag color={colorMap[state]}>{state}</Tag>;
       },
     },
     {
@@ -267,7 +267,7 @@ export const VocabStudyView: React.FC = () => {
                   <Space>
                     <CertLevelTag level={currentCard.certLevel} />
                     <Tag color="cyan">{String(currentCard.partOfSpeech).toUpperCase()}</Tag>
-                    <Tag color="purple">Trạng thái: {SrsCardState[currentCard.cardState]}</Tag>
+                    <Tag color="purple">Trạng thái: {currentCard.cardState}</Tag>
                   </Space>
 
                   <div style={{ textAlign: 'center', padding: '16px 0' }}>

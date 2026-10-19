@@ -1,0 +1,71 @@
+@* Offer value stack 699k -> 0d (port of OfferStackSection.tsx). *@
+@{
+    var stackItems = new[]
+    {
+        new { Badge = "ẤN PHẨM CỐT LÕI", BadgeColor = "bg-emerald-100 text-emerald-800 border-emerald-200", Title = "Ebook Sát Thủ Bài Nghe TOEIC (10 Trang Tinh Gọn)", Value = "250,000đ",
+              Desc = "Thiết kế chuẩn A4, mỗi trang 1 chuyên đề độc lập giải mã 15 bẫy sát thủ phòng thi, bẫy Being 100% sai, câu hỏi đuôi (+200%), đối thoại 3 người (+150%).",
+              Icon = "📘", IconColor = "text-emerald-600 bg-emerald-50 border-emerald-200",
+              Features = new[] { "Dẫn chứng thực tế từ 20 đề ETS 2024 & ETS 2026", "Công thức phản xạ 3 giây bẻ gãy bẫy ETS", "Có sẵn bản PDF để in ấn và đọc trực tuyến" } },
+        new { Badge = "BẢO BỐI TỪ VỰNG", BadgeColor = "bg-indigo-100 text-indigo-800 border-indigo-200", Title = "Kho 150 Cụm Từ & Collocation Tần Suất Cao Nhất ETS 2026", Value = "150,000đ",
+              Desc = "Trích xuất trực tiếp từ 2,000 câu hỏi nghe thực tế. Loại bỏ từ vựng thừa, chỉ tập trung vào các từ thượng danh (hypernyms) và cụm bẫy mồi nhử.",
+              Icon = "🎁", IconColor = "text-indigo-600 bg-indigo-50 border-indigo-200",
+              Features = new[] { "Đầy đủ phiên âm IPA & giải nghĩa tiếng Việt xúc tích", "Cảnh báo bẫy thi độc quyền kèm vị trí câu hỏi trong đề thật", "Có thanh tra cứu và nghe phát âm chuẩn bản xứ" } },
+        new { Badge = "HUẤN LUYỆN TAI NGHE", BadgeColor = "bg-amber-100 text-amber-800 border-amber-200", Title = "File Audio MP3 \"Phản Xạ 3 Giây\" Tốc Độ 1.1x", Value = "100,000đ",
+              Desc = "Tuyển tập các đoạn audio bẫy kinh điển được tăng tốc độ 1.1x để kích thích thích ứng thính giác, giúp bạn khi vào phòng thi cảm thấy băng đọc chậm và rõ mồn một.",
+              Icon = "🎧", IconColor = "text-amber-600 bg-amber-50 border-amber-200",
+              Features = new[] { "Tải về máy nghe mọi lúc mọi nơi", "Bao gồm 4 giọng đọc chuẩn quốc tế: Mỹ, Anh, Úc, Canada", "Kèm transcript phụ đề song ngữ đối chiếu" } },
+        new { Badge = "ĐẶC QUYỀN CÔNG NGHỆ", BadgeColor = "bg-purple-100 text-purple-800 border-purple-200", Title = "Voucher 7 Ngày VIP Pro Trải Nghiệm Luyện Nghe FSRS", Value = "199,000đ",
+              Desc = "Mở khóa toàn bộ tính năng luyện nghe ngắt quãng FSRS, chế độ Shadowing Focus Player đồng bộ từng mili-giây trên nền tảng LingoPro.",
+              Icon = "✨", IconColor = "text-purple-600 bg-purple-50 border-purple-200",
+              Features = new[] { "Luyện nghe 20 đề chuẩn ETS 2024 & 2026 trên web", "Báo cáo tự động phân tích điểm yếu thính giác", "Kích hoạt tức thì không cần thẻ tín dụng" } },
+    };
+}
+<section class="border-t border-slate-200/80 bg-slate-50/80 px-4 py-16 sm:px-6 sm:py-24">
+    <div class="mx-auto max-w-6xl space-y-12">
+        <div class="mx-auto max-w-3xl space-y-3 text-center">
+            <div class="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-emerald-700 shadow-xs">🎁 Bóc Tách Trọn Gói Quà Tặng Độc Quyền</div>
+            <h2 class="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">Bên Trong Gói Quà Tặng <span class="text-rose-600 line-through">699,000đ</span> Có Gì?</h2>
+            <p class="text-xs leading-relaxed text-slate-600 sm:text-base">Chúng tôi không chỉ gửi một file PDF đơn thuần. Đây là <strong class="font-semibold text-slate-900">Hệ Thống Huấn Luyện Thính Giác Hoàn Chỉnh</strong> bao gồm đầy đủ tài liệu, công cụ và đặc quyền công nghệ giúp bạn bứt phá 450+ điểm.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+            @foreach (var item in stackItems)
+            {
+                <div class="group flex flex-col justify-between space-y-5 rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm transition-all duration-300 hover:border-indigo-300 hover:shadow-xl sm:p-7">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <span class="rounded-full border px-2.5 py-1 text-[10px] font-extrabold uppercase @item.BadgeColor">@item.Badge</span>
+                            <div class="text-right">
+                                <span class="mr-2 font-mono text-xs text-slate-400 line-through">@item.Value</span>
+                                <span class="rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-xs font-black text-emerald-600">0đ (Miễn Phí)</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3.5">
+                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border text-lg @item.IconColor">@item.Icon</div>
+                            <h3 class="text-base font-extrabold text-slate-900 transition group-hover:text-indigo-600 sm:text-lg">@item.Title</h3>
+                        </div>
+                        <p class="text-xs leading-relaxed text-slate-600 sm:text-sm">@item.Desc</p>
+                        <ul class="space-y-2 border-t border-slate-100 pt-2 text-xs text-slate-700">
+                            @foreach (var feat in item.Features)
+                            {
+                                <li class="flex items-center gap-2"><span class="shrink-0 text-emerald-600">✔</span><span>@feat</span></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="flex flex-col items-center justify-between gap-6 rounded-3xl border border-indigo-200/90 bg-gradient-to-r from-indigo-50 via-white to-emerald-50 p-6 shadow-xl sm:p-8 md:flex-row">
+            <div class="space-y-2 text-center md:text-left">
+                <div class="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-800">✨ Tổng Giá Trị Thực Tế: 699,000đ</div>
+                <h3 class="text-xl font-black text-slate-900 sm:text-2xl">Hôm Nay: Miễn Phí 100% Cho 500 Lượt Đăng Ký Sớm Nhất</h3>
+                <p class="max-w-xl text-xs text-slate-600 sm:text-sm">Chỉ mất 5 giây nhập email. Hệ thống máy chủ tự động gửi link tải Google Drive tốc độ cao ngay lập tức.</p>
+            </div>
+            <div class="flex w-full flex-col items-center gap-3 sm:flex-row md:w-auto">
+                <button type="button" data-lm-open-reader class="w-full cursor-pointer rounded-2xl border border-slate-200 bg-white px-5 py-3 text-xs font-bold text-slate-800 shadow-sm transition hover:bg-slate-50 sm:w-auto sm:text-sm">Đọc Thử Online</button>
+                <button type="button" data-lm-scroll="optin-hero" class="flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 px-6 py-3 text-xs font-black text-white shadow-lg shadow-emerald-600/20 transition hover:from-emerald-700 hover:to-teal-700 sm:w-auto sm:text-sm"><span>Nhận Ngay Trọn Bộ 0đ</span><span>→</span></button>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,58 @@
+@* 3D book showcase (port of BookCover3D.tsx). *@
+<div class="relative mx-auto flex w-full max-w-lg flex-col items-center">
+    <div class="absolute -inset-4 -z-10 rounded-3xl bg-gradient-to-tr from-emerald-500/20 via-indigo-500/20 to-teal-400/20 blur-2xl"></div>
+
+    <div class="group relative w-full cursor-pointer transition-transform duration-500 hover:scale-[1.02]">
+        <div class="relative overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-2xl shadow-indigo-950/20">
+            <img src="/images/sat-thu-toeic-3d-book.jpg" width="1200" height="675" fetchpriority="high"
+                 alt="Bách Khoa Sát Thủ Bài Nghe TOEIC ETS 2024 &amp; ETS 2026 - 3D Mockup"
+                 class="h-auto w-full rounded-2xl object-cover transition-transform duration-700 group-hover:scale-105" />
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-white/20"></div>
+
+            <div class="absolute inset-0 flex items-center justify-center gap-3 bg-slate-900/40 opacity-0 backdrop-blur-xs transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
+                <button type="button" data-lm-open-reader class="flex cursor-pointer items-center gap-1.5 rounded-xl bg-white px-4 py-2.5 text-xs font-bold text-slate-900 shadow-lg transition hover:bg-slate-100">
+                    <span>👁️</span><span>Đọc Thử Online</span>
+                </button>
+                <button type="button" data-lm-scroll="optin-hero" class="flex cursor-pointer items-center gap-1.5 rounded-xl bg-emerald-600 px-4 py-2.5 text-xs font-bold text-white shadow-lg transition hover:bg-emerald-500">
+                    <span>✨</span><span>Nhận Sách 0đ</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="lm-float absolute -right-3 -top-3 flex items-center gap-2 rounded-2xl border border-emerald-200 bg-white px-3 py-1.5 text-slate-900 shadow-xl sm:-right-4 sm:-top-4">
+            <div class="flex h-6 w-6 items-center justify-center rounded-lg bg-emerald-100 text-xs font-black text-emerald-700">10</div>
+            <div class="text-left">
+                <span class="block text-[11px] font-extrabold leading-none text-slate-900">Trang Tinh Gọn</span>
+                <span class="text-[9px] font-semibold text-emerald-600">Chuẩn Khổ A4</span>
+            </div>
+        </div>
+
+        <div class="absolute -bottom-3 -left-3 flex items-center gap-2 rounded-2xl border border-indigo-200 bg-white px-3 py-1.5 text-slate-900 shadow-xl sm:-bottom-4 sm:-left-4">
+            <div class="flex h-6 w-6 items-center justify-center rounded-lg bg-indigo-100 text-xs font-bold text-indigo-700">📄</div>
+            <div class="text-left">
+                <span class="block text-[11px] font-extrabold leading-none text-slate-900">20 Đề ETS</span>
+                <span class="text-[9px] font-semibold text-indigo-600">2024 &amp; 2026 Mới Nhất</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5 flex w-full items-center justify-between gap-2 rounded-2xl border border-slate-200/90 bg-white/90 p-3 text-xs shadow-sm">
+        <div class="flex items-center gap-2">
+            <div class="flex -space-x-1.5">
+                <div class="flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-gradient-to-tr from-indigo-500 to-purple-500 text-[10px] font-bold text-white">H</div>
+                <div class="flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-gradient-to-tr from-emerald-500 to-teal-500 text-[10px] font-bold text-white">M</div>
+                <div class="flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-gradient-to-tr from-amber-500 to-orange-500 text-[10px] font-bold text-white">T</div>
+            </div>
+            <div>
+                <div class="flex items-center gap-0.5 text-amber-500">
+                    <span class="text-[11px] tracking-tight">★★★★★</span>
+                    <span class="ml-1 text-[11px] font-bold text-slate-800">4.9/5</span>
+                </div>
+                <span class="text-[10px] text-slate-500">3,850+ thí sinh đã tải về</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-1 rounded-xl border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[11px] font-semibold text-emerald-700">
+            <span>🛡️</span><span>Bản Quyền Độc Quyền</span>
+        </div>
+    </div>
+</div>

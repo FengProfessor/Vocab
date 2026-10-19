@@ -5,6 +5,6 @@ export interface EnumMemberItemDto {
   /** Canonical PascalCase enum member identifier. */
   name: string;
 
-  /** Underlying integer ordinal value in the C# domain enum. */
-  numericValue: number;
+  /** Synchronized string value defined via Display(Name = "...") in the C# domain enum. */
+  value: string;
 }

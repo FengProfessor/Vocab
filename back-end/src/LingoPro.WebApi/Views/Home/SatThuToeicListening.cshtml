@@ -1,0 +1,418 @@
+@* Server-rendered TOEIC Listening lead-magnet landing page — port of src/app/sat-thu-toeic-listening/page.tsx
+   + src/components/lead-magnet/LeadMagnetClient.tsx. Static content is rendered here and in Views/Shared/LeadMagnet/*;
+   interactivity (sticky bar, opt-in, quiz, tabs, dictionary filter, ebook reader) is in wwwroot/js/lead-magnet.js. *@
+@{
+    Layout = null;
+    ViewData["ActiveNav"] = "toeic";
+    const string pageTitle = "Bách Khoa Thực Chiến: Sát Thủ Bài Nghe TOEIC ETS 2024 & ETS 2026 | LingoPro";
+    const string metaDescription = "Giải mã định lượng 2,000 câu hỏi từ 20 bộ đề thi chuẩn ETS 2024 & ETS 2026 mới nhất. Tải ngay Ebook 10 trang độc quyền, làm bài test chẩn đoán phản xạ 15 bẫy nghe sát thủ và bứt phá 450+ điểm Listening.";
+    const string ogTitle = "Bách Khoa Thực Chiến: Sát Thủ Bài Nghe TOEIC ETS 2024 & ETS 2026";
+    const string canonicalUrl = "https://lingopro.vn/sat-thu-toeic-listening";
+    const string ogImage = "https://lingopro.vn/images/og-sat-thu-toeic.jpg";
+}
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#241710" />
+    <title>@pageTitle</title>
+    <meta name="description" content="@metaDescription" />
+    <meta name="keywords" content="TOEIC Listening, ETS 2024, ETS 2026, sát thủ bài nghe TOEIC, bẫy nghe TOEIC, giải đề ETS 2026, từ vựng TOEIC Part 1 2 3 4, kinh nghiệm luyện thi TOEIC, tài liệu TOEIC miễn phí, FSRS LingoPro, bẫy being part 1, đối thoại 3 người part 3" />
+    <meta name="robots" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
+    <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="@canonicalUrl" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <!-- OpenGraph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:site_name" content="LingoPro EdTech Platform" />
+    <meta property="og:title" content="@ogTitle" />
+    <meta property="og:description" content="Tải miễn phí trọn bộ Ebook 10 trang tinh gọn giải mã 2,000 câu hỏi khảo thí ETS 2024-2026, kho 150 cụm collocation bẫy thi và bài test chẩn đoán phản xạ 15 bẫy sát thủ." />
+    <meta property="og:url" content="@canonicalUrl" />
+    <meta property="og:image" content="@ogImage" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Bách Khoa Thực Chiến Sát Thủ Bài Nghe TOEIC ETS 2024 & ETS 2026 - LingoPro" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="@ogTitle" />
+    <meta name="twitter:description" content="Giải mã 2,000 câu hỏi nghe thực tế từ 20 đề chuẩn ETS 2024 & 2026. Tải Ebook 10 trang miễn phí ngay!" />
+    <meta name="twitter:image" content="@ogImage" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@@tailwindcss/browser@@4"></script>
+
+    <!-- Structured data: Book + FAQPage + BreadcrumbList (same graph as the original page.tsx) -->
+    <script type="application/ld+json">
+    {
+      "@@context": "https://schema.org",
+      "@@graph": [
+        {
+          "@@type": "Book",
+          "@@id": "https://lingopro.vn/sat-thu-toeic-listening#ebook",
+          "name": "Bách Khoa Thực Chiến: Sát Thủ Bài Nghe TOEIC ETS 2024 & ETS 2026",
+          "description": "Ấn phẩm khảo thí giải mã định lượng 2,000 câu hỏi từ 20 bộ đề chuẩn ETS 2024 & ETS 2026, 15 bẫy sát thủ phòng thi và từ điển 150 cụm từ tần suất cao nhất.",
+          "inLanguage": "vi",
+          "numberOfPages": 15,
+          "bookFormat": "https://schema.org/EBook",
+          "author": { "@@type": "Organization", "name": "Hội đồng Khảo thí LingoPro", "url": "https://lingopro.vn" },
+          "publisher": {
+            "@@type": "Organization",
+            "name": "LingoPro EdTech Platform",
+            "url": "https://lingopro.vn",
+            "logo": { "@@type": "ImageObject", "url": "https://lingopro.vn/icons/icon-512.png" }
+          },
+          "image": "https://lingopro.vn/images/sat-thu-toeic-3d-book.jpg"
+        },
+        {
+          "@@type": "FAQPage",
+          "@@id": "https://lingopro.vn/sat-thu-toeic-listening#faq",
+          "mainEntity": [
+            {
+              "@@type": "Question",
+              "name": "Bách khoa Sát Thủ Bài Nghe TOEIC ETS 2024 & 2026 có gì khác biệt so với các tài liệu mẹo vặt thông thường?",
+              "acceptedAnswer": { "@@type": "Answer", "text": "Khác với các tài liệu mẹo vặt máy móc thời kỳ cũ (ETS 2019-2022) vốn đã bị Viện Khảo Thí ETS vô hiệu hóa, tài liệu này được đúc kết từ dữ liệu khảo thí định lượng của 20 bộ đề chuẩn ETS 2024 và 2026 (2,000 câu hỏi). Toàn bộ 15 bẫy sát thủ, bẫy being (100% sai), bẫy câu hỏi đuôi (+200%), đối thoại 3 người (+150%) và quy luật đổi chữ paraphrase 3 tầng đều có dẫn chứng số câu, số đề thực tế và công thức phản xạ 3 giây chuẩn xác." }
+            },
+            {
+              "@@type": "Question",
+              "name": "Tại sao trong đề thi ETS 2026, các phương án chứa từ \"being\" ở Part 1 lại có tỷ lệ sai 100%?",
+              "acceptedAnswer": { "@@type": "Answer", "text": "Theo thống kê thực nghiệm trên 10 đề ETS 2026, 11/11 phương án xuất hiện cấu trúc is/are being + V-ed trong tranh tĩnh không có người thao tác đều là bẫy mồi nhử. ETS cố tình gài để loại các thí sinh học vẹt công thức mà không quan sát hành động thực tế của con người trong tranh." }
+            },
+            {
+              "@@type": "Question",
+              "name": "Part 2 đề thi mới 2024–2026 có xu hướng ra đề như thế nào?",
+              "acceptedAnswer": { "@@type": "Answer", "text": "Part 2 hiện nay đã cắt giảm triệt để các câu trả lời trực tiếp (Yes/No, thời gian cụ thể). Thay vào đó, hơn 40% câu hỏi sử dụng phản xạ trả lời vòng vo, thoái thác hoặc bẻ lái câu hỏi (như đùn đẩy trách nhiệm: \"Clara is already organizing one\"). Ngoài ra, số lượng câu hỏi đuôi tăng vọt từ 6 lên 18 câu (+200%) nhằm gài bẫy thói quen dịch nghĩa của người Việt." }
+            },
+            {
+              "@@type": "Question",
+              "name": "Làm thế nào để nhận trọn bộ Ebook, File Audio và Mã VIP Pro 7 ngày?",
+              "acceptedAnswer": { "@@type": "Answer", "text": "Bạn chỉ cần nhập địa chỉ Email vào biểu mẫu trên trang web. Hệ thống máy chủ tự động của LingoPro sẽ gửi ngay link tải trọn gói gồm: Ebook chuẩn PDF 10 trang, File tài liệu Markdown, bộ từ điển 150 cụm từ và mã kích hoạt 7 ngày trải nghiệm luyện nghe FSRS trên nền tảng." }
+            },
+            {
+              "@@type": "Question",
+              "name": "Lộ trình 30 ngày trong Ebook có phù hợp với người mất gốc tiếng Anh không?",
+              "acceptedAnswer": { "@@type": "Answer", "text": "Hoàn toàn phù hợp. Lộ trình được thiết kế theo 4 chặng từ cơ bản đến nâng cao: Tuần 1 giải mã Part 1 & Part 2, Tuần 2 bẻ khóa bẫy vòng vo, Tuần 3 làm chủ Paraphrase 3 tầng và Tuần 4 thi thử áp lực 45 phút. Kèm theo đó là công nghệ FSRS của LingoPro giúp tự động ngắt quãng ôn tập thính giác phù hợp với từng bạn." }
+            }
+          ]
+        },
+        {
+          "@@type": "BreadcrumbList",
+          "@@id": "https://lingopro.vn/sat-thu-toeic-listening#breadcrumb",
+          "itemListElement": [
+            { "@@type": "ListItem", "position": 1, "name": "Trang Chủ", "item": "https://lingopro.vn" },
+            { "@@type": "ListItem", "position": 2, "name": "Thư Viện Khảo Thí TOEIC", "item": "https://lingopro.vn/toeic" },
+            { "@@type": "ListItem", "position": 3, "name": "Sát Thủ Bài Nghe TOEIC ETS 2024 & 2026", "item": "https://lingopro.vn/sat-thu-toeic-listening" }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        html { font-family: 'Be Vietnam Pro', ui-sans-serif, system-ui, sans-serif; }
+        body { background: #f6efe6; color: #241710; }
+        summary::-webkit-details-marker { display: none; }
+
+        @@keyframes lm-bounce { 0%, 100% { transform: translateY(-6%); } 50% { transform: translateY(0); } }
+        @@keyframes lm-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
+        @@keyframes lm-spin { to { transform: rotate(360deg); } }
+        @@keyframes lm-fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+        .lm-float { animation: lm-bounce 3s ease-in-out infinite; }
+        .lm-pulse { animation: lm-pulse 2s ease-in-out infinite; }
+        .lm-spin { animation: lm-spin .8s linear infinite; }
+        .lm-fade { animation: lm-fade .25s ease-out; }
+
+        /* Sticky CTA: slides in from the bottom once the user scrolled past the hero */
+        .lm-sticky { transform: translateY(110%); opacity: 0; transition: transform .3s ease, opacity .3s ease; }
+        .lm-sticky[data-visible="true"] { transform: none; opacity: 1; }
+
+        /* Tab-like controls are styled via aria attributes so the JS only flips state */
+        .lm-btab { color: #475569; }
+        .lm-btab:hover { color: #0f172a; }
+        .lm-btab[aria-selected="true"] { color: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+        .lm-btab[data-b="1"][aria-selected="true"] { background: #0284c7; }
+        .lm-btab[data-b="2"][aria-selected="true"] { background: #d97706; }
+        .lm-btab[data-b="3"][aria-selected="true"] { background: #9333ea; }
+        .lm-mitem[aria-selected="true"] { background: #fff; border-color: #4f46e5; color: #0f172a; box-shadow: 0 6px 16px rgba(99,102,241,.15), 0 0 0 1px rgba(99,102,241,.2); }
+        .lm-qtab { color: #475569; }
+        .lm-qtab:hover { color: #0f172a; }
+        .lm-qtab[aria-selected="true"] { font-weight: 700; box-shadow: 0 1px 2px rgba(0,0,0,.06); }
+        .lm-qtab[data-b="1"][aria-selected="true"] { background: #e0f2fe; color: #0c4a6e; border: 1px solid #7dd3fc; }
+        .lm-qtab[data-b="2"][aria-selected="true"] { background: #fef3c7; color: #78350f; border: 1px solid #fcd34d; }
+        .lm-qtab[data-b="3"][aria-selected="true"] { background: #f3e8ff; color: #581c87; border: 1px solid #d8b4fe; }
+        .lm-pill { background: #fff; color: #475569; border: 1px solid #e2e8f0; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+        .lm-pill:hover { background: #f8fafc; color: #0f172a; }
+        .lm-pill[aria-pressed="true"] { background: #4f46e5; color: #fff; border-color: #4f46e5; font-weight: 700; }
+        .lm-vtab { background: #fff; color: #334155; border: 1px solid rgba(226,232,240,.8); }
+        .lm-vtab:hover { background: #f1f5f9; }
+        .lm-vtab[aria-selected="true"] { background: #4f46e5; color: #fff; border-color: #4f46e5; box-shadow: 0 4px 10px rgba(79,70,229,.2); }
+        .lm-vdot { background: #94a3b8; }
+        .lm-vtab[aria-selected="true"] .lm-vdot { background: #fcd34d; }
+        .lm-score { background: #f1f5f9; color: #334155; border-color: #e2e8f0; }
+        .lm-score:hover { background: #e2e8f0; }
+        .lm-score[aria-pressed="true"] { font-weight: 700; box-shadow: 0 0 0 1px currentColor; }
+        .lm-score[aria-pressed="true"][data-quiz-score="0"] { background: #ffe4e6; color: #9f1239; border-color: #fda4af; }
+        .lm-score[aria-pressed="true"][data-quiz-score="1"] { background: #fef3c7; color: #78350f; border-color: #fcd34d; }
+        .lm-score[aria-pressed="true"][data-quiz-score="2"] { background: #d1fae5; color: #064e3b; border-color: #6ee7b7; }
+        .lm-faq[open] .lm-chevron { transform: rotate(180deg); color: #4f46e5; }
+        .lm-faq[open] > div { animation: lm-fade .2s ease-out; }
+
+        /* Ebook reader typography (rendered markdown) */
+        .lm-prose { line-height: 1.7; }
+        .lm-prose h1 { font-size: 1.75rem; font-weight: 800; color: #0f172a; margin: 2rem 0 1rem; padding-bottom: .75rem; border-bottom: 1px solid #e2e8f0; }
+        .lm-prose h2 { font-size: 1.4rem; font-weight: 700; color: #4338ca; margin: 2rem 0 .75rem; scroll-margin-top: 1.5rem; }
+        .lm-prose h3 { font-size: 1.15rem; font-weight: 700; color: #065f46; margin: 1.5rem 0 .5rem; scroll-margin-top: 1.5rem; }
+        .lm-prose h4 { font-size: 1rem; font-weight: 700; color: #92400e; margin: 1.25rem 0 .5rem; scroll-margin-top: 1.5rem; }
+        .lm-prose p { margin: .75rem 0; color: #334155; }
+        .lm-prose ul, .lm-prose ol { margin: .75rem 0; padding-left: 1.5rem; color: #334155; }
+        .lm-prose ul { list-style: disc; }
+        .lm-prose ol { list-style: decimal; }
+        .lm-prose li { margin: .25rem 0; }
+        .lm-prose blockquote { margin: 1rem 0; padding: .5rem 1rem; border-left: 4px solid #a5b4fc; background: #eef2ff; color: #334155; border-radius: .5rem; }
+        .lm-prose hr { margin: 1.5rem 0; border-color: #e2e8f0; }
+        .lm-prose a { color: #4f46e5; text-decoration: underline; }
+        .lm-prose .lm-table-wrap { overflow-x: auto; margin: 1rem 0; }
+        .lm-prose table { width: 100%; font-size: .75rem; text-align: left; border-collapse: collapse; border: 1px solid #e2e8f0; }
+        .lm-prose th { background: #f1f5f9; padding: .625rem; border: 1px solid #e2e8f0; color: #1e293b; font-weight: 700; }
+        .lm-prose td { padding: .5rem; border: 1px solid #e2e8f0; color: #334155; vertical-align: top; }
+        .lm-prose code { background: #f1f5f9; color: #4338ca; border: 1px solid #e2e8f0; padding: .1rem .375rem; border-radius: .25rem; font-family: ui-monospace, monospace; font-size: 11px; }
+        #lm-reader[data-fullscreen="true"] { padding: 0; }
+        #lm-reader-panel[data-fullscreen="true"] { max-width: none; height: 100%; border-radius: 0; border-width: 0; }
+    </style>
+</head>
+<body class="min-h-screen pb-16 font-sans text-slate-900 selection:bg-indigo-100 selection:text-indigo-900 sm:pb-20">
+    <partial name="_MarketingHeader" />
+
+    <!-- In-page quick navigation (anchors to the server-rendered sections) -->
+    <nav class="border-b border-[#bca58f]/20 bg-white/60" aria-label="Điều hướng trong trang">
+        <div class="mx-auto flex max-w-7xl items-center gap-2 overflow-x-auto px-4 py-2 text-xs font-semibold text-slate-600 sm:px-6 sm:text-sm">
+            <a href="#offer-stack" class="shrink-0 rounded-full px-3 py-1 font-bold text-emerald-700 hover:bg-emerald-50">🎁 Gói Quà 0đ</a>
+            <a href="#reviews" class="shrink-0 rounded-full px-3 py-1 text-amber-700 hover:bg-amber-50">⭐ Đánh Giá Thí Sinh</a>
+            <a href="#matrix" class="shrink-0 rounded-full px-3 py-1 hover:bg-indigo-50 hover:text-indigo-700">Ma Trận 15 Bẫy</a>
+            <a href="#audit" class="shrink-0 rounded-full px-3 py-1 hover:bg-indigo-50 hover:text-indigo-700">Test Chẩn Đoán (0-30đ)</a>
+            <a href="#stats" class="shrink-0 rounded-full px-3 py-1 hover:bg-indigo-50 hover:text-indigo-700">Số Liệu ETS 2026</a>
+            <a href="#dictionary" class="shrink-0 rounded-full px-3 py-1 hover:bg-indigo-50 hover:text-indigo-700">Từ Điển 150 Từ</a>
+            <a href="#faq" class="shrink-0 rounded-full px-3 py-1 hover:bg-indigo-50 hover:text-indigo-700">Hỏi Đáp (FAQ)</a>
+            <button type="button" data-lm-open-reader class="ml-auto shrink-0 cursor-pointer rounded-full border border-slate-200 bg-white px-3 py-1 text-slate-700 hover:bg-slate-50">📖 Đọc Online</button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero: value pitch + opt-in + 3D book -->
+        <section class="relative overflow-hidden px-4 pb-16 pt-10 sm:px-6 sm:pb-20 sm:pt-16">
+            <div class="pointer-events-none absolute inset-0">
+                <div class="absolute left-1/2 top-10 h-[400px] w-[700px] -translate-x-1/2 rounded-full bg-indigo-500/10 blur-3xl"></div>
+                <div class="absolute right-10 top-40 h-[350px] w-[350px] rounded-full bg-emerald-500/10 blur-3xl"></div>
+                <div class="absolute bottom-10 left-10 h-[300px] w-[300px] rounded-full bg-sky-400/10 blur-3xl"></div>
+            </div>
+
+            <div class="relative mx-auto max-w-7xl">
+                <div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-10">
+                    <div class="space-y-6 text-left lg:col-span-7">
+                        <div class="inline-flex items-center gap-2 rounded-full border border-indigo-200/80 bg-indigo-50 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-indigo-700 shadow-xs sm:text-sm">
+                            <span class="lm-pulse">✨</span>ẤN PHẨM KHẢO THÍ ĐỘC QUYỀN LINGOPRO 2026
+                        </div>
+
+                        <h1 class="text-3xl font-black leading-[1.15] tracking-tight text-slate-900 sm:text-5xl">
+                            Bách Khoa Thực Chiến:<br />
+                            <span class="bg-gradient-to-r from-emerald-600 via-teal-600 to-indigo-600 bg-clip-text text-transparent">Sát Thủ Bài Nghe TOEIC</span>
+                        </h1>
+
+                        <p class="text-base leading-relaxed text-slate-600 sm:text-lg">
+                            Giải mã định lượng <strong class="font-bold text-slate-900">2,000 câu hỏi</strong> từ <strong class="font-bold text-emerald-700">20 bộ đề chuẩn khảo thí ETS 2024 &amp; ETS 2026</strong>. Đột phá phản xạ nghe, bẻ gãy 15 bẫy sát thủ phòng thi, chinh phục <strong class="font-bold text-indigo-700">450+ đến 495 điểm tuyệt đối</strong>.
+                        </p>
+
+                        <div class="grid grid-cols-2 gap-2.5 pt-1 sm:grid-cols-4">
+                            <div class="rounded-2xl border border-slate-200/80 bg-white p-3 shadow-xs transition hover:shadow-sm"><span class="block font-mono text-xl font-black text-emerald-600 sm:text-2xl">2,000</span><span class="text-[11px] font-medium text-slate-500">Câu hỏi khảo thí</span></div>
+                            <div class="rounded-2xl border border-slate-200/80 bg-white p-3 shadow-xs transition hover:shadow-sm"><span class="block font-mono text-xl font-black text-indigo-600 sm:text-2xl">20 Đề</span><span class="text-[11px] font-medium text-slate-500">ETS 2024 &amp; 2026</span></div>
+                            <div class="rounded-2xl border border-slate-200/80 bg-white p-3 shadow-xs transition hover:shadow-sm"><span class="block font-mono text-xl font-black text-amber-600 sm:text-2xl">15 Bẫy</span><span class="text-[11px] font-medium text-slate-500">Bẫy nghe sát thủ</span></div>
+                            <div class="rounded-2xl border border-slate-200/80 bg-white p-3 shadow-xs transition hover:shadow-sm"><span class="block font-mono text-xl font-black text-purple-600 sm:text-2xl">150 Từ</span><span class="text-[11px] font-medium text-slate-500">Từ điển sát thủ</span></div>
+                        </div>
+
+                        <div id="optin-hero" class="scroll-mt-28 pt-2">
+                            <partial name="~/Views/Shared/LeadMagnet/_EmailOptinCard.cshtml" />
+                        </div>
+                    </div>
+
+                    <div class="pt-4 lg:sticky lg:top-28 lg:col-span-5 lg:pt-0">
+                        <partial name="~/Views/Shared/LeadMagnet/_BookCover3D.cshtml" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="offer-stack" class="scroll-mt-28">
+            <partial name="~/Views/Shared/LeadMagnet/_OfferStack.cshtml" />
+        </div>
+
+        <!-- The great plateau & the death of mechanical hacks -->
+        <section class="border-y border-slate-200/80 bg-slate-100/70 px-4 py-16 sm:px-6">
+            <div class="mx-auto max-w-6xl space-y-10">
+                <div class="mx-auto max-w-3xl space-y-3 text-center">
+                    <span class="rounded-full border border-rose-200 bg-rose-50 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-rose-700 shadow-xs">Cú Sốc Phòng Thi Thật</span>
+                    <h2 class="text-2xl font-black tracking-tight text-slate-900 sm:text-4xl">Bình Nguyên Kẹt Điểm — Tại Sao Giải Hàng Chục Đề Vẫn Tụt Điểm Khi Thi Thật?</h2>
+                    <p class="text-xs leading-relaxed text-slate-600 sm:text-base">Hơn 85% người học TOEIC tại Việt Nam luyện các bộ đề cũ (ETS 2019-2022) đạt 380 – 420 điểm nghe. Nhưng khi vào phòng thi gặp ngân hàng câu hỏi 2024–2026, điểm nghe rơi tự do xuống 310 – 350.</p>
+                </div>
+
+                <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
+                    <div class="space-y-3 rounded-3xl border border-slate-200/80 bg-white p-6 shadow-sm transition hover:shadow-md">
+                        <div class="flex h-10 w-10 items-center justify-center rounded-xl border border-sky-200 bg-sky-50 font-bold text-sky-700">1</div>
+                        <h3 class="text-base font-bold text-slate-900 sm:text-lg">Part 1 Không Còn Đồ Vật Cụ Thể</h3>
+                        <p class="text-xs leading-relaxed text-slate-600 sm:text-sm">Bạn đợi nghe <code class="rounded border border-sky-200/60 bg-sky-50 px-1.5 py-0.5 font-mono text-[11px] text-sky-800">desk</code>, <code class="rounded border border-sky-200/60 bg-sky-50 px-1.5 py-0.5 font-mono text-[11px] text-sky-800">lamp</code>, <code class="rounded border border-sky-200/60 bg-sky-50 px-1.5 py-0.5 font-mono text-[11px] text-sky-800">apple</code>, nhưng đề thi toàn phát thanh từ chỉ nhóm đồ vật lớn: <code class="rounded border border-emerald-200/60 bg-emerald-50 px-1.5 py-0.5 font-mono text-[11px] text-emerald-800">light fixtures</code>, <code class="rounded border border-emerald-200/60 bg-emerald-50 px-1.5 py-0.5 font-mono text-[11px] text-emerald-800">produce</code>, <code class="rounded border border-emerald-200/60 bg-emerald-50 px-1.5 py-0.5 font-mono text-[11px] text-emerald-800">utensils</code>.</p>
+                    </div>
+                    <div class="space-y-3 rounded-3xl border border-slate-200/80 bg-white p-6 shadow-sm transition hover:shadow-md">
+                        <div class="flex h-10 w-10 items-center justify-center rounded-xl border border-amber-200 bg-amber-50 font-bold text-amber-800">2</div>
+                        <h3 class="text-base font-bold text-slate-900 sm:text-lg">Part 2 Hỏi Một Đằng, Trả Lời Một Nẻo</h3>
+                        <p class="text-xs leading-relaxed text-slate-600 sm:text-sm">Câu hỏi không trả lời trực tiếp <code class="rounded border border-amber-200/60 bg-amber-50 px-1.5 py-0.5 font-mono text-[11px] text-amber-800">Yes/No</code> hay nêu mốc giờ cụ thể mà dùng phản xạ thoái thác, bẻ lái hoặc đùn việc: <em class="font-medium text-slate-800">"Clara's already organizing one"</em>.</p>
+                    </div>
+                    <div class="space-y-3 rounded-3xl border border-slate-200/80 bg-white p-6 shadow-sm transition hover:shadow-md">
+                        <div class="flex h-10 w-10 items-center justify-center rounded-xl border border-rose-200 bg-rose-50 font-bold text-rose-700">3</div>
+                        <h3 class="text-base font-bold text-slate-900 sm:text-lg">Part 3 &amp; 4 Bẫy Trùng Từ Lên Tới 79%</h3>
+                        <p class="text-xs leading-relaxed text-slate-600 sm:text-sm">Tốc độ đọc lên tới 160 – 180 từ/phút. Thí sinh vừa nghe thấy một từ khóa giống hệt trong câu hỏi thì mừng rỡ khoanh ngay — ai ngờ đó chính là <strong class="font-semibold text-rose-700">bẫy mồi lặp từ nguyên xi</strong> của ETS!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <partial name="~/Views/Shared/LeadMagnet/_VisualExamShowcase.cshtml" />
+
+        <div id="reviews" class="scroll-mt-28">
+            <partial name="~/Views/Shared/LeadMagnet/_SocialProof.cshtml" />
+        </div>
+
+        <section id="stats" class="scroll-mt-28 border-t border-slate-200/80 bg-slate-50/80 px-4 py-16 sm:px-6 sm:py-24">
+            <div class="mx-auto max-w-6xl">
+                <partial name="~/Views/Shared/LeadMagnet/_StatsTable.cshtml" />
+            </div>
+        </section>
+
+        <section id="matrix" class="scroll-mt-28 bg-white px-4 py-16 sm:px-6 sm:py-24">
+            <div class="mx-auto max-w-6xl">
+                <partial name="~/Views/Shared/LeadMagnet/_KillerMatrix.cshtml" />
+            </div>
+        </section>
+
+        <section id="audit" class="scroll-mt-28 border-y border-slate-200/80 bg-slate-50/80 px-4 py-16 sm:px-6 sm:py-24">
+            <div class="mx-auto max-w-5xl space-y-6">
+                <partial name="~/Views/Shared/LeadMagnet/_DiagnosticScorecard.cshtml" />
+            </div>
+        </section>
+
+        <section id="dictionary" class="scroll-mt-28 bg-white px-4 py-16 sm:px-6 sm:py-24">
+            <div class="mx-auto max-w-6xl">
+                <partial name="~/Views/Shared/LeadMagnet/_Dictionary.cshtml" />
+            </div>
+        </section>
+
+        <!-- FSRS & native shadowing -->
+        <section class="border-t border-slate-200/80 bg-slate-50/80 px-4 py-16 sm:px-6 sm:py-24">
+            <div class="mx-auto max-w-5xl space-y-10">
+                <div class="mx-auto max-w-3xl space-y-3 text-center">
+                    <span class="rounded-full border border-indigo-200 bg-indigo-50 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-indigo-700 shadow-xs">Công Nghệ Đột Phá Phản Xạ</span>
+                    <h2 class="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">Hệ Thống Huấn Luyện Phản Xạ FSRS &amp; Native Shadowing</h2>
+                    <p class="text-xs leading-relaxed text-slate-600 sm:text-base">Tại sao học từ vựng bằng mắt khiến bạn "điếc" khi nghe? LingoPro bẻ khóa rào cản chuyển đổi ký tự bằng thuật toán Lặp Lại Ngắt Quãng FSRS áp dụng riêng cho Thính giác.</p>
+                </div>
+
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+                    <div class="space-y-3 rounded-3xl border border-slate-200/80 bg-white p-6 shadow-xs transition hover:shadow-md">
+                        <span class="rounded border border-sky-200 bg-sky-100 px-2 py-1 font-mono text-xs font-bold text-sky-700">BƯỚC 1</span>
+                        <h3 class="text-base font-bold text-slate-900">Đồng Bộ Phụ Đề Chuẩn Xác</h3>
+                        <p class="text-xs leading-relaxed text-slate-600 sm:text-sm">Phụ đề song ngữ chạy khớp từng câu nói của băng nghe. Bấm vào bất kỳ từ nào để tra ngay phát âm chuẩn IPA và giải thích nghĩa.</p>
+                    </div>
+                    <div class="space-y-3 rounded-3xl border border-slate-200/80 bg-white p-6 shadow-xs transition hover:shadow-md">
+                        <span class="rounded border border-amber-200 bg-amber-100 px-2 py-1 font-mono text-xs font-bold text-amber-800">BƯỚC 2</span>
+                        <h3 class="text-base font-bold text-slate-900">Chép Chính Tả Điền Khuyết (Dictation)</h3>
+                        <p class="text-xs leading-relaxed text-slate-600 sm:text-sm">Chế độ chép chính tả điền khuyết dưới áp lực thời gian. LingoPro che các từ chỉ nhóm lớn và cử động dễ nhầm để rèn đôi tai bắt đúng tín hiệu âm thanh.</p>
+                    </div>
+                    <div class="space-y-3 rounded-3xl border border-slate-200/80 bg-white p-6 shadow-xs transition hover:shadow-md">
+                        <span class="rounded border border-purple-200 bg-purple-100 px-2 py-1 font-mono text-xs font-bold text-purple-700">BƯỚC 3</span>
+                        <h3 class="text-base font-bold text-slate-900">Tăng Tốc Độ 1.0x -&gt; 1.2x</h3>
+                        <p class="text-xs leading-relaxed text-slate-600 sm:text-sm">Nhại giọng theo người bản xứ (Shadowing) và tăng tốc độ nghe lên 1.2x. Khi vào phòng thi thật (1.0x), bạn sẽ thấy tốc độ đọc của ETS trở nên cực kỳ chậm rãi và dễ nghe!</p>
+                    </div>
+                </div>
+
+                <div class="pt-2 text-center">
+                    <a href="/practice/listening" class="inline-flex items-center gap-2 rounded-2xl bg-indigo-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-indigo-600/20 transition hover:bg-indigo-700">
+                        <span>🎧</span><span>Trải Nghiệm Luyện Nghe FSRS Focus Player Ngay</span><span>→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 30-day roadmap & degrading-reward challenge -->
+        <section id="roadmap" class="scroll-mt-28 border-t border-slate-200/80 bg-white px-4 py-16 sm:px-6 sm:py-24">
+            <div class="mx-auto max-w-5xl space-y-10">
+                <div class="mx-auto max-w-3xl space-y-3 text-center">
+                    <span class="rounded-full border border-emerald-200 bg-emerald-50 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-emerald-700 shadow-xs">Kỷ Luật Tự Thân</span>
+                    <h2 class="text-2xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">Đập Tan "Ảo Tưởng Tích Trữ Tài Liệu" &amp; Lộ Trình 30 Ngày</h2>
+                    <p class="text-xs leading-relaxed text-slate-600 sm:text-base">Hơn 95% người tải tài liệu PDF trên mạng sẽ không bao giờ mở quá trang thứ 10 sau 14 ngày. Kỹ năng nghe là môn thể thao phản xạ thần kinh cơ bắp — cần kỷ luật và áp lực tài chính tự thân!</p>
+                </div>
+
+                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    <div class="space-y-2 rounded-2xl border border-slate-200/80 bg-slate-50 p-5 shadow-xs transition hover:shadow-md">
+                        <span class="block font-mono text-xs font-bold text-sky-700">TUẦN 1 (Ngày 1 - 7)</span>
+                        <h4 class="text-sm font-bold text-slate-900">Bẻ Khóa Part 1 &amp; Part 2</h4>
+                        <p class="text-xs leading-relaxed text-slate-600">Quét 120 câu Part 1 trong 20 đề ETS 2024-2026. Khắc cốt ghi tâm bẫy Being vs Been và từ chỉ nhóm lớn. Đạt 6/6 câu Part 1.</p>
+                    </div>
+                    <div class="space-y-2 rounded-2xl border border-slate-200/80 bg-slate-50 p-5 shadow-xs transition hover:shadow-md">
+                        <span class="block font-mono text-xs font-bold text-amber-800">TUẦN 2 (Ngày 8 - 14)</span>
+                        <h4 class="text-sm font-bold text-slate-900">Bẫy Trần Thuật &amp; Trả Lời Vòng Vo</h4>
+                        <p class="text-xs leading-relaxed text-slate-600">Cày sạch 500 câu Part 2 ETS 2024 &amp; 2026. Luyện phản xạ nhận diện câu trả lời vòng vo, đùn việc khéo ("Clara's organizing"). Sai dưới 3 câu Part 2.</p>
+                    </div>
+                    <div class="space-y-2 rounded-2xl border border-slate-200/80 bg-slate-50 p-5 shadow-xs transition hover:shadow-md">
+                        <span class="block font-mono text-xs font-bold text-purple-700">TUẦN 3 (Ngày 15 - 21)</span>
+                        <h4 class="text-sm font-bold text-slate-900">Làm Chủ Đổi Chữ Paraphrase 3 Tầng</h4>
+                        <p class="text-xs leading-relaxed text-slate-600">Luyện 260 đoạn thoại và độc thoại có câu hỏi hình ảnh. Thực thi mẹo Gióng Cột Đối Diện. Bắt trọn ý ngầm và đối thoại 3 người.</p>
+                    </div>
+                    <div class="space-y-2 rounded-2xl border border-slate-200/80 bg-slate-50 p-5 shadow-xs transition hover:shadow-md">
+                        <span class="block font-mono text-xs font-bold text-emerald-700">TUẦN 4 (Ngày 22 - 30)</span>
+                        <h4 class="text-sm font-bold text-slate-900">Thi Thử Áp Lực 45 Phút</h4>
+                        <p class="text-xs leading-relaxed text-slate-600">Bấm giờ 45 phút cho 100 câu nghe liên tục không Pause ở tốc độ 1.1x trên LingoPro Exam Engine. Vững vàng cán mốc 450 - 495 điểm!</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center justify-between gap-6 rounded-3xl border border-indigo-200/80 bg-gradient-to-br from-indigo-50 via-white to-emerald-50 p-6 shadow-xl sm:flex-row sm:p-8">
+                    <div class="space-y-2 text-left">
+                        <div class="inline-flex items-center gap-2 rounded-full border border-amber-300 bg-amber-100 px-3 py-1 text-xs font-bold text-amber-900">🔥 Thử Thách Kỷ Luật Thép Có Thưởng</div>
+                        <h3 class="text-xl font-black text-slate-900 sm:text-2xl">Thử Thách Kỷ Luật Hoàn Tiền Giảm Dần</h3>
+                        <p class="max-w-xl text-xs leading-relaxed text-slate-600 sm:text-sm">Cọc cam kết 300,000đ. Mỗi ngày hoàn thành tối thiểu 25 câu hỏi ETS 2026. Học đủ 30 ngày: <strong class="font-bold text-emerald-700">HOÀN 100,000đ TIỀN MẶT + TẶNG 6 THÁNG PRO</strong>! Lười 1 ngày: trừ 33,333đ vào quỹ hoàn tiền.</p>
+                    </div>
+                    <a href="/upgrade" class="shrink-0 whitespace-nowrap rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 px-6 py-3.5 text-sm font-black text-white shadow-lg shadow-emerald-600/20 transition hover:from-emerald-700 hover:to-teal-700">Tham Gia Thử Thách</a>
+                </div>
+            </div>
+        </section>
+
+        <div id="faq" class="scroll-mt-28">
+            <partial name="~/Views/Shared/LeadMagnet/_Faq.cshtml" />
+        </div>
+    </main>
+
+    <footer class="border-t border-slate-200 bg-white px-4 py-12 text-xs text-slate-500 sm:px-6">
+        <div class="mx-auto max-w-6xl space-y-6">
+            <div class="flex flex-col items-center justify-between gap-4 border-b border-slate-200 pb-6 sm:flex-row">
+                <div class="flex items-center gap-2 text-base font-bold text-slate-900"><span>🧠</span><span>LingoPro EdTech Platform</span></div>
+                <div class="flex flex-wrap items-center justify-center gap-6 text-xs font-medium text-slate-600">
+                    <a href="/toeic" class="transition hover:text-indigo-600">Kho 20 Đề ETS 2026</a>
+                    <a href="/practice/listening" class="transition hover:text-indigo-600">Luyện Nghe FSRS</a>
+                    <a href="/privacy" class="transition hover:text-indigo-600">Chính sách bảo mật</a>
+                    <a href="/terms" class="transition hover:text-indigo-600">Điều khoản dịch vụ</a>
+                </div>
+            </div>
+            <div class="space-y-2 text-center text-[11px] leading-relaxed text-slate-500 sm:text-left">
+                <p>© 2026 LingoPro — Nền tảng Công nghệ Giáo dục Chuẩn Khảo Thí. Toàn bộ dữ liệu 2,000 câu hỏi được đối chiếu độc lập từ bộ đề chuẩn ETS 2024 &amp; ETS 2026.</p>
+                <p>Ấn phẩm mang mã số LP-LM-TOEIC-LISTEN-2026. Bản quyền nội dung thuộc về Ban Nghiên cứu Sư phạm Ứng dụng &amp; Dữ liệu Khảo Thí LingoPro.</p>
+            </div>
+        </div>
+    </footer>
+
+    <partial name="~/Views/Shared/LeadMagnet/_StickyCtaBar.cshtml" />
+    <partial name="~/Views/Shared/LeadMagnet/_EbookReaderModal.cshtml" />
+
+    <script src="/js/lead-magnet.js" defer></script>
+</body>
+</html>

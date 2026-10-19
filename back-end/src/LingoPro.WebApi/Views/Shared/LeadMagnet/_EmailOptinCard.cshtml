@@ -1,0 +1,120 @@
+@* Email opt-in card (port of EmailOptinCard.tsx). Submission handled by wwwroot/js/lead-magnet.js -> POST /api/lead-magnet/subscribe. *@
+<div class="relative overflow-hidden rounded-3xl border border-indigo-100/90 bg-white p-5 text-slate-900 shadow-2xl shadow-indigo-100/60 sm:p-8" data-lm-optin>
+    <div class="pointer-events-none absolute right-0 top-0 -mr-20 -mt-20 h-60 w-60 rounded-full bg-indigo-50/70 blur-3xl"></div>
+    <div class="pointer-events-none absolute bottom-0 left-0 -mb-20 -ml-20 h-60 w-60 rounded-full bg-emerald-50/70 blur-3xl"></div>
+
+    <form data-lm-form="optin" novalidate class="relative z-10 space-y-4 sm:space-y-5">
+        <div class="space-y-2.5 border-b border-slate-100 pb-4">
+            <div class="flex items-center justify-between gap-1 border-b border-slate-100 pb-1 text-[10px] font-bold text-slate-500">
+                <span class="flex items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-emerald-700"><span class="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-emerald-600 text-[9px] text-white">1</span>Điền Email</span>
+                <span class="text-slate-300">→</span>
+                <span class="flex items-center gap-1"><span class="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-slate-200 text-[9px] text-slate-600">2</span>Nhận Link Ngay</span>
+                <span class="text-slate-300">→</span>
+                <span class="flex items-center gap-1"><span class="flex h-3.5 w-3.5 items-center justify-center rounded-full bg-slate-200 text-[9px] text-slate-600">3</span>Bứt Phá 450+</span>
+            </div>
+
+            <div class="flex items-center justify-between gap-2">
+                <div class="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-700 shadow-xs">✨ Quà Tặng 699,000đ → 0đ</div>
+                <span class="lm-pulse rounded border border-rose-200 bg-rose-50 px-2 py-0.5 text-[10px] font-bold text-rose-600">Chỉ 500 Suất</span>
+            </div>
+
+            <h3 class="text-xl font-black tracking-tight text-slate-900 sm:text-2xl">Tải Trọn Bộ Ebook Sát Thủ Bài Nghe TOEIC</h3>
+            <p class="text-xs leading-relaxed text-slate-600 sm:text-sm">Nhận ngay cẩm nang thực chiến (15 bẫy sát thủ + Từ điển 150 cụm từ ETS 2024-2026 + File Audio 1.1x) cùng mã VIP Pro 7 ngày.</p>
+
+            <div data-lm-linked hidden class="mt-3 flex items-center gap-2 rounded-xl border border-indigo-200 bg-indigo-50 px-3 py-2 text-xs text-indigo-800">
+                <span class="shrink-0">✅</span>
+                <span>Đã liên kết điểm bài test chẩn đoán: <strong class="font-mono font-bold text-indigo-950"><span data-lm-linked-score>0</span>/30 điểm</strong></span>
+            </div>
+        </div>
+
+        <div data-lm-error hidden class="rounded-xl border border-rose-200 bg-rose-50 p-3 text-xs text-rose-700 sm:text-sm" role="alert"></div>
+
+        <div class="space-y-1.5">
+            <label for="lm-optin-email" class="flex items-center gap-1.5 text-xs font-semibold text-slate-700 sm:text-sm">✉️ Địa chỉ Email của bạn <span class="text-rose-600">*</span></label>
+            <input id="lm-optin-email" type="email" name="email" required data-lm-email autocomplete="email" placeholder="example@@gmail.com"
+                   class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 shadow-xs transition placeholder:text-slate-400 focus:border-indigo-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-100" />
+        </div>
+
+        <div class="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
+            <div class="space-y-1.5">
+                <label for="lm-optin-name" class="flex items-center gap-1.5 text-xs font-semibold text-slate-700 sm:text-sm">👤 Họ và tên (hoặc biệt danh)</label>
+                <input id="lm-optin-name" type="text" name="fullName" data-lm-name autocomplete="name" placeholder="Ví dụ: Nguyễn Minh"
+                       class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-900 shadow-xs transition placeholder:text-slate-400 focus:border-indigo-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-100" />
+            </div>
+            <div class="space-y-1.5">
+                <label for="lm-optin-phone" class="flex items-center gap-1.5 text-xs font-semibold text-slate-700 sm:text-sm">📞 Số điện thoại / Zalo (Tùy chọn)</label>
+                <input id="lm-optin-phone" type="tel" name="phone" autocomplete="tel" placeholder="09xx... (nhận qua Zalo)"
+                       class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-900 shadow-xs transition placeholder:text-slate-400 focus:border-indigo-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-100" />
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
+            <div class="space-y-1.5">
+                <label for="lm-optin-current" class="text-xs font-semibold text-slate-700 sm:text-sm">Mức điểm hiện tại của bạn</label>
+                <select id="lm-optin-current" name="currentScore" class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-xs text-slate-800 shadow-xs transition focus:border-indigo-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-100 sm:text-sm">
+                    <option value="Mất gốc hoàn toàn (&lt; 400)">Mất gốc hoàn toàn (&lt; 400)</option>
+                    <option value="450 - 550 điểm">450 – 550 điểm</option>
+                    <option value="550 - 650 điểm (Kẹt điểm)" selected>550 – 650 điểm (Kẹt điểm)</option>
+                    <option value="650 - 750 điểm">650 – 750 điểm</option>
+                    <option value="Trên 750 điểm">Trên 750 điểm</option>
+                </select>
+            </div>
+            <div class="space-y-1.5">
+                <label for="lm-optin-target" class="flex items-center gap-1.5 text-xs font-semibold text-slate-700 sm:text-sm">🎯 Mục tiêu điểm Listening</label>
+                <select id="lm-optin-target" name="targetScore" class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-xs text-slate-800 shadow-xs transition focus:border-indigo-600 focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-100 sm:text-sm">
+                    <option value="350 - 400 điểm Listening">350 – 400 điểm Listening</option>
+                    <option value="400 - 440 điểm Listening">400 – 440 điểm Listening</option>
+                    <option value="450 - 480 điểm Listening (Top 5%)">450 – 480 điểm (Top 5%)</option>
+                    <option value="490 - 495 điểm Listening Tuyệt Đối">490 – 495 điểm Tuyệt Đối</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="hidden" aria-hidden="true" style="display:none">
+            <label for="lead-magnet-hp">Website</label>
+            <input id="lead-magnet-hp" type="text" name="hp" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <button type="submit" data-lm-submit class="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-600 to-emerald-600 px-5 py-3.5 text-sm font-black text-white shadow-lg shadow-emerald-500/25 transition hover:from-emerald-600 hover:to-teal-700 active:scale-[0.99] disabled:opacity-50 sm:text-base">
+            <span data-lm-submit-label>NHẬN NGAY EBOOK SÁT THỦ TOEIC (MIỄN PHÍ) →</span>
+        </button>
+
+        <div class="flex flex-wrap items-center justify-center gap-3 border-t border-slate-100 pt-1 text-[11px] text-slate-500">
+            <span class="flex items-center gap-1">🛡️ Bảo mật AES-256</span>
+            <span class="text-slate-300">•</span>
+            <span class="flex items-center gap-1">✔️ Nhận link tải tức thì</span>
+            <span class="text-slate-300">•</span>
+            <span>Cam kết 0% spam</span>
+        </div>
+    </form>
+
+    <div data-lm-success="optin" hidden class="relative z-10 space-y-6 py-2 text-center">
+        <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-emerald-300 bg-emerald-100 text-3xl text-emerald-700 shadow-inner">✔</div>
+        <div class="space-y-2">
+            <h3 class="text-xl font-black text-slate-900 sm:text-2xl">Đăng Ký Thành Công! Chúc Mừng Bạn 🎉</h3>
+            <p class="mx-auto max-w-md text-xs text-slate-600 sm:text-sm">Ấn phẩm <span class="font-bold text-emerald-700">Bách Khoa Sát Thủ Bài Nghe TOEIC ETS 2024-2026</span> đã sẵn sàng.</p>
+        </div>
+
+        <div class="mx-auto grid max-w-md grid-cols-1 gap-3 pt-1 sm:grid-cols-2">
+            <a href="/downloads/Bach-Khoa-Sat-Thu-TOEIC-Listening-ETS-2026-LingoPro.pdf" download class="flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 text-xs font-bold text-white shadow-md shadow-emerald-600/20 transition hover:bg-emerald-700 sm:text-sm">⬇️ <span>TẢI EBOOK (BẢN PDF)</span></a>
+            <button type="button" data-lm-open-reader class="flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-3 text-xs font-bold text-white shadow-md shadow-indigo-600/20 transition hover:bg-indigo-700 sm:text-sm">📖 <span>ĐỌC TRỰC TUYẾN NGAY</span></button>
+        </div>
+
+        <div class="text-center">
+            <a href="/downloads/sat-thu-toeic-listening-lead-magnet.md" download class="text-xs text-slate-500 underline transition hover:text-slate-800">Tải bản Markdown thô (.MD) thay vì PDF</a>
+        </div>
+
+        <div class="mx-auto flex max-w-sm items-center justify-between gap-3 rounded-2xl border border-emerald-300/80 bg-slate-50 p-4 text-left shadow-xs">
+            <div>
+                <span class="block text-[10px] font-semibold uppercase tracking-wider text-slate-500">Mã trải nghiệm VIP Pro</span>
+                <span class="font-mono text-lg font-black tracking-wider text-emerald-800 sm:text-xl" data-lm-promo>SATTHUTOEIC</span>
+            </div>
+            <button type="button" data-lm-copy class="flex cursor-pointer items-center gap-1 rounded-lg border border-emerald-300 bg-white px-3 py-1.5 text-xs font-bold text-emerald-700 shadow-xs transition hover:bg-emerald-50"><span data-lm-copy-label>Sao chép</span></button>
+        </div>
+
+        <div class="mx-auto flex max-w-md flex-col gap-2.5 border-t border-slate-100 pt-2 sm:flex-row">
+            <a href="/toeic" class="flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-slate-100 px-3 py-2.5 text-xs font-semibold text-slate-700 transition hover:bg-slate-200">🎧 <span>Thi Thử 20 Đề ETS 2026</span></a>
+            <a href="/practice/listening" class="flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-slate-100 px-3 py-2.5 text-xs font-semibold text-slate-700 transition hover:bg-slate-200">✨ <span>Luyện FSRS Focus Player</span></a>
+        </div>
+    </div>
+</div>
