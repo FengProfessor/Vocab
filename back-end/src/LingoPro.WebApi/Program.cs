@@ -4,7 +4,6 @@ using LingoPro.Application.Common.Models;
 using LingoPro.Infrastructure;
 using LingoPro.WebApi.Extensions;
 using LingoPro.WebApi.Middlewares;
-using LingoPro.WebApi.Security;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,7 +15,6 @@ builder.Services.AddInfrastructureServices(builder.Configuration);
 
 // 2. Register JWT Authentication (15m Access / 30d Refresh + HttpOnly Cookie Support) & Authorization Policies
 builder.Services.AddSupabaseAuthentication(builder.Configuration);
-builder.Services.AddSingleton<OAuthFlowCookieService>();
 
 // 3. Register Native .NET 10 Rate Limiting & SSR Response Caching Middleware
 builder.Services.AddAppRateLimiting();

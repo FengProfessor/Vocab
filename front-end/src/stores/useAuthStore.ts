@@ -3,7 +3,8 @@ import { apiClient, SESSION_EXPIRED_EVENT } from '@/lib/apiClient';
 import { AccountCache } from '@/lib/auth/AccountCache';
 import { AuthProfileCache } from '@/lib/auth/AuthProfileCache';
 import { AuthSessionChannel } from '@/lib/auth/AuthSessionChannel';
-import { ServerAuthLinks } from '@/lib/auth/ServerAuthLinks';
+import { AuthApi } from '@/lib/auth/AuthApi';
+import { TokenStore } from '@/lib/auth/TokenStore';
 import { ApiResponse } from '@/types/api/ApiResponse';
 import { AuthSessionDto } from '@/types/auth/AuthSessionDto';
 import { UserProfileDto } from '@/types/auth/UserProfileDto';
@@ -86,8 +87,14 @@ interface AuthStoreState {
   setTargetCertLevel: (level: CertLevel) => void;
 
   /**
-   * Hands the browser to the server's logout endpoint. The SPA never calls an auth API to end the session;
-   * the server clears the HttpOnly cookies and shows its own login page.
+   * Stores the token pair returned by the server after a successful sign-in/sign-up and verifies the
+   * session with it. Resolves true when the profile was loaded.
+   */
+  completeLogin: (tokens: { accessToken: string; refreshToken: string; expiresIn: number }) => Promise<boolean>;
+
+  /**
+   * Ends the session: asks the server to revoke the Supabase session, wipes local state and tokens,
+   * and returns the browser to the SPA login page.
    */
   signOut: () => void;
 }
@@ -112,6 +119,7 @@ export const useAuthStore = create<AuthStoreState>((set, get) => {
   const clearSession = (): void => {
     AccountCache.clear();
     AuthProfileCache.clear();
+    TokenStore.clear();
     set({ user: null, isAuthenticated: false, isCheckingSession: false, hasVerifiedServer: true });
   };
 
@@ -216,12 +224,25 @@ export const useAuthStore = create<AuthStoreState>((set, get) => {
         return { user };
       }),
 
+    completeLogin: (tokens: { accessToken: string; refreshToken: string; expiresIn: number }): Promise<boolean> => {
+      // New identity: invalidate any older in-flight profile read, then verify with the fresh Bearer token.
+      generation += 1;
+      inFlightVerification = null;
+      TokenStore.save(tokens.accessToken, tokens.refreshToken, tokens.expiresIn);
+      return get().verifyServerSession();
+    },
+
     signOut: (): void => {
-      // Drop this account's cached data and tell other tabs; the server then ends the session and shows its login.
-      AccountCache.clear();
-      AuthProfileCache.clear();
-      sessionChannel.notifyInvalidate();
-      ServerAuthLinks.logout();
+      // Revoke the Supabase session first (it needs the token), then drop local state and show the login page.
+      void AuthApi.logout()
+        .catch(() => undefined)
+        .finally(() => {
+          AccountCache.clear();
+          AuthProfileCache.clear();
+          TokenStore.clear();
+          sessionChannel.notifyInvalidate();
+          window.location.replace('/auth/login');
+        });
     },
   };
 });

@@ -80,8 +80,19 @@ internal static class ProfileSyncHelper
         }
     }
 
-    public static AuthTokensDto MapToAuthTokensDto(Profile profile, JwtTokenPairDto tokenPair) =>
-        new(
+    /// <summary>
+    /// Lifetime of the refresh token cookie. Supabase does not return a refresh token expiry,
+    /// so the cookie lifetime is bounded here; Supabase itself remains the authority on validity.
+    /// </summary>
+    private static readonly TimeSpan RefreshTokenCookieLifetime = TimeSpan.FromDays(30);
+
+    /// <summary>
+    /// Maps the profile plus the tokens issued by Supabase Auth. Tokens are passed through untouched.
+    /// </summary>
+    public static AuthTokensDto MapToAuthTokensDto(Profile profile, SupabaseAuthResult authResult)
+    {
+        var now = DateTime.UtcNow;
+        return new AuthTokensDto(
             profile.Id,
             profile.Email,
             profile.FullName,
@@ -89,10 +100,10 @@ internal static class ProfileSyncHelper
             profile.Role,
             profile.Plan,
             profile.PlanExpiresAt,
-            tokenPair.AccessToken,
-            tokenPair.AccessTokenExpiresAtUtc,
-            tokenPair.RefreshToken,
-            tokenPair.RefreshTokenExpiresAtUtc,
-            ExpiresIn: 15 * 60
-        );
+            authResult.AccessToken,
+            now.AddSeconds(authResult.ExpiresIn),
+            authResult.RefreshToken,
+            now.Add(RefreshTokenCookieLifetime),
+            authResult.ExpiresIn);
+    }
 }

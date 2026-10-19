@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:staging": "tsc -b && vite build --mode staging",
+    "dev:staging": "vite --mode staging",
     "typecheck": "tsc --noEmit",
     "preview": "vite preview"
   },

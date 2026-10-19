@@ -27,11 +27,6 @@ public sealed class DependencyInjectionValidationTests
         var configData = new Dictionary<string, string?>
         {
             ["ConnectionStrings:DefaultConnection"] = "Host=localhost;Port=5432;Database=lingopro;Username=postgres;Password=postgres",
-            ["Jwt:SigningKey"] = "unit-test-32-byte-secret-signing-key-for-lingopro",
-            ["Jwt:Issuer"] = "https://lingopro.online",
-            ["Jwt:Audience"] = "lingopro-web-spa",
-            ["Jwt:AccessTokenExpirationMinutes"] = "15",
-            ["Jwt:RefreshTokenExpirationDays"] = "30",
             ["Caching:Mode"] = cachingMode,
             ["Caching:RedisConnectionString"] = "localhost:6379",
             ["Caching:InstancePrefix"] = "lingopro:test:"
@@ -59,7 +54,6 @@ public sealed class DependencyInjectionValidationTests
         var sender = sp.GetRequiredService<ISender>();
         var dbContext = sp.GetRequiredService<IApplicationDbContext>();
         var currentUser = sp.GetRequiredService<ICurrentUserService>();
-        var jwtService = sp.GetRequiredService<IJwtTokenService>();
         var cacheService = sp.GetRequiredService<ICacheService>();
         var aiRouter = sp.GetRequiredService<IAiRouterService>();
 
@@ -69,7 +63,6 @@ public sealed class DependencyInjectionValidationTests
             Assert.That(sender, Is.Not.Null);
             Assert.That(dbContext, Is.Not.Null);
             Assert.That(currentUser, Is.Not.Null);
-            Assert.That(jwtService, Is.Not.Null);
             Assert.That(aiRouter, Is.Not.Null);
             Assert.That(cacheService, Is.InstanceOf(expectedCacheServiceType));
         });

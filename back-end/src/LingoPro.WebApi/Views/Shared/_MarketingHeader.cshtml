@@ -1,5 +1,6 @@
 @* Shared marketing header used across public student SSR pages (/, /ipa, /sat-thu-toeic-listening).
    Set ViewData["ActiveNav"] to "home", "ipa", or "toeic" to highlight the active route. *@
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
 @{
     var active = ViewData["ActiveNav"] as string ?? string.Empty;
     var isHome = string.Equals(active, "home", StringComparison.OrdinalIgnoreCase);
@@ -8,6 +9,13 @@
         string.Equals(active, key, StringComparison.OrdinalIgnoreCase)
             ? "whitespace-nowrap font-black text-[#241710] underline decoration-[#b5502f] decoration-2 underline-offset-8 transition-colors"
             : "whitespace-nowrap transition-colors hover:text-[#241710]";
+
+    // Sign-in / sign-up live in the React app; the header points straight at it.
+    var spaBase = (Configuration["Frontend:BaseUrl"] ?? "http://localhost:5173").TrimEnd('/');
+    var loginUrl = $"{spaBase}/auth/login";
+    var registerUrl = $"{spaBase}/auth/register";
+    var appUrl = $"{spaBase}/app";
+    var isSignedIn = User.Identity?.IsAuthenticated == true;
 }
 <header class="sticky top-0 z-50 border-b border-[#241710]/10 bg-[#f6efe6]/90 backdrop-blur-xl">
     <div class="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
@@ -49,14 +57,32 @@
                 </svg>
                 Desktop
             </a>
-            <a href="/auth"
-               class="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#241710] px-4 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5">
-                Dùng miễn phí
-                <svg class="size-4 text-[#f1c46d]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                </svg>
-            </a>
+            @if (isSignedIn)
+            {
+                <a href="@appUrl"
+                   class="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#241710] px-4 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5">
+                    Vào học
+                    <svg class="size-4 text-[#f1c46d]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                    </svg>
+                </a>
+            }
+            else
+            {
+                <a href="@loginUrl"
+                   class="hidden whitespace-nowrap rounded-full px-3.5 py-2.5 text-sm font-bold text-[#241710] transition-colors hover:bg-white/70 sm:inline-flex">
+                    Đăng nhập
+                </a>
+                <a href="@registerUrl"
+                   class="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#241710] px-4 py-2.5 text-sm font-bold text-white transition-transform hover:-translate-y-0.5">
+                    Dùng miễn phí
+                    <svg class="size-4 text-[#f1c46d]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                    </svg>
+                </a>
+            }
         </div>
     </div>
 </header>

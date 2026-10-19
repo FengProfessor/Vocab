@@ -1,20 +1,21 @@
 using LingoPro.Application.Common.Interfaces;
 using LingoPro.Infrastructure.BackgroundJobs;
 using LingoPro.Infrastructure.Caching;
+using LingoPro.Infrastructure.Options;
 using LingoPro.Infrastructure.Persistence;
 using LingoPro.Infrastructure.Persistence.Interceptors;
-using LingoPro.Infrastructure.Security;
 using LingoPro.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 namespace LingoPro.Infrastructure;
 
 /// <summary>
 /// Registers Infrastructure layer services including PostgreSQL DbContext, Phased Caching (Phase 1 NoOp / Phase 2 Hybrid L1+Redis),
-/// JWT Token Service (15m Access / 30d Refresh), Supabase BFF Gateways, and Background Workers.
+/// Supabase BFF Gateways (Auth issues the tokens), and Background Workers.
 /// </summary>
 public static class DependencyInjection
 {
@@ -48,9 +49,16 @@ public static class DependencyInjection
         services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<LingoProDbContext>());
         services.AddScoped<ICurrentUserService, CurrentUserService>();
 
-        // Configure JWT Token Service (15-minute Access Token & 30-day Refresh Token)
-        services.Configure<JwtOptions>(configuration.GetSection(JwtOptions.SectionName));
-        services.AddSingleton<IJwtTokenService, JwtTokenService>();
+        // Authentication tokens are issued and validated by Supabase Auth; no local token service is registered.
+        services.Configure<SupabaseOptions>(options =>
+        {
+            configuration.GetSection(SupabaseOptions.SectionName).Bind(options);
+            var frontendBaseUrl = configuration["Frontend:BaseUrl"];
+            if (!string.IsNullOrWhiteSpace(frontendBaseUrl) && string.IsNullOrWhiteSpace(configuration[$"{SupabaseOptions.SectionName}:FrontendBaseUrl"]))
+            {
+                options.FrontendBaseUrl = frontendBaseUrl;
+            }
+        });
 
         // Configure Phased Multi-Level Caching:
         // - Phase 1 Default ("None"): Registers NoOpCacheService (executes factory directly, zero infrastructure overhead).
@@ -89,8 +97,30 @@ public static class DependencyInjection
             services.AddSingleton<ICacheService, NoOpCacheService>();
         }
 
-        services.AddHttpClient<ISupabaseAuthService, SupabaseAuthService>();
-        services.AddHttpClient<ISupabaseStorageService, SupabaseStorageService>();
+        services.AddHttpClient<ISupabaseAuthService, SupabaseAuthService>((sp, client) =>
+        {
+            var supabase = sp.GetRequiredService<IOptions<SupabaseOptions>>().Value;
+            if (!string.IsNullOrWhiteSpace(supabase.NormalizedUrl))
+            {
+                client.BaseAddress = new Uri($"{supabase.NormalizedUrl}/");
+            }
+
+            if (!string.IsNullOrWhiteSpace(supabase.AnonKey))
+            {
+                client.DefaultRequestHeaders.Remove("apikey");
+                client.DefaultRequestHeaders.Add("apikey", supabase.AnonKey.Trim());
+            }
+        });
+
+        services.AddHttpClient<ISupabaseStorageService, SupabaseStorageService>((sp, client) =>
+        {
+            var supabase = sp.GetRequiredService<IOptions<SupabaseOptions>>().Value;
+            if (!string.IsNullOrWhiteSpace(supabase.NormalizedUrl))
+            {
+                client.BaseAddress = new Uri($"{supabase.NormalizedUrl}/");
+            }
+        });
+
         services.AddSingleton<IAiRouterService, AiRouterService>();
 
         services.AddHostedService<SubscriptionAndReminderWorker>();

@@ -1,9 +1,11 @@
 using System.Security.Claims;
-using System.Text;
-using System.Text.Json;
+using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
+using LingoPro.Infrastructure.Options;
+using LingoPro.WebApi.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
@@ -11,26 +13,29 @@ using Microsoft.IdentityModel.Tokens;
 namespace LingoPro.WebApi.Extensions;
 
 /// <summary>
-/// Configures JWT Bearer authentication (supporting both Authorization header and SSR HttpOnly cookies)
-/// and role/subscription authorization policies.
+/// Configures JWT Bearer authentication for access tokens issued by Supabase Auth
+/// (supporting both Authorization header and SSR HttpOnly cookies) and role/subscription authorization policies.
 /// </summary>
 public static class AuthenticationExtensions
 {
     public const string AccessTokenCookieName = "lp_access_token";
     public const string RefreshTokenCookieName = "lp_refresh_token";
 
+    /// <summary>Audience Supabase stamps on every user access token.</summary>
+    private const string SupabaseAudience = "authenticated";
+
+    /// <summary>Claims written by the Supabase custom access token hook (see supabase/migrations).</summary>
+    private const string AppRoleClaim = "app_role";
+    private const string PlanClaim = "plan";
+
     public static IServiceCollection AddSupabaseAuthentication(
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        var jwtSigningKey = configuration["Jwt:SigningKey"]
-            ?? configuration["Supabase:JwtSecret"]
-            ?? "replace-with-at-least-32-byte-signing-secret-key";
-
-        var jwtIssuer = configuration["Jwt:Issuer"] ?? "https://lingopro.online";
-        var jwtAudience = configuration["Jwt:Audience"] ?? "lingopro-web-spa";
-
-        var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSigningKey));
+        var supabaseOptions = configuration.GetSection(SupabaseOptions.SectionName).Get<SupabaseOptions>()
+            ?? new SupabaseOptions();
+        var supabaseUrl = supabaseOptions.NormalizedUrl;
+        var keyProvider = new SupabaseSigningKeyProvider(supabaseUrl, supabaseOptions.JwtSecret);
 
         services.AddAuthentication(options =>
         {
@@ -42,11 +47,11 @@ public static class AuthenticationExtensions
             options.TokenValidationParameters = new TokenValidationParameters
             {
                 ValidateIssuerSigningKey = true,
-                IssuerSigningKey = signingKey,
+                IssuerSigningKeyResolver = (_, _, kid, _) => keyProvider.GetKeys(kid),
                 ValidateIssuer = true,
-                ValidIssuer = jwtIssuer,
+                ValidIssuer = $"{supabaseUrl}/auth/v1",
                 ValidateAudience = true,
-                ValidAudience = jwtAudience,
+                ValidAudience = SupabaseAudience,
                 ValidateLifetime = true,
                 ClockSkew = TimeSpan.FromSeconds(30),
                 NameClaimType = ClaimTypes.NameIdentifier,
@@ -65,28 +70,8 @@ public static class AuthenticationExtensions
                     }
                     return Task.CompletedTask;
                 },
-                OnTokenValidated = context =>
-                {
-                    if (context.Principal?.Identity is ClaimsIdentity identity)
-                    {
-                        var appMetaClaim = identity.FindFirst("app_metadata")?.Value;
-                        if (!string.IsNullOrEmpty(appMetaClaim))
-                        {
-                            using var doc = JsonDocument.Parse(appMetaClaim);
-                            if (doc.RootElement.TryGetProperty("app_role", out var roleProp))
-                            {
-                                var appRole = roleProp.GetString() ?? "student";
-                                identity.AddClaim(new Claim(ClaimTypes.Role, appRole));
-                            }
-                            if (doc.RootElement.TryGetProperty("plan", out var planProp))
-                            {
-                                var plan = planProp.GetString() ?? "free";
-                                identity.AddClaim(new Claim("plan", plan));
-                            }
-                        }
-                    }
-                    return Task.CompletedTask;
-                },
+                OnTokenValidated = ApplyProfileClaimsAsync,
+
                 OnChallenge = async context =>
                 {
                     context.HandleResponse();
@@ -126,5 +111,68 @@ public static class AuthenticationExtensions
                 policy.RequireClaim("plan", "pro", "premium", "vip", "class", "speaking_intensive_60d"));
 
         return services;
+    }
+
+    /// <summary>
+    /// Maps the application role and plan onto the principal. The Supabase 'role' claim is always
+    /// 'authenticated' (it selects the database role), so it is replaced rather than used for authorization.
+    /// Source of truth: claims written into the token by the Supabase custom access token hook
+    /// (app_role, plan); when the hook is not enabled yet, the public.profiles row is used instead;
+    /// with neither, least privilege applies (student/free). user_metadata is never trusted: users can edit it.
+    /// </summary>
+    private static async Task ApplyProfileClaimsAsync(TokenValidatedContext context)
+    {
+        if (context.Principal?.Identity is not ClaimsIdentity identity)
+        {
+            return;
+        }
+
+        var role = identity.FindFirst(AppRoleClaim)?.Value;
+        var plan = identity.FindFirst(PlanClaim)?.Value;
+
+        foreach (var claim in identity.FindAll(c => c.Type is ClaimTypes.Role or "role" or PlanClaim).ToList())
+        {
+            identity.RemoveClaim(claim);
+        }
+
+        if (string.IsNullOrWhiteSpace(role) || string.IsNullOrWhiteSpace(plan))
+        {
+            var profile = await TryLoadProfileAsync(context, identity);
+            role = string.IsNullOrWhiteSpace(role) ? profile?.Role : role;
+            plan = string.IsNullOrWhiteSpace(plan) ? profile?.Plan : plan;
+        }
+
+        identity.AddClaim(new Claim(ClaimTypes.Role, (role ?? "student").ToLowerInvariant()));
+        identity.AddClaim(new Claim(PlanClaim, (plan ?? "free").ToLowerInvariant()));
+    }
+
+    private static async Task<(string Role, string Plan)?> TryLoadProfileAsync(
+        TokenValidatedContext context,
+        ClaimsIdentity identity)
+    {
+        if (!Guid.TryParse(identity.FindFirst(ClaimTypes.NameIdentifier)?.Value, out var userId))
+        {
+            return null;
+        }
+
+        try
+        {
+            var dbContext = context.HttpContext.RequestServices.GetRequiredService<IApplicationDbContext>();
+            var profile = await dbContext.Profiles
+                .AsNoTracking()
+                .Where(p => p.Id == userId)
+                .Select(p => new { p.Role, p.Plan })
+                .FirstOrDefaultAsync(context.HttpContext.RequestAborted);
+
+            return profile is null
+                ? null
+                : (profile.Role.ToString().ToLowerInvariant(), profile.Plan.ToString().ToLowerInvariant());
+        }
+        catch (Exception ex) when (ex is not OperationCanceledException)
+        {
+            // Profile store unavailable: the token is still authentic, so the user stays authenticated
+            // with least-privilege defaults.
+            return null;
+        }
     }
 }
