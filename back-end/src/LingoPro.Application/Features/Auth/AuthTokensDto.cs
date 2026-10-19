@@ -3,7 +3,8 @@ using LingoPro.Domain.Enums;
 namespace LingoPro.Application.Features.Auth;
 
 /// <summary>
-/// Represents authenticated user profile data and issued JWT tokens (15m Access Token, 30d Refresh Token).
+/// Represents authenticated user profile data and the tokens issued by Supabase Auth.
+/// Tokens are empty when Supabase requires email confirmation before a session exists.
 /// </summary>
 public record AuthTokensDto(
     Guid UserId,

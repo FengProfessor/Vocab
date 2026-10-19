@@ -17,6 +17,10 @@ build/
 .env
 .env.*
 !.env.example
+# Per-environment files hold URLs only (no secrets) and are committed; use .env.local for overrides
+!.env.development
+!.env.staging
+!.env.production
 
 # Logs
 logs

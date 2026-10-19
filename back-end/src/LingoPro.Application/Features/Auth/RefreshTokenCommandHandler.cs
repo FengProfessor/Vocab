@@ -5,23 +5,25 @@ using MediatR;
 namespace LingoPro.Application.Features.Auth;
 
 /// <summary>
-/// Rotates a user session: validates the signed 30-day Refresh Token locally (no Supabase round-trip),
-/// reloads the profile, and mints a new 15-minute Access Token and 30-day Refresh Token.
+/// Rotates a session through Supabase Auth: the refresh token is sent to Supabase, which validates it,
+/// rotates it, and issues a new access/refresh token pair. Supabase stays the single source of truth.
 /// </summary>
 public class RefreshTokenCommandHandler(
-    IApplicationDbContext dbContext,
-    IJwtTokenService jwtTokenService) : IRequestHandler<RefreshTokenCommand, ApiResponse<AuthTokensDto>>
+    ISupabaseAuthService supabaseAuth,
+    IApplicationDbContext dbContext) : IRequestHandler<RefreshTokenCommand, ApiResponse<AuthTokensDto>>
 {
     public async Task<ApiResponse<AuthTokensDto>> Handle(RefreshTokenCommand request, CancellationToken ct)
     {
-        var claims = jwtTokenService.ValidateRefreshToken(request.RefreshToken)
-            ?? throw new UnauthorizedAccessException("Refresh token is expired or invalid.");
+        if (string.IsNullOrWhiteSpace(request.RefreshToken))
+        {
+            throw new UnauthorizedAccessException("Refresh token is required.");
+        }
 
-        // The refresh token only proves identity; the authoritative profile (role, plan) is reloaded from the database.
-        var identity = new SupabaseAuthResult(claims.UserId, claims.Email, null, null, string.Empty, string.Empty, 0);
-        var profile = await ProfileSyncHelper.EnsureUserProfileAsync(dbContext, identity, ct, claims.Role);
-        var tokenPair = jwtTokenService.GenerateTokenPair(profile);
-        var dto = ProfileSyncHelper.MapToAuthTokensDto(profile, tokenPair);
+        var authResult = await supabaseAuth.RefreshSessionAsync(request.RefreshToken, ct);
+
+        // Role and plan are never trusted from the token; the profile row is the authority.
+        var profile = await ProfileSyncHelper.EnsureUserProfileAsync(dbContext, authResult, ct);
+        var dto = ProfileSyncHelper.MapToAuthTokensDto(profile, authResult);
 
         return ApiResponse<AuthTokensDto>.Ok(dto, "Session refreshed successfully.");
     }

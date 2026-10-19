@@ -1,15 +1,16 @@
 using System.Net.Http.Headers;
 using LingoPro.Application.Common.Interfaces;
 using LingoPro.Domain.Exceptions;
-using Microsoft.Extensions.Configuration;
+using LingoPro.Infrastructure.Options;
+using Microsoft.Extensions.Options;
 
 namespace LingoPro.Infrastructure.Services;
 
-public class SupabaseStorageService(HttpClient httpClient, IConfiguration configuration) : ISupabaseStorageService
+public class SupabaseStorageService(
+    HttpClient httpClient,
+    IOptions<SupabaseOptions> supabaseOptions) : ISupabaseStorageService
 {
-    private string SupabaseUrl => (configuration["Supabase:Url"] ?? "https://your-project.supabase.co").TrimEnd('/');
-    private string ServiceRoleKey => configuration["Supabase:ServiceRoleKey"] ?? string.Empty;
-    private const string BucketName = "speaking-recordings";
+    private readonly SupabaseOptions _options = supabaseOptions.Value;
 
     public async Task<(string PublicUrl, string StoragePath)> UploadAudioRecordingAsync(
         Guid userId,
@@ -21,12 +22,16 @@ public class SupabaseStorageService(HttpClient httpClient, IConfiguration config
         string safeExt = Path.GetExtension(fileName);
         if (string.IsNullOrWhiteSpace(safeExt)) safeExt = ".webm";
 
+        string bucket = !string.IsNullOrWhiteSpace(_options.StorageBucket)
+            ? _options.StorageBucket.Trim()
+            : "speaking-recordings";
+
         string storagePath = $"{userId}/{DateTime.UtcNow:yyyyMMdd}/{Guid.NewGuid():N}{safeExt}";
-        string uploadEndpoint = $"{SupabaseUrl}/storage/v1/object/{BucketName}/{storagePath}";
+        string uploadEndpoint = $"{_options.NormalizedUrl}/storage/v1/object/{bucket}/{storagePath}";
 
         var req = new HttpRequestMessage(HttpMethod.Post, uploadEndpoint);
-        req.Headers.Add("apikey", ServiceRoleKey);
-        req.Headers.Authorization = new AuthenticationHeaderValue("Bearer", ServiceRoleKey);
+        req.Headers.Add("apikey", _options.ServiceRoleKey);
+        req.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _options.ServiceRoleKey);
         req.Content = new StreamContent(audioStream);
         req.Content.Headers.ContentType = new MediaTypeHeaderValue(contentType);
 
@@ -36,7 +41,7 @@ public class SupabaseStorageService(HttpClient httpClient, IConfiguration config
             throw new DomainException("Failed to upload audio recording to Supabase Storage.", "STORAGE_UPLOAD_FAILED");
         }
 
-        string publicUrl = $"{SupabaseUrl}/storage/v1/object/public/{BucketName}/{storagePath}";
+        string publicUrl = $"{_options.NormalizedUrl}/storage/v1/object/public/{bucket}/{storagePath}";
         return (publicUrl, storagePath);
     }
 }

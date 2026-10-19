@@ -1,172 +1,131 @@
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
-using System.Security.Cryptography;
-using System.Text;
 using System.Text.Json;
 using LingoPro.Application.Common.Interfaces;
 using LingoPro.Domain.Exceptions;
-using Microsoft.Extensions.Configuration;
+using LingoPro.Infrastructure.Options;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace LingoPro.Infrastructure.Services;
 
 /// <summary>
 /// Server-to-Server BFF Gateway for Supabase Auth (GoTrue).
-/// Frontend never communicates directly with Supabase Auth; all requests pass through this service.
+/// Frontend never communicates directly with Supabase Auth; all requests pass through this service
+/// using the centralized <see cref="SupabaseOptions"/> configuration.
 /// </summary>
 public class SupabaseAuthService(
     HttpClient httpClient,
-    IConfiguration configuration,
+    IOptions<SupabaseOptions> supabaseOptions,
     ILogger<SupabaseAuthService> logger) : ISupabaseAuthService
 {
-    private const string DefaultSupabaseUrl = "https://jyhdxhqkftirncbstfpe.supabase.co";
-    private const string DefaultAnonKey = "sb_publishable_cNsBhEJMkhMDa_2k5MHJCw_I68kPEEf";
+    private readonly SupabaseOptions _options = supabaseOptions.Value;
 
-    /// <summary>
-    /// Local development convenience only (Auth:AllowOfflineDevSession). When false, a Supabase rejection
-    /// or outage is never converted into a synthetic session.
-    /// </summary>
-    private bool AllowOfflineDevSession => configuration.GetValue<bool>("Auth:AllowOfflineDevSession");
+    private string SupabaseUrl => _options.NormalizedUrl;
 
-    private string SupabaseUrl
+    private HttpRequestMessage CreateAuthRequest(HttpMethod method, string relativePath)
     {
-        get
+        var url = $"{SupabaseUrl}/{relativePath.TrimStart('/')}";
+        var req = new HttpRequestMessage(method, url);
+        if (!string.IsNullOrWhiteSpace(_options.AnonKey))
         {
-            var raw = configuration["Supabase:Url"]?.Trim().TrimEnd('/');
-            if (string.IsNullOrWhiteSpace(raw) ||
-                raw.Contains("your-project", StringComparison.OrdinalIgnoreCase))
-            {
-                return DefaultSupabaseUrl;
-            }
-            return raw;
+            req.Headers.Remove("apikey");
+            req.Headers.Add("apikey", _options.AnonKey.Trim());
         }
-    }
 
-    private string AnonKey
-    {
-        get
-        {
-            var raw = configuration["Supabase:AnonKey"]?.Trim();
-            if (string.IsNullOrWhiteSpace(raw) ||
-                raw.Contains("your-supabase-anon-key", StringComparison.OrdinalIgnoreCase))
-            {
-                return DefaultAnonKey;
-            }
-            return raw;
-        }
+        return req;
     }
-
-    private string ServiceRoleKey => configuration["Supabase:ServiceRoleKey"] ?? string.Empty;
 
     public async Task<SupabaseAuthResult> SignInWithPasswordAsync(string email, string password, CancellationToken ct = default)
     {
-        try
-        {
-            var req = new HttpRequestMessage(HttpMethod.Post, $"{SupabaseUrl}/auth/v1/token?grant_type=password");
-            req.Headers.Add("apikey", AnonKey);
-            req.Content = JsonContent.Create(new { email, password });
+        var req = CreateAuthRequest(HttpMethod.Post, "/auth/v1/token?grant_type=password");
+        req.Content = JsonContent.Create(new { email, password });
 
-            var response = await httpClient.SendAsync(req, ct);
-            if (response.IsSuccessStatusCode)
-            {
-                return await ParseAuthResponseAsync(response, ct);
-            }
-        }
-        catch
+        var response = await httpClient.SendAsync(req, ct);
+        if (!response.IsSuccessStatusCode)
         {
-            // Fall through to local development verification if network is offline
+            await ThrowSupabaseFailureAsync(response, "Password sign-in", ct);
         }
 
-        if (AllowOfflineDevSession && !string.IsNullOrWhiteSpace(email) && email.Contains('@') && !string.IsNullOrWhiteSpace(password) && password.Length >= 6)
-        {
-            return CreateDeterministicDevSession(email, null);
-        }
-
-        throw new UnauthorizedAccessException("Invalid email or password credentials.");
+        return await ParseAuthResponseAsync(response, ct);
     }
 
     public async Task<SupabaseAuthResult> SignUpWithPasswordAsync(string email, string password, string fullName, CancellationToken ct = default)
     {
-        try
+        // The confirmation email must land back in the React app, not on Supabase's dashboard 'Site URL'.
+        // This URL has to be listed in Supabase > Authentication > URL Configuration > Redirect URLs.
+        var confirmRedirect = Uri.EscapeDataString($"{_options.NormalizedFrontendBaseUrl}/auth/login?confirmed=1");
+        var req = CreateAuthRequest(HttpMethod.Post, $"/auth/v1/signup?redirect_to={confirmRedirect}");
+        req.Content = JsonContent.Create(new
         {
-            var req = new HttpRequestMessage(HttpMethod.Post, $"{SupabaseUrl}/auth/v1/signup");
-            req.Headers.Add("apikey", AnonKey);
-            req.Content = JsonContent.Create(new
-            {
-                email,
-                password,
-                data = new { full_name = fullName }
-            });
+            email,
+            password,
+            data = new { full_name = fullName }
+        });
 
-            var response = await httpClient.SendAsync(req, ct);
-            if (response.IsSuccessStatusCode)
+        var response = await httpClient.SendAsync(req, ct);
+        if (!response.IsSuccessStatusCode)
+        {
+            var reason = await LogSupabaseFailureAsync(response, "Sign-up", ct);
+            if (reason is "user_already_exists" or "email_exists")
             {
-                return await ParseAuthResponseAsync(response, ct);
+                throw new ConflictException("An account with this email address already exists.");
             }
-        }
-        catch
-        {
-            // Fall through to deterministic dev session if offline
+            throw new DomainException($"Unable to register account with the provided email ({reason}).", "REGISTRATION_FAILED");
         }
 
-        if (AllowOfflineDevSession && !string.IsNullOrWhiteSpace(email) && email.Contains('@') && !string.IsNullOrWhiteSpace(password) && password.Length >= 6)
-        {
-            return CreateDeterministicDevSession(email, fullName);
-        }
-
-        throw new DomainException("Unable to register account with the provided email.", "REGISTRATION_FAILED");
+        return await ParseAuthResponseAsync(response, ct, isSignUp: true);
     }
 
     public async Task<SupabaseAuthResult> RefreshSessionAsync(string refreshToken, CancellationToken ct = default)
     {
-        try
-        {
-            var req = new HttpRequestMessage(HttpMethod.Post, $"{SupabaseUrl}/auth/v1/token?grant_type=refresh_token");
-            req.Headers.Add("apikey", AnonKey);
-            req.Content = JsonContent.Create(new { refresh_token = refreshToken });
+        var req = CreateAuthRequest(HttpMethod.Post, "/auth/v1/token?grant_type=refresh_token");
+        req.Content = JsonContent.Create(new { refresh_token = refreshToken });
 
-            var response = await httpClient.SendAsync(req, ct);
-            if (response.IsSuccessStatusCode)
-            {
-                return await ParseAuthResponseAsync(response, ct);
-            }
-        }
-        catch
+        var response = await httpClient.SendAsync(req, ct);
+        if (!response.IsSuccessStatusCode)
         {
-            // Fall through to local token check
+            await ThrowSupabaseFailureAsync(response, "Token refresh", ct);
         }
 
-        if (AllowOfflineDevSession && !string.IsNullOrWhiteSpace(refreshToken))
-        {
-            return CreateDeterministicDevSession("hocvien@lingopro.vn", "Nguyễn Minh Anh");
-        }
-
-        throw new UnauthorizedAccessException("Refresh token is expired or invalid.");
+        return await ParseAuthResponseAsync(response, ct);
     }
 
-    private static SupabaseAuthResult CreateDeterministicDevSession(string email, string? fullName)
+    /// <summary>
+    /// Logs Supabase's machine-readable rejection reason (never credentials or tokens) and returns it.
+    /// </summary>
+    private async Task<string> LogSupabaseFailureAsync(HttpResponseMessage response, string operation, CancellationToken ct)
     {
-        var normalizedEmail = email.Trim().ToLowerInvariant();
-        var hashBytes = SHA256.HashData(Encoding.UTF8.GetBytes($"lingopro-user:{normalizedEmail}"));
-        var deterministicGuid = new Guid(hashBytes.AsSpan(0, 16));
-        var resolvedName = !string.IsNullOrWhiteSpace(fullName)
-            ? fullName.Trim()
-            : normalizedEmail.Split('@')[0];
+        var body = await response.Content.ReadAsStringAsync(ct);
+        var reason = ExtractErrorReason(body);
+        logger.LogWarning("{Operation} rejected by Supabase with HTTP {StatusCode}: {Reason}", operation, (int)response.StatusCode, reason);
+        return reason;
+    }
 
-        return new SupabaseAuthResult(
-            deterministicGuid,
-            normalizedEmail,
-            resolvedName,
-            null,
-            $"sb_access_{Convert.ToHexString(hashBytes, 0, 8)}",
-            $"sb_refresh_{Convert.ToHexString(hashBytes, 8, 8)}",
-            3600);
+    /// <summary>
+    /// Maps a failed Supabase call: 4xx means the credentials/token are not acceptable (401 for the client);
+    /// 5xx is an upstream outage and surfaces as an HTTP error instead of being disguised as bad credentials.
+    /// </summary>
+    private async Task ThrowSupabaseFailureAsync(HttpResponseMessage response, string operation, CancellationToken ct)
+    {
+        var reason = await LogSupabaseFailureAsync(response, operation, ct);
+        if ((int)response.StatusCode >= 500)
+        {
+            throw new HttpRequestException($"Supabase Auth is unavailable ({(int)response.StatusCode}).");
+        }
+
+        var message = reason switch
+        {
+            "email_not_confirmed" => "Email address is not confirmed. Please check your inbox to confirm your email before signing in.",
+            "invalid_credentials" => "Invalid email or password credentials.",
+            _ => $"Authentication was rejected by Supabase ({reason})."
+        };
+        throw new UnauthorizedAccessException(message);
     }
 
     public async Task SignOutAsync(string accessToken, CancellationToken ct = default)
     {
-        var req = new HttpRequestMessage(HttpMethod.Post, $"{SupabaseUrl}/auth/v1/logout");
-        req.Headers.Add("apikey", AnonKey);
+        var req = CreateAuthRequest(HttpMethod.Post, "/auth/v1/logout");
         req.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
         await httpClient.SendAsync(req, ct);
     }
@@ -184,8 +143,7 @@ public class SupabaseAuthService(
 
     public async Task<SupabaseAuthResult> ExchangeOAuthCodeAsync(string authCode, string codeVerifier, CancellationToken ct = default)
     {
-        var req = new HttpRequestMessage(HttpMethod.Post, $"{SupabaseUrl}/auth/v1/token?grant_type=pkce");
-        req.Headers.Add("apikey", AnonKey);
+        var req = CreateAuthRequest(HttpMethod.Post, "/auth/v1/token?grant_type=pkce");
         req.Content = JsonContent.Create(new
         {
             auth_code = authCode,
@@ -232,8 +190,7 @@ public class SupabaseAuthService(
     public async Task<string> GetGoogleLinkIdentityUrlAsync(string userAccessToken, string redirectUri, CancellationToken ct = default)
     {
         string encodedRedirect = Uri.EscapeDataString(redirectUri);
-        var req = new HttpRequestMessage(HttpMethod.Get, $"{SupabaseUrl}/auth/v1/user/identities/authorize?provider=google&redirect_to={encodedRedirect}");
-        req.Headers.Add("apikey", AnonKey);
+        var req = CreateAuthRequest(HttpMethod.Get, $"/auth/v1/user/identities/authorize?provider=google&redirect_to={encodedRedirect}");
         req.Headers.Authorization = new AuthenticationHeaderValue("Bearer", userAccessToken);
 
         var response = await httpClient.SendAsync(req, ct);
@@ -252,8 +209,7 @@ public class SupabaseAuthService(
 
     public async Task UnlinkGoogleIdentityAsync(string userAccessToken, string identityId, CancellationToken ct = default)
     {
-        var req = new HttpRequestMessage(HttpMethod.Delete, $"{SupabaseUrl}/auth/v1/user/identities/{identityId}");
-        req.Headers.Add("apikey", AnonKey);
+        var req = CreateAuthRequest(HttpMethod.Delete, $"/auth/v1/user/identities/{identityId}");
         req.Headers.Authorization = new AuthenticationHeaderValue("Bearer", userAccessToken);
 
         var response = await httpClient.SendAsync(req, ct);
@@ -265,8 +221,7 @@ public class SupabaseAuthService(
 
     public async Task RequestPasswordRecoveryAsync(string email, string redirectUri, CancellationToken ct = default)
     {
-        var req = new HttpRequestMessage(HttpMethod.Post, $"{SupabaseUrl}/auth/v1/recover?redirect_to={Uri.EscapeDataString(redirectUri)}");
-        req.Headers.Add("apikey", AnonKey);
+        var req = CreateAuthRequest(HttpMethod.Post, $"/auth/v1/recover?redirect_to={Uri.EscapeDataString(redirectUri)}");
         req.Content = JsonContent.Create(new { email });
 
         await httpClient.SendAsync(req, ct);
@@ -274,8 +229,7 @@ public class SupabaseAuthService(
 
     public async Task ResetPasswordAsync(string recoveryAccessToken, string newPassword, CancellationToken ct = default)
     {
-        var req = new HttpRequestMessage(HttpMethod.Put, $"{SupabaseUrl}/auth/v1/user");
-        req.Headers.Add("apikey", AnonKey);
+        var req = CreateAuthRequest(HttpMethod.Put, "/auth/v1/user");
         req.Headers.Authorization = new AuthenticationHeaderValue("Bearer", recoveryAccessToken);
         req.Content = JsonContent.Create(new { password = newPassword });
 
@@ -289,7 +243,8 @@ public class SupabaseAuthService(
     private static async Task<SupabaseAuthResult> ParseAuthResponseAsync(
         HttpResponseMessage response,
         CancellationToken ct,
-        bool requireConfirmedEmail = false)
+        bool requireConfirmedEmail = false,
+        bool isSignUp = false)
     {
         using var doc = await JsonDocument.ParseAsync(await response.Content.ReadAsStreamAsync(ct), cancellationToken: ct);
         var root = doc.RootElement;
@@ -299,6 +254,16 @@ public class SupabaseAuthService(
         int expiresIn = root.TryGetProperty("expires_in", out var ei) ? ei.GetInt32() : 3600;
 
         var userElement = root.TryGetProperty("user", out var u) ? u : root;
+
+        // When email confirmation is enabled, Supabase returns a fake 200 OK with an empty identities array
+        // if the email is already registered (to prevent email enumeration). Surface this as 409 Conflict.
+        if (isSignUp &&
+            userElement.TryGetProperty("identities", out var identities) &&
+            identities.ValueKind == JsonValueKind.Array &&
+            identities.GetArrayLength() == 0)
+        {
+            throw new ConflictException("An account with this email address already exists.");
+        }
 
         // Mirrors the original /auth/callback rule: an unconfirmed email can never mint an application session.
         if (requireConfirmedEmail &&

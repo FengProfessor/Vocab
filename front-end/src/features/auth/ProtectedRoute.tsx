@@ -1,17 +1,18 @@
 import React, { useEffect } from 'react';
 import { Card, Spin, Typography } from 'antd';
-import { Outlet, useLocation } from 'react-router-dom';
-import { ServerAuthLinks } from '@/lib/auth/ServerAuthLinks';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useAuthStore } from '@/stores/useAuthStore';
 
 /**
  * Server-first authentication route guard.
  * Verifies the active session with the .NET 10 backend (GET /api/v1/auth/profile or OAuth token exchange).
- * If unauthenticated, exits the React SPA and redirects back to the server login page (/auth/login).
+ * If unauthenticated, redirects to the SPA login page (/auth/login) with a safe return URL.
  */
 export const ProtectedRoute: React.FC = () => {
   const location = useLocation();
   const { isAuthenticated, isCheckingSession, hasVerifiedServer, verifyServerSession } = useAuthStore();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     void verifyServerSession();
@@ -22,9 +23,9 @@ export const ProtectedRoute: React.FC = () => {
       const normalizedPath =
         !location.pathname || location.pathname === '/' ? '/app' : location.pathname;
       const returnUrl = `${normalizedPath}${location.search}`;
-      window.location.replace(ServerAuthLinks.loginUrl(returnUrl));
+      navigate(`/auth/login?returnUrl=${encodeURIComponent(returnUrl)}`, { replace: true });
     }
-  }, [hasVerifiedServer, isCheckingSession, isAuthenticated, location.pathname, location.search]);
+  }, [hasVerifiedServer, isCheckingSession, isAuthenticated, location.pathname, location.search, navigate]);
 
   if (!isAuthenticated && (!hasVerifiedServer || isCheckingSession)) {
     return (

@@ -4,6 +4,8 @@ import { AppShellLayout } from '@/components/layout/AppShellLayout';
 import { AdminSystemView } from '@/features/admin/AdminSystemView';
 import { AiCoachView } from '@/features/ai-coach/AiCoachView';
 import { AuthCompleteView } from '@/features/auth/AuthCompleteView';
+import { AuthPage } from '@/features/auth/AuthPage';
+import { GoogleCallbackView } from '@/features/auth/GoogleCallbackView';
 import { ProtectedRoute } from '@/features/auth/ProtectedRoute';
 import { TeacherRouteGuard } from '@/features/auth/TeacherRouteGuard';
 import { BillingPlansView } from '@/features/billing/BillingPlansView';
@@ -27,6 +29,10 @@ export const AppRouter: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/auth" element={<Navigate to="/auth/login" replace />} />
+        <Route path="/auth/login" element={<AuthPage />} />
+        <Route path="/auth/register" element={<AuthPage />} />
+        <Route path="/auth/callback" element={<GoogleCallbackView />} />
         <Route element={<ProtectedRoute />}>
           <Route path="/app/complete" element={<AuthCompleteView />} />
           <Route element={<AppShellLayout />}>

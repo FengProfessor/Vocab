@@ -65,11 +65,12 @@ public sealed class AuthController : ApiControllerBase
 
     [HttpPost("logout")]
     [AllowAnonymous]
-    public ActionResult<ApiResponse<bool>> Logout()
+    public async Task<ActionResult<ApiResponse<bool>>> Logout(CancellationToken ct)
     {
+        var result = await Mediator.Send(new LogoutCommand(ExtractBearerToken()), ct);
         Response.Cookies.Delete(AuthenticationExtensions.AccessTokenCookieName, new CookieOptions { Path = "/" });
         Response.Cookies.Delete(AuthenticationExtensions.RefreshTokenCookieName, new CookieOptions { Path = "/" });
-        return OkResponse(true, "Logged out successfully.");
+        return OkResponse(result, "Logged out successfully.");
     }
 
     [HttpGet("google-url")]
@@ -150,6 +151,12 @@ public sealed class AuthController : ApiControllerBase
 
     private void AppendAuthCookies(AuthTokensDto authTokens)
     {
+        // Supabase issues no session until the email is confirmed (registration), so there is nothing to store.
+        if (string.IsNullOrWhiteSpace(authTokens.AccessToken) || string.IsNullOrWhiteSpace(authTokens.RefreshToken))
+        {
+            return;
+        }
+
         Response.Cookies.Append(
             AuthenticationExtensions.AccessTokenCookieName,
             authTokens.AccessToken,

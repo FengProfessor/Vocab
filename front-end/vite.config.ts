@@ -3,8 +3,8 @@ import react from '@vitejs/plugin-react';
 
 /**
  * Vite configuration for the LingoPro React 19 Single Page Application.
- * Only the data API is proxied to the .NET 10 server. Every authentication page (login, sign-up,
- * Google OAuth, logout) lives on the server origin (http://localhost:5000/auth/*) and is never served here.
+ * The SPA calls the .NET API directly at the absolute URL from the .env.<mode> file (see src/config/appConfig.ts),
+ * so no dev proxy is used; the API allows this origin through its CORS policy.
  */
 export default defineConfig({
   plugins: [react()],
@@ -15,12 +15,6 @@ export default defineConfig({
   },
   server: {
     port: 5173,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:5000',
-        changeOrigin: true,
-      },
-    },
   },
   build: {
     outDir: 'dist',

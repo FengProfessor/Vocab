@@ -86,11 +86,13 @@ public sealed class ExceptionHandlingMiddleware
                     errorCode: domainEx.ErrorCode)
             ),
 
-            UnauthorizedAccessException => (
+            UnauthorizedAccessException unauthEx => (
                 StatusCodes.Status401Unauthorized,
                 ApiResponse<object>.Fail(
                     statusCode: StatusCodes.Status401Unauthorized,
-                    message: "You are not authorized to perform this action. Please sign in and try again.",
+                    message: !string.IsNullOrWhiteSpace(unauthEx.Message)
+                        ? unauthEx.Message
+                        : "You are not authorized to perform this action. Please sign in and try again.",
                     errorCode: "UNAUTHORIZED")
             ),
 
