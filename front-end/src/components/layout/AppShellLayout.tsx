@@ -1,111 +1,27 @@
-import React, { useState } from 'react';
-import { Layout, Menu, Typography } from 'antd';
-import type { MenuProps } from 'antd';
-import {
-  ApartmentOutlined,
-  AudioOutlined,
-  BookOutlined,
-  CompassOutlined,
-  CrownOutlined,
-  CustomerServiceOutlined,
-  DashboardOutlined,
-  FileProtectOutlined,
-  FireOutlined,
-  FontColorsOutlined,
-  ReadOutlined,
-  RobotOutlined,
-  TeamOutlined,
-  TrophyOutlined,
-} from '@ant-design/icons';
+import React, { useState, useMemo } from 'react';
+import { Layout, Menu, Typography, theme } from 'antd';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { getSidebarMenuItems } from '@/components/layout/getSidebarMenuItems';
 import { TopHeaderBar } from '@/components/layout/TopHeaderBar';
+import { useAuthStore } from '@/stores/useAuthStore';
 
 /**
- * Primary application shell layout with collapsible sidebar navigation covering all LingoPro modules.
+ * Primary application shell layout with collapsible sidebar navigation dynamically
+ * filtered by the user's RBAC role (Student, Teacher, Admin).
  */
 export const AppShellLayout: React.FC = () => {
   const [collapsed, setCollapsed] = useState<boolean>(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { token } = theme.useToken();
+  const { user } = useAuthStore();
 
-  const menuItems: MenuProps['items'] = [
-    {
-      key: '/app',
-      icon: <CompassOutlined />,
-      label: 'Lộ trình Adaptive',
-    },
-    {
-      key: '/app/vocab',
-      icon: <BookOutlined />,
-      label: 'Từ vựng FSRS v5',
-    },
-    {
-      key: '/app/grammar',
-      icon: <FontColorsOutlined />,
-      label: 'Ngữ pháp 4 Bước',
-    },
-    {
-      key: '/app/reading',
-      icon: <ReadOutlined />,
-      label: 'Đọc hiểu Song ngữ',
-    },
-    {
-      key: '/app/dictionary',
-      icon: <ApartmentOutlined />,
-      label: 'Từ điển Học thuật',
-    },
-    {
-      key: '/app/toeic',
-      icon: <CustomerServiceOutlined />,
-      label: 'Luyện thi TOEIC 990',
-    },
-    {
-      key: '/app/vstep',
-      icon: <FileProtectOutlined />,
-      label: 'Phòng thi VSTEP 4 Kỹ năng',
-    },
-    {
-      key: '/app/ai-coach',
-      icon: <RobotOutlined />,
-      label: 'Trợ lý AI Socratic',
-    },
-    {
-      key: '/app/speaking-foundation',
-      icon: <AudioOutlined />,
-      label: 'Phát âm & Nền tảng Nói',
-    },
-    {
-      key: '/app/challenges',
-      icon: <FireOutlined />,
-      label: 'Thử thách Cam kết',
-    },
-    {
-      key: '/app/social',
-      icon: <TrophyOutlined />,
-      label: 'Nhóm học & Xếp hạng',
-    },
-    {
-      key: '/app/billing',
-      icon: <CrownOutlined />,
-      label: 'Gói Pro & Thanh toán',
-    },
-    {
-      type: 'divider',
-    },
-    {
-      key: '/teacher',
-      icon: <TeamOutlined />,
-      label: 'Cổng Giáo viên (B2B)',
-    },
-    {
-      key: '/admin',
-      icon: <DashboardOutlined />,
-      label: 'Quản trị Hệ thống',
-    },
-  ];
+  const menuItems = useMemo(() => {
+    return getSidebarMenuItems(user?.role);
+  }, [user?.role]);
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
+    <Layout style={{ minHeight: '100vh', background: token.colorBgLayout }}>
       <Layout.Sider
         collapsible
         collapsed={collapsed}
@@ -170,7 +86,7 @@ export const AppShellLayout: React.FC = () => {
         />
       </Layout.Sider>
 
-      <Layout>
+      <Layout style={{ background: token.colorBgLayout }}>
         <TopHeaderBar />
         <Layout.Content
           style={{

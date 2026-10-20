@@ -1,42 +1,47 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   App,
-  Badge,
   Button,
   Card,
   Col,
   Descriptions,
+  Empty,
   Progress,
   Row,
+  Skeleton,
   Space,
   Table,
+  Tabs,
   Tag,
   Typography,
 } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import {
   CheckCircleOutlined,
-  EyeOutlined,
+  CloudUploadOutlined,
   ReloadOutlined,
   SyncOutlined,
-  ThunderboltOutlined,
 } from '@ant-design/icons';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { CertLevelTag } from '@/components/common/CertLevelTag';
 import { PageHeaderCard } from '@/components/common/PageHeaderCard';
+import { FlashcardCard } from '@/features/vocab/components/FlashcardCard';
+import { FlashcardRatingBar } from '@/features/vocab/components/FlashcardRatingBar';
+import { FlashcardSessionSummaryModal } from '@/features/vocab/components/FlashcardSessionSummaryModal';
+import { VocabQuizCard } from '@/features/vocab/components/VocabQuizCard';
+import { WordImportDrawer } from '@/features/vocab/components/WordImportDrawer';
 import { apiClient } from '@/lib/apiClient';
 import { FsrsEngine } from '@/lib/fsrsEngine';
+import { useAuthStore } from '@/stores/useAuthStore';
 import { useStudyStore } from '@/stores/useStudyStore';
 import { ApiResponse } from '@/types/api/ApiResponse';
 import { CertLevel } from '@/types/enums/CertLevel';
 import { PartOfSpeechType } from '@/types/enums/PartOfSpeechType';
 import { SrsCardState } from '@/types/enums/SrsCardState';
 import { SrsReviewQuality } from '@/types/enums/SrsReviewQuality';
+import { VocabImportItemDto } from '@/types/vocab/VocabImportItemDto';
 import { VocabWordDto } from '@/types/vocab/VocabWordDto';
 
-/**
- * Server DTO returned by GET /api/v1/vocab/due.
- */
 interface ServerWordWithSrsDto {
   id: string;
   term: string;
@@ -55,9 +60,6 @@ interface ServerWordWithSrsDto {
   nextReviewDate: string | null;
 }
 
-/**
- * Server response DTO returned by POST /api/v1/vocab/review.
- */
 interface ServerSrsReviewResponseDto {
   wordId: string;
   state: SrsCardState;
@@ -71,11 +73,12 @@ interface ServerSrsReviewResponseDto {
 }
 
 /**
- * Interactive FSRS v5 Spaced Repetition Vocabulary Engine view.
- * Fetches the due review queue dynamically from GET /api/v1/vocab/due and posts reviews to POST /api/v1/vocab/review.
+ * Enhanced Vocabulary Study Hub supporting FSRS v5 flashcards, interactive quiz practice,
+ * mathematical memory model telemetry, and bulk word import with Skeleton reload feedback.
  */
 export const VocabStudyView: React.FC = () => {
   const { message } = App.useApp();
+  const { user } = useAuthStore();
   const {
     words,
     activeCardIndex,
@@ -86,6 +89,10 @@ export const VocabStudyView: React.FC = () => {
     resetAllCardsDueNow,
     addWordToDeck,
   } = useStudyStore();
+
+  const [importDrawerOpen, setImportDrawerOpen] = useState<boolean>(false);
+  const [summaryModalOpen, setSummaryModalOpen] = useState<boolean>(false);
+  const [sessionXpEarned, setSessionXpEarned] = useState<number>(0);
 
   const dueWordsQuery = useQuery({
     queryKey: ['vocab-due'],
@@ -137,31 +144,42 @@ export const VocabStudyView: React.FC = () => {
     },
     onSuccess: (data) => {
       if (data) {
+        setSessionXpEarned((prev) => prev + data.xpAwarded);
         void message.success(
-          `Đã đồng bộ kết quả ôn tập FSRS v5 lên Server (+${data.xpAwarded} XP • Chu kỳ mới: ${data.intervalDays} ngày)`
+          `Đã ghi nhận FSRS (+${data.xpAwarded} XP • Chu kỳ mới: ${data.intervalDays} ngày)`
         );
       }
     },
   });
 
-  const handleGradeCard = (wordId: string, quality: SrsReviewQuality): void => {
-    gradeCard(wordId, quality);
-    reviewMutation.mutate({ wordId, quality });
+  const handleGradeCard = (quality: SrsReviewQuality): void => {
+    if (!currentCard) return;
+    gradeCard(currentCard.id, quality);
+    reviewMutation.mutate({ wordId: currentCard.id, quality });
+
+    // Check if finished session
+    if (activeCardIndex + 1 >= words.length) {
+      setSummaryModalOpen(true);
+    }
+  };
+
+  const handleImportBatch = (items: VocabImportItemDto[]): void => {
+    items.forEach((item) => {
+      addWordToDeck({
+        word: item.word,
+        phonetic: item.phonetic || '/.../',
+        partOfSpeech: item.partOfSpeech,
+        meaningVi: item.meaningVi,
+        definitionEn: 'Người dùng nhập thủ công',
+        exampleEn: item.exampleEn ?? '',
+        exampleVi: item.exampleVi ?? '',
+        certLevel: item.certLevel,
+        audioUrl: null,
+      });
+    });
   };
 
   const currentCard: VocabWordDto | undefined = words[activeCardIndex] ?? words[0];
-
-  const scheduleSnapshot = currentCard
-    ? {
-        intervalDays: currentCard.intervalDays,
-        repetitions: currentCard.repetitions,
-        easeFactor: currentCard.easeFactor,
-        stability: currentCard.stability,
-        difficulty: currentCard.difficulty,
-        lapses: currentCard.lapses,
-        state: currentCard.cardState,
-      }
-    : {};
 
   const columns: ColumnsType<VocabWordDto> = [
     {
@@ -232,205 +250,178 @@ export const VocabStudyView: React.FC = () => {
   return (
     <div>
       <PageHeaderCard
-        badgeText="MODULE 03 • VOCABULARY & FSRS v5 ENGINE (DYNAMIC API)"
+        badgeText="MODULE 03 • VOCABULARY & FSRS v5 ENGINE"
         title="Ôn tập Từ vựng Lặp lại Ngắt quãng (FSRS v5)"
-        subtitle="Đồng bộ hàng đợi từ vựng đến hạn từ GET /api/v1/vocab/due và chấm điểm FSRS v5 qua POST /api/v1/vocab/review."
+        subtitle="Hệ thống FSRS v5 tối ưu hóa đường cong quên của Ebbinghaus, đồng bộ hàng đợi từ vựng với backend .NET 10."
         extra={
           <Space wrap>
             <Tag color="geekblue">Đã ôn trong phiên: {completedInSession} thẻ</Tag>
             <Button
+              icon={<CloudUploadOutlined />}
+              onClick={() => setImportDrawerOpen(true)}
+            >
+              Nhập từ vựng
+            </Button>
+            <Button
               icon={<SyncOutlined spin={dueWordsQuery.isFetching} />}
+              loading={dueWordsQuery.isFetching}
               onClick={() => void dueWordsQuery.refetch()}
             >
-              Tải từ đến hạn từ Server
+              Tải từ đến hạn
             </Button>
             <Button icon={<ReloadOutlined />} onClick={resetAllCardsDueNow}>
-              Đặt lại đến hạn toàn bộ
+              Đặt lại hàng đợi
             </Button>
           </Space>
         }
       />
 
-      {currentCard && (
-        <Row gutter={[20, 20]} style={{ marginBottom: 24 }}>
-          <Col xs={24} lg={15}>
-            <Badge.Ribbon text={`Thẻ ${activeCardIndex + 1} / ${words.length}`} color="indigo">
-              <Card
-                style={{
-                  minHeight: 330,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                }}
-              >
-                <Space direction="vertical" size={14} style={{ width: '100%' }}>
-                  <Space>
-                    <CertLevelTag level={currentCard.certLevel} />
-                    <Tag color="cyan">{String(currentCard.partOfSpeech).toUpperCase()}</Tag>
-                    <Tag color="purple">Trạng thái: {currentCard.cardState}</Tag>
-                  </Space>
+      <Tabs
+        defaultActiveKey="flashcard"
+        items={[
+          {
+            key: 'flashcard',
+            label: 'Thẻ Ghi nhớ FSRS v5',
+            children: (
+              <>
+                {dueWordsQuery.isLoading ? (
+                  <Row gutter={[20, 20]} style={{ marginBottom: 24 }}>
+                    <Col xs={24} lg={15}>
+                      <Card style={{ minHeight: 340 }}>
+                        <Skeleton active paragraph={{ rows: 6 }} />
+                      </Card>
+                    </Col>
+                    <Col xs={24} lg={9}>
+                      <Card style={{ minHeight: 340 }}>
+                        <Skeleton active paragraph={{ rows: 5 }} />
+                      </Card>
+                    </Col>
+                  </Row>
+                ) : currentCard ? (
+                  <Row gutter={[20, 20]} style={{ marginBottom: 24 }}>
+                    <Col xs={24} lg={15}>
+                      <FlashcardCard
+                        word={currentCard}
+                        isFlipped={isCardFlipped}
+                        onToggleFlip={toggleFlip}
+                      />
+                      <FlashcardRatingBar
+                        word={currentCard}
+                        isLoading={reviewMutation.isPending}
+                        isFlipped={isCardFlipped}
+                        onGrade={handleGradeCard}
+                        onToggleFlip={toggleFlip}
+                      />
+                    </Col>
 
-                  <div style={{ textAlign: 'center', padding: '16px 0' }}>
-                    <Typography.Title level={1} style={{ margin: 0, color: '#1e1b4b' }}>
-                      {currentCard.word}
-                    </Typography.Title>
-                    <Typography.Text type="secondary" style={{ fontSize: 18 }}>
-                      {currentCard.phonetic}
-                    </Typography.Text>
-                  </div>
-
-                  {!isCardFlipped ? (
-                    <div style={{ textAlign: 'center', padding: '20px 0' }}>
-                      <Button
-                        type="primary"
-                        size="large"
-                        icon={<EyeOutlined />}
-                        onClick={toggleFlip}
-                      >
-                        Lật thẻ xem nghĩa & ví dụ ngữ cảnh
-                      </Button>
-                    </div>
-                  ) : (
-                    <Card
-                      size="small"
-                      style={{ background: '#f8fafc', borderColor: '#cbd5e1', borderRadius: 12 }}
+                    <Col xs={24} lg={9}>
+                      <Card title="Thông số Toán học FSRS v5 của Thẻ hiện tại">
+                        <Descriptions column={1} bordered size="small">
+                          <Descriptions.Item label="Stability S (Độ bền trí nhớ)">
+                            {currentCard.stability.toFixed(2)} ngày
+                          </Descriptions.Item>
+                          <Descriptions.Item label="Difficulty D (Độ khó nội tại)">
+                            {currentCard.difficulty.toFixed(2)} / 10.0
+                          </Descriptions.Item>
+                          <Descriptions.Item label="Retrievability R(t)">
+                            {(
+                              FsrsEngine.computeRetrievability(
+                                Math.max(1, currentCard.intervalDays),
+                                Math.max(0.5, currentCard.stability)
+                              ) * 100
+                            ).toFixed(1)}
+                            %
+                          </Descriptions.Item>
+                          <Descriptions.Item label="Số lần nhớ liên tiếp">
+                            {currentCard.repetitions} lần (Quên: {currentCard.lapses})
+                          </Descriptions.Item>
+                          <Descriptions.Item label="Độ thuần thục tổng hợp">
+                            <Progress
+                              percent={FsrsEngine.getStrengthPercent(
+                                currentCard.repetitions,
+                                currentCard.easeFactor,
+                                currentCard.stability
+                              )}
+                              size="small"
+                              status="active"
+                            />
+                          </Descriptions.Item>
+                        </Descriptions>
+                      </Card>
+                    </Col>
+                  </Row>
+                ) : (
+                  <Card style={{ textAlign: 'center', padding: '32px 0' }}>
+                    <Empty
+                      description="Hàng đợi hôm nay đã hoàn thành! Không có thẻ từ vựng nào cần ôn."
+                      image={Empty.PRESENTED_IMAGE_SIMPLE}
                     >
-                      <Space direction="vertical" size={8} style={{ width: '100%' }}>
-                        <Typography.Title level={4} style={{ margin: 0, color: '#0f766e' }}>
-                          {currentCard.meaningVi}
-                        </Typography.Title>
-                        <Typography.Text>{currentCard.definitionEn}</Typography.Text>
-                        <div
-                          style={{
-                            padding: '8px 12px',
-                            background: '#eef2ff',
-                            borderRadius: 8,
-                            borderLeft: '3px solid #4f46e5',
-                          }}
-                        >
-                          <Typography.Text strong style={{ display: 'block' }}>
-                            &ldquo;{currentCard.exampleEn}&rdquo;
-                          </Typography.Text>
-                          <Typography.Text type="secondary">
-                            {currentCard.exampleVi}
-                          </Typography.Text>
-                        </div>
+                      <Space>
+                        <Button type="primary" onClick={() => setImportDrawerOpen(true)}>
+                          Nhập thêm từ mới
+                        </Button>
+                        <Button onClick={resetAllCardsDueNow}>
+                          Ôn lại toàn bộ thẻ
+                        </Button>
                       </Space>
-                    </Card>
-                  )}
-
-                  <div
-                    style={{
-                      display: 'grid',
-                      gridTemplateColumns: 'repeat(4, 1fr)',
-                      gap: 10,
-                      marginTop: 12,
-                    }}
-                  >
-                    <Button
-                      danger
-                      loading={reviewMutation.isPending}
-                      onClick={() => handleGradeCard(currentCard.id, SrsReviewQuality.Again)}
-                    >
-                      Quên (1) •{' '}
-                      {FsrsEngine.getIntervalPreviewLabel(
-                        SrsReviewQuality.Again,
-                        scheduleSnapshot
-                      )}
-                    </Button>
-                    <Button
-                      loading={reviewMutation.isPending}
-                      onClick={() => handleGradeCard(currentCard.id, SrsReviewQuality.Hard)}
-                    >
-                      Khó (2) •{' '}
-                      {FsrsEngine.getIntervalPreviewLabel(
-                        SrsReviewQuality.Hard,
-                        scheduleSnapshot
-                      )}
-                    </Button>
-                    <Button
-                      type="primary"
-                      ghost
-                      loading={reviewMutation.isPending}
-                      onClick={() => handleGradeCard(currentCard.id, SrsReviewQuality.Good)}
-                    >
-                      Tốt (3) •{' '}
-                      {FsrsEngine.getIntervalPreviewLabel(
-                        SrsReviewQuality.Good,
-                        scheduleSnapshot
-                      )}
-                    </Button>
-                    <Button
-                      type="primary"
-                      icon={<ThunderboltOutlined />}
-                      loading={reviewMutation.isPending}
-                      onClick={() => handleGradeCard(currentCard.id, SrsReviewQuality.Easy)}
-                    >
-                      Dễ (4) •{' '}
-                      {FsrsEngine.getIntervalPreviewLabel(
-                        SrsReviewQuality.Easy,
-                        scheduleSnapshot
-                      )}
-                    </Button>
-                  </div>
-                </Space>
+                    </Empty>
+                  </Card>
+                )}
+              </>
+            ),
+          },
+          {
+            key: 'quiz',
+            label: 'Luyện tập Trắc nghiệm (Quiz)',
+            children: (
+              // TODO: [Backend API Required] GET /api/v1/vocab/quiz?count=10 - Provide server-side quiz question generator in .NET 10 WebApi.
+              <div style={{ maxWidth: 800, margin: '0 auto' }}>
+                <VocabQuizCard words={words} />
+              </div>
+            ),
+          },
+          {
+            key: 'library',
+            label: `Kho Từ Vựng (${words.length})`,
+            children: (
+              <Card
+                title={
+                  <Space>
+                    <CheckCircleOutlined style={{ color: '#10b981' }} />
+                    <span>Danh sách Thẻ từ vựng trong Bộ nhớ Dài hạn</span>
+                  </Space>
+                }
+              >
+                <Table<VocabWordDto>
+                  rowKey="id"
+                  columns={columns}
+                  dataSource={words}
+                  pagination={{ pageSize: 6 }}
+                  loading={dueWordsQuery.isLoading}
+                />
               </Card>
-            </Badge.Ribbon>
-          </Col>
+            ),
+          },
+        ]}
+      />
 
-          <Col xs={24} lg={9}>
-            <Card title="Thông số Toán học FSRS v5 của Thẻ hiện tại">
-              <Descriptions column={1} bordered size="small">
-                <Descriptions.Item label="Stability S (Độ bền trí nhớ)">
-                  {currentCard.stability.toFixed(2)} ngày
-                </Descriptions.Item>
-                <Descriptions.Item label="Difficulty D (Độ khó nội tại)">
-                  {currentCard.difficulty.toFixed(2)} / 10.0
-                </Descriptions.Item>
-                <Descriptions.Item label="Retrievability R(t)">
-                  {(
-                    FsrsEngine.computeRetrievability(
-                      Math.max(1, currentCard.intervalDays),
-                      Math.max(0.5, currentCard.stability)
-                    ) * 100
-                  ).toFixed(1)}
-                  %
-                </Descriptions.Item>
-                <Descriptions.Item label="Số lần nhớ liên tiếp">
-                  {currentCard.repetitions} lần (Quên: {currentCard.lapses})
-                </Descriptions.Item>
-                <Descriptions.Item label="Độ thuần thục tổng hợp">
-                  <Progress
-                    percent={FsrsEngine.getStrengthPercent(
-                      currentCard.repetitions,
-                      currentCard.easeFactor,
-                      currentCard.stability
-                    )}
-                    size="small"
-                    status="active"
-                  />
-                </Descriptions.Item>
-              </Descriptions>
-            </Card>
-          </Col>
-        </Row>
-      )}
+      <WordImportDrawer
+        open={importDrawerOpen}
+        onClose={() => setImportDrawerOpen(false)}
+        onImportWords={handleImportBatch}
+      />
 
-      <Card
-        title={
-          <Space>
-            <CheckCircleOutlined style={{ color: '#10b981' }} />
-            <span>Danh sách Thẻ từ vựng trong Bộ nhớ Dài hạn ({words.length} từ)</span>
-          </Space>
-        }
-      >
-        <Table<VocabWordDto>
-          rowKey="id"
-          columns={columns}
-          dataSource={words}
-          pagination={{ pageSize: 6 }}
-        />
-      </Card>
+      <FlashcardSessionSummaryModal
+        open={summaryModalOpen}
+        cardsReviewedCount={completedInSession}
+        xpEarned={sessionXpEarned || completedInSession * 15}
+        streakDays={user?.streakDays ?? 1}
+        onRestart={() => {
+          resetAllCardsDueNow();
+          setSummaryModalOpen(false);
+        }}
+        onClose={() => setSummaryModalOpen(false)}
+      />
     </div>
   );
 };
