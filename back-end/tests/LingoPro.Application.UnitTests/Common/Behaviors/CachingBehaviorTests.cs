@@ -1,7 +1,7 @@
-using LingoPro.Application.Common.Behaviors;
+﻿using LingoPro.Application.Common.Behaviors;
 using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
-using LingoPro.Application.Features.Seo;
+using LingoPro.Application.Features.Seo.Queries;
 using LingoPro.Infrastructure.Caching;
 using MediatR;
 using NSubstitute;

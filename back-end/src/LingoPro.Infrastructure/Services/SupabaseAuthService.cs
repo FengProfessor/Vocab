@@ -12,7 +12,7 @@ namespace LingoPro.Infrastructure.Services;
 /// <summary>
 /// Server-to-Server BFF Gateway for Supabase Auth (GoTrue).
 /// Frontend never communicates directly with Supabase Auth; all requests pass through this service
-/// using the centralized <see cref="SupabaseOptions"/> configuration.
+/// using the centralized <see cref="SupabaseOptions"/> configuration validated at startup.
 /// </summary>
 public class SupabaseAuthService(
     HttpClient httpClient,
@@ -27,11 +27,8 @@ public class SupabaseAuthService(
     {
         var url = $"{SupabaseUrl}/{relativePath.TrimStart('/')}";
         var req = new HttpRequestMessage(method, url);
-        if (!string.IsNullOrWhiteSpace(_options.AnonKey))
-        {
-            req.Headers.Remove("apikey");
-            req.Headers.Add("apikey", _options.AnonKey.Trim());
-        }
+        req.Headers.Remove("apikey");
+        req.Headers.Add("apikey", _options.AnonKey.Trim());
 
         return req;
     }

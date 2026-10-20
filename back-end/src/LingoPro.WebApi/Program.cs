@@ -36,7 +36,7 @@ builder.Services.AddCors(options =>
     });
 });
 
-// 5. Register Controllers + Razor Views (for SSR SEO Landing Page & Server-Side Login)
+// 5. Register Controllers + Razor Views (for SSR SEO Landing Pages)
 builder.Services.AddControllersWithViews()
     .AddJsonOptions(options =>
     {
@@ -112,13 +112,18 @@ app.MapGet("/api/v1/health", () => Results.Ok(
     )
 ));
 
-// 8. Forward React SPA workspace routes (/app, /teacher, /admin) to the configured SPA origin
+// 8. Forward React SPA routes (/auth, /app, /student, /teacher, /admin) to the configured SPA origin
 var spaBaseUrl = (builder.Configuration["Frontend:BaseUrl"] ?? "http://localhost:5173").TrimEnd('/');
-string[] spaPrefixes = ["/app", "/teacher", "/admin"];
+app.MapGet("/auth", (HttpContext ctx) =>
+    Results.Redirect($"{spaBaseUrl}/auth/login{ctx.Request.QueryString}"));
+string[] spaPrefixes = ["/auth", "/app", "/student", "/teacher", "/admin"];
 foreach (var prefix in spaPrefixes)
 {
-    app.MapGet(prefix, (HttpContext ctx) =>
-        Results.Redirect($"{spaBaseUrl}{ctx.Request.Path}{ctx.Request.QueryString}"));
+    if (prefix != "/auth")
+    {
+        app.MapGet(prefix, (HttpContext ctx) =>
+            Results.Redirect($"{spaBaseUrl}{ctx.Request.Path}{ctx.Request.QueryString}"));
+    }
     app.MapGet($"{prefix}/{{**slug}}", (HttpContext ctx) =>
         Results.Redirect($"{spaBaseUrl}{ctx.Request.Path}{ctx.Request.QueryString}"));
 }

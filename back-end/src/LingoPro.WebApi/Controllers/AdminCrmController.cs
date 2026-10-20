@@ -1,5 +1,6 @@
 using LingoPro.Application.Common.Models;
-using LingoPro.Application.Features.AdminCrm;
+using LingoPro.Application.Features.AdminCrm.Commands;
+using LingoPro.Application.Features.AdminCrm.Queries;
 using LingoPro.WebApi.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -15,7 +16,7 @@ namespace LingoPro.WebApi.Controllers;
 public sealed class AdminCrmController : ApiControllerBase
 {
     [HttpGet("crm/dashboard")]
-    [Authorize]
+    [Authorize(Policy = "RequireAdmin")]
     public async Task<ActionResult<ApiResponse<CrmDashboardSummaryDto>>> GetCrmDashboard(CancellationToken ct)
     {
         var result = await Mediator.Send(new GetAdminCrmDashboardQuery(), ct);

@@ -2,7 +2,8 @@ namespace LingoPro.Infrastructure.Options;
 
 /// <summary>
 /// Strongly-typed configuration options for connecting to Supabase Auth, Storage, and JWT verification.
-/// Bound from the <c>"Supabase"</c> configuration section in <c>appsettings.json</c> / <c>appsettings.{Environment}.json</c>.
+/// Bound from the <c>"Supabase"</c> configuration section in <c>appsettings.json</c> / <c>appsettings.{Environment}.json</c>
+/// and validated on application startup.
 /// </summary>
 public sealed class SupabaseOptions
 {
@@ -31,12 +32,12 @@ public sealed class SupabaseOptions
     /// <summary>
     /// Default Supabase Storage bucket name for user audio recordings.
     /// </summary>
-    public string StorageBucket { get; set; } = "speaking-recordings";
+    public string StorageBucket { get; set; } = string.Empty;
 
     /// <summary>
     /// Public base URL of the React SPA used when constructing email confirmation redirect links.
     /// </summary>
-    public string FrontendBaseUrl { get; set; } = "http://localhost:5173";
+    public string FrontendBaseUrl { get; set; } = string.Empty;
 
     /// <summary>
     /// Returns the normalized Supabase base URL without a trailing slash.

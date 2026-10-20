@@ -10,17 +10,17 @@ public sealed class CachingOptions
     public const string SectionName = "Caching";
 
     /// <summary>
-    /// Caching operating mode: <c>"None"</c> (Phase 1 default) or <c>"Hybrid"</c> (Phase 2 L1 Memory + L2 Redis).
+    /// Caching operating mode: <c>"None"</c>, <c>"Local"</c>, <c>"Redis"</c>, or <c>"Hybrid"</c>.
     /// </summary>
-    public string Mode { get; set; } = "None";
+    public string Mode { get; set; } = string.Empty;
 
     /// <summary>
-    /// Redis connection string used when <see cref="Mode"/> is <c>"Hybrid"</c>.
+    /// Redis connection string used when <see cref="Mode"/> is <c>"Redis"</c> or <c>"Hybrid"</c>.
     /// </summary>
-    public string RedisConnectionString { get; set; } = "localhost:6379";
+    public string RedisConnectionString { get; set; } = string.Empty;
 
     /// <summary>
     /// Prefix prepended to all Redis keys.
     /// </summary>
-    public string InstancePrefix { get; set; } = "lingopro:";
+    public string InstancePrefix { get; set; } = string.Empty;
 }

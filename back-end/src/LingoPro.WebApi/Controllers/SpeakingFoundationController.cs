@@ -1,5 +1,6 @@
-using LingoPro.Application.Common.Models;
-using LingoPro.Application.Features.SpeakingFoundation;
+﻿using LingoPro.Application.Common.Models;
+using LingoPro.Application.Features.SpeakingFoundation.Commands;
+using LingoPro.Application.Features.SpeakingFoundation.Queries;
 using LingoPro.Domain.Enums;
 using LingoPro.WebApi.Extensions;
 using Microsoft.AspNetCore.Authorization;

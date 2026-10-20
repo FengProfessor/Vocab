@@ -5,6 +5,7 @@ import { AuthApi } from '@/lib/auth/AuthApi';
 import { Pkce } from '@/lib/auth/Pkce';
 import { safeInternalRedirect } from '@/lib/auth/safeInternalRedirect';
 import { useAuthStore } from '@/stores/useAuthStore';
+import { UserRole } from '@/types/enums/UserRole';
 
 /**
  * Landing page of the Google OAuth redirect (/auth/callback?code=...). It exchanges the one-time code and
@@ -25,11 +26,13 @@ export const GoogleCallbackView: React.FC = () => {
     hasRun.current = true;
 
     const providerError = searchParams.get('error');
+    const providerErrorDesc = searchParams.get('error_description');
     const code = searchParams.get('code');
     const handshake = Pkce.consume();
 
     if (providerError) {
-      navigate(`/auth/login?error=${encodeURIComponent(providerError)}`, { replace: true });
+      const descParam = providerErrorDesc ? `&error_description=${encodeURIComponent(providerErrorDesc)}` : '';
+      navigate(`/auth/login?error=${encodeURIComponent(providerError)}${descParam}`, { replace: true });
       return;
     }
     if (!code || !handshake) {
@@ -37,7 +40,7 @@ export const GoogleCallbackView: React.FC = () => {
       return;
     }
 
-    const role = handshake.role === 'Teacher' ? 'Teacher' : 'Student';
+    const role = handshake.role === UserRole.Teacher ? UserRole.Teacher : UserRole.Student;
     void (async () => {
       try {
         const tokens = await AuthApi.exchangeGoogleCode(code, handshake.verifier, role);
@@ -46,7 +49,7 @@ export const GoogleCallbackView: React.FC = () => {
         }
         const next = safeInternalRedirect(handshake.next, '/app');
         navigate(
-          `/app/complete?next=${encodeURIComponent(next)}&role=${role === 'Teacher' ? 'teacher' : 'student'}`,
+          `/app/complete?next=${encodeURIComponent(next)}&role=${role === UserRole.Teacher ? 'teacher' : 'student'}`,
           { replace: true },
         );
       } catch (err: unknown) {
@@ -57,7 +60,7 @@ export const GoogleCallbackView: React.FC = () => {
 
   if (error) {
     return (
-      <div style={{ minHeight: '100vh', display: 'grid', placeItems: 'center', padding: 24 }}>
+      <div style={{ minHeight: '100vh', display: 'grid', placeItems: 'center', padding: 24, background: '#f6efe6' }}>
         <div style={{ maxWidth: 420, width: '100%' }}>
           <Alert type="error" showIcon message={error} style={{ marginBottom: 16 }} />
           <Button type="primary" block onClick={() => navigate('/auth/login', { replace: true })}>

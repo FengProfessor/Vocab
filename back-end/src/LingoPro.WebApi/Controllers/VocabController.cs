@@ -1,5 +1,6 @@
-using LingoPro.Application.Common.Models;
-using LingoPro.Application.Features.Vocab;
+﻿using LingoPro.Application.Common.Models;
+using LingoPro.Application.Features.Vocab.Commands;
+using LingoPro.Application.Features.Vocab.Queries;
 using LingoPro.WebApi.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

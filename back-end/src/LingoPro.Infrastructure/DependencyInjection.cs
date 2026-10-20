@@ -15,7 +15,7 @@ namespace LingoPro.Infrastructure;
 
 /// <summary>
 /// Registers Infrastructure layer services including PostgreSQL DbContext, Phased Caching (Phase 1 NoOp / Phase 2 Hybrid L1+Redis),
-/// Supabase BFF Gateways (Auth issues the tokens), and Background Workers.
+/// Supabase BFF Gateways (validated on startup), and Background Workers.
 /// </summary>
 public static class DependencyInjection
 {
@@ -27,8 +27,13 @@ public static class DependencyInjection
         services.AddScoped<ISaveChangesInterceptor, AuditableEntitySaveChangesInterceptor>();
 
         var connectionString = configuration.GetConnectionString("DefaultConnection")
-            ?? configuration.GetConnectionString("SupabasePostgres")
-            ?? "Host=aws-0-ap-southeast-1.pooler.supabase.com;Port=6543;Database=postgres;Username=postgres;Password=your-password";
+            ?? configuration.GetConnectionString("SupabasePostgres");
+
+        if (string.IsNullOrWhiteSpace(connectionString))
+        {
+            throw new InvalidOperationException(
+                "Database connection string 'DefaultConnection' (or 'SupabasePostgres') is required.");
+        }
 
         services.AddDbContext<LingoProDbContext>((sp, options) =>
         {
@@ -49,46 +54,75 @@ public static class DependencyInjection
         services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<LingoProDbContext>());
         services.AddScoped<ICurrentUserService, CurrentUserService>();
 
-        // Authentication tokens are issued and validated by Supabase Auth; no local token service is registered.
-        services.Configure<SupabaseOptions>(options =>
-        {
-            configuration.GetSection(SupabaseOptions.SectionName).Bind(options);
-            var frontendBaseUrl = configuration["Frontend:BaseUrl"];
-            if (!string.IsNullOrWhiteSpace(frontendBaseUrl) && string.IsNullOrWhiteSpace(configuration[$"{SupabaseOptions.SectionName}:FrontendBaseUrl"]))
-            {
-                options.FrontendBaseUrl = frontendBaseUrl;
-            }
-        });
+        // Validate Supabase configuration eagerly on startup instead of scattering runtime checks.
+        services
+            .AddOptions<SupabaseOptions>()
+            .BindConfiguration(SupabaseOptions.SectionName)
+            .Validate(
+                options => Uri.TryCreate(
+                    options.Url,
+                    UriKind.Absolute,
+                    out var uri)
+                    && (uri.Scheme == Uri.UriSchemeHttps
+                        || (uri.IsLoopback && uri.Scheme == Uri.UriSchemeHttp)),
+                "Supabase URL must be a valid HTTPS URL.")
+            .Validate(
+                options => !string.IsNullOrWhiteSpace(options.AnonKey),
+                "Supabase AnonKey is required.")
+            .Validate(
+                options => !string.IsNullOrWhiteSpace(options.StorageBucket),
+                "Supabase StorageBucket is required.")
+            .Validate(
+                options => Uri.TryCreate(
+                    options.FrontendBaseUrl,
+                    UriKind.Absolute,
+                    out var uri)
+                    && (uri.Scheme == Uri.UriSchemeHttps || uri.Scheme == Uri.UriSchemeHttp),
+                "Supabase FrontendBaseUrl must be a valid HTTP or HTTPS URL.")
+            .ValidateOnStart();
 
         // Configure Phased Multi-Level Caching:
         // - Phase 1 Default ("None"): Registers NoOpCacheService (executes factory directly, zero infrastructure overhead).
         // - "Local": Registers LocalMemoryCacheService (L1 IMemoryCache only).
         // - "Redis": Registers RedisDistributedCacheService (L2 StackExchangeRedisCache only).
         // - Phase 2 Ready ("Hybrid"): Registers L1 IMemoryCache + L2 StackExchangeRedisCache via HybridMultiLevelCacheService.
-        services.Configure<CachingOptions>(configuration.GetSection(CachingOptions.SectionName));
-        var cachingMode = configuration[$"{CachingOptions.SectionName}:Mode"] ?? "None";
+        services
+            .AddOptions<CachingOptions>()
+            .BindConfiguration(CachingOptions.SectionName)
+            .Validate(
+                options => !string.IsNullOrWhiteSpace(options.Mode),
+                "Caching Mode is required.")
+            .Validate(
+                options => (!string.Equals(options.Mode, "Hybrid", StringComparison.OrdinalIgnoreCase)
+                    && !string.Equals(options.Mode, "Redis", StringComparison.OrdinalIgnoreCase))
+                    || !string.IsNullOrWhiteSpace(options.RedisConnectionString),
+                "Caching RedisConnectionString is required when Mode is 'Redis' or 'Hybrid'.")
+            .ValidateOnStart();
 
-        if (string.Equals(cachingMode, "Hybrid", StringComparison.OrdinalIgnoreCase))
+        var cachingOptions = configuration.GetSection(CachingOptions.SectionName).Get<CachingOptions>()
+            ?? new CachingOptions();
+
+        if (string.Equals(cachingOptions.Mode, "Hybrid", StringComparison.OrdinalIgnoreCase))
         {
             services.AddMemoryCache();
             services.AddStackExchangeRedisCache(options =>
             {
-                options.Configuration = configuration[$"{CachingOptions.SectionName}:RedisConnectionString"] ?? "localhost:6379";
-                options.InstanceName = configuration[$"{CachingOptions.SectionName}:InstancePrefix"] ?? "lingopro:";
+                options.Configuration = cachingOptions.RedisConnectionString;
+                options.InstanceName = cachingOptions.InstancePrefix;
             });
             services.AddSingleton<ICacheService, HybridMultiLevelCacheService>();
         }
-        else if (string.Equals(cachingMode, "Local", StringComparison.OrdinalIgnoreCase))
+        else if (string.Equals(cachingOptions.Mode, "Local", StringComparison.OrdinalIgnoreCase))
         {
             services.AddMemoryCache();
             services.AddSingleton<ICacheService, LocalMemoryCacheService>();
         }
-        else if (string.Equals(cachingMode, "Redis", StringComparison.OrdinalIgnoreCase))
+        else if (string.Equals(cachingOptions.Mode, "Redis", StringComparison.OrdinalIgnoreCase))
         {
             services.AddStackExchangeRedisCache(options =>
             {
-                options.Configuration = configuration[$"{CachingOptions.SectionName}:RedisConnectionString"] ?? "localhost:6379";
-                options.InstanceName = configuration[$"{CachingOptions.SectionName}:InstancePrefix"] ?? "lingopro:";
+                options.Configuration = cachingOptions.RedisConnectionString;
+                options.InstanceName = cachingOptions.InstancePrefix;
             });
             services.AddSingleton<ICacheService, RedisDistributedCacheService>();
         }
@@ -100,25 +134,15 @@ public static class DependencyInjection
         services.AddHttpClient<ISupabaseAuthService, SupabaseAuthService>((sp, client) =>
         {
             var supabase = sp.GetRequiredService<IOptions<SupabaseOptions>>().Value;
-            if (!string.IsNullOrWhiteSpace(supabase.NormalizedUrl))
-            {
-                client.BaseAddress = new Uri($"{supabase.NormalizedUrl}/");
-            }
-
-            if (!string.IsNullOrWhiteSpace(supabase.AnonKey))
-            {
-                client.DefaultRequestHeaders.Remove("apikey");
-                client.DefaultRequestHeaders.Add("apikey", supabase.AnonKey.Trim());
-            }
+            client.BaseAddress = new Uri($"{supabase.NormalizedUrl}/");
+            client.DefaultRequestHeaders.Remove("apikey");
+            client.DefaultRequestHeaders.Add("apikey", supabase.AnonKey.Trim());
         });
 
         services.AddHttpClient<ISupabaseStorageService, SupabaseStorageService>((sp, client) =>
         {
             var supabase = sp.GetRequiredService<IOptions<SupabaseOptions>>().Value;
-            if (!string.IsNullOrWhiteSpace(supabase.NormalizedUrl))
-            {
-                client.BaseAddress = new Uri($"{supabase.NormalizedUrl}/");
-            }
+            client.BaseAddress = new Uri($"{supabase.NormalizedUrl}/");
         });
 
         services.AddSingleton<IAiRouterService, AiRouterService>();
