@@ -1,4 +1,4 @@
-﻿using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Exceptions;
 using MediatR;
@@ -16,8 +16,13 @@ public class GetCurrentProfileQueryHandler(
     public async Task<ApiResponse<ProfileDto>> Handle(GetCurrentProfileQuery request, CancellationToken ct)
     {
         var userId = currentUser.UserId ?? throw new UnauthorizedAccessException("User is not authenticated.");
+        var normalizedEmail = currentUser.Email?.Trim().ToLowerInvariant();
 
-        var profile = await dbContext.Profiles.AsNoTracking().FirstOrDefaultAsync(p => p.Id == userId, ct)
+        var profile = await dbContext.Profiles
+            .AsNoTracking()
+            .FirstOrDefaultAsync(
+                p => p.Id == userId || (normalizedEmail != null && p.Email.ToLower() == normalizedEmail),
+                ct)
             ?? throw new NotFoundException("Profile", userId);
 
         var dto = new ProfileDto(

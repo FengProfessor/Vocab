@@ -1,5 +1,5 @@
-﻿using LingoPro.Application.Features.Auth.Queries;
 using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Features.Auth.Queries;
 using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Entities.Classroom;
 using LingoPro.Domain.Enums;
@@ -19,17 +19,20 @@ internal static class ProfileSyncHelper
         UserRole initialRole = UserRole.Student)
     {
         var effectiveRole = initialRole == UserRole.Teacher ? UserRole.Teacher : UserRole.Student;
+        var normalizedEmail = authResult.Email.Trim().ToLowerInvariant();
 
-        var profile = await dbContext.Profiles.FirstOrDefaultAsync(p => p.Id == authResult.UserId, ct);
+        var profile = await dbContext.Profiles
+            .FirstOrDefaultAsync(p => p.Id == authResult.UserId || p.Email.ToLower() == normalizedEmail, ct);
+
         if (profile == null)
         {
             profile = new Profile
             {
                 Id = authResult.UserId,
-                Email = authResult.Email,
+                Email = normalizedEmail,
                 FullName = !string.IsNullOrWhiteSpace(authResult.FullName)
                     ? authResult.FullName
-                    : authResult.Email.Split('@')[0],
+                    : normalizedEmail.Split('@')[0],
                 AvatarUrl = authResult.AvatarUrl,
                 Role = effectiveRole,
                 Plan = SubscriptionPlanType.Free,

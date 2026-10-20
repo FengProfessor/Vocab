@@ -1,14 +1,15 @@
-﻿using LingoPro.Application.Features.Auth.Queries;
 using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
+using LingoPro.Application.Features.Auth.Queries;
+using LingoPro.Domain.Exceptions;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Application.Features.Auth.Commands;
 
 /// <summary>
 /// Handles new account registration through Supabase Auth.
-/// When Supabase requires email confirmation it returns no session, so the returned tokens are empty
-/// and the caller must ask the user to confirm the email before signing in.
+/// Ensures each email can only be registered once and delegates credential creation to Supabase Auth.
 /// </summary>
 public class RegisterCommandHandler(
     ISupabaseAuthService supabaseAuth,
@@ -16,7 +17,18 @@ public class RegisterCommandHandler(
 {
     public async Task<ApiResponse<AuthTokensDto>> Handle(RegisterCommand request, CancellationToken ct)
     {
-        var authResult = await supabaseAuth.SignUpWithPasswordAsync(request.Email, request.Password, request.FullName, ct);
+        var normalizedEmail = request.Email.Trim().ToLowerInvariant();
+
+        bool emailExists = await dbContext.Profiles
+            .AsNoTracking()
+            .AnyAsync(p => p.Email.ToLower() == normalizedEmail, ct);
+
+        if (emailExists)
+        {
+            throw new ConflictException("An account with this email address already exists.");
+        }
+
+        var authResult = await supabaseAuth.SignUpWithPasswordAsync(normalizedEmail, request.Password, request.FullName, ct);
         var profile = await ProfileSyncHelper.EnsureUserProfileAsync(dbContext, authResult, ct, request.Role);
         var dto = ProfileSyncHelper.MapToAuthTokensDto(profile, authResult);
 
