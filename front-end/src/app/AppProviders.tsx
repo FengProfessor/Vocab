@@ -3,7 +3,7 @@ import { App as AntdApp, ConfigProvider } from 'antd';
 import viVN from 'antd/locale/vi_VN';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ErrorBoundary } from '@/components/common/ErrorBoundary';
-import { lingoProTheme } from '@/theme/lingoProTheme';
+import { ThemeProvider, useAppTheme } from '@/theme/ThemeContext';
 
 /**
  * Singleton React Query client with generous stale windows for snappy offline-first transitions.
@@ -20,6 +20,19 @@ const queryClient = new QueryClient({
 });
 
 /**
+ * Inner bridge component that subscribes to ThemeContext and applies dynamic theme tokens to Ant Design ConfigProvider.
+ */
+const AntdThemeBridge: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const { themeConfig } = useAppTheme();
+
+  return (
+    <ConfigProvider locale={viVN} theme={themeConfig}>
+      <AntdApp>{children}</AntdApp>
+    </ConfigProvider>
+  );
+};
+
+/**
  * Props for the AppProviders wrapper component.
  */
 interface AppProvidersProps {
@@ -28,16 +41,16 @@ interface AppProvidersProps {
 }
 
 /**
- * Root provider composition wrapping React Query, Ant Design v5 ConfigProvider (Vietnamese locale),
+ * Root provider composition wrapping React Query, ThemeProvider, Ant Design v5 ConfigProvider (Vietnamese locale),
  * AntdApp context, and the global ErrorBoundary.
  */
 export const AppProviders: React.FC<AppProvidersProps> = ({ children }) => {
   return (
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>
-        <ConfigProvider locale={viVN} theme={lingoProTheme}>
-          <AntdApp>{children}</AntdApp>
-        </ConfigProvider>
+        <ThemeProvider>
+          <AntdThemeBridge>{children}</AntdThemeBridge>
+        </ThemeProvider>
       </QueryClientProvider>
     </ErrorBoundary>
   );

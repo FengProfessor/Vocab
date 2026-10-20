@@ -1,46 +1,133 @@
 import React, { useState } from 'react';
-import { Avatar, Button, Layout, Select, Space, Tag, Tooltip, Typography } from 'antd';
 import {
+  Avatar,
+  Dropdown,
+  Layout,
+  Select,
+  Space,
+  Tag,
+  Tooltip,
+  Typography,
+  theme,
+} from 'antd';
+import type { MenuProps } from 'antd';
+import {
+  CheckOutlined,
+  DesktopOutlined,
+  DownOutlined,
   FireFilled,
   LogoutOutlined,
+  MoonOutlined,
   SafetyCertificateOutlined,
+  SunOutlined,
   ThunderboltFilled,
   UserOutlined,
 } from '@ant-design/icons';
-import { useNavigate } from 'react-router-dom';
 import { CertLevelTag } from '@/components/common/CertLevelTag';
 import { AccountLinkingModal } from '@/features/auth/AccountLinkingModal';
 import { useAuthStore } from '@/stores/useAuthStore';
+import { useAppTheme } from '@/theme/ThemeContext';
+import { ThemeMode } from '@/theme/ThemeMode';
 import { CertLevel } from '@/types/enums/CertLevel';
-import { UserRole } from '@/types/enums/UserRole';
 
 /**
- * Top navigation header bar displaying user streak, XP, target VSTEP band, RBAC switcher,
- * server session modal, and server-side logout action.
+ * Top navigation header bar displaying target certificate selection, streak, XP,
+ * and user profile dropdown incorporating theme preferences (Light/Dark/System) and sign-out.
  */
 export const TopHeaderBar: React.FC = () => {
-  const navigate = useNavigate();
-  const { user, switchRole, setTargetCertLevel, signOut } = useAuthStore();
+  const { token } = theme.useToken();
+  const { mode, setThemeMode } = useAppTheme();
+  const { user, setTargetCertLevel, signOut } = useAuthStore();
   const [accountModalOpen, setAccountModalOpen] = useState<boolean>(false);
 
-  const handleRoleChange = (nextRole: UserRole): void => {
-    switchRole(nextRole);
-    if (nextRole === UserRole.Teacher) {
-      navigate('/teacher');
-    } else if (nextRole === UserRole.Admin) {
-      navigate('/admin');
-    } else {
-      navigate('/app');
-    }
-  };
+  const profileMenuItems: MenuProps['items'] = [
+    {
+      key: 'user-info',
+      disabled: true,
+      label: (
+        <div style={{ padding: '4px 0' }}>
+          <Typography.Text strong style={{ display: 'block', fontSize: 14 }}>
+            {user?.fullName ?? 'Học viên LingoPro'}
+          </Typography.Text>
+          <Typography.Text type="secondary" style={{ fontSize: 12 }}>
+            {user?.email ?? 'student@lingopro.online'}
+          </Typography.Text>
+          <div style={{ marginTop: 4 }}>
+            <Tag color="geekblue">{user?.role ?? 'Học viên'}</Tag>
+          </div>
+        </div>
+      ),
+    },
+    {
+      type: 'divider',
+    },
+    {
+      key: 'theme-group',
+      label: 'Giao diện',
+      children: [
+        {
+          key: ThemeMode.Light,
+          icon: <SunOutlined />,
+          label: (
+            <Space style={{ width: '100%', justifyContent: 'space-between' }}>
+              <span>Giao diện Sáng</span>
+              {mode === ThemeMode.Light && <CheckOutlined style={{ color: token.colorPrimary }} />}
+            </Space>
+          ),
+          onClick: () => setThemeMode(ThemeMode.Light),
+        },
+        {
+          key: ThemeMode.Dark,
+          icon: <MoonOutlined />,
+          label: (
+            <Space style={{ width: '100%', justifyContent: 'space-between' }}>
+              <span>Giao diện Tối</span>
+              {mode === ThemeMode.Dark && <CheckOutlined style={{ color: token.colorPrimary }} />}
+            </Space>
+          ),
+          onClick: () => setThemeMode(ThemeMode.Dark),
+        },
+        {
+          key: ThemeMode.System,
+          icon: <DesktopOutlined />,
+          label: (
+            <Space style={{ width: '100%', justifyContent: 'space-between' }}>
+              <span>Theo hệ thống</span>
+              {mode === ThemeMode.System && <CheckOutlined style={{ color: token.colorPrimary }} />}
+            </Space>
+          ),
+          onClick: () => setThemeMode(ThemeMode.System),
+        },
+      ],
+    },
+    {
+      type: 'divider',
+    },
+    {
+      key: 'server-session',
+      icon: <SafetyCertificateOutlined />,
+      label: 'Phiên Server & Liên kết',
+      onClick: () => setAccountModalOpen(true),
+    },
+    {
+      type: 'divider',
+    },
+    {
+      key: 'logout',
+      icon: <LogoutOutlined />,
+      danger: true,
+      label: 'Đăng xuất',
+      onClick: () => signOut(),
+    },
+  ];
 
   return (
     <>
       <Layout.Header
         style={{
-          background: '#ffffff',
+          background: token.colorBgContainer,
           padding: '0 24px',
-          borderBottom: '1px solid #e2e8f0',
+          borderBottom: `1px solid ${token.colorBorderSecondary}`,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -50,7 +137,7 @@ export const TopHeaderBar: React.FC = () => {
         }}
       >
         <Space size={16}>
-          <Typography.Text strong style={{ fontSize: 15 }}>
+          <Typography.Text strong style={{ fontSize: 15, color: token.colorText }}>
             Không gian học tập thông minh LingoPro (.NET 10 + React 19)
           </Typography.Text>
           {user && <CertLevelTag level={user.targetCertLevel} />}
@@ -71,20 +158,6 @@ export const TopHeaderBar: React.FC = () => {
             />
           </Tooltip>
 
-          <Tooltip title="Chuyển đổi phân quyền RBAC (Học viên / Giáo viên / Quản trị viên)">
-            <Select<UserRole>
-              size="small"
-              value={user?.role ?? UserRole.Student}
-              onChange={handleRoleChange}
-              options={[
-                { value: UserRole.Student, label: 'Vai trò: Học viên' },
-                { value: UserRole.Teacher, label: 'Vai trò: Giáo viên' },
-                { value: UserRole.Admin, label: 'Vai trò: Quản trị' },
-              ]}
-              style={{ width: 155 }}
-            />
-          </Tooltip>
-
           <Tag color="volcano" icon={<FireFilled />} style={{ fontWeight: 700, margin: 0 }}>
             {user?.streakDays ?? 14} ngày Streak
           </Tag>
@@ -93,33 +166,23 @@ export const TopHeaderBar: React.FC = () => {
             {(user?.totalXp ?? 4850).toLocaleString('vi-VN')} XP
           </Tag>
 
-          <Space
-            size={8}
-            style={{ cursor: 'pointer' }}
-            onClick={() => setAccountModalOpen(true)}
-          >
-            <Avatar size="small" style={{ backgroundColor: '#4f46e5' }} icon={<UserOutlined />} />
-            <Typography.Text strong style={{ fontSize: 13 }}>
-              {user?.fullName ?? 'Học viên LingoPro'}
-            </Typography.Text>
-          </Space>
-
-          <Button
-            size="small"
-            icon={<SafetyCertificateOutlined />}
-            onClick={() => setAccountModalOpen(true)}
-          >
-            Phiên Server
-          </Button>
-
-          <Button
-            size="small"
-            danger
-            icon={<LogoutOutlined />}
-            onClick={() => signOut()}
-          >
-            Đăng xuất
-          </Button>
+          <Dropdown menu={{ items: profileMenuItems }} trigger={['click']} placement="bottomRight">
+            <Space
+              size={8}
+              style={{
+                cursor: 'pointer',
+                padding: '4px 8px',
+                borderRadius: 8,
+                transition: 'background 0.2s',
+              }}
+            >
+              <Avatar size="small" style={{ backgroundColor: token.colorPrimary }} icon={<UserOutlined />} />
+              <Typography.Text strong style={{ fontSize: 13, color: token.colorText }}>
+                {user?.fullName ?? 'Học viên LingoPro'}
+              </Typography.Text>
+              <DownOutlined style={{ fontSize: 10, color: token.colorTextSecondary }} />
+            </Space>
+          </Dropdown>
         </Space>
       </Layout.Header>
 
