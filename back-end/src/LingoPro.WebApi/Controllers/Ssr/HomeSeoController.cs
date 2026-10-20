@@ -1,4 +1,4 @@
-using LingoPro.Application.Features.Seo;
+﻿using LingoPro.Application.Features.Seo.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -73,17 +73,3 @@ public sealed class HomeSeoController : Controller
         return StatusCode(201, new { success = true, id = Guid.NewGuid() });
     }
 }
-
-public sealed record PilotLeadSubmissionRequest(
-    string? ContactName,
-    string? Name,
-    string? Email,
-    string? Phone,
-    string? Organization,
-    int? TeacherCount,
-    int? StudentCount,
-    string? Message,
-    string? Source,
-    string? Website);
-
-
