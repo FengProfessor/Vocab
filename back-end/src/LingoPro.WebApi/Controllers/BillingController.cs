@@ -1,5 +1,6 @@
-using LingoPro.Application.Common.Models;
-using LingoPro.Application.Features.Billing;
+﻿using LingoPro.Application.Common.Models;
+using LingoPro.Application.Features.Billing.Commands;
+using LingoPro.Application.Features.Billing.Queries;
 using LingoPro.WebApi.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

@@ -1,6 +1,6 @@
-using LingoPro.Application.Common.Models;
-using LingoPro.Application.Features.Exams;
-using LingoPro.Application.Features.Toeic;
+﻿using LingoPro.Application.Common.Models;
+using LingoPro.Application.Features.Exams.Commands;
+using LingoPro.Application.Features.Toeic.Commands;
 using LingoPro.Domain.Algorithms;
 using LingoPro.WebApi.Extensions;
 using Microsoft.AspNetCore.Authorization;

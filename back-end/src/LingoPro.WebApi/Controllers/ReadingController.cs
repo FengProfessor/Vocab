@@ -1,5 +1,6 @@
-using LingoPro.Application.Common.Models;
-using LingoPro.Application.Features.Reading;
+﻿using LingoPro.Application.Common.Models;
+using LingoPro.Application.Features.Reading.Commands;
+using LingoPro.Application.Features.Reading.Queries;
 using LingoPro.Domain.Enums;
 using LingoPro.WebApi.Extensions;
 using Microsoft.AspNetCore.Authorization;

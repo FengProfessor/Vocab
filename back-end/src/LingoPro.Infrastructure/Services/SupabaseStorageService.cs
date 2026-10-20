@@ -22,10 +22,7 @@ public class SupabaseStorageService(
         string safeExt = Path.GetExtension(fileName);
         if (string.IsNullOrWhiteSpace(safeExt)) safeExt = ".webm";
 
-        string bucket = !string.IsNullOrWhiteSpace(_options.StorageBucket)
-            ? _options.StorageBucket.Trim()
-            : "speaking-recordings";
-
+        string bucket = _options.StorageBucket.Trim();
         string storagePath = $"{userId}/{DateTime.UtcNow:yyyyMMdd}/{Guid.NewGuid():N}{safeExt}";
         string uploadEndpoint = $"{_options.NormalizedUrl}/storage/v1/object/{bucket}/{storagePath}";
 

@@ -1,5 +1,7 @@
+using LingoPro.Application.Common.Behaviors;
 using LingoPro.Application.Common.Interfaces;
-using LingoPro.Application.Features.Classrooms;
+using LingoPro.Application.Common.Models;
+using LingoPro.Application.Features.Classrooms.Commands;
 using LingoPro.Domain.Enums;
 using LingoPro.Domain.Exceptions;
 using LingoPro.Infrastructure.Persistence;
@@ -10,13 +12,14 @@ using NUnit.Framework;
 namespace LingoPro.Application.UnitTests.Features.Classrooms;
 
 /// <summary>
-/// NUnit business unit tests for <see cref="CreateClassroomCommandHandler"/> enforcing Teacher-only authorization.
+/// NUnit business unit tests for <see cref="CreateClassroomCommandHandler"/> and <see cref="AuthorizationBehavior{TRequest,TResponse}"/>
+/// enforcing Teacher-only authorization via <see cref="LingoPro.Application.Common.Security.AuthorizeAttribute"/>.
 /// </summary>
 [TestFixture]
 public sealed class CreateClassroomCommandHandlerTests
 {
     [Test]
-    public void Handle_WhenCallerIsStudent_ThrowsForbiddenAccessException()
+    public void Handle_WhenCallerIsStudent_ThrowsForbiddenAccessExceptionViaAuthorizationBehavior()
     {
         // Arrange
         var options = new DbContextOptionsBuilder<LingoProDbContext>()
@@ -26,15 +29,20 @@ public sealed class CreateClassroomCommandHandlerTests
 
         var currentUser = Substitute.For<ICurrentUserService>();
         currentUser.UserId.Returns(Guid.NewGuid());
+        currentUser.IsAuthenticated.Returns(true);
         currentUser.Role.Returns(UserRole.Student);
         currentUser.IsTeacher.Returns(false);
 
+        var authBehavior = new AuthorizationBehavior<CreateClassroomCommand, ApiResponse<ClassroomDto>>(currentUser);
         var handler = new CreateClassroomCommandHandler(currentUser, db);
         var command = new CreateClassroomCommand("TOEIC 800+ Intensive", "Evening class");
 
         // Act & Assert
         Assert.ThrowsAsync<ForbiddenAccessException>(
-            async () => await handler.Handle(command, CancellationToken.None));
+            async () => await authBehavior.Handle(
+                command,
+                () => handler.Handle(command, CancellationToken.None),
+                CancellationToken.None));
     }
 
     [Test]
@@ -49,14 +57,19 @@ public sealed class CreateClassroomCommandHandlerTests
         var teacherId = Guid.NewGuid();
         var currentUser = Substitute.For<ICurrentUserService>();
         currentUser.UserId.Returns(teacherId);
+        currentUser.IsAuthenticated.Returns(true);
         currentUser.Role.Returns(UserRole.Teacher);
         currentUser.IsTeacher.Returns(true);
 
+        var authBehavior = new AuthorizationBehavior<CreateClassroomCommand, ApiResponse<ClassroomDto>>(currentUser);
         var handler = new CreateClassroomCommandHandler(currentUser, db);
         var command = new CreateClassroomCommand("IELTS Academic 7.5", "Advanced cohort");
 
         // Act
-        var response = await handler.Handle(command, CancellationToken.None);
+        var response = await authBehavior.Handle(
+            command,
+            () => handler.Handle(command, CancellationToken.None),
+            CancellationToken.None);
 
         // Assert
         Assert.Multiple(() =>

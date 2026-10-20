@@ -1,5 +1,6 @@
-using LingoPro.Application.Common.Interfaces;
-using LingoPro.Application.Features.Vocab;
+﻿using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Features.Vocab.Commands;
+using LingoPro.Application.Features.Vocab.Queries;
 using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Entities.Vocab;
 using LingoPro.Domain.Enums;

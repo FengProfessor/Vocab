@@ -1,5 +1,5 @@
 using LingoPro.Application.Common.Models;
-using LingoPro.Application.Features.AiCoaching;
+using LingoPro.Application.Features.AiCoaching.Commands;
 using LingoPro.WebApi.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -26,6 +26,7 @@ public sealed class AiCoachingController : ApiControllerBase
     }
 
     [HttpPost("sentence/analyze")]
+    [Authorize(Policy = "RequireProPlan")]
     public async Task<ActionResult<ApiResponse<AiSentenceAnalysisDto>>> AnalyzeSentence(
         [FromBody] AnalyzeSentenceCommand command,
         CancellationToken ct)
