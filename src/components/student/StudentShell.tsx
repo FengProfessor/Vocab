@@ -50,6 +50,7 @@ import {
 import {
   readLastProfileCache,
   readLastGamificationCache,
+  clearDashboardSnapshotCache,
 } from '@/lib/dashboard-snapshot-cache';
 
 const DEFAULT_GAMIFICATION: UserGamification = {
@@ -211,6 +212,13 @@ export function StudentShell({
   const effectiveNewCount =
     propNewCount ?? context?.wordSummary.newCount ?? newCount;
   const effectiveImmersive = immersive || embedMode;
+  const hasContext = Boolean(context);
+  const contextSessionUserId = context?.session?.user?.id ?? null;
+  const isFreePlan = Boolean(
+    effectiveProfile
+      ? !effectiveProfile.plan || effectiveProfile.plan === 'free'
+      : !isBootstrapping,
+  );
 
   useEffect(() => {
     try {
@@ -254,6 +262,8 @@ export function StudentShell({
           const session = context.session ?? result?.data.session;
           if (isCancelled) return;
           if (!session?.user) {
+            clearDashboardSnapshotCache();
+            setInternalProfile(null);
             if (requireAuth) {
               router.replace('/auth');
             }
@@ -289,6 +299,8 @@ export function StudentShell({
         if (error) return;
         if (isCancelled) return;
         if (!session?.user) {
+          clearDashboardSnapshotCache();
+          setInternalProfile(null);
           if (requireAuth) {
             router.replace('/auth');
           }
@@ -390,7 +402,7 @@ export function StudentShell({
       isCancelled = true;
       subscription.unsubscribe();
     };
-  }, [router, requireAuth, context]);
+  }, [router, requireAuth, hasContext, contextSessionUserId]);
 
   // Warmup các route chính trong idle time khi mạng cho phép (Wi-Fi / 4G không bật Save-Data)
   useEffect(() => {
@@ -782,7 +794,7 @@ export function StudentShell({
             {/* Footer drawer: Linear workspace card + actions */}
             <div className="shrink-0 space-y-1.5 border-t border-slate-100 px-3 pb-3 pt-2.5 dark:border-slate-800">
               {/* Nâng cấp Pro CTA - Chỉ hiện cho tài khoản free */}
-              {(!effectiveProfile?.plan || effectiveProfile.plan === 'free') && (
+              {isFreePlan && (
                 <Link
                   href="/upgrade"
                   onClick={() => setIsMenuOpen(false)}
@@ -922,7 +934,7 @@ export function StudentShell({
         </nav>
         <div className="mt-auto shrink-0 space-y-1.5 border-t border-slate-100 pt-2.5 dark:border-slate-800">
           {/* Nâng cấp Pro CTA - Chỉ hiện cho tài khoản free */}
-          {(!effectiveProfile?.plan || effectiveProfile.plan === 'free') && (
+          {isFreePlan && (
             <Link
               href="/upgrade"
               aria-current={isUpgradeActive ? 'page' : undefined}
@@ -1014,7 +1026,7 @@ export function StudentShell({
         )}
       >
         {/* Flash sale Pro (kết thúc khóa) — chỉ hiện cho user free, trên banner quota */}
-        {showChrome && !effectiveImmersive && (!effectiveProfile?.plan || effectiveProfile.plan === 'free') ? (
+        {showChrome && !effectiveImmersive && isFreePlan ? (
           <CohortProPromoBanner variant="dashboard" />
         ) : null}
         {/* Free ≥150: banner dính + ép modal — lead upsell chắc thấy */}

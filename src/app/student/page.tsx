@@ -50,6 +50,7 @@ import {
   writeDashboardSecondaryCache,
   readLastDailyReadingCache,
   writeDailyReadingCache,
+  clearDashboardSnapshotCache,
 } from '@/lib/dashboard-snapshot-cache';
 import { SRS_LEVEL_LABELS, SRS_LEVEL_STABILITY_HINT } from '@/lib/srs';
 import { STAMPEDE_MODE } from '@/lib/stampede';
@@ -370,6 +371,7 @@ export default function StudentDashboard() {
           loadData(session.user.id, initialScope);
         }
       } else {
+        clearDashboardSnapshotCache();
         setIsLoading(false);
         const redirectPath = typeof window !== 'undefined'
           ? `${window.location.pathname}${window.location.search}`

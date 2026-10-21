@@ -30,7 +30,7 @@ import { track } from '@/lib/analytics';
 import { detectInAppBrowser, externalBrowserUrl } from '@/lib/in-app-browser';
 import { getStoredReferralCode, clearStoredReferralCode } from '@/lib/referral-tracker';
 import { safeInternalRedirect } from '@/lib/internal-redirect';
-import { readLastProfileCache } from '@/lib/dashboard-snapshot-cache';
+import { readLastProfileCache, clearDashboardSnapshotCache } from '@/lib/dashboard-snapshot-cache';
 
 const display = 'font-bold tracking-tight';
 
@@ -135,22 +135,18 @@ export default function AuthPage() {
 
   useEffect(() => {
     let cancelled = false;
-    const params = new URLSearchParams(window.location.search);
-    const hasAuthError = Boolean(params.get('error') || params.get('confirmed'));
-    const cachedProfile = readLastProfileCache();
-
-    // Instant 0ms redirect if cached profile exists and no explicit auth error/confirmation is being shown
-    if (cachedProfile && !hasAuthError && params.get('role') !== 'teacher') {
-      router.replace(destFromSession({ user_metadata: { role: cachedProfile.role } }));
-    }
 
     const t = window.setTimeout(() => {
       void (async () => {
         const {
           data: { session },
+          error,
         } = await supabase.auth.getSession();
         if (cancelled) return;
         if (!session) {
+          if (!error) {
+            clearDashboardSnapshotCache();
+          }
           setCheckingExistingSession(false);
           return;
         }

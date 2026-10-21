@@ -23,13 +23,17 @@ export function clearLegacyAuthStorage(): void {
   }
 }
 
-function clearAccountCache() {
+function clearAccountCache(keepUserId?: string) {
   if (typeof window === 'undefined') return;
   for (const name of ['localStorage', 'sessionStorage'] as const) {
     try {
       const storage = window[name];
       const keys = Array.from({ length: storage.length }, (_, index) => storage.key(index));
-      for (const key of keys) if (key && /^(lp:(profile|gamification|teacher|word-summary|dashboard-words):|lp:last_user_id$|lp_ref_checked$|lp:upsell:paid_)/.test(key)) storage.removeItem(key);
+      for (const key of keys) {
+        if (!key || !/^(lp:(profile|gamification|teacher|word-summary|dashboard-words|dashboard-secondary|daily-reading|profile-stats|roadmap|challenge-widget|pro-milestone):|lp:last_user_id$|lp_ref_checked$|lp:upsell:paid_)/.test(key)) continue;
+        if (keepUserId && (key.endsWith(`:${keepUserId}`) || key.includes(`:${keepUserId}:`) || (key === 'lp:last_user_id' && typeof storage.getItem === 'function' && storage.getItem(key) === keepUserId))) continue;
+        storage.removeItem(key);
+      }
     } catch { /* Offline preferences are independent of authentication. */ }
   }
 }
@@ -41,7 +45,8 @@ function invalidate() { generation++; inFlight = null; }
 function notify(event: AppAuthEvent, session: AppSession | null, broadcast = false) {
   // Phiên hết hạn/đổi tài khoản do server phát hiện cũng phải chặn kết quả hồ sơ cũ.
   if (current && current.user.id !== session?.user.id) invalidate();
-  if (current?.user.id !== session?.user.id || event === 'SIGNED_OUT') clearAccountCache();
+  if (event === 'SIGNED_OUT' || !session) clearAccountCache();
+  else if (current?.user.id !== session.user.id) clearAccountCache(session.user.id);
   current = session;
   for (const listener of listeners) void Promise.resolve().then(() => listener(event, session)).catch(() => {});
   if (broadcast) channel?.postMessage({ type: 'invalidate' });
@@ -79,7 +84,10 @@ export const appAuth = {
         if (requestedGeneration !== generation) return { data: { session: current }, error: null };
         const session = response.ok ? payload.session ?? null : null;
         if (current?.user.id !== session?.user.id) notify(session ? 'SIGNED_IN' : 'SIGNED_OUT', session);
-        else current = session;
+        else {
+          if (!session) clearAccountCache();
+          current = session;
+        }
         return { data: { session }, error: null };
       } catch {
         if (requestedGeneration !== generation) return { data: { session: current }, error: null };

@@ -78,6 +78,7 @@ const DEFAULT_WORD_SUMMARY: WordSummaryData = {
  * Single-flight In-Flight Promise Cache (Deduplication across concurrent callers)
  * ═════════════════════════════════════════════════════════════════════════ */
 let inFlightSession: Promise<Session | null> | null = null;
+let lastSessionHadError = false;
 const inFlightProfiles = new Map<string, Promise<ShellProfile | null>>();
 const inFlightGamifications = new Map<string, Promise<UserGamification | null>>();
 const inFlightTeacherChecks = new Map<string, Promise<boolean>>();
@@ -88,10 +89,12 @@ export function fetchSessionOnce(): Promise<Session | null> {
     .getSession()
     .then((res) => {
       inFlightSession = null;
+      lastSessionHadError = Boolean(res.error);
       return res.data?.session ?? null;
     })
     .catch(() => {
       inFlightSession = null;
+      lastSessionHadError = true;
       return null;
     });
   return inFlightSession;
@@ -382,6 +385,13 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
 
         const userId = currentSession?.user?.id;
         if (!userId) {
+          if (!lastSessionHadError) {
+            setProfile(null);
+            setGamification(DEFAULT_GAMIFICATION);
+            setWordSummary(DEFAULT_WORD_SUMMARY);
+            setIsTeacherUser(false);
+            clearDashboardSnapshotCache();
+          }
           setIsLoading(false);
           return;
         }
@@ -572,12 +582,35 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
         setIsTeacherUser(false);
         clearDashboardSnapshotCache();
       } else if (nextSession?.user) {
+        const nextUserId = nextSession.user.id;
         setSession(nextSession);
         if (event === 'SIGNED_IN') {
-          setProfile(null);
-          setGamification(DEFAULT_GAMIFICATION);
-          setWordSummary(DEFAULT_WORD_SUMMARY);
-          setIsTeacherUser(false);
+          setProfile((prev) => (prev?.id === nextUserId ? prev : getStoredProfile(nextUserId)));
+          setGamification((prev) =>
+            prev.user_id === nextUserId
+              ? prev
+              : (getStoredGamification(nextUserId) ?? DEFAULT_GAMIFICATION),
+          );
+          setWordSummary(() => {
+            const cached = readWordSummaryCache(nextUserId);
+            if (cached) {
+              return {
+                total: cached.total,
+                newCount: cached.newCount,
+                reviewDueCount: cached.reviewDueCount,
+                dueCount: cached.dueCount ?? 0,
+                classroomId: cached.classroomId ?? null,
+                levelCounts: cached.levelCounts,
+              };
+            }
+            return DEFAULT_WORD_SUMMARY;
+          });
+          setIsTeacherUser(() => {
+            const cachedTeacher = getStoredTeacher(nextUserId);
+            if (cachedTeacher !== null) return cachedTeacher;
+            const cachedProf = getStoredProfile(nextUserId);
+            return cachedProf ? cachedProf.role === 'teacher' : false;
+          });
         }
         if (event === 'SIGNED_IN' || event === 'USER_UPDATED') {
           const version = authStateVersion();
