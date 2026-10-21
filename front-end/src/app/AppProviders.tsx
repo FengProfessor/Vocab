@@ -4,6 +4,7 @@ import viVN from 'antd/locale/vi_VN';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ErrorBoundary } from '@/components/common/ErrorBoundary';
 import { ThemeProvider, useAppTheme } from '@/theme/ThemeContext';
+import { AppProvidersProps } from '@/app/types/AppProvidersProps';
 
 /**
  * Singleton React Query client with generous stale windows for snappy offline-first transitions.
@@ -31,14 +32,6 @@ const AntdThemeBridge: React.FC<{ children: React.ReactNode }> = ({ children }) 
     </ConfigProvider>
   );
 };
-
-/**
- * Props for the AppProviders wrapper component.
- */
-interface AppProvidersProps {
-  /** Application child tree. */
-  children: React.ReactNode;
-}
 
 /**
  * Root provider composition wrapping React Query, ThemeProvider, Ant Design v5 ConfigProvider (Vietnamese locale),

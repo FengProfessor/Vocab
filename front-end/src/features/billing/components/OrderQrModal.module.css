@@ -1,0 +1,9 @@
+.body {
+  text-align: center;
+}
+
+.qr {
+  max-width: 260px;
+  margin: 0 auto;
+  border-radius: 12px;
+}

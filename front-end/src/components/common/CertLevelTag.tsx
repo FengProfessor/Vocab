@@ -1,14 +1,7 @@
 import React from 'react';
 import { Tag } from 'antd';
 import { CertLevel } from '@/types/enums/CertLevel';
-
-/**
- * Props for the CertLevelTag component.
- */
-interface CertLevelTagProps {
-  /** Target CEFR / VSTEP certification level. */
-  level: CertLevel | 'BELOW_B1';
-}
+import { CertLevelTagProps } from '@/components/types/CertLevelTagProps';
 
 /**
  * Renders a color-coded Ant Design Tag for VSTEP / CEFR certification bands (B1, B2, C1).

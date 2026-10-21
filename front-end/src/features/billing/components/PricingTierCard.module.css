@@ -1,0 +1,23 @@
+.card {
+  height: 100%;
+  background: var(--lp-color-bg-container);
+  border-color: var(--lp-color-border-secondary);
+}
+
+.crown {
+  color: var(--lp-color-warning);
+}
+
+.price {
+  margin: 0 !important;
+  color: var(--lp-color-primary) !important;
+}
+
+.feature {
+  padding: 6px 0 !important;
+  border: 0 !important;
+}
+
+.check {
+  color: var(--lp-color-success);
+}

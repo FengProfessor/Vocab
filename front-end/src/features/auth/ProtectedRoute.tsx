@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { Card, Spin, Typography } from 'antd';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { FullScreenStatus } from '@/components/common/FullScreenStatus';
 import { useAuthStore } from '@/stores/useAuthStore';
 
 /**
@@ -29,26 +29,10 @@ export const ProtectedRoute: React.FC = () => {
 
   if (!isAuthenticated && (!hasVerifiedServer || isCheckingSession)) {
     return (
-      <div
-        style={{
-          minHeight: '100vh',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          background: '#f8fafc',
-          padding: 24,
-        }}
-      >
-        <Card style={{ maxWidth: 420, width: '100%', textAlign: 'center', borderRadius: 16 }}>
-          <Spin size="large" />
-          <Typography.Title level={5} style={{ marginTop: 16, marginBottom: 4 }}>
-            Đang xác thực phiên đăng nhập với Server (.NET 10)...
-          </Typography.Title>
-          <Typography.Text type="secondary">
-            Kiểm tra phiên đăng nhập (HttpOnly cookie) & đồng bộ hồ sơ học tập từ máy chủ
-          </Typography.Text>
-        </Card>
-      </div>
+      <FullScreenStatus
+        message="Đang xác thực phiên đăng nhập..."
+        hint="Kiểm tra phiên đăng nhập và đồng bộ hồ sơ học tập từ máy chủ."
+      />
     );
   }
 

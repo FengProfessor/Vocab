@@ -1,0 +1,13 @@
+.section {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.kernel {
+  margin: 0;
+  padding: 10px 12px;
+  background: var(--lp-color-fill-alter);
+  border-radius: 8px;
+  font-size: 12px;
+  overflow-x: auto;
+}

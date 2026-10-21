@@ -1,3 +1,4 @@
+import { ToeicAnswerOption } from '@/types/enums/ToeicAnswerOption';
 import { ToeicPart } from '@/types/enums/ToeicPart';
 
 /**
@@ -25,11 +26,11 @@ export interface ToeicQuestionDto {
   /** Optional photograph URL for Part 1. */
   imageUrl?: string | null;
 
-  /** Multiple-choice option map keyed by 'A' | 'B' | 'C' | 'D'. */
-  options: Record<'A' | 'B' | 'C' | 'D', string>;
+  /** Multiple-choice option texts keyed by answer option. */
+  options: Record<ToeicAnswerOption, string>;
 
-  /** Correct option key ('A' | 'B' | 'C' | 'D'). */
-  correctOption: 'A' | 'B' | 'C' | 'D';
+  /** Correct answer option. */
+  correctOption: ToeicAnswerOption;
 
   /** Detailed explanation in Vietnamese for review mode. */
   explanationVi: string;

@@ -4,7 +4,7 @@ import { RoadmapStepStatus } from '@/types/enums/RoadmapStepStatus';
  * Client display metadata for a concrete learning activity step in the roadmap.
  */
 export interface RoadmapStepMetadataDto {
-  /** Step unique identifier. */
+  /** Step unique identifier (matches the server step id). */
   stepId: string;
   /** Display title. */
   title: string;
@@ -16,8 +16,8 @@ export interface RoadmapStepMetadataDto {
   estimatedMinutes: number;
   /** XP rewarded on successful completion. */
   xpReward: number;
-  /** Step completion status. */
+  /** Checkpoint / exit-exam stations require a score of at least 80% to unlock the next station. */
+  isCheckpointOrExam: boolean;
+  /** Step completion status derived from the server progress. */
   status: RoadmapStepStatus;
-  /** Optional completion score (0..100). */
-  score?: number | null;
 }

@@ -1,0 +1,59 @@
+.card {
+  margin-bottom: 16px;
+  background: var(--lp-color-bg-container);
+  border-color: var(--lp-color-border-secondary);
+}
+
+.cardCompleted {
+  background: var(--lp-color-fill-alter);
+  border-color: var(--lp-color-success-border);
+}
+
+.cardLocked {
+  opacity: 0.65;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: var(--lp-color-primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.badgeCompleted {
+  background: var(--lp-color-success);
+}
+
+.title {
+  font-size: 16px;
+}
+
+.description {
+  display: block;
+  font-size: 13px;
+}
+
+.meta {
+  margin-top: 8px;
+}
+
+.xp {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--lp-color-warning);
+}

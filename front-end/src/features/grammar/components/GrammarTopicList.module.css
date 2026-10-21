@@ -1,0 +1,17 @@
+.card {
+  background: var(--lp-color-bg-container);
+  border-color: var(--lp-color-border-secondary);
+  transition: all 0.2s;
+}
+
+.cardSelected {
+  border: 2px solid var(--lp-color-primary);
+}
+
+.title {
+  font-size: 15px;
+}
+
+.subtitle {
+  font-size: 12px;
+}

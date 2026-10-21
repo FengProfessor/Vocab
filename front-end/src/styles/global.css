@@ -1,0 +1,65 @@
+/*
+ * Global stylesheet: theme-aware page chrome plus small layout utilities shared across features.
+ * All colors resolve from --lp-* variables that ThemeProvider mirrors from the Ant Design tokens.
+ */
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--lp-color-bg-layout, #f5f7fa);
+  color: var(--lp-color-text, #0f172a);
+  font-family: var(--lp-font-family, system-ui, sans-serif);
+}
+
+/* Reusable surfaces */
+.lp-surface {
+  background: var(--lp-color-bg-container);
+  border-color: var(--lp-color-border-secondary);
+}
+
+.lp-panel {
+  padding: 16px;
+  background: var(--lp-color-fill-alter);
+  border: 1px solid var(--lp-color-border-secondary);
+  border-radius: 12px;
+}
+
+.lp-quote {
+  padding: 10px 14px;
+  background: var(--lp-color-primary-bg);
+  border-left: 4px solid var(--lp-color-primary);
+  border-radius: 8px;
+}
+
+/* Reusable layout helpers */
+.lp-row-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.lp-center {
+  text-align: center;
+}
+
+.lp-full-width {
+  width: 100%;
+}
+
+.lp-mb-16 {
+  margin-bottom: 16px;
+}
+
+.lp-mb-20 {
+  margin-bottom: 20px;
+}
+
+.lp-mb-24 {
+  margin-bottom: 24px;
+}

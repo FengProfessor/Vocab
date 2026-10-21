@@ -1,6 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { App } from '@/App';
+import '@/styles/global.css';
 
 /**
  * Mounts the LingoPro React 19 SPA into the #root DOM container.

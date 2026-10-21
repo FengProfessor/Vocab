@@ -3,9 +3,12 @@ import { apiClient, SESSION_EXPIRED_EVENT } from '@/lib/apiClient';
 import { AccountCache } from '@/lib/auth/AccountCache';
 import { AuthProfileCache } from '@/lib/auth/AuthProfileCache';
 import { AuthSessionChannel } from '@/lib/auth/AuthSessionChannel';
+import { EnumParser } from '@/lib/enumParser';
 import { AuthApi } from '@/lib/auth/AuthApi';
 import { TokenStore } from '@/lib/auth/TokenStore';
+import { AuthStoreState } from '@/stores/types/AuthStoreState';
 import { ApiResponse } from '@/types/api/ApiResponse';
+import { ServerProfilePayload } from '@/types/auth/ServerProfilePayload';
 import { AuthSessionDto } from '@/types/auth/AuthSessionDto';
 import { UserProfileDto } from '@/types/auth/UserProfileDto';
 import { AccountStatus } from '@/types/enums/AccountStatus';
@@ -14,90 +17,8 @@ import { CertLevel } from '@/types/enums/CertLevel';
 import { SubscriptionPlanType } from '@/types/enums/SubscriptionPlanType';
 import { UserRole } from '@/types/enums/UserRole';
 
-/**
- * Server profile DTO returned by GET /api/v1/auth/profile on the .NET 10 backend.
- */
-interface ServerProfilePayload {
-  id: string;
-  email: string;
-  fullName: string;
-  avatarUrl: string | null;
-  role: UserRole | string;
-  plan?: SubscriptionPlanType | string;
-  subscriptionPlan?: SubscriptionPlanType;
-  totalXp?: number;
-  currentStreak?: number;
-  streakDays?: number;
-  targetCertLevel?: CertLevel;
-}
-
-/**
- * Normalizes a server role value (numeric enum or string) into UserRole.
- */
-function normalizeUserRole(rawRole: UserRole | string | undefined): UserRole {
-  if (typeof rawRole === 'number') {
-    return rawRole;
-  }
-  if (typeof rawRole === 'string') {
-    const lower = rawRole.toLowerCase();
-    if (lower === 'admin') return UserRole.Admin;
-    if (lower === 'teacher') return UserRole.Teacher;
-  }
-  return UserRole.Student;
-}
-
-/**
- * Normalizes a server subscription plan value into SubscriptionPlanType.
- */
-function normalizeSubscriptionPlan(rawPlan: SubscriptionPlanType | string | undefined): SubscriptionPlanType {
-  if (typeof rawPlan === 'number') {
-    return rawPlan;
-  }
-  if (typeof rawPlan === 'string') {
-    const lower = rawPlan.toLowerCase();
-    if (lower === 'premium') return SubscriptionPlanType.Premium;
-    if (lower === 'pro') return SubscriptionPlanType.Pro;
-  }
-  return SubscriptionPlanType.Pro;
-}
-
-/**
- * State contract for the global cookie-session authentication and RBAC store.
- */
-interface AuthStoreState {
-  /** Convenience pointer to the authenticated user profile. */
-  user: UserProfileDto | null;
-
-  /** Whether the user is currently authenticated with the server. */
-  isAuthenticated: boolean;
-
-  /** Whether a server session check via /api/v1/auth/profile is in progress. */
-  isCheckingSession: boolean;
-
-  /** Whether the server verification has completed at least once. */
-  hasVerifiedServer: boolean;
-
-  /** Verifies the HttpOnly cookie session against GET /api/v1/auth/profile. */
-  verifyServerSession: () => Promise<boolean>;
-
-  /** Switches the active RBAC role for testing Student, Teacher, and Admin portals. */
-  switchRole: (role: UserRole) => void;
-
-  /** Updates the learner's target certification level (B1, B2, C1). */
-  setTargetCertLevel: (level: CertLevel) => void;
-
-  /**
-   * Stores the token pair returned by the server after a successful sign-in/sign-up and verifies the
-   * session with it. Resolves true when the profile was loaded.
-   */
-  completeLogin: (tokens: { accessToken: string; refreshToken: string; expiresIn: number }) => Promise<boolean>;
-
-  /**
-   * Ends the session: asks the server to revoke the Supabase session, wipes local state and tokens,
-   * and returns the browser to the SPA login page.
-   */
-  signOut: () => void;
-}
+/** Daily study target applied when the server profile has none yet. */
+const DEFAULT_DAILY_TARGET_MINS = 30;
 
 // Hydrate instantly from the profile-only cache (0ms perceived latency); the server cookie stays authoritative.
 const initialSession: AuthSessionDto | null = AuthProfileCache.read();
@@ -160,15 +81,21 @@ export const useAuthStore = create<AuthStoreState>((set, get) => {
             email: payload.email,
             fullName: payload.fullName || payload.email.split('@')[0],
             avatarUrl: payload.avatarUrl ?? null,
-            role: normalizeUserRole(payload.role),
+            role: EnumParser.parse(UserRole, payload.role, UserRole.Student),
             authProvider: previousUser?.authProvider ?? AuthProviderType.Email,
             accountStatus: AccountStatus.Active,
             targetCertLevel: previousUser?.id === payload.id
               ? previousUser.targetCertLevel
               : payload.targetCertLevel ?? CertLevel.B2,
-            subscriptionPlan: normalizeSubscriptionPlan(payload.plan ?? payload.subscriptionPlan),
+            subscriptionPlan: EnumParser.parse(
+              SubscriptionPlanType,
+              payload.plan ?? payload.subscriptionPlan,
+              SubscriptionPlanType.Free
+            ),
             streakDays: payload.currentStreak ?? payload.streakDays ?? 0,
             totalXp: payload.totalXp ?? 0,
+            learningGoal: payload.learningGoal ?? null,
+            dailyTargetMins: payload.dailyTargetMins ?? DEFAULT_DAILY_TARGET_MINS,
           };
 
           AuthProfileCache.write({ user });
@@ -203,16 +130,6 @@ export const useAuthStore = create<AuthStoreState>((set, get) => {
 
       return inFlightVerification;
     },
-
-    switchRole: (role: UserRole) =>
-      set((state) => {
-        if (!state.user) {
-          return state;
-        }
-        const user: UserProfileDto = { ...state.user, role };
-        AuthProfileCache.write({ user });
-        return { user };
-      }),
 
     setTargetCertLevel: (targetCertLevel: CertLevel) =>
       set((state) => {

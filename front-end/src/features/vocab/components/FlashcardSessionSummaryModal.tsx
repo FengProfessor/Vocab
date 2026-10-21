@@ -1,30 +1,11 @@
 import React from 'react';
-import { Button, Modal, Result, Space, Statistic, theme } from 'antd';
-import {
-  FireFilled,
-  RedoOutlined,
-  ThunderboltFilled,
-  TrophyOutlined,
-} from '@ant-design/icons';
-
-interface FlashcardSessionSummaryModalProps {
-  /** Whether the summary modal is visible. */
-  open: boolean;
-  /** Number of cards successfully reviewed during the current study session. */
-  cardsReviewedCount: number;
-  /** Total XP earned in this review session. */
-  xpEarned: number;
-  /** Active user streak days. */
-  streakDays: number;
-  /** Callback to start a new review session. */
-  onRestart: () => void;
-  /** Callback to close the modal. */
-  onClose: () => void;
-}
+import { Button, Modal, Result, Space, Statistic } from 'antd';
+import { FireFilled, RedoOutlined, ThunderboltFilled, TrophyOutlined } from '@ant-design/icons';
+import styles from '@/features/vocab/components/FlashcardSessionSummaryModal.module.css';
+import { FlashcardSessionSummaryModalProps } from '@/features/vocab/types/FlashcardSessionSummaryModalProps';
 
 /**
- * Gamified celebration modal displayed upon completing a flashcard review session.
- * Summarizes cards processed, XP granted, and streak updates.
+ * Celebration modal shown when the due queue is empty: cards reviewed, XP granted by the server and streak.
  */
 export const FlashcardSessionSummaryModal: React.FC<FlashcardSessionSummaryModalProps> = ({
   open,
@@ -34,57 +15,31 @@ export const FlashcardSessionSummaryModal: React.FC<FlashcardSessionSummaryModal
   onRestart,
   onClose,
 }) => {
-  const { token } = theme.useToken();
-
   return (
-    <Modal
-      open={open}
-      footer={null}
-      onCancel={onClose}
-      centered
-      width={460}
-      styles={{ body: { padding: '24px 16px' } }}
-    >
+    <Modal open={open} footer={null} onCancel={onClose} centered width={460}>
       <Result
         status="success"
         title="Hoàn thành phiên ôn tập FSRS v5!"
-        subTitle="Bạn đã hoàn thành toàn bộ các thẻ từ vựng đến hạn hôm nay. Bộ não của bạn đã củng cố liên kết trí nhớ dài hạn."
-        icon={<TrophyOutlined style={{ color: token.colorSuccess, fontSize: 56 }} />}
+        subTitle="Bạn đã hoàn thành toàn bộ các thẻ từ vựng đến hạn hôm nay."
+        icon={<TrophyOutlined className={styles.trophy} />}
         extra={[
-          <div
-            key="stats"
-            style={{
-              display: 'flex',
-              justifyContent: 'space-around',
-              padding: '16px 8px',
-              marginBottom: 20,
-              background: token.colorFillAlter,
-              borderRadius: 12,
-            }}
-          >
-            <Statistic
-              title="Thẻ đã ôn"
-              value={cardsReviewedCount}
-              suffix="thẻ"
-              valueStyle={{ color: token.colorPrimary, fontWeight: 700 }}
-            />
+          <div key="stats" className={styles.stats}>
+            <Statistic title="Lượt chấm" value={cardsReviewedCount} suffix="lượt" />
             <Statistic
               title="XP Nhận được"
               value={xpEarned}
-              prefix={<ThunderboltFilled style={{ color: '#eab308' }} />}
-              valueStyle={{ color: '#ca8a04', fontWeight: 700 }}
+              prefix={<ThunderboltFilled className={styles.xpIcon} />}
             />
             <Statistic
               title="Chuỗi Streak"
               value={streakDays}
-              prefix={<FireFilled style={{ color: '#ef4444' }} />}
+              prefix={<FireFilled className={styles.streakIcon} />}
               suffix="ngày"
-              valueStyle={{ color: '#dc2626', fontWeight: 700 }}
             />
           </div>,
-          <Space key="actions" size={12} style={{ display: 'flex', justifyContent: 'center' }}>
+          <Space key="actions" size={12} className={styles.actions}>
             <Button icon={<RedoOutlined />} onClick={onRestart}>
-              Ôn thêm từ mới
+              Ôn lại toàn bộ thẻ
             </Button>
             <Button type="primary" onClick={onClose}>
               Xem danh sách từ
