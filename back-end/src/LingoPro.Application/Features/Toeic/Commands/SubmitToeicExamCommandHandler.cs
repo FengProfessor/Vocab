@@ -42,8 +42,7 @@ public class SubmitToeicExamCommandHandler(
         const int xpAwarded = 50;
 
         dbContext.ToeicTestResults.Add(resultEntity);
-        var profile = await dbContext.Profiles.FirstOrDefaultAsync(p => p.Id == userId, ct);
-        profile?.AwardXpAndUpdateStreak(xpAwarded, DateOnly.FromDateTime(DateTime.UtcNow));
+        await LingoPro.Application.Features.Auth.Commands.GamificationAwardHelper.AwardXpAsync(dbContext, userId, xpAwarded, ct);
         await dbContext.SaveChangesAsync(ct);
 
         var dto = new ToeicSubmissionResponseDto(

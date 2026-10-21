@@ -1,117 +1,54 @@
 import React, { useState } from 'react';
-import { App, Modal, Radio, Space, Typography, theme } from 'antd';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { apiClient } from '@/lib/apiClient';
-import { useAuthStore } from '@/stores/useAuthStore';
-import { ApiResponse } from '@/types/api/ApiResponse';
-import { CertLevel } from '@/types/enums/CertLevel';
+import { Modal, Radio, Space, Typography } from 'antd';
+import { ROADMAP_LEVELS_BY_TRACK, ROADMAP_LEVEL_LABEL } from '@/config/roadmapLevels';
+import styles from '@/features/roadmap/components/RoadmapPlacementModal.module.css';
+import { RoadmapPlacementModalProps } from '@/features/roadmap/types/RoadmapPlacementModalProps';
+import { useSubmitPlacement } from '@/hooks/roadmap/useSubmitPlacement';
 import { RoadmapLevelId } from '@/types/enums/RoadmapLevelId';
-import { RoadmapTrackType } from '@/types/enums/RoadmapTrackType';
-
-interface RoadmapPlacementModalProps {
-  /** Whether the modal is open. */
-  open: boolean;
-  /** Currently selected track. */
-  track: RoadmapTrackType;
-  /** Callback to close the modal. */
-  onClose: () => void;
-}
-
-interface PlacementResponseDto {
-  track: string;
-  assignedLevel: string;
-  startingUnitId: string;
-}
 
 /**
- * Diagnostic placement modal enabling learners to calibrate their starting roadmap station.
+ * Lets the learner enroll in the active track at a self-selected starting level (placement `selfSelect`).
  */
 export const RoadmapPlacementModal: React.FC<RoadmapPlacementModalProps> = ({
   open,
   track,
   onClose,
 }) => {
-  const { message } = App.useApp();
-  const { token } = theme.useToken();
-  const queryClient = useQueryClient();
-  const { setTargetCertLevel } = useAuthStore();
-  const [selectedBand, setSelectedBand] = useState<RoadmapLevelId>(RoadmapLevelId.B1);
+  const levels = ROADMAP_LEVELS_BY_TRACK[track];
+  const [selected, setSelected] = useState<RoadmapLevelId | null>(null);
+  const placement = useSubmitPlacement(track, onClose);
 
-  const placementMutation = useMutation({
-    mutationFn: async (targetLevel: RoadmapLevelId) => {
-      const response = await apiClient.post<ApiResponse<PlacementResponseDto>>(
-        '/roadmap/placement',
-        {
-          track,
-          levelId: targetLevel,
-          score: 80,
-        }
-      );
-      return response.data.data;
-    },
-    onSuccess: (data) => {
-      void message.success(
-        `Đã phân loại trình độ xuất phát: ${data?.assignedLevel ?? selectedBand}`
-      );
-      if (selectedBand === RoadmapLevelId.B1) setTargetCertLevel(CertLevel.B1);
-      else if (selectedBand === RoadmapLevelId.B2) setTargetCertLevel(CertLevel.B2);
-      else if (selectedBand === RoadmapLevelId.A2) setTargetCertLevel(CertLevel.A2);
-
-      void queryClient.invalidateQueries({ queryKey: ['roadmap', track] });
-      onClose();
-    },
-  });
-
-  const handleConfirmPlacement = (): void => {
-    placementMutation.mutate(selectedBand);
-  };
+  const effectiveLevel = selected && levels.includes(selected) ? selected : levels[0];
 
   return (
     <Modal
-      title="Thiết lập Trình độ Xuất phát (Placement Diagnostic)"
+      title="Chọn cấp độ xuất phát"
       open={open}
       onCancel={onClose}
-      onOk={handleConfirmPlacement}
-      confirmLoading={placementMutation.isPending}
+      onOk={() => placement.mutate(effectiveLevel)}
+      confirmLoading={placement.isPending}
       okText="Xác nhận cấp độ"
       cancelText="Hủy"
-      width={520}
+      width={480}
     >
-      <Space direction="vertical" size={16} style={{ width: '100%', marginTop: 8 }}>
-        <Typography.Paragraph type="secondary">
-          Chọn trình độ hiện tại của bạn để hệ thống tự động cá nhân hóa lộ trình học, bỏ qua các
-          bài học cơ bản không cần thiết.
+      <Space direction="vertical" size={16} className="lp-full-width">
+        <Typography.Paragraph type="secondary" className={styles.intro}>
+          Chọn cấp độ hiện tại để hệ thống ghi danh bạn vào lộ trình {track.toUpperCase()} và bỏ qua
+          các chặng cơ bản không cần thiết.
         </Typography.Paragraph>
-
-        <div
-          style={{
-            padding: 16,
-            background: token.colorFillAlter,
-            borderRadius: 12,
-            border: `1px solid ${token.colorBorderSecondary}`,
-          }}
+        <Radio.Group
+          className={styles.group}
+          value={effectiveLevel}
+          onChange={(event) => setSelected(event.target.value)}
         >
-          <Radio.Group
-            value={selectedBand}
-            onChange={(e) => setSelectedBand(e.target.value)}
-            style={{ width: '100%' }}
-          >
-            <Space direction="vertical" size={12} style={{ width: '100%' }}>
-              <Radio value={RoadmapLevelId.A1}>
-                <strong>Căn bản A1</strong>: Bắt đầu làm quen với phát âm & từ vựng thông dụng
+          <Space direction="vertical" size={12}>
+            {levels.map((level) => (
+              <Radio key={level} value={level}>
+                {ROADMAP_LEVEL_LABEL[level]}
               </Radio>
-              <Radio value={RoadmapLevelId.A2}>
-                <strong>Sơ cấp A2</strong>: Đã có nền tảng ngữ pháp cơ bản, bắt đầu luyện câu ghép
-              </Radio>
-              <Radio value={RoadmapLevelId.B1}>
-                <strong>Trung cấp B1 (Mục tiêu VSTEP B1 / TOEIC 550)</strong>: Tự tin giao tiếp và đọc hiểu văn bản
-              </Radio>
-              <Radio value={RoadmapLevelId.B2}>
-                <strong>Trung cao cấp B2 (Mục tiêu VSTEP B2 / TOEIC 750)</strong>: Nắm chắc từ vựng học thuật
-              </Radio>
-            </Space>
-          </Radio.Group>
-        </div>
+            ))}
+          </Space>
+        </Radio.Group>
       </Space>
     </Modal>
   );

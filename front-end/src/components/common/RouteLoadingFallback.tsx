@@ -1,21 +1,16 @@
 import React from 'react';
 import { Spin } from 'antd';
+import styles from '@/components/common/RouteLoadingFallback.module.css';
 
 /**
- * Centered animated spinner rendered while React.lazy asynchronous route chunks are downloading.
+ * Centered spinner rendered while lazily loaded route chunks are downloading.
  */
 export const RouteLoadingFallback: React.FC = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        minHeight: '60vh',
-        width: '100%',
-      }}
-    >
-      <Spin size="large" tip="Đang tải dữ liệu..." />
+    <div className={styles.wrapper}>
+      <Spin size="large" tip="Đang tải dữ liệu...">
+        <div />
+      </Spin>
     </div>
   );
 };

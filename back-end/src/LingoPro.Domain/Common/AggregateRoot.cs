@@ -5,7 +5,7 @@ namespace LingoPro.Domain.Common;
 /// <summary>
 /// Base class for domain aggregate roots capable of recording and dispatching domain events.
 /// </summary>
-public abstract class AggregateRoot : BaseAuditableEntity
+public abstract class AggregateRoot : BaseEntity
 {
     private readonly List<IDomainEvent> _domainEvents = [];
 

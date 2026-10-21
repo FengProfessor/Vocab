@@ -10,7 +10,7 @@ namespace LingoPro.Domain.UnitTests.Common;
 public sealed class BaseAuditableEntityTests
 {
     [Test]
-    public void NewAuditableEntity_HasNullableSoftDeletePropertiesInitializedCorrectly()
+    public void NewBaseAuditableEntity_HasNullableSoftDeletePropertiesInitializedCorrectly()
     {
         // Arrange & Act
         var profile = new Profile
@@ -30,13 +30,11 @@ public sealed class BaseAuditableEntityTests
     }
 
     [Test]
-    public void MarkAsDeleted_And_Restore_UpdatesSoftDeleteAndAuditFields()
+    public void MarkAsDeleted_And_Restore_UpdatesSoftDeleteFields()
     {
         // Arrange
         var actorId = Guid.NewGuid();
-        var restorerId = Guid.NewGuid();
         var deletedAt = new DateTime(2026, 10, 17, 12, 0, 0, DateTimeKind.Utc);
-        var restoredAt = deletedAt.AddHours(2);
 
         var profile = new Profile
         {
@@ -53,12 +51,10 @@ public sealed class BaseAuditableEntityTests
             Assert.That(profile.IsDeleted, Is.True);
             Assert.That(profile.DeletedAt, Is.EqualTo(deletedAt));
             Assert.That(profile.DeletedBy, Is.EqualTo(actorId));
-            Assert.That(profile.UpdatedAt, Is.EqualTo(deletedAt));
-            Assert.That(profile.UpdatedBy, Is.EqualTo(actorId));
         });
 
         // Act - Restore
-        profile.Restore(restorerId, restoredAt);
+        profile.Restore(actorId);
 
         // Assert - Restore
         Assert.Multiple(() =>
@@ -66,8 +62,6 @@ public sealed class BaseAuditableEntityTests
             Assert.That(profile.IsDeleted, Is.False);
             Assert.That(profile.DeletedAt, Is.Null);
             Assert.That(profile.DeletedBy, Is.Null);
-            Assert.That(profile.UpdatedAt, Is.EqualTo(restoredAt));
-            Assert.That(profile.UpdatedBy, Is.EqualTo(restorerId));
         });
     }
 }

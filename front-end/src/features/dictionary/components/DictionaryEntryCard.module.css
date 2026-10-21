@@ -1,0 +1,50 @@
+.card {
+  background: var(--lp-color-bg-container);
+  border-color: var(--lp-color-border-secondary);
+}
+
+.headword {
+  margin: 0 !important;
+  color: var(--lp-color-primary) !important;
+}
+
+.ipa {
+  display: block;
+  margin-top: 4px;
+  font-size: 16px;
+}
+
+.divider {
+  margin: 16px 0 !important;
+}
+
+.sectionTitle {
+  font-size: 16px !important;
+}
+
+.sense {
+  padding: 14px;
+  background: var(--lp-color-fill-alter);
+  border: 1px solid var(--lp-color-border-secondary);
+  border-radius: 10px;
+}
+
+.senseVi {
+  display: block;
+  font-size: 15px;
+  color: var(--lp-color-success);
+}
+
+.senseEn {
+  font-size: 13px;
+  color: var(--lp-color-text-secondary);
+}
+
+.example {
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+.groups {
+  margin-top: 20px;
+}

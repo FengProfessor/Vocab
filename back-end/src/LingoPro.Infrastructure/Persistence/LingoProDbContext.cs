@@ -13,6 +13,8 @@ using LingoPro.Domain.Entities.Roadmap;
 using LingoPro.Domain.Entities.Social;
 using LingoPro.Domain.Entities.Speaking;
 using LingoPro.Domain.Entities.Vocab;
+using LingoPro.Domain.Enums;
+using LingoPro.Infrastructure.Persistence.Converters;
 using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Infrastructure.Persistence;
@@ -90,7 +92,13 @@ public sealed class LingoProDbContext : DbContext, IApplicationDbContext
         builder.Entity<UserGamification>(e =>
         {
             e.ToTable("user_gamification");
-            e.HasIndex(x => x.UserId).IsUnique();
+            e.HasKey(x => x.UserId);
+            e.Property(x => x.UserId).ValueGeneratedNever();
+            e.Property(x => x.TotalXp).HasDefaultValue(0);
+            e.Property(x => x.CurrentStreak).HasDefaultValue(0);
+            e.Property(x => x.LongestStreak).HasDefaultValue(0);
+            e.Property(x => x.DailyGoal).HasDefaultValue(30);
+            e.Property(x => x.TodayXp).HasDefaultValue(0);
             e.HasOne(x => x.User)
                 .WithOne(p => p.Gamification)
                 .HasForeignKey<UserGamification>(x => x.UserId)
@@ -100,7 +108,11 @@ public sealed class LingoProDbContext : DbContext, IApplicationDbContext
         builder.Entity<PushSubscriptionEntity>(e =>
         {
             e.ToTable("fcm_tokens");
-            e.HasIndex(x => new { x.UserId, x.FcmToken }).IsUnique();
+            e.Property(x => x.Id).HasDefaultValueSql("gen_random_uuid()");
+            e.Property(x => x.CreatedAt).HasDefaultValueSql("now()");
+            e.Property(x => x.LastUsedAt).HasDefaultValueSql("now()");
+            e.HasIndex(x => new { x.UserId, x.Token }).IsUnique();
+            e.HasIndex(x => x.UserId).HasDatabaseName("idx_fcm_tokens_user");
             e.HasOne(x => x.User)
                 .WithMany(p => p.PushSubscriptions)
                 .HasForeignKey(x => x.UserId)
@@ -110,18 +122,21 @@ public sealed class LingoProDbContext : DbContext, IApplicationDbContext
         builder.Entity<ExtensionToken>(e =>
         {
             e.ToTable("extension_tokens");
+            e.Property(x => x.Id).HasDefaultValueSql("gen_random_uuid()");
+            e.Property(x => x.CreatedAt).HasDefaultValueSql("now()");
             e.HasIndex(x => x.TokenHash).IsUnique();
-            e.HasIndex(x => x.UserId);
-            e.HasOne(x => x.User)
-                .WithMany(p => p.ExtensionTokens)
-                .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
+            e.HasIndex(x => new { x.UserId, x.CreatedAt })
+                .IsDescending(false, true)
+                .HasFilter("revoked_at is null")
+                .HasDatabaseName("idx_extension_tokens_user_active");
         });
 
         builder.Entity<AiDailyUsage>(e =>
         {
             e.ToTable("ai_daily_usage");
-            e.HasIndex(x => new { x.UserId, x.UsageDate }).IsUnique();
+            e.HasKey(x => new { x.UserId, x.UsageDate });
+            e.Property(x => x.UsageDate).HasDefaultValueSql("current_date");
+            e.Property(x => x.Count).HasDefaultValue(0);
             e.HasOne(x => x.User)
                 .WithMany()
                 .HasForeignKey(x => x.UserId)
@@ -132,7 +147,11 @@ public sealed class LingoProDbContext : DbContext, IApplicationDbContext
         builder.Entity<ClassroomEntity>(e =>
         {
             e.ToTable("classrooms");
+            e.Ignore(x => x.IsPersonal);
+            e.Property(x => x.InviteCode).HasDefaultValueSql("upper(substring(md5(random()::text), 1, 6))");
+            e.Property(x => x.CreatedAt).HasDefaultValueSql("now()");
             e.HasIndex(x => x.InviteCode).IsUnique();
+            e.HasIndex(x => new { x.TeacherId, x.Name }).HasDatabaseName("idx_classrooms_teacher_name");
             e.HasOne(x => x.Teacher)
                 .WithMany()
                 .HasForeignKey(x => x.TeacherId)
@@ -142,7 +161,10 @@ public sealed class LingoProDbContext : DbContext, IApplicationDbContext
         builder.Entity<Enrollment>(e =>
         {
             e.ToTable("enrollments");
-            e.HasIndex(x => new { x.ClassroomId, x.StudentId }).IsUnique();
+            e.Property(x => x.JoinedAt).HasDefaultValueSql("now()");
+            e.HasIndex(x => new { x.StudentId, x.ClassroomId }).IsUnique();
+            e.HasIndex(x => x.StudentId).HasDatabaseName("idx_enrollments_student");
+            e.HasIndex(x => x.ClassroomId).HasDatabaseName("idx_enrollments_classroom");
             e.HasOne(x => x.Classroom)
                 .WithMany(c => c.Enrollments)
                 .HasForeignKey(x => x.ClassroomId)
@@ -156,6 +178,7 @@ public sealed class LingoProDbContext : DbContext, IApplicationDbContext
         builder.Entity<StudentDailyStat>(e =>
         {
             e.ToTable("student_daily_stats");
+            e.Property(x => x.RecordedAt).HasDefaultValueSql("current_date");
             e.HasIndex(x => new { x.StudentId, x.RecordedAt }).IsUnique();
             e.HasOne(x => x.Student)
                 .WithMany()
@@ -170,26 +193,18 @@ public sealed class LingoProDbContext : DbContext, IApplicationDbContext
         builder.Entity<StudyRoomPresence>(e =>
         {
             e.ToTable("room_presence");
-            e.HasIndex(x => x.UserId).IsUnique();
+            e.HasKey(x => x.UserId);
             e.HasOne(x => x.User)
                 .WithOne(p => p.RoomPresence)
                 .HasForeignKey<StudyRoomPresence>(x => x.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
-            e.HasOne(x => x.Classroom)
-                .WithMany()
-                .HasForeignKey(x => x.ClassroomId)
-                .OnDelete(DeleteBehavior.SetNull);
         });
 
         // 3. Vocabulary, FSRS Events, Packs, Quizzes & Dictionary
         builder.Entity<SrsReviewEvent>(e =>
         {
             e.ToTable("srs_review_events");
-            e.HasIndex(x => new { x.UserId, x.ReviewId }).IsUnique();
-            e.HasOne(x => x.User)
-                .WithMany()
-                .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
+            e.HasKey(x => new { x.UserId, x.ReviewId });
             e.HasOne(x => x.Word)
                 .WithMany()
                 .HasForeignKey(x => x.WordId)
@@ -199,8 +214,7 @@ public sealed class LingoProDbContext : DbContext, IApplicationDbContext
         builder.Entity<UserVocabPack>(e =>
         {
             e.ToTable("user_vocab_packs");
-            e.HasIndex(x => new { x.UserId, x.PackId }).IsUnique();
-            e.Property(x => x.Status).HasConversion<string>().HasMaxLength(32);
+            e.HasKey(x => new { x.UserId, x.PackId });
             e.HasOne(x => x.User)
                 .WithMany()
                 .HasForeignKey(x => x.UserId)
@@ -210,15 +224,12 @@ public sealed class LingoProDbContext : DbContext, IApplicationDbContext
         builder.Entity<UserVocabPackWord>(e =>
         {
             e.ToTable("user_vocab_pack_words");
-            e.HasIndex(x => new { x.UserId, x.PackId, x.Position }).IsUnique();
+            e.HasKey(x => new { x.UserId, x.PackId, x.Position });
             e.HasIndex(x => new { x.UserId, x.PackId, x.WordId }).IsUnique();
+            e.HasIndex(x => new { x.UserId, x.WordId, x.PackId });
             e.HasOne(x => x.Pack)
                 .WithMany(p => p.PackWords)
-                .HasForeignKey(x => x.UserVocabPackId)
-                .OnDelete(DeleteBehavior.Cascade);
-            e.HasOne(x => x.User)
-                .WithMany()
-                .HasForeignKey(x => x.UserId)
+                .HasForeignKey(x => new { x.UserId, x.PackId })
                 .OnDelete(DeleteBehavior.Cascade);
             e.HasOne(x => x.Word)
                 .WithMany()
@@ -229,7 +240,9 @@ public sealed class LingoProDbContext : DbContext, IApplicationDbContext
         builder.Entity<QuizResult>(e =>
         {
             e.ToTable("quiz_results");
-            e.Property(x => x.QuizType).HasConversion<string>().HasMaxLength(32);
+            e.Property(x => x.Accuracy)
+                .HasColumnType("double precision")
+                .HasComputedColumnSql("score::float / total_questions", stored: true);
             e.HasOne(x => x.User)
                 .WithMany()
                 .HasForeignKey(x => x.UserId)
@@ -243,7 +256,11 @@ public sealed class LingoProDbContext : DbContext, IApplicationDbContext
         builder.Entity<GlobalDictionary>(e =>
         {
             e.ToTable("global_dictionary");
-            e.HasIndex(x => x.Term).IsUnique();
+            e.Property(x => x.Word).IsRequired();
+            e.Property(x => x.Tags).HasColumnType("text[]");
+            e.Property(x => x.Data).HasColumnType("jsonb");
+            e.Property(x => x.ImageConfidence).HasColumnType("smallint");
+            e.HasIndex(x => x.Word).IsUnique();
         });
 
         builder.Entity<TranslationCache>(e =>
@@ -252,54 +269,11 @@ public sealed class LingoProDbContext : DbContext, IApplicationDbContext
             e.HasIndex(x => new { x.SourceText, x.SourceLang, x.TargetLang }).IsUnique();
         });
 
-        // 4. Roadmap, Steps, Assessments & TOEIC Exam History
-        builder.Entity<UserRoadmap>(e =>
-        {
-            e.ToTable("user_roadmap");
-            e.HasIndex(x => new { x.UserId, x.Track }).IsUnique();
-            e.Property(x => x.Track).HasConversion<string>().HasMaxLength(32);
-            e.Property(x => x.LevelId).HasConversion<string>().HasMaxLength(32);
-            e.HasOne(x => x.User)
-                .WithMany(p => p.Roadmaps)
-                .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
-        });
-
-        builder.Entity<UserRoadmapStep>(e =>
-        {
-            e.ToTable("user_roadmap_steps");
-            e.HasIndex(x => new { x.UserRoadmapId, x.StepId }).IsUnique();
-            e.Property(x => x.Track).HasConversion<string>().HasMaxLength(32);
-            e.Property(x => x.Status).HasConversion<string>().HasMaxLength(32);
-            e.HasOne(x => x.Roadmap)
-                .WithMany(r => r.Steps)
-                .HasForeignKey(x => x.UserRoadmapId)
-                .OnDelete(DeleteBehavior.Cascade);
-            e.HasOne(x => x.User)
-                .WithMany()
-                .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
-        });
-
-        builder.Entity<UserRoadmapAssessment>(e =>
-        {
-            e.ToTable("user_roadmap_assessments");
-            e.HasIndex(x => new { x.UserId, x.TargetId });
-            e.Property(x => x.Track).HasConversion<string>().HasMaxLength(32);
-            e.Property(x => x.Tier).HasConversion<string>().HasMaxLength(32);
-            e.HasOne(x => x.User)
-                .WithMany()
-                .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
-            e.HasOne(x => x.Roadmap)
-                .WithMany()
-                .HasForeignKey(x => x.UserRoadmapId)
-                .OnDelete(DeleteBehavior.SetNull);
-        });
-
+        // 4. TOEIC Exam History (Roadmap/Challenge/Speaking Foundation mappings live in Configurations/)
         builder.Entity<ToeicTestResult>(e =>
         {
             e.ToTable("toeic_test_results");
+            e.Property(x => x.CreatedAt).HasDefaultValueSql("now()");
             e.Property(x => x.ExamType).HasConversion<string>().HasMaxLength(32);
             e.HasOne(x => x.User)
                 .WithMany()
@@ -310,218 +284,30 @@ public sealed class LingoProDbContext : DbContext, IApplicationDbContext
         builder.Entity<UserToeicQuestionHistory>(e =>
         {
             e.ToTable("user_toeic_question_history");
-            e.HasIndex(x => new { x.UserId, x.QuestionId });
-            e.HasIndex(x => new { x.UserId, x.Part });
-            e.Property(x => x.ExamType).HasConversion<string>().HasMaxLength(32);
-            e.HasOne(x => x.User)
-                .WithMany()
-                .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
+            e.HasKey(x => new { x.UserId, x.QuestionId }).HasName("user_toeic_question_history_pkey");
+            e.HasIndex(x => new { x.UserId, x.Part }).HasDatabaseName("idx_user_toeic_question_history_user_part");
+            e.HasIndex(x => new { x.UserId, x.Part, x.IsCorrect }).HasDatabaseName("idx_user_toeic_question_history_user_part_correct");
+            e.Property(x => x.LastAnsweredAt).HasDefaultValueSql("now()");
+            e.Property(x => x.AttemptCount).HasDefaultValue(1);
+            e.Property(x => x.SelectedOption).HasDefaultValue(string.Empty);
+            e.Property(x => x.CreatedAt).HasDefaultValueSql("now()");
+            e.Property(x => x.UpdatedAt).HasDefaultValueSql("now()");
+            // user_id references auth.users(id) ON DELETE CASCADE (no navigation in the model).
         });
 
-        // 5. Grammar System (Topics, Lessons, Quiz Cache, Exercises, Results, Progress, Micro Progress)
-        builder.Entity<GrammarLesson>(e =>
-        {
-            e.ToTable("grammar_lessons");
-            e.Property(x => x.Source).HasConversion<string>().HasMaxLength(32);
-            e.HasOne(x => x.Topic)
-                .WithMany(t => t.Lessons)
-                .HasForeignKey(x => x.TopicId)
-                .OnDelete(DeleteBehavior.Cascade);
-            e.HasOne(x => x.Author)
-                .WithMany()
-                .HasForeignKey(x => x.CreatedBy)
-                .OnDelete(DeleteBehavior.SetNull);
-        });
-
-        builder.Entity<GrammarQuizCache>(e =>
-        {
-            e.ToTable("grammar_quiz_cache");
-            e.HasIndex(x => x.LessonId).IsUnique();
-            e.HasOne(x => x.Lesson)
-                .WithOne(l => l.QuizCache)
-                .HasForeignKey<GrammarQuizCache>(x => x.LessonId)
-                .OnDelete(DeleteBehavior.Cascade);
-        });
-
-        builder.Entity<GrammarExercise>(e =>
-        {
-            e.ToTable("grammar_exercises");
-            e.Property(x => x.CertLevel).HasConversion<string>().HasMaxLength(8);
-            e.Property(x => x.ExerciseType).HasConversion<string>().HasMaxLength(32);
-            e.HasOne(x => x.Topic)
-                .WithMany()
-                .HasForeignKey(x => x.TopicId)
-                .OnDelete(DeleteBehavior.SetNull);
-            e.HasOne(x => x.Lesson)
-                .WithMany(l => l.Exercises)
-                .HasForeignKey(x => x.LessonId)
-                .OnDelete(DeleteBehavior.SetNull);
-            e.HasOne(x => x.Classroom)
-                .WithMany()
-                .HasForeignKey(x => x.ClassroomId)
-                .OnDelete(DeleteBehavior.Cascade);
-            e.HasOne(x => x.CreatedByTeacher)
-                .WithMany()
-                .HasForeignKey(x => x.CreatedByTeacherId)
-                .OnDelete(DeleteBehavior.SetNull);
-        });
-
-        builder.Entity<GrammarResult>(e =>
-        {
-            e.ToTable("grammar_results");
-            e.HasOne(x => x.User)
-                .WithMany()
-                .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
-            e.HasOne(x => x.Exercise)
-                .WithMany(ex => ex.Results)
-                .HasForeignKey(x => x.ExerciseId)
-                .OnDelete(DeleteBehavior.Cascade);
-        });
-
-        builder.Entity<GrammarProgress>(e =>
-        {
-            e.ToTable("grammar_progress");
-            e.HasIndex(x => new { x.UserId, x.TopicSlug }).IsUnique();
-            e.Property(x => x.State).HasConversion<string>().HasMaxLength(32);
-            e.HasOne(x => x.User)
-                .WithMany()
-                .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
-            e.HasOne(x => x.Topic)
-                .WithMany()
-                .HasForeignKey(x => x.TopicId)
-                .OnDelete(DeleteBehavior.SetNull);
-            e.HasOne(x => x.Lesson)
-                .WithMany(l => l.Progresses)
-                .HasForeignKey(x => x.LessonId)
-                .OnDelete(DeleteBehavior.Cascade);
-        });
-
-        builder.Entity<GrammarMicroProgress>(e =>
-        {
-            e.ToTable("grammar_micro_progress");
-            e.HasIndex(x => new { x.UserId, x.Stage }).IsUnique();
-            e.Property(x => x.Stage).HasConversion<string>().HasMaxLength(16);
-            e.HasOne(x => x.User)
-                .WithMany()
-                .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
-        });
-
-        // 6. Daily Reading & Reading Library
-        builder.Entity<DailyReadingExercise>(e =>
-        {
-            e.ToTable("daily_reading_exercises");
-            e.Property(x => x.CertLevel).HasConversion<string>().HasMaxLength(8);
-            e.Property(x => x.Status).HasConversion<string>().HasMaxLength(32);
-            e.HasOne(x => x.Classroom)
-                .WithMany()
-                .HasForeignKey(x => x.ClassroomId)
-                .OnDelete(DeleteBehavior.Cascade);
-            e.HasOne(x => x.TargetUser)
-                .WithMany()
-                .HasForeignKey(x => x.TargetUserId)
-                .OnDelete(DeleteBehavior.Cascade);
-        });
-
-        builder.Entity<DailyReadingCompletion>(e =>
-        {
-            e.ToTable("daily_reading_completions");
-            e.HasIndex(x => new { x.UserId, x.ExerciseId }).IsUnique();
-            e.HasOne(x => x.User)
-                .WithMany()
-                .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
-            e.HasOne(x => x.Exercise)
-                .WithMany(ex => ex.Completions)
-                .HasForeignKey(x => x.ExerciseId)
-                .OnDelete(DeleteBehavior.Cascade);
-        });
-
-        builder.Entity<UserReadingLibraryProgress>(e =>
-        {
-            e.ToTable("user_reading_library_progress");
-            e.HasIndex(x => new { x.UserId, x.ArticleId }).IsUnique();
-            e.Property(x => x.Status).HasConversion<string>().HasMaxLength(32);
-            e.HasOne(x => x.User)
-                .WithMany()
-                .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
-            e.HasOne(x => x.Article)
-                .WithMany(a => a.UserProgresses)
-                .HasForeignKey(x => x.ArticleId)
-                .OnDelete(DeleteBehavior.Cascade);
-        });
-
-        // 7. Speaking Foundation Curriculum & Gap Map
-        builder.Entity<FoundationLexicalConcept>(e =>
-        {
-            e.ToTable("foundation_lexical_concepts");
-            e.HasIndex(x => x.Headword).IsUnique();
-            e.HasIndex(x => x.ConceptCode).IsUnique();
-            e.Property(x => x.CertLevel).HasConversion<string>().HasMaxLength(8);
-        });
-
-        builder.Entity<FoundationRepresentation>(e =>
-        {
-            e.ToTable("foundation_representations");
-            e.HasIndex(x => x.RepresentationCode).IsUnique();
-            e.Property(x => x.Modality).HasConversion<string>().HasMaxLength(32);
-            e.Property(x => x.ClarityRating).HasConversion<string>().HasMaxLength(16);
-            e.HasOne(x => x.Concept)
-                .WithMany(c => c.Representations)
-                .HasForeignKey(x => x.ConceptId)
-                .OnDelete(DeleteBehavior.Cascade);
-        });
-
-        builder.Entity<LearnerLexicalEvidence>(e =>
-        {
-            e.ToTable("learner_lexical_evidence");
-            e.HasIndex(x => new { x.LearnerId, x.ConceptId });
-            e.Property(x => x.EvidenceSource).HasConversion<string>().HasMaxLength(32);
-            e.Property(x => x.SupportLevel).HasConversion<string>().HasMaxLength(32);
-            e.HasOne(x => x.Learner)
-                .WithMany()
-                .HasForeignKey(x => x.LearnerId)
-                .OnDelete(DeleteBehavior.Cascade);
-            e.HasOne(x => x.ActorUser)
-                .WithMany()
-                .HasForeignKey(x => x.ActorUserId)
-                .OnDelete(DeleteBehavior.SetNull);
-            e.HasOne(x => x.Concept)
-                .WithMany(c => c.Evidences)
-                .HasForeignKey(x => x.ConceptId)
-                .OnDelete(DeleteBehavior.Cascade);
-            e.HasOne(x => x.Representation)
-                .WithMany()
-                .HasForeignKey(x => x.RepresentationId)
-                .OnDelete(DeleteBehavior.SetNull);
-        });
-
-        builder.Entity<LearnerLexicalState>(e =>
-        {
-            e.ToTable("learner_lexical_state");
-            e.HasIndex(x => new { x.LearnerId, x.ConceptId }).IsUnique();
-            e.Property(x => x.StatusBucket).HasConversion<string>().HasMaxLength(32);
-            e.HasOne(x => x.Learner)
-                .WithMany()
-                .HasForeignKey(x => x.LearnerId)
-                .OnDelete(DeleteBehavior.Cascade);
-            e.HasOne(x => x.Concept)
-                .WithMany(c => c.LearnerStates)
-                .HasForeignKey(x => x.ConceptId)
-                .OnDelete(DeleteBehavior.Cascade);
-        });
+        // 5-6. Grammar and Reading entities are configured in Configurations/GrammarLessonConfiguration.cs,
+        // GrammarTopicConfiguration.cs, DailyReadingConfiguration.cs and ReadingArticleConfiguration.cs.
 
         // 8. Billing, Subscription History & Coupons
         builder.Entity<SubscriptionHistory>(e =>
         {
             e.ToTable("subscription_history");
-            e.Property(x => x.OldPlan).HasConversion<string>().HasMaxLength(32);
-            e.Property(x => x.NewPlan).HasConversion<string>().HasMaxLength(32);
-            e.Property(x => x.Reason).HasConversion<string>().HasMaxLength(32);
+            e.Property(x => x.Id).HasDefaultValueSql("uuid_generate_v4()");
+            e.Property(x => x.OldPlan).HasConversion(new SnakeCaseEnumConverter<SubscriptionPlanType>());
+            e.Property(x => x.NewPlan).HasConversion(new SnakeCaseEnumConverter<SubscriptionPlanType>());
+            e.Property(x => x.Reason).HasConversion(new SnakeCaseEnumConverter<SubscriptionChangeReason>());
+            e.Property(x => x.CreatedAt).HasDefaultValueSql("now()");
+            e.HasIndex(x => x.UserId).HasDatabaseName("idx_subscription_history_user");
             e.HasOne(x => x.User)
                 .WithMany()
                 .HasForeignKey(x => x.UserId)
@@ -529,78 +315,38 @@ public sealed class LingoProDbContext : DbContext, IApplicationDbContext
             e.HasOne(x => x.Order)
                 .WithMany()
                 .HasForeignKey(x => x.OrderId)
-                .OnDelete(DeleteBehavior.SetNull);
+                .OnDelete(DeleteBehavior.NoAction);
             e.HasOne(x => x.ChangedByUser)
                 .WithMany()
                 .HasForeignKey(x => x.ChangedBy)
-                .OnDelete(DeleteBehavior.SetNull);
+                .OnDelete(DeleteBehavior.NoAction);
         });
 
         builder.Entity<Coupon>(e =>
         {
             e.ToTable("coupons");
+            e.Property(x => x.Id).HasDefaultValueSql("uuid_generate_v4()");
+            e.Property(x => x.ApplicablePlans).HasColumnType("text[]");
+            e.Property(x => x.UsedCount).HasDefaultValue(0);
+            e.Property(x => x.ValidFrom).HasDefaultValueSql("now()");
+            e.Property(x => x.IsActive).HasDefaultValue(true);
+            e.Property(x => x.CreatedAt).HasDefaultValueSql("now()");
             e.HasIndex(x => x.Code).IsUnique();
-        });
-
-        // 9. Commitment Challenges & Daily Logs
-        builder.Entity<Challenge>(e =>
-        {
-            e.ToTable("challenges");
-            e.Property(x => x.Status).HasConversion<string>().HasMaxLength(32);
-            e.HasOne(x => x.Creator)
-                .WithMany()
-                .HasForeignKey(x => x.CreatorId)
-                .OnDelete(DeleteBehavior.Cascade);
-        });
-
-        builder.Entity<ChallengeParticipant>(e =>
-        {
-            e.ToTable("challenge_participants");
-            e.HasIndex(x => new { x.ChallengeId, x.UserId }).IsUnique();
-            e.Property(x => x.Status).HasConversion<string>().HasMaxLength(32);
-            e.HasOne(x => x.Challenge)
-                .WithMany(c => c.Participants)
-                .HasForeignKey(x => x.ChallengeId)
-                .OnDelete(DeleteBehavior.Cascade);
-            e.HasOne(x => x.User)
-                .WithMany()
-                .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
-            e.HasOne(x => x.Order)
-                .WithMany()
-                .HasForeignKey(x => x.OrderId)
-                .OnDelete(DeleteBehavior.SetNull);
-        });
-
-        builder.Entity<ChallengeDailyLog>(e =>
-        {
-            e.ToTable("challenge_daily_log");
-            e.HasIndex(x => new { x.ChallengeId, x.UserId, x.LogDate }).IsUnique();
-            e.HasOne(x => x.Challenge)
-                .WithMany(c => c.DailyLogs)
-                .HasForeignKey(x => x.ChallengeId)
-                .OnDelete(DeleteBehavior.Cascade);
-            e.HasOne(x => x.User)
-                .WithMany()
-                .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
-            e.HasOne(x => x.Participant)
-                .WithMany(p => p.DailyLogs)
-                .HasForeignKey(x => x.ParticipantId)
-                .OnDelete(DeleteBehavior.Cascade);
         });
 
         // 10. Referral System, Study Groups & Pilot Leads
         builder.Entity<ReferralCampaign>(e =>
         {
             e.ToTable("referral_campaigns");
+            e.Property(x => x.ActivationCriteria).HasColumnType("jsonb");
             e.HasIndex(x => x.Slug).IsUnique();
         });
 
         builder.Entity<ReferralLink>(e =>
         {
             e.ToTable("referral_links");
-            e.HasIndex(x => x.Code).IsUnique();
+            e.HasIndex(x => x.ReferralCode).IsUnique();
+            e.HasIndex(x => x.CustomSlug).IsUnique();
             e.HasIndex(x => x.UserId).IsUnique();
             e.HasOne(x => x.User)
                 .WithOne(p => p.ReferralLink)
@@ -612,11 +358,10 @@ public sealed class LingoProDbContext : DbContext, IApplicationDbContext
         {
             e.ToTable("referral_logs");
             e.HasIndex(x => x.RefereeId).IsUnique();
-            e.Property(x => x.Status).HasConversion<string>().HasMaxLength(32);
             e.HasOne(x => x.Referrer)
                 .WithMany()
                 .HasForeignKey(x => x.ReferrerId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.SetNull);
             e.HasOne(x => x.Referee)
                 .WithMany()
                 .HasForeignKey(x => x.RefereeId)
@@ -634,16 +379,10 @@ public sealed class LingoProDbContext : DbContext, IApplicationDbContext
         builder.Entity<RewardTransaction>(e =>
         {
             e.ToTable("reward_transactions");
-            e.Property(x => x.RewardType).HasConversion<string>().HasMaxLength(32);
-            e.Property(x => x.Status).HasConversion<string>().HasMaxLength(32);
             e.HasOne(x => x.User)
                 .WithMany()
                 .HasForeignKey(x => x.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
-            e.HasOne(x => x.SourceReferee)
-                .WithMany()
-                .HasForeignKey(x => x.SourceRefereeId)
-                .OnDelete(DeleteBehavior.SetNull);
             e.HasOne(x => x.ReferralLog)
                 .WithMany()
                 .HasForeignKey(x => x.ReferralLogId)
@@ -652,12 +391,14 @@ public sealed class LingoProDbContext : DbContext, IApplicationDbContext
                 .WithMany()
                 .HasForeignKey(x => x.OrderId)
                 .OnDelete(DeleteBehavior.SetNull);
+            e.HasIndex(x => new { x.OrderId, x.UserId })
+                .IsUnique()
+                .HasFilter("reward_type IN ('affiliate_cash', 'cash_commission')");
         });
 
         builder.Entity<PayoutRequest>(e =>
         {
             e.ToTable("payout_requests");
-            e.Property(x => x.Status).HasConversion<string>().HasMaxLength(32);
             e.HasOne(x => x.User)
                 .WithMany()
                 .HasForeignKey(x => x.UserId)
@@ -672,7 +413,6 @@ public sealed class LingoProDbContext : DbContext, IApplicationDbContext
         {
             e.ToTable("groups");
             e.HasIndex(x => x.InviteCode).IsUnique();
-            e.Property(x => x.Status).HasConversion<string>().HasMaxLength(32);
             e.HasOne(x => x.Owner)
                 .WithMany()
                 .HasForeignKey(x => x.OwnerId)
@@ -696,34 +436,46 @@ public sealed class LingoProDbContext : DbContext, IApplicationDbContext
                 .HasForeignKey(x => x.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
         });
-
         builder.Entity<PilotLead>(e =>
         {
             e.ToTable("pilot_leads");
-            e.Property(x => x.Status).HasConversion<string>().HasMaxLength(32);
+            e.Property(x => x.Id).HasDefaultValueSql("uuid_generate_v4()");
+            e.Property(x => x.Source).HasDefaultValue("teacher_landing");
+            e.Property(x => x.Status).HasConversion(new SnakeCaseEnumConverter<PilotLeadStatus>()).HasDefaultValueSql("'new'");
+            e.Property(x => x.CreatedAt).HasDefaultValueSql("now()");
+            e.Property(x => x.UpdatedAt).HasDefaultValueSql("now()");
+            e.HasIndex(x => new { x.Status, x.CreatedAt }).IsDescending(false, true).HasDatabaseName("idx_pilot_leads_status_created");
         });
 
         var configureMethod = typeof(LingoProDbContext)
-            .GetMethod(nameof(ApplyAuditableConfiguration), BindingFlags.NonPublic | BindingFlags.Static)!;
+            .GetMethod(nameof(ApplySoftDeleteConfiguration), BindingFlags.NonPublic | BindingFlags.Static)!;
+
+        foreach (var entityType in builder.Model.GetEntityTypes())
+        {
+            if (typeof(ISoftDelete).IsAssignableFrom(entityType.ClrType))
+            {
+                configureMethod.MakeGenericMethod(entityType.ClrType).Invoke(null, [builder]);
+            }
+        }
 
         foreach (var entityType in builder.Model.GetEntityTypes())
         {
             if (typeof(BaseAuditableEntity).IsAssignableFrom(entityType.ClrType))
             {
-                configureMethod.MakeGenericMethod(entityType.ClrType).Invoke(null, [builder]);
+                builder.Entity(entityType.ClrType, entity =>
+                {
+                    entity.Property(nameof(BaseAuditableEntity.CreatedAt)).HasDefaultValueSql("now()");
+                    entity.Property(nameof(BaseAuditableEntity.UpdatedAt)).HasDefaultValueSql("now()");
+                });
             }
         }
     }
 
-    private static void ApplyAuditableConfiguration<TEntity>(ModelBuilder builder)
-        where TEntity : BaseAuditableEntity
+    private static void ApplySoftDeleteConfiguration<TEntity>(ModelBuilder builder)
+        where TEntity : class, ISoftDelete
     {
         builder.Entity<TEntity>(entity =>
         {
-            entity.Property(x => x.CreatedAt).HasColumnName("created_at");
-            entity.Property(x => x.UpdatedAt).HasColumnName("updated_at");
-            entity.Property(x => x.CreatedBy).HasColumnName("created_by");
-            entity.Property(x => x.UpdatedBy).HasColumnName("updated_by");
             entity.Property(x => x.DeletedAt).HasColumnName("deleted_at");
             entity.Property(x => x.DeletedBy).HasColumnName("deleted_by");
             entity.Property(x => x.IsDeleted).HasColumnName("is_deleted").HasDefaultValue(false);

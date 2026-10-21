@@ -13,59 +13,26 @@ namespace LingoPro.Domain.Entities.Auth;
 public class Profile : BaseAuditableEntity
 {
     public string Email { get; set; } = string.Empty;
-    public string FullName { get; set; } = string.Empty;
+    public string? FullName { get; set; }
     public string? AvatarUrl { get; set; }
     public UserRole Role { get; set; } = UserRole.Student;
-    public SubscriptionPlanType Plan { get; set; } = SubscriptionPlanType.Free;
+    public SubscriptionPlanType? Plan { get; set; } = SubscriptionPlanType.Free;
     public DateTime? PlanExpiresAt { get; set; }
-    public int TotalXp { get; set; }
-    public int CurrentStreak { get; set; }
-    public int LongestStreak { get; set; }
-    public DateOnly? LastActiveDate { get; set; }
-    public DateTime? LastDueEmailAt { get; set; }
-    public string? LearningGoal { get; set; }
-    public int DailyTargetMins { get; set; } = 15;
-    public bool OnboardingCompleted { get; set; }
+    public string? GeminiApiKey { get; set; }
+    public string? FcmToken { get; set; }
+    public int? DailyGoal { get; set; } = 10;
+    public int? NotificationHour { get; set; } = 20;
+    public string? LastDuePushSlot { get; set; }
+    public DateTime? ProMilestoneEnrolledAt { get; set; }
+    public string? Province { get; set; }
+    public string? City { get; set; }
 
     public virtual UserGamification? Gamification { get; set; }
     public virtual ReferralLink? ReferralLink { get; set; }
     public virtual StudyRoomPresence? RoomPresence { get; set; }
     public virtual ICollection<SrsProgress> SrsProgresses { get; set; } = new List<SrsProgress>();
     public virtual ICollection<UserRoadmap> Roadmaps { get; set; } = new List<UserRoadmap>();
-    public virtual ICollection<ExtensionToken> ExtensionTokens { get; set; } = new List<ExtensionToken>();
     public virtual ICollection<PushSubscriptionEntity> PushSubscriptions { get; set; } = new List<PushSubscriptionEntity>();
-
-    /// <summary>
-    /// Awards experience points and updates the user's daily streak based on local date progression.
-    /// </summary>
-    public void AwardXpAndUpdateStreak(int xp, DateOnly todayLocal)
-    {
-        if (xp > 0)
-        {
-            TotalXp += xp;
-        }
-
-        if (LastActiveDate == null)
-        {
-            CurrentStreak = 1;
-        }
-        else if (LastActiveDate.Value == todayLocal.AddDays(-1))
-        {
-            CurrentStreak += 1;
-        }
-        else if (LastActiveDate.Value < todayLocal.AddDays(-1))
-        {
-            CurrentStreak = 1;
-        }
-
-        if (CurrentStreak > LongestStreak)
-        {
-            LongestStreak = CurrentStreak;
-        }
-
-        LastActiveDate = todayLocal;
-        UpdatedAt = DateTime.UtcNow;
-    }
 
     /// <summary>
     /// Grants or extends a subscription plan entitlement without downgrading an active higher tier.
@@ -82,7 +49,5 @@ public class Profile : BaseAuditableEntity
         {
             PlanExpiresAt = newExpiresAtUtc;
         }
-
-        UpdatedAt = DateTime.UtcNow;
     }
 }

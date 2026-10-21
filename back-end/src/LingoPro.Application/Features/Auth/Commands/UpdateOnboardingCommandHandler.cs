@@ -1,6 +1,7 @@
 ﻿using LingoPro.Application.Features.Auth.Queries;
 using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
+using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Exceptions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -20,35 +21,29 @@ public class UpdateOnboardingCommandHandler(
         var profile = await dbContext.Profiles.FirstOrDefaultAsync(p => p.Id == userId, ct)
             ?? throw new NotFoundException("Profile", userId);
 
-        bool firstTimeOnboarding = !profile.OnboardingCompleted;
+        // The SQL schema has no onboarding_completed / learning_goal / daily_target_mins columns:
+        // "first time" is derived from the absence of a user_gamification row, and the daily target is
+        // persisted as user_gamification.daily_goal. LearningGoal is accepted but not persisted.
         profile.FullName = request.FullName;
-        profile.LearningGoal = request.LearningGoal;
-        profile.DailyTargetMins = request.DailyTargetMins;
-        profile.OnboardingCompleted = true;
+
+        var gamification = await dbContext.UserGamifications.FirstOrDefaultAsync(g => g.UserId == userId, ct);
+        bool firstTimeOnboarding = gamification == null;
+        if (gamification == null)
+        {
+            gamification = new UserGamification { UserId = userId };
+            dbContext.UserGamifications.Add(gamification);
+        }
+        gamification.DailyGoal = request.DailyTargetMins;
 
         if (firstTimeOnboarding)
         {
-            profile.AwardXpAndUpdateStreak(25, DateOnly.FromDateTime(DateTime.UtcNow));
+            gamification.AwardXpAndUpdateStreak(25, DateOnly.FromDateTime(DateTime.UtcNow));
         }
 
         await dbContext.SaveChangesAsync(ct);
 
-        var dto = new ProfileDto(
-            profile.Id,
-            profile.Email,
-            profile.FullName,
-            profile.AvatarUrl,
-            profile.Role,
-            profile.Plan,
-            profile.PlanExpiresAt,
-            profile.TotalXp,
-            profile.CurrentStreak,
-            profile.LongestStreak,
-            profile.LearningGoal,
-            profile.DailyTargetMins,
-            profile.OnboardingCompleted
-        );
-
+        var dto = ProfileDtoMapper.ToDto(profile, gamification);
         return ApiResponse<ProfileDto>.Ok(dto, "Onboarding preferences updated successfully.");
     }
 }
+

@@ -1,95 +1,57 @@
-import React, { useEffect, useState } from 'react';
-import { Button, Card, Progress, Space, Tag, Typography } from 'antd';
-import { AudioMutedOutlined, AudioOutlined, CheckCircleOutlined } from '@ant-design/icons';
-import { FoundationClarityRating } from '@/types/enums/FoundationClarityRating';
+import React from 'react';
+import { Alert, Button, Card, Space, Tag, Typography } from 'antd';
+import { AudioMutedOutlined, AudioOutlined } from '@ant-design/icons';
+import styles from '@/components/audio/AudioRecorder.module.css';
+import { AudioRecorderProps } from '@/components/types/AudioRecorderProps';
+import { CLARITY_RATING_OPTIONS } from '@/config/clarityRatingOptions';
+import { useMediaRecorder } from '@/hooks/useMediaRecorder';
 
 /**
- * Props for the AudioRecorder speaking practice component.
+ * Microphone recorder for speaking drills. It really records and plays back the learner's voice, then lets the
+ * learner rate their own clarity (V1-V3).
+ * TODO: [Backend API Required] send the recording to POST /api/v1/ai-coaching/speaking/upload-audio for automatic
+ * speech-to-text and pronunciation scoring instead of self rating.
  */
-interface AudioRecorderProps {
-  /** Target English sentence or speaking prompt to record. */
-  promptText: string;
-
-  /** Callback invoked when a simulated or microphone recording completes. */
-  onRecordingComplete?: (clarity: FoundationClarityRating, accuracyPercent: number) => void;
-}
-
-/**
- * Interactive microphone recorder component for VSTEP Speaking & AI Pronunciation drills.
- */
-export const AudioRecorder: React.FC<AudioRecorderProps> = ({
-  promptText,
-  onRecordingComplete,
-}) => {
-  const [isRecording, setIsRecording] = useState<boolean>(false);
-  const [elapsedSeconds, setElapsedSeconds] = useState<number>(0);
-  const [lastScore, setLastScore] = useState<number | null>(null);
-
-  useEffect(() => {
-    if (!isRecording) {
-      return undefined;
-    }
-
-    const interval = window.setInterval(() => {
-      setElapsedSeconds((prev) => prev + 1);
-    }, 1000);
-
-    return () => window.clearInterval(interval);
-  }, [isRecording]);
-
-  const handleToggleRecording = (): void => {
-    if (isRecording) {
-      setIsRecording(false);
-      // Compute deterministic phonetic clarity score based on prompt length and speaking duration
-      const score = Math.min(96, Math.max(78, 82 + (promptText.length % 12)));
-      setLastScore(score);
-      if (onRecordingComplete) {
-        const rating =
-          score >= 88
-            ? FoundationClarityRating.V3
-            : FoundationClarityRating.V2;
-        onRecordingComplete(rating, score);
-      }
-    } else {
-      setElapsedSeconds(0);
-      setLastScore(null);
-      setIsRecording(true);
-    }
-  };
+export const AudioRecorder: React.FC<AudioRecorderProps> = ({ promptText, onRecordingComplete }) => {
+  const recorder = useMediaRecorder();
 
   return (
-    <Card size="small" style={{ borderRadius: 12, borderColor: '#e2e8f0' }}>
-      <Space direction="vertical" style={{ width: '100%' }} size={12}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Space>
-            <Button
-              type={isRecording ? 'primary' : 'default'}
-              danger={isRecording}
-              shape="round"
-              icon={isRecording ? <AudioMutedOutlined /> : <AudioOutlined />}
-              onClick={handleToggleRecording}
-            >
-              {isRecording ? `Dừng thu âm (${elapsedSeconds}s)` : 'Bắt đầu thu âm giọng nói'}
-            </Button>
-            {isRecording && <Tag color="red">Đang ghi âm trực tiếp...</Tag>}
-          </Space>
-
-          {lastScore !== null && (
-            <Tag icon={<CheckCircleOutlined />} color="success">
-              Độ chuẩn phát âm IPA: {lastScore}%
-            </Tag>
-          )}
+    <Card size="small" className={styles.card}>
+      <Space direction="vertical" size={12} className="lp-full-width">
+        <div className={styles.controls}>
+          <Button
+            type={recorder.isRecording ? 'primary' : 'default'}
+            danger={recorder.isRecording}
+            shape="round"
+            icon={recorder.isRecording ? <AudioMutedOutlined /> : <AudioOutlined />}
+            onClick={() => (recorder.isRecording ? recorder.stop() : void recorder.start())}
+          >
+            {recorder.isRecording ? `Dừng thu âm (${recorder.elapsedSeconds}s)` : 'Bắt đầu thu âm'}
+          </Button>
+          {recorder.isRecording && <Tag color="red">Đang ghi âm...</Tag>}
         </div>
 
-        {lastScore !== null && (
-          <Progress
-            percent={lastScore}
-            status="success"
-            strokeColor={{ '0%': '#4f46e5', '100%': '#10b981' }}
-          />
+        {recorder.errorMessage && <Alert type="error" showIcon message={recorder.errorMessage} />}
+
+        {recorder.audioUrl && (
+          <>
+            <audio className={styles.player} controls src={recorder.audioUrl} />
+            <div>
+              <Typography.Text strong className={styles.ratingLabel}>
+                Nghe lại và tự đánh giá độ rõ của phát âm:
+              </Typography.Text>
+              <Space wrap>
+                {CLARITY_RATING_OPTIONS.map((option) => (
+                  <Button key={option.rating} onClick={() => onRecordingComplete?.(option.rating)}>
+                    {option.label}
+                  </Button>
+                ))}
+              </Space>
+            </div>
+          </>
         )}
 
-        <Typography.Text type="secondary" style={{ fontSize: 12 }}>
+        <Typography.Text type="secondary" className={styles.prompt}>
           Mẫu câu luyện đọc: &ldquo;{promptText}&rdquo;
         </Typography.Text>
       </Space>

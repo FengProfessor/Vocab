@@ -1,0 +1,20 @@
+.card {
+  background: var(--lp-color-bg-container);
+  border-color: var(--lp-color-border-secondary);
+}
+
+.result {
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid var(--lp-color-border-secondary);
+  background: var(--lp-color-fill-alter);
+}
+
+.resultMastered {
+  background: var(--lp-color-success-bg);
+  border-color: var(--lp-color-success-border);
+}
+
+.slider {
+  max-width: 420px;
+}

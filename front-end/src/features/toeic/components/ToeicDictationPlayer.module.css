@@ -1,0 +1,21 @@
+.card {
+  margin-bottom: 20px;
+  background: var(--lp-color-bg-container);
+  border-color: var(--lp-color-border-secondary);
+}
+
+.accuracyRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accuracyTag {
+  font-size: 13px;
+  padding: 4px 10px;
+}
+
+.sectionLabel {
+  display: block;
+  margin-bottom: 6px;
+}

@@ -1,4 +1,6 @@
-using LingoPro.Domain.Entities.Billing;
+﻿using LingoPro.Domain.Entities.Billing;
+using LingoPro.Domain.Enums;
+using LingoPro.Infrastructure.Persistence.Converters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -13,25 +15,32 @@ public sealed class OrderConfiguration : IEntityTypeConfiguration<Order>
     {
         builder.ToTable("orders", "public");
         builder.HasKey(x => x.Id);
+        builder.Property(x => x.Id).HasDefaultValueSql("uuid_generate_v4()");
 
-        builder.Property(x => x.OrderKind).HasColumnName("order_kind").HasConversion<string>().HasMaxLength(64);
-        builder.Property(x => x.PlanId).HasColumnName("plan_id").HasConversion<string>().HasMaxLength(64);
-        builder.Property(x => x.Status).HasColumnName("status").HasConversion<string>().HasMaxLength(32);
-        builder.HasIndex(x => x.TransferCode).IsUnique();
+        builder.Property(x => x.Plan).HasColumnName("plan").HasConversion(new SnakeCaseEnumConverter<SubscriptionPlanType>());
+        builder.Property(x => x.PaymentMethod).HasConversion(new SnakeCaseEnumConverter<PaymentMethodType>(
+            (PaymentMethodType.VnPay, "vnpay"),
+            (PaymentMethodType.MoMo, "momo")));
+        builder.Property(x => x.Status).HasConversion(new SnakeCaseEnumConverter<OrderStatus>()).HasDefaultValueSql("'pending'");
+        builder.Property(x => x.OrderKind).HasConversion(new SnakeCaseEnumConverter<OrderKind>()).HasDefaultValueSql("'individual'");
+        builder.Property(x => x.Currency).HasDefaultValueSql("'VND'");
+        builder.Property(x => x.PeriodMonths).HasDefaultValue(1);
+        builder.Property(x => x.Seats).HasDefaultValue(1);
+        builder.Property(x => x.CreatedAt).HasDefaultValueSql("now()");
+
+        builder.HasIndex(x => x.UserId).HasDatabaseName("idx_orders_user_id");
+        builder.HasIndex(x => x.Status).HasDatabaseName("idx_orders_status");
+        builder.HasIndex(x => x.CreatedAt).IsDescending().HasDatabaseName("idx_orders_created_at");
+        builder.HasIndex(x => x.PaymentRef).IsUnique().HasFilter("payment_ref is not null").HasDatabaseName("idx_orders_payment_ref_unique");
 
         builder.HasOne(x => x.User)
             .WithMany()
             .HasForeignKey(x => x.UserId)
-            .OnDelete(DeleteBehavior.Cascade);
-
-        builder.HasOne(x => x.TargetChallenge)
-            .WithMany()
-            .HasForeignKey(x => x.TargetChallengeId)
             .OnDelete(DeleteBehavior.SetNull);
 
         builder.HasOne(x => x.ProcessedByUser)
             .WithMany()
             .HasForeignKey(x => x.ProcessedBy)
-            .OnDelete(DeleteBehavior.SetNull);
+            .OnDelete(DeleteBehavior.NoAction);
     }
 }

@@ -1,0 +1,67 @@
+.card {
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--lp-color-bg-container);
+  border-color: var(--lp-color-border-secondary);
+}
+
+.header {
+  margin-bottom: 16px;
+}
+
+.prompt {
+  padding: 16px 0 20px;
+  text-align: center;
+}
+
+.promptHint {
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.meaning {
+  margin: 8px 0 4px !important;
+  color: var(--lp-color-success) !important;
+}
+
+.cloze {
+  margin-top: 16px;
+  padding: 10px 16px;
+  background: var(--lp-color-fill-alter);
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.form {
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+.verdict {
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.verdictCorrect {
+  background: var(--lp-color-success-bg);
+  border-color: var(--lp-color-success-border);
+}
+
+.verdictClose {
+  background: var(--lp-color-warning-bg);
+  border-color: var(--lp-color-warning-border);
+}
+
+.verdictWrong {
+  background: var(--lp-color-error-bg);
+  border-color: var(--lp-color-error-border);
+}
+
+.verdictIcon {
+  font-size: 20px;
+}

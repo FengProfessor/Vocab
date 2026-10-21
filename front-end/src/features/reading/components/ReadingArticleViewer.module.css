@@ -1,0 +1,24 @@
+.keywords {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hint {
+  font-size: 12px;
+}
+
+.passage {
+  padding: 18px;
+  line-height: 1.8;
+  font-size: 15px;
+  background: var(--lp-color-fill-alter);
+  border: 1px solid var(--lp-color-border-secondary);
+  border-radius: 12px;
+}
+
+.paragraph {
+  margin: 0 !important;
+  white-space: pre-line;
+}

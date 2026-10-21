@@ -2,27 +2,23 @@ import { CurrencyType } from '@/types/enums/CurrencyType';
 import { SubscriptionPlanType } from '@/types/enums/SubscriptionPlanType';
 
 /**
- * Represents a subscription pricing plan tier for learners or institutions.
+ * Marketing definition of one subscription plan shown on the pricing page.
  */
 export interface SubscriptionTierDto {
-  /** Plan identifier enum. */
+  /** Plan sent to the API when ordering. */
   planType: SubscriptionPlanType;
-
-  /** Display name of the plan. */
+  /** Display name. */
   name: string;
-
-  /** Price amount in the specified currency. */
+  /** List price. */
   priceAmount: number;
-
-  /** Billing currency. */
+  /** Price currency. */
   currency: CurrencyType;
-
-  /** Billing cycle description (e.g., "30 ngày", "90 ngày", "365 ngày"). */
+  /** Billing period label (e.g. "3 tháng"). */
   billingPeriodLabel: string;
-
-  /** Highlight badge text if recommended. */
+  /** Subscription length sent to the API (must match the label). */
+  durationMonths: number;
+  /** Optional ribbon text. */
   badgeText?: string;
-
-  /** List of included feature bullets. */
+  /** Feature bullet points. */
   features: string[];
 }

@@ -1,8 +1,10 @@
-﻿using LingoPro.Application.Common.Interfaces;
+﻿using LingoPro.Application.Common.Helpers;
+using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Algorithms;
 using LingoPro.Domain.Entities.Grammar;
 using LingoPro.Domain.Enums;
+using LingoPro.Domain.Exceptions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,70 +23,82 @@ public class SubmitGrammarProgressCommandHandler(
         string slug = request.TopicSlug.Trim().ToLowerInvariant();
         var nowUtc = DateTime.UtcNow;
 
+        // grammar_progress is keyed by lesson_id: resolve the topic slug to its first lesson.
+        var lessonId = await dbContext.GrammarLessons
+            .AsNoTracking()
+            .Where(l => l.Topic.Slug == slug)
+            .OrderBy(l => l.OrderIndex)
+            .Select(l => (Guid?)l.Id)
+            .FirstOrDefaultAsync(ct)
+            ?? throw new NotFoundException("GrammarTopic", slug);
+
         var progress = await dbContext.GrammarProgresses
-            .FirstOrDefaultAsync(g => g.UserId == userId && g.TopicSlug == slug, ct);
+            .FirstOrDefaultAsync(g => g.UserId == userId && g.LessonId == lessonId, ct);
 
         var rating = FsrsEngine.MapAccuracyToRating(request.AccuracyPercent);
         var input = progress == null
             ? new FsrsCalculationInput(0, 5.0, 0, 0, 0, SrsCardState.New, null)
             : new FsrsCalculationInput(
-                progress.Stability,
-                progress.Difficulty,
-                progress.IntervalDays,
-                progress.Reps,
-                progress.Lapses,
-                progress.State,
+                progress.Stability ?? 0,
+                progress.Difficulty ?? 5.0,
+                progress.IntervalDays ?? 0,
+                progress.ReviewCount ?? 0,
+                progress.Lapses ?? 0,
+                ParseState(progress.State),
                 progress.LastReviewedAt);
 
         var scheduled = FsrsEngine.ScheduleNext(input, rating, nowUtc);
+        var nextReviewUtc = DateTime.SpecifyKind(scheduled.NextReviewDate.ToDateTime(TimeOnly.MinValue), DateTimeKind.Utc);
+        string stateText = scheduled.State.ToString().ToLowerInvariant();
 
         if (progress == null)
         {
             progress = new GrammarProgress
             {
                 UserId = userId,
-                TopicSlug = slug,
-                MasteryScore = request.AccuracyPercent,
+                LessonId = lessonId,
+                MasteryScore = (short)Math.Clamp(Math.Round(request.AccuracyPercent), 0, 100),
                 Stability = scheduled.Stability,
                 Difficulty = scheduled.Difficulty,
                 IntervalDays = scheduled.IntervalDays,
-                NextReviewDate = scheduled.NextReviewDate,
-                Reps = scheduled.Reps,
+                NextReviewDate = nextReviewUtc,
+                ReviewCount = scheduled.Reps,
                 Lapses = scheduled.Lapses,
-                State = scheduled.State,
+                State = stateText,
                 LastReviewedAt = nowUtc
             };
             dbContext.GrammarProgresses.Add(progress);
         }
         else
         {
-            progress.MasteryScore = Math.Max(progress.MasteryScore, request.AccuracyPercent);
+            progress.MasteryScore = (short)Math.Clamp(Math.Round(Math.Max(progress.MasteryScore ?? 0, request.AccuracyPercent)), 0, 100);
             progress.Stability = scheduled.Stability;
             progress.Difficulty = scheduled.Difficulty;
             progress.IntervalDays = scheduled.IntervalDays;
-            progress.NextReviewDate = scheduled.NextReviewDate;
-            progress.Reps = scheduled.Reps;
+            progress.NextReviewDate = nextReviewUtc;
+            progress.ReviewCount = scheduled.Reps;
             progress.Lapses = scheduled.Lapses;
-            progress.State = scheduled.State;
+            progress.State = stateText;
             progress.LastReviewedAt = nowUtc;
         }
 
-        var profile = await dbContext.Profiles.FirstOrDefaultAsync(p => p.Id == userId, ct);
-        profile?.AwardXpAndUpdateStreak(scheduled.XpAwarded, DateOnly.FromDateTime(nowUtc));
+        await GamificationXp.AwardAsync(dbContext, userId, scheduled.XpAwarded, DateOnly.FromDateTime(nowUtc), ct);
 
         await dbContext.SaveChangesAsync(ct);
 
         var dto = new GrammarProgressDto(
-            progress.TopicSlug,
-            progress.MasteryScore,
-            progress.State,
-            progress.Stability,
-            progress.Difficulty,
-            progress.IntervalDays,
-            progress.NextReviewDate,
+            slug,
+            progress.MasteryScore ?? 0,
+            stateText,
+            scheduled.Stability,
+            scheduled.Difficulty,
+            scheduled.IntervalDays,
+            scheduled.NextReviewDate,
             scheduled.XpAwarded
         );
-
         return ApiResponse<GrammarProgressDto>.Ok(dto, "Grammar progress recorded and FSRS schedule updated successfully.");
     }
+
+    private static SrsCardState ParseState(string? state) =>
+        Enum.TryParse<SrsCardState>(state, ignoreCase: true, out var parsed) ? parsed : SrsCardState.New;
 }

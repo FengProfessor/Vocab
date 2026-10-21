@@ -1,0 +1,12 @@
+.icon {
+  color: var(--lp-color-primary);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.note {
+  font-size: 12px;
+}

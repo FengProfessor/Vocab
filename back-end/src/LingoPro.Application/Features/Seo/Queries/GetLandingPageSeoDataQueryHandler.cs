@@ -22,7 +22,7 @@ public sealed class GetLandingPageSeoDataQueryHandler(IApplicationDbContext dbCo
 
         var wordsCount = await dbContext.Words
             .AsNoTracking()
-            .CountAsync(x => x.Status == WordApprovalStatus.Approved, ct);
+            .CountAsync(ct); // SQL public.words has no approval status column: count all non-deleted words.
 
         var grammarCount = await dbContext.GrammarTopics
             .AsNoTracking()
@@ -30,7 +30,7 @@ public sealed class GetLandingPageSeoDataQueryHandler(IApplicationDbContext dbCo
 
         var readingCount = await dbContext.ReadingArticles
             .AsNoTracking()
-            .CountAsync(x => x.Status == ReadingArticleStatus.Published, ct);
+            .CountAsync(x => x.Status == "published", ct);
 
         var dto = new LandingPageSeoDto(
             PageTitle: "LingoPro — Học từ vựng tiếng Anh, tra từ 1 chạm, nhớ lâu với FSRS",

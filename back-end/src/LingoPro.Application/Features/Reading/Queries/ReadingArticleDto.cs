@@ -10,8 +10,8 @@ public record ReadingArticleDto(
     string Slug,
     string Title,
     string Topic,
-    CertLevel CertLevel,
-    ReadingArticleSourceType SourceType,
+    string CertLevel,
+    string SourceType,
     int WordCount,
     string ContentText,
     string QuestionsJson

@@ -1,0 +1,11 @@
+.bar {
+  margin-bottom: 20px;
+}
+
+.icon {
+  color: var(--lp-color-primary);
+}
+
+.input {
+  width: 220px;
+}

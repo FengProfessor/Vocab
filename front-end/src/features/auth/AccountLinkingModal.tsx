@@ -1,18 +1,10 @@
 import React from 'react';
 import { Alert, Button, Descriptions, Modal, Space, Tag, Typography } from 'antd';
 import { CheckCircleFilled, LogoutOutlined, SafetyCertificateOutlined } from '@ant-design/icons';
+import styles from '@/features/auth/components/AccountLinkingModal.module.css';
 import { useAuthStore } from '@/stores/useAuthStore';
 import { AuthProviderType } from '@/types/enums/AuthProviderType';
-
-/**
- * Props for the AccountLinkingModal component.
- */
-interface AccountLinkingModalProps {
-  /** Whether the modal dialog is visible. */
-  open: boolean;
-  /** Callback invoked when the modal is closed. */
-  onClose: () => void;
-}
+import { AccountLinkingModalProps } from '@/features/auth/types/AccountLinkingModalProps';
 
 /**
  * Read-only view of the signed-in session. The SPA performs no authentication operation: signing in,
@@ -28,13 +20,13 @@ export const AccountLinkingModal: React.FC<AccountLinkingModalProps> = ({ open, 
       footer={null}
       title={
         <Space>
-          <SafetyCertificateOutlined style={{ color: '#4f46e5' }} />
+          <SafetyCertificateOutlined className={styles.icon} />
           <span>Phiên đăng nhập</span>
         </Space>
       }
       width={600}
     >
-      <Space direction="vertical" size={16} style={{ width: '100%' }}>
+      <Space direction="vertical" size={16} className="lp-full-width">
         <Alert
           type="success"
           showIcon
@@ -60,13 +52,13 @@ export const AccountLinkingModal: React.FC<AccountLinkingModalProps> = ({ open, 
           </Descriptions>
         )}
 
-        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <div className={styles.actions}>
           <Button danger type="primary" icon={<LogoutOutlined />} onClick={() => signOut()}>
             Đăng xuất
           </Button>
         </div>
 
-        <Typography.Text type="secondary" style={{ fontSize: 12 }}>
+        <Typography.Text type="secondary" className={styles.note}>
           Nhấn &ldquo;Đăng xuất&rdquo; sẽ chuyển trình duyệt sang máy chủ để xóa cookie và hiển thị trang đăng nhập.
         </Typography.Text>
       </Space>

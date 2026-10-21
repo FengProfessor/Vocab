@@ -5,7 +5,7 @@ using NUnit.Framework;
 namespace LingoPro.Domain.UnitTests.Entities;
 
 /// <summary>
-/// NUnit business unit tests for the <see cref="Profile"/> aggregate root.
+/// NUnit business unit tests for <see cref="Profile"/> and <see cref="UserGamification"/>.
 /// </summary>
 [TestFixture]
 public sealed class ProfileTests
@@ -14,26 +14,20 @@ public sealed class ProfileTests
     public void AwardXpAndUpdateStreak_ConsecutiveDays_IncrementsCurrentAndLongestStreak()
     {
         // Arrange
-        var profile = new Profile
-        {
-            Id = Guid.NewGuid(),
-            Email = "student@lingopro.online",
-            FullName = "Student",
-            Role = UserRole.Student
-        };
+        var gamification = new UserGamification { UserId = Guid.NewGuid() };
         var day1 = new DateOnly(2026, 10, 16);
         var day2 = new DateOnly(2026, 10, 17);
 
         // Act
-        profile.AwardXpAndUpdateStreak(50, day1);
-        profile.AwardXpAndUpdateStreak(70, day2);
+        gamification.AwardXpAndUpdateStreak(50, day1);
+        gamification.AwardXpAndUpdateStreak(70, day2);
 
         // Assert
         Assert.Multiple(() =>
         {
-            Assert.That(profile.CurrentStreak, Is.EqualTo(2));
-            Assert.That(profile.LongestStreak, Is.EqualTo(2));
-            Assert.That(profile.TotalXp, Is.EqualTo(120));
+            Assert.That(gamification.CurrentStreak, Is.EqualTo(2));
+            Assert.That(gamification.LongestStreak, Is.EqualTo(2));
+            Assert.That(gamification.TotalXp, Is.EqualTo(120));
         });
     }
 

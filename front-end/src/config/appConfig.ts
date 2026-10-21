@@ -1,10 +1,4 @@
-/**
- * Single source of truth for environment-specific settings. Values come from Vite env files selected by
- * the build mode: `.env.development` (npm run dev), `.env.staging` (--mode staging) and `.env.production`
- * (npm run build). Nothing else in the app may read `import.meta.env` directly.
- */
-export type AppEnvironment = 'development' | 'staging' | 'production';
-
+import { AppEnvironment } from '@/config/types/AppEnvironment';
 function requireUrl(name: 'VITE_API_BASE_URL' | 'VITE_SERVER_ORIGIN'): string {
   const value = (import.meta.env[name] as string | undefined)?.trim();
   if (!value) {

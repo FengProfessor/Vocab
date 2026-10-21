@@ -1,4 +1,5 @@
-﻿using LingoPro.Application.Common.Interfaces;
+﻿using LingoPro.Application.Common.Helpers;
+using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Algorithms;
 using LingoPro.Domain.Entities.Vocab;
@@ -25,22 +26,8 @@ public class SubmitWordReviewCommandHandler(
         var srs = await dbContext.SrsProgresses
             .FirstOrDefaultAsync(s => s.UserId == userId && s.WordId == request.WordId, ct);
 
-        if (srs != null && srs.LastReviewId == request.ReviewId)
-        {
-            return ApiResponse<SrsReviewResponseDto>.Ok(
-                new SrsReviewResponseDto(
-                    srs.WordId,
-                    srs.State,
-                    srs.Stability,
-                    srs.Difficulty,
-                    srs.IntervalDays,
-                    srs.NextReviewDate,
-                    srs.Reps,
-                    srs.Lapses,
-                    0),
-                "Duplicate review ignored via idempotency token."
-            );
-        }
+        // NOTE: public.srs_progress has no last_review_id column, so the per-card idempotency token check
+        // is no longer persisted; request.ReviewId is accepted but cannot be de-duplicated server-side.
 
         var wordExists = await dbContext.Words.AsNoTracking().AnyAsync(w => w.Id == request.WordId, ct);
         if (!wordExists)
@@ -51,12 +38,12 @@ public class SubmitWordReviewCommandHandler(
         var input = srs == null
             ? new FsrsCalculationInput(0, 5.0, 0, 0, 0, SrsCardState.New, null)
             : new FsrsCalculationInput(
-                srs.Stability,
-                srs.Difficulty,
-                srs.IntervalDays,
-                srs.Reps,
-                srs.Lapses,
-                srs.State,
+                srs.Stability ?? 0,
+                srs.Difficulty ?? 5.0,
+                srs.IntervalDays ?? 0,
+                srs.ReviewCount ?? 0,
+                srs.Lapses ?? 0,
+                srs.State ?? SrsCardState.New,
                 srs.LastReviewedAt);
 
         var scheduled = FsrsEngine.ScheduleNext(input, rating, nowUtc);
@@ -70,12 +57,11 @@ public class SubmitWordReviewCommandHandler(
                 Stability = scheduled.Stability,
                 Difficulty = scheduled.Difficulty,
                 IntervalDays = scheduled.IntervalDays,
-                NextReviewDate = scheduled.NextReviewDate,
-                Reps = scheduled.Reps,
+                NextReviewDate = DateTime.SpecifyKind(scheduled.NextReviewDate.ToDateTime(TimeOnly.MinValue), DateTimeKind.Utc),
+                ReviewCount = scheduled.Reps,
                 Lapses = scheduled.Lapses,
                 State = scheduled.State,
-                LastReviewedAt = nowUtc,
-                LastReviewId = request.ReviewId
+                LastReviewedAt = nowUtc
             };
             dbContext.SrsProgresses.Add(srs);
         }
@@ -84,29 +70,28 @@ public class SubmitWordReviewCommandHandler(
             srs.Stability = scheduled.Stability;
             srs.Difficulty = scheduled.Difficulty;
             srs.IntervalDays = scheduled.IntervalDays;
-            srs.NextReviewDate = scheduled.NextReviewDate;
-            srs.Reps = scheduled.Reps;
+            srs.NextReviewDate = DateTime.SpecifyKind(scheduled.NextReviewDate.ToDateTime(TimeOnly.MinValue), DateTimeKind.Utc);
+            srs.ReviewCount = scheduled.Reps;
             srs.Lapses = scheduled.Lapses;
             srs.State = scheduled.State;
             srs.LastReviewedAt = nowUtc;
-            srs.LastReviewId = request.ReviewId;
         }
 
-        var profile = await dbContext.Profiles.FirstOrDefaultAsync(p => p.Id == userId, ct);
-        profile?.AwardXpAndUpdateStreak(scheduled.XpAwarded, DateOnly.FromDateTime(nowUtc));
+        await GamificationXp.AwardAsync(dbContext, userId, scheduled.XpAwarded, DateOnly.FromDateTime(nowUtc), ct);
+
 
         await dbContext.SaveChangesAsync(ct);
 
         return ApiResponse<SrsReviewResponseDto>.Ok(
             new SrsReviewResponseDto(
                 srs.WordId,
-                srs.State,
-                srs.Stability,
-                srs.Difficulty,
-                srs.IntervalDays,
-                srs.NextReviewDate,
-                srs.Reps,
-                srs.Lapses,
+                scheduled.State,
+                scheduled.Stability,
+                scheduled.Difficulty,
+                scheduled.IntervalDays,
+                scheduled.NextReviewDate,
+                scheduled.Reps,
+                scheduled.Lapses,
                 scheduled.XpAwarded),
             "Word review recorded and FSRS schedule updated successfully.");
     }

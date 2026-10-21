@@ -1,4 +1,4 @@
-﻿using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Entities.Social;
 using LingoPro.Domain.Enums;
@@ -27,7 +27,7 @@ public sealed class GetReferralHubQueryHandler(
             referralLink = new ReferralLink
             {
                 UserId = userId,
-                Code = $"REF-{userId.ToString("N")[..6].ToUpperInvariant()}",
+                ReferralCode = $"REF-{userId.ToString("N")[..6].ToUpperInvariant()}",
                 ClicksCount = 0
             };
             dbContext.ReferralLinks.Add(referralLink);
@@ -41,7 +41,7 @@ public sealed class GetReferralHubQueryHandler(
 
         var rewards = await dbContext.RewardTransactions
             .AsNoTracking()
-            .Where(x => x.UserId == userId && x.Status == RewardTransactionStatus.Available)
+            .Where(x => x.UserId == userId && x.Status == "available")
             .SumAsync(x => x.Amount, ct);
 
         var groupIds = await dbContext.GroupMembers
@@ -53,22 +53,26 @@ public sealed class GetReferralHubQueryHandler(
         var groups = await dbContext.StudyGroups
             .AsNoTracking()
             .Where(x => groupIds.Contains(x.Id))
+            .ToListAsync(ct);
+
+        // SQL groups has no name column: derive a display name from the invite code.
+        var groupDtos = groups
             .Select(x => new StudyGroupDto(
                 x.Id,
-                x.Name,
+                $"Study group {x.InviteCode}",
                 x.InviteCode,
                 x.SeatLimit,
-                x.Status,
+                StudyGroupDtoMapper.ParseStatus(x.Status),
                 x.ExpiresAt))
-            .ToListAsync(ct);
+            .ToList();
 
         return ApiResponse<ReferralHubDto>.Ok(
             new ReferralHubDto(
-                referralLink.Code,
+                referralLink.ReferralCode,
                 logs.Count,
-                logs.Count(x => x.Status is ReferralLogStatus.Activated or ReferralLogStatus.Converted),
+                logs.Count(x => x.Status is "activated" or "converted"),
                 rewards,
-                groups),
+                groupDtos),
             "Referral hub statistics retrieved successfully.");
     }
 }

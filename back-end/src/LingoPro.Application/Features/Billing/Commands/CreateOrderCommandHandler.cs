@@ -1,6 +1,7 @@
 ﻿using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Entities.Billing;
+using LingoPro.Domain.Entities.Gamification;
 using LingoPro.Domain.Enums;
 using LingoPro.Domain.Exceptions;
 using MediatR;
@@ -30,19 +31,19 @@ public class CreateOrderCommandHandler(
             normalizedCoupon = request.CouponCode.Trim().ToUpperInvariant();
             var coupon = await dbContext.Coupons.FirstOrDefaultAsync(c =>
                 c.Code == normalizedCoupon &&
-                c.IsActive &&
-                c.UsedCount < c.MaxUses &&
-                (c.ExpiresAt == null || c.ExpiresAt > DateTime.UtcNow), ct)
+                c.IsActive == true &&
+                (c.MaxUses == null || c.UsedCount < c.MaxUses) &&
+                (c.ValidFrom == null || c.ValidFrom <= DateTime.UtcNow) &&
+                (c.ValidUntil == null || c.ValidUntil > DateTime.UtcNow), ct)
                 ?? throw new DomainException("The coupon code is invalid, expired, or has reached its usage limit.", "INVALID_COUPON");
 
-            decimal discount = rawAmount * coupon.DiscountPercent / 100m;
-            if (coupon.MaxDiscountAmount.HasValue && discount > coupon.MaxDiscountAmount.Value)
-            {
-                discount = coupon.MaxDiscountAmount.Value;
-            }
+            // SQL coupons carry either discount_pct or a fixed discount_amount (no max-discount cap column).
+            decimal discount = coupon.DiscountPct.HasValue
+                ? rawAmount * coupon.DiscountPct.Value / 100m
+                : (coupon.DiscountAmount ?? 0);
 
             rawAmount = Math.Max(10000m, rawAmount - discount);
-            coupon.UsedCount += 1;
+            coupon.UsedCount = (coupon.UsedCount ?? 0) + 1;
         }
 
         string transferCode = $"LP{DateTime.UtcNow:yyMMdd}{Guid.NewGuid().ToString("N")[..6].ToUpperInvariant()}";
@@ -50,36 +51,50 @@ public class CreateOrderCommandHandler(
         var order = new Order
         {
             UserId = userId,
-            PlanId = request.PlanId,
+            Plan = request.PlanId,
             OrderKind = request.OrderKind,
-            DurationMonths = request.DurationMonths,
-            SeatLimit = request.OrderKind == OrderKind.Group ? Math.Clamp(request.SeatLimit, 2, 20) : 1,
-            TargetChallengeId = request.TargetChallengeId,
-            Amount = Math.Round(rawAmount, 0),
+            PeriodMonths = request.DurationMonths,
+            Seats = request.OrderKind == OrderKind.Group ? Math.Clamp(request.SeatLimit, 2, 20) : 1,
+            Amount = (int)Math.Round(rawAmount, 0),
             Currency = "VND",
             Status = OrderStatus.Pending,
-            TransferCode = transferCode,
+            // SQL orders have no transfer_code column: the bank-transfer code is stored in payment_ref.
+            PaymentRef = transferCode,
             CouponCode = normalizedCoupon
         };
 
         dbContext.Orders.Add(order);
+
+        // SQL orders have no target_challenge_id column: the order<->challenge link is the pending
+        // challenge_participants row carrying order_id.
+        if (request.OrderKind == OrderKind.Challenge && request.TargetChallengeId.HasValue)
+        {
+            dbContext.ChallengeParticipants.Add(new ChallengeParticipant
+            {
+                ChallengeId = request.TargetChallengeId.Value,
+                UserId = userId,
+                OrderId = order.Id,
+                Status = ChallengeParticipantStatus.Pending
+            });
+        }
+
         await dbContext.SaveChangesAsync(ct);
 
-        string qrUrl = $"https://img.vietqr.io/image/MB-0123456789-compact2.png?amount={order.Amount}&addInfo={order.TransferCode}";
+        string qrUrl = $"https://img.vietqr.io/image/MB-0123456789-compact2.png?amount={order.Amount}&addInfo={order.PaymentRef}";
 
         var dto = new OrderDto(
             order.Id,
-            order.UserId,
-            order.PlanId,
+            order.UserId ?? userId,
+            order.Plan,
             order.OrderKind,
-            order.DurationMonths,
-            order.SeatLimit,
+            order.PeriodMonths ?? 1,
+            order.Seats,
             order.Amount,
-            order.Currency,
-            order.Status,
-            order.TransferCode,
+            order.Currency ?? "VND",
+            order.Status ?? OrderStatus.Pending,
+            order.PaymentRef ?? string.Empty,
             qrUrl,
-            order.CreatedAt,
+            order.CreatedAt ?? DateTime.UtcNow,
             order.PaidAt
         );
 

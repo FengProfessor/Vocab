@@ -1,0 +1,11 @@
+.intro {
+  margin: 0;
+}
+
+.group {
+  width: 100%;
+  padding: 16px;
+  background: var(--lp-color-fill-alter);
+  border: 1px solid var(--lp-color-border-secondary);
+  border-radius: 12px;
+}

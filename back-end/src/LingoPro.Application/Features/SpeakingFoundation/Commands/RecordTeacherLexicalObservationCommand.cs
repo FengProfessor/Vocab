@@ -11,7 +11,7 @@ namespace LingoPro.Application.Features.SpeakingFoundation.Commands;
 [Authorize(UserRole.Teacher, UserRole.Admin)]
 public sealed record RecordTeacherLexicalObservationCommand(
     Guid StudentUserId,
-    Guid ConceptId,
+    string ConceptId,
     LexicalSupportLevel SupportLevel,
     bool IsSuccessful,
     int ResponseLatencyMs = 800) : IRequest<ApiResponse<LexicalStatusBucket>>;

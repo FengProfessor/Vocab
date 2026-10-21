@@ -1,6 +1,7 @@
-﻿using LingoPro.Application.Features.Roadmap.Queries;
+using LingoPro.Application.Features.Roadmap.Queries;
 using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
+using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Entities.Roadmap;
 using LingoPro.Domain.Enums;
 using LingoPro.Domain.Exceptions;
@@ -35,7 +36,6 @@ public class CompleteRoadmapStepCommandHandler(
         }
 
         var roadmap = await dbContext.UserRoadmaps
-            .Include(r => r.Steps)
             .FirstOrDefaultAsync(r => r.UserId == userId && r.Track == request.Track, ct)
             ?? throw new NotFoundException("UserRoadmap", request.Track);
 
@@ -57,12 +57,14 @@ public class CompleteRoadmapStepCommandHandler(
                 "PRO_REQUIRED");
         }
 
-        var existingStep = roadmap.Steps.FirstOrDefault(s => s.StepId == request.StepId);
+        // user_roadmap_steps is keyed by (user_id, step_id) with no track/roadmap FK.
+        var existingStep = await dbContext.UserRoadmapSteps.FirstOrDefaultAsync(s => s.UserId == userId && s.StepId == request.StepId, ct);
+        int? requestScore = request.Score.HasValue ? (int)Math.Round(request.Score.Value) : null;
         if (existingStep is { Status: RoadmapStepStatus.Completed })
         {
-            if (request.Score.HasValue && (!existingStep.Score.HasValue || request.Score > existingStep.Score))
+            if (requestScore.HasValue && (!existingStep.Score.HasValue || requestScore > existingStep.Score))
             {
-                existingStep.Score = request.Score;
+                existingStep.Score = requestScore;
                 await dbContext.SaveChangesAsync(ct);
             }
 
@@ -77,11 +79,9 @@ public class CompleteRoadmapStepCommandHandler(
             existingStep = new UserRoadmapStep
             {
                 UserId = userId,
-                UserRoadmapId = roadmap.Id,
-                Track = request.Track,
                 StepId = request.StepId,
                 Status = RoadmapStepStatus.Completed,
-                Score = request.Score,
+                Score = requestScore,
                 CompletedAt = nowUtc
             };
             dbContext.UserRoadmapSteps.Add(existingStep);
@@ -89,14 +89,20 @@ public class CompleteRoadmapStepCommandHandler(
         else
         {
             existingStep.Status = RoadmapStepStatus.Completed;
-            existingStep.Score = request.Score;
+            existingStep.Score = requestScore;
             existingStep.CompletedAt = nowUtc;
         }
 
         roadmap.CurrentUnitId = request.StepId;
+        roadmap.UpdatedAt = nowUtc;
 
-        var profile = await dbContext.Profiles.FirstOrDefaultAsync(p => p.Id == userId, ct);
-        profile?.AwardXpAndUpdateStreak(xpAwarded, DateOnly.FromDateTime(nowUtc));
+        var gamification = await dbContext.UserGamifications.FirstOrDefaultAsync(g => g.UserId == userId, ct);
+        if (gamification == null)
+        {
+            gamification = new UserGamification { UserId = userId };
+            dbContext.UserGamifications.Add(gamification);
+        }
+        gamification.AwardXpAndUpdateStreak(xpAwarded, DateOnly.FromDateTime(nowUtc));
 
         await dbContext.SaveChangesAsync(ct);
 

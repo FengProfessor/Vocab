@@ -1,4 +1,4 @@
-﻿using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -18,23 +18,21 @@ public sealed class GetNextDiagnosticProbeQueryHandler(IApplicationDbContext dbC
         int limit = Math.Clamp(request.MaxProbes, 1, 50);
 
         var query = dbContext.FoundationLexicalConcepts.AsNoTracking();
-        if (request.TargetLevel.HasValue)
-        {
-            query = query.Where(c => c.CertLevel == request.TargetLevel.Value);
-        }
+        // SQL foundation_lexical_concepts has no cert_level column: TargetLevel cannot be filtered and CertLevel is returned as null.
+        // frequency_band maps to the curriculum stage, concept_code to the varchar id, headword to lemma.
 
         var probes = await query
-            .OrderBy(c => c.FrequencyBand)
-            .ThenBy(c => c.ConceptCode)
+            .OrderBy(c => c.Stage)
+            .ThenBy(c => c.Id)
             .Take(limit)
             .Select(c => new DiagnosticProbeDto(
                 c.Id,
-                c.ConceptCode,
-                c.Headword,
+                c.Id,
+                c.Lemma,
                 c.Ipa,
                 c.MeaningVi,
-                c.FrequencyBand,
-                c.CertLevel))
+                c.Stage,
+                null))
             .ToListAsync(ct);
 
         return ApiResponse<IReadOnlyList<DiagnosticProbeDto>>.Ok(

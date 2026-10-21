@@ -1,0 +1,21 @@
+.card {
+  margin-bottom: 20px;
+  background: var(--lp-color-bg-container);
+  border-color: var(--lp-color-border-secondary);
+}
+
+.passageTitle {
+  font-size: 15px;
+}
+
+.passage {
+  margin: 0 !important;
+  color: var(--lp-color-text-secondary);
+}
+
+.keywordRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}

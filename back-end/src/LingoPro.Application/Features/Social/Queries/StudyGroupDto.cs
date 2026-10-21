@@ -1,4 +1,4 @@
-﻿using LingoPro.Domain.Enums;
+using LingoPro.Domain.Enums;
 
 namespace LingoPro.Application.Features.Social.Queries;
 
@@ -11,4 +11,14 @@ public sealed record StudyGroupDto(
     string InviteCode,
     int SeatLimit,
     StudyGroupStatus Status,
-    DateTime ExpiresAt);
+    DateTime? ExpiresAt);
+
+
+/// <summary>
+/// Maps the SQL text status of public.groups ('active', 'expired', 'cancelled') to <see cref="StudyGroupStatus"/>.
+/// </summary>
+public static class StudyGroupDtoMapper
+{
+    public static StudyGroupStatus ParseStatus(string? status) =>
+        Enum.TryParse<StudyGroupStatus>(status, ignoreCase: true, out var parsed) ? parsed : StudyGroupStatus.Active;
+}

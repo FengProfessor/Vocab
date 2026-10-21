@@ -1,0 +1,33 @@
+.card {
+  margin-bottom: 20px;
+  background: var(--lp-color-bg-container);
+  border-color: var(--lp-color-border-secondary);
+}
+
+.skillHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.skillValue {
+  color: var(--lp-color-primary);
+}
+
+.summary {
+  padding: 20px;
+  text-align: center;
+  background: var(--lp-color-fill-alter);
+  border-radius: 12px;
+}
+
+.summary :global(.ant-statistic-content-value) {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--lp-color-primary);
+}
+
+.average {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+}

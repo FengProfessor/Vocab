@@ -1,5 +1,6 @@
 ﻿using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
+using LingoPro.Domain.Enums;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,31 +19,35 @@ public class GetDueWordsQueryHandler(
         var today = DateOnly.FromDateTime(DateTime.UtcNow);
         int limit = Math.Clamp(request.Limit, 1, 200);
 
-        var dueItems = await dbContext.SrsProgresses
+        var dueUntil = today.AddDays(1).ToDateTime(TimeOnly.MinValue, DateTimeKind.Utc);
+
+        var rows = await dbContext.SrsProgresses
             .AsNoTracking()
             .Include(s => s.Word)
-            .Where(s => s.UserId == userId && s.NextReviewDate <= today)
+            .Where(s => s.UserId == userId && s.NextReviewDate != null && s.NextReviewDate < dueUntil)
             .OrderBy(s => s.NextReviewDate)
             .Take(limit)
-            .Select(s => new WordWithSrsDto(
+            .ToListAsync(ct);
+
+        // public.words has no topic or CEFR level columns, so Topic/Level are returned as null.
+        IReadOnlyList<WordWithSrsDto> dueItems = rows.Select(s => new WordWithSrsDto(
                 s.Word.Id,
                 s.Word.Term,
                 s.Word.Ipa,
                 s.Word.Translation,
-                s.Word.PartOfSpeech,
+                s.Word.Pos,
                 s.Word.ImageUrl,
-                s.Word.ExampleSentence,
-                s.Word.ExampleTranslation,
-                s.Word.Topic,
-                s.Word.Level,
-                s.State,
-                s.Stability,
-                s.Difficulty,
-                s.IntervalDays,
-                s.NextReviewDate
+                s.Word.Example,
+                s.Word.ExampleVi,
+                null,
+                null,
+                s.State ?? SrsCardState.New,
+                s.Stability ?? 0,
+                s.Difficulty ?? 0,
+                s.IntervalDays ?? 0,
+                s.NextReviewDate.HasValue ? DateOnly.FromDateTime(s.NextReviewDate.Value) : null
             ))
-            .ToListAsync(ct);
-
+            .ToList();
         return ApiResponse<IReadOnlyList<WordWithSrsDto>>.Ok(dueItems, "Due vocabulary queue retrieved successfully.");
     }
 }

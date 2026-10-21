@@ -1,0 +1,14 @@
+.field {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.parseRow {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.previewTitle {
+  display: block;
+  margin-bottom: 8px;
+}

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { Spin, Typography } from 'antd';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import { FullScreenStatus } from '@/components/common/FullScreenStatus';
 import { apiClient } from '@/lib/apiClient';
 import { ReferralTracker } from '@/lib/auth/ReferralTracker';
 import { safeInternalRedirect } from '@/lib/auth/safeInternalRedirect';
@@ -61,22 +61,5 @@ export const AuthCompleteView: React.FC = () => {
     });
   }, [navigate, searchParams, user]);
 
-  return (
-    <div
-      style={{
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: 12,
-        background: '#f6efe6',
-      }}
-    >
-      <Spin size="large" />
-      <Typography.Text strong style={{ color: '#5e4b40' }}>
-        Đang vào học…
-      </Typography.Text>
-    </div>
-  );
+  return <FullScreenStatus message="Đang vào học…" />;
 };

@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Alert, Button, Spin, Typography } from 'antd';
+import { Alert, Button } from 'antd';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import { FullScreenStatus } from '@/components/common/FullScreenStatus';
+import styles from '@/features/auth/GoogleCallbackView.module.css';
 import { AuthApi } from '@/lib/auth/AuthApi';
 import { Pkce } from '@/lib/auth/Pkce';
 import { safeInternalRedirect } from '@/lib/auth/safeInternalRedirect';
@@ -60,9 +62,9 @@ export const GoogleCallbackView: React.FC = () => {
 
   if (error) {
     return (
-      <div style={{ minHeight: '100vh', display: 'grid', placeItems: 'center', padding: 24, background: '#f6efe6' }}>
-        <div style={{ maxWidth: 420, width: '100%' }}>
-          <Alert type="error" showIcon message={error} style={{ marginBottom: 16 }} />
+      <div className={styles.errorScreen}>
+        <div className={styles.errorBox}>
+          <Alert className={styles.errorAlert} type="error" showIcon message={error} />
           <Button type="primary" block onClick={() => navigate('/auth/login', { replace: true })}>
             Quay lại đăng nhập
           </Button>
@@ -71,22 +73,5 @@ export const GoogleCallbackView: React.FC = () => {
     );
   }
 
-  return (
-    <div
-      style={{
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: 12,
-        background: '#f6efe6',
-      }}
-    >
-      <Spin size="large" />
-      <Typography.Text strong style={{ color: '#5e4b40' }}>
-        Đang hoàn tất đăng nhập Google…
-      </Typography.Text>
-    </div>
-  );
+  return <FullScreenStatus message="Đang hoàn tất đăng nhập Google…" />;
 };

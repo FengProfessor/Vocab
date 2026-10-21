@@ -1,4 +1,4 @@
-using LingoPro.Application.Common.Interfaces;
+﻿using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Features.Auth.Queries;
 using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Entities.Classroom;
@@ -35,12 +35,7 @@ internal static class ProfileSyncHelper
                     : normalizedEmail.Split('@')[0],
                 AvatarUrl = authResult.AvatarUrl,
                 Role = effectiveRole,
-                Plan = SubscriptionPlanType.Free,
-                TotalXp = 0,
-                CurrentStreak = 0,
-                LongestStreak = 0,
-                DailyTargetMins = 15,
-                OnboardingCompleted = false
+                Plan = SubscriptionPlanType.Free
             };
 
             dbContext.Profiles.Add(profile);
@@ -84,7 +79,7 @@ internal static class ProfileSyncHelper
             profile.FullName,
             profile.AvatarUrl,
             profile.Role,
-            profile.Plan,
+            profile.Plan ?? SubscriptionPlanType.Free,
             profile.PlanExpiresAt,
             authResult.AccessToken,
             now.AddSeconds(authResult.ExpiresIn),
@@ -93,3 +88,4 @@ internal static class ProfileSyncHelper
             authResult.ExpiresIn);
     }
 }
+

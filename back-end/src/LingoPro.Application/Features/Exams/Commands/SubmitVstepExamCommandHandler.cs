@@ -1,4 +1,4 @@
-using System.Text.Json;
+﻿using System.Text.Json;
 using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Algorithms;
@@ -50,8 +50,7 @@ public class SubmitVstepExamCommandHandler(
         dbContext.ToeicTestResults.Add(resultEntity);
 
         const int xpAwarded = 50;
-        var profile = await dbContext.Profiles.FirstOrDefaultAsync(p => p.Id == userId, ct);
-        profile?.AwardXpAndUpdateStreak(xpAwarded, DateOnly.FromDateTime(DateTime.UtcNow));
+        await LingoPro.Application.Features.Auth.Commands.GamificationAwardHelper.AwardXpAsync(dbContext, userId, xpAwarded, ct);
 
         await dbContext.SaveChangesAsync(ct);
 

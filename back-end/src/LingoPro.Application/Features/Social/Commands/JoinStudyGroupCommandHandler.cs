@@ -1,4 +1,4 @@
-﻿using LingoPro.Application.Features.Social.Queries;
+using LingoPro.Application.Features.Social.Queries;
 using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Entities.Social;
@@ -26,7 +26,7 @@ public sealed class JoinStudyGroupCommandHandler(
             .FirstOrDefaultAsync(x => x.InviteCode == normalizedCode, ct)
             ?? throw new NotFoundException(nameof(StudyGroup), normalizedCode);
 
-        if (group.Status != StudyGroupStatus.Active || group.ExpiresAt <= DateTime.UtcNow)
+        if (group.Status != "active" || group.ExpiresAt <= DateTime.UtcNow)
         {
             throw new ConflictException("This study group is no longer active.");
         }
@@ -53,10 +53,11 @@ public sealed class JoinStudyGroupCommandHandler(
 
         var dto = new StudyGroupDto(
             group.Id,
-            group.Name,
+            // SQL groups has no name column: derive a display name from the invite code.
+            $"Study group {group.InviteCode}",
             group.InviteCode,
             group.SeatLimit,
-            group.Status,
+            StudyGroupDtoMapper.ParseStatus(group.Status),
             group.ExpiresAt);
 
         return ApiResponse<StudyGroupDto>.Ok(dto, "Joined study group successfully.");

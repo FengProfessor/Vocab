@@ -8,6 +8,11 @@ import react from '@vitejs/plugin-react';
  */
 export default defineConfig({
   plugins: [react()],
+  css: {
+    // Inline empty PostCSS config: stops Vite from walking up to the legacy Next.js root postcss.config.mjs
+    // (Tailwind plugin), which allows plain *.css and *.module.css files inside the SPA.
+    postcss: {},
+  },
   resolve: {
     alias: {
       '@': '/src',

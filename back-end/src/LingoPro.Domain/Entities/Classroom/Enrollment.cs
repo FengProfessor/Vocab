@@ -1,4 +1,4 @@
-using LingoPro.Domain.Common;
+﻿using LingoPro.Domain.Common;
 using LingoPro.Domain.Entities.Auth;
 
 namespace LingoPro.Domain.Entities.Classroom;
@@ -6,11 +6,11 @@ namespace LingoPro.Domain.Entities.Classroom;
 /// <summary>
 /// Represents a student's enrollment in a classroom (public.enrollments).
 /// </summary>
-public class Enrollment : BaseAuditableEntity
+public class Enrollment : BaseEntity
 {
-    public Guid ClassroomId { get; set; }
     public Guid StudentId { get; set; }
-    public DateTime JoinedAt { get; set; } = DateTime.UtcNow;
+    public Guid ClassroomId { get; set; }
+    public DateTime? JoinedAt { get; set; }
 
     public virtual ClassroomEntity Classroom { get; set; } = null!;
     public virtual Profile Student { get; set; } = null!;

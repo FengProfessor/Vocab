@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card, Space, Tag, Typography, theme } from 'antd';
+import { Button, Card, Space, Tag, Typography } from 'antd';
 import {
   ArrowRightOutlined,
   CheckCircleFilled,
@@ -8,23 +8,13 @@ import {
   ThunderboltFilled,
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
+import styles from '@/features/roadmap/components/RoadmapStepCard.module.css';
+import { RoadmapStepCardProps } from '@/features/roadmap/types/RoadmapStepCardProps';
 import { RoadmapStepStatus } from '@/types/enums/RoadmapStepStatus';
-import { RoadmapStepMetadataDto } from '@/types/roadmap/RoadmapStepMetadataDto';
-
-interface RoadmapStepCardProps {
-  /** Sequential index of the step (1-based). */
-  stepNumber: number;
-  /** Step metadata. */
-  step: RoadmapStepMetadataDto;
-  /** Whether completion mutation is loading. */
-  isCompleting: boolean;
-  /** Callback to mark step as completed via API. */
-  onCompleteStep: (stepId: string) => void;
-}
 
 /**
- * Individual interactive roadmap milestone card presenting lesson overview,
- * duration, XP reward, and direct execution action.
+ * Roadmap station card: status, estimated duration, XP reward and the action to open or complete it.
+ * Checkpoint / exam stations cannot be self-marked; they complete only after a scored attempt.
  */
 export const RoadmapStepCard: React.FC<RoadmapStepCardProps> = ({
   stepNumber,
@@ -32,86 +22,41 @@ export const RoadmapStepCard: React.FC<RoadmapStepCardProps> = ({
   isCompleting,
   onCompleteStep,
 }) => {
-  const { token } = theme.useToken();
   const navigate = useNavigate();
-
   const isCompleted = step.status === RoadmapStepStatus.Completed;
   const isLocked = step.status === RoadmapStepStatus.Locked;
 
-  const renderStatusTag = (): React.ReactNode => {
-    if (isCompleted) {
-      return (
-        <Tag color="success" icon={<CheckCircleFilled />}>
-          Hoàn thành
-        </Tag>
-      );
-    }
-    if (isLocked) {
-      return (
-        <Tag icon={<LockOutlined />}>
-          Chưa mở khóa
-        </Tag>
-      );
-    }
-    return (
-      <Tag color="processing">
-        Đang học
-      </Tag>
-    );
-  };
+  const cardClassName = [
+    styles.card,
+    isCompleted ? styles.cardCompleted : '',
+    isLocked ? styles.cardLocked : '',
+  ].join(' ');
 
   return (
-    <Card
-      style={{
-        marginBottom: 16,
-        background: isCompleted ? token.colorFillAlter : token.colorBgContainer,
-        borderColor: isCompleted ? token.colorSuccessBorder : token.colorBorderSecondary,
-        opacity: isLocked ? 0.65 : 1,
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: 12,
-        }}
-      >
+    <Card className={cardClassName}>
+      <div className={styles.content}>
         <Space size={14} align="start">
-          <div
-            style={{
-              width: 40,
-              height: 40,
-              borderRadius: '50%',
-              background: isCompleted ? token.colorSuccess : token.colorPrimary,
-              color: '#fff',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontWeight: 700,
-              fontSize: 16,
-              flexShrink: 0,
-            }}
-          >
+          <div className={`${styles.badge} ${isCompleted ? styles.badgeCompleted : ''}`}>
             {isCompleted ? <CheckCircleFilled /> : stepNumber}
           </div>
-
           <div>
-            <Space size={8} style={{ marginBottom: 4 }}>
-              <Typography.Text strong style={{ fontSize: 16 }}>
+            <Space size={8}>
+              <Typography.Text strong className={styles.title}>
                 {step.title}
               </Typography.Text>
-              {renderStatusTag()}
+              {isCompleted && <Tag color="success">Hoàn thành</Tag>}
+              {isLocked && <Tag icon={<LockOutlined />}>Chưa mở khóa</Tag>}
+              {!isCompleted && !isLocked && <Tag color="processing">Đang học</Tag>}
+              {step.isCheckpointOrExam && <Tag color="gold">Kiểm tra ≥ 80%</Tag>}
             </Space>
-            <Typography.Text type="secondary" style={{ display: 'block', fontSize: 13 }}>
+            <Typography.Text type="secondary" className={styles.description}>
               {step.description}
             </Typography.Text>
-            <Space size={14} style={{ marginTop: 8 }}>
-              <Typography.Text type="secondary" style={{ fontSize: 12 }}>
+            <Space size={14} className={styles.meta}>
+              <Typography.Text type="secondary">
                 <ClockCircleOutlined /> {step.estimatedMinutes} phút
               </Typography.Text>
-              <Typography.Text style={{ fontSize: 12, color: '#ca8a04', fontWeight: 600 }}>
+              <Typography.Text className={styles.xp}>
                 <ThunderboltFilled /> +{step.xpReward} XP
               </Typography.Text>
             </Space>
@@ -127,12 +72,8 @@ export const RoadmapStepCard: React.FC<RoadmapStepCardProps> = ({
           >
             Vào bài học
           </Button>
-
-          {!isCompleted && !isLocked && (
-            <Button
-              loading={isCompleting}
-              onClick={() => onCompleteStep(step.stepId)}
-            >
+          {!isCompleted && !isLocked && !step.isCheckpointOrExam && (
+            <Button loading={isCompleting} onClick={() => onCompleteStep(step)}>
               Đánh dấu xong
             </Button>
           )}

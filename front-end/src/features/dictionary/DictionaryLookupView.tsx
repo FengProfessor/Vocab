@@ -1,258 +1,102 @@
 import React, { useState } from 'react';
-import {
-  App,
-  Button,
-  Card,
-  Col,
-  Input,
-  List,
-  Row,
-  Space,
-  Spin,
-  Tag,
-  Typography,
-} from 'antd';
-import { PlusOutlined, SearchOutlined } from '@ant-design/icons';
-import { useQuery } from '@tanstack/react-query';
-import { CertLevelTag } from '@/components/common/CertLevelTag';
+import { App, Button, Card, Empty, Input, Skeleton } from 'antd';
+import { CameraOutlined, SearchOutlined } from '@ant-design/icons';
 import { PageHeaderCard } from '@/components/common/PageHeaderCard';
-import { apiClient } from '@/lib/apiClient';
+import { DictionaryEntryCard } from '@/features/dictionary/components/DictionaryEntryCard';
+import { DictionaryOcrModal } from '@/features/dictionary/components/DictionaryOcrModal';
+import { useDictionaryLookup } from '@/hooks/dictionary/useDictionaryLookup';
+import { DictionaryEntryMapper } from '@/lib/mappers/dictionaryEntryMapper';
+import { useAuthStore } from '@/stores/useAuthStore';
 import { useStudyStore } from '@/stores/useStudyStore';
-import { ApiResponse } from '@/types/api/ApiResponse';
+import { DictionaryEntryData } from '@/types/dictionary/DictionaryEntryData';
 import { CertLevel } from '@/types/enums/CertLevel';
-import { PartOfSpeechType } from '@/types/enums/PartOfSpeechType';
 
 /**
- * Server dictionary entry DTO returned by GET /api/v1/dictionary/lookup.
- */
-interface ServerDictionaryEntryDto {
-  id: string;
-  term: string;
-  ipa: string;
-  partOfSpeech: string;
-  definitionsJson: string;
-  collocationsJson: string;
-  synonymsJson: string;
-  antonymsJson: string;
-  bestContextualSenseIndex: number | null;
-}
-
-/**
- * Parsed definition sense structure inside definitionsJson.
- */
-interface ParsedSenseItem {
-  sense?: number;
-  en: string;
-  vi: string;
-  example?: string;
-}
-
-const QUICK_TERMS: string[] = ['ubiquitous', 'resilient', 'mitigate', 'pragmatic'];
-
-/**
- * Academic & TOEIC Dictionary Lookup view calling GET /api/v1/dictionary/lookup dynamically on the .NET 10 server.
+ * Academic dictionary: contextual lookup (GET /dictionary/lookup), OCR word extraction and saving to the FSRS deck.
  */
 export const DictionaryLookupView: React.FC = () => {
   const { message } = App.useApp();
-  const { addWordToDeck } = useStudyStore();
-  const [searchTerm, setSearchTerm] = useState<string>('ubiquitous');
-  const [inputVal, setInputVal] = useState<string>('ubiquitous');
+  const addWordToDeck = useStudyStore((state) => state.addWordToDeck);
+  const certLevel = useAuthStore((state) => state.user?.targetCertLevel ?? CertLevel.B1);
 
-  const lookupQuery = useQuery({
-    queryKey: ['dictionary-lookup', searchTerm],
-    queryFn: async () => {
-      const response = await apiClient.get<ApiResponse<ServerDictionaryEntryDto>>(
-        `/dictionary/lookup?term=${encodeURIComponent(searchTerm)}`
+  const [inputValue, setInputValue] = useState<string>('');
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [ocrOpen, setOcrOpen] = useState<boolean>(false);
+
+  const lookup = useDictionaryLookup(searchTerm);
+
+  const search = (term: string): void => {
+    setInputValue(term);
+    setSearchTerm(term.trim());
+  };
+
+  const handleAddToDeck = (entry: DictionaryEntryData): void => {
+    addWordToDeck(DictionaryEntryMapper.toDeckWord(entry, certLevel));
+    void message.success(`Đã thêm "${entry.term}" vào hàng đợi ôn tập FSRS v5!`);
+  };
+
+  const renderResult = (): React.ReactNode => {
+    if (!searchTerm) {
+      return (
+        <Card>
+          <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="Nhập một từ tiếng Anh để bắt đầu tra cứu." />
+        </Card>
       );
-      return response.data.data;
-    },
-    enabled: Boolean(searchTerm.trim()),
-  });
-
-  const entry = lookupQuery.data;
-
-  let senses: ParsedSenseItem[] = [];
-  let collocations: string[] = [];
-  let synonyms: string[] = [];
-  let antonyms: string[] = [];
-
-  if (entry) {
-    try {
-      senses = JSON.parse(entry.definitionsJson) as ParsedSenseItem[];
-    } catch {
-      senses = [{ en: entry.definitionsJson, vi: entry.definitionsJson }];
     }
-    try {
-      collocations = JSON.parse(entry.collocationsJson) as string[];
-    } catch {
-      collocations = [];
+    if (lookup.isLoading) {
+      return (
+        <Card>
+          <Skeleton active paragraph={{ rows: 6 }} />
+        </Card>
+      );
     }
-    try {
-      synonyms = JSON.parse(entry.synonymsJson) as string[];
-    } catch {
-      synonyms = [];
+    if (!lookup.data) {
+      return (
+        <Card>
+          <Empty
+            image={Empty.PRESENTED_IMAGE_SIMPLE}
+            description={`Không tìm thấy từ "${searchTerm}" trong kho từ điển.`}
+          >
+            <Button type="primary" onClick={() => setOcrOpen(true)}>
+              Thử nhận diện từ qua ảnh (OCR)
+            </Button>
+          </Empty>
+        </Card>
+      );
     }
-    try {
-      antonyms = JSON.parse(entry.antonymsJson) as string[];
-    } catch {
-      antonyms = [];
-    }
-  }
+    return <DictionaryEntryCard entry={lookup.data} onAddToDeck={handleAddToDeck} />;
+  };
 
   return (
     <div>
       <PageHeaderCard
-        badgeText="MODULE 06 • ACADEMIC DICTIONARY & COLLOCATION EXPLORER (DYNAMIC API)"
-        title="Từ điển Học thuật, Collocations & Paraphrasing"
-        subtitle="Tra cứu trực tiếp từ máy chủ .NET 10 (GET /api/v1/dictionary/lookup) với phân tích ngữ nghĩa theo ngữ cảnh."
+        badgeText="MODULE 06 • ACADEMIC DICTIONARY"
+        title="Từ Điển Học Thuật VSTEP & TOEIC"
+        subtitle="Tra cứu nét nghĩa theo ngữ cảnh, collocations, IPA giọng US và nhận diện từ qua ảnh OCR."
+        extra={
+          <Button icon={<CameraOutlined />} onClick={() => setOcrOpen(true)}>
+            Quét từ qua ảnh (OCR)
+          </Button>
+        }
       />
 
-      <Card style={{ marginBottom: 20 }}>
-        <Space direction="vertical" size={12} style={{ width: '100%' }}>
-          <Input.Search
-            size="large"
-            allowClear
-            enterButton="Tra cứu Server"
-            prefix={<SearchOutlined />}
-            placeholder="Nhập bất kỳ từ tiếng Anh nào để tra cứu từ Server (ví dụ: ubiquitous, resilient, mitigate, pragmatic)..."
-            value={inputVal}
-            onChange={(e) => setInputVal(e.target.value)}
-            onSearch={(val) => {
-              if (val.trim()) {
-                setSearchTerm(val.trim());
-              }
-            }}
-          />
-          <Space wrap>
-            <Typography.Text type="secondary">Tra nhanh:</Typography.Text>
-            {QUICK_TERMS.map((term) => (
-              <Tag
-                key={term}
-                color={searchTerm.toLowerCase() === term ? 'indigo' : 'default'}
-                style={{ cursor: 'pointer' }}
-                onClick={() => {
-                  setInputVal(term);
-                  setSearchTerm(term);
-                }}
-              >
-                {term}
-              </Tag>
-            ))}
-          </Space>
-        </Space>
+      <Card className="lp-mb-20">
+        <Input.Search
+          size="large"
+          allowClear
+          enterButton="Tra cứu"
+          prefix={<SearchOutlined />}
+          loading={lookup.isFetching}
+          value={inputValue}
+          placeholder="Nhập từ vựng tiếng Anh cần tra cứu..."
+          onChange={(event) => setInputValue(event.target.value)}
+          onSearch={search}
+        />
       </Card>
 
-      {lookupQuery.isFetching ? (
-        <Card style={{ textAlign: 'center', padding: 40 }}>
-          <Spin size="large" />
-        </Card>
-      ) : (
-        entry && (
-          <Row gutter={[16, 16]}>
-            <Col xs={24}>
-              <Card
-                title={
-                  <Space wrap>
-                    <Typography.Title level={3} style={{ margin: 0 }}>
-                      {entry.term}
-                    </Typography.Title>
-                    <Typography.Text type="secondary" style={{ fontSize: 16 }}>
-                      {entry.ipa}
-                    </Typography.Text>
-                    <Tag color="cyan">{entry.partOfSpeech}</Tag>
-                    <CertLevelTag level={CertLevel.C1} />
-                  </Space>
-                }
-                extra={
-                  <Button
-                    type="primary"
-                    icon={<PlusOutlined />}
-                    onClick={() => {
-                      addWordToDeck({
-                        word: entry.term,
-                        phonetic: entry.ipa,
-                        partOfSpeech: PartOfSpeechType.Adjective,
-                        meaningVi: senses[0]?.vi ?? '',
-                        definitionEn: senses[0]?.en ?? '',
-                        exampleEn: senses[0]?.example ?? '',
-                        exampleVi: senses[0]?.vi ?? '',
-                        certLevel: CertLevel.C1,
-                        audioUrl: null,
-                      });
-                      void message.success(`Đã thêm "${entry.term}" vào bộ thẻ FSRS v5!`);
-                    }}
-                  >
-                    Đưa vào FSRS v5
-                  </Button>
-                }
-              >
-                <Space direction="vertical" size={14} style={{ width: '100%' }}>
-                  <List
-                    bordered
-                    dataSource={senses}
-                    renderItem={(sense) => (
-                      <List.Item>
-                        <Space direction="vertical" size={4}>
-                          <Typography.Text strong style={{ fontSize: 16, color: '#0f766e' }}>
-                            {sense.vi}
-                          </Typography.Text>
-                          <Typography.Text>{sense.en}</Typography.Text>
-                          {sense.example && (
-                            <Typography.Text type="secondary" italic>
-                              Ví dụ: &ldquo;{sense.example}&rdquo;
-                            </Typography.Text>
-                          )}
-                        </Space>
-                      </List.Item>
-                    )}
-                  />
+      {renderResult()}
 
-                  <div>
-                    <Typography.Text strong style={{ marginRight: 8 }}>
-                      Collocations ăn điểm:
-                    </Typography.Text>
-                    <Space wrap>
-                      {collocations.map((col) => (
-                        <Tag key={col} color="geekblue">
-                          {col}
-                        </Tag>
-                      ))}
-                    </Space>
-                  </div>
-
-                  <div>
-                    <Typography.Text strong style={{ marginRight: 8 }}>
-                      Từ đồng nghĩa (Paraphrasing):
-                    </Typography.Text>
-                    <Space wrap>
-                      {synonyms.map((syn) => (
-                        <Tag key={syn} color="purple">
-                          {syn}
-                        </Tag>
-                      ))}
-                    </Space>
-                  </div>
-
-                  {antonyms.length > 0 && (
-                    <div>
-                      <Typography.Text strong style={{ marginRight: 8 }}>
-                        Từ trái nghĩa (Antonyms):
-                      </Typography.Text>
-                      <Space wrap>
-                        {antonyms.map((ant) => (
-                          <Tag key={ant} color="volcano">
-                            {ant}
-                          </Tag>
-                        ))}
-                      </Space>
-                    </div>
-                  )}
-                </Space>
-              </Card>
-            </Col>
-          </Row>
-        )
-      )}
+      <DictionaryOcrModal open={ocrOpen} onClose={() => setOcrOpen(false)} onSelectTerm={search} />
     </div>
   );
 };

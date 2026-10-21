@@ -1,0 +1,13 @@
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  background: var(--lp-color-primary);
+}
+
+.name {
+  display: block;
+}

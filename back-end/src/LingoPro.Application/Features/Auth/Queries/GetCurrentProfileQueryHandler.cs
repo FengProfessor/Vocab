@@ -1,4 +1,4 @@
-using LingoPro.Application.Common.Interfaces;
+﻿using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Exceptions;
 using MediatR;
@@ -25,22 +25,10 @@ public class GetCurrentProfileQueryHandler(
                 ct)
             ?? throw new NotFoundException("Profile", userId);
 
-        var dto = new ProfileDto(
-            profile.Id,
-            profile.Email,
-            profile.FullName,
-            profile.AvatarUrl,
-            profile.Role,
-            profile.Plan,
-            profile.PlanExpiresAt,
-            profile.TotalXp,
-            profile.CurrentStreak,
-            profile.LongestStreak,
-            profile.LearningGoal,
-            profile.DailyTargetMins,
-            profile.OnboardingCompleted
-        );
+        var gamification = await dbContext.UserGamifications.AsNoTracking().FirstOrDefaultAsync(g => g.UserId == profile.Id, ct);
+        var dto = ProfileDtoMapper.ToDto(profile, gamification);
 
         return ApiResponse<ProfileDto>.Ok(dto, "User profile retrieved successfully.");
     }
 }
+

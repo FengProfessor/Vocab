@@ -1,0 +1,12 @@
+.flame {
+  color: var(--lp-color-error);
+}
+
+.fund :global(.ant-statistic-content-value) {
+  color: var(--lp-color-success);
+  font-weight: 700;
+}
+
+.description {
+  margin-bottom: 0 !important;
+}

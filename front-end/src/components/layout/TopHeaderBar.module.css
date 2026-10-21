@@ -1,0 +1,24 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background: var(--lp-color-bg-container);
+  border-bottom: 1px solid var(--lp-color-border-secondary);
+}
+
+.title {
+  font-size: 15px;
+}
+
+.select {
+  width: 155px;
+}
+
+.tag {
+  margin: 0;
+  font-weight: 700;
+}

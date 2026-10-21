@@ -1,35 +1,14 @@
 import React, { createContext, useContext, useEffect, useState, useMemo } from 'react';
-import type { ThemeConfig } from 'antd';
+import { applyThemeCssVariables } from '@/theme/applyThemeCssVariables';
 import { darkTheme } from '@/theme/darkTheme';
 import { lightTheme } from '@/theme/lightTheme';
 import { ThemeMode } from '@/theme/ThemeMode';
-
-/**
- * Contract for the application theme context.
- */
-export interface IThemeContextState {
-  /** Current configured theme mode (Light, Dark, or System). */
-  mode: ThemeMode;
-  /** Active Ant Design ThemeConfig. */
-  themeConfig: ThemeConfig;
-  /** Whether the effective active theme is Dark mode. */
-  isDark: boolean;
-  /** Toggle between Light and Dark themes. */
-  toggleTheme: () => void;
-  /** Explicitly set a theme mode. */
-  setThemeMode: (mode: ThemeMode) => void;
-}
+import { IThemeContextState } from '@/theme/types/IThemeContextState';
+import { ThemeProviderProps } from '@/theme/types/ThemeProviderProps';
 
 const STORAGE_KEY = 'lingopro_theme_mode';
 
 const ThemeContext = createContext<IThemeContextState | undefined>(undefined);
-
-/**
- * Props for ThemeProvider.
- */
-interface ThemeProviderProps {
-  children: React.ReactNode;
-}
 
 /**
  * Provider wrapping the application to manage and persist theme state across sessions.
@@ -64,6 +43,10 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     if (mode === ThemeMode.Light) return false;
     return systemIsDark;
   }, [mode, systemIsDark]);
+
+  useEffect(() => {
+    applyThemeCssVariables(isDark ? darkTheme : lightTheme);
+  }, [isDark]);
 
   useEffect(() => {
     try {

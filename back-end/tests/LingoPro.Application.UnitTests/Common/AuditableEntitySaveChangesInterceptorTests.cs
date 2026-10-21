@@ -1,6 +1,5 @@
 using LingoPro.Application.Common.Interfaces;
 using LingoPro.Domain.Entities.Vocab;
-using LingoPro.Domain.Enums;
 using LingoPro.Infrastructure.Persistence;
 using LingoPro.Infrastructure.Persistence.Interceptors;
 using Microsoft.EntityFrameworkCore;
@@ -36,7 +35,7 @@ public sealed class AuditableEntitySaveChangesInterceptorTests
             Id = Guid.NewGuid(),
             Term = "resilience",
             Translation = "khả năng phục hồi",
-            Level = CertLevel.B2
+            ClassroomId = Guid.NewGuid()
         };
 
         // Act 1 - Add
@@ -45,8 +44,6 @@ public sealed class AuditableEntitySaveChangesInterceptorTests
 
         Assert.Multiple(() =>
         {
-            Assert.That(word.CreatedBy, Is.EqualTo(actorId));
-            Assert.That(word.UpdatedBy, Is.EqualTo(actorId));
             Assert.That(word.IsDeleted, Is.False);
             Assert.That(word.DeletedAt, Is.Null);
             Assert.That(word.DeletedBy, Is.Null);

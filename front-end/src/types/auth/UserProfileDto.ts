@@ -40,4 +40,10 @@ export interface UserProfileDto {
 
   /** Total accumulated XP points. */
   totalXp: number;
+
+  /** Learning goal chosen during onboarding, if any. */
+  learningGoal?: string | null;
+
+  /** Daily study target in minutes (5..180). */
+  dailyTargetMins?: number;
 }

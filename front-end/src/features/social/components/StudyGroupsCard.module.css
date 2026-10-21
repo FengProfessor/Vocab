@@ -1,0 +1,13 @@
+.group {
+  background: var(--lp-color-fill-alter);
+}
+
+.groupRow {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.groupMeta {
+  display: block;
+  font-size: 12px;
+}

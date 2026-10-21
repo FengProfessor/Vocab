@@ -1,0 +1,26 @@
+.stats {
+  display: flex;
+  justify-content: space-around;
+  padding: 16px 8px;
+  margin-bottom: 20px;
+  background: var(--lp-color-fill-alter);
+  border-radius: 12px;
+}
+
+.trophy {
+  color: var(--lp-color-success);
+  font-size: 56px;
+}
+
+.xpIcon {
+  color: var(--lp-color-warning);
+}
+
+.streakIcon {
+  color: var(--lp-color-error);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}

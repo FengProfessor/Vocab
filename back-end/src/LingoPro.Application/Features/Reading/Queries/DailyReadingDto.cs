@@ -10,7 +10,7 @@ public record DailyReadingDto(
     DateOnly ExerciseDate,
     string Title,
     string PassageContent,
-    CertLevel CertLevel,
+    string? CertLevel,
     string UsedWordsJson,
     string McqQuestionsJson,
     string ClozeItemsJson,

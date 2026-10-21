@@ -1,85 +1,54 @@
 import React from 'react';
-import { Card, Col, Progress, Row, Space, Typography, theme } from 'antd';
-import {
-  BookOutlined,
-  CustomerServiceOutlined,
-  FontColorsOutlined,
-  ReadOutlined,
-} from '@ant-design/icons';
-
-interface SkillMetric {
-  key: string;
-  name: string;
-  percent: number;
-  icon: React.ReactNode;
-  color: string;
-}
+import { Card, Col, Progress, Row, Space, Typography } from 'antd';
+import { SKILL_MASTERY_DEFINITIONS } from '@/config/skillMasteryDefinitions';
+import styles from '@/features/roadmap/components/StudentMasteryRadar.module.css';
+import { FsrsEngine } from '@/lib/fsrsEngine';
+import { useStudyStore } from '@/stores/useStudyStore';
+import { SkillMasteryItem } from '@/types/roadmap/SkillMasteryItem';
 
 /**
- * Visual skill competency overview displaying progress bars for Vocabulary, Grammar, Reading, and Listening.
+ * Skill mastery overview. Vocabulary mastery is computed from the learner's real FSRS deck;
+ * the other skills show "Chưa có dữ liệu" until the backend exposes them.
+ * TODO: [Backend API Required] GET /api/v1/student/mastery for grammar, reading and listening mastery.
  */
 export const StudentMasteryRadar: React.FC = () => {
-  const { token } = theme.useToken();
+  const words = useStudyStore((state) => state.words);
 
-  const skills: SkillMetric[] = [
-    {
-      key: 'vocab',
-      name: 'Từ vựng FSRS v5',
-      percent: 74,
-      icon: <BookOutlined style={{ color: '#4f46e5' }} />,
-      color: '#4f46e5',
-    },
-    {
-      key: 'grammar',
-      name: 'Ngữ pháp 4 Bước',
-      percent: 62,
-      icon: <FontColorsOutlined style={{ color: '#0284c7' }} />,
-      color: '#0284c7',
-    },
-    {
-      key: 'reading',
-      name: 'Đọc hiểu Song ngữ',
-      percent: 85,
-      icon: <ReadOutlined style={{ color: '#10b981' }} />,
-      color: '#10b981',
-    },
-    {
-      key: 'listening',
-      name: 'Nghe chép chính tả TOEIC',
-      percent: 58,
-      icon: <CustomerServiceOutlined style={{ color: '#f59e0b' }} />,
-      color: '#f59e0b',
-    },
-  ];
+  const vocabPercent =
+    words.length === 0
+      ? null
+      : Math.round(
+          words.reduce(
+            (sum, w) => sum + FsrsEngine.getStrengthPercent(w.repetitions, w.easeFactor, w.stability),
+            0
+          ) / words.length
+        );
+
+  const items: SkillMasteryItem[] = SKILL_MASTERY_DEFINITIONS.map((definition) => ({
+    ...definition,
+    percent: definition.key === 'vocab' ? vocabPercent : null,
+  }));
 
   return (
-    <Card
-      title="Độ thành thạo 4 Kỹ năng Cốt lõi"
-      style={{
-        marginBottom: 24,
-        background: token.colorBgContainer,
-        borderColor: token.colorBorderSecondary,
-      }}
-    >
+    <Card title="Độ thành thạo các kỹ năng cốt lõi" className={styles.card}>
       <Row gutter={[24, 20]}>
-        {skills.map((skill) => (
-          <Col xs={24} sm={12} key={skill.key}>
-            <Space direction="vertical" size={6} style={{ width: '100%' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        {items.map((item) => (
+          <Col xs={24} sm={12} key={item.key}>
+            <Space direction="vertical" size={6} className="lp-full-width">
+              <div className={styles.rowHeader}>
                 <Space size={8}>
-                  {skill.icon}
-                  <Typography.Text strong>{skill.name}</Typography.Text>
+                  {item.icon}
+                  <Typography.Text strong>{item.name}</Typography.Text>
                 </Space>
-                <Typography.Text strong style={{ color: skill.color }}>
-                  {skill.percent}%
-                </Typography.Text>
+                {item.percent === null ? (
+                  <Typography.Text type="secondary">Chưa có dữ liệu</Typography.Text>
+                ) : (
+                  <Typography.Text strong className={styles.percent}>
+                    {item.percent}%
+                  </Typography.Text>
+                )}
               </div>
-              <Progress
-                percent={skill.percent}
-                strokeColor={skill.color}
-                showInfo={false}
-                size="small"
-              />
+              <Progress percent={item.percent ?? 0} showInfo={false} size="small" />
             </Space>
           </Col>
         ))}
