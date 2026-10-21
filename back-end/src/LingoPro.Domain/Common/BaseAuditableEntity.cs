@@ -1,20 +1,21 @@
 namespace LingoPro.Domain.Common;
 
 /// <summary>
-/// Base class for auditable domain entities tracking creation, modification, and soft-deletion audit metadata.
+/// Base class for auditable entities: GUID primary key, creation/modification audit metadata and soft-deletion columns.
+/// All audit columns are nullable so legacy rows restored from the old Supabase database remain valid.
 /// </summary>
-public abstract class BaseAuditableEntity : BaseEntity
+public abstract class BaseAuditableEntity : BaseEntity, ISoftDelete
 {
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-    public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+    public DateTime? CreatedAt { get; set; } = DateTime.UtcNow;
+    public DateTime? UpdatedAt { get; set; } = DateTime.UtcNow;
     public Guid? CreatedBy { get; set; }
     public Guid? UpdatedBy { get; set; }
+    public bool? IsDeleted { get; set; } = false;
     public DateTime? DeletedAt { get; set; }
     public Guid? DeletedBy { get; set; }
-    public bool? IsDeleted { get; set; } = false;
 
     /// <summary>
-    /// Marks the entity as soft-deleted and updates deletion and modification audit fields.
+    /// Marks the entity as soft-deleted and records who deleted it and when.
     /// </summary>
     public void MarkAsDeleted(Guid? deletedBy = null, DateTime? deletedAtUtc = null)
     {
@@ -39,4 +40,3 @@ public abstract class BaseAuditableEntity : BaseEntity
         UpdatedBy = restoredBy ?? UpdatedBy;
     }
 }
-

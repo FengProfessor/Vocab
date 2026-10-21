@@ -18,26 +18,26 @@ public class ConfirmOrderPaidCommandHandler(IApplicationDbContext dbContext)
     {
         string normalizedCode = request.TransferCode.Trim().ToUpperInvariant();
         var order = await dbContext.Orders
-            .FirstOrDefaultAsync(o => o.TransferCode == normalizedCode, ct)
+            .FirstOrDefaultAsync(o => o.PaymentRef == normalizedCode, ct)
             ?? throw new NotFoundException("Order", normalizedCode);
 
         if (order.Status == OrderStatus.Paid)
         {
-            string existingQr = $"https://img.vietqr.io/image/MB-0123456789-compact2.png?amount={order.Amount}&addInfo={order.TransferCode}";
+            string existingQr = $"https://img.vietqr.io/image/MB-0123456789-compact2.png?amount={order.Amount}&addInfo={order.PaymentRef}";
             return ApiResponse<OrderDto>.Ok(
                 new OrderDto(
                     order.Id,
-                    order.UserId,
-                    order.PlanId,
+                    order.UserId ?? Guid.Empty,
+                    order.Plan,
                     order.OrderKind,
-                    order.DurationMonths,
-                    order.SeatLimit,
+                    order.PeriodMonths ?? 1,
+                    order.Seats,
                     order.Amount,
-                    order.Currency,
-                    order.Status,
-                    order.TransferCode,
+                    order.Currency ?? "VND",
+                    order.Status ?? OrderStatus.Pending,
+                    order.PaymentRef ?? string.Empty,
                     existingQr,
-                    order.CreatedAt,
+                    order.CreatedAt ?? DateTime.UtcNow,
                     order.PaidAt),
                 "Order was already marked as paid (idempotent response)."
             );
@@ -53,7 +53,11 @@ public class ConfirmOrderPaidCommandHandler(IApplicationDbContext dbContext)
         var nowUtc = DateTime.UtcNow;
         order.Status = OrderStatus.Paid;
         order.PaidAt = nowUtc;
-        order.GatewayTransactionId = request.GatewayTransactionId;
+        // SQL orders have no gateway_transaction_id column: keep it in the free-text note.
+        if (!string.IsNullOrWhiteSpace(request.GatewayTransactionId))
+        {
+            order.Note = $"gateway_tx:{request.GatewayTransactionId}";
+        }
 
         var profile = await dbContext.Profiles.FirstOrDefaultAsync(p => p.Id == order.UserId, ct)
             ?? throw new NotFoundException("Profile", order.UserId);
@@ -63,42 +67,42 @@ public class ConfirmOrderPaidCommandHandler(IApplicationDbContext dbContext)
             DateTime baseDate = profile.PlanExpiresAt.HasValue && profile.PlanExpiresAt.Value > nowUtc
                 ? profile.PlanExpiresAt.Value
                 : nowUtc;
-            profile.GrantSubscriptionEntitlement(order.PlanId, baseDate.AddMonths(order.DurationMonths));
+            profile.GrantSubscriptionEntitlement(order.Plan, baseDate.AddMonths(order.PeriodMonths ?? 1));
         }
         else if (order.OrderKind == OrderKind.Group)
         {
             var existingGroup = await dbContext.StudyGroups
                 .Include(g => g.Members)
-                .FirstOrDefaultAsync(g => g.OwnerId == order.UserId, ct);
+                .FirstOrDefaultAsync(g => g.OwnerId == profile.Id, ct);
 
             DateTime baseExpiry = existingGroup != null && existingGroup.ExpiresAt > nowUtc
-                ? existingGroup.ExpiresAt
+                ? existingGroup.ExpiresAt.Value
                 : nowUtc;
-            DateTime newExpiry = baseExpiry.AddMonths(order.DurationMonths);
+            DateTime newExpiry = baseExpiry.AddMonths(order.PeriodMonths ?? 1);
 
             if (existingGroup == null)
             {
                 existingGroup = new StudyGroup
                 {
-                    Name = $"{profile.FullName}'s Pro Group",
-                    OwnerId = order.UserId,
+                    OwnerId = profile.Id,
                     InviteCode = $"GRP-{Guid.NewGuid().ToString("N")[..6].ToUpperInvariant()}",
-                    SeatLimit = order.SeatLimit,
-                    Status = StudyGroupStatus.Active,
+                    SeatLimit = order.Seats,
+                    Status = "active",
+                    OrderId = order.Id,
                     ExpiresAt = newExpiry
                 };
                 dbContext.StudyGroups.Add(existingGroup);
                 dbContext.GroupMembers.Add(new GroupMember
                 {
                     GroupId = existingGroup.Id,
-                    UserId = order.UserId,
+                    UserId = profile.Id,
                     JoinedAt = nowUtc
                 });
             }
             else
             {
-                existingGroup.Status = StudyGroupStatus.Active;
-                existingGroup.SeatLimit = Math.Max(existingGroup.SeatLimit, order.SeatLimit);
+                existingGroup.Status = "active";
+                existingGroup.SeatLimit = Math.Max(existingGroup.SeatLimit, order.Seats);
                 existingGroup.ExpiresAt = newExpiry;
             }
 
@@ -108,8 +112,7 @@ public class ConfirmOrderPaidCommandHandler(IApplicationDbContext dbContext)
         {
             var participant = await dbContext.ChallengeParticipants
                 .FirstOrDefaultAsync(cp =>
-                    cp.OrderId == order.Id ||
-                    (cp.ChallengeId == order.TargetChallengeId && cp.UserId == order.UserId), ct);
+                    cp.OrderId == order.Id, ct);
 
             if (participant != null)
             {
@@ -120,20 +123,20 @@ public class ConfirmOrderPaidCommandHandler(IApplicationDbContext dbContext)
 
         await dbContext.SaveChangesAsync(ct);
 
-        string qrUrl = $"https://img.vietqr.io/image/MB-0123456789-compact2.png?amount={order.Amount}&addInfo={order.TransferCode}";
+        string qrUrl = $"https://img.vietqr.io/image/MB-0123456789-compact2.png?amount={order.Amount}&addInfo={order.PaymentRef}";
         var dto = new OrderDto(
             order.Id,
-            order.UserId,
-            order.PlanId,
+            order.UserId ?? Guid.Empty,
+            order.Plan,
             order.OrderKind,
-            order.DurationMonths,
-            order.SeatLimit,
+            order.PeriodMonths ?? 1,
+            order.Seats,
             order.Amount,
-            order.Currency,
-            order.Status,
-            order.TransferCode,
+            order.Currency ?? "VND",
+            order.Status ?? OrderStatus.Pending,
+            order.PaymentRef ?? string.Empty,
             qrUrl,
-            order.CreatedAt,
+            order.CreatedAt ?? DateTime.UtcNow,
             order.PaidAt
         );
 

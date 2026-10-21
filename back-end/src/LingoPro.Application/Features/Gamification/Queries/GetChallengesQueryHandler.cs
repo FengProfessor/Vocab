@@ -1,6 +1,8 @@
+using System.Text.Json;
 using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
 using LingoPro.Application.Features.Gamification.Commands;
+using LingoPro.Domain.Enums;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,22 +18,51 @@ public sealed class GetChallengesQueryHandler(
         GetChallengesQuery request,
         CancellationToken ct)
     {
-        var challenges = await dbContext.Challenges
+        var rows = await dbContext.Challenges
             .AsNoTracking()
-            .OrderByDescending(c => c.StartDate)
-            .Select(c => new ChallengeDto(
+            .OrderByDescending(c => c.StartsAt)
+            .Select(c => new
+            {
                 c.Id,
-                c.Title,
+                c.Name,
                 c.Description,
-                c.StartDate,
-                c.EndDate,
-                c.DailyTargetWords,
+                c.StartsAt,
+                c.EndsAt,
+                c.DailyCriteria,
                 c.MaxParticipants,
-                c.Participants.Count,
+                ParticipantCount = c.Participants.Count,
                 c.DepositAmount,
-                c.Status))
+                c.Status
+            })
             .ToListAsync(ct);
 
+        // SQL has no daily_target_words column: derive it from daily_criteria.min_srs_reviews.
+        var challenges = rows.Select(c => new ChallengeDto(
+            c.Id,
+            c.Name,
+            c.Description ?? string.Empty,
+            DateOnly.FromDateTime(c.StartsAt),
+            DateOnly.FromDateTime(c.EndsAt),
+            ParseDailyTarget(c.DailyCriteria),
+            c.MaxParticipants ?? 0,
+            c.ParticipantCount,
+            c.DepositAmount,
+            c.Status ?? ChallengeStatus.Draft)).ToList();
+
         return ApiResponse<IReadOnlyList<ChallengeDto>>.Ok(challenges, "Commitment challenges retrieved successfully.");
+    }
+
+    private static int ParseDailyTarget(string? dailyCriteria)
+    {
+        if (string.IsNullOrWhiteSpace(dailyCriteria)) return 0;
+        try
+        {
+            using var doc = JsonDocument.Parse(dailyCriteria);
+            return doc.RootElement.TryGetProperty("min_srs_reviews", out var v) && v.TryGetInt32(out var n) ? n : 0;
+        }
+        catch (JsonException)
+        {
+            return 0;
+        }
     }
 }

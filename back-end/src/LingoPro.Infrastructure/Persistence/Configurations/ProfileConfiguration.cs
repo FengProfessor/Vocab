@@ -1,4 +1,6 @@
-using LingoPro.Domain.Entities.Auth;
+﻿using LingoPro.Domain.Entities.Auth;
+using LingoPro.Domain.Enums;
+using LingoPro.Infrastructure.Persistence.Converters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -13,12 +15,18 @@ public sealed class ProfileConfiguration : IEntityTypeConfiguration<Profile>
     {
         builder.ToTable("profiles", "public");
         builder.HasKey(x => x.Id);
+        builder.Property(x => x.Id).ValueGeneratedNever();
 
-        builder.Property(x => x.Email).HasColumnName("email").IsRequired().HasMaxLength(256);
-        builder.HasIndex(x => x.Email).IsUnique();
+        builder.Property(x => x.Email).IsRequired();
+        builder.Property(x => x.Role).HasConversion(new SnakeCaseEnumConverter<UserRole>()).HasDefaultValue(UserRole.Student);
+        builder.Property(x => x.Plan).HasConversion(new SnakeCaseEnumConverter<SubscriptionPlanType>()).HasDefaultValueSql("'free'");
+        builder.Property(x => x.CreatedAt).HasDefaultValueSql("now()");
+        builder.Property(x => x.DailyGoal).HasDefaultValue(10);
+        builder.Property(x => x.NotificationHour).HasDefaultValue(20);
 
-        builder.Property(x => x.FullName).HasColumnName("full_name").HasMaxLength(200);
-        builder.Property(x => x.Role).HasColumnName("role").HasConversion<string>().HasMaxLength(32);
-        builder.Property(x => x.Plan).HasColumnName("plan").HasConversion<string>().HasMaxLength(64);
+        builder.HasIndex(x => x.FcmToken).HasFilter("fcm_token is not null").HasDatabaseName("idx_profiles_fcm_token");
+        builder.HasIndex(x => x.PlanExpiresAt).HasFilter("plan_expires_at is not null").HasDatabaseName("idx_profiles_plan_expires");
+        builder.HasIndex(x => x.ProMilestoneEnrolledAt).HasFilter("pro_milestone_enrolled_at is not null").HasDatabaseName("idx_profiles_pro_milestone_enrolled");
+        builder.HasIndex(x => x.Province).HasFilter("province is not null").HasDatabaseName("idx_profiles_province");
     }
 }

@@ -32,11 +32,11 @@ public class GetDailyReadingQueryHandler(
                 exercise.Id,
                 exercise.ExerciseDate,
                 exercise.Title,
-                exercise.PassageContent,
-                exercise.CertLevel,
-                exercise.UsedWordsJson,
-                exercise.McqQuestionsJson,
-                exercise.ClozeItemsJson,
+                exercise.Passage,
+                exercise.Level,
+                System.Text.Json.JsonSerializer.Serialize(exercise.UsedWords ?? []),
+                exercise.Questions,
+                exercise.Cloze,
                 isCompleted),
             "Daily reading exercise retrieved successfully.");
     }

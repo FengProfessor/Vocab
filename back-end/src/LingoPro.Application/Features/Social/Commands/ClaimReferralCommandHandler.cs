@@ -1,4 +1,4 @@
-﻿using LingoPro.Application.Features.Social.Queries;
+using LingoPro.Application.Features.Social.Queries;
 using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Entities.Social;
@@ -35,7 +35,7 @@ public sealed class ClaimReferralCommandHandler(
 
         var link = await dbContext.ReferralLinks
             .AsNoTracking()
-            .FirstOrDefaultAsync(x => x.Code == code, ct)
+            .FirstOrDefaultAsync(x => x.ReferralCode == code, ct)
             ?? throw new NotFoundException("ReferralCode", code);
 
         if (link.UserId == userId)
@@ -56,7 +56,7 @@ public sealed class ClaimReferralCommandHandler(
             RefereeId = userId,
             CampaignId = campaignId,
             ReferralCode = code,
-            Status = ReferralLogStatus.Registered
+            Status = "registered"
         });
         await dbContext.SaveChangesAsync(ct);
 

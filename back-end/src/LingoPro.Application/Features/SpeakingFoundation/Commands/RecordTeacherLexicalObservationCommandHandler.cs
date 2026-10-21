@@ -11,22 +11,28 @@ namespace LingoPro.Application.Features.SpeakingFoundation.Commands;
 /// Handles teacher-evaluated lexical observations for a student.
 /// </summary>
 public sealed class RecordTeacherLexicalObservationCommandHandler(
+    ICurrentUserService currentUser,
     IApplicationDbContext dbContext) : IRequestHandler<RecordTeacherLexicalObservationCommand, ApiResponse<LexicalStatusBucket>>
 {
     public async Task<ApiResponse<LexicalStatusBucket>> Handle(
         RecordTeacherLexicalObservationCommand request,
         CancellationToken ct)
     {
+        var actorId = currentUser.UserId ?? throw new UnauthorizedAccessException("User is not authenticated.");
+
         var evidence = new LearnerLexicalEvidence
         {
+            ActorUserId = actorId,
             LearnerId = request.StudentUserId,
             ConceptId = request.ConceptId,
             EvidenceSource = LexicalEvidenceSource.Teacher,
             SupportLevel = request.SupportLevel,
-            ProbeType = "teacher_classroom_observation",
-            IsSuccessful = request.IsSuccessful,
+            // SQL has probe_mode/target_dimension instead of probe_type; the fixed observation type fills both.
+            ProbeMode = "teacher_classroom_observation",
+            TargetDimension = "teacher_classroom_observation",
+            IsCorrect = request.IsSuccessful,
             ResponseLatencyMs = request.ResponseLatencyMs,
-            ObservedAt = DateTime.UtcNow
+            CreatedAt = DateTime.UtcNow
         };
 
         dbContext.LearnerLexicalEvidences.Add(evidence);
@@ -36,31 +42,11 @@ public sealed class RecordTeacherLexicalObservationCommandHandler(
 
         if (state == null)
         {
-            state = new LearnerLexicalState
-            {
-                LearnerId = request.StudentUserId,
-                ConceptId = request.ConceptId,
-                EvidenceCount = 0,
-                ConfidenceScore = 0.0,
-                StatusBucket = LexicalStatusBucket.Unknown
-            };
+            state = LexicalStateUpdater.CreateInitial(request.StudentUserId, request.ConceptId);
             dbContext.LearnerLexicalStates.Add(state);
         }
 
-        state.EvidenceCount += 1;
-        state.ConfidenceScore = request.IsSuccessful
-            ? Math.Min(1.0, state.ConfidenceScore + 0.45)
-            : Math.Max(0.0, state.ConfidenceScore - 0.25);
-
-        state.StatusBucket = state.ConfidenceScore switch
-        {
-            >= 0.75 => LexicalStatusBucket.Solid,
-            >= 0.40 => LexicalStatusBucket.Partial,
-            _ => LexicalStatusBucket.Recheck
-        };
-        state.MasteryState = state.StatusBucket.ToString().ToLowerInvariant();
-        state.LastUpdatedAt = DateTime.UtcNow;
-
+        LexicalStateUpdater.Apply(state, request.IsSuccessful, 0.45m, request.SupportLevel, request.ResponseLatencyMs, LexicalStatusBucket.Recheck);
         await dbContext.SaveChangesAsync(ct);
 
         return ApiResponse<LexicalStatusBucket>.Ok(

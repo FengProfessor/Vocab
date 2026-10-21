@@ -21,12 +21,15 @@ public class ValidateCouponQueryHandler(IApplicationDbContext dbContext)
             .AsNoTracking()
             .FirstOrDefaultAsync(c =>
                 c.Code == normalized &&
-                c.IsActive &&
-                c.UsedCount < c.MaxUses &&
-                (c.ExpiresAt == null || c.ExpiresAt > nowUtc), ct)
+                c.IsActive == true &&
+                (c.MaxUses == null || c.UsedCount < c.MaxUses) &&
+                (c.ValidFrom == null || c.ValidFrom <= nowUtc) &&
+                (c.ValidUntil == null || c.ValidUntil > nowUtc), ct)
             ?? throw new DomainException("The coupon code is invalid, expired, or has reached its usage limit.", "INVALID_COUPON");
 
-        var dto = new CouponValidationDto(coupon.Code, coupon.DiscountPercent, coupon.MaxDiscountAmount, true);
+        var dto = new CouponValidationDto(coupon.Code, coupon.DiscountPct ?? 0, coupon.DiscountAmount, true);
+        // SQL coupons are either percent (discount_pct) or fixed amount (discount_amount). The DTO shape is kept:
+        // percent coupons return DiscountPercent; fixed-amount coupons return DiscountPercent = 0 and the fixed value in MaxDiscountAmount.
         return ApiResponse<CouponValidationDto>.Ok(dto, "Coupon code validated successfully.");
     }
 }

@@ -1,4 +1,5 @@
-﻿using LingoPro.Application.Common.Interfaces;
+﻿using System.Text.Json;
+using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Exceptions;
 using MediatR;
@@ -19,30 +20,64 @@ public class SmartLookupQueryHandler(
 
         var entry = await dbContext.GlobalDictionaries
             .AsNoTracking()
-            .FirstOrDefaultAsync(d => d.Term == normalized, ct)
+            .FirstOrDefaultAsync(d => d.Word == normalized, ct)
             ?? throw new NotFoundException("GlobalDictionary", normalized);
+
+        // global_dictionary stores the whole entry in a single jsonb column (data); the DTO's per-field JSON is extracted from it.
+        using var payload = ParseData(entry.Data);
 
         int? bestSenseIndex = null;
         if (!string.IsNullOrWhiteSpace(request.Context))
         {
             bestSenseIndex = await aiRouter.SelectSmartSenseIndexAsync(
-                entry.Term,
+                entry.Word,
                 request.Context,
-                [entry.DefinitionsJson],
+                [Pick(payload, "definitions", "definition", "senses")],
                 ct);
         }
 
         return ApiResponse<DictionaryEntryDto>.Ok(
             new DictionaryEntryDto(
                 entry.Id,
-                entry.Term,
-                entry.Ipa,
-                entry.PartOfSpeech,
-                entry.DefinitionsJson,
-                entry.CollocationsJson,
-                entry.SynonymsJson,
-                entry.AntonymsJson,
+                entry.Word,
+                PickText(payload, "ipa", "pronunciation", "phonetic"),
+                PickText(payload, "partOfSpeech", "part_of_speech", "pos"),
+                Pick(payload, "definitions", "definition", "senses"),
+                Pick(payload, "collocations", "collocation"),
+                Pick(payload, "synonyms", "synonym"),
+                Pick(payload, "antonyms", "antonym"),
                 bestSenseIndex),
             "Dictionary entry retrieved successfully.");
     }
-}
+
+    private static JsonDocument ParseData(string? data)
+    {
+        try { return JsonDocument.Parse(string.IsNullOrWhiteSpace(data) ? "{}" : data); }
+        catch (JsonException) { return JsonDocument.Parse("{}"); }
+    }
+
+    private static bool TryFind(JsonDocument doc, string[] keys, out JsonElement value)
+    {
+        value = default;
+        if (doc.RootElement.ValueKind != JsonValueKind.Object) return false;
+        foreach (var key in keys)
+        {
+            foreach (var prop in doc.RootElement.EnumerateObject())
+            {
+                if (string.Equals(prop.Name, key, StringComparison.OrdinalIgnoreCase))
+                {
+                    value = prop.Value;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private static string Pick(JsonDocument doc, params string[] keys)
+        => TryFind(doc, keys, out var v) ? v.GetRawText() : "[]";
+
+    private static string PickText(JsonDocument doc, params string[] keys)
+        => TryFind(doc, keys, out var v)
+            ? (v.ValueKind == JsonValueKind.String ? v.GetString() ?? string.Empty : v.GetRawText())
+            : string.Empty;}

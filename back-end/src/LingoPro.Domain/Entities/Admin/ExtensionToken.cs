@@ -1,19 +1,18 @@
-using LingoPro.Domain.Common;
-using LingoPro.Domain.Entities.Auth;
+﻿using LingoPro.Domain.Common;
 
 namespace LingoPro.Domain.Entities.Admin;
 
 /// <summary>
 /// Represents a personal access token minted for the LingoPro browser extension (public.extension_tokens).
+/// <c>user_id</c> references auth.users (not profiles), so there is no navigation property.
 /// </summary>
-public class ExtensionToken : BaseAuditableEntity
+public class ExtensionToken : BaseEntity
 {
     public Guid UserId { get; set; }
     public string TokenHash { get; set; } = string.Empty;
-    public string Name { get; set; } = "Chrome Extension";
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime? LastUsedAt { get; set; }
-    public DateTime ExpiresAt { get; set; }
-    public bool IsRevoked { get; set; }
-
-    public virtual Profile User { get; set; } = null!;
+    public string? DeviceName { get; set; }
+    public DateTime? ExpiresAt { get; set; }
+    public DateTime? RevokedAt { get; set; }
 }

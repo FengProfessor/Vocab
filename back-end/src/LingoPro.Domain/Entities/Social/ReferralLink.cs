@@ -9,7 +9,8 @@ namespace LingoPro.Domain.Entities.Social;
 public class ReferralLink : BaseAuditableEntity
 {
     public Guid UserId { get; set; }
-    public string Code { get; set; } = string.Empty;
+    public string ReferralCode { get; set; } = string.Empty;
+    public string? CustomSlug { get; set; }
     public int ClicksCount { get; set; }
 
     public virtual Profile User { get; set; } = null!;

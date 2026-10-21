@@ -1,4 +1,4 @@
-﻿using LingoPro.Domain.Enums;
+using LingoPro.Domain.Enums;
 
 namespace LingoPro.Application.Features.SpeakingFoundation.Queries;
 
@@ -6,10 +6,10 @@ namespace LingoPro.Application.Features.SpeakingFoundation.Queries;
 /// Data transfer object representing a speaking foundation diagnostic probe concept.
 /// </summary>
 public sealed record DiagnosticProbeDto(
-    Guid ConceptId,
+    string ConceptId,
     string ConceptCode,
     string Headword,
     string Ipa,
     string MeaningVi,
     int FrequencyBand,
-    CertLevel CertLevel);
+    CertLevel? CertLevel);

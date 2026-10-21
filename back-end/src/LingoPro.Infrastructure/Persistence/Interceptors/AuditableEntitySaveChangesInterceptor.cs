@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 namespace LingoPro.Infrastructure.Persistence.Interceptors;
 
 /// <summary>
-/// EF Core interceptor that automatically populates creation, modification, and soft-deletion audit fields on <see cref="BaseAuditableEntity"/>.
+/// EF Core interceptor that populates creation/modification audit fields on <see cref="BaseAuditableEntity"/> and converts physical deletes into soft deletes on <see cref="ISoftDelete"/> entities.
 /// </summary>
 public class AuditableEntitySaveChangesInterceptor(ICurrentUserService currentUserService) : SaveChangesInterceptor
 {
@@ -36,29 +36,36 @@ public class AuditableEntitySaveChangesInterceptor(ICurrentUserService currentUs
         {
             if (entry.State == EntityState.Added)
             {
-                entry.Entity.CreatedAt = now;
-                entry.Entity.UpdatedAt = now;
+                entry.Entity.CreatedAt ??= now;
+                entry.Entity.UpdatedAt ??= now;
                 entry.Entity.CreatedBy ??= userId;
                 entry.Entity.UpdatedBy ??= userId;
-                entry.Entity.IsDeleted ??= false;
             }
-            else if (entry.State == EntityState.Modified)
+            else if (entry.State is EntityState.Modified or EntityState.Deleted)
             {
                 entry.Entity.UpdatedAt = now;
                 entry.Entity.UpdatedBy = userId ?? entry.Entity.UpdatedBy;
+            }
+        }
 
-                if (entry.Entity.IsDeleted == true)
-                {
-                    entry.Entity.DeletedAt ??= now;
-                    entry.Entity.DeletedBy ??= userId;
-                }
+        foreach (var entry in context.ChangeTracker.Entries<ISoftDelete>())
+        {
+            if (entry.State == EntityState.Added)
+            {
+                entry.Entity.IsDeleted ??= false;
+            }
+            else if (entry.State == EntityState.Modified && entry.Entity.IsDeleted == true)
+            {
+                entry.Entity.DeletedAt ??= now;
+                entry.Entity.DeletedBy ??= userId;
             }
             else if (entry.State == EntityState.Deleted)
             {
                 entry.State = EntityState.Modified;
-                entry.Entity.MarkAsDeleted(userId, now);
+                entry.Entity.IsDeleted = true;
+                entry.Entity.DeletedAt = now;
+                entry.Entity.DeletedBy = userId ?? entry.Entity.DeletedBy;
             }
         }
     }
 }
-

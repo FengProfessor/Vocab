@@ -1,4 +1,4 @@
-using LingoPro.Application.Common.Interfaces;
+﻿using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Exceptions;
 using MediatR;
@@ -47,7 +47,7 @@ public class AssignDrillCommandHandler(
         var itemsToDrill = await query.ToListAsync(ct);
         foreach (var item in itemsToDrill)
         {
-            item.NextReviewDate = today;
+            item.NextReviewDate = today.ToDateTime(TimeOnly.MinValue);
         }
 
         await dbContext.SaveChangesAsync(ct);

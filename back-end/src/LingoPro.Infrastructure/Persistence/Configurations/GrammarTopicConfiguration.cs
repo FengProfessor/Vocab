@@ -1,4 +1,4 @@
-using LingoPro.Domain.Entities.Grammar;
+﻿using LingoPro.Domain.Entities.Grammar;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -14,10 +14,12 @@ public sealed class GrammarTopicConfiguration : IEntityTypeConfiguration<Grammar
         builder.ToTable("grammar_topics", "public");
         builder.HasKey(x => x.Id);
 
-        builder.Property(x => x.Slug).HasColumnName("slug").IsRequired().HasMaxLength(160);
+        builder.Property(x => x.Slug).IsRequired();
         builder.HasIndex(x => x.Slug).IsUnique();
-        builder.Property(x => x.CertLevel).HasColumnName("cefr_level").HasConversion<string>().HasMaxLength(8);
-        builder.Property(x => x.Level).HasColumnName("grammar_level").HasConversion<string>().HasMaxLength(32);
+        builder.Property(x => x.Title).IsRequired();
+        builder.Property(x => x.Level).HasDefaultValueSql("'beginner'");
+        builder.Property(x => x.OrderIndex).HasDefaultValueSql("0");
+        builder.Property(x => x.CreatedAt).HasDefaultValueSql("now()");
 
         builder.HasOne(x => x.Parent)
             .WithMany(x => x.Children)

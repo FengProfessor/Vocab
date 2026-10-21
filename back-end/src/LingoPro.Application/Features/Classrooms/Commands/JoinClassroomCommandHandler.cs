@@ -44,7 +44,7 @@ public class JoinClassroomCommandHandler(
                 classroom.InviteCode,
                 classroom.TeacherId,
                 classroom.Enrollments.Count + (alreadyEnrolled ? 0 : 1),
-                classroom.CreatedAt),
+                classroom.CreatedAt ?? DateTime.UtcNow),
             "Joined classroom successfully.");
     }
 }

@@ -1,4 +1,4 @@
-﻿using LingoPro.Application.Features.Roadmap.Queries;
+using LingoPro.Application.Features.Roadmap.Queries;
 using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Entities.Roadmap;
@@ -22,8 +22,9 @@ public class SubmitPlacementCommandHandler(
         RoadmapLevelId assignedLevel = request.SelfSelectLevelId
             ?? CalculatePlacementLevel(request.Answers ?? new Dictionary<string, string>());
 
+        var placementJson = System.Text.Json.JsonSerializer.Serialize(new { level = assignedLevel.ToString(), self_selected = request.SelfSelectLevelId.HasValue });
+
         var roadmap = await dbContext.UserRoadmaps
-            .Include(r => r.Steps)
             .FirstOrDefaultAsync(r => r.UserId == userId && r.Track == request.Track, ct);
 
         if (roadmap == null)
@@ -33,17 +34,21 @@ public class SubmitPlacementCommandHandler(
                 UserId = userId,
                 Track = request.Track,
                 LevelId = assignedLevel,
-                PlacementCompleted = true
+                // SQL has no placement_completed column: placement is marked by a non-null placement JSON.
+                Placement = placementJson
             };
             dbContext.UserRoadmaps.Add(roadmap);
         }
         else
         {
             roadmap.LevelId = assignedLevel;
-            roadmap.PlacementCompleted = true;
+            roadmap.Placement = placementJson;
+            roadmap.UpdatedAt = DateTime.UtcNow;
         }
 
         await dbContext.SaveChangesAsync(ct);
+
+        var steps = await dbContext.UserRoadmapSteps.AsNoTracking().Where(s => s.UserId == userId).ToListAsync(ct);
 
         var dto = new RoadmapProgressDto(
             request.Track,
@@ -51,7 +56,8 @@ public class SubmitPlacementCommandHandler(
             false,
             roadmap.LevelId,
             roadmap.CurrentUnitId,
-            roadmap.Steps.Select(s => new RoadmapStepDto(s.StepId, s.Status, s.Score, s.CompletedAt)).ToList()
+            // user_roadmap_steps is keyed by (user_id, step_id) with no track column, so steps are per user.
+            steps.Select(s => new RoadmapStepDto(s.StepId, s.Status, s.Score, s.CompletedAt)).ToList()
         );
 
         return ApiResponse<RoadmapProgressDto>.Ok(dto, "Roadmap placement completed and level enrolled successfully.");

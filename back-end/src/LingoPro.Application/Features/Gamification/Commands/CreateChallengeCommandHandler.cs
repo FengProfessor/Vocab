@@ -17,16 +17,25 @@ public class CreateChallengeCommandHandler(
     {
         var creatorId = currentUser.UserId ?? throw new UnauthorizedAccessException("User is not authenticated.");
 
+        // SQL has no daily_target_words column: the target is persisted as daily_criteria.min_srs_reviews.
+        var startsAt = request.StartDate.ToDateTime(TimeOnly.MinValue, DateTimeKind.Utc);
+        var endsAt = request.EndDate.ToDateTime(TimeOnly.MinValue, DateTimeKind.Utc);
+        var name = request.Title.Trim();
+        var slugBase = new string(name.ToLowerInvariant().Select(ch => char.IsLetterOrDigit(ch) && ch < 128 ? ch : '-').ToArray()).Trim('-');
         var challenge = new Challenge
         {
-            Title = request.Title.Trim(),
+            Name = name,
+            Slug = $"{(slugBase.Length == 0 ? "challenge" : slugBase)}-{Guid.NewGuid().ToString("N")[..6]}",
             Description = request.Description.Trim(),
-            CreatorId = creatorId,
-            StartDate = request.StartDate,
-            EndDate = request.EndDate,
-            DailyTargetWords = request.DailyTargetWords,
+            CreatedBy = creatorId,
+            StartsAt = startsAt,
+            EndsAt = endsAt,
+            RegistrationOpensAt = DateTime.UtcNow,
+            RegistrationClosesAt = startsAt,
+            DurationDays = Math.Max(1, request.EndDate.DayNumber - request.StartDate.DayNumber),
+            DailyCriteria = $"{{\"min_srs_reviews\": {request.DailyTargetWords}, \"min_quizzes\": 0, \"min_reading_sessions\": 0, \"min_listening_sessions\": 0}}",
             MaxParticipants = request.MaxParticipants,
-            DepositAmount = request.DepositAmount,
+            DepositAmount = (int)request.DepositAmount,
             Status = ChallengeStatus.Active
         };
 
@@ -35,17 +44,16 @@ public class CreateChallengeCommandHandler(
 
         var dto = new ChallengeDto(
             challenge.Id,
-            challenge.Title,
-            challenge.Description,
-            challenge.StartDate,
-            challenge.EndDate,
-            challenge.DailyTargetWords,
-            challenge.MaxParticipants,
+            challenge.Name,
+            challenge.Description ?? string.Empty,
+            request.StartDate,
+            request.EndDate,
+            request.DailyTargetWords,
+            challenge.MaxParticipants ?? 0,
             1,
             challenge.DepositAmount,
-            challenge.Status
+            challenge.Status ?? ChallengeStatus.Draft
         );
-
         return ApiResponse<ChallengeDto>.Created(dto, "Challenge created successfully.");
     }
 }

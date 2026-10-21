@@ -1,4 +1,4 @@
-using LingoPro.Application.Common.Interfaces;
+﻿using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Enums;
 using MediatR;
@@ -33,7 +33,7 @@ public sealed class GetAdminCrmDashboardQueryHandler(
         var pilotLeads = await dbContext.PilotLeads.AsNoTracking().CountAsync(ct);
         var pendingPayouts = await dbContext.PayoutRequests
             .AsNoTracking()
-            .CountAsync(x => x.Status == PayoutRequestStatus.Pending, ct);
+            .CountAsync(x => x.Status == "pending", ct);
 
         var dto = new CrmDashboardSummaryDto(
             TotalUsers: totalUsers,

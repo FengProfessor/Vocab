@@ -1,19 +1,17 @@
-using LingoPro.Domain.Common;
-using LingoPro.Domain.Entities.Auth;
-using LingoPro.Domain.Enums;
-
 namespace LingoPro.Domain.Entities.Vocab;
 
 /// <summary>
-/// Records an idempotent FSRS vocabulary review event for a user and word (public.srs_review_events).
+/// Records an idempotent FSRS vocabulary review event (public.srs_review_events, PK user_id + review_id).
+/// <see cref="UserId"/> references auth.users, so there is no navigation property.
+/// Quality is one of 0, 3, 4, 5.
 /// </summary>
-public class SrsReviewEvent : BaseAuditableEntity
+public class SrsReviewEvent
 {
     public Guid UserId { get; set; }
-    public string ReviewId { get; set; } = string.Empty;
+    public Guid ReviewId { get; set; }
     public Guid WordId { get; set; }
-    public SrsReviewQuality Quality { get; set; } = SrsReviewQuality.Good;
+    public int Quality { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-    public virtual Profile User { get; set; } = null!;
     public virtual Word Word { get; set; } = null!;
 }

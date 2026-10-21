@@ -1,4 +1,4 @@
-using LingoPro.Application.Common.Interfaces;
+﻿using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
 using LingoPro.Application.Features.Classrooms.Commands;
 using MediatR;
@@ -31,7 +31,7 @@ public sealed class GetClassroomsQueryHandler(
                 c.InviteCode,
                 c.TeacherId,
                 c.Enrollments.Count,
-                c.CreatedAt))
+                c.CreatedAt ?? DateTime.UtcNow))
             .ToListAsync(ct);
 
         return ApiResponse<IReadOnlyList<ClassroomDto>>.Ok(classrooms, "Classrooms retrieved successfully.");

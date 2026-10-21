@@ -9,11 +9,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace LingoPro.Infrastructure.Persistence.Migrations
+namespace LingoPro.Infrastructure.Migrations
 {
     [DbContext(typeof(LingoProDbContext))]
-    [Migration("20261017173119_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20261021033656_AlignDomainWithSupabaseSchema")]
+    partial class AlignDomainWithSupabaseSchema
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,59 +28,24 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("LingoPro.Domain.Entities.Admin.AiDailyUsage", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid")
-                        .HasColumnName("id");
-
-                    b.Property<int>("Count")
-                        .HasColumnType("integer")
-                        .HasColumnName("count");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
-
-                    b.Property<DateOnly>("UsageDate")
-                        .HasColumnType("date")
-                        .HasColumnName("usage_date");
-
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
                         .HasColumnName("user_id");
 
-                    b.HasKey("Id")
-                        .HasName("pk_ai_daily_usage");
+                    b.Property<DateOnly>("UsageDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("date")
+                        .HasColumnName("usage_date")
+                        .HasDefaultValueSql("current_date");
 
-                    b.HasIndex("UserId", "UsageDate")
-                        .IsUnique()
-                        .HasDatabaseName("ix_ai_daily_usage_user_id_usage_date");
+                    b.Property<int>("Count")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasDefaultValue(0)
+                        .HasColumnName("count");
+
+                    b.HasKey("UserId", "UsageDate")
+                        .HasName("pk_ai_daily_usage");
 
                     b.ToTable("ai_daily_usage", "public");
                 });
@@ -90,59 +55,35 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
-                        .HasColumnName("id");
+                        .HasColumnName("id")
+                        .HasDefaultValueSql("gen_random_uuid()");
 
                     b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
+                    b.Property<string>("DeviceName")
+                        .HasColumnType("text")
+                        .HasColumnName("device_name");
 
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<DateTime>("ExpiresAt")
+                    b.Property<DateTime?>("ExpiresAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("expires_at");
-
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
-
-                    b.Property<bool>("IsRevoked")
-                        .HasColumnType("boolean")
-                        .HasColumnName("is_revoked");
 
                     b.Property<DateTime?>("LastUsedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("last_used_at");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("name");
+                    b.Property<DateTime?>("RevokedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("revoked_at");
 
                     b.Property<string>("TokenHash")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("token_hash");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
@@ -155,8 +96,10 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .IsUnique()
                         .HasDatabaseName("ix_extension_tokens_token_hash");
 
-                    b.HasIndex("UserId")
-                        .HasDatabaseName("ix_extension_tokens_user_id");
+                    b.HasIndex("UserId", "CreatedAt")
+                        .IsDescending(false, true)
+                        .HasDatabaseName("idx_extension_tokens_user_active")
+                        .HasFilter("revoked_at is null");
 
                     b.ToTable("extension_tokens", "public");
                 });
@@ -166,11 +109,31 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
-                        .HasColumnName("id");
+                        .HasColumnName("id")
+                        .HasDefaultValueSql("uuid_generate_v4()");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<string>("AdminNote")
+                        .HasColumnType("text")
+                        .HasColumnName("admin_note");
+
+                    b.Property<string>("ContactName")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("contact_name");
+
+                    b.Property<DateTime?>("ContactedAt")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                        .HasColumnName("contacted_at");
+
+                    b.Property<DateTime?>("ConvertedAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("converted_at");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uuid")
@@ -189,44 +152,53 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("text")
                         .HasColumnName("email");
 
-                    b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("full_name");
-
                     b.Property<bool?>("IsDeleted")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("boolean")
                         .HasDefaultValue(false)
                         .HasColumnName("is_deleted");
 
-                    b.Property<string>("Notes")
+                    b.Property<string>("Message")
                         .HasColumnType("text")
-                        .HasColumnName("notes");
+                        .HasColumnName("message");
 
-                    b.Property<string>("OrganizationName")
+                    b.Property<string>("Organization")
+                        .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("organization_name");
+                        .HasColumnName("organization");
 
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("phone");
 
-                    b.Property<string>("SourceCampaign")
+                    b.Property<string>("Source")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("text")
-                        .HasColumnName("source_campaign");
+                        .HasDefaultValue("teacher_landing")
+                        .HasColumnName("source");
 
                     b.Property<string>("Status")
                         .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
-                        .HasColumnName("status");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("text")
+                        .HasColumnName("status")
+                        .HasDefaultValueSql("'new'");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<int>("StudentCount")
+                        .HasColumnType("integer")
+                        .HasColumnName("student_count");
+
+                    b.Property<int>("TeacherCount")
+                        .HasColumnType("integer")
+                        .HasColumnName("teacher_count");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
+                        .HasColumnName("updated_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uuid")
@@ -234,6 +206,10 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
 
                     b.HasKey("Id")
                         .HasName("pk_pilot_leads");
+
+                    b.HasIndex("Status", "CreatedAt")
+                        .IsDescending(false, true)
+                        .HasDatabaseName("idx_pilot_leads_status_created");
 
                     b.ToTable("pilot_leads", "public");
                 });
@@ -243,50 +219,29 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
-                        .HasColumnName("id");
+                        .HasColumnName("id")
+                        .HasDefaultValueSql("gen_random_uuid()");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<string>("DevicePlatform")
+                    b.Property<string>("DeviceLabel")
                         .HasColumnType("text")
-                        .HasColumnName("device_platform");
+                        .HasColumnName("device_label");
 
-                    b.Property<string>("FcmToken")
+                    b.Property<DateTime?>("LastUsedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("last_used_at")
+                        .HasDefaultValueSql("now()");
+
+                    b.Property<string>("Token")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("fcm_token");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("boolean")
-                        .HasColumnName("is_active");
-
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
+                        .HasColumnName("token");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
@@ -295,9 +250,12 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.HasKey("Id")
                         .HasName("pk_fcm_tokens");
 
-                    b.HasIndex("UserId", "FcmToken")
+                    b.HasIndex("UserId")
+                        .HasDatabaseName("idx_fcm_tokens_user");
+
+                    b.HasIndex("UserId", "Token")
                         .IsUnique()
-                        .HasDatabaseName("ix_fcm_tokens_user_id_fcm_token");
+                        .HasDatabaseName("ix_fcm_tokens_user_id_token");
 
                     b.ToTable("fcm_tokens", "public");
                 });
@@ -305,7 +263,6 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
             modelBuilder.Entity("LingoPro.Domain.Entities.Auth.Profile", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
@@ -313,127 +270,24 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("text")
                         .HasColumnName("avatar_url");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<int>("CurrentStreak")
-                        .HasColumnType("integer")
-                        .HasColumnName("current_streak");
-
-                    b.Property<int>("DailyTargetMins")
-                        .HasColumnType("integer")
-                        .HasColumnName("daily_target_mins");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(256)
-                        .HasColumnType("character varying(256)")
-                        .HasColumnName("email");
-
-                    b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)")
-                        .HasColumnName("full_name");
-
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
-
-                    b.Property<DateOnly?>("LastActiveDate")
-                        .HasColumnType("date")
-                        .HasColumnName("last_active_date");
-
-                    b.Property<DateTime?>("LastDueEmailAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("last_due_email_at");
-
-                    b.Property<string>("LearningGoal")
+                    b.Property<string>("City")
                         .HasColumnType("text")
-                        .HasColumnName("learning_goal");
+                        .HasColumnName("city");
 
-                    b.Property<int>("LongestStreak")
-                        .HasColumnType("integer")
-                        .HasColumnName("longest_streak");
-
-                    b.Property<bool>("OnboardingCompleted")
-                        .HasColumnType("boolean")
-                        .HasColumnName("onboarding_completed");
-
-                    b.Property<string>("Plan")
-                        .IsRequired()
-                        .HasMaxLength(64)
-                        .HasColumnType("character varying(64)")
-                        .HasColumnName("plan");
-
-                    b.Property<DateTime?>("PlanExpiresAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("plan_expires_at");
-
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
-                        .HasColumnName("role");
-
-                    b.Property<int>("TotalXp")
-                        .HasColumnType("integer")
-                        .HasColumnName("total_xp");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
-
-                    b.HasKey("Id")
-                        .HasName("pk_profiles");
-
-                    b.HasIndex("Email")
-                        .IsUnique()
-                        .HasDatabaseName("ix_profiles_email");
-
-                    b.ToTable("profiles", "public");
-                });
-
-            modelBuilder.Entity("LingoPro.Domain.Entities.Auth.UserGamification", b =>
-                {
-                    b.Property<Guid>("Id")
+                    b.Property<DateTime?>("CreatedAt")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid")
-                        .HasColumnName("id");
-
-                    b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uuid")
                         .HasColumnName("created_by");
 
-                    b.Property<int>("CurrentStreak")
+                    b.Property<int?>("DailyGoal")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasColumnName("current_streak");
-
-                    b.Property<int>("DailyGoal")
-                        .HasColumnType("integer")
+                        .HasDefaultValue(10)
                         .HasColumnName("daily_goal");
 
                     b.Property<DateTime?>("DeletedAt")
@@ -444,18 +298,122 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("deleted_by");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("email");
+
+                    b.Property<string>("FcmToken")
+                        .HasColumnType("text")
+                        .HasColumnName("fcm_token");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("text")
+                        .HasColumnName("full_name");
+
+                    b.Property<string>("GeminiApiKey")
+                        .HasColumnType("text")
+                        .HasColumnName("gemini_api_key");
+
                     b.Property<bool?>("IsDeleted")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("boolean")
                         .HasDefaultValue(false)
                         .HasColumnName("is_deleted");
 
+                    b.Property<string>("LastDuePushSlot")
+                        .HasColumnType("text")
+                        .HasColumnName("last_due_push_slot");
+
+                    b.Property<int?>("NotificationHour")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasDefaultValue(20)
+                        .HasColumnName("notification_hour");
+
+                    b.Property<string>("Plan")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("text")
+                        .HasColumnName("plan")
+                        .HasDefaultValueSql("'free'");
+
+                    b.Property<DateTime?>("PlanExpiresAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("plan_expires_at");
+
+                    b.Property<DateTime?>("ProMilestoneEnrolledAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("pro_milestone_enrolled_at");
+
+                    b.Property<string>("Province")
+                        .HasColumnType("text")
+                        .HasColumnName("province");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("text")
+                        .HasDefaultValue("student")
+                        .HasColumnName("role");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("updated_at")
+                        .HasDefaultValueSql("now()");
+
+                    b.Property<Guid?>("UpdatedBy")
+                        .HasColumnType("uuid")
+                        .HasColumnName("updated_by");
+
+                    b.HasKey("Id")
+                        .HasName("pk_profiles");
+
+                    b.HasIndex("FcmToken")
+                        .HasDatabaseName("idx_profiles_fcm_token")
+                        .HasFilter("fcm_token is not null");
+
+                    b.HasIndex("PlanExpiresAt")
+                        .HasDatabaseName("idx_profiles_plan_expires")
+                        .HasFilter("plan_expires_at is not null");
+
+                    b.HasIndex("ProMilestoneEnrolledAt")
+                        .HasDatabaseName("idx_profiles_pro_milestone_enrolled")
+                        .HasFilter("pro_milestone_enrolled_at is not null");
+
+                    b.HasIndex("Province")
+                        .HasDatabaseName("idx_profiles_province")
+                        .HasFilter("province is not null");
+
+                    b.ToTable("profiles", "public");
+                });
+
+            modelBuilder.Entity("LingoPro.Domain.Entities.Auth.UserGamification", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("user_id");
+
+                    b.Property<int>("CurrentStreak")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasDefaultValue(0)
+                        .HasColumnName("current_streak");
+
+                    b.Property<int>("DailyGoal")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasDefaultValue(30)
+                        .HasColumnName("daily_goal");
+
                     b.Property<DateOnly?>("LastActiveDate")
                         .HasColumnType("date")
                         .HasColumnName("last_active_date");
 
                     b.Property<int>("LongestStreak")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
+                        .HasDefaultValue(0)
                         .HasColumnName("longest_streak");
 
                     b.Property<DateOnly?>("TodayDate")
@@ -463,31 +421,19 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnName("today_date");
 
                     b.Property<int>("TodayXp")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
+                        .HasDefaultValue(0)
                         .HasColumnName("today_xp");
 
                     b.Property<int>("TotalXp")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
+                        .HasDefaultValue(0)
                         .HasColumnName("total_xp");
 
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("user_id");
-
-                    b.HasKey("Id")
+                    b.HasKey("UserId")
                         .HasName("pk_user_gamification");
-
-                    b.HasIndex("UserId")
-                        .IsUnique()
-                        .HasDatabaseName("ix_user_gamification_user_id");
 
                     b.ToTable("user_gamification", "public");
                 });
@@ -497,16 +443,23 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
-                        .HasColumnName("id");
+                        .HasColumnName("id")
+                        .HasDefaultValueSql("uuid_generate_v4()");
+
+                    b.PrimitiveCollection<string[]>("ApplicablePlans")
+                        .HasColumnType("text[]")
+                        .HasColumnName("applicable_plans");
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("code");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uuid")
@@ -520,16 +473,18 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("deleted_by");
 
-                    b.Property<int>("DiscountPercent")
+                    b.Property<int?>("DiscountAmount")
                         .HasColumnType("integer")
-                        .HasColumnName("discount_percent");
+                        .HasColumnName("discount_amount");
 
-                    b.Property<DateTime?>("ExpiresAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("expires_at");
+                    b.Property<int?>("DiscountPct")
+                        .HasColumnType("integer")
+                        .HasColumnName("discount_pct");
 
-                    b.Property<bool>("IsActive")
+                    b.Property<bool?>("IsActive")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("boolean")
+                        .HasDefaultValue(true)
                         .HasColumnName("is_active");
 
                     b.Property<bool?>("IsDeleted")
@@ -538,25 +493,35 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasDefaultValue(false)
                         .HasColumnName("is_deleted");
 
-                    b.Property<decimal?>("MaxDiscountAmount")
-                        .HasColumnType("numeric")
-                        .HasColumnName("max_discount_amount");
-
-                    b.Property<int>("MaxUses")
+                    b.Property<int?>("MaxUses")
                         .HasColumnType("integer")
                         .HasColumnName("max_uses");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
+                        .HasColumnName("updated_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uuid")
                         .HasColumnName("updated_by");
 
-                    b.Property<int>("UsedCount")
+                    b.Property<int?>("UsedCount")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
+                        .HasDefaultValue(0)
                         .HasColumnName("used_count");
+
+                    b.Property<DateTime?>("ValidFrom")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("valid_from")
+                        .HasDefaultValueSql("now()");
+
+                    b.Property<DateTime?>("ValidUntil")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("valid_until");
 
                     b.HasKey("Id")
                         .HasName("pk_coupons");
@@ -573,28 +538,32 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
-                        .HasColumnName("id");
+                        .HasColumnName("id")
+                        .HasDefaultValueSql("uuid_generate_v4()");
 
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("numeric")
+                    b.Property<int>("Amount")
+                        .HasColumnType("integer")
                         .HasColumnName("amount");
 
                     b.Property<string>("CouponCode")
                         .HasColumnType("text")
                         .HasColumnName("coupon_code");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uuid")
                         .HasColumnName("created_by");
 
                     b.Property<string>("Currency")
-                        .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("text")
-                        .HasColumnName("currency");
+                        .HasColumnName("currency")
+                        .HasDefaultValueSql("'VND'");
 
                     b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("timestamp with time zone")
@@ -604,13 +573,9 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("deleted_by");
 
-                    b.Property<int>("DurationMonths")
-                        .HasColumnType("integer")
-                        .HasColumnName("duration_months");
-
-                    b.Property<string>("GatewayTransactionId")
-                        .HasColumnType("text")
-                        .HasColumnName("gateway_transaction_id");
+                    b.Property<DateTime?>("ExpiresAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("expires_at");
 
                     b.Property<bool?>("IsDeleted")
                         .ValueGeneratedOnAdd()
@@ -618,76 +583,94 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasDefaultValue(false)
                         .HasColumnName("is_deleted");
 
+                    b.Property<string>("Note")
+                        .HasColumnType("text")
+                        .HasColumnName("note");
+
                     b.Property<string>("OrderKind")
                         .IsRequired()
-                        .HasMaxLength(64)
-                        .HasColumnType("character varying(64)")
-                        .HasColumnName("order_kind");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("text")
+                        .HasColumnName("order_kind")
+                        .HasDefaultValueSql("'individual'");
 
                     b.Property<DateTime?>("PaidAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("paid_at");
 
-                    b.Property<string>("PaymentGateway")
+                    b.Property<string>("PaymentMethod")
                         .HasColumnType("text")
-                        .HasColumnName("payment_gateway");
+                        .HasColumnName("payment_method");
 
-                    b.Property<string>("PlanId")
+                    b.Property<string>("PaymentRef")
+                        .HasColumnType("text")
+                        .HasColumnName("payment_ref");
+
+                    b.Property<int?>("PeriodMonths")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasDefaultValue(1)
+                        .HasColumnName("period_months");
+
+                    b.Property<string>("Plan")
                         .IsRequired()
-                        .HasMaxLength(64)
-                        .HasColumnType("character varying(64)")
-                        .HasColumnName("plan_id");
+                        .HasColumnType("text")
+                        .HasColumnName("plan");
 
                     b.Property<Guid?>("ProcessedBy")
                         .HasColumnType("uuid")
                         .HasColumnName("processed_by");
 
-                    b.Property<int>("SeatLimit")
+                    b.Property<int>("Seats")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasColumnName("seat_limit");
+                        .HasDefaultValue(1)
+                        .HasColumnName("seats");
+
+                    b.Property<DateTime?>("StartsAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("starts_at");
 
                     b.Property<string>("Status")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
-                        .HasColumnName("status");
-
-                    b.Property<Guid?>("TargetChallengeId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("target_challenge_id");
-
-                    b.Property<string>("TransferCode")
-                        .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("text")
-                        .HasColumnName("transfer_code");
+                        .HasColumnName("status")
+                        .HasDefaultValueSql("'pending'");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
+                        .HasColumnName("updated_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uuid")
                         .HasColumnName("updated_by");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("uuid")
                         .HasColumnName("user_id");
 
                     b.HasKey("Id")
                         .HasName("pk_orders");
 
+                    b.HasIndex("CreatedAt")
+                        .IsDescending()
+                        .HasDatabaseName("idx_orders_created_at");
+
+                    b.HasIndex("PaymentRef")
+                        .IsUnique()
+                        .HasDatabaseName("idx_orders_payment_ref_unique")
+                        .HasFilter("payment_ref is not null");
+
                     b.HasIndex("ProcessedBy")
                         .HasDatabaseName("ix_orders_processed_by");
 
-                    b.HasIndex("TargetChallengeId")
-                        .HasDatabaseName("ix_orders_target_challenge_id");
-
-                    b.HasIndex("TransferCode")
-                        .IsUnique()
-                        .HasDatabaseName("ix_orders_transfer_code");
+                    b.HasIndex("Status")
+                        .HasDatabaseName("idx_orders_status");
 
                     b.HasIndex("UserId")
-                        .HasDatabaseName("ix_orders_user_id");
+                        .HasDatabaseName("idx_orders_user_id");
 
                     b.ToTable("orders", "public");
                 });
@@ -697,43 +680,26 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
-                        .HasColumnName("id");
+                        .HasColumnName("id")
+                        .HasDefaultValueSql("uuid_generate_v4()");
 
                     b.Property<Guid?>("ChangedBy")
                         .HasColumnType("uuid")
                         .HasColumnName("changed_by");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<bool?>("IsDeleted")
+                    b.Property<DateTime?>("CreatedAt")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<string>("NewPlan")
                         .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
+                        .HasColumnType("text")
                         .HasColumnName("new_plan");
 
                     b.Property<string>("OldPlan")
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
+                        .HasColumnType("text")
                         .HasColumnName("old_plan");
 
                     b.Property<Guid?>("OrderId")
@@ -741,18 +707,8 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnName("order_id");
 
                     b.Property<string>("Reason")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
+                        .HasColumnType("text")
                         .HasColumnName("reason");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
@@ -768,7 +724,7 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasDatabaseName("ix_subscription_history_order_id");
 
                     b.HasIndex("UserId")
-                        .HasDatabaseName("ix_subscription_history_user_id");
+                        .HasDatabaseName("idx_subscription_history_user");
 
                     b.ToTable("subscription_history", "public");
                 });
@@ -780,9 +736,11 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uuid")
@@ -802,8 +760,10 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
 
                     b.Property<string>("InviteCode")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("text")
-                        .HasColumnName("invite_code");
+                        .HasColumnName("invite_code")
+                        .HasDefaultValueSql("upper(substring(md5(random()::text), 1, 6))");
 
                     b.Property<bool?>("IsDeleted")
                         .ValueGeneratedOnAdd()
@@ -820,9 +780,11 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("teacher_id");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
+                        .HasColumnName("updated_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uuid")
@@ -835,8 +797,8 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .IsUnique()
                         .HasDatabaseName("ix_classrooms_invite_code");
 
-                    b.HasIndex("TeacherId")
-                        .HasDatabaseName("ix_classrooms_teacher_id");
+                    b.HasIndex("TeacherId", "Name")
+                        .HasDatabaseName("idx_classrooms_teacher_name");
 
                     b.ToTable("classrooms", "public");
                 });
@@ -852,53 +814,28 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("classroom_id");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<bool?>("IsDeleted")
+                    b.Property<DateTime?>("JoinedAt")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
-
-                    b.Property<DateTime>("JoinedAt")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("joined_at");
+                        .HasColumnName("joined_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid>("StudentId")
                         .HasColumnType("uuid")
                         .HasColumnName("student_id");
 
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
-
                     b.HasKey("Id")
                         .HasName("pk_enrollments");
 
-                    b.HasIndex("StudentId")
-                        .HasDatabaseName("ix_enrollments_student_id");
+                    b.HasIndex("ClassroomId")
+                        .HasDatabaseName("idx_enrollments_classroom");
 
-                    b.HasIndex("ClassroomId", "StudentId")
+                    b.HasIndex("StudentId")
+                        .HasDatabaseName("idx_enrollments_student");
+
+                    b.HasIndex("StudentId", "ClassroomId")
                         .IsUnique()
-                        .HasDatabaseName("ix_enrollments_classroom_id_student_id");
+                        .HasDatabaseName("ix_enrollments_student_id_classroom_id");
 
                     b.ToTable("enrollments", "public");
                 });
@@ -914,35 +851,15 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("classroom_id");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
-
                     b.Property<int>("Lcs")
                         .HasColumnType("integer")
                         .HasColumnName("lcs");
 
                     b.Property<DateOnly>("RecordedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("date")
-                        .HasColumnName("recorded_at");
+                        .HasColumnName("recorded_at")
+                        .HasDefaultValueSql("current_date");
 
                     b.Property<Guid>("StudentId")
                         .HasColumnType("uuid")
@@ -951,14 +868,6 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.Property<int>("TotalWords")
                         .HasColumnType("integer")
                         .HasColumnName("total_words");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
 
                     b.Property<int>("Vms")
                         .HasColumnType("integer")
@@ -990,20 +899,10 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnName("answers_json");
 
                     b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<int>("DurationSeconds")
                         .HasColumnType("integer")
@@ -1014,12 +913,6 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasMaxLength(32)
                         .HasColumnType("character varying(32)")
                         .HasColumnName("exam_type");
-
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
 
                     b.Property<int>("ListeningCorrect")
                         .HasColumnType("integer")
@@ -1046,14 +939,6 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("total_score");
 
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
-
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
                         .HasColumnName("user_id");
@@ -1069,81 +954,61 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("LingoPro.Domain.Entities.Exam.UserToeicQuestionHistory", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
-                        .HasColumnName("id");
+                        .HasColumnName("user_id");
 
-                    b.Property<DateTime>("AttemptedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("attempted_at");
+                    b.Property<string>("QuestionId")
+                        .HasColumnType("text")
+                        .HasColumnName("question_id");
+
+                    b.Property<int>("AttemptCount")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasDefaultValue(1)
+                        .HasColumnName("attempt_count");
 
                     b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<string>("ExamType")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
-                        .HasColumnName("exam_type");
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<bool>("IsCorrect")
                         .HasColumnType("boolean")
                         .HasColumnName("is_correct");
 
-                    b.Property<bool?>("IsDeleted")
+                    b.Property<DateTime>("LastAnsweredAt")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("last_answered_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<int>("Part")
                         .HasColumnType("integer")
                         .HasColumnName("part");
 
-                    b.Property<string>("QuestionId")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("question_id");
-
                     b.Property<string>("SelectedOption")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("text")
+                        .HasDefaultValue("")
                         .HasColumnName("selected_option");
 
                     b.Property<DateTime>("UpdatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
+                        .HasColumnName("updated_at")
+                        .HasDefaultValueSql("now()");
 
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("user_id");
-
-                    b.HasKey("Id")
-                        .HasName("pk_user_toeic_question_history");
+                    b.HasKey("UserId", "QuestionId")
+                        .HasName("user_toeic_question_history_pkey");
 
                     b.HasIndex("UserId", "Part")
-                        .HasDatabaseName("ix_user_toeic_question_history_user_id_part");
+                        .HasDatabaseName("idx_user_toeic_question_history_user_part");
 
-                    b.HasIndex("UserId", "QuestionId")
-                        .HasDatabaseName("ix_user_toeic_question_history_user_id_question_id");
+                    b.HasIndex("UserId", "Part", "IsCorrect")
+                        .HasDatabaseName("idx_user_toeic_question_history_user_part_correct");
 
                     b.ToTable("user_toeic_question_history", "public");
                 });
@@ -1155,21 +1020,26 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                    b.Property<int>("BonusProDays")
+                        .HasColumnType("integer")
+                        .HasDefaultValue(0)
+                        .HasColumnName("bonus_pro_days");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uuid")
                         .HasColumnName("created_by");
 
-                    b.Property<Guid>("CreatorId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("creator_id");
-
-                    b.Property<int>("DailyTargetWords")
-                        .HasColumnType("integer")
-                        .HasColumnName("daily_target_words");
+                    b.Property<string>("DailyCriteria")
+                        .IsRequired()
+                        .HasColumnType("jsonb")
+                        .HasColumnName("daily_criteria")
+                        .HasDefaultValueSql("'{\"min_srs_reviews\": 10, \"min_quizzes\": 1, \"min_reading_sessions\": 0, \"min_listening_sessions\": 0}'::jsonb");
 
                     b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("timestamp with time zone")
@@ -1179,18 +1049,21 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("deleted_by");
 
-                    b.Property<decimal>("DepositAmount")
-                        .HasColumnType("numeric")
+                    b.Property<int>("DepositAmount")
+                        .HasColumnType("integer")
                         .HasColumnName("deposit_amount");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("description");
 
-                    b.Property<DateOnly>("EndDate")
-                        .HasColumnType("date")
-                        .HasColumnName("end_date");
+                    b.Property<int>("DurationDays")
+                        .HasColumnType("integer")
+                        .HasColumnName("duration_days");
+
+                    b.Property<DateTime>("EndsAt")
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("ends_at");
 
                     b.Property<bool?>("IsDeleted")
                         .ValueGeneratedOnAdd()
@@ -1198,28 +1071,63 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasDefaultValue(false)
                         .HasColumnName("is_deleted");
 
-                    b.Property<int>("MaxParticipants")
+                    b.Property<int?>("MaxParticipants")
                         .HasColumnType("integer")
                         .HasColumnName("max_participants");
 
-                    b.Property<DateOnly>("StartDate")
-                        .HasColumnType("date")
-                        .HasColumnName("start_date");
+                    b.Property<int>("MaxStreakFreezes")
+                        .HasColumnType("integer")
+                        .HasDefaultValue(3)
+                        .HasColumnName("max_streak_freezes");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
-                        .HasColumnName("status");
-
-                    b.Property<string>("Title")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("title");
+                        .HasColumnName("name");
 
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
+                    b.Property<int>("RefundCashAmount")
+                        .HasColumnType("integer")
+                        .HasDefaultValue(200000)
+                        .HasColumnName("refund_cash_amount");
+
+                    b.Property<int>("RefundPct")
+                        .HasColumnType("integer")
+                        .HasDefaultValue(100)
+                        .HasColumnName("refund_pct");
+
+                    b.Property<DateTime>("RegistrationClosesAt")
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("registration_closes_at");
+
+                    b.Property<DateTime>("RegistrationOpensAt")
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("registration_opens_at");
+
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("slug");
+
+                    b.Property<DateTime>("StartsAt")
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("starts_at");
+
+                    b.Property<string>("Status")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("text")
+                        .HasColumnName("status")
+                        .HasDefaultValueSql("'draft'");
+
+                    b.Property<int>("StreakFreezePrice")
+                        .HasColumnType("integer")
+                        .HasDefaultValue(50000)
+                        .HasColumnName("streak_freeze_price");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("updated_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uuid")
@@ -1228,8 +1136,18 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.HasKey("Id")
                         .HasName("pk_challenges");
 
-                    b.HasIndex("CreatorId")
-                        .HasDatabaseName("ix_challenges_creator_id");
+                    b.HasIndex("CreatedBy")
+                        .HasDatabaseName("ix_challenges_created_by");
+
+                    b.HasIndex("Slug")
+                        .IsUnique()
+                        .HasDatabaseName("idx_challenges_slug");
+
+                    b.HasIndex("StartsAt")
+                        .HasDatabaseName("idx_challenges_starts_at");
+
+                    b.HasIndex("Status")
+                        .HasDatabaseName("idx_challenges_status");
 
                     b.ToTable("challenges", "public");
                 });
@@ -1245,72 +1163,70 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("challenge_id");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                    b.Property<DateTime?>("CheckedAt")
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("checked_at");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
+                    b.Property<bool?>("CriteriaMet")
                         .HasColumnType("boolean")
                         .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
+                        .HasColumnName("criteria_met");
 
-                    b.Property<bool>("IsTargetMet")
-                        .HasColumnType("boolean")
-                        .HasColumnName("is_target_met");
+                    b.Property<int?>("ListeningSessions")
+                        .HasColumnType("integer")
+                        .HasDefaultValue(0)
+                        .HasColumnName("listening_sessions");
 
                     b.Property<DateOnly>("LogDate")
                         .HasColumnType("date")
                         .HasColumnName("log_date");
 
-                    b.Property<Guid?>("ParticipantId")
+                    b.Property<Guid>("ParticipantId")
                         .HasColumnType("uuid")
                         .HasColumnName("participant_id");
 
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
+                    b.Property<int?>("QuizzesDone")
+                        .HasColumnType("integer")
+                        .HasDefaultValue(0)
+                        .HasColumnName("quizzes_done");
 
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
+                    b.Property<int?>("ReadingSessions")
+                        .HasColumnType("integer")
+                        .HasDefaultValue(0)
+                        .HasColumnName("reading_sessions");
+
+                    b.Property<int?>("SrsReviews")
+                        .HasColumnType("integer")
+                        .HasDefaultValue(0)
+                        .HasColumnName("srs_reviews");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
                         .HasColumnName("user_id");
 
-                    b.Property<int>("WordsReviewed")
+                    b.Property<int?>("XpEarned")
                         .HasColumnType("integer")
-                        .HasColumnName("words_reviewed");
-
-                    b.Property<int>("XpEarned")
-                        .HasColumnType("integer")
+                        .HasDefaultValue(0)
                         .HasColumnName("xp_earned");
 
                     b.HasKey("Id")
                         .HasName("pk_challenge_daily_log");
 
+                    b.HasIndex("ChallengeId")
+                        .HasDatabaseName("ix_challenge_daily_log_challenge_id");
+
+                    b.HasIndex("LogDate")
+                        .HasDatabaseName("idx_challenge_daily_log_date");
+
                     b.HasIndex("ParticipantId")
-                        .HasDatabaseName("ix_challenge_daily_log_participant_id");
+                        .HasDatabaseName("idx_challenge_daily_log_participant");
 
                     b.HasIndex("UserId")
                         .HasDatabaseName("ix_challenge_daily_log_user_id");
 
-                    b.HasIndex("ChallengeId", "UserId", "LogDate")
+                    b.HasIndex("ParticipantId", "LogDate")
                         .IsUnique()
-                        .HasDatabaseName("ix_challenge_daily_log_challenge_id_user_id_log_date");
+                        .HasDatabaseName("ix_challenge_daily_log_participant_id_log_date");
 
                     b.ToTable("challenge_daily_log", "public");
                 });
@@ -1322,57 +1238,77 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
+                    b.Property<DateTime?>("ActivatedAt")
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("activated_at");
+
+                    b.Property<DateTime?>("BonusExpiresAt")
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("bonus_expires_at");
+
                     b.Property<Guid>("ChallengeId")
                         .HasColumnType("uuid")
                         .HasColumnName("challenge_id");
 
-                    b.Property<int>("CompletedDaysCount")
+                    b.Property<DateTime?>("CompletedAt")
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("completed_at");
+
+                    b.Property<int?>("CurrentStreak")
                         .HasColumnType("integer")
-                        .HasColumnName("completed_days_count");
+                        .HasDefaultValue(0)
+                        .HasColumnName("current_streak");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                    b.Property<DateTime?>("FailedAt")
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("failed_at");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
+                    b.Property<string>("FailedReason")
+                        .HasColumnType("text")
+                        .HasColumnName("failed_reason");
 
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<bool?>("IsDeleted")
+                    b.Property<DateTime?>("JoinedAt")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("joined_at")
+                        .HasDefaultValueSql("now()");
+
+                    b.Property<int?>("LongestStreak")
+                        .HasColumnType("integer")
+                        .HasDefaultValue(0)
+                        .HasColumnName("longest_streak");
 
                     b.Property<Guid?>("OrderId")
                         .HasColumnType("uuid")
                         .HasColumnName("order_id");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
-                        .HasColumnName("status");
-
-                    b.Property<int>("TotalPoints")
+                    b.Property<int?>("RefundAmount")
                         .HasColumnType("integer")
-                        .HasColumnName("total_points");
+                        .HasColumnName("refund_amount");
 
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
+                    b.Property<DateTime?>("RefundedAt")
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("refunded_at");
 
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
+                    b.Property<string>("RewardChoice")
+                        .HasColumnType("text")
+                        .HasColumnName("reward_choice");
+
+                    b.Property<string>("Status")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("text")
+                        .HasColumnName("status")
+                        .HasDefaultValueSql("'pending'");
+
+                    b.Property<int>("StreakFreezesUsed")
+                        .HasColumnType("integer")
+                        .HasDefaultValue(0)
+                        .HasColumnName("streak_freezes_used");
+
+                    b.Property<int?>("TotalActiveDays")
+                        .HasColumnType("integer")
+                        .HasDefaultValue(0)
+                        .HasColumnName("total_active_days");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
@@ -1381,11 +1317,20 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.HasKey("Id")
                         .HasName("pk_challenge_participants");
 
+                    b.HasIndex("ChallengeId")
+                        .HasDatabaseName("idx_challenge_participants_challenge");
+
                     b.HasIndex("OrderId")
                         .HasDatabaseName("ix_challenge_participants_order_id");
 
+                    b.HasIndex("Status")
+                        .HasDatabaseName("idx_challenge_participants_status");
+
                     b.HasIndex("UserId")
-                        .HasDatabaseName("ix_challenge_participants_user_id");
+                        .HasDatabaseName("idx_challenge_participants_user");
+
+                    b.HasIndex("ChallengeId", "Status")
+                        .HasDatabaseName("idx_challenge_participants_challenge_status");
 
                     b.HasIndex("ChallengeId", "UserId")
                         .IsUnique()
@@ -1401,13 +1346,7 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.Property<string>("CertLevel")
-                        .IsRequired()
-                        .HasMaxLength(8)
-                        .HasColumnType("character varying(8)")
-                        .HasColumnName("cert_level");
-
-                    b.Property<Guid?>("ClassroomId")
+                    b.Property<Guid>("ClassroomId")
                         .HasColumnType("uuid")
                         .HasColumnName("classroom_id");
 
@@ -1416,88 +1355,68 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("text")
                         .HasColumnName("correct_answer");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uuid")
                         .HasColumnName("created_by");
 
-                    b.Property<Guid?>("CreatedByTeacherId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by_teacher_id");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<string>("ExerciseType")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
-                        .HasColumnName("exercise_type");
-
-                    b.Property<string>("ExplanationVi")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("explanation_vi");
-
-                    b.Property<bool?>("IsDeleted")
+                    b.Property<short?>("Difficulty")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
+                        .HasColumnType("smallint")
+                        .HasColumnName("difficulty")
+                        .HasDefaultValueSql("2");
+
+                    b.Property<string>("Explanation")
+                        .HasColumnType("text")
+                        .HasColumnName("explanation");
 
                     b.Property<Guid?>("LessonId")
                         .HasColumnType("uuid")
                         .HasColumnName("lesson_id");
 
-                    b.Property<string>("OptionsJson")
+                    b.Property<string>("Level")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("text")
+                        .HasColumnName("level")
+                        .HasDefaultValueSql("'beginner'");
+
+                    b.PrimitiveCollection<string[]>("Options")
+                        .IsRequired()
+                        .HasColumnType("text[]")
+                        .HasColumnName("options");
+
+                    b.Property<string>("Question")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("options_json");
+                        .HasColumnName("question");
 
-                    b.Property<string>("QuestionText")
+                    b.Property<string>("Topic")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("question_text");
+                        .HasColumnName("topic");
 
-                    b.Property<Guid?>("TopicId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("topic_id");
-
-                    b.Property<string>("TopicSlug")
-                        .IsRequired()
+                    b.Property<string>("Type")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("text")
-                        .HasColumnName("topic_slug");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
+                        .HasColumnName("type")
+                        .HasDefaultValueSql("'multiple_choice'");
 
                     b.HasKey("Id")
                         .HasName("pk_grammar_exercises");
 
-                    b.HasIndex("ClassroomId")
-                        .HasDatabaseName("ix_grammar_exercises_classroom_id");
-
-                    b.HasIndex("CreatedByTeacherId")
-                        .HasDatabaseName("ix_grammar_exercises_created_by_teacher_id");
+                    b.HasIndex("CreatedBy")
+                        .HasDatabaseName("ix_grammar_exercises_created_by");
 
                     b.HasIndex("LessonId")
                         .HasDatabaseName("ix_grammar_exercises_lesson_id");
 
-                    b.HasIndex("TopicId")
-                        .HasDatabaseName("ix_grammar_exercises_topic_id");
+                    b.HasIndex("ClassroomId", "Difficulty")
+                        .HasDatabaseName("idx_grammar_exercises_difficulty");
 
                     b.ToTable("grammar_exercises", "public");
                 });
@@ -1509,9 +1428,11 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uuid")
@@ -1525,15 +1446,27 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("deleted_by");
 
-                    b.Property<string>("ExamplesJson")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("examples_json");
+                    b.Property<string>("Examples")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("jsonb")
+                        .HasColumnName("examples")
+                        .HasDefaultValueSql("'[]'");
 
-                    b.Property<string>("FormulasJson")
-                        .IsRequired()
+                    b.Property<string>("Exercises")
+                        .HasColumnType("jsonb")
+                        .HasColumnName("exercises");
+
+                    b.Property<short?>("ImageConfidence")
+                        .HasColumnType("smallint")
+                        .HasColumnName("image_confidence");
+
+                    b.Property<string>("ImageSource")
                         .HasColumnType("text")
-                        .HasColumnName("formulas_json");
+                        .HasColumnName("image_source");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("text")
+                        .HasColumnName("image_url");
 
                     b.Property<bool?>("IsDeleted")
                         .ValueGeneratedOnAdd()
@@ -1541,16 +1474,31 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasDefaultValue(false)
                         .HasColumnName("is_deleted");
 
+                    b.Property<int?>("OrderIndex")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("order_index")
+                        .HasDefaultValueSql("0");
+
+                    b.Property<string>("Sections")
+                        .HasColumnType("jsonb")
+                        .HasColumnName("sections");
+
                     b.Property<string>("Source")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
+                        .HasColumnType("text")
                         .HasColumnName("source");
 
-                    b.Property<string>("TheoryHtml")
-                        .IsRequired()
+                    b.Property<string>("SourceUrl")
                         .HasColumnType("text")
-                        .HasColumnName("theory_html");
+                        .HasColumnName("source_url");
+
+                    b.Property<string>("Theory")
+                        .HasColumnType("text")
+                        .HasColumnName("theory");
+
+                    b.Property<string>("TheoryVi")
+                        .HasColumnType("text")
+                        .HasColumnName("theory_vi");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -1561,9 +1509,11 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("topic_id");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
+                        .HasColumnName("updated_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uuid")
@@ -1576,69 +1526,36 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasDatabaseName("ix_grammar_lessons_created_by");
 
                     b.HasIndex("TopicId")
-                        .HasDatabaseName("ix_grammar_lessons_topic_id");
+                        .HasDatabaseName("idx_grammar_lessons_topic");
 
                     b.ToTable("grammar_lessons", "public");
                 });
 
             modelBuilder.Entity("LingoPro.Domain.Entities.Grammar.GrammarMicroProgress", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid")
-                        .HasColumnName("id");
-
-                    b.PrimitiveCollection<int[]>("CompletedSteps")
-                        .IsRequired()
-                        .HasColumnType("integer[]")
-                        .HasColumnName("completed_steps");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
-
-                    b.Property<string>("Stage")
-                        .IsRequired()
-                        .HasMaxLength(16)
-                        .HasColumnType("character varying(16)")
-                        .HasColumnName("stage");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
-
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
                         .HasColumnName("user_id");
 
-                    b.HasKey("Id")
-                        .HasName("pk_grammar_micro_progress");
+                    b.Property<string>("Stage")
+                        .HasColumnType("text")
+                        .HasColumnName("stage");
 
-                    b.HasIndex("UserId", "Stage")
-                        .IsUnique()
-                        .HasDatabaseName("ix_grammar_micro_progress_user_id_stage");
+                    b.PrimitiveCollection<int[]>("CompletedSteps")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer[]")
+                        .HasColumnName("completed_steps")
+                        .HasDefaultValueSql("'{}'");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("updated_at")
+                        .HasDefaultValueSql("now()");
+
+                    b.HasKey("UserId", "Stage")
+                        .HasName("pk_grammar_micro_progress");
 
                     b.ToTable("grammar_micro_progress", "public");
                 });
@@ -1650,86 +1567,67 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<double>("Difficulty")
-                        .HasColumnType("double precision")
-                        .HasColumnName("difficulty");
-
-                    b.Property<int>("IntervalDays")
-                        .HasColumnType("integer")
-                        .HasColumnName("interval_days");
-
-                    b.Property<bool?>("IsDeleted")
+                    b.Property<double?>("Difficulty")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
+                        .HasColumnType("double precision")
+                        .HasColumnName("difficulty")
+                        .HasDefaultValueSql("0");
 
-                    b.Property<int>("Lapses")
+                    b.Property<int?>("IntervalDays")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasColumnName("lapses");
+                        .HasColumnName("interval_days")
+                        .HasDefaultValueSql("0");
+
+                    b.Property<int?>("Lapses")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("lapses")
+                        .HasDefaultValueSql("0");
 
                     b.Property<DateTime?>("LastReviewedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("last_reviewed_at");
 
-                    b.Property<Guid?>("LessonId")
+                    b.Property<int?>("LearningSteps")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("learning_steps")
+                        .HasDefaultValueSql("0");
+
+                    b.Property<Guid>("LessonId")
                         .HasColumnType("uuid")
                         .HasColumnName("lesson_id");
 
-                    b.Property<double>("MasteryScore")
-                        .HasColumnType("double precision")
-                        .HasColumnName("mastery_score");
+                    b.Property<short?>("MasteryScore")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("smallint")
+                        .HasColumnName("mastery_score")
+                        .HasDefaultValueSql("0");
 
-                    b.Property<DateOnly>("NextReviewDate")
-                        .HasColumnType("date")
-                        .HasColumnName("next_review_date");
+                    b.Property<DateTime?>("NextReviewDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("next_review_date")
+                        .HasDefaultValueSql("now()");
 
-                    b.Property<int>("Reps")
+                    b.Property<int?>("ReviewCount")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasColumnName("reps");
+                        .HasColumnName("review_count")
+                        .HasDefaultValueSql("0");
 
-                    b.Property<double>("Stability")
+                    b.Property<double?>("Stability")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("double precision")
-                        .HasColumnName("stability");
+                        .HasColumnName("stability")
+                        .HasDefaultValueSql("0");
 
                     b.Property<string>("State")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
-                        .HasColumnName("state");
-
-                    b.Property<Guid?>("TopicId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("topic_id");
-
-                    b.Property<string>("TopicSlug")
-                        .IsRequired()
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("text")
-                        .HasColumnName("topic_slug");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
+                        .HasColumnName("state")
+                        .HasDefaultValueSql("'new'");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
@@ -1741,72 +1639,42 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.HasIndex("LessonId")
                         .HasDatabaseName("ix_grammar_progress_lesson_id");
 
-                    b.HasIndex("TopicId")
-                        .HasDatabaseName("ix_grammar_progress_topic_id");
+                    b.HasIndex("UserId")
+                        .HasDatabaseName("idx_grammar_progress_user");
 
-                    b.HasIndex("UserId", "TopicSlug")
+                    b.HasIndex("UserId", "LastReviewedAt")
+                        .HasDatabaseName("idx_grammar_progress_user_reviewed");
+
+                    b.HasIndex("UserId", "LessonId")
                         .IsUnique()
-                        .HasDatabaseName("ix_grammar_progress_user_id_topic_slug");
+                        .HasDatabaseName("ix_grammar_progress_user_id_lesson_id");
 
                     b.ToTable("grammar_progress", "public");
                 });
 
             modelBuilder.Entity("LingoPro.Domain.Entities.Grammar.GrammarQuizCache", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid")
-                        .HasColumnName("id");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
-
                     b.Property<Guid>("LessonId")
                         .HasColumnType("uuid")
                         .HasColumnName("lesson_id");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<string>("Model")
                         .HasColumnType("text")
                         .HasColumnName("model");
 
-                    b.Property<string>("QuestionsJson")
+                    b.Property<string>("Questions")
                         .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("questions_json");
+                        .HasColumnType("jsonb")
+                        .HasColumnName("questions");
 
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
-
-                    b.HasKey("Id")
+                    b.HasKey("LessonId")
                         .HasName("pk_grammar_quiz_cache");
-
-                    b.HasIndex("LessonId")
-                        .IsUnique()
-                        .HasDatabaseName("ix_grammar_quiz_cache_lesson_id");
 
                     b.ToTable("grammar_quiz_cache", "public");
                 });
@@ -1823,51 +1691,25 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("text")
                         .HasColumnName("chosen_answer");
 
-                    b.Property<DateTime>("CompletedAt")
+                    b.Property<DateTime?>("CompletedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("completed_at");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
+                        .HasColumnName("completed_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid>("ExerciseId")
                         .HasColumnType("uuid")
                         .HasColumnName("exercise_id");
 
-                    b.Property<bool>("IsCorrect")
-                        .HasColumnType("boolean")
-                        .HasColumnName("is_correct");
-
-                    b.Property<bool?>("IsDeleted")
+                    b.Property<bool?>("IsCorrect")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
+                        .HasColumnName("is_correct")
+                        .HasDefaultValueSql("false");
 
                     b.Property<int?>("TimeTakenMs")
                         .HasColumnType("integer")
                         .HasColumnName("time_taken_ms");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
@@ -1879,8 +1721,8 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.HasIndex("ExerciseId")
                         .HasDatabaseName("ix_grammar_results_exercise_id");
 
-                    b.HasIndex("UserId")
-                        .HasDatabaseName("ix_grammar_results_user_id");
+                    b.HasIndex("UserId", "ExerciseId")
+                        .HasDatabaseName("idx_grammar_results_user_exercise");
 
                     b.ToTable("grammar_results", "public");
                 });
@@ -1892,44 +1734,23 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.Property<string>("Category")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("category");
-
-                    b.Property<string>("CertLevel")
-                        .IsRequired()
-                        .HasMaxLength(8)
-                        .HasColumnType("character varying(8)")
-                        .HasColumnName("cefr_level");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<bool?>("IsDeleted")
+                    b.Property<DateTime?>("CreatedAt")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<string>("Level")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
-                        .HasColumnName("grammar_level");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("text")
+                        .HasColumnName("level")
+                        .HasDefaultValueSql("'beginner'");
+
+                    b.Property<int?>("OrderIndex")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("order_index")
+                        .HasDefaultValueSql("0");
 
                     b.Property<Guid?>("ParentId")
                         .HasColumnType("uuid")
@@ -1937,13 +1758,8 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
 
                     b.Property<string>("Slug")
                         .IsRequired()
-                        .HasMaxLength(160)
-                        .HasColumnType("character varying(160)")
+                        .HasColumnType("text")
                         .HasColumnName("slug");
-
-                    b.Property<int>("SortOrder")
-                        .HasColumnType("integer")
-                        .HasColumnName("sort_order");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -1953,14 +1769,6 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.Property<string>("TitleVi")
                         .HasColumnType("text")
                         .HasColumnName("title_vi");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
 
                     b.HasKey("Id")
                         .HasName("pk_grammar_topics");
@@ -1982,59 +1790,43 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.Property<int>("ClozeScore")
+                    b.Property<int?>("ClozeScore")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasColumnName("cloze_score");
+                        .HasColumnName("cloze_score")
+                        .HasDefaultValueSql("0");
 
-                    b.Property<int>("ClozeTotal")
+                    b.Property<int?>("ClozeTotal")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasColumnName("cloze_total");
+                        .HasColumnName("cloze_total")
+                        .HasDefaultValueSql("0");
 
-                    b.Property<DateTime>("CompletedAt")
+                    b.Property<DateTime?>("CompletedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("completed_at");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
 
                     b.Property<Guid>("ExerciseId")
                         .HasColumnType("uuid")
                         .HasColumnName("exercise_id");
 
-                    b.Property<bool?>("IsDeleted")
+                    b.Property<int?>("McqScore")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
-
-                    b.Property<int>("McqScore")
                         .HasColumnType("integer")
-                        .HasColumnName("mcq_score");
+                        .HasColumnName("mcq_score")
+                        .HasDefaultValueSql("0");
 
-                    b.Property<int>("McqTotal")
+                    b.Property<int?>("McqTotal")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasColumnName("mcq_total");
+                        .HasColumnName("mcq_total")
+                        .HasDefaultValueSql("0");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("StartedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
+                        .HasColumnName("started_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
@@ -2060,62 +1852,88 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.Property<string>("CertLevel")
-                        .IsRequired()
-                        .HasMaxLength(8)
-                        .HasColumnType("character varying(8)")
-                        .HasColumnName("cert_level");
+                    b.Property<string>("BonusWords")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("jsonb")
+                        .HasColumnName("bonus_words")
+                        .HasDefaultValueSql("'[]'");
 
                     b.Property<Guid?>("ClassroomId")
                         .HasColumnType("uuid")
                         .HasColumnName("classroom_id");
 
-                    b.Property<string>("ClozeItemsJson")
+                    b.Property<string>("Cloze")
                         .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("jsonb")
+                        .HasColumnName("cloze")
+                        .HasDefaultValueSql("'{}'");
+
+                    b.Property<double?>("Coverage")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("double precision")
+                        .HasColumnName("coverage")
+                        .HasDefaultValueSql("0");
+
+                    b.Property<string>("ErrorMessage")
                         .HasColumnType("text")
-                        .HasColumnName("cloze_items_json");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
+                        .HasColumnName("error_message");
 
                     b.Property<DateOnly>("ExerciseDate")
                         .HasColumnType("date")
                         .HasColumnName("exercise_date");
 
-                    b.Property<bool?>("IsDeleted")
+                    b.Property<DateTime?>("GeneratedAt")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("generated_at")
+                        .HasDefaultValueSql("now()");
 
-                    b.Property<string>("McqQuestionsJson")
+                    b.Property<string>("GenerationMeta")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("jsonb")
+                        .HasColumnName("generation_meta")
+                        .HasDefaultValueSql("'{}'");
+
+                    b.Property<string>("Level")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("text")
+                        .HasColumnName("level")
+                        .HasDefaultValueSql("'A2'");
+
+                    b.Property<string>("Passage")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("mcq_questions_json");
+                        .HasColumnName("passage");
 
-                    b.Property<string>("PassageContent")
+                    b.Property<string>("PassagePlain")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("passage_content");
+                        .HasColumnName("passage_plain");
+
+                    b.Property<string>("Questions")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("jsonb")
+                        .HasColumnName("questions")
+                        .HasDefaultValueSql("'[]'");
+
+                    b.Property<DateOnly>("SourceDate")
+                        .HasColumnType("date")
+                        .HasColumnName("source_date");
+
+                    b.Property<string>("SourceWords")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("jsonb")
+                        .HasColumnName("source_words")
+                        .HasDefaultValueSql("'[]'");
 
                     b.Property<string>("Status")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
-                        .HasColumnName("status");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("text")
+                        .HasColumnName("status")
+                        .HasDefaultValueSql("'ready'");
 
                     b.Property<Guid?>("TargetUserId")
                         .HasColumnType("uuid")
@@ -2126,27 +1944,34 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("text")
                         .HasColumnName("title");
 
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
-
-                    b.Property<string>("UsedWordsJson")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("used_words_json");
+                    b.PrimitiveCollection<string[]>("UsedWords")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("text[]")
+                        .HasColumnName("used_words")
+                        .HasDefaultValueSql("'{}'");
 
                     b.HasKey("Id")
                         .HasName("pk_daily_reading_exercises");
 
-                    b.HasIndex("ClassroomId")
-                        .HasDatabaseName("ix_daily_reading_exercises_classroom_id");
+                    b.HasIndex("ClassroomId", "ExerciseDate")
+                        .IsUnique()
+                        .IsDescending(false, true)
+                        .HasDatabaseName("daily_reading_exercises_class_date_uidx")
+                        .HasFilter("target_user_id is null");
 
-                    b.HasIndex("TargetUserId")
-                        .HasDatabaseName("ix_daily_reading_exercises_target_user_id");
+                    b.HasIndex("ExerciseDate", "Status")
+                        .HasDatabaseName("daily_reading_exercises_date_status_idx");
+
+                    b.HasIndex("TargetUserId", "ExerciseDate")
+                        .IsUnique()
+                        .HasDatabaseName("daily_reading_exercises_user_date_uidx")
+                        .HasFilter("target_user_id is not null");
+
+                    b.HasIndex("ClassroomId", "ExerciseDate", "TargetUserId")
+                        .IsUnique()
+                        .HasDatabaseName("ix_daily_reading_exercises_classroom_id_exercise_date_target_u");
+
+                    NpgsqlIndexBuilderExtensions.AreNullsDistinct(b.HasIndex("ClassroomId", "ExerciseDate", "TargetUserId"), false);
 
                     b.ToTable("daily_reading_exercises", "public");
                 });
@@ -2158,20 +1983,27 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.Property<string>("CertLevel")
-                        .IsRequired()
-                        .HasMaxLength(8)
-                        .HasColumnType("character varying(8)")
-                        .HasColumnName("cefr_level");
+                    b.Property<string>("AudioUrl")
+                        .HasColumnType("text")
+                        .HasColumnName("audio_url");
 
-                    b.Property<string>("ContentText")
+                    b.Property<string>("CefrLevel")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("content_text");
+                        .HasColumnName("cefr_level");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<string>("Cloze")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("jsonb")
+                        .HasColumnName("cloze")
+                        .HasDefaultValueSql("'{}'::jsonb");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uuid")
@@ -2185,63 +2017,142 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("deleted_by");
 
+                    b.Property<double?>("DifficultyScore")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("double precision")
+                        .HasColumnName("difficulty_score")
+                        .HasDefaultValueSql("0");
+
+                    b.Property<int>("EstimatedReadMinutes")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("estimated_read_minutes")
+                        .HasDefaultValueSql("1");
+
                     b.Property<bool?>("IsDeleted")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("boolean")
                         .HasDefaultValue(false)
                         .HasColumnName("is_deleted");
 
-                    b.Property<string>("QuestionsJson")
+                    b.Property<string>("MindmapData")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("jsonb")
+                        .HasColumnName("mindmap_data")
+                        .HasDefaultValueSql("'{}'::jsonb");
+
+                    b.Property<string>("Passage")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("questions_json");
+                        .HasColumnName("passage");
+
+                    b.Property<string>("PassagePlain")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("passage_plain");
+
+                    b.Property<string>("PodcastMeta")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("jsonb")
+                        .HasColumnName("podcast_meta")
+                        .HasDefaultValueSql("'{}'::jsonb");
+
+                    b.Property<string>("Questions")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("jsonb")
+                        .HasColumnName("questions")
+                        .HasDefaultValueSql("'[]'::jsonb");
 
                     b.Property<string>("Slug")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)")
+                        .HasColumnType("text")
                         .HasColumnName("slug");
+
+                    b.Property<string>("SourceId")
+                        .HasColumnType("text")
+                        .HasColumnName("source_id");
+
+                    b.Property<string>("SourceMetadata")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("jsonb")
+                        .HasColumnName("source_metadata")
+                        .HasDefaultValueSql("'{}'::jsonb");
 
                     b.Property<string>("SourceType")
                         .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
-                        .HasColumnName("source_type");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("text")
+                        .HasColumnName("source_type")
+                        .HasDefaultValueSql("'custom'");
 
                     b.Property<string>("Status")
                         .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
-                        .HasColumnName("status");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("text")
+                        .HasColumnName("status")
+                        .HasDefaultValueSql("'published'");
+
+                    b.Property<string>("Summary")
+                        .HasColumnType("text")
+                        .HasColumnName("summary");
+
+                    b.Property<string>("ThemeId")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("theme_id");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("title");
 
-                    b.Property<string>("Topic")
-                        .IsRequired()
+                    b.Property<string>("Translation")
                         .HasColumnType("text")
-                        .HasColumnName("topic");
+                        .HasColumnName("translation");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
+                        .HasColumnName("updated_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uuid")
                         .HasColumnName("updated_by");
 
+                    b.Property<string>("VocabularyHighlights")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("jsonb")
+                        .HasColumnName("vocabulary_highlights")
+                        .HasDefaultValueSql("'[]'::jsonb");
+
                     b.Property<int>("WordCount")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasColumnName("word_count");
+                        .HasColumnName("word_count")
+                        .HasDefaultValueSql("0");
 
                     b.HasKey("Id")
                         .HasName("pk_reading_articles");
 
+                    b.HasIndex("CreatedAt")
+                        .IsDescending()
+                        .HasDatabaseName("reading_articles_created_idx");
+
                     b.HasIndex("Slug")
                         .IsUnique()
                         .HasDatabaseName("ix_reading_articles_slug");
+
+                    b.HasIndex("SourceType", "SourceId")
+                        .HasDatabaseName("reading_articles_source_idx");
+
+                    b.HasIndex("ThemeId", "Status")
+                        .HasDatabaseName("reading_articles_theme_status_idx");
+
+                    b.HasIndex("CefrLevel", "ThemeId", "Status")
+                        .HasDatabaseName("reading_articles_level_theme_status_idx");
 
                     b.ToTable("reading_articles", "public");
                 });
@@ -2257,138 +2168,153 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("article_id");
 
-                    b.Property<DateTime>("CompletedAt")
+                    b.Property<int?>("ClozeScore")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("cloze_score")
+                        .HasDefaultValueSql("0");
+
+                    b.Property<int?>("ClozeTotal")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("cloze_total")
+                        .HasDefaultValueSql("0");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("completed_at");
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<bool>("IsCompleted")
-                        .HasColumnType("boolean")
-                        .HasColumnName("is_completed");
-
-                    b.Property<bool?>("IsDeleted")
+                    b.Property<bool?>("IsBookmarked")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
+                        .HasColumnName("is_bookmarked")
+                        .HasDefaultValueSql("false");
 
-                    b.Property<int>("QuizScore")
+                    b.Property<DateTime?>("LastReadAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("last_read_at")
+                        .HasDefaultValueSql("now()");
+
+                    b.Property<int?>("McqScore")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasColumnName("quiz_score");
+                        .HasColumnName("mcq_score")
+                        .HasDefaultValueSql("0");
+
+                    b.Property<int?>("McqTotal")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("mcq_total")
+                        .HasDefaultValueSql("0");
+
+                    b.Property<int?>("ReadCount")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("read_count")
+                        .HasDefaultValueSql("0");
+
+                    b.Property<int?>("ReadingTimeSeconds")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("reading_time_seconds")
+                        .HasDefaultValueSql("0");
 
                     b.Property<string>("Status")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
-                        .HasColumnName("status");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("text")
+                        .HasColumnName("status")
+                        .HasDefaultValueSql("'in_progress'");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
+                        .HasColumnName("updated_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
                         .HasColumnName("user_id");
 
+                    b.Property<string>("UserNotes")
+                        .HasColumnType("text")
+                        .HasColumnName("user_notes");
+
                     b.HasKey("Id")
                         .HasName("pk_user_reading_library_progress");
 
                     b.HasIndex("ArticleId")
-                        .HasDatabaseName("ix_user_reading_library_progress_article_id");
+                        .HasDatabaseName("user_reading_progress_article_idx");
 
                     b.HasIndex("UserId", "ArticleId")
                         .IsUnique()
                         .HasDatabaseName("ix_user_reading_library_progress_user_id_article_id");
+
+                    b.HasIndex("UserId", "IsBookmarked")
+                        .HasDatabaseName("user_reading_progress_bookmarked_idx")
+                        .HasFilter("is_bookmarked = true");
+
+                    b.HasIndex("UserId", "LastReadAt")
+                        .IsDescending(false, true)
+                        .HasDatabaseName("user_reading_progress_user_idx");
 
                     b.ToTable("user_reading_library_progress", "public");
                 });
 
             modelBuilder.Entity("LingoPro.Domain.Entities.Roadmap.UserRoadmap", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
-                        .HasColumnName("id");
+                        .HasColumnName("user_id");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
+                    b.Property<string>("Track")
+                        .HasColumnType("text")
+                        .HasColumnName("track")
+                        .HasDefaultValueSql("'cefr'");
 
                     b.Property<string>("CurrentUnitId")
                         .HasColumnType("text")
                         .HasColumnName("current_unit_id");
 
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
-
                     b.Property<string>("LevelId")
                         .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
+                        .HasColumnType("text")
                         .HasColumnName("level_id");
 
-                    b.Property<bool>("PlacementCompleted")
-                        .HasColumnType("boolean")
-                        .HasColumnName("placement_completed");
+                    b.Property<string>("Placement")
+                        .HasColumnType("jsonb")
+                        .HasColumnName("placement");
 
-                    b.Property<string>("Track")
+                    b.Property<Guid?>("ProfileId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("profile_id");
+
+                    b.Property<string>("RoadmapVersion")
                         .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
-                        .HasColumnName("track");
+                        .HasColumnType("text")
+                        .HasColumnName("roadmap_version")
+                        .HasDefaultValueSql("'roadmap-v1'");
+
+                    b.Property<DateTime>("StartedAt")
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("started_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("updated_at")
+                        .HasDefaultValueSql("now()");
 
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
+                    b.HasKey("UserId", "Track")
+                        .HasName("user_roadmap_pkey");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("user_id");
+                    b.HasIndex("ProfileId")
+                        .HasDatabaseName("ix_user_roadmap_profile_id");
 
-                    b.HasKey("Id")
-                        .HasName("pk_user_roadmap");
-
-                    b.HasIndex("UserId", "Track")
-                        .IsUnique()
-                        .HasDatabaseName("ix_user_roadmap_user_id_track");
+                    b.HasIndex("UserId")
+                        .HasDatabaseName("idx_user_roadmap_user");
 
                     b.ToTable("user_roadmap", "public");
                 });
@@ -2401,34 +2327,19 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnName("id");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<string>("DetailsJson")
+                    b.Property<string>("Details")
                         .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("details_json");
-
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
+                        .HasColumnType("jsonb")
+                        .HasColumnName("details")
+                        .HasDefaultValueSql("'{}'::jsonb");
 
                     b.Property<bool>("Passed")
                         .HasColumnType("boolean")
+                        .HasDefaultValue(false)
                         .HasColumnName("passed");
 
                     b.Property<int>("Score")
@@ -2442,123 +2353,66 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
 
                     b.Property<string>("Tier")
                         .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
+                        .HasColumnType("text")
                         .HasColumnName("tier");
 
                     b.Property<string>("Track")
                         .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
-                        .HasColumnName("track");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
+                        .HasColumnType("text")
+                        .HasColumnName("track")
+                        .HasDefaultValueSql("'cefr'");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
                         .HasColumnName("user_id");
 
-                    b.Property<Guid?>("UserRoadmapId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("user_roadmap_id");
-
                     b.HasKey("Id")
                         .HasName("pk_user_roadmap_assessments");
 
-                    b.HasIndex("UserRoadmapId")
-                        .HasDatabaseName("ix_user_roadmap_assessments_user_roadmap_id");
+                    b.HasIndex("UserId", "TargetId", "CreatedAt")
+                        .IsDescending(false, false, true)
+                        .HasDatabaseName("idx_user_roadmap_assessments_lookup");
 
-                    b.HasIndex("UserId", "TargetId")
-                        .HasDatabaseName("ix_user_roadmap_assessments_user_id_target_id");
+                    b.HasIndex("UserId", "Track", "Tier")
+                        .HasDatabaseName("idx_user_roadmap_assessments_user_tier");
 
                     b.ToTable("user_roadmap_assessments", "public");
                 });
 
             modelBuilder.Entity("LingoPro.Domain.Entities.Roadmap.UserRoadmapStep", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid")
-                        .HasColumnName("id");
-
-                    b.Property<DateTime?>("CompletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("completed_at");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
-
-                    b.Property<double?>("Score")
-                        .HasColumnType("double precision")
-                        .HasColumnName("score");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
-                        .HasColumnName("status");
-
-                    b.Property<string>("StepId")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("step_id");
-
-                    b.Property<string>("Track")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
-                        .HasColumnName("track");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
-
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
                         .HasColumnName("user_id");
 
-                    b.Property<Guid>("UserRoadmapId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("user_roadmap_id");
+                    b.Property<string>("StepId")
+                        .HasColumnType("text")
+                        .HasColumnName("step_id");
 
-                    b.HasKey("Id")
+                    b.Property<DateTime?>("CompletedAt")
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("completed_at");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
+
+                    b.Property<int?>("Score")
+                        .HasColumnType("integer")
+                        .HasColumnName("score");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("status")
+                        .HasDefaultValueSql("'completed'");
+
+                    b.HasKey("UserId", "StepId")
                         .HasName("pk_user_roadmap_steps");
 
                     b.HasIndex("UserId")
-                        .HasDatabaseName("ix_user_roadmap_steps_user_id");
-
-                    b.HasIndex("UserRoadmapId", "StepId")
-                        .IsUnique()
-                        .HasDatabaseName("ix_user_roadmap_steps_user_roadmap_id_step_id");
+                        .HasDatabaseName("idx_user_roadmap_steps_user");
 
                     b.ToTable("user_roadmap_steps", "public");
                 });
@@ -2570,43 +2424,13 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
                     b.Property<Guid>("GroupId")
                         .HasColumnType("uuid")
                         .HasColumnName("group_id");
 
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
-
-                    b.Property<DateTime>("JoinedAt")
+                    b.Property<DateTime?>("JoinedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("joined_at");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
@@ -2632,8 +2456,12 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("numeric")
+                    b.Property<string>("AdminNote")
+                        .HasColumnType("text")
+                        .HasColumnName("admin_note");
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("integer")
                         .HasColumnName("amount");
 
                     b.Property<string>("BankAccountHolder")
@@ -2655,24 +2483,6 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("created_at");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
-
                     b.Property<DateTime?>("ProcessedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("processed_at");
@@ -2683,17 +2493,8 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
 
                     b.Property<string>("Status")
                         .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
+                        .HasColumnType("text")
                         .HasColumnName("status");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
@@ -2718,10 +2519,10 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.Property<string>("ActivationCriteriaJson")
+                    b.Property<string>("ActivationCriteria")
                         .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("activation_criteria_json");
+                        .HasColumnType("jsonb")
+                        .HasColumnName("activation_criteria");
 
                     b.Property<int>("AmbassadorCommPct")
                         .HasColumnType("integer")
@@ -2731,9 +2532,11 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("commission_pct");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uuid")
@@ -2761,8 +2564,8 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasDefaultValue(false)
                         .HasColumnName("is_deleted");
 
-                    b.Property<decimal>("MinPayoutAmount")
-                        .HasColumnType("numeric")
+                    b.Property<int>("MinPayoutAmount")
+                        .HasColumnType("integer")
                         .HasColumnName("min_payout_amount");
 
                     b.Property<int>("MonthlyRefCap")
@@ -2787,9 +2590,11 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("text")
                         .HasColumnName("slug");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
+                        .HasColumnName("updated_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uuid")
@@ -2816,18 +2621,19 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("clicks_count");
 
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("code");
-
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uuid")
                         .HasColumnName("created_by");
+
+                    b.Property<string>("CustomSlug")
+                        .HasColumnType("text")
+                        .HasColumnName("custom_slug");
 
                     b.Property<DateTime?>("DeletedAt")
                         .HasColumnType("timestamp with time zone")
@@ -2843,9 +2649,16 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasDefaultValue(false)
                         .HasColumnName("is_deleted");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<string>("ReferralCode")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("referral_code");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
+                        .HasColumnName("updated_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uuid")
@@ -2858,9 +2671,13 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.HasKey("Id")
                         .HasName("pk_referral_links");
 
-                    b.HasIndex("Code")
+                    b.HasIndex("CustomSlug")
                         .IsUnique()
-                        .HasDatabaseName("ix_referral_links_code");
+                        .HasDatabaseName("ix_referral_links_custom_slug");
+
+                    b.HasIndex("ReferralCode")
+                        .IsUnique()
+                        .HasDatabaseName("ix_referral_links_referral_code");
 
                     b.HasIndex("UserId")
                         .IsUnique()
@@ -2884,9 +2701,15 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("campaign_id");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("ConvertedAt")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                        .HasColumnName("converted_at");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uuid")
@@ -2900,9 +2723,25 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("deleted_by");
 
+                    b.Property<string>("DeviceFingerprint")
+                        .HasColumnType("text")
+                        .HasColumnName("device_fingerprint");
+
                     b.Property<Guid?>("FirstOrderId")
                         .HasColumnType("uuid")
                         .HasColumnName("first_order_id");
+
+                    b.Property<string>("FlaggedReason")
+                        .HasColumnType("text")
+                        .HasColumnName("flagged_reason");
+
+                    b.Property<string>("IpAddress")
+                        .HasColumnType("text")
+                        .HasColumnName("ip_address");
+
+                    b.Property<string>("IpSubnet")
+                        .HasColumnType("text")
+                        .HasColumnName("ip_subnet");
 
                     b.Property<bool?>("IsDeleted")
                         .ValueGeneratedOnAdd()
@@ -2919,19 +2758,24 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("text")
                         .HasColumnName("referral_code");
 
-                    b.Property<Guid>("ReferrerId")
+                    b.Property<Guid?>("ReferrerId")
                         .HasColumnType("uuid")
                         .HasColumnName("referrer_id");
 
+                    b.Property<int>("RiskScore")
+                        .HasColumnType("integer")
+                        .HasColumnName("risk_score");
+
                     b.Property<string>("Status")
                         .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
+                        .HasColumnType("text")
                         .HasColumnName("status");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
+                        .HasColumnName("updated_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uuid")
@@ -2963,11 +2807,11 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("numeric")
+                    b.Property<int>("Amount")
+                        .HasColumnType("integer")
                         .HasColumnName("amount");
 
-                    b.Property<DateTime?>("AvailableAt")
+                    b.Property<DateTime>("AvailableAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("available_at");
 
@@ -2975,27 +2819,17 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("created_at");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
+                    b.Property<string>("Note")
+                        .HasColumnType("text")
+                        .HasColumnName("note");
 
                     b.Property<Guid?>("OrderId")
                         .HasColumnType("uuid")
                         .HasColumnName("order_id");
+
+                    b.Property<int>("ProDays")
+                        .HasColumnType("integer")
+                        .HasColumnName("pro_days");
 
                     b.Property<Guid?>("ReferralLogId")
                         .HasColumnType("uuid")
@@ -3003,27 +2837,13 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
 
                     b.Property<string>("RewardType")
                         .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
+                        .HasColumnType("text")
                         .HasColumnName("reward_type");
-
-                    b.Property<Guid?>("SourceRefereeId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("source_referee_id");
 
                     b.Property<string>("Status")
                         .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
+                        .HasColumnType("text")
                         .HasColumnName("status");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
@@ -3032,17 +2852,16 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.HasKey("Id")
                         .HasName("pk_reward_transactions");
 
-                    b.HasIndex("OrderId")
-                        .HasDatabaseName("ix_reward_transactions_order_id");
-
                     b.HasIndex("ReferralLogId")
                         .HasDatabaseName("ix_reward_transactions_referral_log_id");
 
-                    b.HasIndex("SourceRefereeId")
-                        .HasDatabaseName("ix_reward_transactions_source_referee_id");
-
                     b.HasIndex("UserId")
                         .HasDatabaseName("ix_reward_transactions_user_id");
+
+                    b.HasIndex("OrderId", "UserId")
+                        .IsUnique()
+                        .HasDatabaseName("ix_reward_transactions_order_id_user_id")
+                        .HasFilter("reward_type IN ('affiliate_cash', 'cash_commission')");
 
                     b.ToTable("reward_transactions", "public");
                 });
@@ -3054,9 +2873,11 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uuid")
@@ -3070,7 +2891,7 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("deleted_by");
 
-                    b.Property<DateTime>("ExpiresAt")
+                    b.Property<DateTime?>("ExpiresAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("expires_at");
 
@@ -3085,11 +2906,6 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasDefaultValue(false)
                         .HasColumnName("is_deleted");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("name");
-
                     b.Property<Guid?>("OrderId")
                         .HasColumnType("uuid")
                         .HasColumnName("order_id");
@@ -3098,19 +2914,29 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("owner_id");
 
+                    b.Property<string>("Plan")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("plan");
+
                     b.Property<int>("SeatLimit")
                         .HasColumnType("integer")
                         .HasColumnName("seat_limit");
 
+                    b.Property<DateTime?>("StartsAt")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("starts_at");
+
                     b.Property<string>("Status")
                         .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
+                        .HasColumnType("text")
                         .HasColumnName("status");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
+                        .HasColumnName("updated_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uuid")
@@ -3134,180 +2960,142 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("LingoPro.Domain.Entities.Social.StudyRoomPresence", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
-                        .HasColumnName("id");
+                        .HasColumnName("user_id");
 
-                    b.Property<Guid?>("ClassroomId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("classroom_id");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<string>("CurrentActivity")
+                    b.Property<string>("ActivityKey")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("current_activity");
+                        .HasColumnName("activity_key");
 
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
+                    b.Property<string>("ActivityLabel")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("activity_label");
 
                     b.Property<string>("DisplayName")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("display_name");
 
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
-
-                    b.Property<DateTime>("LastHeartbeatAt")
+                    b.Property<DateTime>("LastSeenAt")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("last_heartbeat_at");
+                        .HasColumnName("last_seen_at");
+
+                    b.Property<string>("RoomId")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("room_id");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("updated_at");
 
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("user_id");
-
-                    b.HasKey("Id")
+                    b.HasKey("UserId")
                         .HasName("pk_room_presence");
-
-                    b.HasIndex("ClassroomId")
-                        .HasDatabaseName("ix_room_presence_classroom_id");
-
-                    b.HasIndex("UserId")
-                        .IsUnique()
-                        .HasDatabaseName("ix_room_presence_user_id");
 
                     b.ToTable("room_presence", "public");
                 });
 
             modelBuilder.Entity("LingoPro.Domain.Entities.Speaking.FoundationLexicalConcept", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid")
+                    b.Property<string>("Id")
+                        .HasColumnType("varchar(32)")
                         .HasColumnName("id");
 
-                    b.Property<string>("CertLevel")
+                    b.Property<string>("Cluster")
                         .IsRequired()
-                        .HasMaxLength(8)
-                        .HasColumnType("character varying(8)")
-                        .HasColumnName("cert_level");
+                        .HasColumnType("varchar(32)")
+                        .HasColumnName("cluster");
 
-                    b.Property<string>("ConceptCode")
+                    b.Property<string>("ContrastConcepts")
                         .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("concept_code");
+                        .HasColumnType("jsonb")
+                        .HasColumnName("contrast_concepts")
+                        .HasDefaultValueSql("'[]'::jsonb");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<int>("FrequencyBand")
+                    b.Property<int>("GenerativePower")
                         .HasColumnType("integer")
-                        .HasColumnName("frequency_band");
-
-                    b.Property<string>("Headword")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("headword");
+                        .HasDefaultValue(50)
+                        .HasColumnName("generative_power");
 
                     b.Property<string>("Ipa")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasColumnType("varchar(64)")
                         .HasColumnName("ipa");
 
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
+                    b.Property<string>("Lemma")
+                        .IsRequired()
+                        .HasColumnType("varchar(64)")
+                        .HasColumnName("lemma");
 
                     b.Property<string>("MeaningVi")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("meaning_vi");
 
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
+                    b.Property<string>("Pos")
+                        .IsRequired()
+                        .HasColumnType("varchar(16)")
+                        .HasColumnName("pos");
 
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
+                    b.Property<int>("Stage")
+                        .HasColumnType("integer")
+                        .HasDefaultValue(0)
+                        .HasColumnName("stage");
+
+                    b.Property<string>("TargetChunks")
+                        .IsRequired()
+                        .HasColumnType("jsonb")
+                        .HasColumnName("target_chunks")
+                        .HasDefaultValueSql("'[]'::jsonb");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("updated_at")
+                        .HasDefaultValueSql("now()");
 
                     b.HasKey("Id")
                         .HasName("pk_foundation_lexical_concepts");
 
-                    b.HasIndex("ConceptCode")
-                        .IsUnique()
-                        .HasDatabaseName("ix_foundation_lexical_concepts_concept_code");
-
-                    b.HasIndex("Headword")
-                        .IsUnique()
-                        .HasDatabaseName("ix_foundation_lexical_concepts_headword");
+                    b.HasIndex("Cluster", "GenerativePower")
+                        .IsDescending(false, true)
+                        .HasDatabaseName("idx_foundation_concepts_cluster_gp");
 
                     b.ToTable("foundation_lexical_concepts", "public");
                 });
 
             modelBuilder.Entity("LingoPro.Domain.Entities.Speaking.FoundationRepresentation", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid")
+                    b.Property<string>("Id")
+                        .HasColumnType("varchar(64)")
                         .HasColumnName("id");
 
                     b.Property<bool>("ApprovedDiagnostic")
                         .HasColumnType("boolean")
+                        .HasDefaultValue(false)
                         .HasColumnName("approved_diagnostic");
 
                     b.Property<bool>("ApprovedTeaching")
                         .HasColumnType("boolean")
+                        .HasDefaultValue(true)
                         .HasColumnName("approved_teaching");
 
                     b.Property<string>("ClarityRating")
                         .IsRequired()
-                        .HasMaxLength(16)
-                        .HasColumnType("character varying(16)")
-                        .HasColumnName("clarity_rating");
+                        .HasColumnType("varchar(8)")
+                        .HasColumnName("clarity_rating")
+                        .HasDefaultValueSql("'V0'");
 
-                    b.Property<Guid>("ConceptId")
-                        .HasColumnType("uuid")
+                    b.Property<string>("ConceptId")
+                        .IsRequired()
+                        .HasColumnType("varchar(32)")
                         .HasColumnName("concept_id");
 
                     b.Property<string>("ContentPayload")
@@ -3316,65 +3104,31 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnName("content_payload");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
-
-                    b.Property<string>("MetadataJson")
+                    b.Property<string>("Metadata")
                         .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("metadata_json");
+                        .HasColumnType("jsonb")
+                        .HasColumnName("metadata")
+                        .HasDefaultValueSql("'{}'::jsonb");
 
                     b.Property<string>("Modality")
                         .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
+                        .HasColumnType("varchar(16)")
                         .HasColumnName("modality");
-
-                    b.Property<string>("RepresentationCode")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("representation_code");
 
                     b.Property<string>("SubType")
                         .IsRequired()
-                        .HasColumnType("text")
+                        .HasColumnType("varchar(32)")
                         .HasColumnName("sub_type");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
 
                     b.HasKey("Id")
                         .HasName("pk_foundation_representations");
 
-                    b.HasIndex("ConceptId")
-                        .HasDatabaseName("ix_foundation_representations_concept_id");
-
-                    b.HasIndex("RepresentationCode")
-                        .IsUnique()
-                        .HasDatabaseName("ix_foundation_representations_representation_code");
+                    b.HasIndex("ConceptId", "Modality")
+                        .HasDatabaseName("idx_foundation_reps_concept_modality");
 
                     b.ToTable("foundation_representations", "public");
                 });
@@ -3386,61 +3140,49 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.Property<Guid?>("ActorUserId")
+                    b.Property<Guid>("ActorUserId")
                         .HasColumnType("uuid")
                         .HasColumnName("actor_user_id");
 
-                    b.Property<Guid>("ConceptId")
-                        .HasColumnType("uuid")
+                    b.Property<string>("ConceptId")
+                        .IsRequired()
+                        .HasColumnType("varchar(32)")
                         .HasColumnName("concept_id");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
+                    b.Property<string>("DistractorSelected")
+                        .HasColumnType("varchar(64)")
+                        .HasColumnName("distractor_selected");
 
                     b.Property<string>("EvidenceSource")
                         .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
-                        .HasColumnName("evidence_source");
+                        .HasColumnType("varchar(16)")
+                        .HasColumnName("evidence_source")
+                        .HasDefaultValueSql("'LEARNER'");
 
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
+                    b.Property<bool>("IsCorrect")
                         .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
-
-                    b.Property<bool>("IsSuccessful")
-                        .HasColumnType("boolean")
-                        .HasColumnName("is_successful");
+                        .HasColumnName("is_correct");
 
                     b.Property<Guid>("LearnerId")
                         .HasColumnType("uuid")
                         .HasColumnName("learner_id");
 
-                    b.Property<DateTime>("ObservedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("observed_at");
+                    b.Property<string>("LessonId")
+                        .HasColumnType("varchar(32)")
+                        .HasColumnName("lesson_id");
 
-                    b.Property<string>("ProbeType")
+                    b.Property<string>("ProbeMode")
                         .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("probe_type");
+                        .HasColumnType("varchar(32)")
+                        .HasColumnName("probe_mode");
 
-                    b.Property<Guid?>("RepresentationId")
-                        .HasColumnType("uuid")
+                    b.Property<string>("RepresentationId")
+                        .HasColumnType("varchar(64)")
                         .HasColumnName("representation_id");
 
                     b.Property<int>("ResponseLatencyMs")
@@ -3449,23 +3191,16 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
 
                     b.Property<string>("SupportLevel")
                         .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
+                        .HasColumnType("varchar(16)")
                         .HasColumnName("support_level");
 
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
+                    b.Property<string>("TargetDimension")
+                        .IsRequired()
+                        .HasColumnType("varchar(32)")
+                        .HasColumnName("target_dimension");
 
                     b.HasKey("Id")
                         .HasName("pk_learner_lexical_evidence");
-
-                    b.HasIndex("ActorUserId")
-                        .HasDatabaseName("ix_learner_lexical_evidence_actor_user_id");
 
                     b.HasIndex("ConceptId")
                         .HasDatabaseName("ix_learner_lexical_evidence_concept_id");
@@ -3473,8 +3208,9 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.HasIndex("RepresentationId")
                         .HasDatabaseName("ix_learner_lexical_evidence_representation_id");
 
-                    b.HasIndex("LearnerId", "ConceptId")
-                        .HasDatabaseName("ix_learner_lexical_evidence_learner_id_concept_id");
+                    b.HasIndex("LearnerId", "ConceptId", "CreatedAt")
+                        .IsDescending(false, false, true)
+                        .HasDatabaseName("idx_learner_evidence_stream");
 
                     b.ToTable("learner_lexical_evidence", "public");
                 });
@@ -3486,66 +3222,90 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.Property<Guid>("ConceptId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("concept_id");
+                    b.Property<string>("ActiveGap")
+                        .IsRequired()
+                        .HasColumnType("varchar(32)")
+                        .HasColumnName("active_gap")
+                        .HasDefaultValueSql("'UNKNOWN_CONCEPT_OR_FORM'");
 
-                    b.Property<double>("ConfidenceScore")
-                        .HasColumnType("double precision")
-                        .HasColumnName("confidence_score");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<int>("EvidenceCount")
-                        .HasColumnType("integer")
-                        .HasColumnName("evidence_count");
-
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
+                    b.Property<bool>("ChunkUse")
                         .HasColumnType("boolean")
                         .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
+                        .HasColumnName("chunk_use");
 
-                    b.Property<DateTime>("LastUpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("last_updated_at");
+                    b.Property<string>("ConceptId")
+                        .IsRequired()
+                        .HasColumnType("varchar(32)")
+                        .HasColumnName("concept_id");
+
+                    b.Property<int>("ConsecutiveIndependentPasses")
+                        .HasColumnType("integer")
+                        .HasDefaultValue(0)
+                        .HasColumnName("consecutive_independent_passes");
+
+                    b.Property<bool>("FormRecall")
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(false)
+                        .HasColumnName("form_recall");
+
+                    b.Property<bool>("GenerativeUse")
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(false)
+                        .HasColumnName("generative_use");
+
+                    b.Property<int?>("LastLatencyMs")
+                        .HasColumnType("integer")
+                        .HasColumnName("last_latency_ms");
+
+                    b.Property<DateTime?>("LastProbedAt")
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("last_probed_at");
+
+                    b.Property<string>("LastSupportLevel")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("varchar(16)")
+                        .HasColumnName("last_support_level")
+                        .HasDefaultValueSql("'INDEPENDENT'");
 
                     b.Property<Guid>("LearnerId")
                         .HasColumnType("uuid")
                         .HasColumnName("learner_id");
 
-                    b.Property<string>("MasteryState")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("mastery_state");
+                    b.Property<bool>("MeaningRecall")
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(false)
+                        .HasColumnName("meaning_recall");
+
+                    b.Property<bool>("RetentionStable")
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(false)
+                        .HasColumnName("retention_stable");
+
+                    b.Property<bool>("SoundRecognition")
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(false)
+                        .HasColumnName("sound_recognition");
 
                     b.Property<string>("StatusBucket")
                         .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
-                        .HasColumnName("status_bucket");
+                        .HasColumnType("varchar(16)")
+                        .HasColumnName("status_bucket")
+                        .HasDefaultValueSql("'UNCERTAIN'");
+
+                    b.Property<bool>("TextRecognition")
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(false)
+                        .HasColumnName("text_recognition");
+
+                    b.Property<decimal>("UncertaintyScore")
+                        .HasColumnType("numeric(3,2)")
+                        .HasDefaultValue(1.00m)
+                        .HasColumnName("uncertainty_score");
 
                     b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
+                        .HasColumnType("timestamptz")
+                        .HasColumnName("updated_at")
+                        .HasDefaultValueSql("now()");
 
                     b.HasKey("Id")
                         .HasName("pk_learner_lexical_state");
@@ -3555,7 +3315,10 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
 
                     b.HasIndex("LearnerId", "ConceptId")
                         .IsUnique()
-                        .HasDatabaseName("ix_learner_lexical_state_learner_id_concept_id");
+                        .HasDatabaseName("uq_learner_lexical_state");
+
+                    b.HasIndex("LearnerId", "StatusBucket")
+                        .HasDatabaseName("idx_learner_lexical_state_bucket");
 
                     b.ToTable("learner_lexical_state", "public");
                 });
@@ -3567,86 +3330,50 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.Property<string>("AntonymsJson")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("antonyms_json");
-
-                    b.Property<string>("CollocationsJson")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("collocations_json");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("created_at");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<string>("DefinitionsJson")
+                    b.Property<string>("Data")
                         .IsRequired()
+                        .HasColumnType("jsonb")
+                        .HasColumnName("data");
+
+                    b.Property<short?>("ImageConfidence")
+                        .HasColumnType("smallint")
+                        .HasColumnName("image_confidence");
+
+                    b.Property<string>("ImageQuery")
                         .HasColumnType("text")
-                        .HasColumnName("definitions_json");
+                        .HasColumnName("image_query");
 
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
+                    b.Property<string>("ImageSource")
+                        .HasColumnType("text")
+                        .HasColumnName("image_source");
 
                     b.Property<string>("ImageUrl")
                         .HasColumnType("text")
                         .HasColumnName("image_url");
 
-                    b.Property<string>("Ipa")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("ipa");
-
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
-
-                    b.Property<string>("PartOfSpeech")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("part_of_speech");
-
-                    b.Property<string>("SynonymsJson")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("synonyms_json");
-
-                    b.Property<string>("Term")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("term");
-
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("ImageVerifiedAt")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
+                        .HasColumnName("image_verified_at");
 
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
+                    b.PrimitiveCollection<string[]>("Tags")
+                        .HasColumnType("text[]")
+                        .HasColumnName("tags");
 
-                    b.Property<string>("WordFamilyJson")
+                    b.Property<string>("Word")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("word_family_json");
+                        .HasColumnName("word");
 
                     b.HasKey("Id")
                         .HasName("pk_global_dictionary");
 
-                    b.HasIndex("Term")
+                    b.HasIndex("Word")
                         .IsUnique()
-                        .HasDatabaseName("ix_global_dictionary_term");
+                        .HasDatabaseName("ix_global_dictionary_word");
 
                     b.ToTable("global_dictionary", "public");
                 });
@@ -3658,44 +3385,22 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.Property<double>("Accuracy")
+                    b.Property<double?>("Accuracy")
+                        .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("double precision")
-                        .HasColumnName("accuracy");
+                        .HasColumnName("accuracy")
+                        .HasComputedColumnSql("score::float / total_questions", true);
 
                     b.Property<Guid>("ClassroomId")
                         .HasColumnType("uuid")
                         .HasColumnName("classroom_id");
 
-                    b.Property<DateTime>("CompletedAt")
+                    b.Property<DateTime?>("CompletedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("completed_at");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
-
                     b.Property<string>("QuizType")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
+                        .HasColumnType("text")
                         .HasColumnName("quiz_type");
 
                     b.Property<int>("Score")
@@ -3705,14 +3410,6 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.Property<int>("TotalQuestions")
                         .HasColumnType("integer")
                         .HasColumnName("total_questions");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
@@ -3737,83 +3434,53 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                    b.Property<string>("AlgorithmVersion")
+                        .HasColumnType("text")
+                        .HasColumnName("algorithm_version");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<double>("Difficulty")
+                    b.Property<double?>("Difficulty")
                         .HasColumnType("double precision")
                         .HasColumnName("difficulty");
 
-                    b.Property<int>("IntervalDays")
+                    b.Property<double?>("EaseFactor")
+                        .HasColumnType("double precision")
+                        .HasColumnName("ease_factor");
+
+                    b.Property<int?>("IntervalDays")
                         .HasColumnType("integer")
                         .HasColumnName("interval_days");
 
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
-
-                    b.Property<int>("Lapses")
+                    b.Property<int?>("Lapses")
                         .HasColumnType("integer")
                         .HasColumnName("lapses");
 
-                    b.Property<string>("LastReviewId")
-                        .HasColumnType("text")
-                        .HasColumnName("last_review_id");
-
                     b.Property<DateTime?>("LastReviewedAt")
-                        .HasColumnType("timestamp with time zone")
+                        .HasColumnType("timestamptz")
                         .HasColumnName("last_reviewed_at");
 
-                    b.Property<DateOnly>("NextReviewDate")
-                        .HasColumnType("date")
+                    b.Property<int?>("LearningSteps")
+                        .HasColumnType("integer")
+                        .HasColumnName("learning_steps");
+
+                    b.Property<DateTime?>("NextReviewDate")
+                        .HasColumnType("timestamptz")
                         .HasColumnName("next_review_date");
 
-                    b.Property<int>("Reps")
+                    b.Property<int?>("ReviewCount")
                         .HasColumnType("integer")
-                        .HasColumnName("reps");
+                        .HasColumnName("review_count");
 
-                    b.Property<double>("Stability")
+                    b.Property<double?>("Stability")
                         .HasColumnType("double precision")
                         .HasColumnName("stability");
 
-                    b.Property<string>("State")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
+                    b.Property<int?>("State")
+                        .HasColumnType("integer")
                         .HasColumnName("state");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
                         .HasColumnName("user_id");
-
-                    b.Property<uint>("Version")
-                        .IsConcurrencyToken()
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("xid")
-                        .HasColumnName("xmin");
 
                     b.Property<Guid>("WordId")
                         .HasColumnType("uuid")
@@ -3825,9 +3492,6 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.HasIndex("WordId")
                         .HasDatabaseName("ix_srs_progress_word_id");
 
-                    b.HasIndex("UserId", "NextReviewDate")
-                        .HasDatabaseName("ix_srs_progress_user_id_next_review_date");
-
                     b.HasIndex("UserId", "WordId")
                         .IsUnique()
                         .HasDatabaseName("ix_srs_progress_user_id_word_id");
@@ -3837,67 +3501,31 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("LingoPro.Domain.Entities.Vocab.SrsReviewEvent", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
-                        .HasColumnName("id");
+                        .HasColumnName("user_id");
+
+                    b.Property<Guid>("ReviewId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("review_id");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("created_at");
 
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
-
                     b.Property<int>("Quality")
                         .HasColumnType("integer")
                         .HasColumnName("quality");
-
-                    b.Property<string>("ReviewId")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("review_id");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("user_id");
 
                     b.Property<Guid>("WordId")
                         .HasColumnType("uuid")
                         .HasColumnName("word_id");
 
-                    b.HasKey("Id")
+                    b.HasKey("UserId", "ReviewId")
                         .HasName("pk_srs_review_events");
 
                     b.HasIndex("WordId")
                         .HasDatabaseName("ix_srs_review_events_word_id");
-
-                    b.HasIndex("UserId", "ReviewId")
-                        .IsUnique()
-                        .HasDatabaseName("ix_srs_review_events_user_id_review_id");
 
                     b.ToTable("srs_review_events", "public");
                 });
@@ -3912,24 +3540,6 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("created_at");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
 
                     b.Property<string>("Provider")
                         .IsRequired()
@@ -3960,10 +3570,6 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("updated_at");
 
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
-
                     b.HasKey("Id")
                         .HasName("pk_translations");
 
@@ -3976,10 +3582,13 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("LingoPro.Domain.Entities.Vocab.UserVocabPack", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
-                        .HasColumnName("id");
+                        .HasColumnName("user_id");
+
+                    b.Property<string>("PackId")
+                        .HasColumnType("text")
+                        .HasColumnName("pack_id");
 
                     b.Property<string>("CatalogVersion")
                         .IsRequired()
@@ -3990,36 +3599,9 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("completed_at");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
-
                     b.Property<DateTime?>("LastStudiedAt")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("last_studied_at");
-
-                    b.Property<string>("PackId")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("pack_id");
 
                     b.Property<int>("PackIndex")
                         .HasColumnType("integer")
@@ -4035,8 +3617,7 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
 
                     b.Property<string>("Status")
                         .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
+                        .HasColumnType("text")
                         .HasColumnName("status");
 
                     b.Property<string>("TopicId")
@@ -4049,63 +3630,23 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("text")
                         .HasColumnName("topic_title");
 
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("user_id");
-
                     b.Property<int>("WordCount")
                         .HasColumnType("integer")
                         .HasColumnName("word_count");
 
-                    b.HasKey("Id")
+                    b.HasKey("UserId", "PackId")
                         .HasName("pk_user_vocab_packs");
-
-                    b.HasIndex("UserId", "PackId")
-                        .IsUnique()
-                        .HasDatabaseName("ix_user_vocab_packs_user_id_pack_id");
 
                     b.ToTable("user_vocab_packs", "public");
                 });
 
             modelBuilder.Entity("LingoPro.Domain.Entities.Vocab.UserVocabPackWord", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
-                        .HasColumnName("id");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
-
-                    b.Property<Guid?>("CreatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<Guid?>("DeletedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<bool?>("IsDeleted")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("boolean")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_deleted");
+                        .HasColumnName("user_id");
 
                     b.Property<string>("PackId")
-                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("pack_id");
 
@@ -4113,42 +3654,22 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("integer")
                         .HasColumnName("position");
 
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
-
-                    b.Property<Guid?>("UpdatedBy")
-                        .HasColumnType("uuid")
-                        .HasColumnName("updated_by");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("user_id");
-
-                    b.Property<Guid>("UserVocabPackId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("user_vocab_pack_id");
-
                     b.Property<Guid>("WordId")
                         .HasColumnType("uuid")
                         .HasColumnName("word_id");
 
-                    b.HasKey("Id")
+                    b.HasKey("UserId", "PackId", "Position")
                         .HasName("pk_user_vocab_pack_words");
-
-                    b.HasIndex("UserVocabPackId")
-                        .HasDatabaseName("ix_user_vocab_pack_words_user_vocab_pack_id");
 
                     b.HasIndex("WordId")
                         .HasDatabaseName("ix_user_vocab_pack_words_word_id");
 
-                    b.HasIndex("UserId", "PackId", "Position")
-                        .IsUnique()
-                        .HasDatabaseName("ix_user_vocab_pack_words_user_id_pack_id_position");
-
                     b.HasIndex("UserId", "PackId", "WordId")
                         .IsUnique()
                         .HasDatabaseName("ix_user_vocab_pack_words_user_id_pack_id_word_id");
+
+                    b.HasIndex("UserId", "WordId", "PackId")
+                        .HasDatabaseName("ix_user_vocab_pack_words_user_id_word_id_pack_id");
 
                     b.ToTable("user_vocab_pack_words", "public");
                 });
@@ -4164,13 +3685,19 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("added_by");
 
-                    b.Property<Guid?>("ClassroomId")
+                    b.PrimitiveCollection<string[]>("Antonyms")
+                        .HasColumnType("text[]")
+                        .HasColumnName("antonyms");
+
+                    b.Property<Guid>("ClassroomId")
                         .HasColumnType("uuid")
                         .HasColumnName("classroom_id");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("created_at");
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uuid")
@@ -4184,20 +3711,31 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("deleted_by");
 
-                    b.Property<string>("ExampleSentence")
-                        .HasColumnType("text")
-                        .HasColumnName("example_sentence");
+                    b.Property<string>("DictionaryData")
+                        .HasColumnType("jsonb")
+                        .HasColumnName("dictionary_data");
 
-                    b.Property<string>("ExampleTranslation")
+                    b.Property<string>("Example")
                         .HasColumnType("text")
-                        .HasColumnName("example_translation");
+                        .HasColumnName("example");
+
+                    b.Property<string>("ExampleVi")
+                        .HasColumnType("text")
+                        .HasColumnName("example_vi");
+
+                    b.Property<short?>("ImageConfidence")
+                        .HasColumnType("smallint")
+                        .HasColumnName("image_confidence");
+
+                    b.Property<string>("ImageSource")
+                        .HasColumnType("text")
+                        .HasColumnName("image_source");
 
                     b.Property<string>("ImageUrl")
                         .HasColumnType("text")
                         .HasColumnName("image_url");
 
                     b.Property<string>("Ipa")
-                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("ipa");
 
@@ -4207,43 +3745,32 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasDefaultValue(false)
                         .HasColumnName("is_deleted");
 
-                    b.Property<string>("Level")
-                        .IsRequired()
-                        .HasMaxLength(8)
-                        .HasColumnType("character varying(8)")
-                        .HasColumnName("cefr_level");
-
-                    b.Property<string>("PartOfSpeech")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
+                    b.Property<string>("Pos")
+                        .HasColumnType("text")
                         .HasColumnName("pos");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("character varying(32)")
-                        .HasColumnName("approval_status");
+                    b.Property<string>("SourceUrl")
+                        .HasColumnType("text")
+                        .HasColumnName("source_url");
+
+                    b.PrimitiveCollection<string[]>("Synonyms")
+                        .HasColumnType("text[]")
+                        .HasColumnName("synonyms");
 
                     b.Property<string>("Term")
                         .IsRequired()
-                        .HasMaxLength(160)
-                        .HasColumnType("character varying(160)")
-                        .HasColumnName("term");
-
-                    b.Property<string>("Topic")
-                        .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("topic");
+                        .HasColumnName("word");
 
                     b.Property<string>("Translation")
-                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("translation");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updated_at");
+                        .HasColumnName("updated_at")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<Guid?>("UpdatedBy")
                         .HasColumnType("uuid")
@@ -4258,9 +3785,6 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.HasIndex("ClassroomId")
                         .HasDatabaseName("ix_words_classroom_id");
 
-                    b.HasIndex("Term", "ClassroomId")
-                        .HasDatabaseName("ix_words_term_classroom_id");
-
                     b.ToTable("words", "public");
                 });
 
@@ -4272,18 +3796,6 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_ai_daily_usage_profiles_user_id");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("LingoPro.Domain.Entities.Admin.ExtensionToken", b =>
-                {
-                    b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "User")
-                        .WithMany("ExtensionTokens")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_extension_tokens_profiles_user_id");
 
                     b.Navigation("User");
                 });
@@ -4317,25 +3829,16 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "ProcessedByUser")
                         .WithMany()
                         .HasForeignKey("ProcessedBy")
-                        .OnDelete(DeleteBehavior.SetNull)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .HasConstraintName("fk_orders_profiles_processed_by");
-
-                    b.HasOne("LingoPro.Domain.Entities.Gamification.Challenge", "TargetChallenge")
-                        .WithMany()
-                        .HasForeignKey("TargetChallengeId")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .HasConstraintName("fk_orders_challenges_target_challenge_id");
 
                     b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
+                        .OnDelete(DeleteBehavior.SetNull)
                         .HasConstraintName("fk_orders_profiles_user_id");
 
                     b.Navigation("ProcessedByUser");
-
-                    b.Navigation("TargetChallenge");
 
                     b.Navigation("User");
                 });
@@ -4345,13 +3848,13 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "ChangedByUser")
                         .WithMany()
                         .HasForeignKey("ChangedBy")
-                        .OnDelete(DeleteBehavior.SetNull)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .HasConstraintName("fk_subscription_history_profiles_changed_by");
 
                     b.HasOne("LingoPro.Domain.Entities.Billing.Order", "Order")
                         .WithMany()
                         .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.SetNull)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .HasConstraintName("fk_subscription_history_orders_order_id");
 
                     b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "User")
@@ -4434,26 +3937,13 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("LingoPro.Domain.Entities.Exam.UserToeicQuestionHistory", b =>
-                {
-                    b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_user_toeic_question_history_profiles_user_id");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("LingoPro.Domain.Entities.Gamification.Challenge", b =>
                 {
                     b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "Creator")
                         .WithMany()
-                        .HasForeignKey("CreatorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_challenges_profiles_creator_id");
+                        .HasForeignKey("CreatedBy")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .HasConstraintName("fk_challenges_profiles_created_by");
 
                     b.Navigation("Creator");
                 });
@@ -4471,6 +3961,7 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .WithMany("DailyLogs")
                         .HasForeignKey("ParticipantId")
                         .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
                         .HasConstraintName("fk_challenge_daily_log_challenge_participants_participant_id");
 
                     b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "User")
@@ -4499,7 +3990,7 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.HasOne("LingoPro.Domain.Entities.Billing.Order", "Order")
                         .WithMany()
                         .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.SetNull)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .HasConstraintName("fk_challenge_participants_orders_order_id");
 
                     b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "User")
@@ -4522,33 +4013,26 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .WithMany()
                         .HasForeignKey("ClassroomId")
                         .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
                         .HasConstraintName("fk_grammar_exercises_classrooms_classroom_id");
 
-                    b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "CreatedByTeacher")
+                    b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "CreatedByProfile")
                         .WithMany()
-                        .HasForeignKey("CreatedByTeacherId")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .HasConstraintName("fk_grammar_exercises_profiles_created_by_teacher_id");
+                        .HasForeignKey("CreatedBy")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .HasConstraintName("fk_grammar_exercises_profiles_created_by");
 
                     b.HasOne("LingoPro.Domain.Entities.Grammar.GrammarLesson", "Lesson")
-                        .WithMany("Exercises")
+                        .WithMany("GrammarExercises")
                         .HasForeignKey("LessonId")
                         .OnDelete(DeleteBehavior.SetNull)
                         .HasConstraintName("fk_grammar_exercises_grammar_lessons_lesson_id");
 
-                    b.HasOne("LingoPro.Domain.Entities.Grammar.GrammarTopic", "Topic")
-                        .WithMany()
-                        .HasForeignKey("TopicId")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .HasConstraintName("fk_grammar_exercises_grammar_topics_topic_id");
-
                     b.Navigation("Classroom");
 
-                    b.Navigation("CreatedByTeacher");
+                    b.Navigation("CreatedByProfile");
 
                     b.Navigation("Lesson");
-
-                    b.Navigation("Topic");
                 });
 
             modelBuilder.Entity("LingoPro.Domain.Entities.Grammar.GrammarLesson", b =>
@@ -4556,7 +4040,7 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "Author")
                         .WithMany()
                         .HasForeignKey("CreatedBy")
-                        .OnDelete(DeleteBehavior.SetNull)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .HasConstraintName("fk_grammar_lessons_profiles_created_by");
 
                     b.HasOne("LingoPro.Domain.Entities.Grammar.GrammarTopic", "Topic")
@@ -4589,13 +4073,8 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .WithMany("Progresses")
                         .HasForeignKey("LessonId")
                         .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
                         .HasConstraintName("fk_grammar_progress_grammar_lessons_lesson_id");
-
-                    b.HasOne("LingoPro.Domain.Entities.Grammar.GrammarTopic", "Topic")
-                        .WithMany()
-                        .HasForeignKey("TopicId")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .HasConstraintName("fk_grammar_progress_grammar_topics_topic_id");
 
                     b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "User")
                         .WithMany()
@@ -4605,8 +4084,6 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .HasConstraintName("fk_grammar_progress_profiles_user_id");
 
                     b.Navigation("Lesson");
-
-                    b.Navigation("Topic");
 
                     b.Navigation("User");
                 });
@@ -4718,55 +4195,10 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("LingoPro.Domain.Entities.Roadmap.UserRoadmap", b =>
                 {
-                    b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "User")
+                    b.HasOne("LingoPro.Domain.Entities.Auth.Profile", null)
                         .WithMany("Roadmaps")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_user_roadmap_profiles_user_id");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("LingoPro.Domain.Entities.Roadmap.UserRoadmapAssessment", b =>
-                {
-                    b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_user_roadmap_assessments_profiles_user_id");
-
-                    b.HasOne("LingoPro.Domain.Entities.Roadmap.UserRoadmap", "Roadmap")
-                        .WithMany()
-                        .HasForeignKey("UserRoadmapId")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .HasConstraintName("fk_user_roadmap_assessments_user_roadmaps_user_roadmap_id");
-
-                    b.Navigation("Roadmap");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("LingoPro.Domain.Entities.Roadmap.UserRoadmapStep", b =>
-                {
-                    b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_user_roadmap_steps_profiles_user_id");
-
-                    b.HasOne("LingoPro.Domain.Entities.Roadmap.UserRoadmap", "Roadmap")
-                        .WithMany("Steps")
-                        .HasForeignKey("UserRoadmapId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_user_roadmap_steps_user_roadmaps_user_roadmap_id");
-
-                    b.Navigation("Roadmap");
-
-                    b.Navigation("User");
+                        .HasForeignKey("ProfileId")
+                        .HasConstraintName("fk_user_roadmap_profiles_profile_id");
                 });
 
             modelBuilder.Entity("LingoPro.Domain.Entities.Social.GroupMember", b =>
@@ -4846,8 +4278,7 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "Referrer")
                         .WithMany()
                         .HasForeignKey("ReferrerId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired()
+                        .OnDelete(DeleteBehavior.SetNull)
                         .HasConstraintName("fk_referral_logs_profiles_referrer_id");
 
                     b.Navigation("Campaign");
@@ -4873,12 +4304,6 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .OnDelete(DeleteBehavior.SetNull)
                         .HasConstraintName("fk_reward_transactions_referral_logs_referral_log_id");
 
-                    b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "SourceReferee")
-                        .WithMany()
-                        .HasForeignKey("SourceRefereeId")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .HasConstraintName("fk_reward_transactions_profiles_source_referee_id");
-
                     b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
@@ -4889,8 +4314,6 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.Navigation("Order");
 
                     b.Navigation("ReferralLog");
-
-                    b.Navigation("SourceReferee");
 
                     b.Navigation("User");
                 });
@@ -4917,20 +4340,12 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("LingoPro.Domain.Entities.Social.StudyRoomPresence", b =>
                 {
-                    b.HasOne("LingoPro.Domain.Entities.Classroom.ClassroomEntity", "Classroom")
-                        .WithMany()
-                        .HasForeignKey("ClassroomId")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .HasConstraintName("fk_room_presence_classrooms_classroom_id");
-
                     b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "User")
                         .WithOne("RoomPresence")
                         .HasForeignKey("LingoPro.Domain.Entities.Social.StudyRoomPresence", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_room_presence_profiles_user_id");
-
-                    b.Navigation("Classroom");
 
                     b.Navigation("User");
                 });
@@ -4949,12 +4364,6 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("LingoPro.Domain.Entities.Speaking.LearnerLexicalEvidence", b =>
                 {
-                    b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "ActorUser")
-                        .WithMany()
-                        .HasForeignKey("ActorUserId")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .HasConstraintName("fk_learner_lexical_evidence_profiles_actor_user_id");
-
                     b.HasOne("LingoPro.Domain.Entities.Speaking.FoundationLexicalConcept", "Concept")
                         .WithMany("Evidences")
                         .HasForeignKey("ConceptId")
@@ -4962,24 +4371,13 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .IsRequired()
                         .HasConstraintName("fk_learner_lexical_evidence_foundation_lexical_concepts_concep");
 
-                    b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "Learner")
-                        .WithMany()
-                        .HasForeignKey("LearnerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_learner_lexical_evidence_profiles_learner_id");
-
                     b.HasOne("LingoPro.Domain.Entities.Speaking.FoundationRepresentation", "Representation")
                         .WithMany()
                         .HasForeignKey("RepresentationId")
                         .OnDelete(DeleteBehavior.SetNull)
                         .HasConstraintName("fk_learner_lexical_evidence_foundation_representations_represe");
 
-                    b.Navigation("ActorUser");
-
                     b.Navigation("Concept");
-
-                    b.Navigation("Learner");
 
                     b.Navigation("Representation");
                 });
@@ -4993,16 +4391,7 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .IsRequired()
                         .HasConstraintName("fk_learner_lexical_state_foundation_lexical_concepts_concept_id");
 
-                    b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "Learner")
-                        .WithMany()
-                        .HasForeignKey("LearnerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_learner_lexical_state_profiles_learner_id");
-
                     b.Navigation("Concept");
-
-                    b.Navigation("Learner");
                 });
 
             modelBuilder.Entity("LingoPro.Domain.Entities.Vocab.QuizResult", b =>
@@ -5049,21 +4438,12 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("LingoPro.Domain.Entities.Vocab.SrsReviewEvent", b =>
                 {
-                    b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_srs_review_events_profiles_user_id");
-
                     b.HasOne("LingoPro.Domain.Entities.Vocab.Word", "Word")
                         .WithMany()
                         .HasForeignKey("WordId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_srs_review_events_words_word_id");
-
-                    b.Navigation("User");
 
                     b.Navigation("Word");
                 });
@@ -5082,20 +4462,6 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("LingoPro.Domain.Entities.Vocab.UserVocabPackWord", b =>
                 {
-                    b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_user_vocab_pack_words_profiles_user_id");
-
-                    b.HasOne("LingoPro.Domain.Entities.Vocab.UserVocabPack", "Pack")
-                        .WithMany("PackWords")
-                        .HasForeignKey("UserVocabPackId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_user_vocab_pack_words_user_vocab_packs_user_vocab_pack_id");
-
                     b.HasOne("LingoPro.Domain.Entities.Vocab.Word", "Word")
                         .WithMany()
                         .HasForeignKey("WordId")
@@ -5103,9 +4469,14 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                         .IsRequired()
                         .HasConstraintName("fk_user_vocab_pack_words_words_word_id");
 
-                    b.Navigation("Pack");
+                    b.HasOne("LingoPro.Domain.Entities.Vocab.UserVocabPack", "Pack")
+                        .WithMany("PackWords")
+                        .HasForeignKey("UserId", "PackId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_user_vocab_pack_words_user_vocab_packs_user_id_pack_id");
 
-                    b.Navigation("User");
+                    b.Navigation("Pack");
 
                     b.Navigation("Word");
                 });
@@ -5115,13 +4486,14 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
                     b.HasOne("LingoPro.Domain.Entities.Auth.Profile", "AddedByUser")
                         .WithMany()
                         .HasForeignKey("AddedBy")
-                        .OnDelete(DeleteBehavior.SetNull)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .HasConstraintName("fk_words_profiles_added_by");
 
                     b.HasOne("LingoPro.Domain.Entities.Classroom.ClassroomEntity", "Classroom")
                         .WithMany("Words")
                         .HasForeignKey("ClassroomId")
                         .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
                         .HasConstraintName("fk_words_classrooms_classroom_id");
 
                     b.Navigation("AddedByUser");
@@ -5131,8 +4503,6 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("LingoPro.Domain.Entities.Auth.Profile", b =>
                 {
-                    b.Navigation("ExtensionTokens");
-
                     b.Navigation("Gamification");
 
                     b.Navigation("PushSubscriptions");
@@ -5174,7 +4544,7 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("LingoPro.Domain.Entities.Grammar.GrammarLesson", b =>
                 {
-                    b.Navigation("Exercises");
+                    b.Navigation("GrammarExercises");
 
                     b.Navigation("Progresses");
 
@@ -5196,11 +4566,6 @@ namespace LingoPro.Infrastructure.Persistence.Migrations
             modelBuilder.Entity("LingoPro.Domain.Entities.Reading.ReadingArticle", b =>
                 {
                     b.Navigation("UserProgresses");
-                });
-
-            modelBuilder.Entity("LingoPro.Domain.Entities.Roadmap.UserRoadmap", b =>
-                {
-                    b.Navigation("Steps");
                 });
 
             modelBuilder.Entity("LingoPro.Domain.Entities.Social.ReferralCampaign", b =>

@@ -10,8 +10,8 @@ public record GrammarTopicDto(
     string Slug,
     string Title,
     string? TitleVi,
-    GrammarLevel Level,
-    CertLevel CertLevel,
+    string? Level,
+    string? CertLevel,
     string Category,
     int SortOrder
 );

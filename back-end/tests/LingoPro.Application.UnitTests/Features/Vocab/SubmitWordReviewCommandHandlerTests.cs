@@ -1,4 +1,4 @@
-﻿using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Features.Vocab.Commands;
 using LingoPro.Application.Features.Vocab.Queries;
 using LingoPro.Domain.Entities.Auth;
@@ -38,10 +38,9 @@ public sealed class SubmitWordReviewCommandHandlerTests
         {
             Id = Guid.NewGuid(),
             Term = "resilient",
-            PartOfSpeech = PartOfSpeechType.Adjective,
+            Pos = "adjective",
             Translation = "Able to withstand or recover quickly from difficult conditions",
-            Level = CertLevel.B2,
-            Status = WordApprovalStatus.Approved
+            ClassroomId = Guid.NewGuid()
         };
 
         db.Profiles.Add(profile);
@@ -59,7 +58,7 @@ public sealed class SubmitWordReviewCommandHandlerTests
         var response = await handler.Handle(command, CancellationToken.None);
 
         // Assert
-        var updatedProfile = await db.Profiles.FirstAsync(x => x.Id == userId);
+        var updatedGamification = await db.UserGamifications.FirstAsync(x => x.UserId == userId);
         Assert.Multiple(() =>
         {
             Assert.That(response.StatusCode, Is.EqualTo(200));
@@ -68,8 +67,8 @@ public sealed class SubmitWordReviewCommandHandlerTests
             Assert.That(response.Data!.WordId, Is.EqualTo(word.Id));
             Assert.That(response.Data.State, Is.EqualTo(SrsCardState.Review));
             Assert.That(response.Data.XpAwarded, Is.EqualTo(15));
-            Assert.That(updatedProfile.TotalXp, Is.EqualTo(15));
-            Assert.That(updatedProfile.CurrentStreak, Is.EqualTo(1));
+            Assert.That(updatedGamification.TotalXp, Is.EqualTo(15));
+            Assert.That(updatedGamification.CurrentStreak, Is.EqualTo(1));
         });
     }
 }

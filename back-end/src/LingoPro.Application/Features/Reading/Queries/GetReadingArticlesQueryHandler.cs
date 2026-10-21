@@ -18,11 +18,12 @@ public class GetReadingArticlesQueryHandler(IApplicationDbContext dbContext)
     {
         var query = dbContext.ReadingArticles
             .AsNoTracking()
-            .Where(a => a.Status == ReadingArticleStatus.Published);
+            .Where(a => a.Status == "published");
 
         if (request.CertLevel.HasValue)
         {
-            query = query.Where(a => a.CertLevel == request.CertLevel.Value);
+            string cert = request.CertLevel.Value.ToString();
+            query = query.Where(a => a.CefrLevel == cert);
         }
 
         var articles = await query
@@ -31,12 +32,12 @@ public class GetReadingArticlesQueryHandler(IApplicationDbContext dbContext)
                 a.Id,
                 a.Slug,
                 a.Title,
-                a.Topic,
-                a.CertLevel,
+                a.ThemeId,
+                a.CefrLevel,
                 a.SourceType,
                 a.WordCount,
-                a.ContentText,
-                a.QuestionsJson))
+                a.Passage,
+                a.Questions))
             .ToListAsync(ct);
 
         return ApiResponse<IReadOnlyList<ReadingArticleDto>>.Ok(articles, "Reading library articles retrieved successfully.");

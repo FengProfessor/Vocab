@@ -8,7 +8,7 @@ namespace LingoPro.Application.Features.Grammar.Commands;
 public record GrammarProgressDto(
     string TopicSlug,
     double MasteryScore,
-    SrsCardState State,
+    string State,
     double Stability,
     double Difficulty,
     int IntervalDays,

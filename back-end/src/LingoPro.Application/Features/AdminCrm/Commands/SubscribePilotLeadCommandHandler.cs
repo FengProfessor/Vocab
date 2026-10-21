@@ -1,4 +1,4 @@
-using LingoPro.Application.Common.Interfaces;
+﻿using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Entities.Admin;
 using LingoPro.Domain.Enums;
@@ -26,11 +26,11 @@ public sealed class SubscribePilotLeadCommandHandler(IApplicationDbContext dbCon
 
         var lead = new PilotLead
         {
-            FullName = request.FullName.Trim(),
+            ContactName = request.FullName.Trim(),
             Email = normalizedEmail,
             Phone = request.Phone.Trim(),
-            OrganizationName = request.OrganizationName?.Trim(),
-            SourceCampaign = request.SourceCampaign.Trim(),
+            Organization = request.OrganizationName?.Trim() ?? string.Empty,
+            Source = request.SourceCampaign.Trim(),
             Status = PilotLeadStatus.New
         };
 

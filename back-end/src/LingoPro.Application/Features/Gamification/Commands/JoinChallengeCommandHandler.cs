@@ -1,4 +1,4 @@
-﻿using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Entities.Billing;
 using LingoPro.Domain.Entities.Gamification;
@@ -25,7 +25,7 @@ public class JoinChallengeCommandHandler(
             .FirstOrDefaultAsync(c => c.Id == request.ChallengeId, ct)
             ?? throw new NotFoundException("Challenge", request.ChallengeId);
 
-        if (challenge.Participants.Count >= challenge.MaxParticipants)
+        if (challenge.MaxParticipants.HasValue && challenge.Participants.Count >= challenge.MaxParticipants.Value)
         {
             throw new ConflictException("This challenge has reached its maximum participant capacity.", "CHALLENGE_FULL");
         }
@@ -34,7 +34,7 @@ public class JoinChallengeCommandHandler(
         if (existing != null)
         {
             return ApiResponse<JoinChallengeResponseDto>.Ok(
-                new JoinChallengeResponseDto(existing.Id, challenge.Id, existing.Status, existing.OrderId, null),
+                new JoinChallengeResponseDto(existing.Id, challenge.Id, existing.Status ?? ChallengeParticipantStatus.Pending, existing.OrderId, null),
                 "You have already joined this challenge."
             );
         }
@@ -50,15 +50,15 @@ public class JoinChallengeCommandHandler(
             var order = new Order
             {
                 UserId = userId,
-                PlanId = SubscriptionPlanType.Pro,
+                Plan = SubscriptionPlanType.Pro,
                 OrderKind = OrderKind.Challenge,
-                TargetChallengeId = challenge.Id,
-                DurationMonths = 1,
-                SeatLimit = 1,
+                PeriodMonths = 1,
+                Seats = 1,
                 Amount = challenge.DepositAmount,
                 Currency = "VND",
                 Status = OrderStatus.Pending,
-                TransferCode = transferCode
+                // SQL orders have no transfer_code/target_challenge_id: transfer code goes in payment_ref; challenge is linked via challenge_participants.order_id.
+                PaymentRef = transferCode
             };
             dbContext.Orders.Add(order);
             orderId = order.Id;
@@ -76,7 +76,7 @@ public class JoinChallengeCommandHandler(
         await dbContext.SaveChangesAsync(ct);
 
         return ApiResponse<JoinChallengeResponseDto>.Ok(
-            new JoinChallengeResponseDto(participant.Id, challenge.Id, participant.Status, orderId, transferCode),
+            new JoinChallengeResponseDto(participant.Id, challenge.Id, participant.Status ?? ChallengeParticipantStatus.Pending, orderId, transferCode),
             initialStatus == ChallengeParticipantStatus.Active
                 ? "Joined challenge successfully."
                 : "Challenge registration created. Please complete deposit payment to activate."

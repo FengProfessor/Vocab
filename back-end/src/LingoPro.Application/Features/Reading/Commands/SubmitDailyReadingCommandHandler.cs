@@ -1,4 +1,5 @@
-﻿using LingoPro.Application.Common.Interfaces;
+﻿using LingoPro.Application.Common.Helpers;
+using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Entities.Reading;
 using LingoPro.Domain.Exceptions;
@@ -44,8 +45,8 @@ public class SubmitDailyReadingCommandHandler(
         });
 
         const int xpAwarded = 30;
-        var profile = await dbContext.Profiles.FirstOrDefaultAsync(p => p.Id == userId, ct);
-        profile?.AwardXpAndUpdateStreak(xpAwarded, DateOnly.FromDateTime(DateTime.UtcNow));
+        await GamificationXp.AwardAsync(dbContext, userId, xpAwarded, DateOnly.FromDateTime(DateTime.UtcNow), ct);
+
 
         await dbContext.SaveChangesAsync(ct);
 

@@ -1,4 +1,4 @@
-using LingoPro.Application.Common.Interfaces;
+﻿using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Entities.Classroom;
 using MediatR;
@@ -35,7 +35,7 @@ public class CreateClassroomCommandHandler(
             classroom.InviteCode,
             classroom.TeacherId,
             1,
-            classroom.CreatedAt);
+            classroom.CreatedAt ?? DateTime.UtcNow);
 
         return ApiResponse<ClassroomDto>.Created(dto, "Classroom created successfully.");
     }
