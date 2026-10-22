@@ -36,8 +36,8 @@ public sealed class SubscribePilotLeadCommandHandlerTests
             Assert.That(lead.FullName, Is.EqualTo("Nguyen Van A"));
             Assert.That(lead.Email, Is.EqualTo("teacher@school.edu"));
             Assert.That(lead.Phone, Is.EqualTo("0901234567"));
-            Assert.That(lead.OrganizationName, Is.EqualTo("ABC School"));
-            Assert.That(lead.SourceCampaign, Is.EqualTo("landing"));
+            Assert.That(lead.Organization, Is.EqualTo("ABC School"));
+            Assert.That(lead.Source, Is.EqualTo("landing"));
             Assert.That(lead.Status, Is.EqualTo(PilotLeadStatus.New));
         });
     }

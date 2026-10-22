@@ -19,7 +19,7 @@ namespace LingoPro.Application.UnitTests.Features.AdminCrm;
 [Category("AdminCrm")]
 public sealed class GetAdminCrmDashboardQueryHandlerTests
 {
-    /// <summary>AD-01: dashboard aggregates users, premium users, orders, revenue, leads and payouts correctly.</summary>
+    /// <summary>AD-01: dashboard aggregates users, premium users, orders, revenue (paid only: src/app/api/admin/crm/route.ts:546), leads and pending payouts correctly.</summary>
     [Test]
     [Property("PlanId", "AD-01")]
     public async Task Handle_SeededData_AggregatesCorrectly()
@@ -108,5 +108,30 @@ public sealed class GetAdminCrmDashboardQueryHandlerTests
         {
             Assert.ThrowsAsync<ForbiddenAccessException>(async () => await Run());
         }
+    }
+
+    /// <summary>
+    /// AD-01: an expired paid plan is not an "active premium" user - the original requires plan != free AND
+    /// plan_expires_at in the future or null (src/app/api/admin/crm/route.ts:282-286); the handler only checks plan != Free.
+    /// </summary>
+    [Test]
+    [Property("PlanId", "AD-01")]
+    [Category("KnownDeviation")]
+    public async Task Handle_ExpiredPaidPlan_IsNotCountedAsActivePremium()
+    {
+        // Arrange
+        await using var db = TestHelpers.CreateDb();
+        db.Profiles.AddRange(
+            new Profile { Id = Guid.NewGuid(), Email = "active@t.local", Plan = SubscriptionPlanType.Pro, PlanExpiresAt = DateTime.UtcNow.AddDays(5) },
+            new Profile { Id = Guid.NewGuid(), Email = "expired@t.local", Plan = SubscriptionPlanType.Pro, PlanExpiresAt = DateTime.UtcNow.AddDays(-5) },
+            new Profile { Id = Guid.NewGuid(), Email = "free@t.local", Plan = SubscriptionPlanType.Free });
+        await db.SaveChangesAsync();
+        var handler = new GetAdminCrmDashboardQueryHandler(db);
+
+        // Act
+        var response = await handler.Handle(new GetAdminCrmDashboardQuery(), CancellationToken.None);
+
+        // Assert
+        Assert.That(response.Data!.ActivePremiumUsers, Is.EqualTo(1));
     }
 }

@@ -11,7 +11,10 @@ namespace LingoPro.Application.UnitTests.Features.Reading;
 
 /// <summary>
 /// P0 business tests for <see cref="SubmitDailyReadingCommandHandler"/> and its validator:
-/// first-completion XP, replay, unknown exercise, partial submissions, score clamping and ownership.
+/// first-completion XP, replay, unknown exercise, partial submissions and score clamping.
+/// Original: src/app/api/practice/daily-reading/route.ts POST :305-382 (upsert by user+exercise, clamp 0..100, keep earlier part).
+/// The 30 XP award (and its once-only guard) is a pinned C# behaviour: the original awards no XP here; XP/streak live in <see cref="UserGamification"/>.
+/// The original has no ownership check on submit and no score-vs-total check, so the old RDG-11/RDG-13 tests were removed.
 /// </summary>
 [TestFixture]
 [Category("Reading")]
@@ -22,7 +25,7 @@ public sealed class SubmitDailyReadingCommandHandlerTests
         var db = TestHelpers.CreateDb();
         var userId = Guid.NewGuid();
         db.Profiles.Add(new Profile { Id = userId, Email = "r@x.com", FullName = "R" });
-        var exercise = new DailyReadingExercise { TargetUserId = exerciseOwner ?? userId, Title = "Ex" };
+        var exercise = new DailyReadingExercise { TargetUserId = exerciseOwner ?? userId, Title = "Ex", ExerciseDate = DateOnly.FromDateTime(DateTime.UtcNow) };
         db.DailyReadingExercises.Add(exercise);
         await db.SaveChangesAsync();
         return (db, userId, exercise);
@@ -41,12 +44,12 @@ public sealed class SubmitDailyReadingCommandHandlerTests
         var response = await handler.Handle(new SubmitDailyReadingCommand(exercise.Id, 4, 5, 3, 5), CancellationToken.None);
 
         // Assert
-        var profile = await db.Profiles.AsNoTracking().FirstAsync(p => p.Id == userId);
+        var gamification = await db.UserGamifications.AsNoTracking().FirstAsync(g => g.UserId == userId);
         var completion = await db.DailyReadingCompletions.AsNoTracking().SingleAsync();
         Assert.Multiple(() =>
         {
             Assert.That(response.Data, Is.EqualTo(30));
-            Assert.That(profile.TotalXp, Is.EqualTo(30));
+            Assert.That(gamification.TotalXp, Is.EqualTo(30));
             Assert.That(completion.McqScore, Is.EqualTo(4));
             Assert.That(completion.ClozeTotal, Is.EqualTo(5));
         });
@@ -66,11 +69,11 @@ public sealed class SubmitDailyReadingCommandHandlerTests
         var second = await handler.Handle(new SubmitDailyReadingCommand(exercise.Id, 5, 5, 5, 5), CancellationToken.None);
 
         // Assert
-        var profile = await db.Profiles.AsNoTracking().FirstAsync(p => p.Id == userId);
+        var gamification = await db.UserGamifications.AsNoTracking().FirstAsync(g => g.UserId == userId);
         Assert.Multiple(() =>
         {
             Assert.That(second.Data, Is.EqualTo(0));
-            Assert.That(profile.TotalXp, Is.EqualTo(30));
+            Assert.That(gamification.TotalXp, Is.EqualTo(30));
             Assert.That(db.DailyReadingCompletions.Count(), Is.EqualTo(1));
         });
     }
@@ -84,26 +87,11 @@ public sealed class SubmitDailyReadingCommandHandlerTests
         await using var _db = db;
         var handler = new SubmitDailyReadingCommandHandler(TestHelpers.CreateUser(userId), db);
 
-        // Act + Assert
+        // Act + Assert (original silently answers success because the FK upsert only logs a warning, route.ts:372-374;
+        // a NotFound error is the accepted representation in the new API)
         await Assert.ThatAsync(
             () => handler.Handle(new SubmitDailyReadingCommand(Guid.NewGuid(), 1, 1, 1, 1), CancellationToken.None),
             Throws.TypeOf<NotFoundException>());
-    }
-
-    [Test]
-    [Property("PlanId", "RDG-13")]
-    [Category("KnownDeviation")]
-    public async Task Handle_ExerciseOfAnotherUser_IsRejected()
-    {
-        // Arrange (original blocks submitting someone else's exercise; C# only checks existence)
-        var (db, userId, exercise) = await SeedAsync(exerciseOwner: Guid.NewGuid());
-        await using var _db = db;
-        var handler = new SubmitDailyReadingCommandHandler(TestHelpers.CreateUser(userId), db);
-
-        // Act + Assert
-        await Assert.ThatAsync(
-            () => handler.Handle(new SubmitDailyReadingCommand(exercise.Id, 3, 5, 0, 0), CancellationToken.None),
-            Throws.InstanceOf<DomainException>());
     }
 
     [Test]
@@ -151,21 +139,49 @@ public sealed class SubmitDailyReadingCommandHandlerTests
             Assert.That(completion.McqScore, Is.EqualTo(100));
             Assert.That(completion.McqTotal, Is.EqualTo(100));
             Assert.That(completion.ClozeScore, Is.EqualTo(0));
+            Assert.That(completion.ClozeTotal, Is.EqualTo(10));
+        });
+    }
+
+    /// <summary>
+    /// Original re-submission upserts the completion with the new scores (daily-reading/route.ts:359-370);
+    /// the handler returns early and keeps the first scores.
+    /// </summary>
+    [Test]
+    [Property("PlanId", "RDG-08")]
+    [Category("KnownDeviation")]
+    public async Task Handle_SecondSubmission_OverwritesScores()
+    {
+        // Arrange
+        var (db, userId, exercise) = await SeedAsync();
+        await using var _db = db;
+        var handler = new SubmitDailyReadingCommandHandler(TestHelpers.CreateUser(userId), db);
+        await handler.Handle(new SubmitDailyReadingCommand(exercise.Id, 2, 5, 1, 5), CancellationToken.None);
+
+        // Act
+        await handler.Handle(new SubmitDailyReadingCommand(exercise.Id, 5, 5, 5, 5), CancellationToken.None);
+
+        // Assert
+        var completion = await db.DailyReadingCompletions.AsNoTracking().SingleAsync();
+        Assert.Multiple(() =>
+        {
+            Assert.That(completion.McqScore, Is.EqualTo(5));
+            Assert.That(completion.ClozeScore, Is.EqualTo(5));
         });
     }
 
     [Test]
-    [Property("PlanId", "RDG-11")]
-    [Category("KnownDeviation")]
-    public void Validate_ScoreGreaterThanTotal_IsInvalid()
+    [Property("PlanId", "RDG-07")]
+    public async Task Handle_AnonymousUser_ThrowsUnauthorized()
     {
         // Arrange
-        var validator = new SubmitDailyReadingCommandValidator();
+        var (db, _, exercise) = await SeedAsync();
+        await using var _db = db;
+        var handler = new SubmitDailyReadingCommandHandler(TestHelpers.CreateUser(null), db);
 
-        // Act
-        var result = validator.Validate(new SubmitDailyReadingCommand(Guid.NewGuid(), 8, 5, 0, 0));
-
-        // Assert
-        Assert.That(result.IsValid, Is.False);
+        // Act + Assert
+        await Assert.ThatAsync(
+            () => handler.Handle(new SubmitDailyReadingCommand(exercise.Id, 1, 1, 1, 1), CancellationToken.None),
+            Throws.TypeOf<UnauthorizedAccessException>());
     }
 }

@@ -20,10 +20,9 @@ public sealed class JoinStudyGroupCommandHandlerTests
     private static StudyGroup Group(
         string code = "GRP123",
         int seats = 5,
-        StudyGroupStatus status = StudyGroupStatus.Active,
+        string status = "active",
         DateTime? expiresAt = null) => new()
     {
-        Name = "Group",
         InviteCode = code,
         OwnerId = Guid.NewGuid(),
         SeatLimit = seats,
@@ -84,9 +83,10 @@ public sealed class JoinStudyGroupCommandHandlerTests
         await Task.CompletedTask;
     }
 
-    /// <summary>GR-05: an expired group (expires_at in the past) cannot be joined.</summary>
+    /// <summary>GR-05: an expired group (expires_at in the past) cannot be joined; original answers 403 Forbidden (src/app/api/groups/join/route.ts:40-42).</summary>
     [Test]
     [Property("PlanId", "GR-05")]
+    [Category("KnownDeviation")]
     public async Task Handle_ExpiredGroup_IsRejected()
     {
         // Arrange
@@ -96,19 +96,17 @@ public sealed class JoinStudyGroupCommandHandlerTests
         var handler = new JoinStudyGroupCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), db);
 
         // Act & Assert
-        Assert.CatchAsync<DomainException>(
+        Assert.ThrowsAsync<ForbiddenAccessException>(
             async () => await handler.Handle(new JoinStudyGroupCommand("GRP123"), CancellationToken.None));
         Assert.That(db.GroupMembers.Count(), Is.EqualTo(0));
         await Task.CompletedTask;
     }
 
-    /// <summary>GR-06: seat boundary - last free seat can be taken, a full group is rejected.</summary>
-    [TestCase(1, 2, true)]
-    [TestCase(2, 2, false)]
-    [TestCase(0, 1, true)]
-    [TestCase(1, 1, false)]
+    /// <summary>GR-06: seat boundary - the last free seat can be taken (original: groups/join/route.ts:56-62, count >= seat_limit rejects).</summary>
+    [TestCase(1, 2)]
+    [TestCase(0, 1)]
     [Property("PlanId", "GR-06")]
-    public async Task Handle_SeatBoundary_JoinsOnlyWhenSeatAvailable(int existing, int seatLimit, bool shouldJoin)
+    public async Task Handle_LastFreeSeat_Joins(int existing, int seatLimit)
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
@@ -119,22 +117,34 @@ public sealed class JoinStudyGroupCommandHandlerTests
         var handler = new JoinStudyGroupCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), db);
 
         // Act
-        async Task Act() => await handler.Handle(new JoinStudyGroupCommand("GRP123"), CancellationToken.None);
+        await handler.Handle(new JoinStudyGroupCommand("GRP123"), CancellationToken.None);
 
         // Assert
-        if (shouldJoin)
-        {
-            await Act();
-            Assert.That(db.GroupMembers.Count(), Is.EqualTo(existing + 1));
-        }
-        else
-        {
-            Assert.CatchAsync<DomainException>(Act);
-            Assert.That(db.GroupMembers.Count(), Is.EqualTo(existing));
-        }
+        Assert.That(db.GroupMembers.Count(), Is.EqualTo(existing + 1));
     }
 
-    /// <summary>GR-04: a non-active group (cancelled) must be rejected with a Forbidden error (original HTTP 403).</summary>
+    /// <summary>GR-06: a full group is rejected with 403 Forbidden in the original (groups/join/route.ts:60-62); C# throws Conflict.</summary>
+    [TestCase(2, 2)]
+    [TestCase(1, 1)]
+    [Property("PlanId", "GR-06")]
+    [Category("KnownDeviation")]
+    public async Task Handle_FullGroup_ThrowsForbidden(int existing, int seatLimit)
+    {
+        // Arrange
+        await using var db = TestHelpers.CreateDb();
+        var group = Group(seats: seatLimit);
+        db.StudyGroups.Add(group);
+        await db.SaveChangesAsync();
+        await SeedMembersAsync(db, group.Id, existing);
+        var handler = new JoinStudyGroupCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), db);
+
+        // Act & Assert
+        Assert.ThrowsAsync<ForbiddenAccessException>(
+            async () => await handler.Handle(new JoinStudyGroupCommand("GRP123"), CancellationToken.None));
+        Assert.That(db.GroupMembers.Count(), Is.EqualTo(existing));
+        await Task.CompletedTask;
+    }
+    /// <summary>GR-04: a non-active group (cancelled) must be rejected with a Forbidden error (original: src/app/api/groups/join/route.ts:37-39, HTTP 403).</summary>
     [Test]
     [Property("PlanId", "GR-04")]
     [Category("KnownDeviation")]
@@ -142,7 +152,7 @@ public sealed class JoinStudyGroupCommandHandlerTests
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        db.StudyGroups.Add(Group(status: StudyGroupStatus.Cancelled));
+        db.StudyGroups.Add(Group(status: "cancelled"));
         await db.SaveChangesAsync();
         var handler = new JoinStudyGroupCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), db);
 
@@ -152,7 +162,7 @@ public sealed class JoinStudyGroupCommandHandlerTests
         await Task.CompletedTask;
     }
 
-    /// <summary>GR-07: an existing member joining again must get a Conflict error (original HTTP 409), not a silent success.</summary>
+    /// <summary>GR-07: an existing member joining again must get a Conflict error (original: groups/join/route.ts:51-53, HTTP 409), not a silent success.</summary>
     [Test]
     [Property("PlanId", "GR-07")]
     [Category("KnownDeviation")]
@@ -201,7 +211,7 @@ public sealed class JoinStudyGroupCommandHandlerTests
         await Task.CompletedTask;
     }
 
-    /// <summary>GR-09: joining grants the member Pro until the group's expiry date (never downgrading).</summary>
+    /// <summary>GR-09: joining grants the member Pro until the group's expiry date, never downgrading (original: groups/join/route.ts:73-76 grantGroupEntitlement).</summary>
     [Test]
     [Property("PlanId", "GR-09")]
     [Category("KnownDeviation")]

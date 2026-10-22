@@ -26,11 +26,12 @@ public sealed class AssignDrillCommandHandlerTests
         public required ClassroomEntity Classroom { get; init; }
         public required Guid TeacherId { get; init; }
         public required Guid StudentId { get; init; }
-        public required DateOnly FutureDate { get; init; }
+        public required DateTime FutureDate { get; init; }
         public List<Word> ClassWords { get; } = [];
     }
 
-    private static DateOnly UtcToday() => DateOnly.FromDateTime(DateTime.UtcNow);
+    /// <summary>UTC calendar day at midnight: the value the handler stores in <c>NextReviewDate</c> (src/app/api/teacher/assign-drill/route.ts:87-94 stores today's date).</summary>
+    private static DateTime UtcToday() => DateTime.UtcNow.Date;
 
     /// <summary>Seeds a classroom owned by a teacher with one enrolled student and <paramref name="classWordCount"/> class words with SRS cards due in the future.</summary>
     private static async Task<Scenario> SeedAsync(
@@ -76,7 +77,7 @@ public sealed class AssignDrillCommandHandlerTests
         return scenario;
     }
 
-    private static SrsProgress NewProgress(Guid userId, Guid wordId, DateOnly next, double difficulty = 5.0) => new()
+    private static SrsProgress NewProgress(Guid userId, Guid wordId, DateTime next, double difficulty = 5.0) => new()
     {
         UserId = userId,
         WordId = wordId,
@@ -154,21 +155,20 @@ public sealed class AssignDrillCommandHandlerTests
             async () => await HandlerFor(s, Guid.NewGuid()).Handle(command, CancellationToken.None));
     }
 
-    /// <summary>CLS-12: an admin may assign drills in any classroom.</summary>
+    /// <summary>CLS-12: the original route lets only the classroom's own teacher assign drills (<c>cls.teacher_id !== auth.userId</c> is rejected, assign-drill/route.ts:36); an admin who does not own the class is refused.</summary>
     [Test]
     [Property("PlanId", "CLS-12")]
-    public async Task Handle_AdminCaller_CanAssignInAnyClassroom()
+    [Category("KnownDeviation")] // C# lets any admin assign drills in any classroom.
+    public async Task Handle_AdminDoesNotOwnClassroom_ThrowsForbidden()
     {
         // Arrange
         var s = await SeedAsync(classWordCount: 2);
         await using var dbLease = s.Db;
         var command = new AssignDrillCommand(s.Classroom.Id, s.StudentId, s.ClassWords.Select(w => w.Id).ToList());
 
-        // Act
-        var response = await HandlerFor(s, Guid.NewGuid(), UserRole.Admin).Handle(command, CancellationToken.None);
-
-        // Assert
-        Assert.That(response.Data, Is.EqualTo(2));
+        // Act & Assert
+        Assert.ThrowsAsync<ForbiddenAccessException>(
+            async () => await HandlerFor(s, Guid.NewGuid(), UserRole.Admin).Handle(command, CancellationToken.None));
     }
 
     /// <summary>CLS-13: the hidden <c>__personal__</c> classroom can never be used to assign drills, even by its owner.</summary>
@@ -217,7 +217,7 @@ public sealed class AssignDrillCommandHandlerTests
         // Arrange
         var s = await SeedAsync(classWordCount: 7, difficulty: i => i);
         await using var dbLease = s.Db;
-        var outsideWord = new Word { Term = "global", Translation = "toan cuc" };
+        var outsideWord = new Word { Term = "global", Translation = "toan cuc", ClassroomId = Guid.NewGuid() };
         s.Db.Words.Add(outsideWord);
         s.Db.SrsProgresses.Add(NewProgress(s.StudentId, outsideWord.Id, s.FutureDate, difficulty: 10.0));
         await s.Db.SaveChangesAsync();
@@ -253,7 +253,7 @@ public sealed class AssignDrillCommandHandlerTests
         // Arrange
         var s = await SeedAsync(classWordCount: 2);
         await using var dbLease = s.Db;
-        var outsideWord = new Word { Term = "global", Translation = "toan cuc" };
+        var outsideWord = new Word { Term = "global", Translation = "toan cuc", ClassroomId = Guid.NewGuid() };
         s.Db.Words.Add(outsideWord);
         s.Db.SrsProgresses.Add(NewProgress(s.StudentId, outsideWord.Id, s.FutureDate));
         await s.Db.SaveChangesAsync();

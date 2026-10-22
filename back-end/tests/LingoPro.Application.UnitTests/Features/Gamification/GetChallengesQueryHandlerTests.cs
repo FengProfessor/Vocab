@@ -7,43 +7,58 @@ using NUnit.Framework;
 namespace LingoPro.Application.UnitTests.Features.Gamification;
 
 /// <summary>
-/// NUnit business unit tests for <see cref="GetChallengesQueryHandler"/>: listing, ordering, participant counts
-/// and draft visibility (plan ID GAM-30).
+/// NUnit business unit tests for <see cref="GetChallengesQueryHandler"/>: listing, participant counts, ordering,
+/// daily-target mapping and draft visibility (plan ID GAM-30; original: src/app/api/challenges/route.ts:10-39).
 /// </summary>
 [TestFixture]
 [Category("Gamification")]
 public sealed class GetChallengesQueryHandlerTests
 {
-    private static Challenge NewChallenge(string title, int startOffsetDays, ChallengeStatus status = ChallengeStatus.Open)
+    private static Challenge NewChallenge(
+        string name,
+        int startOffsetDays,
+        ChallengeStatus status = ChallengeStatus.Open,
+        DateTime? createdAt = null,
+        string? dailyCriteria = null)
     {
-        var today = DateOnly.FromDateTime(DateTime.UtcNow);
-        return new Challenge
+        var now = DateTime.UtcNow;
+        var challenge = new Challenge
         {
-            Title = title,
+            Name = name,
+            Slug = $"{name.ToLowerInvariant()}-{Guid.NewGuid():N}",
             Description = "desc",
-            CreatorId = Guid.NewGuid(),
-            StartDate = today.AddDays(startOffsetDays),
-            EndDate = today.AddDays(startOffsetDays + 30),
-            DepositAmount = 50000m,
+            DurationDays = 30,
+            RegistrationOpensAt = now.AddDays(-1),
+            RegistrationClosesAt = now.AddDays(startOffsetDays),
+            StartsAt = now.AddDays(startOffsetDays),
+            EndsAt = now.AddDays(startOffsetDays + 30),
+            DepositAmount = 50000,
             MaxParticipants = 10,
-            Status = status
+            Status = status,
+            CreatedAt = createdAt ?? now
         };
+        if (dailyCriteria != null)
+        {
+            challenge.DailyCriteria = dailyCriteria;
+        }
+
+        return challenge;
     }
 
-    /// <summary>GAM-30: returns challenges with their participant counts, newest start date first.</summary>
+    /// <summary>GAM-30: every listed challenge carries its own participant count, deposit, capacity and name.</summary>
     [Test]
     [Property("PlanId", "GAM-30")]
-    public async Task Handle_ChallengesExist_ReturnsCountsOrderedByStartDateDescending()
+    public async Task Handle_ChallengesExist_ReturnsParticipantCountsPerChallenge()
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var older = NewChallenge("Older", 1);
-        var newer = NewChallenge("Newer", 10);
-        db.Challenges.AddRange(older, newer);
+        var first = NewChallenge("First", 1);
+        var second = NewChallenge("Second", 10);
+        db.Challenges.AddRange(first, second);
         db.ChallengeParticipants.AddRange(
-            new ChallengeParticipant { ChallengeId = newer.Id, UserId = Guid.NewGuid() },
-            new ChallengeParticipant { ChallengeId = newer.Id, UserId = Guid.NewGuid() },
-            new ChallengeParticipant { ChallengeId = older.Id, UserId = Guid.NewGuid() });
+            new ChallengeParticipant { ChallengeId = second.Id, UserId = Guid.NewGuid() },
+            new ChallengeParticipant { ChallengeId = second.Id, UserId = Guid.NewGuid() },
+            new ChallengeParticipant { ChallengeId = first.Id, UserId = Guid.NewGuid() });
         await db.SaveChangesAsync();
         var handler = new GetChallengesQueryHandler(db);
 
@@ -51,13 +66,67 @@ public sealed class GetChallengesQueryHandlerTests
         var response = await handler.Handle(new GetChallengesQuery(), CancellationToken.None);
 
         // Assert
+        var byName = response.Data!.ToDictionary(c => c.Title);
         Assert.Multiple(() =>
         {
             Assert.That(response.Success, Is.True);
-            Assert.That(response.Data!.Select(c => c.Title), Is.EqualTo(new[] { "Newer", "Older" }));
-            Assert.That(response.Data.Select(c => c.CurrentParticipantsCount), Is.EqualTo(new[] { 2, 1 }));
-            Assert.That(response.Data[0].DepositAmount, Is.EqualTo(50000m));
-            Assert.That(response.Data[0].MaxParticipants, Is.EqualTo(10));
+            Assert.That(byName, Has.Count.EqualTo(2));
+            Assert.That(byName["First"].CurrentParticipantsCount, Is.EqualTo(1));
+            Assert.That(byName["Second"].CurrentParticipantsCount, Is.EqualTo(2));
+            Assert.That(byName["Second"].DepositAmount, Is.EqualTo(50000m));
+            Assert.That(byName["Second"].MaxParticipants, Is.EqualTo(10));
+            Assert.That(byName["Second"].Status, Is.EqualTo(ChallengeStatus.Open));
+        });
+    }
+
+    /// <summary>GAM-30: the original list is ordered by <c>created_at</c> descending (route.ts:24), regardless of the start date.</summary>
+    [Test]
+    [Property("PlanId", "GAM-30")]
+    [Category("KnownDeviation")] // C# orders by StartsAt descending.
+    public async Task Handle_ChallengesExist_OrderedByCreatedAtDescending()
+    {
+        // Arrange
+        await using var db = TestHelpers.CreateDb();
+        var now = DateTime.UtcNow;
+        db.Challenges.AddRange(
+            NewChallenge("CreatedFirstStartsLast", 20, createdAt: now.AddDays(-5)),
+            NewChallenge("CreatedLastStartsFirst", 1, createdAt: now.AddDays(-1)));
+        await db.SaveChangesAsync();
+        var handler = new GetChallengesQueryHandler(db);
+
+        // Act
+        var response = await handler.Handle(new GetChallengesQuery(), CancellationToken.None);
+
+        // Assert
+        Assert.That(
+            response.Data!.Select(c => c.Title),
+            Is.EqualTo(new[] { "CreatedLastStartsFirst", "CreatedFirstStartsLast" }));
+    }
+
+    /// <summary>GAM-30: the daily target is read from <c>daily_criteria.min_srs_reviews</c> and dates map from <c>starts_at</c>/<c>ends_at</c>.</summary>
+    [Test]
+    [Property("PlanId", "GAM-30")]
+    public async Task Handle_Challenge_MapsDailyTargetFromDailyCriteriaAndDates()
+    {
+        // Arrange
+        await using var db = TestHelpers.CreateDb();
+        var challenge = NewChallenge(
+            "Criteria", 3,
+            dailyCriteria: "{\"min_srs_reviews\": 35, \"min_quizzes\": 1, \"min_reading_sessions\": 0, \"min_listening_sessions\": 0}");
+        db.Challenges.Add(challenge);
+        await db.SaveChangesAsync();
+        var handler = new GetChallengesQueryHandler(db);
+
+        // Act
+        var response = await handler.Handle(new GetChallengesQuery(), CancellationToken.None);
+
+        // Assert
+        var dto = response.Data!.Single();
+        Assert.Multiple(() =>
+        {
+            Assert.That(dto.DailyTargetWords, Is.EqualTo(35));
+            Assert.That(dto.StartDate, Is.EqualTo(DateOnly.FromDateTime(challenge.StartsAt)));
+            Assert.That(dto.EndDate, Is.EqualTo(DateOnly.FromDateTime(challenge.EndsAt)));
         });
     }
 
@@ -77,7 +146,7 @@ public sealed class GetChallengesQueryHandlerTests
         Assert.That(response.Data, Is.Empty);
     }
 
-    /// <summary>GAM-30: the default listing hides draft challenges (the original system excludes <c>draft</c> unless requested).</summary>
+    /// <summary>GAM-30: the default listing hides draft challenges (the original excludes <c>draft</c> unless <c>includeAll=1</c>, route.ts:20-22).</summary>
     [Test]
     [Property("PlanId", "GAM-30")]
     [Category("KnownDeviation")] // C# returns draft challenges to every caller.

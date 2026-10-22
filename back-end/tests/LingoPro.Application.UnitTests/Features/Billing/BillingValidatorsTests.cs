@@ -71,15 +71,14 @@ public sealed class BillingValidatorsTests
         }
     }
 
-    /// <summary>BIL-09: seat limit must be within 1..20.</summary>
-    [TestCase(1, true)]
+    /// <summary>BIL-09: seat limit must be within the original range (upper bound 20, billing.ts:180; 0/negative never valid).</summary>
     [TestCase(2, true)]
     [TestCase(20, true)]
     [TestCase(0, false)]
     [TestCase(21, false)]
     [TestCase(-5, false)]
     [Property("PlanId", "BIL-09")]
-    public void Validate_SeatLimit_MustBeBetweenOneAndTwenty(int seats, bool expectedValid)
+    public void Validate_GroupSeatLimit_RejectsOutOfRange(int seats, bool expectedValid)
     {
         // Arrange
         var command = ValidOrder(kind: OrderKind.Group, seats: seats);
@@ -93,6 +92,22 @@ public sealed class BillingValidatorsTests
         {
             Assert.That(result.Errors.Select(e => e.PropertyName), Does.Contain(nameof(CreateOrderCommand.SeatLimit)));
         }
+    }
+
+    /// <summary>BIL-09: a group order needs at least 2 seats (normalizeSeats throws below GROUP_SEATS_MIN) — src/lib/billing.ts:179,193-199.</summary>
+    [Test]
+    [Property("PlanId", "BIL-09")]
+    [Category("KnownDeviation")] // C# validator accepts SeatLimit = 1 for group orders (handler silently clamps to 2).
+    public void Validate_GroupOrderWithOneSeat_IsInvalid()
+    {
+        // Arrange
+        var command = ValidOrder(kind: OrderKind.Group, seats: 1);
+
+        // Act
+        var result = _createOrder.Validate(command);
+
+        // Assert
+        Assert.That(result.IsValid, Is.False);
     }
 
     /// <summary>BIL-09: an undefined <c>OrderKind</c> value is rejected, defined ones are accepted.</summary>

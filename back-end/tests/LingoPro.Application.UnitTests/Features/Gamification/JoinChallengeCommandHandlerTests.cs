@@ -1,6 +1,5 @@
 using LingoPro.Application.Features.Gamification.Commands;
 using LingoPro.Application.UnitTests.Common;
-using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Entities.Gamification;
 using LingoPro.Domain.Enums;
 using LingoPro.Domain.Exceptions;
@@ -11,26 +10,35 @@ using NUnit.Framework;
 namespace LingoPro.Application.UnitTests.Features.Gamification;
 
 /// <summary>
-/// NUnit business unit tests for <see cref="JoinChallengeCommandHandler"/>: free vs deposit enrollment, idempotent join,
-/// capacity limits and registration-state rules (plan IDs GAM-17..GAM-23).
+/// NUnit business unit tests for <see cref="JoinChallengeCommandHandler"/>: free vs deposit enrollment, repeat join,
+/// capacity limits and registration-state rules (plan IDs GAM-17..GAM-23). Original rules:
+/// src/app/api/challenges/[id]/join/route.ts and SRS_08 UC-GAME-08.2. The order of a deposit challenge is linked to the
+/// challenge through <c>ChallengeParticipant.OrderId</c> (SQL orders have no target_challenge_id).
 /// </summary>
 [TestFixture]
 [Category("Gamification")]
 public sealed class JoinChallengeCommandHandlerTests
 {
+    /// <summary>Builds a challenge aligned to <c>public.challenges</c> with an open registration window by default.</summary>
     private static Challenge NewChallenge(
-        decimal deposit = 0m,
+        int deposit = 0,
         int maxParticipants = 100,
-        ChallengeStatus status = ChallengeStatus.Open)
+        ChallengeStatus status = ChallengeStatus.Open,
+        int registrationOpensInDays = -1,
+        int registrationClosesInDays = 2)
     {
-        var today = DateOnly.FromDateTime(DateTime.UtcNow);
+        var now = DateTime.UtcNow;
         return new Challenge
         {
-            Title = "Sprint",
+            Name = "Sprint",
+            Slug = $"sprint-{Guid.NewGuid():N}",
             Description = "Learn daily",
-            CreatorId = Guid.NewGuid(),
-            StartDate = today.AddDays(3),
-            EndDate = today.AddDays(33),
+            CreatedBy = Guid.NewGuid(),
+            DurationDays = 30,
+            RegistrationOpensAt = now.AddDays(registrationOpensInDays),
+            RegistrationClosesAt = now.AddDays(registrationClosesInDays),
+            StartsAt = now.AddDays(3),
+            EndsAt = now.AddDays(33),
             DepositAmount = deposit,
             MaxParticipants = maxParticipants,
             Status = status
@@ -60,14 +68,17 @@ public sealed class JoinChallengeCommandHandlerTests
     private static (ChallengeParticipantStatus, Guid?)[] Others(int count, ChallengeParticipantStatus status) =>
         Enumerable.Range(0, count).Select(_ => (status, (Guid?)null)).ToArray();
 
-    /// <summary>GAM-17: a deposit-free challenge enrolls the user as Active without creating an order.</summary>
+    /// <summary>
+    /// GAM-17: a deposit-free challenge enrolls the user as Active without creating an order
+    /// (product-owner pinned: the original route always creates a pending order, even for a 0 deposit).
+    /// </summary>
     [Test]
     [Property("PlanId", "GAM-17")]
     public async Task Handle_FreeChallenge_JoinsAsActiveWithoutOrder()
     {
         // Arrange
         var userId = Guid.NewGuid();
-        var challenge = NewChallenge(deposit: 0m);
+        var challenge = NewChallenge(deposit: 0);
         await using var db = await SeedAsync(challenge);
         var handler = new JoinChallengeCommandHandler(TestHelpers.CreateUser(userId), db);
 
@@ -83,18 +94,19 @@ public sealed class JoinChallengeCommandHandlerTests
             Assert.That(response.Data.TransferCode, Is.Null);
             Assert.That(participant.UserId, Is.EqualTo(userId));
             Assert.That(participant.Status, Is.EqualTo(ChallengeParticipantStatus.Active));
+            Assert.That(participant.OrderId, Is.Null);
             Assert.That(db.Orders.Count(), Is.EqualTo(0));
         });
     }
 
-    /// <summary>GAM-18: a challenge with a deposit creates a Pending participant and a Pending challenge order (<c>CH</c> code).</summary>
+    /// <summary>GAM-18: a challenge with a deposit creates a Pending participant linked (<c>OrderId</c>) to a Pending challenge order whose amount is the deposit (join/route.ts:53-78).</summary>
     [Test]
     [Property("PlanId", "GAM-18")]
     public async Task Handle_DepositChallenge_CreatesPendingParticipantAndChallengeOrder()
     {
         // Arrange
         var userId = Guid.NewGuid();
-        var challenge = NewChallenge(deposit: 150000m);
+        var challenge = NewChallenge(deposit: 150000);
         await using var db = await SeedAsync(challenge);
         var handler = new JoinChallengeCommandHandler(TestHelpers.CreateUser(userId), db);
 
@@ -108,25 +120,28 @@ public sealed class JoinChallengeCommandHandlerTests
         {
             Assert.That(response.Data!.ParticipantStatus, Is.EqualTo(ChallengeParticipantStatus.Pending));
             Assert.That(response.Data.OrderId, Is.EqualTo(order.Id));
-            Assert.That(response.Data.TransferCode, Is.EqualTo(order.TransferCode));
+            Assert.That(response.Data.TransferCode, Is.EqualTo(order.PaymentRef));
             Assert.That(participant.Status, Is.EqualTo(ChallengeParticipantStatus.Pending));
             Assert.That(participant.OrderId, Is.EqualTo(order.Id));
-            Assert.That(order.TransferCode, Does.StartWith("CH"));
+            Assert.That(participant.ChallengeId, Is.EqualTo(challenge.Id));
+            Assert.That(order.PaymentRef, Does.StartWith("CH"));
             Assert.That(order.UserId, Is.EqualTo(userId));
             Assert.That(order.OrderKind, Is.EqualTo(OrderKind.Challenge));
-            Assert.That(order.TargetChallengeId, Is.EqualTo(challenge.Id));
-            Assert.That(order.Amount, Is.EqualTo(150000m));
+            Assert.That(order.Amount, Is.EqualTo(150000));
             Assert.That(order.Status, Is.EqualTo(OrderStatus.Pending));
         });
     }
 
-    /// <summary>GAM-19: joining twice is idempotent: same participant, no duplicate row and no second order.</summary>
+    /// <summary>
+    /// GAM-19: joining twice never duplicates the participant row or the deposit order and returns the same participant
+    /// (the original route rejects a duplicate registration, join/route.ts:51; the idempotent answer is the pinned C# behavior).
+    /// </summary>
     [Test]
     [Property("PlanId", "GAM-19")]
-    public async Task Handle_JoinTwice_IsIdempotent()
+    public async Task Handle_JoinTwice_DoesNotDuplicateParticipantOrOrder()
     {
         // Arrange
-        var challenge = NewChallenge(deposit: 150000m);
+        var challenge = NewChallenge(deposit: 150000);
         await using var db = await SeedAsync(challenge);
         var handler = new JoinChallengeCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), db);
         var first = await handler.Handle(new JoinChallengeCommand(challenge.Id), CancellationToken.None);
@@ -145,7 +160,7 @@ public sealed class JoinChallengeCommandHandlerTests
         });
     }
 
-    /// <summary>GAM-20: with <c>max - 1</c> participants the last seat can still be taken.</summary>
+    /// <summary>GAM-20: with <c>max - 1</c> participants the last seat can still be taken (join/route.ts:40).</summary>
     [Test]
     [Property("PlanId", "GAM-20")]
     public async Task Handle_OneSeatLeft_JoinSucceeds()
@@ -188,34 +203,10 @@ public sealed class JoinChallengeCommandHandlerTests
         });
     }
 
-    /// <summary>GAM-21: a user who already joined still gets the "already joined" answer even when the challenge is now full.</summary>
-    [Test]
-    [Property("PlanId", "GAM-21")]
-    [Category("KnownDeviation")] // C# checks capacity before the already-joined check and throws CHALLENGE_FULL.
-    public async Task Handle_AlreadyJoinedAndChallengeFull_ReturnsExistingParticipation()
-    {
-        // Arrange
-        var userId = Guid.NewGuid();
-        var challenge = NewChallenge(maxParticipants: 2);
-        await using var db = await SeedAsync(
-            challenge,
-            (ChallengeParticipantStatus.Active, userId),
-            (ChallengeParticipantStatus.Active, null));
-        var existingId = (await db.ChallengeParticipants.SingleAsync(p => p.UserId == userId)).Id;
-        var handler = new JoinChallengeCommandHandler(TestHelpers.CreateUser(userId), db);
-
-        // Act
-        var response = await handler.Handle(new JoinChallengeCommand(challenge.Id), CancellationToken.None);
-
-        // Assert
-        Assert.Multiple(() =>
-        {
-            Assert.That(response.Success, Is.True);
-            Assert.That(response.Data!.ParticipantId, Is.EqualTo(existingId));
-        });
-    }
-
-    /// <summary>GAM-22: Pending (unpaid) participants do not occupy a seat.</summary>
+    /// <summary>
+    /// GAM-22: Pending (unpaid) participants do not occupy a seat. The original join route counts every row and SRS_08
+    /// (lines 158-162) records that as a defect letting unpaid registrations fill the challenge, so the intended rule is asserted.
+    /// </summary>
     [Test]
     [Property("PlanId", "GAM-22")]
     [Category("KnownDeviation")] // C# counts every participant row, including Pending ones, towards capacity.
@@ -236,12 +227,12 @@ public sealed class JoinChallengeCommandHandlerTests
         Assert.That(response.Success, Is.True);
     }
 
-    /// <summary>GAM-23: challenges that are not open for registration (draft, completed, cancelled) cannot be joined.</summary>
+    /// <summary>GAM-23: only <c>open</c> challenges accept registrations; draft, active, completed and cancelled are rejected (join/route.ts:25).</summary>
     [Test]
     [Property("PlanId", "GAM-23")]
     [Category("KnownDeviation")] // C# never checks the challenge status when joining.
     public async Task Handle_ChallengeNotOpenForRegistration_IsRejected(
-        [Values(ChallengeStatus.Draft, ChallengeStatus.Completed, ChallengeStatus.Cancelled)] ChallengeStatus status)
+        [Values(ChallengeStatus.Draft, ChallengeStatus.Active, ChallengeStatus.Completed, ChallengeStatus.Cancelled)] ChallengeStatus status)
     {
         // Arrange
         var challenge = NewChallenge(status: status);
@@ -254,7 +245,25 @@ public sealed class JoinChallengeCommandHandlerTests
         Assert.That(await db.ChallengeParticipants.CountAsync(), Is.EqualTo(0));
     }
 
-    /// <summary>GAM-17: joining a challenge that does not exist throws not found.</summary>
+    /// <summary>GAM-23: registration is rejected before <c>registration_opens_at</c> and after <c>registration_closes_at</c> (join/route.ts:27-33).</summary>
+    [TestCase(2, 5, TestName = "Handle_RegistrationNotYetOpen_IsRejected")]
+    [TestCase(-5, -1, TestName = "Handle_RegistrationAlreadyClosed_IsRejected")]
+    [Property("PlanId", "GAM-23")]
+    [Category("KnownDeviation")] // C# never checks the registration window.
+    public async Task Handle_OutsideRegistrationWindow_IsRejected(int opensInDays, int closesInDays)
+    {
+        // Arrange
+        var challenge = NewChallenge(registrationOpensInDays: opensInDays, registrationClosesInDays: closesInDays);
+        await using var db = await SeedAsync(challenge);
+        var handler = new JoinChallengeCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), db);
+
+        // Act & Assert
+        Assert.CatchAsync<DomainException>(
+            async () => await handler.Handle(new JoinChallengeCommand(challenge.Id), CancellationToken.None));
+        Assert.That(await db.ChallengeParticipants.CountAsync(), Is.EqualTo(0));
+    }
+
+    /// <summary>GAM-17: joining a challenge that does not exist throws not found (join/route.ts:23).</summary>
     [Test]
     [Property("PlanId", "GAM-17")]
     public async Task Handle_UnknownChallenge_ThrowsNotFound()

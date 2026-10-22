@@ -2,7 +2,7 @@ using LingoPro.Application.Features.Social.Commands;
 using LingoPro.Application.UnitTests.Common;
 using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Entities.Social;
-using LingoPro.Domain.Enums;
+using LingoPro.Domain.Enums; // SubscriptionPlanType
 using LingoPro.Domain.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
@@ -25,12 +25,12 @@ public sealed class ClaimReferralCommandHandlerTests
         var referee = Guid.NewGuid();
         db.Profiles.Add(new Profile { Id = referrer, Email = "a@t.local", FullName = "Referrer" });
         db.Profiles.Add(new Profile { Id = referee, Email = "b@t.local", FullName = "Referee" });
-        db.ReferralLinks.Add(new ReferralLink { UserId = referrer, Code = code });
+        db.ReferralLinks.Add(new ReferralLink { UserId = referrer, ReferralCode = code });
         await db.SaveChangesAsync();
         return (db, referrer, referee);
     }
 
-    /// <summary>RF-11: claim creates a Registered referral log linking referrer and referee, with the latest active campaign.</summary>
+    /// <summary>RF-11: claim creates a "registered" referral log linking referrer and referee, with the latest active campaign (original: src/app/api/referral/claim/route.ts:84-104).</summary>
     [Test]
     [Property("PlanId", "RF-11")]
     public async Task Handle_ValidCode_CreatesRegisteredLogWithCampaign()
@@ -58,7 +58,7 @@ public sealed class ClaimReferralCommandHandlerTests
             Assert.That(log.ReferrerId, Is.EqualTo(referrer));
             Assert.That(log.RefereeId, Is.EqualTo(referee));
             Assert.That(log.ReferralCode, Is.EqualTo("REF-ABC123"));
-            Assert.That(log.Status, Is.EqualTo(ReferralLogStatus.Registered));
+            Assert.That(log.Status, Is.EqualTo("registered"));
             Assert.That(log.CampaignId, Is.EqualTo(latest.Id));
         });
     }

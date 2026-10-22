@@ -13,7 +13,7 @@ namespace LingoPro.Application.UnitTests.Features.Vocab;
 [Category("Vocab")]
 public sealed class GetDueWordsQueryHandlerTests
 {
-    private static DateOnly Today => DateOnly.FromDateTime(DateTime.UtcNow);
+    private static DateTime Today => DateTime.UtcNow.Date;
 
     private static Word NewWord(string term) => new() { Id = Guid.NewGuid(), Term = term, Translation = term };
 
@@ -88,5 +88,58 @@ public sealed class GetDueWordsQueryHandlerTests
         await Assert.ThatAsync(
             () => handler.Handle(new GetDueWordsQuery(), CancellationToken.None),
             Throws.TypeOf<UnauthorizedAccessException>());
+    }
+
+    /// <summary>
+    /// Original get_due_words_list keeps only next_review_date &lt;= now() (supabase/migrations/20260412_srs_rpc_fixed.sql:49);
+    /// a card due later today is NOT yet due. Current handler uses "&lt; tomorrow 00:00 UTC", so it returns it.
+    /// </summary>
+    [Test]
+    [Category("KnownDeviation")]
+    [Property("PlanId", "VOC-26")]
+    public async Task Handle_CardDueLaterToday_IsNotReturned()
+    {
+        // Arrange
+        await using var db = TestHelpers.CreateDb();
+        var userId = Guid.NewGuid();
+        db.Profiles.Add(new Profile { Id = userId, Email = "a@x.com", FullName = "A" });
+        var word = NewWord("later");
+        db.Words.Add(word);
+        db.SrsProgresses.Add(new SrsProgress { UserId = userId, WordId = word.Id, NextReviewDate = DateTime.UtcNow.AddHours(3) });
+        await db.SaveChangesAsync();
+        var handler = new GetDueWordsQueryHandler(TestHelpers.CreateUser(userId), db);
+
+        // Act
+        var response = await handler.Handle(new GetDueWordsQuery(), CancellationToken.None);
+
+        // Assert
+        Assert.That(response.Data, Is.Empty);
+    }
+
+    /// <summary>
+    /// Original get_due_words_list excludes words whose translation contains 'Analysis failed'
+    /// (supabase/migrations/20260412_srs_rpc_fixed.sql:51); the current handler does not filter them.
+    /// </summary>
+    [Test]
+    [Category("KnownDeviation")]
+    [Property("PlanId", "VOC-26")]
+    public async Task Handle_WordWithFailedAiAnalysis_IsNotReturned()
+    {
+        // Arrange
+        await using var db = TestHelpers.CreateDb();
+        var userId = Guid.NewGuid();
+        db.Profiles.Add(new Profile { Id = userId, Email = "a@x.com", FullName = "A" });
+        var word = NewWord("broken");
+        word.Translation = "Analysis failed: timeout";
+        db.Words.Add(word);
+        db.SrsProgresses.Add(new SrsProgress { UserId = userId, WordId = word.Id, NextReviewDate = Today.AddDays(-1) });
+        await db.SaveChangesAsync();
+        var handler = new GetDueWordsQueryHandler(TestHelpers.CreateUser(userId), db);
+
+        // Act
+        var response = await handler.Handle(new GetDueWordsQuery(), CancellationToken.None);
+
+        // Assert
+        Assert.That(response.Data, Is.Empty);
     }
 }

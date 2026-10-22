@@ -18,17 +18,15 @@ namespace LingoPro.Application.UnitTests.Features.Dictionary;
 [Category("Dictionary")]
 public sealed class SmartLookupQueryHandlerTests
 {
-    private static GlobalDictionary Entry(string term = "stem") => new()
+    /// <summary>
+    /// global_dictionary keeps the whole entry in one jsonb column (<see cref="GlobalDictionary.Data"/>); this flat shape
+    /// uses the keys the handler maps onto <see cref="DictionaryEntryDto"/>.
+    /// </summary>
+    private static GlobalDictionary Entry(string word = "stem") => new()
     {
-        Term = term,
-        Ipa = "/stem/",
-        PartOfSpeech = "noun",
-        DefinitionsJson = "[\"a\",\"b\"]",
-        CollocationsJson = "[\"c\"]",
-        SynonymsJson = "[\"s\"]",
-        AntonymsJson = "[\"n\"]"
+        Word = word,
+        Data = "{\"ipa\":\"/stem/\",\"partOfSpeech\":\"noun\",\"definitions\":[\"a\",\"b\"],\"collocations\":[\"c\"],\"synonyms\":[\"s\"],\"antonyms\":[\"n\"]}"
     };
-
     /// <summary>DC-01: lookup is case/space-insensitive and returns the entry without calling the AI when no context is given.</summary>
     [Test]
     [Property("PlanId", "DC-01")]
@@ -54,11 +52,48 @@ public sealed class SmartLookupQueryHandlerTests
             Assert.That(response.Data.Ipa, Is.EqualTo("/stem/"));
             Assert.That(response.Data.PartOfSpeech, Is.EqualTo("noun"));
             Assert.That(response.Data.DefinitionsJson, Is.EqualTo("[\"a\",\"b\"]"));
+            Assert.That(response.Data.CollocationsJson, Is.EqualTo("[\"c\"]"));
+            Assert.That(response.Data.SynonymsJson, Is.EqualTo("[\"s\"]"));
+            Assert.That(response.Data.AntonymsJson, Is.EqualTo("[\"n\"]"));
             Assert.That(response.Data.BestContextualSenseIndex, Is.Null);
         });
         await router.DidNotReceiveWithAnyArgs().SelectSmartSenseIndexAsync(default!, default!, default!, default);
     }
 
+    /// <summary>
+    /// DC-01: production rows keep the original jsonb shape written by ai-lookup (pronunciations[].ipa and
+    /// results[].meanings[].pos/definition: src/app/api/dictionary/ai-lookup/route.ts:70-100); the handler only reads
+    /// flat keys (ipa/partOfSpeech/definitions), so real data yields empty IPA, part of speech and definitions.
+    /// </summary>
+    [Test]
+    [Property("PlanId", "DC-01")]
+    [Category("KnownDeviation")]
+    public async Task Handle_ProductionShapedData_MapsIpaPartOfSpeechAndDefinitions()
+    {
+        // Arrange
+        await using var db = TestHelpers.CreateDb();
+        db.GlobalDictionaries.Add(new GlobalDictionary
+        {
+            Word = "stem",
+            Data = "{\"exists\":true,\"pronunciations\":[{\"ipa\":\"/stem/\",\"region\":\"UK\"}],"
+                + "\"results\":[{\"meanings\":[{\"pos\":\"Danh từ\",\"definition\":\"thân cây\",\"example\":\"The stem is green.\"}]}],"
+                + "\"synonyms\":[\"trunk\"],\"antonyms\":[]}"
+        });
+        await db.SaveChangesAsync();
+        var handler = new SmartLookupQueryHandler(db, Substitute.For<IAiRouterService>());
+
+        // Act
+        var response = await handler.Handle(new SmartLookupQuery("stem"), CancellationToken.None);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(response.Data!.Ipa, Is.EqualTo("/stem/"));
+            Assert.That(response.Data.PartOfSpeech, Is.EqualTo("Danh từ"));
+            Assert.That(response.Data.DefinitionsJson, Does.Contain("thân cây"));
+            Assert.That(response.Data.SynonymsJson, Is.EqualTo("[\"trunk\"]"));
+        });
+    }
     /// <summary>DC-02: unknown term yields NotFound.</summary>
     [Test]
     [Property("PlanId", "DC-02")]

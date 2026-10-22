@@ -44,12 +44,13 @@ public sealed class AnalyzeSentenceCommandHandlerTests
         await router.Received(1).AnalyzeSentenceStructureAsync("I like tea.", "ctx", Arg.Any<CancellationToken>());
     }
 
-    /// <summary>AI-02: sentence length boundaries (4 min, 1500 max).</summary>
+    /// <summary>Builds a multi-word sentence of exactly <paramref name="length"/> characters.</summary>
+    private static string Sentence(int length) => length < 6 ? new string('a', length) : "aaaa " + new string('a', length - 5);
+
+    /// <summary>AI-02: sentence length boundaries that both systems agree on (empty rejected, 400 characters accepted).</summary>
     [TestCase(0, false)]
-    [TestCase(3, false)]
-    [TestCase(4, true)]
-    [TestCase(1500, true)]
-    [TestCase(1501, false)]
+    [TestCase(10, true)]
+    [TestCase(400, true)]
     [Property("PlanId", "AI-02")]
     public void Validator_SentenceLength_Boundaries(int length, bool expected)
     {
@@ -57,12 +58,52 @@ public sealed class AnalyzeSentenceCommandHandlerTests
         var validator = new AnalyzeSentenceCommandValidator();
 
         // Act
-        var result = validator.Validate(new AnalyzeSentenceCommand(new string('a', length)));
+        var result = validator.Validate(new AnalyzeSentenceCommand(Sentence(length)));
 
         // Assert
         Assert.That(result.IsValid, Is.EqualTo(expected));
     }
 
+    /// <summary>
+    /// AI-02: the original rejects sentences over 400 characters (src/app/api/dictionary/ai-sentence/route.ts:392-394,
+    /// "sentence too long (max 400)"); the validator allows up to 1500.
+    /// </summary>
+    [TestCase(401)]
+    [TestCase(1500)]
+    [TestCase(1501)]
+    [Property("PlanId", "AI-02")]
+    [Category("KnownDeviation")]
+    public void Validator_SentenceOver400Characters_IsInvalid(int length)
+    {
+        // Arrange
+        var validator = new AnalyzeSentenceCommandValidator();
+
+        // Act
+        var result = validator.Validate(new AnalyzeSentenceCommand(Sentence(length)));
+
+        // Assert
+        Assert.That(result.IsValid, Is.False);
+    }
+
+    /// <summary>
+    /// AI-02: a single short word is rejected with USE_WORD_LOOKUP - the sentence must have at least two words or
+    /// more than 40 characters (ai-sentence/route.ts:55-61, 398-404); the validator only requires 4 characters.
+    /// </summary>
+    [TestCase("Hello")]
+    [TestCase("Tea.")]
+    [Property("PlanId", "AI-02")]
+    [Category("KnownDeviation")]
+    public void Validator_SingleShortWord_IsInvalid(string sentence)
+    {
+        // Arrange
+        var validator = new AnalyzeSentenceCommandValidator();
+
+        // Act
+        var result = validator.Validate(new AnalyzeSentenceCommand(sentence));
+
+        // Assert
+        Assert.That(result.IsValid, Is.False);
+    }
     /// <summary>AI-03: sentence analysis is a Pro feature - a free user is rejected with PRO_REQUIRED, a Pro user passes.</summary>
     [TestCase(SubscriptionPlanType.Free, false)]
     [TestCase(SubscriptionPlanType.Pro, true)]
@@ -198,7 +239,7 @@ public sealed class UploadSpeakingAudioCommandHandlerTests
         Assert.That(result.IsValid, Is.EqualTo(expected));
     }
 
-    /// <summary>AI-10: size boundary at exactly 10 MB and 10 MB + 1 byte.</summary>
+    /// <summary>AI-10: size boundary at exactly 10 MB and 10 MB + 1 byte (original: upload-audio/route.ts:11, 79-90).</summary>
     [TestCase(TenMb - 1, true)]
     [TestCase(TenMb, true)]
     [TestCase(TenMb + 1, false)]
@@ -215,13 +256,16 @@ public sealed class UploadSpeakingAudioCommandHandlerTests
         Assert.That(result.IsValid, Is.EqualTo(expected));
     }
 
-    /// <summary>AI-11: MIME whitelist (parameters such as codecs allowed, case-insensitive; others rejected).</summary>
+    /// <summary>
+    /// AI-11: MIME types accepted by both systems (original normalizes to lowercase without parameters, then matches
+    /// the whitelist: src/app/api/speaking/upload-audio/route.ts:14-21, 101-103) and clearly rejected types.
+    /// </summary>
     [TestCase("audio/webm", true)]
     [TestCase("audio/webm;codecs=opus", true)]
     [TestCase("AUDIO/MP4", true)]
     [TestCase("audio/wav", true)]
-    [TestCase("audio/mpeg", true)]
-    [TestCase("audio/m4a", true)]
+    [TestCase("audio/aac", true)]
+    [TestCase("audio/ogg", true)]
     [TestCase("video/mp4", false)]
     [TestCase("image/png", false)]
     [TestCase("application/octet-stream", false)]
@@ -239,6 +283,44 @@ public sealed class UploadSpeakingAudioCommandHandlerTests
         Assert.That(result.IsValid, Is.EqualTo(expected));
     }
 
+    /// <summary>AI-11: the original whitelist contains audio/x-m4a (route.ts:20); the validator lists audio/m4a instead.</summary>
+    [Test]
+    [Property("PlanId", "AI-11")]
+    [Category("KnownDeviation")]
+    public void Validator_XM4aMime_IsAccepted()
+    {
+        // Arrange
+        var validator = new UploadSpeakingAudioCommandValidator();
+
+        // Act
+        var result = validator.Validate(Upload(1024, "audio/x-m4a"));
+
+        // Assert
+        Assert.That(result.IsValid, Is.True);
+    }
+
+    /// <summary>
+    /// AI-11: audio types outside the original whitelist (route.ts:14-21) must be rejected: mpeg/mp3/x-wav/m4a are
+    /// accepted by the validator, and so is any suffix of an allowed prefix because it uses StartsWith.
+    /// </summary>
+    [TestCase("audio/mpeg")]
+    [TestCase("audio/mp3")]
+    [TestCase("audio/x-wav")]
+    [TestCase("audio/m4a")]
+    [TestCase("audio/webm-evil")]
+    [Property("PlanId", "AI-11")]
+    [Category("KnownDeviation")]
+    public void Validator_MimeOutsideOriginalWhitelist_IsRejected(string mime)
+    {
+        // Arrange
+        var validator = new UploadSpeakingAudioCommandValidator();
+
+        // Act
+        var result = validator.Validate(Upload(1024, mime));
+
+        // Assert
+        Assert.That(result.IsValid, Is.False);
+    }
     /// <summary>AI-12: the handler uploads through the storage service for the caller and returns URL, path and duration.</summary>
     [Test]
     [Property("PlanId", "AI-12")]

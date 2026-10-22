@@ -27,7 +27,7 @@ public sealed class SubmitVstepExamCommandHandlerTests
     private static SubmitVstepExamCommand Uniform(double score, ExamType type = ExamType.Vstep) =>
         new(type, "vstep_01", score, score, score, score);
 
-    /// <summary>VS-01: CEFR boundaries on the 10-point scale.</summary>
+    /// <summary>VS-01: CEFR boundaries on the 10-point scale (original: src/lib/vstep-scoring.ts:56-59 and roundVstepScore :16-26).</summary>
     [TestCase(3.5, CertLevel.A2)]
     [TestCase(4.0, CertLevel.B1)]
     [TestCase(5.5, CertLevel.B1)]
@@ -98,7 +98,7 @@ public sealed class SubmitVstepExamCommandHandlerTests
 
         // Assert
         var saved = await db.ToeicTestResults.SingleAsync();
-        var profile = await db.Profiles.SingleAsync(p => p.Id == userId);
+        var gamification = await db.UserGamifications.SingleAsync(g => g.UserId == userId);
         Assert.Multiple(() =>
         {
             Assert.That(response.Success, Is.True);
@@ -108,7 +108,7 @@ public sealed class SubmitVstepExamCommandHandlerTests
             Assert.That(saved.ListeningScaledScore, Is.EqualTo(70));
             Assert.That(saved.ReadingScaledScore, Is.EqualTo(65));
             Assert.That(saved.TotalScore, Is.EqualTo(65));
-            Assert.That(profile.TotalXp, Is.EqualTo(50));
+            Assert.That(gamification.TotalXp, Is.EqualTo(50));
         });
     }
 

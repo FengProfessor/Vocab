@@ -1,7 +1,6 @@
 using LingoPro.Application.Features.Social.Queries;
 using LingoPro.Application.UnitTests.Common;
 using LingoPro.Domain.Entities.Social;
-using LingoPro.Domain.Enums;
 using NUnit.Framework;
 
 namespace LingoPro.Application.UnitTests.Features.Social;
@@ -14,7 +13,7 @@ namespace LingoPro.Application.UnitTests.Features.Social;
 [Category("Social")]
 public sealed class GetReferralHubQueryHandlerTests
 {
-    private static ReferralLog Log(Guid referrer, ReferralLogStatus status) => new()
+    private static ReferralLog Log(Guid referrer, string status) => new()
     {
         ReferrerId = referrer,
         RefereeId = Guid.NewGuid(),
@@ -30,13 +29,13 @@ public sealed class GetReferralHubQueryHandlerTests
         // Arrange
         var me = Guid.NewGuid();
         await using var db = TestHelpers.CreateDb();
-        db.ReferralLinks.Add(new ReferralLink { UserId = me, Code = "MYCODE" });
+        db.ReferralLinks.Add(new ReferralLink { UserId = me, ReferralCode = "MYCODE" });
         db.ReferralLogs.AddRange(
-            Log(me, ReferralLogStatus.Registered),
-            Log(me, ReferralLogStatus.Activated),
-            Log(me, ReferralLogStatus.Converted),
-            Log(me, ReferralLogStatus.FraudFlagged),
-            Log(Guid.NewGuid(), ReferralLogStatus.Activated));
+            Log(me, "registered"),
+            Log(me, "activated"),
+            Log(me, "converted"),
+            Log(me, "fraud_flagged"),
+            Log(Guid.NewGuid(), "activated"));
         await db.SaveChangesAsync();
         var handler = new GetReferralHubQueryHandler(TestHelpers.CreateUser(me), db);
 
@@ -76,7 +75,7 @@ public sealed class GetReferralHubQueryHandlerTests
         });
     }
 
-    /// <summary>RF-07: wallet sums only Available rewards of the caller; pending/withdrawn/others excluded.</summary>
+    /// <summary>RF-07: wallet sums only available rewards of the caller; pending/withdrawn/others excluded (original: src/app/api/referral/hub/route.ts:120-138).</summary>
     [Test]
     [Property("PlanId", "RF-07")]
     public async Task Handle_Rewards_SumsOnlyAvailableOfCaller()
@@ -85,17 +84,17 @@ public sealed class GetReferralHubQueryHandlerTests
         var me = Guid.NewGuid();
         await using var db = TestHelpers.CreateDb();
         db.RewardTransactions.AddRange(
-            new RewardTransaction { UserId = me, Amount = 50000, Status = RewardTransactionStatus.Available },
-            new RewardTransaction { UserId = me, Amount = 30000, Status = RewardTransactionStatus.Available },
+            new RewardTransaction { UserId = me, RewardType = "affiliate_cash", Amount = 50000, Status = "available" },
+            new RewardTransaction { UserId = me, RewardType = "affiliate_cash", Amount = 30000, Status = "available" },
             new RewardTransaction
             {
                 UserId = me,
-                Amount = 99000,
-                Status = RewardTransactionStatus.PendingClearance,
+                RewardType = "affiliate_cash", Amount = 99000,
+                Status = "pending_clearance",
                 AvailableAt = DateTime.UtcNow.AddDays(3)
             },
-            new RewardTransaction { UserId = me, Amount = 70000, Status = RewardTransactionStatus.Withdrawn },
-            new RewardTransaction { UserId = Guid.NewGuid(), Amount = 1000000, Status = RewardTransactionStatus.Available });
+            new RewardTransaction { UserId = me, RewardType = "affiliate_cash", Amount = 70000, Status = "withdrawn" },
+            new RewardTransaction { UserId = Guid.NewGuid(), RewardType = "affiliate_cash", Amount = 1000000, Status = "available" });
         await db.SaveChangesAsync();
         var handler = new GetReferralHubQueryHandler(TestHelpers.CreateUser(me), db);
 
@@ -106,7 +105,7 @@ public sealed class GetReferralHubQueryHandlerTests
         Assert.That(response.Data!.TotalAvailableRewardsVnd, Is.EqualTo(80000m));
     }
 
-    /// <summary>RF-08: pending_clearance rewards whose available_at has passed must be auto-promoted and counted as available.</summary>
+    /// <summary>RF-08: pending_clearance rewards whose available_at has passed must be auto-promoted and counted as available (original: hub/route.ts:126-146).</summary>
     [Test]
     [Property("PlanId", "RF-08")]
     [Category("KnownDeviation")]
@@ -116,19 +115,19 @@ public sealed class GetReferralHubQueryHandlerTests
         var me = Guid.NewGuid();
         await using var db = TestHelpers.CreateDb();
         db.RewardTransactions.AddRange(
-            new RewardTransaction { UserId = me, Amount = 40000, Status = RewardTransactionStatus.Available },
+            new RewardTransaction { UserId = me, RewardType = "affiliate_cash", Amount = 40000, Status = "available" },
             new RewardTransaction
             {
                 UserId = me,
-                Amount = 60000,
-                Status = RewardTransactionStatus.PendingClearance,
+                RewardType = "affiliate_cash", Amount = 60000,
+                Status = "pending_clearance",
                 AvailableAt = DateTime.UtcNow.AddDays(-1)
             },
             new RewardTransaction
             {
                 UserId = me,
-                Amount = 25000,
-                Status = RewardTransactionStatus.PendingClearance,
+                RewardType = "affiliate_cash", Amount = 25000,
+                Status = "pending_clearance",
                 AvailableAt = DateTime.UtcNow.AddDays(5)
             });
         await db.SaveChangesAsync();
@@ -149,8 +148,8 @@ public sealed class GetReferralHubQueryHandlerTests
         // Arrange
         var me = Guid.NewGuid();
         await using var db = TestHelpers.CreateDb();
-        var mine = new StudyGroup { Name = "Mine", InviteCode = "AAAAAA", OwnerId = Guid.NewGuid(), ExpiresAt = DateTime.UtcNow.AddDays(5) };
-        var other = new StudyGroup { Name = "Other", InviteCode = "BBBBBB", OwnerId = Guid.NewGuid(), ExpiresAt = DateTime.UtcNow.AddDays(5) };
+        var mine = new StudyGroup { InviteCode = "AAAAAA", OwnerId = Guid.NewGuid(), ExpiresAt = DateTime.UtcNow.AddDays(5) };
+        var other = new StudyGroup { InviteCode = "BBBBBB", OwnerId = Guid.NewGuid(), ExpiresAt = DateTime.UtcNow.AddDays(5) };
         db.StudyGroups.AddRange(mine, other);
         db.GroupMembers.Add(new GroupMember { GroupId = mine.Id, UserId = me });
         await db.SaveChangesAsync();
@@ -160,6 +159,31 @@ public sealed class GetReferralHubQueryHandlerTests
         var response = await handler.Handle(new GetReferralHubQuery(), CancellationToken.None);
 
         // Assert
-        Assert.That(response.Data!.ActiveGroups.Select(g => g.Name), Is.EqualTo(new[] { "Mine" }));
+        Assert.That(response.Data!.ActiveGroups.Select(g => g.InviteCode), Is.EqualTo(new[] { "AAAAAA" }));
+    }
+
+    /// <summary>
+    /// RF-07: payout_debit rows with status "deducted" carry a negative amount and reduce the wallet
+    /// (original: src/app/api/referral/hub/route.ts:135-137). The handler ignores them.
+    /// </summary>
+    [Test]
+    [Property("PlanId", "RF-07")]
+    [Category("KnownDeviation")]
+    public async Task Handle_DeductedPayoutDebit_ReducesWallet()
+    {
+        // Arrange
+        var me = Guid.NewGuid();
+        await using var db = TestHelpers.CreateDb();
+        db.RewardTransactions.AddRange(
+            new RewardTransaction { UserId = me, RewardType = "affiliate_cash", Amount = 100000, Status = "available" },
+            new RewardTransaction { UserId = me, RewardType = "payout_debit", Amount = -100000, Status = "deducted" });
+        await db.SaveChangesAsync();
+        var handler = new GetReferralHubQueryHandler(TestHelpers.CreateUser(me), db);
+
+        // Act
+        var response = await handler.Handle(new GetReferralHubQuery(), CancellationToken.None);
+
+        // Assert
+        Assert.That(response.Data!.TotalAvailableRewardsVnd, Is.EqualTo(0m));
     }
 }

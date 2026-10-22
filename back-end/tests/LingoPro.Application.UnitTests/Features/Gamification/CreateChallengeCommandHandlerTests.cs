@@ -11,7 +11,9 @@ namespace LingoPro.Application.UnitTests.Features.Gamification;
 
 /// <summary>
 /// NUnit business unit tests for <see cref="CreateChallengeCommandHandler"/>, <see cref="CreateChallengeCommandValidator"/>
-/// and the teacher/admin-only authorization of <see cref="CreateChallengeCommand"/> (plan IDs GAM-25..GAM-27).
+/// and the authorization of <see cref="CreateChallengeCommand"/> (plan IDs GAM-25..GAM-27).
+/// The challenge is aligned to <c>public.challenges</c>: <c>Name</c>/<c>Slug</c>, <c>StartsAt</c>/<c>EndsAt</c>,
+/// <c>DurationDays</c>, <c>DepositAmount</c> (int), <c>DailyCriteria</c> jsonb, <c>CreatedBy</c>.
 /// </summary>
 [TestFixture]
 [Category("Gamification")]
@@ -35,7 +37,7 @@ public sealed class CreateChallengeCommandHandlerTests
         maxParticipants,
         deposit);
 
-    /// <summary>GAM-25: a teacher creates a challenge; the creator, trimmed texts, targets and deposit are persisted.</summary>
+    /// <summary>GAM-25: a teacher creates a challenge; the creator, trimmed texts, schedule, targets and deposit are persisted.</summary>
     [Test]
     [Property("PlanId", "GAM-25")]
     public async Task Handle_TeacherCreatesChallenge_PersistsChallengeAndReturns201()
@@ -56,14 +58,61 @@ public sealed class CreateChallengeCommandHandlerTests
         {
             Assert.That(response.StatusCode, Is.EqualTo(201));
             Assert.That(response.Data!.Id, Is.EqualTo(challenge.Id));
-            Assert.That(challenge.CreatorId, Is.EqualTo(teacherId));
-            Assert.That(challenge.Title, Is.EqualTo("30-day vocab sprint"));
+            Assert.That(challenge.CreatedBy, Is.EqualTo(teacherId));
+            Assert.That(challenge.Name, Is.EqualTo("30-day vocab sprint"));
+            Assert.That(challenge.Slug, Does.StartWith("30-day-vocab-sprint"), "slug derives from the name (src/lib/challenge.ts:370-381).");
             Assert.That(challenge.Description, Is.EqualTo("Learn 20 words per day"));
-            Assert.That(challenge.StartDate, Is.EqualTo(command.StartDate));
-            Assert.That(challenge.EndDate, Is.EqualTo(command.EndDate));
-            Assert.That(challenge.DailyTargetWords, Is.EqualTo(20));
+            Assert.That(DateOnly.FromDateTime(challenge.StartsAt), Is.EqualTo(command.StartDate));
+            Assert.That(DateOnly.FromDateTime(challenge.EndsAt), Is.EqualTo(command.EndDate));
+            Assert.That(challenge.DurationDays, Is.EqualTo(30));
             Assert.That(challenge.MaxParticipants, Is.EqualTo(100));
-            Assert.That(challenge.DepositAmount, Is.EqualTo(100000m));
+            Assert.That(challenge.DepositAmount, Is.EqualTo(100000));
+            Assert.That(challenge.RegistrationOpensAt, Is.LessThan(challenge.RegistrationClosesAt), "schema constraint chk_registration_window");
+        });
+    }
+
+    /// <summary>
+    /// GAM-25: the SQL schema has no <c>daily_target_words</c> column; the daily target is stored as
+    /// <c>daily_criteria.min_srs_reviews</c> (schema.sql challenges.daily_criteria; src/lib/challenge.ts:74-92).
+    /// </summary>
+    [Test]
+    [Property("PlanId", "GAM-25")]
+    public async Task Handle_DailyTargetWords_IsStoredAsMinSrsReviewsInDailyCriteria()
+    {
+        // Arrange
+        await using var db = TestHelpers.CreateDb();
+        var handler = new CreateChallengeCommandHandler(TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Teacher), db);
+
+        // Act
+        await handler.Handle(NewCommand(dailyWords: 25), CancellationToken.None);
+
+        // Assert
+        var challenge = await db.Challenges.SingleAsync();
+        using var criteria = System.Text.Json.JsonDocument.Parse(challenge.DailyCriteria);
+        Assert.That(criteria.RootElement.GetProperty("min_srs_reviews").GetInt32(), Is.EqualTo(25));
+    }
+
+    /// <summary>
+    /// GAM-25: a freshly created challenge is a draft (schema default <c>status = 'draft'</c>) and only becomes joinable once
+    /// <c>open</c> (join/route.ts:25), so creation must not make it Active.
+    /// </summary>
+    [Test]
+    [Property("PlanId", "GAM-25")]
+    [Category("KnownDeviation")] // C# creates the challenge directly as Active, which the original join rule rejects (not 'open').
+    public async Task Handle_NewChallenge_StartsAsDraft()
+    {
+        // Arrange
+        await using var db = TestHelpers.CreateDb();
+        var handler = new CreateChallengeCommandHandler(TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Teacher), db);
+
+        // Act
+        var response = await handler.Handle(NewCommand(), CancellationToken.None);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(db.Challenges.Single().Status, Is.EqualTo(ChallengeStatus.Draft));
+            Assert.That(response.Data!.Status, Is.EqualTo(ChallengeStatus.Draft));
         });
     }
 
@@ -81,7 +130,7 @@ public sealed class CreateChallengeCommandHandlerTests
             async () => await handler.Handle(NewCommand(), CancellationToken.None));
     }
 
-    /// <summary>GAM-27: a student is rejected by the authorization pipeline before the handler runs.</summary>
+    /// <summary>GAM-27: a student is rejected by the authorization pipeline before the handler runs (challenges/route.ts:54-56).</summary>
     [Test]
     [Property("PlanId", "GAM-27")]
     public async Task Handle_CallerIsStudent_ThrowsForbiddenViaAuthorizationBehavior()
@@ -99,15 +148,14 @@ public sealed class CreateChallengeCommandHandlerTests
         Assert.That(await db.Challenges.CountAsync(), Is.EqualTo(0));
     }
 
-    /// <summary>GAM-26: teachers and admins pass the authorization pipeline and the challenge is created.</summary>
-    [TestCase(UserRole.Teacher, TestName = "Handle_CallerIsTeacher_PassesAuthorizationBehavior")]
-    [TestCase(UserRole.Admin, TestName = "Handle_CallerIsAdmin_PassesAuthorizationBehavior")]
+    /// <summary>GAM-26: a teacher passes the authorization pipeline and the challenge is created.</summary>
+    [Test]
     [Property("PlanId", "GAM-26")]
-    public async Task Handle_TeacherOrAdmin_PassesAuthorizationBehaviorAndCreatesChallenge(UserRole role)
+    public async Task Handle_CallerIsTeacher_PassesAuthorizationBehavior()
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var user = TestHelpers.CreateUser(Guid.NewGuid(), role);
+        var user = TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Teacher);
         var behavior = new AuthorizationBehavior<CreateChallengeCommand, ApiResponse<ChallengeDto>>(user);
         var handler = new CreateChallengeCommandHandler(user, db);
         var command = NewCommand();
@@ -124,7 +172,26 @@ public sealed class CreateChallengeCommandHandlerTests
         });
     }
 
-    /// <summary>GAM-26: validator accepts a well-formed command and a free (0 deposit) challenge.</summary>
+    /// <summary>GAM-27: the original create route allows only <c>role = 'teacher'</c>; an admin gets 403 (src/app/api/challenges/route.ts:54-56) and no admin-specific challenge route exists.</summary>
+    [Test]
+    [Property("PlanId", "GAM-27")]
+    [Category("KnownDeviation")] // C# [Authorize(Teacher, Admin)] lets admins create challenges.
+    public async Task Handle_CallerIsAdmin_ThrowsForbiddenViaAuthorizationBehavior()
+    {
+        // Arrange
+        await using var db = TestHelpers.CreateDb();
+        var user = TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Admin);
+        var behavior = new AuthorizationBehavior<CreateChallengeCommand, ApiResponse<ChallengeDto>>(user);
+        var handler = new CreateChallengeCommandHandler(user, db);
+        var command = NewCommand();
+
+        // Act & Assert
+        Assert.ThrowsAsync<ForbiddenAccessException>(async () => await behavior.Handle(
+            command, () => handler.Handle(command, CancellationToken.None), CancellationToken.None));
+        Assert.That(await db.Challenges.CountAsync(), Is.EqualTo(0));
+    }
+
+    /// <summary>GAM-26: validator accepts a well-formed command and a free (0 deposit) challenge (schema: deposit_amount &gt;= 0).</summary>
     [Test]
     [Property("PlanId", "GAM-26")]
     public void Validate_WellFormedCommand_IsValid()
@@ -158,7 +225,7 @@ public sealed class CreateChallengeCommandHandlerTests
         Assert.That(result.IsValid, Is.EqualTo(expectedValid));
     }
 
-    /// <summary>GAM-26: daily target words must be between 5 and 200.</summary>
+    /// <summary>GAM-26: daily target (min SRS reviews) must be between 5 and 200.</summary>
     [TestCase(4, false)]
     [TestCase(5, true)]
     [TestCase(200, true)]
@@ -194,7 +261,7 @@ public sealed class CreateChallengeCommandHandlerTests
         Assert.That(result.IsValid, Is.EqualTo(expectedValid));
     }
 
-    /// <summary>GAM-26: deposit cannot be negative.</summary>
+    /// <summary>GAM-26: deposit cannot be negative (schema CHECK deposit_amount &gt;= 0).</summary>
     [TestCase(-1, false)]
     [TestCase(0, true)]
     [TestCase(500000, true)]

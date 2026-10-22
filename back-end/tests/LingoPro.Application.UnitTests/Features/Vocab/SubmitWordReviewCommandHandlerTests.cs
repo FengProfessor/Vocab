@@ -12,7 +12,8 @@ using NUnit.Framework;
 namespace LingoPro.Application.UnitTests.Features.Vocab;
 
 /// <summary>
-/// NUnit business unit tests for <see cref="SubmitWordReviewCommandHandler"/> verifying FSRS-5 persistence and XP awards.
+/// NUnit business unit tests for <see cref="SubmitWordReviewCommandHandler"/> verifying FSRS-5 persistence and XP awards (XP/streak live in UserGamification;
+/// quality 5 => 15 XP per XP_BY_QUALITY, src/lib/gamification.ts:4-9).
 /// </summary>
 [TestFixture]
 public sealed class SubmitWordReviewCommandHandlerTests
@@ -40,7 +41,8 @@ public sealed class SubmitWordReviewCommandHandlerTests
             Term = "resilient",
             Pos = "adjective",
             Translation = "Able to withstand or recover quickly from difficult conditions",
-            ClassroomId = Guid.NewGuid()
+            ClassroomId = Guid.NewGuid(),
+            AddedBy = userId
         };
 
         db.Profiles.Add(profile);
@@ -52,7 +54,7 @@ public sealed class SubmitWordReviewCommandHandlerTests
         currentUser.IsAuthenticated.Returns(true);
 
         var handler = new SubmitWordReviewCommandHandler(currentUser, db);
-        var command = new SubmitWordReviewCommand(word.Id, Quality: 5, ReviewId: Guid.NewGuid().ToString("N"));
+        var command = new SubmitWordReviewCommand(word.Id, Quality: 5, ReviewId: Guid.NewGuid().ToString());
 
         // Act
         var response = await handler.Handle(command, CancellationToken.None);

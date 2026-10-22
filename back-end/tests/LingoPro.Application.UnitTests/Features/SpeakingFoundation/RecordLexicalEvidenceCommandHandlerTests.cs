@@ -18,7 +18,7 @@ namespace LingoPro.Application.UnitTests.Features.SpeakingFoundation;
 [Category("SpeakingFoundation")]
 public sealed class RecordLexicalEvidenceCommandHandlerTests
 {
-    private static RecordLexicalEvidenceCommand Evidence(Guid concept, bool success, string probe = "receptive_recognition") =>
+    private static RecordLexicalEvidenceCommand Evidence(string concept, bool success, string probe = "receptive_recognition") =>
         new(concept, LexicalEvidenceSource.Learner, LexicalSupportLevel.Independent, probe, success, 500);
 
     /// <summary>SF-01: first correct evidence adds +0.35 confidence and creates the state.</summary>
@@ -28,7 +28,7 @@ public sealed class RecordLexicalEvidenceCommandHandlerTests
     {
         // Arrange
         var learner = Guid.NewGuid();
-        var concept = Guid.NewGuid();
+        var concept = "concept_hello";
         await using var db = TestHelpers.CreateDb();
         var handler = new RecordLexicalEvidenceCommandHandler(TestHelpers.CreateUser(learner), db);
 
@@ -41,8 +41,8 @@ public sealed class RecordLexicalEvidenceCommandHandlerTests
         {
             Assert.That(state.LearnerId, Is.EqualTo(learner));
             Assert.That(state.ConceptId, Is.EqualTo(concept));
-            Assert.That(state.ConfidenceScore, Is.EqualTo(0.35).Within(1e-9));
-            Assert.That(state.EvidenceCount, Is.EqualTo(1));
+            Assert.That(1m - state.UncertaintyScore, Is.EqualTo(0.35m));
+            Assert.That(db.LearnerLexicalEvidences.Count(), Is.EqualTo(1));
             Assert.That(response.Data, Is.EqualTo(LexicalStatusBucket.Uncertain));
         });
     }
@@ -57,7 +57,7 @@ public sealed class RecordLexicalEvidenceCommandHandlerTests
     {
         // Arrange
         var learner = Guid.NewGuid();
-        var concept = Guid.NewGuid();
+        var concept = "concept_hello";
         await using var db = TestHelpers.CreateDb();
         var handler = new RecordLexicalEvidenceCommandHandler(TestHelpers.CreateUser(learner), db);
 
@@ -74,8 +74,8 @@ public sealed class RecordLexicalEvidenceCommandHandlerTests
         {
             Assert.That(response.Data, Is.EqualTo(expected));
             Assert.That(state.StatusBucket, Is.EqualTo(expected));
-            Assert.That(state.EvidenceCount, Is.EqualTo(successes));
-            Assert.That(state.ConfidenceScore, Is.LessThanOrEqualTo(1.0));
+            Assert.That(db.LearnerLexicalEvidences.Count(), Is.EqualTo(successes));
+            Assert.That(state.UncertaintyScore, Is.InRange(0m, 1m));
         });
     }
 
@@ -86,21 +86,20 @@ public sealed class RecordLexicalEvidenceCommandHandlerTests
     {
         // Arrange
         var learner = Guid.NewGuid();
-        var concept = Guid.NewGuid();
+        var concept = "concept_hello";
         await using var db = TestHelpers.CreateDb();
         db.LearnerLexicalStates.Add(new LearnerLexicalState
         {
             LearnerId = learner,
             ConceptId = concept,
-            ConfidenceScore = 0.5,
-            EvidenceCount = 2
+            UncertaintyScore = 0.5m
         });
         await db.SaveChangesAsync();
         var handler = new RecordLexicalEvidenceCommandHandler(TestHelpers.CreateUser(learner), db);
 
         // Act
         await handler.Handle(Evidence(concept, false), CancellationToken.None);
-        var afterOne = (await db.LearnerLexicalStates.SingleAsync()).ConfidenceScore;
+        var afterOne = 1m - (await db.LearnerLexicalStates.SingleAsync()).UncertaintyScore;
         await handler.Handle(Evidence(concept, false), CancellationToken.None);
         await handler.Handle(Evidence(concept, false), CancellationToken.None);
 
@@ -108,10 +107,10 @@ public sealed class RecordLexicalEvidenceCommandHandlerTests
         var state = await db.LearnerLexicalStates.SingleAsync();
         Assert.Multiple(() =>
         {
-            Assert.That(afterOne, Is.EqualTo(0.25).Within(1e-9));
-            Assert.That(state.ConfidenceScore, Is.EqualTo(0.0).Within(1e-9));
+            Assert.That(afterOne, Is.EqualTo(0.25m));
+            Assert.That(1m - state.UncertaintyScore, Is.EqualTo(0m));
             Assert.That(state.StatusBucket, Is.EqualTo(LexicalStatusBucket.Uncertain));
-            Assert.That(state.EvidenceCount, Is.EqualTo(5));
+            Assert.That(db.LearnerLexicalEvidences.Count(), Is.EqualTo(3));
         });
     }
 
@@ -122,7 +121,7 @@ public sealed class RecordLexicalEvidenceCommandHandlerTests
     {
         // Arrange
         var learner = Guid.NewGuid();
-        var concept = Guid.NewGuid();
+        var concept = "concept_hello";
         await using var db = TestHelpers.CreateDb();
         var handler = new RecordLexicalEvidenceCommandHandler(TestHelpers.CreateUser(learner), db);
 
@@ -135,9 +134,11 @@ public sealed class RecordLexicalEvidenceCommandHandlerTests
         {
             Assert.That(row.LearnerId, Is.EqualTo(learner));
             Assert.That(row.ConceptId, Is.EqualTo(concept));
-            Assert.That(row.ProbeType, Is.EqualTo("productive_recall"));
+            Assert.That(row.ProbeMode, Is.EqualTo("productive_recall"));
+            Assert.That(row.TargetDimension, Is.EqualTo("productive_recall"));
+            Assert.That(row.ActorUserId, Is.EqualTo(learner));
             Assert.That(row.EvidenceSource, Is.EqualTo(LexicalEvidenceSource.Learner));
-            Assert.That(row.IsSuccessful, Is.True);
+            Assert.That(row.IsCorrect, Is.True);
             Assert.That(row.ResponseLatencyMs, Is.EqualTo(500));
         });
     }
@@ -154,7 +155,7 @@ public sealed class RecordLexicalEvidenceCommandHandlerTests
 
         // Act & Assert
         Assert.ThrowsAsync<NotFoundException>(
-            async () => await handler.Handle(Evidence(Guid.NewGuid(), true), CancellationToken.None));
+            async () => await handler.Handle(Evidence("concept_missing", true), CancellationToken.None));
         await Task.CompletedTask;
     }
 
@@ -169,7 +170,7 @@ public sealed class RecordLexicalEvidenceCommandHandlerTests
 
         // Act & Assert
         Assert.ThrowsAsync<UnauthorizedAccessException>(
-            async () => await handler.Handle(Evidence(Guid.NewGuid(), true), CancellationToken.None));
+            async () => await handler.Handle(Evidence("concept_missing", true), CancellationToken.None));
         await Task.CompletedTask;
     }
 
@@ -180,11 +181,11 @@ public sealed class RecordLexicalEvidenceCommandHandlerTests
     {
         // Arrange
         var validator = new RecordLexicalEvidenceCommandValidator();
-        var concept = Guid.NewGuid();
+        var concept = "concept_hello";
 
         // Act
         var ok = validator.Validate(Evidence(concept, true));
-        var emptyConcept = validator.Validate(Evidence(Guid.Empty, true));
+        var emptyConcept = validator.Validate(Evidence("", true));
         var emptyProbe = validator.Validate(Evidence(concept, true, ""));
         var longProbe = validator.Validate(Evidence(concept, true, new string('p', 65)));
         var maxProbe = validator.Validate(Evidence(concept, true, new string('p', 64)));
@@ -218,7 +219,7 @@ public sealed class RecordLexicalEvidenceCommandHandlerTests
 [Category("SpeakingFoundation")]
 public sealed class RecordTeacherLexicalObservationCommandHandlerTests
 {
-    private static RecordTeacherLexicalObservationCommand Obs(Guid student, Guid concept, bool success) =>
+    private static RecordTeacherLexicalObservationCommand Obs(Guid student, string concept, bool success) =>
         new(student, concept, LexicalSupportLevel.Independent, success);
 
     /// <summary>SF-10: teacher successful observation adds +0.45 (Partial); a second reaches Solid.</summary>
@@ -228,25 +229,26 @@ public sealed class RecordTeacherLexicalObservationCommandHandlerTests
     {
         // Arrange
         var student = Guid.NewGuid();
-        var concept = Guid.NewGuid();
+        var teacher = Guid.NewGuid();
+        var concept = "concept_hello";
         await using var db = TestHelpers.CreateDb();
-        var handler = new RecordTeacherLexicalObservationCommandHandler(db);
+        var handler = new RecordTeacherLexicalObservationCommandHandler(TestHelpers.CreateUser(teacher, UserRole.Teacher), db);
 
         // Act
         var first = await handler.Handle(Obs(student, concept, true), CancellationToken.None);
-        var scoreAfterFirst = (await db.LearnerLexicalStates.SingleAsync()).ConfidenceScore;
+        var scoreAfterFirst = 1m - (await db.LearnerLexicalStates.SingleAsync()).UncertaintyScore;
         var second = await handler.Handle(Obs(student, concept, true), CancellationToken.None);
 
         // Assert
         var evidences = await db.LearnerLexicalEvidences.ToListAsync();
         Assert.Multiple(() =>
         {
-            Assert.That(scoreAfterFirst, Is.EqualTo(0.45).Within(1e-9));
+            Assert.That(scoreAfterFirst, Is.EqualTo(0.45m));
             Assert.That(first.Data, Is.EqualTo(LexicalStatusBucket.Partial));
             Assert.That(second.Data, Is.EqualTo(LexicalStatusBucket.Solid));
             Assert.That(evidences, Has.Count.EqualTo(2));
-            Assert.That(evidences.All(e => e.EvidenceSource == LexicalEvidenceSource.Teacher && e.LearnerId == student), Is.True);
-            Assert.That(evidences[0].ProbeType, Is.EqualTo("teacher_classroom_observation"));
+            Assert.That(evidences.All(e => e.EvidenceSource == LexicalEvidenceSource.Teacher && e.LearnerId == student && e.ActorUserId == teacher), Is.True);
+            Assert.That(evidences[0].ProbeMode, Is.EqualTo("teacher_classroom_observation"));
         });
     }
 
@@ -257,17 +259,17 @@ public sealed class RecordTeacherLexicalObservationCommandHandlerTests
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var handler = new RecordTeacherLexicalObservationCommandHandler(db);
+        var handler = new RecordTeacherLexicalObservationCommandHandler(TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Teacher), db);
 
         // Act
-        var response = await handler.Handle(Obs(Guid.NewGuid(), Guid.NewGuid(), false), CancellationToken.None);
+        var response = await handler.Handle(Obs(Guid.NewGuid(), "concept_hello", false), CancellationToken.None);
 
         // Assert
         var state = await db.LearnerLexicalStates.SingleAsync();
         Assert.Multiple(() =>
         {
             Assert.That(response.Data, Is.EqualTo(LexicalStatusBucket.Recheck));
-            Assert.That(state.ConfidenceScore, Is.EqualTo(0.0).Within(1e-9));
+            Assert.That(1m - state.UncertaintyScore, Is.EqualTo(0m));
         });
     }
 
@@ -280,8 +282,8 @@ public sealed class RecordTeacherLexicalObservationCommandHandlerTests
         await using var db = TestHelpers.CreateDb();
         var user = TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Student);
         var behavior = new AuthorizationBehavior<RecordTeacherLexicalObservationCommand, ApiResponse<LexicalStatusBucket>>(user);
-        var handler = new RecordTeacherLexicalObservationCommandHandler(db);
-        var command = Obs(Guid.NewGuid(), Guid.NewGuid(), true);
+        var handler = new RecordTeacherLexicalObservationCommandHandler(TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Teacher), db);
+        var command = Obs(Guid.NewGuid(), "concept_hello", true);
 
         // Act & Assert
         Assert.ThrowsAsync<ForbiddenAccessException>(async () => await behavior.Handle(
@@ -298,8 +300,8 @@ public sealed class RecordTeacherLexicalObservationCommandHandlerTests
         await using var db = TestHelpers.CreateDb();
         var user = TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Teacher);
         var behavior = new AuthorizationBehavior<RecordTeacherLexicalObservationCommand, ApiResponse<LexicalStatusBucket>>(user);
-        var handler = new RecordTeacherLexicalObservationCommandHandler(db);
-        var command = Obs(Guid.NewGuid(), Guid.NewGuid(), true);
+        var handler = new RecordTeacherLexicalObservationCommandHandler(TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Teacher), db);
+        var command = Obs(Guid.NewGuid(), "concept_hello", true);
 
         // Act
         var response = await behavior.Handle(
@@ -317,11 +319,11 @@ public sealed class RecordTeacherLexicalObservationCommandHandlerTests
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var handler = new RecordTeacherLexicalObservationCommandHandler(db);
+        var handler = new RecordTeacherLexicalObservationCommandHandler(TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Teacher), db);
 
         // Act & Assert
         Assert.ThrowsAsync<NotFoundException>(
-            async () => await handler.Handle(Obs(Guid.NewGuid(), Guid.NewGuid(), true), CancellationToken.None));
+            async () => await handler.Handle(Obs(Guid.NewGuid(), "concept_hello", true), CancellationToken.None));
         await Task.CompletedTask;
     }
 
@@ -335,11 +337,11 @@ public sealed class RecordTeacherLexicalObservationCommandHandlerTests
         var id = Guid.NewGuid();
 
         // Act
-        var ok = validator.Validate(Obs(id, id, true));
-        var noStudent = validator.Validate(Obs(Guid.Empty, id, true));
-        var noConcept = validator.Validate(Obs(id, Guid.Empty, true));
-        var badSupport = validator.Validate(new RecordTeacherLexicalObservationCommand(id, id, (LexicalSupportLevel)99, true));
-        var negativeLatency = validator.Validate(new RecordTeacherLexicalObservationCommand(id, id, LexicalSupportLevel.Prompted, true, -1));
+        var ok = validator.Validate(Obs(id, "c1", true));
+        var noStudent = validator.Validate(Obs(Guid.Empty, "c1", true));
+        var noConcept = validator.Validate(Obs(id, "", true));
+        var badSupport = validator.Validate(new RecordTeacherLexicalObservationCommand(id, "c1", (LexicalSupportLevel)99, true));
+        var negativeLatency = validator.Validate(new RecordTeacherLexicalObservationCommand(id, "c1", LexicalSupportLevel.Prompted, true, -1));
 
         // Assert
         Assert.Multiple(() =>

@@ -10,7 +10,7 @@ namespace LingoPro.Application.UnitTests.Features.Toeic;
 
 /// <summary>
 /// Unit tests for <see cref="SubmitToeicExamCommandHandler"/> and <see cref="SubmitToeicExamCommandValidator"/>
-/// (plan IDs TO-09..TO-13): result persistence, XP award, server-side grading and validation boundaries.
+/// (plan IDs TO-09..TO-13): result persistence, XP award (stored on user_gamification, 50 XP pinned as a kept C# rule), server-side grading and validation boundaries.
 /// </summary>
 [TestFixture]
 [Category("Toeic")]
@@ -43,7 +43,7 @@ public sealed class SubmitToeicExamCommandHandlerTests
 
         // Assert
         var saved = await db.ToeicTestResults.SingleAsync();
-        var profile = await db.Profiles.SingleAsync(p => p.Id == userId);
+        var gamification = await db.UserGamifications.SingleAsync(g => g.UserId == userId);
         Assert.Multiple(() =>
         {
             Assert.That(response.Success, Is.True);
@@ -53,8 +53,13 @@ public sealed class SubmitToeicExamCommandHandlerTests
             Assert.That(saved.TestId, Is.EqualTo("ets_2024_01"));
             Assert.That(saved.ExamType, Is.EqualTo(ExamType.Toeic));
             Assert.That(saved.TotalScore, Is.EqualTo(990));
+            Assert.That(saved.ListeningCorrect, Is.EqualTo(100));
+            Assert.That(saved.ReadingCorrect, Is.EqualTo(100));
+            Assert.That(saved.ListeningScaledScore, Is.EqualTo(495));
+            Assert.That(saved.ReadingScaledScore, Is.EqualTo(495));
+            Assert.That(saved.AnswersJson, Does.Contain("q1"));
             Assert.That(saved.DurationSeconds, Is.EqualTo(7200));
-            Assert.That(profile.TotalXp, Is.EqualTo(50));
+            Assert.That(gamification.TotalXp, Is.EqualTo(50));
         });
     }
 
@@ -120,8 +125,8 @@ public sealed class SubmitToeicExamCommandHandlerTests
         await handler.Handle(Cmd(50, 50), CancellationToken.None);
 
         // Assert
-        var profile = await db.Profiles.SingleAsync(p => p.Id == userId);
-        Assert.That(profile.TotalXp, Is.EqualTo(50));
+        var gamification = await db.UserGamifications.SingleAsync(g => g.UserId == userId);
+        Assert.That(gamification.TotalXp, Is.EqualTo(50));
     }
 
     /// <summary>TO-11: scoring goes through the ETS engine (0/0 -> 10, A1).</summary>

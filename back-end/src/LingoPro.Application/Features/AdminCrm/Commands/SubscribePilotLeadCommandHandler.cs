@@ -26,7 +26,7 @@ public sealed class SubscribePilotLeadCommandHandler(IApplicationDbContext dbCon
 
         var lead = new PilotLead
         {
-            ContactName = request.FullName.Trim(),
+            FullName = request.FullName.Trim(),
             Email = normalizedEmail,
             Phone = request.Phone.Trim(),
             Organization = request.OrganizationName?.Trim() ?? string.Empty,

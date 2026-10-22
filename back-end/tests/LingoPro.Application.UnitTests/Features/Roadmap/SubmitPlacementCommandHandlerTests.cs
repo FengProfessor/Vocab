@@ -65,7 +65,7 @@ public sealed class SubmitPlacementCommandHandlerTests
             Assert.That(response.Data!.LevelId, Is.EqualTo(RoadmapLevelId.A2));
             Assert.That(roadmap.LevelId, Is.EqualTo(RoadmapLevelId.A2));
             Assert.That(roadmap.Track, Is.EqualTo(RoadmapTrackType.Cefr));
-            Assert.That(roadmap.PlacementCompleted, Is.True);
+            Assert.That(roadmap.Placement, Is.Not.Null); // no placement_completed column: non-null placement JSON marks completion
         });
     }
 
@@ -83,6 +83,27 @@ public sealed class SubmitPlacementCommandHandlerTests
         await Assert.ThatAsync(
             () => handler.Handle(
                 new SubmitPlacementCommand(RoadmapTrackType.Cefr, RoadmapLevelId.Lop10, null), CancellationToken.None),
+            Throws.InstanceOf<DomainException>());
+    }
+
+    /// <summary>
+    /// Original only scores answers for the CEFR track; TOEIC/THPT placement needs selfSelect
+    /// (src/app/api/roadmap/placement/route.ts:52-61, "Thieu answers hoac selfSelect"). The C# handler derives a CEFR level for any track.
+    /// </summary>
+    [Test]
+    [Property("PlanId", "RM-16")]
+    [Category("KnownDeviation")]
+    public async Task Handle_ToeicTrackWithAnswersOnly_IsRejected()
+    {
+        // Arrange
+        var (db, userId) = await SeedAsync();
+        await using var _db = db;
+        var handler = new SubmitPlacementCommandHandler(TestHelpers.CreateUser(userId), db);
+        var answers = new Dictionary<string, string> { ["q1"] = "a" };
+
+        // Act + Assert
+        await Assert.ThatAsync(
+            () => handler.Handle(new SubmitPlacementCommand(RoadmapTrackType.Toeic, null, answers), CancellationToken.None),
             Throws.InstanceOf<DomainException>());
     }
 
