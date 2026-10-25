@@ -1,0 +1,1075 @@
+'use client';
+
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { supabase, type SRSProgress } from '@/lib/supabase';
+import { authFetch } from '@/lib/auth-fetch';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import {
+  ChevronLeft, Volume2, Snail, ArrowRight, RotateCcw, BookOpen, GraduationCap, Sparkles, HelpCircle,
+} from 'lucide-react';
+import Link from 'next/link';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { toast } from 'sonner';
+import { StudyGuideModal, STUDY_GUIDE_KEY } from '@/components/StudyGuideModal';
+import { speak, judgeAnswer, verdictToQuality, parseIpa, canAutoFocus, type Verdict } from '@/lib/study';
+import { stopWordAudio } from '@/lib/audio';
+import { completeRoadmapStep, getLastRoadmapStepError } from '@/lib/roadmap-client';
+import { invalidateWordSummaryCache } from '@/lib/word-summary-cache';
+import { ExampleWithSub } from '@/components/study/ExampleWithSub';
+import { resolveImageSrc } from '@/lib/media-url';
+import { saveSrsReview } from '@/lib/save-srs-review';
+import { getOfflineStudyQueue } from '@/lib/offline/study-queue';
+import { readLastProfileCache } from '@/lib/dashboard-snapshot-cache';
+
+interface WordItem {
+  id: string;
+  word: string;
+  translation: string;
+  ipa: string;
+  pos: string;
+  example: string;
+  example_vi?: string | null;
+  image_url?: string;
+  reviewCount: number;
+  srsLevel: number;
+  isDue: boolean;
+  srs: SRSProgress | null;
+}
+
+const NEW_BATCH = 8;       // số từ mới mỗi phiên học
+const NEXT_DELAY_MS = 1400;  // chỉ auto-next khi đúng; sai/gần đúng chờ user bấm Tiếp
+/** Chống double-tap/nảy phím khi bấm Enter/Space sau khi có kết quả */
+const FEEDBACK_LOCK_MS = 100;
+
+type Phase = 'loading' | 'empty' | 'ready' | 'introduce' | 'recall' | 'done';
+
+export function LearnMode({ classroomId: initialClassroomId }: { classroomId: string | null }) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const idsParam = searchParams.get('ids');
+  const [classroomId, setClassroomId] = useState<string | null>(initialClassroomId);
+  const [userId, setUserId] = useState<string | null>(() => readLastProfileCache()?.id ?? null);
+  const [phase, setPhase] = useState<Phase>('loading');
+  const phaseRef = useRef<Phase>('loading');
+  phaseRef.current = phase;
+  const [batch, setBatch] = useState<WordItem[]>([]);
+  const [remainingNew, setRemainingNew] = useState(0);
+
+  // Introduce
+  const [introIndex, setIntroIndex] = useState(0);
+
+  // Recall
+  const [recallIndex, setRecallIndex] = useState(0);
+  const [input, setInput] = useState('');
+  const [verdict, setVerdict] = useState<Verdict | null>(null);
+  const [results, setResults] = useState({ correct: 0, close: 0, wrong: 0 });
+  const inputRef = useRef<HTMLInputElement>(null);
+  const advanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const feedbackLockTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const advanceFn = useRef<(() => void) | null>(null);
+  const pendingSkipRef = useRef(false);
+  const canSkipRef = useRef(false);
+  const submittedWordIdRef = useRef<string | null>(null);
+  const lastSubmitAtRef = useRef<number>(0);
+
+  // Hướng dẫn cơ chế — tự hiện lần đầu (dùng chung key với /flashcard ôn), mở lại qua nút "?"
+  const [showGuide, setShowGuide] = useState(false);
+  useEffect(() => {
+    if (localStorage.getItem(STUDY_GUIDE_KEY) !== '1') setShowGuide(true);
+  }, []);
+  const closeGuide = () => {
+    localStorage.setItem(STUDY_GUIDE_KEY, '1');
+    setShowGuide(false);
+  };
+
+  const roadmapStepParam = searchParams.get('roadmapStep');
+  const forceReplay = searchParams.get('replay') === '1';
+
+  // ── Load từ mới (chưa học) đã enrich ──
+  // Từ lộ trình (?ids=...&roadmapStep=...): nếu đã học hết → ghi step (trừ replay=1).
+  useEffect(() => {
+    (async () => {
+      let hasCached = false;
+      const isPersonalScope = !initialClassroomId || initialClassroomId === '__personal__';
+      const batchLimit = idsParam === null ? NEW_BATCH : 20;
+      const hydrateFromIndexedDB = async (uid: string) => {
+        if (idsParam !== null || !isPersonalScope) return;
+        try {
+          const cached = await getOfflineStudyQueue(uid, 'new');
+          const unlearned = cached.filter((cw) => (cw.reviewCount || 0) === 0 && cw.isDue !== true);
+          if (unlearned.length > 0) {
+            const mapped: WordItem[] = unlearned.map((cw) => ({
+              id: cw.id,
+              word: cw.word,
+              translation: cw.translation,
+              ipa: cw.ipa,
+              pos: cw.pos,
+              example: cw.example,
+              example_vi: cw.example_vi,
+              image_url: cw.image_url ?? undefined,
+              reviewCount: cw.reviewCount,
+              srsLevel: cw.srsLevel,
+              isDue: cw.isDue,
+              srs: cw.srs
+                ? {
+                    id: cw.id,
+                    user_id: cw.userId,
+                    word_id: cw.id,
+                    ease_factor: 2.5,
+                    stability: cw.srs.stability,
+                    difficulty: cw.srs.difficulty,
+                    interval_days: cw.srs.interval_days,
+                    review_count: cw.srs.review_count,
+                    next_review_date: cw.srs.next_review_date,
+                    last_reviewed_at: cw.srs.last_reviewed_at,
+                  }
+                : null,
+            }));
+            setBatch(mapped.slice(0, batchLimit));
+            setRemainingNew(Math.max(0, mapped.length - batchLimit));
+            setPhase('ready');
+            hasCached = true;
+          }
+        } catch (dbErr) {
+          console.debug('[Learn] IndexedDB pre-read error:', dbErr);
+        }
+      };
+
+      try {
+        // 1. Instant hydration from IndexedDB for new words (<5ms) in parallel with auth session check
+        const cachedUserId = readLastProfileCache()?.id ?? null;
+        const [sessionRes] = await Promise.all([
+          supabase.auth.getSession(),
+          cachedUserId ? hydrateFromIndexedDB(cachedUserId) : Promise.resolve(),
+        ]);
+        const { data: { session }, error } = sessionRes;
+        if (error) return;
+        if (!session?.user) { router.replace('/auth'); return; }
+        setUserId(session.user.id);
+
+        if (!hasCached && session.user.id !== cachedUserId) {
+          await hydrateFromIndexedDB(session.user.id);
+        }
+
+        const loadWords = async (filter: 'new' | null): Promise<{ words: WordItem[]; classroomId?: string }> => {
+          const query = new URLSearchParams({
+            limit: idsParam === null ? '16' : '20',
+          });
+          if (filter) query.set('filter', filter);
+          if (initialClassroomId) query.set('classroomId', initialClassroomId);
+          if (idsParam !== null) query.set('ids', idsParam);
+          const res = await authFetch(`/api/words?${query.toString()}`);
+          const data = await res.json() as { success?: boolean; data?: WordItem[]; classroomId?: string };
+          if (!data.success || !data.data) return { words: [] };
+          return { words: data.data, classroomId: data.classroomId };
+        };
+
+        let result = await loadWords('new');
+
+        // Đồng bộ lại IndexedDB cho personal scope (kể cả khi server trả [] để xoá sạch từ đã học trên thiết bị khác)
+        if (idsParam === null && isPersonalScope) {
+          const freshNewWords = result.words;
+          void import('@/lib/offline/db')
+            .then((dbMod) => {
+              const now = Date.now();
+              return dbMod.replaceStudyWordsByQueue(
+                session.user.id,
+                'new',
+                freshNewWords.map((w) => ({
+                  id: w.id,
+                  userId: session.user.id,
+                  word: w.word,
+                  translation: w.translation || '',
+                  ipa: w.ipa || '',
+                  pos: w.pos || '',
+                  example: w.example || '',
+                  example_vi: w.example_vi ?? null,
+                  image_url: w.image_url ?? null,
+                  synonyms: [],
+                  antonyms: [],
+                  srsLevel: w.srsLevel ?? 1,
+                  reviewCount: w.reviewCount ?? 0,
+                  isDue: false,
+                  srs: null,
+                  queueType: 'new' as const,
+                  audioCached: false,
+                  cachedAt: now,
+                })),
+              );
+            })
+            .catch(() => {});
+        }
+
+        // Lộ trình + đã học hết từ mới + không replay → ghi step, không ép học lại.
+        if (result.words.length === 0 && roadmapStepParam && !forceReplay) {
+          const done = await completeRoadmapStep(roadmapStepParam);
+          if (done) {
+            toast.success(`+${done.xpAwarded} XP — gói này bạn đã học trong kho, sang bước kế tiếp nhé!`);
+            router.push('/journey');
+            return;
+          }
+          const err = getLastRoadmapStepError();
+          if (err) toast.error(err);
+          if (idsParam !== null) {
+            result = await loadWords(null);
+          }
+        } else if (result.words.length === 0 && idsParam !== null) {
+          // replay hoặc ngoài lộ trình: load full ids để ôn lại
+          result = await loadWords(null);
+        } else if (result.words.length === 0) {
+          // Tự do vào học từ mới nhưng đã học hết từ mới -> nạp từ đã lưu để củng cố
+          const allSaved = await loadWords(null);
+          if (allSaved.words.length > 0) {
+            result = allSaved;
+            toast.info('Bạn đã học hết từ mới! Đang mở chế độ củng cố các từ đã lưu.');
+          }
+        }
+
+        if (!initialClassroomId && result.classroomId) setClassroomId(result.classroomId);
+
+        if (result.words.length === 0) {
+          if (phaseRef.current === 'loading' || phaseRef.current === 'ready') {
+            setBatch([]);
+            setRemainingNew(0);
+            setPhase('empty');
+          }
+          return;
+        }
+
+        // Chỉ cập nhật batch nếu học viên chưa bắt đầu bước introduce/recall
+        if (phaseRef.current === 'loading' || phaseRef.current === 'ready') {
+          setBatch(result.words.slice(0, batchLimit));
+          setRemainingNew(Math.max(0, result.words.length - batchLimit));
+          setPhase('ready');
+        }
+      } catch (err) {
+        if (!hasCached) {
+          console.error('[Learn] Load failed:', err);
+          toast.error('Không tải được từ mới.');
+          setPhase('empty');
+        }
+      }
+    })();
+  }, [initialClassroomId, idsParam, router, roadmapStepParam, forceReplay]);
+
+  // Tự phát âm khi đổi thẻ ở bước Giới thiệu.
+  // Cleanup BẮT BUỘC khi đổi index / rời phase — nếu không, audio từ cuối intro
+  // vẫn chạy khi UI đã sang recall từ đầu → “đang ở từ này nhưng phát âm khác”.
+  useEffect(() => {
+    if (phase === 'introduce' && batch[introIndex]) {
+      const word = batch[introIndex].word;
+      stopWordAudio();
+      speak(word, 1.0);
+      return () => {
+        stopWordAudio();
+      };
+    }
+    // introduce → recall/done/ready: chặn tiếng từ cũ dính sang màn mới
+    stopWordAudio();
+    return undefined;
+  }, [phase, introIndex, batch]);
+
+  // Cleanup timer + audio
+  useEffect(() => () => {
+    if (advanceTimer.current) clearTimeout(advanceTimer.current);
+    if (feedbackLockTimer.current) clearTimeout(feedbackLockTimer.current);
+    stopWordAudio();
+  }, []);
+
+  // Preload ảnh & rolling audio window (4 từ kế tiếp) — sẵn sàng 0ms khi lật tới mà không nghẽn mạng di động
+  const activeMediaIndex = phase === 'recall' ? recallIndex : introIndex;
+  useEffect(() => {
+    if (batch.length === 0) return;
+    void import('@/lib/offline/network-policy')
+      .then(({ getNetworkPolicy }) => {
+        const policy = getNetworkPolicy();
+        if (!policy.isSaveData && !policy.isSlowConnection) {
+          batch.slice(activeMediaIndex, activeMediaIndex + 4).forEach((w) => {
+            if (w.image_url) {
+              const img = new window.Image();
+              img.src = resolveImageSrc(w.image_url);
+            }
+          });
+        }
+      })
+      .catch(() => {});
+    void import('@/lib/offline/audio-cache')
+      .then((m) => m.prefetchAudioWindow(batch, activeMediaIndex, 4))
+      .catch(() => {});
+  }, [batch, activeMediaIndex]);
+
+  const startSession = () => {
+    setPhase('introduce');
+    setIntroIndex(0);
+  };
+
+  const nextIntro = useCallback(() => {
+    if (introIndex + 1 >= batch.length) {
+      // Sang bước Nhớ lại — stop ngay (trước re-render) kẻo tiếng từ cuối
+      // còn vang khi UI đã hiện từ đầu của recall.
+      stopWordAudio();
+      setPhase('recall');
+      setRecallIndex(0);
+      setInput('');
+      setVerdict(null);
+      canSkipRef.current = false;
+      pendingSkipRef.current = false;
+      submittedWordIdRef.current = null;
+      advanceFn.current = null;
+      requestAnimationFrame(() => inputRef.current?.focus());
+      setTimeout(() => inputRef.current?.focus(), 80);
+    } else {
+      setIntroIndex((i) => i + 1);
+    }
+  }, [introIndex, batch.length]);
+
+  // Chỉ phase Làm quen: xem lại từ trước (chưa chấm SRS)
+  const prevIntro = useCallback(() => {
+    if (introIndex <= 0) return;
+    setIntroIndex((i) => i - 1);
+  }, [introIndex]);
+
+  const recallWord = batch[recallIndex];
+
+  const advanceRecall = useCallback(() => {
+    submittedWordIdRef.current = null;
+    advanceFn.current = null;
+    if (advanceTimer.current) {
+      clearTimeout(advanceTimer.current);
+      advanceTimer.current = null;
+    }
+    if (feedbackLockTimer.current) {
+      clearTimeout(feedbackLockTimer.current);
+      feedbackLockTimer.current = null;
+    }
+    canSkipRef.current = false;
+    pendingSkipRef.current = false;
+    // Chặn tiếng từ vừa chấm phát trễ khi UI đã sang từ mới
+    stopWordAudio();
+    if (recallIndex + 1 >= batch.length) {
+      setPhase('done');
+    } else {
+      setRecallIndex((i) => i + 1);
+      setInput('');
+      setVerdict(null);
+      requestAnimationFrame(() => inputRef.current?.focus());
+      setTimeout(() => inputRef.current?.focus(), 50);
+    }
+  }, [recallIndex, batch.length]);
+
+  const goNextRecall = useCallback(() => {
+    if (verdict !== null) {
+      if (!advanceFn.current) return;
+      // Khóa 220ms đầu để chống ăn đúp phím Enter/Space khi vừa nộp bài; từ 220ms..FEEDBACK_LOCK_MS thì ghi nhận pendingSkip
+      if (Date.now() - lastSubmitAtRef.current < 220) return;
+      if (!canSkipRef.current) {
+        pendingSkipRef.current = true;
+        return;
+      }
+      advanceFn.current();
+      return;
+    }
+    advanceRecall();
+  }, [verdict, advanceRecall]);
+
+  // Chốt kết quả 1 từ: phản hồi UI tức thì (0ms), ghi điểm + phát âm + sync SRS ngầm không chặn luồng học.
+  // Đúng → auto-next với playWordWithBuffer; sai/gần đúng → hiện đáp án, chờ bấm Tiếp (để đọc kỹ chỗ sai).
+  const finalizeRecall = useCallback((v: Verdict) => {
+    if (!recallWord || verdict !== null || submittedWordIdRef.current === recallWord.id) return;
+    submittedWordIdRef.current = recallWord.id;
+    lastSubmitAtRef.current = Date.now();
+
+    // 1. Phản hồi UI tức thì (0ms) — giải quyết triệt để lag/đơ nút bấm
+    setVerdict(v);
+    canSkipRef.current = false;
+    pendingSkipRef.current = false;
+    setResults((p) => ({
+      correct: v === 'correct' ? p.correct + 1 : p.correct,
+      close: v === 'close' ? p.close + 1 : p.close,
+      wrong: v === 'wrong' ? p.wrong + 1 : p.wrong,
+    }));
+
+    const advance = () => {
+      if (advanceFn.current !== advance) return;
+      advanceRecall();
+    };
+    advanceFn.current = advance;
+
+    if (feedbackLockTimer.current) clearTimeout(feedbackLockTimer.current);
+    feedbackLockTimer.current = setTimeout(() => {
+      canSkipRef.current = true;
+      feedbackLockTimer.current = null;
+      if (pendingSkipRef.current) {
+        pendingSkipRef.current = false;
+        advanceFn.current?.();
+      }
+    }, FEEDBACK_LOCK_MS);
+
+    if (v === 'correct') {
+      try {
+        const raw = localStorage.getItem('vocab_station_mastered_words');
+        const set = new Set<string>(raw ? JSON.parse(raw) : []);
+        set.add(recallWord.word.toLowerCase());
+        localStorage.setItem('vocab_station_mastered_words', JSON.stringify(Array.from(set)));
+      } catch {
+        /* ignore */
+      }
+    }
+
+    // wrong / close: không auto-next — phát âm củng cố, user bấm «Tiếp theo» hoặc Enter/Space
+    // Bỏ hoàn toàn auto-next: dừng lại để người dùng chủ động đọc kết quả và next bằng tay qua phím Enter hoặc nút "Tiếp theo".
+    speak(recallWord.word, 1.0);
+    if (advanceTimer.current) {
+      clearTimeout(advanceTimer.current);
+      advanceTimer.current = null;
+    }
+
+    // 2. Lưu SRS ngầm ở background (Non-blocking: hoàn toàn không chặn việc học liên tiếp)
+    const wordIdToSave = recallWord.id;
+    const quality = verdictToQuality(v);
+    saveSrsReview(wordIdToSave, quality, crypto.randomUUID(), userId ?? undefined)
+      .then(async () => {
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session?.user?.id) invalidateWordSummaryCache(session.user.id);
+      })
+      .catch((error) => {
+        console.error('[LearnMode] saveSrsReview error:', error);
+        const message = error instanceof Error ? error.message : 'Không lưu được lịch học';
+        toast.error(message);
+      });
+  }, [recallWord, verdict, advanceRecall]);
+
+  const submitRecall = useCallback(() => {
+    if (!recallWord || verdict !== null || submittedWordIdRef.current === recallWord.id) return;
+    const guess = input.trim();
+    if (!guess) return;
+    finalizeRecall(judgeAnswer(guess, recallWord.word));
+  }, [recallWord, verdict, input, finalizeRecall]);
+
+  // "Không nhớ" — không bắt user gõ bừa; tính là sai (Again) và hiện đáp án
+  const giveUpRecall = useCallback(() => {
+    if (!recallWord || verdict !== null || submittedWordIdRef.current === recallWord.id) return;
+    finalizeRecall('wrong');
+  }, [recallWord, verdict, finalizeRecall]);
+
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      e.stopPropagation();
+      if (verdict === null) submitRecall(); else goNextRecall();
+    } else if (e.key === ' ' && verdict !== null) {
+      e.preventDefault();
+      e.stopPropagation();
+      goNextRecall();
+    } else if (e.key === 'Escape' && verdict === null) {
+      e.preventDefault();
+      e.stopPropagation();
+      giveUpRecall();
+    }
+  };
+
+  // Hỗ trợ phím tắt toàn cục (Enter / Space / Mũi tên)
+  // Giúp thao tác kiểm tra và chuyển từ liên tiếp mượt mà ngay cả khi focus ngoài input
+  useEffect(() => {
+    const handleGlobalKeyDown = (e: KeyboardEvent) => {
+      if (showGuide) return;
+
+      if (phase === 'introduce') {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowRight') {
+          e.preventDefault();
+          nextIntro();
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          prevIntro();
+        }
+      } else if (phase === 'recall') {
+        if (verdict !== null) {
+          if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowRight') {
+            e.preventDefault();
+            goNextRecall();
+          }
+        } else {
+          if (e.key === 'Escape') {
+            e.preventDefault();
+            giveUpRecall();
+          } else if (e.key === 'Enter' && document.activeElement !== inputRef.current) {
+            e.preventDefault();
+            submitRecall();
+          }
+        }
+      }
+    };
+    window.addEventListener('keydown', handleGlobalKeyDown);
+    return () => window.removeEventListener('keydown', handleGlobalKeyDown);
+  }, [phase, verdict, showGuide, nextIntro, prevIntro, goNextRecall, giveUpRecall, submitRecall]);
+
+  // Lưu accuracy phiên khi xong + báo hoàn thành step lộ trình (nếu mở từ /journey)
+  // Chỉ ghi step khi đã học hết batch còn lại (remainingNew === 0) — tránh pass sớm giữa chừng gói.
+  useEffect(() => {
+    if (phase !== 'done') return;
+    authFetch('/api/quiz/save', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        classroomId,
+        score: results.correct,
+        totalQuestions: batch.length,
+        quizType: 'vocabulary',
+        wordIds: batch.map((w) => w.id),
+      }),
+    }).catch((err) => console.error('[Learn] save session failed:', err));
+
+    const roadmapStep = searchParams.get('roadmapStep');
+    if (roadmapStep && remainingNew === 0) {
+      void completeRoadmapStep(roadmapStep).then((result) => {
+        if (result) {
+          toast.success(`+${result.xpAwarded} XP lộ trình — bạn đã đi hết bước này!`);
+          // Tự về lộ trình sau 1.2s để next step mở
+          setTimeout(() => router.push('/journey'), 1200);
+        } else {
+          const err = getLastRoadmapStepError();
+          toast.error(err || 'Chưa ghi được chặng lộ trình — bấm «Về lộ trình» để thử lại.');
+        }
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase]);
+
+  // ═══════════ RENDER ═══════════
+
+  if (phase === 'loading') {
+    return (
+      <div className="flex h-[calc(100dvh-var(--header-h)-var(--safe-top))] items-center justify-center bg-slate-50 font-sans">
+        <div className="flex flex-col items-center gap-5">
+          <div className="h-12 w-12 animate-spin rounded-full border-4 border-indigo-500 border-t-transparent" />
+          <p className="font-bold animate-pulse text-indigo-600">Đang chuẩn bị bài học...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (phase === 'empty') {
+    const fromJourney = Boolean(searchParams.get('roadmapStep'));
+    return (
+      <div className="flex h-[calc(100dvh-var(--header-h)-var(--safe-top))] flex-col items-center justify-center gap-6 overflow-y-auto bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-6 font-sans">
+        <div className="space-y-3 text-center">
+          <div className="mb-2 text-6xl">{fromJourney ? '🗺️' : '📚'}</div>
+          <h1 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
+            {fromJourney ? 'Chưa mở được gói từ' : 'Kho từ của bạn đang trống'}
+          </h1>
+          <p className="max-w-md text-base font-medium text-slate-500 sm:text-lg">
+            {fromJourney
+              ? 'Gói đang được chuẩn bị hoặc bạn đã học hết. Quay lại lộ trình để thử lại / sang bước khác.'
+              : 'Hãy tra cứu và lưu các từ vựng mới vào kho từ cá nhân để bắt đầu phiên học nhé.'}
+          </p>
+        </div>
+        <div className="flex flex-col sm:flex-row gap-3">
+          {fromJourney ? (
+            <Button
+              className="h-14 px-7 rounded-2xl bg-primary text-white font-bold border-b-4 border-primary/60 active:translate-y-0.5 active:border-b-0"
+              onClick={() => router.push('/journey')}
+            >
+              <ChevronLeft className="mr-2 h-5 w-5" /> Về lộ trình
+            </Button>
+          ) : (
+            <>
+              <Button
+                className="h-14 px-7 rounded-2xl bg-indigo-600 text-white font-bold shadow-md hover:bg-indigo-700"
+                onClick={() => router.push('/dictionary')}
+              >
+                🔍 Tra & lưu từ ngay
+              </Button>
+              <Button variant="outline" className="h-14 px-7 rounded-2xl font-bold border-2" onClick={() => router.push('/student')}>
+                <ChevronLeft className="mr-2 h-5 w-5" /> Dashboard
+              </Button>
+            </>
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  // Màn bắt đầu — cần 1 cú chạm để mở khoá audio (autoplay policy)
+  if (phase === 'ready') {
+    return (
+      <div className="flex h-[calc(100dvh-var(--header-h)-var(--safe-top))] flex-col items-center justify-center gap-6 overflow-y-auto bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-6 text-center font-sans">
+        <StudyGuideModal open={showGuide} onClose={closeGuide} />
+        <div className="inline-flex items-center gap-2 rounded-full bg-indigo-100 px-4 py-1.5 text-xs font-black text-indigo-600">
+          <Sparkles className="h-4 w-4" /> Phiên học mới
+        </div>
+        <div className="space-y-2">
+          <h1 className="text-3xl font-black text-slate-900 sm:text-4xl">Học {batch.length} từ mới</h1>
+          <p className="max-w-sm font-medium text-slate-500">
+            Xem từ, nghĩa và nghe phát âm trước. Sau đó điền lại để kiểm tra trí nhớ ngay.
+          </p>
+        </div>
+        <Button
+          onClick={startSession}
+          className="h-14 rounded-2xl border-b-4 border-indigo-800 bg-indigo-600 px-8 text-base font-black text-white shadow-xl shadow-indigo-200 active:translate-y-0.5 active:border-b-0 sm:h-16 sm:px-10 sm:text-lg"
+        >
+          <BookOpen className="mr-2 h-5 w-5 sm:h-6 sm:w-6" /> Bắt đầu học
+        </Button>
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          <button onClick={() => setShowGuide(true)} className="inline-flex items-center gap-1.5 text-sm font-bold text-indigo-500 hover:text-indigo-700">
+            <HelpCircle className="h-4 w-4" /> Cách học hiệu quả
+          </button>
+          <Link href="/student" className="text-sm font-bold text-slate-400 hover:text-slate-600">← Về Dashboard</Link>
+        </div>
+      </div>
+    );
+  }
+
+  // ── Bước GIỚI THIỆU — fit 1 viewport (trừ shell header 62px) ──
+  if (phase === 'introduce') {
+    const w = batch[introIndex];
+    return (
+      <div className="flex h-[calc(100dvh-var(--header-h)-var(--safe-top))] max-h-[calc(100dvh-var(--header-h)-var(--safe-top))] flex-col overflow-hidden bg-slate-50 font-sans">
+        <StudyGuideModal open={showGuide} onClose={closeGuide} />
+        <Header label="Học từ mới" badge={`${introIndex + 1} / ${batch.length}`} onHelp={() => setShowGuide(true)} />
+        <ProgressBar value={(introIndex / batch.length) * 100} />
+
+        <div className="flex min-h-0 flex-1 flex-col items-center px-3 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2 sm:px-4">
+          <Card className="flex min-h-0 w-full max-w-[400px] flex-1 flex-col overflow-hidden rounded-[28px] border-none border-b-[6px] border-slate-200 bg-white shadow-xl shadow-indigo-100 sm:rounded-[32px]">
+            <CardContent className="flex min-h-0 flex-1 flex-col items-center gap-2 overflow-y-auto overscroll-contain p-3 text-center sm:gap-2.5 sm:p-4">
+              <Badge className="shrink-0 rounded-full border-none bg-amber-50 px-3 py-0.5 text-[9px] font-black uppercase tracking-widest text-amber-600">
+                📖 Làm quen
+              </Badge>
+
+              {w.image_url && (
+                <div className="relative aspect-[16/10] max-h-[min(26dvh,168px)] w-full shrink-0 overflow-hidden rounded-2xl border border-slate-100 bg-slate-50 shadow-inner">
+                  <img
+                    src={resolveImageSrc(w.image_url)}
+                    alt={w.word}
+                    referrerPolicy="no-referrer"
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    className="absolute inset-0 h-full w-full object-cover object-center"
+                    onError={(e) => {
+                      const img = e.currentTarget as HTMLImageElement;
+                      img.style.display = 'none';
+                      img.parentElement?.querySelector('[data-img-fallback]')?.classList.replace('hidden', 'flex');
+                    }}
+                  />
+                  <div
+                    data-img-fallback
+                    className="absolute inset-0 hidden flex-col items-center justify-center bg-slate-50 text-slate-300"
+                  >
+                    <span className="text-2xl">🖼️</span>
+                  </div>
+                </div>
+              )}
+
+              <h2 className="line-clamp-2 w-full break-words text-[clamp(1.5rem,6.5vw,2.75rem)] font-black leading-tight tracking-tight text-slate-900">
+                {w.word}
+              </h2>
+              {w.ipa && <p className="shrink-0 font-mono text-sm text-slate-400 sm:text-base">{parseIpa(w.ipa)}</p>}
+
+              <div className="flex shrink-0 items-center gap-2.5">
+                <button
+                  type="button"
+                  onClick={() => speak(w.word, 1.0)}
+                  className="flex h-11 w-11 items-center justify-center rounded-xl border border-indigo-200 bg-indigo-100 transition-transform hover:scale-105 active:scale-95 sm:h-12 sm:w-12"
+                >
+                  <Volume2 className="h-5 w-5 text-indigo-600 sm:h-6 sm:w-6" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => speak(w.word, 0.6)}
+                  title="Phát âm chậm"
+                  className="flex h-11 w-11 items-center justify-center rounded-xl border border-amber-200 bg-amber-100 transition-transform hover:scale-105 active:scale-95 sm:h-12 sm:w-12"
+                >
+                  <Snail className="h-5 w-5 text-amber-600 sm:h-6 sm:w-6" />
+                </button>
+              </div>
+
+              <div className="w-full shrink space-y-1.5 border-t border-slate-100 pt-2">
+                <p className="line-clamp-3 text-[clamp(1.05rem,4vw,1.5rem)] font-black leading-snug text-indigo-600">
+                  {w.translation}
+                </p>
+                {w.pos && (
+                  <Badge className="border-none bg-slate-100 px-2.5 text-[9px] font-black uppercase tracking-widest text-slate-500">
+                    {w.pos}
+                  </Badge>
+                )}
+                {w.example && (
+                  <ExampleWithSub
+                    example={w.example}
+                    exampleVi={w.example_vi}
+                    defaultShowVi
+                    autoTranslateIfMissing
+                    className="line-clamp-5 border-l-4 border-slate-200 pl-2.5 text-left"
+                    enClassName="text-xs font-medium italic leading-snug text-slate-500 sm:text-sm"
+                    viClassName="mt-1 text-[11px] font-medium leading-snug text-slate-400 sm:text-xs not-italic"
+                  />
+                )}
+              </div>
+            </CardContent>
+          </Card>
+
+          <div className="mt-2 flex w-full max-w-[400px] shrink-0 gap-2">
+            {introIndex > 0 && (
+              <button
+                type="button"
+                onClick={prevIntro}
+                className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-b-[3px] border-slate-200 bg-white text-slate-600 shadow-sm transition-all hover:bg-slate-50 active:translate-y-0.5 active:border-b-2 sm:h-16 sm:w-16 sm:rounded-[22px]"
+                aria-label="Quay lại từ trước"
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </button>
+            )}
+            <button
+              type="button"
+              onClick={nextIntro}
+              className="flex h-14 min-w-0 flex-1 items-center justify-center gap-2 rounded-2xl border-b-[3px] border-indigo-800 bg-indigo-600 text-base font-black text-white shadow-md shadow-indigo-100 transition-all hover:bg-indigo-700 active:translate-y-0.5 active:border-b-0 sm:h-16 sm:rounded-[22px] sm:text-lg"
+            >
+              {introIndex + 1 >= batch.length ? 'Kiểm tra trí nhớ' : 'Tiếp'} <ArrowRight className="h-5 w-5" />
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // ── Bước NHỚ LẠI ──
+  if (phase === 'recall' && recallWord) {
+    const cardBg =
+      verdict === 'correct'
+        ? 'bg-emerald-50 border-emerald-300'
+        : verdict === 'close'
+          ? 'bg-amber-50 border-amber-300'
+          : verdict === 'wrong'
+            ? 'bg-rose-50 border-rose-300'
+            : 'bg-white border-slate-200';
+    const inputBorder =
+      verdict === 'correct'
+        ? 'border-emerald-400 bg-emerald-50 text-emerald-700'
+        : verdict === 'close'
+          ? 'border-amber-400 bg-amber-50 text-amber-700'
+          : verdict === 'wrong'
+            ? 'border-rose-400 bg-rose-50 text-rose-700 animate-shake'
+            : 'border-slate-200 bg-slate-50 focus:border-indigo-500';
+
+    return (
+      <div className="flex h-[calc(100dvh-var(--header-h)-var(--safe-top))] max-h-[calc(100dvh-var(--header-h)-var(--safe-top))] flex-col overflow-hidden bg-slate-50 font-sans">
+        <StudyGuideModal open={showGuide} onClose={closeGuide} />
+        <Header label="Nhớ lại" badge={`${recallIndex + 1} / ${batch.length}`} onHelp={() => setShowGuide(true)} />
+        <ProgressBar value={(recallIndex / batch.length) * 100} />
+
+        <div className="flex min-h-0 flex-1 flex-col items-center px-3 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2 sm:px-4">
+          <Card
+            className={`flex min-h-0 w-full max-w-[400px] flex-1 flex-col overflow-hidden rounded-[28px] border-2 border-b-[6px] shadow-xl shadow-indigo-100 transition-colors duration-300 sm:rounded-[32px] ${cardBg}`}
+          >
+            <CardContent className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain p-3 text-center sm:p-4">
+              <Badge className="mx-auto shrink-0 rounded-full border-none bg-indigo-50 px-3 py-0.5 text-[9px] font-black uppercase tracking-widest text-indigo-600">
+                ✍️ Gõ từ tiếng Anh
+              </Badge>
+
+              {/* Ảnh minh họa gợi ý trực quan */}
+              {recallWord.image_url && (
+                <div className="relative mx-auto mt-1 aspect-[16/10] max-h-[min(18dvh,120px)] w-full max-w-[220px] shrink-0 overflow-hidden rounded-xl border border-slate-100 bg-slate-50 shadow-xs">
+                  <img
+                    src={resolveImageSrc(recallWord.image_url)}
+                    alt=""
+                    referrerPolicy="no-referrer"
+                    loading="eager"
+                    decoding="async"
+                    className="absolute inset-0 h-full w-full object-cover object-center"
+                    onError={(e) => {
+                      const img = e.currentTarget as HTMLImageElement;
+                      img.style.display = 'none';
+                    }}
+                  />
+                </div>
+              )}
+
+              {/* Nghĩa chiếm phần giữa — không bị input/nút đè */}
+              <div className="flex min-h-0 flex-1 flex-col items-center justify-center gap-1.5 py-1.5">
+                <h2 className="line-clamp-4 w-full break-words px-1 text-[clamp(1.2rem,5vw,1.85rem)] font-black leading-tight tracking-tight text-slate-900">
+                  {recallWord.translation}
+                </h2>
+                <div className="flex shrink-0 flex-wrap items-center justify-center gap-1.5">
+                  {recallWord.pos && (
+                    <Badge className="border-none bg-slate-100 px-2 text-[9px] font-black uppercase tracking-widest text-slate-500">
+                      {recallWord.pos}
+                    </Badge>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => speak(recallWord.word, 0.6)}
+                    title="Nghe gợi ý (chậm)"
+                    className="flex h-7 w-7 items-center justify-center rounded-lg border border-amber-200 bg-amber-100 transition-transform hover:scale-105"
+                  >
+                    <Snail className="h-3.5 w-3.5 text-amber-600" />
+                  </button>
+                </div>
+              </div>
+
+              <div className="mt-auto w-full shrink-0 space-y-1.5">
+                <input
+                  ref={inputRef}
+                  type="text"
+                  autoFocus={canAutoFocus()}
+                  value={input}
+                  readOnly={verdict !== null}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={onKeyDown}
+                  placeholder="Gõ từ..."
+                  autoComplete="off"
+                  autoCorrect="off"
+                  autoCapitalize="off"
+                  spellCheck={false}
+                  className={`h-10 w-full rounded-xl border-2 px-2 text-center text-base font-bold transition-colors focus:outline-none read-only:opacity-90 sm:h-11 sm:text-lg ${inputBorder}`}
+                />
+
+                {verdict !== null && (
+                  <div className="animate-in fade-in slide-in-from-bottom-2 space-y-1 duration-300">
+                    {verdict === 'correct' && (
+                      <p className="text-sm font-black text-emerald-600">
+                        ✓ Chính xác!{' '}
+                        <span className="underline decoration-emerald-400">{recallWord.word}</span>
+                      </p>
+                    )}
+                    {verdict === 'close' && (
+                      <>
+                        <p className="text-sm font-black text-amber-600">
+                          Gần đúng! Đáp án:{' '}
+                          <span className="underline decoration-amber-400">{recallWord.word}</span>
+                        </p>
+                        {input.trim() && (
+                          <p className="text-xs font-medium text-slate-500">
+                            Bạn gõ: <span className="line-through text-amber-700/80">{input.trim()}</span>
+                          </p>
+                        )}
+                      </>
+                    )}
+                    {verdict === 'wrong' && (
+                      <>
+                        <p className="text-sm font-black text-rose-600">
+                          ✗ Đáp án: <span className="underline decoration-rose-400">{recallWord.word}</span>
+                        </p>
+                        {input.trim() && (
+                          <p className="text-xs font-medium text-slate-500">
+                            Bạn gõ: <span className="line-through text-rose-600/80">{input.trim()}</span>
+                          </p>
+                        )}
+                        {recallWord.ipa && (
+                          <p className="font-mono text-xs text-slate-400">{parseIpa(recallWord.ipa)}</p>
+                        )}
+                      </>
+                    )}
+                  </div>
+                )}
+              </div>
+            </CardContent>
+          </Card>
+
+          <div className="mt-1.5 w-full max-w-[400px] shrink-0">
+            {verdict === null ? (
+              <div className="flex gap-1.5">
+                <button
+                  type="button"
+                  onClick={submitRecall}
+                  disabled={!input.trim()}
+                  className="h-10 flex-[2] rounded-xl border-b-[3px] border-indigo-800 bg-indigo-600 text-sm font-black text-white shadow-sm transition-all hover:bg-indigo-700 active:translate-y-0.5 active:border-b-0 disabled:opacity-40 sm:h-11"
+                >
+                  Kiểm tra
+                </button>
+                <button
+                  type="button"
+                  onClick={giveUpRecall}
+                  className="h-10 flex-1 rounded-xl border border-b-[3px] border-slate-200 bg-white text-[11px] font-bold text-slate-500 transition-all hover:bg-slate-50 active:translate-y-0.5 active:border-b-2 sm:h-11 sm:text-xs"
+                >
+                  Không nhớ
+                </button>
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={goNextRecall}
+                className={`flex h-10 w-full items-center justify-center gap-2 rounded-xl border-b-[3px] text-sm font-black shadow-sm transition-all active:translate-y-0.5 active:border-b-0 sm:h-11 ${
+                  verdict === 'correct'
+                    ? 'border-emerald-800 bg-emerald-600 text-white hover:bg-emerald-700 shadow-emerald-100'
+                    : 'border-indigo-800 bg-indigo-600 text-white hover:bg-indigo-700 shadow-indigo-100'
+                }`}
+              >
+                <span>{recallIndex + 1 >= batch.length ? 'Xem kết quả' : 'Tiếp theo'}</span>
+                <span className="text-[11px] font-semibold opacity-80">(Enter ↵)</span>
+                <ArrowRight className="h-4 w-4" />
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // ── DONE ──
+  const accuracy = batch.length > 0 ? Math.round((results.correct / batch.length) * 100) : 0;
+  return (
+    <div className="flex h-[calc(100dvh-var(--header-h)-var(--safe-top))] flex-col items-center justify-center gap-6 overflow-y-auto bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-6 font-sans">
+      <div className="space-y-3 text-center">
+        <div className="mb-2 animate-bounce text-6xl">🎓</div>
+        <h1 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">Đã học {batch.length} từ!</h1>
+        <p className="text-base font-medium text-slate-500 sm:text-lg">
+          Độ chính xác khi nhớ lại: {accuracy}%. Các từ này sẽ quay lại ở phần Ôn tập.
+        </p>
+      </div>
+
+      <Card className="w-full max-w-sm border-none shadow-2xl bg-white/70 backdrop-blur-xl rounded-3xl overflow-hidden">
+        <CardContent className="p-8">
+          <div className="grid grid-cols-3 gap-4 text-center">
+            {[
+              { label: 'Đúng', val: results.correct, color: 'text-emerald-600', bg: 'bg-emerald-50' },
+              { label: 'Gần đúng', val: results.close, color: 'text-amber-600', bg: 'bg-amber-50' },
+              { label: 'Sai', val: results.wrong, color: 'text-rose-600', bg: 'bg-rose-50' },
+            ].map((r) => (
+              <div key={r.label} className={`${r.bg} rounded-2xl p-4`}>
+                <div className={`text-2xl font-black ${r.color}`}>{r.val}</div>
+                <div className={`text-[10px] uppercase font-black tracking-widest ${r.color} mt-1 opacity-70`}>{r.label}</div>
+              </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+
+      <div className="flex flex-col gap-3 w-full max-w-sm">
+        {batch.length > 0 && (
+          <Button
+            className="w-full h-14 rounded-2xl bg-teal-600 hover:bg-teal-700 text-white font-black text-base shadow-lg shadow-teal-200 border-b-4 border-teal-800 active:translate-y-0.5 active:border-b-0 flex items-center justify-center gap-2"
+            onClick={() => {
+              const wordsStr = batch.map((w) => w.word).join(',');
+              router.push(`/practice/pack-reading?words=${encodeURIComponent(wordsStr)}`);
+            }}
+          >
+            <BookOpen className="h-5 w-5" /> 📖 Luyện đọc & Đục lỗ {batch.length} từ vừa học
+          </Button>
+        )}
+
+        <div className="flex flex-col sm:flex-row gap-3 w-full">
+          <Button
+            variant="outline"
+            className="flex-1 h-12 rounded-2xl font-bold border-2"
+            onClick={async () => {
+              const roadmapStep = searchParams.get('roadmapStep');
+              if (roadmapStep && remainingNew === 0) {
+                try {
+                  if (roadmapStep.startsWith('starter-verb-')) {
+                    const raw = localStorage.getItem('vocab_station_completed_packs');
+                    const list: string[] = raw ? JSON.parse(raw) : [];
+                    if (!list.includes(roadmapStep)) {
+                      list.push(roadmapStep);
+                      localStorage.setItem('vocab_station_completed_packs', JSON.stringify(list));
+                    }
+                  } else if (roadmapStep.startsWith('s1-') || roadmapStep.startsWith('s2-') || roadmapStep.startsWith('s3-')) {
+                    const raw = localStorage.getItem('vocab_station_completed_topics');
+                    const list: string[] = raw ? JSON.parse(raw) : [];
+                    if (!list.includes(roadmapStep)) {
+                      list.push(roadmapStep);
+                      localStorage.setItem('vocab_station_completed_topics', JSON.stringify(list));
+                    }
+                  }
+                } catch {
+                  /* ignore */
+                }
+                const result = await completeRoadmapStep(roadmapStep);
+                if (result) toast.success(`+${result.xpAwarded} XP lộ trình`);
+                else if (getLastRoadmapStepError()) toast.error(getLastRoadmapStepError()!);
+              }
+              const isVocabTrack = roadmapStep && (roadmapStep.startsWith('starter-verb-') || roadmapStep.startsWith('s1-') || roadmapStep.startsWith('s2-') || roadmapStep.startsWith('s3-'));
+              router.push(roadmapStep ? (isVocabTrack ? '/journey?track=vocab' : '/journey') : '/student');
+            }}
+          >
+            <ChevronLeft className="mr-2 h-4 w-4" /> {searchParams.get('roadmapStep') ? 'Về lộ trình' : 'Dashboard'}
+          </Button>
+          {remainingNew > 0 ? (
+            <Button className="flex-1 h-12 rounded-2xl bg-indigo-600 text-white font-bold border-b-4 border-indigo-800 active:translate-y-0.5 active:border-b-0" onClick={() => window.location.reload()}>
+              <RotateCcw className="mr-2 h-4 w-4" /> Học tiếp ({remainingNew})
+            </Button>
+          ) : (
+            <Button
+              className="flex-1 h-12 rounded-2xl bg-primary text-white font-bold border-b-4 border-primary/60 active:translate-y-0.5 active:border-b-0"
+              onClick={async () => {
+                const roadmapStep = searchParams.get('roadmapStep');
+                if (roadmapStep) {
+                  try {
+                    if (roadmapStep.startsWith('starter-verb-')) {
+                      const raw = localStorage.getItem('vocab_station_completed_packs');
+                      const list: string[] = raw ? JSON.parse(raw) : [];
+                      if (!list.includes(roadmapStep)) {
+                        list.push(roadmapStep);
+                        localStorage.setItem('vocab_station_completed_packs', JSON.stringify(list));
+                      }
+                    } else if (roadmapStep.startsWith('s1-') || roadmapStep.startsWith('s2-') || roadmapStep.startsWith('s3-')) {
+                      const raw = localStorage.getItem('vocab_station_completed_topics');
+                      const list: string[] = raw ? JSON.parse(raw) : [];
+                      if (!list.includes(roadmapStep)) {
+                        list.push(roadmapStep);
+                        localStorage.setItem('vocab_station_completed_topics', JSON.stringify(list));
+                      }
+                    }
+                  } catch {
+                    /* ignore */
+                  }
+                  await completeRoadmapStep(roadmapStep);
+                  const isVocabTrack = roadmapStep.startsWith('starter-verb-') || roadmapStep.startsWith('s1-') || roadmapStep.startsWith('s2-') || roadmapStep.startsWith('s3-');
+                  router.push(isVocabTrack ? '/journey?track=vocab' : '/journey');
+                  return;
+                }
+                router.push(classroomId ? `/flashcard?class=${classroomId}` : '/flashcard');
+              }}
+            >
+              <GraduationCap className="mr-2 h-4 w-4" /> {searchParams.get('roadmapStep') ? 'Tiếp lộ trình' : 'Ôn tập'}
+            </Button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Sub-components gọn cho viewport-fit ──
+function Header({ label, badge, onHelp }: { label: string; badge: string; onHelp?: () => void }) {
+  return (
+    <header className="flex shrink-0 items-center justify-between gap-2 border-b border-slate-100/80 bg-white/70 px-3 py-1.5 backdrop-blur-md sm:px-4">
+      <Link href="/student">
+        <Button variant="ghost" size="sm" className="h-9 gap-1 rounded-xl px-2 font-bold text-slate-500 hover:text-primary">
+          <ChevronLeft className="h-5 w-5" /> <span className="hidden sm:inline">Dashboard</span>
+        </Button>
+      </Link>
+      <div className="flex items-center gap-1.5 text-sm font-black text-slate-700">
+        <BookOpen className="h-4 w-4 text-indigo-500" /> {label}
+      </div>
+      <div className="flex items-center gap-1.5">
+        {onHelp && (
+          <button
+            type="button"
+            onClick={onHelp}
+            aria-label="Hướng dẫn cách học"
+            className="rounded-full p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-indigo-600"
+          >
+            <HelpCircle className="h-4 w-4" />
+          </button>
+        )}
+        <div className="rounded-full bg-primary px-3 py-1 text-[11px] font-black tracking-widest text-white">
+          {badge}
+        </div>
+      </div>
+    </header>
+  );
+}
+
+function ProgressBar({ value }: { value: number }) {
+  return (
+    <div className="shrink-0 px-3 pt-1.5 sm:px-4">
+      <div className="h-1.5 w-full overflow-hidden rounded-full border border-slate-100 bg-white shadow-sm">
+        <div
+          className="h-full rounded-full bg-indigo-600 transition-all duration-500"
+          style={{ width: `${value}%` }}
+        />
+      </div>
+    </div>
+  );
+}

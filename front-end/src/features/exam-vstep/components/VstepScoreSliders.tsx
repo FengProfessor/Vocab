@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Col, Row, Slider, Space, Statistic, Tag, Typography } from 'antd';
+import { Card, Col, Row, Slider, Space, Statistic, Tag, Typography } from '@/components/ui/Primitives';
 import { VSTEP_SKILLS } from '@/config/vstepSkills';
 import styles from '@/features/exam-vstep/components/VstepScoreSliders.module.css';
 import { VstepScoreSlidersProps } from '@/features/exam-vstep/types/VstepScoreSlidersProps';

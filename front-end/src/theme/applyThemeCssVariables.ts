@@ -1,4 +1,4 @@
-import { theme, type ThemeConfig } from 'antd';
+import { theme, type ThemeConfig } from '@/components/ui/Primitives';
 
 /**
  * Ant Design design tokens mirrored into CSS custom properties so plain *.css / *.module.css files

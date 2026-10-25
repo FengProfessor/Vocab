@@ -1,0 +1,330 @@
+{
+  "topicId": "64d0594b0472355e425c10ae",
+  "name": "Test 22",
+  "slug": "test-22",
+  "part": "part_6_text_completion",
+  "totalQuestions": 16,
+  "totalCards": 4,
+  "cards": [
+    {
+      "id": "64d05d760472355e425c21c0",
+      "questionText": "<p><strong>refer to the following letter.</strong><br>Daniel Vance<br>1749 Oxford Court<br>Tulsa, OK 74106<br>January 7<br>Dear Mr. Vance,<br>I’m writing regarding your recent order of a Montclair stereo system, which was supposed to be delivered on December 20 but did not arrive until January 2. We are very sorry that this item <strong>(1) ______</strong>. We agree that you are entitled to compensation due to the <strong>(2) ______</strong>. Firstly, we will refund all shipping charges for this merchandise.<br>We will also credit your account in the amount of $50 to help make up for any issues that resulted <strong>(3) ______</strong> our error. <strong>(4) _____</strong>. The credit will be posted on your account by January 15.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64d05d760472355e425c21c4",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) had to delay",
+            "(B) will be delayed",
+            "(C) is delaying",
+            "(D) was delayed"
+          ],
+          "correctOptions": [
+            "(D) was delayed"
+          ],
+          "transcript": "<p>The sentence is in the past simple tense (Signal: ...<em>which <strong>was </strong>supposed to be delivered on December 20 but <strong>did not </strong>arrive until January 2.</em>)</p>\n\n<p>=&gt; Either A or D is correct</p>\n\n<p>The sentence is in the passive voice.</p>\n\n<p><strong>=&gt; D is correct</strong></p>\n",
+          "explanationVi": "<p>Câu ở thì quá khứ đơn (Dấu hiệu: ...<em>which&nbsp;<strong>was&nbsp;</strong>supposed to be delivered on December 20 but&nbsp;<strong>did not&nbsp;</strong>arrive until January 2.</em>)</p>\n<p>=&gt;Loại B, C</p>\n<p>Câu cần chia ở thể bị động.</p>\n<p><strong>=&gt; Chọn D</strong></p>"
+        },
+        {
+          "id": "64d05d760472355e425c21c5",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) absence",
+            "(B) disadvantage",
+            "(C) inconvenience",
+            "(D) shortage"
+          ],
+          "correctOptions": [
+            "(C) inconvenience"
+          ],
+          "transcript": "<p>absence:&nbsp;the fact of somebody being away from a place where they are usually expected to be; the occasion or period of time when somebody is away</p>\n\n<p>disadvantage:&nbsp;a condition or situation that causes problems, especially one that causes something or someone to be less successful than other things or people</p>\n\n<p>inconvenience:&nbsp;a state or an example of problems or trouble, often causing a delay or loss of comfort</p>\n\n<p>shortage:&nbsp;a situation in which there is not enough of something</p>\n\n<p>=&gt; \"inconvenience\"&nbsp;has the most appropriate meaning</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>absence: sự vắng mặt</p>\n<p>disadvantage: điều bất lợi</p>\n<p>inconvenience: Sự bất tiện</p>\n<p>shortage: sự thiếu sót</p>\n<p>Dựa trên nghĩa của từ <strong>=&gt; Chọn C</strong></p>\n<p><strong>Tạm dịch: </strong>Chúng tôi đồng ý rằng bạn có quyền được bồi thường do sự bất tiện này.</p>"
+        },
+        {
+          "id": "64d05d760472355e425c21c6",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) from",
+            "(B) onto",
+            "(C) among",
+            "(D) until"
+          ],
+          "correctOptions": [
+            "(A) from"
+          ],
+          "transcript": "<p>result from:&nbsp;to emerge from something; to be the outcome of something</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p>result from: xuất phát từ (nguyên nhân)</p>\n<p><strong>Tạm dịch:</strong> Chúng tôi cũng sẽ ghi có vào tài khoản của bạn số tiền 50 USD để giúp bù đắp mọi vấn đề phát sinh từ lỗi của chúng tôi.</p>\n<p><strong>=&gt; Chọn A</strong></p>"
+        },
+        {
+          "id": "64d05d760472355e425c21c7",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Our warehouse team will check for the item.",
+            "(B) The sale will run for as long as supplies last.",
+            "(C) We hope you will be satisfied with this proposal.",
+            "(D) Both payments are printed on last month’s statement."
+          ],
+          "correctOptions": [
+            "(C) We hope you will be satisfied with this proposal."
+          ],
+          "transcript": "<p><strong>C is correct </strong>because it can connect with the sentence <em>\"We will also credit your account in the amount of $50 to help make up for any issues that resulted from our error.\"</em></p>\n\n<p><em>\"This&nbsp;proposal\" </em>refers to <em>\"We will also credit your account in the amount of $50\"</em></p>\n",
+          "explanationVi": "<p><strong>C đ&uacute;ng</strong> v&igrave; n&oacute; c&oacute; thể kết nối với c&acirc;u <em>&quot;We will also credit your account in the amount of $50 to help make up for any issues that resulted from our error.&quot;</em></p>\n\n<p><em>&quot;This&nbsp;proposal&quot;&nbsp; =&gt;</em>&nbsp;<em>&quot;We will also credit your account in the amount of $50&quot;</em></p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Ch&uacute;ng t&ocirc;i cũng sẽ ghi c&oacute; v&agrave;o t&agrave;i khoản của bạn số tiền 50 USD để gi&uacute;p b&ugrave; đắp mọi vấn đề ph&aacute;t sinh từ lỗi của ch&uacute;ng t&ocirc;i. Ch&uacute;ng t&ocirc;i hy vọng bạn sẽ h&agrave;i l&ograve;ng với đề xuất n&agrave;y.</p>\n"
+        }
+      ]
+    },
+    {
+      "id": "64d05d760472355e425c21c1",
+      "questionText": "<p><strong>refer to the following article.</strong><br>Jobs Report Released<br>January 3<br>Figures gathered by the city’s Department of Labor indicate that the employment rate is up in Lawton. <strong>(5)_____</strong>, the city is at an all-time low for unemployment. This is partially thanks to the opening of the Marquette manufacturing facility six months ago. The factory, which employs nearly 150 people, uses laser cutters to fashion custom-made components out of <strong>(6) ______</strong> such as wood, metal, and plastic. <strong>(7)_____. </strong>Therefore, new jobs become available regularly. City officials <strong>(8) _____</strong> the upturn in the manufacturing sector<strong> </strong>will lead to growth in other local businesses as well.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64d05d760472355e425c21c8",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Otherwise",
+            "(B) In fact",
+            "(C) Nonetheless",
+            "(D) On the contrary"
+          ],
+          "correctOptions": [
+            "(B) In fact"
+          ],
+          "transcript": "<p>Otherwise:&nbsp;used after an order or suggestion to show what the result will be if you do not follow that order or suggestion</p>\n\n<p>In fact:&nbsp; actually</p>\n\n<p>Nonetheless:&nbsp;despite what has just been said or done</p>\n\n<p>On the contrary:&nbsp;used to show that you think or feel the opposite of what has just been stated</p>\n\n<p>=&gt; \"In fact\"&nbsp;has the most appropriate meaning</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>Otherwise: nếu không thì</p>\n<p>In fact:&nbsp; Thực tế là</p>\n<p>Nonetheless: Tuy nhiên</p>\n<p>On the contrary: Trái lại</p>\n<p>Dựa vào nghĩa của câu <strong>=&gt; Chọn B</strong></p>\n<p><strong>Tạm dịch:&nbsp;</strong>Số liệu do Sở Lao động thành phố thu thập cho thấy tỷ lệ việc làm ở Lawton đã tăng lên. <strong>Trên thực tế</strong>, thành phố đang ở mức thất nghiệp thấp nhất mọi thời đại.</p>"
+        },
+        {
+          "id": "64d05d760472355e425c21c9",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) productions",
+            "(B) advantages",
+            "(C) expenses",
+            "(D) materials"
+          ],
+          "correctOptions": [
+            "(D) materials"
+          ],
+          "transcript": "<p>production:&nbsp;the process of making or growing goods to be sold</p>\n\n<p>advantage:&nbsp;a condition giving a greater chance of success</p>\n\n<p>expense:&nbsp;the use of money, time, or effort</p>\n\n<p>material:&nbsp;a physical substance that things can be made from</p>\n\n<p>=&gt; \"material\"&nbsp;has the most appropriate meaning</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>production: sự sản xuất</p>\n<p>advantage: lợi thế</p>\n<p>expense: sự tiêu tốn</p>\n<p>material: nguyên liệu, vật liệu</p>\n<p>Dựa vào nghĩa của câu <strong>=&gt; Chọn D</strong></p>\n<p><strong>Tạm dịch:</strong> Nhà máy có gần 150 nhân viên này sử dụng máy cắt laser để tạo ra các bộ phận theo yêu cầu từ vật liệu như gỗ, kim loại và nhựa.</p>"
+        },
+        {
+          "id": "64d05d760472355e425c21ca",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Reports on job conditions are prepared once per quarter.",
+            "(B) The factory provided data about its staffing procedures.",
+            "(C) Each product comes with a money-back guarantee.",
+            "(D) The demand for the company’s goods has been rising."
+          ],
+          "correctOptions": [
+            "(D) The demand for the company’s goods has been rising."
+          ],
+          "transcript": "<p><strong>D is correct </strong>because it can connect with the sentence <em>\"The factory, which employs nearly 150 people, uses laser cutters to fashion custom-made components out of materials&nbsp;such as wood, metal, and plastic.\"</em></p>\n",
+          "explanationVi": "<p><strong>D đ&uacute;ng</strong> v&igrave; n&oacute; c&oacute; thể li&ecirc;n kết với c&acirc;u liền sau<em>&quot;Therefore, new jobs become available regularly&quot;</em></p>\n\n<p><strong>Tạm dịch:</strong> <em><strong>Nhu cầu về h&agrave;ng h&oacute;a của c&ocirc;ng ty ng&agrave;y c&agrave;ng tăng</strong></em>. V&igrave; vậy, việc l&agrave;m mới trở n&ecirc;n thường xuy&ecirc;n.</p>\n"
+        },
+        {
+          "id": "64d05d760472355e425c21cb",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) believing",
+            "(B) believe",
+            "(C) are believed",
+            "(D) believes"
+          ],
+          "correctOptions": [
+            "(B) believe"
+          ],
+          "transcript": "<p>The sentence is in the present simple tense</p>\n\n<p>Because the subject is \"City officials\"</p>\n\n<p><strong>=&gt; (B) believe is correct</strong></p>\n",
+          "explanationVi": "<p>Câu diễn tả sự việc ở thì hiện tại đơn</p>\n<p>Chủ ngữ của câu là \"City officials\" - &gt; chia động từ số nhiều</p>\n<p><strong>=&gt; Chọn B</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "64d05d760472355e425c21c2",
+      "questionText": "<strong>refer to the following e-mail.</strong><br>To: All staff<br>From: Loni Jordan <br>Date: November 2 <br>Subject: staff awards<br>Hello Everyone,<br>The year has gone by quickly, and it is almost time again for our <strong>(9) _____</strong> ceremony to present awards to employees. This is the perfect opportunity <strong>(10)_____</strong> the hard work and dedication of our staff members. Of course, we can also enjoy socializing together over a delicious meal. Our usual place is Newton Hall, but it is already fully booked for December. I’m looking for another facility that has a <strong>(11)_____</strong> of one hundred people, as the entire staff will be in attendance and some employees may choose to bring their spouses. Most likely, we will use the ballroom at the Violet Hotel. <strong>(12)_____</strong>. The catering company we’re using can accommodate vegetarians, vegans, and more. You will be given more information as the event date approaches.<br>Sincerely,<br>Loni Jordan<br>Events Committee, Sanders Inc.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64d05d760472355e425c21cc",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) closing",
+            "(B) debut",
+            "(C) annual",
+            "(D) recruitment"
+          ],
+          "correctOptions": [
+            "(C) annual"
+          ],
+          "transcript": "<p>closing:&nbsp;coming near the end of a speech, event, activity</p>\n\n<p>debut:&nbsp;the occasion when someone performs or presents something to the public for the first time</p>\n\n<p>annual:&nbsp;happening once every year</p>\n\n<p>recruitment:&nbsp;the process of finding people to work for a company or become a new member of an organization</p>\n\n<p>=&gt; \"annual\"&nbsp;has the most appropriate meaning</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>closing (n): hồi kết</p>\n<p>debut (n): buổi ra mắt</p>\n<p>annual (adj): thường niên</p>\n<p>recruitment (n): sự tuyển dụng</p>\n<p>Cần điền một tính từ để bổ nghĩa cho danh từ \"ceremony\" <strong>=&gt; Chọn C</strong></p>\n<p><strong>Tạm dịch:&nbsp;</strong>Một năm trôi qua thật nhanh, gần đến lúc chúng ta phải tổ chức buổi lễ trao giải thường niên cho nhân viên.</p>"
+        },
+        {
+          "id": "64d05d760472355e425c21cd",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) will recognize",
+            "(B) to recognize",
+            "(C) recognizing",
+            "(D) having recognized"
+          ],
+          "correctOptions": [
+            "(B) to recognize"
+          ],
+          "transcript": "<p>\"to + V\" shows purpose</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>Sử dụng to + V-inf để diễn tả mục đích</p>\n<p><strong>Tạm dịch:</strong> Đây là cơ hội hoàn hảo <strong>để ghi nhận sự</strong> chăm chỉ và cống hiến của các nhân viên của chúng tôi.</p>\n<p><strong>=&gt; Chọn B</strong></p>"
+        },
+        {
+          "id": "64d05d760472355e425c21ce",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) space",
+            "(B) capacity",
+            "(C) result",
+            "(D) sample"
+          ],
+          "correctOptions": [
+            "(B) capacity"
+          ],
+          "transcript": "<p>space:&nbsp;an empty area that is available to be used</p>\n\n<p>capacity:&nbsp;the total amount that can be contained or produced</p>\n\n<p>result:&nbsp;something that happens or exists because of something else</p>\n\n<p>sample:&nbsp;a small amount of something that shows you what the rest is or should be like</p>\n\n<p>=&gt; \"capacity\"&nbsp;has the most appropriate meaning</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>space: không gian</p>\n<p>capacity: sức chứa</p>\n<p>result: kết quả</p>\n<p>sample: mẫu</p>\n<p>Dựa vào nghĩa của câu <strong>=&gt; Chọn B</strong></p>\n<p><strong>Tạm dịch:</strong> Tôi đang tìm một cơ sở khác có sức chứa một trăm người, vì toàn bộ nhân viên sẽ có mặt và một số nhân viên có thể chọn dẫn theo vợ/chồng của họ.</p>"
+        },
+        {
+          "id": "64d05d760472355e425c21cf",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The final seating chart can be downloaded.",
+            "(B) This delay will not happen again.",
+            "(C) Thank you for volunteering to assist with the planning.",
+            "(D) Please let me know if you have dietary restrictions."
+          ],
+          "correctOptions": [
+            "(D) Please let me know if you have dietary restrictions."
+          ],
+          "transcript": "<p><strong>D is correct</strong> because it can connect with the sentence <em>\"The catering company we’re using can accommodate vegetarians, vegans, and more.\"</em></p>\n\n<p><em>=&gt; \"dietary restrictions\" </em>refers to<em> \"vegetarians, vegans\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>D đ&uacute;ng</strong> v&igrave; n&oacute; c&oacute; thể nối với c&acirc;u <em>&quot;The catering company we&rsquo;re using can accommodate vegetarians, vegans, and more.&quot;</em></p>\n\n<p><em>&quot;dietary restrictions&quot; </em>~<em>&nbsp;&quot;vegetarians, vegans&quot;&nbsp;</em></p>\n\n<p><strong>Tạm dịch:</strong>&nbsp;<em><strong>Xin vui l&ograve;ng cho t&ocirc;i biết nếu bạn c&oacute; những hạn chế về chế độ ăn uống</strong></em>. C&ocirc;ng ty cung cấp dịch vụ ăn uống m&agrave; ch&uacute;ng t&ocirc;i đang sử dụng c&oacute; thể phục vụ người ăn chay, người ăn chay, v.v.</p>\n"
+        }
+      ]
+    },
+    {
+      "id": "64d05d760472355e425c21c3",
+      "questionText": "<p><strong>refer to the following memo.</strong><br>To: All Sunset Hair Salon Employees<br>From: Geneva Curtis, General Manager<br>Date: Wednesday, May 31<br>Subject: Hair-washing area<br>The plumber we hired to install two new sinks in our hair-washing area has taken several sick days and will now complete the work on June 4 instead of June 1. Given this unexpected <strong>(13)______,</strong> we will not be able to easily handle the high volume of customers that have already made reservations. To keep up with the demand, please complete the hair-washing for your customers as quickly as possible, especially if you are using the high-pressure tap <strong>(14) ______</strong> the storage closet. I <strong>(15) ______</strong> any problems this might cause with your customers, but we will only have to put up with it for a few days. <strong>(16)______.</strong></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "64d05d760472355e425c21d0",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) structure",
+            "(B) situation",
+            "(C) treatment",
+            "(D) hesitation"
+          ],
+          "correctOptions": [
+            "(B) situation"
+          ],
+          "transcript": "<p>structure:&nbsp;the way in which the parts of a system or object are arranged or organized, or a system arranged in this way</p>\n\n<p>situation:&nbsp;the set of things that are happening and the conditions that exist at a particular time and place</p>\n\n<p>treatment:&nbsp;the way you deal with or behave towards someone or something</p>\n\n<p>hesitation:&nbsp;the act of pausing before doing something, especially because you are nervous or not certain</p>\n\n<p>=&gt; \"situation\"&nbsp;has the most appropriate meaning</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>structure: cấu trúc</p>\n<p>situation: tình thế, tình hình</p>\n<p>treatment: cách đối xử</p>\n<p>hesitation: sự do dự</p>\n<p>Dựa vào nghĩa câu <strong>=&gt; Chọn B</strong></p>\n<p><strong>Tạm dịch</strong>: Với tình huống bất ngờ này, chúng tôi sẽ không thể dễ dàng xử lý khối lượng lớn của những khách hàng đã đặt chỗ trước.</p>"
+        },
+        {
+          "id": "64d05d760472355e425c21d1",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) furnished",
+            "(B) adjacent",
+            "(C) essential",
+            "(D) comparable"
+          ],
+          "correctOptions": [
+            "(B) adjacent"
+          ],
+          "transcript": "<p>furnished:&nbsp;containing furniture or containing furniture of a particular type</p>\n\n<p>adjacent:&nbsp;very near, next to</p>\n\n<p>essential:&nbsp;necessary or needed</p>\n\n<p>comparable:&nbsp;similar in size, amount, or quality to something else</p>\n\n<p>=&gt; \"adjacent\"&nbsp;has the most appropriate meaning</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>furnished (adj): có sẵn đồ đạc</p>\n<p>adjacent (adj): kề, ngay sát</p>\n<p>essential (adj): thiết yếu</p>\n<p>comparable (adj): tương đồng, ngang với</p>\n<p>Dựa vào nghĩa của câu <strong>=&gt; Chọn B</strong></p>\n<p><strong>Tạm dịch:&nbsp;</strong>Để đáp ứng nhu cầu, quý khách vui lòng hoàn thành việc gội đầu cho khách hàng càng nhanh càng tốt, đặc biệt nếu quý khách đang sử dụng vòi áp suất cao cạnh tủ đựng đồ.</p>"
+        },
+        {
+          "id": "64d05d760472355e425c21d2",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) to regret",
+            "(B) regrets",
+            "(C) was regretting",
+            "(D) regret"
+          ],
+          "correctOptions": [
+            "(D) regret"
+          ],
+          "transcript": "<p>The sentence is in the present simple tense</p>\n\n<p>Because the subject is \"I\"</p>\n\n<p><strong>=&gt;&nbsp;(D) regret is correct</strong></p>\n",
+          "explanationVi": "<p>Câu diễn tả sự việc ở thì hiện tại đơn</p>\n<p>Chủ ngữ là \"I\" =&gt; Chia động từ nguyên mẫu</p>\n<p><strong>Tạm dịch:</strong> Tôi rất tiếc về bất kỳ vấn đề nào mà điều này có thể gây ra cho khách hàng của bạn, nhưng chúng tôi sẽ chỉ phải chịu đựng nó trong vài ngày.</p>\n<p><strong>=&gt; Chọn đáp án D</strong></p>"
+        },
+        {
+          "id": "64d05d760472355e425c21d3",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Let me know what style you prefer.",
+            "(B) Please tell them to come back soon.",
+            "(C) The change will be well worth it in the end.",
+            "(D) Each session should only take a few minutes."
+          ],
+          "correctOptions": [
+            "(C) The change will be well worth it in the end."
+          ],
+          "transcript": "<p><strong>C is correct</strong> because it can connect with the sentence <em>\"I&nbsp;regret any problems this might cause with your customers, but we will only have to put up with it for a few days.\"</em></p>\n",
+          "explanationVi": "<p><strong>C đ&uacute;ng</strong> v&igrave; n&oacute; li&ecirc;n kết với c&acirc;u trước đ&oacute;: <em>&quot;I regret any problems this might cause with your customers, but we will only have to put up with it for a few days.&quot;</em></p>\n\n<p><strong>Tạm dịch:</strong> T&ocirc;i rất tiếc về bất kỳ vấn đề n&agrave;o m&agrave; điều n&agrave;y c&oacute; thể g&acirc;y ra cho kh&aacute;ch h&agrave;ng của bạn, nhưng ch&uacute;ng t&ocirc;i sẽ chỉ phải chịu đựng n&oacute; trong v&agrave;i ng&agrave;y. <strong>Sự thay đổi cuối c&ugrave;ng sẽ c&oacute; gi&aacute; trị</strong>.</p>\n"
+        }
+      ]
+    }
+  ]
+}

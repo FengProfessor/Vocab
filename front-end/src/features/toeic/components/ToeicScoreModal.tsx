@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, Modal, Result, Statistic, Tag, Typography } from 'antd';
-import { ThunderboltFilled, TrophyFilled } from '@ant-design/icons';
+import { Button, Modal, Result, Statistic, Tag, Typography } from '@/components/ui/Primitives';
+import { ThunderboltFilled, TrophyFilled } from '@/components/ui/Icons';
 import styles from '@/features/toeic/components/ToeicScoreModal.module.css';
 import { ToeicScoreModalProps } from '@/features/toeic/types/ToeicScoreModalProps';
 

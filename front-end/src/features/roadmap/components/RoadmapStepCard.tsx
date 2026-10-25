@@ -1,12 +1,12 @@
 import React from 'react';
-import { Button, Card, Space, Tag, Typography } from 'antd';
+import { Button, Card, Space, Tag, Typography } from '@/components/ui/Primitives';
 import {
   ArrowRightOutlined,
   CheckCircleFilled,
   ClockCircleOutlined,
   LockOutlined,
   ThunderboltFilled,
-} from '@ant-design/icons';
+} from '@/components/ui/Icons';
 import { useNavigate } from 'react-router-dom';
 import styles from '@/features/roadmap/components/RoadmapStepCard.module.css';
 import { RoadmapStepCardProps } from '@/features/roadmap/types/RoadmapStepCardProps';

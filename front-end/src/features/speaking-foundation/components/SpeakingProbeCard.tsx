@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, Card, Space, Tag, Typography } from 'antd';
-import { SoundOutlined } from '@ant-design/icons';
+import { Button, Card, Space, Tag, Typography } from '@/components/ui/Primitives';
+import { SoundOutlined } from '@/components/ui/Icons';
 import { AudioRecorder } from '@/components/audio/AudioRecorder';
 import { CertLevelTag } from '@/components/common/CertLevelTag';
 import styles from '@/features/speaking-foundation/components/SpeakingProbeCard.module.css';

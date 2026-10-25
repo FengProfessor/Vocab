@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, Card, Radio, Space, Tag, Typography } from 'antd';
-import { FlagFilled, FlagOutlined } from '@ant-design/icons';
+import { Button, Card, Radio, Space, Tag, Typography } from '@/components/ui/Primitives';
+import { FlagFilled, FlagOutlined } from '@/components/ui/Icons';
 import styles from '@/features/toeic/components/ToeicQuestionSheet.module.css';
 import { ToeicQuestionSheetProps } from '@/features/toeic/types/ToeicQuestionSheetProps';
 import { ToeicAnswerOption } from '@/types/enums/ToeicAnswerOption';

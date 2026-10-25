@@ -1,0 +1,1656 @@
+{
+  "id": "vnupress-official-practice-02",
+  "title": "[Đề 02] Thực Hành Kỹ Năng Trọng Tâm Bậc 3 — Tập 1 (Work Experience & Older Students)",
+  "series": "VNU-BAC-3",
+  "description": "Tập 1 bài thực hành chuyên sâu 4 kỹ năng bám sát cấu trúc VNU Tests Tiếng Anh Bậc 3: Work Experience for Students (Part 2), Being an Older Student (Part 3), Device-Centered Communication (Part 4), Organizing a Party & Home-Cooked vs Sugary Food (Writing), kèm trọn bộ Audio chuẩn định dạng.",
+  "durationMinutes": 65,
+  "targetLevel": "B1",
+  "totalQuestions": 45,
+  "isSampleTest": true,
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimitMinutes": 40,
+      "totalQuestions": 25,
+      "tasks": [
+        {
+          "id": "reading-part1",
+          "partNumber": 1,
+          "title": "Part 1: Signs & Notices",
+          "instructions": "There are 7 questions in this part. Choose the best answer (A, B, or C) that matches the meaning of each sign or notice in standard B1 format.",
+          "questions": [
+            {
+              "id": "vnup2-r-q1",
+              "questionNumber": 1,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "NOTICE\nDo not leave any vehicles, including bicycles, against this wall.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "You must not park cars or bikes next to this wall."
+                },
+                {
+                  "key": "B",
+                  "text": "Only bicycles are allowed to be parked against this wall."
+                },
+                {
+                  "key": "C",
+                  "text": "Vehicles can wait here for a short time."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Biển báo số 1: 'Do not leave any vehicles, including bicycles, against this wall' (Không để bất kỳ phương tiện nào, kể cả xe đạp, dựa sát bức tường này). Đáp án chính thức: 1. A.",
+              "vocabularyNotes": [
+                {
+                  "word": "vehicle",
+                  "ipa": "/ˈviː.ɪ.kəl/",
+                  "meaning": "phương tiện giao thông, xe cộ",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "against",
+                  "ipa": "/əˈɡenst/",
+                  "meaning": "tựa vào, sát vào",
+                  "partOfSpeech": "preposition"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-r-q2",
+              "questionNumber": 2,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "CITY CAR HIRE\nAll drivers must be over 21 and hold a valid driving license for at least two years.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Anyone over 21 can rent a car even if they just passed their driving test."
+                },
+                {
+                  "key": "B",
+                  "text": "You can rent a car for up to two years if you have a license."
+                },
+                {
+                  "key": "C",
+                  "text": "To rent a car, you must be over 21 and have had a driving license for two years or more."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Biển báo số 2: Người thuê xe phải trên 21 tuổi và có bằng lái hợp lệ tối thiểu 2 năm. Đáp án chính thức: 2. C.",
+              "vocabularyNotes": [
+                {
+                  "word": "car hire",
+                  "meaning": "dịch vụ thuê xe ô tô",
+                  "partOfSpeech": "noun phrase"
+                },
+                {
+                  "word": "valid driving license",
+                  "meaning": "bằng lái xe còn hiệu lực",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-r-q3",
+              "questionNumber": 3,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "STAFF NEEDED\nPart-time waiters required for weekend shifts.\nNo experience necessary as full training is provided.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Applicants must have worked in a restaurant before."
+                },
+                {
+                  "key": "B",
+                  "text": "The restaurant will train new part-time staff who work on weekends."
+                },
+                {
+                  "key": "C",
+                  "text": "Full-time waiters are needed from Monday to Friday."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Thông báo tuyển dụng số 3: Cần nhân viên phục vụ bán thời gian dịp cuối tuần, không cần kinh nghiệm vì sẽ được đào tạo đầy đủ ('full training is provided'). Đáp án chính thức: 3. B.",
+              "vocabularyNotes": [
+                {
+                  "word": "weekend shift",
+                  "meaning": "ca làm việc cuối tuần",
+                  "partOfSpeech": "noun phrase"
+                },
+                {
+                  "word": "experience",
+                  "ipa": "/ɪkˈspɪə.ri.əns/",
+                  "meaning": "kinh nghiệm",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-r-q4",
+              "questionNumber": 4,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "OFFICE SECURITY\nVisitors must sign in at the reception desk and wear a visitor badge at all times.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Guests have to register at reception and keep their badge on while in the building."
+                },
+                {
+                  "key": "B",
+                  "text": "Office workers must get a new badge at the reception desk every morning."
+                },
+                {
+                  "key": "C",
+                  "text": "Visitors only need to wear a badge when they are at the reception desk."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Thông báo an ninh văn phòng số 4: Khách đến thăm phải đăng ký tại quầy lễ tân ('sign in at the reception desk') và luôn đeo thẻ khách ('wear a visitor badge at all times'). Đáp án chính thức: 4. A.",
+              "vocabularyNotes": [
+                {
+                  "word": "sign in",
+                  "meaning": "ký tên đăng ký khi vào",
+                  "partOfSpeech": "phrasal verb"
+                },
+                {
+                  "word": "badge",
+                  "ipa": "/bædʒ/",
+                  "meaning": "thẻ đeo, phù hiệu",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-r-q5",
+              "questionNumber": 5,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "SAMMY'S RESTAURANT\nBook a table for 4 or more people before 6 p.m. and receive a free bottle of house wine!",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Every customer dining before 6 p.m. gets a free glass of wine."
+                },
+                {
+                  "key": "B",
+                  "text": "Groups of at least four people who reserve early get free wine."
+                },
+                {
+                  "key": "C",
+                  "text": "You can only book a table at Sammy's Restaurant if you have four people."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Thông báo nhà hàng Sammy's: Đặt bàn cho nhóm từ 4 người trở lên trước 6 giờ chiều sẽ được tặng 1 chai rượu vang miễn phí. Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "book a table",
+                  "meaning": "đặt bàn trước",
+                  "partOfSpeech": "verb phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-r-q6",
+              "questionNumber": 6,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "TERRACE CAFÉ\nClosed for painting this Monday and Tuesday.\nReopening Wednesday at 8 a.m. with a brand-new breakfast menu!",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Terrace Café will serve its new breakfast menu starting on Wednesday morning."
+                },
+                {
+                  "key": "B",
+                  "text": "Customers can only order breakfast on Monday and Tuesday while the café is painted."
+                },
+                {
+                  "key": "C",
+                  "text": "The café is moving to a new building on Wednesday."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Thông báo Terrace Café: Đóng cửa sơn sửa thứ Hai và thứ Ba, mở cửa lại lúc 8 giờ sáng thứ Tư với thực đơn bữa sáng hoàn toàn mới. Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "reopen",
+                  "ipa": "/ˌriːˈəʊ.pən/",
+                  "meaning": "mở cửa trở lại",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-r-q7",
+              "questionNumber": 7,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "WEEKLY TO-DO LIST — REMINDER\nDon't forget to submit your monthly travel expense form to the Accounting Department by Friday 4 p.m.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The Accounting Department is closed all day on Friday."
+                },
+                {
+                  "key": "B",
+                  "text": "Staff must hand in their travel cost claims before 4 p.m. on Friday."
+                },
+                {
+                  "key": "C",
+                  "text": "You should book your business trip before Friday afternoon."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Thông báo nhắc nhở: Đừng quên nộp mẫu đơn chi phí công tác tháng cho Phòng Kế toán trước 4 giờ chiều thứ Sáu. Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "expense",
+                  "ipa": "/ɪkˈspens/",
+                  "meaning": "chi phí, khoản chi tiêu",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "reading-part2",
+          "partNumber": 2,
+          "title": "Part 2: Work Experience",
+          "instructions": "Read the text below about work experience for students and choose the best word (A, B, or C) for each blank from 8 to 15.",
+          "passage": {
+            "title": "Work Experience for Students",
+            "text": "Going out into the world of work for a week or two is a great way for secondary school and university students to find out what a real job is like. Work experience helps young people learn (8) ________ different careers and discover what kind of work they enjoy doing.\n\nBefore starting your placement, it is important to (9) ________ some research about the company. Find out what products or services they offer and check the best route to travel there so that you do not arrive (10) ________ on your first morning.\n\nDuring your work experience, you should always be polite and enthusiastic. Don't be afraid to (11) ________ questions if you do not understand how to do a task. Employers do not expect you to know everything immediately, (12) ________ they do expect you to listen carefully and try your best. It is also a good idea to keep a daily notebook to write down the new skills you have (13) ________.\n\nAt the end of the placement, remember to thank the staff (14) ________ helping you. Having good work experience on your CV will make a strong impression and help you (15) ________ a full-time job more easily in the future.",
+            "wordCount": 198
+          },
+          "questions": [
+            {
+              "id": "vnup2-r-q8",
+              "questionNumber": 8,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "Work experience helps young people learn (8) ________ different careers and discover what kind of work they enjoy doing.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "with"
+                },
+                {
+                  "key": "B",
+                  "text": "about"
+                },
+                {
+                  "key": "C",
+                  "text": "from"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Cấu trúc 'learn about something' (tìm hiểu về điều gì). Đáp án chính thức sách Chuẩn Bậc 3: 1. B.",
+              "vocabularyNotes": [
+                {
+                  "word": "work experience",
+                  "meaning": "kỳ thực tập / trải nghiệm công việc thực tế",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-r-q9",
+              "questionNumber": 9,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "Before starting your placement, it is important to (9) ________ some research about the company.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "do"
+                },
+                {
+                  "key": "B",
+                  "text": "make"
+                },
+                {
+                  "key": "C",
+                  "text": "get"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Collocation cố định: 'do research' (thực hiện tìm hiểu/nghiên cứu). Đáp án chính thức sách Chuẩn Bậc 3: 2. A.",
+              "vocabularyNotes": [
+                {
+                  "word": "do research",
+                  "meaning": "nghiên cứu, tìm hiểu thông tin",
+                  "partOfSpeech": "collocation"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-r-q10",
+              "questionNumber": 10,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "...check the best route to travel there so that you do not arrive (10) ________ on your first morning.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "lately"
+                },
+                {
+                  "key": "B",
+                  "text": "later"
+                },
+                {
+                  "key": "C",
+                  "text": "late"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "'arrive late' (đến muộn). 'lately' có nghĩa là 'gần đây'. Đáp án chính thức sách Chuẩn Bậc 3: 3. C.",
+              "vocabularyNotes": [
+                {
+                  "word": "arrive late",
+                  "meaning": "đến muộn",
+                  "partOfSpeech": "verb phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-r-q11",
+              "questionNumber": 11,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "Don't be afraid to (11) ________ questions if you do not understand how to do a task.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "ask"
+                },
+                {
+                  "key": "B",
+                  "text": "say"
+                },
+                {
+                  "key": "C",
+                  "text": "tell"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Collocation: 'ask questions' (đặt câu hỏi). Đáp án chính thức sách Chuẩn Bậc 3: 4. A.",
+              "vocabularyNotes": [
+                {
+                  "word": "enthusiastic",
+                  "ipa": "/ɪnˌθjuː.ziˈæs.tɪk/",
+                  "meaning": "nhiệt tình, hăng hái",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-r-q12",
+              "questionNumber": 12,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "Employers do not expect you to know everything immediately, (12) ________ they do expect you to listen carefully and try your best.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "because"
+                },
+                {
+                  "key": "B",
+                  "text": "but"
+                },
+                {
+                  "key": "C",
+                  "text": "so"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Liên từ 'but' (nhưng) nối hai mệnh đề tương phản: nhà tuyển dụng không kỳ vọng bạn biết mọi thứ ngay lập tức, nhưng họ kỳ vọng bạn lắng nghe kỹ và cố gắng hết sức. Đáp án chính thức sách Chuẩn Bậc 3: 5. B.",
+              "vocabularyNotes": [
+                {
+                  "word": "immediately",
+                  "ipa": "/ɪˈmiː.di.ət.li/",
+                  "meaning": "ngay lập tức",
+                  "partOfSpeech": "adverb"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-r-q13",
+              "questionNumber": 13,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "It is also a good idea to keep a daily notebook to write down the new skills you have (13) ________.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "taught"
+                },
+                {
+                  "key": "B",
+                  "text": "known"
+                },
+                {
+                  "key": "C",
+                  "text": "learned"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "'skills you have learned' (những kỹ năng mới mà bạn đã học được). Đáp án chính thức sách Chuẩn Bậc 3: 6. C.",
+              "vocabularyNotes": [
+                {
+                  "word": "placement",
+                  "ipa": "/ˈpleɪs.mənt/",
+                  "meaning": "đợt thực tập tại doanh nghiệp",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-r-q14",
+              "questionNumber": 14,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "At the end of the placement, remember to thank the staff (14) ________ helping you.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "about"
+                },
+                {
+                  "key": "B",
+                  "text": "for"
+                },
+                {
+                  "key": "C",
+                  "text": "of"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Cấu trúc 'thank somebody for doing something' (cảm ơn ai vì đã làm gì). Đáp án chính thức sách Chuẩn Bậc 3: 7. B.",
+              "vocabularyNotes": [
+                {
+                  "word": "thank somebody for",
+                  "meaning": "cảm ơn ai vì điều gì",
+                  "partOfSpeech": "verb phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-r-q15",
+              "questionNumber": 15,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "Having good work experience on your CV will make a strong impression and help you (15) ________ a full-time job more easily in the future.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "find"
+                },
+                {
+                  "key": "B",
+                  "text": "look"
+                },
+                {
+                  "key": "C",
+                  "text": "work"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "'find a full-time job' (tìm được một công việc toàn thời gian). 'look' phải đi kèm giới từ 'for'. Đáp án chính thức sách Chuẩn Bậc 3: 8. A.",
+              "vocabularyNotes": [
+                {
+                  "word": "make a strong impression",
+                  "meaning": "tạo ấn tượng mạnh mẽ",
+                  "partOfSpeech": "collocation"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "reading-part3",
+          "partNumber": 3,
+          "title": "Part 3: Being an Older Student",
+          "instructions": "Read the passage about returning to university as an older student and decide whether statements 16 to 20 are True (A) or False (B).",
+          "passage": {
+            "title": "Being an Older Student",
+            "text": "At the age of 32, I finally decided to return to university to study History. When I walked into my first lecture hall, almost everyone else was 18 or 19 years old. At first, I worried that I wouldn't fit in or that my brain had forgotten how to study after working in an office for over ten years.\n\nHowever, I soon realized that being a mature student has many advantages. Unlike younger students who were living away from home for the first time and spending a lot of time going to parties, I knew exactly why I was there. My years of office work had taught me how to manage my time effectively, so I always started my essays early and never missed a deadline.\n\nIn seminar discussions, I felt confident sharing my opinions with the professors because I had more life experience. Although I couldn't join the student sports clubs in the evenings because I had to go home to cook dinner for my two children, I made several good friends in my study group. Going back to university in my thirties was one of the best decisions I have ever made.",
+            "wordCount": 195
+          },
+          "questions": [
+            {
+              "id": "vnup2-r-q16",
+              "questionNumber": 16,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Most of the other students in the writer's class were much younger than her.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Tác giả 32 tuổi và viết: 'almost everyone else was 18 or 19 years old' (hầu hết các sinh viên khác đều 18–19 tuổi, trẻ hơn tác giả rất nhiều). Đáp án chính thức sách Chuẩn Bậc 3: 1. T (A).",
+              "vocabularyNotes": [
+                {
+                  "word": "mature student",
+                  "meaning": "sinh viên lớn tuổi (đi học đại học muộn)",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-r-q17",
+              "questionNumber": 17,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "The writer often handed in her university essays late because she had forgotten how to study.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Đoạn 2 viết: 'so I always started my essays early and never missed a deadline' (luôn làm bài luận sớm và không bao giờ trễ hạn). Nhận định là SAI. Đáp án chính thức sách Chuẩn Bậc 3: 2. F (B).",
+              "vocabularyNotes": [
+                {
+                  "word": "miss a deadline",
+                  "meaning": "trễ hạn chót",
+                  "partOfSpeech": "verb phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-r-q18",
+              "questionNumber": 18,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "The writer was too shy to speak with her professors during seminar discussions.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Đoạn 3 viết: 'In seminar discussions, I felt confident sharing my opinions with the professors' (cảm thấy tự tin chia sẻ ý kiến với các giáo sư). Nhận định là SAI. Đáp án chính thức sách Chuẩn Bậc 3: 3. F (B).",
+              "vocabularyNotes": [
+                {
+                  "word": "seminar",
+                  "ipa": "/ˈsem.ɪ.nɑːr/",
+                  "meaning": "buổi thảo luận chuyên đề ở đại học",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-r-q19",
+              "questionNumber": 19,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Family responsibilities prevented the writer from joining evening sports clubs at university.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Đoạn 3 viết: 'I couldn't join the student sports clubs in the evenings because I had to go home to cook dinner for my two children'. Nhận định là ĐÚNG. Đáp án chính thức sách Chuẩn Bậc 3: 4. T (A).",
+              "vocabularyNotes": [
+                {
+                  "word": "responsibility",
+                  "ipa": "/rɪˌspɒn.sɪˈbɪl.ə.ti/",
+                  "meaning": "trách nhiệm",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-r-q20",
+              "questionNumber": 20,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "The writer feels happy about her decision to return to university in her thirties.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Câu cuối bài: 'Going back to university in my thirties was one of the best decisions I have ever made'. Nhận định là ĐÚNG. Đáp án chính thức sách Chuẩn Bậc 3: 5. T (A).",
+              "vocabularyNotes": [
+                {
+                  "word": "fit in",
+                  "meaning": "hòa nhập",
+                  "partOfSpeech": "phrasal verb"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "reading-part4",
+          "partNumber": 4,
+          "title": "Part 4: Device-Centered Communication",
+          "instructions": "Read the passage about smartphones and face-to-face communication and choose the best answer (A, B, or C) for questions 21 to 25.",
+          "passage": {
+            "title": "Device-Centered Communication",
+            "text": "Walk into any coffee shop or university campus today, and you will see groups of friends sitting together in silence, each staring at their own smartphone screen. While mobile technology has made it easier than ever to stay in touch with people across the globe, psychologists warn that device-centered communication is weakening our face-to-face relationships.\n\nProfessor Sherry Turkle, a researcher who studies technology and human behavior, found that even placing a silent phone on the table during a conversation changes what people talk about. When a phone is visible, people tend to keep topics light and superficial because they feel they might be interrupted at any moment. Deep, meaningful conversations require undivided attention and empathy—qualities that are hard to develop through short text messages and emojis.\n\nTo rebuild genuine connections, experts recommend creating 'device-free zones' in daily life. For example, families can agree to put away all phones during dinner, and friends can stack their phones in the middle of the table when meeting at a café. Spending just one hour a day talking without digital distractions can significantly improve both our friendships and our emotional well-being.",
+            "wordCount": 191
+          },
+          "questions": [
+            {
+              "id": "vnup2-r-q21",
+              "questionNumber": 21,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "What problem do psychologists warn about in paragraph 1?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Overusing smartphones is harming our real-life conversations and relationships."
+                },
+                {
+                  "key": "B",
+                  "text": "Smartphones are too expensive for university students to buy."
+                },
+                {
+                  "key": "C",
+                  "text": "Coffee shops are becoming too noisy because of phone calls."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Đoạn 1 nêu rõ: 'psychologists warn that device-centered communication is weakening our face-to-face relationships'. Đáp án chính thức sách Chuẩn Bậc 3: 1. A.",
+              "vocabularyNotes": [
+                {
+                  "word": "weaken",
+                  "ipa": "/ˈwiː.kən/",
+                  "meaning": "làm suy yếu",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-r-q22",
+              "questionNumber": 22,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "According to Professor Sherry Turkle, what happens when a phone is on the table during a chat?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "People talk more honestly about their personal feelings."
+                },
+                {
+                  "key": "B",
+                  "text": "People speak louder so others can hear them."
+                },
+                {
+                  "key": "C",
+                  "text": "People avoid deep topics because they expect to be interrupted."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Đoạn 2 viết: 'When a phone is visible, people tend to keep topics light and superficial because they feel they might be interrupted at any moment'. Đáp án chính thức sách Chuẩn Bậc 3: 2. C.",
+              "vocabularyNotes": [
+                {
+                  "word": "superficial",
+                  "ipa": "/ˌsuː.pəˈfɪʃ.əl/",
+                  "meaning": "hời hợt, bề nổi",
+                  "partOfSpeech": "adjective"
+                },
+                {
+                  "word": "interrupt",
+                  "ipa": "/ˌɪn.təˈrʌpt/",
+                  "meaning": "làm gián đoạn, cắt ngang",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-r-q23",
+              "questionNumber": 23,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "The word 'undivided' in paragraph 2 is closest in meaning to ________.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "short and quick"
+                },
+                {
+                  "key": "B",
+                  "text": "shared with many people"
+                },
+                {
+                  "key": "C",
+                  "text": "complete and focused"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "'undivided attention' có nghĩa là sự chú ý trọn vẹn, tập trung hoàn toàn không bị phân tâm ('complete and focused'). Đáp án chính thức sách Chuẩn Bậc 3: 3. C.",
+              "vocabularyNotes": [
+                {
+                  "word": "undivided attention",
+                  "meaning": "sự chú ý trọn vẹn, không phân tâm",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-r-q24",
+              "questionNumber": 24,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "Which of the following is suggested as a 'device-free zone' in paragraph 3?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Deleting all social media apps from your smartphone"
+                },
+                {
+                  "key": "B",
+                  "text": "Putting away phones during family dinner time"
+                },
+                {
+                  "key": "C",
+                  "text": "Only using smartphones in coffee shops"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Đoạn 3 gợi ý: 'families can agree to put away all phones during dinner'. Đáp án chính thức sách Chuẩn Bậc 3: 4. B.",
+              "vocabularyNotes": [
+                {
+                  "word": "put away",
+                  "meaning": "cất đi",
+                  "partOfSpeech": "phrasal verb"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-r-q25",
+              "questionNumber": 25,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "What is the main message of the passage?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Text messages and emojis are the best way to express empathy."
+                },
+                {
+                  "key": "B",
+                  "text": "Reducing digital distractions helps us build stronger real-life connections."
+                },
+                {
+                  "key": "C",
+                  "text": "Universities should ban smartphones on campus."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Thông điệp chính của toàn bài là việc hạn chế sự xao nhãng từ thiết bị điện tử giúp chúng ta xây dựng kết nối thực tế sâu sắc hơn. Đáp án chính thức sách Chuẩn Bậc 3: 5. B.",
+              "vocabularyNotes": [
+                {
+                  "word": "distraction",
+                  "ipa": "/dɪˈstræk.ʃən/",
+                  "meaning": "sự xao nhãng, thứ gây phân tâm",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimitMinutes": 25,
+      "totalQuestions": 20,
+      "tasks": [
+        {
+          "id": "listening-part1",
+          "partNumber": 1,
+          "title": "Part 1: Monologues & Announcements",
+          "instructions": "Listen to the standard B1 audio recordings TWICE and choose the best answer A, B, or C for questions 1 to 7.",
+          "playCountLimit": 2,
+          "media": {
+            "audioUrl": "/audio/vnu-bac3/vnupress-practice-02/listening-part1.mp3"
+          },
+          "transcript": "[Track 1 - Question 1]:\nAttention all office staff. Tomorrow morning, painters will arrive to paint the walls on the third floor. Please clear all papers from your desks and put your laptops and keyboards inside your lockers before leaving today.\n\n[Track 2 - Question 2]:\nGood morning everyone. Today's talk is about ways of socializing in the United States. Americans often invite new friends for a casual coffee or a backyard barbecue on weekends, and being on time is considered very polite.\n\n[Track 6 - Question 3]:\nWelcome to the annual dinner of TST Company! Tonight we are proud to celebrate 20 years since our company was founded. What started as a small team of five engineers has now grown into a national leader.\n\n[Track 7 - Question 4]:\nListen carefully, class. For our school trip to the City Museum tomorrow, the coach will leave the school gate at 8:00 a.m. sharp. Please remember to bring a notebook, a pen, and your own packed lunch.\n\n[Track 9 - Question 5 & 6]:\nItem 1: Mary is preparing dinner for her cousins tonight. She wanted to bake a chocolate cake, but she ran out of flour, so she decided to make crispy fried chicken instead.\nItem 2: Hi Peter, this is your guitar teacher. I have a meeting at 9:00 tomorrow morning, so let's start your music lesson a bit later at 9:45 a.m.\n\n[Track 10 - Question 7]:\nItem 1: Bookstore Announcement: Famous author David Green will visit our store to sign his new book on May 25th at 2:00 p.m.\nItem 2: Teacher: Our Math test won't be on Tuesday as planned; we will have it on Thursday instead.\nItem 3: To get to the train station, walk straight down this street until you see the city park; the station is right across the street, opposite the park.",
+          "questions": [
+            {
+              "id": "vnup2-l-q1",
+              "questionNumber": 1,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Why should office staff put their computers away today?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The company is moving to a new building."
+                },
+                {
+                  "key": "B",
+                  "text": "New computers are being delivered tomorrow."
+                },
+                {
+                  "key": "C",
+                  "text": "The office walls are going to be painted tomorrow."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Track 1: 'Tomorrow morning, painters will arrive to paint the walls on the third floor... put your laptops and keyboards inside your lockers'. Đáp án chính thức: C.",
+              "vocabularyNotes": [
+                {
+                  "word": "locker",
+                  "ipa": "/ˈlɒk.ər/",
+                  "meaning": "tủ cá nhân có khóa",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-l-q2",
+              "questionNumber": 2,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "What is the main topic of the speaker's talk?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "How to apply for a university in the US"
+                },
+                {
+                  "key": "B",
+                  "text": "Ways of socializing in the United States"
+                },
+                {
+                  "key": "C",
+                  "text": "Famous tourist attractions in America"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Track 2: 'Today's talk is about ways of socializing in the United States'. Đáp án chính thức: B.",
+              "vocabularyNotes": [
+                {
+                  "word": "socialize",
+                  "ipa": "/ˈsəʊ.ʃəl.aɪz/",
+                  "meaning": "giao lưu, kết bạn xã hội",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-l-q3",
+              "questionNumber": 3,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "How long has TST Company been in business?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "5 years"
+                },
+                {
+                  "key": "B",
+                  "text": "20 years"
+                },
+                {
+                  "key": "C",
+                  "text": "15 years"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Track 6: 'Tonight we are proud to celebrate 20 years since our company was founded'. Đáp án chính thức: B.",
+              "vocabularyNotes": [
+                {
+                  "word": "found",
+                  "ipa": "/faʊnd/",
+                  "meaning": "thành lập, sáng lập",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-l-q4",
+              "questionNumber": 4,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Where are the students going on their school trip tomorrow?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "To the City Museum"
+                },
+                {
+                  "key": "B",
+                  "text": "To the National Zoo"
+                },
+                {
+                  "key": "C",
+                  "text": "To the Botanical Garden"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Track 7: 'For our school trip to the City Museum tomorrow, the coach will leave the school gate at 8:00 a.m.'. Đáp án chính thức: A.",
+              "vocabularyNotes": [
+                {
+                  "word": "packed lunch",
+                  "meaning": "bữa trưa mang theo",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-l-q5",
+              "questionNumber": 5,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "What dish is Mary making for dinner tonight, and what time is Peter's music lesson?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Chocolate cake — 9:00 a.m."
+                },
+                {
+                  "key": "B",
+                  "text": "Roast beef — 9:30 a.m."
+                },
+                {
+                  "key": "C",
+                  "text": "Fried chicken (1.C) & 9:45 a.m. (2.A)"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Track 9: Câu 1 Mary làm món gà rán ('fried chicken' -> 1. C); Câu 2 giờ học nhạc của Peter là 9:45 sáng ('9:45 a.m.' -> 2. A). Đáp án chính thức: C.",
+              "vocabularyNotes": [
+                {
+                  "word": "run out of",
+                  "meaning": "hết sạch (nguyên liệu)",
+                  "partOfSpeech": "phrasal verb"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-l-q6",
+              "questionNumber": 6,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "When will the author sign books, and on which day is the Math test?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "May 15th & Tuesday"
+                },
+                {
+                  "key": "B",
+                  "text": "May 25th (1.C) & Thursday (2.B)"
+                },
+                {
+                  "key": "C",
+                  "text": "May 20th & Friday"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Track 10: Tác giả ký tặng sách vào ngày 25 tháng 5 ('May 25th' -> 1. C) và bài kiểm tra Toán diễn ra vào thứ Năm ('Thursday' -> 2. B). Đáp án: B.",
+              "vocabularyNotes": [
+                {
+                  "word": "sign books",
+                  "meaning": "ký tặng sách",
+                  "partOfSpeech": "verb phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-l-q7",
+              "questionNumber": 7,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Where is the train station located?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Behind the supermarket"
+                },
+                {
+                  "key": "B",
+                  "text": "Inside the city park"
+                },
+                {
+                  "key": "C",
+                  "text": "Opposite the park"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Track 10 Câu 3: 'the station is right across the street, opposite the park' (như vậy nghĩa là 'The train station is opposite the park' - Phương án C).",
+              "vocabularyNotes": [
+                {
+                  "word": "opposite",
+                  "ipa": "/ˈɒp.ə.zɪt/",
+                  "meaning": "đối diện",
+                  "partOfSpeech": "preposition"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "listening-part2",
+          "partNumber": 2,
+          "title": "Part 2: Short Conversations",
+          "instructions": "Listen to the official VNU Press short conversation tracks TWICE and choose the best answer A, B, or C for questions 8 to 14.",
+          "playCountLimit": 2,
+          "media": {
+            "audioUrl": "/audio/vnu-bac3/vnupress-practice-02/listening-part2.mp3"
+          },
+          "transcript": "[Track 3 - Question 8]:\nStudent: Excuse me, the library is closing in five minutes. How can I return these books tomorrow morning before 7:00 a.m.?\nLibrarian: You don't need to wait until the counter opens. Just put them into the book return box outside the main door.\n\n[Track 4 - Question 9]:\nMan: Did you buy those black leather shoes we saw at the mall, Jenny?\nWoman: They didn't have my size, so I bought this brown handbag instead. It's big enough to carry my tablet to work!\n\n[Track 5 - Question 10]:\nWoman: Are we still flying to Da Nang on July 15th?\nMan: All morning flights on the 15th were fully booked, so I booked our tickets for July 17th instead.\n\n[Track 11 - Question 11 & 12]:\nDialogue 1:\nMan: You look worried, Lan. Was the final chemistry exam really that hard?\nWoman: Yes, the second part was so difficult that I couldn't finish the last two questions.\nDialogue 2:\nWoman: Look at this winter coat! The design is lovely.\nMan: Yes, it looks great, but look at the price tag—the clothes in this shop are not cheap at all!\n\n[Track 12 - Question 13 & 14]:\nDialogue 1: Who is the woman talking to on the phone? She is talking to her father about coming home for dinner.\nDialogue 2: The boy and girl are discussing how to travel to school tomorrow morning because the bus route is closed.\nDialogue 3: The man compliments the woman and says that wearing a dress to the formal reception was a very good choice.",
+          "questions": [
+            {
+              "id": "vnup2-l-q8",
+              "questionNumber": 8,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "What is the student asking the librarian about?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "How to apply for a new library card"
+                },
+                {
+                  "key": "B",
+                  "text": "How to return library books when the counter is closed"
+                },
+                {
+                  "key": "C",
+                  "text": "Where to find history textbooks"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Track 3: Sinh viên hỏi cách trả sách thư viện và thủ thư hướng dẫn bỏ sách vào hộp trả sách ('book return box') bên ngoài cửa chính. Đáp án chính thức: B.",
+              "vocabularyNotes": [
+                {
+                  "word": "return books",
+                  "meaning": "trả sách thư viện",
+                  "partOfSpeech": "verb phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-l-q9",
+              "questionNumber": 9,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "What did Jenny buy at the shopping mall?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "A pair of black shoes"
+                },
+                {
+                  "key": "B",
+                  "text": "A brown handbag"
+                },
+                {
+                  "key": "C",
+                  "text": "A new tablet"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Track 4: Giày không còn cỡ của Jenny nên cô ấy đã mua một chiếc túi xách ('bought this brown handbag instead'). Đáp án chính thức: B.",
+              "vocabularyNotes": [
+                {
+                  "word": "handbag",
+                  "ipa": "/ˈhænd.bæɡ/",
+                  "meaning": "túi xách tay",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-l-q10",
+              "questionNumber": 10,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "When will the speakers fly to Da Nang?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "On July 15th"
+                },
+                {
+                  "key": "B",
+                  "text": "On July 16th"
+                },
+                {
+                  "key": "C",
+                  "text": "On July 17th"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Track 5: Các chuyến bay ngày 15/7 đã hết chỗ nên người đàn ông đặt vé vào ngày 17 tháng 7 ('July 17th'). Đáp án chính thức: C.",
+              "vocabularyNotes": [
+                {
+                  "word": "fully booked",
+                  "meaning": "hết sạch vé / kín chỗ",
+                  "partOfSpeech": "adjective phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-l-q11",
+              "questionNumber": 11,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "[Track 11 - Trang 81, Câu 1] Why does the woman feel worried?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "She missed the chemistry exam."
+                },
+                {
+                  "key": "B",
+                  "text": "The exam was very difficult."
+                },
+                {
+                  "key": "C",
+                  "text": "She lost her textbook."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Track 11 Câu 1: Bài thi quá khó khiến cô ấy không làm kịp 2 câu cuối ('the exam was so difficult'). Đáp án chính thức: 1. B.",
+              "vocabularyNotes": [
+                {
+                  "word": "final exam",
+                  "meaning": "kỳ thi cuối kỳ",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-l-q12",
+              "questionNumber": 12,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "[Track 11 - Trang 81, Câu 2] What does the man say about the clothes in the shop?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "They are out of fashion."
+                },
+                {
+                  "key": "B",
+                  "text": "They are on sale today."
+                },
+                {
+                  "key": "C",
+                  "text": "They are not cheap."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Track 11 Câu 2: Người đàn ông nhìn bảng giá và nhận xét quần áo ở cửa hàng này không hề rẻ ('not cheap at all'). Đáp án chính thức: 2. C.",
+              "vocabularyNotes": [
+                {
+                  "word": "price tag",
+                  "meaning": "nhãn giá, mác giá",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-l-q13",
+              "questionNumber": 13,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "[Track 12 - Trang 82, Câu 1 & 2] Who is the woman talking to in Dialogue 1, and what are the students discussing in Dialogue 2?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Her boss & what to eat for lunch"
+                },
+                {
+                  "key": "B",
+                  "text": "Her father (1.C) & how to travel to school (2.B)"
+                },
+                {
+                  "key": "C",
+                  "text": "Her doctor & where to buy books"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Track 12 Câu 1 & 2: Hội thoại 1 nói chuyện với bố ('her father' -> 1. C); Hội thoại 2 bàn về phương tiện đi học ('how to travel to school' -> 2. B). Đáp án: B.",
+              "vocabularyNotes": [
+                {
+                  "word": "bus route",
+                  "meaning": "tuyến xe buýt",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-l-q14",
+              "questionNumber": 14,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "[Track 12 - Trang 82, Câu 3] What does the man think about the woman's dress?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It is too formal for the party."
+                },
+                {
+                  "key": "B",
+                  "text": "Wearing a dress was a good choice."
+                },
+                {
+                  "key": "C",
+                  "text": "She should have worn a suit instead."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Track 12 Câu 3: Người đàn ông khen việc mặc chiếc váy đến buổi tiệc là một lựa chọn rất đúng đắn ('Wearing a dress was a good choice'). Đáp án chính thức: 3. B.",
+              "vocabularyNotes": [
+                {
+                  "word": "compliment",
+                  "ipa": "/ˈkɒm.plɪ.mənt/",
+                  "meaning": "khen ngợi",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "listening-part3",
+          "partNumber": 3,
+          "title": "Part 3: Extended Recordings",
+          "instructions": "Listen to the official VNU Press extended recordings (Track 14: History Assignment & Track 15: Helping Others) TWICE and decide whether statements 15 to 20 are Correct (A) or Incorrect (B).",
+          "playCountLimit": 2,
+          "media": {
+            "audioUrl": "/audio/vnu-bac3/vnupress-practice-02/listening-part3.mp3"
+          },
+          "transcript": "[Track 8 - Celine & Sarah]:\nCeline and Sarah are talking about their weekend plans. Celine is excited about going to the new art gallery on Saturday morning, while Sarah says she has to finish her marketing report first and will join Celine for lunch afterward.\n\n[Track 14 - Practice 1: Alice & Bob on History Assignment]:\nAlice: Hi Bob, have you started working on our History presentation about the Industrial Revolution yet?\nBob: Yes, Alice! I spent yesterday afternoon in the university library reading two books about steam engines and factories in 19th-century Britain. We have plenty of material!\nAlice: That's great. Did Professor Smith say we have to submit the slides this Friday?\nBob: No, he extended the deadline to next Tuesday, so we still have five days to prepare. Also, instead of writing a long essay, we only need to give a 10-minute presentation with slides.\n\n[Track 15 - Practice 2: Scientific Studies on Helping Others]:\nSpeaker: Many people think that spending money on themselves will make them happiest, or that volunteering takes too much free time. However, recent psychological studies show the opposite. Researchers found that people who spend just two hours a week helping others or doing charity work experience lower stress levels and much higher life satisfaction. In fact, helping other people activates the reward center in our brain and improves both mental and physical health.",
+          "questions": [
+            {
+              "id": "vnup2-l-q15",
+              "questionNumber": 15,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "[Track 14 - Trang 83, Câu 1] Alice and Bob are preparing a History assignment about the Industrial Revolution.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Track 14 Câu 1: Alice hỏi Bob 'have you started working on our History presentation about the Industrial Revolution yet?'. Nhận định là ĐÚNG (Correct). Đáp án chính thức: 1. A.",
+              "vocabularyNotes": [
+                {
+                  "word": "Industrial Revolution",
+                  "meaning": "Cuộc Cách mạng Công nghiệp",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-l-q16",
+              "questionNumber": 16,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "[Track 14 - Trang 83, Câu 2] Bob couldn't find any useful books in the university library.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Track 14 Câu 2: Bob nói đã đọc 2 cuốn sách rất hay tại thư viện và có rất nhiều tư liệu ('We have plenty of material!'). Nhận định là SAI (Incorrect). Đáp án chính thức: 2. B.",
+              "vocabularyNotes": [
+                {
+                  "word": "plenty of",
+                  "meaning": "rất nhiều, dồi dào",
+                  "partOfSpeech": "quantifier"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-l-q17",
+              "questionNumber": 17,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "[Track 14 - Trang 83, Câu 3] Professor Smith requires the students to hand in their work this Friday.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Track 14 Câu 3: Bob nói 'No, he extended the deadline to next Tuesday' (Gia hạn sang thứ Ba tuần sau, không phải thứ Sáu tuần này). Nhận định là SAI (Incorrect). Đáp án chính thức: 3. B.",
+              "vocabularyNotes": [
+                {
+                  "word": "extend the deadline",
+                  "meaning": "gia hạn thời hạn nộp bài",
+                  "partOfSpeech": "verb phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-l-q18",
+              "questionNumber": 18,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "[Track 15 - Trang 84, Câu 1] Scientific studies show that helping others makes people feel more stressed and tired.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Track 15 Câu 1: Nghiên cứu chỉ ra rằng những người giúp đỡ người khác có mức độ căng thẳng thấp hơn ('lower stress levels and much higher life satisfaction'). Nhận định là SAI (Incorrect). Đáp án chính thức: 1. B.",
+              "vocabularyNotes": [
+                {
+                  "word": "life satisfaction",
+                  "meaning": "sự hài lòng với cuộc sống",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-l-q19",
+              "questionNumber": 19,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "[Track 15 - Trang 84, Câu 2] You must spend at least ten hours a week doing charity work to feel happier.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Track 15 Câu 2: Bài nghe nói chỉ cần dành 2 giờ mỗi tuần ('spend just two hours a week helping others'), không phải 10 giờ. Nhận định là SAI (Incorrect). Đáp án chính thức: 2. B.",
+              "vocabularyNotes": [
+                {
+                  "word": "charity work",
+                  "meaning": "công việc từ thiện",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnup2-l-q20",
+              "questionNumber": 20,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "[Track 15 - Trang 84, Câu 3] Volunteering and helping other people is beneficial for both mental and physical health.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Track 15 Câu 3: Câu cuối khẳng định 'helping other people activates the reward center in our brain and improves both mental and physical health'. Nhận định là ĐÚNG (Correct). Đáp án chính thức: 3. A.",
+              "vocabularyNotes": [
+                {
+                  "word": "mental and physical health",
+                  "meaning": "sức khỏe tinh thần và thể chất",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing (Viết)",
+      "timeLimitMinutes": 40,
+      "totalQuestions": 2,
+      "tasks": [
+        {
+          "id": "writing-task1",
+          "partNumber": 1,
+          "title": "Task 1: Steps to Organize a Party",
+          "instructions": "Write a paragraph of at least 80 words describing the steps to organize a party based on the prompts in standard B1 format.",
+          "questions": [],
+          "writingPrompts": [
+            {
+              "id": "vnup2-w-t1",
+              "taskNumber": 1,
+              "title": "Steps to Organize a Party",
+              "instructions": "Write a paragraph of at least 80 words about how to organize a successful party.",
+              "minWords": 80,
+              "dataCard": {
+                "Step 1 (Planning)": "Set a date, time, budget, and make a guest list",
+                "Step 2 (Invitations)": "Send invitations to friends at least a week in advance",
+                "Step 3 (Food & Drinks)": "Go shopping and prepare snacks, main dishes, and drinks",
+                "Step 4 (Decoration & Music)": "Clean the house, decorate the room, and prepare a music playlist"
+              },
+              "sampleAnswer": "Organizing a memorable party requires careful preparation and a few clear steps. First of all, you need to decide on the date, time, and budget for the party, as well as make a list of guests you want to invite. Second, you should send invitations to your friends at least one week early so they can arrange their schedules. Third, the day before the party, it is important to go to the supermarket to buy ingredients and prepare delicious snacks, food, and drinks. Finally, before the guests arrive, you should clean the living room, hang up some colorful decorations, and turn on a cheerful music playlist. Following these steps will ensure everyone has a wonderful time."
+            }
+          ]
+        },
+        {
+          "id": "writing-task2",
+          "partNumber": 2,
+          "title": "Task 2: Paragraph Writing",
+          "instructions": "Choose ONE of the two topics in standard B1 format and write a paragraph of at least 100 words.",
+          "questions": [],
+          "writingPrompts": [
+            {
+              "id": "vnup2-w-t2",
+              "taskNumber": 2,
+              "title": "Choose Topic 2.1 or Topic 2.2",
+              "instructions": "Choose ONE topic and write a paragraph of at least 100 words.",
+              "minWords": 100,
+              "topicChoices": [
+                {
+                  "code": "2.1",
+                  "topic": "Write a paragraph of at least 100 words about the advantages of eating home-cooked food.",
+                  "guidelines": [
+                    "Healthier and more hygienic because we choose fresh ingredients",
+                    "Saves a lot of money compared to eating at restaurants",
+                    "Brings family members closer together during mealtime"
+                  ]
+                },
+                {
+                  "code": "2.2",
+                  "topic": "Write a paragraph of at least 100 words about solutions to stop children from watching too much TV.",
+                  "guidelines": [
+                    "Parents should set clear daily screen-time limits (e.g., 1 hour a day)",
+                    "Encourage children to play outdoor sports and read books",
+                    "Spend more family time talking and playing board games together"
+                  ]
+                }
+              ],
+              "sampleAnswer": "Eating home-cooked meals brings many important benefits for both our health and our family life. First of all, cooking at home is much healthier than eating out because we can select fresh vegetables and meat and control the amount of oil, salt, and sugar in our dishes. Secondly, preparing food at home helps people save a significant amount of money every month compared to ordering expensive restaurant meals or fast food. Finally, cooking and sharing dinner at home gives family members a warm opportunity to talk, share their daily stories, and strengthen family bonds. For these reasons, everyone should try to maintain the habit of cooking at home regularly."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking (Nói)",
+      "timeLimitMinutes": 8,
+      "totalQuestions": 2,
+      "tasks": [
+        {
+          "id": "speaking-part1",
+          "partNumber": 1,
+          "title": "Part 1: Social Interaction",
+          "instructions": "Answer the examiner's questions across familiar B1 themes in standard B1 format.",
+          "questions": [],
+          "speakingPrompts": [
+            {
+              "id": "vnup2-s-p1",
+              "partNumber": 1,
+              "title": "Social Interaction Questions (Hometown, Health & Environment)",
+              "instructions": "Speak naturally and give reasons for your answers.",
+              "durationMinutes": 3,
+              "questions": [
+                "Where is your hometown, and what is it famous for?",
+                "What do you usually do to stay healthy and keep fit?",
+                "What is the most popular means of transport in your city?",
+                "What environmental problems are affecting your city nowadays?",
+                "What is your favorite traditional festival in Vietnam?"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "speaking-part2",
+          "partNumber": 2,
+          "title": "Part 2: Cue Card Description",
+          "instructions": "Choose ONE card below, prepare for 1 minute, speak for 1.5–2 minutes, and answer the follow-up questions.",
+          "questions": [],
+          "speakingPrompts": [
+            {
+              "id": "vnup2-s-p2",
+              "partNumber": 2,
+              "title": "Cue Cards",
+              "instructions": "Select Card 1 or Card 2.",
+              "durationMinutes": 5,
+              "cueCards": [
+                {
+                  "code": "Card 1",
+                  "title": "Describe a family member who you are closest to.",
+                  "prompts": [
+                    "Who this person is and what they look like",
+                    "What activities you often do together",
+                    "Why you feel so close to this family member"
+                  ],
+                  "furtherQuestions": [
+                    "Do you think family is more important than friends? Why?",
+                    "How have family relationships changed in Vietnam in recent years?"
+                  ],
+                  "sampleResponse": "The family member I am closest to is my mother. She is in her fifties, has a warm smile, and works as a primary school teacher. Every weekend, we go to the local market together and cook dinner for our family. I feel closest to her because she is very patient, always listens to my problems, and gives me helpful advice about my studies and life."
+                },
+                {
+                  "code": "Card 2",
+                  "title": "Describe a wonderful holiday experience you had (e.g., in Da Nang — Trang 95).",
+                  "prompts": [
+                    "Where and when you went on this holiday",
+                    "Who you went with and what you did there",
+                    "Why it was a memorable holiday for you"
+                  ],
+                  "furtherQuestions": [
+                    "Do you prefer traveling with family or with friends?",
+                    "What should tourists do to protect the environment when traveling?"
+                  ],
+                  "sampleResponse": "Last summer, I had a wonderful four-day holiday in Da Nang with my best friends. We swam at My Khe Beach, visited the Golden Bridge in Ba Na Hills, and walked around Hoi An Ancient Town in the evening. It was unforgettable because the seafood was delicious, the local people were kind, and it helped us relax after our university exams."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

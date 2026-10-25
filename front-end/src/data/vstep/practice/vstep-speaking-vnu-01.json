@@ -1,0 +1,58 @@
+{
+  "id": "vstep-speaking-vnu-01",
+  "title": "Speaking Practice — Đề Thi Mẫu Chuẩn VSTEP 3-5 — Đại Học Quốc Gia Hà Nội",
+  "duration": 12,
+  "category": "speaking",
+  "targetLevel": "B2",
+  "sections": [
+    {
+      "type": "speaking",
+      "label": "Speaking (Nói)",
+      "timeLimit": 12,
+      "tasks": [
+        {
+          "id": "vnu-s-part1",
+          "type": "social_interaction",
+          "timeLimit": 3,
+          "questions": [
+            "What academic major are you currently pursuing at your university?",
+            "Why did you choose this field of study?",
+            "What career aspirations do you hope to achieve after graduation?",
+            "Do you prefer studying alone or collaborating in group projects?",
+            "How do you manage academic stress before major examinations?",
+            "What role does modern educational technology play in your daily learning routine?"
+          ],
+          "suggestion": "<div class=\"p-3 bg-emerald-50 rounded-lg border border-emerald-200 text-xs text-slate-800 space-y-2\">\n  <p class=\"font-bold text-emerald-900\">⭐ HƯỚNG DẪN TRẢ LỜI MẪU PART 1 (Công Thức ARE: Answer - Reason - Example):</p>\n  <p><b>Q1 (Chuyên ngành):</b> \"Currently, I am in my final academic year majoring in English Linguistics and International Studies at VNU. My coursework predominantly centers on intercultural communication, computational linguistics, and advanced translation.\"</p>\n  <p><b>Q4 (Học một mình hay theo nhóm):</b> \"I definitely lean towards a hybrid approach, though I prioritize independent study for rigorous conceptual retention. While group projects cultivate negotiation skills, solitary revision allows me to deeply absorb complex theoretical materials without distraction.\"</p>\n  <p><b>Q5 (Quản lý áp lực trước thi):</b> \"Whenever examination deadlines approach, I structure my schedule using the Pomodoro technique and engage in 30 minutes of cardiovascular jogging each evening. Physical exertion substantially lowers cortisol levels and sharpens my cognitive focus.\"</p>\n</div>"
+        },
+        {
+          "id": "vnu-s-part2",
+          "type": "solution_discussion",
+          "timeLimit": 4,
+          "situation": "<p class=\"mb-1\"><b>Situation:</b> Your university English department has received funding to upgrade student learning resources.</p><p>The faculty is evaluating three potential proposals:</p><ul><li><b>Option 1:</b> Equipping a state-of-the-art interactive digital language laboratory.</li><li><b>Option 2:</b> Purchasing thousands of contemporary English literature books and graded readers for the library.</li><li><b>Option 3:</b> Sponsoring annual international study-abroad exchange scholarships for outstanding students.</li></ul><p>Choose the best option and justify why your choice provides the greatest collective benefit while addressing the drawbacks of the other options.</p>",
+          "suggestion": "<div class=\"p-3 bg-blue-50 rounded-lg border border-blue-200 text-xs text-slate-800 space-y-2\">\n  <p class=\"font-bold text-blue-900\">⭐ BÀI NÓI MẪU PART 2 (Công Thức ICE: Introduction - Comparison - End):</p>\n  <p><b>Mở bài (Intro):</b> \"Faced with this strategic resource allocation decision, I firmly believe that <b>Option 1: Equipping a state-of-the-art interactive digital language laboratory</b> is the most impactful and equitable investment for our English department.\"</p>\n  <p><b>So sánh & Phản biện (Comparison):</b> \"While Option 2—purchasing printed literature books—is culturally commendable, modern students overwhelmingly access open-source digital libraries and scholarly e-books. Physical volumes would likely remain underutilized. Furthermore, although Option 3—sponsoring study-abroad scholarships—offers a life-changing experience, it exclusively benefits a tiny elite of two or three students, whereas institutional funding should serve the entire student collective.\"</p>\n  <p><b>Khẳng định giải pháp (End):</b> \"A modern multimedia digital lab, by contrast, provides high-fidelity acoustic recording booths, speech-recognition software, and automated pronunciation feedback daily for hundreds of undergraduates. It directly elevates testing readiness for VSTEP and IELTS.\"</p>\n</div>"
+        },
+        {
+          "id": "vnu-s-part3",
+          "type": "topic_development",
+          "timeLimit": 5,
+          "topic": "The impact of international integration on traditional cultural values in Vietnam",
+          "mindmap": {
+            "title": "Impact of International Integration on Traditional Culture",
+            "ideas": [
+              "Promoting national cultural heritage to global audiences",
+              "Enriching domestic artistic and linguistic diversity",
+              "Risk of cultural homogenization and loss of local customs",
+              "[Your own creative idea]"
+            ]
+          },
+          "followUp": [
+            "How can young Vietnamese citizens actively preserve indigenous folklore and traditional music?",
+            "Do you believe commercialization diminishes the authentic spiritual value of traditional festivals?",
+            "What balance should educational curricula strike between national history and global citizenship?"
+          ],
+          "suggestion": "<div class=\"p-3 bg-purple-50 rounded-lg border border-purple-200 text-xs text-slate-800 space-y-2\">\n  <p class=\"font-bold text-purple-900\">⭐ BÀI NÓI MẪU PART 3 (Phát Triển Theo Mind-map & Trả Lời Câu Hỏi Mở Rộng):</p>\n  <p><b>Triển khai nhánh ý:</b> \"Global integration presents a profound dual-edged dynamic for Vietnamese cultural identity. On one hand, international tourism and digital media allow us to project indigenous cultural treasures—such as Hue Court Music, Quan Ho folk singing, and diverse culinary heritage—onto global stages. Conversely, widespread consumerism and western media saturation pose genuine risks of cultural homogenization, where younger generations may prioritize foreign pop culture over traditional customs.\"</p>\n  <p><b>Ý tưởng sáng tạo (Own idea):</b> \"To counter this, we must leverage digital gamification and social media storytelling to re-introduce traditional folklore in contemporary, engaging formats that resonate with Generation Z.\"</p>\n</div>"
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Segmented, Space, Typography } from 'antd';
+import { Card, Segmented, Space, Typography } from '@/components/ui/Primitives';
 import { ROADMAP_TRACK_OPTIONS } from '@/config/roadmapTrackOptions';
 import styles from '@/features/roadmap/components/RoadmapTrackSelector.module.css';
 import { RoadmapTrackSelectorProps } from '@/features/roadmap/types/RoadmapTrackSelectorProps';

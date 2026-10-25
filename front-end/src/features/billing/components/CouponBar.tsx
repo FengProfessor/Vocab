@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, Card, Input, Space, Tag, Typography } from 'antd';
-import { TagOutlined } from '@ant-design/icons';
+import { Button, Card, Input, Space, Tag, Typography } from '@/components/ui/Primitives';
+import { TagOutlined } from '@/components/ui/Icons';
 import styles from '@/features/billing/components/CouponBar.module.css';
 import { CouponBarProps } from '@/features/billing/types/CouponBarProps';
 

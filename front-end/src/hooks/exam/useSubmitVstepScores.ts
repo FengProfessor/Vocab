@@ -1,4 +1,4 @@
-import { App } from 'antd';
+import { App } from '@/components/ui/Primitives';
 import { useMutation } from '@tanstack/react-query';
 import { VSTEP_SELF_ASSESSMENT_TEST_ID } from '@/config/vstepSkills';
 import { apiClient } from '@/lib/apiClient';

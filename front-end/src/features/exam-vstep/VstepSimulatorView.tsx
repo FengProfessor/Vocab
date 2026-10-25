@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Button } from 'antd';
-import { CheckCircleOutlined } from '@ant-design/icons';
+import { Button } from '@/components/ui/Primitives';
+import { CheckCircleOutlined } from '@/components/ui/Icons';
 import { PageHeaderCard } from '@/components/common/PageHeaderCard';
 import { VstepScoreSliders } from '@/features/exam-vstep/components/VstepScoreSliders';
 import { VstepWritingGrader } from '@/features/exam-vstep/components/VstepWritingGrader';

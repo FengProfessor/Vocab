@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>LIVEB6 Countdown</title>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 1080px;
+      font-family: "Be Vietnam Pro", system-ui, sans-serif;
+      color: #f8fafc;
+      background:
+        radial-gradient(ellipse 90% 55% at 50% 0%, rgba(251, 191, 36, 0.18), transparent 55%),
+        radial-gradient(ellipse 50% 40% at 100% 100%, rgba(34, 197, 94, 0.14), transparent 50%),
+        #0b1220;
+      -webkit-font-smoothing: antialiased;
+    }
+    .frame {
+      width: 1080px;
+      padding: 52px 48px 48px;
+    }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+    .brand {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .brand span { color: #38bdf8; }
+    .flash {
+      font-size: 16px;
+      font-weight: 800;
+      color: #0f172a;
+      background: linear-gradient(90deg, #fbbf24, #f59e0b);
+      padding: 10px 18px;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+    }
+    h1 {
+      text-align: center;
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+    h1 em {
+      font-style: normal;
+      color: #4ade80;
+    }
+    .code {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .code b {
+      display: inline-block;
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      color: #7dd3fc;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      padding: 12px 28px;
+      border-radius: 16px;
+    }
+
+    /* Countdown */
+    .cd-label {
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: #94a3b8;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .cd {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .cd-box {
+      width: 160px;
+      background: linear-gradient(180deg, #1e293b, #111827);
+      border: 1px solid rgba(251, 191, 36, 0.35);
+      border-radius: 22px;
+      padding: 20px 12px 16px;
+      text-align: center;
+      box-shadow: 0 12px 40px rgba(251, 191, 36, 0.08);
+    }
+    .cd-num {
+      font-size: 64px;
+      font-weight: 800;
+      line-height: 1;
+      color: #fbbf24;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.03em;
+    }
+    .cd-unit {
+      margin-top: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .cd-sep {
+      align-self: center;
+      font-size: 40px;
+      font-weight: 800;
+      color: #475569;
+      padding-bottom: 18px;
+    }
+
+    /* Price table */
+    .table {
+      background: linear-gradient(180deg, #13281f, #0f1a14);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(34, 197, 94, 0.1);
+    }
+    .thead {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 1fr 0.9fr;
+      gap: 8px;
+      padding: 16px 28px;
+      background: rgba(0, 0, 0, 0.25);
+      font-size: 15px;
+      font-weight: 700;
+      color: #86efac;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .row {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 1fr 0.9fr;
+      gap: 8px;
+      align-items: center;
+      padding: 22px 28px;
+      border-top: 1px solid rgba(148, 163, 184, 0.12);
+    }
+    .row.hot {
+      background: linear-gradient(90deg, rgba(34, 197, 94, 0.22), rgba(34, 197, 94, 0.06));
+    }
+    .period {
+      font-size: 24px;
+      font-weight: 800;
+    }
+    .row.hot .period { color: #fff; }
+    .tag {
+      display: inline-block;
+      margin-left: 10px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #052e16;
+      background: #4ade80;
+      padding: 4px 10px;
+      border-radius: 8px;
+      vertical-align: middle;
+    }
+    .old {
+      font-size: 22px;
+      font-weight: 700;
+      color: #94a3b8;
+      text-decoration: line-through;
+      text-decoration-color: #f87171;
+      text-decoration-thickness: 3px;
+      font-variant-numeric: tabular-nums;
+    }
+    .new {
+      font-size: 28px;
+      font-weight: 800;
+      color: #4ade80;
+      font-variant-numeric: tabular-nums;
+    }
+    .row.hot .new {
+      font-size: 32px;
+      color: #86efac;
+    }
+    .save {
+      font-size: 20px;
+      font-weight: 800;
+      color: #fbbf24;
+      font-variant-numeric: tabular-nums;
+      text-align: right;
+    }
+
+    .foot {
+      margin-top: 28px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: #94a3b8;
+    }
+    .foot mark {
+      background: none;
+      color: #fbbf24;
+      font-weight: 800;
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="top">
+      <div class="brand">Lingo<span>Pro</span></div>
+      <div class="flash">⚡ GIẢM 38% · 2 NGÀY</div>
+    </div>
+
+    <h1>Flash sale <em>LIVEB6</em></h1>
+    <div class="code"><b>LIVEB6</b></div>
+
+    <div class="cd-label">Còn lại</div>
+    <div class="cd">
+      <div class="cd-box">
+        <div class="cd-num" id="d">02</div>
+        <div class="cd-unit">Ngày</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-box">
+        <div class="cd-num" id="h">00</div>
+        <div class="cd-unit">Giờ</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-box">
+        <div class="cd-num" id="m">00</div>
+        <div class="cd-unit">Phút</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-box">
+        <div class="cd-num" id="s">00</div>
+        <div class="cd-unit">Giây</div>
+      </div>
+    </div>
+
+    <div class="table">
+      <div class="thead">
+        <div>Kỳ hạn</div>
+        <div>Giá gốc</div>
+        <div>Giá sale</div>
+        <div style="text-align:right">Tiết kiệm</div>
+      </div>
+      <div class="row">
+        <div class="period">1 tháng</div>
+        <div class="old">79.000đ</div>
+        <div class="new">49.000đ</div>
+        <div class="save">−30k</div>
+      </div>
+      <div class="row hot">
+        <div class="period">3 tháng <span class="tag">HOT</span></div>
+        <div class="old">213.000đ</div>
+        <div class="new">132.000đ</div>
+        <div class="save">−81k</div>
+      </div>
+      <div class="row">
+        <div class="period">6 tháng</div>
+        <div class="old">379.000đ</div>
+        <div class="new">235.000đ</div>
+        <div class="save">−144k</div>
+      </div>
+      <div class="row">
+        <div class="period">1 năm</div>
+        <div class="old">599.000đ</div>
+        <div class="new">372.000đ</div>
+        <div class="save">−227k</div>
+      </div>
+    </div>
+
+    <p class="foot">Hết hạn <mark>21:13 · 27/7/2026</mark> · Pro cá nhân</p>
+  </div>
+
+  <script>
+    // Snapshot tĩnh cho ảnh: 1 ngày 23:59:45 (gần full 2 ngày) — hoặc set theo deadline thật
+    const DEADLINE = new Date('2026-07-27T21:13:00+07:00').getTime();
+    function pad(n) { return String(Math.max(0, n)).padStart(2, '0'); }
+    function tick() {
+      const left = Math.max(0, DEADLINE - Date.now());
+      const d = Math.floor(left / 86400000);
+      const h = Math.floor((left % 86400000) / 3600000);
+      const m = Math.floor((left % 3600000) / 60000);
+      const s = Math.floor((left % 60000) / 1000);
+      document.getElementById('d').textContent = pad(d);
+      document.getElementById('h').textContent = pad(h);
+      document.getElementById('m').textContent = pad(m);
+      document.getElementById('s').textContent = pad(s);
+    }
+    tick();
+  </script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Alert, Avatar, Card, Space, Tag, Typography } from 'antd';
-import { TrophyFilled, UserOutlined } from '@ant-design/icons';
+import { Alert, Avatar, Card, Space, Tag, Typography } from '@/components/ui/Primitives';
+import { TrophyFilled, UserOutlined } from '@/components/ui/Icons';
 import { CertLevelTag } from '@/components/common/CertLevelTag';
 import styles from '@/features/social/components/WeeklyLeaderboardCard.module.css';
 import { useGamificationStats } from '@/hooks/useGamificationStats';

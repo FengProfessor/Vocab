@@ -1,7 +1,7 @@
 import React from 'react';
-import { Card, Progress, Space, Table, Tag, Typography } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
-import { CheckCircleOutlined } from '@ant-design/icons';
+import { Card, Progress, Space, Table, Tag, Typography } from '@/components/ui/Primitives';
+import type { ColumnsType } from '@/components/ui/Primitives';
+import { CheckCircleOutlined } from '@/components/ui/Icons';
 import { CertLevelTag } from '@/components/common/CertLevelTag';
 import { SRS_CARD_STATE_TAG_COLOR } from '@/config/srsCardStateTagColor';
 import { VocabLibraryTableProps } from '@/features/vocab/types/VocabLibraryTableProps';

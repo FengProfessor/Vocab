@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Col, Row } from 'antd';
+import { Col, Row } from '@/components/ui/Primitives';
 import { PageHeaderCard } from '@/components/common/PageHeaderCard';
 import { PRICING_TIERS } from '@/config/pricingTiers';
 import { CouponBar } from '@/features/billing/components/CouponBar';

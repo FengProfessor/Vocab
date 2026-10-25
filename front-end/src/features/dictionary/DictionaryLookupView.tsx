@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { App, Button, Card, Empty, Input, Skeleton } from 'antd';
-import { CameraOutlined, SearchOutlined } from '@ant-design/icons';
+import { App, Button, Card, Empty, Input, Skeleton } from '@/components/ui/Primitives';
+import { CameraOutlined, SearchOutlined } from '@/components/ui/Icons';
 import { PageHeaderCard } from '@/components/common/PageHeaderCard';
 import { DictionaryEntryCard } from '@/features/dictionary/components/DictionaryEntryCard';
 import { DictionaryOcrModal } from '@/features/dictionary/components/DictionaryOcrModal';

@@ -1,0 +1,161 @@
+'use client';
+
+/**
+ * Hub Sử dụng từ & Luyện tập — Đặt câu, Luyện đọc, Luyện nghe, Bài đọc hàng ngày & Thi thử TOEIC
+ * URL: /practice
+ */
+
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+import { StudentShell } from '@/components/student/StudentShell';
+
+const MODES = [
+  {
+    href: '/student/speaking/foundation',
+    emoji: '🎙️',
+    title: 'Luyện nói phản xạ · A0–C1',
+    desc: 'Luyện cơ miệng, phản xạ câu tự nhiên, sửa phát âm chuẩn xác cùng AI',
+    ring: 'border-rose-200 bg-rose-50/70 hover:border-rose-400 hover:bg-rose-100 dark:border-rose-800 dark:bg-rose-950/30',
+    badge: 'bg-rose-600',
+    text: 'text-rose-950 dark:text-rose-100',
+    sub: 'text-rose-800/80 dark:text-rose-300',
+    arrow: 'text-rose-500',
+  },
+  {
+    href: '/practice/games',
+    emoji: '🎮',
+    title: 'Sân chơi tiếng Anh · 6 mini game',
+    desc: 'Lật cặp · đua từ · giải mã chữ · xếp câu · cầu ngữ pháp · thám tử săn lỗi',
+    ring: 'border-violet-200 bg-violet-50/70 hover:border-violet-400 hover:bg-violet-100 dark:border-violet-800 dark:bg-violet-950/30',
+    badge: 'bg-violet-600',
+    text: 'text-violet-950 dark:text-violet-100',
+    sub: 'text-violet-800/80 dark:text-violet-300',
+    arrow: 'text-violet-400',
+  },
+  {
+    href: '/practice/vocab-station',
+    emoji: '🌟',
+    title: '100 Động từ Cốt lõi & Luyện ngữ cảnh',
+    desc: 'Lộ trình bài bản mất gốc A0-A1 · Đọc đoạn văn · Đục lỗ · Bố cục S-V-O · Flashcard 2.0',
+    ring: 'border-amber-300 bg-amber-50/90 hover:border-amber-500 hover:bg-amber-100/70 dark:border-amber-800 dark:bg-amber-950/30',
+    badge: 'bg-amber-600',
+    text: 'text-amber-950 dark:text-amber-100',
+    sub: 'text-amber-800/90 dark:text-amber-300/80',
+    arrow: 'text-amber-500',
+  },
+  {
+    href: '/toeic',
+    emoji: '🎯',
+    title: 'Thi thử TOEIC chuẩn ETS',
+    desc: '200 câu thi thật 120p · Split-Pane · luyện Part 1-7 · Barem 990',
+    ring: 'border-blue-200 bg-blue-50/70 hover:border-blue-400 hover:bg-blue-50',
+    badge: 'bg-blue-600',
+    text: 'text-blue-950',
+    sub: 'text-blue-800/80',
+    arrow: 'text-blue-400',
+  },
+  {
+    href: '/practice/verb-drill',
+    emoji: '⚡',
+    title: 'Quiz nhớ nhanh',
+    desc: 'MCQ mix nghĩa + cloze · đúng thì lên bậc',
+    ring: 'border-amber-200 bg-amber-50/70 hover:border-amber-400 hover:bg-amber-50',
+    badge: 'bg-amber-500',
+    text: 'text-amber-950',
+    sub: 'text-amber-800/80',
+    arrow: 'text-amber-400',
+  },
+  {
+    href: '/practice/codemix',
+    emoji: '✨',
+    title: 'Đặt câu',
+    desc: 'Chọn vài từ → viết câu → xem bản tiếng Anh',
+    ring: 'border-violet-200 bg-violet-50/70 hover:border-violet-400 hover:bg-violet-50',
+    badge: 'bg-violet-600',
+    text: 'text-violet-900',
+    sub: 'text-violet-700/75',
+    arrow: 'text-violet-400',
+  },
+  {
+    href: '/practice/pack-reading',
+    emoji: '📖',
+    title: 'Luyện đọc',
+    desc: 'Từ đã học · Yếu/Đang nhớ/Vững · đọc đoạn + quiz',
+    ring: 'border-teal-200 bg-teal-50/70 hover:border-teal-400 hover:bg-teal-50',
+    badge: 'bg-teal-600',
+    text: 'text-teal-900',
+    sub: 'text-teal-700/75',
+    arrow: 'text-teal-400',
+  },
+  {
+    href: '/practice/listening',
+    emoji: '🎧',
+    title: 'Luyện nghe Video',
+    desc: 'YouTube đời sống · phụ đề song ngữ đồng bộ theo video · lướt xem theo chủ đề',
+    ring: 'border-sky-200 bg-sky-50/70 hover:border-sky-400 hover:bg-sky-50',
+    badge: 'bg-sky-600',
+    text: 'text-sky-950',
+    sub: 'text-sky-800/80',
+    arrow: 'text-sky-400',
+  },
+  {
+    href: '/practice/reading-library',
+    emoji: '📚',
+    title: 'Thư viện bài đọc · 588 bài',
+    desc: 'Kho bài đọc VSTEP B1-C1, TOEIC, VOA, RACE, OpenStax · Đục lỗ, trắc nghiệm & bản dịch',
+    ring: 'border-emerald-200 bg-emerald-50/70 hover:border-emerald-400 hover:bg-emerald-100 dark:border-emerald-800 dark:bg-emerald-950/30',
+    badge: 'bg-emerald-600',
+    text: 'text-emerald-950 dark:text-emerald-100',
+    sub: 'text-emerald-800/80 dark:text-emerald-300',
+    arrow: 'text-emerald-500',
+  },
+  {
+    href: '/practice/daily-reading',
+    emoji: '🌅',
+    title: 'Bài đọc hàng ngày',
+    desc: 'Tự động tạo đêm qua · đọc + quiz + điền từ + từ mới',
+    ring: 'border-indigo-200 bg-indigo-50/70 hover:border-indigo-400 hover:bg-indigo-50',
+    badge: 'bg-indigo-600',
+    text: 'text-indigo-900',
+    sub: 'text-indigo-700/75',
+    arrow: 'text-indigo-400',
+  },
+] as const;
+
+export default function PracticeHubPage() {
+  return (
+    <StudentShell title="Sử dụng từ">
+      <div className="mx-auto max-w-lg space-y-3 px-3 py-4 pb-24 sm:px-4" data-onboarding="practice-use-words">
+        <div>
+          <h1 className="text-lg font-black tracking-tight text-slate-900 dark:text-white">Sử dụng từ & Luyện tập</h1>
+          <p className="mt-0.5 text-xs font-medium text-slate-500 dark:text-slate-400">
+            Quiz nhanh · đặt câu · đọc · nghe video · thi thử TOEIC chuẩn ETS
+          </p>
+        </div>
+
+        <div className="grid gap-2">
+          {MODES.map((m) => (
+            <Link
+              key={m.href}
+              href={m.href}
+              className={`flex items-center gap-3 rounded-xl border px-4 py-5 shadow-xs transition-all hover:shadow-md active:scale-[0.99] ${m.ring}`}
+            >
+              <span
+                className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl text-2xl text-white shadow-xs ${m.badge}`}
+              >
+                {m.emoji}
+              </span>
+              <div className="min-w-0 flex-1">
+                <p className={`text-base font-black ${m.text}`}>{m.title}</p>
+                <p className={`mt-0.5 text-[11px] font-medium leading-snug ${m.sub}`}>
+                  {m.desc}
+                </p>
+              </div>
+              <ArrowRight className={`h-4 w-4 shrink-0 ${m.arrow}`} />
+            </Link>
+          ))}
+        </div>
+      </div>
+    </StudentShell>
+  );
+}

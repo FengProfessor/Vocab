@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-18",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 18",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-18/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Question 1.</b></p><ul><li>Attention all passengers on flight KI 162 from Spain to Ireland. This flight has been delayed due to bad weather. The flight will now be leaving at 7:15 p.m. from gate 22A. We apologize for any inconvenience.</li></ul><p><b>Question 2.</b></p><ul><li>Attention, shoppers. For the next fifteen minutes we will have a sale on sweaters in the children's department. Every sweater will be 50% off. Yes, that's right. For just a quarter of an hour you can buy any child's sweater at just half the original price. Now there is a bargain you can't afford to miss. Hurry now. The clock is ticking.</li></ul><p><b>Question 3.</b></p><ul><li>The next stop is Main Street. The exit doors are on the left side. You can transfer to the white line, line number 4 to Seoul soccer stadium. Please be careful as you leave the train.</li></ul><p><b>Question 4.</b></p><ul><li>A small dog was lost in the City center two days ago. It is brown with white paws and answers to the name Sam. It was wearing a brown collar. A reward of fifty dollars will be given for help in finding him. Please contact Brian at 655-7951.</li></ul><p><b>Question 5.</b></p><ul><li>Monday will be warm in most areas with some rain in the north of the country. Temperatures will reach up to 25 degrees in the South and around 20 degrees in the north. Tuesday will also have similar conditions with slightly higher temperatures of about 23 degrees in the north.</li></ul><p><b>Question 6.</b></p><ul><li>Attention all students. Due to a burst in the gas pipes as well as the extremely cold weather today's classes will be canceled. The school buses will be arriving in twenty minutes to take everyone home. Tomorrow's classes will most likely be canceled also but the local radio station will make an announcement in the morning.</li></ul><p><b>Question 7.</b></p><ul><li>Ladies and Gentlemen, we are experiencing some bad weather so all passengers must return to their seats and fasten their seatbelts. I would like to remind you that this is a non-smoking flight so smoking will not be permitted. We should pass through the bad weather within thirty minutes at which time lunch will be served.</li></ul><p><b>Question 8.</b></p><ul><li>Could the owner of a green and red Daesung Santa Lucia registration number ST 4571 please come to the parking lot immediately. Your car is blocking the entrance. A delivery truck is unable to enter and this is causing a traffic jam in the street outside the store.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What time will the flight now be leaving at?",
+              "options": [
+                "At 6:00",
+                "At 7:00",
+                "At 7:15",
+                "At 7:50"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "How much will a $50 sweater cost now?",
+              "options": [
+                "$50",
+                "$5",
+                "$15",
+                "$25"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What number is the white line?",
+              "options": [
+                "6",
+                "4",
+                "7",
+                "3"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What color is the dog?",
+              "options": [
+                "White with brown paws",
+                "Brown with white paws",
+                "Brown with black paws",
+                "Black with brown paws"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What difference will be seen between Monday and Tuesday?",
+              "options": [
+                "Monday will be far hotter.",
+                "Tuesday will have more rain.",
+                "There will be some higher temperatures on Tuesday.",
+                "There will be some extra rain showers on Monday."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "Why are the students being sent home?",
+              "options": [
+                "It is a school holiday.",
+                "There is a problem with the heating system.",
+                "Some of the teachers are absent.",
+                "The water pipes burst"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What will happen in thirty minutes?",
+              "options": [
+                "They will land.",
+                "Dinner will be served.",
+                "They will enter into some bad weather.",
+                "Lunch will be served."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What is the problem?",
+              "options": [
+                "A car has a flat tire.",
+                "A car has been stolen.",
+                "A car has broken down.",
+                "A car is blocking the entrance."
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-18/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>M:</b> And today, I’m talking to Angela Morgan. Angela, what made you decide to fly round the world in a helicopter?</li><li><b>W:</b> People often ask me why I decided to do it but I’m surprised they don’t ask ‘Why did you wait so long?’ because I’m 57 now. I’m sorry I didn’t do it years ago, because it was such a wonderful experience. But the main purpose for going was to collect £500,000 for sick children by getting different companies to pay us money for each kilometre that we flew.</li><li><b>M:</b> And now everyone calls you the flying grandmother!</li><li><b>W:</b> Yes, the thing about growing older is that you don’t feel any different inside so you have to do as much as you can while you can. I’m healthy, and my own children are grown up, so I was free to go.</li><li><b>M:</b> And what about preparing for the trip?</li><li><b>W:</b> Well, it took five months to plan. I was going to go with my husband but he couldn’t take time off work. Instead, I made the trip with my flying teacher who became a great friend while she was teaching me to fly three years ago. I passed my flying test after two weeks; found it quite easy.</li><li><b>M:</b> And what was the trip like?</li><li><b>W:</b> It was really exciting flying over so many different countries. The only thing was that we weren’t able to spend much time sightseeing because we only stopped to get water and to camp. We took very little with us but we did have tents and cooking things to use at night. We had to spend two days in Thailand because of an engine problem but that was the longest we spent anywhere. Fortunately nothing else went wrong, so we just kept on going after that.</li><li><b>M:</b> What did you enjoy most about the trip?</li><li><b>W:</b> The most wonderful thing about flying was seeing the differences in the countryside as we flew across 26 countries in 97 days. We flew over oceans and close to mountains; sometimes it was quite frightening, but we didn’t travel when it was dark. We spent several nights camping in the desert and the sky was just full of stars. I made a video of the trip; you’ll see it in a minute.</li><li><b>M:</b> Was there anything that you missed while you were away?</li><li><b>W:</b> Well, to my surprise I didn’t miss going to work or going out to restaurants or films. The most difficult thing was sitting still all the time. I normally play tennis and swim several times a week, so I started to feel very unfit. I missed hot water and proper showers sometimes too, but not as much as I thought I would!</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>M:</b> Britta, you’re English, but you live in Berlin. Have you lived here for a long time?</li><li><b>W:</b> Well, I was born in England, but I’ve lived in Germany for the past twenty years. I arrived in Berlin about four years ago. Before that, I lived in Bonn for six years, but I work as a journalist and when the newspaper moved to Berlin, I moved with them.</li><li><b>M:</b> Were you pleased to come to Berlin?</li><li><b>W:</b> Yes, I was. I was looking forward to being in a big city like Berlin. Bonn was quite a lot smaller, so I love the busy atmosphere and all the cultural entertainments here museums, theatres and so on. The only thing I don’t like is the traffic it’s a bit noisy in the mornings. It wakes me up about 6.30, but most days I have to get up early anyway!</li><li><b>M:</b> Where do you live in Berlin?</li><li><b>W:</b> I have a flat in the old part of the city. It’s right in the centre and it’s not too expensive. It costs me about £500 a month. My street is becoming very popular. There are lots of new art galleries, and small cafés and friendly restaurants everywhere. Eating out in Berlin is fun, and it’s cheap, so it’s something I do quite often.</li><li><b>M:</b> How do you find transport in Berlin?</li><li><b>W:</b> Well, the transport system here is very good, so I have a tram and bus ticket but in fact, most of the time I cycle. Travel here is much cheaper than in other countries I know perhaps that’s why people don’t walk very much!</li><li><b>M:</b> What do you like to do in Berlin at the weekends?</li><li><b>W:</b> Well, I like art, so sometimes I go to one of the galleries. I have a nephew called Philippe. He’s only three but he likes coming with me. He likes the café best, I think. And it’s a change from going to the park that’s something he does very often. He usually comes out with me while his parents go shopping.</li><li><b>M:</b> Do you miss your friends and family in England?</li><li><b>W:</b> I work colleagues socially but I’ve got some very good friends who live in the same street as me. I enjoy meeting people, and I find Berlin is a very friendly city.</li><li><b>M:</b> Thank you for talking to us, Britta.</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>M:</b> Rachel, tell us how your shows for children started. You studied art at college, didn’t you?</li><li><b>W:</b> That’s right. But I gave up my career as an artist when my twin daughters were born. Painting took up too much time when I was looking after them. I thought about teaching art classes part-time, but instead I started making dolls for my daughters. I love acting, so I often invented little plays for the dolls, doing the voices myself.</li><li><b>M:</b> And when did you start doing shows for other people?</li><li><b>W:</b> When our daughters were five, my husband suggested using the dolls to entertain the children at their birthday party. I wrote a little show and he built a dolls’ theatre. My daughters and their friends loved it. As a result, other parents asked me to come and do the show at their children’s parties. That’s how it all began.</li><li><b>M:</b> It must be a lot of work for you?</li><li><b>W:</b> Yes. I love making the dolls, but I decided that I needed someone to help me with the shows. Luckily my neighbour, Lena, was keen to perform with me. Her husband records the music to go with the shows. It would be impossible to do everything on my own.</li><li><b>M:</b> Have you ever had any problems?</li><li><b>W:</b> Only once. I did a show for a group of three-year-olds, and I’d written a story about a lion. Unfortunately, the children were really afraid of the lion and started crying. I was worried the parents might complain but luckily they were all able to laugh about it afterwards.</li><li><b>M:</b> And what did you learn from that?</li><li><b>W:</b> The experience taught me that I had to find out beforehand just what children enjoy. Like me, Lena has two daughters, so whenever we’ve invented a new story we show it to our four girls first. They always tell us exactly what they think of it. And sometimes I take new dolls to the local primary school to check that children like them.</li><li><b>M:</b> And the shows continue to be successful?</li><li><b>W:</b> They do. I have a range of different shows for five to nine-year-olds. In fact, the shows have become so successful I could do one every day, but I don’t want to do that. The reason the shows have become popular, I think, is because I love every minute of every show and so other people love them too. I certainly didn’t realise when I organised that birthday party for my daughters all those years ago that it would change my life so much!</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What does Angela say about her life now?",
+              "options": [
+                "She feels much older.",
+                "She likes to be active and busy.",
+                "She is lonely without her children.",
+                "Her children don't like people to call her “flying grandmother”"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What is true about Angela’s flying lessons?",
+              "options": [
+                "Her course lasted five months.",
+                "Her husband took lessons as well.",
+                "She got to know her teacher well.",
+                "She found it a bit difficult to fly at her old age."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What did Angela enjoy most about the trip?",
+              "options": [
+                "flying at night",
+                "walking in the desert",
+                "watching the changes in the scenery",
+                "seeing stars at night."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What did Angela miss most while she was away?",
+              "options": [
+                "going to restaurants",
+                "modern bathrooms",
+                "regular exercise",
+                "interesting entertainment"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "How long has Britta lived in Berlin?",
+              "options": [
+                "four years",
+                "six years",
+                "twenty years",
+                "twelve years."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What does Britta say about living in Berlin?",
+              "options": [
+                "She can’t sleep at night because of the traffic noise.",
+                "She misses the museums and theatres in Bonn.",
+                "She likes living in a big, busy city.",
+                "She prefers living in Bonn to living in Berlin."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "How does Britta usually travel around in Berlin?",
+              "options": [
+                "She walks.",
+                "She uses her bicycle.",
+                "She uses the tram or bus.",
+                "She drives her car."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "What is true about Britta’s friends?",
+              "options": [
+                "live near her.",
+                "work with her.",
+                "are still in England.",
+                "are from her hometown."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What did Rachel do before her children were born?",
+              "options": [
+                "an art teacher.",
+                "a painter.",
+                "an actor.",
+                "a doll maker"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "Who first thought of doing a show at a party?",
+              "options": [
+                "Rachel’s husband",
+                "Rachel’s children",
+                "Rachel’s parents",
+                "friends of Rachel’s daughter"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "How does Rachel’s neighbour, Lena, help?",
+              "options": [
+                "makes some dolls for the shows.",
+                "performs in the shows.",
+                "writes the music for the shows.",
+                "records music for the show"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "How do Rachel’s daughters help her?",
+              "options": [
+                "They show new dolls to their school friends.",
+                "They think of ideas for new stories.",
+                "They give her their opinions on her new plays.",
+                "They help her make new dolls."
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks, lectures or conversations. The talks, lectures, or conversations will not be repeated. There are five questions for each talk, lecture, or conversation. For each question, choose the right answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-18/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talks/Lectures 1 (Q.21-25)</b></p><p><b>Transcript</b></p><p>Welcome to this week’s book programme. We’ve got lots of great new books to tell you about. My life, by Joe Wrigley, will keep all fans of Joe’s stories happy for hours. It explains a lot about where his ideas come from and gives a picture of what was happening in his life when he was working on his most successful books. I must say, though, that some of it is difficult to understand if you haven’t read his other books. Now, for those of you who like a good cry Goodbye to the fields, by Susan Marks tells the sad story of John, a small boy who has to leave the countryside he loves when the family move to London because of his father’s job. John and his mother would prefer to stay where they are. It’s a long time before the family begins to feel comfortable living in the big city. There are plenty of books with helpful advice this week. First, the A-Z of photography would make a great present for anyone just starting out with a camera. It has everything you need to know to take really good photos, and learn about cameras, film, lighting and so on. This is not one for the experienced photographer, though there’s not much advanced information here. Turning to the kitchen Cooking for one, by Adrian White, says on its cover that even people who hate cooking will find it useful. A month ago, I couldn’t even boil an egg but now I’m producing all sorts of dishes, some quite difficult and, yes, they taste quite good, too. I’m actually enjoying cooking now I’m now going to try a new book about cooking Italian food. The last book this week is Holidays in Europe, by Mary Curtis. This is an enjoyable read, which will start your imagination working as you plan for next year’s holiday. It doesn’t matter that the writer doesn’t talk about the famous places everyone visits but describes lots of small places away from the main tourist areas. The maps are too small to be useful but the book is still good value for money. That’s it for this week, then. Next week, there’s a special report on giving books as presents, so if you’ve saved up your money and you’re wondering what to get for a friend or relation for their birthdays, you might get some good ideas … I’ll look forward to talking to you then …</p><p><b>Talks/Lectures 2 (Q.26-30)</b></p><p><b>Transcript</b></p><p>People always ask me why I only travel the hard way! A lot of television travel programmes are about relaxing holidays on the beach but I’ve only ever made documentaries about really long trips. The last trip I did was a 50,000-mile journey around the Pacific Ocean and it took 12 months. But then my very first trip was a ‘round the world’ journey, and the most difficult one was probably a car journey from the North Pole to the South Pole! As you can imagine, I’ve seen a lot of the world! I’m lucky to be in really excellent health, but life is very short and I’ve done so much travelling that I want a change. Travelling long distances makes you extremely tired, and although it’s still a great pleasure for me I want to do something more relaxing now. I think my next travel series might be made nearer England. There’s some really interesting work going on in Wales where they’ve just found what remains of a 2,000-year-old town. Or I might do something about farms in France or even cycling in Holland. There’s always something to film if you look hard enough! But I hope the programmes I’ve made about the really long trips will encourage other people to get on a plane and have some adventures. Some people seem to be afraid of going to a strange country and perhaps being ill there but maybe they realise now that if I can do these trips, so can they. I’m only a very ordinary person. Obviously, you don’t have to travel on your own as I always have. I must say that until recently I hadn’t ever worried about being so far from home even when the children were very small. But while I was filming in Borneo last year my wife had to have an emergency operation and it really frightened me because I couldn’t get back to England. Everything was fine in the end but I wouldn’t want to be so far away if anything like that happened to my family again. Perhaps if I spend more time at home I can do more writing. I’ve done two books so far. I write about places I’ve seen and my feelings about them. I don’t think I’ll ever write fiction or poetry but I’d be interested in writing newspaper articles. My family says I’m very difficult to live with when I’m writing at home … perhaps that’s why they’ve never complained about me travelling!</p><p><b>Talks/Lectures 3 (Q.31-35)</b></p><p><b>Transcript</b></p><p>With us today, to tell us about his trip across Africa is the biologist Paul Hart. We started on the east coast and travelled on foot across Africa to Gabon in the west collecting plants and flowers along the way. It wasn’t easy, but my route crossed a region rich in plants and I chose it because it won’t stay that way for long when more roads are built. It was my only chance to get important information about the natural life of the area. I had a team of eleven scientists. We walked from six in the morning but the forest was so thick it took hours to cut our way through and some days we only walked one kilometre before dark. Fortunately, we carried special equipment that was very light and we took as little food as possible. But we were always tired when we put the tents up at night. Sometimes we saw elephants or lions. They were amazing to watch and never attacked us. Every day, I collected plants and added to my notes. There was so much new information to write down. There were, of course, some low points, especially when I got anxious about the team. It was my job to make sure everyone got home safely. Towards the end of the trip, I suddenly discovered one day that the food had nearly all gone. It was strange because we brought enough dried food with us to last the trip food that wouldn’t ever go bad and we’d stopped at villages for fresh food too. But then I found that some of the team had eaten much more than they were supposed to. I was angry with them because it was a silly thing to do. Then we started walking again. There were no maps for the area, but we had a local guide. Then one of the team got sick and we couldn’t go any further. We let him rest, but he got much worse. Thankfully his life was saved by a fisherman who came along the river in a boat and took him to a doctor in the nearest village. Finally, I returned home and I’m back with my family and friends. I really missed them while I was away. But I learnt so much on the trip and I’m really glad I went. I was asked to go on another trip this time to Australia but I said that I couldn’t because I’m busy here in London. And I think I’ve done enough travelling.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What should readers do to really understand My life?",
+              "options": [
+                "read it very slowly.",
+                "know about the writer’s life.",
+                "read it with a picture.",
+                "read the writer’s other books."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "Why does John go to London in Goodbye to the fields?",
+              "options": [
+                "his parents do not like the country.",
+                "his father has to be close to his work",
+                "his parents both come from the city.",
+                "His parents want him to have better education."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What information is NOT included in the A-Z of photography?",
+              "options": [
+                "Basic equipment in photography",
+                "how to take good pictures",
+                "Basic information about taking pictures.",
+                "advanced information about photography."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What information does readers get from Holidays in Europe?",
+              "options": [
+                "a small map.",
+                "famous places.",
+                "the main tourist areas.",
+                "less common places."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "For whom are next week’s programme useful?",
+              "options": [
+                "those who enjoy reading reports.",
+                "those who are trying to save money.",
+                "those who are planning to buy gifts.",
+                "those who enjoy making friends."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "What did John do for his most recent television programme?",
+              "options": [
+                "drove from the North to the South Pole.",
+                "filmed relaxing beach holidays.",
+                "went to the Pacific Ocean for a year.",
+                "traveled round the world."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "Why is John giving up very long trips?",
+              "options": [
+                "because he’s too old now.",
+                "because he’s been everywhere.",
+                "because they’re too tiring.",
+                "because his family want him to spend more time with them."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "What is John’s next television series probably about?",
+              "options": [
+                "farms in Scotland.",
+                "old ruins in Wales.",
+                "cycling tours in France.",
+                "cycling tours in England."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "Why does John want to spend more time near home?",
+              "options": [
+                "His family might need him.",
+                "His wife misses him.",
+                "He has very young children.",
+                "His wife is ill."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What has John written so far?",
+              "options": [
+                "newspaper articles.",
+                "travel books.",
+                "poems.",
+                "fictions."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "Why did Paul choose the part of Africa he visited?",
+              "options": [
+                "It is good for walking.",
+                "It will soon change.",
+                "He had been there before.",
+                "It was the easiest route to go"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "What made the team’s journey slow?",
+              "options": [
+                "clearing paths through the forest",
+                "finding somewhere safe to camp",
+                "carrying heavy equipment",
+                "finding something to eat."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What did Paul worry about during the trip?",
+              "options": [
+                "the number of dangerous animals",
+                "getting the information he needed",
+                "being responsible for a team of people",
+                "asking the team to help him."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "Paul says that the team didn’t have enough food because",
+              "options": [
+                "some people ate more than they should.",
+                "the walk took longer than expected.",
+                "some of the food went bad too quickly.",
+                "They underestimated the amount of food to bring"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "How does Paul feel now he is back home?",
+              "options": [
+                "He is planning to do another trip.",
+                "He misses the people in the team",
+                "He thinks the trip was a valuable experience.",
+                "He wouldn’t mind travelling to Australia."
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

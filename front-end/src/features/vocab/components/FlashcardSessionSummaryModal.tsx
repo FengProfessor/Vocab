@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, Modal, Result, Space, Statistic } from 'antd';
-import { FireFilled, RedoOutlined, ThunderboltFilled, TrophyOutlined } from '@ant-design/icons';
+import { Button, Modal, Result, Space, Statistic } from '@/components/ui/Primitives';
+import { FireFilled, RedoOutlined, ThunderboltFilled, TrophyOutlined } from '@/components/ui/Icons';
 import styles from '@/features/vocab/components/FlashcardSessionSummaryModal.module.css';
 import { FlashcardSessionSummaryModalProps } from '@/features/vocab/types/FlashcardSessionSummaryModalProps';
 

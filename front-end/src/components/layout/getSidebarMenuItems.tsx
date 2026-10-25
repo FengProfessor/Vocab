@@ -1,4 +1,4 @@
-import type { MenuProps } from 'antd';
+import type { MenuProps } from '@/components/ui/Primitives';
 import {
   ApartmentOutlined,
   AudioOutlined,
@@ -14,7 +14,7 @@ import {
   RobotOutlined,
   TeamOutlined,
   TrophyOutlined,
-} from '@ant-design/icons';
+} from '@/components/ui/Icons';
 import { UserRole } from '@/types/enums/UserRole';
 
 /**

@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-53",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 53",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-17/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Question 1.</b></p><ul><li>And now for tomorrow's weather. Partly cloudy in the morning for London and the south-east but overcast by midday with rain in the afternoon. Temperatures will range from 11-19°C. There'll also be rain in the north which will quickly spread to the rest of the country. Rain will be very heavy in some areas by late afternoon especially in western and central England and there will be strong winds over most of mainland Britain.</li></ul><p><b>Question 2.</b></p><ul><li>Hello. This is the lost property office. There's no one here to take your call at present but if you've lost something please listen carefully to the following message. If you've lost valuables such as jewelry, cash or credit cards you'll need to contact your nearest police station as soon as possible to make a statement. In the case of a credit card you should also contact your bank immediately. For any other items please call in at our office between 9am and 5pm Monday to Friday. Thank you.</li></ul><p><b>Question 3.</b></p><ul><li>Erm ... yeah, hello, yes, it's me. Look, I know I'm supposed to be in the meeting now but something's come up. I feel dreadful about it, but. Oh, what a day this has been! First my train was delayed for half an hour then ... er... Anyway, I could still have got there but would you believe it my engine's packed in and I'm stranded here next to the motorway until the breakdown service turns up. I'm so sorry.</li></ul><p><b>Question 4.</b></p><ul><li>Late last night thieves broke into Mac Hannan Hall where a collection of the late Lady Betty Baldridge's paintings statues and antiques are on display to the public. The thieves, who disabled a sophisticated electronic security system ignored all the less valuable paintings and pieces on display taking only. The Lonely Wanderer by Karl van Turbeck. The 1-metre high bronze figure which stands on a marble base is regarded as the jewel of the Baldridge collection and is valued at over £5 million.</li></ul><p><b>Question 5.</b></p><ul><li>This isn't terribly difficult but if you're one of those people who won't even change a light bulb just call a breakdown service. Anyway, make sure you're safely off the road with your hazard triangle in place at least 20 meters behind you. Find the jack, spanner and spare they should all be in the boot and check the spare isn't flat, too. Put the jack in place under your car but before you begin to lift the side of the car. Don't forget to loosen the nuts on the wheel. Then jack the car up undo the nuts & take off the wheel.</li></ul><p><b>Question 6.</b></p><ul><li>Attention, please. We would like to remind you that next Monday at nine o'clock we will be having our yearly staff picnic. All staff and their families are invited to attend. Plenty of food and drink will be provided for everyone and we will be having our famous barbecue. We will also have our annual fun and games. Prizes include a new DVD player and a holiday.</li></ul><p><b>Question 7.</b></p><ul><li>Due to problems with the lighting the concert has to be postponed until Friday the 22. The concert will also be moved from hall A to the larger hall C. A bigger venue means a five hundred tickets will now be available twice the original number. Because of the extra tickets will now be priced at the lower cost of twenty dollars.</li></ul><p><b>Question 8.</b></p><ul><li>In the event of a fire please follow these directions. Stand up and walk towards the nearest exit. Do not run, and do not try to gather your things. When outside, wait for your teacher on the football field. Next week we will have the first of our two annual fire drills. Thank you.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "Which part(s) of England will have the heaviest rainfall?",
+              "options": [
+                "London and south-east",
+                "Northern",
+                "Western and Central",
+                "mainland Britain"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What should you do in case of losing money?",
+              "options": [
+                "call the lost property office",
+                "to contact the police to make a statement",
+                "to contact your bank immediately",
+                "go to the lost property office"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "Why can’t she be at the meeting?",
+              "options": [
+                "Her flight was delayed.",
+                "She is feeling unwell.",
+                "Her car has broken down.",
+                "Her train was delayed."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What was stolen in the burglary?",
+              "options": [
+                "a painting",
+                "a statue",
+                "a famous jewel",
+                "antiques"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What are the instructions about?",
+              "options": [
+                "how to change a light bulb",
+                "how to change your car’s hazard lights",
+                "what to do if your car breaks down",
+                "how to change a flat tire"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "Which prizes are mentioned?",
+              "options": [
+                "A holiday and a CD player",
+                "A DVD player and a CD player",
+                "A DVD player and a holiday",
+                "A holiday and a television"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "How much would five tickets cost?",
+              "options": [
+                "$100",
+                "$50",
+                "$20",
+                "$200"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "If there is a fire, what should you do?",
+              "options": [
+                "Run out of the building",
+                "Stay seated",
+                "Walk out of the building",
+                "Jog out of the building"
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> You will hear three different conversations. In each conversation there are four questions. For each question, choose the correct answer A, B, C or D. You will hear the conversations only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-11/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1:</b></p><ul><li><b>Louise:</b> John</li><li><b>John:</b> Oh Louise. Hi.</li><li><b>Louise:</b> I’ve just arrived for my singing lesson with Mrs Thompson. What are you doing here?</li><li><b>John:</b> (Q1) I’ve come for a singing lesson too.</li><li><b>Louise:</b> Well, if it’s a secret I won’t tell anyone</li><li><b>John:</b> It’s OK, Louise. I’m going to be in a musical show, so everyone will know soon.</li><li><b>Louise:</b> Really! But can you actually sing then?</li><li><b>John:</b> Well, I was taught to sing at school you know, but now I’m in the show I thought I’d better have a few more lessons.</li><li><b>Louise:</b> Good idea. What do you think of Mrs Thompson? She’s really strict, isn’t she?</li><li><b>John:</b> She is, but I think if you want to sing properly, then (Q2) she’s the best teacher. You don’t have to like her to see that she’s really brilliant.</li><li><b>Louise:</b> Oh, I suppose so, it’s just that she makes me feel so nervous. How did you get chosen for the show?</li><li><b>John:</b> Well, I went to see a few musical shows before Christmas. I don’t know why, because I’d never really liked them before, and I thought I’d like to do that so I tried for a part in the show at The Regent Theatre and got it.</li><li><b>Louise:</b> Well done ... so have you actually done a show yet?</li><li><b>John:</b> Yes, (Q3) we’ve done a practice show just for family and friends.</li><li><b>Louise:</b> So, how did you feel?</li><li><b>John:</b> Well, when we’d finished I wanted to cry because I was so delighted that I’d actually got through it without making any big mistakes.</li><li><b>Louise:</b> But did people like it?</li><li><b>John:</b> Yes they did, and it was great to have an audience.</li><li><b>Louise:</b> I would love to be able to sing and have everybody listen and clap</li><li><b>John:</b> It’s quite hard to do a musical show, actually. You have to dance as well as sing. It’s hard work to get it right.</li><li><b>Louise:</b> Oh, (Q4) I wouldn’t be keen on that. I’m only a singer really. When does the show open?</li><li><b>John:</b> On the 9th of October. Would you like a couple of free tickets?</li><li><b>Louise:</b> Oh yes! Thanks!</li></ul><p><b>Conversation 2:</b></p><ul><li><b>Interviewer:</b> I’m talking to Jackie Gould, who’s a very proud mother. Both of her daughters – Olivia, aged 12, and Alicia, seven – are currently appearing on the stage of the world-famous London Palladium theatre, in the musical The Sound of Music. Olivia and Alicia survived six auditions to be (Q5) picked from 1,000 hopefuls for the group of seven children playing the Von Trapp family in the show. So how did it all come about?</li><li><b>Jackie:</b> Well, until last year, the idea of them appearing at the London Palladium would have been unthinkable for our family. Things started to happen when Olivia auditioned for a production of the show Annie at the local theatre. She auditioned for the chorus and, (Q6) by chance, got the leading role instead.</li><li><b>Interviewer:</b> That’s a very big role, the leading one in Annie, isn’t it?</li><li><b>Jackie:</b> Yes, for Annie, Olivia had to learn more than 200 lines. She was on stage for most the two-hour show. It was a big script, and (Q7) I decided that we’d do ten pages a night. After memorizing it, I gave her a random line. She would have to tell me what the next line was. She picked it all up even better than her homework.</li><li><b>Interviewer:</b> And she did well in the part, presumably?</li><li><b>Jackie:</b> She was great in the part. (Q8) Everyone was astonished by her performance, including us. She had always been very shy, and she suddenly came out of her shell. We found that she could really sing. A member of the stage management team for the show was taking over a local agency and asked her to sign up. So then she had an agent to represent her and try to get roles for her.</li><li><b>Interviewer:</b> OK, so what happened next?</li><li><b>Jackie:</b> Well, Olivia was turned down for a part in the musical Mary Poppins. She reached the last ten for the role of Jane Banks. She didn’t get the part and was distraught. But she quickly picked herself up and then we took both children to the Palladium auditions for The Sound of Music.</li></ul><p><b>Conversation 3:</b></p><ul><li><b>Paul:</b> Hello, Kira, how are you?</li><li><b>Kira:</b> Fine thanks, Paul, how are you?</li><li><b>Paul:</b> Well, thanks. It’s good to see you. It must be twelve months since you did our course?</li><li><b>Kira:</b> That’s right. It’s nice to come back and say hello.</li><li><b>Paul:</b> What course did you enroll in?</li><li><b>Kira:</b> Actually, (Q9) I went straight into third year Pharmacy. They credited me with two years, which probably (Q10) made it more difficult for me.</li><li><b>Paul:</b> On the one hand, you were lucky to be granted credits. Is that why you chose the course?</li><li><b>Kira:</b> Yes. And, as I’d already finished a course in it in my country. I thought it would be easier if I studied something I already knew.</li><li><b>Paul:</b> I didn’t realise you went into third year. I thought you started in first year. No wonder it was so hard! And what do you think is one of the big differences between studying at a university here and studying in your country?</li><li><b>Kira:</b> Well, I’ve found it very difficult to write assignments, because I wasn’t familiar with that aspect of the system here. (Q11) The main problem is that the lecturers expect you to be critical. That made me feel really terrible. I thought ‘How can I possibly do it? How can I comment on someone else’s research when they probably spent five years doing it?’ I think a lot of people who come from overseas countries have similar problems. But after a while it became easier for me. People expect you to have problems with the process of reading and writing but, in fact, it is more a question of altering your viewpoint towards academic study.</li><li><b>Paul:</b> how was the content of the lectures? Was it easy for you?</li><li><b>Kira:</b> I didn’t really have many problems understanding lectures. The content was very similar to what I’d studied before.</li><li><b>Paul:</b> And what about the lecturers themselves? Are they essentially the same as lecturers in your country?</li><li><b>Kira:</b> (Q12) Well actually, no. Here, they’re much easier to approach. After every lecture you can go and ask them something you didn’t understand. Or you can make an appointment and talk to them about anything in the course.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What are they both doing here?",
+              "options": [
+                "to meet Mrs Thompson",
+                "to listen to John singing",
+                "to attend singing class",
+                "to dance in a musical show"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What does John think of Mrs Thompson?",
+              "options": [
+                "she isn't strict",
+                "she can sing well",
+                "she is a good teacher",
+                "she makes him nervous"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What does John imply about his performance?",
+              "options": [
+                "He does well in a real show",
+                "He practices it well",
+                "He really likes it",
+                "He makes some big mistakes"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What does Louise think of a musical show?",
+              "options": [
+                "she is not interested",
+                "she is keen on that",
+                "she thinks she will try it",
+                "she would love it"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "How many children competed for roles in the show?",
+              "options": [
+                "6",
+                "1.000",
+                "7",
+                "a few hundreds"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What was the first success of Olivia?",
+              "options": [
+                "When they came to London",
+                "When they visit Palladium",
+                "When she got the leading role",
+                "After she visited the local theatre"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "How did Olivia practice for the role in Annie?",
+              "options": [
+                "Learned 200 pages",
+                "Practiced two hours a day",
+                "Her mother helped her",
+                "Learned it with her homework"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "What did Jackie feel about her daughter’s performance?",
+              "options": [
+                "She was ashamed",
+                "She was amazed",
+                "She didn't like it much",
+                "She couldn't sing"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What is true about Kira?",
+              "options": [
+                "She went home last year",
+                "She started a course in Pharmacy over again",
+                "She is a third year student",
+                "She will finish her course in 12 months"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What does she think about her course now?",
+              "options": [
+                "it is difficult",
+                "it is similar to the course she did",
+                "it is easier",
+                "she doesn't like it"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "Why does she say her assignment is difficult?",
+              "options": [
+                "she is not familiar with it",
+                "she is expected to be critical",
+                "she feels terrible",
+                "her lecturer is terrible"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What does she mean about lecturers in her country?",
+              "options": [
+                "They are horrible",
+                "You can talk to them easily",
+                "They are knowledgeable",
+                "It's hard to discuss with them"
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-07/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk/Lecture 1</b></p><p>Hello everyone, My name’s Sandy Duffy and I’m here to tell you about my career as a video game writer.</p><p>I work with game developers and designers to think of good stories, and I write all the dialogue in the game.</p><p>When I was in secondary school, I never imagined that I would do this job. I played guitar that’s what I planned to do as my job. But I had an accident when I was playing basketball and hurt my hand, so I had to think of another career. My mother wanted me to be a journalist, but I didn’t think it was for me.</p><p>I didn’t know what to study at university. I was good at lots of science subjects, including physics and math, but I also loved entertaining people and I was good at Art. In the end, I went to film school where I studied lighting, special effects, how to use camera...all that! It was there that I started to think about working in the video game industry.</p><p>Now, a question that every always asks me is “How did you get your first job?” Well, I had a friend whose job was organizing conferences, at one of the conferences, she met a man who owned a company that made video games. I wrote to him and sent my CV. He obviously liked what he read because he gave me an interview and offered me a job as a junior.</p><p>People also ask me what I like best about being a video game writer. Well, the money is good and it’s quite exciting, just last night, for example, I was at a big dinner where they were giving prizes for new games. But what I love is the fact that I get on well with everyone in the business. That’s what makes my job so much fun.</p><p>Obviously, no job is perfect though, and there are things I don’t like. I’ve just started a new job and I have to spend a lot of time on the road or at the airport, which I find very hard. I’d really like to be able to spend more time at home.</p><p><b>Talk/Lecture 2</b></p><p>Do you want to take part in a trip of a lifetime? Then join Go4Health India. This amazing five – day trek will take you through one of the world’s most beautiful mountain ranges, the Indian Himalayas.</p><p>You will also be helping raise vital funds for our charity which aims to promote health care all over the world.</p><p>The trip starts in the city of Delhi where you will have the chance to see one of the charity’s health care projects in action. The following day we set off on our incredible journey into the mountains.</p><p>During the trek you will pass colourful towns and villages and enjoy the most magnificent mountain views. You will experience all this before you even reach the peak of our trek to see the stunning DhaulaDahr mountain range. Once at the top you can climb even higher if you want to and experience walking on a glacier to each Lakes cave. You will soon know what it feels like to be on top of the world. And on the way down you will be able to admire the wonderful views across the valley.</p><p>To join Go4Health India all you need to do is pay an entry fee of 250 pounds. You also need to promise to raise a minimum of 2500 pounds before the start of the trip. Fundraising is part of the challenge, but don’t worry our fundraising team is on hand to help you. Once you have signed up you will receive an information pack. This includes details of the trek as well as the work of the charity. It also contains useful tips and advice on fundraising. And you will also get a charity cap to wear with pride. You will also receive a full training guide which will help you reach a reasonable level of fitness. Our top training tips will definitely improve your physical ability so that you can get the most out of the trek!</p><p>The cost of the trip includes your flights, accommodation, food, tour guides and medical support. However, please note that airport and tax is not included. You will have to meet this additional cost yourself.</p><p>Dates for this year’s Go4Health India are 3rd to 13th November. Visit our website www.Go4Health.uk and sign up today!</p><p><b>Talk/Lecture 3</b></p><p>Last year in India, people bought around 1.5 million new cars. This will probably go up to three million a year in the next few years. That’s how the India economy is changing. Many Indians in the big cities are richer than ever and they want to spend money on new products. However, most of the money is still in the big cities. There is still a lot of poverty in the villages and countryside.</p><p>Now the government hopes a new road in India can help to change India’s economy. The golden Quadrilateral road or GQ connects the country’s four biggest cities. Delhi, Mumbai, Chennai and Kolkata. Hopefully, the road will carry business from the giant cities to the smaller and poorer villages and the other half of the India’s population.</p><p>The GQ is nearly 6,000 kilometre long and the most hi – tech high way in the world. At the administration headquarters in Delhi, you can watch thousands of vehicles moving around the country on a computer screen. If there is a problem anywhere with the road, electronic sensors tell the headquarters and engineers instantly drive there.</p><p>When you drive on the high way, there is every kind of transport. There are animals pulling cars, motorcycles, lines of old trucks and fast moving modern cars. Sometimes the road goes right through middle of a city. So there are often traffic jams and pedestrians trying to cross the six lanes. Industry is also growing along the new highway.</p><p>When a large company opens a factory, lots of other smaller factories and offices also open. Trucks then drive and deliver all over India along the new high way. For India, all this is a symbol of the country’s future.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What did Sandy Duffy want to be when she was at school?",
+              "options": [
+                "a journalist",
+                "a musician",
+                "A director",
+                "A basketball player"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "What did Sandy study at university?",
+              "options": [
+                "Math and Physics",
+                "film making",
+                "Technology",
+                "Art"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "How did Sandy get her first job as a video game writer?",
+              "options": [
+                "She answered a job advertisement",
+                "She met someone at a conference",
+                "She sent some information about herself to a company",
+                "She was invited by a friend"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What does Sandy like best about being a video game writer?",
+              "options": [
+                "the prizes she has won",
+                "the high salary",
+                "the people she works with",
+                "the great working condition"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What does Sandy dislike about being a video game writer?",
+              "options": [
+                "She has to travel a lot",
+                "She has to work long hours",
+                "She often has to change her job",
+                "She has to live far from home"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "How long does the trek last?",
+              "options": [
+                "a day",
+                "three days",
+                "five days",
+                "a week"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "The trek aims to raise money for .............",
+              "options": [
+                "health care",
+                "school education",
+                "hospital",
+                "the old people"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "The cost of the trek includes .............",
+              "options": [
+                "flight and airport taxes",
+                "medical provision and taxes",
+                "Foods",
+                "Food and accommodation"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "Participants must .............",
+              "options": [
+                "walk across a glacier",
+                "complete a fitness course",
+                "agree to raise funds for the charity",
+                "pay amount of money"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "The trip starts on .............",
+              "options": [
+                "1st of November",
+                "3rd of November",
+                "13th of November",
+                "23th of November"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "Where do many of the rich people live?",
+              "options": [
+                "next to the new road",
+                "in the cities",
+                "in the countryside",
+                "in isolated places"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "How long is the road?",
+              "options": [
+                "600 kilometres",
+                "6,000 kilometers",
+                "60,000 kilometres",
+                "60 miles"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What can you see on the computers at the road's headquarters in Delhi?",
+              "options": [
+                "small vehicles on the road",
+                "any vehicle and problems on the road",
+                "big vehicles on the road",
+                "serious problems on the road"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What types of transport can you see on the road?",
+              "options": [
+                "all types",
+                "mostly cars",
+                "mostly motorbikes",
+                "the presenter doesn't say"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "Why does the presenter describe the new road as a symbol of India's future?",
+              "options": [
+                "because it's the same shape as the country of India",
+                "because it is modern, it is helping the economy grow",
+                "Because India has big population",
+                "Because India has lots of transport"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

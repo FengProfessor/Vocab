@@ -1,0 +1,101 @@
+{
+  "id": "vstep-reading-onthi-39",
+  "title": "Luyện Đọc VSTEP: The Rise of Plant-Based Diets (VstepR3-Test 7 (01-04-2026))",
+  "duration": 10,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 5,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The Rise of Plant-Based Diets",
+            "text": "<p style=\"text-align:justify;\">In recent years, plant-based diets have shifted from a niche lifestyle choice to a mainstream phenomenon driven by converging concerns about health, environmental sustainability, and animal welfare. Vegetarian and vegan diets — once considered fringe — are now embraced by a growing segment of the population in developed nations, and a wider trend toward flexitarianism (reducing but not eliminating meat consumption) has gained significant traction among people reluctant to make a complete dietary change.</p>\n<p style=\"text-align:justify;\">The health case for reducing animal product consumption is supported by substantial research. Studies have linked diets high in red and processed meat to increased risks of colorectal cancer, cardiovascular disease, and type 2 diabetes. Plant-based diets, when properly planned, provide adequate protein, fiber, vitamins, and minerals while reducing saturated fat intake. Major health organizations, including the World Health Organization and the American Heart Association, recommend reducing consumption of processed meat and increasing the proportion of plant foods in daily meals.</p>\n<p style=\"text-align:justify;\">The environmental argument is equally compelling. Animal agriculture accounts for approximately 14.5% of global greenhouse gas emissions, consumes enormous quantities of water and land, and is a leading driver of deforestation and biodiversity loss. Research published in the journal Science found that shifting to a plant-rich diet is one of the single most effective actions an individual can take to reduce their personal carbon footprint — potentially cutting food-related emissions by more than 50%. As climate awareness grows, many consumers are making dietary choices with environmental consequences explicitly in mind.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r39-q1",
+              "type": "mcq",
+              "question": "What is the best title for this passage?",
+              "options": [
+                "Why Veganism Is the Only Ethical Diet",
+                "Plant-Based Diets: Health, Environment, and Growing Popularity",
+                "The Decline of the Meat Industry in Developed Nations",
+                "How to Switch to a Vegetarian Diet Successfully"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r39-q2",
+              "type": "mcq",
+              "question": "What is the main idea of paragraph 1?",
+              "options": [
+                "Veganism and vegetarianism are identical in their principles.",
+                "Plant-based eating has moved from the margins to the mainstream.",
+                "Most people in developed nations are now vegetarian.",
+                "Flexitarianism is more beneficial than full vegetarianism."
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r39-q3",
+              "type": "mcq",
+              "question": "What is the main purpose of paragraph 2?",
+              "options": [
+                "To argue that all meat should be banned",
+                "To present the health evidence supporting plant-based diets",
+                "To explain how to plan a nutritionally complete vegan diet",
+                "To compare the nutritional benefits of different plant foods"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r39-q4",
+              "type": "mcq",
+              "question": "What is the main idea of paragraph 3?",
+              "options": [
+                "Greenhouse gas emissions are primarily caused by transportation, not food.",
+                "Plant-based diets offer significant environmental benefits.",
+                "Individual dietary choices cannot meaningfully address climate change.",
+                "Deforestation is primarily caused by urban expansion, not farming."
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r39-q5",
+              "type": "mcq",
+              "question": "Which sentence best summarizes the overall message of the passage?",
+              "options": [
+                "People should immediately stop eating meat for ethical reasons.",
+                "Plant-based diets are growing in popularity for multiple valid reasons including health and environment.",
+                "The food industry must be forced to change its practices through government regulation.",
+                "All scientific evidence shows that vegan diets are nutritionally superior."
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

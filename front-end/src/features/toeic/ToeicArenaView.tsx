@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Alert, Button, Card, Progress, Skeleton, Statistic } from 'antd';
-import { CheckCircleOutlined } from '@ant-design/icons';
+import { Alert, Button, Card, Progress, Skeleton, Statistic } from '@/components/ui/Primitives';
+import { CheckCircleOutlined } from '@/components/ui/Icons';
 import { PageHeaderCard } from '@/components/common/PageHeaderCard';
 import { ToeicDictationPlayer } from '@/features/toeic/components/ToeicDictationPlayer';
 import { ToeicQuestionSheet } from '@/features/toeic/components/ToeicQuestionSheet';

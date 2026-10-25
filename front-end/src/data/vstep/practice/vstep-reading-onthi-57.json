@@ -1,0 +1,176 @@
+{
+  "id": "vstep-reading-onthi-57",
+  "title": "Luyện Đọc VSTEP: Reading Part 2 - Test 02 (Reading Part 2 - Test 02)",
+  "duration": 15,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 15,
+      "totalQuestions": 10,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Reading Part 2 - Test 02",
+            "text": "<p style=\"text-align:justify;\">Coffee has become one of the most popular beverages in the world, but its journey from the highlands of Ethiopia to cafes worldwide is a fascinating story. Legend has it that coffee was discovered by an Ethiopian goat herder named Kaldi in the 9th century. He noticed that his goats became unusually <strong>energetic</strong> after eating berries from a particular tree. Curious about this phenomenon, Kaldi tried the berries himself and experienced a similar boost in energy.</p>\n\n<p style=\"text-align:justify;\">The cultivation and trade of coffee began in the Arabian Peninsula. By the 15th century, coffee was being grown in Yemen, and by the 16th century, it had spread to Persia, Egypt, Syria, and Turkey. Coffee was not only enjoyed in homes but also in public coffee houses, which became centers for social activity and communication. These establishments were sometimes called \"Schools of the Wise\" because they were places where people gathered to exchange ideas and discuss current events. <strong>This</strong> tradition of coffeehouses as intellectual meeting places continues in many parts of the world today.</p>\n\n<p style=\"text-align:justify;\">Coffee arrived in Europe in the 17th century and quickly gained popularity, though not without <strong>controversy</strong>. Some religious leaders called it the \"bitter invention of Satan\" and tried to have it banned. However, Pope Clement VIII, after tasting coffee, declared it acceptable for Christians to drink. The first European coffeehouse opened in Venice in 1645, and by the end of the century, coffeehouses had spread across the continent. They became important venues for business transactions and social interaction.</p>\n\n<p style=\"text-align:justify;\">Today, coffee is grown in more than 70 countries, primarily in the tropical regions of the Americas, Africa, and Asia. The industry provides livelihoods for millions of people worldwide. Modern coffee culture has evolved significantly, with specialty coffee shops offering a wide variety of brewing methods and flavors. Despite these changes, coffee remains what it has always been: a beverage that brings people together and <strong>facilitates</strong> conversation and connection.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r57-q1",
+              "type": "mcq",
+              "question": "What is the main topic of this passage?",
+              "options": [
+                "The health benefits of drinking coffee",
+                "The history and cultural significance of coffee",
+                "How to brew the perfect cup of coffee",
+                "The economic impact of coffee production"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r57-q2",
+              "type": "mcq",
+              "question": "The word \"energetic\" in the first paragraph is closest in meaning to ____.",
+              "options": [
+                "tired and sleepy",
+                "full of energy and lively",
+                "sick and weak",
+                "hungry and thirsty"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r57-q3",
+              "type": "mcq",
+              "question": "According to the passage, where did coffee cultivation first begin?",
+              "options": [
+                "Ethiopia",
+                "The Arabian Peninsula",
+                "Europe",
+                "Turkey"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r57-q4",
+              "type": "mcq",
+              "question": "The word \"This\" in the second paragraph refers to ____.",
+              "options": [
+                "coffee being grown in Yemen",
+                "people discussing current events",
+                "coffeehouses as places for intellectual gathering",
+                "the cultivation and trade of coffee"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r57-q5",
+              "type": "mcq",
+              "question": "Why were early coffeehouses called \"Schools of the Wise\"?",
+              "options": [
+                "They were actual schools where people learned",
+                "Only educated people were allowed to enter",
+                "They were places where people exchanged ideas",
+                "They served food as well as coffee"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            },
+            {
+              "id": "otv-r57-q6",
+              "type": "mcq",
+              "question": "The word \"controversy\" in the third paragraph suggests that ____.",
+              "options": [
+                "everyone agreed about coffee",
+                "there was disagreement about coffee",
+                "coffee was very popular",
+                "coffee was expensive"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 6
+            },
+            {
+              "id": "otv-r57-q7",
+              "type": "mcq",
+              "question": "What was Pope Clement VIII's role in coffee's acceptance in Europe?",
+              "options": [
+                "He banned coffee completely",
+                "He declared coffee acceptable for Christians",
+                "He opened the first coffeehouse",
+                "He invented a new way to brew coffee"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 7
+            },
+            {
+              "id": "otv-r57-q8",
+              "type": "mcq",
+              "question": "The word \"facilitates\" in the last paragraph is closest in meaning to ____.",
+              "options": [
+                "prevents or stops",
+                "makes easier or helps",
+                "requires or demands",
+                "delays or postpones"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 8
+            },
+            {
+              "id": "otv-r57-q9",
+              "type": "mcq",
+              "question": "It can be inferred from the passage that ____.",
+              "options": [
+                "coffee is only grown in Africa",
+                "coffee culture has remained unchanged over time",
+                "coffee has always been a social beverage",
+                "modern coffee shops are less popular than old ones"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 9
+            },
+            {
+              "id": "otv-r57-q10",
+              "type": "mcq",
+              "question": "The author's tone in this passage can best be described as ____.",
+              "options": [
+                "critical and negative",
+                "informative and appreciative",
+                "humorous and entertaining",
+                "angry and disappointed"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

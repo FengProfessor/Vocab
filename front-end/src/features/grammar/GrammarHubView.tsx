@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Button, Col, Row } from 'antd';
-import { SyncOutlined } from '@ant-design/icons';
+import { Button, Col, Row } from '@/components/ui/Primitives';
+import { SyncOutlined } from '@/components/ui/Icons';
 import { PageHeaderCard } from '@/components/common/PageHeaderCard';
 import { GrammarStageViewer } from '@/features/grammar/components/GrammarStageViewer';
 import { GrammarTopicList } from '@/features/grammar/components/GrammarTopicList';

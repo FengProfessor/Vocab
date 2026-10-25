@@ -1,0 +1,133 @@
+{
+  "version": "thpt-content-v1",
+  "source": "Biên soạn theo cấu trúc đề THPT 2025 (docs/roadmap-research/07-thpt-exam-2025.md). 5 loại: announcement, leaflet, arrange, cloze, reading.",
+  "announcement": [
+    {
+      "id": "ann-10-1", "grade": "lop-10", "title": "School Green Club Notice",
+      "text": "GREEN CLUB — TREE PLANTING DAY\n\nThe Green Club is organising a tree planting day (1)___ this Saturday morning. All students (2)___ in protecting the environment are warmly welcome. Please bring gloves and a small shovel. Students who register early will (3)___ a free club T-shirt.",
+      "blanks": [
+        { "options": ["hold", "held", "holding", "to hold"], "answer": "held", "explain": "Rút gọn mệnh đề quan hệ bị động: (which is) held → held." },
+        { "options": ["interest", "interested", "interesting", "to interest"], "answer": "interested", "explain": "\"be interested in\" — người quan tâm dùng -ed; rút gọn: students (who are) interested." },
+        { "options": ["receive", "receives", "received", "receiving"], "answer": "receive", "explain": "Sau will là động từ nguyên thể." }
+      ]
+    },
+    {
+      "id": "ann-12-1", "grade": "lop-12", "title": "University Career Fair",
+      "text": "NATIONAL CAREER FAIR 2025\n\nTaking place from May 3rd to 5th, the fair is a valuable event (1)___ 'Shape Your Future'. Companies (2)___ for talented graduates will host interview booths. Attendance is free for all final-year students, so don't (3)___ this chance to meet future employers.",
+      "blanks": [
+        { "options": ["which calling", "calling", "was called", "called"], "answer": "called", "explain": "Rút gọn mệnh đề quan hệ bị động: (which is) called → called." },
+        { "options": ["look", "looking", "looked", "to look"], "answer": "looking", "explain": "Rút gọn MĐQH chủ động: companies (which are) looking for → looking." },
+        { "options": ["miss", "missing", "missed", "to miss"], "answer": "miss", "explain": "Sau don't là động từ nguyên thể." }
+      ]
+    }
+  ],
+  "leaflet": [
+    {
+      "id": "lea-11-1", "grade": "lop-11", "title": "How to Study Smart",
+      "text": "STUDY SMART, NOT HARD!\n\nStruggling with exams? Here are (1)___ simple tips to boost your results. First, break big topics (2)___ small parts and review them daily. Second, get into the habit (3)___ testing yourself instead of just re-reading notes. You will remember much more with far less stress.",
+      "blanks": [
+        { "options": ["much", "many", "a little", "little"], "answer": "many", "explain": "\"tips\" đếm được số nhiều dùng many." },
+        { "options": ["down", "up", "off", "into"], "answer": "into", "explain": "Phrasal verb \"break sth into parts\" — chia thành các phần." },
+        { "options": ["to", "of", "in", "for"], "answer": "of", "explain": "\"get into the habit OF doing sth\" — tập thói quen làm gì." }
+      ]
+    },
+    {
+      "id": "lea-12-1", "grade": "lop-12", "title": "Volunteer Abroad Programme",
+      "text": "GO GLOBAL — VOLUNTEER ABROAD\n\nWant to make a difference? Our programme sends young people (1)___ to teach and build communities. There are (2)___ places available, so apply soon. Once accepted, our team will help you (3)___ every step, from visas to accommodation.",
+      "blanks": [
+        { "options": ["overseas", "oversea", "over sea", "the overseas"], "answer": "overseas", "explain": "\"overseas\" là trạng từ (ra nước ngoài), không thêm mạo từ." },
+        { "options": ["few", "a few", "little", "much"], "answer": "a few", "explain": "\"places\" đếm được, nghĩa \"một vài\" dùng a few." },
+        { "options": ["with", "at", "on", "for"], "answer": "with", "explain": "\"help sb with sth\" — giúp ai đó việc gì." }
+      ]
+    }
+  ],
+  "arrange": [
+    {
+      "id": "arr-11-1", "grade": "lop-11", "prompt": "Sắp xếp 5 câu thành đoạn văn logic:",
+      "sentences": [
+        { "key": "a", "text": "As a result, I now cook dinner for my family twice a week." },
+        { "key": "b", "text": "Last month, I decided to learn how to cook." },
+        { "key": "c", "text": "At first, I burnt almost everything I made." },
+        { "key": "d", "text": "However, after watching many tutorials, I slowly improved." },
+        { "key": "e", "text": "My parents were surprised that I could make such tasty meals." }
+      ],
+      "answer": ["b", "c", "d", "e", "a"],
+      "explain": "b (quyết định học) → c (ban đầu thất bại) → d (tiến bộ dần) → e (bố mẹ ngạc nhiên) → a (kết quả hiện tại). Bám mạch thời gian + từ nối As a result/However."
+    },
+    {
+      "id": "arr-12-1", "grade": "lop-12", "prompt": "Sắp xếp 5 câu thành bức thư hoàn chỉnh:",
+      "sentences": [
+        { "key": "a", "text": "I am writing to apply for the summer internship advertised on your website." },
+        { "key": "b", "text": "Dear Sir or Madam," },
+        { "key": "c", "text": "I would be grateful for the opportunity to gain real-world experience at your company." },
+        { "key": "d", "text": "I am currently a final-year student majoring in Business Administration." },
+        { "key": "e", "text": "I look forward to hearing from you soon." }
+      ],
+      "answer": ["b", "a", "d", "c", "e"],
+      "explain": "b (lời chào) → a (mục đích viết) → d (giới thiệu bản thân) → c (nguyện vọng) → e (kết thư). Cấu trúc thư trang trọng chuẩn."
+    }
+  ],
+  "cloze": [
+    {
+      "id": "clo-12-1", "grade": "lop-12", "title": "The Rise of Remote Work",
+      "text": "Remote work has grown rapidly in recent years. Many companies now allow staff to work from home, (1)___. This flexibility can improve work-life balance. (2)___, it also brings challenges. Employees may feel isolated, or find it hard to separate work from personal life. To succeed, workers need strong self-discipline (3)___.",
+      "blanks": [
+        { "options": ["because they are lazy", "which was built last year", "saving time and money on commuting", "although it is expensive"], "answer": "saving time and money on commuting", "explain": "Mệnh đề phân từ chỉ kết quả, hợp mạch \"làm việc tại nhà → tiết kiệm thời gian đi lại\"." },
+        { "options": ["Therefore", "However", "For example", "As a result"], "answer": "However", "explain": "Chuyển ý tương phản: lợi ích → nhưng cũng có thách thức." },
+        { "options": ["to manage their own time", "who lives far away", "that was very cheap", "because of the rain"], "answer": "to manage their own time", "explain": "Mệnh đề to-infinitive chỉ mục đích, hợp \"cần kỷ luật để tự quản lý thời gian\"." }
+      ]
+    }
+  ],
+  "reading": [
+    {
+      "id": "rd-10-1", "grade": "lop-10", "title": "Family Meals", "length": "short",
+      "passage": "In many Vietnamese families, the evening meal is more than just food. It is a time when everyone sits together after a long day. Parents ask their children about school, and children learn about their parents' work. Sharing a meal helps family members feel closer and understand each other better.\n\nHowever, modern life is changing this tradition. Many parents work late, and children are busy with extra classes. Some families now eat at different times, or in front of the television. Experts say that eating together, even a few times a week, is good for both health and relationships.",
+      "questions": [
+        { "q": "What is the main idea of the passage?", "options": ["Vietnamese food is delicious", "Family meals are important but changing", "Children should study harder", "Television is bad for families"], "answer": "Family meals are important but changing", "explain": "Ý chính: bữa cơm gia đình quan trọng nhưng đang thay đổi." },
+        { "q": "The word \"closer\" in paragraph 1 is closest in meaning to ___.", "options": ["more distant", "more connected", "richer", "busier"], "answer": "more connected", "explain": "closer = gần gũi hơn = more connected." },
+        { "q": "According to the passage, why is the tradition changing?", "options": ["Food is too expensive", "Parents work late and children are busy", "Families do not like each other", "Television is free"], "answer": "Parents work late and children are busy", "explain": "Chi tiết đoạn 2." },
+        { "q": "What do experts recommend?", "options": ["Never watch television", "Eat together at least a few times a week", "Eat only healthy food", "Study during meals"], "answer": "Eat together at least a few times a week", "explain": "Câu cuối bài." }
+      ]
+    },
+    {
+      "id": "rd-12-1", "grade": "lop-12", "title": "Greenwashing", "length": "long",
+      "passage": "As consumers grow more concerned about the environment, many companies advertise their products as 'green' or 'eco-friendly'. [I] Some genuinely reduce their impact on the planet. [II] Others, however, simply use environmental language to sell more, without making real changes. This practice is known as 'greenwashing'. [III]\n\nGreenwashing can take many forms. A company might print a green leaf on its packaging while its factories still pollute rivers. Another might highlight one small eco-friendly feature to distract customers from a much larger environmental problem. [IV] Because the claims sound convincing, shoppers often believe they are making responsible choices when they are not.\n\nTo avoid being misled, consumers should look beyond slogans. Checking for independent certification, reading the details, and researching a company's overall record are far more reliable than trusting a single green label.",
+      "questions": [
+        { "q": "Which position is best for the sentence: \"Yet greenwashing is arguably more harmful than open dishonesty.\"?", "options": ["[I]", "[II]", "[III]", "[IV]"], "answer": "[III]", "explain": "Sau khi định nghĩa greenwashing (câu trước [III]) thì bổ sung nhận định về mức độ nguy hại — tạo chuyển mạch hợp lý." },
+        { "q": "What is greenwashing?", "options": ["Cleaning products with green soap", "Using eco-language to sell without real change", "Planting trees near factories", "A type of certification"], "answer": "Using eco-language to sell without real change", "explain": "Định nghĩa đoạn 1." },
+        { "q": "The word \"convincing\" in paragraph 2 is closest in meaning to ___.", "options": ["believable", "expensive", "colourful", "false"], "answer": "believable", "explain": "convincing = đáng tin = believable." },
+        { "q": "According to the passage, how can consumers avoid being misled?", "options": ["Trust green labels", "Buy the cheapest product", "Check independent certification and research the company", "Avoid all products"], "answer": "Check independent certification and research the company", "explain": "Đoạn cuối." },
+        { "q": "What can be inferred about a single green label?", "options": ["It always guarantees eco-friendliness", "It is not always reliable proof", "It is required by law", "It increases pollution"], "answer": "It is not always reliable proof", "explain": "Suy luận: bài khuyên nhìn xa hơn nhãn mác → nhãn đơn lẻ không đủ tin." }
+      ]
+    }
+  ],
+  "exam": [
+    {
+      "id": "exam-12-1", "grade": "lop-12", "title": "Đề mini lớp 12 — số 1",
+      "note": "Trộn 6 dạng thu nhỏ theo format 2025. Pass ≥ 80%.",
+      "itemRefs": [
+        { "type": "announcement", "id": "ann-12-1" },
+        { "type": "leaflet", "id": "lea-12-1" },
+        { "type": "arrange", "id": "arr-12-1" },
+        { "type": "cloze", "id": "clo-12-1" },
+        { "type": "reading", "id": "rd-12-1" }
+      ]
+    },
+    {
+      "id": "exam-10-1", "grade": "lop-10", "title": "Đề mini lớp 10 — số 1",
+      "note": "Trộn dạng cơ bản. Pass ≥ 80%.",
+      "itemRefs": [
+        { "type": "announcement", "id": "ann-10-1" },
+        { "type": "reading", "id": "rd-10-1" }
+      ]
+    },
+    {
+      "id": "exam-11-1", "grade": "lop-11", "title": "Đề mini lớp 11 — số 1",
+      "note": "Trộn dạng trung bình. Pass ≥ 80%.",
+      "itemRefs": [
+        { "type": "leaflet", "id": "lea-11-1" },
+        { "type": "arrange", "id": "arr-11-1" }
+      ]
+    }
+  ]
+}

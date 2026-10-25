@@ -1,0 +1,1231 @@
+{
+  "version": "a0-master-kit-v1",
+  "totalPacks": 12,
+  "totalWords": 144,
+  "packs": [
+    {
+      "id": "starter-a0-greetings",
+      "title": "Chào hỏi & lịch sự",
+      "words": [
+        {
+          "word": "hello",
+          "ipa": "/həˈloʊ/",
+          "pos": "interj",
+          "vi": "xin chào",
+          "img": "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?auto=format&fit=crop&w=600&q=80",
+          "ex": "Hello, nice to meet you!"
+        },
+        {
+          "word": "goodbye",
+          "ipa": "/ˌɡʊdˈbaɪ/",
+          "pos": "interj",
+          "vi": "tạm biệt",
+          "img": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
+          "ex": "Goodbye, see you tomorrow!"
+        },
+        {
+          "word": "please",
+          "ipa": "/pliːz/",
+          "pos": "adv",
+          "vi": "làm ơn",
+          "img": "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=80",
+          "ex": "Water, please."
+        },
+        {
+          "word": "sorry",
+          "ipa": "/ˈsɑːr.i/",
+          "pos": "adj",
+          "vi": "xin lỗi",
+          "img": "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=600&q=80",
+          "ex": "I am very sorry."
+        },
+        {
+          "word": "thanks",
+          "ipa": "/θæŋks/",
+          "pos": "noun",
+          "vi": "cảm ơn",
+          "img": "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80",
+          "ex": "Thanks for your help."
+        },
+        {
+          "word": "yes",
+          "ipa": "/jes/",
+          "pos": "adv",
+          "vi": "vâng, có",
+          "img": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=600&q=80",
+          "ex": "Yes, I like it."
+        },
+        {
+          "word": "no",
+          "ipa": "/noʊ/",
+          "pos": "adv",
+          "vi": "không",
+          "img": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=600&q=80",
+          "ex": "No, thank you."
+        },
+        {
+          "word": "name",
+          "ipa": "/neɪm/",
+          "pos": "noun",
+          "vi": "tên",
+          "img": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80",
+          "ex": "My name is Nam."
+        },
+        {
+          "word": "morning",
+          "ipa": "/ˈmɔːr.nɪŋ/",
+          "pos": "noun",
+          "vi": "buổi sáng",
+          "img": "https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?auto=format&fit=crop&w=600&q=80",
+          "ex": "Good morning, everyone."
+        },
+        {
+          "word": "night",
+          "ipa": "/naɪt/",
+          "pos": "noun",
+          "vi": "ban đêm, đêm",
+          "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+          "ex": "Good night and sleep well."
+        },
+        {
+          "word": "friend",
+          "ipa": "/frend/",
+          "pos": "noun",
+          "vi": "người bạn",
+          "img": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80",
+          "ex": "She is my best friend."
+        },
+        {
+          "word": "welcome",
+          "ipa": "/ˈwel.kəm/",
+          "pos": "adj",
+          "vi": "chào đón",
+          "img": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600&q=80",
+          "ex": "Welcome to Vietnam."
+        }
+      ]
+    },
+    {
+      "id": "starter-a0-people",
+      "title": "Tôi & gia đình",
+      "words": [
+        {
+          "word": "mother",
+          "ipa": "/ˈmʌð.ɚ/",
+          "pos": "noun",
+          "vi": "mẹ",
+          "img": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80",
+          "ex": "She is my mother."
+        },
+        {
+          "word": "father",
+          "ipa": "/ˈfɑː.ðɚ/",
+          "pos": "noun",
+          "vi": "bố, cha",
+          "img": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80",
+          "ex": "My father is at home."
+        },
+        {
+          "word": "sister",
+          "ipa": "/ˈsɪs.tɚ/",
+          "pos": "noun",
+          "vi": "chị / em gái",
+          "img": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80",
+          "ex": "I have one sister."
+        },
+        {
+          "word": "brother",
+          "ipa": "/ˈbrʌð.ɚ/",
+          "pos": "noun",
+          "vi": "anh / em trai",
+          "img": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
+          "ex": "This is my brother."
+        },
+        {
+          "word": "family",
+          "ipa": "/ˈfæm.əl.i/",
+          "pos": "noun",
+          "vi": "gia đình",
+          "img": "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80",
+          "ex": "I love my family."
+        },
+        {
+          "word": "baby",
+          "ipa": "/ˈbeɪ.bi/",
+          "pos": "noun",
+          "vi": "em bé",
+          "img": "https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=600&q=80",
+          "ex": "The baby is sleeping."
+        },
+        {
+          "word": "man",
+          "ipa": "/mæn/",
+          "pos": "noun",
+          "vi": "đàn ông",
+          "img": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=600&q=80",
+          "ex": "He is a tall man."
+        },
+        {
+          "word": "woman",
+          "ipa": "/ˈwʊm.ən/",
+          "pos": "noun",
+          "vi": "phụ nữ",
+          "img": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
+          "ex": "The woman is kind."
+        },
+        {
+          "word": "boy",
+          "ipa": "/bɔɪ/",
+          "pos": "noun",
+          "vi": "bé trai",
+          "img": "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=600&q=80",
+          "ex": "The boy is playing."
+        },
+        {
+          "word": "girl",
+          "ipa": "/ɡɜːrl/",
+          "pos": "noun",
+          "vi": "bé gái",
+          "img": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80",
+          "ex": "The girl is reading."
+        },
+        {
+          "word": "people",
+          "ipa": "/ˈpiː.pəl/",
+          "pos": "noun",
+          "vi": "mọi người",
+          "img": "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?auto=format&fit=crop&w=600&q=80",
+          "ex": "Many people are here."
+        },
+        {
+          "word": "love",
+          "ipa": "/lʌv/",
+          "pos": "verb",
+          "vi": "yêu thương",
+          "img": "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80",
+          "ex": "I love learning English."
+        }
+      ]
+    },
+    {
+      "id": "starter-a0-numbers",
+      "title": "Số đếm & thời gian",
+      "words": [
+        {
+          "word": "one",
+          "ipa": "/wʌn/",
+          "pos": "num",
+          "vi": "số 1",
+          "img": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80",
+          "ex": "One cup of coffee."
+        },
+        {
+          "word": "two",
+          "ipa": "/tuː/",
+          "pos": "num",
+          "vi": "số 2",
+          "img": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=600&q=80",
+          "ex": "Two books on the table."
+        },
+        {
+          "word": "three",
+          "ipa": "/θriː/",
+          "pos": "num",
+          "vi": "số 3",
+          "img": "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80",
+          "ex": "I have three cats."
+        },
+        {
+          "word": "four",
+          "ipa": "/fɔːr/",
+          "pos": "num",
+          "vi": "số 4",
+          "img": "https://images.unsplash.com/photo-1546554137-f86b9593a222?auto=format&fit=crop&w=600&q=80",
+          "ex": "Four chairs in the room."
+        },
+        {
+          "word": "five",
+          "ipa": "/faɪv/",
+          "pos": "num",
+          "vi": "số 5",
+          "img": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80",
+          "ex": "Give me five minutes."
+        },
+        {
+          "word": "six",
+          "ipa": "/sɪks/",
+          "pos": "num",
+          "vi": "số 6",
+          "img": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=600&q=80",
+          "ex": "Room number six."
+        },
+        {
+          "word": "seven",
+          "ipa": "/ˈsev.ən/",
+          "pos": "num",
+          "vi": "số 7",
+          "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+          "ex": "Seven days in a week."
+        },
+        {
+          "word": "eight",
+          "ipa": "/eɪt/",
+          "pos": "num",
+          "vi": "số 8",
+          "img": "https://images.unsplash.com/photo-1508962914676-134849a727f0?auto=format&fit=crop&w=600&q=80",
+          "ex": "It is eight o'clock."
+        },
+        {
+          "word": "nine",
+          "ipa": "/naɪn/",
+          "pos": "num",
+          "vi": "số 9",
+          "img": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=600&q=80",
+          "ex": "Nine apples in the basket."
+        },
+        {
+          "word": "ten",
+          "ipa": "/ten/",
+          "pos": "num",
+          "vi": "số 10",
+          "img": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80",
+          "ex": "Ten students are here."
+        },
+        {
+          "word": "today",
+          "ipa": "/təˈdeɪ/",
+          "pos": "noun",
+          "vi": "hôm nay",
+          "img": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+          "ex": "Today is a sunny day."
+        },
+        {
+          "word": "tomorrow",
+          "ipa": "/təˈmɑːr.oʊ/",
+          "pos": "noun",
+          "vi": "ngày mai",
+          "img": "https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?auto=format&fit=crop&w=600&q=80",
+          "ex": "See you tomorrow morning."
+        }
+      ]
+    },
+    {
+      "id": "starter-a0-colors",
+      "title": "Màu sắc",
+      "words": [
+        {
+          "word": "red",
+          "ipa": "/red/",
+          "pos": "adj",
+          "vi": "màu đỏ",
+          "img": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=600&q=80",
+          "ex": "A red apple."
+        },
+        {
+          "word": "blue",
+          "ipa": "/bluː/",
+          "pos": "adj",
+          "vi": "màu xanh dương",
+          "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+          "ex": "The blue ocean."
+        },
+        {
+          "word": "green",
+          "ipa": "/ɡriːn/",
+          "pos": "adj",
+          "vi": "màu xanh lá",
+          "img": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80",
+          "ex": "Green trees in the park."
+        },
+        {
+          "word": "yellow",
+          "ipa": "/ˈjel.oʊ/",
+          "pos": "adj",
+          "vi": "màu vàng",
+          "img": "https://images.unsplash.com/photo-1500485035595-cbe6f645feb1?auto=format&fit=crop&w=600&q=80",
+          "ex": "A yellow flower."
+        },
+        {
+          "word": "black",
+          "ipa": "/blæk/",
+          "pos": "adj",
+          "vi": "màu đen",
+          "img": "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=600&q=80",
+          "ex": "A black cat."
+        },
+        {
+          "word": "white",
+          "ipa": "/waɪt/",
+          "pos": "adj",
+          "vi": "màu trắng",
+          "img": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80",
+          "ex": "A clean white shirt."
+        },
+        {
+          "word": "orange",
+          "ipa": "/ˈɔːr.ɪndʒ/",
+          "pos": "adj",
+          "vi": "màu cam",
+          "img": "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=600&q=80",
+          "ex": "An orange shirt."
+        },
+        {
+          "word": "pink",
+          "ipa": "/pɪŋk/",
+          "pos": "adj",
+          "vi": "màu hồng",
+          "img": "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=600&q=80",
+          "ex": "A pink dress."
+        },
+        {
+          "word": "brown",
+          "ipa": "/braʊn/",
+          "pos": "adj",
+          "vi": "màu nâu",
+          "img": "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=600&q=80",
+          "ex": "A brown dog."
+        },
+        {
+          "word": "purple",
+          "ipa": "/ˈpɜːr.pəl/",
+          "pos": "adj",
+          "vi": "màu tím",
+          "img": "https://images.unsplash.com/photo-1528722828814-77b9b83aafb2?auto=format&fit=crop&w=600&q=80",
+          "ex": "Purple flowers."
+        },
+        {
+          "word": "color",
+          "ipa": "/ˈkʌl.ɚ/",
+          "pos": "noun",
+          "vi": "màu sắc",
+          "img": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=600&q=80",
+          "ex": "What color is this?"
+        },
+        {
+          "word": "dark",
+          "ipa": "/dɑːrk/",
+          "pos": "adj",
+          "vi": "tối, đậm",
+          "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+          "ex": "It is dark outside."
+        }
+      ]
+    },
+    {
+      "id": "starter-a0-classroom",
+      "title": "Đồ vật quanh ta",
+      "words": [
+        {
+          "word": "book",
+          "ipa": "/bʊk/",
+          "pos": "noun",
+          "vi": "sách",
+          "img": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+          "ex": "Open your book."
+        },
+        {
+          "word": "pen",
+          "ipa": "/pen/",
+          "pos": "noun",
+          "vi": "bút mực",
+          "img": "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=600&q=80",
+          "ex": "Give me a blue pen."
+        },
+        {
+          "word": "pencil",
+          "ipa": "/ˈpen.səl/",
+          "pos": "noun",
+          "vi": "bút chì",
+          "img": "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=600&q=80",
+          "ex": "Write with a pencil."
+        },
+        {
+          "word": "table",
+          "ipa": "/ˈteɪ.bəl/",
+          "pos": "noun",
+          "vi": "cái bàn",
+          "img": "https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?auto=format&fit=crop&w=600&q=80",
+          "ex": "The phone is on the table."
+        },
+        {
+          "word": "chair",
+          "ipa": "/tʃer/",
+          "pos": "noun",
+          "vi": "cái ghế",
+          "img": "https://images.unsplash.com/photo-1580481077197-22f30ec63e80?auto=format&fit=crop&w=600&q=80",
+          "ex": "Sit on the chair."
+        },
+        {
+          "word": "bag",
+          "ipa": "/bæɡ/",
+          "pos": "noun",
+          "vi": "cái túi, cặp",
+          "img": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80",
+          "ex": "My bag is heavy."
+        },
+        {
+          "word": "phone",
+          "ipa": "/foʊn/",
+          "pos": "noun",
+          "vi": "điện thoại",
+          "img": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80",
+          "ex": "Answer the phone."
+        },
+        {
+          "word": "key",
+          "ipa": "/kiː/",
+          "pos": "noun",
+          "vi": "chìa khóa",
+          "img": "https://images.unsplash.com/photo-1582139329536-e7284fece509?auto=format&fit=crop&w=600&q=80",
+          "ex": "Where is the door key?"
+        },
+        {
+          "word": "door",
+          "ipa": "/dɔːr/",
+          "pos": "noun",
+          "vi": "cửa ra vào",
+          "img": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80",
+          "ex": "Please close the door."
+        },
+        {
+          "word": "window",
+          "ipa": "/ˈwɪn.doʊ/",
+          "pos": "noun",
+          "vi": "cửa sổ",
+          "img": "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80",
+          "ex": "Open the window."
+        },
+        {
+          "word": "school",
+          "ipa": "/skuːl/",
+          "pos": "noun",
+          "vi": "trường học",
+          "img": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=600&q=80",
+          "ex": "I go to school."
+        },
+        {
+          "word": "house",
+          "ipa": "/haʊs/",
+          "pos": "noun",
+          "vi": "ngôi nhà",
+          "img": "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=600&q=80",
+          "ex": "This is my house."
+        }
+      ]
+    },
+    {
+      "id": "starter-a0-food",
+      "title": "Đồ ăn thức uống cơ bản",
+      "words": [
+        {
+          "word": "water",
+          "ipa": "/ˈwɑː.t̬ɚ/",
+          "pos": "noun",
+          "vi": "nước uống",
+          "img": "https://images.unsplash.com/photo-1548839140-29a749e1bc4e?auto=format&fit=crop&w=600&q=80",
+          "ex": "Drink cold water."
+        },
+        {
+          "word": "rice",
+          "ipa": "/raɪs/",
+          "pos": "noun",
+          "vi": "cơm, gạo",
+          "img": "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&q=80",
+          "ex": "I eat rice every day."
+        },
+        {
+          "word": "bread",
+          "ipa": "/bred/",
+          "pos": "noun",
+          "vi": "bánh mì",
+          "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80",
+          "ex": "Fresh bread for breakfast."
+        },
+        {
+          "word": "milk",
+          "ipa": "/mɪlk/",
+          "pos": "noun",
+          "vi": "sữa",
+          "img": "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=600&q=80",
+          "ex": "A glass of milk."
+        },
+        {
+          "word": "egg",
+          "ipa": "/eɡ/",
+          "pos": "noun",
+          "vi": "trứng",
+          "img": "https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=600&q=80",
+          "ex": "Two fried eggs."
+        },
+        {
+          "word": "tea",
+          "ipa": "/tiː/",
+          "pos": "noun",
+          "vi": "trà",
+          "img": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80",
+          "ex": "Hot green tea."
+        },
+        {
+          "word": "coffee",
+          "ipa": "/ˈkɑː.fi/",
+          "pos": "noun",
+          "vi": "cà phê",
+          "img": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80",
+          "ex": "Black coffee with no sugar."
+        },
+        {
+          "word": "fruit",
+          "ipa": "/fruːt/",
+          "pos": "noun",
+          "vi": "trái cây",
+          "img": "https://images.unsplash.com/photo-1619566636858-adf3ef46400b?auto=format&fit=crop&w=600&q=80",
+          "ex": "Eat fresh fruit."
+        },
+        {
+          "word": "fish",
+          "ipa": "/fɪʃ/",
+          "pos": "noun",
+          "vi": "thịt cá, món cá",
+          "img": "https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=600&q=80",
+          "ex": "We eat fresh fish for dinner."
+        },
+        {
+          "word": "meat",
+          "ipa": "/miːt/",
+          "pos": "noun",
+          "vi": "thịt",
+          "img": "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&w=600&q=80",
+          "ex": "Cook the meat."
+        },
+        {
+          "word": "eat",
+          "ipa": "/iːt/",
+          "pos": "verb",
+          "vi": "ăn",
+          "img": "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=600&q=80",
+          "ex": "We eat dinner together."
+        },
+        {
+          "word": "drink",
+          "ipa": "/drɪŋk/",
+          "pos": "verb",
+          "vi": "uống",
+          "img": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80",
+          "ex": "Drink plenty of water."
+        }
+      ]
+    },
+    {
+      "id": "starter-a0-body",
+      "title": "Cơ thể",
+      "words": [
+        {
+          "word": "head",
+          "ipa": "/hed/",
+          "pos": "noun",
+          "vi": "cái đầu",
+          "img": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+          "ex": "Touch your head."
+        },
+        {
+          "word": "eye",
+          "ipa": "/aɪ/",
+          "pos": "noun",
+          "vi": "con mắt",
+          "img": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80",
+          "ex": "Close your eyes."
+        },
+        {
+          "word": "ear",
+          "ipa": "/ɪr/",
+          "pos": "noun",
+          "vi": "cái tai",
+          "img": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80",
+          "ex": "Listen with your ears."
+        },
+        {
+          "word": "nose",
+          "ipa": "/noʊz/",
+          "pos": "noun",
+          "vi": "cái mũi",
+          "img": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
+          "ex": "Breathe through your nose."
+        },
+        {
+          "word": "mouth",
+          "ipa": "/maʊθ/",
+          "pos": "noun",
+          "vi": "cái miệng",
+          "img": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
+          "ex": "Open your mouth wide."
+        },
+        {
+          "word": "hand",
+          "ipa": "/hænd/",
+          "pos": "noun",
+          "vi": "bàn tay",
+          "img": "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=600&q=80",
+          "ex": "Wash your hands."
+        },
+        {
+          "word": "foot",
+          "ipa": "/fʊt/",
+          "pos": "noun",
+          "vi": "bàn chân",
+          "img": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=600&q=80",
+          "ex": "My right foot hurts."
+        },
+        {
+          "word": "hair",
+          "ipa": "/her/",
+          "pos": "noun",
+          "vi": "mái tóc",
+          "img": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80",
+          "ex": "She has long black hair."
+        },
+        {
+          "word": "face",
+          "ipa": "/feɪs/",
+          "pos": "noun",
+          "vi": "khuôn mặt",
+          "img": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80",
+          "ex": "A smiling face."
+        },
+        {
+          "word": "leg",
+          "ipa": "/leɡ/",
+          "pos": "noun",
+          "vi": "cái chân",
+          "img": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80",
+          "ex": "Walk with your legs."
+        },
+        {
+          "word": "arm",
+          "ipa": "/ɑːrm/",
+          "pos": "noun",
+          "vi": "cánh tay",
+          "img": "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=600&q=80",
+          "ex": "Raise your right arm."
+        },
+        {
+          "word": "body",
+          "ipa": "/ˈbɑː.di/",
+          "pos": "noun",
+          "vi": "cơ thể",
+          "img": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=80",
+          "ex": "A healthy body."
+        }
+      ]
+    },
+    {
+      "id": "starter-a0-verbs",
+      "title": "Động từ sống còn",
+      "words": [
+        {
+          "word": "go",
+          "ipa": "/ɡoʊ/",
+          "pos": "verb",
+          "vi": "đi",
+          "img": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=600&q=80",
+          "ex": "I go to school every day."
+        },
+        {
+          "word": "come",
+          "ipa": "/kʌm/",
+          "pos": "verb",
+          "vi": "đến",
+          "img": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=600&q=80",
+          "ex": "Please come here."
+        },
+        {
+          "word": "see",
+          "ipa": "/siː/",
+          "pos": "verb",
+          "vi": "nhìn thấy",
+          "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+          "ex": "I see a big bird."
+        },
+        {
+          "word": "have",
+          "ipa": "/hæv/",
+          "pos": "verb",
+          "vi": "có",
+          "img": "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80",
+          "ex": "I have two sisters."
+        },
+        {
+          "word": "want",
+          "ipa": "/wɑːnt/",
+          "pos": "verb",
+          "vi": "muốn",
+          "img": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80",
+          "ex": "I want a cup of tea."
+        },
+        {
+          "word": "like",
+          "ipa": "/laɪk/",
+          "pos": "verb",
+          "vi": "thích",
+          "img": "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80",
+          "ex": "I like Vietnamese food."
+        },
+        {
+          "word": "know",
+          "ipa": "/noʊ/",
+          "pos": "verb",
+          "vi": "biết",
+          "img": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80",
+          "ex": "I know the answer."
+        },
+        {
+          "word": "make",
+          "ipa": "/meɪk/",
+          "pos": "verb",
+          "vi": "làm, tạo ra",
+          "img": "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=600&q=80",
+          "ex": "Make a cake."
+        },
+        {
+          "word": "give",
+          "ipa": "/ɡɪv/",
+          "pos": "verb",
+          "vi": "cho, đưa",
+          "img": "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80",
+          "ex": "Give me the pen."
+        },
+        {
+          "word": "take",
+          "ipa": "/teɪk/",
+          "pos": "verb",
+          "vi": "cầm, lấy",
+          "img": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80",
+          "ex": "Take this book."
+        },
+        {
+          "word": "say",
+          "ipa": "/seɪ/",
+          "pos": "verb",
+          "vi": "nói",
+          "img": "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?auto=format&fit=crop&w=600&q=80",
+          "ex": "Say hello to my friend."
+        },
+        {
+          "word": "help",
+          "ipa": "/help/",
+          "pos": "verb",
+          "vi": "giúp đỡ",
+          "img": "https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&w=600&q=80",
+          "ex": "Please help me."
+        }
+      ]
+    },
+    {
+      "id": "starter-a0-animals",
+      "title": "Con vật",
+      "words": [
+        {
+          "word": "dog",
+          "ipa": "/dɑːɡ/",
+          "pos": "noun",
+          "vi": "con chó",
+          "img": "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=600&q=80",
+          "ex": "A playful brown dog."
+        },
+        {
+          "word": "cat",
+          "ipa": "/kæt/",
+          "pos": "noun",
+          "vi": "con mèo",
+          "img": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=600&q=80",
+          "ex": "A cute white cat."
+        },
+        {
+          "word": "bird",
+          "ipa": "/bɜːrd/",
+          "pos": "noun",
+          "vi": "con chim",
+          "img": "https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=600&q=80",
+          "ex": "A blue bird in the tree."
+        },
+        {
+          "word": "fish",
+          "ipa": "/fɪʃ/",
+          "pos": "noun",
+          "vi": "con cá",
+          "img": "https://images.unsplash.com/photo-1524704654690-b56c05c78a00?auto=format&fit=crop&w=600&q=80",
+          "ex": "Goldfish in the water."
+        },
+        {
+          "word": "cow",
+          "ipa": "/kaʊ/",
+          "pos": "noun",
+          "vi": "con bò",
+          "img": "https://images.unsplash.com/photo-1546445317-29f4545e9d53?auto=format&fit=crop&w=600&q=80",
+          "ex": "The cow gives milk."
+        },
+        {
+          "word": "pig",
+          "ipa": "/pɪɡ/",
+          "pos": "noun",
+          "vi": "con heo",
+          "img": "https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=600&q=80",
+          "ex": "A pink pig on the farm."
+        },
+        {
+          "word": "duck",
+          "ipa": "/dʌk/",
+          "pos": "noun",
+          "vi": "con vịt",
+          "img": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=600&q=80",
+          "ex": "A duck swims in the pond."
+        },
+        {
+          "word": "horse",
+          "ipa": "/hɔːrs/",
+          "pos": "noun",
+          "vi": "con ngựa",
+          "img": "https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=600&q=80",
+          "ex": "A strong black horse."
+        },
+        {
+          "word": "chicken",
+          "ipa": "/ˈtʃɪk.ɪn/",
+          "pos": "noun",
+          "vi": "con gà",
+          "img": "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=600&q=80",
+          "ex": "Chickens in the garden."
+        },
+        {
+          "word": "tiger",
+          "ipa": "/ˈtaɪ.ɡɚ/",
+          "pos": "noun",
+          "vi": "con hổ",
+          "img": "https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=600&q=80",
+          "ex": "A fierce wild tiger."
+        },
+        {
+          "word": "elephant",
+          "ipa": "/ˈel.ə.fənt/",
+          "pos": "noun",
+          "vi": "con voi",
+          "img": "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=600&q=80",
+          "ex": "A giant elephant."
+        },
+        {
+          "word": "animal",
+          "ipa": "/ˈæn.ə.məl/",
+          "pos": "noun",
+          "vi": "động vật",
+          "img": "https://images.unsplash.com/photo-1474511320723-9a56873867b5?auto=format&fit=crop&w=600&q=80",
+          "ex": "Protect wild animals."
+        }
+      ]
+    },
+    {
+      "id": "starter-a0-clothes",
+      "title": "Quần áo & đồ dùng",
+      "words": [
+        {
+          "word": "shirt",
+          "ipa": "/ʃɜːrt/",
+          "pos": "noun",
+          "vi": "áo sơ mi",
+          "img": "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=600&q=80",
+          "ex": "A clean white shirt."
+        },
+        {
+          "word": "pants",
+          "ipa": "/pænts/",
+          "pos": "noun",
+          "vi": "quần dài",
+          "img": "https://images.unsplash.com/photo-1542272604-780c96856592?auto=format&fit=crop&w=600&q=80",
+          "ex": "Blue denim pants."
+        },
+        {
+          "word": "dress",
+          "ipa": "/dres/",
+          "pos": "noun",
+          "vi": "váy liền",
+          "img": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=600&q=80",
+          "ex": "A beautiful red dress."
+        },
+        {
+          "word": "shoes",
+          "ipa": "/ʃuːz/",
+          "pos": "noun",
+          "vi": "đôi giày",
+          "img": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80",
+          "ex": "Comfortable running shoes."
+        },
+        {
+          "word": "hat",
+          "ipa": "/hæt/",
+          "pos": "noun",
+          "vi": "cái mũ, nón",
+          "img": "https://images.unsplash.com/photo-1514327605112-b887c0e61c0a?auto=format&fit=crop&w=600&q=80",
+          "ex": "Wear a sun hat."
+        },
+        {
+          "word": "jacket",
+          "ipa": "/ˈdʒæk.ɪt/",
+          "pos": "noun",
+          "vi": "áo khoác ngắn",
+          "img": "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=600&q=80",
+          "ex": "A warm leather jacket."
+        },
+        {
+          "word": "coat",
+          "ipa": "/koʊt/",
+          "pos": "noun",
+          "vi": "áo khoác dài",
+          "img": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=600&q=80",
+          "ex": "A heavy winter coat."
+        },
+        {
+          "word": "skirt",
+          "ipa": "/skɜːrt/",
+          "pos": "noun",
+          "vi": "chân váy",
+          "img": "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=600&q=80",
+          "ex": "A black skirt."
+        },
+        {
+          "word": "wear",
+          "ipa": "/wer/",
+          "pos": "verb",
+          "vi": "mặc, mang, đeo",
+          "img": "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=600&q=80",
+          "ex": "I wear glasses."
+        },
+        {
+          "word": "buy",
+          "ipa": "/baɪ/",
+          "pos": "verb",
+          "vi": "mua",
+          "img": "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=600&q=80",
+          "ex": "I want to buy this."
+        },
+        {
+          "word": "big",
+          "ipa": "/bɪɡ/",
+          "pos": "adj",
+          "vi": "to lớn",
+          "img": "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=600&q=80",
+          "ex": "An elephant is big."
+        },
+        {
+          "word": "small",
+          "ipa": "/smɔːl/",
+          "pos": "adj",
+          "vi": "nhỏ bé",
+          "img": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=600&q=80",
+          "ex": "A small kitten."
+        }
+      ]
+    },
+    {
+      "id": "starter-a0-weather",
+      "title": "Thời tiết",
+      "words": [
+        {
+          "word": "sun",
+          "ipa": "/sʌn/",
+          "pos": "noun",
+          "vi": "mặt trời",
+          "img": "https://images.unsplash.com/photo-1500485035595-cbe6f645feb1?auto=format&fit=crop&w=600&q=80",
+          "ex": "The sun is bright."
+        },
+        {
+          "word": "rain",
+          "ipa": "/reɪn/",
+          "pos": "noun",
+          "vi": "mưa",
+          "img": "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&w=600&q=80",
+          "ex": "Heavy rain outside."
+        },
+        {
+          "word": "wind",
+          "ipa": "/wɪnd/",
+          "pos": "noun",
+          "vi": "gió",
+          "img": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+          "ex": "Strong cold wind."
+        },
+        {
+          "word": "cloud",
+          "ipa": "/klaʊd/",
+          "pos": "noun",
+          "vi": "đám mây",
+          "img": "https://images.unsplash.com/photo-1534088568595-a066f410bcda?auto=format&fit=crop&w=600&q=80",
+          "ex": "White clouds in the sky."
+        },
+        {
+          "word": "hot",
+          "ipa": "/hɑːt/",
+          "pos": "adj",
+          "vi": "nóng bức",
+          "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+          "ex": "The weather is hot."
+        },
+        {
+          "word": "cold",
+          "ipa": "/koʊld/",
+          "pos": "adj",
+          "vi": "lạnh giá",
+          "img": "https://images.unsplash.com/photo-1483921020237-2ff51e8e4b22?auto=format&fit=crop&w=600&q=80",
+          "ex": "Cold winter day."
+        },
+        {
+          "word": "warm",
+          "ipa": "/wɔːrm/",
+          "pos": "adj",
+          "vi": "ấm áp",
+          "img": "https://images.unsplash.com/photo-1470240731273-7821a6eeb6bd?auto=format&fit=crop&w=600&q=80",
+          "ex": "Warm spring sun."
+        },
+        {
+          "word": "snow",
+          "ipa": "/snoʊ/",
+          "pos": "noun",
+          "vi": "tuyết",
+          "img": "https://images.unsplash.com/photo-1483921020237-2ff51e8e4b22?auto=format&fit=crop&w=600&q=80",
+          "ex": "White snow on the mountain."
+        },
+        {
+          "word": "storm",
+          "ipa": "/stɔːrm/",
+          "pos": "noun",
+          "vi": "bão",
+          "img": "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&w=600&q=80",
+          "ex": "A big sea storm."
+        },
+        {
+          "word": "sky",
+          "ipa": "/skaɪ/",
+          "pos": "noun",
+          "vi": "bầu trời",
+          "img": "https://images.unsplash.com/photo-1534088568595-a066f410bcda?auto=format&fit=crop&w=600&q=80",
+          "ex": "Clear blue sky."
+        },
+        {
+          "word": "weather",
+          "ipa": "/ˈweð.ɚ/",
+          "pos": "noun",
+          "vi": "thời tiết",
+          "img": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+          "ex": "How is the weather today?"
+        },
+        {
+          "word": "wet",
+          "ipa": "/wet/",
+          "pos": "adj",
+          "vi": "ẩm ướt",
+          "img": "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&w=600&q=80",
+          "ex": "The road is wet."
+        }
+      ]
+    },
+    {
+      "id": "starter-a0-daily",
+      "title": "Sinh hoạt hằng ngày",
+      "words": [
+        {
+          "word": "wake up",
+          "ipa": "/ˌweɪk ˈʌp/",
+          "pos": "verb",
+          "vi": "thức dậy",
+          "img": "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80",
+          "ex": "I wake up at six."
+        },
+        {
+          "word": "sleep",
+          "ipa": "/sliːp/",
+          "pos": "verb",
+          "vi": "ngủ",
+          "img": "https://images.unsplash.com/photo-1520206183501-b80df61043c2?auto=format&fit=crop&w=600&q=80",
+          "ex": "I go to sleep early."
+        },
+        {
+          "word": "wash",
+          "ipa": "/wɑːʃ/",
+          "pos": "verb",
+          "vi": "rửa, giặt",
+          "img": "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=600&q=80",
+          "ex": "Wash your face."
+        },
+        {
+          "word": "cook",
+          "ipa": "/kʊk/",
+          "pos": "verb",
+          "vi": "nấu ăn",
+          "img": "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=600&q=80",
+          "ex": "My mother cooks good food."
+        },
+        {
+          "word": "clean",
+          "ipa": "/kliːn/",
+          "pos": "verb",
+          "vi": "dọn dẹp",
+          "img": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80",
+          "ex": "Clean the house."
+        },
+        {
+          "word": "study",
+          "ipa": "/ˈstʌd.i/",
+          "pos": "verb",
+          "vi": "học tập",
+          "img": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80",
+          "ex": "Study English every day."
+        },
+        {
+          "word": "work",
+          "ipa": "/wɜːrk/",
+          "pos": "verb",
+          "vi": "làm việc",
+          "img": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80",
+          "ex": "I work in an office."
+        },
+        {
+          "word": "play",
+          "ipa": "/pleɪ/",
+          "pos": "verb",
+          "vi": "chơi",
+          "img": "https://images.unsplash.com/photo-1508962914676-134849a727f0?auto=format&fit=crop&w=600&q=80",
+          "ex": "Play with friends."
+        },
+        {
+          "word": "walk",
+          "ipa": "/wɔːk/",
+          "pos": "verb",
+          "vi": "đi bộ",
+          "img": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=600&q=80",
+          "ex": "Walk in the park."
+        },
+        {
+          "word": "run",
+          "ipa": "/rʌn/",
+          "pos": "verb",
+          "vi": "chạy",
+          "img": "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=600&q=80",
+          "ex": "Run every morning."
+        },
+        {
+          "word": "read",
+          "ipa": "/riːd/",
+          "pos": "verb",
+          "vi": "đọc sách",
+          "img": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+          "ex": "Read English books."
+        },
+        {
+          "word": "write",
+          "ipa": "/raɪt/",
+          "pos": "verb",
+          "vi": "viết chữ",
+          "img": "https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=600&q=80",
+          "ex": "Write a letter."
+        }
+      ]
+    }
+  ]
+}

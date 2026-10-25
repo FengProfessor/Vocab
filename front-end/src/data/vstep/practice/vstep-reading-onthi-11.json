@@ -1,0 +1,86 @@
+{
+  "id": "vstep-reading-onthi-11",
+  "title": "Luyện Đọc VSTEP: VstepR4-Test 09 (VstepR4-Test 09)",
+  "duration": 10,
+  "date": "2025-11-16",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 4,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "VstepR4-Test 09",
+            "text": "<p class=\"Bodytext70\">From a European perspective, the first explorers were engaged in the settlement and discovery of a “new world.” However, the history of the United States is but a recent episode in comparison with the history of the North American continent and its people. Between 54 million and 2 million years ago, the continent evolved into the form we know today. At least 15,000 to 20,000 years ago, nomadic hunters began to migrate from Asia across the Bering Strait.</p>\n<p class=\"Bodytext70\">By the fifteenth century, when the European nations were “discovering” America, the country was inhabited by a minimum of two million natives. Most of the tribes had developed some kind of agriculture or fishing while remaining as hunters and retaining nomadic characteristics. They roamed the high western plains, hunted mountain valleys, and farmed along the rivers from coast to coast. There was considerable diversity and there were several hundred different languages among the wide-ranging tribes. Several tribes, such as the Iroquois, were very successtul in achieving political unity and extending their influence.</p>\n<p>The native peoples were well adapted to their environment, and without the aid of the natives, the first European settlers might not have survived. Many native vegetables, such as maize and potatoes, became important Staples. Moreover, native trackers guided expeditions and taught hunters and explorers the ways of the land. For years, U.S. history began with Columbus, but today the cultures and contributions oi the early inhabitants of the Americas are studied and acknowledged. The story of North America begins with the true origin of the continent and its peoples.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r11-q1",
+              "type": "mcq",
+              "question": "The passage implies that",
+              "options": [
+                "The Europeans were well prepared to live in the “new world”",
+                "The Europeans erroneously considered themselves the first settlers in North America",
+                "The Europeans were not influenced by the native Americans",
+                "The history of North America begins with its discovery and settlement by the Europeans"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án A. Người Châu Âu chuẩn bị sẵn sàng để sống trong một “thế giới” mới. Ta thấy từ khóa “new world” trong câu 1, đoạn 1: “Từ quan điểm của một người châu Âu, những người thám hiểm đầu tiên là những người định cư và khám phá ra một “thế giới mới”. Tuy nhiên câu này không đề cập đến tâm thế chuẩn bị của người châu Âu để sống trong một thế giới mới mà nêu ra quan điểm của họ về những người đầu tiên phát hiện ra thế giới mới. Cho nên không có thông tin để suy ra đáp án này. -> A loại</p>\n<p>Đáp án B. Người châu Âu đã nhầm lẫn khi coi họ là những người sinh sống đầu tiên sống ở Bắc Mỹ. Tiếp tục đọc phần còn lại của đoạn 1, ta có: “Tuy nhiên lịch sử của nước Mỹ thì chỉ là một gia đoạn lịch sử mới khi so sánh với lịch sử của lục địa Bắc Mỹ và những con người nơi đây. Trong khoảng thời gian từ 54 đến 2 triệu năm trước, lục địa này đã phát triển thành hình dạng mà chúng ta biết hiện nay. Ít nhất từ 15 đến 20 nghìn năm trước, những người săn bắt du cư đã bắt đầu di cư đến đây từ châu Á qua eo biển Bering.” Như vậy ngay từ trước người châu Âu, những người di cư từ châu Á đã đến và sinh sống ở Bắc Mỹ nên người châu Âu không phải là những người sinh sống đầu tiên ở Bắc Mỹ. -> B đúng</p>\n<p>Đáp án C. <i>Những người châu Âu không bị ảnh hưởng bị những người châu Mỹ bản địa</i>. Trong câu 1 của đoạn 3 có thông tin: “Những người bản địa thích nghi tốt với môi trường của họ, và nếu không có những người bản địa này, những người châu Âu đầu tiên sinh sống ở đây có thể đã không sống sót được”. Như vậy những người châu Âu đã được những người bản địa giúp đỡ để có thể tồn tại nên họ đã chịu ảnh hưởng của những người bản địa. -> C loại</p>\n<p>Đáp án D. <i>Lịch sử Bắc Mỹ bắt đầu với việc nó được khám phá và di trú bởi những người châu Âu</i>. Đáp án này không đúng như thông tin trong bài. (xem giải thích ở đáp án B), Bắc Mỹ đã hình thành rất lâu trước khi người Châu Âu phát hiện ra, và hơn nữa dòng người đến từ châu Á còn là những người đến di cư ở đây trước cả những người châu Âu. -> D loại</p>\n<p>=> B là đáp án đúng</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r11-q2",
+              "type": "mcq",
+              "question": "From the passage it can be inferred that",
+              "options": [
+                "North America is a relatively new continent",
+                "Until approximately 20,000 years ago, there were no humans in North America",
+                "When the Europeans arrived, North America was uninhabited",
+                "Native Americans had as much trouble surviving in North America as the European settlers"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án A. <i>Bắc Mỹ là một lục địa mới</i>. Bắc Mỹ đã đươc hình thành từ rất lâu, trong khoảng 54 đến 2 triệu năm trước. -> A loại</p>\n<p>Đáp án B. <i>Cho đến lúc khoảng 20 nghìn năm trước, không có người sống ở Bắc Mỹ</i>. Theo câu cuối đoạn 1 “Ít nhất từ 15 đến 20 nghìn năm trước, những người săn bắt du cư đã bắt đầu di cư đến đây từ châu Á qua eo biển Bering”, tính từ 20 nghìn năm đổ về trước đó, không thấy nhắc đến bất kỳ dòng di cư nào đến Bắc Mỹ; nên rất có thể rằng những người đến từ châu Á là những người sinh sống đầu tiên ở Bắc Mỹ. -> B đúng</p>\n<p>Đáp án C. <i>Khi người châu Âu đến, Bắc Mỹ không có người ở</i>. Thông tin này không đúng (xemg giải thích đáp án B câu 37). -> C loại</p>\n<p>Đáp án D. <i>Những người châu Mỹ bản địa cũng có nhiều khó khăn trong việc sinh tồn ở Bắc Mỹ như những người châu Âu</i>. Theo như đã dịch ở câu 1 đoạn 3 (xem đáp án C, câu 37), trong khi những người châu Mỹ bản địa thích nghi tốt với môi trường sống của họ, những người châu Âu cần phải nhờ đến sự giúp đỡ của những người bản địa mới có thể sống sót. Cho nên người châu Mỹ bản địa không gặp khó khăn khi sinh tồn. -> D loại</p>\n<p>=> B là đáp án đúng</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r11-q3",
+              "type": "mcq",
+              "question": "Which of the following can be inferred fromthe passage?",
+              "options": [
+                "Most native Americans had established permanent settlements by the time the Europeans arrived.",
+                "Most native Americans spoke the same language and had similar customs.",
+                "Many native American tribes had organized societies by the time Europeans arrived.",
+                "Once native Americans began farming, they no longer moved from place to place."
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Thông tin được đưa ra trong các đáp án có ở đoạn 2 của bài:</p>\n<p><i>Vào thế kỷ 15, khi các nước châu Âu “khám phá” ra châu Mỹ, đã có tối thiêu 2 nghìn người bản địa sinh sống ở đây (1). Hầu hết các bộ tộc đã phát triển một số hình thức nông nghiệp hay ngư nghiệp trong khi vẫn duy trì lối săn bắn và giữ lại những đặc trưng du mục (2). Họ khám phá những đồng bằng trên cao phía Tây, săn bắn ở những thung lũng và trồng cấy dọc bờ sông (3). Có rất nhiều sự đa dạng và hàng trăm ngôn ngữ khác nhau giữa nhiều các bộ tộc (4). Một số bộ tộc, như là Iroquios đã rất thành công trong việc đạt được sự thống nhất chính trị và mở rộng tầm ảnh hưởng của họ (5)</i>.</p>\n<p>Đáp án A. <i>Hầu hết những người bản địa châu Mỹ đã hình thành lối an cư ổn định khi người châu Âu đến</i>. Theo thông tin bên trên, khi người châu Âu đến sống ở châu Mỹ, các bộ lạc ở đây bên cạnh phát triển nông- ngư nghiệp vẫn duy trình hình thức săn bắt và du mục từ nơi này đến nơi khác. Dó đó, cuộc sống của họ vẫn chưa ổn định ở một nơi. -> A loại</p>\n<p>Đáp án B. <i>Hầu hết những người bản địa châu Mỹ nói cùng một ngôn ngữ và có phong tục tương tự nhau</i>. Theo câu (4) đoạn 2, phong tục giữa các bộ tộc ở châu Mỹ rất đa dạng và học nói nhiều ngôn ngữ khác nhau. -> B loại</p>\n<p>Đáp án C. <i>Nhiều bộ tộc châu Mỹ bản địa đã có tổ chức xã hội khi người châu Âu đến</i>. Dựa vào câu (5), một số bộ tộc châu Mỹ đã đạt được sự thống nhất chính trị. Cho nên có thể suy rằng họ đã biết cách sắp xếp trật tự xã hội để đảm bảo sự thống nhất trong bộ tộc. -> C đúng</p>\n<p>Đáp án D. <i>Khi mà những người bản địa ở châu Mỹ bắt đầu trồng cấy, họ không di chuyển từ nơi này sang nơi khác nữa</i>. Tuy nhiên theo nội dung của bài, mặc dù phát triển một số hình thức nông nghiệp, những người này vẫn giữ thói quen du mục, đi từ các đồng bằng cho đến các thung lũng. -> D loại</p>\n<p>=> C là đáp án đúng</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r11-q4",
+              "type": "mcq",
+              "question": "The passage suggests that nativeAmericans",
+              "options": [
+                "Were primitive compared with the European settlers",
+                "Kept their distance from European settlements",
+                "Had very little to offer the European settlers",
+                "Were of benefit to the first settlers"
+              ],
+              "answer": 3,
+              "explanationVi": "<p>Câu này hỏi thông tin suy ra về những người bản địa ở châu Mỹ.</p>\n<p>Đáp án A. <i>Họ là những người nguyên thủy khi so sánh với những người châu Âu sống ở đây</i>. Ta thấy rằng những người đầu tiên sống ở châu Mỹ cũng là những người du mục di cư đến vùng đất này chứ ngay từ đầu họ không sống ở Bắc Mỹ, cho nên họ đã học được phương thức sống du mục và thích nghi với điều kiện sống. -> A loại</p>\n<p>Đáp án B. <i>Họ giữ khoảng cách với những người châu Âu sống ở đây</i>. Như đã giải thích ở các câu trên, những người bản địa giúp đỡ những người châu Âu chứ không xa lánh họ. Cụ thể “Nhiều loại rau bản địa như ngô và khoai tây trở thành các nhu yếu phẩm. Hơn nữa, những người săn bắn bản địa hướng dẫn các đoàn thám hiểm, và dạy những người đi săn và những người thám hiểm về cách thức hoạt động của vùng đất này.” (câu 2, 3 đoạn 3).</p>\n<p>-> B loại</p>\n<p>Đáp án C. <i>Họ gần như chẳng cho những người châu Âu sống ở đây thứ gì</i>. Theo như đã giải thích ở đáp án B, nhưng người bản địa giúp cho người châu Âu có thực phẩm và biết cách thích nghi với môi trường ở vùng đất mới. -> C loại</p>\n<p>Đáp án D. Mang lại lợi ích cho những người châu Âu đầu tiên đến đây sinh sống. Điều này đúng với nội dung của bài (giải thích ở đáp án B). ->D đúng</p>\n<p>=> D là đáp án đún</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

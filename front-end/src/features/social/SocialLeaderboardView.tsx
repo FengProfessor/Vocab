@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, Col, Row } from 'antd';
-import { SyncOutlined } from '@ant-design/icons';
+import { Button, Col, Row } from '@/components/ui/Primitives';
+import { SyncOutlined } from '@/components/ui/Icons';
 import { PageHeaderCard } from '@/components/common/PageHeaderCard';
 import { SocialReferralCard } from '@/features/social/components/SocialReferralCard';
 import { StudyGroupsCard } from '@/features/social/components/StudyGroupsCard';

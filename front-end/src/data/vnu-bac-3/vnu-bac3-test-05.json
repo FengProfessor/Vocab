@@ -1,0 +1,1947 @@
+{
+  "id": "vnu-bac3-test-05",
+  "title": "[Đề 09] Bộ Đề Thực Chiến B1 Số 05 — Chuẩn Đầu Ra ULIS (Music Can Change the Taste of Vegetables!)",
+  "series": "VNU-BAC-3",
+  "description": "Đề luyện thi thực chiến VNU Test Bậc 3 chuẩn hóa theo khung năng lực ngoại ngữ Bậc 3 (CEFR B1). Bài đọc thực tế: Music Can Change the Taste of Vegetables! (Part 2), Visiting Dublin (Part 3), Our Great Ocean Road Adventure (Part 4).",
+  "durationMinutes": 65,
+  "targetLevel": "B1",
+  "totalQuestions": 45,
+  "isSampleTest": false,
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimitMinutes": 40,
+      "totalQuestions": 25,
+      "tasks": [
+        {
+          "id": "reading-part1",
+          "partNumber": 1,
+          "title": "Part 1: Signs & Notices",
+          "instructions": "There are 7 questions in this part. Choose the best answer (A, B, or C) that matches the meaning of each sign or notice.",
+          "questions": [
+            {
+              "id": "vnu3-05-r-q1",
+              "questionNumber": 1,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "School singing practice starts this week. Please don't arrive later than 1:25, as we must all be ready by 1:30.\nThank you.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Singing practice starts at 1:25."
+                },
+                {
+                  "key": "B",
+                  "text": "There is no singing practice this week."
+                },
+                {
+                  "key": "C",
+                  "text": "Please arrive early for singing practice."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Thông báo nhắc: 'Please don't arrive later than 1:25, as we must all be ready by 1:30.' (Vui lòng không đến muộn hơn 1:25 vì tất cả chúng ta phải sẵn sàng vào lúc 1:30). Buổi tập bắt đầu lúc 1:30 nên yêu cầu có mặt trước 1:25 chính là lời nhắc đến sớm ('Please arrive early for singing practice'). Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "singing practice",
+                  "ipa": "/ˈsɪŋ.ɪŋ ˈpræk.tɪs/",
+                  "meaning": "buổi tập hát",
+                  "partOfSpeech": "noun phrase"
+                },
+                {
+                  "word": "be ready",
+                  "ipa": "/bi ˈred.i/",
+                  "meaning": "sẵn sàng",
+                  "partOfSpeech": "adjective phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-r-q2",
+              "questionNumber": 2,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "You may return games that aren't opened to the shop and get your money back.\n\nYou can return a game if",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "it doesn't work."
+                },
+                {
+                  "key": "B",
+                  "text": "you don't like it."
+                },
+                {
+                  "key": "C",
+                  "text": "you haven't used it."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Quy định cửa hàng nêu rõ: 'You may return games that aren't opened to the shop and get your money back.' (Quý khách có thể trả lại các đĩa/hộp trò chơi chưa bóc mở cho cửa hàng và nhận lại tiền). Chưa bóc mở ('aren't opened') đồng nghĩa với việc bạn chưa từng sử dụng nó ('you haven't used it'). Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "return",
+                  "ipa": "/rɪˈtɜːn/",
+                  "meaning": "hoàn trả lại hàng",
+                  "partOfSpeech": "verb"
+                },
+                {
+                  "word": "get your money back",
+                  "ipa": "/ɡet jɔː ˈmʌn.i bæk/",
+                  "meaning": "nhận lại tiền hoàn trả",
+                  "partOfSpeech": "verb phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-r-q3",
+              "questionNumber": 3,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Book club\nDo you enjoy discussing books with classmates? Yes? Then come along to the book club. To join, contact Mr Sponforth.\n\nSpeak to Mr Sponforth if",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "you are interested in becoming a member of the book club."
+                },
+                {
+                  "key": "B",
+                  "text": "you would like to borrow a book from the club."
+                },
+                {
+                  "key": "C",
+                  "text": "you have read the same book as your classmates."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Thông báo câu lạc bộ sách viết: 'Then come along to the book club. To join, contact Mr Sponforth.' (Để đăng ký tham gia, hãy liên hệ với thầy Sponforth). Do đó bạn cần gặp thầy Sponforth nếu muốn trở thành thành viên câu lạc bộ sách ('interested in becoming a member of the book club'). Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "come along",
+                  "ipa": "/kʌm əˈlɒŋ/",
+                  "meaning": "đến tham gia",
+                  "partOfSpeech": "phrasal verb"
+                },
+                {
+                  "word": "contact",
+                  "ipa": "/ˈkɒn.tækt/",
+                  "meaning": "liên hệ với ai",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-r-q4",
+              "questionNumber": 4,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Hi Dad! It's Sam's birthday, so I want to buy a present. Could you lend me enough to get him something from the bookshop? Thanks! Davey\n\nDavey wants to",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "go shopping with his dad."
+                },
+                {
+                  "key": "B",
+                  "text": "borrow some money."
+                },
+                {
+                  "key": "C",
+                  "text": "ask what to get for Sam."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Davey nhắn bố: 'Could you lend me enough to get him something from the bookshop?' (Bố có thể cho con vay đủ tiền để mua cho bạn ấy một món quà ở hiệu sách được không?). Người bố cho vay ('lend') tức là Davey muốn mượn một khoản tiền ('borrow some money'). Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "borrow",
+                  "ipa": "/ˈbɒr.əʊ/",
+                  "meaning": "vay, mượn",
+                  "partOfSpeech": "verb"
+                },
+                {
+                  "word": "bookshop",
+                  "ipa": "/ˈbʊk.ʃɒp/",
+                  "meaning": "hiệu sách",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-r-q5",
+              "questionNumber": 5,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "HONEY CAFÉ\nUnfortunately two of our staff are ill today. (We must have at least three to open.)\nOpen at 9 a.m. tomorrow.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The café is closed today."
+                },
+                {
+                  "key": "B",
+                  "text": "We are looking for more staff."
+                },
+                {
+                  "key": "C",
+                  "text": "Tomorrow we open at a different time."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Biển báo quán Honey Café viết: 'Unfortunately two of our staff are ill today. (We must have at least three to open.) Open at 9 a.m. tomorrow.' (Rất tiếc hôm nay hai nhân viên bị ốm. Chúng tôi cần ít nhất ba người mới mở cửa được. Mở cửa lúc 9 giờ sáng mai). Vì không đủ nhân viên nên hôm nay quán đóng cửa ('The café is closed today'). Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "unfortunately",
+                  "ipa": "/ʌnˈfɔː.tʃən.ət.li/",
+                  "meaning": "thật không may, rất tiếc",
+                  "partOfSpeech": "adverb"
+                },
+                {
+                  "word": "at least",
+                  "ipa": "/ət liːst/",
+                  "meaning": "ít nhất, tối thiểu",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-r-q6",
+              "questionNumber": 6,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Smitford's Computer Store\nBring us your old laptop* when you get a new one from us and receive £100 off.\n*must still work",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "We repair old laptops."
+                },
+                {
+                  "key": "B",
+                  "text": "Old laptops are for sale for £100."
+                },
+                {
+                  "key": "C",
+                  "text": "Save money when you buy a new laptop."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Quảng cáo của cửa hàng máy tính Smitford ghi: 'Bring us your old laptop* when you get a new one from us and receive £100 off.' (Mang laptop cũ còn hoạt động tới khi mua laptop mới tại cửa hàng để được giảm giá 100 bảng). Điều này giúp khách hàng tiết kiệm tiền khi mua máy mới ('Save money when you buy a new laptop'). Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "receive ... off",
+                  "ipa": "/rɪˈsiːv ... ɒf/",
+                  "meaning": "được giảm trừ ... (vào giá mua)",
+                  "partOfSpeech": "verb phrase"
+                },
+                {
+                  "word": "save money",
+                  "ipa": "/seɪv ˈmʌn.i/",
+                  "meaning": "tiết kiệm tiền",
+                  "partOfSpeech": "verb phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-r-q7",
+              "questionNumber": 7,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Child fares are not available on any of our routes after 11pm.\nAdult fares will be charged at these times.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "You have to pay adult fares at all times."
+                },
+                {
+                  "key": "B",
+                  "text": "Children must use an adult ticket after 11pm."
+                },
+                {
+                  "key": "C",
+                  "text": "Children who look older than 11 years old may be asked to pay adult fare."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Biển thông báo trên phương tiện giao thông ghi: 'Child fares are not available on any of our routes after 11pm. Adult fares will be charged at these times.' (Giá vé trẻ em không áp dụng trên bất kỳ tuyến nào sau 11 giờ đêm. Giá vé người lớn sẽ được tính vào khung giờ này). Điều đó có nghĩa là sau 11 giờ đêm trẻ em phải mua vé người lớn ('Children must use an adult ticket after 11pm'). Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "child fare",
+                  "ipa": "/ˈtʃaɪld feər/",
+                  "meaning": "giá vé trẻ em",
+                  "partOfSpeech": "noun phrase"
+                },
+                {
+                  "word": "charge",
+                  "ipa": "/tʃɑːdʒ/",
+                  "meaning": "tính phí, thu tiền",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "reading-part2",
+          "partNumber": 2,
+          "title": "Part 2: Cloze Test",
+          "instructions": "Read the text below and choose the best answer (A, B, or C) for each blank from 8 to 15.",
+          "passage": {
+            "title": "Music Can Change the Taste of Vegetables!",
+            "text": "Many children, and some adults too, dislike the taste of certain vegetables. The flavours of foods such as cabbage and broccoli are generally the ones people mention as their least (8) ________ vegetables, as these vegetables are believed to have an extremely (9) ________ taste.\n\nHowever, according to an Oxford psychologist, children might change their (10) ________ about these foods if they can hear simple music while they're eating – such as the sounds that come from one musical instrument, called a wind chime. This instrument often (11) ________ in people's gardens, and plays sweet notes when the wind blows through it. These notes may (12) ________ the food seem to taste sweeter than it would do normally.\n\nHowever, many adults (13) ________ that their tastes developed as they grew (14) ________, so they now enjoy a far greater range of food. As a result, they're much more (15) ________ to eat the kind of vegetables they always hated during their childhood.",
+            "wordCount": 165
+          },
+          "questions": [
+            {
+              "id": "vnu3-05-r-q8",
+              "questionNumber": 8,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "...are generally the ones people mention as their least (8) ________ vegetables...",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "pleasant"
+                },
+                {
+                  "key": "B",
+                  "text": "delicious"
+                },
+                {
+                  "key": "C",
+                  "text": "favourite"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Cụm từ cố định 'their least favourite vegetables' (những loại rau củ ít được họ yêu thích nhất). 'favourite' thường đi kèm tính từ sở hữu ('my/their least favourite'), trong khi 'pleasant' hay 'delicious' không dùng cấu trúc 'their least pleasant/delicious vegetables' để chỉ sở thích cá nhân. Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "least favourite",
+                  "ipa": "/liːst ˈfeɪ.vər.ɪt/",
+                  "meaning": "ít được yêu thích nhất",
+                  "partOfSpeech": "adjective phrase"
+                },
+                {
+                  "word": "flavour",
+                  "ipa": "/ˈfleɪ.vər/",
+                  "meaning": "hương vị món ăn",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-r-q9",
+              "questionNumber": 9,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "...as these vegetables are believed to have an extremely (9) ________ taste.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "bitter"
+                },
+                {
+                  "key": "B",
+                  "text": "hard"
+                },
+                {
+                  "key": "C",
+                  "text": "heavy"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Tính từ mô tả vị của bắp cải và bông cải xanh khiến trẻ em không thích là 'bitter' (vị đắng/ngái: 'an extremely bitter taste'). 'hard' là cứng và 'heavy' là nặng, không dùng mô tả vị giác của rau. Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "bitter",
+                  "ipa": "/ˈbɪt.ər/",
+                  "meaning": "đắng (vị giác)",
+                  "partOfSpeech": "adjective"
+                },
+                {
+                  "word": "broccoli",
+                  "ipa": "/ˈbrɒk.əl.i/",
+                  "meaning": "bông cải xanh, súp lơ xanh",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-r-q10",
+              "questionNumber": 10,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "...children might change their (10) ________ about these foods if they can hear simple music...",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "senses"
+                },
+                {
+                  "key": "B",
+                  "text": "minds"
+                },
+                {
+                  "key": "C",
+                  "text": "moods"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Thành ngữ cố định: 'change one's mind about something' (thay đổi ý định, suy nghĩ hoặc quan điểm về thứ gì đó). Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "change one's mind",
+                  "ipa": "/tʃeɪndʒ wʌnz maɪnd/",
+                  "meaning": "thay đổi ý kiến / quyết định",
+                  "partOfSpeech": "idiom"
+                },
+                {
+                  "word": "psychologist",
+                  "ipa": "/saɪˈkɒl.ə.dʒɪst/",
+                  "meaning": "nhà tâm lý học",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-r-q11",
+              "questionNumber": 11,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "This instrument often (11) ________ in people's gardens, and plays sweet notes when the wind blows through it.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "drops"
+                },
+                {
+                  "key": "B",
+                  "text": "connects"
+                },
+                {
+                  "key": "C",
+                  "text": "hangs"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Chuông gió ('wind chime') là nhạc cụ thường được treo ('hangs') trong vườn nhà để phát ra âm thanh khi gió thổi qua. 'drops' (rơi) và 'connects' (kết nối) không phù hợp. Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "hang",
+                  "ipa": "/hæŋ/",
+                  "meaning": "treo, được treo",
+                  "partOfSpeech": "verb"
+                },
+                {
+                  "word": "wind chime",
+                  "ipa": "/ˈwɪnd tʃaɪm/",
+                  "meaning": "chuông gió",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-r-q12",
+              "questionNumber": 12,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "These notes may (12) ________ the food seem to taste sweeter than it would do normally.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "get"
+                },
+                {
+                  "key": "B",
+                  "text": "do"
+                },
+                {
+                  "key": "C",
+                  "text": "make"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Cấu trúc sai khiến với động từ nguyên mẫu không 'to' ('seem'): 'make + somebody/something + V-inf' ('make the food seem to taste sweeter' = làm cho thức ăn có vẻ ngọt hơn). 'get' phải đi với 'to seem', còn 'do' không có cấu trúc này. Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "make something seem",
+                  "ipa": "/meɪk ˈsʌm.θɪŋ siːm/",
+                  "meaning": "làm cho cái gì có cảm giác như",
+                  "partOfSpeech": "verb phrase"
+                },
+                {
+                  "word": "note",
+                  "ipa": "/nəʊt/",
+                  "meaning": "nốt nhạc, âm thanh",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-r-q13",
+              "questionNumber": 13,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "However, many adults (13) ________ that their tastes developed as they grew...",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "complain"
+                },
+                {
+                  "key": "B",
+                  "text": "advise"
+                },
+                {
+                  "key": "C",
+                  "text": "admit"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Động từ 'admit that...' (thừa nhận, công nhận rằng khẩu vị của họ đã phát triển khi trưởng thành). 'complain' (phàn nàn) mang nghĩa tiêu cực không hợp với việc 'enjoy a far greater range of food', còn 'advise' cần tân ngữ chỉ người. Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "admit",
+                  "ipa": "/ədˈmɪt/",
+                  "meaning": "thừa nhận, công nhận",
+                  "partOfSpeech": "verb"
+                },
+                {
+                  "word": "taste",
+                  "ipa": "/teɪst/",
+                  "meaning": "khẩu vị, sở thích ăn uống",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-r-q14",
+              "questionNumber": 14,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "...their tastes developed as they grew (14) ________, so they now enjoy a far greater range of food.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "up"
+                },
+                {
+                  "key": "B",
+                  "text": "out"
+                },
+                {
+                  "key": "C",
+                  "text": "away"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Cụm động từ 'grow up' (lớn lên, trưởng thành). Khi con người trưởng thành ('as they grew up'), khẩu vị của họ phát triển đa dạng hơn. Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "grow up",
+                  "ipa": "/ɡrəʊ ʌp/",
+                  "meaning": "lớn lên, trưởng thành",
+                  "partOfSpeech": "phrasal verb"
+                },
+                {
+                  "word": "a range of",
+                  "ipa": "/ə reɪndʒ ɒv/",
+                  "meaning": "nhiều loại, một loạt",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-r-q15",
+              "questionNumber": 15,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "As a result, they're much more (15) ________ to eat the kind of vegetables they always hated during their childhood.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "likely"
+                },
+                {
+                  "key": "B",
+                  "text": "possible"
+                },
+                {
+                  "key": "C",
+                  "text": "reasonable"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Cấu trúc 'be likely to do something' (có khả năng, có xu hướng sẽ làm gì). 'possible' và 'reasonable' không dùng trực tiếp với chủ ngữ chỉ người theo nghĩa 'có xu hướng làm gì'. Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "be likely to",
+                  "ipa": "/bi ˈlaɪ.kli tuː/",
+                  "meaning": "có khả năng, có xu hướng làm gì",
+                  "partOfSpeech": "adjective phrase"
+                },
+                {
+                  "word": "childhood",
+                  "ipa": "/ˈtʃaɪld.hʊd/",
+                  "meaning": "thời thơ ấu",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "reading-part3",
+          "partNumber": 3,
+          "title": "Part 3: True / False",
+          "instructions": "Read the text below and decide whether the statements from 16 to 20 are True or False. Choose A for True and B for False.",
+          "passage": {
+            "title": "Visiting Dublin",
+            "text": "OUTDOOR DUBLIN\nWith attractive public gardens, elegantly designed squares and the sprawling expanse of Phoenix Park, Dublin provides a wealth of green space, with plenty of opportunities for a stroll or an alfresco picnic. Outside the city, the shores of Dublin Bay offer bracing walks, while hardier souls might fancy a dip in the sea.\n\nCHILDREN'S DUBLIN\nThere's plenty in Dublin for kids to enjoy. As well as the attractions shown here, there's fun to be had exploring the delights of the National Wax Museum and Tara's Palace or venturing into the great outdoors, with trips to Phoenix Park or the seaside. Most attractions and activities offer significant discounts to children.\n\nSHOPPERS' DUBLIN\nDublin boasts some excellent book and CD shops, the most notable of them specializing in Irish literature and music. Fashionistas are well catered for too, with plenty of boutiques, jewellery shops and department stores stocking the best of Irish and global design. On a fine day, consider heading for a food market or an artisan deli and picnicking in one of the city's attractive squares.\n\nSPORTING DUBLIN\nSport is an integral part of Irish life and no more so than in the capital. Gaelic football, hurling, soccer and rugby matches feature on pub TV screens and as a prominent part of daily conversation, and newspaper coverage seems boundless. Then there's also that well-known Irish fondness for a flutter, be it on the horses or the dogs.\n\nFESTIVALS\nDublin stages numerous festivals during the year. The arts are particularly well catered for, with major events devoted to theatre, film, music and literature an established part of the calendar. There's plenty for children to enjoy as well, such as the St Patrick's festival and numerous events in Temple Bar.\n\nFREE DUBLIN\nThough Dublin is an expensive city, there are plenty of free attractions that won't burden your pocket or purse. Some major sites, such as the National Gallery and National Museum, charge no entrance fee except for special events. There's also plenty of street and outdoor entertainment, especially in summer.\n\nDUBLIN TASTES\nDublin's culinary reputation is fast improving, though prices can sometimes be off-putting. The pleasures of modern Irish cuisine (as well as the finer points of Guinness) are dealt with elsewhere, but there are plenty of traditional tastes that won't break the budget and will leave you with an evocative memory of the city.",
+            "wordCount": 385
+          },
+          "questions": [
+            {
+              "id": "vnu3-05-r-q16",
+              "questionNumber": 16,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "There are few truly open green spaces in Dublin.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Trong mục OUTDOOR DUBLIN viết: 'With attractive public gardens, elegantly designed squares and the sprawling expanse of Phoenix Park, Dublin provides a wealth of green space...' Cụm 'a wealth of green space' có nghĩa là vô số không gian xanh rộng lớn, trái ngược với 'few truly open green spaces' (có rất ít không gian xanh). Nhận định SAI (False - B).",
+              "vocabularyNotes": [
+                {
+                  "word": "a wealth of",
+                  "ipa": "/ə welθ ɒv/",
+                  "meaning": "một lượng lớn, vô số, dồi dào",
+                  "partOfSpeech": "phrase"
+                },
+                {
+                  "word": "stroll",
+                  "ipa": "/strəʊl/",
+                  "meaning": "cuộc tản bộ thư thả",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-r-q17",
+              "questionNumber": 17,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Most attractions have reduced prices for kids.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Trong mục CHILDREN'S DUBLIN ghi rõ: 'Most attractions and activities offer significant discounts to children.' Cụm 'offer significant discounts to children' đồng nghĩa với 'have reduced prices for kids' (giảm giá đáng kể cho trẻ em). Nhận định ĐÚNG (True - A).",
+              "vocabularyNotes": [
+                {
+                  "word": "significant discount",
+                  "ipa": "/sɪɡˈnɪf.ɪ.kənt ˈdɪs.kaʊnt/",
+                  "meaning": "mức giảm giá đáng kể",
+                  "partOfSpeech": "noun phrase"
+                },
+                {
+                  "word": "attraction",
+                  "ipa": "/əˈtræk.ʃən/",
+                  "meaning": "điểm tham quan du lịch",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-r-q18",
+              "questionNumber": 18,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "In Ireland sport plays a big role in the local communities and society.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Mục SPORTING DUBLIN khẳng định: 'Sport is an integral part of Irish life and no more so than in the capital.' ('Thể thao là một phần không thể tách rời của đời sống người dân Ireland... xuất hiện nổi bật trong các cuộc trò chuyện hàng ngày'). Nhận định ĐÚNG (True - A).",
+              "vocabularyNotes": [
+                {
+                  "word": "integral part",
+                  "ipa": "/ˈɪn.tɪ.ɡrəl pɑːt/",
+                  "meaning": "phần thiết yếu, không thể tách rời",
+                  "partOfSpeech": "noun phrase"
+                },
+                {
+                  "word": "prominent",
+                  "ipa": "/ˈprɒm.ɪ.nənt/",
+                  "meaning": "nổi bật, quan trọng",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-r-q19",
+              "questionNumber": 19,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "If you plan to be in Dublin with kids on St Patrick's Day then avoid the Temple Bar area.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Mục FESTIVALS viết: 'There's plenty for children to enjoy as well, such as the St Patrick's festival and numerous events in Temple Bar.' Có rất nhiều hoạt động thú vị cho trẻ em tại lễ hội St Patrick và ở khu vực Temple Bar, chứ bài đọc không hề khuyên tránh xa khu vực này. Nhận định SAI (False - B).",
+              "vocabularyNotes": [
+                {
+                  "word": "stage a festival",
+                  "ipa": "/steɪdʒ ə ˈfes.tɪ.vəl/",
+                  "meaning": "tổ chức một lễ hội",
+                  "partOfSpeech": "verb phrase"
+                },
+                {
+                  "word": "devoted to",
+                  "ipa": "/dɪˈvəʊ.tɪd tuː/",
+                  "meaning": "dành riêng cho, chuyên về",
+                  "partOfSpeech": "adjective phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-r-q20",
+              "questionNumber": 20,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Entry to the National Gallery is always free.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Mục FREE DUBLIN nêu rõ: 'Some major sites, such as the National Gallery and National Museum, charge no entrance fee except for special events.' Phòng trưng bày Quốc gia miễn phí vé vào cửa NGOẠI TRỪ các sự kiện đặc biệt ('except for special events'), nên nói 'always free' (luôn luôn miễn phí) là không chính xác. Nhận định SAI (False - B).",
+              "vocabularyNotes": [
+                {
+                  "word": "entrance fee",
+                  "ipa": "/ˈen.trəns fiː/",
+                  "meaning": "phí/vé vào cửa",
+                  "partOfSpeech": "noun phrase"
+                },
+                {
+                  "word": "break the budget",
+                  "ipa": "/breɪk ðə ˈbʌdʒ.ɪt/",
+                  "meaning": "vượt quá ngân sách chi tiêu",
+                  "partOfSpeech": "idiom"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "reading-part4",
+          "partNumber": 4,
+          "title": "Part 4: Reading Comprehension",
+          "instructions": "Read the following passage and choose the best answer (A, B, or C) for each question from 21 to 25.",
+          "passage": {
+            "title": "Our Great Ocean Road Adventure",
+            "text": "by Donna Waverley\n\nMy family and I recently went to Australia, to see my grandparents. But before we visited them, we went sightseeing along the Great Ocean Road, on the Australian coast.\n\nDad had intended to drive, but even though he was used to driving miles without getting exhausted, he then read on the website that the road wouldn't be an easy drive, with a number of sharp bends. Anyway, we thought he deserved to enjoy the fantastic views too, which he couldn't do as our driver. So instead, we persuaded him to book discount bus tickets and off we went.\n\nOur first stop was where wild kangaroos lived – and Dad and I were taking a walk when a big one appeared! For a moment, it seemed to consider coming towards us, which made me slightly nervous – but then it went off along the road, stopping to check if we were following. Although it was with us a while, I was so excited I didn't even manage to pull out my camera. Then it looked back once more, and went off into the bushes.\n\nThat wasn't the only wildlife we saw. I thought it unlikely we'd see Australia's famous koala bears during our short visit, as I'd heard they were rare – but we weren't disappointed at our next stop. In fact, we discovered there were roughly six million in that area! Sadly, some gum trees they were in had very few leaves left, which people told us was because of the koalas, although I'd read that lack of water is actually the problem. Still, I guess they looked cute, and were easy to find – we just followed the tourists looking up into the trees!\n\nDad had booked a campsite for the night, with ready-made tents – for an adventure! I wasn't sure about that, but they were actually luxury tents, within walking distance of some famous rocks and other places we hoped to visit. However, Dad also said the sounds of wild creatures would help us sleep. That sounded worrying – until the 'wild creatures' turned out to be frogs! So I was embarrassed by my fears – and kept awake by the frogs! But we had fun making meals together – we'd brought food, as we knew there'd be nowhere to eat.\n\nIn fact, this whole trip was fantastic!",
+            "wordCount": 388
+          },
+          "questions": [
+            {
+              "id": "vnu3-05-r-q21",
+              "questionNumber": 21,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "Donna's Dad decided not to drive the Great Ocean Road himself because",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "he realised he wouldn't enjoy the views as much."
+                },
+                {
+                  "key": "B",
+                  "text": "he thought it would be too tiring for him."
+                },
+                {
+                  "key": "C",
+                  "text": "he found out the route was very challenging."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Trong đoạn 2, Donna viết: 'Dad had intended to drive, but even though he was used to driving miles without getting exhausted, he then read on the website that the road wouldn't be an easy drive, with a number of sharp bends.' Bố cô phát hiện trên trang web rằng cung đường này rất khó lái với nhiều khúc cua gấp ('found out the route was very challenging' - C). A là suy nghĩ của các thành viên khác trong gia đình ('we thought he deserved to enjoy the fantastic views'), B sai vì bố vốn quen lái đường dài mà không mệt.",
+              "vocabularyNotes": [
+                {
+                  "word": "sharp bend",
+                  "ipa": "/ʃɑːp bend/",
+                  "meaning": "khúc cua gấp",
+                  "partOfSpeech": "noun phrase"
+                },
+                {
+                  "word": "exhausted",
+                  "ipa": "/ɪɡˈzɔː.stɪd/",
+                  "meaning": "kiệt sức, mệt nhoài",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-r-q22",
+              "questionNumber": 22,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "When Donna saw a kangaroo along the route, she was",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "worried that it might approach her."
+                },
+                {
+                  "key": "B",
+                  "text": "amazed at the size of it."
+                },
+                {
+                  "key": "C",
+                  "text": "sad that it didn't stay with them long."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Trong đoạn 3: 'For a moment, it seemed to consider coming towards us, which made me slightly nervous'. Việc con chuột túi có vẻ định tiến về phía hai bố con khiến Donna hơi lo lắng ('worried that it might approach her' - A).",
+              "vocabularyNotes": [
+                {
+                  "word": "approach",
+                  "ipa": "/əˈprəʊtʃ/",
+                  "meaning": "tiến lại gần, tiếp cận",
+                  "partOfSpeech": "verb"
+                },
+                {
+                  "word": "bush",
+                  "ipa": "/bʊʃ/",
+                  "meaning": "bụi cây",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-r-q23",
+              "questionNumber": 23,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "Donna says that the koala bears they saw were",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "responsible for damage to the trees."
+                },
+                {
+                  "key": "B",
+                  "text": "even more attractive than people had told her."
+                },
+                {
+                  "key": "C",
+                  "text": "more common than she'd expected."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Trong đoạn 4: 'I thought it unlikely we'd see Australia's famous koala bears during our short visit, as I'd heard they were rare – but we weren't disappointed at our next stop. In fact, we discovered there were roughly six million in that area!' Ban đầu Donna tưởng gấu túi rất hiếm, nhưng thực tế có tới khoảng 6 triệu con ở khu vực đó và rất dễ tìm thấy ('more common than she'd expected' - C). A sai vì cô đọc được rằng thiếu nước mới là nguyên nhân chính khiến cây rụng lá.",
+              "vocabularyNotes": [
+                {
+                  "word": "rare",
+                  "ipa": "/reər/",
+                  "meaning": "hiếm, ít gặp",
+                  "partOfSpeech": "adjective"
+                },
+                {
+                  "word": "roughly",
+                  "ipa": "/ˈrʌf.li/",
+                  "meaning": "khoảng chừng, xấp xỉ",
+                  "partOfSpeech": "adverb"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-r-q24",
+              "questionNumber": 24,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "What was Donna's opinion of the place where they stayed?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "She found it was less comfortable than she'd hoped."
+                },
+                {
+                  "key": "B",
+                  "text": "She liked the fact that it was convenient for sightseeing."
+                },
+                {
+                  "key": "C",
+                  "text": "She enjoyed hearing the sounds of nature as she slept."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Trong đoạn 5: 'they were actually luxury tents, within walking distance of some famous rocks and other places we hoped to visit.' Những chiếc lều thực chất rất sang trọng và nằm trong bán kính đi bộ tới các tảng đá nổi tiếng cùng nhiều điểm tham quan khác ('convenient for sightseeing' - B). A sai vì lều rất tiện nghi, C sai vì tiếng ếch kêu làm cô mất ngủ.",
+              "vocabularyNotes": [
+                {
+                  "word": "within walking distance",
+                  "ipa": "/wɪˈðɪn ˈwɔː.kɪŋ ˈdɪs.təns/",
+                  "meaning": "trong phạm vi có thể đi bộ tới",
+                  "partOfSpeech": "phrase"
+                },
+                {
+                  "word": "campsite",
+                  "ipa": "/ˈkæmp.saɪt/",
+                  "meaning": "khu cắm trại",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-r-q25",
+              "questionNumber": 25,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "What might Donna write in her blog during the trip?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The bus we're travelling on is pretty comfortable, with great views from the window. Grandma and Granddad are enjoying it, too!"
+                },
+                {
+                  "key": "B",
+                  "text": "Yesterday we went to see some huge rocks near our campsite – and we were really impressed! I'm surprised they're not well known."
+                },
+                {
+                  "key": "C",
+                  "text": "I wasn't looking forward to camping, in case there were wild animals, but we haven't seen anything at all dangerous, so I feel silly now!"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Trong đoạn 5, Donna kể rằng cô từng lo lắng về việc cắm trại và tiếng động vật hoang dã cho tới khi phát hiện ra đó chỉ là những chú ếch: 'That sounded worrying – until the \"wild creatures\" turned out to be frogs! So I was embarrassed by my fears'. Điều này khớp hoàn toàn với câu C ('feel silly now' = 'embarrassed by my fears'). A sai vì ông bà không đi cùng trên xe buýt, B sai vì các tảng đá đó rất nổi tiếng ('famous rocks'). Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "turn out to be",
+                  "ipa": "/tɜːn aʊt tuː biː/",
+                  "meaning": "hóa ra là",
+                  "partOfSpeech": "phrasal verb"
+                },
+                {
+                  "word": "embarrassed",
+                  "ipa": "/ɪmˈbær.əst/",
+                  "meaning": "xấu hổ, ngượng ngùng",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimitMinutes": 25,
+      "totalQuestions": 20,
+      "tasks": [
+        {
+          "id": "listening-part1",
+          "partNumber": 1,
+          "title": "Part 1: Short Recordings",
+          "instructions": "There are 7 questions in this part. For each question, you will listen to one short recording TWICE. Choose the right answer (A, B, or C).",
+          "playCountLimit": 2,
+          "media": {
+            "audioUrl": "/audio/vnu-bac3/test-05/listening-part1.mp3"
+          },
+          "transcript": "[Recording 1]:\nGirl 1: Will you meet me in the park?\nGirl 2: OK. Where? By the entrance?\nGirl 1: No, at the ice-cream kiosk. You know, the one by the lake.\nGirl 2: OK.\n\n[Recording 2]:\nMan: Good afternoon. Can you show me your office chairs? I'm looking for something with a high back and arms.\n\n[Recording 3]:\nGirl 1: Now, have we got everything? Flour, butter, a lemon, milk ...\nGirl 2: Don't we need eggs?\nGirl 1: Of course! Two eggs.\n\n[Recording 4]:\nWoman: Look at that mirror – how did it get broken?\nBoy: We were playing ball and I missed it.\nWoman: I've told you before you are not to play ball in the house. Well, you will both have to buy a new mirror.\n\n[Recording 5]:\nSarah: When can we go out, Mum?\nMother: In about half an hour, Sarah, when I've finished doing the washing-up.\n\n[Recording 6]:\nWoman: I thought you were only taking two suitcases on holiday with you?\nMan: Well, I was, but I decided to take my overnight bag as well. I couldn't get everything into two cases and there's no way I could carry a third!\n\n[Recording 7]:\nMan: I'm really disappointed with my holiday photos. The only good one is the one of us all standing together on the clifftop looking down at the beach.",
+          "questions": [
+            {
+              "id": "vnu3-05-l-q1",
+              "questionNumber": 1,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Where will the girls meet?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "By the park entrance"
+                },
+                {
+                  "key": "B",
+                  "text": "By the lake without any shops nearby"
+                },
+                {
+                  "key": "C",
+                  "text": "At the ice-cream kiosk by the lake"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "transcript": "Girl 1: Will you meet me in the park?\nGirl 2: OK. Where? By the entrance?\nGirl 1: No, at the ice-cream kiosk. You know, the one by the lake.\nGirl 2: OK.",
+              "explanationVi": "Cô gái thứ hai hỏi có phải gặp ở cổng công viên ('By the entrance?') không, và cô gái thứ nhất đáp: 'No, at the ice-cream kiosk. You know, the one by the lake.' Hai bạn nữ sẽ gặp nhau tại quầy bán kem cạnh hồ nước (C).",
+              "vocabularyNotes": [
+                {
+                  "word": "kiosk",
+                  "ipa": "/ˈkiː.ɒsk/",
+                  "meaning": "quầy bán hàng nhỏ (bán kem, báo, nước)",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "entrance",
+                  "ipa": "/ˈen.trəns/",
+                  "meaning": "lối vào, cổng vào",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-l-q2",
+              "questionNumber": 2,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Which chair does the man want?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "An office chair with a high back and arms"
+                },
+                {
+                  "key": "B",
+                  "text": "An office chair with a high back and no arms"
+                },
+                {
+                  "key": "C",
+                  "text": "An office chair with a low back and arms"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "transcript": "Man: Good afternoon. Can you show me your office chairs? I'm looking for something with a high back and arms.",
+              "explanationVi": "Người đàn ông nói rõ yêu cầu với nhân viên cửa hàng: 'Can you show me your office chairs? I'm looking for something with a high back and arms.' Ông cần một chiếc ghế văn phòng có lưng tựa cao và có tay vịn (A).",
+              "vocabularyNotes": [
+                {
+                  "word": "high back",
+                  "ipa": "/haɪ bæk/",
+                  "meaning": "phần tựa lưng cao (của ghế)",
+                  "partOfSpeech": "noun phrase"
+                },
+                {
+                  "word": "arm",
+                  "ipa": "/ɑːm/",
+                  "meaning": "tay vịn của ghế",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-l-q3",
+              "questionNumber": 3,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Which picture shows what the girls need?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Flour, butter, a lemon, milk, and two eggs"
+                },
+                {
+                  "key": "B",
+                  "text": "Flour, butter, a lemon, and milk without eggs"
+                },
+                {
+                  "key": "C",
+                  "text": "Flour, butter, two lemons, milk, and six eggs"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "transcript": "Girl 1: Now, have we got everything? Flour, butter, a lemon, milk ...\nGirl 2: Don't we need eggs?\nGirl 1: Of course! Two eggs.",
+              "explanationVi": "Hai cô gái kiểm tra nguyên liệu: 'Flour, butter, a lemon, milk ... Don't we need eggs? Of course! Two eggs.' Như vậy đầy đủ nguyên liệu họ cần gồm bột mì, bơ, một quả chanh, sữa và hai quả trứng (A).",
+              "vocabularyNotes": [
+                {
+                  "word": "flour",
+                  "ipa": "/flaʊər/",
+                  "meaning": "bột mì",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "ingredient",
+                  "ipa": "/ɪnˈɡriː.di.ənt/",
+                  "meaning": "nguyên liệu nấu ăn",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-l-q4",
+              "questionNumber": 4,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Which picture shows what happened?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "A broken window next to a ball"
+                },
+                {
+                  "key": "B",
+                  "text": "A broken mirror inside the house caused by playing ball"
+                },
+                {
+                  "key": "C",
+                  "text": "A broken mirror in the bathroom caused by dropping a brush"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "transcript": "Woman: Look at that mirror – how did it get broken?\nBoy: We were playing ball and I missed it.\nWoman: I've told you before you are not to play ball in the house. Well, you will both have to buy a new mirror.",
+              "explanationVi": "Người phụ nữ hỏi tại sao chiếc gương bị vỡ ('Look at that mirror – how did it get broken?'), và cậu bé trả lời: 'We were playing ball and I missed it.' Họ chơi bóng trong nhà và làm vỡ gương (B).",
+              "vocabularyNotes": [
+                {
+                  "word": "mirror",
+                  "ipa": "/ˈmɪr.ər/",
+                  "meaning": "tấm gương soi",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "miss",
+                  "ipa": "/mɪs/",
+                  "meaning": "bắt trượt, đỡ hụt (bóng)",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-l-q5",
+              "questionNumber": 5,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "What is Sarah's mother doing?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Ironing clothes in the living room"
+                },
+                {
+                  "key": "B",
+                  "text": "Cleaning the floor"
+                },
+                {
+                  "key": "C",
+                  "text": "Doing the washing-up in the kitchen"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "transcript": "Sarah: When can we go out, Mum?\nMother: In about half an hour, Sarah, when I've finished doing the washing-up.",
+              "explanationVi": "Khi Sarah hỏi bao giờ có thể ra ngoài, người mẹ đáp: 'In about half an hour, Sarah, when I've finished doing the washing-up.' Cụm 'doing the washing-up' có nghĩa là đang rửa bát đĩa (C).",
+              "vocabularyNotes": [
+                {
+                  "word": "do the washing-up",
+                  "ipa": "/duː ðə ˌwɒʃ.ɪŋˈʌp/",
+                  "meaning": "rửa bát đĩa",
+                  "partOfSpeech": "verb phrase"
+                },
+                {
+                  "word": "in about half an hour",
+                  "ipa": "/ɪn əˈbaʊt hɑːf ən aʊər/",
+                  "meaning": "trong khoảng nửa tiếng nữa",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-l-q6",
+              "questionNumber": 6,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "What luggage is the man taking on holiday?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Two suitcases and an overnight bag"
+                },
+                {
+                  "key": "B",
+                  "text": "Two suitcases only"
+                },
+                {
+                  "key": "C",
+                  "text": "Three suitcases"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "transcript": "Woman: I thought you were only taking two suitcases on holiday with you?\nMan: Well, I was, but I decided to take my overnight bag as well. I couldn't get everything into two cases and there's no way I could carry a third!",
+              "explanationVi": "Người phụ nữ tưởng ông chỉ mang 2 chiếc vali, nhưng người đàn ông giải thích: 'Well, I was, but I decided to take my overnight bag as well. I couldn't get everything into two cases and there's no way I could carry a third!' Như vậy ông mang theo 2 vali và 1 túi xách nhỏ qua đêm (A).",
+              "vocabularyNotes": [
+                {
+                  "word": "suitcase",
+                  "ipa": "/ˈsuːt.keɪs/",
+                  "meaning": "vali hành lý",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "overnight bag",
+                  "ipa": "/ˌəʊ.vəˈnaɪt bæɡ/",
+                  "meaning": "túi xách hành lý nhỏ dùng qua đêm",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-l-q7",
+              "questionNumber": 7,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Which photograph does the man like?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The family sitting on the beach looking at the cliffs"
+                },
+                {
+                  "key": "B",
+                  "text": "The family standing in the sea"
+                },
+                {
+                  "key": "C",
+                  "text": "The family standing together on the clifftop looking down at the beach"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "transcript": "Man: I'm really disappointed with my holiday photos. The only good one is the one of us all standing together on the clifftop looking down at the beach.",
+              "explanationVi": "Người đàn ông nói: 'The only good one is the one of us all standing together on the clifftop looking down at the beach.' Bức ảnh duy nhất ông ưng ý là ảnh cả nhà đứng cùng nhau trên đỉnh vách đá nhìn xuống bãi biển bên dưới (C).",
+              "vocabularyNotes": [
+                {
+                  "word": "clifftop",
+                  "ipa": "/ˈklɪf.tɒp/",
+                  "meaning": "đỉnh vách đá ven biển",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "disappointed with",
+                  "ipa": "/ˌdɪs.əˈpɔɪn.tɪd wɪð/",
+                  "meaning": "thất vọng với",
+                  "partOfSpeech": "adjective phrase"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "listening-part2",
+          "partNumber": 2,
+          "title": "Part 2: Short Conversations",
+          "instructions": "There are 7 questions in this part. For each question, you will listen to one conversation TWICE. Choose the right answer (A, B, or C).",
+          "playCountLimit": 2,
+          "media": {
+            "audioUrl": "/audio/vnu-bac3/test-05/listening-part2.mp3"
+          },
+          "transcript": "[Conversation 8]:\nGirl: Hi Frankie, how was snowboarding?\nBoy: The first few days were great! The snow was perfect and I was learning some great new tricks ...\nGirl: Don't tell me! You hit a tree and had to stop.\nBoy: That's what happens to some people, isn't it - a broken leg. In my case, it was a lot more boring. My stomach found it hard getting used to the local food, so I had to spend a few days in bed. Then my sister borrowed my board and managed to drop it from the ski lift. It didn't break, but we never got it back.\nGirl: Oh, no!\n\n[Conversation 9]:\nBoy: The new school library's great.\nGirl: Everything being self-service takes a bit of getting used to - I found it quite useful having someone there to ask if you couldn't find something.\nBoy: True, but the new system works well.\nGirl: It's pretty quiet there, too. I can't concentrate at home because of my little sister, so I always stay now, to get everything done for the next day's lessons.\nBoy: Good idea.\nGirl: Yes, and of course I'd never have the books I needed because I always forgot to get them before I went home, which isn't a problem if I stay.\n\n[Conversation 10]:\nGirl: I like that new clothes shop.\nBoy: Me, too. The one I usually use is so far out of town, I hardly ever go there.\nGirl: Me, neither, and you have to get two different buses.\nBoy: The people who work at the new shop couldn't be nicer.\nGirl: The lady who served me was a bit miserable, actually, but the others seemed OK. It's not too expensive either.\nBoy: Maybe it's because it's only just opened, but I found the range of styles they had was quite narrow.\nGirl: I think the other shop definitely has a bigger variety of things for teenagers.\n\n[Conversation 11]:\nGirl: What do you think of the new boy, Finnian?\nBoy: He seems pretty cool to me. He certainly knows lots of jokes and funny stories - we could hardly stop him talking at break time, not that we really wanted him to. And he answered at least twice as many questions as I did during the maths class.\nGirl: You're really good at maths too.\nBoy: Maybe ... but he also knew a lot about what we were discussing in our groups in the history class. I tried to get him to come to training for the school football team, but I didn't manage to persuade him.\n\n[Conversation 12]:\nBoy: Has your brother gone away to college yet?\nGirl: Yeah, he left yesterday. I thought I'd be relieved not to have to listen to music coming from his bedroom all evening. I couldn't believe it when tears actually started running down my cheeks last night, and this morning, too, when he wasn't at breakfast.\nBoy: I never knew you two were so close.\nGirl: We weren't. You just get used to someone being there, though, and when they're suddenly not, it's strange, even though I know he hasn't gone hundreds of kilometres away like some students do. He'll probably be back most weekends.\n\n[Conversation 13]:\nGirl: Are you still having tennis coaching?\nBoy: Yes, but I'm progressing really slowly. The teacher wants me to learn each skill well before we move onto the next. Does your coach do that?\nGirl: Pretty much, yes.\nBoy: Even though I practise between the sessions with my family, I'm sure I'd improve more quickly if someone showed me a few other skills. That's why I need your help. When I watch you play, I can see you doing loads of things I'd like to be able to do, but I forget how you do them as soon as I go home.",
+          "questions": [
+            {
+              "id": "vnu3-05-l-q8",
+              "questionNumber": 8,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear a boy telling his friend about a snowboarding trip.\nWhat problem did the boy have on the trip?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "He damaged some equipment."
+                },
+                {
+                  "key": "B",
+                  "text": "He injured himself."
+                },
+                {
+                  "key": "C",
+                  "text": "He became ill."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "transcript": "Girl: Hi Frankie, how was snowboarding?\nBoy: The first few days were great! The snow was perfect and I was learning some great new tricks ...\nGirl: Don't tell me! You hit a tree and had to stop.\nBoy: That's what happens to some people, isn't it - a broken leg. In my case, it was a lot more boring. My stomach found it hard getting used to the local food, so I had to spend a few days in bed. Then my sister borrowed my board and managed to drop it from the ski lift. It didn't break, but we never got it back.\nGirl: Oh, no!",
+              "explanationVi": "Frankie kể rằng cậu không bị gãy chân như nhiều người khác mà gặp vấn đề về tiêu hóa: 'My stomach found it hard getting used to the local food, so I had to spend a few days in bed.' Dạ dày của cậu không quen với đồ ăn địa phương nên cậu bị ốm phải nằm trên giường vài ngày ('He became ill' - C). A sai vì em/chị gái cậu làm rơi ván trượt chứ không phải cậu làm hỏng.",
+              "vocabularyNotes": [
+                {
+                  "word": "get used to",
+                  "ipa": "/ɡet juːzd tuː/",
+                  "meaning": "làm quen với, thích nghi với",
+                  "partOfSpeech": "verb phrase"
+                },
+                {
+                  "word": "ski lift",
+                  "ipa": "/ˈskiː lɪft/",
+                  "meaning": "cáp treo đưa người lên đỉnh trượt tuyết",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-l-q9",
+              "questionNumber": 9,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear two friends talking about the new library at their school.\nThe girl thinks that",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the staff are helpful."
+                },
+                {
+                  "key": "B",
+                  "text": "there should be more books."
+                },
+                {
+                  "key": "C",
+                  "text": "it's a good place to do homework."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "transcript": "Boy: The new school library's great.\nGirl: Everything being self-service takes a bit of getting used to - I found it quite useful having someone there to ask if you couldn't find something.\nBoy: True, but the new system works well.\nGirl: It's pretty quiet there, too. I can't concentrate at home because of my little sister, so I always stay now, to get everything done for the next day's lessons.\nBoy: Good idea.\nGirl: Yes, and of course I'd never have the books I needed because I always forgot to get them before I went home, which isn't a problem if I stay.",
+              "explanationVi": "Cô gái nhận xét thư viện mới rất yên tĩnh: 'It's pretty quiet there, too. I can't concentrate at home because of my little sister, so I always stay now, to get everything done for the next day's lessons.' Ngoài ra ở lại thư viện giúp cô luôn có sẵn sách cần thiết. Do đó cô thấy đây là nơi rất tốt để làm bài tập về nhà (C). A sai vì thư viện mới chuyển sang tự phục vụ ('self-service').",
+              "vocabularyNotes": [
+                {
+                  "word": "self-service",
+                  "ipa": "/ˌselfˈsɜː.vɪs/",
+                  "meaning": "tự phục vụ",
+                  "partOfSpeech": "adjective"
+                },
+                {
+                  "word": "concentrate",
+                  "ipa": "/ˈkɒn.sən.treɪt/",
+                  "meaning": "tập trung",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-l-q10",
+              "questionNumber": 10,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear two friends talking about a new clothes shop.\nThey agree the shop would be better if",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the assistants were more friendly."
+                },
+                {
+                  "key": "B",
+                  "text": "there was more choice of clothes."
+                },
+                {
+                  "key": "C",
+                  "text": "it was in the town centre."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "transcript": "Girl: I like that new clothes shop.\nBoy: Me, too. The one I usually use is so far out of town, I hardly ever go there.\nGirl: Me, neither, and you have to get two different buses.\nBoy: The people who work at the new shop couldn't be nicer.\nGirl: The lady who served me was a bit miserable, actually, but the others seemed OK. It's not too expensive either.\nBoy: Maybe it's because it's only just opened, but I found the range of styles they had was quite narrow.\nGirl: I think the other shop definitely has a bigger variety of things for teenagers.",
+              "explanationVi": "Chàng trai nói: 'I found the range of styles they had was quite narrow' (các kiểu dáng quần áo còn khá hạn hẹp) và cô gái đồng tình: 'I think the other shop definitely has a bigger variety of things for teenagers.' Cả hai đều đồng ý rằng cửa hàng mới sẽ tốt hơn nếu có thêm nhiều lựa chọn quần áo (B).",
+              "vocabularyNotes": [
+                {
+                  "word": "miserable",
+                  "ipa": "/ˈmɪz.ər.ə.bəl/",
+                  "meaning": "khó chịu, cau có",
+                  "partOfSpeech": "adjective"
+                },
+                {
+                  "word": "variety",
+                  "ipa": "/vəˈraɪ.ə.ti/",
+                  "meaning": "sự đa dạng",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-l-q11",
+              "questionNumber": 11,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear two friends talking about a new classmate.\nThe boy thinks the new classmate",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "is very clever."
+                },
+                {
+                  "key": "B",
+                  "text": "likes playing sport."
+                },
+                {
+                  "key": "C",
+                  "text": "talks too much."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "transcript": "Girl: What do you think of the new boy, Finnian?\nBoy: He seems pretty cool to me. He certainly knows lots of jokes and funny stories - we could hardly stop him talking at break time, not that we really wanted him to. And he answered at least twice as many questions as I did during the maths class.\nGirl: You're really good at maths too.\nBoy: Maybe ... but he also knew a lot about what we were discussing in our groups in the history class. I tried to get him to come to training for the school football team, but I didn't manage to persuade him.",
+              "explanationVi": "Chàng trai khen bạn mới Finnian: 'he answered at least twice as many questions as I did during the maths class... he also knew a lot about what we were discussing in our groups in the history class.' Cậu bé thấy bạn mới rất thông minh và hiểu biết rộng (A). B sai vì Finnian không chịu tham gia đội bóng đá, C sai vì mọi người đều thích nghe cậu ấy kể chuyện cười ('not that we really wanted him to [stop]').",
+              "vocabularyNotes": [
+                {
+                  "word": "persuade",
+                  "ipa": "/pəˈsweɪd/",
+                  "meaning": "thuyết phục",
+                  "partOfSpeech": "verb"
+                },
+                {
+                  "word": "break time",
+                  "ipa": "/ˈbreɪk taɪm/",
+                  "meaning": "giờ ra chơi, giờ giải lao",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-l-q12",
+              "questionNumber": 12,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear a girl talking about her big brother going away to college.\nHow does she feel about it?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "pleased there's less noise"
+                },
+                {
+                  "key": "B",
+                  "text": "surprised that she's so sad"
+                },
+                {
+                  "key": "C",
+                  "text": "upset he's gone so far away"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "transcript": "Boy: Has your brother gone away to college yet?\nGirl: Yeah, he left yesterday. I thought I'd be relieved not to have to listen to music coming from his bedroom all evening. I couldn't believe it when tears actually started running down my cheeks last night, and this morning, too, when he wasn't at breakfast.\nBoy: I never knew you two were so close.\nGirl: We weren't. You just get used to someone being there, though, and when they're suddenly not, it's strange, even though I know he hasn't gone hundreds of kilometres away like some students do. He'll probably be back most weekends.",
+              "explanationVi": "Cô gái tâm sự: 'I thought I'd be relieved not to have to listen to music coming from his bedroom all evening. I couldn't believe it when tears actually started running down my cheeks last night, and this morning, too'. Cô cứ ngỡ mình sẽ nhẹ nhõm nhưng lại không thể tin nổi khi bản thân bật khóc vì nhớ anh trai ('surprised that she's so sad' - B). C sai vì trường đại học của anh không quá xa.",
+              "vocabularyNotes": [
+                {
+                  "word": "relieved",
+                  "ipa": "/rɪˈliːvd/",
+                  "meaning": "nhẹ nhõm",
+                  "partOfSpeech": "adjective"
+                },
+                {
+                  "word": "cheek",
+                  "ipa": "/tʃiːk/",
+                  "meaning": "gò má",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-l-q13",
+              "questionNumber": 13,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear two friends talking about playing tennis.\nThe boy wants the girl to",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "practise with him regularly."
+                },
+                {
+                  "key": "B",
+                  "text": "recommend a tennis coach."
+                },
+                {
+                  "key": "C",
+                  "text": "teach him some new techniques."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "transcript": "Girl: Are you still having tennis coaching?\nBoy: Yes, but I'm progressing really slowly. The teacher wants me to learn each skill well before we move onto the next. Does your coach do that?\nGirl: Pretty much, yes.\nBoy: Even though I practise between the sessions with my family, I'm sure I'd improve more quickly if someone showed me a few other skills. That's why I need your help. When I watch you play, I can see you doing loads of things I'd like to be able to do, but I forget how you do them as soon as I go home.",
+              "explanationVi": "Chàng trai nói với bạn nữ: 'I'm sure I'd improve more quickly if someone showed me a few other skills. That's why I need your help. When I watch you play, I can see you doing loads of things I'd like to be able to do'. Cậu muốn bạn nữ chỉ dạy cho mình một số kỹ thuật đánh bóng mới (C).",
+              "vocabularyNotes": [
+                {
+                  "word": "progress",
+                  "ipa": "/prəˈɡres/",
+                  "meaning": "tiến bộ",
+                  "partOfSpeech": "verb"
+                },
+                {
+                  "word": "technique",
+                  "ipa": "/tekˈniːk/",
+                  "meaning": "kỹ thuật",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-l-q14",
+              "questionNumber": 14,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "In the same conversation about playing tennis, what happens after the boy watches the girl play?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "He immediately practises her moves with his coach."
+                },
+                {
+                  "key": "B",
+                  "text": "He forgets how she does the moves as soon as he gets home."
+                },
+                {
+                  "key": "C",
+                  "text": "He records her techniques to show his family."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "transcript": "Girl: Are you still having tennis coaching?\nBoy: Yes, but I'm progressing really slowly. The teacher wants me to learn each skill well before we move onto the next. Does your coach do that?\nGirl: Pretty much, yes.\nBoy: Even though I practise between the sessions with my family, I'm sure I'd improve more quickly if someone showed me a few other skills. That's why I need your help. When I watch you play, I can see you doing loads of things I'd like to be able to do, but I forget how you do them as soon as I go home.",
+              "explanationVi": "Ở câu cuối của đoạn hội thoại số 13, chàng trai giải thích lý do cậu cần cô gái trực tiếp chỉ dạy: 'When I watch you play, I can see you doing loads of things I'd like to be able to do, but I forget how you do them as soon as I go home.' Ngay khi về đến nhà là cậu lại quên mất cách cô thực hiện các động tác đó (B).",
+              "vocabularyNotes": [
+                {
+                  "word": "coaching",
+                  "ipa": "/ˈkəʊ.tʃɪŋ/",
+                  "meaning": "việc huấn luyện, dạy kèm thể thao",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "session",
+                  "ipa": "/ˈseʃ.ən/",
+                  "meaning": "buổi tập, buổi học",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "listening-part3",
+          "partNumber": 3,
+          "title": "Part 3: Extended Conversation (True / False)",
+          "instructions": "You will hear a conversation between a boy, Jim, and his mother. Listen TWICE and decide if each sentence from 15 to 20 is Correct (True) or Incorrect (False). Choose A for True and B for False.",
+          "playCountLimit": 2,
+          "media": {
+            "audioUrl": "/audio/vnu-bac3/test-05/listening-part3.mp3"
+          },
+          "transcript": "Jim: Mum, my old bicycle needs to be repaired again.\nMother: Well then, why don't you think of buying a new one, Jim?\nJim: You know, I'd really like to buy one of those mountain bikes.\nMother: Well, what's stopping you?\nJim: Do you know how much they cost? At least £300. Where can I find that kind of money?\nMother: You could save the money. If you saved £5 a week, you would have the money you need in, let me see ... just over a year.\nJim: Just over a year! But I want a new bike now. It's something I really need. I mean, I use my bike to go to college every day.\nMother: But what's so special about a mountain bike? Why do you have to have one of those? There aren't any mountains around here. Isn't an ordinary bike cheaper?\nJim: Yes. But mountain bikes are stronger, and they're better at going up hills.\nMother: We don't even have any hills near us. How much does an ordinary bike cost?\nJim: I don't know ... Oh, I suppose you can get quite a good one for about £150.\nMother: Well, that sounds more reasonable. If you save £5 a week, you'll have enough money in about six months.\nJim: That won't help me get to college next term!\nMother: I really think you should learn to save some money. I'll tell you what I'll do. If you manage to save £100, I'll give you the rest. That way you'll be riding a new bike in a few months. Go and get the old one repaired, and bring the bill to me.\nJim: Thanks, Mum. I suppose I'll just have to ride my old bike for a little longer. I must say I had hoped to be able to get a new one straight away. It's going to take me ages to save up. I wish ...",
+          "questions": [
+            {
+              "id": "vnu3-05-l-q15",
+              "questionNumber": 15,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Jim's bicycle needs to be mended.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "transcript": "Jim: Mum, my old bicycle needs to be repaired again.",
+              "explanationVi": "Ngay câu đầu tiên, Jim nói với mẹ: 'Mum, my old bicycle needs to be repaired again.' Động từ 'repaired' đồng nghĩa với 'mended' (cần được sửa chữa). Nhận định ĐÚNG (Correct - A).",
+              "vocabularyNotes": [
+                {
+                  "word": "mend",
+                  "ipa": "/mend/",
+                  "meaning": "sửa chữa, vá lại",
+                  "partOfSpeech": "verb"
+                },
+                {
+                  "word": "repair",
+                  "ipa": "/rɪˈpeər/",
+                  "meaning": "sửa chữa",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-l-q16",
+              "questionNumber": 16,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "He's keen to start saving money.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "transcript": "Mother: You could save the money. If you saved £5 a week, you would have the money you need in, let me see ... just over a year.\nJim: Just over a year! But I want a new bike now.",
+              "explanationVi": "Khi mẹ gợi ý tiết kiệm 5 bảng mỗi tuần, Jim phản đối: 'Just over a year! But I want a new bike now... That won't help me get to college next term!... It's going to take me ages to save up.' Jim muốn có xe mới ngay lập tức chứ không hề hào hứng với việc tiết kiệm tiền. Nhận định SAI (Incorrect - B).",
+              "vocabularyNotes": [
+                {
+                  "word": "save up",
+                  "ipa": "/seɪv ʌp/",
+                  "meaning": "tiết kiệm tiền, để dành tiền",
+                  "partOfSpeech": "phrasal verb"
+                },
+                {
+                  "word": "straight away",
+                  "ipa": "/streɪt əˈweɪ/",
+                  "meaning": "ngay lập tức",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-l-q17",
+              "questionNumber": 17,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "His mother thinks a mountain bike is suitable for their area.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "transcript": "Mother: But what's so special about a mountain bike? Why do you have to have one of those? There aren't any mountains around here... We don't even have any hills near us.",
+              "explanationVi": "Mẹ của Jim thắc mắc: 'Why do you have to have one of those? There aren't any mountains around here... We don't even have any hills near us.' Bà cho rằng khu vực họ sống không có núi hay đồi nên xe đạp địa hình là không cần thiết. Nhận định SAI (Incorrect - B).",
+              "vocabularyNotes": [
+                {
+                  "word": "mountain bike",
+                  "ipa": "/ˈmaʊn.tɪn baɪk/",
+                  "meaning": "xe đạp địa hình leo núi",
+                  "partOfSpeech": "noun phrase"
+                },
+                {
+                  "word": "ordinary",
+                  "ipa": "/ˈɔː.dən.əri/",
+                  "meaning": "thông thường, bình thường",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-l-q18",
+              "questionNumber": 18,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "She encourages Jim to manage his money better.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "transcript": "Mother: I really think you should learn to save some money. I'll tell you what I'll do. If you manage to save £100, I'll give you the rest.",
+              "explanationVi": "Người mẹ khuyên Jim: 'I really think you should learn to save some money. I'll tell you what I'll do. If you manage to save £100, I'll give you the rest.' Bà khuyến khích con trai học cách tiết kiệm và quản lý tiền bạc tốt hơn. Nhận định ĐÚNG (Correct - A).",
+              "vocabularyNotes": [
+                {
+                  "word": "reasonable",
+                  "ipa": "/ˈriː.zən.ə.bəl/",
+                  "meaning": "hợp lý, phải chăng (giá cả)",
+                  "partOfSpeech": "adjective"
+                },
+                {
+                  "word": "manage",
+                  "ipa": "/ˈmæn.ɪdʒ/",
+                  "meaning": "quản lý, xoay xở",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-l-q19",
+              "questionNumber": 19,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "His mother offers to lend him some money.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "transcript": "Mother: If you manage to save £100, I'll give you the rest. That way you'll be riding a new bike in a few months. Go and get the old one repaired, and bring the bill to me.",
+              "explanationVi": "Mẹ của Jim nói: 'If you manage to save £100, I'll give you the rest... Go and get the old one repaired, and bring the bill to me.' Bà đề nghị CHO ('give') Jim phần tiền còn thiếu khi cậu tự tiết kiệm được 100 bảng và trả tiền sửa xe cũ, chứ không phải cho VAY ('lend'). Nhận định SAI (Incorrect - B).",
+              "vocabularyNotes": [
+                {
+                  "word": "the rest",
+                  "ipa": "/ðə rest/",
+                  "meaning": "phần còn lại",
+                  "partOfSpeech": "noun phrase"
+                },
+                {
+                  "word": "bill",
+                  "ipa": "/bɪl/",
+                  "meaning": "hóa đơn thanh toán",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-05-l-q20",
+              "questionNumber": 20,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Jim is disappointed by his mother's suggestion.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "transcript": "Jim: Thanks, Mum. I suppose I'll just have to ride my old bike for a little longer. I must say I had hoped to be able to get a new one straight away. It's going to take me ages to save up. I wish ...",
+              "explanationVi": "Cuối cuộc trò chuyện, Jim thở dài: 'I suppose I'll just have to ride my old bike for a little longer. I must say I had hoped to be able to get a new one straight away. It's going to take me ages to save up. I wish ...' Jim cảm thấy thất vọng vì không được mua xe mới ngay. Nhận định ĐÚNG (Correct - A).",
+              "vocabularyNotes": [
+                {
+                  "word": "take ages",
+                  "ipa": "/teɪk ˈeɪ.dʒɪz/",
+                  "meaning": "mất rất nhiều thời gian",
+                  "partOfSpeech": "idiom"
+                },
+                {
+                  "word": "for a little longer",
+                  "ipa": "/fɔːr ə ˈlɪt.əl ˈlɒŋ.ɡər/",
+                  "meaning": "thêm một thời gian nữa",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing (Viết)",
+      "timeLimitMinutes": 40,
+      "totalQuestions": 2,
+      "tasks": [
+        {
+          "id": "writing-task1",
+          "partNumber": 1,
+          "title": "Task 1: Office Closure for Maintenance & Renovation",
+          "instructions": "Write an announcement of at least 80 words for all company staff informing them about the upcoming office closure for maintenance and renovation. Use all the information in the box.",
+          "questions": [],
+          "writingPrompts": [
+            {
+              "id": "vnu3-05-w-t1",
+              "taskNumber": 1,
+              "title": "Office Closure for Maintenance Announcement",
+              "instructions": "Write at least 80 words informing employees about the office closure. Use all the given information.",
+              "minWords": 80,
+              "dataCard": {
+                "Notice": "Main Office Closure for Annual Maintenance & Renovation",
+                "Closure Dates": "Monday, May 10th – Wednesday, May 12th",
+                "Maintenance Activities": "Painting walls, repairing air conditioning, upgrading internet cables",
+                "Working Arrangement": "All employees work from home; Reopen at 8:30 AM on Thursday, May 13th"
+              },
+              "sampleAnswer": "Please note that our main office will be closed for annual maintenance and renovation from Monday, May 10th to Wednesday, May 12th. During these three days, workers will paint the walls, repair the air conditioning system, and upgrade the internet cables on the second floor. Because of this work, all employees should work from home and check their emails regularly for updates from team leaders. Before leaving the office on Friday afternoon, please turn off your computers and lock your personal desks carefully. Our office will open again as normal at 8:30 AM on Thursday, May 13th."
+            }
+          ]
+        },
+        {
+          "id": "writing-task2",
+          "partNumber": 2,
+          "title": "Task 2: Opinion Paragraph (Choice)",
+          "instructions": "Choose ONE of the two topics below and write a paragraph of at least 100 words. You should state your opinion clearly and provide supporting ideas and examples.",
+          "questions": [],
+          "writingPrompts": [
+            {
+              "id": "vnu3-05-w-t2",
+              "taskNumber": 2,
+              "title": "Choose Topic 2.1 or Topic 2.2",
+              "instructions": "Choose ONE topic and write at least 100 words.",
+              "minWords": 100,
+              "topicChoices": [
+                {
+                  "code": "2.1",
+                  "topic": "Write a paragraph about the negative effects of eating too much fast food.",
+                  "guidelines": [
+                    "High amounts of fat, sugar, and salt causing weight gain and health problems",
+                    "Lack of essential vitamins and nutrients for the body",
+                    "Higher daily food expenses compared to cooking fresh meals at home"
+                  ]
+                },
+                {
+                  "code": "2.2",
+                  "topic": "Write a paragraph about the importance of teamwork in the workplace.",
+                  "guidelines": [
+                    "Sharing workload and finishing projects faster",
+                    "Combining different ideas and skills from team members",
+                    "Building friendly relationships and supporting colleagues"
+                  ]
+                }
+              ],
+              "sampleAnswer": "In my opinion, eating too much fast food has several negative effects on people's health and daily lives. First of all, fast food contains a lot of fat, sugar, and salt, which can easily cause weight gain and heart problems if people eat it every week. For example, burgers, fried chicken, and soft drinks give us too many calories but very few vitamins that our bodies need. Secondly, buying fast food regularly is quite expensive compared to cooking fresh meals at home with vegetables and meat. In conclusion, people should limit fast food and eat more healthy home-cooked dishes to stay fit and save money."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking (Nói)",
+      "timeLimitMinutes": 8,
+      "totalQuestions": 2,
+      "tasks": [
+        {
+          "id": "speaking-part1",
+          "partNumber": 1,
+          "title": "Part 1: Social Interaction (3 minutes)",
+          "instructions": "In this part, you will answer 5 questions about familiar topics. Speak naturally and elaborate on your answers.",
+          "questions": [],
+          "speakingPrompts": [
+            {
+              "id": "vnu3-05-s-p1",
+              "partNumber": 1,
+              "title": "Social Interaction Questions (Practice Test 3)",
+              "instructions": "Answer the examiner's questions clearly.",
+              "durationMinutes": 3,
+              "questions": [
+                "Is it good to study in the morning or in the afternoon?",
+                "Did you do anything special last weekend?",
+                "When do you usually read books?",
+                "Do you like the morning or evening?",
+                "Did you do some sports when you were young?"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "speaking-part2",
+          "partNumber": 2,
+          "title": "Part 2: Cue-based Description (5 minutes)",
+          "instructions": "Choose ONE of the two cards below. You will have 1 minute to prepare your notes, 1.5 to 2 minutes to talk, and then answer two follow-up questions.",
+          "questions": [],
+          "speakingPrompts": [
+            {
+              "id": "vnu3-05-s-p2",
+              "partNumber": 2,
+              "title": "Cue Card Choice (Practice Test 3)",
+              "instructions": "Select Card 1 or Card 2 to speak.",
+              "durationMinutes": 5,
+              "cueCards": [
+                {
+                  "code": "Card 1",
+                  "title": "Talk about a special holiday or trip.",
+                  "prompts": [
+                    "what it was",
+                    "when and where you went",
+                    "what you did",
+                    "and explain why it is special to you"
+                  ],
+                  "furtherQuestions": [
+                    "In your opinion, is it important to speak the language of the country you're visiting?",
+                    "Do you think travelling with friends is a good way to travel?"
+                  ],
+                  "sampleResponse": "I would like to talk about a memorable holiday trip I took with my family to Da Nang last summer. We travelled there by plane in July and stayed at a small hotel near My Khe Beach for four days. During the trip, we swam in the sea every morning, visited Ba Na Hills, and walked around Hoi An Ancient Town in the evening to try local dishes. This trip is very special to me because it was the first time my whole family had a relaxing holiday together after a busy year of work and study."
+                },
+                {
+                  "code": "Card 2",
+                  "title": "Describe your favourite season in your country.",
+                  "prompts": [
+                    "when that season is from and to",
+                    "what the weather is like",
+                    "how it is different from other seasons in your country",
+                    "and explain why it is your favourite season"
+                  ],
+                  "furtherQuestions": [
+                    "Do you have any favorite seasonal traditions or activities?",
+                    "How does the change in seasons affect your daily activities?"
+                  ],
+                  "sampleResponse": "My favourite season in Vietnam is autumn, which usually lasts from September to November. During this time of year, the weather is cool, dry, and sunny with a gentle breeze, which is very different from the hot and humid summer or the cold winter. I love autumn because it is the most comfortable season to go outdoors, take photos of yellow leaves, and enjoy hot coffee with my friends by West Lake."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,10 +1,14 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { installGlobalApiBridge } from '@/lib/auth-fetch';
 import { App } from '@/App';
-import '@/styles/global.css';
+import '@/app/globals.css';
+
+// Install the global /api/* -> .NET 10 /api/v1/* interceptor before mounting any component
+installGlobalApiBridge();
 
 /**
- * Mounts the LingoPro React 19 SPA into the #root DOM container.
+ * Mounts the LingoPro React 19 Client-Side SPA into the #root DOM container.
  */
 const rootElement = document.getElementById('root');
 
@@ -15,5 +19,5 @@ if (!rootElement) {
 createRoot(rootElement).render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
 );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tag } from 'antd';
+import { Tag } from '@/components/ui/Primitives';
 import { CertLevel } from '@/types/enums/CertLevel';
 import { CertLevelTagProps } from '@/components/types/CertLevelTagProps';
 

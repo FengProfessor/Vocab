@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-40",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 40",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-02/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. What will the weather be like tomorrow?</b></p><ul><li><b>Announcer:</b> Here is the weather forecast. Today will be very cloudy, although it won’t rain until the evening. The weather tomorrow will be the same as yesterday – <b>sunshine and showers</b>. But the weekend looks good – plenty of sunshine and very little rain.</li></ul><p><b>2. What will the man do first?</b></p><ul><li><b>Woman:</b> Steve, what are you going to do today?</li><li><b>Man:</b> Mmm ... well, I’ve got to have my hair cut, but before I do anything I need to <b>ring Peter</b> and see if he wants to play golf.</li><li><b>Woman:</b> That’s a good idea, you haven’t played for a while, have you?</li></ul><p><b>3. Where is the knife?</b></p><ul><li><b>Woman:</b> I’m glad we decided to stop here for our picnic. Can you find the knife for me, and I’ll cut up the cucumber? I packed it in the bag with the bread ... oh, but I used it to peel some oranges when we stopped in the <b>petrol station</b> so it’ll be <b>with them</b>. I hope it’s big enough to cut up this pie.</li></ul><p><b>4. What happened to the girl this afternoon?</b></p><ul><li><b>Girl:</b> You’ll never guess what happened to me this afternoon! I was cycling over the bridge in town, when there was this really strong wind, and I <b>fell off my bike</b>. I didn’t hurt myself, but my books were thrown onto the pavement and went everywhere. This really nice boy picked them up for me! It’s lucky there were no cars around to drive over my bike, which was still in the road. I thanked the boy, then I picked up my bike and cycled away. I was ...</li></ul><p><b>5. Which man is waiting at the bus stop?</b></p><ul><li><b>Boy:</b> Oh look, that’s my new English teacher over there, see – he’s waiting at the bus stop.</li><li><b>Girl:</b> The <b>young one with sunglasses and blond hair</b>? You always told me your teacher was bald and really old and got angry because he kept losing his glasses.</li><li><b>Boy:</b> That was the teacher I had before. This one is really nice.</li></ul><p><b>6. What time does the television programme end?</b></p><ul><li><b>Mum:</b> Go to bed, Luke. It’s already twenty to eleven and you’ve got to be up early in the morning.</li><li><b>Boy:</b> Aw, mum, just another few minutes. I’m watching this brilliant TV programme about American football. It’ll be <b>over at 10 to</b> and I can be in bed by 10 past. Nobody in my class has to go to bed before 11 o’clock. It’s not fair.</li></ul><p><b>7. Which postcard will they send to Mark?</b></p><ul><li><b>Man:</b> I’m getting this postcard of that bridge in the old city for my parents. And this church looks nice – shall we send it to Mark? He likes old buildings.</li><li><b>Woman:</b> But we haven’t actually been there – we should send him a card of something we’ve actually seen. Here’s the beach we went to yesterday.</li><li><b>Man:</b> But it looks horrible and crowded in that picture.</li><li><b>Woman:</b> Oh, just <b>get him the same one as you’re sending to your parents</b>.</li></ul><p><b>8. Which present will the girl take?</b></p><ul><li><b>Girl:</b> I really don’t know what to give Mrs Allemano when I go and stay with her in New York. Do you think she’d like some <b>perfume</b>?</li><li><b>Man:</b> Well, you don’t know her very well, do you, so I’d choose something like a scarf, or just a box of chocolates.</li><li><b>Girl:</b> Umm ... I like your <b>first idea best</b> – it’ll be much easier to carry.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What will the weather be like tomorrow?",
+              "options": [
+                "Sunny and rainy",
+                "Cloudy",
+                "Cloudy and windy",
+                "Sunny"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What will the man do first?",
+              "options": [
+                "Play golf",
+                "Have his hair cut",
+                "Ring Peter",
+                "Play baseball"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "Where is the knife?",
+              "options": [
+                "In the bag with the bread",
+                "In the orange pack",
+                "In the cucumber pack",
+                "In the petrol station"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What happened to the girl this afternoon?",
+              "options": [
+                "She cycled in the strong wind",
+                "Her bike was broken",
+                "She fell off her bike",
+                "She met a boy"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "Which man is waiting at the bus stop?",
+              "options": [
+                "An old bald man with glasses",
+                "An old man with glasses and blond hair",
+                "A young bald man with sunglasses",
+                "A young man with sunglasses and blond hair"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What time does the television programme end?",
+              "options": [
+                "10.50 P.m",
+                "10.10 P.m",
+                "11 P.m",
+                "9.50 P.m"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "Which postcard will they send to Mark?",
+              "options": [
+                "The bridge of the old city",
+                "The church",
+                "The beach",
+                "The sea"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "Which present will the girl take?",
+              "options": [
+                "Some perfume",
+                "A scarf",
+                "A box of chocolate",
+                "A purse"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-15/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>W:</b> Hi, Professor Johnson. Can I talk to you?</li><li><b>M:</b> Why, yes, Carrie.</li><li><b>W:</b> Oh, great! I need some help with my essay. I'm having problems finding good information other than the things from the lessons. And I'm not very good at taking notes.</li><li><b>M:</b> Hmm... OK. Let's talk about finding good information first. Books are the best. But, these days, you can look online too.</li><li><b>W:</b> OK. How do I decide what websites and books to use?</li><li><b>M:</b> Well, with the Internet, you type in a subject and you'll get a list of websites. With books, do a search on the library computer. It will give a list of useful books. It's very easy.</li><li><b>W:</b> Wow. That is easy. OK, then what?</li><li><b>M:</b> Take notes. Don't copy everything. You only need a summary of the information. Don 7 sometimes reading the introduction and conclusion first will help you to decide if it is useful.</li><li><b>W:</b> Yeah, I've been reading a lot. And I always copy down too much.</li><li><b>M:</b> Just take notes that will give you the evidence you need for your essay paragraphs. Oh, and the organization of your notes is important too. You will have to find your information again easily.</li><li><b>W:</b> Right. Of course. Thanks so much for your help!</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>W:</b> Hi, Mr. Baker. Could you help me with something?</li><li><b>M:</b> Sure. What can I do for you?</li><li><b>W:</b> Well, I'd like to check out some library books. I have to do some research for an essay.</li><li><b>M:</b> I see. Well, you've got two choices. You can either use the self-service machine, or you can take the books to the front desk.</li><li><b>W:</b> Could you explain them both, please?</li><li><b>M:</b> OK, sure. See that machine that looks like a computer?</li><li><b>W:</b> Yeah.</li><li><b>M:</b> Well, that's the self-service machine. You'll have to scan your student ID card. Wait a second; did you set up a student library account yet?</li><li><b>W:</b> Yes.</li><li><b>M:</b> OK, good. Anyway, then you scan the books, and the machine will print you a receipt. The receipt tells you when the books are due back.</li><li><b>W:</b> Oh, that's great. I always forget when my books are due back.</li><li><b>M:</b> Yeah. Just be sure to press your ID and the books on the scanner; it's sensitive sometimes.</li><li><b>W:</b> OK, so what's my other checkout choice?</li><li><b>M:</b> You can take your books over to the front desk, where the librarian will help you.</li><li><b>W:</b> Oh, that's it? That's easy. Thanks for the help.</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>W:</b> Hello. Do you need help?</li><li><b>M:</b> Hi. I'm doing research for my history essay and I'm trying to find a book, but I'm not sure where to begin.</li><li><b>W:</b> No problem. Let's see... there are two ways to find books here. You can either use the computer system, or you can use the book lists.</li><li><b>M:</b> How do the book lists work?</li><li><b>W:</b> Well, the lists organize the books by their subjects. You're looking for a book on history. So, first you look under \"History\" on the list. Then you look at the title. Each book is in alphabetical order.</li><li><b>M:</b> OK, I see.</li><li><b>W:</b> Good. Each book has a number next to it, and those numbers tell you where to find that book.</li><li><b>M:</b> I see. And did you mention something about a computer?</li><li><b>W:</b> Oh yeah, I almost forgot. The computer is just as easy. Do a search for your book, and it will tell you where to find it.</li><li><b>M:</b> Great! I should be able to find what I need. Thanks!</li><li><b>W:</b> Oh, and remember if you want to check out any books you need to scan your ID card at the self-service machine. If you have any books due on your account, you won't be able to check out anymore.</li><li><b>M:</b> OK, got it.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What is the conversation mainly about?",
+              "options": [
+                "Giving a presentation",
+                "Organizing an essay in a clear way",
+                "Finding a partner for a class project",
+                "Finding information and taking notes"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What does the professor recommend doing when taking notes?",
+              "options": [
+                "Writing as quickly as possible",
+                "Making a summary",
+                "Checking the information",
+                "Getting lots of information"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What does the professor suggest the woman do?",
+              "options": [
+                "She only needs to read the summary.",
+                "She should use computers to search for information.",
+                "She should go to the library to find information.",
+                "She should organize her notes."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What is the likely outcome of using both books and computers as sources?",
+              "options": [
+                "The student will need help doing the research.",
+                "The student will not be able to finish her project.",
+                "The student will have plenty of information.",
+                "The student will like books more than the computer."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "What is the main topic of this conversation?",
+              "options": [
+                "The different sections of the library",
+                "How to check out library books",
+                "How to return the due books",
+                "The use of computer in the library"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "Who is Mr. Baker likely be?",
+              "options": [
+                "A librarian",
+                "A janitor",
+                "A shopkeeper",
+                "A student"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What does the woman need if she wants to use the self-service machine?",
+              "options": [
+                "Librarian's permission",
+                "Library account",
+                "Money",
+                "A receipt"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "How does the man explain the solution?",
+              "options": [
+                "By mentioning the ways to check out books",
+                "By describing which books to check out",
+                "By giving information about the self-service machine",
+                "By explaining the procedure of borrowing books"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "Why is the student looking for help?",
+              "options": [
+                "He is supposed to meet with one of his friends.",
+                "He is looking for a part-time job.",
+                "He wants to know how to find a book.",
+                "He is struggling with his job."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What kind of books is the man looking for?",
+              "options": [
+                "Economics",
+                "Poetry",
+                "Geography",
+                "History"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "How does the book listing organize the books?",
+              "options": [
+                "Alphabetically",
+                "By the author's name",
+                "By the subject and then title",
+                "By the subject and then the author's name"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What is implied about the student's opinion of finding a book?",
+              "options": [
+                "He thinks it will be easier than he expected.",
+                "He doesn't think that he can do it.",
+                "He is not looking forward to trying to find a book.",
+                "He thinks that the librarian should find it for him."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks, lectures or conversations. The talks, lectures, or conversations will not be repeated. There are five questions for each talk, lecture, or conversation. For each question, choose the right answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-20/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talks/Lectures 1 (Q.21-25)</b></p><p>Welcome to all of you . . . can everybody see and hear me? . . . . Good . . . . I’m Sally, your guide for this tour of the Bicentennial Park I hope that you’re all wearing your most comfortable shoes and that you can keep up the pace. So let’s get under way on our tour around this wonderful park. I’ll start today with some general background information. There used to be a lot of factories in this area until the 1960s. Creating the park required the demolition of lots of derelict buildings on the site so most of the exciting park space all around you was originally warehouses and storehouses. The idea of building a high-rise park here was first discussed when a property developer proposed a high-rise housing development, but the local community wasn’t happy. If the land was to be cleaned up they wanted to use the site for recreation. Residents wanted open space for outdoor activities rather than housing or even an indoor sports complex. Now to the Bicentennial Park itself. It has two areas, a nature reserve and a formal park with man-made features and gardens. The tall blue-and-white building in front of us is called The Tower and it is the centre point for the formal gardens. It stands twelve metres high so follow me up the stairs to where we can take advantage of the fantastic views. well here we are at the top of The Tower, and we’re going to look at the view from each direction. Out to the east, the large buildings about a kilometre away are on the Olympic site. There’s an indoor arena for gymnastics, a stadium for track and field and a swimming pool for races and synchronised swimming and also diving. If you look carefully down there, you can see the train lines. The Olympic site has its own station to encourage the use of public transport. There is also a car park, but it only holds a limited number of cars. The formal park has some specially-created water features. If you look out here to the south you can see a circular ornamental pond. And around to the west, you can relax and sit on a bench to smell the flowers in the rose garden and finally up to the north, if you look in front of you now there’s a lake with a small island in the centre you can hire rowing boats at the boat shed which you can’t see from here but if you look through the trees, you can see the café, which has lovely views across the water. Okay, let’s climb down now</p><p><b>Talks/Lectures 2 (Q.26-30)</b></p><p>Welcome to Green Vale Agricultural Park As you know, we have only been open a week so you are amongst our first visitors. We have lots of fascinating indoor and outdoor exhibits on our huge complex, spreading hundreds of hectares. Our remit is to give educational opportunities to the wider public as well as to offer research sites for a wide variety of agriculturists and other scientists. Let’s start by seeing what there is to do. As you can see here on our giant wall plan, we are now situated in the Reception block ... here. As you walk out of the main door into the park there is a path you can follow. If you follow this route you will immediately come into the Rare Breeds section where we keep a wide variety of animals which I shall be telling you a little more about later. Next to this ... moving east... is the large grazing area for the rare breeds. Then further east... in the largest section of our Park is the Forest Area. South of the grazing area and in fact just next to the Reception block is our Experimental Crop Area. In the middle of the Park ... this circular area is our lake These two small rectangular shapes here are the Fish Farms area we rear fish for sale. To the east of those is the marsh area which attracts a great many migrant birds. In the south-eastern corner, beyond the marsh, is our Market Garden area, growing vegetables and flowers. All these areas can be visited by the general public for almost all the year... although please take note of the large signs at the entrance to each area which tell which tell you when certain areas are being used for particular controlled experiments and are therefore temporarily out of bounds to the public. You can see for yourself what a huge area the park covers and a key question is always, how can we move around? Well you have a choice of means all environmentally friendly Cars are banned in the park. We have bicycles which you can hire behind the reception block here the healthy ones of you can go on foot and finally there’s our electric tram, powered from solar cells. You can find more information about this at the front entrance. A good place to start on your tour is the Rare Breeds section. We keep goats, sheep and hens and other kinds of poultry. We are also thinking of bringing in cows and horses but we do not, as yet, have facilities for these bigger animals. The animals are fed in public twice a day and a short lecture given on their feeding habits and nutritional needs. These are very popular with the public but of course we mustn’t lose sight of the main purpose of having this section not as such to preserve rare animals but to maintain the diversity of breeds to broaden the gene pool for agricultural development.</b></p><p><b>Talks/Lectures 3 (Q.31-35)</b></p><p>Hello I’m delighted to welcome you to our Wildlife Club and very pleased that you’re interested in the countryside and the plants and creatures of this area. I think you’ll be surprised at the variety we have here, even though we’re not far from London. I’ll start by telling you about some of the parks and open spaces nearby. One very pleasant place is Halland Common. This has been public land for hundreds of years and what you’ll find interesting is that the River Ouse which flows into the sea eighty kilometres away has its source in the Common. There’s an information board about the plants and animals you can see here and by the way, the Common is accessible 24 hours a day. Then there’s Holt Island which is noted for its great range of trees. In the past willows were grown here commercially for basket-making and this ancient craft has recently been reintroduced The Island is only open to the public from Friday to Sunday, because it’s quite small and if there were people around every day much of the wildlife would keep away. From there it’s just a short walk across the bridge to Longfield Country Park Longfield has a modern replica of a farm from over two thousand years ago Children’s activities are often arranged there like bread-making and face-painting. The park is only open during daylight hours so bear that in mind if you decide to go there. Longfield Park has a programme of activities throughout the year and to give you a sample this is what’s happening in the next few days</p><p>On Monday you can learn about herbs and how they’ve been used over the centuries. You’ll start with a tour of our herb garden, practise the technique of using them as colour dyes for cloth and listen to an illustrated talk about their use in cooking and medicine. Then on Wednesday you can join local experts to discover the variety of insects and birds that appear in the evening. We keep to a small number of people in the group so if you want to go you’ll need to phone the park ranger a few days ahead. There’s a small charge which you should pay when you turn up. I’m sure you’re all keen to help with the practical task of looking after the park so on Saturday you can join a working party. You’ll have a choice of all sorts of activities from planting hedges to picking up litter so you’ll be able to change from one to another when you feel like it The rangers will be hard at work all day, but do come and join in, even for just a short while. One thing, though, is to make sure you’re wearing something that you don’t mind getting dirty or torn.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What kind of tour is Sally leading?",
+              "options": [
+                "a bus tour",
+                "a train tour",
+                "a walking tour",
+                "a cruise"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "What kind of buildings was it before the Park was made?",
+              "options": [
+                "houses.",
+                "industrial buildings.",
+                "shops.",
+                "a school."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What did the local residents want to use the site for?",
+              "options": [
+                "leisure.",
+                "apartment blocks.",
+                "a sports centre.",
+                "office buildings"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What does the speaker say about the Tower?",
+              "options": [
+                "It is located in the centre of the nature reserve.",
+                "It's a blue and black building.",
+                "It's 20 meters high.",
+                "It offers tourists wonderful views."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "In which direction from the top of the Tower can the tourists see the Olympic site?",
+              "options": [
+                "to the North.",
+                "to the South.",
+                "to the East.",
+                "to the West."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "According to the speaker, what are the main purposes of the park?",
+              "options": [
+                "education and entertainment.",
+                "research and education.",
+                "research and entertainment.",
+                "education and agriculture"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "Which is the biggest part of the Park?",
+              "options": [
+                "the Forest area",
+                "the Market Garden area",
+                "the Rare Breed section",
+                "Experimental Crop Area"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "How can you move around the park?",
+              "options": [
+                "by tram, walking or bicycle",
+                "by solar car or bicycle",
+                "by bicycle, walking or bus",
+                "by bus or bicycle"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What rare breed animals are kept in the park?",
+              "options": [
+                "hens and horses.",
+                "goats and cows.",
+                "goats and hens.",
+                "cows and horses"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What is the main purpose of having the Rare Breeds Section?",
+              "options": [
+                "to save unusual animals",
+                "to keep a variety of breeds",
+                "to educate the public",
+                "to save injured animals"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What is NOT true about Halland Common?",
+              "options": [
+                "It has been open for a hundred years.",
+                "It's open all day long.",
+                "Information about plants and animals are available to the public.",
+                "River Ouse has its source in it."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "What does the speaker say about Holt Island?",
+              "options": [
+                "It has been famous for handicraft.",
+                "It's commercially developed.",
+                "It's rather large.",
+                "People come there every day."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What will visitors do on Monday in the Longfield Park?",
+              "options": [
+                "prepare food with herbs.",
+                "meet a well-known herbalist.",
+                "dye cloth with herbs.",
+                "Painting their faces with herb dyes."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What does the speaker say about the activity on Wednesday?",
+              "options": [
+                "only group bookings are accepted.",
+                "visitors should book in advance.",
+                "attendance is free.",
+                "Visitors will listen to experts talking about insects and birds."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "What should visitors do for the activity on Saturday?",
+              "options": [
+                "work hard on the activities.",
+                "make sure they are able to stay for the whole day.",
+                "tell the rangers before the event what they wish to do.",
+                "come in suitable clothing."
+              ],
+              "answer": 3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "id": "vstep-reading-onthi-31",
+  "title": "Luyện Đọc VSTEP: Cultural Heritage: Preservation and Challenges (VstepR6-Test 05)",
+  "duration": 10,
+  "date": "2026-03-27",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 5,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Cultural Heritage: Preservation and Challenges",
+            "text": "<p style=\"text-align:justify;\">Cultural heritage encompasses the inherited artifacts, monuments, landscapes, knowledge, and traditions that communities consider part of their identity. It is typically divided into two categories: <em>tangible</em> heritage, which includes physical objects and places such as museums, historic buildings, and archaeological sites; and <em>intangible</em> heritage, which includes oral traditions, performing arts, rituals, festivals, and traditional craftsmanship. Both forms of heritage are considered vital to the continuity of cultural identity across generations.</p>\n<p style=\"text-align:justify;\">Preserving cultural heritage is a complex undertaking that requires balancing numerous competing interests. Restoration projects must navigate the tension between historical authenticity and the needs of modern users. For example, making an ancient monument accessible to tourists or people with disabilities may require structural modifications that <strong>compromise</strong> its integrity. Decisions about what to restore, what to leave untouched, and how to fund preservation efforts are often contentious, particularly when communities disagree about the significance of a particular site or tradition.</p>\n<p style=\"text-align:justify;\">One of the greatest threats to cultural heritage is the ongoing process of globalization. As Western popular culture spreads through digital media, television, and film, many indigenous languages, folk traditions, and regional customs are disappearing. UNESCO estimates that half of the world's 7,000 spoken languages will disappear by the end of this century. When a language dies, it takes with it a unique way of understanding the world — including knowledge of local plants, animals, and ecosystems developed over thousands of years.</p>\n<p style=\"text-align:justify;\">Tourism presents another complex challenge. While cultural tourism can generate revenue needed to fund preservation efforts and raise awareness of endangered traditions, excessive tourism can also damage the sites and practices it seeks to celebrate. The challenge is to develop <strong>sustainable</strong> forms of cultural tourism that support rather than undermine the communities and traditions at their center.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r31-q1",
+              "type": "mcq",
+              "question": "What is the main idea of the passage?",
+              "options": [
+                "Why UNESCO should have more funding",
+                "The definition and challenges of preserving cultural heritage",
+                "How tourism destroys historical sites",
+                "The difference between tangible and intangible heritage only"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r31-q2",
+              "type": "mcq",
+              "question": "According to the passage, which is an example of intangible heritage?",
+              "options": [
+                "A historic building",
+                "An archaeological site",
+                "A traditional performing art",
+                "A museum collection"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r31-q3",
+              "type": "mcq",
+              "question": "The word \"compromise\" in paragraph 2 is closest in meaning to?",
+              "options": [
+                "improve",
+                "damage or weaken",
+                "describe",
+                "restore"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r31-q4",
+              "type": "mcq",
+              "question": "What does the author suggest about the disappearance of languages?",
+              "options": [
+                "It is primarily caused by war and conflict",
+                "Languages only disappear in developing countries",
+                "The loss of a language also means the loss of unique cultural knowledge",
+                "Digital technology helps preserve endangered languages"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r31-q5",
+              "type": "mcq",
+              "question": "The word \"sustainable\" in paragraph 4 is closest in meaning to?",
+              "options": [
+                "profitable",
+                "able to be maintained without causing long-term damage",
+                "traditional",
+                "internationally recognized"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

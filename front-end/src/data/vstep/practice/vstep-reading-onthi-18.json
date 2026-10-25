@@ -1,0 +1,161 @@
+{
+  "id": "vstep-reading-onthi-18",
+  "title": "Luyện Đọc VSTEP: Map Legends (VstepRd Test 01)",
+  "duration": 14,
+  "date": "2025-11-16",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 14,
+      "totalQuestions": 9,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Map Legends",
+            "text": "<p><br />Somewhere on every good map there is a legend. A legend is a small drawing. It tell us how to read the map. It shows how the cartographer made the map. No single map can show everything. It would be too crowded. The legend tells us which things the <strong>cartographer</strong> chose to show. It shows which areas the map covers. [A] The map is only a flat piece of paper. The legend tells us how it shows the earth's <strong>curve</strong>.<br />There is one very important thing on a legend. This is the map’s scale. The scale has two parts. One part is called a verbal scale. It uses words. Here is an example: 1 millimeter equals 100 kilometers. [B] The other part of the scale is a line or a bar. This is called a graphic scale. On it, one small <strong>mark</strong>, usually a millimeter, stands for a real distance. In the previous example, the distance of a millimeter is 100 kilometers. Most of the scales on road maps are graphic scales. With the scale, you can tell the distance from place to place.<br />The legend also tells what the symbols on the map mean. For example, the cartographer might use a star to show a big city. A red star inside a dot might show a country's capital city. A small, black dot might show a small town. Colors and lines are very important symbols. A river may be colored blue. A very busy highway might be a thick, red line. A small road might be a thin, black line. A footpath might be a thin, broken line on the map. [C]<br />Some maps show places that don't have roads or cities. [D] These maps can show how high or steep mountains are. They can also show where the land is flat. The map will show these things with many different colors. This kind of map is called a topographical map. Its legend will tell how to read these things.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r18-q1",
+              "type": "mcq",
+              "question": "What does a legend on a map do?",
+              "options": [
+                "It tells the names of countries on the map.",
+                "It shows which way is north.",
+                "It shows a good route for traveling.",
+                "It helps people use the map."
+              ],
+              "answer": 3,
+              "explanationVi": "<p>Câu này hỏi về tác dụng của một bảng chú giải. Thông tin này có trong 3 câu đầu tiên của đoạn 1.</p>\n<p><i>Ở một vị trí nào đó trong một tấm bản đồ chất lượng, có một bảng chú giải. Bảng chú giải là một bản vẽ nhỏ. Nó cho chúng ta biết cách đọc bản đồ. </i></p>\n<p>Đáp án A. <i>Nó nói về tên của các nước trên bản đồ</i>. Thông thường tên của các nước trên bản đồ cũng có thể có trong bảng chú giải. Tuy nhiên theo thông tin trong bài, một bảng chú giải còn cho biết cách đọc bản đồ, tức là liên quan đến nhiều ký hiệu và thông tin khác nữa. Đáp án A quá chi tiết, không đầy đủ thông tin. -> A loại</p>\n<p>Đáp án B. <i>Nó cho biết đường nào là hướng Bắc</i>. Thông tin này không bao gồm trong nội dung của bài. -> B loại</p>\n<p>Đáp án C. <i>Nó cho biết một con đường đẹp để đi lại</i>. Thông tin này không được đề cập đến ở các câu nói về chức năng của một bảng chú giải. -> C loại</p>\n<p>Đáp án D. <i>Nó giúp người ta sử dụng một bản đồ</i>. Điều này đúng, bởi vì biết “cách đọc bản đồ” chính là biết sử dụng nó. -> D đúng</p>\n<p>=> D là đáp án đúng</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r18-q2",
+              "type": "mcq",
+              "question": "According to the reading, what does a scale help people know?",
+              "options": [
+                "How high the mountains are",
+                "How much to weigh",
+                "How far to go",
+                "Where we are"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Theo bài văn, “scale” tỷ lệ giúp cho người ta biết về điều gì?</p>\n<p>Từ khóa “scale” xuất hiện trong đoạn 2, tuy nhiên trong phần đầu của đoạn chỉ nói về định nghĩa và các ví dụ về tỷ lệ. Thông tin cần thiết nằm trong đoạn cuối của đoạn.</p>\n<p><i>Với tỷ lệ, bạn có thể nói được khoảng cách từ địa điểm này đến địa điểm khác. </i></p>\n<p>Đáp án A. <i>(tỷ lệ cho biết) những ngọn núi cao như thế nào</i>. Đọc lướt qua cả đoạn 2 ta không thấy có đề cập đến “mountain”. Hơn nữa, đáp án A cũng không liên quan đến thông tin về tác dụng của tỷ lệ nêu trên. -> A loại</p>\n<p>Đáp án B. <i>(tỷ lệ cho biết) cần đo đạc bao nhiêu</i>.  Tỷ lệ chỉ là một thông số miêu tả bản đồ mà không liên quan đến việc miêu tả quá trình tạo ra bản đồ. -> B loại</p>\n<p>Đáp án C. <i>(tỷ lệ cho biết) phải đi xa như thế nào</i>. Theo như câu cuối đoạn 2, tỷ lệ giúp ta biết được khoảng cách từ vị trí này đến vị trí kia. Do đó sẽ xác định được nơi cần đến xa hay gần. -> C đúng</p>\n<p>Đáp án D<i>. (tỷ lệ cho biết) chúng ta đang ở đâu</i>. Thông tin này không liên quan đến nội dung nói về tác dụng của tỷ lệ. -> D loại</p>\n<p>=> C là đáp án đúng</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r18-q3",
+              "type": "mcq",
+              "question": "According to the passage, a large blue-colored circle would probably be",
+              "options": [
+                "A hospital",
+                "A lake",
+                "A highway",
+                "A city"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>“Một chấm tròn to màu xanh có khả năng sẽ là cái gì?”</p>\n<p>Từ khóa trong câu hỏi là “a large blue-colored circle” do đó ta sẽ scan và tìm thấy từ khóa “colored blue” ở câu thứ 4 từ cuối lên của đoạn 3.</p>\n<p><i>Một dòng sông có thể có màu xanh</i>.</p>\n<p>Xem xét các đáp án: A. Hospital (bệnh viện); C. Highway (đường cao tốc) và D. City (thành phố) không gần nghĩa hoặc không liên quan đến “một dòng sông”. Với đáp án D. Lake (hồ) gần nghĩa với sông nên có khả năng nó sẽ được ký hiệu màu xanh tương tự.</p>\n<p>=> B là đáp án đúng.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r18-q4",
+              "type": "mcq",
+              "question": "In paragraph, what best paraphrases the sentence “<b>Somewhere on every good map there is a legend</b>.”?",
+              "options": [
+                "A poorly made map may or may not have a legend.",
+                "Only good maps have legends.",
+                "If a map is made well, you can find a legend on it.",
+                "Maps do not always put the legend in the same place."
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Trong đoạn văn, cách diễn đạt lại nào phù hợp nhất với câu: “Ở một vị trí nào đó ở mọi bản đồ tốt, có một bảng chú giải.”</p>\n<p>Đáp án A. <i>Một bản đồ được làm kém chất lượng có thể có hoặc không có bảng chú giải.</i> Thông tin được diễn đạt ở đáp án này không tương đương về nghĩa với câu gốc. Bởi vì câu gốc chỉ đề cập đến bản đồ tốt, mà không nêu thêm thông tin về một bản đồ kém chất lượng. -> A loại</p>\n<p>Đáp án B. <i>Chỉ có bản đồ tốt mới có bảng chú giải</i>. Tương tự như đáp án A, đáp án này “tuyệt đối hóa” thông tin có ở câu gốc nên không chính xác về mặt nội dung khi so sánh với câu gốc. -> B loại</p>\n<p>Đáp án C. <i>Nếu một bản đồ được làm tốt thì sẽ tìm thấy một bảng chú giải trên đó</i>. Thông tin này đúng, bởi theo câu gốc, nói rằng ở một bản đồ tốt thì chắc chắn sẽ tìm thấy một bảng chú giải ở vị trí nào đó. -> C đúng</p>\n<p>Đáp án D. <i>Không phải bản đồ nào cũng có bảng chú giải ở vị trí giống nhau</i>. Trọng tâm của câu gốc không phải là vị trí của bảng chú giải nên đáp án này không thể hiện được hết ý chính của câu gốc. -> D loại</p>\n<p>=> C là đáp án đúng</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r18-q5",
+              "type": "mcq",
+              "question": "What is the main idea of paragraph 4?",
+              "options": [
+                "There are maps that show the ocean floor.",
+                "Some maps are made in black and white.",
+                "Some maps show the height of the land.",
+                "Maps only show places where there are roads."
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Câu này hỏi về ý chính của đoạn 4 nên chúng ta đọc hiểu toàn bộ đoạn này:</p>\n<p><i>Một số bản đồ cho thấy những nơi không có đường sá hay thành phố. Những bản đồ này có thể cho biết núi cao hay dốc như thế nào. Chúng còn có thể thể hiện vùng đất nào phẳng. Bản đồ sẽ thể hiện những thông tin này bằng nhiều màu khác nhau. Loại bản đồ này được gọi là bản đồ địa hình. Bảng chú giải sẽ cho chúng ta biết cách đọc các thông tin này. </i></p>\n<p>Đáp án A. <i>Những bản đồ này cho thấy đáy của đại dương</i>. Đáp án này không liên quan đến nội dung của đoạn 4 vì không có thông tin nào nhắc đến “đại dương” hay “đáy của đại dương”. -> A loại</p>\n<p>Đáp án B. <i>Những bản đồ này được vẽ bằng màu đen và trắng</i>. Đây chỉ là một chi tiết nhỏ trong đoạn 4 mà không khái quát được nghĩa của cả đoạn. Hơn nữa, loại bản đồ địa hình được vẽ bằng nhiều màu khác nhau chứ không chỉ có màu đen và trắng. -> B loại</p>\n<p>Đáp án C. <i>Những bản đồ này cho biết độ cao của một vùng đất</i>. Theo như 3 câu đầu tiên, nội dung của bản đồ địa hình thể hiện độ cao/dốc của núi và cho thấy liệu rằng một vùng đất có phẳng hay không. Như vậy, nhìn vào bản đồ này ta sẽ biết độ cao của một vùng đất; thông tin phù hợp với đáp án C. -> C đúng</p>\n<p>Đáp án D. <i>Những bản đồ này chỉ thể hiện những nơi có đường sá</i>. Thông tin này không đúng vì ngay câu đầu tiên của đoạn đã nói rằng loại bản đồ này cho thấy những nơi không có đường sá hay thành phố. -> D loại</p>\n<p>=> C là đáp án đúng </p>",
+              "part": "Reading",
+              "orderNumber": 5
+            },
+            {
+              "id": "otv-r18-q6",
+              "type": "mcq",
+              "question": "Where would the sentence best fit? </p>\n<p><strong>People who hike in the woods often use these maps.</strong>",
+              "options": [
+                "[A]",
+                "[B]",
+                "[C]",
+                "[D]"
+              ],
+              "answer": 3,
+              "explanationVi": "<p>Câu “Những người đi bộ vào rừng thường sử dụng những bản đồ này” (1) nên dược chèn vào đâu?</p>\n<p>Vị trí (A). Câu liền trước và sau (A) chỉ nói đến “the map” (số ít) chứ không đề cập đến “these maps” (số nhiều) như câu trên. Do đó nếu chèn câu (1) vào vị trí (A) thì sẽ không phù hợp về ngữ pháp. -> A loại</p>\n<p>Vị trí (B). Câu liền trước và sau (B) đưa ra ví dụ về “scale” và miêu tả “scale” mà không nói chung đến map. Vì vậy câu (1) không tương ứng về mặt ngữ nghĩa với (B). -> B loại</p>\n<p>Đáp án (C). Tương tự với đáp án (A), vị trí trước (C) nhắc đến “the map”, hơn nữa những danh từ trong câu này đều là danh từ số ít; không phù hợp với câu (1) về mặt ngữ pháp. -> C loại</p>\n<p>Vị trí (D). Ta thấy câu trước (D) có “some maps”, tương đương “these maps” trong câu số (1). “places that don’t have roads or cites” (nơi không có đường sá hay thành phố” tương đương với “woods” trong câu (1). Hơn nữa, nếu chèn câu (1) vào vị trí (D), ta sẽ có 1 đoạn thông tin: “<i>Một số bản đồ cho thấy những nơi không có đường sá hay thành phố. Những người đi bộ vào rừng thường sử dụng những bản đồ này. Những bản đồ này có thể cho biết núi cao hay dốc như thế nào.</i>”; hoàn toàn phù hợp về mặt ngữ nghĩa. -> D đúng</p>\n<p>=> D là đáp án đúng</p>",
+              "part": "Reading",
+              "orderNumber": 6
+            },
+            {
+              "id": "otv-r18-q7",
+              "type": "mcq",
+              "question": "The word \"<b>cartographer</b>,\" as seen in paragraph 1, could best be replaced by",
+              "options": [
+                "Teacher",
+                "Mapmaker",
+                "Writer",
+                "Engineer"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Từ “cartographer” có thể thay bằng từ nào?</p>\n<p>Trong đoạn 1 ta có 2 câu chứa “cartographer”: “Nó cho biết cách mà một catorgrapher tạo ra một bản đồ (4)… Bảng chú giải cho chúng ta biết những thứ mà một<i> cartorgrapher </i>chọn để thể hiện (6)<i>.</i>” Thậm chí trong trường hợp chúng ta không biết từ “legend” (bảng chú giải) ở câu 6, chúng ta vẫn đoán được rằng “catorgrapher” là một người liên quan đến việc tạo ra bản đồ.</p>\n<p>Do đó, B<i>. một người vẽ bản đồ</i> là đáp án hợp lý nhất.</p>\n<p>=> B là đáp án đúng</p>",
+              "part": "Reading",
+              "orderNumber": 7
+            },
+            {
+              "id": "otv-r18-q8",
+              "type": "mcq",
+              "question": "The word \"curve\" in paragraph 1 is closest in meaning to",
+              "options": [
+                "Length",
+                "Height",
+                "Surface",
+                "Shape"
+              ],
+              "answer": 3,
+              "explanationVi": "<p>Từ “curve” là đường cong, nên ta có thể loại ngay đáp án A. <i>độ dài</i> và B. <i>chiều cao</i>. Đọc câu có chứa từ “curve” (câu cuối đoạn 1): “Bảng chú giải cho chúng ta biết cách mà nó thể hiện đường cong của Trái đất”. Xem xét giữa đáp án C. <i>bề mặt</i> và D. <i>hình dạng</i>, khi nhắc đến đường cong (tóc uốn cong, hay đường cong của cơ thể) thì thường người ta muốn miêu tả hình dáng thay vì bề mặt. Do đó D. hình dạng sẽ là từ tương đương về nghĩa với “curve” (đường cong) hơn trong trường hợp này.</p>\n<p>=> D là đáp án đúng.</p>",
+              "part": "Reading",
+              "orderNumber": 8
+            },
+            {
+              "id": "otv-r18-q9",
+              "type": "mcq",
+              "question": "The word \"<b>mark</b>\" in paragraph 2 is closest in meaning to",
+              "options": [
+                "Grade",
+                "Year",
+                "Indication",
+                "Distance"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Ta đọc hiểu câu có chứa từ “mark” để tìm nghĩa của nó (câu 8, đoạn 2): “Trong tỷ lệ địa lý, một <i>mark</i> nhỏ, thường là một milimét, đại diện cho một khoảng cách thực.” Ta thấy, một mark “nhỏ” sẽ tương đương với 1 milimét và thể hiện khoảng cách. Do đó, đáp án A. <i>điểm số</i> hay B. <i>năm </i>không liên quan về ngữ nghĩa trong trường hợp này. Đáp án D. <i>khoảng cách</i>; “mark” có thể là một ký hiệu 1 milimét trong tỷ lệ địa lý để chỉ khoảng cách. Tuy nhiên, 1 milimét (tương đương 1 một “mark” nhỏ thì lại quá ngắn nếu mà nói về khoảng cách thực). Hơn nữa, nếu “mark” cũng đồng nghĩa với “distance” thì câu trên sẽ bị lặp lại từ và ý lòng vòng. Do vậy ta có thể thấy 3 đáp án trên không hợp lý. Còn lại đáp án C. Indication (chỉ số/ sự biểu thị) thì phù hợp với ngữ nghĩa của câu trên.</p>\n<p>=> C là đáp án đúng</p>",
+              "part": "Reading",
+              "orderNumber": 9
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

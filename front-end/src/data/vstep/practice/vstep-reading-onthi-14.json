@@ -1,0 +1,56 @@
+{
+  "id": "vstep-reading-onthi-14",
+  "title": "Luyện Đọc VSTEP: Camouflage (VstepR5-Test 01)",
+  "duration": 10,
+  "date": "2025-11-16",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 2,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Camouflage",
+            "text": "<p style=\"text-align: justify;\">Camouflage is one of the most effective ways for animals to avoid attack in the treeless Arctic. However, the summer and winter landscapes there are so diverse that a single protective coloring scheme would, of course, prove ineffective in one season or the other. Thus, many of the inhabitants of the Arctic tundra change their camouflage twice a year. The arctic fox is a clear-cut example of this phenomenon; it sports a brownish- gray coat in the summer which then turns white as cold weather sets in, and the process reverses itself in the springtime. Its brownish-gray coat blends in with the barren tundra landscape in the months without snow, and the white coat naturally blends in with the landscape of the frozen wintertime tundra.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r14-q1",
+              "type": "mcq",
+              "question": "<span style=\"text-align: justify;\">What best paraphrases the sentence “</span><strong style=\"text-align: justify;\">However, the summer and winter landscapes there are so diverse that a single protective coloring scheme would, of course, prove ineffective in one season or the other.</strong><span style=\"text-align: justify;\">”?</span>",
+              "options": [
+                "Opposite conditions in summer and in winter necessitate different protective coloration for Arctic animals.",
+                "The coloration of the summer and winter landscapes in the Arctic tails to protect the Arctic tundra.",
+                "In a single season, protective colouring schemes are ineffective in the treeless Arctic.",
+                "For many animals, a single protective coloring scheme effectively protects them during summer and winter months."
+              ],
+              "answer": 0,
+              "explanationVi": "<p>1. However, the summer and winter landscapes there are so diverse that a single protective coloring scheme would, of course, prove ineffective in one season or the other.</p>\n<p>(Tuy nhiên, cảnh quan mùa hè và mùa đông rất đa dạng, đến nỗi mà một cách phối hợp màu sắc cố định để tự vệ sẽ không có tác dụng vào mùa này hoặc mùa kia.)</p>\n<p>A. Opposite conditions in summer and in winter necessitate different protective coloration for Arctic animals.</p>\n<p>(Điều kiện tự nhiên trái ngược giữa mùa đông và mùa hè đòi hỏi động vật ở phương Bắc phải có cách phối hợp màu sắc đa dạng để tự vệ.)</p>\n<p>B. The coloration of the summer and winter landscapes in the Arctic tails to protect the Arctic tundra</p>\n<p>(Màu sắc của cảnh quan mùa đông và mùa hè ở vùng Bắc Cực giúp bảo vệ lãnh nguyên Bắc Cực.)</p>\n<p>C. In a single season, protective coloring schemes are ineffective in the treeless Arctic.</p>\n<p>(Trong một mùa, những cách phối hợp màu sắc để tự vệ thường không hiệu quả ở vùng Bắc Cực không có cây.)</p>\n<p>D. For many animals, a single protective coloring scheme effectively protects them during summer and winter months.</p>\n<p>(Với nhiều loài động vật, một cách phối hợp màu sắc duy nhất sẽ phát huy hiệu quả trong cả mùa hè và mùa đông.)</p>\n<p>Đáp án A đúng</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r14-q2",
+              "type": "mcq",
+              "question": "What best paraphrases the sentence <strong>“The arctic fox is a clear-cut example of this phenomenon; it sports a brownish- gray coat in the summer which then turns white as cold weather sets in, and the process reverses itself in the springtime..”</strong>?",
+              "options": [
+                "The arctic fox is unusual in that the color of its coat changes for no reason.",
+                "The arctic fox lives in an environment that is brownish gray in the summer and white in the winter",
+                "It is a phenomenon that the coat of the arctic fox turns white in the springtime and gray in the fall",
+                "The arctic fox demonstrates that protective coloration can change during different seasons."
+              ],
+              "answer": 3,
+              "explanationVi": "<p>The arctic fox is a clear-cut example of this phenomenon, it sports a brownish-gray coat in the summer which then turns white as cold weather sets in, and the process reverses itself in the springtime.</p>\n<p>(Cáo Bắc Cực là một ví dụ điển hình của hiện tượng này, nó diện một bộ lông màu xám vào mùa hè. Còn khi mùa đông đến, nó sẽ chuyển sang màu trắng. Khi mùa xuân đến, bộ long lại chuyển sang màu xám.)</p>\n<p>A. The arctic fox is unusual in that the color of its coat changes for no reason</p>\n<p>(Cáo Bắc Cực thường không thay thổi màu lông của mình mà không có lý do gì.)</p>\n<p>B. The arctic fox lives in an environment that is brownish gray in the summer and white in the winter.</p>\n<p>(Cáo Bắc Cực sống trong môi trường có màu xám vào mùa hè và màu trắng vào mùa đông.)</p>\n<p>C. It is a phenomenon that the coat of the arctic fox turns white in the springtime and gray in the fall</p>\n<p>(Có một hiện tượng là bộ long của cáo Bắc Cực chuyển sang màu trắng vào mùa xuân và chuyển sang màu xám vào mùa thu.)</p>\n<p>D. The arctic fox demonstrates that protective coloration can change during different seasons</p>\n<p>(Cáo Bắc Cực cho thấy rằng màu sắc tự vệ của động vật có thể thay đổi theo mùa.)</p>\n<p>Đáp án D đúng</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "vstep-writing-vnu-02",
+  "title": "Writing Practice — Đề Khảo Thí VSTEP B2-C1 Sau Đại Học — Đại Học Quốc Gia Hà Nội",
+  "duration": 60,
+  "category": "writing",
+  "targetLevel": "C1",
+  "sections": [
+    {
+      "type": "writing",
+      "label": "Writing (Viết)",
+      "timeLimit": 60,
+      "tasks": [
+        {
+          "id": "vnu2-w-task1",
+          "type": "email",
+          "formatType": "formal_letter",
+          "minWords": 120,
+          "title": "<p class=\"mb-1\"><b>Task 1:</b> You should spend about 20 minutes on this task.</p><p>You are a doctoral research candidate who recently submitted an academic paper to the <i>VNU Journal of Science: Policy and Management Studies</i>. The managing editor requested revisions within 30 days, but unexpected laboratory equipment maintenance has delayed your validation tests.</p>",
+          "content": "<p>Write a formal letter to the Editor-in-Chief, Professor Tran Van Minh:</p><ul><li>Explain the exact reason for the delay in completing the experimental revisions.</li><li>Specify the progress already accomplished on theoretical and literature adjustments.</li><li>Formally request a 3-week extension to the revision submission deadline.</li></ul>",
+          "description": "Write at least 120 words. Use formal academic correspondence conventions. Evaluated on Task Fulfillment, Organization, Vocabulary, and Grammar.",
+          "suggestion": "<div class=\"space-y-3 font-sans text-sm\">\n  <div class=\"p-3 bg-amber-50 rounded-lg border border-amber-200\">\n    <p class=\"font-bold text-amber-900\">⭐ BÀI MẪU BAND 8.5 - C1 (145 từ):</p>\n    <div class=\"mt-2 text-slate-800 space-y-2 leading-relaxed\">\n      <p><b>Dear Professor Tran Van Minh, Editor-in-Chief,</b></p>\n      <p>I am writing with reference to manuscript #PMS-2026-084, entitled <i>\"Optimizing Renewable Energy Policy Frameworks in Northern Vietnam,\"</i> which received a constructive Major Revision decision on September 10th.</p>\n      <p>While my research team has successfully addressed all theoretical critiques and incorporated the reviewers' recommended literature citations, we have encountered an unforeseen technical obstacle. The specialized computational simulation server in our faculty laboratory underwent emergency hardware repairs last week, temporarily suspending our sensitivity analysis calibration.</p>\n      <p>In light of this unavoidable disruption, I respectfully request a three-week extension to our revision submission deadline, proposing a revised date of November 15th. This will ensure that our experimental validation meets the rigorous empirical standards of the <i>VNU Journal of Science</i>.</p>\n      <p>Thank you very much for your understanding and continued editorial guidance.</p>\n      <p><b>Sincerely yours,<br/>Nguyen Duc Thang</b><br/>Doctoral Candidate, Vietnam National University</p>\n    </div>\n  </div>\n</div>"
+        },
+        {
+          "id": "vnu2-w-task2",
+          "type": "essay",
+          "formatType": "opinion_essay",
+          "minWords": 250,
+          "title": "<p class=\"mb-1\"><b>Task 2:</b> You should spend about 40 minutes on this task.</p>",
+          "content": "<p>In recent years, several prestigious universities have instituted mandatory requirements stipulating that all doctoral candidates must publish at least one or two peer-reviewed articles in internationally indexed journals (such as Scopus or Web of Science) before being granted permission to defend their dissertations.</p><p><b>Do you believe the advantages of this publication mandate outweigh its disadvantages?</b></p>",
+          "description": "Write an academic essay of at least 250 words to an educated audience. Support your position with pertinent reasons and empirical examples.",
+          "suggestion": "<div class=\"space-y-3 font-sans text-sm\">\n  <div class=\"p-3 bg-indigo-50 rounded-lg border border-indigo-200\">\n    <p class=\"font-bold text-indigo-900\">⭐ BÀI MẪU BAND 8.5 - C1 (295 từ):</p>\n    <div class=\"mt-2 text-slate-800 space-y-2 leading-relaxed\">\n      <p>In an era marked by intense global academic benchmarking, numerous leading tertiary institutions have mandated that doctoral scholars must publish peer-reviewed papers in internationally indexed journals—such as Scopus or Web of Science—prior to dissertation defense. While this regulation has elicited criticism regarding student psychological stress and research commercialization, I firmly maintain that its methodological and professional advantages substantially eclipse its shortcomings.</p>\n      <p>On the one hand, critics raise valid concerns regarding systemic publication pressures. Preparing international manuscripts often subjects doctoral candidates to protracted peer-review cycles that frequently span over twelve months, inadvertently postponing graduation timelines. Furthermore, an overemphasis on journal metrics can incentivize perverse academic behaviors, such as superficial salami-slicing of research data or submitting to predatory open-access outlets that demand exorbitant author-processing fees. These challenges undoubtedly exacerbate mental health anxieties among emerging researchers.</p>\n      <p>Nevertheless, the profound merits of rigorous international publication are indispensable for modern academic excellence. Firstly, external peer review by blind international referees serves as an incorruptible quality assurance mechanism, eliminating academic nepotism and ensuring that doctoral research meets global empirical standards. In developing academic ecosystems, this benchmark elevates domestic institutional prestige and accelerates knowledge integration with global scientific communities. Secondly, mastering the arduous craft of academic publishing equips candidates with paramount competitive advantages in career placement, international post-doctoral fellowships, and competitive grant acquisition.</p>\n      <p>In conclusion, while institutional leaders must mitigate publication stress through dedicated faculty mentorship and financial subsidies for research dissemination, the mandate itself remains vital. International peer review ensures academic integrity, enhances university reputation, and prepares doctoral graduates to become impactful contributors to global scholarship.</p>\n    </div>\n  </div>\n</div>"
+        }
+      ]
+    }
+  ]
+}

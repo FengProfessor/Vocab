@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-33",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 33",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> There are eight questions in this part. For each question there are four options and a short recording. For each question, choose the correct answer A, B, C or D. You now have 45 seconds to look through the questions and the options in each question.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-07/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. What have they forgotten?</b></p><ul><li><b>Speaker 1:</b> I've got the passports here.</li><li><b>Speaker 2:</b> And the tickets are in my bag.</li><li><b>Speaker 1:</b> What about the camera?</li><li><b>Speaker 2:</b> Oh no. I have left it at home. And I really want to take some holiday photos.</li></ul><p><b>2. What time does the train go?</b></p><ul><li><b>Speaker 1:</b> Hurry up! we'll be late</li><li><b>Speaker 2:</b> what time does the train go?</li><li><b>Speaker 1:</b> At six fifteen. We've got to leave in ten minutes.</li><li><b>Speaker 1:</b> I’m nearly ready</li></ul><p><b>3. How did the woman get to work?</b></p><ul><li><b>Speaker 1:</b> The traffic is terrible today.</li><li><b>Speaker 2:</b> Yes it took me forty minutes by bus</li><li><b>Speaker 1:</b> Well I drove and it took me an hour</li><li><b>Speaker 2:</b> An hour? it's probably quicker by bicycle.</li></ul><p><b>4. Where are the man's shoes?</b></p><ul><li><b>Speaker 1:</b> Have you seen my old shoes? I thought they were under the chair by the television</li><li><b>Speaker 2:</b> Not any more. They’re by the door with the other rubbish, inside the flat.</li><li><b>Speaker 1:</b> Well the living room looks very nice but you’re not throwing my old shoes away all the same.</li></ul><p><b>5. What will Paul get at the shop?</b></p><ul><li>Right. Now.. what do we need for the sauce so Paul can get for me ... let me see.. onions, tomatoes, one red pepper, mushrooms and two carrots. So what I’ve got. Onions? I’ve got those. Tomatoes ,yes ,red pepper ,no, I need one of those. I’ve got mushrooms, oh dear, no carrots. Paul. Could you go to the shop for me, please?</li></ul><p><b>6. How were they told to do their homework?</b></p><ul><li><b>Speaker 1:</b> Wow your homework looks great</li><li><b>Speaker 2:</b> Thanks. I typed it on my dad’s computer.</li><li><b>Speaker 1:</b> But did Mrs Smith tell us we have to write in our books?</li><li><b>Speaker 2:</b> Oh, No. You’re right. What am I going to do now?</li></ul><p><b>7. What did Helen buy?</b></p><ul><li><b>Speaker 1:</b> Look. Roger I’ve been shopping. They’ve got some great things in Star Right</li><li><b>Speaker 2:</b> That’s brilliant, lovely colors and it’ll keep you warm in the winter</li><li><b>Speaker 1:</b> Yes, but are the sleeves too short for me?</li><li><b>Speaker 2:</b> No. they look fine.</li></ul><p><b>8. How did the woman get to work today?</b></p><ul><li>Oh I’m so sorry I’m late. I missed the bus and I was trying to decide whether to walk or go back and get my bike when I saw my neighbor. Luckily he offered me a lift because he works near here.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What have they forgotten?",
+              "options": [
+                "ticket",
+                "camera",
+                "passport",
+                "bag"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What time does the train go?",
+              "options": [
+                "06.15",
+                "07.40",
+                "06.10",
+                "07.10"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "How did the woman get to work?",
+              "options": [
+                "by bicycle",
+                "by bus",
+                "by car",
+                "by train"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "Where are the man's shoes?",
+              "options": [
+                "under the chair",
+                "by the television",
+                "by the door with the other rubbish",
+                "under the table"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What will Paul get at the shop?",
+              "options": [
+                "mushrooms",
+                "onions",
+                "carrots",
+                "red pepper"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "How were they told to do their homework?",
+              "options": [
+                "write it in the books",
+                "write it on paper",
+                "type it",
+                "email it"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What did Helen buy?",
+              "options": [
+                "gloves",
+                "sweater",
+                "socks",
+                "hat"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "How did the woman get to work today?",
+              "options": [
+                "by bus",
+                "a neighbour offered her a lift",
+                "by bike",
+                "walk"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D. You will hear the conversations only ONCE",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-04/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1: Interview with Harry Park</b></p><ul><li><b>Interviewer:</b> Harry Park, you run a travel company which organises adventure holidays in some difficult places. How did you first become interested in ‘adventure travel’?</li><li><b>Harry:</b> Well, my father worked in an insurance company once he had a family. But before that he’d spent several years travelling the world, and he never stopped telling us about it. His stories were much more exciting than the books I read, and they made me want to travel and have adventures of my own (5).</li><li><b>Interviewer:</b> And what made you decide to start an adventure travel company?</li><li><b>Harry:</b> Well, when I was in my twenties, I travelled a lot in different countries. I went exploring and climbing in mountains and deserts. I wanted to show other people how wonderful these things were (6). The business has been very successful, but when I started it I didn’t know if I’d make any money.</li><li><b>Interviewer:</b> Your company’s called <b>Far and Wide</b>. How did you choose the name?</li><li><b>Harry:</b> Well, I just called it <b>Park Travel</b> at first. But everyone thought that was terribly boring! My wife kept suggesting different things, but in the end it was a customer who gave me the idea (7). <b>Far and Wide</b> is also the title of a book that a friend wrote, so it reminds me of him, too.</li><li><b>Interviewer:</b> Great... The places you visit are usually very unspoilt, Harry. Some people think it’s not a good idea to take tourists there. What would you say to them?</li><li><b>Harry:</b> Well, most of the places we visit have no inhabitants, so we aren’t going to spoil people’s way of life, or bring in things like television and fridges! And I make sure that we always take care of the environment (8). We are careful not to cause pollution, so we take all our rubbish away.</li><li><b>Interviewer:</b> Some of the things you do are also dangerous. Do you enjoy danger?</li><li><b>Harry:</b> Well, it’s not a question of enjoying it - it’s just that you can’t do what I do without thinking about the possible dangers. I’m never frightened though. If I’m taking a group up a mountain or something like that, I just concentrate on what I have to do and get on with it.</li><li><b>Interviewer:</b> You’ve been to some fascinating places, Harry.....</li></ul><p><b>Conversation 2: The Human Body Facts</b></p><ul><li><b>A:</b> Hey, I’m reading this really interesting article about the human body.</li><li><b>B:</b> Yeah? Well, we know all about that from biology lessons.</li><li><b>A:</b> No, we didn’t learn much at all at school! They’re discovering loads more things all the time. Really amazing things! Did you know that only about one tenth of the cells in your body are really you? The rest are bacteria.</li><li><b>B:</b> What? I’m not really me?</li><li><b>A:</b> No, of course you are you, but you also have millions, or trillions, of bacteria in you.</li><li><b>B:</b> Eeeeuuugh!</li><li><b>A:</b> No, they’re mostly really helpful. Someone did an experiment to see if animals can live without bacteria, and he found that a lot of them died or had to have a special diet. Animals need bacteria to digest food, you see. So we’re better off with bacteria.</li><li><b>B:</b> Unless the bacteria are bad.</li><li><b>A:</b> Unless they are bad, but they’re nearly all good. Oh yeah, and going back to cells, do you know how many cells you have in your body?</li><li><b>B:</b> Quite a lot, I’d say. A good few.</li><li><b>A:</b> Yeah, but how many?</li><li><b>B:</b> I don’t know. I’m not mathematical.</li><li><b>A:</b> <b>7 octillion!</b> That’s 7 plus 27 noughts.</li><li><b>B:</b> I knew it was a lot.</li><li><b>A:</b> OK, that’s an amazingly huge number, almost impossible to imagine. But the really weird thing is that most of the atoms are empty space, just air or nothingness. And if you took out the empty space, you could fit your body inside a tiny cube which measures one 500th of a centimetre on either side. That’s a box measuring 0.002 of a centimetre on each side. You’d be much too small to see.</li><li><b>B:</b> Mmm, I can imagine that. It sounds like something that would happen in a really bad Hollywood movie. You know, a mad scientist goes: (funny voice) ‘I’m going to extract all the air from your body’. OK, enough facts for one day.</li><li><b>A:</b> Don’t go! One last thing, did you know …</li><li><b>B:</b> No.</li><li><b>A:</b> Did you know that you probably have <b>mites in your eyelashes</b>?</li><li><b>B:</b> Mites in my eyelashes? What are mites exactly anyway?</li><li><b>A:</b> Yeah, they’re very small creatures, like insects, only not insects. They’re about a third of a millimetre long, so you can’t really see them. These particular mites live in eyelashes and eyebrows.</li><li><b>B:</b> But in mine?</li><li><b>A:</b> Well, maybe not. Only about 50% of people have them, and more older people. So you might not have any. Anyway, they’re completely harmless, they just eat dead skin.</li><li><b>B:</b> Yeah, right, harmless. I really would have preferred not to know that.</li><li><b>A:</b> Sorry.</li><li><b>B:</b> I mean, really!</li></ul><p><b>Conversation 3: Weekend Plans</b></p><ul><li><b>Girl:</b> So, have you got any plans for the weekend?</li><li><b>Boy:</b> Yeah, me and my mates are going to this activity centre in the mountains.</li><li><b>Girl:</b> Oh, yeah?</li><li><b>Boy:</b> You can do all kinds of things. It’s a new centre; it sounds great. We’re going to go <b>dirtboarding</b> …</li><li><b>Girl:</b> What’s that?</li><li><b>Boy:</b> It’s like skateboarding or snowboarding. You have a board, or deck, to stand on and wheels. They’re pretty strong because you go down rough mountain tracks on them. Steep, rough mountain tracks.</li><li><b>Girl:</b> Sounds a bit risky. Have you done it before?</li><li><b>Boy:</b> No, but I’ve done similar things. Anyway, we’re also going to go <b>canyoning</b>. Before you ask, that’s when you jump and swim down a river canyon. You have to use ropes and special equipment. And maybe we’ll go white water rafting too.</li><li><b>Girl:</b> Phew. It sounds far too difficult to me.</li><li><b>Boy:</b> They have lots of things that you could do too. Like <b>zip-wiring</b>, you know when you go along a wire through the trees or down a mountain.</li><li><b>Girl:</b> Go down a mountain on a wire!</li><li><b>Boy:</b> It’s really easy, and exciting too. You just have to hold on and enjoy the ride. Or there’s bungee jumping.</li><li><b>Girl:</b> Jump off a bridge on a long elastic band! Me? You’ve got to be joking! Anyway, I’m going away this weekend too, thank you for asking.</li><li><b>Boy:</b> I was going to ask. So where are you going?</li><li><b>Girl:</b> <b>Paris!</b> I’m so excited!</li><li><b>Boy:</b> Paris, wow!</li><li><b>Girl:</b> Yeah, it’ll be brilliant! We’re going to do all the sights, like go up the Eiffel Tower and take a boat along the River Seine and see the old parts of the city. It looks so beautiful in the photos. And then there are all the art galleries. You know how much I like art. I can’t wait to go round the Louvre and see all those famous paintings.</li><li><b>Boy:</b> I think the famous Impressionist paintings are somewhere else.</li><li><b>Girl:</b> Yeah, I know, they’re in the Musée d’Orsay. We’re going there too. And then I want to go to the Rodin Museum and see that famous statue, you know, The Thinker. And of course, if we’re in Paris, we’ll have to go shopping. Or look at the shops, at least. And then there’s the restaurants. Just think, French food!</li><li><b>Boy:</b> You’ve got a lot planned for one weekend.</li><li><b>Girl:</b> Oh, we’re going for four days, actually.</li><li><b>Boy:</b> Oh, four days, very nice. And who are you going with?</li><li><b>Girl:</b> Oh, just a friend.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Why did Harry decide to start an adventure travel company?",
+              "options": [
+                "Because he wanted to share his experience with others",
+                "Because he thought he could make a lot of money",
+                "Because he hoped to have more travelling himself",
+                "Because he wanted to become a successful person"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "Who suggested the name for Harry’s company?",
+              "options": [
+                "A friend",
+                "A customer",
+                "His wife",
+                "His father"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What does Harry try to do when he visits a place?",
+              "options": [
+                "Gives the local people jobs",
+                "Takes modern equipment",
+                "Avoid damaging the area",
+                "Takes as many photos as possible"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What does Harry say about doing dangerous things?",
+              "options": [
+                "It’s frightening",
+                "It’s enjoyable",
+                "It’s a tiring job",
+                "It’s part of his job"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "What do animals need bacteria for?",
+              "options": [
+                "Fighting diseases",
+                "Providing energy",
+                "Digesting food",
+                "Preventing diseases"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "How many cells are there in your body?",
+              "options": [
+                "7 million",
+                "7 trillion",
+                "17 trillion",
+                "7 octillion"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "How long are the mites?",
+              "options": [
+                "3 millimetres",
+                "A third of a millimetre long",
+                "0.03 millimetres long",
+                "Two thirds of a millimetre long"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "What do mites eat?",
+              "options": [
+                "Dead skin",
+                "Your eyelashes",
+                "Tiny insects",
+                "Harmful insects"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What is a dirt board?",
+              "options": [
+                "A board with wheels that you stand on",
+                "A board with no wheels that you stand on",
+                "A board with wheels that you sit on",
+                "A board with no wheels that you sit on"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What did you need to go canyoning?",
+              "options": [
+                "Ropes and a helmet",
+                "A guide and special equipment",
+                "Ropes and special equipment",
+                "Special equipment and a helmet"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "When does Paris look so beautiful?",
+              "options": [
+                "At night",
+                "On television",
+                "In the photos",
+                "In the movies"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "How long will the girl stay in Paris?",
+              "options": [
+                "The weekend",
+                "4 days",
+                "5 days",
+                "A week"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-11/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk 1:</b></p><p>If you want to take an undergraduate course of study, you require a letter of recommendation from your principle and copies of your school records and exam results. You must of course demonstrate ability to communicate effectively in English. Different majors require different abilities in English. Undergraduate courses in science often require you to do a foundation year before you start the course so that you achieve the requisite knowledge before you begin the courses. Degrees generally last three years, though the first year doesn’t count towards your final marks. Application is always via UCAS, an organization that handles all undergraduate students. Postgraduate application is via direct application to universities. They will require a minimum pass in your degree, certainly above average and as with undergraduate courses require a minimum level in your English ability. Most Master courses take one year, but some take two, so be sure to take this into account when choosing. There are two systems of ranking: for universities overall achievement and for each of their separate departments. Other kinds of information are available, like graduate employment statistics. Generally British universities are generally respected globally and there is an international ranking system that lists all the top universities in the world for you to check where your university places.</p><p><b>Talk 2:</b></p><p>My name is Dan Pearman and I’d like to talk about the work of Pedal Power, a small charity based mainly in the UK. I’ll be giving our contact details at the end, if anyone would like to find out more about how to support us.</p><p>But first, how the charity began. I got the idea of exporting bicycles to developing countries while I was in Ecuador. I went there in 1993 just after graduating from university. After 3 years of studying, I wanted adventure. I loved travelling, so I decided to join a voluntary organization and was sent to Ecuador to carry out land surveys. The project came to an end after 5 years and when I returned to the UK in 1998, I started planning Pedal Power.</p><p>Where I lived in Ecuador was a very rural area. My neighbor had the only bicycle in the village, whereas everyone else walked everywhere. My neighbour’s business was unusually successful, and for years I couldn’t understand why. Then I realized having a bike means he could get where he wanted to go without much trouble. Other local carpenters could only accept jobs in a three-kilometre radius, so no matter how skilled they were, they could never do as many jobs as my neighbour.</p><p>At Pedal Power, we collect second-hand bikes in the UK and send them to some of the poorest regions in the world. When we distribute bikes overseas we don’t give them away for free. We’d like to, but long term that doesn’t really help the local economy. The demand for bikes is enormous which makes them very expensive locally. So we sell them for 5% of the normal price. But in order to continue operating we need to have a constant supply of bikes which we send out every six months.</p><p>One example of a town that’s received bicycles from Pedal Power is Rivas. It was the first place I sent a full container of bicycles to. Most people there now own a bicycle. The local economy has developed so much, you couldn’t recognize it as the same place. In fact, there are more bikes than on the streets of Amsterdam, if you’ve ever been there.</p><p>But Pedal Power still needs your help. You may have read about some of our recent problems in the British media. In August 2000 we simple ran out of money. We had containers of bikes ready to send, but no money to pay the bills. It was a terrible situation. We managed to ensure the bikes went out on time, but the other problems carried on for several months.</p><p><b>Talk 3:</b></p><p>ANNOUNCER: Today’s Health Counsel is presented by Paula Clayburg, who is the chief Counsellor at Liverpool’s famous pain clinic. The Wilton Clinic Paula....</p><p>PAULA CLAYBURG: Do you know what Prince Charles, Steve Ballesteros and Elizabeth Taylor have in common? They all suffer from chronic back pain. In fact, bad backs are one of the most common health problems today, affecting people in all walks of life. The most recent available figures show that about a quarter of a million people are incapacitated with back pain every day.</p><p>And many sufferers don’t know the cause of the solution to their problem. The majority of our patients at the clinic tend to be women. They are especially vulnerable because of pregnancy but also because of osteoporosis, which I personally believe to be the major cause of problems for women. I have many women patients who say they have completely given up exercise because the pain makes them so miserable. But of course that starts up a vicious circle. Bed rest, giving up exercise and pain killers are traditional responses to back pain but, although there are many excellent drugs on the market, at our clinic we are beginning to realise the unique benefits of relaxation therapy. Other specialists in the field make a strong case for certain types of exercise, but in our experience they are easily mishandled and can lead to more harm than good.</p><p>Now, let’s look at some of the reasons why back pain is developing into such a unique menace. In general, the body is pretty good at self-repaired. A strain or a blow to a limb, though painful at the time, generally resolves itself. But the body’s response to back injury can be very counter-productive. When pain strikes, we attempt to keep the back as immobile as possible, which makes the muscles tense up. Research shows that they often go into spasm, which causes further twisting of the spine. A vicious circle is underway. The second mistake we often make when stricken with extreme back pain is to go to bed and stay there. Although at the clinic we recognise that a short rest in bed can be helpful...up to two days ... any longer makes our back muscles become weaker and unable to hold up our spine. The pain therefore becomes worse.</p><p>Another problem is being overweight. Anyone a stone or more over-weight who already has back pain is not doing himself any favor though it won’t actually set it off in the first place, the weight will increase the strain and make things worse. The British diet could be partially to blame for the increase in back pain ....</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "You do not have to provide...",
+              "options": [
+                "a letter of recommendation",
+                "school records",
+                "exam results",
+                "health certificate"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "Your required English level depends on........",
+              "options": [
+                "your age",
+                "your chosen course",
+                "your grades",
+                "your nationality"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "Some science courses require you to.................",
+              "options": [
+                "take an exam",
+                "complete a foundation year",
+                "do extra personal study",
+                "have a higher level of English"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "Application for undergraduate courses is..................",
+              "options": [
+                "always via UCAS",
+                "direct with universities",
+                "either via UCAS or direct with universities",
+                "via a placement agency"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "British universities.......",
+              "options": [
+                "are the best in the world",
+                "rank among the top universities in the world",
+                "are all well respected",
+                "are generally well respected"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "In 1993 Dan Pearman went to Ecuador .............",
+              "options": [
+                "as a tour guide",
+                "as part of his studies",
+                "as a voluntary worker",
+                "as a student"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "Dan’s neighbour was successful in business because he .............",
+              "options": [
+                "employed carpenters from the area",
+                "was the most skilled craftsman in the town",
+                "found it easy to reach customers",
+                "worked very hard"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "Dan says the charity relies on ..................",
+              "options": [
+                "getting enough bicycles to send regularly",
+                "finding new areas which need the bicycles",
+                "charging for the bicycles it sends abroad",
+                "getting the second-hand bikes from the rich"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What does Dan say about the town of Rivas?",
+              "options": [
+                "It has received the greatest number of bikes",
+                "It has almost as many bikes as Amsterdam",
+                "Its economy has been totally transformed",
+                "Everyone there owns a bicycle"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What problem did the charity face in August 2000?",
+              "options": [
+                "It couldn’t meet its overheads",
+                "It had to delay sending the bikes",
+                "It was criticized in British media",
+                "It didn’t get enough bikes ready to send"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "According to the speaker, the main cause of back pain in women is .............",
+              "options": [
+                "pregnancy",
+                "osteoporosis",
+                "lack of exercise",
+                "too much exercise"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "As treatment for back pain the Clinic mainly recommends .................",
+              "options": [
+                "pain killers",
+                "relaxation therapy",
+                "exercise routines",
+                "bed rest"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "The back is different from other parts of the body because .................",
+              "options": [
+                "it is usually better at self-repair",
+                "a back injury is usually more painful",
+                "its response to injury often results in more damage",
+                "it is worse if we keep the back as immobile as possible"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "Bed rest is advised .................",
+              "options": [
+                "for a maximum of two days",
+                "for less than two days",
+                "for pain lasting more than two days",
+                "for extreme pain only"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "Being overweight .................",
+              "options": [
+                "is a major source of back pain",
+                "worsens existing back pain",
+                "reduces the effectiveness of exercise",
+                "is the only cause of back pain"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-37",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 37",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-12/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Q1: What is the purpose of the message?</b></p><ul><li>Good afternoon. I'm calling for Julie Gibbs. This is Donald Carson from Doctor Kim's office. I just wanted to confirm your appointment for your annual physical checkup on Friday, June 27 at 3 o'clock. The checkup shouldn't last longer than an hour and a half. Since this is your first visit with Doctor Kim, we'd like you to come to the clinic about 20 minutes early so that we can create a file for you. If you cannot make the appointment, please contact the office and let us know at least a day in advance. Thanks.</li></ul><p><b>Q2: What is being advertised?</b></p><ul><li>Do you need a way to relieve your stress? Whether you're looking for a full-time membership or just a day of relaxation, Istanbul Spa has something for you! We have several different services for all your treatment needs. This week, we're offering a full-day service including a full-body massage, aromatherapy and a facial for just one low price. You can also enjoy our hospitality with a healthy and refreshing beverage at our tea lounge.</li></ul><p><b>Q3: According to the announcement, what will be built near Berryville?</b></p><ul><li>I am very pleased to announce that city leaders in Berryville have finally approved a proposal to enlarge the airport on Hathor Road. We have given the building contract to Heaton Construction. The new terminal will join our older, existing facilities. Berryville's population has been growing at a rapid rate over the past 15 years, due to the addition of a local university and the recent expansion of several businesses.</li></ul><p><b>Q4: Who is this announcement probably for?</b></p><ul><li>This announcement is for all assembly line employees. Please make sure to check your work schedule as soon as you arrive in the morning to see where you will be working for the day. You will need to sign in by putting your signature in the space by your name. After that, please check the announcement board next to the manager's office for any daily notices. Finally, don't forget to pick up your protective aprons and glasses from the safety area.</li></ul><p><b>Q5: What is the purpose of the message?</b></p><ul><li>Hi, Rose. This is Dorothy calling from the personnel department. I just wanted to know if you are free to join us for dinner tonight. A few of us will be leaving the office around 5:30 and going to the Thai restaurant. Our new colleague Sophia is coming as well. Anyway, if you'd like to join us, just meet us downstairs in front of the building at about 5. Sophia and I will be taking my car, and you are more than welcome to ride with us. Anyway, I hope to see you later. Bye.</li></ul><p><b>Q6: What is the purpose of the message?</b></p><ul><li>Hello, Mr. Nakamura. This is Eric Parkman, manager of the personnel department for Linderman Enterprises. We received your resume last week for the accounting position in our shipping department. I was very impressed with your experience and education. I would like to schedule an interview at our office on Friday, April 29 at 10 o'clock. Please give me a call and let me know if that time is good for you. Thank you.</li></ul><p><b>Q7: What is this message about?</b></p><ul><li>Thank you for calling the Tower Place security department. This office will be closing at 11:00 a.m. Wednesday morning as we relocate to the 10th floor. All security officers will be on duty during this time. The 10th floor office will be open at 9 a.m. Thursday. Please contact the security officer on duty, Roy Williams, at 555-7251 if you need to speak with security personnel after 11 on Wednesday. Thank you.</li></ul><p><b>Q8: Who is the speaker?</b></p><ul><li>Staff members of Winton Property Development, welcome to the 8th annual Top Achievers Awards Dinner. When I founded Winton Property Development 13 years ago, I knew that I alone could not make the company the success that it is today. I knew that it would take people like you to help me achieve that goal. The reason why I host this dinner every year is to express my deep appreciation to everyone for working so hard for the continued growth of this company.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What is the purpose of the message?",
+              "options": [
+                "To schedule a checkup",
+                "To delay a meeting",
+                "To confirm an appointment",
+                "To request some files"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What is being advertised?",
+              "options": [
+                "A city tour",
+                "A spa package",
+                "A hotel",
+                "A hospital"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "According to the announcement, what will be built near Berryville?",
+              "options": [
+                "A university",
+                "A high school",
+                "A new hospital wing",
+                "An airport terminal"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "Who is this announcement probably for?",
+              "options": [
+                "Factory employees",
+                "Office managers",
+                "Safety supervisors",
+                "Hotel workers"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What is the purpose of the message?",
+              "options": [
+                "To make a reservation at a restaurant",
+                "To ask about a new employee",
+                "To invite a co-worker for dinner",
+                "To offer a ride home"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What is the purpose of the message?",
+              "options": [
+                "To make an appointment",
+                "To offer a position",
+                "To cancel an interview",
+                "To confirm receipt of an application"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What is this message about?",
+              "options": [
+                "A new security policy",
+                "The business hours",
+                "An office relocation",
+                "A permanent closure"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "Who is the speaker?",
+              "options": [
+                "A new employee",
+                "The founder",
+                "The chairman of the board",
+                "The personnel director"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D. You will hear the conversations only ONCE",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-01/part1-2.mp3"
+          },
+          "tapescript": "<div><p><b>Conversation 1</b></p><ul><li><b>Interviewer:</b> Simon, tell us about yourself.</li><li><b>Simon:</b> Well, like lots of other kids my age, I’ve grown up taking my boat onto the rivers in this area. One of my favourite rivers is <b>(1) the River Stanton, which is fast with excellent white water – so things can get pretty dangerous but it’s exciting</b> and I’m experienced.</li><li><b>Interviewer:</b> Now, it was while you were on the River Stanton that you noticed something was wrong.</li><li><b>Simon:</b> Yeah, <b>(2) I always wondered why the water made my eyes burn if it got on my face...and why it was a strange, orange colour</b>, especially when the water was running low.</li><li><b>Interviewer:</b> So you decided to find out more.</li><li><b>Simon:</b> Yeah, I asked other people using the river and <b>(3) I visited a few websites and found out that the river was orange because of pollution from the old mines in the area.</b> There was a lot of mining for coal done in this part of the country. I knew that from my history class at school, but what I didn’t know was that pollution was coming from those old mine works and escaping into the rivers.</li><li><b>Interviewer:</b> then you did a qualification, didn’t you?</li><li><b>Simon:</b> Yes, I found out about an organization called: “The Friends of the River Stanton”. They told me they did a special course where I could learn how to test the river water to see if it was healthy or not. So that’s what I did and I got really interested in the subject.</li><li><b>Interviewer:</b> In fact, you got so interested that you actually started to look for an answer to the pollution problem!</li><li><b>Simon:</b> I learned as much as I could about the chemistry behind the pollution. I can’t really explain all the detail, but basically <b>(4) if you add something called limestone to the river, it can improve the chemistry.</b> That means that the plants and fish which had died because of all the mining companies that used to be in the area…could live in the river again. <b>So that made me really happy.</b></li></ul><p><b>Conversation 2</b></p><ul><li><b>Officer:</b> Yes, what can I do for you?</li><li><b>Student:</b> My friend is in homestay...and she really enjoys it...so I’d like to join a family as well.</li><li><b>Officer:</b> Okay, so let me get some details. What’s your name?</li><li><b>Student:</b> My name is Keiko Yuichini.</li><li><b>Officer:</b> And you’re female. And your nationality?</li><li><b>Student:</b> I’m Japanese.</li><li><b>Officer:</b> And you’re how old?</li><li><b>Student:</b> I’m twenty-eight years old.</li><li><b>Officer:</b> Now you live at one of the colleges…which one?</li><li><b>Student:</b> Willow College, umm Room 21C.</li><li><b>Officer:</b> <b>And how long are you planning on staying with homestay?</b></li><li><b>Student:</b> <b>About four months</b> (1)</li><li><b>Officer:</b> And what course are you enrolled in?</li><li><b>Student:</b> Well, <b>I’ve enrolled for twenty weeks in the Advanced English Studies</b> (2).</li><li><b>Officer:</b> Okay. Do you have any preference for a family with children or without children?</li><li><b>Student:</b> I prefer I mean I like young children, but I’d like to be with older people.</li><li><b>Officer:</b> All right. Now what about you? Are you a vegetarian or do you have any special food requirements?</li><li><b>Student:</b> No, I am not a vegetarian but I don’t eat a lot of meat. <b>I really like seafood</b> (3).</li><li><b>Officer:</b> Are you familiar with the public transport system?</li><li><b>Student:</b> No.</li><li><b>Officer:</b> What about the trains?</li><li><b>Student:</b> I like catching the train. They are much faster.</li><li><b>Officer:</b> Now let me go check on the computer and see who I’ve got. <b>I’ll check my records and I’ll give you details this afternoon</b> (4).</li><li><b>Student:</b> Thank you for helping me.</li><li><b>Officer:</b> It’s pleasure. Bye.</li></ul><p><b>Conversation 3</b></p><ul><li><b>Interviewer:</b> Sophie, you’re a native English speaker and you’re been working as a translator for some time now.</li><li><b>Sophie:</b> <b>I’m currently doing a lot of legal texts (9)</b> – the details of court cases can be interesting and the language quite challenging.</li><li><b>Interviewer:</b> And what kind of language gives you the most problems? The kind of expressions used in technology, perhaps, or science?</li><li><b>Sophie:</b> Actually, I don’t have much trouble with those. <b>What’s still quite tricky, though, is when someone mentions a person or an event, perhaps in their country’s history (10).</b></li><li><b>Interviewer:</b> So, do you normally deal with big private firms or with state institutions like local government?</li><li><b>Sophie:</b> Well, I was once contacted by an insurance company and I did a job for them, <b>but nearly always it’s a case of an agency asking if I’d be willing to do a particular text (11).</b></li><li><b>Interviewer:</b> That mush speed things up a lot.</li><li><b>Sophie:</b> Yes, but it can still be a very long working day. I don’t mind which part of the day I’m working though – that’s one of the advantages of working from home.</li><li><b>Interviewer:</b> How do you see the long – term future of translating? Will it continue to be a good area to work in?</li><li><b>Sophie:</b> Oh, I think so. Professional standards are higher than they’ve ever been, and <b>the increasingly wide range of languages used internationally means that the demand for high-quality translation will keep growing for many years to come (12).</b></li></ul></div>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Why does Simon like the River Stanton?",
+              "options": [
+                "Because of its water speed",
+                "Because of its scenery",
+                "Because of its peace",
+                "Because of its dangers"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What was wrong with the river?",
+              "options": [
+                "The water turned brown when it was running low.",
+                "The water turned brown when it was running fast.",
+                "The water turned orange when it was running fast.",
+                "The water turned orange when it was running low."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What was the cause of the river’s problem?",
+              "options": [
+                "Old mine work",
+                "Farming activities",
+                "Fishing activities",
+                "Tourism activities"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What made Simon happy?",
+              "options": [
+                "He found the solution to the river’s problem.",
+                "He found limestones in the river.",
+                "He found a lot of fish in the river.",
+                "He found a lot of plants in the river."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Why does the student want to live with a family?",
+              "options": [
+                "Because she feels homesick",
+                "Because she wants to improve her English",
+                "Because she doesn’t want to cook",
+                "Because her friend is enjoying her homestay"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "How long is the student’s course?",
+              "options": [
+                "Four months",
+                "20 weeks",
+                "5 months",
+                "12 weeks"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What may the student like to eat?",
+              "options": [
+                "Seafood",
+                "Pork",
+                "Beef",
+                "Vegetable"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "When does the officer give the student her homestay details?",
+              "options": [
+                "Right after he checks on his computer",
+                "At lunch time",
+                "In the afternoon",
+                "Tomorrow afternoon"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What is Sophie’s job now?",
+              "options": [
+                "A secretary",
+                "A translator",
+                "A manager",
+                "A designer"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What is the most challenging thing in Sophie’s job?",
+              "options": [
+                "Technical terms",
+                "Informal expressions",
+                "Scientific terms",
+                "Cultural preferences"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "According to Sophie, what is the advantage of working from home?",
+              "options": [
+                "She doesn’t have to travel to work.",
+                "She doesn’t have to dress formally.",
+                "She doesn’t have to sign contracts.",
+                "Her working time can be flexible."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What does Sophie think about her job in the future?",
+              "options": [
+                "It will be more demanding.",
+                "It will be easier.",
+                "It is not necessary any more.",
+                "It can help her earn a lot of money."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks, lectures or conversations. The talks, lectures, or conversations will not be repeated. There are five questions for each talk, lecture, or conversation. For each question, choose the right answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-16/part1-3.mp3"
+          },
+          "tapescript": "<p><strong>Conversation 1 (Questions 21-25)</strong></p><ul><li><b>M:</b> So I really appreciate your talking with me about this.</li><li><b>W:</b> Well, I was concerned. Generally I think students should get a grade based on your overall work—but I could see that you didn’t do as well on the last test… and you had done very well on the first two exams.</li><li><b>M:</b> I know. I was right in the middle of moving out of my dorm at the end of the semester and that was my last exam. Normally, I wouldn’t ask to take an incomplete, but I just didn’t feel that a lower grade really represented my work.</li><li><b>W:</b> I agree. But, again, I don’t usually like to do change-of-grade forms.</li><li><b>M:</b> OK.</li><li><b>M:</b> OK. I understand</li><li><b>W:</b> So … well, I was thinking. Perhaps if you want to do an extra credit project … Let’s say, something that will help you pull your grade back up to an A minus?</li><li><b>M:</b> I can do that. Look… it’s so important that I maintain very good grades. My financial aid package requires that I do…</li><li><b>W:</b> I can understand that.</li><li><b>M:</b> So what should I do?</li><li><b>W:</b> OK, here’s the deal: You write a five-page paper on Shakespeare’s worst play—and I mean, you have to read all of them to decide what his worst play was. And tell me why you think so.</li><li><b>M:</b> Uh, wow… that’s…</li><li><b>W:</b> You want to get that change of grade, right?</li><li><b>M:</b> Right, yeah. Of course.</li><li><b>W:</b> Fine, so you’ll have two weeks to write this paper. Shouldn’t take you too long if you have done your reading.</li><li><b>M:</b> Oh, I have. I’ve read all the plays. And I think I know which one I’m going to choose.</li><li><b>W:</b> Fine. Don’t tell me… surprise me.</li><li><b>M:</b> I will. So, what happens if I do a good job on the paper?</li><li><b>W:</b> Then I will fill out the forms for a change of grade. It takes a few weeks after that, but the new grade should go on your transcript afterwards.</li><li><b>M:</b> OK… I guess I will have to go to the library over semester break… thanks for your understanding.</li></ul><p><strong>Conversation 2 (Questions 26-30)</strong></p><ul><li><b>W:</b> Hi. I really need your help. I’ve got to prepare for a presentation and I haven’t got a clue about how to do a visual slide show…</li><li><b>M:</b> Well, that’s why we’re here. We have tutors who know all the word-processing and presentation programs. Uh, do you know what presentation viewer program you want to use?</li><li><b>W:</b> I have no idea. Which is best?</li><li><b>M:</b> That depends on what you want to do. Is your presentation just text or do you want to use visuals with all the bells and whistles?</li><li><b>W:</b> Um, you mean like images and graphics, and things that move around on the screen?</li><li><b>M:</b> Exactly. You can include sounds or video too…</li><li><b>W:</b> Yes, absolutely … the better it looks, the better I hope my grade will be.</li><li><b>M:</b> Oh I think it is important that a presentation looks good—but you have to have the substance too.</li><li><b>W:</b> I guess so… uh…</li><li><b>M:</b> You know what I mean …if you have a good foundation for your presentation, you’ll be fine.</li><li><b>W:</b> Oh, right.</li><li><b>M:</b> Anyway, I would advise you to use this presentation viewer program because it’s pretty intuitive—you can figure it out as you go along.</li><li><b>W:</b> I’ve never really tried it.</li><li><b>M:</b> After your tutorial, I think you’ll find it is pretty simple. Speaking of which, uh, when do you want to schedule your tutoring session?</li><li><b>W:</b> As soon as possible! My presentation is next week and I’m nervous about speaking in front of other people anyway. It would be bad if I had no time to practice using the program.</li><li><b>M:</b> That’s true. So… then, how about tomorrow at 2 p.m.? Bring your outline.</li><li><b>W:</b> Great. I’ll do that. Can I bring my laptop with me?</li><li><b>M:</b> Sure… see you then.</li></ul><p><strong>Conversation 3 (Questions 31-35)</strong></p><p>With unemployment rampant in the economic depression of the 1930s, the government established a program to put people to work. It was called the Works Progress Administration, or WPA. The WPA funded the construction and maintenance of schools, parks and highways. A small subdivision of the WPA, uh, the Federal Arts Project, or FAP, was dedicated to employing artists. The reasoning behind the FAP was that the arts, as much as schools and bridges, contributed to the public welfare. And of course artists at the time of the Depression were extremely vulnerable. Photographers were uniquely suited to the requirements of the FAP, not least because much of their work constituted documenting the achievements of the WPA. But documentation in the larger sense of capturing the reality of an entire country was the mission of many of the FAP photographers. One of the photographers funded by the FAP beginning in 1935 was Berenice Abbott. It was perfect timing for Berenice Abbott—she’d been photographing New York City since her return from Paris in 1929. Long before the FAP came into being, her stated purpose was to document and interpret America with love, but without sentimentality. And she felt that New York represented the essence of the changing nature of American society. I want to just go back to that word, sentimentality. Because it relates to how we can define Abbott’s approach to her art. As we talked about last week, photography in its initial stages had been used in a very painterly fashion. People like Abbott realized early on that photography’s strengths had not been recognized or utilized. Abbott and her contemporaries rebelled against the widespread painterly use of soft focus—in favor of the sharpness and clarity naturally inherent in photography. And they also rejected the sentimentality of typical pastoral scenes and landscapes in favor of a realistic depiction of fast-paced, modern urban life. It was this sensibility that she brought with her to New York from Paris, where she had been living for eight years. Abbott’s project was, simply put, to photograph New York City. She called her project \"Changing New York.\" And the way she approached this project was to try to depict, through photography, the interaction between human beings and solid architectural constructs. Or something like that …I don’t have the exact quote. See, she was trying to find a balance between buildings and activity. So she decided to use more than just a hand-held camera… which was perfect for, you know, capturing the hustle and bustle of the city, but would not have done justice to the giant buildings that also define the city. At the same time, she didn’t want to just overshadow everything with those buildings. So she began to use a large format camera. One of those rather bulky cameras you have to put on a tripod and then you have to view the image under a black hood… difficult to carry around, but it widened her vision. It allowed her to capture the size of massive modern buildings and also to juxtapose them in a shot with older, humbler ones. And to keep the life in her shots she would often wait until someone passed by and make sure they were in the frame. Or she would ask people to walk through or stand in the frame. So, she ended up using the large view camera for most of the work. Well, this \"Changing New York\" collection of 305 photographs is really a remarkable achievement. Its images are so powerful that Abbott is considered by many to be one of the twentieth century’s greatest photographers. In fact, one more contemporary photographer— Douglas Levere—was inspired by her work that in the 1990s he decided to re-photograph Abbott’s New York photos. Imagine this: Levere went to the same locations, on the same day and same time with the identical camera that Abbott had used. He reframed Abbott’s shots as exactly as possible. Why would someone do that? I have to admit; when I first heard about this I was skeptical of one artist copying another so completely. But then I saw the photographs. And the amazing thing about them is that if you put them side by side with Abbott’s, you see that they are a logical extension of her work. They take you even deeper into the contrast between the old and the new that Abbott so expertly revealed in the 1930s.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What is the student's problem?",
+              "options": [
+                "He didn't do well on his final exam.",
+                "He didn't do all his coursework.",
+                "He missed too many classes.",
+                "He moved away from the school."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "What does the student want the professor to do?",
+              "options": [
+                "He wants her to give him a new test.",
+                "He wants an immediate change of grade.",
+                "He wants her to let him take the class again.",
+                "He wants her to give him an incomplete in the class."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What does the professor mean when she says this?",
+              "options": [
+                "You have to deal with this.",
+                "This is the solution.",
+                "I can't deal with this.",
+                "Let's come to an agreement."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What is the professor's solution to the student's problem?",
+              "options": [
+                "He has to write 2 critical essays.",
+                "He has to fill out a lot of paperworks.",
+                "He has to re-read all of Shakespeare's plays.",
+                "He has to have read all the Shakespeare's plays."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What is the student's attitude toward the solution?",
+              "options": [
+                "Relieved",
+                "Disappointed",
+                "Shocked",
+                "Ungrateful"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "Why does the student go to the tutoring center?",
+              "options": [
+                "Because she doesn't have a clue how to use a computer",
+                "Because she wants to help putting her presentation together",
+                "Because she's never used the presentation viewer program before",
+                "Because she's nervous about speaking in front of people"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "What does the man mean when he says this?",
+              "options": [
+                "He wants to know if her presentation will have graphics and animation.",
+                "He wants to know if she needs a whistle.",
+                "He wants to know if she needs a timer.",
+                "He wants to know if she needs sound."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "What does the man say about using the presentation viewer program?",
+              "options": [
+                "It is an easy program to use.",
+                "It is a very complicated program.",
+                "It is not part of the tutoring subjects at the center.",
+                "It doesn't have as many interesting features as the word processing."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What is the student concerned about?",
+              "options": [
+                "Researching her topic",
+                "Working with the computer",
+                "Speaking in front of other people",
+                "How to operate the power source on her computer"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What does the man advise the student to bring to the tutoring session?",
+              "options": [
+                "Her research paper",
+                "Her outline",
+                "The program",
+                "Her laptop"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What is the focus of the lecture?",
+              "options": [
+                "Doug Levere's re-photography of Abbott's work",
+                "Berenice Abbott's Changing New York project",
+                "Two examples of photography supported by the FAP",
+                "The effect of the Depression on Berenice Abbott's work"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "According to the professor, why was Abbott a good candidate for the FAP?",
+              "options": [
+                "She had already been documenting America.",
+                "She had a fresh perspective due to her return.",
+                "She was willing to change her approach to fit the FAP.",
+                "She was a widely recognized figure in the art world."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "Based on the lecture, what artistic characteristics did Abbott reject in her art?",
+              "options": [
+                "Modern urban life",
+                "Depiction of older buildings",
+                "Meticulous composition",
+                "Rural settings and landscapes"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What did Abbott do to \"keep the life in her shots\"?",
+              "options": [
+                "Use a hand-held camera",
+                "Include random people in the frame",
+                "Frame scenes of urban activity",
+                "Juxtapose old and new buildings"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "What is the professor's attitude toward Levere's re-photography of Abbott's work?",
+              "options": [
+                "Concerned",
+                "Unimpressed",
+                "Disappointed",
+                "Complimentary"
+              ],
+              "answer": 3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

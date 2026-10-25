@@ -1,0 +1,621 @@
+{
+  "id": "vstep-listening-ets-05",
+  "title": "VSTEP B1, B2, C1 Listening - Full Test 005 (EnglishTestStore Practice)",
+  "duration": 40,
+  "date": "2026-09-12",
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimit": 40,
+      "totalQuestions": 31,
+      "tasks": [
+        {
+          "id": "ets-l05-task-1",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 1 to 1.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test05/data/audios/snd-1054f98646331c3053f35c5b5904679caaa9aa83.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l05-q01",
+              "type": "mcq",
+              "question": "How many presidents were there before John F. Kennedy?",
+              "options": [
+                "There were fifty-one.",
+                "There were ten presidents before him",
+                "There were thirty-seven of them.",
+                "He was the first president."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 1",
+              "orderNumber": 1
+            }
+          ]
+        },
+        {
+          "id": "ets-l05-task-2",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 2 to 2.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test05/data/audios/snd-1054f98646331c3053f35c5b5904679caaa9aa83.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l05-q02",
+              "type": "mcq",
+              "question": "Who is this message addressed to?",
+              "options": [
+                "Citizens attending a water conservation rally.",
+                "Apartment building residents.",
+                "Workers at a waterpower plant.",
+                "Convenience store employees."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 2",
+              "orderNumber": 2
+            }
+          ]
+        },
+        {
+          "id": "ets-l05-task-3",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 3 to 3.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test05/data/audios/snd-1054f98646331c3053f35c5b5904679caaa9aa83.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l05-q03",
+              "type": "mcq",
+              "question": "How can visitors determine whether photography is allowed?",
+              "options": [
+                "Their group leader will tell them.",
+                "An announcement will be made.",
+                "There are signs posted at each entrance.",
+                "If there is no rope, it is okay."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 3",
+              "orderNumber": 3
+            }
+          ]
+        },
+        {
+          "id": "ets-l05-task-4",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 4 to 4.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test05/data/audios/snd-1054f98646331c3053f35c5b5904679caaa9aa83.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l05-q04",
+              "type": "mcq",
+              "question": "What did the boy buy?",
+              "options": [
+                "Orange juice and bread",
+                "Orange juice, bread and tomatoes",
+                "Orange juice, bread and newspaper",
+                "Orange juice and tomatoes"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 4",
+              "orderNumber": 4
+            }
+          ]
+        },
+        {
+          "id": "ets-l05-task-5",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 5 to 5.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test05/data/audios/snd-1054f98646331c3053f35c5b5904679caaa9aa83.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l05-q05",
+              "type": "mcq",
+              "question": "What can you do by calling the number announced?",
+              "options": [
+                "Purchase music cassettes and CD's.",
+                "Make reservations.",
+                "Request a song.",
+                "Voice your opinion."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 5",
+              "orderNumber": 5
+            }
+          ]
+        },
+        {
+          "id": "ets-l05-task-6",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 6 to 6.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test05/data/audios/snd-1054f98646331c3053f35c5b5904679caaa9aa83.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l05-q06",
+              "type": "mcq",
+              "question": "What service is being offered?",
+              "options": [
+                "Help with finding a new home.",
+                "Catering for home parties.",
+                "Interior design.",
+                "Housecleaning."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 6",
+              "orderNumber": 6
+            }
+          ]
+        },
+        {
+          "id": "ets-l05-task-7",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 7 to 7.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test05/data/audios/snd-1054f98646331c3053f35c5b5904679caaa9aa83.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l05-q07",
+              "type": "mcq",
+              "question": "How will passengers be compensated for the delay?",
+              "options": [
+                "They will receive free tickets.",
+                "They will be put on an earlier flight.",
+                "They will be given a hotel.",
+                "They will get a free room and a meal."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 7",
+              "orderNumber": 7
+            }
+          ]
+        },
+        {
+          "id": "ets-l05-task-8",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 8 to 8.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test05/data/audios/snd-1054f98646331c3053f35c5b5904679caaa9aa83.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l05-q08",
+              "type": "mcq",
+              "question": "Which airline has no flight on the weekend?",
+              "options": [
+                "Philippine Airlines.",
+                "Northwest.",
+                "Delta.",
+                "Hong Kong."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 8",
+              "orderNumber": 8
+            }
+          ]
+        },
+        {
+          "id": "ets-l05-task-9",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 9 to 12.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test05/data/audios/snd-1054f98646331c3053f35c5b5904679caaa9aa83.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l05-q09",
+              "type": "mcq",
+              "question": "What water polo club does Tyrone want to join?",
+              "options": [
+                "Under 14s club",
+                "Under 16s club",
+                "Under 18s club",
+                "Adults club"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 9",
+              "orderNumber": 9
+            },
+            {
+              "id": "ets-l05-q10",
+              "type": "mcq",
+              "question": "When does his club train?",
+              "options": [
+                "Monday evenings",
+                "Thursday evenings",
+                "Saturday mornings",
+                "Tuesday mornings"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 9",
+              "orderNumber": 10
+            },
+            {
+              "id": "ets-l05-q11",
+              "type": "mcq",
+              "question": "What is not included in the registration?",
+              "options": [
+                "Being at the swimming pool",
+                "Bringing a photograph",
+                "Paying fees",
+                "Filing a form"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 9",
+              "orderNumber": 11
+            },
+            {
+              "id": "ets-l05-q12",
+              "type": "mcq",
+              "question": "When does the training start?",
+              "options": [
+                "October 22nd",
+                "December 2nd",
+                "November 22nd",
+                "September 2nd"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 9",
+              "orderNumber": 12
+            }
+          ]
+        },
+        {
+          "id": "ets-l05-task-10",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 13 to 15.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test05/data/audios/snd-1054f98646331c3053f35c5b5904679caaa9aa83.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l05-q13",
+              "type": "mcq",
+              "question": "What is the source of the woman's information?",
+              "options": [
+                "A professor's lecture.",
+                "A magazine article.",
+                "A television program.",
+                "A doctor's report."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 10",
+              "orderNumber": 13
+            },
+            {
+              "id": "ets-l05-q14",
+              "type": "mcq",
+              "question": "According to Phrenology, what determines a person's character?",
+              "options": [
+                "Body size and shape.",
+                "Influence from the parents",
+                "Physical characteristics of the head.",
+                "Conditioning from the environment."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 10",
+              "orderNumber": 14
+            },
+            {
+              "id": "ets-l05-q15",
+              "type": "mcq",
+              "question": "What does the woman say about the sections of the brain?",
+              "options": [
+                "Different sections of the brain control different body functions.",
+                "Blows to certain areas of the skull will affect some brain functions.",
+                "Stimulating certain sections of the brain will increase brain functions.",
+                "Physical and mental abilities are localized in one section of the brain."
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 10",
+              "orderNumber": 15
+            }
+          ]
+        },
+        {
+          "id": "ets-l05-task-11",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 16 to 19.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test05/data/audios/snd-1054f98646331c3053f35c5b5904679caaa9aa83.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l05-q16",
+              "type": "mcq",
+              "question": "What hours does the speaker work on Monday?",
+              "options": [
+                "Noon to 6 PM",
+                "8:15 AM to 5 PM",
+                "7 AM to 12 PM",
+                "5 PM to 9 PM"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 11",
+              "orderNumber": 16
+            },
+            {
+              "id": "ets-l05-q17",
+              "type": "mcq",
+              "question": "On which two days does the speaker have the same schedule?",
+              "options": [
+                "Monday and Tuesday",
+                "Wednesday and Thursday",
+                "Tuesday and Thursday",
+                "Thursday and Friday"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 11",
+              "orderNumber": 17
+            },
+            {
+              "id": "ets-l05-q18",
+              "type": "mcq",
+              "question": "What is the main purpose of the speaker’s talk?",
+              "options": [
+                "To discuss the importance of the job",
+                "To compare the work of doctors and dentists",
+                "To describe a typical week at work",
+                "To explain the details of a day at work"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 11",
+              "orderNumber": 18
+            },
+            {
+              "id": "ets-l05-q19",
+              "type": "mcq",
+              "question": "What does the speaker think of her work?",
+              "options": [
+                "She enjoys sleeping late every morning.",
+                "It is difficult to describe her schedule.",
+                "She enjoys helping the patients.",
+                "It is too complicated to remember."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 11",
+              "orderNumber": 19
+            }
+          ]
+        },
+        {
+          "id": "ets-l05-task-12",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 20 to 23.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test05/data/audios/snd-1054f98646331c3053f35c5b5904679caaa9aa83.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l05-q20",
+              "type": "mcq",
+              "question": "Why does the women collect coins?",
+              "options": [
+                "She works for a museum.",
+                "She's a Lincoin scholar.",
+                "She does it as a hobby.",
+                "She teaches a course on currency exchange."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 12",
+              "orderNumber": 20
+            },
+            {
+              "id": "ets-l05-q21",
+              "type": "mcq",
+              "question": "Why were the letters VDB on some pennies?",
+              "options": [
+                "They identify the city where the penny was minted.",
+                "They are the initials of a famous coin collector.",
+                "They stand for the government agency that mints coins",
+                "They are the initials of the person who created the penny's design"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 12",
+              "orderNumber": 21
+            },
+            {
+              "id": "ets-l05-q22",
+              "type": "mcq",
+              "question": "What was one of the reasons the speaker collected pennies as a teenager?",
+              "options": [
+                "All of her friends collected them.",
+                "Pennies were cheap to collect.",
+                "Someone gave her a rare penny",
+                "She needed the money."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 12",
+              "orderNumber": 22
+            },
+            {
+              "id": "ets-l05-q23",
+              "type": "mcq",
+              "question": "What will the speaker do next?",
+              "options": [
+                "Trade coins with club members",
+                "Show the audience her coins.",
+                "Explain how the penny is minted.",
+                "Discuss the life of Lincoln."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 12",
+              "orderNumber": 23
+            }
+          ]
+        },
+        {
+          "id": "ets-l05-task-13",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 24 to 27.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test05/data/audios/snd-1054f98646331c3053f35c5b5904679caaa9aa83.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l05-q24",
+              "type": "mcq",
+              "question": "Who builds the nests of solitary wasps?",
+              "options": [
+                "The male and female wasps together.",
+                "The male wasp.",
+                "The female wasp.",
+                "The new offspring."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 13",
+              "orderNumber": 24
+            },
+            {
+              "id": "ets-l05-q25",
+              "type": "mcq",
+              "question": "Why are female wasps more dangerous to people than male wasps are?",
+              "options": [
+                "Only female wasps transmit diseases.",
+                "Male wasps do not leave the nest.",
+                "Female wasps are bigger than males.",
+                "Only female wasps have stingers."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 13",
+              "orderNumber": 25
+            },
+            {
+              "id": "ets-l05-q26",
+              "type": "mcq",
+              "question": "What is the main function of the queen?",
+              "options": [
+                "To protect the nest.",
+                "To lay eggs.",
+                "To gather food.",
+                "To replace nest cells."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 13",
+              "orderNumber": 26
+            },
+            {
+              "id": "ets-l05-q27",
+              "type": "mcq",
+              "question": "What are the myths of social wasps made of?",
+              "options": [
+                "Mud.",
+                "Stone.",
+                "Paper.",
+                "Grass."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 13",
+              "orderNumber": 27
+            }
+          ]
+        },
+        {
+          "id": "ets-l05-task-14",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 28 to 31.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test05/data/audios/snd-1054f98646331c3053f35c5b5904679caaa9aa83.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l05-q28",
+              "type": "mcq",
+              "question": "What is the main topic of the talk?",
+              "options": [
+                "Jefferson's views about commercialized agriculture.",
+                "International trade in the nineteenth century",
+                "Improvements in farm machinery in the United States.",
+                "Farmers' loss of independence"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 14",
+              "orderNumber": 28
+            },
+            {
+              "id": "ets-l05-q29",
+              "type": "mcq",
+              "question": "According to the professor, what was the major change in agriculture during the 19th century?",
+              "options": [
+                "Crop production became increasingly specialized.",
+                "Economic depressions lowered the prices of farm products.",
+                "New banking laws made it easy to buy farmland.",
+                "The United States increased its agricultural imports."
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 14",
+              "orderNumber": 29
+            },
+            {
+              "id": "ets-l05-q30",
+              "type": "mcq",
+              "question": "According to the professor, what was one result of the increased use of machinery on farms in the United States?",
+              "options": [
+                "Prices for farm products rose.",
+                "Farmers became more dependent on loans from banks.",
+                "Jefferson established government programs to assist farmers.",
+                "Farmers relied less on foreign markets."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 14",
+              "orderNumber": 30
+            },
+            {
+              "id": "ets-l05-q31",
+              "type": "mcq",
+              "question": "According to the professor, why were world markets important for United States agriculture?",
+              "options": [
+                "They provided evidence that Jefferson's ideal could be achieved.",
+                "They made farmers less dependent on local bankers.",
+                "They affected the prices that farmers could receive for their crops.",
+                "They decreased the power of the railroads to control farm prices."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 14",
+              "orderNumber": 31
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

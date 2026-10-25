@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-30",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 30",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> There are eight questions in this part. For each question there are four options and a short recording. For each question, choose the correct answer A, B, C or D. You now have 45 seconds to look through the questions and the options in each question.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-06/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. What colour is Mary’s coat?</b></p><ul><li><b>A:</b> Hi, Mary. What have you bought?</li><li><b>B:</b> This coat. Do you like it?</li><li><b>A:</b> Yes. <b>Yellow</b> looks good on you.</li><li><b>B:</b> Do you think I can use my blue bag with it?</li><li><b>A:</b> Your brown one will look better.</li></ul><p><b>2. What did the woman repair?</b></p><ul><li><b>A:</b> Hi. What have you done today?</li><li><b>B:</b> You know that <b>broken shelf</b> above my desk. Well, I repaired it and then I went shopping.</li><li><b>A:</b> What did you buy?</li><li><b>B:</b> A new chair.</li></ul><p><b>3. What are they going to buy for Pam?</b></p><ul><li><b>A:</b> Last year we gave Pam a book for her birthday. Shall we buy another one this year?</li><li><b>B:</b> I think we should give her a plant or some chocolates</li><li><b>A:</b> But she doesn’t like sweet things.</li><li><b>B:</b> Let’s get her <b>something to put in her garden</b>. But not a book again.</li></ul><p><b>4. What has the girl lost?</b></p><ul><li><b>A:</b> Can I help you? You look worried. Is everything alright?</li><li><b>B:</b> Well, I was in the playground about 10 minutes ago with my friends. And I got a call on my mobile phone. I have to get a pen out of my bag to write something down. And I think my <b>purse</b> fell out. I can’t find it now. Do you know anyone has handed it in.</li><li><b>A:</b> You know. You’re not supposed to bring phone to school. Anyway, let me go and check. What color is it?</li></ul><p><b>5. Which sport will the boy do soon at the centre?</b></p><ul><li><b>A:</b> Have you been to the new water sports centre yet?</li><li><b>B:</b> Oh yes. It’s brilliant. There are two indoor pools. One for underwater diving and one for swimming lessons. And you can also have sailing lessons on the lake.</li><li><b>A:</b> That’s what I’m doing there next weekend, actually. I was hoping to take water skiing lesson but the leaflet says they’re not starting those until next year.</li></ul><p><b>6. Who lives with Josh in his house?</b></p><ul><li><b>A:</b> Does your house seem empty now as your sister left home.</li><li><b>B:</b> Not really. My <b>grandmother</b> moved into her room and she doesn’t go out much. It’s really nice having her there because my dad never comes home until later and if mother’s out for the evening, grandmother cooks supper for me.</li></ul><p><b>7. What will the girl take with her on holiday?</b></p><ul><li><b>A:</b> Have you packed for your holiday?</li><li><b>B:</b> No. I need to go shopping before I can do that. Last holiday, my suitcase handles got broken. So I need something new to put my stuff in but suitcases are so heavy to carry.</li><li><b>A:</b> I always take a backpack. You can carry more that way.</li><li><b>B:</b> Yes, I thought to buy one of those. But good quality ones are expensive. I’ll get one of those <b>big sports bags</b>. You know you can pull along. They don’t cost much</li></ul><p><b>8. Where do the boys decide to go?</b></p><ul><li><b>A:</b> So we’ve got three hours. Shall we go skateboard in the park? What do you think?</li><li><b>B:</b> Well. There’s little space there which isn’t meant to be good. Oh there’s a new computer game shop which has just opened.</li><li><b>A:</b> Oh, well. I haven’t got enough money to buy a new game anyway.</li><li><b>B:</b> Let’s go and <b>watch a film</b>.</li><li><b>A:</b> Ok. We can go skateboard in anytime</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What colour is Mary's coat?",
+              "options": [
+                "yellow",
+                "blue",
+                "brown",
+                "black"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What did the woman repair?",
+              "options": [
+                "chair",
+                "shelf",
+                "desk",
+                "bed"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What are they going to buy for Pam?",
+              "options": [
+                "a book",
+                "a plant",
+                "some chocolates",
+                "candies"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What has the girl lost?",
+              "options": [
+                "mobile phone",
+                "purse",
+                "pen",
+                "bag"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "Which sport will the boy do soon at the centre?",
+              "options": [
+                "waterskiing",
+                "diving",
+                "sailing",
+                "swimming"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "Who lives with Josh in his house?",
+              "options": [
+                "his grandmother",
+                "his father",
+                "his sister",
+                "his mother"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What will the girl take with her on holiday?",
+              "options": [
+                "suitcase",
+                "sports bag",
+                "backpack",
+                "overhead bag"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "Where do the boys decide to go?",
+              "options": [
+                "cinema",
+                "game store",
+                "park",
+                "library"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D. You will hear the conversations only ONCE",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-05/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1: Interview with Andy Wells regarding Theme Parks</b></p><ul><li><b>Interviewer:</b> Good morning. Today we’re going to talk about theme parks and we’re going to hear from <b>Andy Wells</b> who has written a guide to theme parks around the world. Welcome to the programme, Andy.</li><li><b>Andy:</b> Hi, it’s good to be here.</li><li><b>Interviewer:</b> You really have a dream job, don’t you, Andy? Flying round the world all the time, visiting adventure parks ...</li><li><b>Andy:</b> Well, yes, it’s pretty exciting. But it’s really hard work too, you know.</li><li><b>Interviewer:</b> I bet. So, what’s the <b>number one theme park</b> in the world?</li><li><b>Andy:</b> That all depends what you’re looking for. In terms of numbers, it has to be <b>Magic Kingdom at Disney World</b> in Florida, the most famous theme park. But the most popular park for people who like adventure rides is <b>Cedar Point</b> in Ohio, USA. It has the biggest number of rollercoasters in one park, <b>17</b>, and three water rides. There are lots of other attractions too. Last year they introduced 50 animatronic dinosaurs. You know, life-size models that move and look real.</li><li><b>Interviewer:</b> Cool! Have they got anything lined up for this year?</li><li><b>Andy:</b> Yeah, there’s a new rollercoaster called the <b>Gatekeeper</b>. Well, actually it’s not a rollercoaster, it’s a <b>wingcoaster</b>. It’ll be the biggest in the world.</li><li><b>Interviewer:</b> What’s a wingcoaster?</li><li><b>Andy:</b> With a normal rollercoaster you are sitting on a seat with the track under you. With a wingcoaster the seats kind of stick out at the side so the passengers have nothing below or above them. You feel as if you’re flying.</li><li><b>Interviewer:</b> So it’s more frightening?</li><li><b>Andy:</b> More exciting! Way more exciting.</li><li><b>Interviewer:</b> What other attractions have you seen recently?</li><li><b>Andy:</b> I’ve just been to <b>The Wizarding World of Harry Potter</b> at the Islands of Adventure in Orlando, Florida. It’s great! You know those shops that sell magic sweets and things in the Harry Potter books? Well, they have those, just like you’ve imagined. There’s a fantastic tour of Hogwarts School where you meet characters from the books. It’s so well done.</li><li><b>Interviewer:</b> Right, sounds interesting. In your book you have a lot of theme parks in <b>Asia</b> too. Can you tell us about them?</li><li><b>Andy:</b> Sure. Tokyo has had a <b>Disneyland</b> for quite a long time, which attracts a lot of people. <b>Ocean Park</b> in Hong Kong has also been going for a long time – that has a lot of marine animals as well as rides. <b>Lotte World</b>, a huge park in South Korea, has the world’s biggest indoor theme park. And then there’s <b>Universal Studios</b> in Singapore. That’s expanding with additions to its New York street section. There’s going to be a Sesame Street dark ride. A dark ride’s a ride inside a building.</li><li><b>Interviewer:</b> I see. New York in Singapore?</li><li><b>Andy:</b> Yeah, it’s weird, but it works. But the place to watch at the moment is <b>China</b> – they’re really expanding. Lots more parks will open in China in the next few years, including another one with dinosaurs in the north, and <b>Ocean Kingdom</b> in the south. That will have the world’s longest roller coaster and tallest Ferris wheel, as well as boat rides and a night-time zoo.</li><li><b>Interviewer:</b> Wow, so that’s opening soon?</li><li><b>Andy:</b> Yes, this year. I’ll be there!</li><li><b>Interviewer:</b> Have a ride for me, then.</li></ul><p><b>Conversation 2: Interview with Geoff, World Heavyweight Champion</b></p><ul><li><b>Journalist:</b> Good evening, <b>Geoff</b>.</li><li><b>Geoff:</b> Hi.</li><li><b>Journalist:</b> Perhaps you could tell me a bit about your background. Where are you from exactly?</li><li><b>Geoff:</b> Well, I was actually born in <b>1958</b>, up in the north of England. My parents came to live in Britain after the war.</li><li><b>Journalist:</b> It sounds great.</li><li><b>Geoff:</b> We moved south to <b>London</b> after that. We were completely broke and I did all sorts of odd jobs to try and make money.</li><li><b>Journalist:</b> Goodness, how dramatic! But?...</li><li><b>Geoff:</b> But I was lucky – I discovered <b>karate</b>.</li><li><b>Journalist:</b> Ah! How, exactly?</li><li><b>Geoff:</b> There was a school trip – nothing special really – but we went to this sports center and I just thought “That’s for me!”.</li><li><b>Journalist:</b> Just like that?</li><li><b>Geoff:</b> Yup. Anyway, I started training. I found myself a Japanese coach and things just happened. I found it came naturally to me and I worked my way up till I found myself in <b>Taiwan</b> for the World Championships. That was in <b>1982</b>.</li><li><b>Journalist:</b> And you won?</li><li><b>Geoff:</b> Yeah, suddenly I was <b>World Heavyweight Champion</b>. It was great.</li><li><b>Journalist:</b> And you were world champion at that weight <b>five times</b> in all?</li><li><b>Geoff:</b> Yeah, that’s right.</li><li><b>Journalist:</b> And then you retired?</li><li><b>Geoff:</b> Well, I didn’t have much choice.</li><li><b>Journalist:</b> And now you’ve got others projects on the go all around the country and even abroad?</li><li><b>Geoff:</b> Mm...yeah...we’re going from strength to strength.</li></ul><p><b>Conversation 3: Marek and Tanya discussing holiday plans</b></p><ul><li><b>T:</b> Hi, <b>Marek</b>. Are you looking forward to your holiday?</li><li><b>M:</b> Oh <b>Tanya</b>, I can’t wait!</li><li><b>T:</b> Where is it you’re going? Is it camping on an island somewhere or am I thinking of someone else?</li><li><b>M:</b> Well, we were going camping, but my Dad’s just bought a <b>camper van</b>, so we’re going in that instead. It means you can go to other countries without having to get a flight which is good in a way, but actually I always used to enjoy sleeping in a tent.</li><li><b>T:</b> Yeah, I know what you mean, but it must be nice getting to see all the scenery along the way. I have to say the <b>flight</b> is my least favourite part of going abroad on holiday.</li><li><b>M:</b> Oh I never mind it actually – and the airport can be quite fun sometimes.</li><li><b>T:</b> You must be joking! All those people and nothing to do except look round expensive shops. I mean, you always end up buying something you don’t really want, just because there’s nothing else to do.</li><li><b>M:</b> Oh, I don’t. Anyway, where you are off to this year? Florida again?</li><li><b>T:</b> Well, I’m getting a bit old for <b>Disneyland</b>, Marek, though my little brother would still like it. We’re actually going somewhere new. It’s like a <b>sports camp</b> where you stay with lots of other kids and learn how to do different activities.</li><li><b>M:</b> You mean you’re going without your parents?</li><li><b>T:</b> Not exactly. I mean they’re there too doing whatever they want – golf in my dad’s case – but you only actually see them at mealtimes.</li><li><b>M:</b> Sounds cool. But will you have to look after your little brother?</li><li><b>T:</b> No way. They divide you up according to <b>age</b>. He’ll be doing football and swimming and all that, whereas I get to go to <b>water skiing</b>.</li><li><b>M:</b> Wow! Doesn’t that cost a fortune?</li><li><b>T:</b> Well, quite a bit so I’m just doing it on one of the days. But there’s <b>windsurfing</b> and <b>water polo</b> too.</li><li><b>M:</b> I see.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What is Magic Kingdom at Disney World in Florida famous for?",
+              "options": [
+                "The largest area",
+                "The most rides",
+                "The biggest number of visitors",
+                "The most beautiful theme park"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What is Cedar Point in Ohio introducing this year?",
+              "options": [
+                "A new roller coaster",
+                "Three new water rides",
+                "Animatronic dinosaurs",
+                "Two new roller coasters"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What does Andy think about a wingcoaster?",
+              "options": [
+                "More relaxing than a roller coaster",
+                "More frightening than a roller coaster",
+                "More exciting than a roller coaster",
+                "More dangerous than a roller coaster"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What does China soon have?",
+              "options": [
+                "The world's longest dinosaur tour",
+                "The world's biggest zoo",
+                "The world's tallest Ferris wheel",
+                "The world's biggest theme park"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "What happened to Geoff’s family when they moved to London?",
+              "options": [
+                "They couldn’t find a place to live",
+                "They ran out of money",
+                "His parents couldn’t find a job",
+                "He couldn’t help his parents earn money"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "When did Geoff become interested in karate?",
+              "options": [
+                "When he joined a school trip",
+                "When he joined a karate club at school",
+                "When his family went to a sports center",
+                "When he watched karate on television"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "When did he become the World Heavyweight champion?",
+              "options": [
+                "1980",
+                "1981",
+                "1982",
+                "1983"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "How many times was he the world champion?",
+              "options": [
+                "2 times",
+                "3 times",
+                "4 times",
+                "5 times"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "Why doesn't Tanya enjoy spending time at the airport?",
+              "options": [
+                "She prefers enjoying the scenery during the journey.",
+                "She finds it crowded and the shops too expensive.",
+                "She would rather spend time at the sports camp.",
+                "She wants to join more water sports instead."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "Where is Tanya going for her holiday this year?",
+              "options": [
+                "A campsite on a small island.",
+                "Disneyland in Florida with her family.",
+                "A sports camp with different activities.",
+                "A camper van trip across different countries."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "Who is Marek going on holiday with?",
+              "options": [
+                "His school friends",
+                "His father and younger brother",
+                "His extended family",
+                "His family"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What is Marek's feeling about his next holiday?",
+              "options": [
+                "Excited",
+                "Indifferent",
+                "Anxious",
+                "Relieved"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-07/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk/Lecture 1</b></p><p>Hello everyone, My name’s Sandy Duffy and I’m here to tell you about my career as a video game writer.</p><p>I work with game developers and designers to think of good stories, and I write all the dialogue in the game.</p><p>When I was in secondary school, I never imagined that I would do this job. I played guitar that’s what I planned to do as my job. But I had an accident when I was playing basketball and hurt my hand, so I had to think of another career. My mother wanted me to be a journalist, but I didn’t think it was for me.</p><p>I didn’t know what to study at university. I was good at lots of science subjects, including physics and math, but I also loved entertaining people and I was good at Art. In the end, I went to film school where I studied lighting, special effects, how to use camera...all that! It was there that I started to think about working in the video game industry.</p><p>Now, a question that every always asks me is “How did you get your first job?” Well, I had a friend whose job was organizing conferences, at one of the conferences, she met a man who owned a company that made video games. I wrote to him and sent my CV. He obviously liked what he read because he gave me an interview and offered me a job as a junior.</p><p>People also ask me what I like best about being a video game writer. Well, the money is good and it’s quite exciting, just last night, for example, I was at a big dinner where they were giving prizes for new games. But what I love is the fact that I get on well with everyone in the business. That’s what makes my job so much fun.</p><p>Obviously, no job is perfect though, and there are things I don’t like. I’ve just started a new job and I have to spend a lot of time on the road or at the airport, which I find very hard. I’d really like to be able to spend more time at home.</p><p><b>Talk/Lecture 2</b></p><p>Do you want to take part in a trip of a lifetime? Then join Go4Health India. This amazing five – day trek will take you through one of the world’s most beautiful mountain ranges, the Indian Himalayas.</p><p>You will also be helping raise vital funds for our charity which aims to promote health care all over the world.</p><p>The trip starts in the city of Delhi where you will have the chance to see one of the charity’s health care projects in action. The following day we set off on our incredible journey into the mountains.</p><p>During the trek you will pass colourful towns and villages and enjoy the most magnificent mountain views. You will experience all this before you even reach the peak of our trek to see the stunning DhaulaDahr mountain range. Once at the top you can climb even higher if you want to and experience walking on a glacier to each Lakes cave. You will soon know what it feels like to be on top of the world. And on the way down you will be able to admire the wonderful views across the valley.</p><p>To join Go4Health India all you need to do is pay an entry fee of 250 pounds. You also need to promise to raise a minimum of 2500 pounds before the start of the trip. Fundraising is part of the challenge, but don’t worry our fundraising team is on hand to help you. Once you have signed up you will receive an information pack. This includes details of the trek as well as the work of the charity. It also contains useful tips and advice on fundraising. And you will also get a charity cap to wear with pride. You will also receive a full training guide which will help you reach a reasonable level of fitness. Our top training tips will definitely improve your physical ability so that you can get the most out of the trek!</p><p>The cost of the trip includes your flights, accommodation, food, tour guides and medical support. However, please note that airport and tax is not included. You will have to meet this additional cost yourself.</p><p>Dates for this year’s Go4Health India are 3rd to 13th November. Visit our website www.Go4Health.uk and sign up today!</p><p><b>Talk/Lecture 3</b></p><p>Last year in India, people bought around 1.5 million new cars. This will probably go up to three million a year in the next few years. That’s how the India economy is changing. Many Indians in the big cities are richer than ever and they want to spend money on new products. However, most of the money is still in the big cities. There is still a lot of poverty in the villages and countryside.</p><p>Now the government hopes a new road in India can help to change India’s economy. The golden Quadrilateral road or GQ connects the country’s four biggest cities. Delhi, Mumbai, Chennai and Kolkata. Hopefully, the road will carry business from the giant cities to the smaller and poorer villages and the other half of the India’s population.</p><p>The GQ is nearly 6,000 kilometre long and the most hi – tech high way in the world. At the administration headquarters in Delhi, you can watch thousands of vehicles moving around the country on a computer screen. If there is a problem anywhere with the road, electronic sensors tell the headquarters and engineers instantly drive there.</p><p>When you drive on the high way, there is every kind of transport. There are animals pulling cars, motorcycles, lines of old trucks and fast moving modern cars. Sometimes the road goes right through middle of a city. So there are often traffic jams and pedestrians trying to cross the six lanes. Industry is also growing along the new highway.</p><p>When a large company opens a factory, lots of other smaller factories and offices also open. Trucks then drive and deliver all over India along the new high way. For India, all this is a symbol of the country’s future.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What did Sandy Duffy want to be when she was at school?",
+              "options": [
+                "a journalist",
+                "a musician",
+                "A director",
+                "A basketball player"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "What did Sandy study at university?",
+              "options": [
+                "Math and Physics",
+                "film making",
+                "Technology",
+                "Art"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "How did Sandy get her first job as a video game writer?",
+              "options": [
+                "She answered a job advertisement",
+                "She met someone at a conference",
+                "She sent some information about herself to a company",
+                "She was invited by a friend"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What does Sandy like best about being a video game writer?",
+              "options": [
+                "the prizes she has won",
+                "the high salary",
+                "the people she works with",
+                "the great working condition"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What does Sandy dislike about being a video game writer?",
+              "options": [
+                "She has to travel a lot",
+                "She has to work long hours",
+                "She often has to change her job",
+                "She has to live far from home"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "How long does the trek last?",
+              "options": [
+                "a day",
+                "three days",
+                "five days",
+                "a week"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "The trek aims to raise money for .............",
+              "options": [
+                "health care",
+                "school education",
+                "hospital",
+                "the old people"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "The cost of the trek includes .............",
+              "options": [
+                "flight and airport taxes",
+                "medical provision and taxes",
+                "Foods",
+                "Food and accommodation"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "Participants must .............",
+              "options": [
+                "walk across a glacier",
+                "complete a fitness course",
+                "agree to raise funds for the charity",
+                "pay amount of money"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "The trip starts on .............",
+              "options": [
+                "1st of November",
+                "3rd of November",
+                "13th of November",
+                "23th of November"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "Where do many of the rich people live?",
+              "options": [
+                "next to the new road",
+                "in the cities",
+                "in the countryside",
+                "in isolated places"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "How long is the road?",
+              "options": [
+                "600 kilometres",
+                "6,000 kilometers",
+                "60,000 kilometres",
+                "60 miles"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What can you see on the computers at the road's headquarters in Delhi?",
+              "options": [
+                "small vehicles on the road",
+                "any vehicle and problems on the road",
+                "big vehicles on the road",
+                "serious problems on the road"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What types of transport can you see on the road?",
+              "options": [
+                "all types",
+                "mostly cars",
+                "mostly motorbikes",
+                "the presenter doesn't say"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "Why does the presenter describe the new road as a symbol of India's future?",
+              "options": [
+                "because it's the same shape as the country of India",
+                "because it is modern, it is helping the economy grow",
+                "Because India has big population",
+                "Because India has lots of transport"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

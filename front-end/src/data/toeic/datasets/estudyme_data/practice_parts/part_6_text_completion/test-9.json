@@ -1,0 +1,330 @@
+{
+  "topicId": "6140004f65d71f3a51f62a9a",
+  "name": "Test 9",
+  "slug": "test-9",
+  "part": "part_6_text_completion",
+  "totalQuestions": 16,
+  "totalCards": 4,
+  "cards": [
+    {
+      "id": "6140039965d71f3a51f62b41",
+      "questionText": "<p><strong>Beverly Boutique: Sales Assistant Position</strong></p> <p>Our boutique is looking for enthusiastic candidates for our sales assistant position. <b> (1)</b>_____. Previous experience in a similar position is preferred, but not necessary. Organizational skills is also a must, as well as some experience with computer use. Most of all, we need someone who is personable, someone who can make customers feel <b> (2)</b>_____ , and someone who is passionate about fashion. Duties will include serving customers, taking inventory, and minor jobs around the boutique such as sweeping and locking the doors at closing time. Payment will be by sales commission which gives employees more <b> (3)</b>_____ to serve their customers as best they can. Hours will be flexible. For more information, please visit our website.<br> If you <b> (4)</b>_____ in the position, please send your resume to Rita at rian@bboutique.com</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140039965d71f3a51f62b45",
+          "questionText": "Our boutique is looking for enthusiastic candidates for our sales assistant position. <b> (1)</b>_____.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Our boutique is the leader in trendy fashions.",
+            "(B) Hurry before the promotion ends.",
+            "(C) Candidates need to be friendly and able to communicate with customers in all kinds of situations.",
+            "(D) Come visit our store to see what our business is about."
+          ],
+          "correctOptions": [
+            "(C) Candidates need to be friendly and able to communicate with customers in all kinds of situations."
+          ],
+          "transcript": "<p>The previous sentence indicates that \"Our boutique is looking for enthusiastic candidates for our sales assistant position\" =&gt; this sentence is about \"Candidates\"</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>C&acirc;u trước chỉ ra rằng &ldquo;Cửa h&agrave;ng của ch&uacute;ng t&ocirc;i đang t&igrave;m kiếm những ứng vi&ecirc;n nhiệt t&igrave;nh cho vị tr&iacute; trợ l&yacute; b&aacute;n h&agrave;ng&rdquo; =&gt; c&acirc;u n&agrave;y n&oacute;i về &ldquo;Ứng vi&ecirc;n&rdquo;<br />\n(A) Cửa h&agrave;ng của ch&uacute;ng t&ocirc;i dẫn đầu về thời trang hợp thời trang.<br />\n(B) H&atilde;y nhanh l&ecirc;n trước khi chương tr&igrave;nh khuyến m&atilde;i kết th&uacute;c.<br />\n(C) Ứng vi&ecirc;n cần th&acirc;n thiện v&agrave; c&oacute; khả năng giao tiếp với kh&aacute;ch h&agrave;ng trong mọi t&igrave;nh huống.<br />\n(D) H&atilde;y đến thăm cửa h&agrave;ng của ch&uacute;ng t&ocirc;i để xem hoạt động kinh doanh của ch&uacute;ng t&ocirc;i l&agrave; g&igrave;.<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "6140039965d71f3a51f62b46",
+          "questionText": "Most of all, we need someone who is personable, someone who can make customers feel  <b> (2)</b>_____ , and someone who is passionate about fashion.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) comfortable",
+            "(B) appropriate",
+            "(C) neglected",
+            "(D) convenient"
+          ],
+          "correctOptions": [
+            "(A) comfortable"
+          ],
+          "transcript": "<p>(A) comfortable:&nbsp;making you feel physically relaxed</p>\n\n<p>(B) appropriate:&nbsp;suitable, acceptable or correct for the particular circumstances</p>\n\n<p>(C) neglected:&nbsp;not receiving enough care or attention</p>\n\n<p>(D) convenient:&nbsp;useful, easy or quick to do; not causing problems</p>\n\n<p>Based on the meaning of words, \"comfortable\" is the most appropriate answer</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o nghĩa của từ th&igrave; &ldquo;thoải m&aacute;i&rdquo; l&agrave; c&acirc;u trả lời ph&ugrave; hợp nhất<br />\nTr&ecirc;n hết, ch&uacute;ng ta cần một người c&oacute; c&aacute; t&iacute;nh, một người c&oacute; thể khiến kh&aacute;ch h&agrave;ng cảm thấy thoải m&aacute;i v&agrave; một người đam m&ecirc; thời trang.<br />\n(A) thoải m&aacute;i<br />\n(B) th&iacute;ch hợp<br />\n(C) bị bỏ rơi<br />\n(D) thuận tiện<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "6140039965d71f3a51f62b47",
+          "questionText": "Payment will be by sales commission which gives employees more <b> (3)</b>_____ to serve their customers as best they can.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) influence",
+            "(B) incentive",
+            "(C) insistence",
+            "(D) consideration"
+          ],
+          "correctOptions": [
+            "(B) incentive"
+          ],
+          "transcript": "<p>incentive + to infinitive:&nbsp;something that encourages you to do something</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>Incentive + to V:&nbsp;Động lực để l&agrave;m g&igrave; đ&oacute;<br />\nViệc thanh to&aacute;n sẽ được thực hiện bằng hoa hồng b&aacute;n h&agrave;ng, gi&uacute;p nh&acirc;n vi&ecirc;n c&oacute; th&ecirc;m động lực để phục vụ kh&aacute;ch h&agrave;ng tốt nhất c&oacute; thể.<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6140039965d71f3a51f62b48",
+          "questionText": "<p>If you <strong> (4)</strong>_____ in the position, please send your resume to Rita at rian@bboutique.com</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) be interesting",
+            "(B) were interesting",
+            "(C) interest",
+            "(D) are interested"
+          ],
+          "correctOptions": [
+            "(D) are interested"
+          ],
+          "transcript": "<p>be interested in + something</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>Cấu tr&uacute;c: be interested in +..... : th&iacute;ch, quan t&acirc;m<br />\nTạm dịch: Nếu bạn quan t&acirc;m đến vị tr&iacute; n&agrave;y, vui l&ograve;ng gửi hồ sơ của bạn cho Rita theo địa chỉ rian@bboutique.com<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140039965d71f3a51f62b42",
+      "questionText": "<p><strong>Handy Maids Home Service</strong></p> <p>Call us at 555-1244<br> Handy Maids Home Service <b> (1)</b>_____ professional cleaning services for your business or home. We steam vacuum carpeted areas, polish hard-wood flooring, wipe away all traces of dust and dirt in hard-to-find areas, and clean out clutter. Our <b> (2)</b>_____ service is second to none in the tri-state area. We provide a one-day service after estimations are calculated. <b> (3)</b>_____, we provide weekly and monthly services for customers who request it.<br> The cleaning products we use are environmentally friendly and pet and child safe. <b> (4)</b>_____.<br> Please visit our website at www.handymaids.com or call US for more information.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140039965d71f3a51f62b49",
+          "questionText": "Handy Maids Home Service <b> (1)</b>_____  professional cleaning services for your business or home.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) provide",
+            "(B) provides",
+            "(C) provided",
+            "(D) providing"
+          ],
+          "correctOptions": [
+            "(B) provides"
+          ],
+          "transcript": "<p>Use present simple to talk about facts, the subject is \"Handy Maids Home Service\"</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>Sử dụng th&igrave; hiện tại đơn để n&oacute;i về sự thật, chủ ngữ ở c&acirc;u n&agrave;y l&agrave; &quot;Handy Maids Home Service&quot;<br />\nTạm dịch: Handy Maids Home Service cung cấp dịch vụ vệ sinh chuy&ecirc;n nghiệp cho doanh nghiệp hoặc ng&ocirc;i nh&agrave; của bạn.<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6140039965d71f3a51f62b4a",
+          "questionText": "Our <b> (2)</b>_____   service is second to none in the tri-state area. We provide a one-day service after estimations are calculated.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) unusual",
+            "(B) peculiar",
+            "(C) best",
+            "(D) exceptional"
+          ],
+          "correctOptions": [
+            "(D) exceptional"
+          ],
+          "transcript": "<p>(A) unusual:&nbsp;different from what is usual or normal</p>\n\n<p>(B) peculiar:&nbsp;strange or unusual, especially in a way that is unpleasant or makes you worried</p>\n\n<p>(C) best:&nbsp;of the most excellent type or quality</p>\n\n<p>(D) exceptional:&nbsp;much greater than usual, especially in skill, intelligence, quality, etc.</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o nghĩa của c&aacute;c từ:<br />\n(A) bất thường<br />\n(B) ri&ecirc;ng biệt<br />\n(C) tốt nhất<br />\n(D) đặc biệt<br />\nTạm dịch: Dịch vụ đặc biệt của ch&uacute;ng t&ocirc;i kh&ocirc;ng ai s&aacute;nh kịp trong khu vực ba bang. Ch&uacute;ng t&ocirc;i cung cấp dịch vụ một ng&agrave;y sau khi ước t&iacute;nh được t&iacute;nh to&aacute;n.<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "6140039965d71f3a51f62b4b",
+          "questionText": "<b> (3)</b>_____, we  provide weekly and monthly services for customers who request it.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) In addition",
+            "(B) Because",
+            "(C) On the other hand",
+            "(D) As a result"
+          ],
+          "correctOptions": [
+            "(A) In addition"
+          ],
+          "transcript": "<p>(A) In addition: Additionally</p>\n\n<p>(B) Because:&nbsp;for the reason that</p>\n\n<p>(C) On the other hand:&nbsp;in a way that is different from the first thing you mentioned</p>\n\n<p>(D) As a result:&nbsp;because of something</p>\n\n<p>Based on the meaning of conjunctions</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o &yacute; nghĩa của li&ecirc;n từ:<br />\n(A) Ngo&agrave;i ra<br />\n(B) Bởi v&igrave;<br />\n(C) Mặt kh&aacute;c<br />\n(D) Kết quả l&agrave;<br />\nTạm dịch: Ngo&agrave;i ra, ch&uacute;ng t&ocirc;i c&ograve;n cung cấp dịch vụ h&agrave;ng tuần v&agrave; h&agrave;ng th&aacute;ng cho những kh&aacute;ch h&agrave;ng c&oacute; y&ecirc;u cầu.<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "6140039965d71f3a51f62b4c",
+          "questionText": "<p>The cleaning products we use are environmentally friendly and pet and child safe. <strong> (4)</strong>_____.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) We make sure that your pets and children don’t go near the chemicals.",
+            "(B) In fact, we aim to make the home and business a safe and clean place without the use of harsh chemicals.",
+            "(C) The all-natural cleaning agents may not be as effective, but they are safe.",
+            "(D) Pets and children will be asked to leave the premises during cleaning."
+          ],
+          "correctOptions": [
+            "(B) In fact, we aim to make the home and business a safe and clean place without the use of harsh chemicals."
+          ],
+          "transcript": "<p>The previous sentence mentions \"environmentally friendly\" <strong>=&gt; B is the correct answer</strong></p>\n",
+          "explanationVi": "<p>C&acirc;u trước đề cập đến &quot;th&acirc;n thiện với m&ocirc;i trường&quot; <strong>=&gt; B l&agrave; đ&aacute;p &aacute;n đ&uacute;ng</strong><br />\n(A) Ch&uacute;ng t&ocirc;i đảm bảo rằng vật nu&ocirc;i v&agrave; trẻ em của bạn kh&ocirc;ng đến gần h&oacute;a chất.<br />\n(B) Tr&ecirc;n thực tế, ch&uacute;ng t&ocirc;i mong muốn l&agrave;m cho ng&ocirc;i nh&agrave; v&agrave; cơ sở kinh doanh trở th&agrave;nh một nơi an to&agrave;n v&agrave; sạch sẽ m&agrave; kh&ocirc;ng sử dụng c&aacute;c h&oacute;a chất khắc nghiệt.<br />\n(C) C&aacute;c chất tẩy rửa ho&agrave;n to&agrave;n tự nhi&ecirc;n c&oacute; thể kh&ocirc;ng hiệu quả bằng nhưng ch&uacute;ng an to&agrave;n.<br />\n(D) Vật nu&ocirc;i v&agrave; trẻ em sẽ được y&ecirc;u cầu rời khỏi cơ sở trong qu&aacute; tr&igrave;nh dọn dẹp.<br />\nTạm dịch: C&aacute;c sản phẩm l&agrave;m sạch ch&uacute;ng t&ocirc;i sử dụng th&acirc;n thiện với m&ocirc;i trường v&agrave; an to&agrave;n cho vật nu&ocirc;i v&agrave; trẻ em. Tr&ecirc;n thực tế, ch&uacute;ng t&ocirc;i mong muốn l&agrave;m cho ng&ocirc;i nh&agrave; v&agrave; cơ sở kinh doanh trở th&agrave;nh một nơi an to&agrave;n v&agrave; sạch sẽ m&agrave; kh&ocirc;ng sử dụng c&aacute;c h&oacute;a chất khắc nghiệt.</p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140039965d71f3a51f62b43",
+      "questionText": "October 09 <br> Bob Prosser <br>342 Winkler Ave<br> Fairbanks, AK 20037<br><br>Dear Mr. Prosser, <br> The information that you <b> (1)</b>_____ about changes to the hunting permit scheme has been enclosed. Please note that each permit must be filled out and applied for separately. When filling out your application, you must mark all answers clearly and with a black or blue pen. <br>Please do not use cursive script, print only. Each application <b> (2)</b>_____ enclosed in its own envelope and received before the applicable deadline. <b> (3)</b>_____. Because of this, you must plan your submissions in a timely fashion to make sure that you receive your permit while the applicable season is still open. I hope that the information <b> (4)</b>_____answers all of your questions. Take care and happy hunting. <br><br>Sincerely, <br>Shirley Horn <br>Executive Secretary <br>Department of Wildlife <br>Fairbanks, Alaska 31009",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140039965d71f3a51f62b4d",
+          "questionText": "The information that you <b> (1)</b>_____ about changes to the hunting permit scheme has been enclosed.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) provided",
+            "(B) supply",
+            "(C) request",
+            "(D) requested"
+          ],
+          "correctOptions": [
+            "(D) requested"
+          ],
+          "transcript": "<p>(A) provided:&nbsp;to give something to somebody or make it available for them to use</p>\n\n<p>(B) supply:&nbsp;an amount of something that is provided or available to be used</p>\n\n<p>(C) request:&nbsp;the action of asking for something formally and politely; a thing that you formally ask for</p>\n\n<p>(D) requested:&nbsp;to ask for something or ask somebody to do something in a polite or formal way</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o nghĩa của c&aacute;c từ:<br />\n(A) cung cấp, cung ứng<br />\n(B) cung cấp, tiếp tế, đ&aacute;p ứng<br />\n(C) y&ecirc;u cầu<br />\n(D) y&ecirc;u cầu<br />\nTạm dịch: Th&ocirc;ng tin m&agrave; bạn y&ecirc;u cầu về những thay đổi đối với chương tr&igrave;nh cấp ph&eacute;p săn bắn đ&atilde; được đ&iacute;nh k&egrave;m.<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "6140039965d71f3a51f62b4e",
+          "questionText": "Each application <b> (2)</b>_____ enclosed in its own envelope and received before the applicable deadline.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) won’t be",
+            "(B) would be",
+            "(C) must be",
+            "(D) couldn’t be"
+          ],
+          "correctOptions": [
+            "(C) must be"
+          ],
+          "transcript": "<p>\"Must be\" is correct because it talks about a specific requirement that needs to be followed when submitting an application.</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>&quot;Must be&quot; l&agrave; đ&uacute;ng v&igrave; n&oacute; n&oacute;i về một y&ecirc;u cầu cụ thể cần phải tu&acirc;n theo khi nộp đơn.<br />\nTạm dịch: Mỗi đơn đăng k&yacute; phải được đựng trong phong b&igrave; ri&ecirc;ng v&agrave; được nhận trước thời hạn &aacute;p dụng.<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "6140039965d71f3a51f62b4f",
+          "questionText": "<b> (3)</b>_____. Because of this, you must plan your submissions in a timely fashion to make sure that you receive your permit while the applicable season is still open.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Received applications can take up to 5 weeks to process.",
+            "(B) Applications are never approved before the season is over.",
+            "(C) Sometimes applications get lost.",
+            "(D) Never make an application in person."
+          ],
+          "correctOptions": [
+            "(A) Received applications can take up to 5 weeks to process."
+          ],
+          "transcript": "<p>Based on the following sentence</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o &yacute; của c&acirc;u sau: V&igrave; l&yacute; do n&agrave;y, bạn phải lập kế hoạch nộp hồ sơ kịp thời để đảm bảo rằng bạn nhận được giấy ph&eacute;p trong khi m&ugrave;a &aacute;p dụng vẫn c&ograve;n.<br />\n(A) Đơn đăng k&yacute; đ&atilde; nhận c&oacute; thể mất tới 5 tuần để xử l&yacute;.<br />\n(B) Đơn đăng k&yacute; kh&ocirc;ng bao giờ được ph&ecirc; duyệt trước khi m&ugrave;a giải kết th&uacute;c.<br />\n(C) Đ&ocirc;i khi c&aacute;c ứng dụng bị thất lạc.<br />\n(D) Kh&ocirc;ng bao giờ nộp đơn trực tiếp.<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "6140039965d71f3a51f62b50",
+          "questionText": "<p>I hope that the information <strong> (4)</strong>_____answers all of your questions. Take care and happy hunting.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) enclose",
+            "(B) enclosing",
+            "(C) inclose",
+            "(D) enclosed"
+          ],
+          "correctOptions": [
+            "(D) enclosed"
+          ],
+          "transcript": "<p>Reduced relative clause with passive form: \"the information enclosed\" = the information which is enclosed</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>Mệnh đề quan hệ r&uacute;t gọn ở dạng bị động: &quot;the information enclosed&quot; = the information which is enclosed<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140039965d71f3a51f62b44",
+      "questionText": "Date: August 22 <br> To: All Sales Team Members<br>From:  Melinda Lackey,Sales Manager<br> Subject: Rental Policy<br><br> For some <b> (1)</b>_____, we allowed sales reps to pay for their car rentals up front with their personal cards or cash and then be reimbursed later. This is no longer the policy. It has not been the policy for over two months now. As of June 15, all payments for rentals were supposed to have <b> (2)</b>_____  with the company card that was assigned to each of you. Larry in accounting has informed me that he has received 6 different reimbursement forms since then. I have gone ahead and allowed Larry to process those 6 forms.<b> (3)</b>_____.  I’m sorry for the <b> (4)</b>_____  tone, but everyone was asked to do this in July. If you have any questions, please contact me directly.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140039965d71f3a51f62b51",
+          "questionText": "For some <b> (1)</b>_____, we allowed sales reps to pay for their car rentals up front with their personal cards or cash and then be reimbursed later.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) distances",
+            "(B) place",
+            "(C) event",
+            "(D) time"
+          ],
+          "correctOptions": [
+            "(D) time"
+          ],
+          "transcript": "<p>(A) distances:&nbsp;the amount of space between two places or things</p>\n\n<p>(B) place:&nbsp;a particular position, point or area</p>\n\n<p>(C) event:&nbsp;a thing that happens, especially something important</p>\n\n<p>(D) time:&nbsp;what is measured in minutes, hours, days, etc.</p>\n\n<p>Based on the meaning of words.</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o nghĩa của từ:<br />\n(A) khoảng c&aacute;ch<br />\n(B) địa điểm<br />\n(C) sự kiện<br />\n(D) thời gian<br />\nTạm dịch: Đ&ocirc;i khi, ch&uacute;ng t&ocirc;i cho ph&eacute;p c&aacute;c đại diện b&aacute;n h&agrave;ng thanh to&aacute;n trước tiền thu&ecirc; &ocirc; t&ocirc; bằng thẻ c&aacute; nh&acirc;n hoặc tiền mặt v&agrave; sau đ&oacute; sẽ được ho&agrave;n trả sau đ&oacute;.<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "6140039965d71f3a51f62b52",
+          "questionText": "As of June 15, all payments for rentals were supposed to have <b> (2)</b>_____  with the company card that was assigned to each of you",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) making",
+            "(B) to be made",
+            "(C) makes",
+            "(D) been made"
+          ],
+          "correctOptions": [
+            "(D) been made"
+          ],
+          "transcript": "<p>The subject is \"all payments\" and the verb is \"make\"=&gt; use passive form</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>Chủ ngữ l&agrave; &quot;tất cả c&aacute;c khoản thanh to&aacute;n&quot; v&agrave; động từ l&agrave; &quot;make&quot;=&gt; sử dụng thể bị động<br />\nTạm dịch: Kể từ ng&agrave;y 15 th&aacute;ng 6, tất cả c&aacute;c khoản thanh to&aacute;n tiền thu&ecirc; nh&agrave; lẽ ra phải được thực hiện bằng thẻ c&ocirc;ng ty được cấp cho mỗi bạn.<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "6140039965d71f3a51f62b53",
+          "questionText": "I have gone ahead and allowed Larry to process those 6 forms. <b> (3)</b>_____.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Only Fonitna Rental should be used to book cars in the future.",
+            "(B) But, as of tomorrow, no one will be reimbursed.",
+            "(C) He will redesign the form by the beginning of next week.",
+            "(D) Everyone is required to turn in their cards as soon as possible."
+          ],
+          "correctOptions": [
+            "(B) But, as of tomorrow, no one will be reimbursed."
+          ],
+          "transcript": "<p>Based on the previous sentence.</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o &yacute; của c&acirc;u trước đ&oacute;: T&ocirc;i đ&atilde; tiếp tục v&agrave; cho ph&eacute;p Larry xử l&yacute; 6 biểu mẫu đ&oacute;.<br />\n(A) Chỉ n&ecirc;n sử dụng Fonitna Rental để đặt xe trong tương lai.<br />\n(B) Nhưng kể từ ng&agrave;y mai, sẽ kh&ocirc;ng c&oacute; ai được ho&agrave;n trả.<br />\n(C) Anh ấy sẽ thiết kế lại biểu mẫu v&agrave;o đầu tuần tới.<br />\n(D) Mọi người được y&ecirc;u cầu nộp thẻ c&agrave;ng sớm c&agrave;ng tốt.<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6140039965d71f3a51f62b54",
+          "questionText": "<p>I’m sorry for the <strong> (4)</strong>_____ tone, but everyone was asked to do this in July.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) overreaching",
+            "(B) gracious",
+            "(C) harsh",
+            "(D) benevolent"
+          ],
+          "correctOptions": [
+            "(C) harsh"
+          ],
+          "transcript": "<p>(A) overreaching:&nbsp;to fail by trying to achieve more than is possible</p>\n\n<p>(B) gracious:&nbsp;kind, polite and generous, especially to somebody of a lower social position</p>\n\n<p>(C) harsh:&nbsp;cruel, severe and unkind</p>\n\n<p>(D) benevolent:&nbsp;kind, helpful and generous</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o nghĩa của c&aacute;c từ:<br />\n(A) vượt qu&aacute;<br />\n(B) duy&ecirc;n d&aacute;ng<br />\n(C) khắc nghiệt<br />\n(D) nh&acirc;n từ<br />\nTạm dịch: T&ocirc;i xin lỗi v&igrave; giọng điệu gay gắt nhưng mọi người đ&atilde; được y&ecirc;u cầu l&agrave;m điều n&agrave;y v&agrave;o th&aacute;ng Bảy.<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        }
+      ]
+    }
+  ]
+}

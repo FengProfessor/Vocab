@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-09",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 09",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> There are eight questions in this part. For each question there are four options and a short recording. For each question, choose the correct answer A, B, C or D. You now have 45 seconds to look through the questions and the options in each question.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-09/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. What time is it?</b></p><ul><li><b>Speaker 1:</b> Have you got the right time? I think my watch is wrong.</li><li><b>Speaker 2:</b> Ah it’s half past two.</li><li><b>Speaker 1:</b> My watch is 20 past</li><li><b>Speaker 2:</b> well, it’s 10 minute slow then</li></ul><p><b>2. What’s Michelle going to read?</b></p><ul><li><b>Speaker 1:</b> Can I read your newspaper, Michelle?</li><li><b>Speaker 2:</b> Didn’t you bring a book with you?</li><li><b>Speaker 1:</b> Yes, but it’s not very interesting</li><li><b>Speaker 2:</b> Oh. Here you are. I’ll read a letter from John.</li></ul><p><b>3. How much did the tickets cost?</b></p><ul><li><b>Speaker 1:</b> Oh hi. Did you have a good time at the theatre last night?</li><li><b>Speaker 2:</b> Well. The play was excellent but the tickets cost 90 dollars each.</li><li><b>Speaker 1:</b> That’s not too bad if the play was good.</li><li><b>Speaker 2:</b> No. Perhaps you’re right.</li></ul><p><b>4. What is the man going to buy?</b></p><ul><li><b>Speaker 1:</b> Is everything ready for the holiday?</li><li><b>Speaker 2:</b> I’m just going shopping. I must get those pills I take when I feel travel sick. Do we need anything else from the chemist? We forgot the toothpaste last time.</li><li><b>Speaker 1:</b> I’ve got that. I haven’t got any sunglasses but I can borrow yours, can’t I. And I get something to read at the airport.</li><li><b>Speaker 2:</b> Right</li></ul><p><b>5. Which dress is Kate talking about?</b></p><ul><li><b>Speaker 1:</b> Oh mom. This dress is still dirty.</li><li><b>Speaker 2:</b> It can’t be, Kate. I have washed it.</li><li><b>Speaker 1:</b> But it is. The mark on the collar has gone but it’s still a small one here. Look. It’s in front, just below the button. It’s where I spilled some coke last week.</li></ul><p><b>6. When will Jane meet them?</b></p><ul><li>Hi. It’s Pete here. John left you a message to say he can’t meet you at 8 o’clock as plan because her bus doesn’t get into late 15. And it will take 30 minutes to get from the center of town. I told to the tables actually book at 8:45 so that would be fine. And we’ll see her then.</li></ul><p><b>7. Which morning activity is for beginners?</b></p><ul><li>At 10am tomorrow morning, there will be swimming lessons at both intermediate and beginner levels. Then there will be volleyball practice at 11:30 for all those of you who are already in one of the teams. Also in the morning, for those of you who already know how to sail, there’s a chance to do some practice on your own. There will be lessons in both sailing and windsurfing for beginners after lunch.</li></ul><p><b>8. Which painting does the woman decide to buy?</b></p><ul><li>They’re all nice but you see a lot flowers everywhere these days, don’t you? So that wouldn’t be my choice. The thing with animals actually although I did quite like the one with horses so it looks like it has to be the one with the boat. It will be a change from that bowl of food I have had on the wall all these years anyway.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What time is it?",
+              "options": [
+                "02.10",
+                "02.20",
+                "02.30",
+                "03.20"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What's Michelle going to read?",
+              "options": [
+                "book",
+                "letter",
+                "newspaper",
+                "magazine"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "How much did the tickets cost?",
+              "options": [
+                "$19",
+                "$90",
+                "$99",
+                "$9"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What is the man going to buy?",
+              "options": [
+                "sunglasses",
+                "something to read",
+                "pills",
+                "food"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "Which dress is Kate talking about?",
+              "options": [
+                "a dress with no button",
+                "a dress with many buttons",
+                "a dress with collar",
+                "a dress with no collar"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "When will Jane meet them?",
+              "options": [
+                "08:00",
+                "08:30",
+                "08:45",
+                "03:15"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "Which morning activity is for beginners?",
+              "options": [
+                "windsurfing",
+                "swimming",
+                "sailing",
+                "running"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "Which painting does the woman decide to buy?",
+              "options": [
+                "a painting with boats",
+                "a painting with flowers",
+                "a painting with horses",
+                "a painting with white clouds"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> You will hear three different conversations. In each conversation there are four questions. For each question, choose the correct answer A, B, C or D. You will hear the conversations only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-09/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1:</b></p><ul><li><b>Matthew:</b> ... Bye, Mum, see you later.</li><li><b>Mother:</b> How are you getting to college? It’s already five to nine. You’ve missed the bus. Are you going to walk?</li><li><b>Matthew:</b> No, I’m borrowing your car, remember?</li><li><b>Mother:</b> Oh, Matthew. (Q1) I need it today. If you want to borrow the car you need to ask me several days before. Sorry, you’re going to have to walk. It just isn’t convenient today.</li><li><b>Matthew:</b> But I did ask you. We talked about it last week. Don’t you remember? (Q2) I’ve promised to help Alan move all his books and things after my lecture today. He’s moving to a new flat and his car’s broken down. I’ve got to help him move his things. He can’t stay in the old flat after today. I promised him.</li><li><b>Mother:</b> All right, all right. Of course, you must keep your promise. I remember now, you did tell me. (Q3) But I thought you said next Wednesday. You said the 9th and that’s next week when I’m in Birmingham for a meeting so I shan’t need the car.</li><li><b>Matthew:</b> I didn’t ask for it next Wednesday! I’ve got an exam next Wednesday! I can’t help Alan when I’m doing an exam, can’t I?</li><li><b>Mother:</b> No, I suppose not. Well, I expect you’re right. (Q4) I didn’t write it down so it’s my fault. Next time we must both write it down. And make sure we write down the same date.</li><li><b>Matthew:</b> OK, so can I have it today? I need to go or I’ll miss my lecture.</li><li><b>Mother:</b> Well, what am I supposed to do? I need to be at work in half an hour.</li><li><b>Matthew:</b> I’ll give you a lift there on my way to college. How about that?</li><li><b>Mother:</b> I suppose I haven’t got much choice. Come on, then.</li></ul><p><b>Conversation 2:</b></p><ul><li><b>Presenter:</b> OK, now we come to our regular spot on extreme sports, and this week our fearless reporter Tom Walker has been trying out something called indoor skydiving. And he’s with me now. Tom, what’s this all about?</li><li><b>Reporter:</b> Well, it’s the same as skydiving- jumping from an aeroplane and freefalling through the air without opening your parachute for some time – except that you do it (Q5) in an indoor wind tunnel. And there’s no plane, and no parachute, and, so I was told, no danger! So it gives you a taste of doing an extreme sport, but it isn’t quite so extreme.</li><li><b>Presenter:</b> Right, now where did you do it?</li><li><b>Reporter:</b> I did it in a vertical wind tunnel (Q6) at an adventure sports center called Runaway.</li><li><b>Presenter:</b> What exactly is a vertical wind tunnel?</li><li><b>Reporter:</b> Well, it’s a tunnel that gets filled with air. The air is provided by four enormous industrial fans of a kind that usually provide air for underground systems. These fans produce a column of air that rushes through the tunnel from below at more than 160 kilometers per hour. When you’re in the tunnel, (Q7) you float on this air. The machine has been described as being like an enormous hairdryer. It allows you to fly as if you had fallen from a plane, but you are only two meters off the ground.</li><li><b>Presenter:</b> And it’s completely safe is it?</li><li><b>Reporter:</b> Yes. There are bars across the top of the tunnel to stop you flying off up and out of the tunnel. The tunnel is four meters wide and has glass walls. The only small problem you might have is that you keep bashing into these walls. (Q8) But you’re not really going to hurt yourself a lot by doing this – the only injuries you are likely to get are sore elbows and knees. In fact, it’s so safe that the center is open to anyone over the age of four. In America, where the idea was invented by the military in 1994, pensioners in their eighties regularly have a go.</li></ul><p><b>Conversation 3:</b></p><ul><li><b>PAM:</b> Hi Jun. As you know, I’ve asked you here today to discuss the future of our Self-Access Center. (Q9) We have to decide what we want to do about this very important resource for our English language students. So, can you tell me what the students think about this?</li><li><b>JUN:</b> Well, from the students’ point of view, we would like to keep it. The majority of students say that they enjoy using it because it provides a variation on the classroom routine and they see it as a pretty major component of their course, but we would like to see some improvements to the equipment, particularly the computers; (Q10) there aren’t enough for one each at the moment and we always have to share.</li><li><b>PAM:</b> Well, yes, the teachers agree that it is a very valuable recourse but one thing we have noticed is that a lot of student are using it to check their personal emails. We don’t want to stop you students using it, but we think the (Q11) computers should be used as a learning resource, not for emails. Some of us also think that we could benefit a lot more by relocating the Self-Access Center to the main University library building. How do you think the students would feel about that, Jun?</li><li><b>JUN:</b> Well, the library is big enough to incorporate the Self-Access Center, but it wouldn’t be like a class activity anymore. Our main worry would be not being able to go to a teacher for advice. I’m sure there would be plenty of things to do but we really need teachers to help us choose the best activities.</li><li><b>PAM:</b> Well, there would still be a teacher present and he or she would guide the activities of the students, we wouldn’t just leave them to get on with it.</li><li><b>JUN:</b> Yes, but I think the students would be much happier keeping the existing set-up; they really like going to the Self-Access Center with their teacher and staying together as a group to do activities. (Q12) If we could just improve the resources and facilities, I think it would be fine.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Why doesn't his mother lend him her car?",
+              "options": [
+                "Because her car doesn't work well today",
+                "Because he can't drive",
+                "Because she needs the car",
+                "Because he can walk"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What will Matthew do after class?",
+              "options": [
+                "move his books",
+                "move his flat",
+                "help his friend",
+                "repair his car"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "When is his mother's meeting?",
+              "options": [
+                "Thursday 19th",
+                "Friday 9th",
+                "Wednesday 9th",
+                "Not discussed"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What is true about the conversation?",
+              "options": [
+                "Matthew forgot to ask his mother about her car",
+                "His mother refused to lend him her car",
+                "His mother agrees to take him to school by car",
+                "This problem is due to his mother's mistake"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Where does he play this sport?",
+              "options": [
+                "in a wind tunnel",
+                "from an aeroplane outdoor",
+                "in a park",
+                "from a high hill"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What is the name of the sport center?",
+              "options": [
+                "Vertical Tunnel center",
+                "Extreme sports center",
+                "Runaway",
+                "Adventure sports center"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What is it like to be in the wind tunnel?",
+              "options": [
+                "you stand on bars",
+                "you stay afloat",
+                "your hair is dried",
+                "you fly up high"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "How dangerous is this sport?",
+              "options": [
+                "Glass might break and hurt you",
+                "You suffer from small injuries",
+                "You might fly off the tunnel",
+                "You can't stop flying up"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What are the main topic of the conversation?",
+              "options": [
+                "to know how students used the center",
+                "to know what to do with the center",
+                "to talk about the effectiveness of the library",
+                "to learn how to use the library effectively"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What are the main problem of the center?",
+              "options": [
+                "too many resources",
+                "slow computers",
+                "lack of valuable resource",
+                "lack of computers"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "The director complains that students are using computer for",
+              "options": [
+                "looking for personal resources",
+                "relocating documents",
+                "reading their emails",
+                "learning computer skills"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What are they likely to do with the center?",
+              "options": [
+                "move it to the library",
+                "purchase more equipment",
+                "ask teacher to come to the center",
+                "ask students to stop using emails"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-09/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk/Lecture 1:</b></p><p>Dolls have always fascinated me, and that’s why, five years ago, I was delighted to be offered the job of running a doll museum.</p><p>Dolls have existed for thousands of years, and the earliest dolls we know about we found in graves in ancient Egypt. I only wish we could get one or two for our museum. But we haven’t unfortunately got anything as old as that in the museum. All the same, we have got examples from Europe from the twelfth century, but my favorite early dolls are actually from the seventeenth century. They interest me not just because they are early, or fairly early, but also because of the clothes they are wearing. They have their original clothes, and from them we know what the owners wore, since dolls in those days were always dressed like their owners. They were made of the only material readily available for things like this at the time: solid wood and they were painted in great detail. In fact, on the best examples, like the ones in the museum, the detail includes the seventeenth-century make-up.</p><p>Dolls like these were very expensive then, and only the very rich could afford them. These days, they’re popular with collectors and if you want one today, you have to pay anything up to ten thousand pounds for a doll in perfect condition from this time! By the way, what makes them so valuable is that, as far as a collector is concerned, a doll is only worth collecting if it is in perfect condition, and that means having the original clothes.</p><p>Doll collecting has become very fashionable since the museum opened, with people interested in dolls from every period, including later dolls. There’s great interest in nineteenth-century examples, when dolls were no longer made of wood, but began to have soft bodies and real hair. They were very delicate and few have survived, meaning such a doll would be worth about two thousand pounds, perhaps a bit more. Later, in the nineteenth century, you could often take off the doll’s hair. If you can, you can often see the maker’s name underneath, and of course the right one increases a doll’s value.</p><p>There was a really big change in dolls at the beginning of the twentieth century. In the museum we have one of the earliest examples, from about 1909, of a doll that’s a model of a baby. Previously all dolls, the earliest ones, were little adults.</p><p><b>Talk/Lecture 2</b></p><p>Hello. I’m Stephen Mills. I will travel with you to the Tiger Tour in India, but I’m not your guide. I work as an artist and I’m going to take some photographs of tigers so that I can use them when I paint some pictures later. An expert guide will join the group when we arrive in India, but I’m leading the group until then.</p><p>We leave London on the 6th of November, arriving in India the following day. It’s a good time of year to visit the wildlife park where the tigers live. The rainy season finishes in October. And later in the year, the park gets more crowded and the tigers become shy.</p><p>We’ll spend ten days in the wildlife park. There are twenty other types of animals and three hundred types of bird to see as well as tigers. There are eighteen of us altogether and everything is organized for your comfort by the tour company. For example, although we’re in the jungle, we won’t have to sleep in tents! The hotels where we’ll stay are all very comfortable.</p><p>To be sure of seeing tigers, we’ll stay in two different parts of the wildlife park. We’ll spend three days in the north, where we’ll travel around in an open truck, and the rest of the time in the south, where we’ll travel around on elephants. That should be fun!</p><p>On the way back to London, we have dinner and one night’s bed and breakfast in the Indian capital, Delhi. There you can either go sightseeing or go shopping, whichever you prefer. But please note that lunch is not provided on our day of departure, as the plane leaves at two in the afternoon.</p><p>Now, if there are any questions ....</p><p><b>Talk/Lecture 3:</b></p><p>Announcer: For the second in our series about locally-run businesses, we meet Simon Winridge, co-founder of the hugely-successfully Winridge Forest Railway Park. Welcome, Simon. Now, perhaps you can begin by telling us a little bit about how it all started.</p><p>Man: Well, during the 1970s, my wife, Liz and I had just acquired 80 acres of sheep-farming land, and we decided to settle down and have children. Pretty soon we had a daughter, Sarah, and a son, Duncan. The place was wonderful for the kids: they particularly loved trains and gradually built up an enormous network of miniature railway track. I began to develop larger-scale models of locomotives but we didn’t think anything more of it until I went on a trip to a theme park near Birmingham and decided we could do a much better job! So we set up a small one ourselves based on the miniature railway and we opened to the public for just a month that year, 1984- in July- our driest month- because our children said they didn’t want our guests to have a miserable, wet visit. I dealt with Park business and Liz carried on with the farm work.</p><p>It soon became clear that we were onto a winner. We began to extend the railway track and lay it among more interesting landscape by planting trees, which in turn attracted more wildlife, and by making cuttings through the rock.</p><p>Nowadays, we’re open all year round and we’re pleased to say that Winridge is one of the most popular visitor attractions in the area- with 50.000 visitors a year- a million and a half people have been through our doors since we opened.</p>",
+          "questions": [
+            {
+              "id": "L2Q21",
+              "type": "mcq",
+              "question": "What is the main purpose of the talk?",
+              "options": [
+                "To describe how the man's favorite dolls look like",
+                "To explain how dolls used to look like in the twelfth century",
+                "To compare the differences in all doll examples in the museum",
+                "To explain how dolls were made differently in times"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q22",
+              "type": "mcq",
+              "question": "The dolls that the man interested in .........",
+              "options": [
+                "Existed from the twentieth century",
+                "Existed from the seventeenth century",
+                "Existed from the eighteenth century",
+                "Existed from the nineteenth century"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q23",
+              "type": "mcq",
+              "question": "At the beginning of the twentieth century, dolls were .................",
+              "options": [
+                "Babies",
+                "Adults",
+                "Elderly",
+                "Males"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q24",
+              "type": "mcq",
+              "question": "What makes the dolls in the seventeenth century special?",
+              "options": [
+                "They existed fairly early",
+                "They were made from solid wood",
+                "They are very expensive today",
+                "Their decorations are original"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q25",
+              "type": "mcq",
+              "question": "What can you do with the nineteen- century dolls?",
+              "options": [
+                "Buy them with thousands of pounds",
+                "Take off their hair",
+                "Replace their hair with real hair",
+                "See the maker's name on the body"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "When is the best time to see the tigers?",
+              "options": [
+                "November",
+                "October",
+                "September",
+                "The following day"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "How long will they be in the park?",
+              "options": [
+                "Twenty days",
+                "Eighteen days",
+                "Ten days",
+                "No information"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "What is arranged to make sure the visitors are comfortable?",
+              "options": [
+                "Meals",
+                "Transportation",
+                "Accommodation",
+                "Schedule"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What is Stephen Mill's profession?",
+              "options": [
+                "Photographer",
+                "Tour guide",
+                "Traveller",
+                "Artist"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What is not included in the program?",
+              "options": [
+                "Going sightseeing in Delhi",
+                "Going shopping in Delhi",
+                "Breakfast on the last day",
+                "Lunch on the last day"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "Simon's idea for a theme park came from ..............",
+              "options": [
+                "his childhood hobby",
+                "his interest in landscape design",
+                "his visit to another park",
+                "his wife's idea"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "When they started, the family decided to open the park only when ..................",
+              "options": [
+                "The weather was expected to be good",
+                "There were not many people in the neighborhood",
+                "The children weren't at school",
+                "There were fewer farming commitments"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "Since opening the park has had ..................",
+              "options": [
+                "50,000 visitors",
+                "1,000,000 visitors",
+                "5,000 visitors",
+                "1,500,000 visitors"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What did their children love?",
+              "options": [
+                "Trains",
+                "Theme park",
+                "Farm work",
+                "We weather"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "The park today is ..................",
+              "options": [
+                "Closed on holidays",
+                "Opened all year",
+                "Closed every two months",
+                "Opened on weekdays"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

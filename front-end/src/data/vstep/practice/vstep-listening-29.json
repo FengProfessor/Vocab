@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-29",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 29",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-27/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Question 1.</b></p><ul><li>Next on this evening’s news is the rising price of gas and what consumers can do to save money. Experts say it is important that your vehicles are in good running condition. So, if you’re serious about saving money on gas, regularly check your engine oil and filter.</li></ul><p><b>Question 2.</b></p><ul><li>On your right, you will see the old train station. The building will be turned into a museum this year. The station is famous for its beautiful views of the river. Next, we will go to City Hall where you will have 20 minutes to take photographs.</li></ul><p><b>Question 3.</b></p><ul><li>Hello Mr. Ali, this is Matthew Boyd calling from Isla Bella Restaurant. I just wanted to know if you will be attending our grand opening at 8 o’clock on August 2. I called earlier and your wife mentioned that you might not be coming. I do hope you can make it, as we will be serving a full dinner cooked by our new chef. Please call me as soon as possible to let me know whether or not you are coming so that we can arrange a table for you.</li></ul><p><b>Question 4.</b></p><ul><li>Good afternoon. Thanks for coming to the meeting this morning. I have a few announcements. First, the director will be leaving tomorrow for Berlin and won’t be back until next Tuesday. Also, our project is nearly two weeks ahead of schedule, thanks to your hard work. We still have a lot to do, but I am pleased with our progress. One last thing: please think of some ideas for our presentation next month. We will meet next week to discuss them.</li></ul><p><b>Question 5.</b></p><ul><li>Are you tired of drinking the same coffee at the office every day? Then try Javacup’s new instant coffees! Javacup has various flavors, from vanilla to chocolate, and is ready in seconds, just by adding hot water. You can find Javacup at your local supermarket.</li></ul><p><b>Question 6.</b></p><ul><li>Good evening, everyone. We have all gathered to honor Antonia Grimaldi, who will be retiring after 30 years of service at our company. Ms. Grimaldi started out at the Grand Imperial Hotel as a receptionist and rose to become our director for the past 10 years. Ms. Grimaldi will be remembered for her kindness and hard work. We will miss working with her and are thankful for her 30 years of dedication to the company. Ms. Grimaldi will now say a few words before dinner is served.</li></ul><p><b>Question 7.</b></p><ul><li>Now for a look at the weather. We expect excessive winds starting Thursday morning and continuing until Friday. Temperatures will remain lower than usual until the weekend. Local weather experts say there is a slight chance that the winds could develop into a hurricane. They are asking all local residents to stay up to date on the status of the storm. But there is good news for the weekend. Clear skies and temperatures reaching up to 24 degrees Celsius are forecast for Saturday and Sunday. Stay tuned for sports, coming up after this break.</li></ul><p><b>Question 8.</b></p><ul><li>Welcome to the Reginald Museum of History. Our tour today will focus on artifacts from the 14th century. These objects were collected from sites in Northern England. Following our tour, please feel free to visit our gift shop, located next to the museum’s main entrance.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What should customers do to save money?",
+              "options": [
+                "reduce gas price",
+                "buy new vehicles",
+                "check your vehicles regularly",
+                "change the gas suppliers"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What will the tourists visit at last?",
+              "options": [
+                "the railway station",
+                "the museum",
+                "the river",
+                "the City Hall"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What does the caller ask Mr. Ali to do?",
+              "options": [
+                "Return a call",
+                "Reserve a table",
+                "Arrange an event",
+                "Contact the chef"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What is the purpose of the announcement?",
+              "options": [
+                "To announce a new director",
+                "To request work schedules",
+                "To provide information",
+                "To set a new deadline"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What is special about the product?",
+              "options": [
+                "has various flavours",
+                "has low price",
+                "has vanilla flavour",
+                "has chocolate flavour"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What is the purpose of this talk?",
+              "options": [
+                "To introduce a guest speaker",
+                "To say goodbye to a colleague",
+                "To present an award to an employee",
+                "To welcome a new director"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "According to the report, what is unusual about the current weather?",
+              "options": [
+                "Low temperatures",
+                "Rainfall",
+                "Thunderstorms",
+                "Cloudy skies"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What are true about the artifacts?",
+              "options": [
+                "They dated back to the 16th century",
+                "They were collected from England",
+                "They can be bought in the gift shop",
+                "They can be bought at the main entrance"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-13/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>W:</b> Our copier has been acting strangely today. Could you come and take a look at it for us?</li><li><b>M:</b> Okay, but did you check to see if any paper is jammed inside?</li><li><b>W:</b> Yes, I did, but that's not the problem. I think the problem may be more serious.</li><li><b>M:</b> All right, but I have to run across town this morning to fix a machine there, so I don't think I can make it to your office until after lunch.</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>W:</b> Hi, there. I'm having trouble finding this certain book on medieval German nobility.</li><li><b>M:</b> Let me check on the computer. Hmm ... it appears that we don't have it.</li><li><b>W:</b> Oh, no. It was really important for an essay I'm working on right now.</li><li><b>M:</b> Well, we have a central computer system that is connected to the other university libraries in the state. I can search them all to see where your book is, then order it from the nearest university. You could borrow it from another library.</li><li><b>W:</b> That would be great. How long will it take?</li><li><b>M:</b> We can usually get a book here in two or three days. But the lending period is shorter than for a normal book - only 10 days instead of two weeks. And if you're late returning books from other libraries, the overdue fine is a lot larger.</li><li><b>W:</b> I won't be late. But does it cost anything to sign out books from other libraries?</li><li><b>M:</b> Not for up to five books. Any more than that, and you would have to pay a small service charge.</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>M:</b> What's the matter, Jane?</li><li><b>W:</b> Oh, I was supposed to meet James for a study session at 4, but he's late.</li><li><b>M:</b> James is like that. I always give myself an extra 15 minutes or so whenever I have an appointment with him.</li><li><b>W:</b> That's not a bad idea. I'd like to have him waiting for me for a change.</li><li><b>M:</b> Yeah, some people are just irresponsible like that. I remember once he was actually late for the exam. Nearly 20 minutes late, and he just comes walking in, like there's nothing wrong. He wasn't worried or anything.</li><li><b>W:</b> I can't imagine myself being like that. I always leave myself extra time, just to make sure I'm always ready and on time.</li><li><b>M:</b> Oh, there he comes now.</li><li><b>W:</b> It's about time.</li><li><b>M:</b> How long are you guys planning on studying?</li><li><b>W:</b> Pretty late. We have a big chemistry test tomorrow and I'm really behind.</li><li><b>M:</b> Well, maybe I'll see you later. I have to get some work done at the library, too.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What is the problem?",
+              "options": [
+                "The woman does not know how to get to the man's office.",
+                "The copy machine is not working properly.",
+                "The man is late for his appointment.",
+                "The woman can't go to the office today."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "Who most likely is the man?",
+              "options": [
+                "An auto mechanic",
+                "A photocopier technician",
+                "A new assistant",
+                "A coffee shop owner"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What does the man ask the woman to do?",
+              "options": [
+                "To have a clinic check-up",
+                "To turn off the machine",
+                "To check the inside paper jam",
+                "To call another technician"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "When will the man most likely get to the woman's office?",
+              "options": [
+                "In the morning",
+                "During lunch",
+                "In the afternoon",
+                "In the evening"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "What is the woman's problem?",
+              "options": [
+                "She lost a library book.",
+                "She does not know where Germany is.",
+                "The library does not have a book she needs.",
+                "The library will not let her sign out a book."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "Why does the woman need to find the book?",
+              "options": [
+                "She wants to borrow it for a friend.",
+                "She wants it for her essay.",
+                "She wants to learn about computer systems.",
+                "She wants to collect it."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What does the man offer to do for the woman?",
+              "options": [
+                "He will help her to locate the material she wants from other libraries.",
+                "He will ask his friends about the material she needs.",
+                "He asks her to go to the nearest library.",
+                "He asks her to go to the book store."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "What if the woman borrows more than 5 books from other libraries?",
+              "options": [
+                "She has to return the books earlier than usual.",
+                "She has to pay a small service charge.",
+                "She has to fill in a special form.",
+                "She has to deposit."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "When is the woman supposed to meet James?",
+              "options": [
+                "At noon",
+                "At four o'clock",
+                "At four fifteen",
+                "At ten o'clock"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What can be inferred about James?",
+              "options": [
+                "He is very lazy",
+                "He is punctual",
+                "He is not very punctual",
+                "He is very busy"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "What is true about the man?",
+              "options": [
+                "He is a friend of Jane's and James'.",
+                "He is Jane's teacher.",
+                "He doesn't know James.",
+                "He is an irresponsible man."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "Why does Jane have this appointment?",
+              "options": [
+                "To meet her old friends",
+                "To complain about James' behavior",
+                "To prepare for her exam",
+                "To have an interview"
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-06/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk 1 / Lecture 1:</b></p><p>Welcome everybody to this presentation about creating a corporate image for your company. I wonder if, when you came in today, you thought, 'Hey, this guy hasn't got a suit on. This could be an interesting day!' You see, I believe that the way you dress is very important. I decided to come here rather casually dressed not because I wanted to make a fashion statement but because I wanted to let you know that this is not going to be a formal presentation. On the other hand, I want you to work hard and get something out of the day. I'm not wearing shorts and a T-shirt, for instance. So how would you describe the way I'm dressed?</p><p><b>Smart but casual.</b></p><p>Exactly. But I also believe there are particular occasions when you need to wear a suit such as meeting a client – especially if you expect the client to be wearing one. Which brings me to a recent trend which we've picked up from the Americans: 'Dress down Friday'. How many of you are dressing more informally on a Friday? Quite a lot of you. How many of you go as far as wearing jeans? Not so many. Probably many of that small group work in the IT sector? I thought so.</p><p>So you see it's not just the day of the week or what clients may expect of you, it's the business you're in. If, for example, you work in a bank you're probably going to be in a dark suit every day of the week. And then there are those of us who are expected to wear a uniform. What you are doing here is projecting a very specific image of your company or service. Usually it's to do with reliability, expertise and efficiency. Customers and the general public feel reassured about someone in a recognisable uniform. Dress down Friday is a long way off for this group of employees. Now let's have a look at other ways in which a company projects its image...</p><p><b>Talk 2 / Lecture 2:</b></p><p>Do you get enough sleep at night? Do you ever feel tired during school? You may not be the only one. According to the National Sleep Foundation, kids aren't getting enough sleep. And it's affecting how they do in school.</p><p>Experts say that kids need about ten hours of sleep each night. Your body needs sleep so it can rest for the next day. Animals need sleep to stay healthy. Cats and dogs sleep for about fifteen hours each day!</p><p>Sleep is also important for your brain. Just like your body, your brain needs a little vacation every night. Without enough sleep, students can't learn as well. They cannot pay attention, follow directions, or solve problems as well. Also, tired kids act in ways that they usually don't. They can easily get angry with their friends or get in trouble in class.</p><p>Scientists at the National Sleep Foundation talked to 1,400 kids. They asked them about their sleeping habits. They found that about seventy percent of kids were not getting enough sleep. The scientists think that soda and television are part of the reason. Drinks like cola, coffee, and tea have caffeine in them. Caffeine makes people stay awake. Kids who had drinks with caffeine got less sleep than other kids. Television is also a problem. When kids watch too much TV, they have to stay up later to finish their homework. Scientists also found that many kids had a TV in their room. These kids often stayed up late to watch a show.</p><p>So what can you do to make sure that you get enough sleep? Try not to drink anything with caffeine, especially at night. Sleep experts suggest that you try to go to bed at the same time every night. Don't do anything exciting before you go to bed. For instance, don't watch a scary movie or exercise. Try to do something relaxing, like reading a book or listening to quiet music.</p><p><b>Talk 3 / Lecture 3:</b></p><p>If you have ever seen the northern lights, you know that they are one of most beautiful sights. People often seeing a faint glow appear on the horizon in the night sky. Then they may see wonderful colors such as green, red, blue, or purple stretch the sky. The shape of the northern lights can be straight lines, or it may be curved like the letter S, or round, just like a wheel. The colored lights and shapes move across the night sky, like ocean waves. No matter what the color or shape is, the northern lights are truly an amazing sight.</p><p>Many people know them by their common name \"the northern lights.\" But do you know the meaning of the real name? The scientific name for the northern lights from Latin. It is <b>aurora borealis</b>. In English, the Latin word <b>aurora</b> translates to \"dawn,\" which means \"early morning.\" The Latin word <b>borealis</b> means \"northern.\" So <b>aurora borealis</b> can be translated as \"northern dawn,\" which describes the look of the northern sky in the very early morning.</p><p>If you have never seen <b>aurora borealis</b>, you are not alone. This natural phenomenon is not common in most parts of the world. In fact, many people travel or go on tours to places where they can see the northern lights. Where are these places? The best place to see <b>aurora borealis</b> is near the North Pole – the northernmost point of Earth – especially in areas such as northern Greenland, Scandinavia, and Alaska.</p><p>Many years ago, before modern science, people developed stories, myths, and legends to explain natural phenomena such as <b>aurora borealis</b>. Finnish people called them \"fox fires,\" and believed the lights were caused when foxes made fires to keep warm. The Inuit people of northern Canada and Greenland believed that the <b>aurora</b> was the dance of animal spirits such as deer, seals, and whales.</p><p>The way the northern lights work is similar to a neon sign. Gas travels along magnetic lines. The lights occur when electric particles – electrons – collide with gas atoms, causing the atoms to give off light. The result is the amazing sweeps and waves of color that you can see. It's a wonderful sight if you happen to be in the right place at the right time.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "The presenter doesn't wear a suit because",
+              "options": [
+                "He is not an important person.",
+                "He wants to talk about different fashion trend.",
+                "The presentation is not formal.",
+                "He works for a fashion company."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "According to the speaker, which statement is TRUE?",
+              "options": [
+                "It's important to look casually-dressed in public.",
+                "A suit is necessary when meeting clients.",
+                "Wearing shorts is OK, sometimes.",
+                "Nobody can describe the way he's dressed."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What does the phrase 'Dress-down Fridays' mean?",
+              "options": [
+                "Employees must wear fashionable clothes on Fridays.",
+                "Employees can wear anything they want on Fridays.",
+                "Employees are allowed to wear informally on Fridays.",
+                "Employees are required to wear special clothes on Fridays."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "According to the speaker, who may be the most informal dressers?",
+              "options": [
+                "People working in IT",
+                "People working in banks.",
+                "People working in customer services.",
+                "People working with clients."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What does a customer feel about a man in uniform?",
+              "options": [
+                "reliable",
+                "recognized",
+                "expertised",
+                "reassured"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "How many hours of sleep do experts suggest for kids?",
+              "options": [
+                "Ten",
+                "About fifteen",
+                "1,400",
+                "70"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "According to the speaker, why is sleep important for the brain?",
+              "options": [
+                "Sleep generates dreams so brain can relax.",
+                "Brain can rest in a sleep.",
+                "Sleep can save energy for the brain.",
+                "Sleep improves the effectiveness of the brain."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "Why don't the students learn well when they are tired?",
+              "options": [
+                "They can't finish their homework.",
+                "They can't deal with troubles in class.",
+                "They get very excited.",
+                "They can't pay attention very well"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "Which is NOT a reason for poor sleep?",
+              "options": [
+                "drinking soda",
+                "playing computer games",
+                "staying up late",
+                "exercising before sleep"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What should students try to do each night?",
+              "options": [
+                "Watch a scary movie",
+                "Drink some hot tea",
+                "Go to bed at a regular time",
+                "relax with a TV show"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "Which is NOT the shape of the northern lights?",
+              "options": [
+                "a straight line",
+                "a curved line",
+                "a round shape",
+                "an oval shape"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "What does 'aurora borealis' exactly mean?",
+              "options": [
+                "northern lights",
+                "northern dawn",
+                "northern sky",
+                "early morning lights"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "Where is the best place to see the northern lights?",
+              "options": [
+                "The northernmost point of Earth",
+                "The north of Poland",
+                "Scandinavian countries",
+                "Most parts of the world"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What is one of the stories developed by people before modern science?",
+              "options": [
+                "The lights were caused by volcanic eruptions.",
+                "The lights were the dance of animal spirits.",
+                "The lights appeared when people moved north.",
+                "The lights came from fires of northern gods."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "Which of the following is NOT mentioned in this talk?",
+              "options": [
+                "A description of the lights",
+                "The scientific explanation for the lights",
+                "The discovery of the lights",
+                "Beliefs about the light"
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

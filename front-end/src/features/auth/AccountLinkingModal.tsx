@@ -1,6 +1,6 @@
 import React from 'react';
-import { Alert, Button, Descriptions, Modal, Space, Tag, Typography } from 'antd';
-import { CheckCircleFilled, LogoutOutlined, SafetyCertificateOutlined } from '@ant-design/icons';
+import { Alert, Button, Descriptions, Modal, Space, Tag, Typography } from '@/components/ui/Primitives';
+import { CheckCircleFilled, LogoutOutlined, SafetyCertificateOutlined } from '@/components/ui/Icons';
 import styles from '@/features/auth/components/AccountLinkingModal.module.css';
 import { useAuthStore } from '@/stores/useAuthStore';
 import { AuthProviderType } from '@/types/enums/AuthProviderType';

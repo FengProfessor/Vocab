@@ -4,7 +4,7 @@ import {
   FileProtectOutlined,
   ReadOutlined,
   BankOutlined,
-} from '@ant-design/icons';
+} from '@/components/ui/Icons';
 import { RoadmapTrackType } from '@/types/enums/RoadmapTrackType';
 import { RoadmapTrackOption } from '@/config/types/RoadmapTrackOption';
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Alert, App, Button } from 'antd';
-import { SyncOutlined } from '@ant-design/icons';
+import { Alert, App, Button } from '@/components/ui/Primitives';
+import { SyncOutlined } from '@/components/ui/Icons';
 import { PageHeaderCard } from '@/components/common/PageHeaderCard';
 import { AdminKpiMetrics } from '@/features/admin/components/AdminKpiMetrics';
 import { AdminPilotLeadsTable } from '@/features/admin/components/AdminPilotLeadsTable';

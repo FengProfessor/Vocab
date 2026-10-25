@@ -1,0 +1,101 @@
+{
+  "id": "vstep-reading-onthi-41",
+  "title": "Luyện Đọc VSTEP: Social Media and Adolescent Well-being (VstepR4-Test 13 (27-03-2026))",
+  "duration": 10,
+  "date": "2026-03-27",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 5,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Social Media and Adolescent Well-being",
+            "text": "<p style=\"text-align:justify;\">The relationship between social media use and adolescent mental health has become one of the most intensely debated topics in contemporary psychology. Rates of anxiety, depression, and loneliness among teenagers in many developed nations began rising sharply around 2012 — the same period in which smartphone ownership and social media use became widespread among young people. Researchers such as Jean Twenge have argued that this correlation is not coincidental and have pointed to mechanisms including social comparison, cyberbullying, sleep disruption, and the displacement of face-to-face interaction as potential explanations for the association.</p>\n<p style=\"text-align:justify;\">Other researchers urge caution in drawing causal conclusions. Studies relying on self-reported screen time data are notoriously unreliable, and many large-scale analyses find only small correlations between social media use and negative mental health outcomes. Critics argue that the pattern observed in mental health statistics could be explained by other concurrent social changes, such as economic insecurity, academic pressure, or increased willingness among young people to report and discuss mental health struggles. Some research even suggests that for certain adolescents — particularly those who are socially isolated — online communities can provide genuine social support and a sense of belonging.</p>\n<p style=\"text-align:justify;\">Despite the ongoing scientific debate, several major technology companies have introduced new tools aimed at reducing potentially harmful patterns of use, including daily screen time limits, restricted access for users under a certain age, and features that limit the display of certain content to vulnerable users. These moves reflect both genuine concern and growing regulatory pressure from governments in Europe, Australia, and North America. Whatever the precise magnitude of its effects, few dispute that social media represents a profound shift in the social environment of adolescence that warrants serious and ongoing attention.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r41-q1",
+              "type": "mcq",
+              "question": "It can be inferred from paragraph 1 that the author considers the rise in teenage mental health problems?",
+              "options": [
+                "entirely unrelated to social media usage",
+                "possibly connected to social media, though the evidence is debated",
+                "fully proven to be caused by social media use",
+                "primarily caused by changes in school curricula"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r41-q2",
+              "type": "mcq",
+              "question": "From paragraph 2, it can be inferred that some researchers believe the mental health trends could be explained by?",
+              "options": [
+                "factors other than social media",
+                "a deliberate government reduction in mental health services",
+                "increased use of violent video games among teenagers",
+                "the declining popularity of television among young people"
+              ],
+              "answer": 0,
+              "explanationVi": "<p>Đáp án chính xác là <b>A</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r41-q3",
+              "type": "mcq",
+              "question": "From paragraph 2, it can be inferred that for some socially isolated teenagers, social media?",
+              "options": [
+                "is more harmful than for socially active teenagers",
+                "may offer positive social connection and support",
+                "is the primary cause of their isolation",
+                "should be completely restricted by their parents"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r41-q4",
+              "type": "mcq",
+              "question": "From paragraph 3, it can be inferred that technology companies' introduction of usage limits reflects?",
+              "options": [
+                "their belief that social media is definitively harmful for all teenagers",
+                "a response to both ethical concerns and political/regulatory pressure",
+                "scientific proof that screen time causes depression",
+                "a purely commercial strategy to attract more users"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r41-q5",
+              "type": "mcq",
+              "question": "What can be inferred about the author's overall position on this issue?",
+              "options": [
+                "The author believes social media should be banned for all teenagers immediately.",
+                "The author dismisses concerns about social media as exaggerated.",
+                "The author believes the issue is complex and deserves continued careful study.",
+                "The author believes online communities are always harmful to mental health."
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

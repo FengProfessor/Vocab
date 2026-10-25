@@ -1,0 +1,176 @@
+{
+  "id": "vstep-reading-onthi-54",
+  "title": "Luyện Đọc VSTEP: Reading Part 1 - Test 09 (Reading Part 1 - Test 09)",
+  "duration": 15,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 15,
+      "totalQuestions": 10,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Reading Part 1 - Test 09",
+            "text": "<p style=\"text-align:center; font-size: 18px;\"><strong>Employee Wellness Program - Updated Guidelines</strong></p>\n<p style=\"text-align:justify;\">We are pleased to announce <strong>enhanced</strong> benefits for our Employee Wellness Program, effective June 1st. The program aims to promote a <strong>healthy</strong> work-life balance and support our employees' overall well-being.</p>\n<p style=\"text-align:justify;\"><strong>Fitness Membership:</strong> All full-time employees are <strong>eligible</strong> for a complimentary gym membership at partner facilities. This benefit is <strong>optional</strong> and can be activated through the HR portal. Part-time employees receive a 50% discount on membership fees.</p>\n<p style=\"text-align:justify;\"><strong>Mental Health Support:</strong> We now offer <strong>confidential</strong> counseling services through our Employee Assistance Program. Sessions are completely <strong>voluntary</strong> and won't affect your employment status. Up to 10 sessions per year are covered at no cost to employees.</p>\n<p style=\"text-align:justify;\"><strong>Healthy Lifestyle Incentives:</strong> Employees who participate in quarterly wellness challenges can earn <strong>rewards</strong> such as extra vacation days or gift cards. Participation is <strong>encouraged</strong> but not <strong>required</strong>. We believe that a healthy team is a productive and happy team!</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r54-q1",
+              "type": "mcq",
+              "question": "What does \"enhanced\" mean in this context?",
+              "options": [
+                "reduced or decreased",
+                "improved or increased in quality",
+                "cancelled",
+                "postponed"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r54-q2",
+              "type": "mcq",
+              "question": "The word \"eligible\" is closest in meaning to?",
+              "options": [
+                "disqualified",
+                "qualified or entitled to receive something",
+                "required",
+                "forbidden"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r54-q3",
+              "type": "mcq",
+              "question": "What does \"optional\" mean?",
+              "options": [
+                "mandatory or required",
+                "available as a choice, not required",
+                "expensive",
+                "temporary"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r54-q4",
+              "type": "mcq",
+              "question": "The word \"confidential\" means?",
+              "options": [
+                "public and open",
+                "private and secret",
+                "expensive",
+                "complicated"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r54-q5",
+              "type": "mcq",
+              "question": "What does \"voluntary\" mean?",
+              "options": [
+                "forced or compulsory",
+                "done by choice, not required",
+                "paid",
+                "difficult"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            },
+            {
+              "id": "otv-r54-q6",
+              "type": "mcq",
+              "question": "The word \"rewards\" in this context refers to?",
+              "options": [
+                "punishments",
+                "prizes or benefits given for achievement",
+                "requirements",
+                "problems"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 6
+            },
+            {
+              "id": "otv-r54-q7",
+              "type": "mcq",
+              "question": "What does \"encouraged\" mean?",
+              "options": [
+                "forbidden or banned",
+                "supported and recommended",
+                "ignored",
+                "criticized"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 7
+            },
+            {
+              "id": "otv-r54-q8",
+              "type": "mcq",
+              "question": "The word \"required\" is closest in meaning to?",
+              "options": [
+                "optional",
+                "mandatory or necessary",
+                "impossible",
+                "free"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 8
+            },
+            {
+              "id": "otv-r54-q9",
+              "type": "mcq",
+              "question": "According to the text, who gets free gym membership?",
+              "options": [
+                "All employees regardless of status",
+                "Full-time employees only",
+                "Part-time employees only",
+                "No one - everyone must pay"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 9
+            },
+            {
+              "id": "otv-r54-q10",
+              "type": "mcq",
+              "question": "What is the main purpose of this document?",
+              "options": [
+                "To announce employee layoffs",
+                "To inform about improved wellness benefits",
+                "To require mandatory gym attendance",
+                "To cut employee benefits"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

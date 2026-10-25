@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-54",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 54",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-13/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Q1: Who is probably making talking on the phone?</b></p><ul><li>Hello, this is Gloria with Dr. Baum’s office. This is a reminder of your dental appointment for Thursday, May 22, at 1:00 p.m. Since you have several cavities to fill, please allow yourself at least three hours for the visit.</li></ul><p><b>Q2: Why has the meeting been relocated?</b></p><ul><li>Because the South Tower is undergoing renovations, the design team meeting scheduled for tomorrow morning has been moved to the North Tower conference room on the 12th floor. The meeting will still be held at 10:00.</li></ul><p><b>Q3: What is the main cause of decreased domestic sales?</b></p><ul><li>Unfortunately, I must report that domestic sales have dropped by 17 percent over the last two quarters. Although the sluggish domestic economy is a factor, the primary cause of this worrying development is increasing competition in the retail clothing sector.</li></ul><p><b>Q4: What should the listeners do before they skate?</b></p><ul><li>This weekend is the first outing of the in-line skating club for this season. Remember, you are not allowed to skate with the club unless you wear an approved safety helmet. You can ask Rea, the safety coordinator, if you are unsure about your gear.</li></ul><p><b>Q5: What profession does the speaker work in?</b></p><ul><li>As a woman and sports announcer, I’m often approached about giving speeches on women in sports.</li></ul><p><b>Q6: What is the purpose of Ricardo’s visit?</b></p><ul><li>Ricardo will be here in the U.S. for three months observing some of the managerial techniques and procedures we use at this office.</li></ul><p><b>Q7: What kind of business would be making this announcement?</b></p><ul><li>In order to improve customer service, we will be initiating a customer satisfaction survey. The survey will focus on several different areas, including courtesy and promptness by waiters or waitresses, cleanliness, and food quality and selection.</li></ul><p><b>Q8: Why has confidence increased?</b></p><ul><li>Investor confidence was bolstered by government data indicating inflation rose by barely two tenths of one percent last quarter, meaning that the National Bank is unlikely to raise interest rates.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "Who is probably making talking on the phone?",
+              "options": [
+                "The receptionist at a hotel",
+                "The receptionist at a dentist's",
+                "A travel agent",
+                "A real estate agent"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "Why has the meeting been relocated?",
+              "options": [
+                "Because a building is being renovated",
+                "Because the North Tower is being painted",
+                "Because the South Tower is sold",
+                "Because the North Tower is more spacious"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What is the main cause of decreased domestic sales?",
+              "options": [
+                "A weak economy",
+                "Competition",
+                "Retail clothing sector",
+                "Domestic economy"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What should the listeners do before they skate?",
+              "options": [
+                "Get permission from the safety coordinator",
+                "Wear the proper safety equipment",
+                "Pay a nominal fee",
+                "Have membership cards"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What profession does the speaker work in?",
+              "options": [
+                "Sports therapy",
+                "Sports broadcasting",
+                "Physical training",
+                "Sports fashion"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What is the purpose of Ricardo's visit?",
+              "options": [
+                "To train staff members",
+                "To oversee a project",
+                "To learn business methods",
+                "To see a client"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What kind of business would be making this announcement?",
+              "options": [
+                "A gas station",
+                "A hotel",
+                "A restaurant",
+                "A store"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "Why has confidence increased?",
+              "options": [
+                "Because of increased investment",
+                "Because of low inflation",
+                "Because of higher production",
+                "Because of government data"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-12/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>W:</b> Mr. Stone, this is Susan White from the Speedy Medical Center. I am calling to remind you that you have an appointment with Dr. Johnson tomorrow at 11.</li><li><b>M:</b> Ah, yes, thank you for reminding me. You know, if you hadn't called, I would've completely forgotten all about it. I've been so busy lately.</li><li><b>W:</b> Well, we call all of our clients a day before their scheduled appointment. Anyway, please get here 10 minutes before your appointment since there are some forms that you have to fill out. Also, don't forget to bring your insurance information.</li><li><b>M:</b> Okay, I will remember to bring it with me. Thanks, and I will see you tomorrow then.</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>M:</b> I just read an article in the paper about the medical conference being held in the city this weekend. I'm really looking forward to going there.</li><li><b>W:</b> Really? I am thinking of going as well. I really want to listen to the talk on that study about soybeans. A lot of my patients have been mentioning it to me lately.</li><li><b>M:</b> Yes, my patients have been asking me about it, too. Hey, do you want to go together this Saturday?</li><li><b>W:</b> All right. My in-laws are coming for a visit this Sunday, so Saturday will be perfect.</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>W:</b> I think the customer was quite satisfied with the service we provided.</li><li><b>M:</b> Yes, I think he was especially happy because he thought the warranty had expired. He managed to get the repair done at no cost.</li><li><b>W:</b> Well, I am glad that we were able to help a good customer. You know, it's customers like that who will continue to come back to our store.</li><li><b>M:</b> Yes, I agree with you. I think it's very important that we try to keep all of our customers happy.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Why is the woman calling?",
+              "options": [
+                "To make an appointment",
+                "To speak with Dr. Johnson",
+                "To confirm an appointment",
+                "To receive some medical advice"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What is probably true about the man?",
+              "options": [
+                "He is a doctor.",
+                "He is very busy these days.",
+                "He is the woman's friend.",
+                "He will be late for the appointment."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What does the woman ask the man to do?",
+              "options": [
+                "Show up to his appointment a little early",
+                "Get more medical insurance",
+                "Wait 10 minutes in the waiting area",
+                "Always arrange his appointments a day early"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What will the man likely take to his appointment?",
+              "options": [
+                "His past medical records",
+                "Some insurance documents",
+                "His appointment book",
+                "An application form"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Who most likely are they?",
+              "options": [
+                "Journalists",
+                "Physicians",
+                "Lawyers",
+                "Restaurant owners"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "Who has been mentioning the study to the woman?",
+              "options": [
+                "Her patients",
+                "Her mother-in-law",
+                "Her doctor",
+                "Her friends"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "When will they likely attend the conference?",
+              "options": [
+                "Today",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "Who is going to visit the woman?",
+              "options": [
+                "Her friends",
+                "Her husband",
+                "Her mother-in-law",
+                "Her patients"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What are they talking about?",
+              "options": [
+                "A newly released product",
+                "The duration of the warranty",
+                "A customer they helped",
+                "A vehicle the man recently fixed"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "According to the man, what was the customer most satisfied with?",
+              "options": [
+                "The low cost of the repair work",
+                "The free service they provided",
+                "The competitive price of their products",
+                "The length of the warranty period"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "What do the speakers feel makes customers happy?",
+              "options": [
+                "The low price",
+                "The great service",
+                "The free gifts",
+                "The store hours"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What is true about the customer?",
+              "options": [
+                "He is a loyal one.",
+                "He thought the warranty had expired.",
+                "He will definitely come back to the store.",
+                "He will recommend the store to his friend."
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-10/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk 1:</b></p><p>Right, everyone- about the trip to the Jubilee Arts Centre next Wednesday. As you know, we have tickets for the Centre’s two theatres and the concert hall. Those of you with concert tickets will hear piano music by Chopin and Schumann. Those with tickets for the main theatre will see Shakespeare’s Twelfth Night, while people going to the smaller theatre will see The Wild Duck by Ibsen. Although all the theatre and concert tickets have gone, if anyone else would like to join us on the trip I can get tickets for the Arts Centre cinema to see the Australian comedy film, Spider and Rose.</p><p>The shows begin at half past seven, but we’ll leave early so you can spend time looking around the Arts Centre. The coach will leave here at 3:30 and arrive at the Arts Centre at about a quarter to five. Let me tell you what you can do there.</p><p>The Centre has a lot of art- lovers. In the Art Gallery there’s an exhibition of the history of Russian ballet. It has dresses and shoes worn by famous dancers and photos of past performances. With your student card, you can get in very cheaply. There are also some interesting free exhibitions. On the ground floor you can see prize- winning paintings from children’s competition, and gold jewellery made by Scottish artists. On the first floor there’s an exhibition of South American photographs, and there’s no charge for that either.</p><p>I know some of you hope to do some shopping. The Centre has a bookshop on the first floor and there’s a souvenir shop by the ticket office. If you’re more interested in clothes and shoes there’s a large shopping centre five minutes’ walk from the Arts Centre.</p><p>You’ll probably want to eat before the show. The Balcony Restaurant has a menu with a wide range of meals and waiter service, but it is rather expensive. Or there’s the Fountain Restaurant whose special three- course dinner is good value for money. There’s also Charlie’s coffee bar which serves coffee, sandwiches and cakes. You can get fruit juices and ice cream from the cinema kiosk.</p><p>After the shows the coach will pick us up at the Bridge Street exit. Everyone should be there by twenty past ten. The two plays will finish at around 10.10 or 10.15. I’m afraid concert- goers will have to wait, as the concert finishes earlier, at ten to ten.</p><p><b>Talk 2:</b></p><p>Announcer: And now for a few tips of you who are going to go walking this summer. Let’s look first of all at the type of bag that you should take with you. Rod Smith works in a shop that sells camping equipment and he feels he has a bag for every type of walking holiday. Rod, does it really make a difference what type of bag you use?</p><p>Rod: Yes, Jill, it certainly does. Bags come in every shape, colour and size now so it makes sense to pick one that is right for your needs. A backpack, for example, could quite rapidly ruin an otherwise good walking holiday if it doesn’t fit your back. In fact the fit is critical but the choice is so large now that it’s difficult to know how to make the right one. So- here are a few things to look for.</p><p>First of all size. A bag that holds thirty- five litres and has three outside pockets should be plenty big enough for a day- trip. For a four to five- day walking tour I would recommend a bag that holds seventy litres for a man and fifty to sixty litres for a woman. That’s along with a tent and a sleeping bag. An upright bag- that’s one that closes at the top- is better if you intend to climb a lot of hills.</p><p>What about the contents? Well, in order to really avoid the inconvenience of broken containers or crushed clothes, I suggest you go for a bag with a solid bottom. The best ones- but these are probably the most expensive have a leather base that is particularly resistant to wear and tear. A bag that has two compartments inside will allow you to find things more easily and separate out items such as creams that could leak in hot weather. Extra pockets on the outside of the bag are also useful if you want to carry any tools for climbing that are sharp or get dirty when you use them.</p><p>When you have to think about carrying your bag. If it’s a backpack, a wide cushioned belt will ease the strain on your back and hops and leave you with more energy for your walking activities. Shoulder straps also help lighten the load and these should be easy to adjust. There are many different types of strap on the market that can be adjusted in various different ways. Try several and compare them. It’s also a good idea to make sure there’s a horizontal bar that goes across your shoulders and stops the straps from falling off.</p><p>Well, if you choose your bag carefully and think about some of the things I’ve mentioned, you shouldn’t waste your money. Finally, make sure there are plenty of air holes in the padded part of your bag that touches your body. These are essential to allow sweat to escape and to make your walking or climbing holiday a comfortable one.</p><p><b>Talk 3:</b></p><p>Thank you all for coming to my talk this evening. It’s nice to see so many people in the audience. For those of you who don’t know very much about PS Camping let me start by giving some background information about the company.</p><p>The company started twenty-five years ago. It actually opened as a retail chain selling camping equipment, and then twenty years ago, it bought a small number of campsites in the UK, and began offering camping holidays. The company grew rapidly and has been providing holidays in continental Europe for the last fifteen years.</p><p>If you book a camping holiday with us, you’ll have a choice of over 300 sites. In Italy we now have some 64 sites that we either own, or have exclusive use of. France is where we have the majority of sites, and we currently have a project to expand into Switzerland. We also have a number of sites in northern Spain, particularly in the mountainous region of Picos de Europa. We’ve upgraded all these Spanish sites, and improved them considerably from their original three-star rating.</p><p>We believe holidays after superb facilities for the whole family. Parents who want their children to be fully occupied for all or part of the day can take advantage of our children’s activities. These are organized by our well-qualified and enthusiastic staff. Each day kicks off with a sports match, perhaps football, or volleyball, followed by an hour of drama for everyone. This may include singing or dancing, mime or other activities. In the afternoon, there’s a different art activity for each day of the week including a poster competition or modal making. What’s more, our sites are truly child-friendly, and, with this in mind, we operate a no-noise rule in the evenings. Children’s evening activities usually finished at 9:30, or occasionally 10, and from 10:30 holiday-makers are expected to be quiet in the areas where there are tents.</p><p>We want nothing to go wrong on a PS Camping holiday, but if it does, we also want all customers to be insured. If you haven’t organized an annual insurance policy of your own you’ll need to take out the low-cost cover we offer and we require that you arrange this when you make your holiday reservation.</p><p>There are many advantages to choosing PS Camping, and to recommending it to others. As a regular customer, you’ll be kept informed of special offers, and your friends can benefit from ten percent off their holidays, or book a luxury tent for the price of a standard one. In return, we’ll send you a thank-you present, which you can choose from a list of high-quality items.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "There are still tickets for .........",
+              "options": [
+                "The piano concert",
+                "The movie",
+                "Twelfth Night",
+                "Spider and Rose"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "The coach will leave at 3.30 because ..............",
+              "options": [
+                "It's the earliest",
+                "They don't want to miss the shows",
+                "They want free time at the Arts Centre",
+                "It's long journey to the Arts Centre"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "You have to pay to see ..................",
+              "options": [
+                "The Russian ballet exhibition",
+                "The shoes store",
+                "The Scottish jewellery",
+                "The South American photographs"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "You can buy clothes ..............",
+              "options": [
+                "On the first floor",
+                "On the second floor",
+                "In the souvenir shop",
+                "Close to the Arts Centre"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "If you want a snack and a hot drink, try .......................",
+              "options": [
+                "The nearby café",
+                "The fountain",
+                "Charlie's",
+                "The cinema kiosk"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "Rod’s shop sells bags and ...............",
+              "options": [
+                "Camping equipment",
+                "Hiking clothes",
+                "Walking holiday stuffs",
+                "No information"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "A 35- litre bag is good for .............................",
+              "options": [
+                "a day trip",
+                "four day trip",
+                "five day trip",
+                "six day trip"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "The bag that allows you to separate your belongings .......................",
+              "options": [
+                "One with a solid bottom",
+                "One has a leather base",
+                "One has two compartments inside",
+                "One has pockets bags outside"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "It's important that shoulder straps are .......................",
+              "options": [
+                "Light",
+                "Flexible",
+                "Fashionable",
+                "Strong"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "Another essential part of the bags includes .......................",
+              "options": [
+                "Straps",
+                "Air holes",
+                "Sweat absorption",
+                "Cooler tool"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "PS Camping has been organising holidays for .......................",
+              "options": [
+                "15 years",
+                "20 years",
+                "25 years",
+                "30 years"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "The company has most camping sites in ...............",
+              "options": [
+                "France",
+                "Italy",
+                "Europe",
+                "Switzerland"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "Which organized activity can children do every day of the week?",
+              "options": [
+                "Singing and dancing",
+                "Football",
+                "Drama",
+                "Model making"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "Some areas of the sites have a “no- noise” rule after .......",
+              "options": [
+                "9.30 pm",
+                "10.00 pm",
+                "10.30 pm",
+                "11.30 pm"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "Customers who recommend PS Camping to friends will receive ......",
+              "options": [
+                "a free gift",
+                "an upgrade to a luxury tent",
+                "a discount",
+                "an insurance"
+              ],
+              "answer": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

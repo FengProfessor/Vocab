@@ -1,0 +1,176 @@
+{
+  "id": "vstep-reading-onthi-67",
+  "title": "Luyện Đọc VSTEP: Reading Part 3 - Test 16 (Reading Part 3 - Test 16)",
+  "duration": 15,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 15,
+      "totalQuestions": 10,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Reading Part 3 - Test 16",
+            "text": "<p style=\"text-align:center; font-weight: bold; font-size: 18px;\">Renewable Energy and the Future</p>\n\n<p style=\"text-align:justify;\">The global transition from fossil fuels to renewable energy sources represents one of the most significant transformations in human history. As concerns about climate change intensify and fossil fuel reserves <strong>dwindle</strong>, nations worldwide are investing heavily in solar, wind, hydroelectric, and other clean energy technologies. This shift is not merely an environmental imperative but also an economic opportunity that could reshape international relations and domestic economies.</p>\n\n<p style=\"text-align:justify;\">Solar and wind power have experienced remarkable growth over the past decade. Technological advances have dramatically reduced costs, making these renewable sources increasingly competitive with traditional fossil fuels. In many regions, new solar and wind installations are now cheaper than coal or natural gas plants. Furthermore, unlike fossil fuels, renewable energy sources produce no greenhouse gas emissions during operation, making them essential tools in the fight against climate change. The <strong>scalability</strong> of these technologies means they can be deployed in diverse contexts, from massive wind farms to rooftop solar panels on individual homes.</p>\n\n<p style=\"text-align:justify;\">However, renewable energy faces significant challenges that must be addressed. The <strong>intermittent</strong> nature of solar and wind power—the fact that the sun doesn't always shine and the wind doesn't always blow—creates reliability issues. Energy storage solutions, particularly advanced battery technologies, are critical for managing these fluctuations. While battery technology has improved substantially, current systems remain expensive and have limited capacity. Additionally, transitioning away from fossil fuels requires massive infrastructure investments, including new transmission lines and grid management systems.</p>\n\n<p style=\"text-align:justify;\">The shift to renewable energy also presents complex social and economic questions. Many communities and workers depend on fossil fuel industries for their livelihoods. Coal mining regions, for instance, face potential economic devastation if the transition is not managed carefully. Governments must implement <strong>comprehensive</strong> programs to retrain workers, attract new industries, and support affected communities. Some countries have successfully demonstrated that this transition can create more jobs than it eliminates, particularly in manufacturing and installing renewable energy systems.</p>\n\n<p style=\"text-align:justify;\">International cooperation plays a vital role in accelerating renewable energy adoption. Technology transfer from developed to developing nations can help poorer countries skip the fossil fuel phase entirely, moving directly to clean energy. International agreements and funding mechanisms support this goal, though progress remains uneven. Some nations have made remarkable strides, while others lag behind due to political resistance, lack of resources, or continued dependence on fossil fuel exports.</p>\n\n<p style=\"text-align:justify;\">Looking ahead, emerging technologies promise to address current limitations. Next-generation solar cells, offshore wind farms, tidal energy, and advanced nuclear reactors all show potential. Green hydrogen, produced using renewable electricity, could provide long-term energy storage and replace fossil fuels in heavy industry and transportation. Scientists are also exploring ways to capture and store carbon dioxide, potentially allowing continued use of some fossil fuels while mitigating climate impact.</p>\n\n<p style=\"text-align:justify;\">The renewable energy revolution is inevitable, driven by both environmental necessity and economic logic. While challenges remain, the combination of technological innovation, policy support, and public awareness creates momentum that is difficult to reverse. The question is no longer whether the world will transition to renewable energy, but how quickly and equitably this transformation will occur. Success will require sustained commitment, international cooperation, and a willingness to embrace change at every level of society.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r67-q1",
+              "type": "mcq",
+              "question": "What is the main idea of the passage?",
+              "options": [
+                "Fossil fuels will never be replaced",
+                "The transition to renewable energy is necessary and complex",
+                "Solar power is the only solution to climate change",
+                "Renewable energy is too expensive to implement"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r67-q2",
+              "type": "mcq",
+              "question": "The word \"dwindle\" in paragraph 1 is closest in meaning to:",
+              "options": [
+                "increase rapidly",
+                "decrease gradually",
+                "remain stable",
+                "expand significantly"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r67-q3",
+              "type": "mcq",
+              "question": "Which of the following is NOT mentioned as a benefit of renewable energy?",
+              "options": [
+                "Lower greenhouse gas emissions",
+                "Improved public health outcomes",
+                "Decreasing costs",
+                "Deployment flexibility"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r67-q4",
+              "type": "mcq",
+              "question": "The word \"scalability\" in paragraph 2 refers to:",
+              "options": [
+                "the weight of the technology",
+                "the ability to be implemented at various sizes",
+                "the cost of installation",
+                "the efficiency of energy production"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r67-q5",
+              "type": "mcq",
+              "question": "According to paragraph 3, what is a major challenge for solar and wind power?",
+              "options": [
+                "They are too expensive",
+                "They produce too much energy",
+                "Their energy production is not constant",
+                "They require no infrastructure changes"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            },
+            {
+              "id": "otv-r67-q6",
+              "type": "mcq",
+              "question": "The word \"intermittent\" in paragraph 3 most likely means:",
+              "options": [
+                "continuous and steady",
+                "occurring at irregular intervals",
+                "extremely powerful",
+                "completely reliable"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 6
+            },
+            {
+              "id": "otv-r67-q7",
+              "type": "mcq",
+              "question": "What does paragraph 4 suggest about workers in fossil fuel industries?",
+              "options": [
+                "They should all lose their jobs immediately",
+                "They need support and retraining programs",
+                "They will automatically find new employment",
+                "They oppose all forms of renewable energy"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 7
+            },
+            {
+              "id": "otv-r67-q8",
+              "type": "mcq",
+              "question": "The word \"comprehensive\" in paragraph 4 is closest in meaning to:",
+              "options": [
+                "limited and narrow",
+                "thorough and complete",
+                "quick and temporary",
+                "expensive and wasteful"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 8
+            },
+            {
+              "id": "otv-r67-q9",
+              "type": "mcq",
+              "question": "According to the passage, what role does international cooperation play?",
+              "options": [
+                "It has no impact on renewable energy adoption",
+                "It helps developing countries access clean energy technology",
+                "It slows down the transition to renewable energy",
+                "It only benefits wealthy nations"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 9
+            },
+            {
+              "id": "otv-r67-q10",
+              "type": "mcq",
+              "question": "The author's overall tone in this passage is:",
+              "options": [
+                "pessimistic about the future",
+                "neutral and indifferent",
+                "cautiously optimistic",
+                "extremely critical"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

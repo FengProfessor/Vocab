@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
-import { Button, Card, Col, Empty, Row, Skeleton } from 'antd';
-import { SyncOutlined } from '@ant-design/icons';
+import { Button, Card, Col, Empty, Row, Skeleton } from '@/components/ui/Primitives';
+import { SyncOutlined } from '@/components/ui/Icons';
 import { PageHeaderCard } from '@/components/common/PageHeaderCard';
 import { SpeakingProbeCard } from '@/features/speaking-foundation/components/SpeakingProbeCard';
 import { useDiagnosticProbes } from '@/hooks/speaking/useDiagnosticProbes';

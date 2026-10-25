@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Button } from 'antd';
-import { SyncOutlined } from '@ant-design/icons';
+import { Button } from '@/components/ui/Primitives';
+import { SyncOutlined } from '@/components/ui/Icons';
 import { PageHeaderCard } from '@/components/common/PageHeaderCard';
 import { ClassroomTable } from '@/features/teacher/components/ClassroomTable';
 import { CreateClassroomModal } from '@/features/teacher/components/CreateClassroomModal';

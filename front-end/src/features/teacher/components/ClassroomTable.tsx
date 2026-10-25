@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button, Card, Empty, Skeleton, Space, Table, Tag, Tooltip, Typography } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
-import { BellOutlined, PlusOutlined } from '@ant-design/icons';
+import { Button, Card, Empty, Skeleton, Space, Table, Tag, Tooltip, Typography } from '@/components/ui/Primitives';
+import type { ColumnsType } from '@/components/ui/Primitives';
+import { BellOutlined, PlusOutlined } from '@/components/ui/Icons';
 import styles from '@/features/teacher/components/ClassroomTable.module.css';
 import { ClassroomTableProps } from '@/features/teacher/types/ClassroomTableProps';
 import { ServerClassroomDto } from '@/types/teacher/ServerClassroomDto';

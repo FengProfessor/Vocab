@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-08",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 08",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> There are eight questions in this part. For each question there are four options and a short recording. For each question, choose the correct answer A, B, C or D. You now have 45 seconds to look through the questions and the options in each question.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-08/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. What is John going to do tonight?</b></p><ul><li><b>Speaker 1:</b> Hello Mrs Brown. Is John there?</li><li><b>Speaker 2:</b> No. He’s out on his bicycle at the moment</li><li><b>Speaker 1:</b> Uh Can he go swimming tonight?</li><li><b>Speaker 2:</b> Sorry, Paul. He’s got a football match tonight</li></ul><p><b>2. Which bag does the woman buy?</b></p><ul><li><b>Speaker 1:</b> I want to buy a present for Diana?</li><li><b>Speaker 2:</b> What about a bag?</li><li><b>Speaker 1:</b> Yes. This one’s nice. It’s small and round</li><li><b>Speaker 2:</b> I think she prefers a square bag</li><li><b>Speaker 1:</b> No. this is better. I’ll get the round one.</li></ul><p><b>3. How much did the woman pay for the apples?</b></p><ul><li><b>Speaker 1:</b> Can I help you?</li><li><b>Speaker 2:</b> Yes. I’d like a pound of apples please.</li><li><b>Speaker 1:</b> Do you want the ones at 30 pence, 35 pence or 40 pence?</li><li><b>Speaker 2:</b> The one at 30 pence, please.</li></ul><p><b>4. When must the boys get on the coach?</b></p><ul><li>The football match starts at 2:30. But we should get there at half past one. The coach will pick you up at ten to one. As it takes about 40 minutes to drive there. So we’ll meet in a school car park. Don’t be late boys, will you?</li></ul><p><b>5. What fruit do they take?</b></p><ul><li><b>Speaker 1:</b> Mom, Have we got any fruit to take on the picnic. There were some oranges and bananas.</li><li><b>Speaker 2:</b> Here are the bananas. Let’s take those. Oh. The oranges were gone. What about taking some grapes or apples as well?</li><li><b>Speaker 1:</b> Ok. Let’s take the grapes. That would be enough.</li></ul><p><b>6. Which present has the man bought?</b></p><ul><li><b>Speaker 1:</b> Is the book in the bag for Mom then? I didn’t think she’s particularly interested in flowers.</li><li><b>Speaker 2:</b> I thought she liked it, to give her some good ideas for the garden. Although she never reads it. It’s got some lovely photos.</li><li><b>Speaker 1:</b> I thought you were going to get those gloves I show you in that shop last Saturday. They match the scarf I bought her</li></ul><p><b>7. Where are the photographs?</b></p><ul><li><b>Speaker 1:</b> Have you seen my new passport photographs? I put them on the bookshelf. Oh here they are with your coffee cups. I hope they aren’t dirty.</li><li><b>Speaker 2:</b> Oh sorry. I was showing them to Pat. He said they make you look like that newsreader on the television</li></ul><p><b>8. What did Ben break?</b></p><ul><li><b>Speaker 1:</b> Ben. What’s this broken cup doing here?</li><li><b>Speaker 2:</b> Sorry mom. I had an accident when I was washing up. You know those big dinner plates.</li><li><b>Speaker 1:</b> You have broken them as well.</li><li><b>Speaker 2:</b> Oh just a couple. They slipped out of my hands into the sink and the cup got broken as well</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What is John going to do tonight?",
+              "options": [
+                "swimming",
+                "cycling",
+                "playing football",
+                "running"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "Which bag does the woman buy?",
+              "options": [
+                "square bag",
+                "small and round bag",
+                "a big bag",
+                "an oval bag"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "How much did the woman pay for the apples?",
+              "options": [
+                "30 pence",
+                "35 pence",
+                "40 pence",
+                "34 pence"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "When must the boys get on the coach?",
+              "options": [
+                "12:50",
+                "01:30",
+                "02:30",
+                "03:20"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What fruit do they take?",
+              "options": [
+                "oranges",
+                "bananas",
+                "grapes",
+                "apples"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "Which present has the man bought?",
+              "options": [
+                "book",
+                "bag",
+                "gloves",
+                "flowers"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "Where are the photographs?",
+              "options": [
+                "on the bookshelf",
+                "on the TV",
+                "on the table with the coffee cups",
+                "in the café shop"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What did Ben break?",
+              "options": [
+                "vase",
+                "glass",
+                "cup",
+                "dinner bowls"
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> You will hear three different conversations. In each conversation there are four questions. For each question, choose the correct answer A, B, C or D. You will hear the conversations only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-08/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1:</b></p><ul><li><b>Scott:</b> Dave. I’m going to the supermarket to pick up food and drink for Saturday’s picnic later. Any suggestions?</li><li><b>Dave:</b> Well, everyone has been talking about having a barbecue down by the river, so why don’t you pick up some hamburger and hot dogs?</li><li><b>Scott:</b> Okay, but how much hamburger meat are we going to need? And hot dogs too?</li><li><b>Dave:</b> Uh, I don’t know. How about three <b>pounds</b> of hamburger and a couple packages of hot dogs?</li><li><b>Scott:</b> Oh, that’s not going to be enough. Do you remember the last picnic we went on? Your roommate, Jim, ate about ten hamburgers by himself!</li><li><b>Dave:</b> You’re right. Let’s see. I’d better write this down. Uh, let’s see about nine pounds of hamburger meat and, uh . . . , seven <b>packages</b> of hot dogs.</li><li><b>Scott:</b> And you better pick up some chicken for those who don’t like hamburger or hot dogs.</li><li><b>Dave:</b> Okay. How about five or six bags of potato chips?</li><li><b>Scott:</b> Humm. Better make that eight or so.</li><li><b>Dave:</b> Alright. Oh, and we’re gonna [going to] need some hamburger and hot dog buns. How about five packages a piece? I think that sounds about right.</li><li><b>Scott:</b> Yeah, <b>you better</b> pick up some mustard, ketchup, and mayonnaise too.</li><li><b>Dave:</b> Okay. What else? Uh, we’re gonna [going to] need some soft drinks. How about ten of those big 2-liter bottles?</li><li><b>Scott:</b> Sounds fine, but be sure to buy a variety of drinks.</li><li><b>Dave:</b> Okay. And what about dessert?</li><li><b>Scott:</b> Well, maybe we could ask Kathy to make a few cherry pies like she did last time.</li><li><b>Dave:</b> Well, I wouldn’t mind that, but you know, she’s been very busy working two jobs, so I’d hate to ask her. [Oh, hum . . .] and uh . . . Hey, why don’t you whip up some of your oatmeal cookies? [Well . . .] Hey, you could even ask, uh . . . , what’s her name . . . yeah that new girl, Susan, the one that moved in across the street! [Well . . .] I bet she’d be willing to help you! [I don’t know . . .] She’s a real knockout!</li><li><b>Scott:</b> Nah, I don’t think I could ask her . . . [Ahh!] I don’t know her phone number, plus . . . [Door bell rings . . .]</li><li><b>Dave:</b> Hey, you don’t need to. She’s at the door!</li><li><b>Scott:</b> What do you mean?</li><li><b>Dave:</b> Well, I thought you two would hit it off, so I called her up saying I was you, and I invited her over to watch a movie.</li><li><b>Scott:</b> You did what???</li><li><b>Dave:</b> Wait, wait, wait . . . [uhhhhh . . .]</li></ul><p><b>Conversation 2:</b></p><ul><li><b>Son:</b> Dad. Can I go outside to play?</li><li><b>Dad:</b> Well, did you get your Saturday’s work done?</li><li><b>Son:</b> Ah, Dad. Do I have to?</li><li><b>Dad:</b> Well, you know the rules. No playing until the work is done.</li><li><b>Son:</b> So, what is my work?</li><li><b>Dad:</b> Well, first you have to clean the bathroom including the toilet. And don’t forget to scrub the bathtub.</li><li><b>Son:</b> No, I want to do the family room.</li><li><b>Dad:</b> Well, okay, but you have to vacuum the family room and the hall, and be sure to dust everything. Oh, and don’t forget to wipe the walls and clean the baseboards. [Okay.] And after that. [Oh, no.] Next, sweep and mop the kitchen floor and be sure to polish the table in the living room.</li><li><b>Son:</b> Okay. Okay.</li><li><b>Dad:</b> And make your bed and pick up all your toys and put them away. And . . .</li><li><b>Son:</b> More?</li><li><b>Dad:</b> Yeah. And then, how about going out for lunch and getting a big milk shake, but you probably don’t want to do that.</li><li><b>Son:</b> No, No. I want to.</li><li><b>Dad:</b> Okay. While you’re doing your work, I’ll be out in the yard raking leaves and pulling weeds.</li></ul><p><b>Conversation 3:</b></p><p>Okay, everyone. I want to review the first two days of our travel itinerary for the trip. Okay, yeah, please take out the paper that I handed out earlier. Okay. Uh. First of all, we have been very fortunate to have been able to purchase discount tickets to cover most of the transportation costs and scheduling (scheduled) activities. And I want to also thank the, uh, group of parents who, uh, worked very hard in order to, uh, raise funding, uh, through different businesses in the community. I really appreciate that.</p><p>Uh, let’s see. Okay, everyone should meet at the airport at 6:00 a.m. This will give you time to check in and get through security. Our plane departs at 9:00.</p><p>Uh, our plane arrives in New York at 3:00 p.m., and we will take a bus from the airport to the hotel. We’ve been able to get great rates on this hotel because we’re staying on a weekday instead of the weekend.</p><p>In the morning, for any of you who like to get exercise, we will be meeting in the lobby around 6:00 a.m. to go jogging around Central Park for about 45 minutes, and we’ll get back to the hotel about the time when the restaurant opens, so you’ll enough time to grab a quick breakfast before we leave the hotel at 8:00. We’ll be taking a ferry ride to Ellis Island and then to Liberty Island to visit the Statue of Liberty. I mean, this is something that you really can’t miss, and later, we will go to Times Square where you can have lunch on your own for about an hour from about 1 to 2.</p><p>Later in the afternoon, you have the choice of visiting the Empire State Building or the Metropolitan Museum of Art. Either one of these is . . . are great, and we have some great, uh, group discounts. Uh, we will meet back at the hotel at 6:00 p.m., and we’ll have dinner at a very nice Italian restaurant downtown, and then we’ll catch an exciting broadway musical around 8:30 p.m.</p><p>Uh, any questions?</p>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "When is the picnic?",
+              "options": [
+                "on Thursday",
+                "on Friday",
+                "on Saturday",
+                "on Sunday"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "Where is the picnic being held?",
+              "options": [
+                "at a park",
+                "at the beach",
+                "at Dave's house",
+                "by a river"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "How many packages of hot dogs do they decide to buy?",
+              "options": [
+                "6",
+                "7",
+                "8",
+                "9"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What does Dave suggest Scott make for the picnic dessert?",
+              "options": [
+                "cherry pie",
+                "chocolate cake",
+                "oatmeal cookies",
+                "fudge brownies"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "What does the boy want to do at the beginning of the conversation?",
+              "options": [
+                "go play outside",
+                "play video games",
+                "watch TV",
+                "play football"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What does the boy have to do in his bedroom?",
+              "options": [
+                "put away his books",
+                "make his bed",
+                "pick up his dirty clothes",
+                "clean the floor"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What is the father going to do while the boy is doing his household chores?",
+              "options": [
+                "wash the car",
+                "paint the house",
+                "work in the yard",
+                "clean the floor"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "Where will the father and son go after the housework is done?",
+              "options": [
+                "to a movie",
+                "out to eat",
+                "to a ball game",
+                "to a shopping center"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What time does the plane depart?",
+              "options": [
+                "6:00 AM",
+                "7:30 AM",
+                "8:00 AM",
+                "9:00 AM"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "How will the group get to the hotel from the airport?",
+              "options": [
+                "They will take taxis",
+                "They will ride the subway",
+                "They will be going by bus",
+                "They can choose either bus or subway"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "What is the group planning to do around Times Square for about an hour?",
+              "options": [
+                "They're going to have lunch",
+                "They will have time to do some shopping",
+                "They will see a festival",
+                "They will be having a tour of the area"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What are they going to do after dinner?",
+              "options": [
+                "The group is going to watch a musical",
+                "They will catch an exciting movie",
+                "They will be attending a Broadway play",
+                "They will see a football match"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-08/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk 1</b></p><p>Well, there’s nothing quite like finding your first old ship – it was 300 years old. Well, there’s nothing quite like finding your first Ok just lying at the bottom of the sea, so it wasn’t difficult to find. Most are covered in sand and rocks – but this one wasn’t.</p><p>I’m actually a teacher, not a full time diver – I dive in my free time but I often get to them before the professional divers, because I have good up-to-date equipment. Another thing that helps is talking to fish-men who tell me about their local area. I’ve even written a book about some of their experiences.</p><p>At the moment, I’m looking for the gold from a ship called The Sea Bird. It was an enormous well-built ship and it was coming from Australia on a winter night in 1859. Everything was going fine until the ship reached the English coast, when it crashed into some rocks in a very strong wind and sank to the bottom of the sea. It was carrying gold from Australia, and most of it is still at the bottom of the sea.</p><p>My wedding ring is actually made from gold which I found on an eighteenth – century sailing ship. A friend of mine, another diver, has already found 88,000 pounds worth of gold from different ship. He’s now decided to give up his job and become a full – time diver.</p><p>My house is full of things like coins, bottles and old guns. My wife is always complaining about the number of objects around the house – she says I should open an antiques shop – but I love all these old things. Anyway, in the end, I gave some things from my collection to museums, because I didn’t want to sell them. But my wife still wasn’t very pleased, I’m afraid.</p><p>As diving is a dangerous hobby, It’s not a good idea to try to teach yourself. I’d advise anyone interested to do what I did. There are some excellent diving clubs like the one I joined, which run courses for beginners. It is best to do one of these before you go on a diving holiday...</p><p><b>Talk 2</b></p><p>Are you interested in history? Well, I’d like to tell you about some of the historical places open to visitors in this part of the country.</p><p>Let’s start with the oldest first, Black Rock Caves have been here for over two million years. And, for half a million year, they were home to people and various animals, particularly tigers. You can explore these ancient homes and imagine what life was like for the people who lived there. The caves are open daily from April to October. A special attraction on evenings in August is a walk by candle light. Don’t take this tour if you are afraid of the dark.</p><p>Next I recommend a visit to Salter house. This was built by Sir Joshua Salter and dates back to seventeen sixty – five. The Salter family are still living these today. The house became famous in nineteen eighty two when the television series Aunt Dorothy was filmed there. The furniture and paintings are well worth seeing, but the attraction nobody wants to miss is the kitchen. This is where Aunt Dorothy cooked her enormous meals and gave advice to anyone who passed through this part of the house.</p><p>And don’t forget to visit the Old Port. You will need several hours to see everything there, especially if you take a trip along the riverside in an old tram as far as the fishing village. The guides there all wear traditional costume and you too get the chance to try on clothes from hundred years ago. You can buy gifts in the old village stores and eat delicious snacks in the Tea Shop. If you visit the village factory, you can see how sweets were made a hundred years ago, and taste them, too.</p><p>So, you see there’s plenty of...</p><p><b>Talk 3</b></p><p>This lecture is going to introduce you to traditional Chinese philosophy. First, you will learn about, uh, the yin and yang philosophy. Secondly, we will look at the five elements of this philosophy. It is important that you remember these five elements as we will be discussing them throughout the lecture. The five elements of yin and yang are: water, wood, fire, earth, and umm, metal. Ok, so those are the five elements. Umm, let’s begin with the definition of yin and yang. Yin and yang should be considered as opposite forces like, uhh, like land and ocean, for example. These are opposite. Now, these opposites do not compete with each other. They are complementary. When you think of yin and yang, think complementary opposites.</p><p>So, moving from complementary opposites, let’s return to the five elements we mentioned earlier. If you recall, we said they were water, wood, fire, earth and metal. The Chinese divided yin and yang into five elements to gain an understanding of how the body, mind and spirit work. According to the Chinese, every person’s physical and mental health relies on a balance of the five elements.</p><p>Individuals may have more of one element than another. Of course, ideally, all elements are in balance or harmony. What does this mean? Uh, it means that a person’s body contains equal amounts of each element.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "The first old ship which Frank found was ..........",
+              "options": [
+                "covered by rocks",
+                "older than he first thought",
+                "easy to find",
+                "had a lot of gold"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "Why did Frank find the ships so quickly?",
+              "options": [
+                "reads history books",
+                "is a professional driver",
+                "his friends helped him",
+                "uses the latest equipment"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What does Frank say about the ship called The Sea Bird?",
+              "options": [
+                "It was so expensive",
+                "It was built in 1859",
+                "It sank in a storm",
+                "It was badly made"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What did Frank say about his wedding ring?",
+              "options": [
+                "was made from gold he found himself",
+                "it was given by someone",
+                "is worth 88,000 pounds",
+                "was found by a friend"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "How did Frank learn to dive?",
+              "options": [
+                "by joining a diving club",
+                "by asking the dive tutor",
+                "by teaching himself",
+                "by going on a diving holiday"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "The Black Rock Caves have been home for....",
+              "options": [
+                "Two million years",
+                "A million year",
+                "A half a million year",
+                "centuries"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "When can the cave attract the tourists?",
+              "options": [
+                "from April to October",
+                "April",
+                "October",
+                "August"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "Salter house was built in ............",
+              "options": [
+                "1765s",
+                "1756s",
+                "1928s",
+                "1982s"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "The things that are worth to visit in Salter house is ............",
+              "options": [
+                "the furniture",
+                "the paintings",
+                "the enormous meals",
+                "the kitchen"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What should tourists do as visiting The Old Port?",
+              "options": [
+                "take an old trek to visit the riverside",
+                "buy different traditional costumes",
+                "try sweets made in the Tea Shop",
+                "visit the village factory"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What does the professor say about the elements in the body?",
+              "options": [
+                "Ideally, these should be different amounts of each",
+                "The amount of each in the body is not very important",
+                "They can be out of balance",
+                "Different people have different elements"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "According to the professor, what are yin and yang?",
+              "options": [
+                "They are opposite forces",
+                "They are what make a person healthy",
+                "They are four different elements",
+                "They are the land and the ocean"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What does the professor say about yin and yang?",
+              "options": [
+                "They represent opposing forces that complement each other.",
+                "They are constantly changing to maintain harmony.",
+                "They must remain equal in order to maintain good health.",
+                "They are divided into five elements that compete with one another."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "According to the Chinese, five elements of Yin and Yang are studied for the work of",
+              "options": [
+                "the body and spirit",
+                "body, mind and spirit work",
+                "balance and harmony",
+                "medicine and health"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "Why does the professor says “Yin and Yang should be considered as opposite forces like, uhh, like land and ocean, for example”?",
+              "options": [
+                "To correct something she said earlier",
+                "To explain a term she just introduced",
+                "To explain what is wrong with a particular theory",
+                "To remind the students of something discussed earlier"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

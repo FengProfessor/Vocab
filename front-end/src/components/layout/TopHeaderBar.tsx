@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Layout, Select, Space, Tag, Tooltip, Typography } from 'antd';
-import { FireFilled, ThunderboltFilled } from '@ant-design/icons';
+import { Layout, Select, Space, Tag, Tooltip, Typography } from '@/components/ui/Primitives';
+import { FireFilled, ThunderboltFilled } from '@/components/ui/Icons';
 import { CertLevelTag } from '@/components/common/CertLevelTag';
 import { ProfileDropdown } from '@/components/layout/ProfileDropdown';
 import styles from '@/components/layout/TopHeaderBar.module.css';

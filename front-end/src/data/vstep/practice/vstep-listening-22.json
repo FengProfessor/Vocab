@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-22",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 22",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-22/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Question 1.</b></p><ul><li>There’s a lorry on fire in Smith street in Bridgend town centre. A lot of people have stopped to watch and delays are building up. You’re advised to take Lodge lane instead. On the westbound carriageway of the M4, an overturned car is blocking two lanes of traffic before junction 32, that’s the turning for Bridgend. Police advise drivers to turn off at junction 31 for an alternative route to avoid delays…</li></ul><p><b>Question 2.</b></p><ul><li>Hi David. It’s Susan here. It’s about meeting later on. I know we said eight o’clock at the Crown, but it looks like I’m stuck in the office for a while we’ve got a bit of a problem so if I don’t ring again do you think you could come and get me at about nine?</li></ul><p><b>Question 3.</b></p><ul><li>This is a customer announcement. We have a range of special offers in several departments. In our fashion department on the first floor we have a sale in men’s’ designer shirts. On the second floor in household goods, there are special offers in kitchenware and small appliances. And in our food hall on the ground floor some outstanding discounts on cuts of beef…</li></ul><p><b>Question 4.</b></p><ul><li>Residents of Newbury upon Thames whose homes were bought by the government to make way for a planned by pass are to be offered their houses back again. Eleven families were moved out in 1991, but now the scheme has been put on hold following government spending cuts. Under a new law the former residents are allowed to buy back their former houses at the price they were given on leaving.</li></ul><p><b>Question 5.</b></p><ul><li>Hello, this is the claims manager from Royal Solihull Insurance. I’m ringing concerning your claim. I was hoping to arrange for one of our representatives to call and discuss your recent burglary with you. Um… We can’t arrange a payment until we’ve had this discussion. Would you like to call one of our secretaries on 01214285976 and we can fix up a time? Please don’t forget to quote the burglary reference number…</li></ul><p><b>Question 6.</b></p><ul><li>Police are asking old age pensioners to be on the look out for a thief who is posing as a gas board official. The thief, who is a well-dressed young man, calls at pensioners’ homes and tells them he is checking for gas leaks. While in the house, he steals any money he can find. Police have issued a special message for pensioners today advising them that gas board officials always wear a uniform and carry an official identity card.</li></ul><p><b>Question 7.</b></p><ul><li>Thank you for calling the Putney museum. I’m afraid all our telephonists are busy at the moment. If you want to wait you should press 3 after the short tone and your call will be stacked. If you have an enquiry about opening times, you can hear a recorded message by pressing 2 after the short tone. If you want to speak to a member of staff and you know their extension, you can dial their number after the short tone. If you want to leave a message, please speak after the long tone.</li></ul><p><b>Question 8.</b></p><ul><li>If you want to buy a house in the London area and you’re on a limited budget, where’s the best place to look? Of course a central location is what many of us want, but houses in the centre are no bargain. If you want to move out to the leafy suburbs you’ll also have to have a lot of money in the bank. To my mind, the best place to start is in the established or shall we say former suburbs. That’s where you’ll find the real bargains.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What should drivers to Bridgend do?",
+              "options": [
+                "drive down Lodge Lane",
+                "turn off at junction 32",
+                "drive down Smith Street",
+                "cancel the drive"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What is David supposed to do?",
+              "options": [
+                "pick Susan up at the office",
+                "meet Susan at 9 o'clock",
+                "ring Susan at the office",
+                "meet Susan at 8 o'clock"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "Which is NOT on special offers?",
+              "options": [
+                "men's designer shirts",
+                "fruits",
+                "kitchenware",
+                "beef"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "Why was the construction of the bypass cancelled?",
+              "options": [
+                "the residents did not want to move their homes",
+                "there was another plan to build houses there",
+                "the government reduced spending",
+                "the bypass was of no use at all"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "Who is the caller?",
+              "options": [
+                "the claims director of an insurance firm",
+                "a representative of an insurance firm",
+                "a secretary of an insurance firm",
+                "a burglar"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "Who are the police searching for?",
+              "options": [
+                "a gas board official",
+                "a well-dressed man",
+                "an old age pensioner",
+                "a witness"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What should you do if you want to speak to a member of staff?",
+              "options": [
+                "press 3",
+                "press 2",
+                "speak after the tone",
+                "dial his extension"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "Where are the cheapest houses to be found?",
+              "options": [
+                "in the new suburbs",
+                "in the old suburbs",
+                "in the City centre",
+                "out of town"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-22/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>W:</b> Jack Salter is a young Canadian who has just won the young photographer of the year competition. Jack, is that right you started out taking photos of street signs?</li><li><b>M:</b> That’s right. I’ve been serious about photography for about a year, maybe a year and a half but I’ve been taking photos ever since I was little. I probably first picked up a camera when I was about seven and went around taking photos of street signs of all shapes and sizes. My mother tells me it was all down to my being attracted to the bright colours. I guess she’s right.</li><li><b>W:</b> Can you tell me a little about the winning photograph?</li><li><b>M:</b> It was the first day of dry weather for a while and I decided to go out and play around with some new kit for my camera. I started off in my own yard. There wasn’t much to photograph though until this butterfly happened to land on a large flower, and fortunately I was able to get what turned out to be the prizewinning photo.</li><li><b>W:</b> Were you happy with the photograph?</li><li><b>M:</b> I was lucky actually, because on the camera screen the butterfly didn’t look terribly amazing. I could see that it was in a great position and the background scene was nice and clear but you couldn’t see the pattern on its wings because of the size of the screen. It was only when I saw the picture on the computer that I realized how good it was.</li><li><b>W:</b> What do you think of the other photos from the competition?</li><li><b>M:</b> I’ve seen the work on display with mine and the standard is hard to believe. There are photos of animals and plants from all over the world and you can see the work of photographers from places as far apart as Russia and Australia.</li><li><b>W:</b> Has anything changed for you since winning the competition?</li><li><b>M:</b> That’s a hard question. Before winning I’d been concentrating mainly on taking photos of people, although after coming to London for the exhibition and talking to all the other photographers I intend to get more into doing shots of landscapes in different countries.</li><li><b>W:</b> Do you have any advice for young people starting out in photography?</li><li><b>M:</b> Don’t make excuses. My entry was taken with an excellent camera but that’s not everything. My method is just to get out there, and do it and you don’t have to go far to get the shot, you’ll find something. You’ll start to love it.</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>M:</b> My guest today is Amy Rowntree, who’s a fashion designer. Amy, when did you decide you wanted a career in fashion?</li><li><b>W:</b> Well, I started experimenting with the clothes I wore myself while I was still at school. It wasn’t until I left school and worked as an assistant in a big store though that I knew I wanted a career in fashion. It was after that I got involved in running fashion shows.</li><li><b>M:</b> So, what skills does a fashion designer need?</li><li><b>W:</b> Well, you need to know how to turn your first idea into clothes that are ready for someone to wear. It’s useful to know about materials like wool and cotton. The essential thing though is a knowledge of the techniques used in creating clothes. You also have to be patient, especially at the start of your career.</li><li><b>M:</b> What do you find most enjoyable about working in fashion?</li><li><b>W:</b> It’s pleasing to see an idea come to life when you see the clothes in a show. It’s also great to go from being completely unknown, to fashion stores knowing exactly who you are when you ring up that’s the best thing about it for me it’s hard work selling my designs but it’s good to earn money doing something you love.</li><li><b>M:</b> And what about the current fashion scene?</li><li><b>W:</b> I feel that the main aim now is to make clothes easy for people to wear. I understand that’s important and actually sports clothes are what make the most money for the fashion industry. But I think you need to design really beautiful clothes too. I’d like to see more of fashion as a kind of art.</li><li><b>M:</b> Do you find it easy to think of new designs?</li><li><b>W:</b> Oh, yes. I get ideas all the time, and I draw them so that I don’t forget them. And I take photos too. I often get my ideas from things I see when I’m out in streets and parks. I don’t get many ideas from clothes in museums although I know other designers do.</li><li><b>M:</b> And are you working on any new projects at the moment?</li><li><b>W:</b> Well, my big ambition is to put on a fashion show in New York, but no luck yet! I’ve been asked to design the clothes for a film though, so I’m working on that. It’ll be out next summer. And I’m talking with a big store in London about the possibility of doing a special range of suits for men.</li><li><b>M:</b> Really</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>M:</b> Right, Sandra. You wanted to see me to get some feedback on your group’s proposal. The one you’re submitting for the Geography Society field trip competition. I’ve had a look through your proposal and I think it’s a really good choice. In fact, I only have a few things to say about it but even in an outline document like this you really have to be careful to avoid typos and problems with layout in the proposal and even in the contents page. So read it through carefully before submitting it, okay?</li><li><b>W:</b> Will do.</li><li><b>M:</b> And I’ve made a few notes on the proposal about things which could have been better sequenced.</li><li><b>W:</b> Okay.</li><li><b>M:</b> As for the writing itself, I’ve annotated the proposal and where I thought it could be improved. Generally speaking, I feel you’ve often used complex structures and long sentences for the sake of it and as a consequence although your paragraphing and inclusion of subheadings help … it’s quite hard to follow your train of thought at times. So cut them down a bit, can you?</li><li><b>W:</b> Really?</li><li><b>M:</b> Yes. And don’t forget simple formatting like numbering.</li><li><b>W:</b> Didn’t I use page numbers?</li><li><b>M:</b> I didn’t mean that. Look, you’ve remembered to include headers and footers, which is good, but listing ideas clearly is important. Number them or use bullet points, which is even clearer. Then you’ll focus the reader on your main points. I thought your suggestion to go to the Navajo Tribal Park was a very good idea.</li><li><b>W:</b> I’ve always wanted to go there. My father was a great fan of cowboy films and the Wild West so I was subjected to seeing all the epics, many of which were shot there. As a consequence, it feels very familiar to me and it’s awesome both geographically and visually, so it’s somewhere I’ve always wanted to visit. The subsequent research I did and the online photographs made me even keener.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Why did Jack go into his yard to take his winning photo?",
+              "options": [
+                "He wanted to be out in the sunshine.",
+                "He was looking for shots of flowers.",
+                "He was trying out some new equipment.",
+                "He wanted to take photos of his own yard."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "How did Jack feel when he first looked at his winning photo?",
+              "options": [
+                "proud of how good it was.",
+                "worried about the background.",
+                "the photo was terrible.",
+                "unsure how clear the detail was."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "Why was Jack surprised by the other photos from the competition?",
+              "options": [
+                "because the quality was so high.",
+                "because the styles were so similar.",
+                "because the subjects were so unusual.",
+                "because they are sent from faraway places."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What does Jack want to do after winning the competition?",
+              "options": [
+                "get ideas from other photographers.",
+                "come to London for another exhibition.",
+                "take more photos of people.",
+                "take more photos of landscapes."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "According to Amy, what is the most important skill for a designer?",
+              "options": [
+                "remaining patient in difficult situations.",
+                "knowing about different materials.",
+                "knowing how to make clothes.",
+                "turning your idea into product."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What does Amy particularly like about her work?",
+              "options": [
+                "being able to sell her designs",
+                "seeing her clothes on display",
+                "having her name recognized.",
+                "earning a good salary."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What helps Amy find new ideas for designs?",
+              "options": [
+                "Talking with other designers.",
+                "going to visit museums.",
+                "looking at photos of clothes.",
+                "seeing things around her."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "What project is Amy working on at the moment?",
+              "options": [
+                "a collection of clothes for a film",
+                "a fashion show in New York",
+                "a new range for a London store",
+                "special clothes for her own store."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "According to the tutor, what should Sandra do with her proposal?",
+              "options": [
+                "make an outline of it.",
+                "include a contents page.",
+                "include more information.",
+                "Avoid formatting problem."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What should Sandra do to make it easier to follow her proposal?",
+              "options": [
+                "insert subheadings.",
+                "use more paragraphs.",
+                "shorten her sentences.",
+                "Use some complex sentences."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "What was the problem with the formatting on Sandra's proposal?",
+              "options": [
+                "Separate points were not clearly identified.",
+                "There were no headers.",
+                "The headings were not always clear.",
+                "Page numbers were not inserted."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What made Sandra want to visit the Navajo National Park?",
+              "options": [
+                "the articles she read.",
+                "the movies she saw as a child.",
+                "the photographs she found on the internet.",
+                "the stories her father told."
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-07/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk/Lecture 1</b></p><p>Hello everyone, My name’s Sandy Duffy and I’m here to tell you about my career as a video game writer.</p><p>I work with game developers and designers to think of good stories, and I write all the dialogue in the game.</p><p>When I was in secondary school, I never imagined that I would do this job. I played guitar that’s what I planned to do as my job. But I had an accident when I was playing basketball and hurt my hand, so I had to think of another career. My mother wanted me to be a journalist, but I didn’t think it was for me.</p><p>I didn’t know what to study at university. I was good at lots of science subjects, including physics and math, but I also loved entertaining people and I was good at Art. In the end, I went to film school where I studied lighting, special effects, how to use camera...all that! It was there that I started to think about working in the video game industry.</p><p>Now, a question that every always asks me is “How did you get your first job?” Well, I had a friend whose job was organizing conferences, at one of the conferences, she met a man who owned a company that made video games. I wrote to him and sent my CV. He obviously liked what he read because he gave me an interview and offered me a job as a junior.</p><p>People also ask me what I like best about being a video game writer. Well, the money is good and it’s quite exciting, just last night, for example, I was at a big dinner where they were giving prizes for new games. But what I love is the fact that I get on well with everyone in the business. That’s what makes my job so much fun.</p><p>Obviously, no job is perfect though, and there are things I don’t like. I’ve just started a new job and I have to spend a lot of time on the road or at the airport, which I find very hard. I’d really like to be able to spend more time at home.</p><p><b>Talk/Lecture 2</b></p><p>Do you want to take part in a trip of a lifetime? Then join Go4Health India. This amazing five – day trek will take you through one of the world’s most beautiful mountain ranges, the Indian Himalayas.</p><p>You will also be helping raise vital funds for our charity which aims to promote health care all over the world.</p><p>The trip starts in the city of Delhi where you will have the chance to see one of the charity’s health care projects in action. The following day we set off on our incredible journey into the mountains.</p><p>During the trek you will pass colourful towns and villages and enjoy the most magnificent mountain views. You will experience all this before you even reach the peak of our trek to see the stunning DhaulaDahr mountain range. Once at the top you can climb even higher if you want to and experience walking on a glacier to each Lakes cave. You will soon know what it feels like to be on top of the world. And on the way down you will be able to admire the wonderful views across the valley.</p><p>To join Go4Health India all you need to do is pay an entry fee of 250 pounds. You also need to promise to raise a minimum of 2500 pounds before the start of the trip. Fundraising is part of the challenge, but don’t worry our fundraising team is on hand to help you. Once you have signed up you will receive an information pack. This includes details of the trek as well as the work of the charity. It also contains useful tips and advice on fundraising. And you will also get a charity cap to wear with pride. You will also receive a full training guide which will help you reach a reasonable level of fitness. Our top training tips will definitely improve your physical ability so that you can get the most out of the trek!</p><p>The cost of the trip includes your flights, accommodation, food, tour guides and medical support. However, please note that airport and tax is not included. You will have to meet this additional cost yourself.</p><p>Dates for this year’s Go4Health India are 3rd to 13th November. Visit our website www.Go4Health.uk and sign up today!</p><p><b>Talk/Lecture 3</b></p><p>Last year in India, people bought around 1.5 million new cars. This will probably go up to three million a year in the next few years. That’s how the India economy is changing. Many Indians in the big cities are richer than ever and they want to spend money on new products. However, most of the money is still in the big cities. There is still a lot of poverty in the villages and countryside.</p><p>Now the government hopes a new road in India can help to change India’s economy. The golden Quadrilateral road or GQ connects the country’s four biggest cities. Delhi, Mumbai, Chennai and Kolkata. Hopefully, the road will carry business from the giant cities to the smaller and poorer villages and the other half of the India’s population.</p><p>The GQ is nearly 6,000 kilometre long and the most hi – tech high way in the world. At the administration headquarters in Delhi, you can watch thousands of vehicles moving around the country on a computer screen. If there is a problem anywhere with the road, electronic sensors tell the headquarters and engineers instantly drive there.</p><p>When you drive on the high way, there is every kind of transport. There are animals pulling cars, motorcycles, lines of old trucks and fast moving modern cars. Sometimes the road goes right through middle of a city. So there are often traffic jams and pedestrians trying to cross the six lanes. Industry is also growing along the new highway.</p><p>When a large company opens a factory, lots of other smaller factories and offices also open. Trucks then drive and deliver all over India along the new high way. For India, all this is a symbol of the country’s future.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What did Sandy Duffy want to be when she was at school?",
+              "options": [
+                "a journalist",
+                "a musician",
+                "A director",
+                "A basketball player"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "What did Sandy study at university?",
+              "options": [
+                "Math and Physics",
+                "film making",
+                "Technology",
+                "Art"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "How did Sandy get her first job as a video game writer?",
+              "options": [
+                "She answered a job advertisement",
+                "She met someone at a conference",
+                "She sent some information about herself to a company",
+                "She was invited by a friend"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What does Sandy like best about being a video game writer?",
+              "options": [
+                "the prizes she has won",
+                "the high salary",
+                "the people she works with",
+                "the great working condition"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What does Sandy dislike about being a video game writer?",
+              "options": [
+                "She has to travel a lot",
+                "She has to work long hours",
+                "She often has to change her job",
+                "She has to live far from home"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "How long does the trek last?",
+              "options": [
+                "a day",
+                "three days",
+                "five days",
+                "a week"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "The trek aims to raise money for .............",
+              "options": [
+                "health care",
+                "school education",
+                "hospital",
+                "the old people"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "The cost of the trek includes .............",
+              "options": [
+                "flight and airport taxes",
+                "medical provision and taxes",
+                "Foods",
+                "Food and accommodation"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "Participants must .............",
+              "options": [
+                "walk across a glacier",
+                "complete a fitness course",
+                "agree to raise funds for the charity",
+                "pay amount of money"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "The trip starts on .............",
+              "options": [
+                "1st of November",
+                "3rd of November",
+                "13th of November",
+                "23th of November"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "Where do many of the rich people live?",
+              "options": [
+                "next to the new road",
+                "in the cities",
+                "in the countryside",
+                "in isolated places"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "How long is the road?",
+              "options": [
+                "600 kilometres",
+                "6,000 kilometers",
+                "60,000 kilometres",
+                "60 miles"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What can you see on the computers at the road's headquarters in Delhi?",
+              "options": [
+                "small vehicles on the road",
+                "any vehicle and problems on the road",
+                "big vehicles on the road",
+                "serious problems on the road"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What types of transport can you see on the road?",
+              "options": [
+                "all types",
+                "mostly cars",
+                "mostly motorbikes",
+                "the presenter doesn't say"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "Why does the presenter describe the new road as a symbol of India's future?",
+              "options": [
+                "because it's the same shape as the country of India",
+                "because it is modern, it is helping the economy grow",
+                "Because India has big population",
+                "Because India has lots of transport"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Button, Card, Input, Radio, Space, Tag, Typography } from 'antd';
-import { SoundOutlined, StopOutlined } from '@ant-design/icons';
+import { Button, Card, Input, Radio, Space, Tag, Typography } from '@/components/ui/Primitives';
+import { SoundOutlined, StopOutlined } from '@/components/ui/Icons';
 import { DEFAULT_DICTATION_RATE, DICTATION_PLAYBACK_RATES } from '@/config/dictationPlayback';
 import styles from '@/features/toeic/components/ToeicDictationPlayer.module.css';
 import { ListeningUtils } from '@/lib/listeningUtils';

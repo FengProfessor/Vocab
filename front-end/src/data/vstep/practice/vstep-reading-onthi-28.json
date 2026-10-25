@@ -1,0 +1,101 @@
+{
+  "id": "vstep-reading-onthi-28",
+  "title": "Luyện Đọc VSTEP: Renewable Energy: Promise and Challenges (VstepR6-Test 02)",
+  "duration": 10,
+  "date": "2026-03-27",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 5,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Renewable Energy: Promise and Challenges",
+            "text": "<p style=\"text-align:justify;\">The global transition from fossil fuels to renewable energy represents one of the most significant shifts in human history. Solar, wind, hydroelectric, and geothermal energy offer the promise of clean, sustainable power that does not produce the greenhouse gas emissions responsible for climate change. In recent decades, the cost of solar panels and wind turbines has fallen dramatically, making renewable energy increasingly <strong>competitive</strong> with traditional sources such as coal and natural gas.</p>\n<p style=\"text-align:justify;\">Despite these advances, the transition faces considerable challenges. One major obstacle is intermittency: solar panels only generate electricity when the sun shines, and wind turbines only operate when the wind blows. This variability requires either large-scale energy storage systems, such as batteries, or the continued operation of conventional power plants as backup. Current battery technology, while improving rapidly, remains expensive and limited in its capacity to store energy for extended periods.</p>\n<p style=\"text-align:justify;\">Another challenge is the infrastructure required to transmit renewable energy from where it is produced to where it is consumed. Solar farms are often located in remote desert regions, while wind farms are typically found in coastal or rural areas far from population centers. Building the transmission lines needed to connect these sources to cities requires enormous investment and can face <strong>opposition</strong> from local communities.</p>\n<p style=\"text-align:justify;\">The economic and social dimensions of the energy transition are also significant. Fossil fuel industries employ millions of workers worldwide, and rapid changes in energy policy can threaten their livelihoods. Governments must therefore balance the urgent need to reduce carbon emissions with the equally important goal of ensuring a \"just transition\" that supports affected workers. Some nations have established retraining programs and economic diversification strategies to help manage this process.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r28-q1",
+              "type": "mcq",
+              "question": "What is the main topic of the passage?",
+              "options": [
+                "The history of solar energy technology",
+                "The challenges and considerations of transitioning to renewable energy",
+                "Why fossil fuels remain superior to renewable energy",
+                "How governments should increase energy taxes"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r28-q2",
+              "type": "mcq",
+              "question": "The word \"intermittency\" in paragraph 2 refers to?",
+              "options": [
+                "the high cost of installing renewable energy systems",
+                "the problem of renewable energy not being constantly available",
+                "the environmental impact of building wind turbines",
+                "the failure of batteries to store electricity"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r28-q3",
+              "type": "mcq",
+              "question": "The word \"competitive\" in paragraph 1 is closest in meaning to?",
+              "options": [
+                "expensive",
+                "unreliable",
+                "able to rival others on equal terms",
+                "dependent on government support"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r28-q4",
+              "type": "mcq",
+              "question": "According to the passage, which is NOT mentioned as a challenge for renewable energy?",
+              "options": [
+                "variability in energy production",
+                "the need for energy storage systems",
+                "lack of public interest in renewable energy",
+                "infrastructure for energy transmission"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r28-q5",
+              "type": "mcq",
+              "question": "What does the author suggest about workers in fossil fuel industries?",
+              "options": [
+                "They should immediately switch to renewable energy jobs",
+                "Their needs should be considered during the energy transition",
+                "They are primarily responsible for climate change",
+                "They benefit most from renewable energy development"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

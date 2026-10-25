@@ -1,0 +1,782 @@
+{
+  "id": "video-sth-18",
+  "youtubeId": "tZ-Pbwdqlt0",
+  "title": "Renewable Energy Grids and Battery Storage",
+  "channel": "SciShow",
+  "duration": 570,
+  "durationDisplay": "09:30",
+  "durationCategory": "short",
+  "cefrLevel": "B2",
+  "topic": "science_tech_health",
+  "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
+  "thumbnailUrl": "https://img.youtube.com/vi/tZ-Pbwdqlt0/hqdefault.jpg",
+  "description": "Lưới điện tái tạo: thách thức gián đoạn nguồn điện và công nghệ lưu trữ pin quy mô lớn.",
+  "coreVocabulary": [
+    {
+      "word": "intermittent",
+      "phonetic": "/ˌɪntəˈmɪtənt/",
+      "viDefinition": "ngắt quãng, không liên tục",
+      "contextSentence": "Wind and solar energy generation are inherently intermittent across weather cycles."
+    },
+    {
+      "word": "grid",
+      "phonetic": "/ɡrɪd/",
+      "viDefinition": "lưới điện quốc gia",
+      "contextSentence": "Modern electrical grids require millisecond balancing between instantaneous generation and load."
+    },
+    {
+      "word": "capacity",
+      "phonetic": "/kəˈpæsəti/",
+      "viDefinition": "công suất lưu trữ, dung lượng",
+      "contextSentence": "Utility-scale lithium-iron-phosphate battery banks offer gigawatt-hour storage capacity."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sth-18-cue-1",
+      "start": 0.0,
+      "end": 6.32,
+      "en": "Could apples, berries and cacao improve our memory as we get older?",
+      "vi": "Táo, quả mọng và cacao có thể cải thiện trí nhớ khi chúng ta già đi không?"
+    },
+    {
+      "id": "video-sth-18-cue-2",
+      "start": 6.32,
+      "end": 9.92,
+      "en": "This is News Review from BBC Learning English. I'm Neil.",
+      "vi": "Đây là Tin tức đánh giá từ BBC Learning English. Tôi là Neil."
+    },
+    {
+      "id": "video-sth-18-cue-3",
+      "start": 9.92,
+      "end": 11.56,
+      "en": "And I'm Beth.",
+      "vi": "Và tôi là Beth."
+    },
+    {
+      "id": "video-sth-18-cue-4",
+      "start": 11.56,
+      "end": 16.12,
+      "en": "Make sure you watch to the end to learn vocabulary to talk about this story.",
+      "vi": "Hãy nhớ xem đến cuối để học từ vựng khi nói về câu chuyện này nhé."
+    },
+    {
+      "id": "video-sth-18-cue-5",
+      "start": 16.12,
+      "end": 19.84,
+      "en": "Don't forget to subscribe to our channel, 'like' this video",
+      "vi": "Đừng quên đăng ký kênh của chúng tôi, 'thích' video này"
+    },
+    {
+      "id": "video-sth-18-cue-6",
+      "start": 19.84,
+      "end": 23.76,
+      "en": "and try the quiz on our website. Now, the story.",
+      "vi": "và thử làm bài kiểm tra trên trang web của chúng tôi. Bây giờ, câu chuyện."
+    },
+    {
+      "id": "video-sth-18-cue-7",
+      "start": 23.76,
+      "end": 28.56,
+      "en": "What you eat could improve your memory as you age.",
+      "vi": "Những gì bạn ăn có thể cải thiện trí nhớ khi bạn già đi."
+    },
+    {
+      "id": "video-sth-18-cue-8",
+      "start": 28.56,
+      "end": 32.84,
+      "en": "That's according to new research in the US that found people",
+      "vi": "Đó là theo nghiên cứu mới ở Mỹ cho thấy người"
+    },
+    {
+      "id": "video-sth-18-cue-9",
+      "start": 32.84,
+      "end": 39.8,
+      "en": "with a diet rich in flavanols may be less likely to lose their memory.",
+      "vi": "với chế độ ăn giàu flavanol có thể ít bị mất trí nhớ hơn."
+    },
+    {
+      "id": "video-sth-18-cue-10",
+      "start": 39.8,
+      "end": 45.16,
+      "en": "The substance is found in tea, berries, apples and cacao -",
+      "vi": "Chất này được tìm thấy trong trà, quả mọng, táo và cacao -"
+    },
+    {
+      "id": "video-sth-18-cue-11",
+      "start": 45.16,
+      "end": 48.88,
+      "en": "the seed that chocolate is made from. But while",
+      "vi": "hạt giống mà sô cô la được làm từ. Nhưng trong khi"
+    },
+    {
+      "id": "video-sth-18-cue-12",
+      "start": 48.88,
+      "end": 54.28,
+      "en": "some scientists think eating more dark chocolate could help, others say",
+      "vi": "một số nhà khoa học nghĩ rằng ăn nhiều sôcôla đen có thể giúp ích, những người khác nói"
+    },
+    {
+      "id": "video-sth-18-cue-13",
+      "start": 54.28,
+      "end": 57.36,
+      "en": "more research is needed.",
+      "vi": "cần nghiên cứu thêm."
+    },
+    {
+      "id": "video-sth-18-cue-14",
+      "start": 57.36,
+      "end": 60.52,
+      "en": "You have been looking at the headlines, Beth, whats the vocabulary?",
+      "vi": "Bạn đang xem các tiêu đề đấy, Beth, từ vựng là gì?"
+    },
+    {
+      "id": "video-sth-18-cue-15",
+      "start": 60.52,
+      "end": 66.36,
+      "en": "We have 'keep something at bay', 'stave off' and 'drive'.",
+      "vi": "Chúng ta có 'giữ thứ gì đó trong tầm kiểm soát', 'ngăn chặn' và 'lái xe'."
+    },
+    {
+      "id": "video-sth-18-cue-16",
+      "start": 66.36,
+      "end": 70.48,
+      "en": "This is News Review from BBC Learning English.",
+      "vi": "Đây là Tin tức đánh giá từ BBC Learning English."
+    },
+    {
+      "id": "video-sth-18-cue-17",
+      "start": 78.32,
+      "end": 83.52,
+      "en": "Let's look at our first headline. This is from the Mail Online...",
+      "vi": "Hãy nhìn vào tiêu đề đầu tiên của chúng ta. Đây là từ Thư trực tuyến..."
+    },
+    {
+      "id": "video-sth-18-cue-18",
+      "start": 89.4,
+      "end": 94.84,
+      "en": "So, this headline is suggesting that eating dark chocolate can help",
+      "vi": "Vì vậy, tiêu đề này gợi ý rằng ăn sôcôla đen có thể giúp ích."
+    },
+    {
+      "id": "video-sth-18-cue-19",
+      "start": 94.84,
+      "end": 99.4,
+      "en": "prevent you from losing your memory as you get older. The expression",
+      "vi": "giúp bạn không bị mất trí nhớ khi về già. biểu thức"
+    },
+    {
+      "id": "video-sth-18-cue-20",
+      "start": 99.4,
+      "end": 103.0,
+      "en": "we are looking at is 'keep something at bay'.",
+      "vi": "chúng tôi đang xem xét là 'giữ điều gì đó ở lại'."
+    },
+    {
+      "id": "video-sth-18-cue-21",
+      "start": 103.0,
+      "end": 106.36,
+      "en": "It's quite a strange sounding expression. What does it mean?",
+      "vi": "Đó là một cách diễn đạt khá kỳ lạ. Nó có nghĩa là gì?"
+    },
+    {
+      "id": "video-sth-18-cue-22",
+      "start": 106.36,
+      "end": 111.92,
+      "en": "Well, quite simply, it means 'to stop something bad or dangerous,",
+      "vi": "Khá đơn giản, nó có nghĩa là 'ngăn chặn điều gì đó xấu hoặc nguy hiểm,"
+    },
+    {
+      "id": "video-sth-18-cue-23",
+      "start": 111.92,
+      "end": 114.12,
+      "en": "harmful, from happening to you.",
+      "vi": "Có hại, từ việc xảy đến với bạn."
+    },
+    {
+      "id": "video-sth-18-cue-24",
+      "start": 114.12,
+      "end": 117.96,
+      "en": "So, in this case, the harmful thing is memory loss.",
+      "vi": "Như vậy, trong trường hợp này, điều có hại là mất trí nhớ."
+    },
+    {
+      "id": "video-sth-18-cue-25",
+      "start": 117.96,
+      "end": 122.4,
+      "en": "We want to prevent memory loss, so we want to keep it at bay.",
+      "vi": "Chúng ta muốn ngăn chặn tình trạng mất trí nhớ nên chúng ta muốn tránh xa nó."
+    },
+    {
+      "id": "video-sth-18-cue-26",
+      "start": 122.4,
+      "end": 126.2,
+      "en": "Yes, and this expression, does have a wider use.",
+      "vi": "Đúng, và cách diễn đạt này có phạm vi sử dụng rộng rãi hơn."
+    },
+    {
+      "id": "video-sth-18-cue-27",
+      "start": 126.2,
+      "end": 128.56,
+      "en": "It's not only about memory loss.",
+      "vi": "Vấn đề không chỉ là mất trí nhớ."
+    },
+    {
+      "id": "video-sth-18-cue-28",
+      "start": 128.56,
+      "end": 133.96,
+      "en": "No, it's not. We can use it for lots of harmful things, but it is often related to health.",
+      "vi": "Không, không phải vậy. Chúng ta có thể sử dụng nó vào nhiều việc có hại nhưng nó thường liên quan đến sức khỏe."
+    },
+    {
+      "id": "video-sth-18-cue-29",
+      "start": 133.96,
+      "end": 139.2,
+      "en": "So, for example, washing your hands can keep infections at bay",
+      "vi": "Ví dụ, rửa tay có thể ngăn ngừa nhiễm trùng"
+    },
+    {
+      "id": "video-sth-18-cue-30",
+      "start": 139.2,
+      "end": 142.64,
+      "en": "or exercising can keep heart disease at bay.",
+      "vi": "hoặc tập thể dục có thể ngăn ngừa bệnh tim."
+    },
+    {
+      "id": "video-sth-18-cue-31",
+      "start": 142.64,
+      "end": 146.92,
+      "en": "Yes and take note, we can also use the word 'hold'",
+      "vi": "Vâng và hãy lưu ý, chúng ta cũng có thể dùng từ 'hold'"
+    },
+    {
+      "id": "video-sth-18-cue-32",
+      "start": 146.92,
+      "end": 149.16,
+      "en": "instead of 'keep'. 'Hold something at bay'.",
+      "vi": "thay vì 'giữ'. 'Giữ cái gì đó ở lại'."
+    },
+    {
+      "id": "video-sth-18-cue-33",
+      "start": 149.16,
+      "end": 151.48,
+      "en": "It means exactly the same thing.",
+      "vi": "Nó có nghĩa giống hệt nhau."
+    },
+    {
+      "id": "video-sth-18-cue-34",
+      "start": 151.48,
+      "end": 153.6,
+      "en": "Let's look at that again.",
+      "vi": "Chúng ta hãy nhìn lại điều đó."
+    },
+    {
+      "id": "video-sth-18-cue-35",
+      "start": 161.08,
+      "end": 163.56,
+      "en": "Let's look at our next headline.",
+      "vi": "Hãy xem tiêu đề tiếp theo của chúng tôi."
+    },
+    {
+      "id": "video-sth-18-cue-36",
+      "start": 163.56,
+      "end": 166.04,
+      "en": "This is from The Guardian.",
+      "vi": "Đây là từ The Guardian."
+    },
+    {
+      "id": "video-sth-18-cue-37",
+      "start": 173.16,
+      "end": 177.52,
+      "en": "Again, this headline is about preventing something bad",
+      "vi": "Một lần nữa, tiêu đề này nói về việc ngăn chặn điều gì đó xấu"
+    },
+    {
+      "id": "video-sth-18-cue-38",
+      "start": 177.52,
+      "end": 180.92,
+      "en": "from happening to us, in this case, memory loss.",
+      "vi": "từ việc xảy ra với chúng ta, trong trường hợp này là mất trí nhớ."
+    },
+    {
+      "id": "video-sth-18-cue-39",
+      "start": 180.92,
+      "end": 187.36,
+      "en": "The expression we're going to look at is 'stave off'. Now, that word 'stave' -",
+      "vi": "Biểu thức mà chúng ta sắp xem xét là 'ngăn chặn'. Bây giờ, từ 'cán bộ' -"
+    },
+    {
+      "id": "video-sth-18-cue-40",
+      "start": 187.36,
+      "end": 192.04,
+      "en": "that's an old fashioned-sounding word for a long stick, isn't it?",
+      "vi": "đó là một từ nghe có vẻ lỗi thời để chỉ một cây gậy dài phải không?"
+    },
+    {
+      "id": "video-sth-18-cue-41",
+      "start": 192.04,
+      "end": 197.44,
+      "en": "It is, yeah, and it might help you to think about that long stick to understand this expression.",
+      "vi": "Đúng vậy, và nó có thể giúp bạn nghĩ về cây gậy dài đó để hiểu cách diễn đạt này."
+    },
+    {
+      "id": "video-sth-18-cue-42",
+      "start": 197.44,
+      "end": 201.32,
+      "en": "So, Neil, imagine something is physically threatening you.",
+      "vi": "Vì vậy, Neil, hãy tưởng tượng có thứ gì đó đang đe dọa bạn."
+    },
+    {
+      "id": "video-sth-18-cue-43",
+      "start": 201.32,
+      "end": 205.4,
+      "en": "Maybe a pack of wild dogs and you have a long stick.",
+      "vi": "Có thể là một bầy chó hoang và bạn có một cây gậy dài."
+    },
+    {
+      "id": "video-sth-18-cue-44",
+      "start": 205.4,
+      "end": 206.56,
+      "en": "What are you going to do with it?",
+      "vi": "Bạn sẽ làm gì với nó?"
+    },
+    {
+      "id": "video-sth-18-cue-45",
+      "start": 206.56,
+      "end": 212.8,
+      "en": "Well, if a pack of wild dogs was attacking me, I would use the long stick to protect myself.",
+      "vi": "Chà, nếu một đàn chó hoang tấn công tôi, tôi sẽ dùng cây gậy dài để tự vệ."
+    },
+    {
+      "id": "video-sth-18-cue-46",
+      "start": 212.8,
+      "end": 216.16,
+      "en": "Maybe I could wave it and the dogs would go away.",
+      "vi": "Có lẽ tôi có thể vẫy nó và lũ chó sẽ bỏ đi."
+    },
+    {
+      "id": "video-sth-18-cue-47",
+      "start": 216.16,
+      "end": 217.84,
+      "en": "That's a strong mental image.",
+      "vi": "Đó là một hình ảnh tinh thần mạnh mẽ."
+    },
+    {
+      "id": "video-sth-18-cue-48",
+      "start": 217.84,
+      "end": 222.52,
+      "en": "It might help you to remember the meaning of this phrasal verb,",
+      "vi": "Nó có thể giúp bạn nhớ được ý nghĩa của cụm động từ này,"
+    },
+    {
+      "id": "video-sth-18-cue-49",
+      "start": 222.52,
+      "end": 227.2,
+      "en": "but, actually, we don't usually use stave off in a literal sense any more.",
+      "vi": "nhưng thực ra, chúng ta không còn sử dụng ngăn chặn theo nghĩa đen nữa."
+    },
+    {
+      "id": "video-sth-18-cue-50",
+      "start": 227.2,
+      "end": 229.76,
+      "en": "We don't, but it does have the same meaning.",
+      "vi": "Chúng tôi không biết, nhưng nó có ý nghĩa tương tự."
+    },
+    {
+      "id": "video-sth-18-cue-51",
+      "start": 229.76,
+      "end": 232.72,
+      "en": "It just means to prevent something bad from happening.",
+      "vi": "Nó chỉ có nghĩa là ngăn chặn điều xấu xảy ra."
+    },
+    {
+      "id": "video-sth-18-cue-52",
+      "start": 232.72,
+      "end": 237.16,
+      "en": "Just like our first expression, 'keep something at bay' and again,",
+      "vi": "Giống như cách diễn đạt đầu tiên của chúng tôi, 'giữ điều gì đó' và một lần nữa,"
+    },
+    {
+      "id": "video-sth-18-cue-53",
+      "start": 237.16,
+      "end": 239.68,
+      "en": "this is something we often use with health.",
+      "vi": "đây là thứ chúng ta thường sử dụng với sức khỏe."
+    },
+    {
+      "id": "video-sth-18-cue-54",
+      "start": 239.68,
+      "end": 246.12,
+      "en": "Some people say that drinking orange juice can stave off a cold,",
+      "vi": "Một số người nói rằng uống nước cam có thể ngăn ngừa cảm lạnh,"
+    },
+    {
+      "id": "video-sth-18-cue-55",
+      "start": 246.12,
+      "end": 250.48,
+      "en": "but we can also use it to mean prevent other general negative things.",
+      "vi": "nhưng chúng ta cũng có thể dùng nó với ý nghĩa ngăn chặn những điều tiêu cực chung khác."
+    },
+    {
+      "id": "video-sth-18-cue-56",
+      "start": 250.48,
+      "end": 254.16,
+      "en": "Yes. And one more interesting thing to note 'stave off'",
+      "vi": "Có. Và một điều thú vị nữa cần lưu ý là 'ngăn chặn'"
+    },
+    {
+      "id": "video-sth-18-cue-57",
+      "start": 254.16,
+      "end": 259.2,
+      "en": "is a phrasal verb and it's the kind of phrasal verb that you can split in the middle.",
+      "vi": "là một cụm động từ và là loại cụm động từ mà bạn có thể chia ở giữa."
+    },
+    {
+      "id": "video-sth-18-cue-58",
+      "start": 259.2,
+      "end": 262.96,
+      "en": "So, you could say 'orange juice staves off colds'",
+      "vi": "Vì vậy, bạn có thể nói 'nước cam ngăn ngừa cảm lạnh'"
+    },
+    {
+      "id": "video-sth-18-cue-59",
+      "start": 262.96,
+      "end": 269.8,
+      "en": "or you can say 'orange juice staves colds off'. Let's look at that again.",
+      "vi": "hoặc bạn có thể nói 'nước cam ngăn ngừa cảm lạnh'. Hãy nhìn lại điều đó một lần nữa."
+    },
+    {
+      "id": "video-sth-18-cue-60",
+      "start": 278.24,
+      "end": 280.28,
+      "en": "This is from The Independent...",
+      "vi": "Đây là từ The Independent..."
+    },
+    {
+      "id": "video-sth-18-cue-61",
+      "start": 287.52,
+      "end": 290.4,
+      "en": "So, this headline is looking at the same story,",
+      "vi": "Vì vậy, tiêu đề này đang đề cập đến cùng một câu chuyện,"
+    },
+    {
+      "id": "video-sth-18-cue-62",
+      "start": 290.4,
+      "end": 295.52,
+      "en": "but from the opposite angle. It's saying that a diet low in flavanols,",
+      "vi": "nhưng ở góc độ ngược lại. Người ta nói rằng một chế độ ăn ít flavanol,"
+    },
+    {
+      "id": "video-sth-18-cue-63",
+      "start": 295.52,
+      "end": 299.08,
+      "en": "now, that's that substance that you find in apples, berries,",
+      "vi": "đó là chất bạn tìm thấy trong táo, quả mọng,"
+    },
+    {
+      "id": "video-sth-18-cue-64",
+      "start": 299.08,
+      "end": 305.6,
+      "en": "tea and cacao, a diet low in that, could cause memory loss and the word",
+      "vi": "trà và cacao, một chế độ ăn ít chất này, có thể gây mất trí nhớ và từ đó"
+    },
+    {
+      "id": "video-sth-18-cue-65",
+      "start": 305.6,
+      "end": 310.12,
+      "en": "we're looking at is 'drive' - a familiar word used differently here.",
+      "vi": "chúng ta đang xem xét là 'drive' - một từ quen thuộc được sử dụng khác ở đây."
+    },
+    {
+      "id": "video-sth-18-cue-66",
+      "start": 310.12,
+      "end": 313.12,
+      "en": "Yes, but we're not talking about cars here.",
+      "vi": "Đúng, nhưng ở đây chúng ta không nói về ô tô."
+    },
+    {
+      "id": "video-sth-18-cue-67",
+      "start": 313.12,
+      "end": 318.36,
+      "en": "So, drive actually has a wider meaning than the one we all know connected to cars",
+      "vi": "Vì vậy, lái xe thực sự có ý nghĩa rộng hơn ý nghĩa mà chúng ta đều biết liên quan đến ô tô."
+    },
+    {
+      "id": "video-sth-18-cue-68",
+      "start": 318.36,
+      "end": 323.56,
+      "en": "and driving. It can also mean 'to force something in a certain direction'.",
+      "vi": "và lái xe. Nó cũng có thể có nghĩa là 'ép cái gì đó theo một hướng nhất định'."
+    },
+    {
+      "id": "video-sth-18-cue-69",
+      "start": 323.56,
+      "end": 328.88,
+      "en": "Yes, so when the headline says that a diet, low in flavanols,",
+      "vi": "Đúng vậy, khi tiêu đề nói rằng một chế độ ăn ít flavanol,"
+    },
+    {
+      "id": "video-sth-18-cue-70",
+      "start": 328.88,
+      "end": 330.44,
+      "en": "drives memory loss,",
+      "vi": "gây mất trí nhớ,"
+    },
+    {
+      "id": "video-sth-18-cue-71",
+      "start": 330.44,
+      "end": 336.24,
+      "en": "it means that that diet pushes in the direction of memory loss.",
+      "vi": "điều đó có nghĩa là chế độ ăn kiêng đó đẩy theo hướng mất trí nhớ."
+    },
+    {
+      "id": "video-sth-18-cue-72",
+      "start": 336.24,
+      "end": 340.16,
+      "en": "In the same way, when you drive a car,",
+      "vi": "Tương tự như vậy, khi bạn lái một chiếc ô tô,"
+    },
+    {
+      "id": "video-sth-18-cue-73",
+      "start": 340.16,
+      "end": 344.6,
+      "en": "actually, what you're doing is just forcing it to go in a certain direction.",
+      "vi": "thực ra, điều bạn đang làm chỉ là ép nó đi theo một hướng nhất định."
+    },
+    {
+      "id": "video-sth-18-cue-74",
+      "start": 344.6,
+      "end": 346.88,
+      "en": "OK, let's look at that again.",
+      "vi": "Được rồi, hãy nhìn lại điều đó."
+    },
+    {
+      "id": "video-sth-18-cue-75",
+      "start": 351.88,
+      "end": 357.6,
+      "en": "We've had 'keep something at bay' - prevent something bad affecting you.",
+      "vi": "Chúng ta đã 'kiềm chế điều gì đó' - ngăn chặn điều gì đó xấu ảnh hưởng đến bạn."
+    },
+    {
+      "id": "video-sth-18-cue-76",
+      "start": 357.6,
+      "end": 361.72,
+      "en": "'Stave off' - also, prevents something bad affecting you.",
+      "vi": "'Ngăn chặn' - đồng thời, ngăn chặn điều gì đó xấu ảnh hưởng đến bạn."
+    },
+    {
+      "id": "video-sth-18-cue-77",
+      "start": 361.72,
+      "end": 365.72,
+      "en": "And 'drive' - force in a certain direction.",
+      "vi": "Và 'drive' - lực theo một hướng nhất định."
+    },
+    {
+      "id": "video-sth-18-cue-78",
+      "start": 365.72,
+      "end": 369.7,
+      "en": "Did you know that exercise can also help our brains?",
+      "vi": "Bạn có biết rằng tập thể dục cũng có thể giúp ích cho bộ não của chúng ta?"
+    },
+    {
+      "id": "video-sth-18-cue-79",
+      "start": 369.7,
+      "end": 372.71,
+      "en": "To learn more, watch this episode of News Review.",
+      "vi": "Để tìm hiểu thêm, hãy xem tập này của News Review."
+    },
+    {
+      "id": "video-sth-18-cue-80",
+      "start": 372.71,
+      "end": 377.74,
+      "en": "Don't forget to click here so that you can subscribe and never miss another video.",
+      "vi": "Đừng quên nhấn vào đây để có thể đăng ký và không bao giờ bỏ lỡ video nào khác."
+    },
+    {
+      "id": "video-sth-18-cue-81",
+      "start": 377.74,
+      "end": 378.78,
+      "en": "Thanks for joining us.",
+      "vi": "Cảm ơn bạn đã tham gia cùng chúng tôi."
+    },
+    {
+      "id": "video-sth-18-cue-82",
+      "start": 378.78,
+      "end": 379.83,
+      "en": "Bye.",
+      "vi": "Tạm biệt."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sth-18-cloze-1",
+      "cueId": "video-sth-18-cue-17",
+      "sentence": "{{blank}}, electrical grids are exquisitely sensitive machines requiring perfect balance every millisecond.",
+      "blankWord": "however",
+      "hintVi": "Nghĩa gợi ý: Tuy nhiên, các lưới điện là những cỗ máy...",
+      "timestamp": 114,
+      "options": [
+        "spontaneous",
+        "essential",
+        "however",
+        "vulnerable"
+      ]
+    },
+    {
+      "id": "video-sth-18-cloze-2",
+      "cueId": "video-sth-18-cue-33",
+      "sentence": "In {{blank}}, solar and wind power are inherently intermittent: clouds block sunshine, and winds lull.",
+      "blankWord": "contrast",
+      "hintVi": "Nghĩa gợi ý: Ngược lại, năng lượng mặt trời và gió vố...",
+      "timestamp": 228,
+      "options": [
+        "priority",
+        "extensive",
+        "contrast",
+        "flexible"
+      ]
+    },
+    {
+      "id": "video-sth-18-cloze-3",
+      "cueId": "video-sth-18-cue-57",
+      "sentence": "Lithium-iron-phosphate {{blank}} absorb surplus noon electricity and discharge it during peak dinnertime hours.",
+      "blankWord": "batteries",
+      "hintVi": "Nghĩa gợi ý: Pin lithium-sắt-phốt-phát hấp thụ lượng ...",
+      "timestamp": 399,
+      "options": [
+        "favorable",
+        "consistent",
+        "batteries",
+        "priority"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sth-18-q1",
+      "question": "What is the primary focus of the video 'Renewable Energy Grids and Battery Storage'?",
+      "options": [
+        "To entertain listeners with fictional storytelling.",
+        "To advertise a commercial product for online shoppers.",
+        "To critique ancient philosophies without practical relevance.",
+        "To explain and practice renewable energy grids and battery storage effectively."
+      ],
+      "correctIndex": 3,
+      "explanation": "The entire video systematically explores renewable energy grids and battery storage, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 57
+    },
+    {
+      "id": "video-sth-18-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'In...'?",
+      "options": [
+        "It advises viewers to disregard standard precautions completely.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It contradicts the speaker's earlier recommendations.",
+        "It emphasizes that: In contrast, solar and wind power are inherently intermitten..."
+      ],
+      "correctIndex": 3,
+      "explanation": "In this segment, the speaker clarifies: 'In contrast, solar and wind power are inherently intermittent: clouds block sunshine, and winds lull.', showing its practical importance.",
+      "timestampSeek": 228
+    },
+    {
+      "id": "video-sth-18-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Viewers should abandon ongoing efforts and start over.",
+        "Applying these principles leads to: Building intelligent, resilient storage infrastructure turns inte...",
+        "No further practice or mindfulness is necessary.",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 1,
+      "explanation": "The concluding message emphasizes that Building intelligent, resilient storage infrastructure turns intermittent green breezes into reliable 24/7 power., providing a meaningful summary for learners.",
+      "timestampSeek": 513
+    }
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-18-cloze-1",
+        "cueId": "video-sth-18-cue-17",
+        "sentence": "{{blank}}, electrical grids are exquisitely sensitive machines requiring perfect balance every millisecond.",
+        "blankWord": "however",
+        "hintVi": "Nghĩa gợi ý: Tuy nhiên, các lưới điện là những cỗ máy...",
+        "timestamp": 114,
+        "options": [
+          "spontaneous",
+          "essential",
+          "however",
+          "vulnerable"
+        ]
+      },
+      {
+        "id": "video-sth-18-cloze-2",
+        "cueId": "video-sth-18-cue-33",
+        "sentence": "In {{blank}}, solar and wind power are inherently intermittent: clouds block sunshine, and winds lull.",
+        "blankWord": "contrast",
+        "hintVi": "Nghĩa gợi ý: Ngược lại, năng lượng mặt trời và gió vố...",
+        "timestamp": 228,
+        "options": [
+          "priority",
+          "extensive",
+          "contrast",
+          "flexible"
+        ]
+      },
+      {
+        "id": "video-sth-18-cloze-3",
+        "cueId": "video-sth-18-cue-57",
+        "sentence": "Lithium-iron-phosphate {{blank}} absorb surplus noon electricity and discharge it during peak dinnertime hours.",
+        "blankWord": "batteries",
+        "hintVi": "Nghĩa gợi ý: Pin lithium-sắt-phốt-phát hấp thụ lượng ...",
+        "timestamp": 399,
+        "options": [
+          "favorable",
+          "consistent",
+          "batteries",
+          "priority"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-18-q1",
+        "question": "What is the primary focus of the video 'Renewable Energy Grids and Battery Storage'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To advertise a commercial product for online shoppers.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice renewable energy grids and battery storage effectively."
+        ],
+        "correctIndex": 3,
+        "explanation": "The entire video systematically explores renewable energy grids and battery storage, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 57
+      },
+      {
+        "id": "video-sth-18-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'In...'?",
+        "options": [
+          "It advises viewers to disregard standard precautions completely.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It contradicts the speaker's earlier recommendations.",
+          "It emphasizes that: In contrast, solar and wind power are inherently intermitten..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'In contrast, solar and wind power are inherently intermittent: clouds block sunshine, and winds lull.', showing its practical importance.",
+        "timestampSeek": 228
+      },
+      {
+        "id": "video-sth-18-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Viewers should abandon ongoing efforts and start over.",
+          "Applying these principles leads to: Building intelligent, resilient storage infrastructure turns inte...",
+          "No further practice or mindfulness is necessary.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Building intelligent, resilient storage infrastructure turns intermittent green breezes into reliable 24/7 power., providing a meaningful summary for learners.",
+        "timestampSeek": 513
+      }
+    ]
+  }
+}

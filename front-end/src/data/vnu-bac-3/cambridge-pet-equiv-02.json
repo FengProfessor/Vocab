@@ -1,0 +1,1763 @@
+{
+  "id": "cambridge-pet-equiv-02",
+  "title": "[Đề 06] Bộ Đề Chuẩn Hóa B1 Số 02 — Tiêu Chuẩn CEFR B1 (World Ice Art Championship in Alaska)",
+  "series": "VNU-BAC-3",
+  "description": "Bộ đề luyện thi chuẩn hóa theo đúng ma trận 3 lựa chọn (A/B/C) và True/False của VNU Test Bậc 3 (ULIS). Bài đọc thực tế: World Ice Art Championship in Alaska (Part 2), Exploring the English Riviera (Part 3), Coasteering with Lily Carter (Part 4).",
+  "durationMinutes": 65,
+  "targetLevel": "B1",
+  "totalQuestions": 45,
+  "isSampleTest": false,
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimitMinutes": 40,
+      "totalQuestions": 25,
+      "tasks": [
+        {
+          "id": "pet02-r-part1",
+          "partNumber": 1,
+          "title": "Part 1: Signs & Notices",
+          "instructions": "There are 7 questions in this part. Choose the best answer (A, B, or C) for each sign, notice, or short message.",
+          "questions": [
+            {
+              "id": "pet02-r-q1",
+              "questionNumber": 1,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "From 1 October, please do not enter the pool before you have used the shower.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The pool is closed on October 1st."
+                },
+                {
+                  "key": "B",
+                  "text": "You need to wash before you swim."
+                },
+                {
+                  "key": "C",
+                  "text": "There will be a new shower at the pool."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Biển báo tại hồ bơi quy định: Kể từ ngày 1/10, vui lòng không xuống hồ bơi trước khi tắm tráng bằng vòi sen ('please do not enter the pool before you have used the shower'). Điều này đồng nghĩa với việc bạn cần tắm rửa trước khi bơi ('need to wash before you swim'). Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "enter",
+                  "ipa": "/ˈen.tər/",
+                  "meaning": "đi vào",
+                  "partOfSpeech": "verb"
+                },
+                {
+                  "word": "shower",
+                  "ipa": "/ˈʃaʊ.ər/",
+                  "meaning": "vòi hoa sen; tắm tráng",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "pet02-r-q2",
+              "questionNumber": 2,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "From: Amanda\nTo: Gran\nSubject: Help with a school project\n\nHi Gran,\nDo you have any old photos showing you in your uniform when you were at school? If you do, can you send me one for school?\nThanks,\nAmanda\n\nAmanda wants her grandmother to",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "let her have a picture."
+                },
+                {
+                  "key": "B",
+                  "text": "lend her some clothes."
+                },
+                {
+                  "key": "C",
+                  "text": "describe her old uniform."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Amanda hỏi bà xem có bức ảnh cũ nào chụp bà mặc đồng phục thời đi học không và nhờ bà gửi cho cô một tấm ('Do you have any old photos... can you send me one for school?'). Tức là Amanda muốn xin bà một bức ảnh ('let her have a picture'). Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "uniform",
+                  "ipa": "/ˈjuː.nɪ.fɔːm/",
+                  "meaning": "bộ đồng phục",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "pet02-r-q3",
+              "questionNumber": 3,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Warning\nMemory full\nPlease delete files or click here to buy more memory.\n[OK]\n\nWhere might you see this text?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "in a computer shop"
+                },
+                {
+                  "key": "B",
+                  "text": "on the screen of a computer"
+                },
+                {
+                  "key": "C",
+                  "text": "on the wall in the computer classroom"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Thông báo 'Memory full. Please delete files or click here to buy more memory. [OK]' (Bộ nhớ đầy. Vui lòng xóa tệp hoặc nhấp vào đây để mua thêm dung lượng) là hộp thoại cảnh báo xuất hiện trên màn hình máy tính ('on the screen of a computer'). Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "memory",
+                  "ipa": "/ˈmem.ər.i/",
+                  "meaning": "bộ nhớ lưu trữ",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "delete",
+                  "ipa": "/dɪˈliːt/",
+                  "meaning": "xóa bỏ",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            },
+            {
+              "id": "pet02-r-q4",
+              "questionNumber": 4,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "TOMORROW’S TRIP\nTime coach leaves school: 8:50.\nPlease arrive no later than 8:40.\nThe school gates will open at about 8:30.\nThank you.\n\nWhat time do pupils need to get to school tomorrow?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "about 8:30"
+                },
+                {
+                  "key": "B",
+                  "text": "by 8:40"
+                },
+                {
+                  "key": "C",
+                  "text": "at 8:50"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Thông báo nêu rõ: 'Please arrive no later than 8:40' (Vui lòng có mặt muộn nhất là 8:40). Cụm 'no later than 8:40' đồng nghĩa với 'by 8:40' (trước hoặc đúng 8:40). Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "coach",
+                  "ipa": "/kəʊtʃ/",
+                  "meaning": "xe khách đường dài",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "no later than",
+                  "ipa": "/nəʊ ˈleɪ.tər ðæn/",
+                  "meaning": "muộn nhất là, không trễ hơn",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            },
+            {
+              "id": "pet02-r-q5",
+              "questionNumber": 5,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "PLEASE NOTE EVERYBODY\nThere’s a lift if you need it, BUT use the stairs if you can.\nIt’s a great way to stay fit.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Get the lift if you are in a hurry."
+                },
+                {
+                  "key": "B",
+                  "text": "Use the stairs if the lift is broken."
+                },
+                {
+                  "key": "C",
+                  "text": "Walking up and down stairs is better for you."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Thông báo khuyến khích mọi người đi cầu thang bộ nếu có thể vì đó là cách tuyệt vời để giữ dáng và khỏe mạnh ('use the stairs if you can. It’s a great way to stay fit'). Tức là đi bộ lên xuống cầu thang tốt cho sức khỏe của bạn hơn. Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "lift",
+                  "ipa": "/lɪft/",
+                  "meaning": "thang máy",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "stay fit",
+                  "ipa": "/steɪ fɪt/",
+                  "meaning": "giữ gìn sức khỏe, vóc dáng",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            },
+            {
+              "id": "pet02-r-q6",
+              "questionNumber": 6,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Hounslow Cinema: Special Offer\nBuy tickets to four films and you don’t need to pay for the next one!\nEvery day until 5:30 p.m.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "You can watch up to four films for free."
+                },
+                {
+                  "key": "B",
+                  "text": "The fifth film you see during the daytime is free."
+                },
+                {
+                  "key": "C",
+                  "text": "Cheap tickets are available for groups of four in the evenings."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Ưu đãi của rạp Hounslow Cinema: Mua vé xem 4 bộ phim thì không cần trả tiền cho bộ phim tiếp theo (tức là bộ phim thứ 5), áp dụng mỗi ngày cho đến 5:30 chiều (ban ngày). Do đó bộ phim thứ 5 bạn xem vào ban ngày sẽ được miễn phí. Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "special offer",
+                  "ipa": "/ˈspeʃ.əl ˈɒf.ər/",
+                  "meaning": "chương trình khuyến mãi đặc biệt",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "pet02-r-q7",
+              "questionNumber": 7,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "WARNING:\nCHOKING HAZARD – Small parts.\nNot for children under 36 months.\nUse with adult supervision only.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "This toy is only suitable for children over three years old."
+                },
+                {
+                  "key": "B",
+                  "text": "This toy only works with adult supervision."
+                },
+                {
+                  "key": "C",
+                  "text": "This toy is only for small children."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Cảnh báo trên đồ chơi: Có chi tiết nhỏ gây nguy cơ hóc dị vật, không dành cho trẻ dưới 36 tháng tuổi ('Not for children under 36 months'). 36 tháng tương đương 3 tuổi, nghĩa là đồ chơi này chỉ phù hợp cho trẻ trên 3 tuổi. Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "supervision",
+                  "ipa": "/ˌsuː.pəˈvɪʒ.ən/",
+                  "meaning": "sự giám sát",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "suitable",
+                  "ipa": "/ˈsuː.tə.bəl/",
+                  "meaning": "phù hợp, thích hợp",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pet02-r-part2",
+          "partNumber": 2,
+          "title": "Part 2: Cloze Test",
+          "instructions": "Read the text below and choose the best answer (A, B, or C) for each blank from 8 to 15.",
+          "passage": {
+            "title": "World Ice Art Championship in Alaska",
+            "text": "Many cities have parks for people to enjoy. And it’s very (8) ________ to find wonderful sculptures in them. However, some sculptures found in Fairbanks, Alaska, aren’t quite the (9) ________ as in other cities. When the temperature (10) ________ at the end of winter, they all disappear – because they’re made of ice!\n\nFairbanks has been the home of the World Ice Art Championship (11) ________ over 20 years, and artists from many different countries come to create spectacular ice sculptures. The ice is brought from a lake (12) ________ near the sculpture park. It’s said to be so clear that visitors can read a newspaper through it – even though the individual pieces are over one metre (13) ________!\n\nVisitors also have the (14) ________ to make their own ice sculptures if they wish, at special classes. There’s a children’s play park, too, where (15) ________ everything is made of ice, including sculptures of favourite animals. It’s a great place to visit!",
+            "wordCount": 164
+          },
+          "questions": [
+            {
+              "id": "pet02-r-q8",
+              "questionNumber": 8,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "And it’s very (8) ________ to find wonderful sculptures in them.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "general"
+                },
+                {
+                  "key": "B",
+                  "text": "common"
+                },
+                {
+                  "key": "C",
+                  "text": "familiar"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Cấu trúc 'It’s very common to do something' (rất phổ biến/thường gặp khi thấy những bức tượng điêu khắc tuyệt đẹp trong công viên). 'General' và 'familiar' không phù hợp về nghĩa trong cấu trúc này. Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "common",
+                  "ipa": "/ˈkɒm.ən/",
+                  "meaning": "phổ biến, thường gặp",
+                  "partOfSpeech": "adjective"
+                },
+                {
+                  "word": "sculpture",
+                  "ipa": "/ˈskʌlp.tʃər/",
+                  "meaning": "tác phẩm điêu khắc",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "pet02-r-q9",
+              "questionNumber": 9,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "However, some sculptures found in Fairbanks, Alaska, aren’t quite the (9) ________ as in other cities.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "same"
+                },
+                {
+                  "key": "B",
+                  "text": "similar"
+                },
+                {
+                  "key": "C",
+                  "text": "like"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Cấu trúc so sánh đồng nhất 'the same as...' (giống hệt như...). 'Similar' đi với giới từ 'to', còn 'like' không dùng mạo từ 'the' phía trước. Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "the same as",
+                  "ipa": "/ðə seɪm æz/",
+                  "meaning": "giống như",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            },
+            {
+              "id": "pet02-r-q10",
+              "questionNumber": 10,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "When the temperature (10) ________ at the end of winter, they all disappear – because they’re made of ice!",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "develops"
+                },
+                {
+                  "key": "B",
+                  "text": "rises"
+                },
+                {
+                  "key": "C",
+                  "text": "grows"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Khi nói về nhiệt độ tăng lên, tiếng Anh dùng động từ 'rise' ('When the temperature rises at the end of winter' - khi nhiệt độ tăng lên vào cuối mùa đông). Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "rise",
+                  "ipa": "/raɪz/",
+                  "meaning": "tăng lên, dâng lên",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            },
+            {
+              "id": "pet02-r-q11",
+              "questionNumber": 11,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "Fairbanks has been the home of the World Ice Art Championship (11) ________ over 20 years...",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "since"
+                },
+                {
+                  "key": "B",
+                  "text": "during"
+                },
+                {
+                  "key": "C",
+                  "text": "for"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Thì hiện tại hoàn thành ('has been') đi với khoảng thời gian ('over 20 years' - hơn 20 năm) phải dùng giới từ 'for'. Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "championship",
+                  "ipa": "/ˈtʃæm.pi.ən.ʃɪp/",
+                  "meaning": "giải vô địch",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "pet02-r-q12",
+              "questionNumber": 12,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "The ice is brought from a lake (12) ________ near the sculpture park.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "located"
+                },
+                {
+                  "key": "B",
+                  "text": "arranged"
+                },
+                {
+                  "key": "C",
+                  "text": "contained"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Rút gọn mệnh đề quan hệ bị động chỉ vị trí địa lý: 'a lake located near the sculpture park' (một hồ nước nằm ở gần công viên điêu khắc). Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "located",
+                  "ipa": "/ləʊˈkeɪ.tɪd/",
+                  "meaning": "nằm ở, tọa lạc tại",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            },
+            {
+              "id": "pet02-r-q13",
+              "questionNumber": 13,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "...even though the individual pieces are over one metre (13) ________!",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "heavy"
+                },
+                {
+                  "key": "B",
+                  "text": "strong"
+                },
+                {
+                  "key": "C",
+                  "text": "thick"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Sau cụm chỉ kích thước ('over one metre') phải dùng tính từ chỉ độ dày/chiều đo: 'over one metre thick' (dày hơn một mét). Không nói 'one metre heavy/strong'. Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "thick",
+                  "ipa": "/θɪk/",
+                  "meaning": "dày",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            },
+            {
+              "id": "pet02-r-q14",
+              "questionNumber": 14,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "Visitors also have the (14) ________ to make their own ice sculptures if they wish, at special classes.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "occasion"
+                },
+                {
+                  "key": "B",
+                  "text": "benefit"
+                },
+                {
+                  "key": "C",
+                  "text": "opportunity"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Cụm từ 'have the opportunity to do something' (có cơ hội tự làm tác phẩm điêu khắc băng của riêng mình). Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "opportunity",
+                  "ipa": "/ˌɒp.əˈtjuː.nə.ti/",
+                  "meaning": "cơ hội, dịp",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "pet02-r-q15",
+              "questionNumber": 15,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "There’s a children’s play park, too, where (15) ________ everything is made of ice...",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "totally"
+                },
+                {
+                  "key": "B",
+                  "text": "absolutely"
+                },
+                {
+                  "key": "C",
+                  "text": "fully"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Trạng từ nhấn mạnh đi kèm đại từ bất định 'everything' chuẩn collocation là 'absolutely everything' (hoàn toàn tất cả mọi thứ). Không dùng 'totally/fully everything'. Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "absolutely",
+                  "ipa": "/ˌæb.səˈluːt.li/",
+                  "meaning": "hoàn toàn, tuyệt đối",
+                  "partOfSpeech": "adverb"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pet02-r-part3",
+          "partNumber": 3,
+          "title": "Part 3: True / False",
+          "instructions": "Read the text below and decide whether statements from 16 to 20 are True or False. Choose A for True and B for False.",
+          "passage": {
+            "title": "Exploring the English Riviera",
+            "text": "VISIT TORQUAY\nRiviera Life: Our iconic palm trees, busy harbour and international marina could fool you into thinking you were on the Mediterranean. Watch major sailing events from our waterfront eateries or enjoy Torquay's vibrant nightlife, with a variety of bars, cocktail venues and clubs. A packed, year-round programme of top West End shows at the Princess Theatre and a huge choice of events and festivals means no matter when you visit, you're bound to find something exciting to do.\nTop Visitor Attractions: Torquay's wide range of visitor attractions means that one trip's never quite enough. Meet the seals and penguins at Living Coasts, meet the craftspeople at Cockington and watch them work, indulge in some retail therapy or discover the newly re-opened historic Torre Abbey.\n\nVISIT BABBACOMBE BAY\nBreathtaking Views: There are unbeatable views along the Devon coastline from the famous Babbacombe Downs, and make sure you board the Babbacombe Cliff Railway to descend to Oddicombe Beach. You'll also love visiting Bygones, where the sights, sounds and smells of Victorian streets surround you, and of course the must-see Babbacombe Model Village, with mini scenes from around the world.\nShopping and a Show: Babbacombe and St Marychurch have some unique independent shops to discover and a packed events calendar; including sell-out shows at Babbacombe Theatre. Pre-performance, enjoy stunning views over dinner and visit the award-winning Hanbury's and taste some of the best locally-caught fish and chips.\n\nVISIT PAIGNTON & BRIXHAM\nFamily Fun: Go wild at Paignton Zoo, board our historic steam railway and take the plunge at Splashdown Quaywest, the UK's largest outdoor waterpark! Climb aboard one of our sightseeing ferries or fishing excursions that leave from Paignton Harbour.\nFishing and Festivals in Brixham: Come and celebrate Brixham's maritime heritage with a host of events, from BrixFest to the annual Trawler Race. Finally, hike the stunning South West Coast Path to the Berry Head National Nature Reserve.",
+            "wordCount": 324
+          },
+          "questions": [
+            {
+              "id": "pet02-r-q16",
+              "questionNumber": 16,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Torquay is characterised by its Mediterranean feel.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Đoạn đầu tiên viết: 'Our iconic palm trees, busy harbour and international marina could fool you into thinking you were on the Mediterranean.' (Những hàng cọ, bến cảng nhộn nhịp và bến du thuyền quốc tế của Torquay mang đậm phong vị Địa Trung Hải). Nhận định là ĐÚNG (True - A).",
+              "vocabularyNotes": [
+                {
+                  "word": "harbour",
+                  "ipa": "/ˈhɑː.bər/",
+                  "meaning": "bến cảng",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "marina",
+                  "ipa": "/məˈriː.nə/",
+                  "meaning": "bến du thuyền",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "pet02-r-q17",
+              "questionNumber": 17,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "You can watch the traditional manufacturing process at Cockington.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Trong mục Top Visitor Attractions có nêu: '...meet the craftspeople at Cockington and watch them work' (gặp gỡ các nghệ nhân thủ công tại Cockington và tận mắt xem họ làm việc/chế tác). Nhận định là ĐÚNG (True - A).",
+              "vocabularyNotes": [
+                {
+                  "word": "craftspeople",
+                  "ipa": "/ˈkrɑːftsˌpiː.pəl/",
+                  "meaning": "các nghệ nhân, thợ thủ công",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "pet02-r-q18",
+              "questionNumber": 18,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Babbacombe Model Village is a miniature village.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Trong mục Visit Babbacombe Bay có nêu: '...the must-see Babbacombe Model Village, with mini scenes from around the world' (Ngôi làng mô hình Babbacombe với các khung cảnh thu nhỏ từ khắp nơi trên thế giới). 'Mini' tương đương 'miniature'. Nhận định là ĐÚNG (True - A).",
+              "vocabularyNotes": [
+                {
+                  "word": "miniature",
+                  "ipa": "/ˈmɪn.ə.tʃər/",
+                  "meaning": "thu nhỏ, mô hình nhỏ",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            },
+            {
+              "id": "pet02-r-q19",
+              "questionNumber": 19,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Splashdown Quaywest is the biggest outdoor waterpark in the United Kingdom.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Trong mục Family Fun nêu rõ: '...take the plunge at Splashdown Quaywest, the UK's largest outdoor waterpark!' ('largest' đồng nghĩa với 'biggest'). Nhận định là ĐÚNG (True - A).",
+              "vocabularyNotes": [
+                {
+                  "word": "outdoor waterpark",
+                  "ipa": "/ˈaʊt.dɔː ˈwɔː.tə.pɑːk/",
+                  "meaning": "công viên nước ngoài trời",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "pet02-r-q20",
+              "questionNumber": 20,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "The popular Brixham Trawler Race takes place every month.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Đoạn cuối viết: 'Come and celebrate Brixham's maritime heritage with a host of events, from BrixFest to the annual Trawler Race.' Từ 'annual' có nghĩa là diễn ra mỗi năm một lần (hàng năm), không phải mỗi tháng ('every month'). Nhận định là SAI (False - B).",
+              "vocabularyNotes": [
+                {
+                  "word": "annual",
+                  "ipa": "/ˈæn.ju.əl/",
+                  "meaning": "hàng năm (mỗi năm một lần)",
+                  "partOfSpeech": "adjective"
+                },
+                {
+                  "word": "heritage",
+                  "ipa": "/ˈher.ɪ.tɪdʒ/",
+                  "meaning": "di sản",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pet02-r-part4",
+          "partNumber": 4,
+          "title": "Part 4: Reading Comprehension",
+          "instructions": "Read the following passage and choose the best answer (A, B, or C) for each question from 21 to 25.",
+          "passage": {
+            "title": "Coasteering with Lily Carter",
+            "text": "Lily Carter had no idea what present she wanted for her 14th birthday. But she’d always been keen on challenging sports, especially to do with water, like surfing and sailing. So when her parents heard about an activity called coasteering – exploring rocks along the coast by climbing and swimming – they thought Lily would love it. They found a course offered at an activity centre called Porthdean, just along the coast from the family home, which was perfect. So after checking it was led by experienced instructors, they signed her up.\n\nLily had seen a TV show about coasteering, and was interested in doing it, although she’d thought only adults could take part. But then she discovered that on courses at Porthdean, there’d also be people her age jumping from rocks into the sea, and also exploring caves – which she was never normally allowed to do, so she really wanted to go. But she still asked her dad to go along too and, although he wondered whether he’d like coasteering himself, he knew how much Lily wanted someone to accompany her, so he agreed.\n\nLily and her dad drove to Porthdean, where they attended a session with their instructors to learn basic safety and techniques and be given helmets and special wetsuits to keep the cold out. The group they joined was quite small, which meant they got lots of individual attention. Says Lily, ‘The entire trip was awesome – although the water was freezing! But our instructors encouraged the whole group so much, we were ready to try absolutely all the challenges, even stuff we hadn’t expected at all, like jumping off high cliffs! I must admit, the one I jumped off wasn’t that high, but Dad went much higher!’\n\n‘Anyway, Dad and I hadn’t realised how hard it would be physically, so we were glad we were fit,’ explains Lily. ‘Even so, afterwards, we actually felt like we’d done loads of hard exercise in the gym! But I’ll keep the memories of that trip forever, I reckon. And the instructors are going to put a video of it onto the website, so my friends will see it. They’d never believe me otherwise!’",
+            "wordCount": 366
+          },
+          "questions": [
+            {
+              "id": "pet02-r-q21",
+              "questionNumber": 21,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "Why did Lily’s parents choose Porthdean for her coasteering present?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It offered various courses in her favourite watersport."
+                },
+                {
+                  "key": "B",
+                  "text": "The instructors there were highly recommended."
+                },
+                {
+                  "key": "C",
+                  "text": "It wasn’t too far away from where they lived."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Đoạn 1 nêu: 'They found a course offered at an activity centre called Porthdean, just along the coast from the family home, which was perfect.' (Trung tâm nằm ngay dọc bờ biển gần nhà của gia đình, tức là không quá xa nơi họ sống). Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "coast",
+                  "ipa": "/kəʊst/",
+                  "meaning": "bờ biển",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "sign up",
+                  "ipa": "/saɪn ʌp/",
+                  "meaning": "đăng ký tham gia",
+                  "partOfSpeech": "phrasal verb"
+                }
+              ]
+            },
+            {
+              "id": "pet02-r-q22",
+              "questionNumber": 22,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "How did Lily feel about the coasteering course?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "pleased that it included something she’d always wanted to try"
+                },
+                {
+                  "key": "B",
+                  "text": "excited about doing the experience all on her own"
+                },
+                {
+                  "key": "C",
+                  "text": "keen to find out more about what it involved"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Đoạn 2 giải thích: Khóa học có hoạt động khám phá hang động ('exploring caves – which she was never normally allowed to do, so she really wanted to go'), điều mà bình thường cô không được phép làm nên cô rất hào hứng muốn thử. Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "accompany",
+                  "ipa": "/əˈkʌm.pə.ni/",
+                  "meaning": "đi cùng, đồng hành",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            },
+            {
+              "id": "pet02-r-q23",
+              "questionNumber": 23,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "Lily particularly liked her instructors because they made sure everyone",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "was comfortable with the kit they were given."
+                },
+                {
+                  "key": "B",
+                  "text": "felt confident about the new things they would attempt."
+                },
+                {
+                  "key": "C",
+                  "text": "got the same amount of attention."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Đoạn 3 nêu rõ: 'But our instructors encouraged the whole group so much, we were ready to try absolutely all the challenges, even stuff we hadn’t expected at all, like jumping off high cliffs!' (Huấn luyện viên khích lệ cả nhóm rất nhiều khiến mọi người tự tin sẵn sàng thử mọi thử thách mới). Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "wetsuit",
+                  "ipa": "/ˈwet.suːt/",
+                  "meaning": "bộ đồ bơi giữ nhiệt",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "encourage",
+                  "ipa": "/ɪnˈkʌr.ɪdʒ/",
+                  "meaning": "khích lệ, động viên",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            },
+            {
+              "id": "pet02-r-q24",
+              "questionNumber": 24,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "Lily says that after the course, she was",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "happy she’d shared something so exciting with her dad."
+                },
+                {
+                  "key": "B",
+                  "text": "sorry she hadn’t worked at getting fitter before she went."
+                },
+                {
+                  "key": "C",
+                  "text": "surprised at how exhausted she was by the activities."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Đoạn 4 viết: 'Anyway, Dad and I hadn’t realised how hard it would be physically, so we were glad we were fit... Even so, afterwards, we actually felt like we’d done loads of hard exercise in the gym!' (Hai bố con không ngờ hoạt động này lại tốn thể lực và gây mệt mỏi nhiều đến thế). Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "physically",
+                  "ipa": "/ˈfɪz.ɪ.kəl.i/",
+                  "meaning": "về mặt thể chất, thể lực",
+                  "partOfSpeech": "adverb"
+                },
+                {
+                  "word": "exhausted",
+                  "ipa": "/ɪɡˈzɔː.stɪd/",
+                  "meaning": "kiệt sức, mệt nhoài",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            },
+            {
+              "id": "pet02-r-q25",
+              "questionNumber": 25,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "What would Lily text to a friend while she was away on the course?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "I don’t think Dad was sure before he came that he’d enjoy it – but actually, he’s been braver than me!"
+                },
+                {
+                  "key": "B",
+                  "text": "I wanted to do the coasteering course, and mentioned it to my parents before my birthday. But I never expected they’d let me go!"
+                },
+                {
+                  "key": "C",
+                  "text": "Our session before the activities was great, although I really didn’t think I’d need a wetsuit for the cold – and I was right!"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Đoạn 2 nói ban đầu bố phân vân không biết có thích không ('he wondered whether he’d like coasteering himself'), nhưng ở đoạn 3 Lily kể bố thậm chí còn nhảy từ vách đá cao hơn cô rất nhiều ('the one I jumped off wasn’t that high, but Dad went much higher!'). Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "challenge",
+                  "ipa": "/ˈtʃæl.ɪndʒ/",
+                  "meaning": "thử thách",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimitMinutes": 25,
+      "totalQuestions": 20,
+      "tasks": [
+        {
+          "id": "pet02-l-part1",
+          "partNumber": 1,
+          "title": "Part 1: Short Recordings",
+          "instructions": "There are 7 questions in this part. For each question, listen to the recording TWICE and choose the correct answer A, B, or C.",
+          "playCountLimit": 2,
+          "media": {
+            "audioUrl": "/audio/vnu-bac3/equiv-02/listening-part1.mp3"
+          },
+          "transcript": "1. What can’t the woman find?\nMum: I’m going to mend and paint the cupboard in your bedroom today.\nDaughter: Great, Mum. Anything I can do to help?\nMum: Yes, can you go to the shop and get me a new hammer – this one’s broken. But before you do that, ask your dad what he’s done with the paintbrush – I’ve looked everywhere for it. There weren’t any in the garage; all I could find was this knife which I lost months ago!\n\n2. What is the weather forecast for tomorrow?\nMan: And now for those of you planning to go to the rock festival tomorrow, you’ll want to know what the weather’s going to be like. As we go through today, the heavy rain will gradually disappear by the end of the afternoon. Tomorrow we can expect some sunshine with just a few light showers, and then some very hot and dry weather is likely by the weekend.\n\n3. What did the boy buy?\nSon: I got most of the shopping you asked for, Mum. I got the last of the bread and some orange juice but sorry, there weren’t any newspapers left.\nMum: Oh, never mind, I need to remember to go in the morning. But what about the tomatoes for the salad?\nSon: Ah … I forgot. I’ll go back for them.\nMum: Oh, don’t worry, I’ll stop and pick some up when I go out to collect your sister.\n\n4. Which present has the girl bought her mother?\nJane: Hi … it’s me, Jane … I’ve got Mum’s birthday present. I think she’ll like it … Yes, that’s right, a gold-coloured one. She’s always writing letters, so she’ll find it useful … Mmm. I thought about a CD but I’m never really sure what music she likes, and Dad’s bought her a new pair of earrings for her birthday anyway. I’m sure she’ll like what I’ve got her.\n\n5. Which TV programme will they watch together?\nGirl: Hasn’t that basketball match finished yet? You know I want to watch the wildlife programme at nine o’clock.\nBoy: It’s cancelled, and everything’s running late because the rock concert finished later than expected. Sit down and watch this match with me. It’s really exciting, and more interesting than looking at animals.\nGirl: Oh, OK then.\n\n6. What time is the swimming lesson today?\nGirl: Hi Judy – do you want to play tennis after school – say about 4.30?\nJudy: Mmm – that would be fun but I’ve got a swimming lesson. It’s usually at a quarter past five but it’s half an hour earlier this evening, at a quarter to five. It takes me ages to cycle to the swimming pool, so I really don’t think I’ll have time today – let’s try tomorrow.\nGirl: OK!\n\n7. Which subject does the boy like best?\nBoy: I really like the new IT teacher – our project for this term is to design a new website. I’ve always wanted to know how to do that. The sports teacher is much more serious but that’s still my favourite subject. Last year I used to really like geography, but the teacher we have now gives us so much homework.",
+          "questions": [
+            {
+              "id": "pet02-l-q1",
+              "questionNumber": 1,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "What can’t the woman find?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "A hammer"
+                },
+                {
+                  "key": "B",
+                  "text": "A paintbrush"
+                },
+                {
+                  "key": "C",
+                  "text": "A knife"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Người mẹ nói chiếc búa thì bị hỏng, con dao thì vừa tìm thấy trong nhà để xe, nhưng bà đã tìm khắp nơi mà không thấy cây cọ sơn ('ask your dad what he’s done with the paintbrush – I’ve looked everywhere for it'). Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "paintbrush",
+                  "ipa": "/ˈpeɪnt.brʌʃ/",
+                  "meaning": "cây cọ sơn",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "mend",
+                  "ipa": "/mend/",
+                  "meaning": "sửa chữa",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            },
+            {
+              "id": "pet02-l-q2",
+              "questionNumber": 2,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "What is the weather forecast for tomorrow?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Heavy rain all day"
+                },
+                {
+                  "key": "B",
+                  "text": "Very hot and dry weather"
+                },
+                {
+                  "key": "C",
+                  "text": "Sunshine with a few light showers"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Dự báo thời tiết nêu rõ: 'Tomorrow we can expect some sunshine with just a few light showers' (Ngày mai trời có nắng kèm một vài cơn mưa rào nhẹ). Mưa to là hôm nay, còn nắng nóng khô ráo là vào cuối tuần. Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "light shower",
+                  "ipa": "/laɪt ˈʃaʊ.ər/",
+                  "meaning": "cơn mưa rào nhẹ",
+                  "partOfSpeech": "noun phrase"
+                },
+                {
+                  "word": "gradually",
+                  "ipa": "/ˈɡrædʒ.u.ə.li/",
+                  "meaning": "dần dần",
+                  "partOfSpeech": "adverb"
+                }
+              ]
+            },
+            {
+              "id": "pet02-l-q3",
+              "questionNumber": 3,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "What did the boy buy?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Bread and orange juice"
+                },
+                {
+                  "key": "B",
+                  "text": "Bread, tomatoes, and a newspaper"
+                },
+                {
+                  "key": "C",
+                  "text": "Orange juice and a newspaper"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Người con trai nói: 'I got the last of the bread and some orange juice' (Con đã mua ổ bánh mì cuối cùng và một ít nước cam), còn báo thì đã hết và cà chua thì cậu quên mua. Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "pick up",
+                  "ipa": "/pɪk ʌp/",
+                  "meaning": "ghé mua; đón ai",
+                  "partOfSpeech": "phrasal verb"
+                }
+              ]
+            },
+            {
+              "id": "pet02-l-q4",
+              "questionNumber": 4,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Which present has the girl bought her mother?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "A music CD"
+                },
+                {
+                  "key": "B",
+                  "text": "A pair of earrings"
+                },
+                {
+                  "key": "C",
+                  "text": "A gold-coloured pen"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Jane miêu tả món quà đã mua cho mẹ: 'a gold-coloured one. She’s always writing letters, so she’ll find it useful' (một chiếc bút màu vàng kim vì mẹ luôn viết thư nên sẽ thấy nó hữu ích). Bông tai là quà bố mua. Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "earrings",
+                  "ipa": "/ˈɪə.rɪŋz/",
+                  "meaning": "đôi bông tai",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "pet02-l-q5",
+              "questionNumber": 5,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Which TV programme will they watch together?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "A wildlife documentary"
+                },
+                {
+                  "key": "B",
+                  "text": "A basketball match"
+                },
+                {
+                  "key": "C",
+                  "text": "A rock concert"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Chương trình thế giới động vật bị hủy nên bạn nam rủ bạn nữ ngồi xuống xem trận bóng rổ cùng mình ('Sit down and watch this match with me... Oh, OK then'). Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "run late",
+                  "ipa": "/rʌn leɪt/",
+                  "meaning": "bị trễ giờ so với lịch trình",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            },
+            {
+              "id": "pet02-l-q6",
+              "questionNumber": 6,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "What time is the swimming lesson today?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "At 4:30"
+                },
+                {
+                  "key": "B",
+                  "text": "At 4:45"
+                },
+                {
+                  "key": "C",
+                  "text": "At 5:15"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Judy nói: 'It’s usually at a quarter past five [5:15] but it’s half an hour earlier this evening, at a quarter to five [4:45].' Hôm nay buổi học bơi diễn ra lúc 4 giờ 45 phút. Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "a quarter to five",
+                  "ipa": "/ə ˈkwɔː.tə tuː faɪv/",
+                  "meaning": "5 giờ kém 15 phút (4:45)",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            },
+            {
+              "id": "pet02-l-q7",
+              "questionNumber": 7,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Which subject does the boy like best?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Information Technology (IT)"
+                },
+                {
+                  "key": "B",
+                  "text": "Geography"
+                },
+                {
+                  "key": "C",
+                  "text": "Sports (Physical Education)"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Cậu bé nói dù thầy dạy thể dục nghiêm khắc hơn nhưng thể thao vẫn là môn học yêu thích nhất của cậu ('The sports teacher is much more serious but that’s still my favourite subject'). Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "serious",
+                  "ipa": "/ˈsɪə.ri.əs/",
+                  "meaning": "nghiêm khắc, nghiêm túc",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pet02-l-part2",
+          "partNumber": 2,
+          "title": "Part 2: Short Conversations",
+          "instructions": "There are 7 questions in this part. Listen to the conversations TWICE and choose the correct answer A, B, or C.",
+          "playCountLimit": 2,
+          "media": {
+            "audioUrl": "/audio/vnu-bac3/equiv-02/listening-part2.mp3"
+          },
+          "transcript": "8. You will hear two friends talking about a music performance.\nGirl: I enjoyed that.\nBoy: Me, too. I don’t think either of them played a wrong note in the whole performance.\nGirl: I think I heard a few – perhaps they hadn’t had enough time to play together before the concert.\nBoy: Maybe. I still wish they’d played a little longer, though – maybe a few more songs.\nGirl: I thought it was about right as it was. That kind of music sounds so much better in a smaller place – I don’t know why they chose to have it there.\nBoy: The two guitars are too quiet for somewhere that size.\n\n9. You will hear two friends talking about a play they have seen recently.\nGirl: That was an amazing play.\nBoy: It was. Over half the people watching were school students like us.\nGirl: I guess that’s not so unusual for an afternoon performance. Most adults are working then.\nBoy: I wonder what it’s like being an actor. They must have to practise so hard.\nGirl: The ones in this play certainly had. I found it difficult to believe how realistic they managed to make all of the characters.\nBoy: Yes, and I couldn’t predict what would happen at the end.\nGirl: I studied this play in literature classes last year, so I already knew what was going to happen.\n\n10. You will hear a boy telling a friend about an art course he went on.\nGirl: How was the art course?\nBoy: Fantastic – I learned so much.\nGirl: So what was the best bit?\nBoy: There were so many, but if I could only choose one, I think it’d be how the teacher got us to practise techniques in a number of different ways. I thought I’d spend most of the time drawing or painting, but we did so many other activities, all of which were quite useful for developing our skills.\nGirl: Sounds good.\nBoy: And I never knew there were so many jokes about artists! Our teacher seemed to know them all, which was great fun.\n\n11. You will hear two friends talking about getting to school.\nBoy: Are you walking to school with us tomorrow?\nGirl: I might go on my own, actually. I don’t want to be late.\nBoy: But you’ll enjoy it more if you come with us.\nGirl: It’s often no different to walking by myself because you all walk slowly along with your headphones on.\nBoy: We show each other things on our phones, too.\nGirl: That’s true, which is great in our free time, but not when it means arriving half an hour later than I would if I was by myself. At least you’re polite enough to move out of the way for other people on the pavement, though.\n\n12. You will hear a boy talking to a friend about his new house.\nGirl: How’s your new house?\nBoy: I like it. The colours aren’t what I’d ever choose, but my mum says we can easily fix that. My bedroom’s much bigger than the one at the old house, which annoyed my brother as his is quite small – like the rest of the house.\nGirl: I thought people usually moved to be somewhere bigger …\nBoy: Sure, but where it is is important, too, and the new one’s much closer to my parents’ work and to school, too. I can walk there in five minutes, which means I get to stay longer in bed in the morning.\n\n13 & 14. You will hear a girl talking about a day out with her family.\nBoy: How was your weekend?\nGirl: Good, thanks. We went for a day out by the river.\nBoy: The river near here? It’s easy to walk to, but it’s not like there’s lots to do there.\nGirl: I know. That’s why we went somewhere else, about an hour away in the car. It’s dangerous for swimming because the river’s really deep and wide there, but we’ve never found a better place to sit and eat. I know you’d probably prefer somewhere which has lots of activities, but it’s really peaceful, so we just sit on the grass, enjoy our food and relax.\nBoy: Sounds nice.",
+          "questions": [
+            {
+              "id": "pet02-l-q8",
+              "questionNumber": 8,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear two friends talking about a music performance.\nThe friends agree that",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the concert hall was too big."
+                },
+                {
+                  "key": "B",
+                  "text": "the performance was too short."
+                },
+                {
+                  "key": "C",
+                  "text": "the musicians needed more practice."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Bạn nữ nói thể loại nhạc này nghe hay hơn nhiều ở một nơi nhỏ hơn ('sounds so much better in a smaller place'), và bạn nam đồng tình rằng hai cây đàn guitar quá nhỏ tiếng so với một khán phòng rộng như vậy ('The two guitars are too quiet for somewhere that size'). Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "concert hall",
+                  "ipa": "/ˈkɒn.sət hɔːl/",
+                  "meaning": "khán phòng hòa nhạc",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "pet02-l-q9",
+              "questionNumber": 9,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear two friends talking about a play they have seen recently.\nWhat surprised the girl about the play?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "how young the audience was"
+                },
+                {
+                  "key": "B",
+                  "text": "how unusual the ending was"
+                },
+                {
+                  "key": "C",
+                  "text": "how good the acting was"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Cô gái nói: 'I found it difficult to believe how realistic they managed to make all of the characters.' (Cô thấy khó tin khi các diễn viên có thể hóa thân vào các nhân vật chân thực đến như vậy). Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "realistic",
+                  "ipa": "/ˌrɪəˈlɪs.tɪk/",
+                  "meaning": "chân thực, sống động",
+                  "partOfSpeech": "adjective"
+                },
+                {
+                  "word": "predict",
+                  "ipa": "/prɪˈdɪkt/",
+                  "meaning": "dự đoán trước",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            },
+            {
+              "id": "pet02-l-q10",
+              "questionNumber": 10,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear a boy telling a friend about an art course he went on.\nWhat did the boy enjoy most about it?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the strong focus on drawing and painting"
+                },
+                {
+                  "key": "B",
+                  "text": "the teacher’s sense of humour"
+                },
+                {
+                  "key": "C",
+                  "text": "the variety of practice activities"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Khi được hỏi điều thích nhất ('the best bit'), bạn nam nói: '...how the teacher got us to practise techniques in a number of different ways... we did so many other activities, all of which were quite useful for developing our skills.' Tức là sự đa dạng của các hoạt động thực hành. Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "technique",
+                  "ipa": "/tekˈniːk/",
+                  "meaning": "kỹ thuật",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "variety",
+                  "ipa": "/vəˈraɪ.ə.ti/",
+                  "meaning": "sự đa dạng, phong phú",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "pet02-l-q11",
+              "questionNumber": 11,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear two friends talking about getting to school.\nThe girl thinks that walking to school with her friends",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "is a good way to be sociable."
+                },
+                {
+                  "key": "B",
+                  "text": "takes longer than walking alone."
+                },
+                {
+                  "key": "C",
+                  "text": "causes problems for other pedestrians."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Cô gái nói các bạn đi rất chậm và việc đi cùng nhóm khiến cô đến trường muộn hơn nửa tiếng so với đi một mình ('arriving half an hour later than I would if I was by myself'). Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "on my own",
+                  "ipa": "/ɒn maɪ əʊn/",
+                  "meaning": "một mình",
+                  "partOfSpeech": "phrase"
+                },
+                {
+                  "word": "pavement",
+                  "ipa": "/ˈpeɪv.mənt/",
+                  "meaning": "vỉa hè",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "pet02-l-q12",
+              "questionNumber": 12,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear a boy talking to a friend about his new house.\nHow does the boy feel about it?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "pleased with its location"
+                },
+                {
+                  "key": "B",
+                  "text": "amazed at how big it is"
+                },
+                {
+                  "key": "C",
+                  "text": "satisfied with how it’s decorated"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Bạn nam nói vị trí ngôi nhà mới rất quan trọng vì gần chỗ làm của bố mẹ và gần trường học, đi bộ chỉ mất 5 phút nên cậu được ngủ thêm vào buổi sáng ('where it is is important, too, and the new one’s much closer to my parents’ work and to school'). Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "location",
+                  "ipa": "/ləʊˈkeɪ.ʃən/",
+                  "meaning": "vị trí địa lý",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "pet02-l-q13",
+              "questionNumber": 13,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear a girl talking about a day out with her family.\nWhy did the girl’s family choose to go to the river?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "There are many things to do."
+                },
+                {
+                  "key": "B",
+                  "text": "It’s close to where they live."
+                },
+                {
+                  "key": "C",
+                  "text": "It’s a good place for a picnic."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Cô gái nói: '...we’ve never found a better place to sit and eat... it’s really peaceful, so we just sit on the grass, enjoy our food and relax.' Đó là nơi tuyệt vời để ngồi ăn uống dã ngoại (picnic). Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "peaceful",
+                  "ipa": "/ˈpiːs.fəl/",
+                  "meaning": "yên bình, thanh tĩnh",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            },
+            {
+              "id": "pet02-l-q14",
+              "questionNumber": 14,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "In the same conversation about the day out by the river, why does the girl say it is dangerous to swim there?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Because the river is very deep and wide."
+                },
+                {
+                  "key": "B",
+                  "text": "Because there are fast motorboats passing by."
+                },
+                {
+                  "key": "C",
+                  "text": "Because the water is freezing cold all year."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Ở đoạn hội thoại số 13, cô gái giải thích rõ: 'It’s dangerous for swimming because the river’s really deep and wide there' (Bơi ở đó rất nguy hiểm vì khúc sông đó rất sâu và rộng). Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "deep",
+                  "ipa": "/diːp/",
+                  "meaning": "sâu",
+                  "partOfSpeech": "adjective"
+                },
+                {
+                  "word": "wide",
+                  "ipa": "/waɪd/",
+                  "meaning": "rộng",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pet02-l-part3",
+          "partNumber": 3,
+          "title": "Part 3: Extended Conversation (True / False)",
+          "instructions": "There are 6 questions in this part. You will hear a conversation between Jamie and Miranda about sharing a bedroom with a brother or sister. Decide whether statements 15 to 20 are Correct (True) or Incorrect (False). Choose A for True and B for False.",
+          "playCountLimit": 2,
+          "media": {
+            "audioUrl": "/audio/vnu-bac3/equiv-02/listening-part3.mp3"
+          },
+          "transcript": "You will hear a conversation between a boy called Jamie and a girl called Miranda about sharing a bedroom with a brother or sister.\n\nJamie: Hi, Miranda. How are you?\nMiranda: Hi, Jamie. I’m fine! I’m helping Mum paint my bedroom at home – the one I share with my younger sister.\nJamie: Oh, how’s it going?\nMiranda: Not well – we can’t agree! My sister and I both have got our own side of the room, and they’re completely different! I mean, my side’s blue, with pop posters all over the wall. But her side’s pink, with dolls and stuff. Not my thing at all really, but as I said, she is younger than me – and it looks OK, I guess.\nJamie: Mmm – well, I share with my brother Max, but as he’s older than me, I get to use lots of things that my parents don’t really want me to have, because they say I’m not old enough. But he lets me use his laptop, music player … everything!\nMiranda: Wow! Now, if that was my little sister, she’d probably go and report it to our mum, and I’d get into trouble! That happens sometimes. Then my sister and I have an argument!\nJamie: Oh? That doesn’t happen with Max and me …\nMiranda: No? Well, apart from that, I get on OK with my sister, really. To be honest, she went camping with her school last week, and I really missed her. I found it wasn’t so nice being in our room on my own. I hadn’t expected that.\nJamie: I know what you mean. My brother’s going to university soon, and the room will seem really empty. Still, at least I’ll be able to get on with my homework in peace – it’s hard at the moment, as he’s often in the room, too.\nMiranda: Well, my sister likes playing outside, so it’s OK. But then when she’s not there, there’s no-one to talk to about my problems. She’s really good at listening if she knows I’m worried about something, even though she can’t help.\nJamie: Mmm, my brother’s the same. We wouldn’t do that if we didn’t share rooms.\nMiranda: No … so sharing does have good points …",
+          "questions": [
+            {
+              "id": "pet02-l-q15",
+              "questionNumber": 15,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Miranda accepts what her sister’s side of the room looks like.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Miranda nói góc phòng màu hồng bày búp bê của em gái không phải sở thích của cô, nhưng vì em còn nhỏ và trông cũng ổn ('she is younger than me – and it looks OK, I guess'). Như vậy cô chấp nhận cách trang trí đó. Đáp án A (True) đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "share a room",
+                  "ipa": "/ʃeər ə ruːm/",
+                  "meaning": "ở chung phòng",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            },
+            {
+              "id": "pet02-l-q16",
+              "questionNumber": 16,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Jamie complains that his brother refuses to share his electronic equipment.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Jamie hào hứng kể rằng anh trai Max cho phép cậu dùng máy tính xách tay, máy nghe nhạc và mọi thứ ('he lets me use his laptop, music player … everything!'). Do đó nói anh trai từ chối cho mượn đồ điện tử là SAI. Đáp án B (False) đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "electronic equipment",
+                  "ipa": "/ˌel.ekˈtrɒn.ɪk ɪˈkwɪp.mənt/",
+                  "meaning": "thiết bị điện tử",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "pet02-l-q17",
+              "questionNumber": 17,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Miranda is annoyed about some things that her sister tells their mother.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Miranda than phiền rằng em gái đôi khi đi mách mẹ khiến cô gặp rắc rối và hai chị em cãi nhau ('she’d probably go and report it to our mum, and I’d get into trouble! That happens sometimes. Then my sister and I have an argument!'). Đáp án A (True) đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "get into trouble",
+                  "ipa": "/ɡet ˈɪn.tuː ˈtrʌb.əl/",
+                  "meaning": "gặp rắc rối, bị phạt",
+                  "partOfSpeech": "phrase"
+                },
+                {
+                  "word": "argument",
+                  "ipa": "/ˈɑːɡ.jə.mənt/",
+                  "meaning": "cuộc tranh cãi",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "pet02-l-q18",
+              "questionNumber": 18,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Miranda was surprised that she felt lonely when her sister was away.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Khi em gái đi cắm trại tuần trước, Miranda rất nhớ em và thấy ở một mình trong phòng không vui như tưởng tượng ('I really missed her. I found it wasn’t so nice being in our room on my own. I hadn’t expected that.'). Đáp án A (True) đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "get on with",
+                  "ipa": "/ɡet ɒn wɪð/",
+                  "meaning": "hòa thuận với ai; tiếp tục làm gì",
+                  "partOfSpeech": "phrasal verb"
+                }
+              ]
+            },
+            {
+              "id": "pet02-l-q19",
+              "questionNumber": 19,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Despite sharing a bedroom, Jamie finds he can still easily do his homework.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Jamie nói hiện tại rất khó làm bài tập về nhà một cách yên tĩnh vì anh trai thường ở trong phòng ('it’s hard at the moment, as he’s often in the room, too'). Do đó nhận định cậu dễ dàng làm bài tập là SAI. Đáp án B (False) đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "in peace",
+                  "ipa": "/ɪn piːs/",
+                  "meaning": "một cách yên tĩnh, bình yên",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            },
+            {
+              "id": "pet02-l-q20",
+              "questionNumber": 20,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Jamie and Miranda can both share problems with their brother or sister.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Miranda nói em gái rất biết lắng nghe mỗi khi cô lo lắng về vấn đề gì đó, và Jamie đồng tình rằng anh trai cậu cũng vậy ('Mmm, my brother’s the same. We wouldn’t do that if we didn’t share rooms'). Đáp án A (True) đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "good point",
+                  "ipa": "/ɡʊd pɔɪnt/",
+                  "meaning": "điểm tốt, mặt tích cực",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing (Viết)",
+      "timeLimitMinutes": 40,
+      "totalQuestions": 2,
+      "tasks": [
+        {
+          "id": "pet02-w-t1",
+          "partNumber": 1,
+          "title": "Task 1: School Charity Fair Announcement",
+          "instructions": "Write a paragraph of at least 80 words for the school noticeboard announcing the upcoming 'School Charity Fair' based on the given details.",
+          "questions": [],
+          "writingPrompts": [
+            {
+              "id": "pet02-w-p1",
+              "taskNumber": 1,
+              "title": "School Charity Fair",
+              "instructions": "Write at least 80 words using the information provided in the table.",
+              "minWords": 80,
+              "dataCard": {
+                "Event": "School Charity Fair",
+                "Date": "Sunday, July 21st",
+                "Purpose": "Raise funds for poor students",
+                "Activities": "Bake sale, music show, handmade goods"
+              },
+              "sampleAnswer": "We are delighted to invite all students, teachers, and parents to join our annual School Charity Fair on Sunday, July 21st, in the main schoolyard. The main purpose of this meaningful event is to raise funds to buy textbooks and warm clothes for poor students in mountainous areas. Throughout the day, visitors can enjoy a wide variety of exciting activities, including a delicious homemade bake sale, a lively student music show, and stalls selling beautiful handmade goods. Please come along with your friends and family to have fun and support a wonderful cause!"
+            }
+          ]
+        },
+        {
+          "id": "pet02-w-t2",
+          "partNumber": 2,
+          "title": "Task 2: Opinion Paragraph (Choice)",
+          "instructions": "Choose ONE of the two topics below and write a paragraph of at least 100 words.",
+          "questions": [],
+          "writingPrompts": [
+            {
+              "id": "pet02-w-p2",
+              "taskNumber": 2,
+              "title": "Choose Topic 2.1 or 2.2",
+              "instructions": "Select one topic and write at least 100 words.",
+              "minWords": 100,
+              "topicChoices": [
+                {
+                  "code": "2.1",
+                  "topic": "Write a paragraph explaining why everyone should do more exercise to stay healthy.",
+                  "guidelines": [
+                    "Strengthening the heart, muscles, and immune system",
+                    "Reducing everyday stress and improving sleep quality",
+                    "Maintaining a healthy weight and preventing illnesses"
+                  ]
+                },
+                {
+                  "code": "2.2",
+                  "topic": "Write a paragraph about why reading books is better than watching TV.",
+                  "guidelines": [
+                    "Developing imagination and creative thinking skills",
+                    "Improving vocabulary, language skills, and deep focus",
+                    "Protecting eyes from too much screen exposure"
+                  ]
+                }
+              ],
+              "sampleAnswer": "There are several important reasons why everyone should do more physical exercise to stay healthy. Firstly, regular exercise such as jogging, swimming, or cycling strengthens our heart and muscles while helping us maintain a healthy weight. Secondly, working out is an excellent way to reduce mental stress after a long day at school or work because physical activity releases natural chemicals that make us feel happier and more relaxed. Finally, people who exercise regularly sleep much better at night and have more energy for their daily tasks. In conclusion, spending just thirty minutes a day exercising brings lasting benefits for both body and mind."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking (Nói)",
+      "timeLimitMinutes": 8,
+      "totalQuestions": 2,
+      "tasks": [
+        {
+          "id": "pet02-s-p1",
+          "partNumber": 1,
+          "title": "Part 1: Social Interaction",
+          "instructions": "Answer questions about health, travel, and school subjects.",
+          "questions": [],
+          "speakingPrompts": [
+            {
+              "id": "pet02-s-prompt1",
+              "partNumber": 1,
+              "title": "Social Interaction Questions",
+              "instructions": "Answer naturally in 25–35 seconds per question.",
+              "durationMinutes": 3,
+              "questions": [
+                "How do you stay healthy?",
+                "Do you like traveling? Why or why not?",
+                "What’s your favorite subject at school?",
+                "What kind of weather do you like best, and why?",
+                "Do you prefer watching films at the cinema or at home?"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pet02-s-p2",
+          "partNumber": 2,
+          "title": "Part 2: Cue Card Long Turn",
+          "instructions": "Choose Card 1 or Card 2 to speak for 1.5 to 2 minutes.",
+          "questions": [],
+          "speakingPrompts": [
+            {
+              "id": "pet02-s-prompt2",
+              "partNumber": 2,
+              "title": "Cue Card Choice",
+              "instructions": "Choose Card 1 or Card 2.",
+              "durationMinutes": 5,
+              "cueCards": [
+                {
+                  "code": "Card 1",
+                  "title": "Describe your favorite place to relax.",
+                  "prompts": [
+                    "Where the place is",
+                    "What you usually do there",
+                    "And explain why you like relaxing there"
+                  ],
+                  "furtherQuestions": [
+                    "Do young people in your country prefer relaxing indoors or outdoors?",
+                    "Why is it important to have quiet parks in big cities?"
+                  ],
+                  "sampleResponse": "My favorite place to relax is a small public park near a lake in my neighborhood. Whenever I feel tired after school, I walk there to sit on a wooden bench under the green trees, listen to music, or read a book. I love this place because the air is very fresh and peaceful, away from the noisy city traffic. Spending an hour there always helps me clear my mind and recharge my energy."
+                },
+                {
+                  "code": "Card 2",
+                  "title": "Describe a school event you enjoyed.",
+                  "prompts": [
+                    "What the school event was",
+                    "When it happened and who took part in it",
+                    "And explain why it was special to you"
+                  ],
+                  "furtherQuestions": [
+                    "What benefits do students get from joining extracurricular events?",
+                    "Should schools spend more time on sports and arts festivals?"
+                  ],
+                  "sampleResponse": "A school event that I really enjoyed was our annual Sports Day held last March at the school stadium. All classes in my grade competed in exciting team games such as the relay race, tug of war, and football. It was very special to me because my class practiced together for two weeks and won second prize in the tug-of-war competition. The event brought all of my classmates closer together and gave us unforgettable memories."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

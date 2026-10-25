@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-55",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 55",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> There are eight questions in this part. For each question there are four options and a short recording. For each question, choose the correct answer A, B, C or D. You now have 45 seconds to look through the questions and the options in each question.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-09/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. What time is it?</b></p><ul><li><b>Speaker 1:</b> Have you got the right time? I think my watch is wrong.</li><li><b>Speaker 2:</b> Ah it’s half past two.</li><li><b>Speaker 1:</b> My watch is 20 past</li><li><b>Speaker 2:</b> well, it’s 10 minute slow then</li></ul><p><b>2. What’s Michelle going to read?</b></p><ul><li><b>Speaker 1:</b> Can I read your newspaper, Michelle?</li><li><b>Speaker 2:</b> Didn’t you bring a book with you?</li><li><b>Speaker 1:</b> Yes, but it’s not very interesting</li><li><b>Speaker 2:</b> Oh. Here you are. I’ll read a letter from John.</li></ul><p><b>3. How much did the tickets cost?</b></p><ul><li><b>Speaker 1:</b> Oh hi. Did you have a good time at the theatre last night?</li><li><b>Speaker 2:</b> Well. The play was excellent but the tickets cost 90 dollars each.</li><li><b>Speaker 1:</b> That’s not too bad if the play was good.</li><li><b>Speaker 2:</b> No. Perhaps you’re right.</li></ul><p><b>4. What is the man going to buy?</b></p><ul><li><b>Speaker 1:</b> Is everything ready for the holiday?</li><li><b>Speaker 2:</b> I’m just going shopping. I must get those pills I take when I feel travel sick. Do we need anything else from the chemist? We forgot the toothpaste last time.</li><li><b>Speaker 1:</b> I’ve got that. I haven’t got any sunglasses but I can borrow yours, can’t I. And I get something to read at the airport.</li><li><b>Speaker 2:</b> Right</li></ul><p><b>5. Which dress is Kate talking about?</b></p><ul><li><b>Speaker 1:</b> Oh mom. This dress is still dirty.</li><li><b>Speaker 2:</b> It can’t be, Kate. I have washed it.</li><li><b>Speaker 1:</b> But it is. The mark on the collar has gone but it’s still a small one here. Look. It’s in front, just below the button. It’s where I spilled some coke last week.</li></ul><p><b>6. When will Jane meet them?</b></p><ul><li>Hi. It’s Pete here. John left you a message to say he can’t meet you at 8 o’clock as plan because her bus doesn’t get into late 15. And it will take 30 minutes to get from the center of town. I told to the tables actually book at 8:45 so that would be fine. And we’ll see her then.</li></ul><p><b>7. Which morning activity is for beginners?</b></p><ul><li>At 10am tomorrow morning, there will be swimming lessons at both intermediate and beginner levels. Then there will be volleyball practice at 11:30 for all those of you who are already in one of the teams. Also in the morning, for those of you who already know how to sail, there’s a chance to do some practice on your own. There will be lessons in both sailing and windsurfing for beginners after lunch.</li></ul><p><b>8. Which painting does the woman decide to buy?</b></p><ul><li>They’re all nice but you see a lot flowers everywhere these days, don’t you? So that wouldn’t be my choice. The thing with animals actually although I did quite like the one with horses so it looks like it has to be the one with the boat. It will be a change from that bowl of food I have had on the wall all these years anyway.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What time is it?",
+              "options": [
+                "02.10",
+                "02.20",
+                "02.30",
+                "03.20"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What's Michelle going to read?",
+              "options": [
+                "book",
+                "letter",
+                "newspaper",
+                "magazine"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "How much did the tickets cost?",
+              "options": [
+                "$19",
+                "$90",
+                "$99",
+                "$9"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What is the man going to buy?",
+              "options": [
+                "sunglasses",
+                "something to read",
+                "pills",
+                "food"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "Which dress is Kate talking about?",
+              "options": [
+                "a dress with no button",
+                "a dress with many buttons",
+                "a dress with collar",
+                "a dress with no collar"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "When will Jane meet them?",
+              "options": [
+                "08:00",
+                "08:30",
+                "08:45",
+                "03:15"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "Which morning activity is for beginners?",
+              "options": [
+                "windsurfing",
+                "swimming",
+                "sailing",
+                "running"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "Which painting does the woman decide to buy?",
+              "options": [
+                "a painting with boats",
+                "a painting with flowers",
+                "a painting with horses",
+                "a painting with white clouds"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-21/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>M:</b> Today we have with us in the studio Lucy Rainbow, who earns her living as a painter. Good morning, Lucy. Can you tell us about your job?</li><li><b>W:</b> Well, I don’t paint pretty pictures you can hang on your walls at home. Mainly I work in the theatre painting the background scenery for plays I’ve also done a couple of CD covers. That was great, because I got to meet my favourite pop stars.</li><li><b>M:</b> So how did all this start?</li><li><b>W:</b> Well, I always intended to become a proper artist. But I couldn’t sell any of my paintings, and anyway I got bored working alone! I was offered a job in an advertising agency but the idea of working in a theatre attracted me more. I get the chance to paint something different every day. I get paid reasonably well, and I work with a team of wonderful people.</li><li><b>M:</b> So you enjoy your work, but doesn’t it have any disadvantages?</li><li><b>W:</b> Mostly, I love it. The only thing that causes me stress is that often I have too many things to do at the same time while at other times I have nothing to do. It’s difficult to organise my time, but I always make sure I stop for lunch.</li><li><b>M:</b> How many hours do you work on an average day?</li><li><b>W:</b> There’s no such thing as an average day! But generally, I start work at eight in the morning, and go through until seven. That makes it an eleven-hour day, which is much longer than the eight hours that most people work.</li><li><b>M:</b> Is your journey to work difficult?</li><li><b>W:</b> Not really. My dream job would be one where I could walk to work but that hasn’t happened yet. I could drive to the theatre, but that makes me tired and I get a lot of my best ideas when I’m on my way to work, on the bus or train.</li><li><b>M:</b> Do you have time for any hobbies?</li><li><b>W:</b> Not as much as I’d like. I used to play a lot of tennis until I hurt my ankle and I was a regular visitor to an art gallery near my home until it closed down. In the little spare time I have, I’m doing a course in computer graphics. I hope what I learn will help me in my job.</li><li><b>M:</b> Well, thank you, Lucy. It’s been interesting talking to you.</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>W:</b> My guest today is Tim Jones, who organizes an international summer course for young musicians. Tim tell us all about it.</li><li><b>M:</b> Well, I’m lucky to have such a great job. Basically, young musicians come from all over the world and learn to play together as an orchestra. By the end of the six-week course, they’re really good and hearing them play is what gives me most pleasure. Unfortunately, I don’t get to know them all that well, as organizing every single detail of the course keeps me busy.</li><li><b>W:</b> So, how do you find the young musicians?</li><li><b>M:</b> We advertise on the Internet. Anyone between the ages of sixteen and twenty can complete the application form and email it to us along with a short recording of their playing. We’re not looking for perfect performances or the stars of tomorrow just people good enough to play in an orchestra. The course is in English but only a basic level of spoken language is necessary.</li><li><b>W:</b> And the teachers?</li><li><b>M:</b> The teachers are well-known musicians. Because they want to help young people, they do this work for a very low salary which is very kind of them. But it’s my job to take care of them and make sure they’re happy with their accommodation and so on. They generally have a great time, but some of them can be a bit difficult and sometimes complain about things.</li><li><b>W:</b> So where is the course held?</li><li><b>M:</b> In different places each year, actually, but it’s usually a university during the summer holidays. They have large halls for practicing, plus plenty of bedrooms and dining-rooms. Most importantly, though, the place has to have good rail, road and air connections so somewhere in the middle of the countryside’s no good.</li><li><b>W:</b> Do the students bring their own instruments?</li><li><b>M:</b> Mostly, yes. So, another thing to consider is security. Storing instruments in a locked room when they’re not being used is essential. Can you imagine a hundred or more musical instruments lying around violins, trumpets, flutes, cellos - all worth a lot of money. It would be terrible if one got damaged, or even worse stolen!</li><li><b>W:</b> And at the end of the course, there’s a concert tour.</li><li><b>M:</b> That’s right. I book concert halls and work out the programmes months in advance. It’s important to get it right. Ticket prices aren’t high, because we’re not a professional orchestra but lots of people buy them. We don’t make a profit, but take enough money to pay for the students’ travel and living expenses. It’s a fantastic experience for them.</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>M:</b> Today, I’m talking to Marta Stanston, who runs her own ‘mobile’ restaurant. Marta, How did you get into the restaurant business?</li><li><b>W:</b> Well, I learnt to cook at college. I always wanted to open my own restaurant but had no money so I got a job as a chef. I had all sorts of ideas for new dishes, which the staff thought would sell but the guy who owned the place wasn’t interested. That’s when a friend told me about the ‘mobile restaurant’ idea. It sounded great.</li><li><b>M:</b> Tell us about it.</li><li><b>W:</b> Well, it works like this: you decide on a menu obviously you have to be able to cook then you advertise it so people can book a meal. The most amazing thing is all the advertising is done through social-networking websites. People set up tables in their sitting-room, or in a City car park, an empty factory - anywhere in fact. And because you know how many people you’re cooking for, food doesn’t get wasted.</li><li><b>M:</b> So why was it good for you?</li><li><b>W:</b> Well, various reasons. Like, I could buy all the ingredients without risk because you make customers pay in advance. The greatest advantage, though, is by having a maximum of ten customers. I didn’t need to hire a waiter. Then, of course, I could prepare everything at home just take a camping gas cooker with me, plus some plates, glasses, knives and forks.</li><li><b>M:</b> Do you never run into problems?</li><li><b>W:</b> The whole experience is fun. People watch you cook and the atmosphere’s relaxed. I did one meal on a beach which almost went wrong because I didn’t think about the wind blowing sand into people’s food. Fortunately, I’d brought a large umbrella to protect myself from the sun so I put it around their table instead!</li><li><b>M:</b> And you sometimes use your own flat?</li><li><b>W:</b> If the weather’s bad, people come to my home instead, but it gets very crowded. Even though I’ve actually got enough chairs and a big table, it’s not ideal. I was worried we might disturb the neighbours but they’ve been alright about it. I love the temporary feel of the mobile idea, so home’s not really what it’s about.</li><li><b>M:</b> So, what’s the future of mobile restaurants?</li><li><b>W:</b> Well, it’s rather uncertain. Lots of new ones are popping up because it’s become fashionable. I think health inspectors will want to check them out. That doesn’t worry me, because I’m a trained chef. But if someone got ill in a less serious one, we might all get a bad name. So I guess inspections are a good thing.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What does Lucy usually paint?",
+              "options": [
+                "scenery for stage plays",
+                "pictures of pop stars",
+                "the walls in people’s homes",
+                "pictures on people’s homes"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What does Lucy say about her present job?",
+              "options": [
+                "she enjoys working by herself.",
+                "she chose it because she couldn’t get a job in advertising.",
+                "She earns a good salary.",
+                "It does not need any special skills."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What does Lucy find difficult about her work?",
+              "options": [
+                "She sometimes misses lunch.",
+                "Some days are too busy.",
+                "She always has too much work to do.",
+                "She feel bored because she doesn’t have much to do."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "How does Lucy get to work?",
+              "options": [
+                "by bus or train",
+                "by car",
+                "on foot",
+                "by bike"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "What does Tim enjoy most about his job?",
+              "options": [
+                "sorting out all the details",
+                "getting to know the musicians",
+                "listening to lots of good music",
+                "meeting some famous musicians"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What does Tim say about the teachers on the course?",
+              "options": [
+                "usually enjoy themselves.",
+                "are always complaining.",
+                "are extremely well-paid.",
+                "They are difficult."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "Where is the course held?",
+              "options": [
+                "a place which is specially designed for musicians.",
+                "is convenient for public transport.",
+                "is a long way from a big City.",
+                "in the middle of the countryside."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "What does Tim say about the concert tour after the course?",
+              "options": [
+                "It has to make a lot of money",
+                "It needs to be carefully planned",
+                "It’s difficult to sell tickets",
+                "It’s a good experience for both students and Tim."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What did Marta dislike about her first job?",
+              "options": [
+                "It was really badly paid.",
+                "The boss didn’t listen to her.",
+                "She found the staff unfriendly.",
+                "The restaurant was mobile."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "At first, what did Marta find most surprising about mobile restaurants?",
+              "options": [
+                "They are only advertised online.",
+                "Food never gets thrown away.",
+                "Menus can be easily changed.",
+                "People enjoy their meals in any place."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "What made Marta have difficulty serving food on a beach?",
+              "options": [
+                "the sun.",
+                "the rain.",
+                "the wind.",
+                "not being allowed to eat on the beach."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What worries Marta about the future?",
+              "options": [
+                "mobile restaurants going out of fashion",
+                "the wrong people opening restaurants like hers",
+                "health inspectors coming to her restaurant",
+                "people getting ill because of bad food."
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks, lectures or conversations. The talks, lectures, or conversations will not be repeated. There are five questions for each talk, lecture, or conversation. For each question, choose the right answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-18/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talks/Lectures 1 (Q.21-25)</b></p><p><b>Transcript</b></p><p>Welcome to this week’s book programme. We’ve got lots of great new books to tell you about. My life, by Joe Wrigley, will keep all fans of Joe’s stories happy for hours. It explains a lot about where his ideas come from and gives a picture of what was happening in his life when he was working on his most successful books. I must say, though, that some of it is difficult to understand if you haven’t read his other books. Now, for those of you who like a good cry Goodbye to the fields, by Susan Marks tells the sad story of John, a small boy who has to leave the countryside he loves when the family move to London because of his father’s job. John and his mother would prefer to stay where they are. It’s a long time before the family begins to feel comfortable living in the big city. There are plenty of books with helpful advice this week. First, the A-Z of photography would make a great present for anyone just starting out with a camera. It has everything you need to know to take really good photos, and learn about cameras, film, lighting and so on. This is not one for the experienced photographer, though there’s not much advanced information here. Turning to the kitchen Cooking for one, by Adrian White, says on its cover that even people who hate cooking will find it useful. A month ago, I couldn’t even boil an egg but now I’m producing all sorts of dishes, some quite difficult and, yes, they taste quite good, too. I’m actually enjoying cooking now I’m now going to try a new book about cooking Italian food. The last book this week is Holidays in Europe, by Mary Curtis. This is an enjoyable read, which will start your imagination working as you plan for next year’s holiday. It doesn’t matter that the writer doesn’t talk about the famous places everyone visits but describes lots of small places away from the main tourist areas. The maps are too small to be useful but the book is still good value for money. That’s it for this week, then. Next week, there’s a special report on giving books as presents, so if you’ve saved up your money and you’re wondering what to get for a friend or relation for their birthdays, you might get some good ideas … I’ll look forward to talking to you then …</p><p><b>Talks/Lectures 2 (Q.26-30)</b></p><p><b>Transcript</b></p><p>People always ask me why I only travel the hard way! A lot of television travel programmes are about relaxing holidays on the beach but I’ve only ever made documentaries about really long trips. The last trip I did was a 50,000-mile journey around the Pacific Ocean and it took 12 months. But then my very first trip was a ‘round the world’ journey, and the most difficult one was probably a car journey from the North Pole to the South Pole! As you can imagine, I’ve seen a lot of the world! I’m lucky to be in really excellent health, but life is very short and I’ve done so much travelling that I want a change. Travelling long distances makes you extremely tired, and although it’s still a great pleasure for me I want to do something more relaxing now. I think my next travel series might be made nearer England. There’s some really interesting work going on in Wales where they’ve just found what remains of a 2,000-year-old town. Or I might do something about farms in France or even cycling in Holland. There’s always something to film if you look hard enough! But I hope the programmes I’ve made about the really long trips will encourage other people to get on a plane and have some adventures. Some people seem to be afraid of going to a strange country and perhaps being ill there but maybe they realise now that if I can do these trips, so can they. I’m only a very ordinary person. Obviously, you don’t have to travel on your own as I always have. I must say that until recently I hadn’t ever worried about being so far from home even when the children were very small. But while I was filming in Borneo last year my wife had to have an emergency operation and it really frightened me because I couldn’t get back to England. Everything was fine in the end but I wouldn’t want to be so far away if anything like that happened to my family again. Perhaps if I spend more time at home I can do more writing. I’ve done two books so far. I write about places I’ve seen and my feelings about them. I don’t think I’ll ever write fiction or poetry but I’d be interested in writing newspaper articles. My family says I’m very difficult to live with when I’m writing at home … perhaps that’s why they’ve never complained about me travelling!</p><p><b>Talks/Lectures 3 (Q.31-35)</b></p><p><b>Transcript</b></p><p>With us today, to tell us about his trip across Africa is the biologist Paul Hart. We started on the east coast and travelled on foot across Africa to Gabon in the west collecting plants and flowers along the way. It wasn’t easy, but my route crossed a region rich in plants and I chose it because it won’t stay that way for long when more roads are built. It was my only chance to get important information about the natural life of the area. I had a team of eleven scientists. We walked from six in the morning but the forest was so thick it took hours to cut our way through and some days we only walked one kilometre before dark. Fortunately, we carried special equipment that was very light and we took as little food as possible. But we were always tired when we put the tents up at night. Sometimes we saw elephants or lions. They were amazing to watch and never attacked us. Every day, I collected plants and added to my notes. There was so much new information to write down. There were, of course, some low points, especially when I got anxious about the team. It was my job to make sure everyone got home safely. Towards the end of the trip, I suddenly discovered one day that the food had nearly all gone. It was strange because we brought enough dried food with us to last the trip food that wouldn’t ever go bad and we’d stopped at villages for fresh food too. But then I found that some of the team had eaten much more than they were supposed to. I was angry with them because it was a silly thing to do. Then we started walking again. There were no maps for the area, but we had a local guide. Then one of the team got sick and we couldn’t go any further. We let him rest, but he got much worse. Thankfully his life was saved by a fisherman who came along the river in a boat and took him to a doctor in the nearest village. Finally, I returned home and I’m back with my family and friends. I really missed them while I was away. But I learnt so much on the trip and I’m really glad I went. I was asked to go on another trip this time to Australia but I said that I couldn’t because I’m busy here in London. And I think I’ve done enough travelling.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What should readers do to really understand My life?",
+              "options": [
+                "read it very slowly.",
+                "know about the writer’s life.",
+                "read it with a picture.",
+                "read the writer’s other books."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "Why does John go to London in Goodbye to the fields?",
+              "options": [
+                "his parents do not like the country.",
+                "his father has to be close to his work",
+                "his parents both come from the city.",
+                "His parents want him to have better education."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What information is NOT included in the A-Z of photography?",
+              "options": [
+                "Basic equipment in photography",
+                "how to take good pictures",
+                "Basic information about taking pictures.",
+                "advanced information about photography."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What information does readers get from Holidays in Europe?",
+              "options": [
+                "a small map.",
+                "famous places.",
+                "the main tourist areas.",
+                "less common places."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "For whom are next week’s programme useful?",
+              "options": [
+                "those who enjoy reading reports.",
+                "those who are trying to save money.",
+                "those who are planning to buy gifts.",
+                "those who enjoy making friends."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "What did John do for his most recent television programme?",
+              "options": [
+                "drove from the North to the South Pole.",
+                "filmed relaxing beach holidays.",
+                "went to the Pacific Ocean for a year.",
+                "traveled round the world."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "Why is John giving up very long trips?",
+              "options": [
+                "because he’s too old now.",
+                "because he’s been everywhere.",
+                "because they’re too tiring.",
+                "because his family want him to spend more time with them."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "What is John’s next television series probably about?",
+              "options": [
+                "farms in Scotland.",
+                "old ruins in Wales.",
+                "cycling tours in France.",
+                "cycling tours in England."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "Why does John want to spend more time near home?",
+              "options": [
+                "His family might need him.",
+                "His wife misses him.",
+                "He has very young children.",
+                "His wife is ill."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What has John written so far?",
+              "options": [
+                "newspaper articles.",
+                "travel books.",
+                "poems.",
+                "fictions."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "Why did Paul choose the part of Africa he visited?",
+              "options": [
+                "It is good for walking.",
+                "It will soon change.",
+                "He had been there before.",
+                "It was the easiest route to go"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "What made the team’s journey slow?",
+              "options": [
+                "clearing paths through the forest",
+                "finding somewhere safe to camp",
+                "carrying heavy equipment",
+                "finding something to eat."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What did Paul worry about during the trip?",
+              "options": [
+                "the number of dangerous animals",
+                "getting the information he needed",
+                "being responsible for a team of people",
+                "asking the team to help him."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "Paul says that the team didn’t have enough food because",
+              "options": [
+                "some people ate more than they should.",
+                "the walk took longer than expected.",
+                "some of the food went bad too quickly.",
+                "They underestimated the amount of food to bring"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "How does Paul feel now he is back home?",
+              "options": [
+                "He is planning to do another trip.",
+                "He misses the people in the team",
+                "He thinks the trip was a valuable experience.",
+                "He wouldn’t mind travelling to Australia."
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

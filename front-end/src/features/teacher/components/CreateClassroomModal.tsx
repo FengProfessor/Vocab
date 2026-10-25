@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Modal } from 'antd';
+import { Form, Input, Modal } from '@/components/ui/Primitives';
 import { CreateClassroomFormValues } from '@/features/teacher/types/CreateClassroomFormValues';
 import { CreateClassroomModalProps } from '@/features/teacher/types/CreateClassroomModalProps';
 

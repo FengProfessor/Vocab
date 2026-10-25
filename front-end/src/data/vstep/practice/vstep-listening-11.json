@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-11",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 11",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> There are eight questions in this part. For each question there are four options and a short recording. For each question, choose the correct answer A, B, C or D. You now have 45 seconds to look through the questions and the options in each question.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-11/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. Which box of chocolates do they buy?</b></p><ul><li><b>Speaker 1:</b> Which box of chocolate should we get Mom for her birthday?</li><li><b>Speaker 2:</b> Those round boxes with the flowers are nice.</li><li><b>Speaker 1:</b> yes. But that square box is cheaper.</li><li><b>Speaker 2:</b> But it’s mom’s birthday. Let’s get the big round one. We’ve got enough money.</li><li><b>Speaker 1:</b> Ok</li></ul><p><b>2. When is Wendy’s birthday?</b></p><ul><li><b>Speaker 1:</b> Wendy, You’re 21 on Saturday, aren’t you?</li><li><b>Speaker 2:</b> No. My birthday is on May 18th</li><li><b>Speaker 1:</b> Well, Saturday isn’t 18th?</li><li><b>Speaker 2:</b> No, it’s not. It’s the 16th</li></ul><p><b>3. How much petrol does the woman want?</b></p><ul><li><b>Speaker 1:</b> Could you put 30 litres of petrol in my car please?</li><li><b>Speaker 2:</b> Did you say 13 litres?</li><li><b>Speaker 1:</b> No, 30 litres. Filling up please.</li></ul><p><b>4. What time is the woman’s hair appointment?</b></p><ul><li><b>Speaker 1:</b> I’d like to make an appointment to have my hair cut, please. This Friday or Saturday in the morning if you manage it.</li><li><b>Speaker 2:</b> Let me see. We can do Friday. At 10 or 11:30 then on Saturday, there’s 9:30 or 12 o’clock</li><li><b>Speaker 1:</b> I’ll take the earlier one on Saturday, please.</li></ul><p><b>5. Where is the TV guide?</b></p><ul><li><b>Speaker 1:</b> Have you seen the TV guide?</li><li><b>Speaker 2:</b> Isn’t it on the top of the television? I had it while I was watching a film last night.</li><li><b>Speaker 1:</b> I expect to have left by the chair then. Here it is, under the cushion when nobody can find it. You should put it back in its place by the telephone then we all know where it is</li></ul><p><b>6. What does the man decide to take Tracy?</b></p><ul><li><b>Speaker 1:</b> I’m going to see Tracy in hospital. But I can’t think of what to take her. People always take flowers.</li><li><b>Speaker 2:</b> So she has lots already for sure. I always think it’s nice to have something to read myself but as Tracy got her Walkman with her. What about something to listen to?</li><li><b>Speaker 1:</b> What a good idea. It’s better than taking sweets certainly because I know she’s on special diet while she’s in hospital.</li></ul><p><b>7. Which sport has the man just started?</b></p><ul><li><b>Speaker 1:</b> Hi. How was your holiday?</li><li><b>Speaker 2:</b> Great. Really good windsurfing and sailing. You know how much I enjoy them and horse riding. I really want to go again. Now I’ve tried it. And the swimming pool was wonderful, too, much warmer than the one I usually swim in. Holidays are just too short.</li></ul><p><b>8. What was damaged in the storm?</b></p><ul><li><b>Speaker 1:</b> Was the roof of your house alright after the storm, Anna? I saw a workman there with a ladder today.</li><li><b>Speaker 2:</b> I had the roof repaired recently so that wasn’t a problem. The workman was putting some new glass in an upstairs window. I think a branch from a tree broke it when it fell off in the wind. I was quite lucky it didn’t damage my car which was parked right under the tree.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "Which box of chocolates do they buy?",
+              "options": [
+                "the small round one",
+                "the big round one",
+                "the square one",
+                "the oval one"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "When's Wendy's birthday?",
+              "options": [
+                "16th May",
+                "18th May",
+                "21st May",
+                "26th May"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "How much petrol does the woman want?",
+              "options": [
+                "13 litres",
+                "30 litres",
+                "33 litres",
+                "43 litres"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What time is the woman's hair appointment?",
+              "options": [
+                "Saturday at 9.30 am",
+                "Saturday at 12.00",
+                "Friday at 10.00",
+                "Friday at 11.30"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "Where's the TV guide?",
+              "options": [
+                "top of the TV",
+                "by the chair",
+                "under the cushion",
+                "by the telephone"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What does the man decide to take Tracy?",
+              "options": [
+                "flowers",
+                "a CD",
+                "sweets",
+                "fruit"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "Which sport has the man just started?",
+              "options": [
+                "windsurfing",
+                "sailing",
+                "horse-riding",
+                "swimming"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What was damaged in the storm?",
+              "options": [
+                "the house roof",
+                "window glass",
+                "a car",
+                "a tree"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> You will hear three different conversations. In each conversation there are four questions. For each question, choose the correct answer A, B, C or D. You will hear the conversations only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-11/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1:</b></p><ul><li><b>Louise:</b> John</li><li><b>John:</b> Oh Louise. Hi.</li><li><b>Louise:</b> I’ve just arrived for my singing lesson with Mrs Thompson. What are you doing here?</li><li><b>John:</b> (Q1) I’ve come for a singing lesson too.</li><li><b>Louise:</b> Well, if it’s a secret I won’t tell anyone</li><li><b>John:</b> It’s OK, Louise. I’m going to be in a musical show, so everyone will know soon.</li><li><b>Louise:</b> Really! But can you actually sing then?</li><li><b>John:</b> Well, I was taught to sing at school you know, but now I’m in the show I thought I’d better have a few more lessons.</li><li><b>Louise:</b> Good idea. What do you think of Mrs Thompson? She’s really strict, isn’t she?</li><li><b>John:</b> She is, but I think if you want to sing properly, then (Q2) she’s the best teacher. You don’t have to like her to see that she’s really brilliant.</li><li><b>Louise:</b> Oh, I suppose so, it’s just that she makes me feel so nervous. How did you get chosen for the show?</li><li><b>John:</b> Well, I went to see a few musical shows before Christmas. I don’t know why, because I’d never really liked them before, and I thought I’d like to do that so I tried for a part in the show at The Regent Theatre and got it.</li><li><b>Louise:</b> Well done ... so have you actually done a show yet?</li><li><b>John:</b> Yes, (Q3) we’ve done a practice show just for family and friends.</li><li><b>Louise:</b> So, how did you feel?</li><li><b>John:</b> Well, when we’d finished I wanted to cry because I was so delighted that I’d actually got through it without making any big mistakes.</li><li><b>Louise:</b> But did people like it?</li><li><b>John:</b> Yes they did, and it was great to have an audience.</li><li><b>Louise:</b> I would love to be able to sing and have everybody listen and clap</li><li><b>John:</b> It’s quite hard to do a musical show, actually. You have to dance as well as sing. It’s hard work to get it right.</li><li><b>Louise:</b> Oh, (Q4) I wouldn’t be keen on that. I’m only a singer really. When does the show open?</li><li><b>John:</b> On the 9th of October. Would you like a couple of free tickets?</li><li><b>Louise:</b> Oh yes! Thanks!</li></ul><p><b>Conversation 2:</b></p><ul><li><b>Interviewer:</b> I’m talking to Jackie Gould, who’s a very proud mother. Both of her daughters – Olivia, aged 12, and Alicia, seven – are currently appearing on the stage of the world-famous London Palladium theatre, in the musical The Sound of Music. Olivia and Alicia survived six auditions to be (Q5) picked from 1,000 hopefuls for the group of seven children playing the Von Trapp family in the show. So how did it all come about?</li><li><b>Jackie:</b> Well, until last year, the idea of them appearing at the London Palladium would have been unthinkable for our family. Things started to happen when Olivia auditioned for a production of the show Annie at the local theatre. She auditioned for the chorus and, (Q6) by chance, got the leading role instead.</li><li><b>Interviewer:</b> That’s a very big role, the leading one in Annie, isn’t it?</li><li><b>Jackie:</b> Yes, for Annie, Olivia had to learn more than 200 lines. She was on stage for most the two-hour show. It was a big script, and (Q7) I decided that we’d do ten pages a night. After memorizing it, I gave her a random line. She would have to tell me what the next line was. She picked it all up even better than her homework.</li><li><b>Interviewer:</b> And she did well in the part, presumably?</li><li><b>Jackie:</b> She was great in the part. (Q8) Everyone was astonished by her performance, including us. She had always been very shy, and she suddenly came out of her shell. We found that she could really sing. A member of the stage management team for the show was taking over a local agency and asked her to sign up. So then she had an agent to represent her and try to get roles for her.</li><li><b>Interviewer:</b> OK, so what happened next?</li><li><b>Jackie:</b> Well, Olivia was turned down for a part in the musical Mary Poppins. She reached the last ten for the role of Jane Banks. She didn’t get the part and was distraught. But she quickly picked herself up and then we took both children to the Palladium auditions for The Sound of Music.</li></ul><p><b>Conversation 3:</b></p><ul><li><b>Paul:</b> Hello, Kira, how are you?</li><li><b>Kira:</b> Fine thanks, Paul, how are you?</li><li><b>Paul:</b> Well, thanks. It’s good to see you. It must be twelve months since you did our course?</li><li><b>Kira:</b> That’s right. It’s nice to come back and say hello.</li><li><b>Paul:</b> What course did you enroll in?</li><li><b>Kira:</b> Actually, (Q9) I went straight into third year Pharmacy. They credited me with two years, which probably (Q10) made it more difficult for me.</li><li><b>Paul:</b> On the one hand, you were lucky to be granted credits. Is that why you chose the course?</li><li><b>Kira:</b> Yes. And, as I’d already finished a course in it in my country. I thought it would be easier if I studied something I already knew.</li><li><b>Paul:</b> I didn’t realise you went into third year. I thought you started in first year. No wonder it was so hard! And what do you think is one of the big differences between studying at a university here and studying in your country?</li><li><b>Kira:</b> Well, I’ve found it very difficult to write assignments, because I wasn’t familiar with that aspect of the system here. (Q11) The main problem is that the lecturers expect you to be critical. That made me feel really terrible. I thought ‘How can I possibly do it? How can I comment on someone else’s research when they probably spent five years doing it?’ I think a lot of people who come from overseas countries have similar problems. But after a while it became easier for me. People expect you to have problems with the process of reading and writing but, in fact, it is more a question of altering your viewpoint towards academic study.</li><li><b>Paul:</b> how was the content of the lectures? Was it easy for you?</li><li><b>Kira:</b> I didn’t really have many problems understanding lectures. The content was very similar to what I’d studied before.</li><li><b>Paul:</b> And what about the lecturers themselves? Are they essentially the same as lecturers in your country?</li><li><b>Kira:</b> (Q12) Well actually, no. Here, they’re much easier to approach. After every lecture you can go and ask them something you didn’t understand. Or you can make an appointment and talk to them about anything in the course.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What are they both doing here?",
+              "options": [
+                "to meet Mrs Thompson",
+                "to listen to John singing",
+                "to attend singing class",
+                "to dance in a musical show"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What does John think of Mrs Thompson?",
+              "options": [
+                "she isn't strict",
+                "she can sing well",
+                "she is a good teacher",
+                "she makes him nervous"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What does John imply about his performance?",
+              "options": [
+                "He does well in a real show",
+                "He practices it well",
+                "He really likes it",
+                "He makes some big mistakes"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What does Louise think of a musical show?",
+              "options": [
+                "she is not interested",
+                "she is keen on that",
+                "she thinks she will try it",
+                "she would love it"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "How many children competed for roles in the show?",
+              "options": [
+                "6",
+                "1.000",
+                "7",
+                "a few hundreds"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What was the first success of Olivia?",
+              "options": [
+                "When they came to London",
+                "When they visit Palladium",
+                "When she got the leading role",
+                "After she visited the local theatre"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "How did Olivia practice for the role in Annie?",
+              "options": [
+                "Learned 200 pages",
+                "Practiced two hours a day",
+                "Her mother helped her",
+                "Learned it with her homework"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "What did Jackie feel about her daughter’s performance?",
+              "options": [
+                "She was ashamed",
+                "She was amazed",
+                "She didn't like it much",
+                "She couldn't sing"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What is true about Kira?",
+              "options": [
+                "She went home last year",
+                "She started a course in Pharmacy over again",
+                "She is a third year student",
+                "She will finish her course in 12 months"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What does she think about her course now?",
+              "options": [
+                "it is difficult",
+                "it is similar to the course she did",
+                "it is easier",
+                "she doesn't like it"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "Why does she say her assignment is difficult?",
+              "options": [
+                "she is not familiar with it",
+                "she is expected to be critical",
+                "she feels terrible",
+                "her lecturer is terrible"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What does she mean about lecturers in her country?",
+              "options": [
+                "They are horrible",
+                "You can talk to them easily",
+                "They are knowledgeable",
+                "It's hard to discuss with them"
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-11/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk 1:</b></p><p>If you want to take an undergraduate course of study, you require a letter of recommendation from your principle and copies of your school records and exam results. You must of course demonstrate ability to communicate effectively in English. Different majors require different abilities in English. Undergraduate courses in science often require you to do a foundation year before you start the course so that you achieve the requisite knowledge before you begin the courses. Degrees generally last three years, though the first year doesn’t count towards your final marks. Application is always via UCAS, an organization that handles all undergraduate students. Postgraduate application is via direct application to universities. They will require a minimum pass in your degree, certainly above average and as with undergraduate courses require a minimum level in your English ability. Most Master courses take one year, but some take two, so be sure to take this into account when choosing. There are two systems of ranking: for universities overall achievement and for each of their separate departments. Other kinds of information are available, like graduate employment statistics. Generally British universities are generally respected globally and there is an international ranking system that lists all the top universities in the world for you to check where your university places.</p><p><b>Talk 2:</b></p><p>My name is Dan Pearman and I’d like to talk about the work of Pedal Power, a small charity based mainly in the UK. I’ll be giving our contact details at the end, if anyone would like to find out more about how to support us.</p><p>But first, how the charity began. I got the idea of exporting bicycles to developing countries while I was in Ecuador. I went there in 1993 just after graduating from university. After 3 years of studying, I wanted adventure. I loved travelling, so I decided to join a voluntary organization and was sent to Ecuador to carry out land surveys. The project came to an end after 5 years and when I returned to the UK in 1998, I started planning Pedal Power.</p><p>Where I lived in Ecuador was a very rural area. My neighbor had the only bicycle in the village, whereas everyone else walked everywhere. My neighbour’s business was unusually successful, and for years I couldn’t understand why. Then I realized having a bike means he could get where he wanted to go without much trouble. Other local carpenters could only accept jobs in a three-kilometre radius, so no matter how skilled they were, they could never do as many jobs as my neighbour.</p><p>At Pedal Power, we collect second-hand bikes in the UK and send them to some of the poorest regions in the world. When we distribute bikes overseas we don’t give them away for free. We’d like to, but long term that doesn’t really help the local economy. The demand for bikes is enormous which makes them very expensive locally. So we sell them for 5% of the normal price. But in order to continue operating we need to have a constant supply of bikes which we send out every six months.</p><p>One example of a town that’s received bicycles from Pedal Power is Rivas. It was the first place I sent a full container of bicycles to. Most people there now own a bicycle. The local economy has developed so much, you couldn’t recognize it as the same place. In fact, there are more bikes than on the streets of Amsterdam, if you’ve ever been there.</p><p>But Pedal Power still needs your help. You may have read about some of our recent problems in the British media. In August 2000 we simple ran out of money. We had containers of bikes ready to send, but no money to pay the bills. It was a terrible situation. We managed to ensure the bikes went out on time, but the other problems carried on for several months.</p><p><b>Talk 3:</b></p><p>ANNOUNCER: Today’s Health Counsel is presented by Paula Clayburg, who is the chief Counsellor at Liverpool’s famous pain clinic. The Wilton Clinic Paula....</p><p>PAULA CLAYBURG: Do you know what Prince Charles, Steve Ballesteros and Elizabeth Taylor have in common? They all suffer from chronic back pain. In fact, bad backs are one of the most common health problems today, affecting people in all walks of life. The most recent available figures show that about a quarter of a million people are incapacitated with back pain every day.</p><p>And many sufferers don’t know the cause of the solution to their problem. The majority of our patients at the clinic tend to be women. They are especially vulnerable because of pregnancy but also because of osteoporosis, which I personally believe to be the major cause of problems for women. I have many women patients who say they have completely given up exercise because the pain makes them so miserable. But of course that starts up a vicious circle. Bed rest, giving up exercise and pain killers are traditional responses to back pain but, although there are many excellent drugs on the market, at our clinic we are beginning to realise the unique benefits of relaxation therapy. Other specialists in the field make a strong case for certain types of exercise, but in our experience they are easily mishandled and can lead to more harm than good.</p><p>Now, let’s look at some of the reasons why back pain is developing into such a unique menace. In general, the body is pretty good at self-repaired. A strain or a blow to a limb, though painful at the time, generally resolves itself. But the body’s response to back injury can be very counter-productive. When pain strikes, we attempt to keep the back as immobile as possible, which makes the muscles tense up. Research shows that they often go into spasm, which causes further twisting of the spine. A vicious circle is underway. The second mistake we often make when stricken with extreme back pain is to go to bed and stay there. Although at the clinic we recognise that a short rest in bed can be helpful...up to two days ... any longer makes our back muscles become weaker and unable to hold up our spine. The pain therefore becomes worse.</p><p>Another problem is being overweight. Anyone a stone or more over-weight who already has back pain is not doing himself any favor though it won’t actually set it off in the first place, the weight will increase the strain and make things worse. The British diet could be partially to blame for the increase in back pain ....</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "You do not have to provide...",
+              "options": [
+                "a letter of recommendation",
+                "school records",
+                "exam results",
+                "health certificate"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "Your required English level depends on........",
+              "options": [
+                "your age",
+                "your chosen course",
+                "your grades",
+                "your nationality"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "Some science courses require you to.................",
+              "options": [
+                "take an exam",
+                "complete a foundation year",
+                "do extra personal study",
+                "have a higher level of English"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "Application for undergraduate courses is..................",
+              "options": [
+                "always via UCAS",
+                "direct with universities",
+                "either via UCAS or direct with universities",
+                "via a placement agency"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "British universities.......",
+              "options": [
+                "are the best in the world",
+                "rank among the top universities in the world",
+                "are all well respected",
+                "are generally well respected"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "In 1993 Dan Pearman went to Ecuador .............",
+              "options": [
+                "as a tour guide",
+                "as part of his studies",
+                "as a voluntary worker",
+                "as a student"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "Dan’s neighbour was successful in business because he .............",
+              "options": [
+                "employed carpenters from the area",
+                "was the most skilled craftsman in the town",
+                "found it easy to reach customers",
+                "worked very hard"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "Dan says the charity relies on ..................",
+              "options": [
+                "getting enough bicycles to send regularly",
+                "finding new areas which need the bicycles",
+                "charging for the bicycles it sends abroad",
+                "getting the second-hand bikes from the rich"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What does Dan say about the town of Rivas?",
+              "options": [
+                "It has received the greatest number of bikes",
+                "It has almost as many bikes as Amsterdam",
+                "Its economy has been totally transformed",
+                "Everyone there owns a bicycle"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What problem did the charity face in August 2000?",
+              "options": [
+                "It couldn’t meet its overheads",
+                "It had to delay sending the bikes",
+                "It was criticized in British media",
+                "It didn’t get enough bikes ready to send"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "According to the speaker, the main cause of back pain in women is .............",
+              "options": [
+                "pregnancy",
+                "osteoporosis",
+                "lack of exercise",
+                "too much exercise"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "As treatment for back pain the Clinic mainly recommends .................",
+              "options": [
+                "pain killers",
+                "relaxation therapy",
+                "exercise routines",
+                "bed rest"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "The back is different from other parts of the body because .................",
+              "options": [
+                "it is usually better at self-repair",
+                "a back injury is usually more painful",
+                "its response to injury often results in more damage",
+                "it is worse if we keep the back as immobile as possible"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "Bed rest is advised .................",
+              "options": [
+                "for a maximum of two days",
+                "for less than two days",
+                "for pain lasting more than two days",
+                "for extreme pain only"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "Being overweight .................",
+              "options": [
+                "is a major source of back pain",
+                "worsens existing back pain",
+                "reduces the effectiveness of exercise",
+                "is the only cause of back pain"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

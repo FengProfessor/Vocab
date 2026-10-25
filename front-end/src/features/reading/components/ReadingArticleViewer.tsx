@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Button, Card, Empty, Space, Tag, Typography } from 'antd';
-import { PlusCircleOutlined } from '@ant-design/icons';
+import { Button, Card, Empty, Space, Tag, Typography } from '@/components/ui/Primitives';
+import { PlusCircleOutlined } from '@/components/ui/Icons';
 import { CertLevelTag } from '@/components/common/CertLevelTag';
 import styles from '@/features/reading/components/ReadingArticleViewer.module.css';
 import { ReadingArticleViewerProps } from '@/features/reading/types/ReadingArticleViewerProps';

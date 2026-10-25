@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Empty, Input, Space, Tag, Typography } from 'antd';
+import { Card, Empty, Input, Space, Tag, Typography } from '@/components/ui/Primitives';
 import styles from '@/features/social/components/StudyGroupsCard.module.css';
 import { StudyGroupsCardProps } from '@/features/social/types/StudyGroupsCardProps';
 

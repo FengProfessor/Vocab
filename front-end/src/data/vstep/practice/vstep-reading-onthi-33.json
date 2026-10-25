@@ -1,0 +1,101 @@
+{
+  "id": "vstep-reading-onthi-33",
+  "title": "Luyện Đọc VSTEP: Biodiversity: Our Natural Wealth (VstepR3-Test 03)",
+  "duration": 10,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 5,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Biodiversity: Our Natural Wealth",
+            "text": "<p style=\"text-align:justify;\">Biodiversity refers to the variety of life on Earth — from bacteria and fungi to plants, animals, and all ecosystems in which they live. Scientists estimate there are between 8 and 10 million species on Earth, though only about 1.8 million have been formally identified. Biodiversity is not merely of scientific interest; it is the foundation upon which all human life and economic activity depend. The diversity of species ensures the stability and resilience of ecosystems, which provide clean water, fertile soil, fresh air, and climate regulation.</p>\n<p style=\"text-align:justify;\">The current rate of species extinction is alarming. Scientists estimate that species are disappearing at 100 to 1,000 times the natural background rate, driven primarily by habitat destruction, climate change, pollution, over-exploitation, and invasive species. This ongoing crisis — sometimes called the sixth mass extinction — is the first to be caused primarily by a single species: Homo sapiens. Many of the species most at risk are those closely tied to specific ecosystems, such as tropical rainforests and coral reefs.</p>\n<p style=\"text-align:justify;\">Protecting biodiversity requires concerted international action. Protected areas such as national parks and marine reserves are one important tool, but they currently cover only a fraction of the land and ocean needed to preserve most species. Restoration of degraded ecosystems — including replanting forests, removing dams, and reducing pollution — is also essential. Equally important is addressing root causes such as unsustainable agriculture, over-fishing, and climate change.</p>\n<p style=\"text-align:justify;\">Despite the scale of the challenge, there are reasons for optimism. Numerous species once considered on the verge of extinction have been successfully recovered through targeted conservation programs. The mountain gorilla, the bald eagle, and the humpback whale have all rebounded after intensive protection efforts. These success stories demonstrate that with sufficient political will, funding, and coordination, it is possible to reverse the course of biodiversity loss.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r33-q1",
+              "type": "mcq",
+              "question": "What is the main topic of the passage?",
+              "options": [
+                "The economic value of tourism in national parks",
+                "The importance of biodiversity and the threats it faces",
+                "How scientists count the number of species on Earth",
+                "The history of conservation programs"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r33-q2",
+              "type": "mcq",
+              "question": "The main idea of paragraph 2 is that?",
+              "options": [
+                "Humans have always caused extinctions throughout history",
+                "Human activity is driving an unprecedented crisis in species extinction",
+                "Invasive species cause more damage than climate change",
+                "Mass extinctions are a natural part of Earth's history"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r33-q3",
+              "type": "mcq",
+              "question": "The main idea of paragraph 3 is that?",
+              "options": [
+                "National parks are sufficient to protect all species",
+                "Climate change is the most serious threat to biodiversity",
+                "Multiple approaches and international cooperation are needed to protect biodiversity",
+                "Replanting forests is the only effective conservation strategy"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r33-q4",
+              "type": "mcq",
+              "question": "What is the purpose of the final paragraph?",
+              "options": [
+                "To contradict the main argument of the passage",
+                "To show that conservation efforts have produced real successes, offering hope",
+                "To argue that biodiversity will naturally recover without human help",
+                "To introduce new scientific research on extinction"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r33-q5",
+              "type": "mcq",
+              "question": "Which statement best summarizes the passage?",
+              "options": [
+                "Humans are powerless to stop biodiversity loss",
+                "Biodiversity is declining rapidly, but conservation efforts can and do make a difference",
+                "The most important thing is to protect only tropical rainforests",
+                "Scientists have overestimated the current rate of species extinction"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

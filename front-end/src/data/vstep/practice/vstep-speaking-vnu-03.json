@@ -1,0 +1,58 @@
+{
+  "id": "vstep-speaking-vnu-03",
+  "title": "Speaking Practice — Đề Thi Chuẩn Đầu Ra Cử Nhân B1-B2 — ULIS Đại Học Quốc Gia Hà Nội",
+  "duration": 12,
+  "category": "speaking",
+  "targetLevel": "B2",
+  "sections": [
+    {
+      "type": "speaking",
+      "label": "Speaking (Nói)",
+      "timeLimit": 12,
+      "tasks": [
+        {
+          "id": "vnu3-s-part1",
+          "type": "social_interaction",
+          "timeLimit": 3,
+          "questions": [
+            "What academic subject do you find most fascinating at your university?",
+            "How do you typically commute to the university campus each morning?",
+            "What leisure activities do you enjoy engaging in during weekends?",
+            "Do you prefer shopping for textbooks online or visiting brick-and-mortar bookstores?",
+            "How do you maintain a healthy balance between study and relaxation?",
+            "What city or country would you most like to visit for a student exchange program?"
+          ],
+          "suggestion": "<p><b>VNU Cử Nhân Speaking Part 1:</b> Trả lời tự nhiên, trôi chảy, sử dụng công thức ARE (Answer - Reason - Example) trong 20-30 giây mỗi câu.</p>"
+        },
+        {
+          "id": "vnu3-s-part2",
+          "type": "solution_discussion",
+          "timeLimit": 4,
+          "situation": "<p class=\"mb-1\"><b>Situation:</b> The student union is organizing an orientation event to welcome incoming first-year university freshmen.</p><p>Three proposals are under consideration:</p><ul><li><b>Option 1:</b> Organizing an outdoor team-building sports tournament at the campus stadium.</li><li><b>Option 2:</b> Hosting an evening acoustic musical concert and talent showcase.</li><li><b>Option 3:</b> Conducting a series of interactive workshops led by senior alumni on academic study tips and career guidance.</li></ul><p>Select the most effective option and explain why it provides the greatest collective benefit compared to the other two choices.</p>",
+          "suggestion": "<p><b>VNU Cử Nhân Speaking Part 2:</b> Áp dụng mô hình ICE (Intro - Comparison - End). So sánh tính thiết thực giữa giải trí (Option 1, 2) và định hướng học tập thực tế (Option 3) để đưa ra lựa chọn thuyết phục.</p>"
+        },
+        {
+          "id": "vnu3-s-part3",
+          "type": "topic_development",
+          "timeLimit": 5,
+          "topic": "The benefits of participating in community volunteer activities for university students",
+          "mindmap": {
+            "title": "Benefits of Student Community Volunteering",
+            "ideas": [
+              "Cultivating empathy and social responsibility for marginalized communities",
+              "Developing vital interpersonal leadership and teamwork skills",
+              "Expanding professional social networks beyond university boundaries",
+              "[Your own creative idea]"
+            ]
+          },
+          "followUp": [
+            "Should universities make community volunteer service a mandatory requirement for graduation?",
+            "How can student volunteer clubs ensure that their charity projects have long-term sustainable impact?",
+            "Does participation in social activities negatively interfere with students' grade point averages (GPA)?"
+          ],
+          "suggestion": "<p><b>VNU Cử Nhân Speaking Part 3:</b> Trình bày theo sơ đồ tư duy (IDEA), mở rộng nhánh ý riêng về nâng cao tính tự lập và đạo đức công dân của sinh viên thời đại mới.</p>"
+        }
+      ]
+    }
+  ]
+}

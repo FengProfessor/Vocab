@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, Card, Descriptions, Input, Space, Typography } from 'antd';
-import { RobotOutlined } from '@ant-design/icons';
+import { Button, Card, Descriptions, Input, Space, Typography } from '@/components/ui/Primitives';
+import { RobotOutlined } from '@/components/ui/Icons';
 import { VSTEP_ESSAY_MIN_CHARACTERS } from '@/config/vstepSkills';
 import styles from '@/features/exam-vstep/components/VstepWritingGrader.module.css';
 import { VstepWritingGraderProps } from '@/features/exam-vstep/types/VstepWritingGraderProps';

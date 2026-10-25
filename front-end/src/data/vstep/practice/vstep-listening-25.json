@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-25",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 25",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-25/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Question 1.</b></p><ul><li>The accounting department is offering assistance in filling out tax forms for all employees. Individual consultations will be held on Friday from 9 a.m. to 1 p.m. If you are interested, please sign up for an appointment at the accounting department before Thursday.</li></ul><p><b>Question 2.</b></p><ul><li>Good evening, ladies and gentlemen. The Royal Gallery will be closing in just 10 minutes, so we ask that you make your way to the nearest exit. For those of you taking the audio tour, please return the audio equipment to the front desk in our lobby. Thank you for visiting us today, and we hope you enjoyed your visit to the gallery.</li></ul><p><b>Question 3.</b></p><ul><li>Looking for a new, refreshing and healthy beverage? Try Sunkiss’s Fruitblast for a cool drink that is not only delicious, but good for your body. Fruitblast is full of the nutrients that your body needs. It comes in six different flavors and is perfect for school lunches or with an afternoon snack. So if you’re tired of all those high-sugar drinks, try Fruitblast as a healthy and delicious alternative. Fruitblast is available at most convenience stores.</li></ul><p><b>Question 4.</b></p><ul><li>This is the KGBS traffic report. Traffic on Highway 6 headed west is heavy due to some flooding caused by last night’s storm. If you are going west, we suggest taking Highway 15 instead, as the roads are clear in that area. Also, don’t forget that Lakefront Road will be closed starting tomorrow because of the new bridge construction. You may want to take Valley view Drive as an alternate route.</li></ul><p><b>Question 5.</b></p><ul><li>Thank you for coming to the meeting this morning. It is my pleasure to introduce Colin Carey, our new artistic director. Mr. Carey has significant experience in layout, and most recently worked for Brady Publishing in Sydney. I am sure he will make a welcome addition to our staff. Today, he will present some new design concepts for our magazine. Please give a warm welcome to Colin Carey.</li></ul><p><b>Question 6.</b></p><ul><li>I’d like to welcome all our new interns this morning. I’ve been a television producer here at SATV for the past 5 years, and it’s my pleasure to guide you through the orientation seminar this week. During my time here, I’ve learned about program scheduling, assisting directors and how to multitask. And as technology is constantly changing, I believe you will need to keep updated with all the advances in computer and camera equipment. These are the most valuable skills to those of you beginning your careers in this industry. Keep that in mind as we go through this 7-day seminar.</li></ul><p><b>Question 7.</b></p><ul><li>This is Andrew Bank’s account line. We now offer online service for customers manage their accounts. Simply visit our website at www.andrewbank.com to sign up for this service. Fill out the form and we will e-mail you a confirmation number.</li></ul><p><b>Question 8.</b></p><ul><li>May I have your attention, please? This morning, electricians are going to be wiring the new lobby. Power will be down for two hours from 11 a.m. to 1 p.m. Please save any work on your computer before 11 a.m. to avoid losing it.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "When will the consultations be held?",
+              "options": [
+                "On Monday",
+                "On Thursday",
+                "On Friday",
+                "On Saturday"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What are the tourists asked to do?",
+              "options": [
+                "Use the audio equipment",
+                "Pay for their purchases",
+                "Return some books",
+                "Leave the building"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What is the advertisement for?",
+              "options": [
+                "A snack food",
+                "A vitamin supplement",
+                "A beverage",
+                "Mineral water"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What advice does the speaker give?",
+              "options": [
+                "Take an alternate route",
+                "Use the subway",
+                "Avoid the city center",
+                "Drive slowly"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What is the purpose of the talk?",
+              "options": [
+                "To provide information on a magazine",
+                "To introduce a new member of staff",
+                "To explain new projects",
+                "To inform staff of new policies"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "How long is the orientation?",
+              "options": [
+                "One day",
+                "Five days",
+                "One week",
+                "Two weeks"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What might customers receive through email?",
+              "options": [
+                "an account number",
+                "a confirmation number",
+                "a form",
+                "a phone number"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What is happening at 11 a.m this morning?",
+              "options": [
+                "Electricians are repairing the lobby",
+                "There will be a power cut",
+                "Employees are working on their computers",
+                "Employees are having lunch"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D. You will hear the conversations only ONCE",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-02/part1-2.mp3"
+          },
+          "tapescript": "<div><p><b>Conversation 1</b></p><ul><li><b>Man:</b> Good morning. Tauber Insurance Company. How can I help you?</li><li><b>Woman:</b> Good morning. I want to alter my insurance policy.</li><li><b>Man:</b> Is that for your house, contents or vehicle?</li><li><b>Woman:</b> <b>My vehicle (1).</b></li><li><b>Man:</b> Can you give me the number of the policy please?</li><li><b>Woman:</b> Certainly, I have it here in front of me. It’s <b>ZQW5009 (2).</b></li><li><b>Man:</b> And what make and model of car is it?</li><li><b>Woman:</b> It’s Mazda...a Mazda Marvel.</li><li><b>Man:</b> And what is the cc rating?</li><li><b>Woman:</b> Sorry? What do you mean?</li><li><b>Man:</b> <b>How big is the engine (3)?</b> Is it 1500 or 1800cc, for example?</li><li><b>Woman:</b> Oh that... it’s actually much bigger than that. It’s 2500 cc.</li><li><b>Man:</b> Thank you. Now I just have to ask you a few questions to verify your identity. What name is the policy under?</li><li><b>Woman:</b> Heathcoat.</li><li><b>Man:</b> Let me just bring that up on the computer. Yes, can I just confirm your first name, please?</li><li><b>Woman:</b> Well, my first name is Lisa but I’m known by my middle name – Marie.</li><li><b>Man:</b> Right. I see both here but <b>Lisa is the one I want for ID purposes (4).</b> And your date of birth, Lisa? ... I mean Marie.</li><li><b>Woman:</b> The twenty second of August, 1955.</li></ul><p><b>Conversation 2</b></p><ul><li><b>Woman:</b> Good morning, Travel Link. How can I help you?</li><li><b>Man:</b> Good morning. I live in Bayswater and I’d like to get to <b>Harbour City tomorrow (1) before 11.am.</b></li><li><b>Woman:</b> Well, to get to Bayswater....</li><li><b>Man:</b> No, no. I live in Bayswater – <b>my destination is Harbour City (1).</b></li><li><b>Woman:</b> Sorry. Right; so that’s Bayswater to Harbour City. Are you planning to travel by bus or by train?</li><li><b>Man:</b> I don’t mind really. Whichever option is faster, I suppose.</li><li><b>Woman:</b> Well, if you catch a railway express, that’ll get you there in under an hour ... Let’s see – yes, if you can make the 9.30 am express, I’d recommend you do that.</li><li><b>Man:</b> Great. <b>Which station does that leave from (2)?</b></li><li><b>Woman:</b> Helendale is the nearest train station to you.</li><li><b>Man:</b> Did you say Helensvale?</li><li><b>Woman:</b> No, Helendale – that’s H-E-L-E-N-D-A-L-E</li><li><b>Man:</b> What’s the best way to get to the Helendale station then?</li><li><b>Woman:</b> Well, hang on a minute while I look into that ... Now, it seems to me that you have two options. Option one would be to take the 706 bus from the Bayswater Shopping Centre to Central Street. When you get there, you transfer to another bus <b>which will take you to the station (3).</b> Or, the second option, if you don’t mind walking a couple of kilometres, is to go directly to Central Street and get straight on the bus going to the train station.</li><li><b>Man:</b> Okay. Which bus is that?</li><li><b>Woman:</b> The 792 will take you to the station.</li><li><b>Man:</b> I guess <b>the walk will be good for me so that might be the better option (4).</b></li></ul><p><b>Conversation 3</b></p><ul><li><b>Interviewer:</b> Elena, before we talk about how a sixteen-year-old can write, direct and star in her own film, tell me a bit about the character of Susie, the girl you played in your film, Stolen Dream.</li><li><b>Elena:</b> She’s artistic and doesn’t really care what people think or say about her, or get upset about how people behave. <b>I’m a lot like that too (Q1).</b> I don’t worry too much about other people's opinions of me.</li><li><b>Interviewer:</b> So is being free of worry a message you wanted to communicate to your audience?</li><li><b>Elena:</b> In a way. You need to be free. You shouldn’t be tied to your background, where you were born or anything you haven't chosen for yourself. People have dreams and <b>I guess I’m saying that (Q2) they should have belief in themselves</b>, that they can make those dreams come real.</li><li><b>Interviewer:</b> It must have been an exciting atmosphere to work in. Was making the film like your own dream coming true?</li><li><b>Elena:</b> Definitely, although it wasn’t easy. <b>(Q3) I had very little time or money.</b> People told me to relax but I knew I couldn’t - if I didn’t work, no one else would! But after a week or so because everyone on the film was facing the same challenge we came together. When we all left at the end it was sad because it was like a family breaking up.</li><li><b>Interviewer:</b> Tell me about a typical day's filming.</li><li><b>Elena:</b> I don’t think there was a typical day really. Each day <b>I got up at 5 to start at 6. (Q4)</b> I’d film two or three scenes in the morning and the same again after lunch. That way I had a goal and I knew how much I was achieving each day. Sometimes, if we needed to we'd work on until late, till 3 a.m. one time! I really enjoyed my Sundays off!</li></ul></div>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What is the policy number?",
+              "options": [
+                "ZQW5009",
+                "XQW5009",
+                "ZYW5009",
+                "ZYY5009"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What is the cc rating?",
+              "options": [
+                "The engine’s size",
+                "The engine’s shape",
+                "The engine’s price",
+                "The engine’s power"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What’s the name the man wants for ID purposes?",
+              "options": [
+                "Her first name",
+                "Her middle name",
+                "Her family name",
+                "All of them"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "When is her birthday?",
+              "options": [
+                "2nd, August 1955",
+                "12th, August 1950",
+                "22nd August 1955",
+                "22nd August 1950"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Where does the man want to get to?",
+              "options": [
+                "Helenvale",
+                "Helendale",
+                "Bayswater",
+                "Harbour City"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "Which station is the nearest?",
+              "options": [
+                "Helenvale",
+                "Helendale",
+                "Hedenvale",
+                "Hevendale"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "How many bus routes does the man have to take to the nearest station?",
+              "options": [
+                "1",
+                "2",
+                "3",
+                "4"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "Which option does the man choose finally?",
+              "options": [
+                "Walk and then take a bus",
+                "Take a bus and then walk",
+                "Go there on foot",
+                "Take the bus for two routes"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What does Elena think about Susie?",
+              "options": [
+                "She is artistic and cares about other people.",
+                "She is an optimistic girl.",
+                "She is different from Elena.",
+                "She is artistic but doesn’t care about people around."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What did Elena think about making film?",
+              "options": [
+                "It was easy for her.",
+                "It was quite relaxing.",
+                "It was demanding for her.",
+                "It was beyond her ability."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "How many scenes did she have to film in the afternoon?",
+              "options": [
+                "5-6 scenes",
+                "2-3 scenes",
+                "3-4 scenes",
+                "1-2 scenes"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "Which days was she off?",
+              "options": [
+                "Saturdays",
+                "Mondays",
+                "Sundays",
+                "None of these above"
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-10/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk 1:</b></p><p>Right, everyone- about the trip to the Jubilee Arts Centre next Wednesday. As you know, we have tickets for the Centre’s two theatres and the concert hall. Those of you with concert tickets will hear piano music by Chopin and Schumann. Those with tickets for the main theatre will see Shakespeare’s Twelfth Night, while people going to the smaller theatre will see The Wild Duck by Ibsen. Although all the theatre and concert tickets have gone, if anyone else would like to join us on the trip I can get tickets for the Arts Centre cinema to see the Australian comedy film, Spider and Rose.</p><p>The shows begin at half past seven, but we’ll leave early so you can spend time looking around the Arts Centre. The coach will leave here at 3:30 and arrive at the Arts Centre at about a quarter to five. Let me tell you what you can do there.</p><p>The Centre has a lot of art- lovers. In the Art Gallery there’s an exhibition of the history of Russian ballet. It has dresses and shoes worn by famous dancers and photos of past performances. With your student card, you can get in very cheaply. There are also some interesting free exhibitions. On the ground floor you can see prize- winning paintings from children’s competition, and gold jewellery made by Scottish artists. On the first floor there’s an exhibition of South American photographs, and there’s no charge for that either.</p><p>I know some of you hope to do some shopping. The Centre has a bookshop on the first floor and there’s a souvenir shop by the ticket office. If you’re more interested in clothes and shoes there’s a large shopping centre five minutes’ walk from the Arts Centre.</p><p>You’ll probably want to eat before the show. The Balcony Restaurant has a menu with a wide range of meals and waiter service, but it is rather expensive. Or there’s the Fountain Restaurant whose special three- course dinner is good value for money. There’s also Charlie’s coffee bar which serves coffee, sandwiches and cakes. You can get fruit juices and ice cream from the cinema kiosk.</p><p>After the shows the coach will pick us up at the Bridge Street exit. Everyone should be there by twenty past ten. The two plays will finish at around 10.10 or 10.15. I’m afraid concert- goers will have to wait, as the concert finishes earlier, at ten to ten.</p><p><b>Talk 2:</b></p><p>Announcer: And now for a few tips of you who are going to go walking this summer. Let’s look first of all at the type of bag that you should take with you. Rod Smith works in a shop that sells camping equipment and he feels he has a bag for every type of walking holiday. Rod, does it really make a difference what type of bag you use?</p><p>Rod: Yes, Jill, it certainly does. Bags come in every shape, colour and size now so it makes sense to pick one that is right for your needs. A backpack, for example, could quite rapidly ruin an otherwise good walking holiday if it doesn’t fit your back. In fact the fit is critical but the choice is so large now that it’s difficult to know how to make the right one. So- here are a few things to look for.</p><p>First of all size. A bag that holds thirty- five litres and has three outside pockets should be plenty big enough for a day- trip. For a four to five- day walking tour I would recommend a bag that holds seventy litres for a man and fifty to sixty litres for a woman. That’s along with a tent and a sleeping bag. An upright bag- that’s one that closes at the top- is better if you intend to climb a lot of hills.</p><p>What about the contents? Well, in order to really avoid the inconvenience of broken containers or crushed clothes, I suggest you go for a bag with a solid bottom. The best ones- but these are probably the most expensive have a leather base that is particularly resistant to wear and tear. A bag that has two compartments inside will allow you to find things more easily and separate out items such as creams that could leak in hot weather. Extra pockets on the outside of the bag are also useful if you want to carry any tools for climbing that are sharp or get dirty when you use them.</p><p>When you have to think about carrying your bag. If it’s a backpack, a wide cushioned belt will ease the strain on your back and hops and leave you with more energy for your walking activities. Shoulder straps also help lighten the load and these should be easy to adjust. There are many different types of strap on the market that can be adjusted in various different ways. Try several and compare them. It’s also a good idea to make sure there’s a horizontal bar that goes across your shoulders and stops the straps from falling off.</p><p>Well, if you choose your bag carefully and think about some of the things I’ve mentioned, you shouldn’t waste your money. Finally, make sure there are plenty of air holes in the padded part of your bag that touches your body. These are essential to allow sweat to escape and to make your walking or climbing holiday a comfortable one.</p><p><b>Talk 3:</b></p><p>Thank you all for coming to my talk this evening. It’s nice to see so many people in the audience. For those of you who don’t know very much about PS Camping let me start by giving some background information about the company.</p><p>The company started twenty-five years ago. It actually opened as a retail chain selling camping equipment, and then twenty years ago, it bought a small number of campsites in the UK, and began offering camping holidays. The company grew rapidly and has been providing holidays in continental Europe for the last fifteen years.</p><p>If you book a camping holiday with us, you’ll have a choice of over 300 sites. In Italy we now have some 64 sites that we either own, or have exclusive use of. France is where we have the majority of sites, and we currently have a project to expand into Switzerland. We also have a number of sites in northern Spain, particularly in the mountainous region of Picos de Europa. We’ve upgraded all these Spanish sites, and improved them considerably from their original three-star rating.</p><p>We believe holidays after superb facilities for the whole family. Parents who want their children to be fully occupied for all or part of the day can take advantage of our children’s activities. These are organized by our well-qualified and enthusiastic staff. Each day kicks off with a sports match, perhaps football, or volleyball, followed by an hour of drama for everyone. This may include singing or dancing, mime or other activities. In the afternoon, there’s a different art activity for each day of the week including a poster competition or modal making. What’s more, our sites are truly child-friendly, and, with this in mind, we operate a no-noise rule in the evenings. Children’s evening activities usually finished at 9:30, or occasionally 10, and from 10:30 holiday-makers are expected to be quiet in the areas where there are tents.</p><p>We want nothing to go wrong on a PS Camping holiday, but if it does, we also want all customers to be insured. If you haven’t organized an annual insurance policy of your own you’ll need to take out the low-cost cover we offer and we require that you arrange this when you make your holiday reservation.</p><p>There are many advantages to choosing PS Camping, and to recommending it to others. As a regular customer, you’ll be kept informed of special offers, and your friends can benefit from ten percent off their holidays, or book a luxury tent for the price of a standard one. In return, we’ll send you a thank-you present, which you can choose from a list of high-quality items.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "There are still tickets for .........",
+              "options": [
+                "The piano concert",
+                "The movie",
+                "Twelfth Night",
+                "Spider and Rose"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "The coach will leave at 3.30 because ..............",
+              "options": [
+                "It's the earliest",
+                "They don't want to miss the shows",
+                "They want free time at the Arts Centre",
+                "It's long journey to the Arts Centre"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "You have to pay to see ..................",
+              "options": [
+                "The Russian ballet exhibition",
+                "The shoes store",
+                "The Scottish jewellery",
+                "The South American photographs"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "You can buy clothes ..............",
+              "options": [
+                "On the first floor",
+                "On the second floor",
+                "In the souvenir shop",
+                "Close to the Arts Centre"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "If you want a snack and a hot drink, try .......................",
+              "options": [
+                "The nearby café",
+                "The fountain",
+                "Charlie's",
+                "The cinema kiosk"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "Rod’s shop sells bags and ...............",
+              "options": [
+                "Camping equipment",
+                "Hiking clothes",
+                "Walking holiday stuffs",
+                "No information"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "A 35- litre bag is good for .............................",
+              "options": [
+                "a day trip",
+                "four day trip",
+                "five day trip",
+                "six day trip"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "The bag that allows you to separate your belongings .......................",
+              "options": [
+                "One with a solid bottom",
+                "One has a leather base",
+                "One has two compartments inside",
+                "One has pockets bags outside"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "It's important that shoulder straps are .......................",
+              "options": [
+                "Light",
+                "Flexible",
+                "Fashionable",
+                "Strong"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "Another essential part of the bags includes .......................",
+              "options": [
+                "Straps",
+                "Air holes",
+                "Sweat absorption",
+                "Cooler tool"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "PS Camping has been organising holidays for .......................",
+              "options": [
+                "15 years",
+                "20 years",
+                "25 years",
+                "30 years"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "The company has most camping sites in ...............",
+              "options": [
+                "France",
+                "Italy",
+                "Europe",
+                "Switzerland"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "Which organized activity can children do every day of the week?",
+              "options": [
+                "Singing and dancing",
+                "Football",
+                "Drama",
+                "Model making"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "Some areas of the sites have a “no- noise” rule after .......",
+              "options": [
+                "9.30 pm",
+                "10.00 pm",
+                "10.30 pm",
+                "11.30 pm"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "Customers who recommend PS Camping to friends will receive ......",
+              "options": [
+                "a free gift",
+                "an upgrade to a luxury tent",
+                "a discount",
+                "an insurance"
+              ],
+              "answer": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

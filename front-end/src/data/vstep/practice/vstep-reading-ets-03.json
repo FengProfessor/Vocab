@@ -1,0 +1,540 @@
+{
+  "id": "vstep-reading-ets-03",
+  "title": "VSTEP B1, B2, C1 Reading - Full Test 003 (EnglishTestStore Practice)",
+  "duration": 60,
+  "date": "2026-09-12",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 60,
+      "totalQuestions": 32,
+      "tasks": [
+        {
+          "id": "ets-r03-task-1",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 1 to 5.",
+          "passage": {
+            "title": "Passage 1",
+            "text": "It can be shown in facts and figures that cycling is the cheapest, most convenient, and most environmentally desirable form of transport in town, but such cold calculations do not mean much on a frosty winter morning. The real appeal of cycling is that it is so enjoyable. It has none of the difficulties and tensions of other ways of travelling so you are more cheerful after a ride, even through the rush hour.\n        The first thing a non-cyclist says to you is: \"But isn't it terribly dangerous?\" It would be foolish to deny the danger of sharing the road with motor vehicles and it must be admitted that there are an alarming number of accidents involving cyclists. However, although police records indicate that the car driver is often to blame, the answer lies with the cyclist. It is possible to ride in such a way as to reduce risks to a minimum.\n        If you decide to join the thousands in Britain who are now returning to cycling as a cheap, satisfying form of transport, your first problem will be trying to decide what bike to buy. Here are three simple rules for buying a bike: \n        1. Always buy the best you can afford. Of course there has to be a meeting point between what you would really like and economic reality, but aim as high as you can and you will get the benefit not only when you ride but also if you want to sell. Well-made bikes keep their value very well. And don't forget to include in your calculations the fact that you'll begin saving money on fares and petrol the minute you leave the shop.\n        2. Get the best frame, the main structure of the bicycle, for your money as you can. Cheap brakes, wheels or gears can easily be replaced by more expensive ones, but the frame sets the upper limit on any transformation. You should allow for the possibility that your cycling ambitions will grow with practice. When you begin, the four miles to work may be the most you ever dream of, but after a few months a Sunday ride into the country begins to look more and more desirable. The best thing is to buy a bike just a little but better than you think you'll need, and then grow into it. Otherwise, try to get a model that can be improved.\n        3. The fit is vital. Handlebars and seat height can be adjusted but must get the right sized frame. On the whole it is best to get the largest size you can manage. Frame sizes are measured in inches and the usual adult range is from 21 inches to 25 inches, though extreme sizes outside those measurements can be found. Some people say if you take four inches off from your inside leg measurement you will end up with the right size of bike. The basic principle though is that you should be able to stand with legs either side of the crossbar (the bar that goes from the handlebars to the seat) with both feet comfortably flat on the ground."
+          },
+          "questions": [
+            {
+              "id": "ets-r03-q01",
+              "type": "mcq",
+              "question": "As regards road safety, the author thinks that",
+              "options": [
+                "people who say cycling is dangerous are foolish",
+                "driving is as dangerous as cycling",
+                "cyclists can often avoid accidents by riding with caution",
+                "cyclists are usually responsible for causing accidents"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 1
+            },
+            {
+              "id": "ets-r03-q02",
+              "type": "mcq",
+              "question": "People who are buying their first bicycle are advised to",
+              "options": [
+                "buy a cheap model to begin with",
+                "get a bicycle which suits their current needs",
+                "buy as big a bicycle as they can afford",
+                "spend as much money on a bicycle as they can"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 2
+            },
+            {
+              "id": "ets-r03-q03",
+              "type": "mcq",
+              "question": "After you have been cycling for a few months the author suggests that you will",
+              "options": [
+                "want to ride only at weekends",
+                "want to ride further than you first imaged",
+                "find riding to work every day boring",
+                "find cycling in towns less dangerous"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 3
+            },
+            {
+              "id": "ets-r03-q04",
+              "type": "mcq",
+              "question": "The author says that the best way to ensure that a bike is the right size for you is to",
+              "options": [
+                "alter the position of the handbars and the seat",
+                "measure the distance from the handlebars to the seat carefully",
+                "take your leg measurements while sitting on the seat",
+                "see if your feet rest firmly on the ground when you stand over the crossbar"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 4
+            },
+            {
+              "id": "ets-r03-q05",
+              "type": "mcq",
+              "question": "The author thinks that the main attraction of cycling is",
+              "options": [
+                "the pleasure it gives people",
+                "the benefits to people's health",
+                "its comparative safety",
+                "its relative comfort"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 5
+            }
+          ]
+        },
+        {
+          "id": "ets-r03-task-2",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 6 to 15.",
+          "passage": {
+            "title": "PASSAGE 2",
+            "text": "In the United States, presidential elections are held in years evenly divisible by four (1888, 1900, 1964, etc.). Since 1840, American presidents elected in years ending with zero have died in office, with one exception. William H. Harrison, the man who served the shortest term, died of pneumonia only several weeks after his inauguration. \nAbraham Lincoln was one of four presidents who were assassinated. He was elected in 1860, and his untimely death came just five years later. James A. Garfield, a former Union army general from Ohio, was shot during his first year in office (1881) by a man to whom he wouldn't give a job. While in his second term of office (1901), William McKinley, another Ohioan, attended the Pan-American Exposition in Buffalo, New York. During the reception, he was assassinated while shaking hands with some of the guests. John F. Kennedy was assassinated in 1963 in Dallas only three years after his election. \nThree years after his election in 1920, Warren G, Harding died in office. Although it was never proved, many believe he was poisoned. Franklin D. Roosevelt was elected four times (1932, 1936, 1940 and 1944), the only man to serve so long a term. He had contracted polio in 1921 and eventually died of the illness in 1945. \nRonald Reagan, who was elected in 1980 and reelected four years later, suffered an assassination attempt but did not succumb to the assassin's bullets. He was the first to break the long chain of unfortunate events. Will the candidate in the election of 2020 also be as lucky?"
+          },
+          "questions": [
+            {
+              "id": "ets-r03-q06",
+              "type": "mcq",
+              "question": "All of the following were election years EXCEPT ______.",
+              "options": [
+                "1960",
+                "1930",
+                "1888",
+                "1824"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 6
+            },
+            {
+              "id": "ets-r03-q07",
+              "type": "mcq",
+              "question": "Which president served the shortest term in office?",
+              "options": [
+                "Abraham Lincoln",
+                "Warren G. Harding",
+                "William McKinley",
+                "William H. Harrison"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 7
+            },
+            {
+              "id": "ets-r03-q08",
+              "type": "mcq",
+              "question": "Which of the following is true?",
+              "options": [
+                "All presidents elected in years ending in zero have died in office.",
+                "Only presidents from Ohio have died in office.",
+                "Franklin D. Roosevelt completed four terms as president.",
+                "Four American presidents have been assassinated."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 8
+            },
+            {
+              "id": "ets-r03-q09",
+              "type": "mcq",
+              "question": "How many presidents elected in years ending in zero since 1840 have died in office?",
+              "options": [
+                "7",
+                "5",
+                "4",
+                "3"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 9
+            },
+            {
+              "id": "ets-r03-q10",
+              "type": "mcq",
+              "question": "The word \"inauguration\" in the first paragraph means most nearly the same as ______",
+              "options": [
+                "election",
+                "acceptance speech",
+                "swearing-in ceremony",
+                "campaign"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 10
+            },
+            {
+              "id": "ets-r03-q11",
+              "type": "mcq",
+              "question": "All of the following presidents were assassinated EXCEPT ______.",
+              "options": [
+                "John F. Kennedy",
+                "Franklin D. Roosevelt",
+                "Abraham Lincoln",
+                "James A. Garfield"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 11
+            },
+            {
+              "id": "ets-r03-q12",
+              "type": "mcq",
+              "question": "The word \"whom\" in the second paragraph refers to ______.",
+              "options": [
+                "Garfield",
+                "Garfield's assassin",
+                "a Union army general",
+                "McKinley"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 12
+            },
+            {
+              "id": "ets-r03-q13",
+              "type": "mcq",
+              "question": "The word \"assassinated\" in the second paragraph is closest in meaning to.",
+              "options": [
+                "murdered",
+                "decorated",
+                "honored",
+                "sickened"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 13
+            },
+            {
+              "id": "ets-r03-q14",
+              "type": "mcq",
+              "question": "In the third paragraph, \"contracted\" is closest in meaning to ______.",
+              "options": [
+                "communicated about",
+                "developed",
+                "agree about",
+                "notified"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 14
+            },
+            {
+              "id": "ets-r03-q15",
+              "type": "mcq",
+              "question": "How long did Warren G, Harding work as a president?",
+              "options": [
+                "2 years",
+                "3 years",
+                "4 years",
+                "5 years"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 15
+            }
+          ]
+        },
+        {
+          "id": "ets-r03-task-3",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 16 to 26.",
+          "passage": {
+            "title": "PASSAGE 3",
+            "text": "Birds that feed in flocks commonly retire together into roosts. The reasons for roosting communally are not always obvious, but there are some likely benefits. In winter especially, it is important for birds to keep warm at night and conserve precious food reserves. One way to do this is to find a sheltered roost.  Solitary roosters shelter in dense vegetation or enter a cavity - horned larks dig holes in the ground and ptarmigan burrow into snow banks - but the effect of sheltering is magnified by several birds huddling together in the roosts, as wrens, swifts, brown creepers, bluebirds, and anis do. Body contact reduces the surface area exposed to the cold air, so the birds keep each other warm. Two kinglets huddling together were found to reduce their heat losses by a quarter and three together saved a third of their heat.  The second possible benefit of communal roosts is that they act as “information centers.” During the day, parties of birds will have spread out to forage over a very large area. When they return in the evening some will have fed well, but others may have found little to eat. Some investigators have observed that when the birds set out again next morning, those birds that did not feed well on the previous day appear to follow those that did. The behavior of common and lesser kestrels may illustrate different feeding behaviors of similar birds with different roosting habits. The common kestrel hunts vertebrate animals in a small, familiar hunting ground, whereas the very similar lesser kestrel feeds on insects over a large area. The common kestrel roosts and hunts alone, but the lesser kestrel roosts and hunts in flocks, possibly so one bird can learn from others where to find insect swarms.  Finally, there is safety in numbers at communal roosts since there will always be a few birds awake at any given moment to give the alarm. But this increased protection is partially counteracted by the fact that mass roosts attract predators and are especially vulnerable if they are on the ground. Even those in trees can be attacked by birds of prey. The birds on the edge are at greatest risk since predators find it easier to catch small birds perching at the margins of the roost."
+          },
+          "questions": [
+            {
+              "id": "ets-r03-q16",
+              "type": "mcq",
+              "question": "What does the passage mainly discuss?",
+              "options": [
+                "How birds find and store food",
+                "How birds maintain body heat in the winter",
+                "Why birds need to establish territory",
+                "Why some species of birds nest together"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 16
+            },
+            {
+              "id": "ets-r03-q17",
+              "type": "mcq",
+              "question": "The word “conserve” is closest in meaning to",
+              "options": [
+                "Retain",
+                "Watch",
+                "Locate",
+                "Share"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 17
+            },
+            {
+              "id": "ets-r03-q18",
+              "type": "mcq",
+              "question": "Ptarmigan keep warm in the winter by",
+              "options": [
+                "Huddling together on the ground with other birds",
+                "Building nests in trees",
+                "Burrowing into dense patches of vegetation",
+                "Digging tunnels into the snow"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 18
+            },
+            {
+              "id": "ets-r03-q19",
+              "type": "mcq",
+              "question": "The word “magnified” is closest in meaning to",
+              "options": [
+                "Caused",
+                "Modified",
+                "Intensified",
+                "Combined"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 19
+            },
+            {
+              "id": "ets-r03-q20",
+              "type": "mcq",
+              "question": "The author mentions kinglets as an example of birds that",
+              "options": [
+                "Protect themselves by nesting in holes",
+                "Nest with other species of birds",
+                "Nest together for warmth",
+                "Usually feed and nest in pairs"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 20
+            },
+            {
+              "id": "ets-r03-q21",
+              "type": "mcq",
+              "question": "The word “forage”  is closest in meaning to",
+              "options": [
+                "Fly",
+                "Assemble",
+                "Feed",
+                "Rest"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 21
+            },
+            {
+              "id": "ets-r03-q22",
+              "type": "mcq",
+              "question": "Which of the following statements about lesser and common kestrels is true?",
+              "options": [
+                "The lesser kestrel and the common kestrel have similar diets.",
+                "The lesser kestrel feeds sociably but the common kestrel does not.",
+                "The common kestrel nests in larger flocks than does the lesser kestrel.",
+                "The common kestrel nests in trees; the lesser kestrel nests on the ground."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 22
+            },
+            {
+              "id": "ets-r03-q23",
+              "type": "mcq",
+              "question": "The word “counteracted” is closest in meaning to",
+              "options": [
+                "Suggested",
+                "Negated",
+                "Measured",
+                "Shielded"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 23
+            },
+            {
+              "id": "ets-r03-q24",
+              "type": "mcq",
+              "question": "Which of the following is NOT mentioned in the passage as an advantage derived by birds that huddle together while sleeping?",
+              "options": [
+                "Some members of the flock warn others of impending dangers.",
+                "Staying together provides a greater amount of heat for the whole flock",
+                "Some birds in the flock function as information centers for others who are looking for food.",
+                "Several members of the flock care for the young."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 24
+            },
+            {
+              "id": "ets-r03-q25",
+              "type": "mcq",
+              "question": "Which of the following is a disadvantage of communal roosts that is mentioned in the passage?",
+              "options": [
+                "Diseases easily spread among the birds.",
+                "Groups are more attractive to predators than individual birds.",
+                "Food supplies are quickly depleted.",
+                "Some birds in the group will attack the others."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 25
+            },
+            {
+              "id": "ets-r03-q26",
+              "type": "mcq",
+              "question": "The word “they” refers to",
+              "options": [
+                "A few birds",
+                "Mass roosts",
+                "Predators",
+                "Trees"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 26
+            }
+          ]
+        },
+        {
+          "id": "ets-r03-task-4",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 27 to 32.",
+          "passage": {
+            "title": "Passage 4",
+            "text": "Volcanic fire and glacial ice are natural enemies. Eruptions at glaciated volcanoes typically destroy ice fields as they did in 1980 when 70 percent of Mount Saint Helens ice cover was demolished. During long dormant intervals, glaciers gain the upper hand cutting deeply into volcanic cones and eventually reducing them to rubble. Only rarely do these competing forces of heat and cold operate in perfect balance to create a phenomenon such as the steam caves at Mount Rainier National Park.\n          Located inside Rainier's two ice-filled summit craters, these caves form a labyrinth of tunnels and vaulted chambers about one and one -half miles in total length. Their creation depends on an unusual combination of factors that nature almost never brings together in one place. The cave-making recipe calls for a steady emission of volcanic gas and heat, a heavy annual snowfall at an elevation high enough to keep it from melting during the summer, and a bowl-shaped crater to hold the snow.\n          Snow accumulating yearly in Rainier's summit craters is compacted and compressed into a dense form of ice called firm, a substance midway between ordinary ice and the denser crystalline ice that makes up glaciers. Heat rising from numerous openings (called fumaroles) along the inner crater walls melts out chambers between the rocky walls and the overlying ice pack. Circulating currents of warm air then melt additional openings in the firm ice, eventually connecting the individual chambers and, in the large of Rainier's two craters, forming a continuous passageway that extends two-thirds of the way around the crater's interior.\n          To maintain the cave system, the elements of fire under ice must remain in equilibrium enough snow must fill the crater each year to replace that melted from below. If too much volcanic heat is discharged, the crater's ice pack will melt away entirely and the caves will vanish along with the snows of yesteryear. If too little heat is produced, the ice, replenished annually by winter snowstorms will expand, pushing against the enclosing crater walls and smothering the present caverns in solid firm ice."
+          },
+          "questions": [
+            {
+              "id": "ets-r03-q27",
+              "type": "mcq",
+              "question": "With what topic is the passage primarily concerned?",
+              "options": [
+                "The importance of snowfall for Mount Rainier",
+                "The steam caves of Mount Rainer",
+                "How ice covers are destroyed",
+                "The eruption of Mount Saint Helens in 19"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 27
+            },
+            {
+              "id": "ets-r03-q28",
+              "type": "mcq",
+              "question": "The word \" they\" refers to",
+              "options": [
+                "fields",
+                "intervals",
+                "eruptions",
+                "enemies"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 28
+            },
+            {
+              "id": "ets-r03-q29",
+              "type": "mcq",
+              "question": "According to the passage long periods of volcanic inactivity can lead to a volcanic cone's",
+              "options": [
+                "strongest eruption",
+                "sudden growth",
+                "destruction",
+                "unpredictability"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 29
+            },
+            {
+              "id": "ets-r03-q30",
+              "type": "mcq",
+              "question": "The second paragraph mentions all of the following as necessary clements in the creation of stream caves EXCEPT",
+              "options": [
+                "a glacier",
+                "a crater",
+                "heat",
+                "snow"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 30
+            },
+            {
+              "id": "ets-r03-q31",
+              "type": "mcq",
+              "question": "According to the passage, heat from Mounts Rainer's summit craters rises from.",
+              "options": [
+                "crystalline ice",
+                "firms",
+                "chambers",
+                "fumaroles"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 31
+            },
+            {
+              "id": "ets-r03-q32",
+              "type": "mcq",
+              "question": "\"Smothering the present caverns\" means that they would be",
+              "options": [
+                "eliminated",
+                "enlarged",
+                "prevented",
+                "hollowed"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 32
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

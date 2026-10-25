@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Alert, Button, Card, Input, Space, Tag, Typography } from 'antd';
-import type { InputRef } from 'antd';
+import { Alert, Button, Card, Input, Space, Tag, Typography } from '@/components/ui/Primitives';
+import type { InputRef } from '@/components/ui/Primitives';
 import {
   CheckCircleFilled,
   CloseCircleFilled,
@@ -8,7 +8,7 @@ import {
   RightOutlined,
   SoundOutlined,
   ThunderboltFilled,
-} from '@ant-design/icons';
+} from '@/components/ui/Icons';
 import { CertLevelTag } from '@/components/common/CertLevelTag';
 import styles from '@/features/vocab/components/VocabSpellingCard.module.css';
 import { VocabSpellingCardProps } from '@/features/vocab/types/VocabSpellingCardProps';

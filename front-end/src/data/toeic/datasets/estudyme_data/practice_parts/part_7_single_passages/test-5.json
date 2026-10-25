@@ -1,0 +1,623 @@
+{
+  "topicId": "614012e965d71f3a51f62c47",
+  "name": "Test 5",
+  "slug": "test-5",
+  "part": "part_7_single_passages",
+  "totalQuestions": 29,
+  "totalCards": 10,
+  "cards": [
+    {
+      "id": "6140137265d71f3a51f62cf3",
+      "questionText": "<table align=\"center\" border=\"1\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse:collapse\" width=\"80%\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td style=\"width: 109px; text-align: center;\"><span style=\"font-size:16px;\"><b>Time </b></span></td>\n\t\t\t<td style=\"width: 253px; text-align: center;\"><span style=\"font-size:16px;\"><b>Monday</b></span></td>\n\t\t\t<td style=\"width: 222px; text-align: center;\"><span style=\"font-size:16px;\"><b>Tuesday</b></span></td>\n\t\t\t<td style=\"width: 222px; text-align: center;\"><span style=\"font-size:16px;\"><b>Wednesday</b></span></td>\n\t\t\t<td style=\"width: 254px; text-align: center;\"><span style=\"font-size:16px;\"><b>Thursday</b></span></td>\n\t\t\t<td style=\"width: 212px; text-align: center;\"><span style=\"font-size:16px;\"><b>Friday</b></span></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 109px;\"><span style=\"font-size:16px;\">9:00 A.M - 11:00 A.M</span></td>\n\t\t\t<td style=\"width: 253px;\"><span style=\"font-size:16px;\">Yoga Level 1 Room 4</span></td>\n\t\t\t<td style=\"width: 222px;\">&nbsp;</td>\n\t\t\t<td style=\"width: 222px;\"><span style=\"font-size:16px;\">Fitness Training Room 1</span></td>\n\t\t\t<td style=\"width: 254px;\"><span style=\"font-size:16px;\">Kickboxing Level1: Room 3</span></td>\n\t\t\t<td style=\"width: 212px;\">&nbsp;</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 109px;\"><span style=\"font-size:16px;\">11:00 A.M - 2:00 P.M</span></td>\n\t\t\t<td style=\"width: 253px;\">&nbsp;</td>\n\t\t\t<td style=\"width: 222px;\"><span style=\"font-size:16px;\">Weight Training: Room 2</span></td>\n\t\t\t<td style=\"width: 222px;\">&nbsp;</td>\n\t\t\t<td style=\"width: 254px;\">&nbsp;</td>\n\t\t\t<td style=\"width: 212px;\"><span style=\"font-size:16px;\">Yoga Level 2: Room 4</span></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 109px;\"><span style=\"font-size:16px;\">2:00 P.M - 4:00 P.M</span></td>\n\t\t\t<td style=\"width: 253px;\"><span style=\"font-size:16px;\">Cycling: Room 1</span></td>\n\t\t\t<td style=\"width: 222px;\"><span style=\"font-size:16px;\">Kickboxing Level 2: Room 3</span></td>\n\t\t\t<td style=\"width: 222px;\">&nbsp;</td>\n\t\t\t<td style=\"width: 254px;\"><span style=\"font-size:16px;\">Nutrition Advice: Room 5 (book a personal appointment at reception)</span></td>\n\t\t\t<td style=\"width: 212px;\">&nbsp;</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 109px;\"><span style=\"font-size:16px;\">4:00 P.M - 6:00 P.M</span></td>\n\t\t\t<td style=\"width: 253px;\"><span style=\"font-size:16px;\">Yoga Level 3: Room 4</span></td>\n\t\t\t<td style=\"width: 222px;\">&nbsp;</td>\n\t\t\t<td style=\"width: 222px;\"><span style=\"font-size:16px;\">Fitness Training: Room 1</span></td>\n\t\t\t<td style=\"width: 254px;\">&nbsp;</td>\n\t\t\t<td style=\"width: 212px;\"><span style=\"font-size:16px;\">Marathon Training Room 2</span></td>\n\t\t</tr>\n\t</tbody>\n</table>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137265d71f3a51f62cfd",
+          "questionText": "Where most likely would this calendar be seen?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) In the sports section of a newspaper",
+            "(B) In a welcome packet for a cooking class",
+            "(C) On the wall in a gym facility",
+            "(D) In a program for a sports tournament"
+          ],
+          "correctOptions": [
+            "(C) On the wall in a gym facility"
+          ],
+          "transcript": "Based on the information given in the calendar, there are yoga, weight training, fitness training,.. - which are courses at a gym facility.",
+          "explanationVi": "<b>Tạm dịch:</b><br>Lịch này có khả năng được nhìn thấy nhất ở đâu? <br> (A) Trong mục thể thao của một tờ báo<br> (B) Trong gói chào mừng lớp học nấu ăn<br> (C) Trên tường của phòng tập gym<br> (D) Trong một chương trình cho một giải đấu thể thao<br>Lịch liệt kê các lớp thể dục và buổi tập luyện khác nhau, kèm theo thời gian cụ thể và số phòng trong một cơ sở nên <b><b>đáp án đúng là C</b></b>."
+        },
+        {
+          "id": "6140137265d71f3a51f62cfe",
+          "questionText": "<p>Which activities take place in the same room?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Yoga and kickboxing",
+            "(B) Marathon training and cycling",
+            "(C) Yoga and nutrition advice",
+            "(D) Cycling and fitness training"
+          ],
+          "correctOptions": [
+            "(D) Cycling and fitness training"
+          ],
+          "transcript": "They both take place in room 1.",
+          "explanationVi": "<b>Tạm dịch:</b><br>Những hoạt động nào diễn ra trong cùng một phòng? <br> (A) Yoga và kickboxing<br> (B) Tập luyện chạy marathon và đạp xe<br> (C) Tư vấn về yoga và dinh dưỡng<br> (D) Đạp xe và huấn luyện thể hình<br>Nhìn vào bảng ta thấy Đạp xe diễn ra ở Phòng 1 vào Thứ Hai từ 2:00 đến 4:00 P.M và Huấn luyện thể hình cũng diễn ra ở Phòng 1 vào thứ Tư từ 9:00 A.M đến 11:00 A.M và 4:00 P.M đến 6:00 P.M."
+        }
+      ]
+    },
+    {
+      "id": "6140137265d71f3a51f62cf4",
+      "questionText": "<p><span style=\"font-size:14px;\"><strong>WANDA KNIGHT&nbsp; &nbsp; &nbsp; &nbsp; 9:04</strong></span></p>\n\n<p><span style=\"font-size:14px;\">I just sent you the itinerary for your trip to Chicago on Friday.</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>TED GALEZNIC&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 9:05</strong></span></p>\n\n<p><span style=\"font-size:14px;\">Perfect. Thanks!</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>WANDA KNIGHT&nbsp; &nbsp; &nbsp; &nbsp; 9:05</strong></span></p>\n\n<p><span style=\"font-size:14px;\">Mike Ross wants you to add a meeting with Diamond Publishing while you're up there.</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>TED GALEZNIC&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 9:10</strong></span></p>\n\n<p><span style=\"font-size:14px;\">No problem.</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>WANDA KNIGHT&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;9:11</strong></span></p>\n\n<p><span style=\"font-size:14px;\">Okay. I can reach out to them. If you're too busy, that is.</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>TED GALEZNIC&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;9:13</strong></span></p>\n\n<p><span style=\"font-size:14px;\">It won't be a problem, I'm supposed to have a drink with Javier Sanchez from Diamond Sat. night.</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>WANDA KNIGHT&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;9:13</strong></span></p>\n\n<p><span style=\"font-size:14px;\">Nice.</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>TED GALEZNIC&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 9:20</strong></span></p>\n\n<p><span style=\"font-size:14px;\">When the guy is married to your sister, you're bound to see him.</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>WANDA KNIGHT&nbsp; &nbsp; &nbsp; &nbsp; 9: 21</strong></span></p>\n\n<p><span style=\"font-size:14px;\">Ah, that's right.</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137265d71f3a51f62cff",
+          "questionText": "What is suggested about Mr. Sanchez?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He works for an accounting company",
+            "(B) He is related to Ted Galeznic.",
+            "(C) He was recently married.",
+            "(D) He will visit Chicago on Friday."
+          ],
+          "correctOptions": [
+            "(B) He is related to Ted Galeznic."
+          ],
+          "transcript": "Because Ted Galeznic would have a drink with Javier Sanchez.",
+          "explanationVi": "<b>Tạm dịch:</b><br>Có gợi ý gì về ông Sanchez? <br> (A) Ông ấy làm việc cho một công ty kế toán<br> (B) Ông ấy có quan hệ họ hàng với Ted Galeznic. <br> (C) Ông ấy vừa mới kết hôn. <br> (D) Ông ấy sẽ đến thăm Chicago vào thứ Sáu. <br>Trong tin nhắn lúc 9:20, Ted Galeznic nói rằng khi một người đàn ông đã kết hôn với em gái của anh, thì nhất định sẽ gặp anh ấy. Điều này gợi ý rằng Javier Sanchez là anh rể của Ted Galeznic, nghĩa là anh ấy có quan hệ gia đình với Ted, nên <b><b>đáp án đúng là B</b></b>."
+        },
+        {
+          "id": "6140137265d71f3a51f62d00",
+          "questionText": "<p>At 9:11, what does Ms. Knight mean when she writes, “I can reach out to them”?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She can thank them.",
+            "(B) She can contact them.",
+            "(C) She can visit them.",
+            "(D) She can assist them."
+          ],
+          "correctOptions": [
+            "(B) She can contact them."
+          ],
+          "transcript": "<b>reach out to</b>: to contact somebody in order to get help\n",
+          "explanationVi": "<b>Tạm dịch:</b><br>Lúc 9:11, cô Knight có ý gì khi viết “Tôi có thể liên hệ với họ”? <br> (A) Cô ấy có thể cảm ơn họ. <br> (B) Cô ấy có thể liên lạc với họ. <br> (C) Cô ấy có thể đến thăm họ. <br> (D) Cô ấy có thể hỗ trợ họ. <br>Khi Wanda Knight nói \"I can reach out to them,\" cô ấy có ý là cô ấy có thể liên lạc với Diamond Publishing để sắp xếp cuộc họp cho Ted Galeznic. Trong ngữ cảnh này, \"reach out\" có nghĩa là liên hệ hoặc kết nối với một ai đó, nên <b><b>đáp án đúng là B</b></b>."
+        }
+      ]
+    },
+    {
+      "id": "6140137265d71f3a51f62cf5",
+      "questionText": "<p style=\"text-align: justify;\"><span style=\"font-size:14px;\">To: Accounting Departmentdesigners@ptcdesign.com<br>\nFrom: Robert Brown </span><robertbrown@ptcdesign.com><br>\n<span style=\"font-size:14px;\">Date: Monday, March 29<br>\nSubject: Upcoming Meeting<br>\n<br>\nHello everyone,<br>\nOur client from Japan, Mr. Sato, will be arriving the day after tomorrow to discuss an upcoming merger of our two companies. I ask that our accounting department work together to produce a financial statement for the first quarter in preparation for this meeting. Anyone who needs further data in order to complete this document should e-mail me without hesitation. Please finish this task by Tuesday afternoon. This document needs to detail all of our company’s financial activities, including all of our assets and investments.<br>\n<br>\nThanks,<br>\nRobert Brown, CEO<br>\nPTC Design</span></robertbrown@ptcdesign.com></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137265d71f3a51f62d01",
+          "questionText": "When is Mr. Sato scheduled to arrive at Mr. Brown’s company?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) On March 28",
+            "(B) On March 29",
+            "(C) On March 30",
+            "(D) On March 31"
+          ],
+          "correctOptions": [
+            "(D) On March 31"
+          ],
+          "transcript": "The information is in: <i>\"Our client from Japan, Mr. Sato, will be arriving the day after tomorrow\"</i> and to day is March 29.",
+          "explanationVi": "<b>Tạm dịch:</b> Ông Sato dự kiến khi nào đến công ty của ông Brown? <br> (A) Vào ngày 28 tháng 3<br> (B) Vào ngày 29 tháng 3<br> (C) Vào ngày 30 tháng 3<br> (D) Ngày 31 tháng 3<br><b>Thông tin: </b>“Our client from Japan, Mr. Sato, will be arriving the day after tomorrow to discuss an upcoming merger of our two companies.” <br><i>(Khách hàng của chúng tôi từ Nhật Bản, ông Sato, sẽ đến vào ngày mốt.)</i> và theo ngữ cảnh trong bài hôm nay là ngày 29 tháng 3, nên <b>đáp án đúng là D</b> ngày 31 tháng 3."
+        },
+        {
+          "id": "6140137265d71f3a51f62d02",
+          "questionText": "<p>Who most likely will contact Mr. Brown?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Employees who want to transfer to the accounting department",
+            "(B) Employees who need additional information",
+            "(C) Employees who need a deadline extension",
+            "(D) Employees who disagree about a merger"
+          ],
+          "correctOptions": [
+            "(B) Employees who need additional information"
+          ],
+          "transcript": "The information can be inferred from: <i>\"Anyone who needs further data in order to complete this document should e-mail me without hesitation.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Ai có nhiều khả năng sẽ liên hệ với ông Brown nhất? <br> (A) Nhân viên muốn chuyển sang bộ phận kế toán<br> (B) Nhân viên cần thêm thông tin<br> (C) Nhân viên cần gia hạn thời hạn<br> (D) Nhân viên không đồng ý về việc sáp nhập<br><b>Thông tin: </b>Anyone who needs further data in order to complete this document should e-mail me without hesitation. (Bất kỳ ai cần thêm dữ liệu để hoàn thành tài liệu này đừng ngần ngại hãy gửi email cho tôi). Do vậy, <b>đáp án đúng là B</b>."
+        }
+      ]
+    },
+    {
+      "id": "6140137265d71f3a51f62cf6",
+      "questionText": "<h3 align=\"center\"><span style=\"font-size:16px;\">American Architects Society Annual Awards</span></h3>\n\n<p><span style=\"font-size:14px;\">You are cordially invited to attend this year's event, to be held at the Merriton Hotel in Houston,Texas, on Friday, July 24. As a member, you may bring up to two guests.<br>\n<b>7:00 P.M: Reception<br>\n7:30 P.M: Welcome speech and introduction by Barry Humphreys, President of the American Architects Society<br>\n7:45 P.M: Dinner - Vegetarian options available - please specify when confirming attendance<br>\n9:00 P.M: Awards ceremony - Best Design, Best Newcomer, Best Residential Building, Best Public Building - Presented by comedian Alex Dashwood<br>\n10:30 P.M: A special live performance from award-winning band The Pop Tones </b><br>\nRSVP to Event Coordinator Janice Harton at janice.harton@amarchsoc.net no later than April 21.</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137265d71f3a51f62d03",
+          "questionText": "Who most likely are the invitation recipients?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Directors for building companies",
+            "(B) Members of an association",
+            "(C) Architects for the local government",
+            "(D) Award ceremony nominees"
+          ],
+          "correctOptions": [
+            "(B) Members of an association"
+          ],
+          "transcript": "It can be inferred from: <i>\"As a member, you may bring up to two guests.\"</i> that those who receive the invitation are members.",
+          "explanationVi": "<b>Tạm dịch:</b> <br>Ai có nhiều khả năng là người nhận lời mời nhất? <br> (A) Giám đốc các công ty xây dựng<br> (B) Thành viên của hiệp hội<br> (C) Kiến trúc sư cho chính quyền địa phương<br> (D) Những người được đề cử tại lễ trao giải<br><b>Thông tin: </b>“As a member, you may bring up to two guests.\" (Là thành viên, bạn có thể mang theo tối đa hai khách.). Thôn tin cho thấy những người nhận được thư mời là thành viên của Hiệp hội Kiến trúc sư (American Architects Society) nên <b>đáp án đúng là B</b>."
+        },
+        {
+          "id": "6140137265d71f3a51f62d04",
+          "questionText": "<p>How can attendance be confirmed?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) By calling the Merriton Hotel",
+            "(B) By e-mailing Barry Humphreys",
+            "(C) By visiting Alex Dashwood",
+            "(D) By contacting a coordinator"
+          ],
+          "correctOptions": [
+            "(D) By contacting a coordinator"
+          ],
+          "transcript": "The information is in: <i>\"RSVP to Event Coordinator Janice Harton at janice.harton@amarchsoc.net no later than April 21.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b> <br>Làm thế nào để xác nhận việc tham dự? <br> (A) Bằng cách gọi đến khách sạn Merriton<br> (B) Bằng cách gửi email cho Barry Humphreys<br> (C) Bằng cách đến thăm Alex Dashwood<br> (D) Bằng cách liên hệ với điều phối viên<br>Thư mời yêu cầu: \"RSVP to Event Coordinator Janice Harton at janice.harton@amarchsoc.net no later than April 21,\" cho biết rằng việc xác nhận tham dự có thể được thực hiện bằng cách liên hệ với điều phối viên sự kiện, Janice Harton, qua email, nên <b>đáp án đúng là D</b>."
+        }
+      ]
+    },
+    {
+      "id": "6140137265d71f3a51f62cf7",
+      "questionText": "<h3 align=\"center\"><span style=\"font-size:16px;\">Northshore Financial News</span></h3>\n\n<p><span style=\"font-size:14px;\">June 29-A local mainstay at Northshore City may soon go national. - [1] - The Northshore Creamery first opened its doors in 1951 by owner Bill Bradley and has become an iconic landmark of the city with it's huge rotating ice cream cone on the roof of the shop. Over the years it has remained a local favorite hangout for the residents of the city and soon captured the eyes of tourists driving through. - [2] - Bill Jr. took over the business and expanded the shop to keep up with the demand of locals and tourists. Northshore Creamery was even selected as a top-ten shop to visit by Travel 8c Tour Magazine.<br>\nIn 1988, Northshore Creamery was featured in the hit Hollywood movie Future Then and Now, which made it the top ice cream shop to visit by out-of-towners and tourists. - [3] - Efforts were made by various corporations to buy the business from the Bradley family, but Bill Jr. and his son William insisted on keeping the business within the family, which pleased the residents of Northshore. - [4] - “We’re keeping things small in scale and we’re slowly expanding,” explained William. “In order to keep the quality of our ice cream fresh and just the way my grandfather created his recipes, we don't want to take any short cuts, which is why we need time.”</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137265d71f3a51f62d05",
+          "questionText": "What is the purpose of the article?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To advertise the products of a shop",
+            "(B) To explain the details of a new business venture",
+            "(C) To discuss the history of a family business",
+            "(D) To explain the prices of the products"
+          ],
+          "correctOptions": [
+            "(C) To discuss the history of a family business"
+          ],
+          "transcript": "You can see the passage mentions about the year of establishment, the person taking over and the events that happened in the years of the business.",
+          "explanationVi": "<b>Tạm dịch:</b><br>Mục đích của bài viết là gì? <br> (A) Để quảng cáo sản phẩm của một cửa hàng<br>(B) Để giải thích chi tiết về một dự án kinh doanh mới<br> (C) Để thảo luận về lịch sử của một doanh nghiệp gia đình<br> (D) Để giải thích giá của sản phẩm<br>Bài viết kể về lịch sử của Northshore Creamery, từ khi mở cửa lần đầu tiên vào năm 1951 cho đến những kế hoạch mở rộng trong tương lai, nên <b>đáp án đúng là C</b>."
+        },
+        {
+          "id": "6140137265d71f3a51f62d06",
+          "questionText": "<p>What is indicated about Northshore Creamery?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It was purchased by a large corporation.",
+            "(B) It became famous in town because of a movie.",
+            "(C) It is the pride and joy of the locals.",
+            "(D) It doesn’t have enough money to expand."
+          ],
+          "correctOptions": [
+            "(C) It is the pride and joy of the locals."
+          ],
+          "transcript": "<p>The information can be inferred from: <em>\"Over the years it has remained a local favorite hangout for the residents of the city and soon captured the eyes of tourists driving through.\"</em></p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong><br>Điều gì được chỉ ra về Northshore Creamery?<br>(A) Nó được mua bởi một tập đoàn lớn. <br>(B) Nó trở nên nổi tiếng trong thị trấn nhờ một bộ phim. <br>(C) Đó là niềm tự hào và niềm vui của người dân địa phương. <br>(D) Nó không có đủ tiền để mở rộng. <br><strong>Thông tin: </strong>“Over the years it has remained a local favorite hangout for the residents of the city and soon captured the eyes of tourists driving through.” (Qua nhiều năm, nơi đây vẫn là địa điểm vui chơi yêu thích của người dân thành phố và nhanh chóng thu hút sự chú ý của khách du lịch lái xe qua.)<br>Bài viết nhấn mạnh rằng Northshore Creamery là một biểu tượng của thành phố và là một địa điểm ưa thích của cả người dân địa phương và khách du lịch, nên <strong>đáp án đúng là C</strong>.</p>"
+        },
+        {
+          "id": "6140137265d71f3a51f62d07",
+          "questionText": "<p>In which of the positions marked [1], [2], [3] and [4] does the following sentence belong? <br>“Now, the family is ready to open two new franchises in neighboring cities and, within 5 years, plan to open 6 new shops around the country.”</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) [1]",
+            "(B) [2]",
+            "(C) [3]",
+            "(D) [4]"
+          ],
+          "correctOptions": [
+            "(D) [4]"
+          ],
+          "transcript": "The sentence before position [4] talk about that Bill Jr and Willia, insisted on keeping the business within the family instead of buying the business from the Bradley family.",
+          "explanationVi": "<b>Tạm dịch:</b><br>Câu sau thuộc vị trí đánh dấu [1], [2], [3], [4] nào? <br> “Bây giờ, gia đình đã sẵn sàng mở hai cửa hàng nhượng quyền mới ở các thành phố lân cận và trong vòng 5 năm, dự định mở 6 cửa hàng mới trên khắp đất nước.” <br>Câu trước vị trí [4] nói về việc Bill Jr và Willia nhất quyết muốn giữ công việc kinh doanh trong nội bộ gia đình thay vì mua lại công việc kinh doanh từ gia đình Bradley. <b>Vị trí [4]</b> là thích hợp nhất vì nó tiếp nối logic của đoạn văn trước đó và cung cấp thông tin chi tiết về kế hoạch mở rộng tiếp theo."
+        }
+      ]
+    },
+    {
+      "id": "6140137265d71f3a51f62cf8",
+      "questionText": "<h3 align=\"center\"><span style=\"font-size:16px;\">Announcement from Acreton City Council</span></h3>\n\n<p align=\"right\"><span style=\"font-size:14px;\">April 3</span></p>\n\n<p><span style=\"font-size:14px;\">Acreton City Council will be creating a new task force charged with reducing unnecessary spending over the next fiscal year. The team of twelve people will be comprised of local business leaders, union representatives, civil servants, and financial consultants. Group members are due to be selected by the end of this month and will begin work almost immediately the following month planning ways to reduce annual local government costs by 10% over the next year by eliminating waste.<br>\nApplications for a position are being accepted at this time. Please contact the city council at admin@acretoncc.gov for any information about getting yourself or your organization involved in the project.</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137265d71f3a51f62d08",
+          "questionText": "<p>What is the announcement mainly about?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The formation of a new employment union",
+            "(B) The creation of a financial oversight committee",
+            "(C) The launch of a recruitment effort",
+            "(D) The start of a change in local legislation"
+          ],
+          "correctOptions": [
+            "(B) The creation of a financial oversight committee"
+          ],
+          "transcript": "<p>The information is in: <em>\"Acreton City Council will be creating a new task force charged with reducing unnecessary spending over the next fiscal year. The team of twelve people will be comprised of local business leaders, union representatives, civil servants, and financial consultants,\"</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong><br>Thông báo chủ yếu nói về điều gì? <br>(A) Sự thành lập của một công đoàn lao động mới<br>(B) Việc thành lập ủy ban giám sát tài chính<br>(C) Khởi động nỗ lực tuyển dụng<br>(D) Sự bắt đầu của một sự thay đổi trong luật pháp địa phương<br><strong>Thông tin: </strong>“Acreton City Council will be creating a new task force charged with reducing unnecessary spending over the next fiscal year. The team of twelve people will be comprised of local business leaders, union representatives, civil servants, and financial consultants.” <em>(Hội đồng Thành phố Acreton sẽ thành lập một lực lượng đặc nhiệm mới có nhiệm vụ giảm chi tiêu không cần thiết trong năm tài chính tiếp theo. Nhóm mười hai người sẽ bao gồm các lãnh đạo doanh nghiệp địa phương, đại diện công đoàn, các cơ quan dân sự người hầu và nhà tư vấn tài chính.\")</em><br>Thông báo chủ yếu đề cập đến việc thành lập một lực lượng đặc nhiệm mới nhằm giảm chi tiêu không cần thiết trong năm tài chính tới. Điều này cho thấy rằng thông báo tập trung vào việc tạo ra một ủy ban giám sát tài chính.</p>"
+        },
+        {
+          "id": "6140137265d71f3a51f62d09",
+          "questionText": "When is the group due to begin work?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) At the beginning of May",
+            "(B) At the end of the year",
+            "(C) At the beginning of the summer",
+            "(D) At the end of this month"
+          ],
+          "correctOptions": [
+            "(A) At the beginning of May"
+          ],
+          "transcript": "<p>It can be inferred from: <em>\"Group members are due to be selected by the end of this month and will begin work almost immediately the following month..\" that the following month is May.</em></p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong><br>Khi nào nhóm bắt đầu làm việc?<em><br></em>(A) Vào đầu tháng 5<br>(B) Vào cuối năm<br>(C) Vào đầu mùa hè<br>(D) Vào cuối tháng này<br><strong>Thông tin: </strong>“Group members are due to be selected by the end of this month and will begin work almost immediately the following month.”<br>Thông báo đề cập rằng các thành viên nhóm sẽ được chọn vào cuối tháng này và sẽ bắt đầu làm việc ngay lập tức vào tháng tiếp theo, tức là vào đầu tháng Năm, nên <strong>đáp án đúng là A</strong>.</p>"
+        },
+        {
+          "id": "6140137265d71f3a51f62d0a",
+          "questionText": "<p>What should interested parties do to get involved?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Sign a petition",
+            "(B) Attend a meeting",
+            "(C) Send an e-mail",
+            "(D) Fill out a form"
+          ],
+          "correctOptions": [
+            "(C) Send an e-mail"
+          ],
+          "transcript": "<p>The information is in: <em>\"Please contact the city council at admin@acretoncc.gov for any information about getting yourself or your organization involved in the project.\"</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong><br>Các bên quan tâm nên làm gì để tham gia?<br>(A) Ký tên thỉnh nguyện<br>(B) Tham dự một cuộc họp<br>(C) Gửi e-mail<br>(D) Điền vào biểu mẫu<br><strong>Thông tin: </strong>\"Please contact the city council at admin@acretoncc.gov for any information about getting yourself or your organization involved in the project.\"<br>Thông báo yêu cầu các bên quan tâm liên hệ với hội đồng thành phố qua email admin@acretoncc.gov để nhận thông tin về cách tham gia vào dự án, nên <strong>đáp án đúng là C</strong>.</p>"
+        }
+      ]
+    },
+    {
+      "id": "6140137265d71f3a51f62cf9",
+      "questionText": "<p><span style=\"font-size:14px;\"><strong>Janet Logan&nbsp;</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [2:15]&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;I just got off the phone and Mr. King informed me that he wanted his order a couple of weeks earlier than originally planned. Do you think this may be possible?</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>Margaret Lee&nbsp; </strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[2:16]&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;There's no problem on our end. We have all the fabrics ready and cut into their appropriate shapes and sizes. They are ready for the sewing machines.<br>\n<strong>Jason Brown&nbsp;</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; [2:17]&nbsp; &nbsp; &nbsp; &nbsp;My team is currently working on the orders from Mr. Bartelli. We have over 1000 units to sew and another order from Carla Bean after that.</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>Janet Logan</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[2:18]&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Mr. Bartelli doesn't need his order until the end of the month and Ms. Bean's orders can wait until next week, I can authorize your team to begin this order first.</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>Jason Brown&nbsp; </strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [2:19]&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;What is being made and how many units are needed?</span></p>\n\n<p><span style=\"font-size:14px;\"><strong>Janet Logan&nbsp;</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[2:20]&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Long-sleeved men's dress shirts. We need 100 units in small, 300 in medium, 300 in large, and 100 in extra-large.&nbsp;<br>\n<strong>Jason Brown&nbsp; &nbsp; &nbsp;</strong> &nbsp; &nbsp; &nbsp; &nbsp; [2:21]&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;OK then, I think we can finish those in two days.<br>\n<strong>Peter William&nbsp;</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[2:22]&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;We can get buttons on all 800 units within 2-4 hours.<br>\n<strong>Janet Logan</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[2:23]&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;Thank you so much. I appreciate your help. I'm glad that we can accommodate one of our best clients this way.</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137265d71f3a51f62d0b",
+          "questionText": "At 2:16, what does Margaret Lee mean when she writes “There’s no problem on our end”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Her team can achieve their goals.",
+            "(B) Her team can help the other teams,",
+            "(C) Their project will take some time.",
+            "(D) The problems will be minimal."
+          ],
+          "correctOptions": [
+            "(A) Her team can achieve their goals."
+          ],
+          "transcript": "<p>Because Janet Logan told her about Mr. King wanted his order a couple of weeks earlier than origianlly planned and asked her is this might be possible.</p>\n",
+          "explanationVi": "<b>Tạm dịch:</b><br>Vào lúc 2:16, Margaret Lee có ý gì khi viết “Không có vấn đề gì về phía chúng tôi”? <br> (A) Nhóm của cô ấy có thể đạt được mục tiêu của mình. <br> (B) Đội của cô ấy có thể giúp đỡ các đội khác. <br> (C) Dự án của họ sẽ mất một thời gian. <br> (D) Các vấn đề sẽ ở mức tối thiểu. <br>Janet Logan nói với cô ấy về việc ông King muốn đặt hàng sớm hơn vài tuần so với kế hoạch ban đầu và hỏi cô ấy rằng điều này có thể thực hiện được không. Margaret khẳng định về phía cô ấy không có vấn đề gì và họ đã sẵn sàng để may, nên <b>đáp án đúng là A</b>."
+        },
+        {
+          "id": "6140137265d71f3a51f62d0c",
+          "questionText": "For what type of company does Janet Logan work?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A shoe shop",
+            "(B) A clothing manufacturer",
+            "(C) A fashion magazine",
+            "(D) A menswear boutique"
+          ],
+          "correctOptions": [
+            "(B) A clothing manufacturer"
+          ],
+          "transcript": "The conversation mentions about fabrics, sewing machines, long-sleeve men's dress shirts.",
+          "explanationVi": "<b>Tạm dịch:</b><br>Janet Logan làm việc cho loại công ty nào? <br> (A) Một cửa hàng giày<br> (B) Một nhà sản xuất quần áo<br> (C) Một tạp chí thời trang<br> (D) Một cửa hàng quần áo nam<br>Đoạn hội thoại đề cập đến vải, máy may, áo sơ mi nam dài tay, nên <b>đáp án đúng là B</b>."
+        },
+        {
+          "id": "6140137265d71f3a51f62d0d",
+          "questionText": "According to the discussion, which department needs the most time?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Ms. Lee’s department",
+            "(B) Mr. Brown’s department",
+            "(C) Mr. William’s department",
+            "(D) Ms. Logan’s department"
+          ],
+          "correctOptions": [
+            "(B) Mr. Brown’s department"
+          ],
+          "transcript": "Ms. Lee's department has already finished.<br> Mr. Brown's department can finish in two days.<br> Mr. William's department can finish within 2-4 hours.",
+          "explanationVi": "<b>Tạm dịch:</b><br>Theo thảo luận, bộ phận nào cần nhiều thời gian nhất? <br> (A) Phòng của cô Lee<br> (B) Phòng của ông Brown<br> (C) Phòng của ông William<br> (D) Phòng của cô Logan<br>Ms. Bộ phận của Lee đã hoàn thành rồi.<br> Bộ phận của ông Brown có thể hoàn thành trong hai ngày.<br> Bộ phận của ông William có thể hoàn thành trong vòng 2-4 giờ, nên <b>đáp án đúng là B</b>."
+        },
+        {
+          "id": "6140137265d71f3a51f62d0e",
+          "questionText": "<p>What will Janet Logan most likely tell Mr. King?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) That his order will be delayed for a month",
+            "(B) That his order can be completed within two weeks",
+            "(C) That his request will be difficult to achieve",
+            "(D) That his order can be completed early accommodate one of our best clients this way."
+          ],
+          "correctOptions": [
+            "(D) That his order can be completed early accommodate one of our best clients this way."
+          ],
+          "transcript": "<p>Because Mr. King wants his order finished earilier than planned.</p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong><br>Janet Logan rất có thể sẽ nói gì với ông King? <br>(A) Đơn hàng của anh ấy sẽ bị trì hoãn trong một tháng<br>(B) Đơn hàng của anh ấy có thể được hoàn thành trong vòng hai tuần<br>(C) Rằng yêu cầu của anh ấy sẽ khó đạt được<br>(D) Đơn hàng của anh ấy có thể được hoàn thành sớm để đáp ứng nhu cầu của một trong những khách hàng tốt nhất của chúng ta theo cách này. <br>Bởi vì ông King muốn đơn hàng của mình hoàn thành sớm hơn dự định và sau khi trao đổi họ có thể đáp ứng được mong muốn của ông King, nên <strong>đáp án đúng là D</strong>.</p>"
+        }
+      ]
+    },
+    {
+      "id": "6140137265d71f3a51f62cfa",
+      "questionText": "<h3 align=\"center\"><span style=\"font-size:16px;\">Unsworthy Manufacturing</span></h3>\n\n<p><span style=\"font-size:14px;\"><b>Date:</b>Wednesday, October 17<br>\n<b>Subject: </b> Recycling<br>\n<br>\nIn response to pressure from local environmental groups, as of November 1 we will be separating all of our industrial waste for recycling. Collections will be made twice weekly on Tuesdays and Fridays from the regional recycling center, which will be supplying colored receptacles for different kinds of waste. All oils should be placed in the green container. All metals and glass belong in the red one. All paper waste should go into the blue one. Plastics will be collected for recycling as normal.<br>\nAs this new policy also carries a financial benefit to the company, managers in all manufacturing bays are responsible for ensuring that the new protocols for waste disposal are followed, and failure to comply with the policy could result in disciplinary action.<br>\nFurther information about our updated environmental practices will shortly be available on the website. Training sessions for managers will be held on Monday, October 22, but please contact me if you have any further questions in the meantime.<br>\n<br>\nRegards,<br>\nDavis Jeeland<br>\nOperations Director, Unsworthy Manufacturing</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137265d71f3a51f62d0f",
+          "questionText": "What is the reason for the change?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The company owners want to save money on labor.",
+            "(B) A new recycling center opened near the business.",
+            "(C) The local government changed its regulations.",
+            "(D) Environmentalists in the area requested it"
+          ],
+          "correctOptions": [
+            "(D) Environmentalists in the area requested it"
+          ],
+          "transcript": "The information is in: <i>\"In response to pressure from local environmental groups\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Lý do thay đổi là gì? <br> (A) Các chủ sở hữu công ty muốn tiết kiệm tiền lao động. <br> (B) Một trung tâm tái chế mới được mở gần doanh nghiệp. <br> (C) Chính quyền địa phương đã thay đổi các quy định của mình. <br>(D) Các nhà môi trường trong khu vực đã yêu cầu điều đó<br><b>Thông tin: </b>\"In response to pressure from local environmental groups” <i>(Trước áp lực từ các nhóm môi trường địa phương)</i><br>Thông báo đề cập rằng thay đổi này là để đáp ứng áp lực từ các nhóm môi trường địa phương, cho thấy lý do chính cho việc thay đổi là yêu cầu từ các nhà môi trường, nên <b>đáp án đúng là D</b>."
+        },
+        {
+          "id": "6140137265d71f3a51f62d10",
+          "questionText": "What can be inferred about Unsworthy Manufacturing?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It has good relations with local authorities.",
+            "(B) It already recycles its plastic industrial waste.",
+            "(C) It recently increased its workforce.",
+            "(D) It updates its environmental policy regularly."
+          ],
+          "correctOptions": [
+            "(B) It already recycles its plastic industrial waste."
+          ],
+          "transcript": "<p>The information is in: <i>\"All oils should be placed in the green container. All metals and glass belong in the red one. All paper waste should go into the blue one. Plastics will be collected for recycling as normal.\"</i></p>\n",
+          "explanationVi": "<b>Tạm dịch:</b> Có thể suy ra điều gì về Sản xuất Không xứng đáng? <br> (A) Nó có mối quan hệ tốt với chính quyền địa phương. <br> (B) Nó đã tái chế chất thải công nghiệp bằng nhựa của mình. <br> (C) Gần đây nó đã tăng lực lượng lao động. <br> (D) Nó cập nhật chính sách môi trường thường xuyên. <br><b>Thông tin: </b>\"All oils should be placed in the green container. All metals and glass belong in the red one. All paper waste should go into the blue one. Plastics will be collected for recycling as normal.Thông tin có trong: <i>(Tất cả các loại dầu phải được bỏ vào thùng màu xanh lá cây. Tất cả kim loại và thủy tinh thuộc về thùng màu đỏ. Tất cả rác thải giấy nên cho vào thùng màu xanh lam. Nhựa sẽ được thu gom để tái chế như bình thường.)</i><br>Điều này cho thấy công ty đã có chính sách tái chế nhựa trước đây, nên <b>đáp án đúng là B</b>."
+        },
+        {
+          "id": "6140137265d71f3a51f62d11",
+          "questionText": "<p>What should supervisors do next week?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Attend a workshop on new procedures",
+            "(B) Update the company’s website",
+            "(C) Make room for new waste receptacles",
+            "(D) Inform their teams of the changes"
+          ],
+          "correctOptions": [
+            "(A) Attend a workshop on new procedures"
+          ],
+          "transcript": "<p>It can be inferred from: <i>\"Training sessions for managers will be held on Monday, October 22\"</i></p>\n",
+          "explanationVi": "<b>Tạm dịch:</b><br>Người giám sát nên làm gì vào tuần tới? <br> (A) Tham dự hội thảo về các quy trình mới<br> (B) Cập nhật trang web của công ty<br> (C) Nhường chỗ cho các thùng đựng rác mới<br> (D) Thông báo cho nhóm của họ về những thay đổi<br><b>Thông tin: </b>\"Training sessions for managers will be held on Monday, October 22\" <i>(Các buổi đào tạo dành cho người quản lý sẽ được tổ chức vào Thứ Hai, ngày 22 tháng 10.)</i><br> Thông báo chỉ rõ rằng các buổi đào tạo cho các quản lý sẽ được tổ chức vào thứ Hai, ngày 22 tháng 10, vì vậy các giám sát viên nên tham dự hội thảo về các quy trình mới."
+        }
+      ]
+    },
+    {
+      "id": "6140137265d71f3a51f62cfb",
+      "questionText": "<h3 align=\"center\"><span style=\"font-size:16px;\">Normanville Farmers’ Market</span></h3>\n\n<p><span style=\"font-size:14px;\">April 9<br>\nDear Normanville Resident,<br>\nThis year’s first Normanville Farmers’ Market will be open on Saturday, April 14, on Clark Street, between Main street and Park street. The farmers’ market will be available between 9:00 A.M. and 5:00 P.M. The mayor of Normanville, Tom Daley, will be present to deliver an address at the opening ceremony. A lot of local farmers, food vendors, and street performers will be at the venue.<br>\n“This vibrant market will give our local farmers a nice place to sell their fresh produce. Additionally, because we cut out some middle processes, our prices are lower than those of average grocery stores,” said Suzy Hammer, executive director of the Normanville Farmers’ Association.<br>\nMs. Hammer also mentioned that currently there is not enough parking space to accommodate shoppers. The Normanville Farmers’ Association plans on expanding parking space in the coming months after the market has opened this Saturday. In the meantime, she advises Normanville residents who will visit the market to use public transportation in order to avoid parking difficulties.<br>\nThe Normanville Farmers’ Market is different from other grocery stores that supply mass-produced food products. The market will provide organic produce that is full of essential vitamins and minerals. As you know, the market will also help the local economy.<br>\nPlease come this Saturday and see what the Normanville Farmers’ Market has to offer!<br>\nSincerely,<br>\nNormanville Farmer’s Association</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137265d71f3a51f62d12",
+          "questionText": "Why was the letter written?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To describe a policy change",
+            "(B)  To introduce a new grocery store",
+            "(C)  To advertise a market opening",
+            "(D) To announce election results"
+          ],
+          "correctOptions": [
+            "(C)  To advertise a market opening"
+          ],
+          "transcript": "It can be inferred from: <i>\"This year’s first Normanville Farmers’ Market will be open on Saturday, April 14, on Clark Street\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Tại sao bức thư được viết? <br> (A) Để mô tả sự thay đổi chính sách<br> (B) Để giới thiệu một cửa hàng tạp hóa mới<br> (C) Để quảng cáo mở cửa thị trường<br> (D) Để công bố kết quả bầu cử<br><b>Thông tin: </b>\"This year’s first Normanville Farmers’ Market will be open on Saturday, April 14, on Clark Street\" <i>(Chợ nông sản Normanville đầu tiên trong năm nay sẽ mở cửa vào thứ Bảy, ngày 14 tháng 4, trên phố Clark)</i><br> Bức thư được viết để thông báo và quảng cáo về sự kiện khai trương Chợ Nông sản Normanville vào thứ Bảy, ngày 14 tháng 4, nên <b>đáp án đúng là C</b>."
+        },
+        {
+          "id": "6140137265d71f3a51f62d13",
+          "questionText": "What is indicated about Ms. Hammer?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She is a vendor at a farmer’s market",
+            "(B) She represents other farmers",
+            "(C) She owns a family-run farm",
+            "(D) She is the mayor of Normanville"
+          ],
+          "correctOptions": [
+            "(B) She represents other farmers"
+          ],
+          "transcript": "Based on her speech.",
+          "explanationVi": "<b>Tạm dịch:</b><br>Điều gì được chỉ ra về cô Hammer? <br> (A) Cô ấy là người bán hàng ở chợ nông sản<br> (B) Cô ấy đại diện cho những nông dân khác<br> (C) Cô ấy sở hữu một trang trại do gia đình quản lý<br> (D) Cô ấy là thị trưởng của Normanville<br>Suzy Hammer được giới thiệu là giám đốc điều hành của Hiệp hội Nông dân Normanville, cho thấy cô đại diện cho các nông dân khác, nên <b>đáp án đúng là B</b>."
+        },
+        {
+          "id": "6140137265d71f3a51f62d14",
+          "questionText": "What problem is mentioned?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Inadequate parking spots",
+            "(B) Unfair product pricing",
+            "(C) Lack of quality control",
+            "(D) Inclement weather"
+          ],
+          "correctOptions": [
+            "(A) Inadequate parking spots"
+          ],
+          "transcript": "The information is in: <i>\"In the meantime, she advises Normanville residents who will visit the market to use public transportation in order to avoid parking difficulties.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Vấn đề gì được đề cập? <br>(A) Không đủ chỗ đậu xe<br> (B) Định giá sản phẩm không công bằng<br> (C) Thiếu kiểm soát chất lượng<br> (D) Thời tiết khắc nghiệt<br><b>Thông tin: </b>\"In the meantime, she advises Normanville residents who will visit the market to use public transportation in order to avoid parking difficulties.\" <br> Bức thư đề cập rằng hiện tại không có đủ chỗ đậu xe để phục vụ cho người mua sắm và khuyên cư dân sử dụng phương tiện công cộng để tránh khó khăn về đậu xe, nên <b>đáp án đúng là A</b>."
+        },
+        {
+          "id": "6140137265d71f3a51f62d15",
+          "questionText": "<p>What is NOT mentioned as a benefit of shopping at the venue?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A boost for the local economy",
+            "(B) Competitive prices",
+            "(C) Healthy produce",
+            "(D) Longer opening hours"
+          ],
+          "correctOptions": [
+            "(D) Longer opening hours"
+          ],
+          "transcript": "(A) - As you know, the market will also help the local economy.<br>(B) - Additionally, because we cut out some middle processes, our prices are lower than those of average grocery stores<br>(C) - The market will provide organic produce that is full of essential vitamins and minerals.",
+          "explanationVi": "<b>Tạm dịch:</b> <br>Điều gì KHÔNG được đề cập như lợi ích của việc mua sắm tại địa điểm? <br> (A) Thúc đẩy nền kinh tế địa phương<br> (B) Giá cả cạnh tranh<br> (C) Sản phẩm lành mạnh<br> (D) Giờ mở cửa dài hơn<br>Bức thư không đề cập đến việc chợ có giờ mở cửa lâu hơn. Các lợi ích được nhắc đến bao gồm giá cả cạnh tranh, sản phẩm tốt cho sức khỏe và việc hỗ trợ nền kinh tế địa phương, nên <b>đáp án đúng là D</b>."
+        }
+      ]
+    },
+    {
+      "id": "6140137265d71f3a51f62cfc",
+      "questionText": "<h3 align=\"center\"><span style=\"font-size:16px;\">Lost and Found</span></h3>\n\n<p><span style=\"font-size:14px;\">Parkway City is bracing for another holiday season and urging its citizens and tourists to keep track of their belongings. - [1] - Every year, more than 2000 items show up at the city lost and found located at Parkway City Hall. “But we get even more lost items during the holiday season,” explained Jean King, the managing director of the lost and found. “From around November 25 to January 2, we get a 25% increase in the number of items that are brought to US.”<br>\n- [2] - Everything from keys, sunglasses, umbrellas, and jewelry to electronic devices, luggage, and shopping bags full of newly purchased items have been brought to the center over the years. “The strangest item we got was a suitcase full of period piece costumes,” says Jean. “The intern working for a film at the time was happy to get it back.”<br>\n- [3] - If the items are not claimed within 90 days, they are auctioned off at a public event to raise money for the community center - [4] –</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140137265d71f3a51f62d16",
+          "questionText": "What is the purpose of the article?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To advertise an event for the holidays",
+            "(B) To warn citizens of increased crimes",
+            "(C) To inform people about lost and found items",
+            "(D) To give information about an auction"
+          ],
+          "correctOptions": [
+            "(C) To inform people about lost and found items"
+          ],
+          "transcript": "The information can be inferred from: <i>\"Every year, more than 2000 items show up at the city lost and found located at Parkway City Hall.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Mục đích của bài viết là gì? <br>(A) Để quảng cáo một sự kiện vào dịp nghỉ lễ<br> (B) Để cảnh báo công dân về tội phạm gia tăng<br> (C) Để thông báo cho mọi người về đồ thất lạc và tìm thấy<br> (D) Để cung cấp thông tin về một cuộc đấu giá<br><b>Thông tin: </b>“Every year, more than 2000 items show up at the city lost and found located at Parkway City Hall.”<br> Mục đích của bài viết là thông báo cho người dân và khách du lịch về tình trạng mất đồ và các biện pháp xử lý đồ thất lạc tại Parkway City Hall."
+        },
+        {
+          "id": "6140137265d71f3a51f62d17",
+          "questionText": "What is suggested about Jean King?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She searches for lost items.",
+            "(B) She works for the city.",
+            "(C) She is an intern.",
+            "(D) She manages the community center."
+          ],
+          "correctOptions": [
+            "(B) She works for the city."
+          ],
+          "transcript": "It can be inferred from: <i>\"Jean King, the managing director of the lost and found\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Điều gì được gợi ý về Jean King? <br> (A) Cô ấy tìm kiếm những món đồ bị mất. <br> (B) Cô ấy làm việc cho thành phố. <br> (C) Cô ấy là thực tập sinh. <br> (D) Cô ấy quản lý trung tâm cộng đồng. <br><b>Thông tin: </b>“Jean King, the managing director of the lost and found.” <i>(Jean King, giám đốc điều hành của công ty thất lạc và tìm thấy.)</i><br> Jean King được giới thiệu là giám đốc điều hành của bộ phận đồ thất lạc, cho thấy cô làm việc cho thành phố."
+        },
+        {
+          "id": "6140137265d71f3a51f62d18",
+          "questionText": "What is suggested about the lost items?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) They are not kept indefinitely at the center.",
+            "(B) They are usually claimed by their owners.",
+            "(C) They are destroyed when unclaimed.",
+            "(D) They are generally new items."
+          ],
+          "correctOptions": [
+            "(A) They are not kept indefinitely at the center."
+          ],
+          "transcript": "The information is in: <i>\" If the items are not claimed within 90 days, they are auctioned off at a public event to raise money for the community center.\"</i>",
+          "explanationVi": "<b>Tạm dịch:</b><br>Có gợi ý gì về đồ bị mất? <br> (A) Chúng không được giữ vô thời hạn ở trung tâm.<br>(B) Chúng thường được chủ sở hữu của chúng yêu cầu bồi thường. <br> (C) Chúng bị phá hủy khi không có người nhận. <br> (D) Chúng thường là những mặt hàng mới. <br><b>Thông tin: </b>If the items are not claimed within 90 days, they are auctioned off at a public event to raise money for the community center. <i>(Nếu vật phẩm không được nhận trong vòng 90 ngày, chúng sẽ được bán đấu giá tại một sự kiện công cộng để gây quỹ cho trung tâm cộng đồng.)</i> <br> Điều này cho thấy rằng các món đồ không được giữ mãi mãi tại trung tâm, nên <b>đáp án đúng là A</b>."
+        },
+        {
+          "id": "6140137265d71f3a51f62d19",
+          "questionText": "<p>In which of the positions marked [1], [2], [3] and [4] does the following sentence best belong? <br>“Many people do come to claim their missing items, but a vast majority is still left unclaimed.”</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) [1]",
+            "(B) [2]",
+            "(C) [3]",
+            "(D) [4]"
+          ],
+          "correctOptions": [
+            "(C) [3]"
+          ],
+          "transcript": "Because the sentence after position [3] mention about how much the time the items are not claimed.",
+          "explanationVi": "<b>Tạm dịch:</b><br>Câu sau đây thuộc về vị trí nào trong số các vị trí được đánh dấu [1], [2], [3] và [4]? <br> “Nhiều người đến để nhận những món đồ bị mất của họ, nhưng đại đa số vẫn không có người nhận.”<br>Câu này phù hợp nhất ở <b>vị trí [3]</b> vì nó giải thích lý do tại sao các món đồ không được nhận lại trong vòng 90 ngày và phải được bán đấu giá. Nó liên kết thông tin về việc xử lý đồ thất lạc và dẫn dắt tới chi tiết về việc đấu giá để gây quỹ."
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Alert, Button } from 'antd';
+import { Alert, Button } from '@/components/ui/Primitives';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { FullScreenStatus } from '@/components/common/FullScreenStatus';
 import styles from '@/features/auth/GoogleCallbackView.module.css';

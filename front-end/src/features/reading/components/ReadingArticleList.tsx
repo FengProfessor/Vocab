@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Empty, List, Space, Tag, Typography } from 'antd';
+import { Card, Empty, List, Space, Tag, Typography } from '@/components/ui/Primitives';
 import { CertLevelTag } from '@/components/common/CertLevelTag';
 import styles from '@/features/reading/components/ReadingArticleList.module.css';
 import { ReadingArticleListProps } from '@/features/reading/types/ReadingArticleListProps';

@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-43",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 43",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-14/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Q1: Why is the speaker apologizing?</b></p><ul><li>Your attention, please. The library will be closing at 3 o'clock today in order to add new books and periodicals to its collection. Due to the need to take accurate inventory, we cannot allow books to be checked out today. We apologize for any inconvenience this may cause.</li></ul><p><b>Q2: Why would Daniel Jergens like to reschedule the meeting?</b></p><ul><li>Hello, Mr. Thompson, this is Daniel Jergens in the finance division. I am calling about the upcoming meeting with representatives of Shoal Barrier Associates. If you are free, we would like to move the meeting forward by one week. The main reason for this is that we need to wrap up the purchase as quickly as possible. Please get back to me about this as soon as you can.</li></ul><p><b>Q3: Why will the information technology division be relocating earlier?</b></p><ul><li>Beginning Wednesday, June 3, we will be temporarily relocating to the third floor of our Capital Cities branch downtown. Before the full relocation, the information technology section will be moving to the Capital Cities branch on May 20. This step will be necessary with the disruption of network service caused by the construction work.</li></ul><p><b>Q4: What is the message mainly about?</b></p><ul><li>Hello, Mrs. Hartman. This is Andy Synton with Premier Design Interiors. I have a few questions about your recent furniture order. A number of the items you requested are not in stock at the moment. However, we are able to offer you very similar products that can be shipped right away. Please let me know if you are interested in this.</li></ul><p><b>Q5: What is the purpose of the talk?</b></p><ul><li>OK, everyone. I asked you all to come today so that you know the schedule for the next 4 months. As I'm sure you all have heard, we recently received a major contract from Confederated Enterprises. However, we're really going to have to rush in order to meet the deadline in 4 months. So, I have broken down the tasks that need to be accomplished by each department and will be assigning them to you. After I give out your department's tasks, I'd like you to create a plan showing how you'll be able to complete the assignments by the deadline. I'll need those work plans e-mailed to me by this Friday.</li></ul><p><b>Q6: Who most likely is the speaker?</b></p><ul><li>Good evening. This message is for Marty from Clara Clayton. I'm just calling to let you know that I may have found an office space that might be exactly what you're looking for. It has 6 executive offices and a conference room. The only problem is that it isn't as close to the subway station as you wanted. However, it is in a waterfront building, so the view is quite spectacular. The rent is 8,000 dollars a month. So, if you're interested, give me a call and I can arrange for you to have a look at it today with the landlord. I might not be in the office, so please call me on my mobile. Thanks a lot, Marty. I'll speak with you soon.</li></ul><p><b>Q7: What will be provided for the travelers?</b></p><ul><li>May I have your attention, please? Due to severe weather conditions, all outgoing flights after 7 p.m. on Europeo Airlines to Milan have been cancelled. This includes the 7:30 flight as well. The next available flight to Milan Malpensa International will be tomorrow morning at 8 o'clock. We apologize for the inconvenience and will be offering hotel accommodations and shuttle bus service to those passengers who require them. For further information, please go to the Europeo Airlines counter. Thanks for your patience and understanding.</li></ul><p><b>Q8: What is the celebration for?</b></p><ul><li>It is my great privilege to welcome you all to this evening's anniversary celebration. In just over a decade, we have become one of the most reputable names in the American office supplies industry. It is largely because of your efforts that we have made such tremendous strides.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "Why is the speaker apologizing?",
+              "options": [
+                "To schedule a checkup",
+                "To delay a meeting",
+                "To confirm an appointment",
+                "To announce an early closure"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "Why would Daniel Jergens like to reschedule the meeting?",
+              "options": [
+                "To satisfy a request from Barrier Associates",
+                "To complete the purchase more quickly",
+                "To reconsider the contract",
+                "To avoid the severe weather condition"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "Why will the information technology division be relocating earlier?",
+              "options": [
+                "Because of an increase in staff",
+                "Because of an interruption of network service",
+                "Because of the full relocation",
+                "Because of the high release costs"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What is the message mainly about?",
+              "options": [
+                "A question about substituting order items",
+                "A question about the number of the items",
+                "The list of items that will be delivered",
+                "The shipping service that will be used"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What is the purpose of the talk?",
+              "options": [
+                "To address customer complaints",
+                "To discuss a presentation",
+                "To celebrate a new contract",
+                "To hand out assignments"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "Who most likely is the speaker?",
+              "options": [
+                "A landlord",
+                "A business executive",
+                "A real estate agent",
+                "A police officer"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What will be provided for the travelers?",
+              "options": [
+                "A free flight",
+                "Meal vouchers",
+                "Winter clothing",
+                "Hotel rooms"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What is the celebration for?",
+              "options": [
+                "A merger",
+                "An anniversary",
+                "A new CEO",
+                "A stock offering"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D. You will hear the conversations only ONCE",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-04/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1: Interview with Harry Park</b></p><ul><li><b>Interviewer:</b> Harry Park, you run a travel company which organises adventure holidays in some difficult places. How did you first become interested in ‘adventure travel’?</li><li><b>Harry:</b> Well, my father worked in an insurance company once he had a family. But before that he’d spent several years travelling the world, and he never stopped telling us about it. His stories were much more exciting than the books I read, and they made me want to travel and have adventures of my own (5).</li><li><b>Interviewer:</b> And what made you decide to start an adventure travel company?</li><li><b>Harry:</b> Well, when I was in my twenties, I travelled a lot in different countries. I went exploring and climbing in mountains and deserts. I wanted to show other people how wonderful these things were (6). The business has been very successful, but when I started it I didn’t know if I’d make any money.</li><li><b>Interviewer:</b> Your company’s called <b>Far and Wide</b>. How did you choose the name?</li><li><b>Harry:</b> Well, I just called it <b>Park Travel</b> at first. But everyone thought that was terribly boring! My wife kept suggesting different things, but in the end it was a customer who gave me the idea (7). <b>Far and Wide</b> is also the title of a book that a friend wrote, so it reminds me of him, too.</li><li><b>Interviewer:</b> Great... The places you visit are usually very unspoilt, Harry. Some people think it’s not a good idea to take tourists there. What would you say to them?</li><li><b>Harry:</b> Well, most of the places we visit have no inhabitants, so we aren’t going to spoil people’s way of life, or bring in things like television and fridges! And I make sure that we always take care of the environment (8). We are careful not to cause pollution, so we take all our rubbish away.</li><li><b>Interviewer:</b> Some of the things you do are also dangerous. Do you enjoy danger?</li><li><b>Harry:</b> Well, it’s not a question of enjoying it - it’s just that you can’t do what I do without thinking about the possible dangers. I’m never frightened though. If I’m taking a group up a mountain or something like that, I just concentrate on what I have to do and get on with it.</li><li><b>Interviewer:</b> You’ve been to some fascinating places, Harry.....</li></ul><p><b>Conversation 2: The Human Body Facts</b></p><ul><li><b>A:</b> Hey, I’m reading this really interesting article about the human body.</li><li><b>B:</b> Yeah? Well, we know all about that from biology lessons.</li><li><b>A:</b> No, we didn’t learn much at all at school! They’re discovering loads more things all the time. Really amazing things! Did you know that only about one tenth of the cells in your body are really you? The rest are bacteria.</li><li><b>B:</b> What? I’m not really me?</li><li><b>A:</b> No, of course you are you, but you also have millions, or trillions, of bacteria in you.</li><li><b>B:</b> Eeeeuuugh!</li><li><b>A:</b> No, they’re mostly really helpful. Someone did an experiment to see if animals can live without bacteria, and he found that a lot of them died or had to have a special diet. Animals need bacteria to digest food, you see. So we’re better off with bacteria.</li><li><b>B:</b> Unless the bacteria are bad.</li><li><b>A:</b> Unless they are bad, but they’re nearly all good. Oh yeah, and going back to cells, do you know how many cells you have in your body?</li><li><b>B:</b> Quite a lot, I’d say. A good few.</li><li><b>A:</b> Yeah, but how many?</li><li><b>B:</b> I don’t know. I’m not mathematical.</li><li><b>A:</b> <b>7 octillion!</b> That’s 7 plus 27 noughts.</li><li><b>B:</b> I knew it was a lot.</li><li><b>A:</b> OK, that’s an amazingly huge number, almost impossible to imagine. But the really weird thing is that most of the atoms are empty space, just air or nothingness. And if you took out the empty space, you could fit your body inside a tiny cube which measures one 500th of a centimetre on either side. That’s a box measuring 0.002 of a centimetre on each side. You’d be much too small to see.</li><li><b>B:</b> Mmm, I can imagine that. It sounds like something that would happen in a really bad Hollywood movie. You know, a mad scientist goes: (funny voice) ‘I’m going to extract all the air from your body’. OK, enough facts for one day.</li><li><b>A:</b> Don’t go! One last thing, did you know …</li><li><b>B:</b> No.</li><li><b>A:</b> Did you know that you probably have <b>mites in your eyelashes</b>?</li><li><b>B:</b> Mites in my eyelashes? What are mites exactly anyway?</li><li><b>A:</b> Yeah, they’re very small creatures, like insects, only not insects. They’re about a third of a millimetre long, so you can’t really see them. These particular mites live in eyelashes and eyebrows.</li><li><b>B:</b> But in mine?</li><li><b>A:</b> Well, maybe not. Only about 50% of people have them, and more older people. So you might not have any. Anyway, they’re completely harmless, they just eat dead skin.</li><li><b>B:</b> Yeah, right, harmless. I really would have preferred not to know that.</li><li><b>A:</b> Sorry.</li><li><b>B:</b> I mean, really!</li></ul><p><b>Conversation 3: Weekend Plans</b></p><ul><li><b>Girl:</b> So, have you got any plans for the weekend?</li><li><b>Boy:</b> Yeah, me and my mates are going to this activity centre in the mountains.</li><li><b>Girl:</b> Oh, yeah?</li><li><b>Boy:</b> You can do all kinds of things. It’s a new centre; it sounds great. We’re going to go <b>dirtboarding</b> …</li><li><b>Girl:</b> What’s that?</li><li><b>Boy:</b> It’s like skateboarding or snowboarding. You have a board, or deck, to stand on and wheels. They’re pretty strong because you go down rough mountain tracks on them. Steep, rough mountain tracks.</li><li><b>Girl:</b> Sounds a bit risky. Have you done it before?</li><li><b>Boy:</b> No, but I’ve done similar things. Anyway, we’re also going to go <b>canyoning</b>. Before you ask, that’s when you jump and swim down a river canyon. You have to use ropes and special equipment. And maybe we’ll go white water rafting too.</li><li><b>Girl:</b> Phew. It sounds far too difficult to me.</li><li><b>Boy:</b> They have lots of things that you could do too. Like <b>zip-wiring</b>, you know when you go along a wire through the trees or down a mountain.</li><li><b>Girl:</b> Go down a mountain on a wire!</li><li><b>Boy:</b> It’s really easy, and exciting too. You just have to hold on and enjoy the ride. Or there’s bungee jumping.</li><li><b>Girl:</b> Jump off a bridge on a long elastic band! Me? You’ve got to be joking! Anyway, I’m going away this weekend too, thank you for asking.</li><li><b>Boy:</b> I was going to ask. So where are you going?</li><li><b>Girl:</b> <b>Paris!</b> I’m so excited!</li><li><b>Boy:</b> Paris, wow!</li><li><b>Girl:</b> Yeah, it’ll be brilliant! We’re going to do all the sights, like go up the Eiffel Tower and take a boat along the River Seine and see the old parts of the city. It looks so beautiful in the photos. And then there are all the art galleries. You know how much I like art. I can’t wait to go round the Louvre and see all those famous paintings.</li><li><b>Boy:</b> I think the famous Impressionist paintings are somewhere else.</li><li><b>Girl:</b> Yeah, I know, they’re in the Musée d’Orsay. We’re going there too. And then I want to go to the Rodin Museum and see that famous statue, you know, The Thinker. And of course, if we’re in Paris, we’ll have to go shopping. Or look at the shops, at least. And then there’s the restaurants. Just think, French food!</li><li><b>Boy:</b> You’ve got a lot planned for one weekend.</li><li><b>Girl:</b> Oh, we’re going for four days, actually.</li><li><b>Boy:</b> Oh, four days, very nice. And who are you going with?</li><li><b>Girl:</b> Oh, just a friend.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Why did Harry decide to start an adventure travel company?",
+              "options": [
+                "Because he wanted to share his experience with others",
+                "Because he thought he could make a lot of money",
+                "Because he hoped to have more travelling himself",
+                "Because he wanted to become a successful person"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "Who suggested the name for Harry’s company?",
+              "options": [
+                "A friend",
+                "A customer",
+                "His wife",
+                "His father"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What does Harry try to do when he visits a place?",
+              "options": [
+                "Gives the local people jobs",
+                "Takes modern equipment",
+                "Avoid damaging the area",
+                "Takes as many photos as possible"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What does Harry say about doing dangerous things?",
+              "options": [
+                "It’s frightening",
+                "It’s enjoyable",
+                "It’s a tiring job",
+                "It’s part of his job"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "What do animals need bacteria for?",
+              "options": [
+                "Fighting diseases",
+                "Providing energy",
+                "Digesting food",
+                "Preventing diseases"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "How many cells are there in your body?",
+              "options": [
+                "7 million",
+                "7 trillion",
+                "17 trillion",
+                "7 octillion"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "How long are the mites?",
+              "options": [
+                "3 millimetres",
+                "A third of a millimetre long",
+                "0.03 millimetres long",
+                "Two thirds of a millimetre long"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "What do mites eat?",
+              "options": [
+                "Dead skin",
+                "Your eyelashes",
+                "Tiny insects",
+                "Harmful insects"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What is a dirt board?",
+              "options": [
+                "A board with wheels that you stand on",
+                "A board with no wheels that you stand on",
+                "A board with wheels that you sit on",
+                "A board with no wheels that you sit on"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What did you need to go canyoning?",
+              "options": [
+                "Ropes and a helmet",
+                "A guide and special equipment",
+                "Ropes and special equipment",
+                "Special equipment and a helmet"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "When does Paris look so beautiful?",
+              "options": [
+                "At night",
+                "On television",
+                "In the photos",
+                "In the movies"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "How long will the girl stay in Paris?",
+              "options": [
+                "The weekend",
+                "4 days",
+                "5 days",
+                "A week"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-10/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk 1:</b></p><p>Right, everyone- about the trip to the Jubilee Arts Centre next Wednesday. As you know, we have tickets for the Centre’s two theatres and the concert hall. Those of you with concert tickets will hear piano music by Chopin and Schumann. Those with tickets for the main theatre will see Shakespeare’s Twelfth Night, while people going to the smaller theatre will see The Wild Duck by Ibsen. Although all the theatre and concert tickets have gone, if anyone else would like to join us on the trip I can get tickets for the Arts Centre cinema to see the Australian comedy film, Spider and Rose.</p><p>The shows begin at half past seven, but we’ll leave early so you can spend time looking around the Arts Centre. The coach will leave here at 3:30 and arrive at the Arts Centre at about a quarter to five. Let me tell you what you can do there.</p><p>The Centre has a lot of art- lovers. In the Art Gallery there’s an exhibition of the history of Russian ballet. It has dresses and shoes worn by famous dancers and photos of past performances. With your student card, you can get in very cheaply. There are also some interesting free exhibitions. On the ground floor you can see prize- winning paintings from children’s competition, and gold jewellery made by Scottish artists. On the first floor there’s an exhibition of South American photographs, and there’s no charge for that either.</p><p>I know some of you hope to do some shopping. The Centre has a bookshop on the first floor and there’s a souvenir shop by the ticket office. If you’re more interested in clothes and shoes there’s a large shopping centre five minutes’ walk from the Arts Centre.</p><p>You’ll probably want to eat before the show. The Balcony Restaurant has a menu with a wide range of meals and waiter service, but it is rather expensive. Or there’s the Fountain Restaurant whose special three- course dinner is good value for money. There’s also Charlie’s coffee bar which serves coffee, sandwiches and cakes. You can get fruit juices and ice cream from the cinema kiosk.</p><p>After the shows the coach will pick us up at the Bridge Street exit. Everyone should be there by twenty past ten. The two plays will finish at around 10.10 or 10.15. I’m afraid concert- goers will have to wait, as the concert finishes earlier, at ten to ten.</p><p><b>Talk 2:</b></p><p>Announcer: And now for a few tips of you who are going to go walking this summer. Let’s look first of all at the type of bag that you should take with you. Rod Smith works in a shop that sells camping equipment and he feels he has a bag for every type of walking holiday. Rod, does it really make a difference what type of bag you use?</p><p>Rod: Yes, Jill, it certainly does. Bags come in every shape, colour and size now so it makes sense to pick one that is right for your needs. A backpack, for example, could quite rapidly ruin an otherwise good walking holiday if it doesn’t fit your back. In fact the fit is critical but the choice is so large now that it’s difficult to know how to make the right one. So- here are a few things to look for.</p><p>First of all size. A bag that holds thirty- five litres and has three outside pockets should be plenty big enough for a day- trip. For a four to five- day walking tour I would recommend a bag that holds seventy litres for a man and fifty to sixty litres for a woman. That’s along with a tent and a sleeping bag. An upright bag- that’s one that closes at the top- is better if you intend to climb a lot of hills.</p><p>What about the contents? Well, in order to really avoid the inconvenience of broken containers or crushed clothes, I suggest you go for a bag with a solid bottom. The best ones- but these are probably the most expensive have a leather base that is particularly resistant to wear and tear. A bag that has two compartments inside will allow you to find things more easily and separate out items such as creams that could leak in hot weather. Extra pockets on the outside of the bag are also useful if you want to carry any tools for climbing that are sharp or get dirty when you use them.</p><p>When you have to think about carrying your bag. If it’s a backpack, a wide cushioned belt will ease the strain on your back and hops and leave you with more energy for your walking activities. Shoulder straps also help lighten the load and these should be easy to adjust. There are many different types of strap on the market that can be adjusted in various different ways. Try several and compare them. It’s also a good idea to make sure there’s a horizontal bar that goes across your shoulders and stops the straps from falling off.</p><p>Well, if you choose your bag carefully and think about some of the things I’ve mentioned, you shouldn’t waste your money. Finally, make sure there are plenty of air holes in the padded part of your bag that touches your body. These are essential to allow sweat to escape and to make your walking or climbing holiday a comfortable one.</p><p><b>Talk 3:</b></p><p>Thank you all for coming to my talk this evening. It’s nice to see so many people in the audience. For those of you who don’t know very much about PS Camping let me start by giving some background information about the company.</p><p>The company started twenty-five years ago. It actually opened as a retail chain selling camping equipment, and then twenty years ago, it bought a small number of campsites in the UK, and began offering camping holidays. The company grew rapidly and has been providing holidays in continental Europe for the last fifteen years.</p><p>If you book a camping holiday with us, you’ll have a choice of over 300 sites. In Italy we now have some 64 sites that we either own, or have exclusive use of. France is where we have the majority of sites, and we currently have a project to expand into Switzerland. We also have a number of sites in northern Spain, particularly in the mountainous region of Picos de Europa. We’ve upgraded all these Spanish sites, and improved them considerably from their original three-star rating.</p><p>We believe holidays after superb facilities for the whole family. Parents who want their children to be fully occupied for all or part of the day can take advantage of our children’s activities. These are organized by our well-qualified and enthusiastic staff. Each day kicks off with a sports match, perhaps football, or volleyball, followed by an hour of drama for everyone. This may include singing or dancing, mime or other activities. In the afternoon, there’s a different art activity for each day of the week including a poster competition or modal making. What’s more, our sites are truly child-friendly, and, with this in mind, we operate a no-noise rule in the evenings. Children’s evening activities usually finished at 9:30, or occasionally 10, and from 10:30 holiday-makers are expected to be quiet in the areas where there are tents.</p><p>We want nothing to go wrong on a PS Camping holiday, but if it does, we also want all customers to be insured. If you haven’t organized an annual insurance policy of your own you’ll need to take out the low-cost cover we offer and we require that you arrange this when you make your holiday reservation.</p><p>There are many advantages to choosing PS Camping, and to recommending it to others. As a regular customer, you’ll be kept informed of special offers, and your friends can benefit from ten percent off their holidays, or book a luxury tent for the price of a standard one. In return, we’ll send you a thank-you present, which you can choose from a list of high-quality items.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "There are still tickets for .........",
+              "options": [
+                "The piano concert",
+                "The movie",
+                "Twelfth Night",
+                "Spider and Rose"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "The coach will leave at 3.30 because ..............",
+              "options": [
+                "It's the earliest",
+                "They don't want to miss the shows",
+                "They want free time at the Arts Centre",
+                "It's long journey to the Arts Centre"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "You have to pay to see ..................",
+              "options": [
+                "The Russian ballet exhibition",
+                "The shoes store",
+                "The Scottish jewellery",
+                "The South American photographs"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "You can buy clothes ..............",
+              "options": [
+                "On the first floor",
+                "On the second floor",
+                "In the souvenir shop",
+                "Close to the Arts Centre"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "If you want a snack and a hot drink, try .......................",
+              "options": [
+                "The nearby café",
+                "The fountain",
+                "Charlie's",
+                "The cinema kiosk"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "Rod’s shop sells bags and ...............",
+              "options": [
+                "Camping equipment",
+                "Hiking clothes",
+                "Walking holiday stuffs",
+                "No information"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "A 35- litre bag is good for .............................",
+              "options": [
+                "a day trip",
+                "four day trip",
+                "five day trip",
+                "six day trip"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "The bag that allows you to separate your belongings .......................",
+              "options": [
+                "One with a solid bottom",
+                "One has a leather base",
+                "One has two compartments inside",
+                "One has pockets bags outside"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "It's important that shoulder straps are .......................",
+              "options": [
+                "Light",
+                "Flexible",
+                "Fashionable",
+                "Strong"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "Another essential part of the bags includes .......................",
+              "options": [
+                "Straps",
+                "Air holes",
+                "Sweat absorption",
+                "Cooler tool"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "PS Camping has been organising holidays for .......................",
+              "options": [
+                "15 years",
+                "20 years",
+                "25 years",
+                "30 years"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "The company has most camping sites in ...............",
+              "options": [
+                "France",
+                "Italy",
+                "Europe",
+                "Switzerland"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "Which organized activity can children do every day of the week?",
+              "options": [
+                "Singing and dancing",
+                "Football",
+                "Drama",
+                "Model making"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "Some areas of the sites have a “no- noise” rule after .......",
+              "options": [
+                "9.30 pm",
+                "10.00 pm",
+                "10.30 pm",
+                "11.30 pm"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "Customers who recommend PS Camping to friends will receive ......",
+              "options": [
+                "a free gift",
+                "an upgrade to a luxury tent",
+                "a discount",
+                "an insurance"
+              ],
+              "answer": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

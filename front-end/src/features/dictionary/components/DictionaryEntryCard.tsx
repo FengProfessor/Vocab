@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, Card, Col, Divider, Row, Space, Tag, Typography } from 'antd';
-import { PlusOutlined, SoundOutlined } from '@ant-design/icons';
+import { Button, Card, Col, Divider, Row, Space, Tag, Typography } from '@/components/ui/Primitives';
+import { PlusOutlined, SoundOutlined } from '@/components/ui/Icons';
 import styles from '@/features/dictionary/components/DictionaryEntryCard.module.css';
 import { DictionaryEntryCardProps } from '@/features/dictionary/types/DictionaryEntryCardProps';
 import { SpeechService } from '@/lib/speechService';

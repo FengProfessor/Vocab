@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Alert, App, Button, Modal, Space, Typography, Upload } from 'antd';
-import { CameraOutlined } from '@ant-design/icons';
+import { Alert, App, Button, Modal, Space, Typography, Upload } from '@/components/ui/Primitives';
+import { CameraOutlined } from '@/components/ui/Icons';
 import styles from '@/features/dictionary/components/DictionaryOcrModal.module.css';
 import { DictionaryOcrModalProps } from '@/features/dictionary/types/DictionaryOcrModalProps';
 import { useOcrExtractWords } from '@/hooks/dictionary/useOcrExtractWords';

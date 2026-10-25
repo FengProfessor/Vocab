@@ -1,0 +1,101 @@
+{
+  "id": "vstep-reading-onthi-42",
+  "title": "Luyện Đọc VSTEP: The Gut Microbiome and Human Health (VstepR5-Test 14 (27-03-2026))",
+  "duration": 10,
+  "date": "2026-03-27",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 5,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "The Gut Microbiome and Human Health",
+            "text": "<p style=\"text-align:justify;\">The human gut contains approximately 38 trillion microorganisms — bacteria, viruses, fungi, and other microscopic life forms — collectively known as the gut microbiome. This vast community of organisms, unique to each individual, plays a role in human health that researchers are only beginning to fully appreciate. For decades, microorganisms were studied primarily in the context of disease; it is only relatively recently that science has turned its attention to the positive and essential functions performed by our microscopic inhabitants.</p>\n<p style=\"text-align:justify;\">The gut microbiome performs critical metabolic functions: it helps digest complex plant fibers that human enzymes cannot break down, produces certain essential vitamins such as vitamin K and some B vitamins, and synthesizes neurotransmitters including a significant proportion of the body's serotonin. The composition of the microbiome is shaped by diet, early-life exposures, antibiotic use, stress, and other environmental factors — and its disruption, a condition called dysbiosis, has been linked to inflammatory bowel disease, obesity, type 2 diabetes, and even depression and anxiety.</p>\n<p style=\"text-align:justify;\">The bidirectional communication pathway between the gut and the brain, known as the gut-brain axis, has emerged as a particularly exciting area of research. Animal studies have shown that altering the gut microbiome can measurably change behavior and mood, and early human studies suggest associations between microbiome composition and conditions such as autism spectrum disorder, major depression, and Parkinson's disease. While it is too early to draw definitive clinical conclusions, these findings have opened entirely new avenues for understanding and potentially treating some of the most challenging disorders in medicine.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r42-q1",
+              "type": "mcq",
+              "question": "What is the author's attitude toward the scientific study of the gut microbiome?",
+              "options": [
+                "Dismissive — the field is too new to be taken seriously",
+                "Optimistic but cautious — it is promising but conclusions must be carefully drawn",
+                "Alarmed — the microbiome poses serious risks to human health",
+                "Indifferent — the research is interesting but has no practical relevance"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r42-q2",
+              "type": "mcq",
+              "question": "What is the purpose of paragraph 1?",
+              "options": [
+                "To argue that previous scientists were wrong to study disease-causing microorganisms",
+                "To introduce the gut microbiome and explain the shift in how scientists now view it",
+                "To describe the specific types of bacteria found in the human gut",
+                "To explain how infections spread through the digestive system"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r42-q3",
+              "type": "mcq",
+              "question": "How does the author organize the information in paragraph 2?",
+              "options": [
+                "By presenting a problem and then providing a solution",
+                "By listing the functions of the microbiome and then discussing what happens when it is disrupted",
+                "By comparing the gut microbiome to the immune system",
+                "By chronologically describing the history of microbiome research"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r42-q4",
+              "type": "mcq",
+              "question": "The phrase \"it is too early to draw definitive clinical conclusions\" in paragraph 3 suggests that the author?",
+              "options": [
+                "believes the gut-brain research is not worth pursuing",
+                "thinks medical treatments based on the microbiome are already available",
+                "is being scientifically cautious despite finding the research promising",
+                "believes animal studies cannot be relevant to human medicine"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r42-q5",
+              "type": "mcq",
+              "question": "What is the overall structure of the passage?",
+              "options": [
+                "Introduction to the topic → functions and disruption → new research frontier",
+                "A historical timeline of microbiome discovery from ancient to modern times",
+                "A comparison between healthy and unhealthy gut microbiomes",
+                "A debate between scientists who support and oppose microbiome research"
+              ],
+              "answer": 0,
+              "explanationVi": "<p>Đáp án chính xác là <b>A</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

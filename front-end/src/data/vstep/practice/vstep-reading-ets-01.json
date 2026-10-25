@@ -1,0 +1,600 @@
+{
+  "id": "vstep-reading-ets-01",
+  "title": "VSTEP B1, B2, C1 Reading - Full Test 001 (EnglishTestStore Practice)",
+  "duration": 60,
+  "date": "2026-09-12",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 60,
+      "totalQuestions": 36,
+      "tasks": [
+        {
+          "id": "ets-r01-task-1",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 1 to 5.",
+          "passage": {
+            "title": "Passage 1",
+            "text": "Dear David,\n        Many thanks for your long and interesting letter. What a pity, though, that you had to write about what Jonathan has been up to in it. I must say it seemed to me quite unnecessary. I couldn't of course let Amanda read it, though she kept asking for days. Rather thoughtless of you, dear, wasn't it, because naturally the children are interested in your letters.\n        You didn't tell me, by the way, that there was a bomb explosion in your office building shortly after you arrived, but I suppose you didn't want to worry us. Were you in any danger? If things get any worse you'll just have to come home, and we'll have to manage without all that money.\n        By the way, as you didn't answer my question about the washing- machine, I have bought a new one. Fully automatic; and rather expensive but it's super.\n        I heard about the bomb from Mr Zapp. A very curious visit which I must tell you about. He came round the other evening with the book you wanted. It was the most awkward time. about six just as we were about to have dinner but I felt that I had to invite him in since he'd taken the trouble to bring your book round and he looked rather miserable standing in the wet snow outside the front door wearing waterproof boots and a funny fur hat. He didn't need any persuading - practically knocked me over in his eagerness to get in the house. I took him into the front room for a quick drink. but it was like an iceberg - I don't bother to light a fire in there now you're always - so I had to take him into the dining-room, where the children were just beginning to fight because they were hungry for their dinner. I asked him if he would mind me serving the children their meal while he finished his drink, hoping this would give him the idea that he should leave promptly, but he said no, he didn't mind and I should eat too, and he took off his hat and coat and sat down to watch us. And I mean watch us. His eyes followed every movement from dish to plate to mouth. It was very embarrassing. The children fell strangely silent, and I could see that Amanda and Robert were looking at each other and going red in the face with the effort of trying not to laugh. In the end I had to ask him if he wouldn't like to join us for the meal....\n                                                                                                                                     Love\n                                                                                                                                     Rosemary"
+          },
+          "questions": [
+            {
+              "id": "ets-r01-q01",
+              "type": "mcq",
+              "question": "Rosemary is writing this letter to David, who ______",
+              "options": [
+                "is coming home soon",
+                "is working away from home",
+                "does not think much about the children",
+                "hasn't written home recently"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 1
+            },
+            {
+              "id": "ets-r01-q02",
+              "type": "mcq",
+              "question": "What seems to be happening to David?",
+              "options": [
+                "He is in continual danger",
+                "Someone is trying to kill him",
+                "He is earning a lot of money",
+                "He is involved in criminal activity"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 2
+            },
+            {
+              "id": "ets-r01-q03",
+              "type": "mcq",
+              "question": "What does Rosemary's attitude towards David seem to be?",
+              "options": [
+                "She worries about him all the time",
+                "She thinks more about money and the house than about him",
+                "She lets him do what he wants to do and does not criticize",
+                "She wants him to be involved in decisions about house and family"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 3
+            },
+            {
+              "id": "ets-r01-q04",
+              "type": "mcq",
+              "question": "Why does Rosemary describe Mr Zapp's visit as a curious one?",
+              "options": [
+                "She found Mr Zapp's behaviour unusual and strange",
+                "She was interested in getting to know Mr Zapp better",
+                "She had never met Mr Zapp before",
+                "Mr Zapp was tense and unhappy"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 4
+            },
+            {
+              "id": "ets-r01-q05",
+              "type": "mcq",
+              "question": "Why did the children go red in the face?",
+              "options": [
+                "They had been fighting",
+                "They were having difficulty in not laughing",
+                "They were hlaking paces at each other",
+                "It was too hot in the dining room"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 5
+            }
+          ]
+        },
+        {
+          "id": "ets-r01-task-2",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 6 to 15.",
+          "passage": {
+            "title": "PASSAGE 2",
+            "text": "By the mid-nineteenth century, the term “icebox” had entered the American language, but ice was still only beginning to affect the diet of ordinary citizens in the United States. The ice trade grew with the growth of cities. Ice was used in hotels, taverns, and hospitals, and by some  forward- looking city dealers in fresh meat, fresh fish, and butter. After the Civil War ( 1860- 1865), as ice used to  refrigerate freight cars, it also came into household use. Even before 1880, half  the ice sold in New York, Philadelphia, and Baltimore, and one-third of that sold in Boston and Chicago, went to families for their own use. This had become possible because a new household convenience, the icebox, a precursor of the modern refrigerator, had been invented.\n\tMaking an efficient icebox was not as easy as we might now suppose. In the early nineteenth century, the knowledge of the physics of heat , which was essential to a science of refrigeration, was  rudimentary. The commonsense notion that the best icebox was one that  prevented the ice from melting was of course mistaken, for it was the melting of the ice that  performed the cooling. Nevertheless, early efforts to economize ice included wrapping the ice blankets, which kept the ice from doing its job. Not until near the end of the nineteenth century did inventors achieve the delicate balance of insulation and circulation needed for an efficient icebox.\n\tBut as early as 1803, an ingenious Maryland farmer, Thomas Moore, had been on the right track. He owned a farm about twenty miles outside the city of Washington, for which the village of Georgetown was the market center. When he used an icebox of his own design to transport his butter to market, hr found that customers would pass up the rapidly melting stuff in the tubs of his competitors to  pay a premium price for his butter, still fresh and hard in neat, one-pound bricks. One advantage of his icebox, more explained, was that farmers would no longer have to travel to market at night in order to keep their produce\n cool."
+          },
+          "questions": [
+            {
+              "id": "ets-r01-q06",
+              "type": "mcq",
+              "question": "What does the passage mainly discuss?",
+              "options": [
+                "The influence of  ice on the diet",
+                "The development of refrigeration",
+                "The transportation of goods to market",
+                "Sources of ice in the nineteenth century"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 6
+            },
+            {
+              "id": "ets-r01-q07",
+              "type": "mcq",
+              "question": "According to the passage, when did the word “icebox” become part of the language of the United States?",
+              "options": [
+                "In 1803",
+                "Sometime before 1850",
+                "During the Civil War",
+                "Near the end of 19th century"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 7
+            },
+            {
+              "id": "ets-r01-q08",
+              "type": "mcq",
+              "question": "The phrase “forward- looking” is closest in  meaning to",
+              "options": [
+                "progressive",
+                "popular",
+                "thrifty",
+                "well-established"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 8
+            },
+            {
+              "id": "ets-r01-q09",
+              "type": "mcq",
+              "question": "The author mentions “ fish”  in “ ……dealers in fresh meat, fresh fish and butter….”",
+              "options": [
+                "many fish dealers also sold ice.",
+                "fish was shipped in refrigerated freight cars.",
+                "fish dealers were among the early commercial users of ice.",
+                "fish was not part of the ordinary person’s diet before the invention of the icebox."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 9
+            },
+            {
+              "id": "ets-r01-q10",
+              "type": "mcq",
+              "question": "The word “it” in “……it also came into household use…” refers to",
+              "options": [
+                "fresh meat",
+                "the Civil War",
+                "ice",
+                "a refrigerator"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 10
+            },
+            {
+              "id": "ets-r01-q11",
+              "type": "mcq",
+              "question": "According to the passage, which of the following was an obstacle to the development of the icebox?",
+              "options": [
+                "Competition among the owners of refrigerated freight cars",
+                "The lack of a network for the distribution of ice",
+                "The use of insufficient insulation.",
+                "Inadequate understanding of physics."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 11
+            },
+            {
+              "id": "ets-r01-q12",
+              "type": "mcq",
+              "question": "The word “rudimentary” is closest in meaning to",
+              "options": [
+                "growing",
+                "undeveloped",
+                "necessary",
+                "uninteresting"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 12
+            },
+            {
+              "id": "ets-r01-q13",
+              "type": "mcq",
+              "question": "According to the information in the second paragraph, an ideal icebox would ______",
+              "options": [
+                "completely prevent ice from melting",
+                "stop air from circulating",
+                "allow ice to melt slowly",
+                "use blankets to conserve ice"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 13
+            },
+            {
+              "id": "ets-r01-q14",
+              "type": "mcq",
+              "question": "The author describes Thomas Moore as having been “on the right track” to indicate that ______",
+              "options": [
+                "the road to the market passed close to Moore’s farm",
+                "Moore was an honest merchant",
+                "Moore was a prosperous farmer",
+                "Moore’s design was fairly successful"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 14
+            },
+            {
+              "id": "ets-r01-q15",
+              "type": "mcq",
+              "question": "According to the passage, Moore’s icebox allowed him to ______",
+              "options": [
+                "charge more for his butter",
+                "travel to market at night",
+                "manufacture butter more quickly",
+                "produce ice all year round"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 15
+            }
+          ]
+        },
+        {
+          "id": "ets-r01-task-3",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 16 to 26.",
+          "passage": {
+            "title": "PASSAGE 3",
+            "text": "The changing profile of a city in the United States is apparent in the shifting definitions used by the United States Bureau of the Census. In 1870 the census officially distinguished the nation's “urban” from its “rural” population for the first time. “Urban population” was defined as persons living in towns of 8,000 in habitants or more. But after 1900 it meant persons living in incorporated places having 2,500 or more inhabitants.  Then, in 1950 the Census Bureau radically changed its definition of “urban” to take account of the new vagueness of city boundaries. In addition to persons living in incorporated units of 2,500 or more, the census now included those who lived in unincorporated units of that size, and also all persons living in the densely settled urban fringe, including both incorporated and unincorporated areas located around cities of 50,000 inhabitants or more. Each such unit, conceived as an integrated economic and social unit with a large population nucleus, was named a Standard Metropolitan Statistical Area (SMSA).  Each SMSA would contain at least (a) one central city with 50,000 inhabitants or more or two cities having shared boundaries and constituting, for general economic and social purposes, a single community with a combined population of at least 50,000, the smaller of which must have a population of at least 15,000. Such an area included the county in which the central city is located, and adjacent counties that are found to be metropolitan in character and economically and socially integrated with the county of the central city. By 1970, about two-thirds of the population of the United States was living in these urbanized areas, and of that figure more than half were living outside the central cities.  While the Census Bureau and the United States government used the term SMSA (by 1969 there were 233 of them), social scientists were also using new terms to describe the elusive, vaguely defined areas reaching out from what used to be simple “towns” and “cities”. A host of terms came into use: “metropolitan regions”, “polynucleated population groups,” “conurbations,” “metropolitan clusters,” “megalopolises,” and so on."
+          },
+          "questions": [
+            {
+              "id": "ets-r01-q16",
+              "type": "mcq",
+              "question": "What does the passage mainly discuss?",
+              "options": [
+                "How cities in the United States began and developed",
+                "Solutions to overcrowding in cities",
+                "The changing definition of an urban area",
+                "How the United States Census Bureau conducts a census"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 16
+            },
+            {
+              "id": "ets-r01-q17",
+              "type": "mcq",
+              "question": "According to the passage, the population of the United States was first classified as rural or urban in",
+              "options": [
+                "1870",
+                "1900",
+                "1950",
+                "1970"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 17
+            },
+            {
+              "id": "ets-r01-q18",
+              "type": "mcq",
+              "question": "The word “distinguished” is closest in meaning to",
+              "options": [
+                "Differentiated",
+                "Removed",
+                "Honored",
+                "Protected"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 18
+            },
+            {
+              "id": "ets-r01-q19",
+              "type": "mcq",
+              "question": "Prior to 1900, how many inhabitants would a town have to have before being defined as urban?",
+              "options": [
+                "2500",
+                "8000",
+                "15000",
+                "50000"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 19
+            },
+            {
+              "id": "ets-r01-q20",
+              "type": "mcq",
+              "question": "According to the passage, why did the Census Bureau revise the definition of urban in 1950?",
+              "options": [
+                "City borders had become less distinct.",
+                "Cities had undergone radical social change.",
+                "Elected officials could not agree on an acceptable definition.",
+                "New businesses had relocated to larger cities."
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 20
+            },
+            {
+              "id": "ets-r01-q21",
+              "type": "mcq",
+              "question": "The word “those” refers to",
+              "options": [
+                "Boundaries",
+                "Persons",
+                "Units",
+                "Areas"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 21
+            },
+            {
+              "id": "ets-r01-q22",
+              "type": "mcq",
+              "question": "The word “constituting” is closest in meaning to",
+              "options": [
+                "Located near",
+                "Determined by",
+                "Calling for",
+                "Making up"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 22
+            },
+            {
+              "id": "ets-r01-q23",
+              "type": "mcq",
+              "question": "The word “which” refers to a smaller",
+              "options": [
+                "Population",
+                "City",
+                "Character",
+                "Figure"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 23
+            },
+            {
+              "id": "ets-r01-q24",
+              "type": "mcq",
+              "question": "Which of the following is NOT true of an SMSA?",
+              "options": [
+                "It has a population of at least 50,000",
+                "It can include a city's outlying regions.",
+                "It can include unincorporated regions.",
+                "It consists of at least two cities."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 24
+            },
+            {
+              "id": "ets-r01-q25",
+              "type": "mcq",
+              "question": "By 1970, what proportion of the population in the United States did NOT live in an SMSA?",
+              "options": [
+                "3/4",
+                "2/3",
+                "1/2",
+                "1/3"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 25
+            },
+            {
+              "id": "ets-r01-q26",
+              "type": "mcq",
+              "question": "The Census Bureau first used the term “SMSA” in",
+              "options": [
+                "1900",
+                "1950",
+                "1969",
+                "1970"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 26
+            }
+          ]
+        },
+        {
+          "id": "ets-r01-task-4",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 27 to 36.",
+          "passage": {
+            "title": "Passage 4",
+            "text": "Nineteenth-century writers in the United States, whether they wrote novels, short stories, poems or plays were powerfully drawn to the railroad in its golden years. In fact, writers responded to the railroads as soon as the first were built in the 1830's. By the 1850's, the railroad was a major presence in the life of the nation. Writers such as Ralph Waldo Emerson and Henry David Thoreau saw the railroad both as a boon to democracy and as an object of suspicion. The railroad could be and was a despoiler of nature furthermore, in its manifestation of speed and noise, it might be a despoiler of human nature as well. By the 1850's and 1860's, there was a great distrust among writer and intellectuals of the rapid industrialization of which the railroad was a leading force. Deeply philosophical historians such as Henry Adams lamented the role that the new frenzy for business was playing in eroding traditional values. A distrust of industry and business continued among writers throughout the rest of the nineteenth century and into the twentieth.\n          For the most part, the literature in which the railroad plays an important role belongs to popular culture rather than to the realm of serious art. One thinks of melodramas, boy's books, thrillers, romances and the like rather than novels of the first rank. In the railroads' prime years, between 1890 and 1920, there were a few individuals in the United States, most of them with solid railroading experience behind them, who made a profession of writing about railroading - works offering the ambience of stations yards and locomotive cabs. These writers who can genuinely be said to have created a genre, the \"railroad novel\" are now mostly forgotten, their names having faded from memory. But anyone who takes the time to consult their fertile writings will still find a treasure trove of information about the place of the railroad in the life of the United States."
+          },
+          "questions": [
+            {
+              "id": "ets-r01-q27",
+              "type": "mcq",
+              "question": "With which of the following topics is the passage mainly concerned?",
+              "options": [
+                "The role of the railroad in the economy of the United States",
+                "Major nineteenth - century writers",
+                "The conflict between expanding industry and preserving nature",
+                "The railroad as a subject for literature."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 27
+            },
+            {
+              "id": "ets-r01-q28",
+              "type": "mcq",
+              "question": "The word \"it\" refers to",
+              "options": [
+                "railroad",
+                "manifestation",
+                "speed",
+                "nature"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 28
+            },
+            {
+              "id": "ets-r01-q29",
+              "type": "mcq",
+              "question": "In the first paragraph, the author implies that writers reactions to the development of railroads were",
+              "options": [
+                "highly enthusiastic",
+                "both positive and negative",
+                "unchanging",
+                "disinterested"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 29
+            },
+            {
+              "id": "ets-r01-q30",
+              "type": "mcq",
+              "question": "The word \"lamented\" is closest in meaning to",
+              "options": [
+                "complained about",
+                "analyzed",
+                "explained",
+                "reflected on"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 30
+            },
+            {
+              "id": "ets-r01-q31",
+              "type": "mcq",
+              "question": "According to the passage, the railroad played a significant role in literature in all of the following kinds of books EXCEPT",
+              "options": [
+                "thrillers",
+                "boys' books",
+                "important novels",
+                "romances"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 31
+            },
+            {
+              "id": "ets-r01-q32",
+              "type": "mcq",
+              "question": "The phrase \"first rank\" is closest in meaning to",
+              "options": [
+                "largest category",
+                "highest quality",
+                "earliest writers",
+                "most difficult language"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 32
+            },
+            {
+              "id": "ets-r01-q33",
+              "type": "mcq",
+              "question": "The word \"them\" refers to",
+              "options": [
+                "novels",
+                "years",
+                "individuals",
+                "works"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 33
+            },
+            {
+              "id": "ets-r01-q34",
+              "type": "mcq",
+              "question": "The author mentions all of the following as being true about the literature of railroads EXCEPT that",
+              "options": [
+                "many of its writers had experience working on railroads",
+                "many of the books were set in railroad stations and yards",
+                "the books were well known during the railroads' prime years",
+                "quite a few of the books are still popular today"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 34
+            },
+            {
+              "id": "ets-r01-q35",
+              "type": "mcq",
+              "question": "The words \"faded from\" are closest in meaning to",
+              "options": [
+                "grew in",
+                "disappeared from",
+                "remained in",
+                "developed from"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 35
+            },
+            {
+              "id": "ets-r01-q36",
+              "type": "mcq",
+              "question": "What is the author's attitude toward the \"railroad novels\" and other books about railroads written between 1890 and 1920?",
+              "options": [
+                "They have as much literary importance as the books written by Emerson. Thoreau and Adams.",
+                "They are good examples of the effects industry and business had on the literature of the United States.",
+                "They contributed to the weakening of traditional values.",
+                "They are worth reading as sources of knowledge about the impact of railroads on life in the United States"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 36
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

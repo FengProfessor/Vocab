@@ -1,0 +1,330 @@
+{
+  "topicId": "615c198865d71f3a51f6742c",
+  "name": "Test 19",
+  "slug": "test-19",
+  "part": "part_6_text_completion",
+  "totalQuestions": 16,
+  "totalCards": 4,
+  "cards": [
+    {
+      "id": "615d0d6565d71f3a51f67637",
+      "questionText": "<br>Southwestern Residences<br><b>IMPORTANT ANNOUNCEMENT</b><br>The building's ---1--- will perform maintenance checks on the condominium's electrical circuits and switch boxes on Monday between 10 a.m. and 1 p.m. During this time, the power supply will be ---2---. We apologize for any inconvenience this may cause. ---3---. However, repair work may need to be carried out if any problems are detected. ---4---, the shutdown may be extended to accommodate repairs.<br>For details regarding this and other related matters, please contact the building superintendent, Ms. Jena Gordon, at 555-2124. Thank you for your patience and understanding.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "615d0d6565d71f3a51f6763b",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) administer",
+            "(B) administrative",
+            "(C) administration",
+            "(D) administratively"
+          ],
+          "correctOptions": [
+            "(C) administration"
+          ],
+          "transcript": "<p>Use possessive form \" The building's administration\"</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>Trước chỗ trống l&agrave; dạng sở hữu (The building&#39;s)</p>\n\n<p>=&gt; Chỗ trống cần điền một danh từ</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "615d0d6565d71f3a51f6763c",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) motivated",
+            "(B) pressured",
+            "(C) interrupted",
+            "(D) dismissed"
+          ],
+          "correctOptions": [
+            "(C) interrupted"
+          ],
+          "transcript": "<p>motivate:&nbsp;done or happening for a particular reason</p>\n\n<p>pressure:&nbsp;the act of trying to persuade or to force somebody to do something</p>\n\n<p>interrupt:&nbsp;to say or do something that makes somebody stop what they are saying or doing</p>\n\n<p>dismiss: to decide that somebody/something is not important and not worth thinking or talking about</p>\n\n<p>Based on the meaning of words.</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>motivate: th&uacute;c đẩy, l&agrave;m động lực</p>\n\n<p>pressure: &aacute;p lực</p>\n\n<p>interrupt: ngắt</p>\n\n<p>dismiss: b&aacute;c bỏ</p>\n\n<p><strong>=&gt; C c&oacute; nghĩa ph&ugrave; hợp nhất</strong></p>\n\n<p>&nbsp;</p>\n"
+        },
+        {
+          "id": "615d0d6565d71f3a51f6763d",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A realtor will be showing people around the building during this time.",
+            "(B) The maintenance check lasted through the weekend.",
+            "(C) We are sorry that we were unable to complete the inspection.",
+            "(D) We intend to restore electricity immediately following the inspection."
+          ],
+          "correctOptions": [
+            "(D) We intend to restore electricity immediately following the inspection."
+          ],
+          "transcript": "<p>Based on the previous sentence \" We apologize for any inconvenience this may cause.\"</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o c&aacute;c c&acirc;u trước chỗ trống &quot;During this time, the power supply will be interrupted. We apologize for any inconvenience this may cause.&quot; (Trong thời gian n&agrave;y, điện sẽ bị cắt. Ch&uacute;ng t&ocirc;i xin lỗi v&igrave; sự bất tiện n&agrave;y.)</p>\n\n<p>=&gt; N&oacute;i về việc kiểm tra bảo tr&igrave; v&agrave; ngắt điện.</p>\n\n<p><strong>=&gt; Đ&aacute;p &aacute;n D</strong> ph&ugrave; hợp nhất (Ch&uacute;ng t&ocirc;i dự định cấp lại điện ngay sau khi bảo tr&igrave; xong.)</p>\n\n<p>&nbsp;</p>\n"
+        },
+        {
+          "id": "615d0d6565d71f3a51f6763e",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) In this case",
+            "(B) Above all",
+            "(C) By far",
+            "(D) On the contrary"
+          ],
+          "correctOptions": [
+            "(A) In this case"
+          ],
+          "transcript": "<p>\"In this case\" when referring to the situation if it happened or did happen, in case \"repair work may need to be carried out ...\"</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p>In this case: Trong trường hợp n&agrave;y</p>\n\n<p>Above all: Tr&ecirc;n hết</p>\n\n<p>By far: Cho đến nay</p>\n\n<p>On the contrary: Ngược lại</p>\n\n<p><strong>=&gt; A c&oacute; nghĩa ph&ugrave; hợp nhất</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "615d0d6565d71f3a51f67638",
+      "questionText": "<p><br>\nPARNOPIUS REOPENS IN SEPTEMBER!<br>\n<br>\nThe newly renovated Parnopius Museum of the Arts will officially reopen its doors to the public on September 1 at 10 a.m. The ribbon-cutting ceremony will be led by City Mayor Adam Warren, and other ---5---- officials are expected to attend.<br>\nChief curator Minerva Hughes said the renovation focused on the construction of a south wing with 25 thousand square feet of exhibition space. The space allows for 20 galleries and will ---6--- the works of European and Asian artists. In addition, it has facilities not found in the rest of the building. ---7---.<br>\nThe first exhibit in the new wing ---8-- contemporary Greek sculpture. It will run from September 15 to October 31. For more information, visit www.parnopiusmuseum.org.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "615d0d6565d71f3a51f6763f",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) prominent",
+            "(B) thorough",
+            "(C) casual",
+            "(D) precise"
+          ],
+          "correctOptions": [
+            "(A) prominent"
+          ],
+          "transcript": "<p>prominent:&nbsp;important or well known</p>\n\n<p>thorough:&nbsp;done completely; with great attention to detail</p>\n\n<p>casual:&nbsp;not formal</p>\n\n<p>precise:&nbsp;clear and accurate</p>\n\n<p>Based on the meaning of words.</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p>prominent: nổi bật</p>\n\n<p>thorough: kỹ lưỡng</p>\n\n<p>casual: b&igrave;nh thường</p>\n\n<p>precise: ch&iacute;nh x&aacute;c</p>\n\n<p><strong>=&gt; A c&oacute; nghĩa ph&ugrave; hợp nhất</strong></p>\n"
+        },
+        {
+          "id": "615d0d6565d71f3a51f67640",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) generate",
+            "(B) portray",
+            "(C) house",
+            "(D) restore"
+          ],
+          "correctOptions": [
+            "(C) house"
+          ],
+          "transcript": "<p>generate:&nbsp;to produce energy, especially electricity</p>\n\n<p>portray:&nbsp;to show somebody/something in a picture; to describe somebody/something in a piece of writing</p>\n\n<p>house:&nbsp;to provide a place for a person or an animal to live</p>\n\n<p>restore:&nbsp;to bring back a situation or feeling that existed before</p>\n\n<p>Based on the meaning of words.</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>generate: tạo ra</p>\n\n<p>portray: mi&ecirc;u tả</p>\n\n<p>house: chứa</p>\n\n<p>restore: kh&ocirc;i phục</p>\n\n<p><strong>=&gt; C c&oacute; nghĩa ph&ugrave; hợp nhất</strong></p>\n"
+        },
+        {
+          "id": "615d0d6565d71f3a51f67641",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) These unique artifacts had made the museum very popular.",
+            "(B) These include a lecture hall, gift shop, and cafe on the ground floor.",
+            "(C) The decision to renovate on the south wing was suspended.",
+            "(D) Museum visitors found the opening exhibit to be a complete success."
+          ],
+          "correctOptions": [
+            "(B) These include a lecture hall, gift shop, and cafe on the ground floor."
+          ],
+          "transcript": "<p>Based on the previous sentence \"In addition, it has facilities not found in the rest of the building.\"</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o c&acirc;u trước chỗ trống &quot;In addition, it has facilities not found in the rest of the building.&quot; (Ngo&agrave;i ra, bảo t&agrave;ng c&ograve;n c&oacute; những cơ sở vật chất kh&ocirc;ng thể t&igrave;m thấy ở phần c&ograve;n lại của t&ograve;a nh&agrave;.)</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n\n<p>=&gt; facilities (cơ sở vật chất) = a lecture hall, gift shop, and cafe on the ground floor (giảng đường, cửa h&agrave;ng qu&agrave; tặng v&agrave; qu&aacute;n c&agrave; ph&ecirc; ở tầng trệt.)</p>\n"
+        },
+        {
+          "id": "615d0d6565d71f3a51f67642",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) feature",
+            "(B) featuring",
+            "(C) featured",
+            "(D) will feature"
+          ],
+          "correctOptions": [
+            "(D) will feature"
+          ],
+          "transcript": "<p>Use simple future</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>Dấu hiệu &quot;It <strong>will </strong>run ...&quot;</p>\n\n<p>=&gt; D&ugrave;ng th&igrave; tương lai đơn</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "615d0d6565d71f3a51f67639",
+      "questionText": "<p><br>\nCharles Nave<br>\n3739 Dale Avenue<br>\nSeattle, WA 98161<br>\nDear Mr. Nave,<br>\nThis is in reply to your inquiry about discounts for regular clients. Our company ---9--- offers them, but they are not applicable in all cases. ---10---. Only headquarters has the authority to further reduce the price of your order. Therefore, we ---11--- your request to our staff there and we are waiting to hear back from them. If they provide an estimate, we will send it to you and wait for your approval. It should take just three business days to complete the order after obtaining your ----12--- to proceed. The invoice will be mailed to you separately. We appreciate your understanding.<br>\nSincerely,<br>\nEdie Harris</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "615d0d6565d71f3a51f67643",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) usually",
+            "(B) safely",
+            "(C) deliberately",
+            "(D) accurately"
+          ],
+          "correctOptions": [
+            "(A) usually"
+          ],
+          "transcript": "<p>It describes an event that happens frequently =&gt; Use adverb \"usually\"</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p>usually: thường</p>\n\n<p>safely: an to&agrave;n</p>\n\n<p>deliberately: cố &yacute;</p>\n\n<p>accurately: ch&iacute;nh x&aacute;c</p>\n\n<p><strong>=&gt; A c&oacute; nghĩa ph&ugrave; hợp nhất</strong></p>\n"
+        },
+        {
+          "id": "615d0d6565d71f3a51f67644",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) You should consider placing a bulk order to get a free gift.",
+            "(B) Due to an error, the discount wasn't applied to the quote we sent you.",
+            "(C) We are only permitted to offer refunds to our regular customers.",
+            "(D) The items you ordered have already been heavily marked down."
+          ],
+          "correctOptions": [
+            "(D) The items you ordered have already been heavily marked down."
+          ],
+          "transcript": "<p>Based on the previous sentence</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o c&acirc;u trước chỗ trống &quot;Our company usually offers them, but they are not applicable in all cases.&quot; (C&ocirc;ng ty ch&uacute;ng t&ocirc;i thường đưa ra mức giảm gi&aacute;, nhưng&nbsp; kh&ocirc;ng &aacute;p dụng trong mọi trường hợp.)</p>\n\n<p><strong>=&gt; Đ&aacute;p &aacute;n D </strong>c&oacute; nghĩa li&ecirc;n quan nhất</p>\n\n<p>The items you ordered have already been heavily marked down: C&aacute;c mặt h&agrave;ng bạn đặt đ&atilde; được giảm gi&aacute; rất nhiều.</p>\n\n<p>&nbsp;</p>\n"
+        },
+        {
+          "id": "615d0d6565d71f3a51f67645",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) forward",
+            "(B) forwarding",
+            "(C) have forwarded",
+            "(D) will be forwarded"
+          ],
+          "correctOptions": [
+            "(C) have forwarded"
+          ],
+          "transcript": "<p>Use perfect present tense</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>N&oacute;i về h&agrave;nh động xảy ra gần đ&acirc;y</p>\n\n<p>=&gt; D&ugrave;ng th&igrave; hiện tại ho&agrave;n th&agrave;nh</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n\n<p>&nbsp;</p>\n"
+        },
+        {
+          "id": "615d0d6565d71f3a51f67646",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) advantage",
+            "(B) confirmation",
+            "(C) reimbursement",
+            "(D) recommendation"
+          ],
+          "correctOptions": [
+            "(B) confirmation"
+          ],
+          "transcript": "<p>advantage:&nbsp;a thing that helps you to be better or more successful than other people</p>\n\n<p>confirmation:&nbsp;a statement, letter, etc. that shows that something is true, correct or definite</p>\n\n<p>reimbursement:&nbsp;the act of paying back money to somebody which they have spent or lost; the amount that is paid back</p>\n\n<p>recommendation:&nbsp;an official suggestion about the best thing to do</p>\n\n<p>Based on the meaning of words.</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>advantage: lợi thế, lợi &iacute;ch</p>\n\n<p>confirmation: x&aacute;c nhận</p>\n\n<p>reimbursement: ho&agrave;n trả</p>\n\n<p>recommendation: khuyến nghị</p>\n\n<p><strong>=&gt; B c&oacute; nghĩa ph&ugrave; hợp nhất</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "615d0d6565d71f3a51f6763a",
+      "questionText": "<p><br>\nThe Robinson Library offers complimentary alerts to members who have registered an e-mail address or mobile phone number. These alerts remind them when materials, including books, audiovisual selections, and periodicals, are ---13--- their due date. However, failing to receive a reminder does not excuse borrowers from their responsibility to return materials on time.<br>\n---14---, It’s essential that borrowers always take note of the due date. This is stamped on the return card attached to the book or other ---15---. Should anything borrowed from the library be returned late, a notice will be sent after the due date. ---16---. Please follow our regulations so that other users may have access to these materials within an appropriate period of time.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "615d0d6565d71f3a51f67647",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) across",
+            "(B) near",
+            "(C) inside",
+            "(D) above"
+          ],
+          "correctOptions": [
+            "(B) near"
+          ],
+          "transcript": "<p>Based on the meaning of words \"near due date\"</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>across: ngang qua</p>\n\n<p>near: gần</p>\n\n<p>inside: b&ecirc;n trong</p>\n\n<p>above: ở tr&ecirc;n</p>\n\n<p><strong>=&gt; B c&oacute; nghĩa ph&ugrave; hợp nhất</strong></p>\n"
+        },
+        {
+          "id": "615d0d6565d71f3a51f67648",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Nevertheless",
+            "(B) Instead",
+            "(C) Otherwise",
+            "(D) Therefore"
+          ],
+          "correctOptions": [
+            "(D) Therefore"
+          ],
+          "transcript": "<p>It shows cause and effect relationships.</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>Nevertheless: Tuy nhi&ecirc;n</p>\n\n<p>Instead: Thay v&agrave;o đ&oacute;</p>\n\n<p>Otherwise: Mặt kh&aacute;c</p>\n\n<p>Therefore: Do đ&oacute;, v&igrave; vậy</p>\n\n<p><strong>=&gt; D c&oacute; nghĩa ph&ugrave; hợp nhất</strong></p>\n"
+        },
+        {
+          "id": "615d0d6565d71f3a51f67649",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) envelope",
+            "(B) item",
+            "(C) term",
+            "(D) check"
+          ],
+          "correctOptions": [
+            "(B) item"
+          ],
+          "transcript": "<p>envelope:&nbsp;a flat, usually square or rectangular, paper container for a letter</p>\n\n<p>item:&nbsp;one thing on a list of things to buy, do, talk about, etc.</p>\n\n<p>term:&nbsp;a word or phrase used as the name of something, especially one connected with a particular type of language</p>\n\n<p>check:&nbsp;an act of making sure that something is safe, correct or in good condition by examining it</p>\n\n<p>Based on the meaning of words.</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>envelope: phong b&igrave;</p>\n\n<p>item: vật phẩm</p>\n\n<p>term: thời hạn</p>\n\n<p>check: sự kiểm tra</p>\n\n<p><strong>=&gt; B c&oacute; nghĩa ph&ugrave; hợp nhất</strong></p>\n"
+        },
+        {
+          "id": "615d0d6565d71f3a51f6764a",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The library has stopped renting our periodical and tapes.",
+            "(B) The library will add up the cost of the books that are purchased.",
+            "(C) Upon return of the material, the borrower will have to pay a late fee",
+            "(D) As per the decision of the library management, lerts will be canceled"
+          ],
+          "correctOptions": [
+            "(C) Upon return of the material, the borrower will have to pay a late fee"
+          ],
+          "transcript": "<p>Based on the previous sentence \"Should anything borrowed from the library be returned late, a notice will be sent after the due date.\"</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o c&acirc;u trước chỗ trống &quot;Should anything borrowed from the library be returned late, a notice will be sent after the due date.&quot; (Nếu trả muộn t&agrave;i liệu muộn của thư vieejcn th&igrave; bạn sẽ nhận được th&ocirc;ng b&aacute;o trước ng&agrave;y đ&aacute;o hạn.)</p>\n\n<p><strong>=&gt; Đ&aacute;p &aacute;n C</strong> c&oacute; nghĩa li&ecirc;n quan nhất</p>\n\n<p>(C) Upon return of the material, the borrower will have to pay a late fee: Khi trả lại t&agrave;i liệu, người mượn sẽ phải trả ph&iacute; trả chậm.</p>\n"
+        }
+      ]
+    }
+  ]
+}
